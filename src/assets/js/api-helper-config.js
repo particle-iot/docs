@@ -17,7 +17,7 @@ apiHelper.uploadSchemaCodebox = function(schema, product, deviceId, next) {
             apiHelper.uploadSchema(schema, product, deviceId, function(err) {
                 if (!err) {
                     setStatus('Schema uploaded!');
-                    ga('send', 'event', 'Tracker Schema', 'Upload Success Codebox');
+                    gtag('send', 'event', 'Tracker Schema', 'Upload Success Codebox');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);
@@ -89,7 +89,7 @@ apiHelper.downloadSchema = function(filename, product, deviceId, next) {
         success: function (resp) {
             let blob = new Blob([resp], {type:'text/json'});
             saveAs(blob, filename);
-            ga('send', 'event', 'Tracker Schema', 'Download Success');
+            gtag('send', 'event', 'Tracker Schema', 'Download Success');
             next();
         },
         url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl + '?access_token=' + apiHelper.auth.access_token
@@ -402,7 +402,7 @@ $(document).ready(function() {
                     error: function(err) {
                         let html = '';
                         
-                        ga('send', 'event', 'Tracker Config', 'Set Error', err.responseJSON.message);
+                        gtag('send', 'event', 'Tracker Config', 'Set Error', err.responseJSON.message);
                         html += '<p>' + err.responseJSON.message + '</p>';
 
                         if (err.responseJSON.violations && err.responseJSON.violations.length > 0) {
@@ -428,7 +428,7 @@ $(document).ready(function() {
                             html += '<p>' + resp.details + '</p>';
                         }
 
-                        ga('send', 'event', 'Tracker Config', 'Set Success');
+                        gtag('send', 'event', 'Tracker Config', 'Set Success');
                         setStatus(html);
 
                         getThisConfig();   
@@ -465,13 +465,13 @@ $(document).ready(function() {
             apiHelper.downloadSchema('schema.json', product, deviceId, function(err) {
                 if (!err) {
                     setStatus(configSchemaPartial, 'Downloaded!');
-                    ga('send', 'event', 'Tracker Schema', 'Download Success');
+                    gtag('send', 'event', 'Tracker Schema', 'Download Success');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);    
                 }
                 else {
-                    ga('send', 'event', 'Tracker Schema', 'Download Error', err);
+                    gtag('send', 'event', 'Tracker Schema', 'Download Error', err);
                     setStatus(configSchemaPartial, 'Error downloading schema ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -498,13 +498,13 @@ $(document).ready(function() {
                         apiHelper.uploadSchemaFile(fileList, product, deviceId, function(err) {
                             if (!err) {
                                 setStatus(configSchemaPartial, 'Schema uploaded!');
-                                ga('send', 'event', 'Tracker Schema', 'Upload Success');
+                                gtag('send', 'event', 'Tracker Schema', 'Upload Success');
                                 setTimeout(function() {
                                     setStatus('');
                                 }, 4000);
                             }
                             else {
-                                ga('send', 'event', 'Tracker Schema', 'Upload Error Saving Schema', err);
+                                gtag('send', 'event', 'Tracker Schema', 'Upload Error Saving Schema', err);
                                 setStatus(configSchemaPartial, 'Error saving schema ' + err);
                                 setTimeout(function() {
                                     setStatus('');
@@ -513,7 +513,7 @@ $(document).ready(function() {
                         });
                     }
                     else {
-                        ga('send', 'event', 'Tracker Schema', 'Upload Error Saving Backup Schema', err);
+                        gtag('send', 'event', 'Tracker Schema', 'Upload Error Saving Backup Schema', err);
                         setStatus(configSchemaPartial, 'Error saving backup schema ' + err);
                         setTimeout(function() {
                             setStatus('');
@@ -537,7 +537,7 @@ $(document).ready(function() {
             $.ajax({
                 data: '{}',
                 error: function(err) {
-                    ga('send', 'event', 'Tracker Schema', 'Restore Default Error', err.responseJSON.message);
+                    gtag('send', 'event', 'Tracker Schema', 'Restore Default Error', err.responseJSON.message);
                     setStatus(configSchemaPartial, 'Error deleting schema: ' + err.responseJSON.message + '.<br/>This is normal if there is no custom schema defined.');
                     setTimeout(function() {
                         setStatus('');
@@ -549,7 +549,7 @@ $(document).ready(function() {
                 },
                 method: 'DELETE',
                 success: function (resp) {
-                    ga('send', 'event', 'Tracker Schema', 'Restore Default Success');
+                    gtag('send', 'event', 'Tracker Schema', 'Restore Default Success');
                     setStatus(configSchemaPartial, 'Successfully restored.');
                     setTimeout(function() {
                         setStatus('');
@@ -809,13 +809,13 @@ $(document).ready(function() {
             }
             catch(e) {
                 alert('The editor does not have valid JSON and can only be uploaded if it is valid.');
-                ga('send', 'event', gaCategory, 'Upload invalid JSON');
+                gtag('send', 'event', gaCategory, 'Upload invalid JSON');
                 return;
             }
 
 
             if (!confirm('This will update the product schema for all devices in the product and change the console behavior for all product team members.\nContinue?')) {
-                ga('send', 'event', gaCategory, 'Upload canceled');
+                gtag('send', 'event', gaCategory, 'Upload canceled');
                 return;
             }
 
@@ -848,7 +848,7 @@ $(document).ready(function() {
                 const resp = await uploadSchema(newSchema);
                 setStatus('Schema uploaded to product', 5000);
                 downloadedSchema = newSchema;
-                ga('send', 'event', gaCategory, 'Upload success', $(editModeSelectElem).val());
+                gtag('send', 'event', gaCategory, 'Upload success', $(editModeSelectElem).val());
             }
             catch(e) {
                 setStatus('Error uploading schema');
@@ -863,23 +863,23 @@ $(document).ready(function() {
                 try {
                     await revertSchema();
 
-                    ga('send', 'event', gaCategory, 'Restore Default Success');
+                    gtag('send', 'event', gaCategory, 'Restore Default Success');
                     setStatus('Schema reverted to default', 5000);
                     await downloadSchemaAndUpdateUI();
                 }
                 catch(e) {
                     if (e.status == 404) {
                         setStatus('Schema was already the the default', 5000);
-                        ga('send', 'event', gaCategory, 'Restore Default Already Default');
+                        gtag('send', 'event', gaCategory, 'Restore Default Already Default');
                     }
                     else {
                         setStatus('Schema could not be reverted');
-                        ga('send', 'event', gaCategory, 'Restore Default Exception');
+                        gtag('send', 'event', gaCategory, 'Restore Default Exception');
                     }
                 }        
             }
             else {
-                ga('send', 'event', gaCategory, 'Restore Default Canceled');
+                gtag('send', 'event', gaCategory, 'Restore Default Canceled');
             }
         });
 

@@ -886,7 +886,7 @@ apiHelper.monitorUsage = function(options) {
         if (resultObj.timer) {
             clearInterval(resultObj.timer);
             resultObj.timer = null;
-            ga('send', 'event', options.eventCategory, 'Finished');
+            gtag('send', 'event', options.eventCategory, 'Finished');
         }
     };
 
@@ -897,10 +897,10 @@ apiHelper.monitorUsage = function(options) {
             durationMinutesStr = '000000'.substr(0, 6 - durationMinutesStr.length) + durationMinutesStr;
         }
 
-        ga('send', 'event', options.eventCategory, options.actionPrefix + durationMinutesStr);
+        gtag('send', 'event', options.eventCategory, options.actionPrefix + durationMinutesStr);
     }, periodMinutes * 60000);
 
-    ga('send', 'event', options.eventCategory, 'Started');
+    gtag('send', 'event', options.eventCategory, 'Started');
 
     return resultObj;
 };

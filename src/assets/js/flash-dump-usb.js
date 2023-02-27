@@ -6,7 +6,7 @@ $(document).ready(function() {
     const gaCategory = 'Flash Dump USB';
 
     if (!navigator.usb) {
-        ga('send', 'event', gaCategory, 'No WebUSB', navigator.userAgent);
+        gtag('send', 'event', gaCategory, 'No WebUSB', navigator.userAgent);
         $('.setupBrowserError').show();
         return;
     }

@@ -117,11 +117,11 @@ $(document).ready(function () {
                 }
             }
             if (!pageObj) {
-                ga('send', 'event', gaCategory, 'invalidPage', pageOptions.page);
+                gtag('send', 'event', gaCategory, 'invalidPage', pageOptions.page);
                 return false;
             }
             if (pageStack.find(e => e.page == pageOptions.page)) {
-                ga('send', 'event', gaCategory, 'pageLoop', pageOptions.page);
+                gtag('send', 'event', gaCategory, 'pageLoop', pageOptions.page);
                 return false;
             }
             pageObj.curEnvironment = Object.assign({}, getParentEnvironment());
@@ -134,7 +134,7 @@ $(document).ready(function () {
                 return template(pageObj.curEnvironment);
             }
 
-            ga('send', 'event', gaCategory, 'showPage', pageOptions.page);
+            gtag('send', 'event', gaCategory, 'showPage', pageOptions.page);
 
             const pageDivElem = document.createElement('div');
             $(pageDivElem).data('page', pageOptions.page);
@@ -633,12 +633,12 @@ $(document).ready(function () {
                         const resp = await apiHelper.ticketSubmit(options);
                         // console.log('resp', resp);
 
-                        ga('send', 'event', gaCategory, 'ticketSubmitSuccess', pageObj.ticketForm);
+                        gtag('send', 'event', gaCategory, 'ticketSubmitSuccess', pageObj.ticketForm);
                         showPage({page: 105}); // Ticket submitted
                     }
                     catch(e) {
                         console.log('exception submitting ticket');
-                        ga('send', 'event', gaCategory, 'ticketSubmitError', pageObj.ticketForm);
+                        gtag('send', 'event', gaCategory, 'ticketSubmitError', pageObj.ticketForm);
                         showPage({page: 106}); // Ticket error
                     }
                     
@@ -748,7 +748,7 @@ $(document).ready(function () {
     
                             if (buttonObj.loginService) {
                                 const curPage = window.location.href;
-                                ga('send', 'event', gaCategory, 'loginService', buttonObj.loginService);
+                                gtag('send', 'event', gaCategory, 'loginService', buttonObj.loginService);
                                 window.location.href = 'https://login.particle.io/' + buttonObj.loginService + '?redirect=' + curPage;                        
                             }
                             else
@@ -757,7 +757,7 @@ $(document).ready(function () {
                             }
                             else
                             if (buttonObj.url) {
-                                ga('send', 'event', gaCategory, 'buttonUrl', buttonObj.url);
+                                gtag('send', 'event', gaCategory, 'buttonUrl', buttonObj.url);
                                 window.location.href = buttonObj.url;                        
                             }
                         });

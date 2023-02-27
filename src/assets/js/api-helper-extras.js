@@ -47,14 +47,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId, name: 'led', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    ga('send', 'event', 'LED Function Test', 'Success');
+                    gtag('send', 'event', 'LED Function Test', 'Success');
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    ga('send', 'event', 'LED Function Test', 'Error', err);
+                    gtag('send', 'event', 'LED Function Test', 'Error', err);
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -96,14 +96,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId, name: 'setColor', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    ga('send', 'event', 'LED Color Test', 'Success');
+                    gtag('send', 'event', 'LED Color Test', 'Success');
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    ga('send', 'event', 'LED Color Test', 'Error', err);
+                    gtag('send', 'event', 'LED Color Test', 'Error', err);
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -2985,7 +2985,7 @@ $(document).ready(function() {
                 data: JSON.stringify(requestDataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    // ga('send', 'event', simpleGetConfig.gaAction, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    // gtag('send', 'event', simpleGetConfig.gaAction, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
                     console.log('error', jqXHR);
                     setStatus('Product creation failed');
                 },
@@ -2995,7 +2995,7 @@ $(document).ready(function() {
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
-                    // ga('send', 'event', simpleGetConfig.gaAction, 'Success');
+                    // gtag('send', 'event', simpleGetConfig.gaAction, 'Success');
                     console.log('success', resp);
                     // ok: boolean
                     // product: object

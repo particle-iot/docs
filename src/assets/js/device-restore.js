@@ -14,7 +14,7 @@ $(document).ready(function() {
         $('#errorDiv').show();
         $('#progressDiv').hide();    
 
-        ga('send', 'event', 'Device Restore JTAG', 'No WebUSB', navigator.userAgent);
+        gtag('send', 'event', 'Device Restore JTAG', 'No WebUSB', navigator.userAgent);
     }
 
     if ($('#hexGeneratorForm').length > 0) {
@@ -53,7 +53,7 @@ async function startFlash(platform, version) {
         $('#deviceRestoreTable').show();
         $('#progressDiv').hide();
         $('#errorDiv').text('Error opening debugger (' + error + ')');
-        ga('send', 'event', 'Device Restore JTAG', 'No Debugger Selected');
+        gtag('send', 'event', 'Device Restore JTAG', 'No Debugger Selected');
     }
 }
 
@@ -63,14 +63,14 @@ function getBinary(debuggerDevice, platform, version) {
         url: '/assets/files/device-restore/' + version + '/' + platform + '.hex',
         dataType: 'text',
         success: function(data) {
-            ga('send', 'event', 'Device Restore JTAG', 'JTAG Restore Started', platform + '/' + version);
+            gtag('send', 'event', 'Device Restore JTAG', 'JTAG Restore Started', platform + '/' + version);
             updateDevice(debuggerDevice, data);
         },
         error: function() {
             $('#deviceRestoreTable').show();
             $('#progressDiv').hide();
             $('#errorDiv').text('Failed to download binary for ' + platform + ' version ' + version);
-            ga('send', 'event', 'Device Restore JTAG', 'Download Failed', platform + '/' + version);
+            gtag('send', 'event', 'Device Restore JTAG', 'Download Failed', platform + '/' + version);
         }
     });	
 }
@@ -109,12 +109,12 @@ async function updateDevice(debuggerDevice, data) {
         $('#progressDiv').hide();
         $('#deviceRestoreTable').show();
         $('#errorDiv').text('Flash complete!');
-        ga('send', 'event', 'Device Restore JTAG', 'JTAG Restore Success');
+        gtag('send', 'event', 'Device Restore JTAG', 'JTAG Restore Success');
     } catch (error) {
         $('#progressDiv').hide();
         $('#deviceRestoreTable').show();
         $('#errorDiv').text('Error flashing (' + error + ')');
-        ga('send', 'event', 'Device Restore JTAG', 'JTAG Restore Error', error);
+        gtag('send', 'event', 'Device Restore JTAG', 'JTAG Restore Error', error);
     }
 }
 
