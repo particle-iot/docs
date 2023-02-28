@@ -617,7 +617,8 @@ $(document).ready(function() {
 
                 deviceLogsTimer1 = setInterval(async function() {
 
-                    if (statusNesting++ == 0) {
+                    if (statusNesting == 0) {
+                        statusNesting++;
                         try {
                             let reqObj = {
                                 op: 'status'
@@ -641,9 +642,7 @@ $(document).ready(function() {
                                 if (checkStatus) {
                                     checkStatus(respObj);
                                 }
-        
-                                console.log('status', respObj);
-        
+                
                                 setInfoTableItemObj(respObj);    
                                 if (respObj.mcc) {
                                     if (mccmnc) {
@@ -662,9 +661,8 @@ $(document).ready(function() {
                         statusNesting--;
                     }
                     else {
-                        console.log('skipped status, busy');
+                        // console.log('skipped status, busy');
                     }
-
                 }, 2000);    
             }
             
@@ -680,7 +678,8 @@ $(document).ready(function() {
                         return;
                     }
 
-                    if (logNesting++ == 0) {
+                    if (logNesting == 0) {
+                        logNesting++;
                         try {
                             let reqObj = {
                                 op: 'logs'
@@ -724,6 +723,10 @@ $(document).ready(function() {
                         }
                         
                         logNesting--;
+                    }
+                    else {
+                        // console.log('skipped logs, busy');
+                        $('.manualLogs').show();
                     }
 
                 }, logTimerInterval);
@@ -3691,6 +3694,9 @@ $(document).ready(function() {
                         console.log('error claiming device', result);
                     }
                 }
+
+                // Re-run device lookup to update information from the cloud
+                runDeviceLookup();
 
                 if (mode == 'doctor') {                    
                     // TODO: Check if device is claimed to my account and 

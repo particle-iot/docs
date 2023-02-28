@@ -17,6 +17,7 @@
     "dependencies": {
         "apidoc": "^0.17.5",
         "autoprefixer": "^7.1.5",
+        "binary-version-reader": "^2.0.1",
         "clean-css": "^5.1.2",
         "del": "^3.0.0",
         "gulp": "^4.0.2",
