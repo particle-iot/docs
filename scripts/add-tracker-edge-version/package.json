@@ -12,7 +12,7 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "jszip": "^3.7.1",
+    "jszip": "^3.8.1",
     "yargs": "^17.2.1"
   },
   "devDependencies": {}
