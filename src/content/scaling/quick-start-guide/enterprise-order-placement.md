@@ -2,9 +2,12 @@
 title: Enterprise Order Placement
 layout: commonTwo.hbs
 columns: two
+includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
+
 ---
 
 # {{{title}}}
+
 ## First Thirty (30) Days
 
 Enterprise customers are required to submit a Blanket Purchase Order for contracted hardware minimums. This Blanket PO is not binding but should include your desired shipment dates and quantities for all hardware contracted to purchase in the first contract year. 
@@ -30,3 +33,16 @@ Sample purchase order:
 ![Screen_Shot_2022-01-24_at_11.09.03_AM.png](/assets/images/support/Screen_Shot_2022-01-24_at_11.09.03_AM.png)
 
 You can also download an [Excel Purchase Order Template](/assets/files/enterprise-order-template.xlsx).
+
+
+## Submit purchase order
+
+{{> sso selectOrg="1"}}
+
+{{content-guard op="start" mode="enterpriseRequired"}}
+
+{{> troubleshooting page="227" options="noUpdateUrl,noScroll"}}
+ 
+{{content-guard op="else"}}
+Submitting a purchase order is only available when logged into an account that is part of an enterprise organization.
+{{content-guard op="end"}}
