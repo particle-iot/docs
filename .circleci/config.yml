@@ -8,7 +8,7 @@ orbs:
 jobs:
   build:  
     docker:
-      - image: cimg/node:12.22
+      - image: cimg/node:16.19
     steps:
       - checkout
       - node/install-packages
@@ -56,7 +56,7 @@ jobs:
           template: basic_fail_1
   test:  
     docker:
-      - image: cimg/node:12.22
+      - image: cimg/node:16.19
     steps:
       - checkout
       - node/install-packages
