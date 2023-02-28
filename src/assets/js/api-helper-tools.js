@@ -337,11 +337,11 @@ $(document).ready(function() {
 
                 await refreshTable();
 
-                gtag('send', 'event', gaCategory, 'Get Devices Success', JSON.stringify(stats));
+                gtag('event', 'Get Devices Success', {'event_category':gaCategory, 'event_label':JSON.stringify(stats)});
             }
             catch(e) {
                 console.log('exception', e);
-                gtag('send', 'event', gaCategory, 'Get Devices Error');
+                gtag('event', 'Get Devices Error', {'event_category':gaCategory});
             }
 
         };
@@ -546,7 +546,7 @@ $(document).ready(function() {
 
 
             }
-            gtag('send', 'event', gaCategory, 'Checked', deviceList.length);
+            gtag('event', 'Checked', {'event_category':gaCategory, 'event_label':deviceList.length});
             setStatus('Checked ' + deviceList.length + ' devices');
         }
 
@@ -626,11 +626,11 @@ $(document).ready(function() {
                 let deviceNum = 1;
 
                 if (!confirm('Removing cannot be undone and typically will cause the devices to go offline and not be able to reconnect. Proceed?')) {
-                    gtag('send', 'event', gaCategory, 'Remove Cancel', deviceCount);
+                    gtag('event', 'Remove Cancel', {'event_category':gaCategory, 'event_label':deviceCount});
                     return;
                 }
 
-                gtag('send', 'event', gaCategory, 'Remove Start', deviceCount);
+                gtag('event', 'Remove Start', {'event_category':gaCategory, 'event_label':deviceCount});
 
                 for(const deviceId in deviceInfoCache) {
                     setStatus('Processing device ' + deviceNum + ' of ' + deviceCount);
@@ -723,11 +723,11 @@ $(document).ready(function() {
                 await tableObj.getXlsxData({toFile: true});
 
 
-                gtag('send', 'event', gaCategory, 'Execute Success', JSON.stringify(stats));
+                gtag('event', 'Execute Success', {'event_category':gaCategory, 'event_label':JSON.stringify(stats)});
             }
             catch(e) {
                 console.log('exception', e);
-                gtag('send', 'event', gaCategory, 'Execute Error');
+                gtag('event', 'Execute Error', {'event_category':gaCategory});
             }
         }
 
@@ -1135,7 +1135,7 @@ $(document).ready(function() {
                     }                
                 }
             }
-            gtag('send', 'event', gaCategory, 'Add devices', numAdded);
+            gtag('event', 'Add devices', {'event_category':gaCategory, 'event_label':numAdded});
 
             return numAdded > 0;
         }
@@ -1406,11 +1406,11 @@ $(document).ready(function() {
                 }
     
                 setStatus('Done!');
-                gtag('send', 'event', gaCategory, 'Import done', devicesToImport);
+                gtag('event', 'Import done', {'event_category':gaCategory, 'event_label':devicesToImport});
             }
             catch(e) {
                 console.log('import device exception', e);
-                gtag('send', 'event', gaCategory, 'Import exception');
+                gtag('event', 'Import exception', {'event_category':gaCategory});
             }
 
         });
@@ -1720,3 +1720,4 @@ $(document).ready(function() {
 
 
 });
+

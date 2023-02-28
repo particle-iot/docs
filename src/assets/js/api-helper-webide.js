@@ -160,7 +160,7 @@ $(document).ready(function() {
             const request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error GetApps', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error GetApps', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                     setStatus('Request failed');
 
                     $(getProjectsButtonElem).prop('disabled', false);
@@ -171,7 +171,7 @@ $(document).ready(function() {
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Success GetApps');
+                    gtag('event', 'Success GetApps', {'event_category':gaCategory});
                     setStatus('Retrieved apps');
 
                     $(getProjectsButtonElem).prop('disabled', false);
@@ -279,9 +279,10 @@ $(document).ready(function() {
             setStatus('Saving ' + outputFile + ' to Downloads...');
             saveAs(blob, outputFile);
         
-            gtag('send', 'event', gaCategory, 'Success', '');
+            gtag('event', 'Success', {'event_category':gaCategory, 'event_label':''});
         
             $(exportButtonElem).prop('disabled', false);
         });
     });
 });
+

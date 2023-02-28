@@ -47,14 +47,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId, name: 'led', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    gtag('send', 'event', 'LED Function Test', 'Success');
+                    gtag('event', 'Success', {'event_category':'LED Function Test'});
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    gtag('send', 'event', 'LED Function Test', 'Error', err);
+                    gtag('event', 'Error', {'event_category':'LED Function Test', 'event_label':err});
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -96,14 +96,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId, name: 'setColor', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    gtag('send', 'event', 'LED Color Test', 'Success');
+                    gtag('event', 'Success', {'event_category':'LED Color Test'});
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    gtag('send', 'event', 'LED Color Test', 'Error', err);
+                    gtag('event', 'Error', {'event_category':'LED Color Test', 'event_label':err});
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -2985,7 +2985,7 @@ $(document).ready(function() {
                 data: JSON.stringify(requestDataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    // gtag('send', 'event', simpleGetConfig.gaAction, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    // gtag('event', 'Error', {'event_category':simpleGetConfig.gaAction, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                     console.log('error', jqXHR);
                     setStatus('Product creation failed');
                 },
@@ -2995,7 +2995,7 @@ $(document).ready(function() {
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
-                    // gtag('send', 'event', simpleGetConfig.gaAction, 'Success');
+                    // gtag('event', 'Success', {'event_category':simpleGetConfig.gaAction});
                     console.log('success', resp);
                     // ok: boolean
                     // product: object
@@ -3151,3 +3151,4 @@ function updateTinker(settings) {
     });    
 }
 */
+

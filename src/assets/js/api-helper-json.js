@@ -159,13 +159,13 @@ $(document).ready(function() {
     $('.apiHelperJsonLinterPrettifyButton').on('click', function() {
         let parentElem = $(this).closest('.apiHelperJsonLinter');
         formatJson(parentElem, 2);
-        gtag('send', 'event', eventCategory, 'Prettify');
+        gtag('event', 'Prettify', {'event_category':eventCategory});
     });
 
     $('.apiHelperJsonLinterCompactButton').on('click', function() {
         let parentElem = $(this).closest('.apiHelperJsonLinter');
         formatJson(parentElem, 0);
-        gtag('send', 'event', eventCategory, 'Compact');
+        gtag('event', 'Compact', {'event_category':eventCategory});
     });
 
     $('.apiHelperJsonLinterStringifyButton').on('click', function() {
@@ -182,7 +182,7 @@ $(document).ready(function() {
             let str = escapeUnicode(jsonCompact, false);
             codeMirror.setValue('"' + str + '"');
 
-            gtag('send', 'event', eventCategory, 'Stringify');
+            gtag('event', 'Stringify', {'event_category':eventCategory});
         }  
         catch(e) {
         }
@@ -207,7 +207,7 @@ $(document).ready(function() {
             const jsonObj = JSON.parse(str);
             codeMirror.setValue(JSON.stringify(jsonObj, null, 2));
 
-            gtag('send', 'event', eventCategory, 'Unstringify');
+            gtag('event', 'Unstringify', {'event_category':eventCategory});
         }  
         catch(e) {
         }
@@ -221,7 +221,8 @@ $(document).ready(function() {
         const codeMirror = apiHelper.jsonLinterCodeMirror[index];
         let str = codeMirror.getValue();
         codeMirror.setValue(escapeUnicode(str, true));
-        gtag('send', 'event', eventCategory, 'Escape Unicode');
+        gtag('event', 'Escape Unicode', {'event_category':eventCategory});
     });
 
 });
+

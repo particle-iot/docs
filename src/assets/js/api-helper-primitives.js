@@ -25,14 +25,14 @@ $(document).ready(function() {
 
             apiHelper.particle.publishEvent({ name: eventName, data: eventData, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    gtag('send', 'event', 'Publish Event', 'Success');
+                    gtag('event', 'Success', {'event_category':'Publish Event'});
                     setStatus('Published! ' + eventName + ' ' + eventData);
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    gtag('send', 'event', 'Publish Event', 'Error', err);
+                    gtag('event', 'Error', {'event_category':'Publish Event', 'event_label':err});
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -80,10 +80,10 @@ $(document).ready(function() {
             apiHelper.particle.publishEvent({ name: eventName, data: eventData, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
                     setStatus('Published: ' + eventName);
-                    gtag('send', 'event', 'Publish Device Event', 'Success');
+                    gtag('event', 'Success', {'event_category':'Publish Device Event'});
                 },
                 function (err) {
-                    gtag('send', 'event', 'Publish Device Event', 'Error', err);
+                    gtag('event', 'Error', {'event_category':'Publish Device Event', 'event_label':err});
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -142,14 +142,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId, name: functionName, argument: arg, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    gtag('send', 'event', 'Call Function', 'Success');
+                    gtag('event', 'Success', {'event_category':'Call Function'});
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    gtag('send', 'event', 'Call Function', 'Error', err);
+                    gtag('event', 'Error', {'event_category':'Call Function', 'event_label':err});
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -211,7 +211,7 @@ $(document).ready(function() {
             // variables does not exist
             $.ajax({
                 error: function(err) {
-                    gtag('send', 'event', 'Get Variable', 'Error', err.responseJSON.error);
+                    gtag('event', 'Error', {'event_category':'Get Variable', 'event_label':err.responseJSON.error});
                     setStatus('Error: ' + err.responseJSON.error);
                     setTimeout(function() {
                         setStatus('');
@@ -219,7 +219,7 @@ $(document).ready(function() {
                 },
                 method: 'GET',
                 success: function (resp) {
-                    gtag('send', 'event', 'Get Variable', 'Success');
+                    gtag('event', 'Success', {'event_category':'Get Variable'});
                     setStatus(resp.result);
                 },
                 url: 'https://api.particle.io/v1/devices/' + deviceId + '/' + variableName + "?access_token=" + apiHelper.auth.access_token,
@@ -230,5 +230,6 @@ $(document).ready(function() {
     }
 
 });
+
 
 

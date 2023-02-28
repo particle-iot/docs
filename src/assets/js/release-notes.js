@@ -15,7 +15,7 @@ $(document).ready(function() {
         $('.apiHelperReleaseNotes').each(function() {
             const thisPartial = $(this);
     
-            gtag('send', 'event', gaCategory, 'Visit');
+            gtag('event', 'Visit', {'event_category':gaCategory});
 
             const versions = [];
 
@@ -169,7 +169,7 @@ $(document).ready(function() {
                     }
                     searchParams.set('ver', ver);
 
-                    gtag('send', 'event', gaCategory, 'View Version', ver);
+                    gtag('event', 'View Version', {'event_category':gaCategory, 'event_label':ver});
 
                     const releaseObj = releaseNotesJson.releases[ver];
 
@@ -207,7 +207,7 @@ $(document).ready(function() {
                     searchParams.set('ver1', ver1);
                     searchParams.set('ver2', ver2);
 
-                    gtag('send', 'event', gaCategory, 'View Cumulative', ver1 + '-' + ver2);
+                    gtag('event', 'View Cumulative', {'event_category':gaCategory, 'event_label':ver1 + '-' + ver2});
 
                     let includeVer = false;
 
@@ -263,10 +263,10 @@ $(document).ready(function() {
 
                         const searchResults = lunrIndex.search(searchText);
                         if (searchResults.length > 0) {
-                            gtag('send', 'event', gaCategory, 'Success', searchText);
+                            gtag('event', 'Success', {'event_category':gaCategory, 'event_label':searchText});
                         }
                         else {
-                            gtag('send', 'event', gaCategory, 'No Results', searchFor);                            
+                            gtag('event', 'No Results', {'event_category':gaCategory, 'event_label':searchFor});                            
                         }
 
                         for(const res of searchResults) {

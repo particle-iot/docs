@@ -163,7 +163,7 @@ $(document).ready(function () {
                 const request = {
                     dataType: 'json',
                     error: function (jqXHR) {
-                        gtag('send', 'event', simpleGetConfig.gaAction, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                        gtag('event', 'Error', {'event_category':simpleGetConfig.gaAction, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                         setStatus('Request failed');
 
                         $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
@@ -175,7 +175,7 @@ $(document).ready(function () {
                     },
                     method: 'GET',
                     success: function (resp, textStatus, jqXHR) {
-                        gtag('send', 'event', simpleGetConfig.gaAction, 'Success');
+                        gtag('event', 'Success', {'event_category':simpleGetConfig.gaAction});
                         setStatus('');
 
                         $(outputJsonElem).show();
@@ -287,7 +287,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', 'Get Variable', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':'Get Variable', 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error retrieving variable');
 
@@ -297,7 +297,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', 'Get Variable', 'Success');
+                    gtag('event', 'Success', {'event_category':'Get Variable'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -353,7 +353,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', 'Call function', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':'Call function', 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error calling function');
 
@@ -363,7 +363,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', 'Call Function', 'Success');
+                    gtag('event', 'Success', {'event_category':'Call Function'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -456,7 +456,7 @@ $(document).ready(function () {
                 data: JSON.stringify(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -470,7 +470,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -543,7 +543,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', 'List Product Devices', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':'List Product Devices', 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting product device list');
 
@@ -557,7 +557,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', 'List Product Devices', 'Success');
+                    gtag('event', 'Success', {'event_category':'List Product Devices'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -616,7 +616,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', 'List Org Products', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':'List Org Products', 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting organization products');
 
@@ -630,7 +630,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', 'List Org Products', 'Success');
+                    gtag('event', 'Success', {'event_category':'List Org Products'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -689,7 +689,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', 'List Org Team', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':'List Org Team', 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting organization team members');
 
@@ -703,7 +703,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', 'List Org Team', 'Success');
+                    gtag('event', 'Success', {'event_category':'List Org Team'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -806,7 +806,7 @@ $(document).ready(function () {
                 data: 'grant_type=' + encodeURIComponent(grantType) + '&expires_in=' + encodeURIComponent(expiresIn),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', 'Create Token', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':'Create Token', 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error creating token');
 
@@ -820,7 +820,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', 'Create Token', 'Success');
+                    gtag('event', 'Success', {'event_category':'Create Token'});
 
                     settings.productAccessToken = resp.access_token;
                     saveSettings();
@@ -892,7 +892,7 @@ $(document).ready(function () {
                         $(thisElem).find('.apiHelperMfaTokenRow').show();
                         return;
                     }
-                    gtag('send', 'event', 'Create Token Simple', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':'Create Token Simple', 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error creating token');
 
@@ -906,7 +906,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('Token created!');
-                    gtag('send', 'event', 'Create Token Simple', 'Success');
+                    gtag('event', 'Success', {'event_category':'Create Token Simple'});
 
                     $(thisElem).find('.apiHelperAuthSettingsAccessToken').val(resp.access_token);
                     $(accessTokenRow).show();
@@ -944,7 +944,7 @@ $(document).ready(function () {
                 data: 'id=' + encodeURIComponent(deviceId),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', 'Import Device', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':'Import Device', 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error importing device');
 
@@ -958,7 +958,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', 'Import Device', 'Success');
+                    gtag('event', 'Success', {'event_category':'Import Device'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1019,7 +1019,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1033,7 +1033,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1076,7 +1076,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1090,7 +1090,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1135,7 +1135,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1149,7 +1149,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1233,7 +1233,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1247,7 +1247,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1306,7 +1306,7 @@ $(document).ready(function () {
             let request = {
                 dataType,
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1320,7 +1320,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     if (outputFormat == 'csv') {
                         var blob = new Blob([resp], {type: "text/plain;charset=utf-8"});
@@ -1383,7 +1383,7 @@ $(document).ready(function () {
                 data: JSON.stringify(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1397,7 +1397,7 @@ $(document).ready(function () {
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1439,7 +1439,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1453,7 +1453,7 @@ $(document).ready(function () {
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1494,7 +1494,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1508,7 +1508,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1545,7 +1545,7 @@ $(document).ready(function () {
                 data: JSON.stringify(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1559,7 +1559,7 @@ $(document).ready(function () {
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1622,7 +1622,7 @@ $(document).ready(function () {
                 data,
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', 'Create Customer', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':'Create Customer', 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error creating customer');
 
@@ -1636,7 +1636,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', 'Create Customer', 'Success');
+                    gtag('event', 'Success', {'event_category':'Create Customer'});
 
                     if (!settings.customers) {
                         settings.customers = {};
@@ -1701,7 +1701,7 @@ $(document).ready(function () {
                 data: objectToFormUrl(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1715,7 +1715,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     if (!settings.customers) {
                         settings.customers = {};
@@ -1817,7 +1817,7 @@ $(document).ready(function () {
                 data,
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', 'Create Claim Code', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':'Create Claim Code', 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error creating claim code');
 
@@ -1831,7 +1831,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', 'Create Claim Code', 'Success');
+                    gtag('event', 'Success', {'event_category':'Create Claim Code'});
 
                     settings.claimCode = resp.claim_code;
                     saveSettings();
@@ -1880,7 +1880,7 @@ $(document).ready(function () {
                 data: JSON.stringify(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error');
+                    gtag('event', 'Error', {'event_category':gaCategory});
 
                     setStatus('Error in ' + gaCategory);
 
@@ -1892,7 +1892,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -2036,7 +2036,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -2050,7 +2050,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -2091,7 +2091,7 @@ $(document).ready(function () {
                 data: 'id=' + encodeURIComponent(deviceId),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -2105,7 +2105,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -2146,7 +2146,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -2160,7 +2160,7 @@ $(document).ready(function () {
                 method: 'DELETE',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -2197,7 +2197,7 @@ $(document).ready(function () {
                 data: JSON.stringify(requestBodyObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -2211,7 +2211,7 @@ $(document).ready(function () {
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -2249,7 +2249,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -2263,7 +2263,7 @@ $(document).ready(function () {
                 method: 'DELETE',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -3220,7 +3220,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -3233,7 +3233,7 @@ $(document).ready(function () {
                 },
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -3424,7 +3424,7 @@ $(document).ready(function () {
                 contentType: 'application/json',
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting billing period');
 
@@ -3438,7 +3438,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -3560,7 +3560,7 @@ $(document).ready(function () {
                 contentType: 'application/json',
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategoryCheck, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategoryCheck, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting billing period');
 
@@ -3574,7 +3574,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategoryCheck, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategoryCheck});
 
                     $(agreementSelectElem).html('');
 
@@ -3624,7 +3624,7 @@ $(document).ready(function () {
                 data: JSON.stringify(requestData),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategoryReport, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategoryReport, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting data operations report');
 
@@ -3638,7 +3638,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategoryReport, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategoryReport});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -3666,7 +3666,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategoryStatus, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategoryStatus, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting report status');
 
@@ -3680,7 +3680,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategoryStatus, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategoryStatus});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -3707,7 +3707,7 @@ $(document).ready(function () {
 
         $(downloadReportButtonElem).on('click', function() {
             setStatus('Opened download URL in browser');
-            gtag('send', 'event', gaCategoryDownload, 'Success');
+            gtag('event', 'Success', {'event_category':gaCategoryDownload});
 
             $(requestElem).hide();
             $(respElem).hide();
@@ -3862,7 +3862,7 @@ $(document).ready(function () {
                 error: function (jqXHR) {
                     const err = (jqXHR.responseJSON ? jqXHR.responseJSON.error : '');
                     if (options.gaCategory) {
-                        gtag('send', 'event', options.gaCategory, 'Error', err);
+                        gtag('event', 'Error', {'event_category':options.gaCategory, 'event_label':err});
                     }
 
                     if (options.setStatus) {
@@ -3878,7 +3878,7 @@ $(document).ready(function () {
                 success: function (resp, textStatus, jqXHR) {
                     //setStatus('');
                     if (options.gaCategory) {
-                        gtag('send', 'event', options.gaCategory, 'Success');
+                        gtag('event', 'Success', {'event_category':options.gaCategory});
                     }
 
                     console.log('success', resp);
@@ -4214,4 +4214,5 @@ $(document).ready(function () {
     loadSettings();
 
 });
+
 

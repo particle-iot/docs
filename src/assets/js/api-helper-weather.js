@@ -237,7 +237,7 @@ $(document).ready(function () {
                         method: 'POST',
                         success: function (resp, textStatus, jqXHR) {
                             setStatus('Webhook ' + (found.length ? 'updated' : 'created') + '!');
-                            gtag('send', 'event', 'Update Webhook', 'Success');
+                            gtag('event', 'Success', {'event_category':'Update Webhook'});
                         },
                         url: 'https://api.particle.io/v1/integrations'
                     }
@@ -693,7 +693,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting weather');
 
@@ -706,7 +706,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    gtag('send', 'event', gaCategory, 'Success');
+                    gtag('event', 'Success', {'event_category':gaCategory});
 
                     $(outputJsonElem).show();
                     
@@ -756,3 +756,4 @@ $(document).ready(function () {
 
 
 });
+

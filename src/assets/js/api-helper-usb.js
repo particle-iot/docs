@@ -105,7 +105,7 @@ $(document).ready(function () {
         }
 
         if (!navigator.usb) {
-			gtag('send', 'event', eventCategory, 'No WebUSB', navigator.userAgent);
+			gtag('event', 'No WebUSB', {'event_category':eventCategory, 'event_label':navigator.userAgent});
             $(selectElem).prop('disabled', true);
             setStatus(noWebUsbError);
             return;
@@ -294,7 +294,7 @@ $(document).ready(function () {
                 checkRestoreButtonEnable();
             }
             catch(e) {
-                gtag('send', 'event', eventCategory, 'No WebUSB Device Selected');
+                gtag('event', 'No WebUSB Device Selected', {'event_category':eventCategory});
                 setStatus('USB device not selected');                
                 console.log('no device selected', e);
             }        
@@ -469,7 +469,7 @@ $(document).ready(function () {
         const selectElem = $(thisPartial).find('.apiHelperUsbSetupDoneSelect');
 
         if (!navigator.usb) {
-			gtag('send', 'event', eventCategory, 'No WebUSB', navigator.userAgent);
+			gtag('event', 'No WebUSB', {'event_category':eventCategory, 'event_label':navigator.userAgent});
             $(selectElem).prop('disabled', true);
             setStatus(noWebUsbError);
             return;
@@ -507,7 +507,7 @@ $(document).ready(function () {
                     await dev.setSetupDone(true);
             
                     setStatus('Marked setup done for ' + typeIdStr + '!');    
-                    gtag('send', 'event', eventCategory, 'Setup Done Success');
+                    gtag('event', 'Setup Done Success', {'event_category':eventCategory});
                 }
                 else {
                     setStatus(typeIdStr + ' is in DFU mode.<br/>Put in normal operating mode, listening mode, or safe mode to mark setup done.');
@@ -517,7 +517,7 @@ $(document).ready(function () {
         
             }
             catch(e) {
-                gtag('send', 'event', eventCategory, 'No WebUSB Device Selected');
+                gtag('event', 'No WebUSB Device Selected', {'event_category':eventCategory});
                 console.log('no device selected', e);
             }        
         }));
@@ -536,7 +536,7 @@ $(document).ready(function () {
         // const Elem = $(thisPartial).find('.');
 
         if (!navigator.usb) {
-			gtag('send', 'event', gaCategory, 'No WebUSB', navigator.userAgent);
+			gtag('event', 'No WebUSB', {'event_category':gaCategory, 'event_label':navigator.userAgent});
             $(selectDeviceButtonElem).prop('disabled', true);
             $(browserErrorDivElem).show();
             return;
@@ -680,4 +680,5 @@ $(document).ready(function () {
         });
 
 });
+
 

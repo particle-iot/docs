@@ -117,11 +117,11 @@ $(document).ready(function () {
                 }
             }
             if (!pageObj) {
-                gtag('send', 'event', gaCategory, 'invalidPage', pageOptions.page);
+                gtag('event', 'invalidPage', {'event_category':gaCategory, 'event_label':pageOptions.page});
                 return false;
             }
             if (pageStack.find(e => e.page == pageOptions.page)) {
-                gtag('send', 'event', gaCategory, 'pageLoop', pageOptions.page);
+                gtag('event', 'pageLoop', {'event_category':gaCategory, 'event_label':pageOptions.page});
                 return false;
             }
             pageObj.curEnvironment = Object.assign({}, getParentEnvironment());
@@ -134,7 +134,7 @@ $(document).ready(function () {
                 return template(pageObj.curEnvironment);
             }
 
-            gtag('send', 'event', gaCategory, 'showPage', pageOptions.page);
+            gtag('event', 'showPage', {'event_category':gaCategory, 'event_label':pageOptions.page});
 
             const pageDivElem = document.createElement('div');
             $(pageDivElem).data('page', pageOptions.page);
@@ -633,12 +633,12 @@ $(document).ready(function () {
                         const resp = await apiHelper.ticketSubmit(options);
                         // console.log('resp', resp);
 
-                        gtag('send', 'event', gaCategory, 'ticketSubmitSuccess', pageObj.ticketForm);
+                        gtag('event', 'ticketSubmitSuccess', {'event_category':gaCategory, 'event_label':pageObj.ticketForm});
                         showPage({page: 105}); // Ticket submitted
                     }
                     catch(e) {
                         console.log('exception submitting ticket');
-                        gtag('send', 'event', gaCategory, 'ticketSubmitError', pageObj.ticketForm);
+                        gtag('event', 'ticketSubmitError', {'event_category':gaCategory, 'event_label':pageObj.ticketForm});
                         showPage({page: 106}); // Ticket error
                     }
                     
@@ -748,7 +748,7 @@ $(document).ready(function () {
     
                             if (buttonObj.loginService) {
                                 const curPage = window.location.href;
-                                gtag('send', 'event', gaCategory, 'loginService', buttonObj.loginService);
+                                gtag('event', 'loginService', {'event_category':gaCategory, 'event_label':buttonObj.loginService});
                                 window.location.href = 'https://login.particle.io/' + buttonObj.loginService + '?redirect=' + curPage;                        
                             }
                             else
@@ -757,7 +757,7 @@ $(document).ready(function () {
                             }
                             else
                             if (buttonObj.url) {
-                                gtag('send', 'event', gaCategory, 'buttonUrl', buttonObj.url);
+                                gtag('event', 'buttonUrl', {'event_category':gaCategory, 'event_label':buttonObj.url});
                                 window.location.href = buttonObj.url;                        
                             }
                         });
@@ -935,3 +935,4 @@ $(document).ready(function () {
 
     }));
 });
+

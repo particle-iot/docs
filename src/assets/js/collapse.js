@@ -38,7 +38,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			gtag('send', 'event', 'Codebox', 'Codebox Download', contentUrl);
+			gtag('event', 'Codebox Download', {'event_category':'Codebox', 'event_label':contentUrl});
 		});
 
 		$(codeboxElem).find('.codeboxCopyButton').on('click', function() {
@@ -51,7 +51,7 @@ $(document).ready(function() {
 			document.execCommand("copy");
 			document.body.removeChild(t);
 
-			gtag('send', 'event', 'Codebox', 'Codebox Copy', $(codeboxElem).attr('data-content'));
+			gtag('event', 'Codebox Copy', {'event_category':'Codebox', 'event_label':$(codeboxElem).attr('data-content')});
 		});
 
 		$(codeboxElem).find('.codeboxWebIdeButton').on('click', function() {
@@ -62,7 +62,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			gtag('send', 'event', 'Codebox', 'Codebox Open WebIDE', $(codeboxElem).attr('data-content'));
+			gtag('event', 'Codebox Open WebIDE', {'event_category':'Codebox', 'event_label':$(codeboxElem).attr('data-content')});
 		});
 		
 		$(codeboxElem).find('.codeboxTryItButton').on('click', function() {
@@ -73,7 +73,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			gtag('send', 'event', 'Codebox', 'Codebox Try It', $(codeboxElem).attr('data-project'));
+			gtag('event', 'Codebox Try It', {'event_category':'Codebox', 'event_label':$(codeboxElem).attr('data-project')});
 		});
 
 
@@ -91,7 +91,7 @@ $(document).ready(function() {
 							
 			apiHelper.flashDevice(device, $(thisCodeElem).text(), codeboxElem);		
 
-			gtag('send', 'event', 'Codebox', 'Codebox Flash', $(codeboxElem).attr('data-content'));
+			gtag('event', 'Codebox Flash', {'event_category':'Codebox', 'event_label':$(codeboxElem).attr('data-content')});
 		});
 
 		$(codeboxElem).find('.codeboxUploadSchemaButton').on('click', function() {
@@ -111,7 +111,7 @@ $(document).ready(function() {
 				
 			});
 
-			gtag('send', 'event', 'Codebox', 'Codebox Upload Schema');
+			gtag('event', 'Codebox Upload Schema', {'event_category':'Codebox'});
 		});
 		
 	});
@@ -189,5 +189,6 @@ function hideOverlay() {
 	$('body').off('keydown');
 	$('#imageOverlay').hide();
 }
+
 
 

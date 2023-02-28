@@ -6,7 +6,7 @@ $(document).ready(function() {
     const gaCategory = 'Flash Dump USB';
 
     if (!navigator.usb) {
-        gtag('send', 'event', gaCategory, 'No WebUSB', navigator.userAgent);
+        gtag('event', 'No WebUSB', {'event_category':gaCategory, 'event_label':navigator.userAgent});
         $('.setupBrowserError').show();
         return;
     }
@@ -157,3 +157,4 @@ $(document).ready(function() {
         });
     });
 });
+

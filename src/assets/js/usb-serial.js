@@ -610,7 +610,7 @@ $(document).ready(function() {
             $(usbSerialConsoleControlsElem).hide();
             $(usbSerialConsoleOutputDiv).hide();
             setStatus('Web-based USB serial is only available on the Chrome web browser on Mac, Windows, Linux, and Chromebook, version 89 and later.');
-			gtag('send', 'event', eventCategory, 'No WebSerial', navigator.userAgent);
+			gtag('event', 'No WebSerial', {'event_category':eventCategory, 'event_label':navigator.userAgent});
             return;
         }
 
@@ -619,7 +619,7 @@ $(document).ready(function() {
             $(usbSerialConsoleConnectButton).prop('disabled', true);
             $(usbSerialConsoleDisconnectButton).prop('disabled', false);
 
-            gtag('send', 'event', eventCategory, 'Connection Attempt');
+            gtag('event', 'Connection Attempt', {'event_category':eventCategory});
             
             conn.connect({
                 showAllDevices: true,            
@@ -656,7 +656,7 @@ $(document).ready(function() {
             const str = $(usbSerialConsoleInputElem).val();
     
             conn.sendString(str + '\r\n');
-            gtag('send', 'event', eventCategory, 'Data Sent');
+            gtag('event', 'Data Sent', {'event_category':eventCategory});
         };
     
         $(usbSerialConsoleSendButton).on('click', async function() {
@@ -1206,3 +1206,4 @@ $(document).ready(function() {
     });
 
 });
+

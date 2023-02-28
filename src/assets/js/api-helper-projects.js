@@ -148,7 +148,7 @@ $(document).ready(function() {
             const fullUrlPath = projectUrlBase + '/' + $(fileSelect).val();
             showFile(fullUrlPath, text);
 
-			gtag('send', 'event', gaCategory, 'View File', path);
+			gtag('event', 'View File', {'event_category':gaCategory, 'event_label':path});
             setStatus('');
         });
 
@@ -249,7 +249,7 @@ $(document).ready(function() {
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
-                gtag('send', 'event', gaCategory, 'Try It', $(tryItButtonElem).attr('data-project'));    
+                gtag('event', 'Try It', {'event_category':gaCategory, 'event_label':$(tryItButtonElem).attr('data-project')});    
             }
             else {
                 const params = $(thisElem).data('params');
@@ -295,7 +295,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			gtag('send', 'event', gaCategory, 'File Download', curPath);
+			gtag('event', 'File Download', {'event_category':gaCategory, 'event_label':curPath});
 		});
 
 		$(thisElem).find('.apiHelperProjectCopyButton').on('click', function() {			
@@ -306,7 +306,7 @@ $(document).ready(function() {
 			document.execCommand("copy");
 			document.body.removeChild(t);
 
-			gtag('send', 'event', gaCategory, 'File Copy', curPath);
+			gtag('event', 'File Copy', {'event_category':gaCategory, 'event_label':curPath});
 		});
 
         $(thisElem).find('.apiHelperProjectDownloadZipButton').on('click', async function() {
@@ -320,7 +320,7 @@ $(document).ready(function() {
             setStatus('Saving ' + outputFile + ' to Downloads...');
             saveAs(blob, outputFile);
 
-			gtag('send', 'event', gaCategory, 'Zip Download', project);
+			gtag('event', 'Zip Download', {'event_category':gaCategory, 'event_label':project});
         });
 
         const flashDeviceButton = $(thisElem).find('.codeboxFlashDeviceButton');
@@ -376,7 +376,7 @@ $(document).ready(function() {
                 data: formData,
                 dataType: 'json',
                 error: function (jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Flash Device Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('event', 'Flash Device Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                     if (startTimer) {
                         clearTimeout(startTimer);
                         startTimer = null;
@@ -391,7 +391,7 @@ $(document).ready(function() {
                 method: 'PUT',
                 processData: false,
                 success: function (resp, textStatus, jqXHR) {
-                    gtag('send', 'event', gaCategory, 'Flash Device Success');
+                    gtag('event', 'Flash Device Success', {'event_category':gaCategory});
                     if (startTimer) {
                         clearTimeout(startTimer);
                         startTimer = null;
@@ -484,4 +484,5 @@ $(document).ready(function() {
 
 
 });
+
 

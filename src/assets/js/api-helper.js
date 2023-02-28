@@ -886,7 +886,7 @@ apiHelper.monitorUsage = function(options) {
         if (resultObj.timer) {
             clearInterval(resultObj.timer);
             resultObj.timer = null;
-            gtag('send', 'event', options.eventCategory, 'Finished');
+            gtag('event', 'Finished', {'event_category':options.eventCategory});
         }
     };
 
@@ -897,10 +897,10 @@ apiHelper.monitorUsage = function(options) {
             durationMinutesStr = '000000'.substr(0, 6 - durationMinutesStr.length) + durationMinutesStr;
         }
 
-        gtag('send', 'event', options.eventCategory, options.actionPrefix + durationMinutesStr);
+        gtag('event', options.actionPrefix + durationMinutesStr, {'event_category':options.eventCategory});
     }, periodMinutes * 60000);
 
-    gtag('send', 'event', options.eventCategory, 'Started');
+    gtag('event', 'Started', {'event_category':options.eventCategory});
 
     return resultObj;
 };
@@ -1038,4 +1038,5 @@ $(document).ready(function() {
 
 
 });
+
 

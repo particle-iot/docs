@@ -14,7 +14,7 @@ $(document).ready(function() {
         $('#errorDiv').show();
         $('#progressDiv').hide();    
 
-        gtag('send', 'event', 'Device Restore JTAG', 'No WebUSB', navigator.userAgent);
+        gtag('event', 'No WebUSB', {'event_category':'Device Restore JTAG', 'event_label':navigator.userAgent});
     }
 
     if ($('#hexGeneratorForm').length > 0) {
@@ -53,7 +53,7 @@ async function startFlash(platform, version) {
         $('#deviceRestoreTable').show();
         $('#progressDiv').hide();
         $('#errorDiv').text('Error opening debugger (' + error + ')');
-        gtag('send', 'event', 'Device Restore JTAG', 'No Debugger Selected');
+        gtag('event', 'No Debugger Selected', {'event_category':'Device Restore JTAG'});
     }
 }
 
@@ -63,14 +63,14 @@ function getBinary(debuggerDevice, platform, version) {
         url: '/assets/files/device-restore/' + version + '/' + platform + '.hex',
         dataType: 'text',
         success: function(data) {
-            gtag('send', 'event', 'Device Restore JTAG', 'JTAG Restore Started', platform + '/' + version);
+            gtag('event', 'JTAG Restore Started', {'event_category':'Device Restore JTAG', 'event_label':platform + '/' + version});
             updateDevice(debuggerDevice, data);
         },
         error: function() {
             $('#deviceRestoreTable').show();
             $('#progressDiv').hide();
             $('#errorDiv').text('Failed to download binary for ' + platform + ' version ' + version);
-            gtag('send', 'event', 'Device Restore JTAG', 'Download Failed', platform + '/' + version);
+            gtag('event', 'Download Failed', {'event_category':'Device Restore JTAG', 'event_label':platform + '/' + version});
         }
     });	
 }
@@ -109,12 +109,12 @@ async function updateDevice(debuggerDevice, data) {
         $('#progressDiv').hide();
         $('#deviceRestoreTable').show();
         $('#errorDiv').text('Flash complete!');
-        gtag('send', 'event', 'Device Restore JTAG', 'JTAG Restore Success');
+        gtag('event', 'JTAG Restore Success', {'event_category':'Device Restore JTAG'});
     } catch (error) {
         $('#progressDiv').hide();
         $('#deviceRestoreTable').show();
         $('#errorDiv').text('Error flashing (' + error + ')');
-        gtag('send', 'event', 'Device Restore JTAG', 'JTAG Restore Error', error);
+        gtag('event', 'JTAG Restore Error', {'event_category':'Device Restore JTAG', 'event_label':error});
     }
 }
 
