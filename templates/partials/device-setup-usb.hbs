@@ -535,10 +535,16 @@
                 <p><label><input type="checkbox" class="showDebuggingLogs" checked>Show device debugging logs</label></p>
             </div>
             <div class="deviceLogsTextButtons">
-                <textarea class="deviceLogsText" rows="10" cols="100" style="font-size: 9px">
+                <textarea class="deviceLogsText" rows="10" cols="100" style="font-size: 9px; line-height: 11px;">
                 </textarea>
                 <p><button class="downloadLogs">Download Logs</button></p>                
             </div>
+        </div>
+        <div class="manualLogs" style="display:none; padding-top:20px;">
+            <p>It appears that the device is not responding with log data. The best way to troubleshoot when this occurs 
+                is to use the <b>particle serial monitor</b> CLI command.</p>
+            </p>
+            {{!-- {{> usb-serial-console}} --}}
         </div>
         <div class="supportInfo">
             <div class="towerInfo" style="display:none">

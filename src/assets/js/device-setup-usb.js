@@ -116,28 +116,38 @@ $(document).ready(function() {
                 label: 'Device ID',
             },
             {
-                key: 'iccid',
+                key: '+CCID', // Was: 'iccid'
                 label: 'ICCID',
                 cellular: true
             },
             {
-                key: 'imei',
+                key: 'AT+CGSN', // Was: 'imei'
                 label: 'IMEI',
                 cellular: true
             },
             {
-                key: 'mfg',
+                key: 'AT+CIMI',
+                label: 'IMSI',
+                cellular: true
+            },
+            {
+                key: 'AT+CGMI', // Was: 'mfg'
                 label: 'Modem Manufacturer',
                 cellular: true
             },
             {
-                key: 'model',
+                key: 'AT+CGMM', // Was: 'model'
                 label: 'Modem Model',
                 cellular: true
             },
             {
-                key: 'fwvers',
+                key: 'AT+CGMR', // Was: 'fwvers'
                 label: 'Modem Firmware Version',
+                cellular: true
+            },
+            {
+                key: 'ATI9',
+                label: 'Modem Application Version',
                 cellular: true
             },
             {
@@ -603,43 +613,55 @@ $(document).ready(function() {
             $(deviceLogsElem).show();
 
             if (!deviceLogsTimer1) {
+                let statusNesting = 0;
+
                 deviceLogsTimer1 = setInterval(async function() {
 
-                    let reqObj = {
-                        op: 'status'
-                    };
-    
-                    let res;
-                    try {
-                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                    }
-                    catch(e) {
-                        if (e.message.includes('The device was disconnected.')) {
-                            stopDeviceLogs();
-                        } else {
-                            console.log('control request exception', e);
-                        }
-                        return;
-                    }
-                    
-                    if (res.result == 0 && res.data) {
-                        const respObj = JSON.parse(res.data);
-    
-                        if (checkStatus) {
-                            checkStatus(respObj);
-                        }
-    
-                        if (respObj.mcc) {
-                            setInfoTableItemObj(respObj);
-    
-                            if (mccmnc) {
-                                for(const obj of mccmnc) {
-                                    if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
-                                        setInfoTableItemObj(obj);                                        
-                                    }
+                    if (statusNesting == 0) {
+                        statusNesting++;
+                        try {
+                            let reqObj = {
+                                op: 'status'
+                            };
+            
+                            let res;
+                            try {
+                                res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                            }
+                            catch(e) {
+                                if (e.message.includes('The device was disconnected.')) {
+                                    stopDeviceLogs();
+                                } else {
+                                    console.log('control request exception', e);
                                 }
-                            }                                          
+                            }
+                            
+                            if (res.result == 0 && res.data) {
+                                const respObj = JSON.parse(res.data);
+            
+                                if (checkStatus) {
+                                    checkStatus(respObj);
+                                }
+                
+                                setInfoTableItemObj(respObj);    
+                                if (respObj.mcc) {
+                                    if (mccmnc) {
+                                        for(const obj of mccmnc) {
+                                            if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
+                                                setInfoTableItemObj(obj);                                        
+                                            }
+                                        }
+                                    }                                          
+                                }
+                            }
                         }
+                        catch(e) {
+                            console.log('exception', e);
+                        }
+                        statusNesting--;
+                    }
+                    else {
+                        // console.log('skipped status, busy');
                     }
                 }, 2000);    
             }
@@ -647,7 +669,8 @@ $(document).ready(function() {
             if (!deviceLogsTimer2) {
                 // Retrieve logs more slowly on Gen 2 because the control request handler can run out of RAM
                 let logTimerInterval = (deviceInfo.platformId <= 10) ? 2000 : 1000;
-                
+                let logNesting = 0;
+
                 deviceLogsTimer2 = setInterval(async function() {
                     if ($('.deviceLogWarning').is(':visible')) {
                         // On the Electron, skip the logs requests because control requests are blocked
@@ -655,48 +678,57 @@ $(document).ready(function() {
                         return;
                     }
 
-                    let reqObj = {
-                        op: 'logs'
-                    };
+                    if (logNesting == 0) {
+                        logNesting++;
+                        try {
+                            let reqObj = {
+                                op: 'logs'
+                            };
+            
+                            let res;
     
-                    let res;
-                    try {
-                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                    }
-                    catch(e) {
-                        if (e.message.includes('The device was disconnected.')) {
-                            stopDeviceLogs();
-                        } else {
-                            console.log('control request exception', e);
-                        }
-                        return;
-                    }
-                    
-                    if (res.result == 0 && res.data) {
-                        if (res.data.length > 0) {
-                            let tempLog = (deviceLogsPartialLine ? deviceLogsPartialLine : '') + res.data;
-                            let lastLF = tempLog.lastIndexOf('\n');
-                            if (lastLF < (tempLog.length - 1)) {
-                                deviceLogsPartialLine = tempLog.substr(lastLF + 1);
-                                tempLog = tempLog.substr(0, lastLF + 1);
-                            }
-                            else {
-                                deviceLogsPartialLine = '';
-                            }
-                            for(let line of tempLog.split('\n')) {
-                                line = line.trim();
-                                if (line.length) {
-                                    processLogMessage(line);
+                            res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                            if (res.result == 0 && res.data) {
+                                if (res.data.length > 0) {
+                                    let tempLog = (deviceLogsPartialLine ? deviceLogsPartialLine : '') + res.data;
+                                    let lastLF = tempLog.lastIndexOf('\n');
+                                    if (lastLF < (tempLog.length - 1)) {
+                                        deviceLogsPartialLine = tempLog.substr(lastLF + 1);
+                                        tempLog = tempLog.substr(0, lastLF + 1);
+                                    }
+                                    else {
+                                        deviceLogsPartialLine = '';
+                                    }
+                                    for(let line of tempLog.split('\n')) {
+                                        line = line.trim();
+                                        if (line.length) {
+                                            processLogMessage(line);
+                                        }
+                                    }
+                                    
+                                    deviceLogs += tempLog;
+                                    if ($(showDebuggingLogsElem).prop('checked')) {
+                                        $(deviceLogsTextElem).val(deviceLogs);
+                                        deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
+                                    }
                                 }
                             }
-                            
-                            deviceLogs += tempLog;
-                            if ($(showDebuggingLogsElem).prop('checked')) {
-                                $(deviceLogsTextElem).val(deviceLogs);
-                                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
+                        }
+                        catch(e) {
+                            if (e.message.includes('The device was disconnected.')) {
+                                stopDeviceLogs();
+                            } else {
+                                console.log('control request exception', e);
                             }
                         }
+                        
+                        logNesting--;
                     }
+                    else {
+                        // console.log('skipped logs, busy');
+                        $('.manualLogs').show();
+                    }
+
                 }, logTimerInterval);
             }
 
@@ -1683,8 +1715,6 @@ $(document).ready(function() {
                         gtag('send', 'event', gaCategory, 'TowerScanAvailable', canTowerScan);
 
 
-                        showInfoTable();
-                        setInfoTableItem('deviceId', deviceInfo.deviceId);
                         setInfoTableItemObj(respObj);    
 
                         $(thisElem).find('.batteryWarning').hide();   
@@ -2851,6 +2881,9 @@ $(document).ready(function() {
                 await flashDevice();
 
                 if (mode == 'doctor' || mode == 'setup') {
+                    showInfoTable();
+                    setInfoTableItem('deviceId', deviceInfo.deviceId);
+
                     if (setupOptions.ethernet) {
                         reqObj = {
                             op: 'connect',
@@ -3661,6 +3694,9 @@ $(document).ready(function() {
                         console.log('error claiming device', result);
                     }
                 }
+
+                // Re-run device lookup to update information from the cloud
+                runDeviceLookup();
 
                 if (mode == 'doctor') {                    
                     // TODO: Check if device is claimed to my account and 
