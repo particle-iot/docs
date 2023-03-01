@@ -91,6 +91,9 @@ module.exports = function(options) {
         
         for(const fileName of options.sources) {
 			var file = files[fileName];
+            if (!file) {
+                continue;
+            }
             
             const oldText = file.contents.toString('utf8');
 

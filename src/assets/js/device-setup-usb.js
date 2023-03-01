@@ -612,6 +612,8 @@ $(document).ready(function() {
         const showDeviceLogs = function() {
             $(deviceLogsElem).show();
 
+            let failureCount = 0;
+
             if (!deviceLogsTimer1) {
                 let statusNesting = 0;
 
@@ -629,10 +631,9 @@ $(document).ready(function() {
                                 res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
                             }
                             catch(e) {
-                                if (e.message.includes('The device was disconnected.')) {
+                                console.log('control request exception', e);
+                                if (++failureCount > 5) {
                                     stopDeviceLogs();
-                                } else {
-                                    console.log('control request exception', e);
                                 }
                             }
                             
@@ -715,10 +716,9 @@ $(document).ready(function() {
                             }
                         }
                         catch(e) {
-                            if (e.message.includes('The device was disconnected.')) {
+                            console.log('control request exception', e);
+                            if (++failureCount > 5) {
                                 stopDeviceLogs();
-                            } else {
-                                console.log('control request exception', e);
                             }
                         }
                         
