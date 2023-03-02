@@ -49,12 +49,3 @@ If you are interested in understanding the log output:
 - [Interpreting cloud debug logs part 1](/troubleshooting/connectivity/interpreting-cloud-debug/)
 - [Interpreting cloud debug logs part 2](/troubleshooting/connectivity/interpreting-cloud-debug-2/)
 
-
-## Source 
-
-If you are interested in the source used to generate the binaries above, it is here:
-
-- [User application, all non-Tracker platforms](https://github.com/particle-iot/docs-usb-setup-firmware)
-- [User application, Tracker](https://github.com/particle-iot/docs-usb-setup-tracker)
-- [Common code](https://github.com/particle-iot/docs-usb-setup-lib)
-
