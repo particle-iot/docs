@@ -3445,6 +3445,14 @@ $(document).ready(function () {
 
                     $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
                     $(respElem).show();
+
+                    const serviceAgreementNotifications = $('.apiHelperCloudApiServiceAgreementNotifications').data('serviceAgreementNotifications');
+                    serviceAgreementNotifications.setParams({
+                        orgId: $(sandboxOrgSelectElem).val(),
+                        resp,
+                    });
+                    serviceAgreementNotifications.show();
+                    
                 },
                 url: getUrl('service_agreements')
             }
@@ -3480,6 +3488,97 @@ $(document).ready(function () {
         }
   
 
+    });
+
+    $('.apiHelperCloudApiServiceAgreementNotifications').each(function() {
+        const thisElem = $(this);
+        const gaCategory = 'GetServiceAgreementNotifications';
+
+        const agreementSelectElem = $(thisElem).find('.apiHelperAgreementSelect');
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const requestElem = $(thisElem).find('.apiHelperApiRequest');
+        const respElem = $(thisElem).find('.apiHelperApiResponse');
+        const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+
+        let serviceAgreementNotifications = {
+            // orgId
+        };
+        $(thisElem).data('serviceAgreementNotifications', serviceAgreementNotifications);
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const getUrl = function() {
+            let url;
+
+            if (serviceAgreementNotifications.params.orgId == 0) {
+                // Sandbox
+                url = 'https://api.particle.io/v1/user/service_agreements/' + $(agreementSelectElem).val() + '/notifications';
+            }
+            else {
+                // Organization
+                url = 'https://api.particle.io/v1/orgs/' + serviceAgreementNotifications.params.orgId + '/service_agreements/' + $(agreementSelectElem).val() + '/notifications';
+            }
+            return url;
+        }      
+    
+        $(actionButtonElem).on('click', function() {
+            let request = {
+                contentType: 'application/json',
+                dataType: 'json',
+                error: function (jqXHR) {
+                    gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
+
+                    setStatus('Error getting service agreement notifications');
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    gtag('event', 'Success', {'event_category':gaCategory});
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url: getUrl()
+            }
+
+            setRequest(thisElem, request);
+
+            $(respElem).find('pre').text('');
+
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });        
+        serviceAgreementNotifications.setParams = function(params) {
+            serviceAgreementNotifications.params = params;
+
+            $(agreementSelectElem).empty();
+            for(const dataObj of params.resp.data) {
+                if (dataObj.type == 'service_agreement') {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', dataObj.id.toString());
+                    $(optionElem).text(dataObj.id.toString());
+                    $(agreementSelectElem).append(optionElem);                    
+                }
+            }
+        };
+
+        serviceAgreementNotifications.show = function() {
+
+            $(thisElem).show();
+        }
     });
 
     $('.apiHelperCloudApiDataOperationsReport').each(function() {

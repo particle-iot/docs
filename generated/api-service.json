@@ -9472,8 +9472,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/org/:orgSlugOrId/usage_reports/:usageReportId",
-          "content": " GET /v1/org/:orgSlugOrId/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-02-01\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
+          "title": "GET /v1/orgs/:orgSlugOrId/usage_reports/:usageReportId",
+          "content": " GET /v1/orgs/:orgSlugOrId/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-02-01\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
           "type": "json"
         }
       ],
@@ -10044,7 +10044,7 @@
       },
       {
         "title": "List notifications associated with an organization",
-        "content": "$ curl \"https://api.particle.io/v1/organizations/service_agreements/:serviceAgreementId/notifications?access_token=123abc\"",
+        "content": "$ curl \"https://api.particle.io//v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/notifications?access_token=123abc\"",
         "type": "bash"
       }
     ],
