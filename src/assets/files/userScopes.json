@@ -4,6 +4,7 @@
   "clients:remove",
   "clients:update",
   "configuration:get",
+  "configuration:update",
   "customers:list",
   "customers:remove",
   "customers:update",

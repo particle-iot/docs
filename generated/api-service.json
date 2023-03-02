@@ -645,6 +645,11 @@
     "title": "Delete product configuration schema",
     "name": "DeleteProductConfigSchema",
     "group": "Configuration_5",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Delete configuration schema, use Tracker Edge defaults.</p>",
     "examples": [
       {
@@ -672,6 +677,11 @@
     "title": "Set product configuration",
     "name": "SetProductConfig",
     "group": "Configuration_5",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Set configuration values that will become the default for the product. This will also update eligible devices with this updated configuration.</p> <p>You should always get the entire configuration, change values, and set the whole configuration back. In HTTP REST APIs, POST and PUT do not merge changes with the existing data.</p>",
     "parameter": {
       "fields": {
@@ -711,6 +721,11 @@
     "title": "Set product configuration schema",
     "name": "SetProductConfigSchema",
     "group": "Configuration_5",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Set configuration schema that will become the default for the product.</p> <p>This must be the entire schema, including the standard Particle parts; there is no merging of changes.</p>",
     "examples": [
       {
@@ -747,6 +762,11 @@
     "title": "Delete device configuration schema",
     "name": "DeleteDeviceConfigSchema",
     "group": "Configuration_6",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Delete device's configuration schema, use product's.</p>",
     "examples": [
       {
@@ -774,6 +794,11 @@
     "title": "Set device configuration",
     "name": "SetDeviceConfig",
     "group": "Configuration_6",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Set some configuration values for the device that will override the product default.</p> <p>Send an empty request to reset the device to product defaults.</p> <p>Returns 200, 202 or 400 for various states</p> <ul> <li>200 when the device is online and accepted the configuration changes.</li> <li>202 when the device is offline. We'll complete the request when it comes online again</li> <li>400 When the device is online, but has rejected some of the configuration keys.  A list of accepted and rejected keys with device error codes is provided</li> </ul> <p>You should always get the entire configuration, change values, and set the whole configuration back. In HTTP REST APIs, POST and PUT do not merge changes with the existing data.</p>",
     "examples": [
       {
@@ -815,6 +840,11 @@
     "title": "Set device configuration schema",
     "name": "SetDeviceSchema",
     "group": "Configuration_6",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Set configuration schema for the device.</p> <p>This must be the entire schema, including the standard Particle parts; there is no merging of changes.</p>",
     "examples": [
       {
