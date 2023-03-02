@@ -2,13 +2,36 @@
 title: Cloud Debug
 layout: commonTwo.hbs
 description: Tool for debugging cloud connection issues
-includeDefinitions: [api-helper, api-helper-usb, webdfu, zip, usb-serial]
+includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-protobuf, api-helper-usb, api-helper-extras, api-helper-tickets, usb-serial, webdfu, zip]
 ---
 
 # Cloud Debug
 
-**In most cases, using the [Particle Web Device Doctor](/tools/doctor/) will be easier than using Cloud Debug directly.**
+Using the [Particle Web Device Doctor](/tools/doctor/) allows checking account and SIM status and enables other troubleshooting checks. However, if you only want to use the cloud debug firmware, you can do so by installing the firmware and viewing the data in the USB serial console.
 
+## Automatic install
+
+Automatic install is the easiest way to install the cloud debug firmware and Device OS (if necessary). If you prefer to install manually, see the instructions below.
+
+{{> device-setup-usb mode="cloud"}}
+
+
+## Viewing the results
+
+If you are using a Chrome browser you can monitor the output here by connecting to your device using the web serial debug monitor:
+
+{{> usb-serial-console}}
+
+Otherwise, you can use the Particle CLI command:
+
+```
+particle serial monitor
+```
+
+If you are interested in understanding the log output:
+
+- [Interpreting cloud debug logs part 1](/troubleshooting/connectivity/interpreting-cloud-debug/)
+- [Interpreting cloud debug logs part 2](/troubleshooting/connectivity/interpreting-cloud-debug-2/)
 
 ## Manual installation
 
@@ -30,22 +53,3 @@ Note that the Device OS version is the minimum device OS version that must be in
 | [P2](/assets/files/docs-usb-setup-firmware/p2.bin) | 5.1.0 |
 | [Photon](/assets/files/docs-usb-setup-firmware/photon.bin) | 2.3.0 |
 {{!-- END setup-firmware-list --}}
-
-
-## Viewing the results
-
-If you are using a Chrome browser you can monitor the output here by connecting to your device using the web serial debug monitor:
-
-{{> usb-serial-console}}
-
-Otherwise, you can use the Particle CLI command:
-
-```
-particle serial monitor
-```
-
-If you are interested in understanding the log output:
-
-- [Interpreting cloud debug logs part 1](/troubleshooting/connectivity/interpreting-cloud-debug/)
-- [Interpreting cloud debug logs part 2](/troubleshooting/connectivity/interpreting-cloud-debug-2/)
-

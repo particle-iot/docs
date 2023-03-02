@@ -50,6 +50,10 @@
                     <p>This tool will flash Device OS and doctor firmware to your device, replacing the 
                         existing Device OS and user firmware.</p>
                 </div>
+                <div class="cloudMode">
+                    <p>This tool will flash Device OS and cloud debug firmware to your device, replacing the 
+                        existing Device OS and user firmware.</p>
+                </div>
                 <div class="setupMode">
                     <p>This tool will flash Device OS and setup firmware to your device, replacing the 
                         existing Device OS and user firmware.</p>
@@ -58,7 +62,7 @@
                     <p>This tool will flash Device OS and the specified user firmware to your device, replacing the 
                         existing Device OS and user firmware.</p>
                 </div>
-                <div class="setupMode doctorMode">
+                <div class="setupMode doctorMode cloudMode">
                     <p>Upon successful completion you can to program your firmware again 
                         over-the-air (OTA) or by USB.</p>
                     <p>A backup file containing your user firmware will be saved to your Downloads folder; 
@@ -86,10 +90,10 @@
                 <div class="setupMode">
                     <p>Proceed with flashing the device and device setup?</p>
                 </div>
-                <div class="doctorMode">
+                <div class="doctorMode cloudMode">
                     <p>Proceed with flashing the device?</p>
                 </div>
-                <div class="setupMode doctorMode">
+                <div class="setupMode doctorMode cloudMode">
                     <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device</button></p>
                 </div>
                 <div class="restoreFirmwareDiv" style="display:none; padding-top:40px;">
@@ -99,7 +103,7 @@
                 </p>
                 <p><button class="setupRestoreDeviceButton apiHelperButton">Restore firmware from backup file</button><input type="file" id="uploadUserBinary" accept=".bin" style="display:none"></p>
                 </div> <!-- restorePane -->
-                <div class="doctorMode">
+                <div class="doctorMode cloudMode">
                     <details style="padding-top: 100px" class="doctorModeSettings">
                         <summary>Advanced Options</summary>
                         <p>These options are seldom needed and may adversely affect connectivity if used incorrectly.</p>
@@ -428,6 +432,9 @@
                     <p><input type="color" class="colorSelector" value="#ff0000"/> &nbsp;
                         <button class="setColorButton">Set Status LED Color</button></p>
                 </div>
+            </div>
+            <div class="setupStepCloudDone" style="display:none">
+                <p>Flashing cloud debug firmware complete! Monitor the status using the USB serial debug console.</p>
             </div>
             <div class="setupStepDeviceRestoreDone" style="display:none">
                 <p>Device restore complete!</p>

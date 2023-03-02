@@ -35,7 +35,7 @@ $(document).ready(function() {
 
         const mode = $(thisElem).data('mode');
 
-        const modes = ['doctor', 'setup', 'restore', 'wifi'];
+        const modes = ['doctor', 'setup', 'restore', 'wifi', 'cloud'];
 
         // Hide all modes
         for(const m of modes) {
@@ -1113,7 +1113,7 @@ $(document).ready(function() {
                 }
                 else {
                     // Don't check SIM or firmware backup when in device restore mode
-                    if (mode == 'setup' || mode == 'doctor') {
+                    if (mode == 'setup' || mode == 'doctor' || mode == 'cloud') {
                         const stor = localStorage.getItem(storageActivateSim);
                         if (stor) {
                             try {
@@ -2132,7 +2132,7 @@ $(document).ready(function() {
                 });
 
             
-                if (flashDeviceOptions.mode == 'doctor' && !restoreFirmwareBinary) {
+                if ((flashDeviceOptions.mode == 'doctor' || mode == 'cloud') && !restoreFirmwareBinary) {
                     options.userBackup = true;
                 }
 
@@ -2373,7 +2373,7 @@ $(document).ready(function() {
             const updateNcpCheckboxElem = $(thisElem).find('.updateNcpCheckbox');
             const forceUpdateElem = $(thisElem).find('.forceUpdate');
             
-            // Doctor mode
+            // Doctor mode and cloud mode
             const doctorModeSettingsElem = $(thisElem).find('.doctorModeSettings');
             const doctorUseEthernetElem = $(thisElem).find('.doctorUseEthernet');
             const doctorSetKeepAliveCheckboxElem = $(thisElem).find('.doctorSetKeepAliveCheckbox');
@@ -2432,7 +2432,7 @@ $(document).ready(function() {
 
             let minSysVer;
 
-            if (mode == 'doctor' || mode == 'setup') {
+            if (mode == 'doctor' || mode == 'setup' || mode == 'cloud') {
                 // In setup and doctor mode, minimum system version is the version the doctor/setup firmware was 
                 // compiled with
                 const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
@@ -2473,6 +2473,7 @@ $(document).ready(function() {
                     let versionElemForMode;
                     switch(mode) {
                         case 'doctor':
+                        case 'cloud':
                             versionElemForMode = doctorDeviceOsVersionElem;
                             break;
 
@@ -2492,7 +2493,7 @@ $(document).ready(function() {
                     }
                 }
 
-                if (show) {
+                if (show && mode != 'cloud') {
                     $(setupBitTrElem).show();
                 }
                 else {
@@ -2502,7 +2503,7 @@ $(document).ready(function() {
             };
             
 
-            if (mode == 'doctor') {
+            if (mode == 'doctor' || mode == 'cloud') {
                 $(doctorDeviceOsVersionElem).on('change', showHideSetupBitSelection);    
             }
             else
@@ -2844,7 +2845,7 @@ $(document).ready(function() {
                     flashDeviceOptions.setupBit = 'done';
                 }
                 else {
-                    // mode == doctor
+                    // mode == doctor || mode == cloud
                     setupOptions.ethernet = $(doctorUseEthernetElem).prop('checked');
 
                     if ($(doctorForceVersionElem).prop('checked')) {
@@ -2867,7 +2868,7 @@ $(document).ready(function() {
 
                 hideDeviceFirmwareInfo();
                     
-                if (mode == 'doctor') {
+                if (mode == 'doctor') { // Not done for cloud
                     checkOwnership();
                 }
 
@@ -2880,6 +2881,11 @@ $(document).ready(function() {
 
                 await flashDevice();
 
+                if (mode == 'cloud') {
+                    setSetupStep('setupStepCloudDone');
+                    gtag('event', 'Cloud Debug flash complete', {'event_category':gaCategory});    
+                }
+                else
                 if (mode == 'doctor' || mode == 'setup') {
                     showInfoTable();
                     setInfoTableItem('deviceId', deviceInfo.deviceId);
