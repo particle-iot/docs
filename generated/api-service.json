@@ -10074,7 +10074,7 @@
       },
       {
         "title": "List notifications associated with an organization",
-        "content": "$ curl \"https://api.particle.io//v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/notifications?access_token=123abc\"",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/notifications?access_token=123abc\"",
         "type": "bash"
       }
     ],
