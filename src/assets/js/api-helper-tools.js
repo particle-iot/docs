@@ -964,6 +964,7 @@ $(document).ready(function() {
             $(thisPartial).trigger('updateSearchParam');
         });
         $(claimUsernameSelectElem).on('change', function() {
+            $(claimCheckboxElem).prop('checked', true);
             $(thisPartial).trigger('updateSearchParam');
         });
 
@@ -980,11 +981,6 @@ $(document).ready(function() {
             $(thisPartial).trigger('updateSearchParam');
         });
         
-        // This is triggered by the product selector when the product list changes
-        $(thisPartial).on('updateProductList', async function(event, options) {
-            $(thisPartial).trigger('updateSearchParam');
-        });
-
 
         const urlConfigFields = ['name', 'namePrefix', 'development'];
 
@@ -1021,22 +1017,32 @@ $(document).ready(function() {
                 let options = {};
                 getOptions(options);
 
+                let oldClaimUser = $(claimUsernameSelectElem).val();
+                if (!oldClaimUser) {
+                    oldClaimUser = urlParams.get('claim');;   
+                }
 
-                if (options.productId && (!teamList || deviceListProductId != options.productId)) {
-                    teamList = (await apiHelper.particle.listTeamMembers({ auth: apiHelper.auth.access_token, product:options.productId })).body.team;
-                    // console.log('team', team);
+                if (options.productId) {
+                    if (!teamList || deviceListProductId != options.productId) {
+                        teamList = await apiHelper.getTeamMembers({
+                            productId: options.productId, 
+                            orgId: options.orgId, 
+                            noProgrammatic: true,
+                        });
+            
+                        apiHelper.updateTeamSelect({
+                            team: teamList,
+                            elem: claimUsernameSelectElem,
+                        });
     
+                        if (oldClaimUser) {
+                            $(claimUsernameSelectElem).val(oldClaimUser);
+                        }    
+                    }
+                }
+                else {
                     $(claimUsernameSelectElem).empty();
-                    for(const member of teamList) {
-                        const optionElem = document.createElement('option');
-                        $(optionElem).prop('value', member.username);
-                        $(optionElem).text(member.username);                    
-                        $(claimUsernameSelectElem).append(optionElem);
-                    }
-                    const claimValue = urlParams.get('claim');
-                    if (claimValue) {
-                        $(claimUsernameSelectElem).val(claimValue);
-                    }
+                    teamList = null;
                 }
 
                 let urlConfig = {};
@@ -1071,6 +1077,12 @@ $(document).ready(function() {
                 console.log('exception', e);
             }
         });
+        
+        // This is triggered by the product selector when the product list changes
+        $(document).on('updateProductList', async function(event, options) {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
         
         $(selectFileButtonElem).on('click', function() {
             $(importFileInputElem).trigger('click');

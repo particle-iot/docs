@@ -1888,6 +1888,12 @@ $(document).ready(function() {
             options.sandboxOrg = sandboxOrg;   // 'sandbox' product or 'org' product
             options.productId = productId;    // 0 if sandbox
         
+            if (sandboxOrg != 'sandbox') {
+                options.orgId = $(orgSelectElem).val();
+            }
+            else {
+                options.orgId = 0;
+            }
 
         }
 
@@ -2006,6 +2012,10 @@ $(document).ready(function() {
         });
 
         $(orgSelectElem).on('change', updateProductList);
+
+        $(productSelectElem).on('change', function() {
+            $(thisPartial).trigger('updateProductList', [options]);
+        });
 
         apiHelper.getOrgs().then(async function(orgsData) {
             // No orgs: orgsData.organizations empty array
@@ -2731,9 +2741,13 @@ $(document).ready(function() {
                 if (options.sandboxOrg == 'org') {
                     options.orgId = $(orgSelectElem).val();
                 }
+                else {
+                    options.orgId = 0;
+                }
             }
             else {
                 options.sandboxOrg = 'sandbox';
+                options.orgId = 0;
             }
 
             // new or existing
@@ -2803,6 +2817,7 @@ $(document).ready(function() {
             else {
                 $(createProductButtonElem).prop('disabled', true);
             }    
+            $(thisPartial).trigger('updateProductList');
         }
 
         const updateProductList = async function(options = {}) {
@@ -3046,6 +3061,7 @@ $(document).ready(function() {
             $(newExistingRadioElem).prop('checked', false);
             $(existingRadioElem).prop('checked', true);
             productSelector.saveSettings();
+            $(thisPartial).trigger('updateProductList');
         });
 
         $(newRadioElem).on('click', function() {

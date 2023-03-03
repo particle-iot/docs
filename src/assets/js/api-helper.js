@@ -738,6 +738,101 @@ apiHelper.cachedResult = function() {
     return cachedResult;
 }
 
+
+apiHelper.getTeamMembers = async function(options) {
+    // options
+    //      .orgId (optional)
+    //      .productId (optional, but usually required unless only getting the org team members)
+    // At least one must be specified
+    // If both are specified, then the results of both are combined
+
+    let results = [];
+
+    if (!apiHelper.auth) {
+        return results;
+    }
+
+    const addTeam = async function(fnOptions = {}) {
+        const res = await $.ajax({
+            dataType: 'json',
+            headers: {
+                'Accept':'application/json',
+                'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token
+            },
+            method: 'GET',
+            url: fnOptions.url,
+        });   
+        if (res && res.ok) {
+            for(let obj of res.team) {
+                if (options.noProgrammatic) {
+                    if (obj.is_programmatic) {
+                        continue;   
+                    }
+                }
+                if (fnOptions.isOrg) {
+                    obj.isOrg = true;
+                }
+                results.push(obj);
+            }
+        }
+
+    }
+
+    if (options.orgId) {
+        await addTeam({isOrg: true, url: 'https://api.particle.io/v1/orgs/' + options.orgId + '/team'});
+    }
+    
+    if (options.productId) {
+        await addTeam({url: 'https://api.particle.io/v1/products/' + options.productId + '/team'});
+    }
+
+    results.sort(function(a, b) {
+        return a.username.localeCompare(b.username);
+    })
+
+    return results;
+}
+
+apiHelper.updateTeamSelect = function(options) {
+    // options
+    //      .elem select element to add to (required)
+    //      .team array from getTeamMembers (required)
+    //      .noEmpty Do not empty the select element before adding new team members
+
+    if (!options.noEmpty) {
+        $(options.elem).empty();
+    }
+    let added = {};
+
+    for(const obj of options.team) {
+        if (added[obj.username]) {
+            continue;
+        }
+        added[obj.username] = true;
+
+        const optionElem = document.createElement('option');
+
+        $(optionElem).attr('value', obj.username);
+
+        let append = [];
+        if (obj.role && obj.role.isOwner) {
+            append.push('Product Owner');
+        }
+        else
+        if (obj.isOrg) {
+            append.push('Organization Team Member');
+        }
+
+        let appendStr = '';
+        if (append.length) {
+            appendStr = ' (' + append.join(', ') + ')';
+        }
+        $(optionElem).text(obj.username + appendStr);
+
+        $(options.elem).append(optionElem);
+    }
+}
+
 apiHelper.getProductsCache = apiHelper.cachedResult();
 
 apiHelper.getProducts = async function(options = {}) {
