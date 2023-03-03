@@ -58,6 +58,10 @@
                     <p>This tool will flash Device OS and setup firmware to your device, replacing the 
                         existing Device OS and user firmware.</p>
                 </div>
+                <div class="productMode">
+                    <p>This tool will flash Device OS and product firmware to your device, replacing the 
+                        existing Device OS and user firmware.</p>
+                </div>
                 <div class="restoreMode">
                     <p>This tool will flash Device OS and the specified user firmware to your device, replacing the 
                         existing Device OS and user firmware.</p>
@@ -90,10 +94,10 @@
                 <div class="setupMode">
                     <p>Proceed with flashing the device and device setup?</p>
                 </div>
-                <div class="doctorMode cloudMode">
+                <div class="doctorMode cloudMode productMode">
                     <p>Proceed with flashing the device?</p>
                 </div>
-                <div class="setupMode doctorMode cloudMode">
+                <div class="setupMode doctorMode cloudMode productMode">
                     <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device</button></p>
                 </div>
                 <div class="restoreFirmwareDiv" style="display:none; padding-top:40px;">
@@ -195,6 +199,16 @@
                     </table>
                     <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device</button></p>
                 </div>
+            </div>
+            <div class="setupStepNotInProduct" style="display:none">
+                <p>The connected device does not appear to be in a product, you are not a team member of the product it
+                    is a member of. You cannot flash product firmware at this time.
+                </p>
+            </div>
+            <div class="setupStepNoProductFirmware" style="display:none">
+                <p>The connected device does not have a firmware version locked, or the product does not have a 
+                    default firmware version. You cannot flash product firmware at this time.
+                </p>
             </div>
             <div class="setupStepAddToProduct" style="display:none">
                 <p>Adding device to product...</p> 
@@ -432,6 +446,10 @@
                     <p><input type="color" class="colorSelector" value="#ff0000"/> &nbsp;
                         <button class="setColorButton">Set Status LED Color</button></p>
                 </div>
+            </div>
+            
+            <div class="setupStepProductDone" style="display:none">
+                <p>Flashing product firmware complete!</p>
             </div>
             <div class="setupStepCloudDone" style="display:none">
                 <p>Flashing cloud debug firmware complete! Monitor the status using the USB serial debug console.</p>

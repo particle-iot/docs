@@ -35,7 +35,7 @@ $(document).ready(function() {
 
         const mode = $(thisElem).data('mode');
 
-        const modes = ['doctor', 'setup', 'restore', 'wifi', 'cloud'];
+        const modes = ['doctor', 'setup', 'restore', 'wifi', 'cloud', 'product'];
 
         // Hide all modes
         for(const m of modes) {
@@ -76,6 +76,7 @@ $(document).ready(function() {
         let deviceModuleInfo;
         let flashDeviceOptions = {};
         let userInfo;
+        let productData; // Used in product mode
 
         let ticketOptions = {
             subject: 'Request from Device Doctor',
@@ -1051,6 +1052,138 @@ $(document).ready(function() {
                     $(thisElem).find('.setupStepCheckDeviceUnknown').show();
                     return;
                 }
+
+                if (mode == 'product') {
+                    // If in product device flashing mode, get device information
+                    productData = {
+                        deviceId: deviceInfo.deviceId,                        
+                    };
+
+                    try {
+                        productData.deviceData = (await apiHelper.particle.getDevice({ deviceId: productData.deviceId, auth: apiHelper.auth.access_token })).body;
+                        
+                        if (productData.deviceData.product_id < 100) {
+                            throw 'not a product device';
+                        }
+
+                        productData.productId = productData.deviceData.product_id;
+
+
+                        productData.productInfo = await new Promise(function(resolve, reject) {
+
+                            let request = {
+                                dataType: 'json',
+                                error: function (jqXHR) {
+                                    reject(jqXHR);
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json'
+                                },
+                                method: 'GET',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve(resp.product);
+                                },
+                                url: 'https://api.particle.io/v1/products/' + productData.productId,
+                            }
+                
+                            $.ajax(request);
+                        });
+                        // productData.productInfo
+                        //      .description
+                        //      .groups (array)
+                        //      .name
+                        //      .platform_id
+                        //      .settings (object)
+                        //      .user
+
+                        productData.productFirmware = await new Promise(function(resolve, reject) {
+
+                            let request = {
+                                dataType: 'json',
+                                error: function (jqXHR) {
+                                    reject(jqXHR);
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json'
+                                },
+                                method: 'GET',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve(resp);
+                                },
+                                url: 'https://api.particle.io/v1/products/' + productData.productId + '/firmware',
+                            }
+                
+                            $.ajax(request);
+                        });
+                        // productData.productFirmware
+                        //      array of objects:
+                        //          app_hash
+                        //          description
+                        //          device_os_version
+                        //          groups
+                        //          name (filename)
+                        //          product_default (boolean)
+                        //          title (display name)
+                        //          size
+                        //          version
+                
+                        for(const firmwareVerObj of productData.productFirmware) {
+                            if (firmwareVerObj.product_default) {
+                                productData.defaultProductFirmwareVersion = firmwareVerObj.version;
+                            }
+                        }
+
+
+                        productData.productDeviceData = (await apiHelper.particle.getDevice({ deviceId: productData.deviceId, product: productData.productId, auth: apiHelper.auth.access_token })).body;
+
+                        productData.productFirmwareVersion = productData.productDeviceData.targeted_firmware_release_version;
+                        if (!productData.productFirmwareVersion) {
+                            if (productData.defaultProductFirmwareVersion) {
+                                productData.productFirmwareVersion = productData.defaultProductFirmwareVersion;
+                                productData.productFirmwareIsDefault = true;
+                            }
+                            else {
+                                throw 'no firmware available';
+                            }
+                        }
+
+
+                        productData.productFirmwareInfo = productData.productFirmware.find(e => e.version == productData.productFirmwareVersion);
+                        // productData.productFirmwareInfo
+                        //      .description
+                        //      .device_os_version
+                        //      .name (filename)
+                        //      .title (display name)
+                        //      .version
+
+
+                        {
+                            const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
+                            productData.productFirmwareBinary = await resp.arrayBuffer();    
+
+                        }
+                                      
+
+                    }
+                    catch(e) {
+                        console.log('exception', e);
+                        console.log('productData', productData);
+                    }
+
+                    if (!productData.productId) {
+                        setSetupStep('setupStepNotInProduct');
+                        return;
+                    }
+                    if (!productData.productFirmwareBinary) {
+                        setSetupStep('setupStepNoProductFirmware');
+                        return;
+                    }
+
+                    console.log('productData', productData);
+
+                }
     
                 if (!usbDevice.isInDfuMode) {
                     // Attempt to get the module info on the device using control requests if not already in DFU mode.
@@ -1409,7 +1542,7 @@ $(document).ready(function() {
         };
 
         const checkAccount  = async function() {
-            if (mode == 'setup' || mode == 'doctor') {
+            if (mode == 'setup' || mode == 'doctor' || mode == 'product') {
                 // Device restore does not need a valid account
                 setSetupStep('setupStepCheckAccount');
 
@@ -2003,6 +2136,7 @@ $(document).ready(function() {
                 if (restoreFirmwareBinary) {
                     userFirmwareBinary = restoreFirmwareBinary;
                 }
+                console.log('flashDeviceInternal', userFirmwareBinary);
 
                 // For restore mode, leave userFirmwareBinary undefined so tinker will be flashed
 
@@ -2133,6 +2267,7 @@ $(document).ready(function() {
 
             
                 if ((flashDeviceOptions.mode == 'doctor' || mode == 'cloud') && !restoreFirmwareBinary) {
+                    // Not done for product mode
                     options.userBackup = true;
                 }
 
@@ -2381,6 +2516,8 @@ $(document).ready(function() {
             const doctorForceVersionElem = $(thisElem).find('.doctorForceVersion');
             const doctorDeviceOsVersionElem = $(thisElem).find('.doctorDeviceOsVersion');
 
+            // Product mode
+
 
             $('.apiHelperProductDestination').each(function() {
                 $(this).data('filterPlatformId', deviceInfo.platformId);
@@ -2432,6 +2569,13 @@ $(document).ready(function() {
 
             let minSysVer;
 
+            if (mode == 'product') {
+                userFirmwareBinary = productData.productFirmwareBinary;    
+
+                const userFirmwareModuleInfo = parseBinaryModuleInfo(userFirmwareBinary);
+                minSysVer = userFirmwareModuleInfo.depModuleVersion;
+            }
+            else
             if (mode == 'doctor' || mode == 'setup' || mode == 'cloud') {
                 // In setup and doctor mode, minimum system version is the version the doctor/setup firmware was 
                 // compiled with
@@ -2474,6 +2618,7 @@ $(document).ready(function() {
                     switch(mode) {
                         case 'doctor':
                         case 'cloud':
+                        case 'product':
                             versionElemForMode = doctorDeviceOsVersionElem;
                             break;
 
@@ -2503,7 +2648,7 @@ $(document).ready(function() {
             };
             
 
-            if (mode == 'doctor' || mode == 'cloud') {
+            if (mode == 'doctor' || mode == 'cloud' || mode == 'product') {
                 $(doctorDeviceOsVersionElem).on('change', showHideSetupBitSelection);    
             }
             else
@@ -2845,7 +2990,7 @@ $(document).ready(function() {
                     flashDeviceOptions.setupBit = 'done';
                 }
                 else {
-                    // mode == doctor || mode == cloud
+                    // mode == doctor || mode == cloud || mode == product
                     setupOptions.ethernet = $(doctorUseEthernetElem).prop('checked');
 
                     if ($(doctorForceVersionElem).prop('checked')) {
@@ -2868,7 +3013,7 @@ $(document).ready(function() {
 
                 hideDeviceFirmwareInfo();
                     
-                if (mode == 'doctor') { // Not done for cloud
+                if (mode == 'doctor') { // Not done for cloud or product
                     checkOwnership();
                 }
 
@@ -2881,6 +3026,11 @@ $(document).ready(function() {
 
                 await flashDevice();
 
+                if (mode == 'product') {
+                    setSetupStep('setupStepProductDone');
+                    gtag('event', 'Product flash complete', {'event_category':gaCategory});    
+                }
+                else
                 if (mode == 'cloud') {
                     setSetupStep('setupStepCloudDone');
                     gtag('event', 'Cloud Debug flash complete', {'event_category':gaCategory});    
