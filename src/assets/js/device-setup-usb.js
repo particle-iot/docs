@@ -2608,7 +2608,7 @@ $(document).ready(function() {
                         ['Product Name', productData.productInfo.name],
                         ['Firmware Release Name', productData.productFirmwareInfo.title],
                         ['Product Firmware Version', productData.productFirmwareVersion],
-                        ['Device OS Version', productData.productFirmwareInfo.version],
+                        ['Device OS Version', apiHelper.systemVersionToSemVer(minSysVer)],
                     ],
                 })
             }
