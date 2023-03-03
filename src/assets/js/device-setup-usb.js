@@ -290,6 +290,23 @@ $(document).ready(function() {
         };
 
 
+        const renderSimpleTable = function(options) {
+            // option.data - array (outer = rows), of arrays (inner = column data)
+            // options.elem - destination tbody element
+
+            for(const rowObj of options.data) {                
+                const rowElem = document.createElement('tr');
+
+                for(const cellData of rowObj) {
+                    const cellElem = document.createElement('td');
+                    $(cellElem).text(cellData);
+                    $(rowElem).append(cellElem);
+                }
+
+                $(options.elem).append(rowElem);
+            }
+        }
+
         const getUserFirmwareBackup = function() {
             let firmwareBackup;
             try {
@@ -1160,12 +1177,19 @@ $(document).ready(function() {
 
 
                         {
-                            const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
-                            productData.productFirmwareBinary = await resp.arrayBuffer();    
-
+                            const resp = await fetch('https://api.particle.io/v1/products/' + productData.productId + '/firmware/' + productData.productFirmwareVersion + '/binary', {
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json',
+                                }
+                            });
+                            const respData = await resp.arrayBuffer();    
+                            
+                            if (respData.byteLength > 100) {
+                                productData.productFirmwareBinary = respData;
+                            }
                         }
-                                      
-
+                 
                     }
                     catch(e) {
                         console.log('exception', e);
@@ -1181,7 +1205,6 @@ $(document).ready(function() {
                         return;
                     }
 
-                    console.log('productData', productData);
 
                 }
     
@@ -1542,8 +1565,9 @@ $(document).ready(function() {
         };
 
         const checkAccount  = async function() {
-            if (mode == 'setup' || mode == 'doctor' || mode == 'product') {
+            if (mode == 'setup' || mode == 'doctor') {
                 // Device restore does not need a valid account
+                // Product flash doesn't care (as much) about the calling user's account so don't check that here
                 setSetupStep('setupStepCheckAccount');
 
                 const showStep = function(step) {
@@ -2136,7 +2160,6 @@ $(document).ready(function() {
                 if (restoreFirmwareBinary) {
                     userFirmwareBinary = restoreFirmwareBinary;
                 }
-                console.log('flashDeviceInternal', userFirmwareBinary);
 
                 // For restore mode, leave userFirmwareBinary undefined so tinker will be flashed
 
@@ -2517,6 +2540,7 @@ $(document).ready(function() {
             const doctorDeviceOsVersionElem = $(thisElem).find('.doctorDeviceOsVersion');
 
             // Product mode
+            const productModeTableBodyElem = $(thisElem).find('.productModeTableBody');
 
 
             $('.apiHelperProductDestination').each(function() {
@@ -2574,6 +2598,19 @@ $(document).ready(function() {
 
                 const userFirmwareModuleInfo = parseBinaryModuleInfo(userFirmwareBinary);
                 minSysVer = userFirmwareModuleInfo.depModuleVersion;
+
+                renderSimpleTable({
+                    elem: productModeTableBodyElem,
+                    data: [
+                        ['Device ID', productData.deviceId],
+                        ['Device Name', productData.deviceData.name],
+                        ['Product ID', productData.productId],
+                        ['Product Name', productData.productInfo.name],
+                        ['Firmware Release Name', productData.productFirmwareInfo.title],
+                        ['Product Firmware Version', productData.productFirmwareVersion],
+                        ['Device OS Version', productData.productFirmwareInfo.version],
+                    ],
+                })
             }
             else
             if (mode == 'doctor' || mode == 'setup' || mode == 'cloud') {
