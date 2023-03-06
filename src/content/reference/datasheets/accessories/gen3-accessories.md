@@ -36,7 +36,7 @@ The main shield consists of a connector to plug in any of the Particle Argon or 
  - 2 I2C ports
  - 1 UART port
 
-The pins on the [Grove connector](http://wiki.seeedstudio.com/Grove_System/) are as follows:
+The pins on the Grove connector are as follows:
 
 | Pin | Color | Digital | Analog | I2C | UART
 | --- | --- | --- | --- | --- | --- |
