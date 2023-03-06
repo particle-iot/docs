@@ -201,7 +201,7 @@ The following features are **not supported**:
 - Captive portals (where you are redirected to a web page to agree to terms of service or enter an authorization code) are not supported. This is common in hotels and corporate public networks.
 - Wi-Fi networks that are 802.11 n only (do not support 802.11 b or g as well) are not supported on the Photon and P1.
 - Special configuration steps are necessary to [set up a Photon or P1 with WEP encryption](http://rickkas7.github.io/wep/). It is possible, but difficult, to set up and is not recommended as WEP is also not secure.
-- Networks without a DHCP server are not supported on the Argon as there is no static IP address support.
+- Wi-Fi Networks without a DHCP server with the Argon, P2, and Photon 2 require Device OS 5.3.0 or later. Earlier versions did not support static IP addresses.
 - IPv6 is not supported.
 
 ## Cloud Services and Firewalls
