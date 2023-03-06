@@ -1,6 +1,6 @@
 {
   "accessories/debugger.md": "cb3b22511fb9afe74b1c517ecc373b06",
-  "accessories/gen3-accessories.md": "6c77b983b3df37220e53971892c12fc1",
+  "accessories/gen3-accessories.md": "9c4cd89551f6ea1f5c9806e89971292e",
   "accessories/legacy-accessories.md": "5c1c70eac184e4245099a75e6f0b9689",
   "accessories/sim-cards.md": "7d13a418cfd7dd09e4dd82d904fefea3",
   "asset-tracking/m8-temperature-humidity.md": "0b2b99825125d06c79e11436a3efc0fe",
@@ -33,7 +33,7 @@
   "e-series/e-series-datasheet.md": "c6f16430c7d42112d0c1319ea706a0fc",
   "e-series/e-series-eval-board.md": "d616350d8711a2163697224d0f884799",
   "e-series/e-series-system-integration-manual.md": "5de80d6e2d1f4625fda51077c497e2bd",
-  "e-series/e404x-certification.md": "15a7eb5a2dc073c4caffedb7416451bd",
+  "e-series/e404x-certification.md": "4b70ac9e85d6ffe306bd679f0123b2c3",
   "e-series/e404x-datasheet.md": "1ab91baa9c603a23f9574074ac1afa46",
   "e-series/electron-datasheet.md": "eb49776414de259c68800b4f4a2847b2",
   "electron/e-series-datasheet.md": "d2bbdd542975030474da198de7789508",
@@ -70,7 +70,7 @@
   "wi-fi/p2-p1-migration-guide.md": "96bffb1323209b76664a00a71d2ff1d8",
   "wi-fi/p2-photon-migration-guide.md": "3c8d3fb39583eae4e2c774fdcc8fd912",
   "wi-fi/photon-2-argon-migration-guide.md": "d8066bcbff652f8049740c3903999301",
-  "wi-fi/photon-2-datasheet.md": "4fadef0351f506b58ea16fca73af79f4",
+  "wi-fi/photon-2-datasheet.md": "c9a2c53ec2a1a4631fc8e04a25da987d",
   "wi-fi/photon-2-photon-migration-guide.md": "97f56bbc70806aef69d9f0ea7f1d08ee",
   "wi-fi/photon-datasheet.md": "50e8326776ec02cffe37c460930dcbe9"
 }

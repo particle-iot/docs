@@ -119,7 +119,7 @@ When the bootloader starts, for a brief period of time a weak pull-up is applied
 
 | Pin   | JTAG   | MCU Pin| Pull at boot |
 | :---: | :----: | :----: | :----------: |
-| D8    | SWDIO  | PA[27] | Pull-up      |
+| D7    | SWDIO  | PA[27] | Pull-up      |
 | D6    | SWCLK  | PB[3]  | Pull-down    |
 | 3V3   | Power  |        |              |
 | GND   | Ground |        |              |
@@ -670,6 +670,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
 |     | 2023-01-31 | RK | Add Device OS versions |
 |     | 2023-02-14 | RK | Updated Photon 2 graphic to fix pin labels |
+|     | 2023-03-06 | RK | SWDIO is D7 not D8 |
 
 ## Known Errata
 
