@@ -11339,6 +11339,8 @@ The [`BlePeerDevice`](#blepeerdevice) object is described below.
 
 The `context` parameter can be used to pass extra data to the callback. It's typically used when you implement the callback in a C++ class to pass the object instance pointer (`this`).
 
+The `onDataReceived()` handler is run from the BLE thread. You should avoid lengthy or blocking operations since it will affect other BLE processing. Additionally, the BLE thread has a stack than the loop thread, so you avoid functions that require a large amount of stack space. To prevent these issues, you should set a flag in the data received handler and perform lengthy or stack-intensive operations from the loop thread instead. For example, you should not call `Particle.publish()`, `WiFi.clearCredentials()`, and many other functions directly from the onDataReceived handler.
+
 {{since when="3.0.0"}}
 
 ```cpp
@@ -11419,6 +11421,9 @@ The data received handler has this prototype.
 ```cpp
 void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context)
 ```
+
+The `onDataReceived()` handler is run from the BLE thread. You should avoid lengthy or blocking operations since it will affect other BLE processing. Additionally, the BLE thread has a stack than the loop thread, so you avoid functions that require a large amount of stack space. To prevent these issues, you should set a flag in the data received handler and perform lengthy or stack-intensive operations from the loop thread instead. For example, you should not call `Particle.publish()`, `WiFi.clearCredentials()`, and many other functions directly from the onDataReceived handler.
+
 
 You typically register your characteristic in `setup()` in peripheral devices:
 
