@@ -165,8 +165,6 @@ The following antenna is optional and can be omitted if you do not wish to use B
 | Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
 
-It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE antenna. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
-
 {{!-- BEGIN shared-blurb 7c41f4d6-9679-493a-aea9-61dfee3c2066 --}}
 General antenna parameters:
 
@@ -1044,3 +1042,4 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 027      | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
 | 028      | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
 | 029      | 2023-01-31 | RK | Add Device OS versions |
+| 030      | 2023-03-07 | RK | Update BLE antenna text |

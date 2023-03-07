@@ -128,8 +128,6 @@ The Argon includes one of these antennas, but a second for use with BLE can be p
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
 |Argon          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
 
-It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE antenna. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
-
 
 ### Peripherals and GPIO
 

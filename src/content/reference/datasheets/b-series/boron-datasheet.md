@@ -148,8 +148,6 @@ The following antenna is optional, as the Boron comes with an on-board chip ante
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
 |Boron          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
 
-It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE antenna. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
-
 **Cellular**
 
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part #    | Gain       |
