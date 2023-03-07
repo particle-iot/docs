@@ -544,6 +544,7 @@
   "/cards/firmware/system-calls/disablereset": "/reference/device-os/api/system-calls/disablereset",
   "/cards/firmware/system-calls/enablereset": "/reference/device-os/api/system-calls/enablereset",
   "/cards/firmware/system-calls/entersafemode": "/reference/device-os/api/system-calls/entersafemode",
+  "/cards/firmware/system-calls/feature_disable_listening_mode": "/reference/device-os/api/system-calls/feature_disable_listening_mode",
   "/cards/firmware/system-calls/freememory": "/reference/device-os/api/system-calls/freememory",
   "/cards/firmware/system-calls/powersource": "/reference/device-os/api/system-calls/powersource",
   "/cards/firmware/system-calls/reset": "/reference/device-os/api/system-calls/reset",
