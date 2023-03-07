@@ -2662,7 +2662,7 @@ Defines the static IP addresses used by the system to connect to the network whe
 
 This API is only available for the Photon and P1 (Gen 2). 
 
-On the Argon, P2, and Photon 2, static IP addressing requires Device OS 5.3.0 or later. See [`NetworkInterfaceConfig`](#networkinterfaceconfig).
+On the Argon, P2, and Photon 2, static IP addressing requires Device OS 5.3.0 or later and uses a different API. See [`NetworkInterfaceConfig`](#networkinterfaceconfig).
 
 ```cpp
 // SYNTAX
@@ -2695,7 +2695,7 @@ The setting is persistent and is remembered until `WiFi.useDynamicIP()` is calle
 
 This API is only available for the Photon and P1 (Gen 2). 
 
-On the Argon, P2, and Photon 2, static IP addressing requires Device OS 5.3.0 or later. See [`NetworkInterfaceConfig`](#networkinterfaceconfig).
+On the Argon, P2, and Photon 2, static IP addressing requires Device OS 5.3.0 or later and uses a different API. See [`NetworkInterfaceConfig`](#networkinterfaceconfig).
 
 ### useDynamicIP()
 
@@ -2710,7 +2710,7 @@ is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 This API is only available for the Photon and P1 (Gen 2). 
 
-On the Argon, P2, and Photon 2, static IP addressing requires Device OS 5.3.0 or later. See [`NetworkInterfaceConfig`](#networkinterfaceconfig).
+On the Argon, P2, and Photon 2, static IP addressing requires Device OS 5.3.0 or later and uses a different API. See [`NetworkInterfaceConfig`](#networkinterfaceconfig).
 
 ### setHostname()
 
@@ -3440,7 +3440,7 @@ Sets the gateway IP address when using static IP addressing. The setting is pers
 
 Even though the parameter is a `SockAddr`, you can initialize the gateway address as if it were an `IPAddress`.
 
-Note that the syntax `{192,168,1,20}` uses commas, not the more typical period or dot, because this is a C++ initializer, not a string.
+Note that the syntax `{192,168,1,1}` uses commas, not the more typical period or dot, because this is a C++ initializer, not a string.
 
 When using Ethernet, if the link is active and the gateway is reachable, by default the Ethernet interface is the default route, including for the cloud connection, even if the Ethernet LAN is not connected to the Internet (isolated LAN). To prevent this behavior with Device OS 5.3.0 and later, set the gateway to `{0,0,0,0}` which will prevent the Ethernet interface from being used to access the Internet, including the Particle cloud. This can be done for both static and DHCP addressing. You can still access hosts on the Ethernet local LAN by TCP or UDP. You might do this for an isolated LAN that has Modbus TCP devices on it, for example.
 
