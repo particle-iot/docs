@@ -23287,6 +23287,128 @@ Parameters:
 
   * level : logging level
 
+## Device identifiers
+
+### Device ID
+
+Every Particle device has a unique 24-character hexadecimal identifier known as the Device ID. This never changes for each device, and is the recommended method of uniquely identifying a device.
+
+In device firmware, use `System.deviceID()` to return a `String` object that contains the Device ID. This is always 24 characters, and the hex letter a-f are always lowercase.
+
+In a webhook, `\{{{PARTICLE_DEVICE_ID}}}` is the Device ID of the source of the event.
+
+Most Particle cloud API calls that directly reference a device use the Device ID as the default method of identifying a device. For example, to [get device information](/reference/cloud-apis/api/#get-device-information):
+
+```
+GET /v1/devices/:deviceId
+```
+
+### Serial number
+
+All recent Particle devices have a serial number. This is printed on a sticker attached to the device, and is generally also on a sticker on the outside of the box. 
+
+The serial number is useful for onboarding a new device, but we do not recommend using the serial number as a unique identifier in your database. The reason is that the API to look up a device by its serial number is rate limited for security reasons. To avoid using this API, you need to list all devices in your product, which is not particularly efficient either.
+
+To get the serial number from user firmware:
+
+```cpp
+char serial[HAL_DEVICE_SERIAL_NUMBER_SIZE + 1] = {0};
+int ret = hal_get_device_serial_number(serial, HAL_DEVICE_SERIAL_NUMBER_SIZE, nullptr);
+if (ret == SYSTEM_ERROR_NONE) {
+  // Success
+}
+```
+
+`HAL_DEVICE_SERIAL_NUMBER_SIZE` is currently 15. Note that `serial` is not null terminated by `hal_get_device_serial_number` but is by the example code by making the buffer 1 byte larger and zero initializing it.
+
+The serial number is available by the Particle cloud API [get device information](/reference/cloud-apis/api/#get-device-information) in the `serial_number` field. 
+
+### Data matrix sticker
+
+The serial number sticker contains a data matrix code (like a QR code). This encodes the following:
+
+- Serial number
+- A space character
+- The mobile secret
+
+For devices without BLE capabilities (Gen 2 devices), the data matrix only contains the serial number.
+
+Note that older Photon, P1, Electron, and E Series modules do not have a serial number sticker. Older Electron an E Series with a "u-blox" sticker have the IMEI encoded in a 2D barcord. P0 modules (including the Photon) have an USI manufacturing code which is not easily mapped to any Particle identifier.
+
+### ICCID
+
+Every cellular device has an ICCID. For devices with a SMD Particle SIM, this is constant. For devices with an external SIM card (Electron), the ICCID depends on the SIM card. For devices that have a selectable SIM (Boron), the ICCID will depend on whether the internal or external SIM is selected, and which SIM is present if external is selected.
+
+The ICCID can be queried by using `Cellular.command()` but there isn't a convenient method in the `Cellular` class so using it is not as convenient.
+
+Since the ICCID has this variability, and is not present on Wi-Fi devices, it's not recommended as a unique identifier.
+
+The ICCID is available by the Particle cloud API [get device information](/reference/cloud-apis/api/#get-device-information) in the `iccid` field. This is the last ICCID used to connect to the Particle cloud from this Device ID.
+
+### IMEI
+
+Every cellular device has an IMEI, which is unique for device and stored in the modem chip (not the SIM). This will likely only come into play when using the device in a country that requires mobile device registraetion. Often, mobile device registration is tied to the IMEI because it does not depend on which SIM card is used.
+
+The IMEI can be queried by using `Cellular.command()` but there isn't a convenient method in the `Cellular` class so using it is not as convenient.
+
+### IMSI
+
+Every cellular device also has an IMSI. Every ICCID also has an IMSI, however EtherSIM devices may have multiple IMSI, which change at runtime depending on what network you have connected to.
+
+### Mobile secret
+
+As mentioned above under Data matrix sticker, every Particle device with BLE capabilities also has a mobile secret. This is to make sure the communication between a mobile app and the device over BLE is secure. This is used as part of the handshake process to prevent a nearby BLE device from being able to sniff or spoof communications. In classroom or hackathon situations where there are a large number of devices in close proximity, the combination of the serial number sticker and mobile secret also assures that he user configures the correct device.
+
+The mobile secret is 15 ASCII characters in length (`HAL_DEVICE_SECRET_SIZE`).
+
+To get the mobile secret from device firmware:
+
+To get the serial number from user firmware:
+
+```cpp
+char mobileSecret[HAL_DEVICE_SECRET_SIZE + 1] = {0};
+int ret = hal_get_device_secret(mobileSecret, HAL_DEVICE_SECRET_SIZE, nullptr);
+if (ret == SYSTEM_ERROR_NONE) {
+  // Success
+}
+```
+
+`HAL_DEVICE_SECRET_SIZE` is currently 15. Note that `mobileSecret` is not null terminated by `hal_get_device_secret` but is by the example code by making the buffer 1 byte larger and zero initializing it.
+
+
+You can override the mobile secret. One reason you would do this is to hardcode the same mobile secret across your whole product to simplify the BLE provisioning process by eliminating the need to scan a device-specific mobile secret. This will reduce the security of the BLE setup process, but may be an acceptable tradeoff in some circumstances. If you override the mobile secret you will not be able to use the Particle mobile apps or other tools designed to use the mobile secret encoded in the data matrix sticker.
+
+```cpp
+// Override the mobile secret used for BLE provisioning
+char arr[HAL_DEVICE_SECRET_SIZE] = {};
+memcpy(arr, "0123456789abcde", HAL_DEVICE_SECRET_SIZE);
+hal_set_device_secret(arr, sizeof(arr), nullptr);
+```
+
+To restore the default mobile secret:
+
+```cpp
+// Restore the default mobile secret (on the sticker)
+hal_clear_device_secret(nullptr);
+```
+
+The mobile secret is available by the Particle cloud API [get device information](/reference/cloud-apis/api/#get-device-information) in the `mobile_secret` field. Overriding the mobile secret locally using `hal_set_device_secret` does not affect the value stored in the cloud.
+
+### Device name
+
+We do not recommend using the device name as an identifier. Most API calls cannot efficiently use a device name, and device names are only guaranteed to be unique across a single claimed user account. When used in a product, device names are not guaranteed to be unique.
+
+The device name is available by the Particle cloud API [get device information](/reference/cloud-apis/api/#get-device-information) in the `name` field. You both get and set the name.
+
+### MAC address
+
+Wi-Fi devices also have a MAC address (6-octet, typically displayed as hex). This is unique but since it's not available on cellular devices and not convenient to use, it's generally not recommended as a unique identifier. Additionally, devices connecting by Ethernet will have a different MAC address on the Ethernet LAN. There is also a BLE MAC.
+
+From user firmware, use `WiFi.macAddress()` to get the Wi-Fi MAC address.
+
+The MAC address is available by the Particle cloud API [get device information](/reference/cloud-apis/api/#get-device-information) in the `mac_wifi` field. 
+
+
 ## Global Object Constructors
 
 It can be convenient to use C++ objects as global variables. You must be careful about what you do in the constructor, however.
