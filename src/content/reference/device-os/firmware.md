@@ -11001,7 +11001,7 @@ struct BlePairingStatus {
 
 {{since when="3.3.0"}}
 
-Sets the provisioning service UUID. This is typically only done when using BLE provisioning mode with a product. This allows your mobile app to only find Particle devices running your product firmware and not random Particle developer kits. Conversely, changing the service UUIDs will make your device invisible to the Particle mobile app or other vendor's custom mobile apps.
+Sets the provisioning service UUID. This is typically only done when using [BLE provisioning mode](#ble-provisioningmode) with a product. This allows your mobile app to only find Particle devices running your product firmware and not random Particle developer kits. Conversely, changing the service UUIDs will make your device invisible to the Particle mobile app or other vendor's custom mobile apps.
 
 You should generate your own unique UUID when using this method. There is no need to register these, as they are sufficiently long to guarantee that every UUID is unique.
 
@@ -11026,11 +11026,11 @@ BLE.setProvisioningSvcUuid("6E400021-B5A3-F393-E0A9-E50E24DCCA9E");
 
 {{since when="3.3.0"}}
 
-Sets the provisioning service transmit characteristic UUID. This is typically only done when using BLE provisioning mode with a product. This allows your mobile app to only find Particle devices running your product firmware and not random Particle developer kits. Conversely, changing the service UUIDs will make your device invisible to the Particle mobile app or other vendor's custom mobile apps.
+Sets the provisioning service transmit characteristic UUID. This is typically only done when using [BLE provisioning mode](#ble-provisioningmode) with a product. This allows your mobile app to only find Particle devices running your product firmware and not random Particle developer kits. Conversely, changing the service UUIDs will make your device invisible to the Particle mobile app or other vendor's custom mobile apps.
 
 You should generate your own unique UUID when using this method. There is no need to register these, as they are sufficiently long to guarantee that every UUID is unique.
 
-The `T` parameter is any type that can be passed to the `BleUuid` constructor. It's typically a UUID string but other formats are supported.
+The `T` parameter is any type that can be passed to the [`BleUuid`](#bleuuid) constructor. It's typically a UUID string but other formats are supported.
 
 You must call this before BLE setup is started. For listening mode, this is often in STARTUP(), however when using `FEATURE_DISABLE_LISTENING_MODE` and BLE provisioning mode, this can be in setup() before calling `BLE.provisioningMode(true)`.
 
@@ -11055,7 +11055,7 @@ Sets the provisioning service receive characteristic UUID. This is typically onl
 
 You should generate your own unique UUID when using this method. There is no need to register these, as they are sufficiently long to guarantee that every UUID is unique.
 
-The `T` parameter is any type that can be passed to the `BleUuid` constructor. It's typically a UUID string but other formats are supported.
+The `T` parameter is any type that can be passed to the [`BleUuid`](#bleuuid) constructor. It's typically a UUID string but other formats are supported.
 
 You must call this before BLE setup is started. For listening mode, this is often in STARTUP(), however when using `FEATURE_DISABLE_LISTENING_MODE` and BLE provisioning mode, this can be in setup() before calling `BLE.provisioningMode(true)`.
 
@@ -11075,11 +11075,11 @@ BLE.setProvisioningRxUuid("6E400023-B5A3-F393-E0A9-E50E24DCCA9E");
 
 {{since when="3.3.0"}}
 
-Sets the provisioning service version characteristic UUID. This is typically only done when using BLE provisioning mode with a product. This allows your mobile app to only find Particle devices running your product firmware and not random Particle developer kits. Conversely, changing the service UUIDs will make your device invisible to the Particle mobile app or other vendor's custom mobile apps.
+Sets the provisioning service version characteristic UUID. This is typically only done when using [BLE provisioning mode](#ble-provisioningmode) with a product. This allows your mobile app to only find Particle devices running your product firmware and not random Particle developer kits. Conversely, changing the service UUIDs will make your device invisible to the Particle mobile app or other vendor's custom mobile apps.
 
 You should generate your own unique UUID when using this method. There is no need to register these, as they are sufficiently long to guarantee that every UUID is unique.
 
-The `T` parameter is any type that can be passed to the `BleUuid` constructor. It's typically a UUID string but other formats are supported.
+The `T` parameter is any type that can be passed to the [`BleUuid`](#bleuuid) constructor. It's typically a UUID string but other formats are supported.
 
 You must call this before BLE setup is started. For listening mode, this is often in STARTUP(), however when using `FEATURE_DISABLE_LISTENING_MODE` and BLE provisioning mode, this can be in setup() before calling `BLE.provisioningMode(true)`.
 
@@ -11098,11 +11098,13 @@ BLE.setProvisioningVerUuid("6E400024-B5A3-F393-E0A9-E50E24DCCA9E");
 
 {{since when="3.3.0"}}
 
-Sets the provisioning mode BLE device name. This is typically only done when using BLE provisioning mode with a product. This will likely be displayed in the user interface of your mobile app, so you may want to replace the default of "ARGON" or "P2".
+Sets the provisioning mode BLE device name. This is typically only done when using [BLE provisioning mode](#ble-provisioningmode) with a product. This will likely be displayed in the user interface of your mobile app, so you may want to replace the default of "ARGON" or "P2".
 
 Note that your mobile app will typically filter on the service UUID, not the name.
 
 You must call this before BLE setup is started. For listening mode, this is often in STARTUP(), however when using `FEATURE_DISABLE_LISTENING_MODE` and BLE provisioning mode, this can be in setup() before calling `BLE.provisioningMode(true)`.
+
+The maximum name length is `BLE_MAX_DEV_NAME_LEN`, or 20 ASCII characters. 
 
 ```cpp
 // PROTOTYPES
@@ -11169,12 +11171,16 @@ int provisioningMode(bool enabled) const;
 BLE.provisioningMode(true);
 ```
 
+Be sure to set all desired parameters, such as [service UUIDs](#ble-setprovisioningsvcuuid) before enabling provisioning mode.
+
 Since listening mode and BLE provisioning mode are mutually exclusive and listening mode takes precedence, if you are using BLE provisioning mode you will typically want to disable listening mode:
 
 ```cpp
 // Disable listening mode when using BLE provisioning mode
 STARTUP(System.enableFeature(FEATURE_DISABLE_LISTENING_MODE));
 ```
+
+Since BLE provisioning mode can run concurrently with your firmware while cloud connected, you do not need to disable it after setting Wi-Fi credentials. This also means your end-users will be able to reconfigure Wi-Fi credentials without having to press the MODE button, which may eliminate the need for an external button in your product.
 
 ### BLEScanFilter
 
@@ -23333,7 +23339,7 @@ The serial number sticker contains a data matrix code (like a QR code). This enc
 
 For devices without BLE capabilities (Gen 2 devices), the data matrix only contains the serial number.
 
-Note that older Photon, P1, Electron, and E Series modules do not have a serial number sticker. Older Electron an E Series with a "u-blox" sticker have the IMEI encoded in a 2D barcord. P0 modules (including the Photon) have an USI manufacturing code which is not easily mapped to any Particle identifier.
+Note that older Photon, P1, Electron, and E Series modules do not have a serial number sticker. Older Electron an E Series with a "u-blox" sticker have the IMEI encoded in a 2D barcode. P0 modules (including the Photon) have an USI manufacturing code which is not easily mapped to any Particle identifier.
 
 ### ICCID
 
@@ -23347,7 +23353,7 @@ The ICCID is available by the Particle cloud API [get device information](/refer
 
 ### IMEI
 
-Every cellular device has an IMEI, which is unique for device and stored in the modem chip (not the SIM). This will likely only come into play when using the device in a country that requires mobile device registraetion. Often, mobile device registration is tied to the IMEI because it does not depend on which SIM card is used.
+Every cellular device has an IMEI, which is unique for device and stored in the modem chip (not the SIM). This will likely only come into play when using the device in a country that requires mobile device registration. Often, mobile device registration is tied to the IMEI because it does not depend on which SIM card is used.
 
 The IMEI can be queried by using `Cellular.command()` but there isn't a convenient method in the `Cellular` class so using it is not as convenient.
 
@@ -23362,8 +23368,6 @@ As mentioned above under Data matrix sticker, every Particle device with BLE cap
 The mobile secret is 15 ASCII characters in length (`HAL_DEVICE_SECRET_SIZE`).
 
 To get the mobile secret from device firmware:
-
-To get the serial number from user firmware:
 
 ```cpp
 char mobileSecret[HAL_DEVICE_SECRET_SIZE + 1] = {0};
