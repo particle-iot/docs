@@ -1901,6 +1901,7 @@
   "/photon/start": "/quickstart/photon",
   "/photon/tinker": "/archives/tinker",
   "/photon/webhooks": "/tutorials/device-os/webhooks",
+  "/po": "/troubleshooting/troubleshooting/?p=227",
   "/quickstart": "/quickstart/boron",
   "/quickstart/button": "/reference/discontinued/hardware/button",
   "/quickstart/ethernet": "/hardware/ethernet/ethernet",
