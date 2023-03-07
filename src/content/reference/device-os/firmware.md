@@ -1619,6 +1619,40 @@ This function will return `true` once the device is connected to the network and
 Ethernet.ready();
 ```
 
+### setConfig() [Ethernet]
+
+{{api name1="Ethernet.setConfig"}}
+
+{{since when="5.3.0"}}
+
+Set a [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Ethernet interface on the Argon, P2, and Photon 2 running Device OS 5.3.0 or later. This is used to set a static IP address or restore DHCP addressing (the default).
+
+```cpp
+// PROTOTYPE
+int setConfig(const particle::NetworkInterfaceConfig& conf);
+
+// EXAMPLE
+Ethernet.setConfig(NetworkInterfaceConfig()
+  .source(NetworkInterfaceConfigSource::STATIC);
+  .address({192,168,1,20}, {255,255,255,0})
+  .gateway({192,168,1,1})
+  .dns({192,168,1,1});
+```
+
+### getConfig() [Ethernet]
+
+{{api name1="Ethernet.getConfig"}}
+
+{{since when="5.3.0"}}
+
+Get the current [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Ethernet interface on the Argon, P2, and Photon 2 running Device OS 5.3.0 or later.
+
+```cpp
+// PROTOTYPE
+particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
+```
+
+
 ### listen()
 
 {{api name1="Ethernet.listen"}}
@@ -1877,6 +1911,39 @@ This function will return `true` once the device is connected to the network and
 ```cpp
 // SYNTAX
 WiFi.ready();
+```
+
+### setConfig() [WiFi]
+
+{{api name1="WiFi.setConfig"}}
+
+{{since when="5.3.0"}}
+
+Set a [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Wi-Fi interface on the Argon, P2, and Photon 2 running Device OS 5.3.0 or later. This is used to set a static IP address or restore DHCP addressing (the default).
+
+```cpp
+// PROTOTYPE
+int setConfig(const particle::NetworkInterfaceConfig& conf);
+
+// EXAMPLE
+WiFi.setConfig(NetworkInterfaceConfig()
+  .source(NetworkInterfaceConfigSource::STATIC);
+  .address({192,168,1,20}, {255,255,255,0})
+  .gateway({192,168,1,1})
+  .dns({192,168,1,1});
+```
+
+### getConfig() [WiFi]
+
+{{api name1="WiFi.getConfig"}}
+
+{{since when="5.3.0"}}
+
+Get the current [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Wi-Fi interface on the Argon, P2, and Photon 2 running Device OS 5.3.0 or later.
+
+```cpp
+// PROTOTYPE
+particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
 ```
 
 ### selectAntenna() [Antenna]
@@ -2584,6 +2651,7 @@ the IP address used by the device's network connection.
 Note that for this value to be available requires calling `Particle.process()` after Wi-Fi
 has connected.
 
+This API is only used for Gen 2 devices (Photon and P1). 
 
 
 ### setStaticIP()
@@ -2592,8 +2660,9 @@ has connected.
 
 Defines the static IP addresses used by the system to connect to the network when static IP is activated.
 
-Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3), P2, or Photon 2.
+This API is only available for the Photon and P1 (Gen 2). 
+
+On the Argon, P2, and Photon 2, static IP addressing requires Device OS 5.3.0 or later and uses a different API. See [`NetworkInterfaceConfig`](#networkinterfaceconfig).
 
 ```cpp
 // SYNTAX
@@ -2624,8 +2693,9 @@ Instructs the system to connect to the network using the IP addresses provided t
 
 The setting is persistent and is remembered until `WiFi.useDynamicIP()` is called.
 
-Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3), P2, or Photon 2.
+This API is only available for the Photon and P1 (Gen 2). 
+
+On the Argon, P2, and Photon 2, static IP addressing requires Device OS 5.3.0 or later and uses a different API. See [`NetworkInterfaceConfig`](#networkinterfaceconfig).
 
 ### useDynamicIP()
 
@@ -2638,8 +2708,9 @@ A note on switching between static and dynamic IP. If static IP addresses have b
 by the system after calling `WiFi.useDynamicIP()`, and so are available for use next time `WiFi.useStaticIP()`
 is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
-Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3), P2, or Photon 2.
+This API is only available for the Photon and P1 (Gen 2). 
+
+On the Argon, P2, and Photon 2, static IP addressing requires Device OS 5.3.0 or later and uses a different API. See [`NetworkInterfaceConfig`](#networkinterfaceconfig).
 
 ### setHostname()
 
@@ -3189,6 +3260,40 @@ This function will return `true` once the device is connected to the network. Ot
 Network.ready();
 ```
 
+### setConfig() [Network]
+
+{{api name1="Network.setConfig"}}
+
+{{since when="5.3.0"}}
+
+Set a [`NetworkInterfaceConfig`](#networkinterfaceconfig) for a generic network interface on the Argon, P2, and Photon 2 running Device OS 5.3.0 or later. This can be used with Ethernet and WiFi. This is used to set a static IP address or restore DHCP addressing (the default).
+
+```cpp
+// PROTOTYPE
+int setConfig(const particle::NetworkInterfaceConfig& conf);
+
+// EXAMPLE
+Network.setConfig(NetworkInterfaceConfig()
+  .source(NetworkInterfaceConfigSource::STATIC);
+  .address({192,168,1,20}, {255,255,255,0})
+  .gateway({192,168,1,1})
+  .dns({192,168,1,1});
+```
+
+### getConfig() [Network]
+
+{{api name1="Network.getConfig"}}
+
+{{since when="5.3.0"}}
+
+Get the current [`NetworkInterfaceConfig`](#networkinterfaceconfig) for a generic network interface interface on the Argon, P2, and Photon 2 running Device OS 5.3.0 or later. This can be used with Ethernet and WiFi.
+
+```cpp
+// PROTOTYPE
+particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
+```
+
+
 ### listen() [Network]
 
 {{api name1="Network.listen"}}
@@ -3277,6 +3382,111 @@ uint16_t seconds = Network.getListenTimeout();
 
 `Network.getListenTimeout()` is used to get the timeout value currently set for Listening Mode. Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled. This function is rarely needed.
 
+
+### NetworkInterfaceConfig
+
+{{api name1="NetworkInterfaceConfig"}}
+
+{{since when="5.3.0"}}
+
+With Device OS 5.3.0 and later, this class is used to hold a configuration for network interface addresses, typically to enable static IP addressing for Ethernet or Wi-Fi instead of using DHCP.
+
+#### NetworkInterfaceConfig::source
+
+{{api name1="NetworkInterfaceConfig::source"}}
+
+Sets the network interface to DHCP (the default), or static IP addressing. The setting is persistent and saved in the flash file system.
+
+- `NetworkInterfaceConfigSource::DHCP`
+- `NetworkInterfaceConfigSource::STATIC`
+
+```cpp
+// PROTOTYPES
+NetworkInterfaceConfig& source(NetworkInterfaceConfigSource source, int family = AF_INET);
+NetworkInterfaceConfigSource source(int family = AF_INET) const;
+
+// EXAMPLE - Restore DHCP addressing for Ethernet
+Ethernet.setConfig(NetworkInterfaceConfig()
+  .source(NetworkInterfaceConfigSource::DHCP);
+```    
+
+#### NetworkInterfaceConfig::address
+
+{{api name1="NetworkInterfaceConfig::address"}}
+
+Sets the IP address when using static IP addressing. The setting is persistent and saved in the flash file system.
+
+Typically you use the last overload which takes two `IPAddress` class references, one for the address and one for the subnet mask.
+
+Note that the syntax `{192,168,1,20}` uses commas, not the more typical period or dot, because this is a C++ initializer, not a string.
+
+```cpp
+// PROTOTYPES
+NetworkInterfaceConfig& address(const NetworkInterfaceAddress& addr);
+NetworkInterfaceConfig& address(SockAddr addr, SockAddr mask);
+NetworkInterfaceConfig& address(IPAddress addr, IPAddress mask);
+
+// EXAMPLE
+Ethernet.setConfig(NetworkInterfaceConfig()
+  .source(NetworkInterfaceConfigSource::STATIC)
+  .address({192,168,1,20}, {255,255,255,0});
+```
+
+#### NetworkInterfaceConfig::gateway
+
+{{api name1="NetworkInterfaceConfig::gateway"}}
+
+Sets the gateway IP address when using static IP addressing. The setting is persistent and saved in the flash file system.
+
+Even though the parameter is a `SockAddr`, you can initialize the gateway address as if it were an `IPAddress`.
+
+Note that the syntax `{192,168,1,1}` uses commas, not the more typical period or dot, because this is a C++ initializer, not a string.
+
+When using Ethernet, if the link is active and the gateway is reachable, by default the Ethernet interface is the default route, including for the cloud connection, even if the Ethernet LAN is not connected to the Internet (isolated LAN). To prevent this behavior with Device OS 5.3.0 and later, set the gateway to `{0,0,0,0}` which will prevent the Ethernet interface from being used to access the Internet, including the Particle cloud. This can be done for both static and DHCP addressing. You can still access hosts on the Ethernet local LAN by TCP or UDP. You might do this for an isolated LAN that has Modbus TCP devices on it, for example.
+
+```cpp
+// PROTOTYPES
+NetworkInterfaceConfig& gateway(SockAddr addr);
+SockAddr gateway(int family = AF_INET) const;
+
+// EXAMPLE
+Ethernet.setConfig(NetworkInterfaceConfig()
+  .source(NetworkInterfaceConfigSource::STATIC);
+  .address({192,168,1,20}, {255,255,255,0})
+  .gateway({192,168,1,1});
+
+// EXAMPLE - Ethernet is isolated, do not use for Internet or cloud access
+Ethernet.setConfig(NetworkInterfaceConfig()
+  .source(NetworkInterfaceConfigSource::STATIC);
+  .address({192,168,1,20}, {255,255,255,0})
+  .gateway({0,0,0,0});
+
+// EXAMPLE - Ethernet is isolated, do not use for Internet or cloud access but does have a DHCP server
+Ethernet.setConfig(NetworkInterfaceConfig()
+  .source(NetworkInterfaceConfigSource::DHCP)
+  .gateway({0,0,0,0});
+```
+
+#### NetworkInterfaceConfig::dns
+
+{{api name1="NetworkInterfaceConfig::gateway"}}
+
+Sets the DNS server address. The setting is persistent and saved in the flash file system. You can set multiple DNS server addresses if desired.
+
+Even though the parameter is a `SockAddr`, you can initialize the gateway address as if it were an `IPAddress`.
+
+```cpp
+// PROTOTYPE
+NetworkInterfaceConfig& dns(SockAddr dns);
+
+// EXAMPLE
+Ethernet.setConfig(NetworkInterfaceConfig()
+  .source(NetworkInterfaceConfigSource::STATIC);
+  .address({192,168,1,20}, {255,255,255,0})
+  .gateway({192,168,1,1})
+  .dns({192,168,1,1})
+  .dns({8,8,8,8});
+```
 
 ## SoftAP HTTP Pages
 

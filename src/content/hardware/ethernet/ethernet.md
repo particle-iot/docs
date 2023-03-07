@@ -70,7 +70,7 @@ If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESE
 
 - Device OS has limited fallback support for switching between network layers, described in detail below.
 
-- Ethernet requires a DHCP server on the network. It cannot be used with a static IP address.
+- Ethernet networks without a DHCP server require Device OS 5.3.0 or later. Earlier versions did not support static IP addresses.
 
 - There is no support for Ethernet on Gen 2 devices (Photon, P1, Electron, E Series). There is not enough room for it on the Photon and P1, and the Electron/E Series TCP/IP stack is completely different and incompatible and difficult to port to, and there is not enough space for it.
 
@@ -85,6 +85,10 @@ This has two consequences:
 - If the Ethernet LAN is normally connected to the Internet, it's not possible to fall back to cellular if this Internet connection goes down. This is possible to implement using a 3rd-party library in your application in the following section, however.
 
 - It is possible to manually switch from Ethernet to cellular by disconnecting the Ethernet interface in software, which is how the library below manages this.
+
+There is one important exception:
+
+With Device OS 5.3.0 and later, setting the gateway address to 0.0.0.0 will still allow communication with devices on the Ethernet LAN, but will not use the Ethernet for Internet and cloud access. This can be useful with the Boron to use the Boron for cloud access while still accessing devices on an isolated Ethernet LAN, which as for Modbus TCP control networks. This can be done for both DHCP and Static IP addressing mode.
 
 ### Ethernet with cellular fallback
 
