@@ -10995,6 +10995,193 @@ struct BlePairingStatus {
 };
 ```
 
+#### BLE.setProvisioningSvcUuid
+
+{{api name1="BLE.setProvisioningSvcUuid"}}
+
+{{since when="3.3.0"}}
+
+Sets the provisioning service UUID. This is typically only done when using [BLE provisioning mode](#ble-provisioningmode) with a product. This allows your mobile app to only find Particle devices running your product firmware and not random Particle developer kits. Conversely, changing the service UUIDs will make your device invisible to the Particle mobile app or other vendor's custom mobile apps.
+
+You should generate your own unique UUID when using this method. There is no need to register these, as they are sufficiently long to guarantee that every UUID is unique.
+
+The `T` parameter is any type that can be passed to the `BleUuid` constructor. It's typically a UUID string but other formats are supported.
+
+You must call this before BLE setup is started. For listening mode, this is often in STARTUP(), however when using `FEATURE_DISABLE_LISTENING_MODE` and BLE provisioning mode, this can be in setup() before calling `BLE.provisioningMode(true)`.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+int setProvisioningSvcUuid(T svcUuid) const
+
+// EXAMPLE
+BLE.setProvisioningSvcUuid("6E400021-B5A3-F393-E0A9-E50E24DCCA9E");
+```
+
+
+
+#### BLE.setProvisioningTxUuid
+
+{{api name1="BLE.setProvisioningTxUuid"}}
+
+{{since when="3.3.0"}}
+
+Sets the provisioning service transmit characteristic UUID. This is typically only done when using [BLE provisioning mode](#ble-provisioningmode) with a product. This allows your mobile app to only find Particle devices running your product firmware and not random Particle developer kits. Conversely, changing the service UUIDs will make your device invisible to the Particle mobile app or other vendor's custom mobile apps.
+
+You should generate your own unique UUID when using this method. There is no need to register these, as they are sufficiently long to guarantee that every UUID is unique.
+
+The `T` parameter is any type that can be passed to the [`BleUuid`](#bleuuid) constructor. It's typically a UUID string but other formats are supported.
+
+You must call this before BLE setup is started. For listening mode, this is often in STARTUP(), however when using `FEATURE_DISABLE_LISTENING_MODE` and BLE provisioning mode, this can be in setup() before calling `BLE.provisioningMode(true)`.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+int setProvisioningTxUuid(T svcUuid) const
+
+// EXAMPLE
+BLE.setProvisioningTxUuid("6E400022-B5A3-F393-E0A9-E50E24DCCA9E");
+```
+
+
+
+#### BLE.setProvisioningRxUuid
+
+{{api name1="BLE.setProvisioningRxUuid"}}
+
+{{since when="3.3.0"}}
+
+Sets the provisioning service receive characteristic UUID. This is typically only done when using BLE provisioning mode with a product. This allows your mobile app to only find Particle devices running your product firmware and not random Particle developer kits. Conversely, changing the service UUIDs will make your device invisible to the Particle mobile app or other vendor's custom mobile apps.
+
+You should generate your own unique UUID when using this method. There is no need to register these, as they are sufficiently long to guarantee that every UUID is unique.
+
+The `T` parameter is any type that can be passed to the [`BleUuid`](#bleuuid) constructor. It's typically a UUID string but other formats are supported.
+
+You must call this before BLE setup is started. For listening mode, this is often in STARTUP(), however when using `FEATURE_DISABLE_LISTENING_MODE` and BLE provisioning mode, this can be in setup() before calling `BLE.provisioningMode(true)`.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+int setProvisioningRxUuid(T svcUuid) const
+
+// EXAMPLE
+BLE.setProvisioningRxUuid("6E400023-B5A3-F393-E0A9-E50E24DCCA9E");
+```
+
+
+#### BLE.setProvisioningVerUuid
+
+{{api name1="BLE.setProvisioningVerUuid"}}
+
+{{since when="3.3.0"}}
+
+Sets the provisioning service version characteristic UUID. This is typically only done when using [BLE provisioning mode](#ble-provisioningmode) with a product. This allows your mobile app to only find Particle devices running your product firmware and not random Particle developer kits. Conversely, changing the service UUIDs will make your device invisible to the Particle mobile app or other vendor's custom mobile apps.
+
+You should generate your own unique UUID when using this method. There is no need to register these, as they are sufficiently long to guarantee that every UUID is unique.
+
+The `T` parameter is any type that can be passed to the [`BleUuid`](#bleuuid) constructor. It's typically a UUID string but other formats are supported.
+
+You must call this before BLE setup is started. For listening mode, this is often in STARTUP(), however when using `FEATURE_DISABLE_LISTENING_MODE` and BLE provisioning mode, this can be in setup() before calling `BLE.provisioningMode(true)`.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+int setProvisioningVerUuid(T svcUuid) const
+
+// EXAMPLE
+BLE.setProvisioningVerUuid("6E400024-B5A3-F393-E0A9-E50E24DCCA9E");
+```
+
+#### BLE.setDeviceName 
+
+{{api name1="BLE.setDeviceName"}}
+
+{{since when="3.3.0"}}
+
+Sets the provisioning mode BLE device name. This is typically only done when using [BLE provisioning mode](#ble-provisioningmode) with a product. This will likely be displayed in the user interface of your mobile app, so you may want to replace the default of "ARGON" or "P2".
+
+Note that your mobile app will typically filter on the service UUID, not the name.
+
+You must call this before BLE setup is started. For listening mode, this is often in STARTUP(), however when using `FEATURE_DISABLE_LISTENING_MODE` and BLE provisioning mode, this can be in setup() before calling `BLE.provisioningMode(true)`.
+
+The maximum name length is `BLE_MAX_DEV_NAME_LEN`, or 20 ASCII characters. 
+
+```cpp
+// PROTOTYPES
+int setDeviceName(const char* name, size_t len) const;
+int setDeviceName(const char* name) const;
+int setDeviceName(const String& name) const;
+
+// EXAMPLE
+BLE.setDeviceName("Acme Sensor"); 
+```
+
+#### BLE.getDeviceName 
+
+{{api name1="BLE.getDeviceName"}}
+
+{{since when="3.3.0"}}
+
+Gets the device name that is displayed when selecting a device for BLE provisioning.
+
+```cpp
+// PROTOTYPES
+ssize_t getDeviceName(char* name, size_t len) const;
+String getDeviceName() const;
+```
+
+#### BLE.setProvisioningCompanyId
+
+{{api name1="BLE.setProvisioningCompanyId"}}
+
+{{since when="3.3.0"}}
+
+Sets the provisioning mode BLE company code. If not set, the Particle company ID is used.
+
+The company ID is a 16-bit integer and values are assigned by the Bluetooth SIG. The value not typically prominently displayed and you will typically filter on the service UUID, not the company name, so you can skip setting this, if desired.
+
+```cpp
+// PROTOTYPE
+int setProvisioningCompanyId(uint16_t companyId);
+```
+
+#### BLE.provisioningMode
+
+{{api name1="BLE.provisioningMode"}}
+
+{{since when="3.3.0"}}
+
+BLE provisioning mode is an alternative to listening mode which allows customization of the user experience. For example:
+
+- You will typically use custom service UUIDs, so your mobile app will only see devices with your firmware, not other Particle developer kits.
+- Likewise, other products' mobile apps won't see your devices.
+- Customizable device names and company ID.
+
+Unlike listening mode (blinking dark blue), BLE provisioning mode:
+
+- Can run concurrently with your user firmware, allowing your mobile app to communicate directly with the device over BLE without putting the device in a specific mode.
+- This also means that Wi-Fi credentials can be reconfigured without requiring an external button.
+- Does not interrupt the cloud connection if used after connecting to the cloud.
+
+```cpp
+// PROTOTYPE
+int provisioningMode(bool enabled) const;
+
+// EXAMPLE
+BLE.provisioningMode(true);
+```
+
+Be sure to set all desired parameters, such as [service UUIDs](#ble-setprovisioningsvcuuid) before enabling provisioning mode.
+
+Since listening mode and BLE provisioning mode are mutually exclusive and listening mode takes precedence, if you are using BLE provisioning mode you will typically want to disable listening mode:
+
+```cpp
+// Disable listening mode when using BLE provisioning mode
+STARTUP(System.enableFeature(FEATURE_DISABLE_LISTENING_MODE));
+```
+
+Since BLE provisioning mode can run concurrently with your firmware while cloud connected, you do not need to disable it after setting Wi-Fi credentials. This also means your end-users will be able to reconfigure Wi-Fi credentials without having to press the MODE button, which may eliminate the need for an external button in your product.
+
 ### BLEScanFilter
 
 {{api name1="BLEScanFilter"}}
@@ -18174,6 +18361,67 @@ Setup mode is also referred to as listening mode (blinking dark blue).
 | 0.6.1 | time_changed | 16384 | device time changed | `time_changed_manually` or `time_changed_sync` |
 | 0.6.1 | low_battery | 32768 | generated when low battery condition is detected. | not used |
 | 0.8.0 | out_of_memory | 1<<18 | event generated when a request for memory could not be satisfied | the amount in bytes of memory that could not be allocated | 
+| 3.3.0 | ble_prov_mode | 1<<19 | BLE provisioning mode status |
+
+#### network_credentials param values
+
+The following param codes are used when the system event is firmware_update:
+
+- network_credentials_added (1)
+- network_credentials_cleared (2)
+
+#### firmware_update param values
+
+The following param codes are used when the system event is firmware_update:
+
+- firmware_update_failed (-1, or 0xfffffff as unsigned)
+- firmware_update_begin (0)
+- firmware_update_complete (1)
+- firmware_update_progress (2)
+
+#### network_status param values
+
+The following param codes are used when the system event is network_status. Bit 0 is clear if it's a transition state, such as powering up, connecting. Bit 0 is set when it's a rest state, such as connected or ready.
+  
+- network_status_powering_off (2)
+- network_status_off (3)
+- network_status_powering_on (4)
+- network_status_on (5)
+- network_status_connecting (8)
+- network_status_connected (9)
+- network_status_disconnecting (32)
+- network_status_disconnected (33)
+
+#### cloud_status param values
+
+The following param codes are used when the system event is cloud_status:
+
+- cloud_status_disconnected (0)
+- cloud_status_connecting (1)
+- cloud_status_handshake (2)
+- cloud_status_session_resume (3)
+- cloud_status_connected (8)
+- cloud_status_disconnecting (9)
+
+
+#### time_changed param values param values
+
+The following param codes are used when the system event is time_changed:
+
+- time_changed_manually (0)
+- time_changed_sync (1)
+
+
+#### ble_prov_mode param values
+
+The following param codes are used when the system event is ble_prov_mode:
+
+- ble_prov_mode_connected (0)
+- ble_prov_mode_disconnected (1)
+- ble_prov_mode_handshake_failed (2)
+- ble_prov_mode_handshake_done (3)
+
+
 
 ## System Modes
 
@@ -19273,7 +19521,6 @@ Enables a system feature. System feature that are read/write or write only are p
 - Use `System.featureEnabled()` to get the current value of the feature flag (for read/write or read only flags)
 - Beware of features such as `FEATURE_DISABLE_LISTENING_MODE`. Enabling the feature disables listening mode, and disabling the feature enables listening mode
 
-
 ### System.disableFeature
 
 {{api name1="System.disableFeature"}}
@@ -19299,6 +19546,63 @@ bool featureEnabled(HAL_Feature feature)
 Returns true if the feature is enabled. 
 
 Beware of features such as `FEATURE_DISABLE_LISTENING_MODE`. A value of true means listening mode is disabled, and false means listening mode is not disabled (is enabled).
+
+
+#### FEATURE_DISABLE_LISTENING_MODE
+
+{{api name1="FEATURE_DISABLE_LISTENING_MODE"}}
+
+{{since when="3.3.0"}}
+
+Device OS 3.3.0 adds BLE provisioning mode which allows products to have a customized BLE setup experience for configuring Wi-Fi credentials. While similar in function to listening mode, the two modes are mutually excusive. Since BLE provisioning mode is disabled when in listening mode, products that rely on BLE provisioning mode will typically disable listening mode to make sure BLE provisioning mode cannot be disabled. That is done by using the following code in their main application file:
+
+```cpp
+STARTUP(System.enableFeature(FEATURE_DISABLE_LISTENING_MODE));
+```
+
+### System.setControlRequestFilter
+
+{{api name1="System.setControlRequestFilter"}}
+
+{{since when="3.3.0"}}
+
+Various system parameters can be configued by control requests, which can be sent over USB or authenticated BLE. The default is that requests are allowed.
+
+```cpp
+// PROTOTYPE
+int setControlRequestFilter(SystemControlRequestAclAction defaultAction, Vector<SystemControlRequestAcl> filters = {})
+
+// EXAMPLE - Allow all control requests (this is the default)
+System.setControlRequestFilter(SystemControlRequestAclAction::ACCEPT);
+```
+
+#### SystemControlRequestAclAction
+
+The three available actions are:
+
+- `SystemControlRequestAclAction::NONE` (0)
+- `SystemControlRequestAclAction::ACCEPT` (1)
+- `SystemControlRequestAclAction::DENY` (2)
+
+You will typically only use ACCEPT or DENY.
+
+#### SystemControlRequestAcl
+
+This class is used to contain an allow or deny for a specific control request. A vector of these is passed to System.setControlRequestFilter.
+
+```
+// PROTOTYPE (constructor)
+SystemControlRequestAcl(ctrl_request_type type, SystemControlRequestAclAction action)
+```
+
+#### ctrl_request_type
+
+There are many of available control requests but you will rarely need fine-grained control over which are enabled.
+
+Additional information can be found in:
+
+- [Device OS header listing all control request types](https://github.com/particle-iot/device-os/blob/develop/system/inc/system_control.h)
+- [particle-usb library](https://github.com/particle-iot/particle-usb) which implements control requests for node.js (also available in npm) and browser-based WebUSB.
 
 
 ## System Interrupts
@@ -22988,6 +23292,126 @@ Returns `true` if logging is enabled for the specified logging level.
 Parameters:
 
   * level : logging level
+
+## Device identifiers
+
+### Device ID
+
+Every Particle device has a unique 24-character hexadecimal identifier known as the Device ID. This never changes for each device, and is the recommended method of uniquely identifying a device.
+
+In device firmware, use `System.deviceID()` to return a `String` object that contains the Device ID. This is always 24 characters, and the hex letter a-f are always lowercase.
+
+In a webhook, `\{{{PARTICLE_DEVICE_ID}}}` is the Device ID of the source of the event.
+
+Most Particle cloud API calls that directly reference a device use the Device ID as the default method of identifying a device. For example, to [get device information](/reference/cloud-apis/api/#get-device-information):
+
+```
+GET /v1/devices/:deviceId
+```
+
+### Serial number
+
+All recent Particle devices have a serial number. This is printed on a sticker attached to the device, and is generally also on a sticker on the outside of the box. 
+
+The serial number is useful for onboarding a new device, but we do not recommend using the serial number as a unique identifier in your database. The reason is that the API to look up a device by its serial number is rate limited for security reasons. To avoid using this API, you need to list all devices in your product, which is not particularly efficient either.
+
+To get the serial number from user firmware:
+
+```cpp
+char serial[HAL_DEVICE_SERIAL_NUMBER_SIZE + 1] = {0};
+int ret = hal_get_device_serial_number(serial, HAL_DEVICE_SERIAL_NUMBER_SIZE, nullptr);
+if (ret == SYSTEM_ERROR_NONE) {
+  // Success
+}
+```
+
+`HAL_DEVICE_SERIAL_NUMBER_SIZE` is currently 15. Note that `serial` is not null terminated by `hal_get_device_serial_number` but is by the example code by making the buffer 1 byte larger and zero initializing it.
+
+The serial number is available by the Particle cloud API [get device information](/reference/cloud-apis/api/#get-device-information) in the `serial_number` field. 
+
+### Data matrix sticker
+
+The serial number sticker contains a data matrix code (like a QR code). This encodes the following:
+
+- Serial number
+- A space character
+- The mobile secret
+
+For devices without BLE capabilities (Gen 2 devices), the data matrix only contains the serial number.
+
+Note that older Photon, P1, Electron, and E Series modules do not have a serial number sticker. Older Electron an E Series with a "u-blox" sticker have the IMEI encoded in a 2D barcode. P0 modules (including the Photon) have an USI manufacturing code which is not easily mapped to any Particle identifier.
+
+### ICCID
+
+Every cellular device has an ICCID. For devices with a SMD Particle SIM, this is constant. For devices with an external SIM card (Electron), the ICCID depends on the SIM card. For devices that have a selectable SIM (Boron), the ICCID will depend on whether the internal or external SIM is selected, and which SIM is present if external is selected.
+
+The ICCID can be queried by using `Cellular.command()` but there isn't a convenient method in the `Cellular` class so using it is not as convenient.
+
+Since the ICCID has this variability, and is not present on Wi-Fi devices, it's not recommended as a unique identifier.
+
+The ICCID is available by the Particle cloud API [get device information](/reference/cloud-apis/api/#get-device-information) in the `iccid` field. This is the last ICCID used to connect to the Particle cloud from this Device ID.
+
+### IMEI
+
+Every cellular device has an IMEI, which is unique for device and stored in the modem chip (not the SIM). This will likely only come into play when using the device in a country that requires mobile device registration. Often, mobile device registration is tied to the IMEI because it does not depend on which SIM card is used.
+
+The IMEI can be queried by using `Cellular.command()` but there isn't a convenient method in the `Cellular` class so using it is not as convenient.
+
+### IMSI
+
+Every cellular device also has an IMSI. Every ICCID also has an IMSI, however EtherSIM devices may have multiple IMSI, which change at runtime depending on what network you have connected to.
+
+### Mobile secret
+
+As mentioned above under Data matrix sticker, every Particle device with BLE capabilities also has a mobile secret. This is to make sure the communication between a mobile app and the device over BLE is secure. This is used as part of the handshake process to prevent a nearby BLE device from being able to sniff or spoof communications. In classroom or hackathon situations where there are a large number of devices in close proximity, the combination of the serial number sticker and mobile secret also assures that he user configures the correct device.
+
+The mobile secret is 15 ASCII characters in length (`HAL_DEVICE_SECRET_SIZE`).
+
+To get the mobile secret from device firmware:
+
+```cpp
+char mobileSecret[HAL_DEVICE_SECRET_SIZE + 1] = {0};
+int ret = hal_get_device_secret(mobileSecret, HAL_DEVICE_SECRET_SIZE, nullptr);
+if (ret == SYSTEM_ERROR_NONE) {
+  // Success
+}
+```
+
+`HAL_DEVICE_SECRET_SIZE` is currently 15. Note that `mobileSecret` is not null terminated by `hal_get_device_secret` but is by the example code by making the buffer 1 byte larger and zero initializing it.
+
+
+You can override the mobile secret. One reason you would do this is to hardcode the same mobile secret across your whole product to simplify the BLE provisioning process by eliminating the need to scan a device-specific mobile secret. This will reduce the security of the BLE setup process, but may be an acceptable tradeoff in some circumstances. If you override the mobile secret you will not be able to use the Particle mobile apps or other tools designed to use the mobile secret encoded in the data matrix sticker.
+
+```cpp
+// Override the mobile secret used for BLE provisioning
+char arr[HAL_DEVICE_SECRET_SIZE] = {};
+memcpy(arr, "0123456789abcde", HAL_DEVICE_SECRET_SIZE);
+hal_set_device_secret(arr, sizeof(arr), nullptr);
+```
+
+To restore the default mobile secret:
+
+```cpp
+// Restore the default mobile secret (on the sticker)
+hal_clear_device_secret(nullptr);
+```
+
+The mobile secret is available by the Particle cloud API [get device information](/reference/cloud-apis/api/#get-device-information) in the `mobile_secret` field. Overriding the mobile secret locally using `hal_set_device_secret` does not affect the value stored in the cloud.
+
+### Device name
+
+We do not recommend using the device name as an identifier. Most API calls cannot efficiently use a device name, and device names are only guaranteed to be unique across a single claimed user account. When used in a product, device names are not guaranteed to be unique.
+
+The device name is available by the Particle cloud API [get device information](/reference/cloud-apis/api/#get-device-information) in the `name` field. You both get and set the name.
+
+### MAC address
+
+Wi-Fi devices also have a MAC address (6-octet, typically displayed as hex). This is unique but since it's not available on cellular devices and not convenient to use, it's generally not recommended as a unique identifier. Additionally, devices connecting by Ethernet will have a different MAC address on the Ethernet LAN. There is also a BLE MAC.
+
+From user firmware, use `WiFi.macAddress()` to get the Wi-Fi MAC address.
+
+The MAC address is available by the Particle cloud API [get device information](/reference/cloud-apis/api/#get-device-information) in the `mac_wifi` field. 
+
 
 ## Global Object Constructors
 
