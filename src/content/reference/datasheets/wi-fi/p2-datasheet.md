@@ -29,8 +29,9 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
   - Integrated RF switch
 - BLE 5 using same antenna as Wi-Fi
 - Realtek RTL8721DM MCU
-  - ARM Cortex M23 CPU, 200 MHz
+  - ARM Cortex M33 CPU, 200 MHz
 - 2048 KB (2 MB) user application maximum size
+- 3072 KB (3 MB) of RAM available to user applications
 - 2 MB flash file system
 - FCC, IC, and CE certified
 
@@ -780,6 +781,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
 |     | 2022-12-16 | RK | Added warning about using RGBR as GPIO because of the 10K pull-up |
 |     | 2023-01-31 | RK | Add Device OS versions |
+|     | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
 
 ## Known Errata
 

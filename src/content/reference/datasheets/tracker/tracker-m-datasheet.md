@@ -63,7 +63,7 @@ The P2 is a SMD module with a microcontroller, 2.4 GHz and 5 GHz Wi-Fi, and BLE.
   - Integrated RF switch
 - BLE 5 using same antenna as Wi-Fi
 - Realtek RTL8721DM MCU
-  - ARM Cortex M23 CPU, 200 MHz
+  - ARM Cortex M33 CPU, 200 MHz
 - 2048 KB (2 MB) user application maximum size
 - 3072 KB (3 MB) of RAM available to user applications
 - 2 MB flash file system
@@ -549,3 +549,5 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 |:-----|:-------|:---------|
 | 2022-10-24 | RK | For internal review only |
 | 2022-11-17 | RK | Updated length and dimensions graphic |
+| 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
+

@@ -36,8 +36,9 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
   - Integrated RF switch
 - BLE 5 using same antenna as Wi-Fi
 - Realtek RTL8721DM MCU
-  - ARM Cortex M23 CPU, 200 MHz
+  - ARM Cortex M33 CPU, 200 MHz
 - 2048 KB (2 MB) user application maximum size
+- 3072 KB (3 MB) of RAM available to user applications
 - 2 MB flash file system
 - FCC, IC, and CE certified
 
@@ -671,6 +672,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2023-01-31 | RK | Add Device OS versions |
 |     | 2023-02-14 | RK | Updated Photon 2 graphic to fix pin labels |
 |     | 2023-03-06 | RK | SWDIO is D7 not D8 |
+|     | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
 
 ## Known Errata
 
