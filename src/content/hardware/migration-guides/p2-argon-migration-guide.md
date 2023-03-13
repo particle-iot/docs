@@ -7,12 +7,6 @@ description: Migration guide for transitioning from the Argon to P2
 
 # {{title}}
 
-**Pre-release version 2022-04-08**
-
-{{box op="start" cssClass="boxed warningBox"}}
-This is an pre-release migration guide and the contents are subject to change.
-{{box op="end"}}
-
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/p2-argon-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -1126,3 +1120,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
 |     | 2022-10-05 | RK | Added HIBERNATE sleep section |
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
+| 001 | 2023-03-13 | RK | Removed preliminary banner |
