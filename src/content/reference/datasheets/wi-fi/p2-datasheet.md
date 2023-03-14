@@ -94,6 +94,24 @@ Note that SWD is shared with GPIO pins D6 and D7, and by default SWD is only ena
 
 ---
 
+### 3V3
+
+3V3 is used to supply power to RTL8721 MCU, Wi-Fi, memory, etc.. 3.3V at a minimum of 500 mA is required. 
+
+These limits do not include any 3.3V peripherals on your base board, so that may increase the current requirements.
+
+{{!-- BEGIN shared-blurb b7c36aca-bdfe-463c-b901-53a3aeec8ab0 --}}
+Power supply requirements:
+- 3.3V output
+- Maximum 5% voltage drop
+- 100 mV peak-to-peak ripple maximum
+- 500 mA minimum output current at 3.3V recommended for future compatibility
+- Maintain these values at no-load as well as maximum load
+{{!-- END shared-blurb --}}
+
+
+---
+
 ## Memory Map
 
 ### Flash Layout Overview
@@ -781,7 +799,8 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
 |     | 2022-12-16 | RK | Added warning about using RGBR as GPIO because of the 10K pull-up |
 |     | 2023-01-31 | RK | Add Device OS versions |
-|     | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
+| 001 | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
+| 002 | 2023-03-14 | RK | Added power supply specifications |
 
 ## Known Errata
 
