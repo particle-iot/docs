@@ -9,24 +9,39 @@ description: Manufacturing Firmware Versions
 
 All Particle devices ship with Particle Device OS software, including Device OS, bootloader, and the Tinker application. 
 
-| Device | Version | Last Updated | Notes |
-| :--- | :--- | :--- | :--- |
-| B Series SoM B404 NORAM EtherSIM | 2.3.0 | 2022-06-01 | Minimum required version |
-| B Series SoM B524 EMEAA EtherSIM | 2.2.0 | 2021-12-21 | |
-| Boron BRN404 NORAM EtherSIM | 2.2.0 | 2021-12-21 | |
-| Boron BRN314 EtherSIM | 2.2.0 | 2021-12-21 | |
-| E Series E314 EtherSIM | 2.2.0 | 2021-12-21 | |
-| E Series E404 NORAM EtherSIM | 2.2.0 | 2021-12-21 | | 
-| Electron ELC314 EtherSIM | 2.2.0 | 2021-12-21 | |
-| Electron ELC404 NORAM EtherSIM | 2.2.0 | 2021-12-21 | |
-| Tracker T404, T524, ONE404, ONE524 | 3.1.0 | 2021-11-04 | Tracker Edge v16 |
-| B Series SoM B523 EMEAA  | 2.0.1 | 2020-12-17 | |
-| Boron BRN402 NORAM | 1.4.4 | 2020-01-08 |
-| Boron BRN310 | 1.4.4 | 2020-01-08 |
+| Device | Device OS Version | Date Updated |
+| :--- | :--- | :--- |
 | Argon | 1.4.4 | 2020-01-08 |
-| B Series SoM B402 NORAM | 1.4.2 | 2019-10-24 | |
-| P1 | 1.2.1 | 2019-08-15 |
-| Photon, P0 | 1.2.1 | 2019-08-15 |
+| B Series SoM B402 LTE-M1 NorAm | 2.3.1 | 2022-11-15 |
+| B Series SoM B404 LTE-M1 NorAm EtherSIM | 2.3.1 | 2022-11-15 |
+| B Series SoM B404X LTE-M1 NorAm EtherSIM | 4.0.1 | 2023-02-22 |
+| B Series SoM B523 LTE Cat 1 EMEAA | 1.5.0 | 2020-03-17 |
+| B Series SoM B524 LTE Cat 1 EMEAA EtherSIM | 2.2.0 | 2021-12-21 |
+| Boron BRN404 LTE-M1 NorAm EtherSIM | 2.2.0 | 2021-12-21 |
+| Boron BRN314 3G/2G EtherSIM | 2.2.0 | 2021-12-21 |
+| Boron BRN402 LTE-M1 NorAm | 2.3.1 | 2022-11-15 |
+| Boron BRN404X LTE-M1 NorAm EtherSIM | 4.0.2 | 2023-01-05 |
+| E Series E402 LTE-M1 NorAm | 2.3.1 | 2023-02-07 |
+| E Series E404 LTE-M1 NorAm EtherSIM | 2.3.1 | 2023-02-07 |
+| E404X | 4.0.2 | 2023-01-05 |
+| Electron ELC402 LTE-M1 NorAm | 2.3.1 | 2023-02-07 |
+| Electron ELC404 LTE-M1 NorAm EtherSIM | 2.3.1 | 2023-02-07 |
+| E Series E310 3G/2G | 1.4.2 | 2019-10-30 |
+| Electron U260 3G/2G NorAm | 1.4.2 | 2019-10-30 |
+| Electron U270 3G/2G EMEAA | 1.4.2 | 2019-10-30 |
+| Photon | 1.4.4 | 2019-12-16 |
+| P0 | 1.4.4 | 2019-12-16 |
+| P1 | 1.4.4 | 2019-12-16 |
+| Tracker SoM T404 LTE-M1 NorAm EtherSIM | 3.1.0 | 2021-11-03 |
+| Tracker SoM T402 LTE-M1 NorAm | 3.1.0 | 2021-11-03 |
+| Tracker One ONE524 LTE Cat 1 EMEAA EtherSIM | 3.1.0 | 2021-11-03 |
+| Tracker One ONE523 LTE Cat 1 EMEAA | 3.1.0 | 2021-11-03 |
+| Xenon | 1.4.4 | 2020-01-08 |
+
+- The Tracker Edge version for the Tracker One and Tracker SoM is v16, updated 2021-11-04
+- The B404X, BRN404X, and E404X require Device OS 4.0.1 or later and cannot be downgraded
+- B Series SoM B404 NORAM EtherSIM requires Device OS 2.3.0 or later and cannot be downgraded
+
 
 ## Questions and Answers
 

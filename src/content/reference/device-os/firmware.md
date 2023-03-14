@@ -15155,6 +15155,9 @@ Returns: Integer
 {{api name1="Time.now"}}
 
 ```cpp
+// PROTOTYPE
+time32_t now();
+
 // Print the current Unix timestamp
 Serial.print((int) Time.now()); // 1400647897
 
@@ -15164,7 +15167,7 @@ Log.info("time is: %d", (int) Time.now());
 
 Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting, it's coordinated universal time (UTC).
 
-Returns: time_t (Unix timestamp), coordinated universal time (UTC), `long` integer.
+Returns: time32_t (Unix timestamp), coordinated universal time (UTC), `int32_t` (signed 32-bit integer). Prior to Device OS 2.0.0, this was a standard C `time_t`, however starting in Device OS 2.0.0, the standard C library changed the size of time_t to 64-bit to avoid rollover to 0 in 2038. For compatibility, Device OS still uses the 32-bit version.
 
 ### local()
 
@@ -15177,6 +15180,8 @@ Note that the functions in the `Time` class expect times in UTC time, so the res
 _Since 0.6.0_
 
 Local time is also affected by the Daylight Saving Time (DST) settings.
+
+Returns: time32_t (Unix timestamp), local time, `int32_t` (signed 32-bit integer). Prior to Device OS 2.0.0, this was a standard C `time_t`, however starting in Device OS 2.0.0, the standard C library changed the size of time_t to 64-bit to avoid rollover to 0 in 2038. For compatibility, Device OS still uses the 32-bit version.
 
 ### zone()
 
