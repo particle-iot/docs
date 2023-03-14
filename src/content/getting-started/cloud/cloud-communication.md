@@ -242,7 +242,6 @@ And in the console:
 - Functions can only return a 32-bit integer value. They cannot return strings, double width floating point, etc.
 - Functions only work when the device is online and breathing cyan
 - Each function typically uses one Particle cloud [data operation](/getting-started/cloud/introduction/#pricing-tiers)
-- Functions and variables can be used on unclaimed product devices, but subscribe cannot
 
 Maybe a table will help:
 
@@ -251,7 +250,6 @@ Maybe a table will help:
 | One-to-many | One-to-one |
 | All devices in account can subscribe | Function only goes to one device |
 | No delivery confirmation built-in | Function returns an integer value |
-| | Works with unclaimed product devices |
 
 You can learn more Particle functions in the [Device OS Firmware API reference](/reference/device-os/api/cloud-functions/particle-function/). 
 There is also another tutorial in [Blink an LED over the net](/getting-started/hardware-tutorials/hardware-examples/#control-leds-over-the-39-net).
@@ -363,7 +361,6 @@ What happens if:
 - A variable can contain multiple values if encoded (comma separated values, JSON, etc.)
 - Variables only work when the device is online and breathing cyan
 - Each variable retrieval typically uses one Particle cloud [data operation](/getting-started/cloud/introduction/#pricing-tiers)
-- Functions and variables can be used on unclaimed product devices, but subscribe cannot
 
 | Publish from Device | Variable |
 | :---: || :---: |
@@ -456,9 +453,6 @@ The function must return one of the allowed types: `int`, `bool`, `double`, or `
 - Subscribe only works when the device is online and breathing cyan
 - Each event received typically uses one Particle cloud [data operation](/getting-started/cloud/introduction/#pricing-tiers)
 - There is no confirmation built-in: the publisher of an event won't know if a specified device receives it
-- Subscribe cannot be used on unclaimed product devices
-- Product events are unidirectional from the device to the cloud. Devices cannot subscribe to product events.
-
 
 You can learn more Particle subscribe in the [Device OS Firmware API reference](/reference/device-os/api/cloud-functions/particle-subscribe/). 
 

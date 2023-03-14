@@ -287,6 +287,16 @@ You can use your own account user token to authenticate product APIs. This token
 
 For cellular products in particular, claiming all devices to a single account may be appropriate. If you use this technique, you will sometimes use this token for authenticating product APIs. However you can also use product bearer tokens.
 
+As of March 2023, claiming product devices is no longer necessary to subscribe to events on-device. This can simplify the process of device onboarding. 
+
+{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
+- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
+- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
+- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
+- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
+- Claiming is still allowed, if you prefer to continue to use claiming.
+{{!-- END shared-blurb --}}
+
 ### Restricted access user token authentication (products)
 
 With [Team Access Controls](/getting-started/console/team-access-controls/) you can create a user account with specific restrictions. Using the Read-Only view, for example, provides a way to create a token that can view, but not modify, product devices.
@@ -380,12 +390,7 @@ The same thing applies for [publish](/reference/cloud-apis/api/#publish-an-event
 
 If you're publishing events from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
 
-- Unclaimed product devices cannot receive events, so they will not get an event published this way
-- Customer claimed devices will not receive these events!
-
 {{> cloud-api-publish productTest="1" eventName="" eventData=""}}
-
-The product event stream is unidirectional from devices to the cloud, which is why customer claimed devices cannot receive product events. 
 
 
 ## Organization APIs
@@ -678,8 +683,8 @@ If you get a "The access token provided is invalid" error, the token may have ti
 
 If the device is already online and breathing cyan you can do claim it to a customer account using the API, instead of a claim code. This may be helpful is some circumstances and does not require getting the claim code to the device. There are a bunch of options, actually:
 
-- You can use an unclaimed product device. Caveat: unclaimed product devices cannot subscribe to events.
-- You can claim devices to a single account. This is common for cellular products.
+- You can use an unclaimed product device. This is the recommended method.
+- You can claim devices to a single account. This was previously common for cellular products, before unclaimed device support was a viable solution.
 - You can claim devices to your account. This is common for Development Devices to make it easier to flash code from standard tools like Particle Workbench and the Web IDE.
 - Development devices control their own firmware updates and do not get product fleet firmware flashes.
 - You can claim devices to a customer account using the API as well as using claim codes.
@@ -746,9 +751,6 @@ From a mobile app or using a customer token:
 The same thing applies for publish, with a few additional constraints.
 
 If you're publishing events from a back-end server, you'll probably want to use a product bearer token and the [product endpoint](/reference/cloud-apis/api/#publish-a-product-event).
-
-- Unclaimed product devices cannot receive events, so they will not get an event published this way
-- Customer claimed devices will not receive these events!
 
 {{> cloud-api-publish productTest="1" eventName="tAAzf9hy_subscribeTest" eventData="testing!"}}
 

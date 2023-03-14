@@ -70,15 +70,23 @@ In the growth and enterprise plans the organization also has a team. You can hav
 
 One major difference between developer devices and products is with device claiming. There are several options:
 
-- Leave product devices unclaimed. This is a good option if the device does not need to subscribe to Particle events using [`Particle.subscribe()`](/reference/device-os/api/cloud-functions/particle-subscribe/). This include subscribing to the replies from a webhook. If you need to receive events, then you cannot use this option.
+- Leave product devices unclaimed. This is the recommended method.
 
-- Claim all devices to a single account. This is a common option for cellular products. The single owner account, which could also be the product owner account, claims all devices. There's full support for receiving events with this option.
+- Claim all devices to a single account. This was a common option for cellular products prior to full support for unclaimed product devices. The single owner account, which could also be the product owner account, claims all devices.
 
-- Customer claiming. This is a more common for Wi-Fi products that create separate customer accounts for each customer. These can either be simple auth or two-legged shadow customers. It is also possible, but less common, to use this option for cellular devices.
+- Customer claiming. This is a more common for Wi-Fi products that create separate customer accounts for each customer. These can either be simple auth or two-legged shadow customers. It is also possible, but less common, to use this option for cellular devices. It is not recommended unless absolutely necessary.
 
 - Developer team members may want to claim the test devices on their desks to their own account rather than a single account or customer account. This simplifies flashing firmware to their devices.
 
 If you are using integrations, the choices made here affect where to put your integration. In most cases, you should put the integration in your product. If you are claiming all devices to a single account you could possibly put the integration there, however it's still generally better to put the integration in the product. If you are using unclaimed product devices or customer claiming, you must put the integration in your product.
+
+{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
+- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
+- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
+- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
+- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
+- Claiming is still allowed, if you prefer to continue to use claiming.
+{{!-- END shared-blurb --}}
 
 ## Adding devices to a product
 
@@ -267,11 +275,7 @@ Finally, once you've tested the binary and upgrade process, you can then flash t
 
 Events, using [`Particle.publish()`](/reference/device-os/api/cloud-functions/particle-publish/), from a device or from the cloud API, are a way to communicate from one device to many subscribers. By default, events are private, meaning they go only to the same owner account as it was sent from. For devices, this is the account that claimed the device. For the API, this is the account that created the access token.
 
-Since unclaimed product devices don't have a device owner, they cannot receive private events. This includes events sent from other devices, the cloud API, or webhook responses.
-
 Additionally, when a device is in a product, when it publishes events they not only go to the private event stream of the device owner (if claimed), but also to the product event stream.
-
-The product event stream is unidirectional, from the device to the cloud. Product devices cannot receive product events.
 
 You typically use product events to handle events from devices by webhooks or the server-sent-events stream. This allows the product creator to handle events from any device in the product, regardless of who claimed it, or if it's unclaimed.
 
@@ -311,8 +315,6 @@ If you are using Integrations, including Webhooks, there are two different place
 The recommended location for webhooks for product devices is within the product configuration. Product integrations can be triggered for any device in the product device fleet, including development devices and unclaimed devices. Make sure you are opening the Integrations tab after going into the product to see this list.
 
 This is necessary if you are using product customers, where claiming will occur to many accounts. Since product customers cannot log into the console, they do not have customer-specific integrations.
-
-Unclaimed product devices cannot receive the response from a product webhook, but they can still send to the webhook.
 
 #### Device owner integrations
 

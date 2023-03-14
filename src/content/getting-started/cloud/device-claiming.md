@@ -23,8 +23,6 @@ Each device is identified by its unique Device ID, the 24-character hexadecimal 
 
 ### Do I need to claim my devices?
 
-**Probably!**
-
 {{note op="start" type="developer"}}
 For developer (non-product devices), the device must be claimed in order to use any Particle cloud features.
 
@@ -34,12 +32,21 @@ This includes Particle primitives (publish, subscribe, functions, variables) and
 {{note op="start" type="product"}}
 For devices in a product, you can use unclaimed product devices if:
 
-- The device firmware does not subscribe to events (including webhook responses)
 - You do not need to use the Wi-Fi device setup SDK for the Photon/P1
+- You do not use webhooks in the sandbox of the user who claimed the device
 
 However, you still will need to handle product membership and SIM activation even if you do not need to claim the device.
 
-It's also common for cellular products to claim all devices to a single account controlled by the product owner instead of using unclaimed product devices.
+It was previously common for cellular products to claim all devices to a single account controlled by the product owner instead of using unclaimed product devices, but this is no longer necessary.
+
+{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
+- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
+- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
+- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
+- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
+- Claiming is still allowed, if you prefer to continue to use claiming.
+{{!-- END shared-blurb --}}
+
 {{note op="end"}}
 
 ### When do I need to do it?
@@ -75,10 +82,6 @@ For product devices, claiming is irrelevant. It's the total number of devices th
 - If the account has free plan products in it, every device in those product count against the 100 device limit, but may or may not show up in the sandbox device list.
 
 ### How do I claim a device?
-
-#### Particle mobile app claiming
-
-Most developers setting up a small number of development kits will use the Particle mobile app to claim their device. For the Argon and Photon (Wi-Fi) the mobile app also sets the Wi-Fi credentials, and sets the [setup done bit](#setup-done).
 
 #### Particle CLI claiming
 
@@ -145,6 +148,10 @@ If you are using [customers](#customers) you will most likely use [claim codes](
 {{note op="start" type="product"}}
 For product devices, you can claim the devices while offline by using the Particle cloud API [claim a device endpoint](/reference/cloud-apis/api/#claim-a-device). You would typically do this as part of your [manufacturing flow](/scaling/manufacturing/manufacturing-cellular/).
 {{note op="end"}}
+
+#### Particle mobile app claiming
+
+Most developers setting up a small number of development kits will use the Particle mobile app to claim their device. For the Argon and Photon (Wi-Fi) the mobile app also sets the Wi-Fi credentials, and sets the [setup done bit](#setup-done).
 
 ### Unclaiming a device
 
@@ -458,6 +465,8 @@ Note that moving a SIM from a developer account (free sandbox) into a product ca
 
 Customers are an optional feature. They allow API access to specific devices typically from a mobile app. They are more common for Wi-Fi products that use the Photon Device Setup SDK and Particle SDK for iOS or Android.
 
+**We generally recommend not using customers**, unless you are using the device setup SDK for the P1 or Photon. It's generally unnecessary in other cases.
+
 In lieu of customers, many cellular products claim all devices to a single account or use unclaimed product devices. Not using customers does not preclude having a mobile app, it just requires you handle authentication and API access control from your servers instead of having Particle handle it for you. This may be preferable if you are contracting out your development as you can make a generic mobile app using native APIs or a framework with no specific Particle dependencies, which widens the possible number of mobile developers you can use.
 
 There are two types of customers:
@@ -485,6 +494,8 @@ Remembers that customers are optional! If you already have your own server to ha
 ### Claim codes
 
 When using the Photon Device Setup SDK for iOS and Android you don't have to worry about claim codes, since it's handled automatically behind the scenes.
+
+**If you are not using customers, claim codes are not necessary.**
 
 However, claim codes solve the problem of having a device add itself to a product and claim without having to divulge a product authentication key to the mobile app. This keeps your product authentication tokens more secure. 
 

@@ -594,7 +594,7 @@ Particle.publish("motion-detected", PRIVATE | WITH_ACK);
 
 ---
 
-For [products](/getting-started/console/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
+For [products](/getting-started/console/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream.
 
 ---
 
@@ -724,24 +724,20 @@ Particle.subscribe("the_event_prefix", theHandler, ALL_DEVICES);
 
 ---
 
-Only devices that are claimed to an account can subscribe to events. 
-
 - Unclaimed devices can only be used in a product.
 - Unclaimed devices can send product events.
 - Unclaimed devices can receive function calls and variable requests from the product.
-- Unclaimed devices cannot receive events using Particle.subscribe.
+- Unclaimed devices can receive events using Particle.subscribe as of March 2023. This was not previously possible.
 
----
+The behavior of unclaimed product devices with respect to subscribing to events changed in March 2023:
 
-{{note op="start" type="gen3" deviceList="Tracker SoM and Tracker One"}}
-By default, Tracker One and Tracker SoM devices are unclaimed product devices. You can either:
-
-- Use [`Particle.function`](/reference/device-os/api/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
-
-- Claim the Tracker devices to an account. Often this will be a single account for all devices, possibly the owner of the product.
-
-For more information, see [Device claiming](/getting-started/cloud/device-claiming/).
-{{note op="end"}}
+{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
+- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
+- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
+- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
+- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
+- Claiming is still allowed, if you prefer to continue to use claiming.
+{{!-- END shared-blurb --}}
 
 ---
 

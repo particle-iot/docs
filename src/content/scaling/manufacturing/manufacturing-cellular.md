@@ -284,7 +284,17 @@ curl -X PUT "https://api.particle.io/v1/products/$PRODUCT_ID/devices/$DEVICE_ID"
 
 ### Claim the device
 
-Claim the device to an administrator email associated with the product. At the time this document was written, claiming is required for webhook responses to work for that device.
+It's generally best to use unclaimed product devices at this time.
+
+{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
+- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
+- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
+- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
+- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
+- Claiming is still allowed, if you prefer to continue to use claiming.
+{{!-- END shared-blurb --}}
+
+If you do wish to continue to claim devices, claim the device to an administrator email associated with the product. At the time this document was written, claiming is required for webhook responses to work for that device.
 
 A generic administrator account is strongly recommended (particle@company.com, for example) across your entire Product and/or Organization structure for easy transfer of ownership and centralized billing.
 
@@ -293,8 +303,6 @@ curl "https://api.particle.io/v1/devices
 -d id=$DEVICE_ID 
 -d access_token=$ACCESS_TOKEN"
 ```
-
-You can skip the claiming step if you will be using devices in unclaimed state. If using unclaimed devices, the devices will not be able to subscribe to private events, but it still can receive function and variable requests.
 
 ## Scripting the provisioning process
 

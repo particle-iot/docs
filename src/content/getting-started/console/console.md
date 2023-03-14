@@ -641,6 +641,8 @@ Particle cloud
 
 Now that you have set up a Product, your customers will be able to create accounts on the Particle platform that are registered to your Product. When properly implemented, your customers will have no idea that Particle is behind the scenes; they will feel like they are creating an account with *ACME, Inc.*.
 
+**Customers are generally unnecessary unless you are using the Device Setup SDK for the P1 and Photon.** We recommend not using customers unless absolutely necessary as it will add considerable complexity.
+
 There are three ways you can authenticate your customers:
 
 - **Simple authentication**. Your customers will create an account with Particle that is registered to your product. You do not need to set up your own authentication system, and will hit the Particle API directly.
@@ -653,7 +655,15 @@ For cellular devices, you can use customer accounts as well. However, it is comm
 
 Single account claiming claims all devices to a single account owned by the product creator. Cellular apps often use a web app, which does not need to have Particle API access per-user. Instead, they can handle this in the back-end. Even cellular products that have a mobile app may prefer to implement them using a mobile framework and communicate from the app to their own back-end using standard web technologies instead of the Particle API. This makes it easier to find app developers, since they don't need to know about the Particle platform.
 
-Unclaimed product devices eliminate the claiming step entirely. This simplifies device setup. However, there is an important limitation: unclaimed product devices cannot subscribe to events. They can, however, receive OTA updates, and handle Particle functions and variables. The Asset Tracker Tracker Edge firmware typically operates using unclaimed product devices.
+Unclaimed product devices eliminate the claiming step entirely. This simplifies device setup. They can receive OTA updates, and handle Particle functions and variables. The Asset Tracker Tracker Edge firmware typically operates using unclaimed product devices.
+
+{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
+- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
+- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
+- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
+- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
+- Claiming is still allowed, if you prefer to continue to use claiming.
+{{!-- END shared-blurb --}}
 
 
 ### Monitoring Event Logs

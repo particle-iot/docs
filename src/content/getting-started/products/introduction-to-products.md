@@ -91,15 +91,24 @@ Note that the device cloud charges begin when the devices comes online the first
 
 ## Device and Claiming
 
-In addition to being part of the product, devices typically need to be **claimed** to an account. For cellular products, it is common to create a single account that all devices are claimed to. It's also possible to use [two-legged shadow customers](/reference/cloud-apis/authentication/#two-legged-authentication), for both cellular and Wi-Fi devices.
+In addition to being part of the product, developer devices typically need to be **claimed** to an account. 
 
 A product device can be claimed to any team member of a product using the [Particle Cloud API](/reference/cloud-apis/api/#claim-a-device) after the device has been imported to the product. It does not need to be online for claiming.
 
 ![Pre-claim Flow](/assets/images/PreclaimFlow.png)
 
-If you never need to send an event to your product's devices, it's possible to leave them unclaimed.
-
 For Wi-Fi devices, you will typically need to use a mobile app and the [Photon/P1 Setup Library](/reference/mobile-sdks/ios/) to set the Wi-Fi credentials, and this provides a convenient way to claim devices at the same time.
+
+As of March 2023, claiming product devices is no longer necessary to subscribe to events on-device. This can simplify the process of device onboarding. 
+
+{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
+- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
+- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
+- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
+- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
+- Claiming is still allowed, if you prefer to continue to use claiming.
+{{!-- END shared-blurb --}}
+
 
 ## Product Firmware Workflow
 

@@ -100,7 +100,6 @@ If you are using network standby with cloud connection enabled and are relying o
 
 - The longest time you can sleep is the keep-alive interval, typically 23 minutes. If you exceed this period without sending any data, the cloud can lose the ability to communicate with your device. Fortunately, you can wake, send data, and go back to sleep very quickly in this mode, within a second or two.
 - Make sure you are cloud connected (`Particle.connected()` returns true) before going to sleep. If you are not fully connected, then you won't be able to receive cloud messages while asleep.
-- Unclaimed product devices cannot subscribe to events, and thus cannot wake for events.
 - You cannot choose which features (function, variable, subscribe, OTA) will wake the device. If enabled, any of those will work to wake the device.
 
 ### Battery usage

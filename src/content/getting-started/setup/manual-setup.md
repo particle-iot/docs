@@ -262,7 +262,7 @@ particle product device add <product_id> <device_id>
 
 ## Claim your device
 
-Claiming a device is separate from adding your device to a product. It makes your account the owner of the device, which allows to to so certain things like flash code directly to your device. Claiming is not always necessary; Tracker devices using Tracker Edge often run as unclaimed product devices. However, if you are going to be writing and testing firmware on devices, you almost certainly will need to claim the device.
+Claiming a device is separate from adding your device to a product. It makes your account the owner of the device, which allows to to so certain things like flash code directly to your device. Claiming is often unnecessary; Tracker devices using Tracker Edge often run as unclaimed product devices. However, if you are going to be writing and testing firmware on devices, you almost certainly will need to claim the device.
 
 ### CLI - Claim your device
 

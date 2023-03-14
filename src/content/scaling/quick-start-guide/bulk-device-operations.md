@@ -25,7 +25,7 @@ For more information, see [adding devices](/getting-started/console/console/#add
 
 ### Take advantage of unclaimed product devices
 
-As long as you do not subscribe to events on the device, you can take advantage of unclaimed product devices. Eliminating the claiming step simplifies device onboarding.
+You should take advantage of unclaimed product devices. Eliminating the claiming step simplifies device onboarding.
 
 Should you need to claim devices, most products will claim devices to a single account. This can be scripted to make the step less manual.
 

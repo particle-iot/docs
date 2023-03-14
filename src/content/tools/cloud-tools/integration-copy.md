@@ -20,7 +20,7 @@ The recommended location for webhooks for product devices is within the product 
 
 This is necessary if you are using product customers, where claiming will occur to many accounts. Since product customers cannot log into the console, they do not have customer-specific integrations.
 
-Unclaimed product devices cannot receive the response from a product webhook, but they can still send to the webhook.
+Unclaimed product devices could not receive the response from a product webhook prior to March 2023, but can now.
 
 ### Device owner integrations
 
