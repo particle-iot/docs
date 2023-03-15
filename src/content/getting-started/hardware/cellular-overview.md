@@ -140,13 +140,8 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | &check; | GA | |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | EG91-EX | &check; | GA | |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | In development | |
-| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | &check; | In development | |
 | ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
 | ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | &check; | In development | |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | In development | |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | &check; | In development | |
-| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | In development | |
 | T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
 | T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | In development | |
 | T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
@@ -337,17 +332,12 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | NORAM | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | BG96-MC | &nbsp; | 3 | Deprecated | ONE404MTY |
 | NORAM | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | BG96-MC | &check; | 3 | GA | &nbsp; |
 | NORAM | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | BG96-MC | &check; | 3 | GA | &nbsp; |
-| NORAM | ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | BG96-MC | &check; | 3 | In development | &nbsp; |
-| NORAM | ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | BG96-MC | &check; | 3 | In development | &nbsp; |
 | NORAM | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | BG96-MC | &nbsp; | 3 | Deprecated | T404MEA |
 | NORAM | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | BG96-MC | &nbsp; | 3 | Deprecated | T404MKIT |
 | NORAM | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | BG96-MC | &nbsp; | 3 | NRND | T404MTY |
 | NORAM | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | BG96-MC | &check; | 3 | Deprecated | &nbsp; |
 | NORAM | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | BG96-MC | &check; | 3 | Deprecated | &nbsp; |
 | NORAM | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | BG96-MC | &check; | 3 | NRND | &nbsp; |
-| NORAM | T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | BG96-MC | &check; | 3 | In development | &nbsp; |
-| NORAM | T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | BG96-MC | &check; | 3 | In development | &nbsp; |
-| NORAM | T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | BG96-MC | &check; | 3 | In development | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 921d1b74-0130-49e9-9322-3da75e405e4e --}}
@@ -368,17 +358,12 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | BG96-MC | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | &nbsp; | 3 | Deprecated | ONE404MTY |
 | BG96-MC | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | GA | &nbsp; |
 | BG96-MC | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | 3 | GA | &nbsp; |
-| BG96-MC | ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | In development | &nbsp; |
-| BG96-MC | ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | 3 | In development | &nbsp; |
 | BG96-MC | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | &nbsp; | 3 | Deprecated | T404MEA |
 | BG96-MC | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | 3 | Deprecated | T404MKIT |
 | BG96-MC | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 3 | NRND | T404MTY |
 | BG96-MC | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | Deprecated | &nbsp; |
 | BG96-MC | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | 3 | Deprecated | &nbsp; |
 | BG96-MC | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | NRND | &nbsp; |
-| BG96-MC | T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | In development | &nbsp; |
-| BG96-MC | T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | 3 | In development | &nbsp; |
-| BG96-MC | T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | In development | &nbsp; |
 | EG91-E | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &nbsp; | 3 | NRND | B524MEA |
 | EG91-E | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | 3 | Deprecated | B524MTY |
 | EG91-E | B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
@@ -491,8 +476,6 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 2 | Deprecated | &nbsp; |
 | EtherSIM | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | 3 | GA | &nbsp; |
 | EtherSIM | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | 3 | GA | &nbsp; |
-| EtherSIM | ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | 3 | In development | &nbsp; |
-| EtherSIM | ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | 3 | In development | &nbsp; |
 | EtherSIM | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
 | EtherSIM | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
 | EtherSIM | ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 3 | In development | &nbsp; |
@@ -500,9 +483,6 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | 3 | Deprecated | &nbsp; |
 | EtherSIM | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | 3 | Deprecated | &nbsp; |
 | EtherSIM | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | 3 | NRND | &nbsp; |
-| EtherSIM | T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | 3 | In development | &nbsp; |
-| EtherSIM | T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | 3 | In development | &nbsp; |
-| EtherSIM | T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | 3 | In development | &nbsp; |
 | EtherSIM | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 3 | Deprecated | &nbsp; |
 | EtherSIM | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | 3 | Deprecated | &nbsp; |
 | EtherSIM | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | 3 | NRND | &nbsp; |
@@ -811,11 +791,6 @@ The following SKUs have LTE Cat M1 cellular modems:
 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
-| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
-| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 3 | NRND | B404MEA |
 | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | R410 | 3 | NRND | &nbsp; |
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 3 | NRND | BRN404TRAY50 |

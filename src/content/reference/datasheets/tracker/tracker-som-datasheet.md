@@ -100,8 +100,6 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
 It is recommended that you use the latest version in the 4.x LTS release line with the Tracker SoM.
 
-T404X and T524X devices, when released, will require a Device OS 4.x LTS release. If you plan on having a mixed fleet of Tracker devices containing the T404X or T524X, we recommend upgrading all device to the latest 4.x LTS release.
-
 Tracker Edge v18 requires a minimum of Device OS 3.3.0. Device OS 3.x is a developer preview release and has reached its end-of-support date. We recommend that all Tracker fleets upgrade to Device OS 4.x.
 
 For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
@@ -1287,8 +1285,6 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | In development | |
-| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | In development | |
 | T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
 | T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC |  | NRND | T404MTY|

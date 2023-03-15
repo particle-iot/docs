@@ -51,7 +51,6 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 | Boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | |
 | Argon | | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | |
 | E404X | E404X | | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
-| Tracker | T404X, T524X, ONE404X, ONE524X || {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
 | Tracker | T404, T524, T523 ONE404, ONE402, ONE524, ONE523 | {{version mode="latestRelease" line="3"}} | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  |
 
 - <sup>1</sup>B404 SoMs should only use Device OS 2.3.0 or later. While older units worked with older versions, newer units from the factory will only with with 2.3.0 and later due to a required component change. It's recommended that all B404 units use this version for compatibility.

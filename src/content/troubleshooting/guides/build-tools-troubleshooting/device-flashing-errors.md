@@ -49,7 +49,6 @@ Most devices have a USB 2.0 Micro B receptacle, however some devices have USB C.
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | USB-C |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | USB-C |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | USB-C |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | USB-C |
 | ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | USB-C |
@@ -63,7 +62,6 @@ Most devices have a USB 2.0 Micro B receptacle, however some devices have USB C.
 | SPKBTTN | Internet Button, [x1] | Micro B |
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | USB-C |
 | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | Micro B |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | Micro B |

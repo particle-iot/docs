@@ -47,8 +47,7 @@ Device OS support for existing and new Supply Secure SKUs is as documented below
 | Cellular      | Gen 3      | E Series LTE M1       | E404X                             | ✅              | 🚫        | 🚫         | 🚫        | ✅ v5.x+    |
 | Tracker       | Gen 3      | Tracker One               | ONE402M, ONE404M, ONE523M ONE524M | 🚫             | 🚫        | ✅          | ✅         | ✅          |
 | Tracker       | Gen 3      | Tracker SoM               | T402M T404M                       | 🚫             | 🚫        | ✅          | ✅         | ✅          |
-| Tracker       | Gen 3      | Tracker One              | ONE404X, ONE524X                  | ✅              | 🚫        | 🚫         | 🚫        | ✅ v5.x+    |
-| Tracker       | Gen 3      | Tracker SoM               | T404X, T524X                      | ✅              | 🚫        | 🚫         | 🚫        | ✅          |
+| Tracker       | Gen 3      | Tracker SoM               | T404, T524                      | ✅              | 🚫        | 🚫         | 🚫        | ✅          |
 
 #### How will prices change for these new modules?
 All Supply Secure SKUs will be offered at pricing that is equivalent to the contracted pricing of the SKUs that they replace.
@@ -77,13 +76,16 @@ The following enterprise (bulk) SKUs _**are impacted**_ by the silicon shortage 
   - Boron 2G/3G (BRN314MTY)  
   - Boron LTE M1 (BRN402MTY and B404MTY)  
 - Gen 3 Tracker  
-  - Tracker SoM LTE M1 (T402MTY and T404MTY)  
-  - Tracker SoM LTE CAT 1 (T523MTY and T524MTY)  
-  - Tracker One LTE M1 (ONE402MTY and ONE404MTY)  
-  - Tracker One LTE CAT 1 (ONE523MTY and ONE524MTY)  
+  - Tracker SoM LTE M1 (T402MTY)  
+  - Tracker SoM LTE CAT 1 (T523MTY)  
+  - Tracker One LTE M1 (ONE402MTY)  
+  - Tracker One LTE CAT 1 (ONE523MTY)  
 
 The following enterprise SKUs are _**not currently impacted**_ by the silicon shortage (currently Supply Secure, no replacements planned):  
    * B Series LTE CAT 1 (B524MTY)
+
+Originally, there were planned "X" Tracker devices T404XMTY, T524XMTY, ONE404XMTY, and ONE524XMTY, however the is now a sufficient supply of parts available that the existing 404 and 524 variations can be produced in quantity. The existing T404MTY, T524MTY, ONE404MTY, and ONE524MTY are now considered to be supply secure.
+
 
 #### What SKUs are going to be deprecated, and when?
 A complete list of new and deprecated SKUs is available [here](/reference/product-lifecycle/notices/product-deprecation-notice-march-16-2022/).
