@@ -191,7 +191,6 @@ $(document).ready(function() {
                 if (key == tableObj.sort.sortBy) {
                     // Change direction
                     tableObj.sort.sortDir = -tableObj.sort.sortDir;
-                    console.log('sortBy key=' + key + ' sortDir=' + tableObj.sort.sortDir);
                 }
                 else {
                     // Change sort criteria
@@ -277,7 +276,7 @@ $(document).ready(function() {
             }
 
             $(tableBodyElem).append(rowElem);
-            tableObj.sort.rowElems.push(tableObj.sort.rowElems.length);
+            tableObj.sort.rowElems.push(rowElem);
             
             if (options.addToTableData) {
                 if (!tableObj.tableData) {
