@@ -57,6 +57,27 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * FCC and IC certified
  * RoHS compliant (lead-free)
 
+### Model comparison
+
+{{!-- BEGIN shared-blurb bfc112a3-ce3c-4c3e-a607-e547e240371a --}}
+
+| | B404X | B404 | B402 | B524 | B523 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Region | NorAm | NorAm | NorAm | EMEAA | Europe |
+| EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; |
+| Supply Secure | &check; | &nbsp; | &nbsp; | &check; | &nbsp; |
+| Lifecycle | GA | NRND | Deprecated | GA | Deprecated |
+
+- EtherSIM devices generally have a larger number of carriers and more may be added in the future
+- NorAm: North America (United States, Canada, and Mexico)
+- EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported)
+- NRND: Not recommended for new designs
+- See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility
+- See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information
+- See [Lifestyle stages](/reference/product-lifecycle/product-lifecycle-stages/) for more information
+
+{{!-- END shared-blurb --}}
+
 ### Device OS Support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the B404X. The minimum required version is 4.0.0. You cannot use the B404X with Device OS 2.x LTS.

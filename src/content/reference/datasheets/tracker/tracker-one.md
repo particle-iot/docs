@@ -25,6 +25,25 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 ![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
 
+
+### Model comparison
+
+| | ONE404 | ONE402 | ONE524 | ONE523 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Region  | NorAm | NorAm | EMEAA | Europe |
+| EtherSIM  | &check; | &nbsp; | &check; | &nbsp; |
+| Supply Secure | &check; | &nbsp; | &check; | &nbsp; |
+| Lifecycle | GA | Deprecated | GA | Deprecated |
+
+- EtherSIM devices generally have a larger number of carriers and more may be added in the future
+- NorAm: North America (United States, Canada, and Mexico)
+- EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported)
+- See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility
+- See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information
+- See [Lifestyle stages](/reference/product-lifecycle/product-lifecycle-stages/) for more information
+
+
+
 ### Device OS Support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the Tracker One.

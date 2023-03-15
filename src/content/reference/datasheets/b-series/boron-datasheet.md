@@ -70,6 +70,29 @@ The BRN404X model (LTE Cat M1, North America) can be found in the [Boron BRN404X
  * FCC and PTCRB certified
  * RoHS compliant (lead-free)
 
+
+### Model comparison
+
+{{!-- BEGIN shared-blurb f131d988-6f01-4ad5-95ec-762475eba505 --}}
+
+| | BRN404X | BRN404 | BRN402 | BRN313 | BRN310 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Region | NorAm | NorAm | NorAm | Global | Global |
+| Technology | LTE Cat M1 | LTE Cat M1 | LTE Cat M1 | 2G/3G | 2G/3G |
+| EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; |
+| Supply Secure | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Lifecycle | GA | Deprecated | Deprecated | NRND | NRND |
+
+- EtherSIM devices generally have a larger number of carriers and more may be added in the future
+- NorAm: North America (United States, Canada, and Mexico)
+- Global 2G/3G devices not recommended in the United States due to the impending shutdown of 2G/3G networks
+- NRND: Not recommended for new designs
+- See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility
+- See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information
+- See [Lifestyle stages](/reference/product-lifecycle/product-lifecycle-stages/) for more information
+
+{{!-- END shared-blurb --}}
+
 ### Device OS Support
 
 It is recommended that you use the latest version in the 4.x LTS release line with Boron models.

@@ -78,6 +78,24 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
  * FCC, IC, and CE certified 
  * RoHS compliant (lead-free)
 
+### Model comparison
+
+| | T404 | T402 | T524 | T523 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Region  | NorAm | NorAm | EMEAA | Europe |
+| EtherSIM  | &check; | &nbsp; | &check; | &nbsp; |
+| Supply Secure | &check; | &nbsp; | &check; | &nbsp; |
+| Lifecycle | GA | Deprecated | GA | Deprecated |
+
+- EtherSIM devices generally have a larger number of carriers and more may be added in the future
+- NorAm: North America (United States, Canada, and Mexico)
+- EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported)
+- See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility
+- See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information
+- See [Lifestyle stages](/reference/product-lifecycle/product-lifecycle-stages/) for more information
+
+
+
 ### Device OS Support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the Tracker SoM.
