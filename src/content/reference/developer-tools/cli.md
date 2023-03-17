@@ -671,13 +671,15 @@ $ particle publish eventName someData --private
 
 ---
 
-To send events to a product's event stream, set the `--product` flag to your product's id. Note that the product event stream cannot be received by devices - it can only be used for product webhooks and the product SSE event stream.
+To send events to a product's event stream, set the `--product` flag to your product's id.
 
 
 ```sh
 # publish a `temp` event with a value of `25.0` to your product `12345`'s event stream
 $ particle publish temp 25.0 --product 12345
 ```
+
+Prior to March 2023, webhook events like hook-sent, hook-error, and hook-response only went to the device owner's event stream. If the device was unclaimed, the events disappeared. Now, these events also appear in the product event stream, in the console, SSE event stream, and webhooks. 
 
 
 ## particle serial

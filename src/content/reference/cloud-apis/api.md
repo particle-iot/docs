@@ -716,6 +716,15 @@ Each chunk is a separate publish from the cloud point-of-view. Each chunk uses o
 
 These special webhook events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/cloud-apis/api/#get-a-stream-of-events) to see these events.
 
+#### Webhook events and the product event stream
+
+Prior to March 2023, webhook events like hook-sent, hook-error, and hook-response only went to the device owner's event stream. If the device was unclaimed, the events disappeared.
+
+Now, these events also appear in the product event stream, in the console, SSE event stream, and webhooks. 
+
+Additionally, unclaimed product devices can now subscribe to these events to get webhook responses.
+
+
 ## Asset tracking events
 
 ### Tracker location events

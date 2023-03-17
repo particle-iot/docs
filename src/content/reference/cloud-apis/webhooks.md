@@ -497,10 +497,18 @@ Explanation:
 - The third line (`hook-response`) contains the response received from your webhook URL. Large responses will generate multiple response events. Your device can subscribe to these events with `Particle.subscribe()` to receive the data.
 
 The event name will use the triggering event, not the webhook hook name filter.
-
+p
 If your hook captures everything starting with `my-hooks`, but you published `my-hooks/get_weather`, then your response event name would be `hook-response/my-hooks/get_weather`.  Each packet event name includes the index of the packet in the response.
 
 The hook sent and response events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/cloud-apis/api/#get-a-stream-of-events) to see these events.
+
+### Webhook events and the product event stream
+
+Prior to March 2023, webhook events like hook-sent, hook-error, and hook-response only went to the device owner's event stream. If the device was unclaimed, the events disappeared.
+
+Now, these events also appear in the product event stream, in the console, SSE event stream, and webhooks. 
+
+Additionally, unclaimed product devices can now subscribe to these events to get webhook responses.
 
 ### Multipart responses
 

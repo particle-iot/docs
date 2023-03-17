@@ -670,6 +670,8 @@ Unclaimed product devices eliminate the claiming step entirely. This simplifies 
 
 The Logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the Console](/getting-started/console/console/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the Logs page, be sure to use `Particle.publish()` in your firmware.
 
+Prior to March 2023, webhook events like hook-sent, hook-error, and hook-response only went to the device owner's event stream. If the device was unclaimed, the events disappeared. Now, these events also appear in the product event stream, in the console, SSE event stream, and webhooks. 
+
 ### Managing your billing
 
 To see all billing related information, you can click on the billing icon in the sidebar (<i class="ion-card"></i>). This is the hub for all billing-related information and actions. For more specifics about the pricing plans and frequently asked questions, [go check out the Pricing page](https://www.particle.io/pricing).
