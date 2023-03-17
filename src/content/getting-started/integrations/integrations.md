@@ -71,7 +71,7 @@ Because of the simultaneous connection limit, if you want to subscribe to multip
 
 {{!-- END shared-blurb --}}
 
-### Direct Connection
+### Direct connection
 
 The alternative is directly connecting to external services:
 

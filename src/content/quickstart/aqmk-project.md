@@ -4,13 +4,13 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# The Air Quality Monitoring Kit
+# The air quality monitoring kit
 
 ![](/assets/images/10-solution.png)
 
 Air quality monitoring is a common IoT use case, whether gauging dust levels in a workshop or industrial setting, or measuring overall air quality in a public space. In this tutorial, you’ll learn how to perform air quality monitoring with the [Particle Air Quality Monitoring kit](https://part.cl/air-quality-kit), display readings on a screen, and publish data to the Particle Device Cloud.
 
-## The Air Quality Kit comes with the following things:
+## The air quality kit comes with the following things:
 
 {{box op="start"}}
 - 1x Particle Argon or Boron
@@ -418,7 +418,7 @@ The Grove OLED included with this kit is a small 128x64 screen that’s perfect 
 
 At this point, you no longer need to tether your device to your computer. Unplug the USB cable, plug in a LiPo battery and you can take this kit anywhere! Before we finish this tutorial, let’s take these sensor readings all the way to the cloud!
 
-## Publishing data to the Particle Device Cloud
+## Publishing data to the Particle device cloud
 
 For this last section, we’re going to take the data from our sensors, and publish that information to the Particle Device Cloud using the `publish` API. As usual, we’ll start with a firmware library. This one will make it easier for us to create a nice JSON object out of our sensor data.
 
@@ -484,7 +484,7 @@ For this last section, we’re going to take the data from our sensors, and publ
 
 ![](/assets/images/ConsoleMessage.png)
 
-## Final Code
+## Final code
 
 You can download the full project, ready to import into Particle Workbench from the [GitHub air-quality-kit repository](https://github.com/particle-iot/air-quality-kit).
 

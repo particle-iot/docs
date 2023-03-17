@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Tracker SoM evaluation board
 ---
 
-# Tracker SoM Evaluation Board<sup>(001)</sup>
+# Tracker SoM Evaluation board<sup>(001)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-eval-board.pdf"}}
@@ -15,7 +15,7 @@ description: Datasheet for the Particle Tracker SoM evaluation board
 
 This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GNSS module is a castellated system-on-a-module that can either be reflow soldered to your own custom base board, or can be used in this evaluation board, or the carrier board.
 
-## Block Diagram
+## Block diagram
 
 {{imageOverlay src="/assets/images/at-som/at-eval-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
@@ -54,7 +54,7 @@ This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GN
 
 ---
 
-### Powering the Tracker SoM Evaluation Board
+### Powering the Tracker SoM evaluation board
 
 There are several options for powering the evaluation board:
 
@@ -89,7 +89,7 @@ The **3V3** LED indicates that the 3.3V MCU power supply is enabled. Jumper **J8
 
 ---
 
-### CAN Connector
+### CAN connector
 
 The four-position screw terminal connector (J4) allows connection to CAN bus devices.
 
@@ -111,7 +111,7 @@ The 5V power supply is powered by a boost converter and can be turned on and off
 
 ---
 
-### Expansion Connector
+### Expansion connector
 
 | Left Description | Left |  | Right | Right Description |
 | ---: | :---: | :---: | :---: | :--- |
@@ -152,7 +152,7 @@ The 5V power supply is powered by a boost converter and can be turned on and off
 | Ground | GND | | GND | Ground |
 
 
-## Basic Setup
+## Basic setup
 
 The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 
@@ -161,7 +161,7 @@ The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 - Turn on the appropriate power switches (15 and/or 16).
 
 
-## Evaluation Board Schematics
+## Evaluation board schematics
 
 #### Tracker SoM
 
@@ -174,12 +174,12 @@ The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 
 ---
 
-#### Power Switches
+#### Power switches
 
 {{imageOverlay src="/assets/images/at-som/eval-schematic-4.png" alt="Block Diagram" class="full-width"}}
 
 
-#### Expansion Connector
+#### Expansion connector
 
 {{imageOverlay src="/assets/images/at-som/eval-schematic-5.png" alt="Block Diagram" class="full-width"}}
 
@@ -191,7 +191,7 @@ The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 
 ---
 
-## Design Files
+## Design files
 
 The Tracker SoM Evaluation board is open-source and the Eagle CAD design files are available in GitHub:
 
@@ -215,7 +215,7 @@ Weight will be provided at a later date.
 
 ---
 
-## Ordering Information
+## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 698155b6-76d7-11eb-9439-0242ac130002 --}}
 
@@ -235,9 +235,9 @@ Weight will be provided at a later date.
 
 ---
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 The Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
 ### Connectors

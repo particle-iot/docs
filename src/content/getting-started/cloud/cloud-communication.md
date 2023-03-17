@@ -34,7 +34,7 @@ Publishing events is a common thing to do:
 
 You can learn more Particle publish in the [Device OS Firmware API reference](/reference/device-os/api/cloud-functions/particle-publish/). 
 
-### Publish - Simple
+### Publish - simple
 
 {{> codebox content="/assets/files/cloud-communication/publish1.cpp" format="cpp" height="400" flash="true"}}
 
@@ -193,7 +193,7 @@ If you are watching the USB serial debug output, you should see something like:
 The leftmost column is milliseconds since startup, and you can see that the publishes
 are going out exactly in 30 second (30000 millisecond) intervals.
 
-### Publish - Multiple Values
+### Publish - multiple values
 
 What if you wanted to publish multiple values instead of a single value?
 
@@ -370,7 +370,7 @@ What happens if:
 
 You can learn more Particle variables in the [Device OS Firmware API reference](/reference/device-os/api/cloud-functions/particle-variable/). 
 
-### Variable Normal
+### Variable normal
 
 {{> codebox content="/assets/files/cloud-communication/variable1.cpp" format="cpp" height="300" flash="true"}}
 
@@ -415,7 +415,7 @@ particle get test2 sensor
 
 - Or using the Particle mobile app
 
-### Variable Calculated
+### Variable calculated
 
 {{> codebox content="/assets/files/cloud-communication/variable2.cpp" format="cpp" height="300" flash="true"}}
 
@@ -477,7 +477,7 @@ The main differences are:
 It is possible to handle confirmation of event received; it would require that your device publish an event that it
 has received the event, and then the cloud would have to keep track of which devices received the event.
 
-### Device Subscribe
+### Device subscribe
 
 {{> codebox content="/assets/files/cloud-communication/subscribe2.cpp" format="cpp" height="300" flash="true"}}
 

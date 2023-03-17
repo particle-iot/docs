@@ -57,13 +57,13 @@ but the main focus of this integration as it currently
 exists is to provide one-way event ingestion from Particle to Azure IoT Hub
 (and then onto other Azure products).
 
-## Key Concepts in IoT Hub
+## Key concepts in IoT hub
 
 Before using this integration, it is helpful to understand a few
 key concepts fundamental to how Azure IoT Hub works. These concepts will
 come up during use of the IoT Hub integration.
 
-### Device Identities and Identity Registry
+### Device identities and identity registry
 
 From IoT Hub's <a
 href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry" target="_blank">documentation</a>:
@@ -83,7 +83,7 @@ device ID as used in the Particle system for easy correlation of data
 and events. The identity will be created automatically in your Hub the
 first time an approved device publishes an event that triggers the integration.
 
-### Device-to-cloud Message
+### Device-to-cloud message
 
 Related to device identities are device-to-cloud messages. Each device
 in the IoT Hub registry has its own unique messaging stream. This allows the
@@ -104,7 +104,7 @@ device-specific stream. Specifically, when a device executes
 event (plus its included data) will be sent to it's corresponding
 message stream in IoT Hub.
 
-### Shared Access Policy
+### Shared access policy
 
 The Particle cloud must successfully authenticate with your IoT Hub to
 have permissions to both manage the device identity registry as well as publish
@@ -126,7 +126,7 @@ For a full description of authentication and security on Azure IoT Hub,
 please visit the <a
 href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security" target="_blank">Developer guide on security</a>.
 
-### Device Twin
+### Device twin
 
 The device twin is a virtual representation of a device's
 state in IoT Hub, stored as JSON. **Particle will use the twin in IoT Hub to
@@ -141,7 +141,7 @@ shared access policy to Particle that has the "service connect"
 permission enabled when creating the integration.
 
 
-## Preconfiguration in Azure IoT Hub
+## Preconfiguration in Azure IoT hub
 
 You will need to do some setup in Azure IoT Hub before your integration
 will function successfully. Follow the steps outlined below to get
@@ -149,7 +149,7 @@ started. Most of this information is also available
 when you enable the Azure IoT Hub integration on the <a href="https://console.particle.io" target="_blank">Particle Console</a>.
 
 
-### Sign up for an Azure account
+### Sign up for an azure account
 
 If you don't already have one, you'll need to sign up for an Azure
 account to use this integration.
@@ -163,7 +163,7 @@ For more details on Azure pricing, please check out Azure's
 <a href="https://azure.microsoft.com/en-us/pricing/?b=16.43"
 target="_blank">pricing overview</a>.
 
-### Create an Azure IoT Hub
+### Create an azure IoT hub
 
 Once you have created an Azure account, the next step is to create an
 Azure IoT Hub. You will need to create an Azure IoT Hub to receive
@@ -171,7 +171,7 @@ events from your fleet of Particle devices. The Particle cloud will
 communicate directly with your IoT Hub when devices in your fleet
 publish events that trigger the integration.
 
-#### Navigate to IoT Hub
+#### Navigate to IoT hub
 
 In your <a href="https://portal.azure.com/"
 target="_blank">Azure portal</a>, click the <strong>+</strong> icon in
@@ -181,7 +181,7 @@ the side bar, then click <strong>Internet of Things</strong> &gt;
 <img src="/assets/images/azure-iot-hub/create-iot-hub.png"
 alt="Create an IoT Hub"/>
 
-#### Configure New IoT Hub
+#### Configure new IoT hub
 
 A new IoT Hub blade will appear. Fill out all
 required fields of the form. For detailed information on how to
@@ -326,7 +326,7 @@ Congrats! This is all you need to get the integration working end-to-end.
 Your device will now begin to publish the targeted event, which will signal to
 the Particle cloud to send a device-to-cloud message to IoT Hub.
 
-### Confirming the data reaches Azure IoT Hub
+### Confirming the data reaches azure IoT hub
 
 To ensure that the data is successfully being published to Azure IoT
 Hub, you can use the <a href="https://github.com/Azure/azure-iot-cli-extension#microsoft-azure-iot-extension-for-azure-cli" target="_blank">Azure CLI IoT Extension</a>, an Node-based command line
@@ -407,7 +407,7 @@ properties:
 deviceId: <device-id>
 ```
 
-## Example Use Cases
+## Example use cases
 
 After you have connected your device to IoT Hub, you can explore additional IoT scenarios that use other Azure tools and services. Below are 7 different example use cases, taken from <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-get-started">Azure IoT hub documentation</a>:
 

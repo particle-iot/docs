@@ -537,7 +537,7 @@ throttling](#limits).
 
 The hook error events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/cloud-apis/api/#get-a-stream-of-events) to see these events.
 
-### Ordering and Duplicates
+### Ordering and duplicates
 
 Events, and therefore webhooks, do not have guaranteed end-to-end delivery. If you need to guarantee delivery of events, you should send a separate acknowledgement to the device from your server.
 
@@ -545,7 +545,7 @@ Events are not guaranteed to be delivered in the order they were sent. They typi
 
 Likewise, events are delivered at least once. In the case of a lost acknowledgement, the device may retransmit the event, which would cause your webhook to execute twice for the same event. You should make sure your server code is aware of this possibility. 
 
-## Using the Console
+## Using the console
 
 The [Webhook Builder](https://console.particle.io/integrations/webhooks/create) is a handy web-based form for creating webhooks.
 
@@ -656,7 +656,7 @@ POST /v1/webhooks
 
 See the [API reference](/reference/cloud-apis/api/#webhooks) for details on the webhook endpoints.
 
-## Data Operations
+## Data operations
 
 When a device sends an event that triggers a webhook or other integration, that will consume one Data Operation.
 
@@ -700,7 +700,7 @@ Servers must return a response within the timeout period of 20 seconds. A server
 
 ## Examples
 
-### Sending Simple Data
+### Sending simple data
 
 Create a webhook that posts JSON data using the name and data from the event.
 
@@ -731,7 +731,7 @@ content-length: 31
 {"Temperature/Kitchen":"20.00"}
 ```
 
-### Sending Complex Data
+### Sending complex data
 
 Create a webhook that posts JSON data using several fields from the event.
 
@@ -804,7 +804,7 @@ content-length: 59
 
 ```
 
-### Receiving Complex Data
+### Receiving complex data
 
 Use template variables in both the request and response to interact with the [Google Maps Elevation API](https://developers.google.com/maps/documentation/elevation/start).
 
@@ -869,22 +869,22 @@ The Google API wants a parameter "location" with a value of two decimal numbers 
 In the response we want to return just the "elevation" parameter. The returned JSON object contains a key "results" that is an array. In the array is an object with the "elevation". Rather than dealing with parsing the whole result on the Photon we return just the elevation using the template `\{{results.0.elevation}}`.
 
 
-## Community Webhook Examples
+## Community webhook examples
 
 Below are a few community-written webhook examples. They have been sorted by what they do. These examples were not written by Particle but instead members of our community. Got your own webhook example? Post on the [community forums](https://community.particle.io/) and then issue a pull request to our [docs repo](https://github.com/particle-iot/docs/compare).
 
-### Sending SMS (Text Messages)
+### Sending SMS (text messages)
 
 - [Twilio - Sending a text message using Twilio](https://community.particle.io/t/webhooks-sending-a-text-message/10560) by [hoxworth](https://community.particle.io/users/hoxworth/activity)
 - [Tropo - Sending a text message (or voice call) using Tropo](https://community.particle.io/t/webhook-tutorial-send-a-sms/11431) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)
 
-### Push Notifications
+### Push notifications
 
 - [Pushbullet - Sending a push notification using Pushbullet](https://www.hackster.io/gusgonnet/add-push-notifications-to-your-hardware-41fa5e) by [gusgonnet](https://community.particle.io/users/gusgonnet/activity)
 
 - [Pushover - Sending push notifications to the devices of your choosing](https://community.particle.io/t/webhooks-tutorial-push-notifications-with-pushover/52070) by [jaredwolff](https://community.particle.io/users/jaredwolff/activity)
 
-### Sending Emails
+### Sending emails
 
 - [mailgun - Sending emails with mailgun](https://github.com/harrisonhjones/webhook-examples/tree/master/mailgun.org) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)
 

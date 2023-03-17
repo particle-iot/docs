@@ -40,7 +40,7 @@ Other features:
 
 
 
-## Board Diagram
+## Board diagram
 
 ![Labeled](/assets/images/app-notes/AN025/fb-labeled.png)
 

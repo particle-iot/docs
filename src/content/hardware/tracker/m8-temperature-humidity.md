@@ -6,7 +6,7 @@ description: M8 Temperature/Humidity Tutorial
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 
-# M8 Temperature/Humidity Tutorial
+# M8 temperature/humidity tutorial
 
 ## Introduction
 
@@ -35,7 +35,7 @@ The [M8 Temperature/Humidity Sensor Datasheet](/reference/datasheets/tracker/m8-
 
 ## Firmware
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 
 You can download a complete project for use with Particle Workbench as a zip file here:
@@ -84,7 +84,7 @@ The documentation for the library can be found [here](https://github.com/particl
 {{> codebox content="/assets/files/tracker/TempHumCable.cpp" format="cpp" height="500"}}
 
 
-### Digging In
+### Digging in
 
 ```cpp
 Sht3xi2c sensor(Wire3, 0x44);
@@ -125,7 +125,7 @@ Finally connect to the Particle cloud at the end of setup.
 Tracker::instance().loop();
 ```
 
-Make sure you give the Tracker edge firmware processor time on every call to `loop()`.
+Make sure you give the Tracker Edge firmware processor time on every call to `loop()`.
 
 ```cpp
 void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
@@ -149,7 +149,7 @@ void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, cons
 Finally, when there is a location publish, add the sensor data to it.
 
 
-## Cloud Data
+## Cloud data
 
 In the map view in the [console](https://console.particle.io), you should be able to see the additional custom data:
 

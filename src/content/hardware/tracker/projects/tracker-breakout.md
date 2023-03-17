@@ -44,7 +44,7 @@ You'd typically connect those wires to your custom expansion board using one of 
 - Terminate with screw terminals on your board
 - Terminate by soldering the wires to your board
 
-### With the Tracker One Carrier Board directly
+### With the Tracker One carrier board directly
 
 Inside the Tracker One is the Carrier Board. It can be purchased separately in case you want to use the Tracker One features in your own enclosure. The design for the Tracker One enclosure is open-source and can be modified to fit your needs. The Carrier Board has a B8B-PH 8-pin connector on the board, and a short cable that attaches to the M8 8-pin IP67 connector mounted on the side of the enclosure.
 
@@ -52,7 +52,7 @@ Inside the Tracker One is the Carrier Board. It can be purchased separately in c
 
 When expanding on the Tracker One Carrier Board, you may prefer to connect your expansion device to the B8B-PH connector on the board directly, especially if you are putting your expansion board in the enclosure with your Tracker One Carrier Board.
 
-## Tracker One M8 Breakout Board
+## Tracker One M8 breakout board
 
 This is a simple design to help prototype expanding the Tracker One using the M8 port. It's a DIY project with Eagle CAD design files included; you currently cannot purchase a pre-built version of this. 
 
@@ -93,7 +93,7 @@ If you are interested in prototyping designs intended to connect to the Tracker 
 
 ![M8 Eval adapter](/assets/images/app-notes/AN015/m8-eval-adapter.jpg)
 
-## Design Files
+## Design files
 
 The design files for Eagle CAD are included in the **eagle** subdirectory. 
 
@@ -106,7 +106,7 @@ The design files for Eagle CAD are included in the **eagle** subdirectory.
 
 ![Schematic](/assets/images/app-notes/AN015/schematic.png)
 
-### Board Layout
+### Board layout
 
 ![Board Layout](/assets/images/app-notes/AN015/board-layout.png)
 

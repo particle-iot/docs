@@ -27,13 +27,13 @@ In general, libraries in the Particle ecosystem have the following features:
 
 ## Kinds of libraries
 
-### Public Libraries
+### Public libraries
 
 The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are available for public consumption through our development tools and via our [Libraries API](/reference/cloud-apis/api/#libraries). The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
 
 Note that a library may have its own associated open source license that limits or restricts redistribution or commercialization of the library.
 
-### Official Libraries<img class="inline-header-image -small" src="/assets/images/particle-mark.png">
+### Official libraries<img class="inline-header-image -small" src="/assets/images/particle-mark.png">
 
 Official libraries are libraries that were created _by members of the Particle team_ and are designed to be used with Particle hardware. Examples of Official Particle libraries include:
 
@@ -44,7 +44,7 @@ Official libraries are libraries that were created _by members of the Particle t
 
 All Particle libraries meet the same quality standards as [Verified](#verified-libraries) libraries, and appear in the library list with the Particle logo next to them.
 
-### Verified Libraries<img class="inline-header-image -small" src="/assets/images/verified.png">
+### Verified libraries<img class="inline-header-image -small" src="/assets/images/verified.png">
 
 Verified libraries are community-contributed libraries that have been reviewed and confirmed by members of the Particle team to meet the following criteria:
 
@@ -54,7 +54,7 @@ Verified libraries are community-contributed libraries that have been reviewed a
 
 3. **The library has improved visibility.** Verified libraries float to the top of library searches, improving the visibility of the library within the Particle ecosystem.
 
-### Private Libraries<img class="inline-header-image -small" src="/assets/images/private.png">
+### Private libraries<img class="inline-header-image -small" src="/assets/images/private.png">
 
 Private libraries are libraries that have been uploaded to the Particle
 Device Cloud for reuse with many projects, but are _only_ visible to the individual who created and submitted the library. Private libraries can be published as public libraries at any time by the author of the library using the `particle library publish` command.
@@ -118,7 +118,7 @@ There are 3 kinds of project structure:
 - simple
 - extended
 
-### Legacy Structure
+### Legacy structure
 
 The legacy project structure stores files in the root of the project. There is no project definition file. This is
 the structure used by all projects prior to libraries v2.
@@ -128,7 +128,7 @@ the structure used by all projects prior to libraries v2.
 
 A legacy project does not support using libraries.
 
-### Simple Structure
+### Simple structure
 
 The simple project structure is similar to the legacy structure - the project sources are stored in the root. However,
 the project also includes a project definition file `project.properties`. Even saving a blank `project.properties` file
@@ -140,7 +140,7 @@ is enough to make a simple project.
 
 A simple project has standard support for libraries; libraries can be added to the project via the CLI `library add` command.
 
-### Extended Structure
+### Extended structure
 
 The extended structure expands on the simple structure, placing all application sources in the `src` folder.
 
@@ -231,7 +231,7 @@ When a version is ready for prime time, simply type `particle library publish <m
 After this, anybody with a Particle account will be able to use your library!
 Thank you!
 
-## Migrating Libraries
+## Migrating libraries
 
 On January 23, 2017, Particle introduced a new version of our firmware library manager, requiring that libraries be migrated from the old library structure (v1) to our new library structure (v2).
 

@@ -5,12 +5,12 @@ description: USB Test Tools
 includeDefinitions: [api-helper, api-helper-usb, webdfu, zip]
 ---
 
-# USB Test Tools
+# USB test tools
 
 {{> usb-test}}
 
 
-## Marking Setup Done
+## Marking setup done
 
 {{> usb-setup-done}}
 
@@ -20,7 +20,7 @@ Setup done is only required on the Argon, Boron, B Series SoM, and Tracker SoM w
 
 {{> usb-restore-device}}
 
-### Special Notes for Downgrading
+### Special notes for downgrading
 
 {{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
 **Boron LTE BRN402 and B Series SoM B402**

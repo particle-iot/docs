@@ -21,7 +21,7 @@ Example code for this example can be found on [Github](https://github.com/partic
 
 As your fleet grows larger, it will quickly become necessary to implement a scalable cloud-to-device messaging architecture. Maybe you need to trigger your fleet report back a sensor value in response to an external event, or you may need to actuate all of the valves for irrigating a specific section of a farm. In any of these cases and many others, a scalable way to address all of your devices either as a whole, or in groups is essential to the operation of your distributed system.
 
-## A Simple Example
+## A simple example
 
 Let's imagine you have designed a system of distributed irrigation valves controlled by a Particle device. The system has the following qualities:
 
@@ -33,11 +33,11 @@ Let's imagine you have designed a system of distributed irrigation valves contro
 
 Now, this type of system can be easily prototyped using the `Particle.function()` and `Particle.variable()` primitives. However, functions and variables have one major limitation when it comes to this kind of system: they are scoped to _individual devices_. This means that to perform an action on a device, you need to send it a function call. To perform an action on 100 devices, you need to issue 100 function calls, and so on. As you can imagine, this can quickly become unsustainable as your fleet scales. Keeping track of the state of thousands of function and variable calls, managing all of those connections, and staying below the rate limits of the Particle Cloud will add significant complexity and maintenence burden to your systems.
 
-## Particle Best Practice: Using Events
+## Particle best practice: Using events
 
 The best way to accomplish this kind of control and communication with a distributed system is to leverage the Particle Events service. Instead of having to dig all the way down to the device level of the hierarchy to control the actions of your fleet and manage these mappings in your own systems, an events-based approach allows you to define logic for this communication layer dynamically with our publish/subscribe architecture.
 
-### Hierarchical Events
+### Hierarchical events
 
 Going back to the irrigation system example above we need to define a hierarchy of devices. Based on the requirements, we will have three layers of device hierarchy in this product:
 
@@ -47,7 +47,7 @@ Going back to the irrigation system example above we need to define a hierarchy 
 
 These values should be stored in a backend database and linked to the front end user interface you supply with your product. This will provide the basic functionality needed to implement the above use cases: adding users, linking them to a set of products, letting your users create groups of your product, and sending events to your devices to initiate actions.
 
-### Hierarchical Events in Practice
+### Hierarchical events in practice
 
 Given this layering, we need to turn this into a structure for a Particle event. Our event will have the following structure:
 
@@ -60,7 +60,7 @@ Here's what some example events could look like, sent to User ID `123ABC`:
 * `123ABC/set_req_output/1`: Run `set_requested_output` function of all devices belonging to user `123ABC` in group `1`
 * `123ABC/set_req_output/e00fce68f5048fcadf1ea38a`: Run `set_requested_output` function on device `e00fce68f5048fcadf1ea38a`, if it belongs to user `123ABC`
 
-### Example Implementation
+### Example implementation
 
 The code provided below shows how to use the above architecture with some hardcoded values for user ID and group mappings. It provides the following functionality:
 
@@ -202,7 +202,7 @@ The code provided below shows how to use the above architecture with some hardco
  }
 ```
 
-#### Running the Example
+#### Running the example
 
 To demonstrate this code, I flashed it to 3 Argon boards that are part of a product in the console. I then sent 3 example events to the product. Below is the example events and respective serial log output:
 
@@ -245,13 +245,13 @@ To demonstrate this code, I flashed it to 3 Argon boards that are part of a prod
  0001870982 [app] WARN: Unknown function received: foo
 ```
 
-## Particle Best Practice: Storing Configuration Values in EEPROM
+## Particle Best practice: Storing Configuration Values in EEPROM
 
 The above example shows the basics of how to set up subscriptions that are specific to a user, filter issued events by pre-programmed group identifiers, and expose access to internal functions on your device. However, it relies on hardcoded values for the user ID and group ID lists. This isn't ideal in a production setting, as these values may need to be modified at the time of manufacture, or while the device is in the field.
 
 We can take advantage of the emulated EEPROM and provided API to store these settings in a non-volatile, but modifiable way.
 
-### EEPROM Configuration Example Code
+### EEPROM configuration example code
 
 First, we will need to define our configuration data structure that will replace our hardcoded values, and instantiate it in our code as a global variable, `config`. The struct contains the elements we need for our parsing, as well as a `version` variable. Including a version in your configuration structs is good practice, and enables checking for validity of read values, or allowing for changing the struct in a future version of firmware and having upgrades be automatic.
 
@@ -332,13 +332,13 @@ Finally, we need to point our comparisons in the `parseMessage()` routine at our
 * `deviceGroups[i]` becomes `config.deviceGroups[i]`
 * `userID` becomes `config.userID`
 
-### Running the Example
+### Running the example
 
 Now we have our configuration parameters, `userID` and `deviceGroups` stored in EEPROM. If you run this code it will run fine, except our devices will now only respond to the values defined in the `readOrInitEEPROM()` method!
 
 In order for these parameters to be truly dynamic and configurable, we need to take advantage of another Particle Primitive: `Particle.function()`.
 
-## Commissioning Individual Devices with Particle.function()
+## Commissioning individual devices with Particle.function()
 
 Now with our configurable parameters stored and accessible in EEPROM, it is time to link this functionality to the cloud. Below is some example code that creates three Particle functions that:
 

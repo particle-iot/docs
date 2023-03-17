@@ -125,7 +125,7 @@ SWD/JTAG is the recommended method for upgrading (or downgrading) Device OS, boo
 | ST-LINK/V2 | &check; | &nbsp; |
 
 
-### Device Compatibility - SWD/JTAG
+### Device compatibility - SWD/JTAG
 
 The Tracker SoM does not contain a 10-pin SWD debugging connector on the SoM itself, but is exposed on the pads of the SoM and the connector could be added to your base board.
 

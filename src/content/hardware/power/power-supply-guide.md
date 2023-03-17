@@ -179,7 +179,7 @@ All bq24195 devices can detect whether they have external power or not. This can
 - If you are using a 2G/3G device with a bq24195 and not using a battery, you will need to change the input current limit to the maximum.
 
 
-## By Device
+## By device
 
 ### Boron
 
@@ -349,7 +349,7 @@ You need to select the appropriate device power input, which may be one of:
 
 As a general rule, off-the-shelf disposable batteries such as AA or 9V batteries are a poor choice for powering Particle devices.
 
-#### AA Batteries
+#### AA batteries
 
 A single AA alkaline battery (zinc-chloride) has a nominal voltage of 1.5V and a capacity of 1700 mAh to 2850 mAh. Most devices have a minimum supply voltage of 3.6V so you would need a minimum of 3 batteries in series. 2500 mAh at 1.5V x 3 = 11.25 Wh. While greater than the standard Particle LiPo, this is only enough energy to run most cellular devices for a few days without using sleep modes, or longer if you sleep most of the time.
 

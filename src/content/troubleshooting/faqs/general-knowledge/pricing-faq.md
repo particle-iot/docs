@@ -8,7 +8,7 @@ columns: two
 
 Below are some commonly asked questions with respect to Particle's pricing model (announced at Spectra, March 2021).
 
-## What Is The New Pricing Model That Was Announced?
+## What is the new pricing model that was announced?
 
 Particle announced a new pricing model at Spectra, March 2021, the details of which can be found [here](https://particle.io/pricing). This pricing model is divided into three plans: 
 
@@ -18,11 +18,11 @@ Particle announced a new pricing model at Spectra, March 2021, the details of wh
 
 Please see the link above and questions below for more details.
 
-## What Is A Block?
+## What is a block?
 
 A **block** is a bundle of an additional 720k Data Operations and support for an additional 100 devices. A block is further inclusive to 540 MB of cellular data for cellular devices. 
 
-## What Is a Data Operation And How Can I Keep Track Of My Consumption?
+## What is a data operation and how can I keep track of my consumption?
 
 Each Particle Publish, Subscribe, Function, or Variable consumes one Data Operation regardless of size (currently limited to 622 bytes per operation). In the Console, the user-initiated Ping and Signal buttons are metered as well.
 
@@ -39,11 +39,11 @@ The[ Particle Console](http://console.particle.io) lists the three limits you wi
 * For Free and Growth plans, the number of Data Operations consumed this billing month (for Enterprise plans, Data Operations reporting will be annual). Data Operation reporting will be near real-time, but up to 30 minutes behind.
 * For Free and Growth plans, the number of MB of cellular usage this billing month (for Enterprise plans, data usage reporting will be annual). Note that the cellular data usage is not real-time. It can take at least 24 hours, and in some cases may lag several days behind actual usage.
 
-### For a Data Operations Calculator, please follow the link [here](/getting-started/cloud/introduction/#pricing).
+### For a data operations calculator, please follow the link [here](/getting-started/cloud/introduction/#pricing).
 
 For questions regarding the technical specifications of a Data Operation, please review our documentation [here](/getting-started/cloud/introduction/#pricing). 
 
-## How Much Can One Expect To Pay Per Plan?
+## How much can one expect to pay per plan?
 
 **Free plan** users (users operating within the bounds of the Sandbox, as defined above), will not be charged as per the terms of the Sandbox.
 
@@ -51,15 +51,15 @@ For questions regarding the technical specifications of a Data Operation, please
 
 Potential **Enterprise plan** users should contact Sales in order to determine this information. Existing Enterprise plan users are always encouraged to contact their Customer Success Manager for any questions they may have about the new pricing model. 
 
-## How Can I Determine What Plan I Belong To?
+## How can I determine what plan I belong to?
 
 You can find your plan in billing page in our Console ([console.particle.io](https://console.particle.io)) and if you cross the thresholds of usage, our UI will provide you with a warning.
 
-## How Can I Sign Up For The Growth Plan?
+## How can I sign up for the growth plan?
 
 To upgrade to the Growth plan, enter your email address at [https://particle.io/upgradetogrowth](https://particle.io/upgradetogrowth)!
 
-## How am I billed while on the Growth plan?
+## How am I billed while on the growth plan?
 
 * Your Growth account will be billed at the start of each month for the number of blocks allocated.
 * If your usage at the end of the month exceeds the number of blocks allocated, you will be billed at the end of the month for any additional blocks used.
@@ -67,7 +67,7 @@ To upgrade to the Growth plan, enter your email address at [https://particle.io/
 
 If you would like to lower your block usage in a given month, please contact the [support team](https://support.particle.io)**.**
 
-## How Do I Create A Product For My Growth Plan Devices?
+## How do I create a product for my growth plan devices?
 
 Growth Plan devices are housed within an Organization. An Organization is space set aside for you in your Console **outside** of your Sandbox once you complete the Growth Plan transition process. You can read more about Organizations [here](/getting-started/products/organizations/).
 
@@ -93,17 +93,17 @@ You're almost there! Now you need to migrate the relevant devices into your Prod
 
 Adding devices to a Product is easy - gather a list of Device IDs, either by hand or [with our API](/getting-started/products/introduction-to-products/#introduction), and then navigate to the Devices page of your Product (https://console.particle.io/:your ProductID/devices). Select "Add Devices" on the right-hand side of the page, and follow the instructions to add one or many devices into your new Product!
 
-## How is my Growth plan billed?
+## How is my growth plan billed?
 
 Growth plan is billed at the beginning of your monthly beginning cycle for a set amount of blocks. At the end of your billing cycle, your usage is evaluated and if you are over your allocated blocks, you will be invoiced for the extra blocks needed to cover your usage. In addition we will update the number of blocks to be charged for your subsequent billing cycle to the amount used in the previous cycle. 
 
-## If I Would Like To Cancel My Billing, What Steps Must I Take?
+## If I would like to cancel my billing, what steps must I take?
 
 The majority of Particle users will be moved to the Free plan. If your account belongs to the Free plan, you will not be charged and you need to take no action to suspend further billing.
 
-If you have received notice from Particle via email that your account's current usage exceeds the boundaries of the Free Plan but would like to urgently cancel your billing, the prior model for billing cancellation will remain in effect until the rollout of the Growth plan in Summer 2021\. See [here ](/troubleshooting/faqs/general-knowledge/how-can-i-cancel-billing/)for information about how to proceed. 
+If you have received notice from Particle via email that your account's current usage exceeds the boundaries of the Free Plan but would like to urgently cancel your billing, the prior model for billing cancellation will remain in effect until the rollout of the Growth plan in Summer 2021\. See [here ](/troubleshooting/faqs/general-knowledge/how-can-I-cancel-billing/)for information about how to proceed. 
 
-## Are There Any Restrictions On Device Data Usage Outside Of The Particle Cloud?
+## Are there any restrictions on device data usage outside of the Particle cloud?
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as Blynk.
 
@@ -113,11 +113,11 @@ For cellular devices, there is a data limit depending on your pricing plan. The 
 * Growth Plan: 540 MB cellular data per block per month
 * Enterprise Plan: varies by pricing tier, [contact Particle Sales](http://particle.io/sales) to learn more
 
-## How Can I Optimize My Data Operation Consumption?
+## How can I optimize my data operation consumption?
 
 Please see our documentation [here](/getting-started/cloud/introduction/#minimizing-data-operations) for suggested practices to reduce Data Operation consumption. 
 
-## What Happens If I Cross My Data Operations Threshold?
+## What happens if I cross my data operations threshold?
 
 **Free plan** users who require more Data Operations and/or support for more devices will need to upgrade to the Growth plan. Should you exceed 100K Data Operations, you will be warned and given a 3 day grace period to upgrade your account to a paid plan. If you don’t upgrade in 3 days and your monthly billing cycle on the Free plan doesn’t reset then all communications between your devices and the Particle cloud will be paused until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free plan.
 
@@ -125,7 +125,7 @@ In the **Growth plan**, if you use more than your current allotment of Data Oper
 
 In the **Enterprise plan**, the number of Data Operations is pooled annually across all devices, instead of monthly in the Free and Growth plans. Please contact your Customer Success Manager for questions about overages. 
 
-## What Happens If I Cross My Device Cap Threshold?
+## What happens if I cross my device cap threshold?
 
 You cannot add more than 100 devices to the **Free plan**. You instead will need to upgrade to the Growth plan. Free plan users are encouraged to unclaim unused devices if necessary.
 
@@ -133,7 +133,7 @@ You can have any number of devices in the **Growth plan**, but you will need to 
 
 There is no limit to the number of blocks you can purchase in the Growth plan, however upgrading to an Enterprise contract can reduce the cost.
 
-## What Happens If I Cross My Cellular Data Threshold?
+## What happens if I cross my cellular data threshold?
 
 In the **Free plan**, if you exceed the pooled monthly data quota, then all communications between your devices and the Particle cloud will be paused until the end of the billing month, when they will be resumed. It is not possible to add more data to the free plan.
 

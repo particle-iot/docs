@@ -9,7 +9,7 @@ description: Tracker system errata
 
 This document contains known bugs, limitations, and errata for the Tracker SoM, Tracker One, and Tracker Eval board.
 
-## Tracker One - Shipping Mode
+## Tracker One - shipping mode
 
 Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 

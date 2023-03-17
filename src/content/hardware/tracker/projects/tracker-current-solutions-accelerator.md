@@ -46,7 +46,7 @@ The callback is registered with the Tracker Edge software in `setup()`:
 
 Once running, the Tracker One will publish the current measured and it will be associated with the location of the device. The current will be displayed on the Particle console map for each Tracker device running this firmware.
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 You can download a complete project for use with Particle Workbench as a zip file here:
 
@@ -83,6 +83,6 @@ git submodule update --init --recursive
 
 Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
-#### The Source - Current Solutions Accelerator
+#### The source - current solutions accelerator
 
 {{> codebox content="/assets/files/app-notes/AN026/main.cpp" format="cpp" height="500"}}

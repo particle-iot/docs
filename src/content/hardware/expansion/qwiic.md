@@ -95,12 +95,12 @@ The Qwiic boards have I2C pull-ups (typically 4.7K) on each board on both SDA an
 
 The Qwiic bus can only be used at 3.3V. Running it at higher voltages can damage both the Qwiic devices and Gen 3 devices like the Argon, Boron, B Series SoM, and Tracker SoM. Do not connect the red wire to VUSB or Li+ or permanent damage will likely occur.
 
-### Evaluation Boards
+### Evaluation boards
 
 The E Series, B Series SoM, and Tracker SoM evaluation boards can either use the wires above to the expansion header, or the [Grove I2C to Qwiic adapter cable](https://www.sparkfun.com/products/15109).
 
 
-### Gen 3 Feather (Argon, Boron)
+### Gen 3 feather (Argon, Boron)
 
 Another option for the Argon and Boron is to use the [SparkFun Qwiic Shield for Thing Plus](https://www.sparkfun.com/products/16138), which uses the Adafruit Feather form-factor. 
 
@@ -248,7 +248,7 @@ If you monitor the USB debug serial, you'll see something like:
 ```
 
  
-### Temperature Display
+### Temperature display
 
 This example adds a [SparkFun Micro OLED Breakout (Qwiic)](https://www.sparkfun.com/products/14532) to show the temperature on the display.
 
@@ -359,7 +359,7 @@ dependencies.SparkFun_Micro_OLED_Arduino_Library=1.2.7
 ```
 
 
-### Indicator Button
+### Indicator button
 
 The Indicator Button example uses the [SparkFun Qwiic Button - Red LED](https://sparkfun.com/products/15584). When you press the button, the LED goes on. When you press it again, it toggles off. You can also find out the state of the button LED from the cloud.
 
@@ -434,7 +434,7 @@ One way to find the button state is to log into the [console](https://console.pa
 
 It uses a Particle.variable, so the button state is only managed on the device itself. You can click the button as much as you want, and it will only use data when the value is queried, not when the value changes. This also means that you can only query the value when the device is online.
 
-### Relay Button
+### Relay button
 
 You may have difficulty using the [SparkFun Qwiic Single Relay](https://www.sparkfun.com/products/15093) or multiple relay boards with the Photon, Argon, Boron, and Tracker SoM. These devices do not provide enough current on the 3V3 pin to power the relay coils. An external 3.3V power supply will be necessary; connect all of the Qwiic devices to the external 3.3V supply. The external supply ground must be connected to the the Particle device GND pin, but make sure 3V3 is not connected to the external 3.3V supply.
 

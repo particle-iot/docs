@@ -31,7 +31,7 @@ Particle's platform is uniquely positioned to provide industry-leading
 OTA update capabilities for embedded devices. Using Particle for OTA
 updates give you the following benefits:
 
-### A Complete Solution
+### A complete solution
 
 A successful OTA update requires complex coordination between IoT hardware, device firmware, network connectivity, and an IoT device cloud. Trust us, this is a _very hard problem_ to solve correctly.
 
@@ -52,7 +52,7 @@ In fact, **one must have visibility and control over all four of these component
 
 Other IoT platforms may market an OTA feature, but in reality only provide a small sliver of the functionality required perform a complete, reliable, and secure update — leaving your team to piece together a bespoke solution that distracts them from spending valuable time on the features that make your IoT product unique.
 
-### Reliable and Resilient
+### Reliable and resilient
 
 Sending an OTA update is arguably one of the riskiest actions you can take on a connected device. Mishandling OTA updates could at a minimum cause temporary disruption, or at worst force the device into an unrecoverable state.
 
@@ -99,7 +99,7 @@ sent with a click of a button in our IDEs (available both in
 IDE](https://build.particle.io)), or via our developer-approved [REST
 API](/reference/cloud-apis/api/).
 
-#### Moving to Production
+#### Moving to production
 
 As you begin to deploy large numbers of devices, it is imperative to
 have the ability to safely batch OTA updates to many devices at one time. This is what allows you to roll out new software features, fix bugs, or patch security holes across your fleet.
@@ -162,7 +162,7 @@ particle flash my-device my-app.ino
 
 When used with products, the device must not only be marked as a development device, but also claimed to your Particle account. For this reason, we recommend each developer have their own device, claimed to their own account, and often on their desk with each access to buttons and the USB debug serial port, for ease of development.
 
-### Flash via the REST API
+### Flash via the rest API
 
 It is also possible to flash devices using the REST API. 
 
@@ -212,7 +212,7 @@ The Particle Device SDKs for iOS and Android are also able to flash code. Note t
 Particle offers tools to deliver OTA updates to a fleet of IoT devices,
 at any scale.
 
-### Firmware Releases
+### Firmware releases
 
 Firmware Releases are the primary mechanism of delivering fleet-wide OTA updates
 to a deployment of Particle devices. With a single action, you can
@@ -460,7 +460,7 @@ In this example, I've selected the `beta_test` group of devices to deploy a rele
 
 The [Product Tools Device Groups Guide](/getting-started/console/device-groups/) shows how to use groups.
 
-#### Releases via the REST API
+#### Releases via the rest API
 
 All of the operations that can be performed from the Console can also be automated using the REST API. You might do this to automate your build and release process, for example.
 
@@ -498,7 +498,7 @@ firmware (if a firmware has been released as the Product default)
 a product firmware, it will not receive an automatic OTA update from the
 Particle Device Cloud
 
-## Intelligent Firmware Releases
+## Intelligent firmware releases
 
 By default, firmware is sent to target devices as a _Standard Release_.
 Targeted device will receive the new version of firmware over time, with
@@ -594,7 +594,7 @@ returns `true` in application firmware. For more information, see the
 section below on [controlling OTA
 availability](#controlling-ota-availability).
 
-### Understanding the impact of Intelligent Firmware Releases
+### Understanding the impact of intelligent firmware releases
 
 After clicking **Next**, you will need to confirm that you understand
 the impact of the action that you are about to take:
@@ -712,7 +712,7 @@ This feature requires a firmware binary built for Device OS 1.2.0 or later. If a
 
 You can upgrade the Device OS in several ways, including both by USB and OTA following the [instructions here](/getting-started/device-os/introduction-to-device-os/#managing-device-os).
 
-### Force Enable OTA updates
+### Force enable OTA updates
 
 While you can inhibit firmware updates from your device firmware,
 sometimes you need to override the device's local setting. If, for example, you flashed firmware that had a bug in the disable updates code, you might need to force enable updates to replace the bad code.

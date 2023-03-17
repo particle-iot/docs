@@ -5,7 +5,7 @@ description: Tool for debugging cloud connection issues
 includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-protobuf, api-helper-usb, api-helper-extras, api-helper-tickets, usb-serial, webdfu, zip]
 ---
 
-# Cloud Debug
+# Cloud debug
 
 Using the [Particle Web Device Doctor](/tools/doctor/) allows checking account and SIM status and enables other troubleshooting checks. However, if you only want to use the cloud debug firmware, you can do so by installing the firmware and viewing the data in the USB serial console.
 

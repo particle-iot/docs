@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# The Particle IoT Starter Kit
+# The Particle IoT starter kit
 ![](/assets/images/IoT-Starter-Kit-box.jpg)
 
 Welcome to your new Particle IoT Starter Kit. You're one step closer solving real problems with internet connected solutions. 

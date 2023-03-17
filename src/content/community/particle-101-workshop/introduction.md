@@ -5,7 +5,7 @@ columns: two
 layout: commonTwo.hbs
 ---
 
-# About This Workshop
+# About this workshop
 
 This workshop is sponsored and produced by [Particle](https:www.particle.io). It's original presentation took place. The workshop is a combination of presentations and five hands-on sessions, as detailed below.
 

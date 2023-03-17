@@ -3,7 +3,7 @@ title: AN011 Publish to Google Sheets
 layout: commonTwo.hbs
 columns: two
 ---
-# AN011 - Publish to Google Sheets
+# AN011 - Publish to Google sheets
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN011.zip).
 
@@ -18,7 +18,7 @@ If you're like to learn more about Google Apps Script, these two resources are a
 
 
 
-## Getting Started
+## Getting started
 
 ### Create the script
 
@@ -204,7 +204,7 @@ The next step is to create the webhook.
 
 The column A is **api** because the test button just uses the API, not a specific device ID. Column B is the date and time. Columns C and to the right are empty because the test button does not have any data associated with it.
 
-### Device Firmware
+### Device firmware
 
 Here's the publishing test firmware. There's not much to it, and it mainly does one thing:
 
@@ -338,7 +338,7 @@ I flashed this code to second device, and now both are logging to the spreadshee
 
 That should be enough to log simple data to a Google sheet, but there's much more you can do. See the following examples for more elaborate scripts.
 
-## One Sheet Per Device
+## One sheet per device
 
 What if instead of mixing all of the values on a single sheet, you had one sheet per device? That might be better for some use cases.
 
@@ -439,7 +439,7 @@ The code for `createNewSheet_()` is at the bottom of the script and is copied fr
 
 That's it! Now you have one sheet per device within the spreadsheet.
 
-## Mapping Device IDs to Names (manually)
+## Mapping device IDs to names (manually)
 
 One problem with the example above is that the sheet names are really unwieldy! It would be nice to use the device name instead of the device ID
 
@@ -588,7 +588,7 @@ Don't forget to:
 - Create a save a new version from **File - Manage Versions.**
 - Publish a version from **Publish - Deploy as web app.** You only need to update the version number to the newly created version.
 
-## Mapping Device IDs to Names (Using Particle Cloud API)
+## Mapping device IDs to names (Using Particle Cloud API)
 
 It's also possible to query the Particle Cloud API to get the device ID to name mapping. The downside to this is that you must include a Particle account access token in your script. This token grants full access to your account, so beware!
 
@@ -770,7 +770,7 @@ var sheet = createNewSheet_(deviceName);
 ```
 
 
-## Separate Spreadsheets by Device ID
+## Separate spreadsheets by Device ID
 
 What if you wanted to have separate spreadsheet files for each device? You might want to do this if you have a lot of data, or if you want to control access to the spreadsheets on a per-user basis.
 
@@ -885,14 +885,14 @@ var sheet = ss.getActiveSheet();
 Note that you only have to have the scripts in **Test Sheet 1**. The per-device pages are just blank sheets. 
 
 
-## Setting Columns by Key
+## Setting columns by key
 
 In all of the examples so far we've just used a JSON array of items to store in columns in the spreadsheet. This works OK, but sometimes you want more flexibility. Instead of having an array, you could use a JSON object so the items would not need to be ordered, and you have the flexibility of reordering the columns in the spreadsheet without having to update the device firmware!
 
 This example requires an updated spreadsheet, script, and device firmware.
 
 
-### Update Sheet
+### Update sheet
 
 - Optionally remove the sheets you've created, but it won't hurt to leave them. But in any case start with a new sheet.
 
@@ -906,7 +906,7 @@ This example requires an updated spreadsheet, script, and device firmware.
 
 ![Key Value](/assets/images/app-notes/AN011/key-value.png)
 
-### Update Script
+### Update script
 
 Here's the new script:
 
@@ -1043,7 +1043,7 @@ And we build the row differently. For each label:
 - Publish a version from **Publish - Deploy as web app.** You only need to update the version number to the newly created version.
 
 
-### Device Firmware
+### Device firmware
 
 This example requires new device firmware.
 
@@ -1103,7 +1103,7 @@ void publishTest() {
 }  
 ```
 
-### Finishing Up
+### Finishing up
 
 One of the biggest advantages of this technique is that you are free to reorder the columns! Grab the `color` column and drag it to the left and the publishing still works without having to edit the device firmware.
 

@@ -24,7 +24,7 @@ If the antenna is not properly connected, the Cloud Debug logs will output CREG 
 
 All said, devices require both good cellular signal power and quality. Without either, the connectivity will be affected. To understand more about cellular signal, you can read [here](/getting-started/console/device-vitals/).
 
-## Device Vitals
+## Device vitals
 
 You can view the Device Vitals and observe the in-use behavior over time. The Device Vitals are stored for 30 days. Once you detect connectivity issues, we encourage you to quickly investigate using the above information.
 
@@ -64,6 +64,6 @@ We have clients implementing at extreme locations such as rural and forested are
 
 To improve the signal, you can use a [cellular booster](/hardware/certification/antenna/#cellular-boosters-and-micro-cells). We have seen users deploying successfully at the San Francisco bay.
 
-## Cellular Class
+## Cellular class
 
 You can use these functions for deeper troubleshooting [here](/reference/device-os/api/cellular/cellular/).

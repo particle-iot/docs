@@ -51,7 +51,7 @@ The general procedure is:
 {{device-restore mode="download"}}
 
 
-## Special Notes for Downgrading
+## Special notes for downgrading
 
 {{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
 **Boron LTE BRN402 and B Series SoM B402**
@@ -66,7 +66,7 @@ Using the [Hex File Generator](/tools/developer-tools/hex-generator/), you can t
 This is an excellent option if your contract manufacturer will be programming your devices as they will likely be able to use the .hex files and a SWD/JTAG programmer to easily reprogram your devices. This can be done with the standard JTAG programmer software and does not require the Particle toolchains or Particle CLI be installed.
 
 
-## Chip Erase
+## Chip erase
 
 Depending on the device, the behavior of chip erase of the internal flash from SWD/JTAG is very different:
 
@@ -185,7 +185,7 @@ What this does:
 | `-c "reset"` | Reset the Particle device after flashing |
 | `-c "exit"` | Exit openocd |
 
-### Gen 2 Device Security Bit Error
+### Gen 2 device security bit error
 
 If you get a **Device Security Bit Error** when reprogramming a device, you will need to issue the following command, then flash the hex file as above.
 
@@ -232,7 +232,7 @@ All you need to do is:
 - Drag the .hex file on the **DAPLINK** volume created by the Debugger.
 
 
-## Particle Debugger with Web-browser flash
+## Particle Debugger with web-browser flash
 
 ![Particle Debugger](/assets/images/accessories/debugger.png)
 

@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B524 and B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B524/B523 Datasheet
+# B524/B523 datasheet
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b524-b523-datasheet.pdf"}}
@@ -42,7 +42,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * Embedded Particle SIM (B523)
  * Support for Europe only
 
-#### Features - All Models
+#### Features - all models
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
@@ -83,7 +83,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 {{!-- END shared-blurb --}}
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the B524 and B523.
 
@@ -160,7 +160,7 @@ There are two radios on the B523 module. A BLE radio (nRF52840) and a cellular r
 
 The third connector is the LTE cellular receive diversity antenna. A second cellular antenna can be connected to this connector to improve performance when the device will be moving at high speeds. It is only used for LTE Cat 1 connections and is not supported when in 2G or 3G mode. This antenna is not necessary in most cases and is not included in evaluation kits. (The B402 does not have this connector as receive diversity is not supported in LTE Cat M1 mode.)
 
-#### Certified Cellular Antenna
+#### Certified cellular antenna
 
 | SKU  | Description |
 | :--- | :--- |
@@ -178,7 +178,7 @@ The third connector is the LTE cellular receive diversity antenna. A second cell
   - Gain: 4.71 dBi
 
 
-#### General Antenna Guidance
+#### General antenna guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
@@ -216,7 +216,7 @@ The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 ## Memory map
 
-### nRF52840 Flash Layout Overview
+### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
  - User Application
@@ -225,7 +225,7 @@ The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+### External SPI flash layout overview (dfu offset: 0x80000000)
 
  - Reserved (4MB, @0x0040000) 
  - OTA (1500KB, @0x00289000)
@@ -500,7 +500,7 @@ Boron has two radio modules.
 
 ---
 
-### I/O Characteristics 
+### I/O characteristics 
 
 These specifications are based on the nRF52840 datasheet.
 
@@ -540,7 +540,7 @@ These specifications are based on the nRF52840 datasheet.
 
 ## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
 
 | Parameters | Value | Unit |
 | --- | --- | --- |
@@ -567,7 +567,7 @@ One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product
 
 ---
 
-### Screw Assembly
+### Screw assembly
 
 ![Screw Assembly](/assets/images/b-series/b-series-screw.jpg)
 
@@ -587,15 +587,15 @@ We recommend this screw assembly to securely affix the B series SoM to your circ
 
 - Note that a hold-down screw is required because the M.2 connector does not have integrated locks and the SoM will pop up if not attached to the base board.
 
-### Design Considerations
+### Design considerations
 
 We strongly recommend against placing components under the SOM board because there is not enough height.
 
 {{imageOverlay src="/assets/images/b-series/b-series-keep-out.png" alt="Keep-Out Area"}}
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 The B series contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an B series without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the B series module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the B series!
 
 ### Connectors
@@ -645,7 +645,7 @@ The bootloader allows you to easily update the user application via several diff
 
 ## Certification
 
-### EU Declaration of Conformity
+### EU declaration of conformity
 
 We, Particle Industries, Inc., declare under our sole responsibility that the product, B524 and B523, to which this
 declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).

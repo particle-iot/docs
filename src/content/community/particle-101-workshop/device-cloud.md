@@ -32,7 +32,7 @@ bash <( curl -sL https://particle.io/install-cli )
 <br /><br />
 5.  You can also call one of the two functions to light up the yellow or blue LED button. Type the command `particle call <your-device-name> toggleLed` in the terminal. Run the same command again to turn the light off.
 
-## The Particle Device Cloud API
+## The Particle device cloud API
 
 Behind the scenes, every interface that Particle provides to work with devices, from the Console, to mobile apps, SDKs, and the CLI, they all talk through a RESTful Device Cloud API. You can even call yourself, directly.
 

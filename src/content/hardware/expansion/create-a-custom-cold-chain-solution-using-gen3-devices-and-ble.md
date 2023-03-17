@@ -19,7 +19,7 @@ For this example, I had available some kontakt.io asset tags S18-3, which includ
 
 ![DSC_1714.JPG](/assets/images/support/DSC_1714.JPG)
 
-## Beacon Scanner library
+## Beacon scanner library
 
 The bulk of the work on the firmware that is running on the Boron or Argon collecting the data is done by the BeaconScanner library. To find out more about how to include a library in your project, see the documentation [here](/getting-started/device-os/firmware-libraries/#using-libraries)
 

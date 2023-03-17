@@ -10,7 +10,7 @@ description: Learn about products on the Particle platform
 
 ## Introduction
 
-#### Developer Devices
+#### Developer devices
 
 Starting out with a single development kit and a single account you can use the Particle cloud features like:
 
@@ -51,7 +51,7 @@ Products allow a number of additional features over developer devices:
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
 - Email support
 
-#### Enterprise Features
+#### Enterprise features
 
 Once you move beyond self-service to an enterprise plan, you get features such as:
 
@@ -63,7 +63,7 @@ Once you move beyond self-service to an enterprise plan, you get features such a
 - [Contact sales](https://particle.io/sales/) for more information
 
 
-## Devices in Products
+## Devices in products
 
 For most products, you pay for all of the device cloud charges from your own account. You then either handle your own recurring billing with your customer, or build the cost into the cost of your product. 
 
@@ -73,7 +73,7 @@ This serves two purposes: It prevents someone from taking a developer device and
 
 You can add the devices to your product in bulk at once, even if you don't intend to use them right away. The billing will not start until the device comes online the first time. 
 
-## Initial Device Setup
+## Initial device setup
 
 It's possible to just send out devices from your order to your customers without programming them first, however this will slow down the initial connection process and use additional cellular data upgrading your product firmware and Device OS over cellular.
 
@@ -89,7 +89,7 @@ This also is a good time to test the device and make sure it is working properly
 
 Note that the device cloud charges begin when the devices comes online the first time. If you only flash the device by JTAG/SWD or USB and do not allow it to connect to the cloud, you can program it without starting device cloud billing.
 
-## Device and Claiming
+## Device and claiming
 
 In addition to being part of the product, developer devices typically need to be **claimed** to an account. 
 
@@ -110,7 +110,7 @@ As of March 2023, claiming product devices is no longer necessary to subscribe t
 {{!-- END shared-blurb --}}
 
 
-## Product Firmware Workflow
+## Product firmware workflow
 
 When you are working on a product there are any number of possible scenarios, but this one is common and works well:
 

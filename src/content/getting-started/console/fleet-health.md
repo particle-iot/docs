@@ -30,13 +30,13 @@ part of the Diagnostics suite of tools available to you. The aggregated,
 top-down visibility provided by Fleet Health can be used in tandem with
 the detailed device-level diagnostics Device Vitals offers.
 
-## Available Metrics
+## Available metrics
 Fleet Health collects the metrics that matter most when keeping device
 deployments online and operating normally. The available metrics
 instrument various critical components of the IoT infrastructure supporting your
 application that all need to function properly for a healthy fleet.
 
-### Online Devices
+### Online devices
 One of the most common questions you as a fleet manager likely have is:
 _How many devices are online right now_? And relatedly, _How do the
 number of online devices right now compare to historical totals_?
@@ -54,7 +54,7 @@ different points in time.
   the fleet in the current period. Only displayed for Products that
   include cellular devices.
 
-### Event Traffic
+### Event traffic
 
 One of the 4 main device communication primitives is **publishing
 events**, which is done by adding
@@ -75,7 +75,7 @@ the Particle Device Cloud_. As published events trigger Integrations
 forward telemetry data to other systems, this is often a critical component of
 a healthily functioning deployment.
 
-### Integration Traffic
+### Integration traffic
 
 Integrations represent secure channels that allow telemetry data to flow
 from the Particle Device Cloud to other systems, like CRMs, ERPs, and
@@ -105,7 +105,7 @@ from the Particle Device Cloud. If you experience high error rates, you
 should examine each Integration's [history and logs](/reference/cloud-apis/webhooks/#using-the-console) to
 identify which one is having an issue.
 
-### Cloud Function Calls
+### Cloud function calls
 
 Another device communication primitive is **Cloud Functions**, which are
 exposed using
@@ -125,7 +125,7 @@ correlated with devices losing connectivity with the Device Cloud,
 making them unreachable remotely. Be sure to cross-reference this metric
 with the [Online Devices](#online-devices) data.
 
-### Cloud Variable Requests
+### Cloud variable requests
 
 **Cloud Variables** is another device communication primitive that
 allows you to query devices for information locally. Variables are
@@ -182,14 +182,14 @@ alt="Fleet Health Fitlers" />
 <p class="caption">Use filters to examine subsets of devices for
 connectivity health insights</p>
 
-#### By Device Group
+#### By device group
 Each metric can be filtered to display data from devices belonging to a
 specific [group](/getting-started/console/device-groups/). This can help you, for instance, understand that a
 decrease in online devices is because of a localized cellular outage for
 units deployed in a certain geographic area, grouped by location in the
 Console.
 
-#### By Firmware Version
+#### By firmware version
 Similarly, Fleet Health metrics can be focused on a specific version of
 Product application firmware. It may be the case that a new version of
 firmware you have released to the fleet has caused unintended
@@ -198,7 +198,7 @@ the cloud. For instance, perhaps a bug was introduced between `v2` and
 `v3` of application firmware causing calls to a `Particle.function()` to
 fail.
 
-#### By Device OS Version
+#### By Device OS version
 Lastly, it may be that devices running different versions of [Device
 OS](/getting-started/device-os/introduction-to-device-os/) are exhibiting different behaviors.
 Filtering by Device OS version can help you identify patterns in

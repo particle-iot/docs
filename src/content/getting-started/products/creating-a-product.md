@@ -166,7 +166,7 @@ It's possible to set up the device by USB or JTAG/SWD, as long as it does not co
 
 We recommend flashing the desired version of Device OS and your product firmware by USB or SWD/JTAG before shipping it to your end-users, as well.
 
-## Development Tools
+## Development tools
 
 ### Workbench
 

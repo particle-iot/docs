@@ -11,7 +11,7 @@ Thanks so much for your interest in Particle! If you are here, it means that you
 
 A Wholesale account will help you get preferred or bulk pricing, volume discounts and other exciting offers through our bulk purchasing portal called the Particle Wholesale store. Learn more [here](https://wholesale.particle.io/).
 
-## Wholesale Account Application Overview
+## Wholesale account application overview
 
 You can find the Wholesale sign up page here to submit an application. Please note that at this time we are **not presently accepting new applications for contracted new distributors** with negotiated contractors or term sheets. However, Wholesale store corporate accounts and wholesale store distributor applications are still being processed and approved.
 
@@ -19,7 +19,7 @@ Below is a screenshot of what you should see to sign in or sign up for our [Whol
 
 ![wholesalelogin.png](/assets/images/support/wholesalelogin.png)
   
-## Wholesale Account Types
+## Wholesale account types
 
 Our **Business** customer category contains our standard bulk pricing and bulk format products. If you are a product creator, choose this option. The processing of your application may take up to 2 business days.
 
@@ -27,7 +27,7 @@ Our **Business** customer category contains our standard bulk pricing and bulk f
 
 **[Particle For Good](https://www.particle.io/for-good/)** contains our preferred pricing for non-profits, educators, and those committed to making a positive impact. To learn more about the Particle For Good program and to apply to be apart of this program, please visit the P4G site.
 
-## Creating a Particle Account
+## Creating a Particle account
 
 To create a Wholesale Store Account, first, you will need to create a [Particle Account.](https://wholesale.particle.io/account) Our new [Particle Account](https://wholesale.particle.io/account) page is also a very useful tool for checking general account information or logging out for customers with multiple accounts. Below is a screenshot of what you will see, click sign up to create a new account.
 
@@ -37,7 +37,7 @@ Next, you will be asked to enter your email address, first name, last name, pass
 
 After you complete this process, your Particle Account will be created, and then you can proceed with the Particle Wholesale Store Application process to continue to the next steps to create your Particle Wholesale Store Account. 
 
-## Wholesale Store Application Process
+## Wholesale store application process
 
 From wholesale.particle.io, click “Sign Up.” On the next screen, you will be logged in with your Particle account. Then, please select the button marked “Apply Now” to select from the drop-down our 4 categories for Wholesale store accounts.
 

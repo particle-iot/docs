@@ -48,7 +48,7 @@ Note that CAN bus is differential and consists of two lines:
 
 As the signals are differential you don't need to connect GND for CAN bus.
 
-## Termination Resistors
+## Termination resistors
 
 The CAN bus requires termination resistors, typically 120 ohms on each end of the CAN bus to prevent reflection of the signal. 
 
@@ -58,7 +58,7 @@ If you are attaching the Tracker to a vehicle OBD-II port, you may not need to a
 
 If you are directly connecting another CAN module to the Tracker you will have to add termination resistors on both ends. The Tracker SoM and Tracker One do not contain 120 ohm termination resistors.
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 You can download a complete project for use with Particle Workbench as a zip file here:
 
@@ -92,12 +92,12 @@ Make sure you've used the [**Mark As Development Device**](/getting-started/cons
 CAN support requires Tracker Edge v10 or later, which requires 2.0.0-rc.3 or later.
 
 
-## Full Source
+## Full source
 
 {{> codebox content="/assets/files/app-notes/AN017/firmware/main.cpp" format="cpp" height="400"}}
 
 
-## Digging In
+## Digging in
 
 ```cpp
 // Various OBD-II (CAN) constants
@@ -423,7 +423,7 @@ If the `fastPublishPeriod` is non-zero and that time period has expired, do a ma
 - Can boost publish speed on certain on-device criteria (cloud connected and RPM)
 - Period is cloud-configured, not part of the user firmware, so you can reset it easily.
 
-## Setting Cloud Configuration
+## Setting cloud configuration
 
 The configuration data that is sent between the device and cloud is described by a **schema**. Not only does this define valid values for the fields, but it also describes the presentation of the data in the console user interface. You can add new elements to the schema and you can edit the values of your custom fields directly from the console!
 

@@ -5,7 +5,7 @@ columns: two
 layout: commonTwo.hbs
 ---
 
-# Session 3 - Connecting the Particle Device Cloud to Azure
+# Session 3 - Connecting the Particle device cloud to Azure
 
 | **Project Goal**            | Connect your project to Azure and "backhaul" sensor data to the cloud. |
 | --------------------------- | ---------------------------------------------------------------------- |
@@ -55,7 +55,7 @@ layout: commonTwo.hbs
 
 Now we can complete setting up this integration from the Particle Console.
 
-## Setting up the Particle Integration
+## Setting up the Particle integration
 
 1.  Navigate to [console.particle.io](https://console.particle.io) and click the "Integrations" menu item.
 
@@ -95,7 +95,7 @@ Now we can complete setting up this integration from the Particle Console.
 
   ![](/assets/images/workshops/photon-maker-kit/03/device-in-hub.png)
 
-## Viewing IoT Hub Events
+## Viewing IoT hub events
 
 With the event set up, everything should be piping into the Azure IoT hub. We can verify using the [iothub-explorer command line utility](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-explorer-cloud-device-messaging?WT.mc_id=7061727469636c65).
 

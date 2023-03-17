@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# Technical Advisory Notices
+# Technical advisory notices
 
 Technical Advisory Notices are issued for hardware issues and typically include:
 
@@ -13,7 +13,7 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - Issue resolutions and workarounds
 
 
-## By Product Family
+## By product family
 
 ### Tracker System
 
@@ -36,11 +36,11 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](/reference/technical-advisory-notices/tan004-power-off-recommendations-for-sara-r410m-equipped-devices/)
 - [TAN005 - SARA-R410-02B-03](/reference/technical-advisory-notices/tan005-sara-r410-02b-03/)
 
-## Manufacturing Firmware Updates
+## Manufacturing firmware updates
 
 - [TAN008 - B404 Manufacturing Firmware 2.3.0](/reference/technical-advisory-notices/tan008/)
 
-## Numerical List
+## Numerical list
 
 - [TAN001 - SARA-R410M "124-day"](/reference/technical-advisory-notices/tan001-sara-r410m-124-day/) Power-off procedure recommendations for Particle devices running u-blox SARA-R410M-02B modules
 - [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/) Shipping mode issue impacting Tracker One v1.0 devices manufactured before August 31, 2020.

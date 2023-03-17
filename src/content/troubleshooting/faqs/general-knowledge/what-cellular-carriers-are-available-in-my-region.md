@@ -5,11 +5,11 @@ columns: two
 ---
 
 # {{{title}}}
-### Cellular Carriers 
+### Cellular carriers 
 
 The cellular carriers available to a given device are determined by two things: a) radio type and b) device type. Particle's SKUs represent both of the information in one number.  
   
-### Finding Available Carriers By SKU
+### Finding available carriers by SKU
 
 We have two great resources for you -
 

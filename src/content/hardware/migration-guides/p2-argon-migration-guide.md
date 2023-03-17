@@ -176,7 +176,7 @@ the voltage regulator so you can choose any model as long as it meets the voltag
   - The Argon used a Torex XCL223, which is no longer available. The pin compatible XCL224 is also no longer available.
 - If the voltage is close to 3.3V, such as 5V USB, a linear regulator can be used.
 
-### LiPo Battery and LI+ pin
+### LiPo battery and li+ pin
 
 The P2 does not include a LiPo battery connector or charging circuit on the module. If you want these features you will need to include them on your base board.
 
@@ -491,7 +491,7 @@ The [EEPROM emulation API](/reference/device-os/api/eeprom/eeprom/) is the same 
 
 Both the Argon and P2 have 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
 
-### NFC Tag
+### NFC tag
 
 The Photon 2 does not have NFC Tag support. The Argon does.
 
@@ -1108,7 +1108,7 @@ Most third-party libraries are believed to be compatible. The exceptions include
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
 
 
-## Version History
+## Version history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|

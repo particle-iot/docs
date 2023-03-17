@@ -16,7 +16,7 @@ and [tools to manage product fleets](#product-tools).
 
 **Note:** The Console does not yet work in Microsoft Internet Explorer including Edge. Please use another browser, such as Chrome or Firefox, to access the Console. If you're experiencing rendering issues, turn off any ad blocking extensions you may be using.
 
-## Developer Tools
+## Developer tools
 
 While actively developing an IoT project or product, the Console offers
 many helpful features to make prototyping a breeze. See the last time a
@@ -53,7 +53,7 @@ renaming the device and unclaiming it from your account.
 
 Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing.
 
-### Event Logs
+### Event logs
 
 The Logs feature provides a clean interface to view event information in real-time, just from your devices. We're hoping that this is handy both while debugging code during development, and checking out recent activity on your device once you power-on your finished project. Tailored around improving the experience of browsing logs, the page provides a handful of tools, like filtering, modifiers which enable you to narrow down your search for events, making it easier to view only the data that is relevant to you. In this view, you'll only see events that come in while the browser window is open.
 
@@ -146,7 +146,7 @@ tutorial](/getting-started/integrations/community-integrations/azure-iot-hub/)
 - [Google Cloud Platform
 tutorial](/getting-started/integrations/google-cloud-platform/)
 
-## Billing & Usage
+## Billing & usage
 
 The **Billing & Usage** page shows billing information and data usage (data operations and cellular). 
 
@@ -204,7 +204,7 @@ Additionally, all organization members still have a private sandbox in their acc
 
 If you already have your devices in a product, the entire product can be moved into your growth organization without affecting the customers, access tokens, or cloud API endpoints, so this should be a relatively easy transition.
 
-## Product Tools
+## Product tools
 
 For many using Particle, the end-goal is to move from a single prototype
 to a professional deployment of thousands or millions of units in the
@@ -227,7 +227,7 @@ devices are functioning. It allows you and a team to manage firmware running on 
 The first step to get started is understanding the differences between your
 personal devices and those added to a Product.
 
-### Devices vs Product Devices
+### Devices vs product devices
 
 Up until now, you've been an individual user of Particle. Your devices belong to
 you, and you can only act upon one device at a time.
@@ -295,7 +295,7 @@ Once your team member is successfully invited, they will receive an email notify
 
 Nice! Now you have a Product with a team.
 
-### Your Product ID
+### Your product ID
 
 When you created your product, a unique numeric ID was assigned to it. This small piece of information is *very, very important* to you as a product creator, and it will be used countless times during the development and manufacturing process for your product. You will be able to find your product's ID at any time in the navigation bar when viewing information about your product:
 
@@ -306,7 +306,7 @@ This ID will be used by the Particle Device Cloud to identify which devices belo
 
 When working with devices that belong to your Product, it is important to note that this product ID must be compiled into the firmware that is running on each device. The product ID that the device reports to the cloud from its firmware will determine which Product it requests to become a part of. This will be covered more in-depth in the [rollout firmware](#rollout-firmware) section below.
 
-### Adding Devices
+### Adding devices
 
 Now that you have your Product, it's time to import devices. Importing devices will assign them to your Product and allow you to start viewing and managing these devices within your Product Console.
 
@@ -334,7 +334,7 @@ As noted at the bottom of the dialog box, if you previously rolled out
 firmware, those newly imported devices will be updated over the air to
 that firmware next time they connect to the Particle Device Cloud.
 
-### Rollout Firmware
+### Rollout firmware
 
 One of the most valuable features of a Particle product is being able
 to seamlessly manage firmware on a fleet of IoT devices. You now have
@@ -471,7 +471,7 @@ void loop() {
 ```
 
 
-#### Compiling Binaries
+#### Compiling binaries
 
 If you are using Particle Workbench, follow the instructions to use the [**Particle: Cloud Compile**](/getting-started/developer-tools/workbench/#particle-cloud-compile) or [**Particle: Compile Application (local)**](/getting-started/developer-tools/workbench/#particle-compile-application-local-) to create a firmware binary.
 
@@ -614,7 +614,7 @@ The device above is now unlocked from version 3 of product firmware, and
 may be targeted to receive a released firmware next time it handshakes
 with the cloud.
 
-#### Firmware Precedence Rules
+#### Firmware precedence rules
 
 Devices in your fleet will be targeted to
 receive a version of product firmware according to these precedence
@@ -637,7 +637,7 @@ firmware (if a firmware has been released as the Product default)
 a product firmware, it will not receive an automatic OTA update from the
 Particle cloud
 
-### Managing Customers
+### Managing customers
 
 Now that you have set up a Product, your customers will be able to create accounts on the Particle platform that are registered to your Product. When properly implemented, your customers will have no idea that Particle is behind the scenes; they will feel like they are creating an account with *ACME, Inc.*.
 
@@ -666,7 +666,7 @@ Unclaimed product devices eliminate the claiming step entirely. This simplifies 
 {{!-- END shared-blurb --}}
 
 
-### Monitoring Event Logs
+### Monitoring event logs
 
 The Logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the Console](/getting-started/console/console/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the Logs page, be sure to use `Particle.publish()` in your firmware.
 
@@ -717,7 +717,7 @@ It’s easy to find out the status of your Product’s metrics. Visit [console.p
 
 You can update your credit card from the billing page by clicking on the "UPDATE" button next to the credit card on file. Whenever your credit card on file expires or no longer is valid, be sure to update your credit card info here to avoid any disruptions in your service.
 
-### Failed Payments
+### Failed payments
 
 If we attempt to charge your credit card and it fails, we do not immediately prevent you or your team from accessing your Device Management Console. We will continue to retry charging your card once every few days <strong>for a maximum of 3 retries</strong>. You will receive an email notification each time an attempt is made and fails. When you receive this notification, the best thing to avoid any interruption in service is to <a href="#updating-your-credit-card">update your credit card</a>.
 
@@ -740,11 +740,11 @@ Selecting an organization brings up the organization view, which typically has:
 You still have granular access control at the product level when using an organization. For example, if you have a contractor who is working on a single product you can grant developer access to that product only instead of all products in your organization.
 
 
-## Asset Tracker Features
+## Asset Tracker features
 
 All Asset Tracker devices are intended to be used in a product, not as developer devices. This makes it easy to manage a fleet of asset trackers, allowing per-fleet and per-device configuration settings, and features like fleet mapping. The Product Features in the previous section also apply to Tracker devices.
 
-### Create Product
+### Create product
 
 When you create a product with **Asset Tracker (Cellular** as the type, the Asset Tracker features are enabled for the product. Even if you have an existing product, you'll need to create a new Asset Tracker product as products can only have  a single type of device. For example, a product cannot have both an Asset Tracker and a Boron in it. This is done automatically for you if you use [setup.particle.io](https://setup.particle.io).
 
@@ -776,7 +776,7 @@ And view details about a specific device:
 
 On the Tracker One the temperature ("temp") is shown in degrees Celsius. This is the temperature on the board, within the enclosure, and will typically be several degrees warmer than the ambient temperature.
 
-### Device Fleet Settings
+### Device fleet settings
 
 Your Tracker devices are intended to, in general, be configured with fleet-wide settings that are used for all devices in your fleet. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
 
@@ -789,7 +789,7 @@ Additionally, the Geofence settings are always per-device, with no fleet-wide de
 Finally, when a device is marked as a Development Device, all configuration fields can be configured per-device, and these can override the fleet settings. Development devices also do not get automatic fleet firmware updates.
 
 
-#### Location Settings
+#### Location settings
 
 ![Location Settings](/assets/images/tracker/settings-1.png)
 
@@ -858,7 +858,7 @@ When disabled, location publishes that occur when the device does not have cellu
 
 - **Discard Policy** is **drop_old** or **drop_new** which determines whether to discard the oldest or newest location data when the storage size reaches the limit.
 
-#### Motion Settings
+#### Motion settings
 
 ![Motion Settings](/assets/images/tracker/settings-2.png)
 
@@ -889,7 +889,7 @@ The **Type** popup menu has the following options:
 - **tracker**: Color indicates signal strength (yellow = lower signal strength, green = higher signal strength). Fast breathing red while connecting to cellular.
 - **particle**: Use standard Particle colors like breathing cyan instead of tracker-style colors. Default for Tracker SoM Evaluation Board.
 
-#### Sleep Settings
+#### Sleep settings
 
 ![Sleep Settings](/assets/images/tracker/settings-5.png)
 
@@ -904,7 +904,7 @@ Sleep mode allows the device to enter a low-power state when idle, conserving ba
 You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker-sleep/).
 
 
-### Device Monitoring
+### Device monitoring
 
 ![Device Monitoring](/assets/images/tracker/device-monitoring.png)
 
@@ -912,7 +912,7 @@ Device Monitoring publishes additional metrics and also fault (crash log) inform
 
 See the [Memfault Integration](/getting-started/integrations/community-integrations/memfault/) for more information.
 
-### Device Settings
+### Device settings
 
 Geofence settings are only configurable per-device, not in the fleet settings.
 
@@ -961,7 +961,7 @@ The publish on inside, outside, enter, and exit affect the `trig` array in the l
 
 
 
-### Typical Settings
+### Typical settings
 
 Typical settings in common scenarios:
 
@@ -1010,7 +1010,7 @@ Typical settings in common scenarios:
   If you have additional sensors that you are monitoring, and you want to continuously send samples at set time intervals, just set the maximum.
 
 
-### Data Usage
+### Data usage
 
 A location publish uses one data operation to send the location data to the Particle cloud. If you subscribe to enhanced location events on the device, an additional data operation will be used.
 
@@ -1058,7 +1058,7 @@ For time trigger, here are some general guidelines. These are just location publ
 {{collapse op="end"}}
 
 
-### View Device
+### View device
 
 #### Using the cmd box
 
@@ -1143,7 +1143,7 @@ You can tell by the email address under the product description as this is the o
 - **Sandbox** is selected in the upper left (1).
 - The **Products** icon is selected in the left navigation bar (2).
 
-### Products Devices - sandbox
+### Products devices - sandbox
 
 This list shows all devices that are included in a product, regardless of claiming. 
 
@@ -1189,7 +1189,7 @@ Organizations are used for both growth and enterprise plans. An organization is 
 ![Products - organization](/assets/images/console/org-products.png)
 
 
-### Products Devices - organization
+### Products devices - organization
 
 This list shows all devices that are included in a product, regardless of claiming. 
 

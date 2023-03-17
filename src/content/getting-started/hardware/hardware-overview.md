@@ -289,7 +289,7 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 - No troubleshooting site-specific Wi-Fi configuration issues
 
 
-#### B Series SoM (Production Gen 3 Cellular)
+#### B Series SoM (Production Gen 3 cellular)
 
 ![B Series](/assets/images/b-series/b-series-top.png)
 
@@ -356,7 +356,7 @@ The available models include:
 
 - For more in-depth information on cellular devices see the [cellular introduction](/getting-started/hardware/cellular-overview/) page.
 
-#### Boron (Prototyping Gen 3 Cellular)
+#### Boron (Prototyping Gen 3 cellular)
 
 {{!-- BEGIN shared-blurb 33f29de8-9bab-11ec-b909-0242ac120002 --}}
 ![Boron](/assets/images/boron/boron-top.png)
@@ -451,7 +451,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 - See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
 - For more in-depth information on cellular devices see the [cellular introduction](/getting-started/hardware/cellular-overview/) page.
 
-#### E Series (Production Gen 2 Cellular)
+#### E Series (Production Gen 2 cellular)
 
 {{!-- BEGIN shared-blurb 58d445bc-9bab-11ec-b909-0242ac120002 --}}
 ![E Series](/assets/images/e-series/illustrations/e0-top.png)
@@ -704,7 +704,7 @@ The P1 is intended for production use. It is an older Gen 2 models as is depreca
 {{!-- END do not edit content above, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b--}}
 
 
-### Both Cellular and Wi-Fi
+### Both cellular and Wi-Fi
 
 There are no Particle devices that include both cellular and Wi-Fi connectivity in a single device. While the Tracker SoM and Tracker One include cellular and Wi-Fi, the Tracker Wi-Fi can only be used for geolocation and cannot be used to connect to the Internet.
 

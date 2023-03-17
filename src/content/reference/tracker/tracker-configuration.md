@@ -141,7 +141,7 @@ This picture shows how elements in the schema directly map to what you can see i
 
 **A custom schema replaces the existing schema.** This means that as new features are added to Tracker Edge you will want to periodically merge your changes into the latest schema so you will get any new options.
 
-### Default Schema
+### Default schema
 
 This is the full schema for Tracker Edge, as of version 13. You won't need to understand the whole thing yet, but this is what it looks like:
 
@@ -373,7 +373,7 @@ This is what it looks like in the console.
 
 ![](/assets/images/tracker/settings-example.png)
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 
 You can download a complete project for use with Particle Workbench as a zip file here:
@@ -430,7 +430,7 @@ The C++ implementation file for the custom configuration class.
 {{> codebox content="/assets/files/tracker/example/MyConfig.cpp" format="cpp" height="300"}}
 
 
-### Digging In - Example
+### Digging in - Example
 
 #### Member variables in the C++ class
 

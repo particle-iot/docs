@@ -17,7 +17,7 @@ So far in this workshop, you've used the USB Serial interface to inspect and deb
 
 In this section, you'll explore using [Particle Workbench](https://www.particle.io/workbench) to step-debug your Particle-powered app.
 
-## Prepare for Debugging
+## Prepare for debugging
 
 In order to perform step debugging and a few other features, you'll need to disable BLE support in your application firmware. This is to address a current limitation in software that Device OS depends on to handle real-time networking and communication.
 
@@ -32,7 +32,7 @@ At the start of your `setup` function, add the following lines to disable BLE du
 Now, continue onto the next step. When you flash a debug build to your device, you'll automatically disable BLE so you can perform step debugging. 
 
 
-## Connect the Particle Debugger
+## Connect the Particle debugger
 
 To complete this portion of the lab, you'll need the following:
 
@@ -85,7 +85,7 @@ Now, get ready to wait a bit as Workbench creates a debug binary for your projec
 6. Click the continue button to power your device back up. Once your Argon is breathing cyan again, you’re ready to debug!
   ![](/assets/images/workshops/particle-101/03/ContinueButton.png)
 
-## Step-debug your device with Workbench
+## Step-debug your device with workbench
 ### Setting breakpoints and stepping through code
 1. Let's start with one of the most commonly-used debug features: setting breakpoints. This allows you to pause and inspect the state of running code during execution. You can set breakpoints by clicking in the gutter next to an individual line, or from the *Breakpoints* section of the debug sidebar. 
 <br /><br />

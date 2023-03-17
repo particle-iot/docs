@@ -5,7 +5,7 @@ description: Particle Device Setup and Claiming Tool
 includeDefinitions: [api-helper, api-helper-extras, usb-serial]
 ---
 
-# Device Setup and Claiming
+# Device setup and claiming
 
 {{> sso}}
 
@@ -20,7 +20,7 @@ the status LED blinks dark blue.
 {{> device-lookup hidden="true"}}
 
 
-## Marking Setup Done
+## Marking setup done
 
 On Gen 3 devices (Argon, Boron, B Series SoM, Tracker) running Device OS 3.x or earlier, you must clear the "Setup Done" flag
 in order to leave listening mode (blinking dark blue). This can be done using the

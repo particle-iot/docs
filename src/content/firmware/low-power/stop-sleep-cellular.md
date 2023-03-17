@@ -77,7 +77,7 @@ Using an Electron 3G (U260), here's the second wake from sleep comparison:
 As your connection becomes weaker and weaker, not having to reconnect to the tower each time becomes more and more important.
 
 
-## The Future
+## The future
 
 One of the important techniques used in this code sample is the use of a Future as the return value from Particle.publish. What is a Future? It's a special returned object that encapsulates two things:
 
@@ -116,11 +116,11 @@ if (publishFuture.isDone()) {
     }
 ```
 
-## The Code
+## The code
 
 {{> codebox content="/assets/files/app-notes/AN028/firmware/src/Stop-Sleep-Cellular.cpp" format="cpp" height="500"}}
 
-## Code Walk-Through
+## Code walk-through
 
 Standard stuff used in most of the examples:
 
@@ -495,12 +495,12 @@ void firmwareUpdateHandler(system_event_t event, int param) {
 }
 ```
 
-## Power and Log Examples
+## Power and log examples
 
 - E Series E402 (LTE Cat M1)
 - Device OS 1.5.0
 
-### Cold Boot
+### Cold boot
 
 | Measure | Value | Units |
 | :--- | ---: | :--- |

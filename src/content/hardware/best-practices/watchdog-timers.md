@@ -29,7 +29,7 @@ A hardware watchdog will not help with problems caused by a bad power supply. Ei
 
 Finally, a hardware watchdog is intended to be a last-resort. Because firmware updates occur in a context where the watchdog cannot be serviced, it's best to have a watchdog timeout of 4 to 6 minutes. You should code as defensively as possible to prevent the watchdog from being needed.
 
-## Simple Watchdog - TPL5010
+## Simple watchdog - TPL5010
 
 The Texas Instruments TPL5010 is a simple watchdog timer that allows the device to be reset after a set period. The design here uses a 4 minute period, but it's adjustable using a resistor. It requires one GPIO to service ("pet" or "tickle") the watchdog and reset the timer. It also connects to the RESET line to reset the device when the watchdog period expires.
 
@@ -41,7 +41,7 @@ This design is a simple FeatherWing for the TPL5010. You probably won't want to 
 
 ![TPL5010 Top](/assets/images/app-notes/AN023/tpl5010-top.jpg)
 
-#### Schematic and Board - TPL5010
+#### Schematic and board - TPL5010
 
 ![Schematic](/assets/images/app-notes/AN023/tpl5010-schematic.png)
 
@@ -60,7 +60,7 @@ The Eagle files are in the eagle/FeatherTPL5010 directory.
 
 While this design used a 39.2K resistor for a 4 minute watchdog period, you may want to use a more commonly available [47K resistor](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF4702V/P47.0KHCT-ND/1746783) for a 6 minute watchdog period.
 
-### Hardware Design - TPL5010
+### Hardware design - TPL5010
 
 The TPL5010 has a somewhat complicated timing diagram:
 
@@ -151,7 +151,7 @@ void serviceWatchdog() {
 The TPL5000 can also be used with the Photon and P1, and does not require a period-setting resistor. It uses three pins to set the timeout value. Because the maximum timeout is 64 seconds (with all three pins tied to VDD), it's not long enough to get a software update on cellular devices. In general, it's best to use a TPL5010 with a 4 - 6 minute period even for the Photon and P1 devices. You should also not use the TPL5000 with the Argon, as it has much larger system downloads than the Photon and P1.
 
 
-## Advanced Watchdog - AB1805
+## Advanced watchdog - AB1805
 
 The Abracon AB1805 (and its identical relative, the Ambiq Micro AM1805), is an I2C-connected watchdog and real-time clock chip. It has a number of advanced features that make it ideal for use as a watchdog and RTC with Boron and Argon devices. It's also built into the Tracker SoM.
 
@@ -236,7 +236,7 @@ To eliminate this problem the AB1805 is configured to also bring nRESET low when
 
 This method is preferable to connecting EN and RESET together by wire. The problem with physically connecting EN and RESET together is that pressing the RESET button on the Boron will briefly bring EN low in this case. This will remove power from the modem. Normally, in Device OS 2.0.0 and later, RESET allows the modem to stay connected across System.reset() and the RESET button for faster reconnection. Also, a very short press of the RESET button could brown out the cellular modem without fully resetting it. Thus the separate software control of EN and RESET is preferable. 
 
-### Watchdog Configuration
+### Watchdog configuration
 
 The AB1805 Watchdog has a maximum of 124 seconds. This is less than the 4 - 6 minutes we recommend, however this is acceptable because:
 
@@ -289,7 +289,7 @@ The Eagle files are in the eagle/FeatherAB1805-Li directory.
 | 1 | U2 | IC RTC CLK/CALENDAR I2C 16-QFN | [Abracon LLC AB1805-T3](https://www.digikey.com/product-detail/en/abracon-llc/AB1805-T3/535-11932-1-ND/3661512) | $1.79 |
 |   |    | Male Header Pins (0.1") | [Sullins PRPC040SAAN-RC](https://www.digikey.com/product-detail/en/PRPC040SAAN-RC/S1011EC-40-ND/2775214) | |
 
-### Hardware Design - AB1805-Li
+### Hardware design - AB1805-Li
 
 Of note in this design is the use of a separate regulator to power the AB1805. The [Torex XC6215B332MR-G](https://www.digikey.com/product-detail/en/torex-semiconductor-ltd/XC6215B332MR-G/893-1078-1-ND/2138269) is inexpensive ($0.71 in single quantities), requires only an input and output capacitor, no inductor. It also has a very low quiescent current.
 
@@ -317,7 +317,7 @@ As the power requirements of the AB1805 are very low, using a supercap is prefer
 ![AB1805-SC Bottom](/assets/images/app-notes/AN023/ab1805-sc-bottom.jpg)
 
 
-#### Schematic and Board - AB1805-SC
+#### Schematic and board - AB1805-SC
 
 ![Schematic](/assets/images/app-notes/AN023/ab1805-sc-schematic.png)
 
@@ -343,7 +343,7 @@ The Eagle files are in the eagle/FeatherAB1805-SC directory.
 
 
 
-### Hardware Design - AB1805-SC
+### Hardware design - AB1805-SC
 
 ### Supercap calculations - AB1805-SC
 
@@ -411,7 +411,7 @@ To enable the supercap charger, you call `setTrickle()`. The parameter are as ab
 ab1805.setTrickle(AB1805::REG_TRICKLE_DIODE_0_3 | AB1805::REG_TRICKLE_ROUT_3K);
 ```  
 
-## Minimal Firmware - AB1805
+## Minimal firmware - AB1805
 
 This is just the minimal implement of using the RTC and Watchdog Timer (WDT). Here's the complete code:
 
@@ -489,7 +489,7 @@ The `ab1805.loop()` method takes care of:
 - Turning off the watchdog before System.reset() in case an OTA firmware update is in progress.
 
 
-## Typical Firmware - AB1805
+## Typical firmware - AB1805
 
 The example in **firmware/01-typical** example shows how to:
 
@@ -598,7 +598,7 @@ void outOfMemoryHandler(system_event_t event, int param) {
 }
 ```
 
-#### Out of Memory Handler
+#### Out of memory handler
 
 The out of memory handler is a good feature to have in your code. This is different than a check of `System.freeMemory()`. The out of memory handler is called when an allocation fails and returns NULL. Note that this is not in itself fatal, as your code might then do something to free up some memory and try again. However, in practice, if you are running that low on RAM, a reset is often a reasonable alternative. C/C++ do not have garbage collection and thus it's possible for memory to be fragmented into unusably small chunks. A reset is the only way to clean this up in most cases. Note that on Gen 2 devices and Gen 3 devices with Device OS 2.0.0 and later, a System.reset() should be fast because it stays connected to the cellular modem.
 
@@ -635,7 +635,7 @@ And finally, from loop(), we take action if outOfMemory is >= 0:
     }
 ```
 
-#### Connection Failure Deep Power Off
+#### Connection failure deep power off
 
 You can configure the amount of time to fail to connect to the cloud before doing a deep power off for 30 seconds. The default is 11 minutes, and you should not set it less than 10. You can set it higher if you want.
 
@@ -684,7 +684,7 @@ This code just writes a message to debug serial both before resetting and after.
     }
 ```
 
-## Periodic Wake Firmware - AB1805
+## Periodic wake firmware - AB1805
 
 This example shows:
 

@@ -35,7 +35,7 @@ The mobile operators used by Particle cellular devices in the United States are 
 
 <sup>1</sup> After the T-Mobile 3G shutdown in October 2021, there may be reduced T-Mobile coverage in some areas.
 
-## Affected Devices
+## Affected devices
 
 ### Boron 2G/3G (BRN310)
 

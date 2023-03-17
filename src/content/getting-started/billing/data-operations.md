@@ -50,7 +50,7 @@ For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP da
 
 For cellular devices, there is a data limit depending on your tier. For the Free plan, the cellular data limit is {{freeTierDataOperationsCellularData}}, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services.
 
-## Minimizing Data Operations
+## Minimizing data operations
 
 There are many possible steps for minimizing the number of Data Operations that you use, and will tend to be specific to your use case. Some options to consider:
 
@@ -119,7 +119,7 @@ You can have any number of devices in the Growth plan, but you will need to purc
 
 There is no limit to the number of blocks you can purchase in the Growth plan, however upgrading to an enterprise contract can reduce the cost.
 
-### What happens if I exceed the number of Data Operations?
+### What happens if I exceed the number of data operations?
 
 In the Free plan, if you need more Data Operations you will need to upgrade to the Growth plan. When you exceed {{freeTierDataOperationsUnit}} Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free plan. 
 

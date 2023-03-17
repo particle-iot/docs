@@ -5,7 +5,7 @@ columns: two
 ---
 
 
-# Adafruit Feather Accessories
+# Adafruit Feather accessories
 
 The Gen 3 prototyping devices (Argon and Boron) use the [Adafruit Feather form-factor](https://learn.adafruit.com/adafruit-feather/feather-specification). You can easily add displays, sensors, easily, even if the FeatherWing was not made by Particle.
 
@@ -115,7 +115,7 @@ The [Adafruit DotStar FeatherWing - 6 x 12 RGB LEDs](https://www.adafruit.com/pr
 
 You can learn more about using the DotStarMatrix library from the [Adafruit Tutorial](https://learn.adafruit.com/adafruit-dotstar-leds/dotstarmatrix-library). You can use it to draw graphics and text on the display.
 
-### Adafruit Color TFT Joystick FeatherWing
+### Adafruit Color TFT joystick FeatherWing
 
 ![Adafruit Color TFT Joystick FeatherWing](/assets/images/feather-joystick-tft.jpg)
 
@@ -157,7 +157,7 @@ If you want a small display that remains even with no power, and it doesn't need
 
 To use it, use the [Adafruit_EPD_RK](https://github.com/rickkas7/Adafruit_EPD_RK) library.
 
-### Adafruit 4-Digit 7-Segment LED Matrix Display FeatherWing
+### Adafruit 4-Digit 7-Segment LED matrix display FeatherWing
 
 The [Adafruit 4-Digit 7-Segment LED Matrix Display FeatherWing](https://www.adafruit.com/product/3088) provides a numeric clock-like 0.56" high display and is available in several colors (blue, green red, white, and yellow).
 
@@ -240,7 +240,7 @@ Replace argon2 with the name of your device. You can also do this from [https://
 
 ## Relays
 
-### Adafruit Power Relay FeatherWing
+### Adafruit power relay FeatherWing
 
 The [Adafruit Power Relay FeatherWing](https://www.adafruit.com/product/3191) can switch 10A at 120VAC or 5A at 240 VAC with a SPDT power relay.
 
@@ -290,7 +290,7 @@ To open the relay, use:
 digitalWrite(D6, LOW);
 ```
 
-### Adafruit Latching Mini Relay FeatherWing
+### Adafruit latching mini relay FeatherWing
 
 The [Adafruit Latching Mini Relay FeatherWing](https://www.adafruit.com/product/2923) provides a small 2 amp SPDT relay that you can include on on your Feather doubler or tripler. This is a latching (bistable) relay. You can set it (NO and COM connected) or unset it (NC and COM are connected), and it will stay in that state, even if you disconnect the power.
 
@@ -322,7 +322,7 @@ Replace argon2 with the name of your device. You can also do this from [https://
 When you turn the relay on the upper red LED will blink briefly. Turning it off will cause the lower red LED to blink briefly. If the relay actually changes state, it will make an audible click.
 
 
-### Adafruit Non-Latching Mini Relay FeatherWing
+### Adafruit non-latching mini relay FeatherWing
 
 The [Adafruit Non-Latching Mini Relay FeatherWing](https://www.adafruit.com/product/2895) provides a small 2 amp SPDT relay that you can include on on your Feather doubler or tripler.
 
@@ -423,7 +423,7 @@ The default I2C address is 0x40 but by closing the solder jumpers, you can chang
 | Closed | Closed | 0x43 |
 
 
-## Other Accessories
+## Other accessories
 
 ### Adafruit Ultimate GPS FeatherWing
 

@@ -43,7 +43,7 @@ All Particle devices ship with Particle Device OS software, including Device OS,
 - B Series SoM B404 NORAM EtherSIM requires Device OS 2.3.0 or later and cannot be downgraded
 
 
-## Questions and Answers
+## Questions and answers
 
 ### What if I want to use a newer version of Device OS?
 

@@ -8,7 +8,7 @@ columns: two
 
 Bugs happen! From hard faults to heap exhaustion to a missing DeviceOS component - even the best of us can accidentally flash firmware that leaves our Particle device Blinking Red, crashing, or failing to connect (Blinking Green). This article will help you understand **what to do** and **what not to do** when dealing with a device that just won't stop crashing or Blinking Red. Please see the following 7 sections:
 
-## Getting Started
+## Getting started
 
 Your device is Blinking Red or Yellow, or Frozen Cyan, or has no Status LED at all - let's start by making sure the device is connected to your computer and gathering some more information.
 
@@ -21,7 +21,7 @@ Your device is Blinking Red or Yellow, or Frozen Cyan, or has no Status LED at a
 * [Electron](/tutorials/device-os/led/electron/)
 * [Photon](/tutorials/device-os/led/photon/)
 
-## Interacting With The Device
+## Interacting with the device
 
 **Do**: Cold Boot your device. Disconnect it from power, let all of its capacitors drain (5 seconds), and reconnect your device.
 
@@ -62,31 +62,31 @@ This sequence of commands will update your device to the most recent DeviceOS (a
 
 If this does not work the first time, please give it one more shot. Sometimes, the sequence of flashing Tinker prior to the update command will get a device over the finish line. 
 
-### If your device is in DFU Mode, but you're unable to get a response from it with the CLI** **:
+### If your device is in DFU mode, but you're unable to get a response from it with the CLI** **:
 
 * Check your cable! This is the issue almost 90% of the time. Try multiple cables, taking care to ensure that these cables can handle both USB data and power (not just USB power).
 * If you get an error that reads `LIBUSB_ERROR_NOT_SUPPORTED`, check to make sure you have the [most recent drivers installed](http://binaries.particle.io/cli/installer/windows/ParticleDriversSetup.exe) (Windows only).
 
 **Do:** reset your device. Hopefully, after all of the above has flashed successfully, the device will stop its bad behavior and start Blinking Green (trying to connect).
 
-## Device Restore
+## Device restore
 
 Particle has implemented two browser-based tools that can help you restore your device to a stable, factory-like state. Please review the caveats listed as part of the documentation of each tool.
 
 * For simple error states, see the [device restore via USB tool](/tools/device-restore/device-restore-usb/). This will restore your device via a simple USB connection, but requires the device to be able to enter DFU Mode (see above) in order to perform its function.
 * For more complex error states, including states where a device has a missing bootloader, see the [device restore via JTAG tool](/tools/device-restore/device-restore-jtag/). This requires the use of a JTAG interface, e.g. the [Particle Debugger](/reference/datasheets/accessories/debugger/). This tool also requires a device to be in DFU Mode, but it works via SWD (which is enabled in DFU Mode) - it may, however, work on devices without a status LED.
 
-## Manual DeviceOS Flash
+## Manual DeviceOS flash
 
 The following is recommended for advanced Particle Users, preferably those who have undergone the manual DeviceOS flash process already. It may be possible that `particle update` does not suit your need or intention, in which case you can manually flash the DeviceOS of your choice by following the instructions here ([link](https://github.com/particle-iot/device-os/releases)). 
 
 **Do not**: do so without reading the instructions very carefully. Please keep track of which firmware parts should be flashed via DFU (`--usb`) and those which should be flashed via Serial (`--serial`). **Under no circumstances should you have to use the `--force` argument.** 
 
-## Totally Unresponsive Devices
+## Totally unresponsive devices
 
 If your device is completely unresponsive the the above, please see our article on Identifying Damaged Hardware here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)).
 
-## Before Opening A Support Ticket
+## Before opening a support ticket
 
 If you are unable to resolve the issue via the above, please collect the following information before opening a Support Ticket:
 

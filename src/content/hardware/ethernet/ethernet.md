@@ -60,7 +60,7 @@ If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESE
 |D2      | nCHIP SELECT|
 
 
-## Device OS Support
+## Device OS support
 
 - The Device OS API for Ethernet is [available here](/reference/device-os/api/ethernet/ethernet/).
 

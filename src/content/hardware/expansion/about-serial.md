@@ -5,7 +5,7 @@ columns: two
 description: Learn more about the serial interface on your Particle IoT device
 ---
 
-# About Serial
+# About serial
 
 *Learn about serial ports, UARTs, USB serial ports, RS-232, and more!*
 
@@ -132,7 +132,7 @@ Connect the device to your phone using a USB cable and a USB OTG adapter.
 
 Open the serial monitor app and it should ask if you want to connect to the device. Tap yes and you should see a screen in the picture above.
 
-### Configuration using USB Serial
+### Configuration using USB serial
 
 If the Photon is in listening mode (blinking dark blue), configuration can also be done using the USB Serial port. Each of these commands only requires that you type the command letter (case-sensitive):
 
@@ -149,7 +149,7 @@ Listening mode is the default when you plug in a Photon the first time. You can 
 
 The commands other then the last two Wi-Fi related commands are also available on the Electron.
 
-### Changing operating modes with USB Serial
+### Changing operating modes with USB serial
 
 Normally you press buttons to enter listening or DFU mode on the Photon or Electron. You can also trigger it by making a USB Serial connection at a specific baud rate.
 
@@ -476,7 +476,7 @@ Received from Arduino: 5
 
 There's also [another example sending multiple pieces of data from the Arduino to the Photon](https://github.com/rickkas7/serial_tutorial/blob/master/example1.md).
 
-## More Code Tips
+## More code tips
 
 Some additional helpful tips:
 

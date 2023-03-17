@@ -3,6 +3,13 @@
 # global dictionary is at the start, file overrides afterwards
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
+Particle
+Argon
+Boron
+Xenon
+Photon
+Tracker
+USB
 0.01MB
 0.13mA
 0-5
@@ -3204,6 +3211,7 @@ RemoteDistanceSensor
 Remote4DigitDisplay
 workshoppers
 chainable
+Xenon
 Xenons
 MeshPubSubTest.ino
 ChainableLED

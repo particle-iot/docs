@@ -90,7 +90,7 @@ Though the form-factor is different than the Electron, they are nearly identical
 {{!-- END do not edit content above, it is automatically generated d5825d70-1978-4172-a917-9127c8879f4e --}}
 
 
-### Feature Comparison - Gen 2
+### Feature comparison - Gen 2
 
 | Feature | Electron | E Series Module | Base Board |
 | --- | :---: | :---: | :---: |
@@ -127,7 +127,7 @@ There are antenna differences between some Gen 2 and Gen 3 models, and a differe
 
 The Boron is the 3rd-generation cellular device in a prototyping form factor. It has pins on the bottom that can plug into a solderless breadboard, and is compatible with the Adafruit Feather form-factor to easily add accessories like sensors and displays. You can also plug it into a socket on a custom circuit board.
 
-#### Country Compatibility - Boron
+#### Country compatibility - Boron
 
 - The Boron 2G/3G Global (BRN314) can be used world-wide, however it is not recommended for the United States. In April 2024, all 2G/3G cellular operators will have shut down their 2G and 3G cellular networks and this device will no longer be able to connect.
 - The Boron LTE Cat M1 (BRN404) is only recommended for use in the United States, Canada, and Mexico. 
@@ -174,7 +174,7 @@ The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3r
 
 Even though the B Series SoM is more difficult to prototype with than the Boron, the B Series module is designed for enterprise deployment and production at scale. The larger width of the module allows for a wider selection of cellular modems, which is why there's LTE Cat 1 (with 2G/3G fallback) for the B Series SoM but not for the Boron. The Quectel EG91-E modem is physically too wide to fit in the Boron (Adafruit feather) form-factor.
 
-#### Country Compatibility - B Series SoM
+#### Country compatibility - B Series SoM
 
 - The B Series SoM LTE Cat M1 (B404) is only recommended for use in the United States, Canada, and Mexico. 
 - The B Series LTE Cat 1 with 2G/3G fallback (B524) is only recommended in Europe, Australia, and New Zealand.
@@ -226,7 +226,7 @@ In addition to using the Tracker One assembled module, the following application
 
 - [AN025 Tracker SoM First Board](/hardware/tracker/tracker-som/tracker-som-first-board/) contains the Eagle CAD files for creating your first Tracker SoM base board design.
 
-#### Country Compatibility - Tracker SoM
+#### Country compatibility - Tracker SoM
 
 - The Tracker SoM LTE Cat M1 (T404) is only recommended for use in the United States, Canada, and Mexico. 
 - The Tracker LTE Cat 1 with 2G/3G fallback (T524) is only recommended in selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
@@ -301,7 +301,7 @@ In addition to using the Tracker One assembled module, the following application
 | Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
 
 
-## Software Differences
+## Software differences
 
 {{!-- BEGIN shared-blurb e5b77a80-8a7a-4bd6-a7b6-8685fb87ed43 --}}
 ### User firmware binary size
@@ -350,7 +350,7 @@ The microcontroller is different in Gen 2 vs. Gen 3 devices:
 
 - Bluetooth LE (BLE 5.0) is supported on the B Series SoM and Gen 3 devices but not Gen 2.
 
-### NFC Tag
+### NFC tag
 
 - NFC tag mode is supported on Gen 3 devices but not Gen 2.
 
@@ -377,7 +377,7 @@ Interfacing with 5V peripherals can be done with a level shifter, a MOSFET, or a
 
 There are more UART ports on the Gen 2 devices than Gen 3. If you need more hardware serial ports, the best option is to use the [SC16IS740](https://github.com/rickkas7/SC16IS740RK) or its relatives like the SC16IS750. These devices connect by I2C or SPI, and you can add multiple ports this way.
 
-#### Serial Baud Rates
+#### Serial baud rates
 
 | Baud Rate | Gen 2 | Gen 3 |
 | ------: | :---: | :---: |
@@ -538,7 +538,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 
 {{!-- BEGIN shared-blurb 28cd19b2-4f01-444b-8189-ba6191e6ebdd --}}
 
-### Sleep Modes
+### Sleep modes
 
 - In general, Gen 3 devices use less power in all modes.
 - In `HIBERNATE` mode, the RTC (real time clock) does not run on Gen 3 devices, so you cannot wake by time from `HIBERNATE` mode (formerly known as `SLEEP_MODE_DEEP`).
@@ -580,7 +580,7 @@ If you are relying on this behavior for external circuits, you should instead us
 
 {{!-- END shared-blurb --}}
 
-### PMIC and Fuel Gauge
+### PMIC and fuel gauge
 
 The Electron, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
 
@@ -591,7 +591,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 - Gen 2 devices can emulate a USB mouse or keyboard over the USB port. This feature is not available on Gen 3.
 - Gen 2 devices can support two separate USB serial emulation streams over the USB port. Gen 3 devices only support the normal `Serial` interface.
 
-## Cellular Differences
+## Cellular differences
 
 ### Carriers
 

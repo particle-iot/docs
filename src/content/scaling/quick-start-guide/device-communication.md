@@ -34,7 +34,7 @@ In order to conserve cellular data, Particle Cloud DTLS connections can be resum
   
 Using CoAP over DTLS with session resume allows the cloud connection to be resumed very efficiently, unlike some other protocols like MQTT over TLS/SSL that require a full 5K TLS handshake on reconnection.
 
-## Built-in Communication Primitives
+## Built-in communication primitives
 
 * Particle Publish allows a device to send an event to the cloud, which can communicate with external services.
 * Subscribe allows a device to receive events sent from the cloud.

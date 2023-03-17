@@ -65,7 +65,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 {{box op="end"}}
 
 
-### The Xenon Kit comes with the following things:
+### The Xenon kit comes with the following things:
 
 {{box op="start"}}
 

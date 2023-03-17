@@ -39,7 +39,7 @@ Unlike the E Series module, the B Series SoM does not include the PMIC (Power Ma
 
 By moving these features off the module, you can more easily customize your design.
 
-## Basic Design
+## Basic design
 
 The SoM base board in this tutorial is about as simple as you can build. It does not have a fuel gauge or PMIC, and is powered by USB only, with no battery support. There will be other tutorials for more complex power supply designs.
 
@@ -87,7 +87,7 @@ A USB connector is highly recommended for software updates, serial debugging, an
 
 This design uses an [Amphenol FCI 10118194-0001LF](https://www.digikey.com/products/en?keywords=609-4618-1-nd) SMD USB micro B receptacle. This is the same style of USB connector as on all Particle devices and evaluation boards.
 
-### Power Supply
+### Power supply
 
 This design uses a [Monolithic Power Systems MP2122AGJ-Z](https://www.digikey.com/en/products/detail/monolithic-power-systems-inc/MP2122AGJ-Z/14296797) dual 2A adjustable switching regulator, or the older MP2122GJ-Z (no "A").
 
@@ -294,7 +294,7 @@ dfu-util -l
 
 Celebrate making your first working SoM base board!
 
-### Version History
+### Version history
 
 #### 2020-03-30 (v2)
 

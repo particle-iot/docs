@@ -50,7 +50,7 @@ information is collected
 - Disable access to using a broken device when a service-person is
 en-route to fix it
 
-## Key Terms
+## Key terms
 There are some key terms that will help you get started with the Rules
 Engine:
 
@@ -102,14 +102,14 @@ often also have a set of associated properties.
 In Node-RED, a message object is normally referred to as `msg`.
 Associated properties are most commonly stored in `msg.payload`.
 
-## Getting Started
+## Getting started
 
 Let's get you up and running with Node-RED. You can either run it using a cloud service, or run it locally on your computer.
 
 - [Using a Cloud Service](#using-a-cloud-service)
 - [Running Locally](#running-locally)
 
-## Using a Cloud Service
+## Using a cloud service
 
 There are a number of cloud services that support Node-RED, however the most convenient is the IBM Cloud. There's built-in support for deploying Node-RED, and you can do so in the free plan for simple flows. 
 
@@ -187,7 +187,7 @@ The [Node-RED IBM Cloud Instructions](https://nodered.org/docs/getting-started/i
 
 - Then follow the instructions below for [Getting started with Node-RED](#getting-started-with-node-red) to add the Particle Node to your instance and begin creating workflows.
 
-## Running Locally
+## Running locally
 
 It's also possible to run Node-RED on your own computer, either natively or in a Docker container.
 
@@ -198,7 +198,7 @@ If you are running Node-RED locally, you generally do not need to open firewall 
 
 If you want to access the Node-RED flow editor (port 1880) or dashboard from outside your local network you would need to configure port forwarding for most home networks. However, be sure to require logging in if you enable access!
 
-### Running Locally - Docker
+### Running locally - Docker
 
 [The Node-RED Docker instructions](https://nodered.org/docs/getting-started/docker) are a good place to start.
 
@@ -247,7 +247,7 @@ And delete it:
 docker rm mynodered
 ```
 
-### Running Locally - Native
+### Running locally - native
 
 This method is also a good way to run Node-RED on a **Raspberry Pi**, allowing you to use an inexpensive Raspberry Pi as your Node-RED server!
 
@@ -304,7 +304,7 @@ top of the flow builder to rename it at any time. You can also click on
 the **+** button in the top-right corner of the flow builder to create
 new flows.
 
-### Adding the Particle Node
+### Adding the Particle node
 
 Since presumably you're wanting to use this with Particle devices, you'll want to install the Particle node.
 
@@ -321,7 +321,7 @@ Since presumably you're wanting to use this with Particle devices, you'll want t
 ![Particle Nodes](/assets/images/rules-engine/particle-nodes.png)
 
 
-### Hello World Flow
+### Hello world flow
 
 We can start with the simplest flow possible: injecting some data in,
 and logging it out using the debug node.
@@ -394,7 +394,7 @@ object. This method of accessing properties of a message using
 
 Congrats! You've built your first flow successfully.
 
-### Adding Nodes to Your Palette
+### Adding nodes to your palette
 
 Beyond the nodes included with the default palette, you have the ability
 to install a variety of open-source nodes that have been contributed to
@@ -417,7 +417,7 @@ to add it to your palette. You will need to confirm this action.
 
 A table of the nodes that were installed with the Particle Rules Engine by default can be [found below](#nodes-in-particle-rules-engine).
 
-## The Particle Nodes
+## The Particle nodes
 
 The Particle Nodes include:
 
@@ -437,7 +437,7 @@ In the **User Settings** window in the **Palette** tab, select **Install** (1) t
 
 In order to use the Particle Nodes you will need to first set up authentication.
 
-### Setting up Authentication
+### Setting up authentication
 
 The Particle Nodes will need access to your Particle account in order to interact with your devices.
 
@@ -532,7 +532,7 @@ In the **User Settings** window in the **Palette** tab, select **Install** (1) t
 ![Rules Install](/assets/images/rules-engine/install.png)
 
 
-### Exporting Your Rules
+### Exporting your rules
 
 To export your rules from the Particle Rules Engine:
 
@@ -550,7 +550,7 @@ To export your rules from the Particle Rules Engine:
 
 Note: The exported rules contain any passwords you saved when you configured your nodes, along with the secret for your Particle authentication. Keep this secure.
 
-## Original Documentation
+## Original documentation
 
 Snapshots of the original Rules Engine documentation have been taken and saved as PDFs below, however the instructions may vary slightly when used on Node-RED directly.
 

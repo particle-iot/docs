@@ -20,15 +20,15 @@ description: Desktop IDE for programming Particle IoT devices for Windows, Mac O
 
 If you are interested in using Particle Workbench with the Tracker One or Tracker SoM, see [Tracker Edge Firmware](/firmware/tracker-edge/tracker-edge-firmware/) for additional information.
 
-## Workbench Features
+## Workbench features
 
-### Welcome Screen
+### Welcome screen
 
 ![Welcome Screen](/assets/images/workbench/welcome.png)
 
 The Welcome Screen has handy tips for using Workbench. If you close it, you can get it back by clicking on the Particle icon in the left toolbar.
 
-### Left Toolbar
+### Left toolbar
 
 Typically, there is a toolbar on the left with frequently used features.
 
@@ -52,7 +52,7 @@ Workbench adds custom Particle commands to the palette. Start typing `Particle` 
 
 There is also a [command palette reference](#command-palette-reference) below.
 
-### Dependency Manager
+### Dependency manager
 
 Downloading and maintaining a local toolchain can be a full-time job so Workbench introduces a new dependency manager. It downloads the Device OS, build system, compiler, and anything else needed to develop and debug Device OS apps, and places them in a local, private location in user space as to not mess with your current configuration.
 
@@ -60,7 +60,7 @@ You can install and uninstall different versions of Device OS (and dependencies)
 
 ![Dependency Manager](/assets/images/workbench/dependency-manager.png)
 
-### Working with Particle Projects
+### Working with Particle projects
 
 You can initialize a new project with the command, `Particle: Create New Project`. Doing so will open a new a Visual Studio Code folder preconfigured with everything needed to begin developing your Particle project, like Tasks, C++ IntelliSense, Commands, files and folders. Note that these are designed to only work when editing Particle projects as to not muddy up the rest of your editing experience.
 
@@ -189,7 +189,7 @@ _NOTE: due to limitations with the local compiler's build system, usernames (or 
 
 The first local compile after switching the target Device OS version, platform, or Clean application & Device OS will take many minutes. Subsequent builds are generally faster. Builds on Mac and Linux are also significantly faster than Windows.
 
-### Compile and Flash Buttons
+### Compile and flash buttons
 
 When you are viewing a .cpp or .ino file, there will be two new icons in the upper right corner:
 
@@ -239,7 +239,7 @@ You can just type the first few letters of the filename then hit Tab to auto-com
 
 
 
-### Integrated Serial Monitor
+### Integrated serial monitor
 
 One handy debugging technique is to use the USB debug serial port. Open the Command Palette and select **Particle: Serial Monitor**.
 
@@ -439,7 +439,7 @@ particle call argon2 div 10
 
 ![Debug Breakpoint](/assets/images/workbench/debug-6.png)
 
-#### Disabling Mesh Networking and Bluetooth
+#### Disabling mesh networking and bluetooth
 
 In some cases you may need to disable mesh networking and Bluetooth on your device in order to safely pause at break-points and step. If your device signals SOS ([example](/tutorials/device-os/led/argon/#red-flash-sos)) while debugging, try adding `Mesh.off();` and `BLE.off();` to the top of the `setup()` function in the TinkerBreak.cpp source file like this:
 
@@ -454,12 +454,12 @@ void setup()
 }
 ```
 
-#### Disabling Optimization
+#### Disabling optimization
 
 In the TinkerBreak.cpp source file, you'll notice this at the top of the file. This is helpful to add to your source files to turn off compiler optimization, making it easier to debug. Otherwise you can't break on some lines, and some local variables won't be available.
 
 ```
-#pragma GCC optimize ("O0")
+#pragma GCC optimize ("o0")
 ```
 
 #### Debugging FreeRTOS
@@ -476,7 +476,7 @@ to your `launch.json` file. This is experimental and may cause the GDB server to
 That is just a brief introduction to debugging. For more information, see the [VS Code Debugging Documentation](https://code.visualstudio.com/docs/editor/debugging).
 
 
-### Debugging (2nd-generation with Particle Debugger)
+### Debugging (Gen 2 with Particle debugger)
 
 - You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device's D6 and D7 pins as described in the [Particle Debugger](/reference/datasheets/accessories/gen3-accessories/#debugger) documentation.
 
@@ -540,7 +540,7 @@ Some of the available settings are:
 
 - **Custom Device OS Location**: Source Device OS from a custom location - see [FAQ](/getting-started/developer-tools/workbench-faq/#working-with-a-custom-device-os-build).
 
-## Source Code Management
+## Source code management
 
 Visual Studio Code provides support for a number of source code management providers. Source code management makes it easy for team members to share code, track changes over time, and provide a cloud-based repository for storing a copy of your code.
 
@@ -548,7 +548,7 @@ Visual Studio Code provides support for a number of source code management provi
 
 Particle open source projects and many community libraries are stored in GitHub, and there is good support for Git in VS Code, so that's often a good choice. You can get started at the [Git SCM](https://git-scm.com/) website.
 
-## Command Palette Reference
+## Command palette reference
 
 	
 ### Particle: Audit Environment
@@ -743,7 +743,7 @@ Update the included Particle CLI (command line interface) to the latest version.
 Shows who you are logged in as. A small popup window will display in the lower right with the account email address.
 
 
-## Migration Guide
+## Migration guide
 
 {{!-- See ch25559 --}}
 
@@ -801,7 +801,7 @@ In the bottom status bar:
 
 If you are used to the editing keyboard shortcuts, you can install the Atom keymap. Open the Command Palette and select **Preferences: Keymaps**.
 
-## Working with Products
+## Working with products
 
 When you are working on a product there are any number of possible scenarios, but this one is common and works well:
 
@@ -827,7 +827,7 @@ You can then:
 ![Workflow](/assets/images/release-firmware-flow.png)
 
 
-## Working with GitHub
+## Working with github
 
 [GitHub](https://github.com/) is a tool for source code control, issue, and release management. It's great for managing Particle projects in Workbench. For many uses, it's free, too. There are many features, entire books, and tutorials about [Git](https://git-scm.com/) (the underlying source code control system) and GitHub (a service that allows you to store files in the cloud). This is just an overview.
 
@@ -880,7 +880,7 @@ To summarize:
   - **Commit** marks all of the changes are ready to go as one package of changes
   - **Push** uploads the package of changes to GitHub
 
-### Making a copy of a project (Clone Repository)
+### Making a copy of a project (clone repository)
 
 Often you will want to work on a project that has already been created on GitHub. The process of creating a working copy of a project is to **Clone** it. Cloning only makes a copy of it on your computer and doesn't affect the project that you are cloning at this stage. Feel free to clone all you want!
 
@@ -961,7 +961,7 @@ git pull official release/v8
 If you prefer, you can merge to a specific release instead of develop.
 
 
-## Developing Particle Libraries
+## Developing Particle libraries
 
 There is limited support for developing [Particle Libraries](/getting-started/device-os/firmware-libraries/) in Workbench. 
 
@@ -977,13 +977,13 @@ name=AMCLCD-RK
 
 If you duplicated your  **library.properties** it should have a name already. The reason is that Workbench will not open a project directory that does not have a **project.properties** file.
 
-### Import Project
+### Import project
 
 From the Command Palette, select **Particle: Import Project**. Now that the directory contains a project.properties file, you will be able to import it. 
 
 Now the library will appears in your Workbench window and have IntelliSense highlighting.
 
-### Building Examples - Using CLI
+### Building examples - using CLI
 
 The main caveat is that there is no built-in support for building library examples using local build. The easiest solution is to the Particle CLI cloud compiler manually.
 
@@ -1004,11 +1004,11 @@ particle flash test2 examples/1-simple
 This compiles and flashes the device named **test2** OTA with the example firmware.
 
 
-### Building Examples - Local Build
+### Building examples - local build
 
 If you really do need to do a local build, for example, if you need to use the debugger, the only solution is to temporarily copy the files from the example you want to build into the **src** directory. Don't forget to remove them before publishing the library!
 
-### Uploading and Publishing
+### Uploading and publishing
 
 The easiest way to upload or publish your library is to select **Particle: Launch CLI** to open a shell panel. This will also set it up with the correct directory so you can:
 
@@ -1024,7 +1024,7 @@ particle library publish
 
 This publishes the library, making it public and visible to all other users.
 
-### Starting from Scratch
+### Starting from scratch
 
 If you are making a brand new library from scratch, you may want to use **Particle: Create New Project**. This will create the project.properties and src directories. Then you will want to:
 
@@ -1033,7 +1033,7 @@ If you are making a brand new library from scratch, you may want to use **Partic
 - Create the **examples** directory.
 - Create subdirectories in **examples** for each of your examples, with a main source file in each.
 
-## Learn More
+## Learn more
 
 Additional questions and answers are in the [FAQ](/getting-started/developer-tools/workbench-faq/).
 

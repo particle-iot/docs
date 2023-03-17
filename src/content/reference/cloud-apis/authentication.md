@@ -69,7 +69,7 @@ credentials. Depending on which authentication method you choose, you
 may need to specify a scope when creating your OAuth client. [More on
 scopes](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3).
 
-### Creating an OAuth Client
+### Creating an OAuth client
 
 You can use the [Particle Console](https://console.particle.io) to
 create and manage your OAuth clients. To get started, click on the
@@ -118,7 +118,7 @@ applications to interact with your product's data and devices.
 _Note: You may also manage OAuth clients programmatically, using the [Device Cloud
 REST API](/reference/cloud-apis/api/#oauth-clients)_.
 
-## Access Tokens
+## Access tokens
 A related concept to understand is how Particle uses access
 tokens for authentication and security. If you have ever logged into the
 Web IDE, called a function on a Particle device, or read a variable via
@@ -178,7 +178,7 @@ Luckily, the mobile SDKs and ParticleJS will expose helper methods to
 handle token creation and management, without much/any additional code
 needed from you or your engineers.
 
-## Choosing an Authentication Method
+## Choosing an authentication method
 
 Take a deep breath. We've covered a lot so far and you're picking things up quick! This section will help you determine the best place for you to go next.
 
@@ -200,7 +200,7 @@ Other techniques such as a web-browser based setup and on-device setup are possi
 
 When you're ready, click on the authentication method that makes most sense to you.
 
-## Simple Authentication
+## Simple authentication
 
 As the title suggests, Simple Authentication is the simplest and most straightforward to implement.
 This is because in this method, your application will not have its own
@@ -228,7 +228,7 @@ All of this is able to happen without the need to have your own server.
 All communication flows from the mobile client to the Particle cloud,
 then down to the customer's device.
 
-### Advantages of Simple Auth
+### Advantages of simple auth
 
 Simple auth is ideal for getting a Particle product up-and-running quickly. Without needing to build your own back-end, development time to
 creating an app to work with a Particle device is greatly reduced. There are less moving parts and opportunities to introduce bugs. In
@@ -245,7 +245,7 @@ interaction with Particle will happen behind the scenes, hidden from
 your customers (unless they are tech savvy enough to monitor the network
 traffic to and from your app).
 
-### Disadvantages of Simple Auth
+### Disadvantages of simple auth
 
 Without your own server, you lose some level of flexibility and ability to customize in your application. For instance, if you wanted to
 store custom information about your customer specific to your
@@ -258,7 +258,7 @@ server and database, you could store data about what time a customer
 turns on their lights, for example. Using simple auth, this would not be
 supported.
 
-## Simple Auth Implementation
+## Simple auth implementation
 
 If you choose to go with simple authentication for your web or mobile
 application, you should get to know the diagram below very well. While a
@@ -406,13 +406,13 @@ Your application, armed with the customer's access token, can now successfully a
 
 Note that now, your app will never communicate directly to the device. The customer will trigger a call to the Particle API, which then communicates with the device to carry out the desired action.
 
-#### Further Considerations
+#### Further considerations
 
 Signup and device claiming only will happen one time for each customer. After this has been completed, subsequent visits to your application will continue to use customer access tokens to interact with the device via the Particle API.
 
 If a customer's access token expires, the customer will be asked to log in again, generating a fresh access token to interact with the device. 
 
-## Two-Legged Authentication
+## Two-Legged authentication
 
 The main difference between two-legged and simple authentication is the presence of a back-end architecture to compliment your mobile or web application. Your application would communicate with both your server as well as the Particle cloud.
 
@@ -421,7 +421,7 @@ The most common reason to use two-legged authentication is the desire to store &
 ![Two legged authentication](/assets/images/two-legged-auth-high-level.png)
 <p class="caption">Two-legged authentication involves the presence of your own server</p> 
 
-### Advantages of Two-Legged
+### Advantages of two-legged
 
 Two-legged authentication is the ideal choice for a product creator looking for maximum visibility, control, and flexibility of their web or mobile application. With two-legged, you gain the ability to implement custom logic, integrations with third-party services, and store application-specific data that are not currently part of the Particle platform. 
 
@@ -430,13 +430,13 @@ For example, if you were building a connected hot tub, you could use your own we
 Another advantage of two-legged authentication is beefed-up security. Server-to-server communication (your server to the Particle API) is much more secure than client-to-server communication (your mobile/web application to the Particle API). For sensitive transactions like passing OAuth credentials to get customer access tokens, using your server to talk to the Particle API over HTTPS is safe and protected.
 
 
-### Disadvantages of Two-Legged
+### Disadvantages of two-legged
 
 Because of the introduction of your own web server, implementing two-legged authentication adds complexity to the architecture of your application and the flow of data. There are simply more pieces of the puzzle that must all fit together.
 
 This will likely result in more development time than choosing Simple Authentication, and can introduce more points of failure for your application.
 
-## Two-Legged Implementation
+## Two-Legged implementation
 
 Below is a diagram of the entire setup and authentication flow for the two-legged option. If you choose this authentication method, it is important that you understand the diagram very well. When comparing to the [simple auth implementation](#simple-auth-implementation), you'll notice that many of the steps are similar, with the exception of steps involving interaction with your web server.
 
@@ -524,7 +524,7 @@ customer's access token into the mobile client. You can [learn about this hook
 here](https://github.com/particle-iot/spark-sdk-ios/tree/feature/two-legged-auth#4-two-legged-auth-support--better-session-handling).
 
 
-### Device Setup (Steps 4, 5 & 6)
+### Device setup (steps 4, 5 & 6)
 
 Now that you have created the customer, and received a valid access token for that customer, it is now time to start the device setup process. This process will occur in exactly the same fashion as with Simple Authentication, and will not involve your server.
 

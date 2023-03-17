@@ -8,7 +8,7 @@ description: Getting started with the Particle Cloud API
 includeDefinitions: [api-helper, api-helper-cloud,  api-helper-extras, api-helper-json, codemirror, usb-serial]
 ---
 
-# Cloud API Getting Started
+# Cloud API getting started
 
 This document shows the basics of using the Particle Cloud API in several different ways.
 
@@ -269,7 +269,7 @@ It's best to use environment variables instead of passing the access token as a 
 
 The reason is that on some systems, it's possible to see the processes created by other users, including their options. Also, the previous commands may be stored in unencrypted history files. These could expose your access token.
 
-## Authenticating Product APIs
+## Authenticating product APIs
 
 There are several common ways to authenticate product APIs. These include the URLs of the form:
 
@@ -502,11 +502,11 @@ An [API User Account](/reference/cloud-apis/api/#api-users) is a specific type o
 
 {{> sso}}
 
-### Create API User
+### Create API user
 
 {{> cloud-api-user-create}}
 
-### List or Delete API Users
+### List or delete API users
 
 {{> cloud-api-user-list}}
 

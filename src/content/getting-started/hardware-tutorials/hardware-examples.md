@@ -489,7 +489,7 @@ order to retrieve the value.
 | Data is used when requested | Data is used on every published change |
 
 
-In `loop()` we read the analog pin using [`analogRead()`](/reference/device-os/firmware//#analogread-adc-).
+In `loop()` we read the analog pin using [`analogRead()`](/reference/device-os/firmware//#analogread-ADC-).
 
 ```cpp
 analogvalue = analogRead(SENSOR_PIN);
@@ -546,7 +546,7 @@ Now you can turn your LED on and off and see the values at A0 change based on th
 
 <div style="display: none;" id="publish-and-the-dashboard" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-console" data-firmware-example-title="Publish" data-firmware-example-description="Publish and the Console"></div>
 
-## Make a Motion Detector: Publish and the Console
+## Make a motion detector: publish and the console
 
 ### Intro
 
@@ -573,7 +573,7 @@ The setup for your breadboard is the same as in the last example.
 
 <div style="display: none;" id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe" data-firmware-example-title="Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors"></div>
 
-## The Buddy System: Publish and Subscribe
+## The buddy system: publish and subscribe
 
 ### Intro
 
@@ -592,7 +592,7 @@ The setup for your breadboard is the same as in the last example.
 
 <div style="display: none;" id="electron-combined-publish" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#electron-combined-publish" data-firmware-example-title="Electron Combined Publishes" data-firmware-example-description="Learn how to send many data points in a single Publish to save data"></div>
 
-## Combined Publish
+## Combined publish
 
 ### Intro
 Every message the Electron sends to or from the Cloud has a certain fixed overhead, so we try to minimize the number of messages that are sent. You can do some optimization in your code, too. If you combine many data points in a single publish message, you'll use less data. We combine the data points into a single string, with commas in between them for easy parsing later.

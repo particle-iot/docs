@@ -45,9 +45,9 @@ This example design is intended to be a prototype for illustration purposes only
 If you are interested in prototyping designs intended to connect to the Tracker One M8 connector, but want to do it using the Tracker SoM Evaluation Board, you may be interested in [this project](https://github.com/rickkas7/M8-Eval-Adapter). It's only a set of design files, BoM, etc. and you'd need to fabricate the board and build it yourself; it's not available as a finished product. It also explains a bit more about how the M8 connector can be used.
 
 
-## Hardware Design
+## Hardware design
 
-### Full Design
+### Full design
 
 Schematic:
 
@@ -106,19 +106,19 @@ Using the DS2482 with the [DS2482-RK](https://github.com/rickkas7/DS2482-RK) lib
 
 One really handy technique with this hardware and library is it supports simultaneous conversion. Getting the temperature on the DS18B20 can take up to 2 seconds depending on the resolution. With this setup you can tell all of the sensors on the 1-Wire bus to grab the temperature simultaneously, then read the value from each sensor individually. This dramatically speeds up conversion time when you have multiple sensors.
 
-### Adding Sensors
+### Adding sensors
 
 For this prototype design I just used through hole [TO-92 package DS18B20 sensors](https://www.digikey.com/product-detail/en/maxim-integrated/DS18B20/DS18B20-ND/420071) in a solderless breadboard. There are three right next to each other, which isn't a really useful design, but imagine that they are much farther apart in real life.
 
 ![Sensors](/assets/images/app-notes/AN012/ds18b20.jpg)
 
-### Qwiic Connector
+### Qwiic connector
 
 This board includes a [Sparkfun Qwiic connector](https://www.sparkfun.com/products/14417). This allows other I2C devices to be easily chained off this board. This is handy for testing and prototyping, but is not necessary for a production device. You can find out how using Qwiic can make prototyping new sensor designs quick and easy on [this page](/hardware/expansion/qwiic/).
 
 ## Firmware
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 
 You can download a complete project for use with Particle Workbench as a zip file here:
@@ -166,7 +166,7 @@ The documentation for the library can be found [here](https://github.com/rickkas
 {{> codebox content="/assets/files/app-notes/AN012/firmware/main.cpp" format="cpp" height="500"}}
 
 
-### Digging In
+### Digging in
 
 If you're not familiar with the lambda syntax used in this code, the [introduction in the DS2482 library](https://github.com/rickkas7/DS2482-RK#about-lambdas-fluent-style-and-more) will be helpful.
 
@@ -252,7 +252,7 @@ If you're monitoring the USB debug serial log, you'll see something like:
 
 Note that we don't need to have a mutex around the access to `deviceList` because it's actually done from either `ds.loop()` or `Tracker::instance().loop()` and they will never run simultaneously.
 
-## Cloud Data
+## Cloud data
 
 In the map view in the [console](https://console.particle.io), you should be able to see the additional custom data:
 

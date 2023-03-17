@@ -51,7 +51,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 
 ## Interfaces
 
-### Block Diagram
+### Block diagram
 
 {{imageOverlay src="/assets/images/photon2-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
@@ -75,13 +75,13 @@ Please pay attention to the polarity of the JST-PH LiPo connector. Not all LiPo 
 
 ![LiPo Polarity](/assets/images/lipo-polarity.png)
 
-#### Li+ PIN
+#### Li+ pin
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Argon. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
 
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator. The regulator is rated at 500mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Argon first. This pin can also be used to power the Argon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
 
-#### EN PIN
+#### EN pin
 
 The **EN** pin is not a power pin, per se, but it controls the 3V3 power. The EN pin is pulled high by a 100K resistor to the higher of VUSB, the micro USB connector, or Li+. Because the pull-up can result in voltages near 5V you should never directly connect EN to a 3.3V GPIO pin. Instead, you should only pull EN low, such as by using an N-channel MOSFET or other open-collector transistor.
 
@@ -97,7 +97,7 @@ However, if you have circuitry that is powered by a separate, external power sup
 - The antenna is selected in software. The default is the PCB trace antenna.
 - A single antenna is used for both Wi-Fi and BLE.
 
-### Approved Antennas
+### Approved antennas
 
 In addition to the built-in trace antenna, the following optional external antenna is certified for use with the Photon 2:
 
@@ -144,9 +144,9 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ---
 
-## Memory Map
+## Memory map
 
-### Flash Layout Overview
+### Flash layout overview
 
 [To be provided at a later date.]
 
@@ -200,7 +200,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 ```
 
-### Memory Map
+### Memory map
 
 [To be provided at a later date.]
 
@@ -254,7 +254,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-### ADC (Analog to Digital Converter)
+### ADC (analog to digital converter)
 
 The Photon 2 supports six ADC inputs.
 
@@ -464,7 +464,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 [To be provided at a later date.]
 
 
-### I/O Characteristics
+### I/O characteristics
 
 [To be provided at a later date.]
 
@@ -489,7 +489,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
 
 [To be provided at a later date.]
 
@@ -520,7 +520,7 @@ The Photon 2 can be directly soldered onto the PCB or be mounted with the above 
 
 [To be provided at a later date.]
 
-### Module Dimensions
+### Module dimensions
 
 [To be provided at a later date.]
 
@@ -561,7 +561,7 @@ Photon 2 modules are available from [store.particle.io](https://store.particle.i
 
 <i class="icon-right-hand"></i>For more information regarding moisture sensitivity levels, labeling, storage and drying see the MSL standard see IPC/JEDEC J-STD-020 (can be downloaded from [www.jedec.org](http://www.jedec.org)).
 
-### ESD Precautions
+### ESD precautions
 
 <i class="icon-attention"></i> The P1 module contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a P1 module without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates P1 modules.  ESD precautions should be implemented on the application board where the P1 module is mounted. Failure to observe these precautions can result in severe damage to the P1 module! <i class="icon-attention"></i>
 
@@ -595,7 +595,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 <dd>Over The Air; describing how firmware is transferred to the device.</dd>
 </div>
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC IC CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -674,7 +674,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2023-03-06 | RK | SWDIO is D7 not D8 |
 |     | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
 
-## Known Errata
+## Known errata
 
 ## Contact
 

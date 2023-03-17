@@ -24,7 +24,7 @@ As long as you target Device OS 3.1 or later, you can build large binaries for s
 - Particle CLI (cloud compile)
 - Web IDE
 
-## Memory Map
+## Memory map
 
 The memory map is changed to move the start address of the user firmware binary from 0xd4000 to 0xb4000:
 

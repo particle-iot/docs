@@ -174,7 +174,7 @@ in a text-based format and store it in a string. Some formats you might want to 
 - Base 64
 - Base 85 (Ascii85)
 
-### Try It!
+### Try it!
 
 Enter JSON in the box below to validate it. If there is a syntax error, there will be a red x in a circle 
 on the line with the syntax error.

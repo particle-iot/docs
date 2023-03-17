@@ -21,7 +21,7 @@ If you flash user firmware that requires a newer version of Device OS than is cu
 
 Unlike computer operating systems like Windows or Mac, Device OS will never be automatically updated under your application. You must manually opt into each update, and updates are generally not required. Because of the more limited function set and smaller attack surface, recommended updates for security reasons are rare.
 
-## Version Numbering
+## Version numbering
 
 Device OS releases follow semantic versioning ("semver") guidelines with MAJOR.MINOR.PATCH numbering. For example in the 1.5.x release line, there are 1.5.0, 1.5.1, and 1.5.2 versions.
 
@@ -233,7 +233,7 @@ There are a few less common upgrade scenarios described in the section below. Us
 
 {{collapse op="start" label="Less common scenarios"}}
 
-#### Using OTA or Serial (YModem) on Electron
+#### Using OTA or serial (ymodem) on Electron
 
 Updating in the proper sequence is essential as you cannot update directly from 
 very old versions of Device OS to 2.0.0
@@ -265,7 +265,7 @@ This should be done *after* upgrading system firmware.  The Electron bootloader 
 >
 
 
-#### Updating SoftDevice and Bootloader
+#### Updating SoftDevice and bootloader
 
 Note: The SoftDevice .bin files provided on the Device OS GitHub release site are OTA binaries intended for use OTA or in --serial mode. They cannot be flashed directly to a device using SWD/JTAG because they have a Particle binary header that must be removed, and a Nordic preamble that must be inserted to flash directly via SWD.
 
@@ -275,7 +275,7 @@ Note: The SoftDevice .bin files provided on the Device OS GitHub release site ar
 2. Manually flash 2.0.0 bootloader: `particle flash <deviceId> boron-bootloader@2.0.0.bin`
 3. Flash SoftDevice: `particle flash <deviceId> boron-softdevice@2.0.0.bin`
 
-#### Using Serial (YModem)
+#### Using serial (ymodem)
 
 1. Upgrade Device OS to 2.0.0
 2. Put the device into listening mode (blinking blue) by holding MODE button
@@ -475,7 +475,7 @@ particle flash electron7 electron-bootloader@1.5.2+lto.bin
 
 - Your device should now be online and successfully downgraded.
 
-### SWD/JTAG Device Restore
+### SWD/JTAG device restore
 
 Using a SWD/JTAG debugger such as the Particle Debugger, ST-LINK, or Segger J-Link, plus 
 [device restore images](/reference/developer-tools/jtag/#restore-binaries) make it restore a device to a known state or downgrade Device OS easily.

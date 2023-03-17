@@ -164,7 +164,7 @@ As above, the color code is not official, it's just what I happened to have on t
 
 ![ST-LINK/V2](/assets/images/support/eclipse-debug-stlink.jpg)
 
-### Building Debug Builds
+### Building debug builds
 
 **Important: Make sure your software doesn't use the debugger pins: D6 and D7 for SWD, or D4, D5, D6, and D7 for JTAG.** This means you can't use the D7 user LED while using the debugger.
 
@@ -207,11 +207,11 @@ particle update
 
 ```
 
-### Eclipse Install
+### Eclipse install
 
 This is the abbreviated method that will allow you to use the source debugger in Eclipse. Setting up a project that has full code analysis and auto-completion is much more complicated, and will be the topic of a separate FAQ. For this version, we just turn off displaying some errors.
 
-#### Eclipse Base Install - Windows
+#### Eclipse base install - Windows
 
 * Install Java 8 JDK (if necessary)
 
@@ -237,7 +237,7 @@ For convenience, I created a desktop shortcut icon as well. Right click on **ecl
 
 Now you should be able to launch Eclipse and complete the next step of the instructions, [Eclipse Install GNU ARM C/C++](#eclipse-install-gnu-arm-c-c-), which is common for all operating systems.
 
-#### Eclipse Base Install - Mac
+#### Eclipse base install - Mac
 
 * [Download Eclipse](https://www.eclipse.org/downloads/eclipse-packages/)
 
@@ -282,7 +282,7 @@ Make sure you link to the version of the JDK you installed, which might not be b
 
 Now you should be able to launch Eclipse and complete the next step of the instructions, [Eclipse Install GNU ARM C/C++](#eclipse-install-gnu-arm-c-c-), which is common for all operating systems.
 
-#### Eclipse Base Install - Linux
+#### Eclipse base install - Linux
 
 While you can install Eclipse using apt-get, at the time of writing it was an old version, and all of the other platforms I'm using Eclipse Neon, so I opted for a manual install.
 
@@ -425,7 +425,7 @@ If you are using the Particle Programmer Shield, you will need to copy the confi
 
 For Gen 3 devices, also download [nrf52-particle.cfg](/assets/files/nrf52-particle.cfg) and copy it to the scripts/target directory.
 
-#### Install GNU ARM Eclipse OpenOCD - Mac
+#### Install gnu arm eclipse OpenOCD - Mac
 
 There is a separate install for the operating-specific GNU ARM Eclipse OpenOCD bits.
 
@@ -512,7 +512,7 @@ If you are using the Particle Programmer Shield, you will need to copy the confi
 
 For Gen 3 devices, also download [nrf52-particle.cfg](/assets/files/nrf52-particle.cfg) and copy it to the scripts/target directory.
 
-### Create an Eclipse project - All Operating Systems
+### Create an eclipse project - all operating systems
 
 * From the **File** menu select **New** then **Makefile Project with Existing Code**.
 
@@ -681,7 +681,7 @@ make[1]: Leaving directory '/cygdrive/c/Users/IEUser/Documents/src/firmware/main
 
 The firmware binary (target/tinkerbreak.bin) in this case will still be fine, but the Photon won't have that firmware automatically loaded on it, of course. If you don't want to flash the device automatically, remove the `program-dfu` option from **C/C++ Build** then **Environment** in the variable **MAKEOPTS**.
 
-#### Set up OpenOCD Debugging
+#### Set up OpenOCD debugging
 
 From the **Run** menu select **Debug Configurations**.
 
@@ -785,7 +785,7 @@ CFLAGS +=  -g3 -gdwarf-2 -Os -mcpu=cortex-m3 -mthumb
 
 Simply remove the -Os (optimize for size). This is probably best done only for monolithic debug builds, since you may run out of space for some system parts in a modular build without optimization.
 
-### Debugging Examples
+### Debugging examples
 
 Assuming you've set things up as described above, the tinkerbreak application will respond to a Particle function break. In a separate command prompt window, run a command like this, replacing test4 with the name or device ID of your Photon.
 

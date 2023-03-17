@@ -4,7 +4,7 @@ layout: device-restore.hbs
 description: Particle Debugger-based device restore over the web
 ---
 
-# Device Restore JTAG
+# Device restore JTAG
 
 This experimental tool works with the Particle Debugger to allow a device to be completely restored to a known Device OS version in a single click and less than a minute, from a web browser!
 

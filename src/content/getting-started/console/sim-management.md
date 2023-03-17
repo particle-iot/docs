@@ -40,7 +40,7 @@ usage
 - Buttons to take action on your fleet, like importing
 new SIMs into the product
 
-## Importing SIM Cards
+## Importing SIM cards
 
 In many cases, you will not need to import SIM cards at all. For devices that include a built-in MFF2 SMD SIM
 (E Series, B Series SoM, Boron, and Tracker), adding the Device ID to your product will automatically add the built-in

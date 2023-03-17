@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# Application Notes
+# Application notes
 
 {{box op="start" cssClass="boxed warningBox"}}
 This page is no longer maintained and is provided for historical reference only
@@ -12,7 +12,7 @@ This page is no longer maintained and is provided for historical reference only
 
 Most of the application notes are now integrated into other topics within the documentation.
 
-## Hardware Designs
+## Hardware designs
 
 - [AN001 Basic SoM Design](/hardware/b-series-som/basic-som-design/) is a simple SoM base board. 
 Like a Boron it can be powered by LiPo battery, USB, or an external DC supply. It includes: RGB LED, bq24195 PMIC, MAX17043 Fuel Gauge, 
@@ -34,7 +34,7 @@ USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
 - [AN036 LCC Module SMT](/scaling/manufacturing/lcc-module-smt/) includes information about SMT processes for LCC (Leadless Chip Carrier) devices such as the Tracker SoM.
 
 
-## Solutions Accelerator Projects
+## Solutions accelerator projects
 
 - [AN026 Tracker Current Solutions Accelerator](/hardware/tracker/projects/tracker-current-solutions-accelerator/) shows how to measure AC current using the Tracker One via the M8 connector.
 
@@ -72,7 +72,7 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN007 Tower Info](/archives/an007-tower-info/) is a tool for location nearby cellular towers.
 - [AN014 Tracker I2C Scanner](/hardware/tracker/projects/tracker-i2c-scanner/) is a version of the I2C scanner application for scanning the I2C bus looking for devices designed to work with the Tracker One M8 connector I2C.
 
-## Asset Tracking
+## Asset tracking
 
 - [AN012 Tracker 1-Wire](/hardware/tracker/projects/tracker-1wire/) shows how you can add DS18B20 temperature sensors to your Tracker One and interface with 5V I2C devices.
 - [AN013 Tracker GPIO](/hardware/tracker/projects/tracker-gpio/) shows how you can add additional GPIO to your Tracker One using the external M8 connector. It includes both 3.3V and 5V design options, as well.
@@ -96,7 +96,7 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN031 Enabling Wi-Fi RF Test for ESP32](/hardware/certification/enabling-wifi-rf-test-for-esp32/) provides instructions for conducting RF tests with the ESP32 Wi-Fi chip on the Argon development kit.
 
 
-## Numerical List
+## Numerical list
 
 - [AN001 Basic SoM Design](/hardware/b-series-som/basic-som-design/)
 - [AN002 Device Powerdown](/firmware/low-power/device-powerdown/)

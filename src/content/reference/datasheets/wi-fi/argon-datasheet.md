@@ -54,7 +54,7 @@ The Argon is great for connecting existing projects to the Particle Device Cloud
  * RoHS compliant (lead-free)
 
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the Argon.
 
@@ -90,13 +90,13 @@ Please pay attention to the polarity of the LiPo connector. Not all LiPo batteri
 
 <div align=center><img src="/assets/images/lipo-polarity.png" ></div>
 
-#### Li+ PIN
+#### Li+ pin
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Argon. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
 
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Argon first. This pin can also be used to power the Argon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
 
-#### EN PIN
+#### EN pin
 
 The **EN** pin is not a power pin, per se, but it controls the 3V3 power. The EN pin is pulled high by a 100K resistor to the higher of VUSB, the micro USB connector, or Li+. Because the pull-up can result in voltages near 5V you should never directly connect EN to a 3.3V GPIO pin. Instead, you should only pull EN low, such as by using an N-channel MOSFET or other open-collector transistor.
 
@@ -113,13 +113,13 @@ However, if you have circuitry that is powered by a separate, external power sup
 
 ### Antenna
 
-There are two radios on the Argon. A BLE radio (nRF52840) and a WiFi radio (ESP32). For the WiFi radio, we have provided a u.FL connector to plug in the WiFi antenna. This is required if you wish to use the WiFi connectivity. 
+There are two radios on the Argon. A BLE radio (nRF52840) and a Wi-Fi radio (ESP32). For the Wi-Fi radio, we have provided a u.FL connector to plug in the Wi-Fi antenna. This is required if you wish to use the Wi-Fi connectivity. 
 
 There are two options for the BLE antenna on the Argon. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
 
 ### FCC approved antennas
 
-**BLE and WiFi**
+**BLE and Wi-Fi**
 
 The Argon includes one of these antennas, but a second for use with BLE can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
 
@@ -151,7 +151,7 @@ The Argon has a dedicated 10 pin debug connector that exposes the SWD interface 
 
 ## Memory map
 
-### nRF52840 Flash Layout Overview
+### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
  - User Application
@@ -160,7 +160,7 @@ The Argon has a dedicated 10 pin debug connector that exposes the SWD interface 
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+### External SPI flash layout overview (dfu offset: 0x80000000)
 
  - OTA (1500KB, @0x00289000)
  - Reserved (420KB, @0x00220000)
@@ -287,7 +287,7 @@ Nordic Semiconductor nRF52840 SoC for BLE and NFC.
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
 
-Espressif Systems ESP32 for WiFi
+Espressif Systems ESP32 for Wi-Fi
 
 | Feature | Description|
 | :-------|:-----------|
@@ -300,7 +300,7 @@ Espressif Systems ESP32 for WiFi
 
 ---
 
-### I/O Characteristics 
+### I/O characteristics 
 
 These specifications are based on the nRF52840 datasheet.
 
@@ -320,7 +320,7 @@ GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA)
 
 ## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
 
 <div align=center><img src="/assets/images/argon/argon-dimensions.png" ></div>
  
@@ -394,9 +394,9 @@ Argon are available from [store.particle.io](https://store.particle.io/) in sing
 -   FCC ID: 2AEMI-ARGN
 -   IC: 20127-ARGN
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 The Argon contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling Argon without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates Argon. ESD precautions should be implemented on the application board where the Argon is mounted. Failure to observe these precautions can result in severe damage to the Argon!
 
@@ -424,7 +424,7 @@ The Argon comes preprogrammed with a bootloader and a user application called Ti
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC IC CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -498,7 +498,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v008     | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 | v009     | 14-Mar-2022 | RK | Added deprecation notice |
 
-## Known Errata
+## Known errata
 
 ## Contact
 

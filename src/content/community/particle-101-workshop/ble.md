@@ -5,7 +5,7 @@ columns: two
 layout: commonTwo.hbs
 ---
 
-# Lab 3 - Working with  BLE
+# Lab 3 - Working with BLE
 
 | **Project Goal**            | Learn how to use BLE features on Gen3 devices.                                                              |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -20,7 +20,7 @@ In this lab, we'll explore using BLE to advertise data from your device. Specifi
 Make sure you have completed **all** the prerequisites before advancing beyond this point.
 {{box op="end"}}
 
-## Using Bluetooth with Particle Devices
+## Using Bluetooth with Particle devices
 
 Let's explore using Bluetooth with Particle Devices.
 

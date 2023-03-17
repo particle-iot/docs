@@ -13,7 +13,7 @@ Demand for silicon has increased dramatically, driven by demand for 5G phones an
 #### How has Particle been solving these problems through 2021?
 Particle has been purchasing excess inventory of all of our supply-constrained chips throughout 2021, and has been delivering to customers "on allocation". We have secured supply to ensure delivery of our existing products through at least mid-2022, at which point we will be transitioning customers onto new Supply Secure modules with alternative components.
 
-## Supply Secure product details
+## Supply secure product details
 
 **When will Supply Secure SKUs become available?**  
 Supply Secure SKUs will be sampling in Q1 and Q2 of 2022 with General Availability planned for Q3 and Q4 of 2022.For availability details for a specific product, please contact your designated AE or CSM.
@@ -24,7 +24,7 @@ Please contact your designed Account Executive (AE) or Customer Success Manager 
 **What version of Device OS will I need to use?**  
 Device OS support for existing and new Supply Secure SKUs is as documented below:  
 
-### Device OS Support  
+### Device OS support  
 
 | Product class | Generation | Product family                                                                                  | SKUs                              | Supply Secure? | 2.x (LTS) | 3.x (Feat) | 4.x (LTS) | 5.x (Feat) |
 | ------------- | ---------- | ----------------------------------------------------------------------------------------------- | --------------------------------- | -------------- | --------- | ---------- | --------- | ---------- |
@@ -97,16 +97,16 @@ According to our [hardware lifecycle policy](/reference/product-lifecycle/produc
 All products deprecated from a GA lifecycle state as a result of the silicon shortage will still be fully supported according to our product lifecycle policy for 3 years, through **April 30 2025\.**  
 This support commitment applies to existing products deployed in the field as well as newly purchased products delivered before the Last Ship date. Particle will continue to honor hardware warranties for defective products with refunds or exchanges while supplies remain available.
 
-#### What if I don't want to transition to Particle's new Supply Secure modules?
+#### What if I don't want to transition to particle's new supply secure modules?
 
 Customers who do not transition to our Supply Secure modules are at risk of going without access to additional hardware for the next 18-24 months, if not indefinitely.  
 Market indications suggest that the silicon crisis is going to get [worse before it gets better](https://www.wsj.com/articles/global-chip-shortage-is-far-from-over-as-wait-times-get-longer-11635413402), with a complete recovery not expected until 2023 or even 2024\. Many parts will _never_ recover, as manufacturers are discontinuing entire product lines altogether without the intention of reviving them.  
 
 Particle has invested significant resources into establishing smooth, simple, and reliable migration paths that enable our customers to continue deploying products throughout this challenging environment and believe it is in the best interests of _every_ customer to migrate to our Supply Secure modules.
 
-## Migrating to Supply Secure
+## Migrating to supply secure
 
-#### What level of effort will be required to transition to Supply Secure components?
+#### What level of effort will be required to transition to supply secure components?
 
 The level of effort required will depend on your design and which SKU you are migrating to and from. In general, the migration effort:  
 
@@ -138,6 +138,6 @@ It is critically important that all customers place confirmed POs for the next 1
 
 Particle will be providing engineering samples, data sheets, migration guides, certification documentation, cost neutral pricing, and optional professional services to assist customers with migrations. Our organizational focus is to make all our customers successful in migrating to Supply Secure components. Please do not hesitate to reach out if we can be of further assistance.
 
-#### What about SKUs that aren’t getting a “Supply Secure” replacement SKU, like the Photon?
+#### What about SKUs that aren’t getting a “supply secure” replacement SKU, like the Photon?
 
 Particle is not planning to build replacement SKUs for hardware platforms like the Photon that already have a functionally equivalent and Supply Secure Gen 3 replacement in a similar form factor. Further information is available [here](/reference/product-lifecycle/notices/product-deprecation-notice-march-16-2022/).

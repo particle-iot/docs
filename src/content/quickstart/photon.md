@@ -60,7 +60,7 @@ The D7 LED is next to the D7 pin on your Photon, on the upper right quadrant. Th
     * None! This is your first project.
 
 
-## Connect Your Photon
+## Connect your Photon
 In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone.
 
 <iframe src="https://player.vimeo.com/video/178282058" width="320" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

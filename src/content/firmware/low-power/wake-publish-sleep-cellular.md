@@ -41,7 +41,7 @@ To connect and publish:
 
 ![Power Graph](/assets/images/app-notes/AN029/power-graph.png)
 
-## Finite State Machines
+## Finite state machines
 
 All of the examples use a finite state machine. While this example is simple enough you could do it with nested if statements, it's a good habit to get into using finite state machine design for your user firmware. Once your design starts to get more complicated, it can get very confusing to maintain deeply nested if statements.
 
@@ -68,7 +68,7 @@ All of the examples use a finite state machine. While this example is simple eno
   - If the update fails or times out, then it will go into **SLEEP** state to try again later.
  
 
-## Configuration Parameters
+## Configuration parameters
 
 There are configurable parameters near the top of the source file. This example uses [Chrono Literals](/reference/device-os/api/chrono-literals/chrono-literals/) which is a great feature of Device OS 1.5.0 and later. Instead of setting 6 minutes in milliseconds (360000 or 6 * 60 * 1000), you can just use `6min`. You can also use `30s` for seconds. Or `2h` for hours.
 
@@ -80,7 +80,7 @@ const std::chrono::milliseconds connectMaxTime = 6min;
 
 Other parameters are listed in the comments in the source and in the code walk-through below.
 
-## The Code
+## The code
 
 {{> codebox content="/assets/files/app-notes/AN029/firmware/src/Wake-Publish-Sleep-Cellular.cpp" format="cpp" height="500"}}
 
@@ -344,7 +344,7 @@ void firmwareUpdateHandler(system_event_t event, int param) {
 }
 ```
 
-## Power and Log Examples
+## Power and log examples
 
 ### Cold boot, full set of messages send to the cloud
 
@@ -457,7 +457,7 @@ Finally, after the `cloudMinTime` is reached with no update started, we go to sl
 ```
 
 
-### With Session Resume
+### With session resume
 
 - cloudMinTime set to 10 seconds to allow for product firmware updates to be started
 - E Series E402 (LTE Cat M1)

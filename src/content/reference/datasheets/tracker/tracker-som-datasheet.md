@@ -96,7 +96,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
 
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the Tracker SoM.
 
@@ -200,7 +200,7 @@ As the GNSS system is receive-only (no transmitter), you can use any GNSS compat
 | BeiDou   | China |
 | Galileo  | European Space Agency |
 
-#### Cellular Antenna
+#### Cellular antenna
 
 The Tracker SoM has been certified with the following antenna:
 
@@ -300,7 +300,7 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 
 ## Memory map
 
-### nRF52840 Flash Layout Overview
+### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
  - User Application
@@ -309,7 +309,7 @@ This interface can be used to debug your code or reprogram your bootloader, devi
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+### External SPI flash layout overview (dfu offset: 0x80000000)
 
  - OTA (1500KB, @0x00689000)
  - Reserved (420KB, @0x00620000)
@@ -608,7 +608,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ---
 
-### Power consumption (T524/T523)
+### Power consumption (t524/t523)
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
@@ -714,7 +714,7 @@ GNSS GPIO:
 
 ---
 
-### CAN Specifications
+### CAN specifications
 
 - Microchip MCP25625 CAN Controller with Integrated Transceiver
 - SPI Interface
@@ -781,7 +781,7 @@ CAN Transceiver Characteristics
 
 ### Other components
 
-#### IMU (Inertial Measurement Unit)
+#### IMU (inertial measurement unit)
 
 - Bosch Sensortec BMI160
 - SPI Interface connected to SPI1 (MISO1, MOSI1, SCK1) 
@@ -805,7 +805,7 @@ CAN Transceiver Characteristics
 - LiPo battery charger
 - Charge safety timer, thermal regulation, and thermal shutdown
 
-#### Fuel Gauge
+#### Fuel gauge
 
 - MAX17043
 - I2C interface (Wire1 address 0x36)
@@ -930,7 +930,7 @@ Espressif Systems ESP32 for Wi-Fi geolocation:
 
 ---
 
-### I/O Characteristics 
+### I/O characteristics 
 
 These specifications are based on the nRF52840 datasheet.
 
@@ -970,7 +970,7 @@ These specifications are based on the nRF52840 datasheet.
 
 ## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
 
 | Parameter | Value | Units |
 | :-------- |  ---: | :---- |
@@ -1029,17 +1029,17 @@ Dimensions are in millimeters.
 {{imageOverlay src="/assets/images/at-som/pmic.png" alt="PMIC Schematic" class="full-width"}}
 
 
-#### Fuel Gauge
+#### Fuel gauge
 
 {{imageOverlay src="/assets/images/at-som/fuel.png" alt="Fuel Gauge Schematic"}}
 
-#### Cell Control
+#### Cell control
 
 {{imageOverlay src="/assets/images/at-som/cell-control.png" alt="Cell Control Schematic"}}
 
 ---
 
-#### I/O Expander
+#### I/O expander
 
 {{imageOverlay src="/assets/images/at-som/ioex.png" alt="I/O Expander Schematic"}}
 
@@ -1065,7 +1065,7 @@ Dimensions are in millimeters.
 {{imageOverlay src="/assets/images/at-som/3v3-regulator.png" alt="3V3 Regulator Schematic"}}
 
 
-### Layout Considerations
+### Layout considerations
 
 For information on production soldering, stencils, and layout, see [AN036 LCC Module SMT](/scaling/manufacturing/lcc-module-smt/).
 
@@ -1088,11 +1088,11 @@ However, there is no guarantee that interference will not occur in a particular 
 
 The device must not be co-located or operating in conjunction with any other antenna or transmitter.
 
-#### FCC RF Radiation Exposure Statement 
+#### FCC RF radiation exposure statement 
 
 Caution: To maintain compliance with the FCC's RF exposure guidelines, place the product at least 20cm from nearby persons. The module can be installed in mobile or fixed installations only, and it can not be installed in any portable installations.
 
-#### FCC Conditions
+#### FCC conditions
 
 This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
@@ -1136,7 +1136,7 @@ This equipment complies with IC radiation exposure limits set forth for an uncon
 **Déclaration d'exposition aux radiations:**
 Cet équipement est conforme aux limites d'exposition aux rayonnements IC établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps.
 
-### EU Declaration of Conformity
+### EU declaration of conformity
 
 We, Particle Industries, Inc., declare under our sole responsibility that the product, T523M and T524M, to which this
 declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
@@ -1279,7 +1279,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 ---
 
 
-## Ordering Information
+## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
 
@@ -1303,9 +1303,9 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
 ---
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 The Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
 ### Connectors

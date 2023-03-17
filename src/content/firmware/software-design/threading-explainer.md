@@ -21,7 +21,7 @@ As with threaded programs on all platforms, you have to be careful with thread s
 
 Threads are an advanced programming feature and very powerful when used correctly. Used incorrectly they can introduce new and novel issues into your code that are often more difficult to debug than single-threaded code. Exercise caution and consider alternate designs such as finite state machines when your requirements allow.
 
-## Using Threads
+## Using threads
 
 A bit of background:
 
@@ -1531,7 +1531,7 @@ Frees the memory allocated during `os_queue_create`.
 - `reserved` must be 0 or `nullptr`. It's not currently used.
 
 
-## More Details
+## More details
 
 You can find more documentation in the source:
 

@@ -70,7 +70,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 
 {{!-- END shared-blurb --}}
 
-### Compatible devices (Cellular)
+### Compatible devices (cellular)
 
 The following devices have a cellular modem. The Tracker One includes a cellular antenna within the enclosure. All other devices require an antenna connected to the U.FL connector on the module.
 
@@ -166,7 +166,7 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 <sup>2</sup>This device originally shipped with one antenna (ANTELEC or ANT-FLXU) however the ANTCW2EA is listed as an alternative. The ANTCW2EA (or ANTCW2TY) is recommended as most new designs will use this antenna and using this antenna will reduce the number of SKUs you need to stock when building a product at tray quantities.
 
 
-### Not compatible (Cellular)
+### Not compatible (cellular)
 
 These devices do not have a cellular modem and therefore do not need a cellular antenna.
 

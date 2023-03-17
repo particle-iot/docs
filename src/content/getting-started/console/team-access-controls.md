@@ -113,7 +113,7 @@ acting as the account owner. This will appear as **Administrator
 The Owner's role cannot be changed. The Owner also cannot be removed
 from the product team.
 
-## Permissions Matrix
+## Permissions matrix
 
 ### Product permissions
 

@@ -5,7 +5,7 @@ description: USB Serial Debug Log
 includeDefinitions: [api-helper, usb-serial]
 ---
 
-# USB Serial Debug Log
+# USB serial debug log
 
 {{> usb-serial-console}}
 

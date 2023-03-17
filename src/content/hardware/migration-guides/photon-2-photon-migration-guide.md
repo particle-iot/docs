@@ -323,7 +323,7 @@ On Gen 2 devices (STM32), only the WKP pin can wake from HIBERNATE sleep mode.
 
 This restriction does not exist on the Photon 2 and Gen 3 devices; any pin can be used to wake from all sleep modes.
 
-### CAN (Controller Area Network)
+### CAN (controller area network)
 
 The Photon supports CAN on pins D1 and D2. There is no CAN on the Photon 2 or Gen 3 devices (except the Tracker).
 
@@ -417,7 +417,7 @@ The Photon 2 has components on both sides of the board, like the Argon. It is no
 
 The Photon 2 does not have the solder pads for the RGB LED and SETUP/MODE button on the bottom. The RGB LED can be directed in software to other pins on the Photon 2. The SETUP/MODE button is available on the header pins on the Photon 2.
 
-### Classic Adapter
+### Classic adapter
 
 ![Classic Adapter](/assets/images/accessories/classic-adapter.png)
 
@@ -947,7 +947,7 @@ Most third-party libraries are believed to be compatible. The exceptions include
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
 
 
-## Version History
+## Version history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|

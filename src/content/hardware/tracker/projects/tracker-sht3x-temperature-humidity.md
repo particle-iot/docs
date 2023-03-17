@@ -41,11 +41,11 @@ You'd typically connect those wires to your custom expansion board using one of 
 
 This example design is intended to be a prototype for illustration purposes only. It includes the same B8B-PH connector that is inside the Tracker One on the Tracker Carrier board. This allows the board to be connected to the carrier board using an inexpensive PHR-8 to PHR-8 cable.
 
-## Hardware Design
+## Hardware design
 
 ![Board](/assets/images/app-notes/AN022/board.jpg)
 
-### Full Design
+### Full design
 
 Schematic:
 
@@ -101,7 +101,7 @@ We use a PCA9306 I2C level-shifter. This converts between 3.3V and 5V logic. Not
 
 Note that I2C requires pull-up resistors, and this design includes two sets, one to 3.3V and one to 5V, on either side of the PCA9306.
 
-### Adding Sensors
+### Adding sensors
 
 There are a few commonly available SHT30 sensors:
 
@@ -116,7 +116,7 @@ Also be sure to use the SHT30, SHT31, etc.. The earlier sensors like the SHT10 a
 
 ## Firmware
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 You can download a complete project for use with Particle Workbench as a zip file here:
 
@@ -164,7 +164,7 @@ The documentation for the library can be found [here](https://github.com/particl
 {{> codebox content="/assets/files/app-notes/AN022/firmware/main.cpp" format="cpp" height="500"}}
 
 
-### Digging In
+### Digging in
 
 ```cpp
 Sht3xi2c sensor(Wire3, 0x44);
@@ -205,7 +205,7 @@ Finally connect to the Particle cloud at the end of setup.
 Tracker::instance().loop();
 ```
 
-Make sure you give the Tracker edge firmware processor time on every call to `loop()`.
+Make sure you give the Tracker Edge firmware processor time on every call to `loop()`.
 
 ```cpp
 void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
@@ -229,7 +229,7 @@ void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, cons
 Finally, when there is a location publish, add the sensor data to it.
 
 
-## Cloud Data
+## Cloud data
 
 In the map view in the [console](https://console.particle.io), you should be able to see the additional custom data:
 

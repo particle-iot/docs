@@ -5,7 +5,7 @@ columns: two
 description: Migration guide for transitioning from the Argon to Photon 2
 ---
 
-# Photon 2 from Argon Migration Guide
+# Photon 2 from Argon migration guide
 
 **Preliminary pre-release version 2022-04-18**
 
@@ -86,7 +86,7 @@ The Argon requires an external Wi-Fi antenna, and has a built-in chip antenna fo
 
 The Photon 2 has a built-in trace antenna that is shared by Wi-Fi and BLE. It can optionally use an external 2.4 GHz antenna for both Wi-Fi and BLE.
 
-### Pin Names
+### Pin names
 
 {{imageOverlay src="/assets/images/photon-2-argon-comparison.svg" alt="Pin name comparison" class="full-width"}}
 
@@ -300,7 +300,7 @@ The pins that support PWM are different on the Argon and Photon 2.
 
 All available PWM pins on the Photon 2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
-### CAN (Controller Area Network)
+### CAN (controller area network)
 
 Neither the Argon nor the Photon 2 support CAN.
 
@@ -366,7 +366,7 @@ The Photon 2 has a USB C connector, like the Tracker One and Tracker Eval Board.
 
 The Argon has a Micro USB B connector.
 
-### NFC Tag
+### NFC tag
 
 The Photon 2 does not have NFC Tag support. The Argon does.
 
@@ -711,7 +711,7 @@ Most third-party libraries are believed to be compatible. The exceptions include
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
 
 
-## Version History
+## Version history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|

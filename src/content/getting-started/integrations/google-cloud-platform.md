@@ -45,7 +45,7 @@ Some of the most relevant Google Cloud Platform products to use with Particle ar
 This tutorial will focus on the first example use case: storing data from
 Particle devices into Google Cloud Platform Datastore.
 
-## Preconfiguration in Google Cloud Platform
+## Preconfiguration in Google cloud platform
 
 Regardless of which Google Cloud Platform product(s) you'd like to use,
 streaming data into Google Cloud Platform requires an entry point.
@@ -69,7 +69,7 @@ Before setting up the integration in Particle, there are a few pre-configuration
 must do inside Google Cloud Platform. These instructions are also included in the Particle Console
 when you enable the Google Cloud Platform integration.
 
-### Sign up for a Google Cloud Platform Account
+### Sign up for a Google cloud platform account
 
 If you don't already have one, you'll need to sign up for a Google Cloud Platform Account to use this integration.
 
@@ -79,34 +79,34 @@ Upon signup, you will be enrolled in a 60-day free trial of the service, with $3
 You can use the <a href="https://cloud.google.com/products/calculator/" target="_blank">Google Cloud Platform Pricing Calculator</a>
 to estimate costs of any Google Cloud Platform product.
 
-### Create a Google Cloud Platform Project
+### Create a Google cloud platform project
 
 In your Google Cloud Platform console, find the project dropdown in the top navigation bar, and select "Create project."
 Then, give your project a name. When you're done, click "Create."
 
 <img src="/assets/images/gcp-create-project.png" class="full-width" alt="Create a Google Cloud Platform project"/>
 
-### Create a Pub/Sub Topic with the correct permissions
+### Create a pub/sub topic with the correct permissions
 
-#### Navigate to Pub/Sub
+#### Navigate to pub/sub
 
 Click the hamburger menu icon in the top navigation bar. Then, from the slide out menu, select "Pub/Sub" from the list of Google Cloud Platform products.
 
 <img src="/assets/images/gcp-find-pub-sub.png" class="full-width" alt="Navigate to Pub/Sub"/>
 
-#### Create a Topic
+#### Create a topic
 
 If this is your first time using Pub/Sub, you will need to enable the Pub/Sub API before you can create a topic. Once the API is enabled for your account, click on the "Create topic" button from the Pub/Sub dashboard. Then, give your topic a name. Google automatically prefixes your topic name to ensure that you will publish to the right place.
 
 <img src="/assets/images/gcp-create-topic.png" class="full-width" alt="Create a Google Cloud Platform project"/>
 
-#### Give Particle Permission to Publish to your Topic
+#### Give Particle permission to publish to your topic
 
 Once created, check the checkbox next to your topic name, and click on the "Permissions" button. Then, in the "Add members" box, paste in `particle-public@particle-public.iam.gserviceaccount.com`. Choose **Pub/Sub Publisher** from the the "Select a role" dropdown. When you're done, click "Add." Congrats, you're all done!
 
 <img src="/assets/images/gcp-add-permissions.png" class="full-width" alt="Add Particle's Service Account to your Google Cloud Topic"/>
 
-## Enabling the Integration
+## Enabling the integration
 
 ### Particle Console
 
@@ -195,7 +195,7 @@ Congrats! This is all you need to get the integration working end-to-end.
 Your device will now begin to publish the targeted event, which will signal to
 the Particle cloud to stream the contents of the event to Google Cloud Platform.
 
-### Confirming the data reaches Google Cloud Platform
+### Confirming the data reaches Google cloud platform
 
 To ensure that the data is successfully being published to Google Cloud Platform, you can use the Google Cloud
 CLI. To use the Google Cloud CLI, click on the terminal icon on the right side of
@@ -231,14 +231,14 @@ a Particle device -> Particle Device Cloud -> Google Cloud Pub/Sub. From here, i
 Google Cloud Platform's products & services to add value to your connected product. The rest of this tutorial will
 focus on specific IoT use cases for Google Cloud Platform.
 
-## Example Use Cases
+## Example use cases
 
 *We are in need of more example use cases for this integration. Please help us
 improve this tutorial by <a href="{{edit-link branch path.href path.name}}"
 target="_blank">contributing to this page</a>. We will shower you with
 kudos and smiley emojis!*
 
-### Storing Data in a Datastore Database
+### Storing data in a Datastore database
 
 One relatively universal application of the Particle & Google Cloud Platform integration is the ability to store
 device data into a long-term database. Google Cloud offers many different data storage options within the
@@ -260,7 +260,7 @@ architecture of what this example will entail:
 
 Note that this example program currently requires Node 6, such as 6.14.3. It will not properly run on Node 8 and later.
 
-#### Creating a Private Key
+#### Creating a private key
 
 The Node script will need to have the correct permissions to both subscribe to Google Cloud Platform topics
 as well as insert data into Datastore. For this to work, we'll need to create a private key that your script
@@ -294,7 +294,7 @@ with Google Cloud Platform.
 
 **NOTE: Do not share this private key, or check it into Git. Keep it secret.**
 
-#### Creating a Pub/Sub Subscription
+#### Creating a pub/sub subscription
 
 The next thing you'll need is a Google Cloud Pub/Sub subscription.
 Remember that the Particle Device Cloud *publishes
@@ -317,7 +317,7 @@ automatically be prefixed just as your topic was.
 
 4. Click **Create**
 
-#### Running the Node Script
+#### Running the node script
 
 We'll need an intermediary to allow the Particle device data to flow from Google Cloud Pub/Sub to Datastore. This
 is where the Node script comes into play. It's job is simple:

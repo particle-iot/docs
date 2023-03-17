@@ -55,7 +55,7 @@ New designs should use the B404X (B Series SoM) instead of the E404X.
 
 <sup>1</sup> Not all bands enabled in software by default
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the E404X. The minimum required version is 4.0.0. You cannot use the E404X with Device OS 2.x LTS.
 
@@ -67,7 +67,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 
 {{imageOverlay src="/assets/images/e-series/illustrations/e404x-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
-## Radio Information
+## Radio information
 
 ### u-blox SARA-R510S-01B LTE cellular modem
 
@@ -219,7 +219,7 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 | Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
 
-#### General Antenna Guidance
+#### General antenna guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
@@ -506,9 +506,9 @@ It cannot be programmed by the ST-LINK/V2.
 
 
 
-## Memory Map
+## Memory map
 
-### nRF52840 Flash Layout Overview
+### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
   - User Application
@@ -517,7 +517,7 @@ It cannot be programmed by the ST-LINK/V2.
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+### External SPI flash layout overview (dfu offset: 0x80000000)
 
  - OTA (1500KB, @0x00289000)
  - Reserved (420KB, @0x00220000)
@@ -564,7 +564,7 @@ Unlike the Boron or Electron, the E404X module does not have an on-module RGB sy
 A detailed explanation of different color codes of the RGB system LED can be found [here](/troubleshooting/led/).
 
 
-## Technical Specifications
+## Technical specifications
 ### Absolute maximum ratings <sup>[1]</sup> <i class="icon-attention"></i>
 
 #### Supply voltages
@@ -612,7 +612,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ---
 
-### I/O Characteristics 
+### I/O characteristics 
 
 These specifications are based on the nRF52840 datasheet.
 
@@ -647,13 +647,13 @@ These specifications are based on the nRF52840 datasheet.
 
 - GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/api/input-output/pinsetdrivestrength/) function.
 
-## Mechanical Specifications
+## Mechanical specifications
 
 <div align=center><img src="/assets/images/e-series/illustrations/e0-dims.png"></div>
 
 *This diagram indicates only the dimensions; the components on the module will be different.*
 
-### Dimensions and Weight
+### Dimensions and weight
  * Width = 36 mm
  * Height = 43 mm
  * Thickness = 4.6 mm
@@ -666,7 +666,7 @@ These specifications are based on the nRF52840 datasheet.
 An E series part for EAGLE can be found in the [Particle EAGLE library](https://github.com/particle-iot/hardware-libraries#pcb-footprints-land-pattern)
 
 
-## Block Diagram Detail
+## Block diagram detail
 
 For FCC § 2.1033(b)(5)
 
@@ -689,9 +689,9 @@ For FCC § 2.1033(b)(5)
 
 **To be provided at a later date**
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 <i class="icon-attention"></i> The E series contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an E series without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates EØs.  ESD precautions should be implemented on the application board where the E series is mounted. Failure to observe these precautions can result in severe damage to the E series! <i class="icon-attention"></i>
 
@@ -729,7 +729,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 |uC  | Microcontroller |
 
 
-## FCC IC Warnings and End Product Labeling Requirements
+## FCC IC warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -809,7 +809,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 1   | 2023-02-07 | RK | GA (remove preliminary banner) |
 | 2   | 2023-02-14 | RK | Updated information for certification |
 
-## Known Errata
+## Known errata
 
 
 ## Contact

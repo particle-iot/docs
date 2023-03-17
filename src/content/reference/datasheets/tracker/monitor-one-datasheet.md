@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: Monitor One Datasheet
 ---
 
-# Monitor One Datasheet
+# Monitor One datasheet
 
 {{#unless pdf-generation}}
 {{!-- downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf" --}}
@@ -421,7 +421,7 @@ Note that the two 60.4 ohm resistors are DNP (do not populate). If populated, th
 
 - Pins 9 and 10 have NFC in the name from the Tracker SoM, however NFC cannot be used on the Monitor One as the pins must be used as `VIN_EN` and `PERIPH_INT`.
 
-### I/O Characteristics
+### I/O characteristics
 
 The GPIO pins on the expansion connector have the following specifications, from the nRF52840 datasheet:
 
@@ -543,7 +543,7 @@ By disconnecting the VIN power supply, it reduces the current used by the VIN an
 
 ## Mechanical specifications
 
-### Operating Temperature
+### Operating temperature
 
 To be provided at a later date.
 
@@ -573,7 +573,7 @@ To be provided at a later date.
 
 ---
 
-## Ordering Information
+## Ordering information
 
 To be provided at a later date.
 
@@ -586,13 +586,13 @@ To be provided at a later date.
 To be provided at a later date.
 
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 The Monitor One contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
-### Battery Warning
+### Battery warning
 
 **CAUTION**
 

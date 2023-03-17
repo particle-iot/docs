@@ -5,7 +5,7 @@ columns: two
 layout: commonTwo.hbs
 ---
 
-# Session 1 - A Lap Around Particle
+# Session 1 - A lap around Particle
 
 The slides below provide an overview of the Particle ecosystem, including hardware, firmware, and cloud services.
 
