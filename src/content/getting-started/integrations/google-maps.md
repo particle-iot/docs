@@ -81,7 +81,7 @@ points, and send these to the geolocation API in exchange for its
 location. Often times, Wi-Fi geolocation is more precise than cellular
 geolocation, often with an accuracy radius of 50 meters or less.
 
-### IP Address location
+### IP address location
 
 The Google Maps Device Locator does not use this technique, but for home
 Wi-Fi networks it's often possible to get an approximate location (city
@@ -99,7 +99,7 @@ Follow the instructions to register for a new account. A Google account
 is needed to successfully authenticate with the Google Maps Geolocation
 API.
 
-### Get a Google Geolocation API Key
+### Get a Google Geolocation API key
 
 In order to use the Google Geolocation API, you need an API key. In many cases, you'll be able to take advantage of the free usage tier.
 
@@ -131,13 +131,13 @@ Copy your key to the clipboard because you'll need it when you enable your integ
 
 To view, edit or delete your credentials later, you can use the [Google Developer Credentials Console](https://console.developers.google.com/apis/credentials).
 
-### Enable Billing
+### Enable billing
 
 Make sure you enable billing on your Google account. Even if you don't exceed the limits of the free plan, you'll get an error 403 if you don't enable billing.
 
 The instructions [can be found here](https://developers.google.com/maps/documentation/geolocation/usage-and-billing).
 
-### Run the Google Maps firmware library on your devices
+### Run the Google maps firmware library on your devices
 
 The final preconfiguration step is the firmware that you flash to your
 Particle device. In order for Google Maps to geolocate a device, the
@@ -177,7 +177,7 @@ existing firmware application, check out the
 <a href="https://github.com/particle-iot/google-maps-device-locator#firmware-library-api"
 target="_blank">firmware library API</a>.
 
-## Enabling the Integration
+## Enabling the integration
 
 ### Particle Console
 
@@ -323,7 +323,7 @@ dependencies.Adafruit_SSD1306_RK=1.1.2```
 
 You would have to add the libraries **google-maps-device-locator** and **Adafruit_SSD1306_RK** to your project in order to run the sample code.
 
-## Firmware Library API
+## Firmware library API
 
 ### Creating an object
 

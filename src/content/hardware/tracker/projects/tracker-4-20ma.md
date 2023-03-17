@@ -46,10 +46,10 @@ This example can be used three different ways:
 - Or you can populate 0.1" male header pins, which are handy for use with male-to-female Dupont wires for connecting directly to the Tracker SoM evaluation board.
 
 
-## Hardware - Single
+## Hardware - single
 
 
-### Schematic - Single
+### Schematic - single
 
 ![Single Schematic](/assets/images/app-notes/AN020/single-schematic.png)
 
@@ -72,11 +72,11 @@ The sense resistor is connected low-side, to ground, so it can be measured with 
 
 The connection to the sensor is via a 2 screw-terminal header.
 
-### Board Layout - Single
+### Board layout - single
 
 ![Single Board](/assets/images/app-notes/AN020/single-board.png)
 
-### BoM (Bill of Materials) - Single
+### BoM (Bill of Materials) - single
 
 
 | Quantity | Part | Description | Example | Cost |
@@ -106,7 +106,7 @@ By the way, this [inexpensive tool from Amazon](https://www.amazon.com/dp/B07L49
 
 ## Firmware
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 You can download a complete project for use with Particle Workbench as a zip file here:
 
@@ -154,7 +154,7 @@ If you prefer to edit project.properties directly, add this:
 
 {{> codebox content="/assets/files/app-notes/AN020/firmware/main.cpp" format="cpp" height="500"}}
 
-## Digging In
+## Digging in
 
 ```cpp
 const size_t NUM_SENSOR_CONFIG = 1;

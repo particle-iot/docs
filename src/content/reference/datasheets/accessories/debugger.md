@@ -53,7 +53,7 @@ In order to use SWD debugging you need to connect:
 - GND
 
 
-## Upgrading the Debugger
+## Upgrading the debugger
 
 As of early 2021, all Particle debuggers shipped with an older version of the DAPLink debugger software. The older version did not support WebUSB mode, and also had bugs that prevented drag-and-drop flashing from working properly in many cases. If you drag a .hex file on the debugger and the volume immediately ejects without installing anything, it probably needs to be upgraded. 
 

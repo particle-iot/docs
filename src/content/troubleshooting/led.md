@@ -30,7 +30,7 @@ The Tracker SoM and Tracker One status LED can be configured in several differen
 
 The standard LED patterns for Tracker One devices are:
 
-### Connecting to Cellular - Tracker
+### Connecting to cellular - Tracker
 
 The Tracker will fast breathe red while connecting to cellular.
 
@@ -38,7 +38,7 @@ The Tracker will fast breathe red while connecting to cellular.
   "breathe red 500ms"
 }}
 
-### Connecting to the Cloud - Tracker
+### Connecting to the cloud - Tracker
 
 While trying to connect to the cloud, the Tracker shows the relative signal strength as breathing yellow (weaker cellular signal):
 
@@ -52,7 +52,7 @@ Or breathing green (stronger cellular signal):
   "breathe green 1000ms"
 }}
 
-### Connected to Cellular - Tracker
+### Connected to cellular - Tracker
 
 The Tracker shows the relative signal strength as solid yellow (weaker cellular signal):
 
@@ -73,7 +73,7 @@ Solid yellow or solid green indicates normal operation on the Tracker.
 
 {{/if}} {{!-- tracker-som --}}
 
-## Standard Modes
+## Standard modes
 These modes are the typical behaviors you will see from your device on a regular basis. They are the light patterns of a healthy device.
 
 Here's the typical pattern of after power up.
@@ -110,7 +110,7 @@ Here's the typical pattern of after power up.
 When it is breathing cyan, your device is happily connected to the Internet. When it is in this mode, you can call functions and flash code.
 
 
-### OTA Firmware Update
+### OTA Firmware update
 
 {{device-animation device "blink" "magenta" }}
 
@@ -118,7 +118,7 @@ If your device is blinking magenta (red and blue at the same time), it is curren
 
 Note that, if you enter this mode by holding `{{system-button}}` on boot, blinking magenta indicates that letting go of the `{{system-button}}` button will enter safe mode to connect to the cloud and not run application firmware.
 
-### Looking For Internet
+### Looking for internet
 
 {{device-animation device "blink" "lime" }}
 
@@ -201,13 +201,13 @@ LTE Cat M1 devices can connect without a battery.
 
 
 
-### Connecting to the Cloud
+### Connecting to the cloud
 
 {{device-animation device "blink" "cyan" }}
 
 When the device is in the process of connecting to the cloud, it will rapidly blink cyan. You often see this mode when you first connect your device to a network, after it has just blinked green.
 
-### Listening Mode
+### Listening mode
 
 {{device-animation device "blink" "blue" 300 300 }}
 
@@ -268,7 +268,7 @@ To put your device in Listening Mode, hold the `{{system-button}}` button for th
 You can also use [`particle usb start-listening`](/reference/developer-tools/cli/#particle-usb-start-listening) to enter listening mode.
 
 {{#if has-cellular-strength }}
-### Cellular Signal Strength
+### Cellular signal strength
 
 {{device-animation device "pattern"
   "on rgba(0, 255, 0, 0.4) 1000ms"
@@ -300,7 +300,7 @@ Tapping the `{{system-button}}` button twice on your device enter soft power off
 
 
 {{#if has-gen3}}
-### Network Reset (fast blinking blue)
+### Network reset (fast blinking blue)
 
 {{device-animation device "pattern"
   "blink blue 20 times"
@@ -318,7 +318,7 @@ To erase the stored network settings on your device, hold the `{{system-button}}
 
 {{#if photon}}
 
-### Wi-Fi Network Reset
+### Wi-Fi network reset
 
 To erase the stored Wi-Fi networks on your device, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
 
@@ -326,10 +326,10 @@ To erase the stored Wi-Fi networks on your device, hold the `{{system-button}}` 
 
 
 {{#if has-cellular}}
-### Cellular Off
+### Cellular off
 {{/if}}
 {{#if has-wifi}}
-### Wi-Fi Off
+### Wi-Fi off
 {{/if}}
 
 {{device-animation device "breathe" "white" }}
@@ -341,7 +341,7 @@ If your device is breathing white, the {{network-type}} module is off. You might
 
 
 
-### Safe Mode
+### Safe mode
 
 {{device-animation device "breathe" "magenta" }}
 
@@ -365,7 +365,7 @@ The device will itself automatically enter safe mode if there is no application 
 
 You can also use the [`particle usb safe-mode`](/reference/developer-tools/cli/#particle-usb-safe-mode) command to enter safe mode. 
 
-### DFU Mode (Device Firmware Upgrade)
+### DFU Mode (device firmware upgrade)
 
 {{device-animation device "blink" "yellow" }}
 
@@ -393,7 +393,7 @@ You can also use the [`particle usb dfu`](/reference/developer-tools/cli/#partic
 
 
 {{#if photon}}
-### Firmware Reset
+### Firmware reset
 
 Firmware reset is not available on the device, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
@@ -405,7 +405,7 @@ particle flash --usb tinker
 {{/if}}
 
 {{#if electron}}
-### Firmware Reset
+### Firmware reset
 _Since 0.6.0_
 
 {{device-animation device "blink" "lime" }}
@@ -427,7 +427,7 @@ To enter Firmware Reset Mode:
 
 {{#if has-gen3-argon-boron-xenon}}
 
-### Firmware Reset
+### Firmware reset
 
 Gen 3 devices can store a backup copy of any desired user firmware in flash memory at address 0x80200000, separate from user flash memory which is located at 0x000D4000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image. 
 
@@ -467,7 +467,7 @@ Hold down the MODE button and tap RESET. The status LED will blink:
 
 Be sure to release the mode button as soon as you get to fast blinking yellow, otherwise you'll go one step farther and clear all of your settings as well.
  
-### Factory Reset
+### Factory reset
 
 Gen 3 (Argon, Boron) devices from the factory somewhat ironically do not have a factory user firmware backup image installed. Thus it's best if you pre-install one using the steps above first. 
 
@@ -501,12 +501,12 @@ This will:
 
 
 
-## Troubleshooting Modes
+## Troubleshooting modes
 
 These modes let you know about more atypical issues your device might be exhibiting. Use this section to troubleshoot strange colors you might see from your device.
 
 {{#if electron}}
-### Cellular Module Not Connected
+### Cellular module not connected
 
 {{device-animation device "breathe" "blue" }}
 
@@ -514,7 +514,7 @@ If the Cellular module is on but not connected to a cellular tower, your device 
 {{/if}}
 
 {{#if photon}}
-### Wi-Fi Module Not Connected
+### Wi-Fi Module not connected
 
 {{device-animation device "breathe" "blue" }}
 
@@ -522,7 +522,7 @@ If the Wi-Fi module is on but not connected to a network, your device will be br
 {{/if}}
 
 
-### Cloud Not Connected
+### Cloud not connected
 
 {{device-animation device "breathe" "lime" }}
 
@@ -626,7 +626,7 @@ Using the Signal option in the Web IDE, or the [particle cloud nyan](/reference/
 }}
 
 
-### Red Blink Basic Errors
+### Red blink basic errors
 
 Blinking red indicates various errors.
 
@@ -674,7 +674,7 @@ There are additional tips for a [missing openssl error on this page](https://git
 {{collapse op="end"}}
 
 
-### Red Flash SOS
+### Red flash SOS
 
 {{device-animation device "sos" }}
 

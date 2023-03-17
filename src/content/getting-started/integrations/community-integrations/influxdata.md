@@ -29,7 +29,7 @@ from your Particle devices via the Particle Device Cloud.
   analysis of real-time data and historical data that can trigger actions on 
   devices or through other web services.
 
-## Setting Up InfluxData Services
+## Setting up InfluxData services
 
 <img src="/assets/images/Particle+Influx-architecture.png" alt="Particle + InfluxData"/>
 <p class="caption">Data is routed from your Particle devices through the Particle
@@ -48,13 +48,13 @@ Before setting up the integration in Particle, there are a few pre-configuration
 must do. These instructions are also included in the Particle Console
 when you enable the InfluxData Platform integration.
 
-### Deploy a Telegraf Agent
+### Deploy a Telegraf agent
 
 If you don't already have one, you'll need to have a running Telegraf Collection Agent. You can follow
 the <a href="https://docs.influxdata.com/telegraf/v1.5/introduction/getting_started/">Getting Started</a>
 Document for setting up your own hosted Telegraf instance on any server or cloud platform you choose.
 
-### Deploy an InfluxDB Instance
+### Deploy an InfluxDB instance
 
 If you don't already have an InfluxDB server running you can easily start one on your existing server
 by following the <a href="https://docs.influxdata.com/influxdb/v1.4/introduction/getting_started/">Getting Started
@@ -89,7 +89,7 @@ $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
 
-#### Configure AWS Security Settings
+#### Configure AWS security settings
 
 Add the necessary networking settings as a new Security Profile that you can then apply your InfluxDB AMI.
 
@@ -166,7 +166,7 @@ tcp6	0      	0       ::::9092 	      :::* 	          LISTEN -
 You’ll notice that the system is listening on port 1619 — so Particle Webhooks can communicate with it, on 8888 which enables Chronograf, as well as 9092 (for Kapacitor) and 8086 and 8088 for InfluxDB.
 
 
-## Enabling the Integration
+## Enabling the integration
 
 ### Particle Console
 
@@ -275,7 +275,7 @@ Congrats! This is all you need to get the integration working end-to-end.
 Your device will now begin to publish the targeted event, which will signal to
 the Particle cloud to stream the contents of the event to your InfluxDB instance.
 
-### Confirming the data reaches InfluxDB Instance
+### Confirming the data reaches InfluxDB instance
 
 To ensure that the data is successfully being published to InfluxDB, you can use Chronograf, the visual
 graphing front-end to InfluxDB. Simply point your browser at your Chronograf instance (typically the same 
@@ -283,14 +283,14 @@ address as your InfluxDB instance, on port 8888) and browse the Data:
 
 <img src="/assets/images/Chronograf.gif"/>
 
-## Example Use Cases
+## Example use cases
 
 *We are in need of more example use cases for this integration. Please help us
 improve this tutorial by <a href="{{edit-link branch path.href path.name}}"
 target="_blank">contributing to this page</a>. We will shower you with
 kudos and smiley emojis and if you tell us about it, InfluxData Swag!*
 
-### Storing Data in an InfluxData Database
+### Storing data in an InfluxData database
 
 One relatively universal application of the Particle & InfluxData Platform integration is the ability to store
 device data into a long-term database. InfluxDB offers the ability to set data retention policies on your IoT

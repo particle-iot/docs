@@ -24,7 +24,7 @@ But first things first, let's tackle the **four easiest things** you can do to r
 * [Upgrade your device's Device OS to the most recent Device OS version.](/getting-started/device-os/introduction-to-device-os/#managing-device-os)
 * If you have a 2G/3G device, ensure your device's LiPo battery is attached.
 
-## Device Vitals
+## Device vitals
 
 The Particle Console provides you with current and historical Device Vitals that are helpful in debugging cellular connections.
 
@@ -83,9 +83,9 @@ Once you have your ICCID, be sure to check [the console SIMs page](https://conso
   
 If all of the above are correct, and your device is blinking green, Cloud Debug is the next step. 
 
-## Cloud Debug
+## Cloud debug
 
-#### What is Cloud debug?
+#### What is cloud debug?
 
 Cloud debug is a precompiled firmware binary that communicates with the modem and spits out the information over serial.
 
@@ -110,13 +110,13 @@ If you would like to source debug logs using your application binary instead, fo
   
 ### Google chrome users can flash and see debug logs directly from the browser thanks to the wonders of Web USB: [Web Cloud Debug](/troubleshooting/connectivity/cloud-debug/)
 
-#### Gathering Debug Logs
+#### Gathering debug logs
 
 The best way to produce these logs is with `particle serial monitor --follow` in [CLI](/getting-started/developer-tools/cli/). We recommend resetting the device after running this command so that you are able to source logs from the device from the very beginning of the application.
 
 Several seconds after connecting serial monitor, the tests will begin.
 
-#### Interpreting Cloud Debug
+#### Interpreting cloud debug
 
 Once you have the logs, scan through it and look out for the following responses to the CREG AT command:
 
@@ -140,13 +140,13 @@ _Indicates a successful connection to the tower._
 
 Once you have these logs in hand, reach out to our [support team](https://support.particle.io/) with about 10 minutes or so of those logs! 
 
-#### Uninstalling Cloud Debug
+#### Uninstalling cloud debug
 
 Put your device in DFU mode (blinking yellow) by pressing RESET and SETUP. Release RESET and continue to hold down SETUP while the LED blinks magenta until it blinks yellow, then release SETUP. Then run the following command in the CLI:
 
 `particle flash --usb tinker`
 
-## Troubleshooting Your Antenna
+## Troubleshooting your antenna
 
 There are some circumstances where fixed-location devices just cannot get the service they need. A great way to evidence this is by using the Cloud Debug tool above, and looking for the telltale`CEREG 2,0` and `2,2` traces.
 
@@ -156,9 +156,9 @@ Barring any physical damage to the unit, the next step is to thoroughly evaluate
 
 Should this be your object of interest, please read our technical notes on this subject thoroughly, located here: ([link](/hardware/certification/antenna/)).
 
-## Submitting A Ticket
+## Submitting a ticket
 
-### In order to provide our Support Team the opportunity to address your request with optimal efficiency, please supplement any and all cellular connectivity tickets with the following information (to the extent possible):
+### In order to provide our support team the opportunity to address your request with optimal efficiency, please supplement any and all cellular connectivity tickets with the following information (to the extent possible):
 
 1. Confirmation that the antenna and (if using a 2G/3G device) LiPo battery connections satisfy a visual inspection.
 2. An attached Device Vitals History .pdf, downloadable in the Console per the instructions above. (Please note that this resource will not appear if the device has never connected in the past).

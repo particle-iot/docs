@@ -51,9 +51,9 @@ This example design is intended to be a prototype for illustration purposes only
 If you are interested in prototyping designs intended to connect to the Tracker One M8 connector, but want to do it using the Tracker SoM Evaluation Board, you may be interested in [this project](https://github.com/rickkas7/M8-Eval-Adapter). It's only a set of design files, BoM, etc. and you'd need to fabricate the board and build it yourself; it's not available as a finished product. It also explains a bit more about how the M8 connector can be used.
 
 
-## Hardware Design
+## Hardware design
 
-### Full Design
+### Full design
 
 Schematic:
 
@@ -167,7 +167,7 @@ This board includes a [Sparkfun Qwiic connector](https://www.sparkfun.com/produc
 
 ## Firmware
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 You can download a complete project for use with Particle Workbench as a zip file here:
 

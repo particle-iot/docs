@@ -24,7 +24,7 @@ version of firmware depending on the local country's native language.
 
 Stay tuned as we add more ways to leverage device groups in your product.
 
-## Creating Device Groups
+## Creating device groups
 
 In order to get the benefits of device segmentation, you will first need
 to create a group.
@@ -61,7 +61,7 @@ _Quick tip_: If you prefer, you can also [call the Particle
 API](/reference/cloud-apis/api/#create-device-group) directly to create a device
 group.
 
-## Assigning Groups to Devices
+## Assigning groups to devices
 
 Now that you have created your group(s), you'll need to assign groups
 to devices in your fleet. Note that **a device can belong to multiple
@@ -100,7 +100,7 @@ _Quick tip_: If you prefer, you can also [call the Particle API](/reference/clou
 _Quick tip_: After assigning groups to devices, you can use the Console
 or the [Particle API](/reference/cloud-apis/api/#list-devices-in-a-product) to filter product devices by group.
 
-## Firmware Release by Group
+## Firmware release by group
 
 With devices segmented into groups, it is now possible to gain more
 control and flexibility over the firmware release process. If you are
@@ -122,7 +122,7 @@ The specific firmware chosen to be delivered to a
 given device is determined by *precedence rules*, which you can read about in
 the next section.
 
-### Firmware Precedence Rules
+### Firmware precedence rules
 
 Devices in your fleet will be targeted to
 receive a version of product firmware according to these precedence
@@ -148,7 +148,7 @@ firmware (if a firmware has been released as the Product default)
 a product firmware, it will not receive an automatic OTA update from the
 Particle cloud
 
-### Example Release Process
+### Example release process
 
 Let's walk through a real-life example of how you could use
 releasing product firmware by group. Imagine you have a fleet of 5,000
@@ -206,7 +206,7 @@ instead, they will be targeted for an over-the-air update the next time
 they start a new secure session with the cloud (this is called a
 *handshake*).
 
-## From Device Firmware
+## From device firmware
 
 Normally device groups are used to manage devices in the console and for releasing product firmware. However, by using a webhook and some device firmware, you can get the device group list from user firmware running on a Particle device.
 

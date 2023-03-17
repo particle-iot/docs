@@ -13,7 +13,7 @@ One common use is the vehicle [on-board diagnostics](https://en.wikipedia.org/wi
 
 There are other CAN-based protocols like [CANopen](https://en.wikipedia.org/wiki/CANopen) and [DeviceNet](https://en.wikipedia.org/wiki/DeviceNet) that could be implemented, but do not currently have software libraries available.
 
-## Termination Resistors
+## Termination resistors
 
 The CAN bus requires termination resistors, typically 120 ohms on each end of the CAN bus to prevent reflection of the signal. 
 
@@ -24,7 +24,7 @@ If you are attaching the Tracker to a vehicle OBD-II port, you may not need to a
 If you are directly connecting another CAN module to the Tracker you will have to add termination resistors on both ends. The Tracker SoM and Tracker One do not contain 120 ohm termination resistors.
 
 
-## Tracker One CAN Application Notes
+## Tracker One CAN application notes
 
 The [AN017 Tracker CAN](/hardware/tracker/projects/tracker-can/) application note is a good place to start.
 

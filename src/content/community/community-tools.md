@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# Community Supported Tools
+# Community supported tools
 
 {{box op="start" cssClass="boxed warningBox"}}
 This page is no longer maintained and is provided for historical reference only

@@ -14,7 +14,7 @@ This document describes the processes of secondary SMT soldering and desoldering
 
 ![](/assets/images/app-notes/AN036/image19.png)
 
-### Packing Methods
+### Packing methods
 
 Particle provides MBB (Moisture Barrier Bag) in packing trays:
 
@@ -26,7 +26,7 @@ And small gift boxes:
 
 ## Requirements for SMT
 
-### Chip Mounter
+### Chip mounter
 
 - Feeder: Supports auto tray feeder.
 
@@ -35,7 +35,7 @@ And small gift boxes:
 - Diameter of nozzle: Select the suitable nozzle according to the module size. The recommended diameter of the nozzle should be not less than 40 % of the module’s shorter side. For example, if the module size is 20.0 mm × 20.0 mm, the nozzle diameter should be 8.0 mm at least.
 
 
-### Soldering Requirements
+### Soldering requirements
 
 - It is recommended to use reflow soldering equipment with eight zones at least.
 
@@ -45,9 +45,9 @@ And small gift boxes:
 
 - For the finishing of pads on the PCB, it is recommended to use the same finishing technique as the module’s pin, that is, ENEG (Electroless Nickel Electroless Gold) or ENIG (Electroless Nickel Immersion Gold). HASL (Hot-Air Solder Leveling) is not recommended. 
 
-## Requirements for Manufacturing
+## Requirements for manufacturing
 
-### MSL and Moisture-proof Requirement
+### MSL and Moisture-proof requirement
 
 Particle SMD modules are sensitive to moisture. According to IPC-JEDEC standard, the moisture sensitive level (MSL) of Particle SMD modules is rated as “3”. Please make sure the vacuum package (MBB: Moisture Barrier Bag) is intact before using. After opening the package, please confirm the status of the humidity indicator card in the sealed package. To prevent the module from permanent damage, baking before reflow soldering is required if circumstance below occurs:
 
@@ -67,7 +67,7 @@ Not blue:
 
 - Storage Life (in sealed vacuum package): 24 months in Recommended Storage Condition.
 
-### Floor Life and Temperature & Moisture Control
+### Floor life and temperature & moisture control
 
 Floor life refers to the allowable time period between removal of the module from a package, dry storage, or dry bake and the solder reflow process. Floor life of MSL-3 products should be 168 hours. In a plant where the temperature is 23 ±5 °C and relative humidity is below 60%, the module must be processed in solder reflow or other high-temperature operations within 168 hours after the package is removed. Otherwise, the module should be stored in an environment where the relative humidity is less than 10 %, such as a dry cabinet.
 
@@ -77,7 +77,7 @@ In the case that a violation of moisture-proof requirement or broken vacuum pack
 
 Please take out the module from the package and put it on high-temperature resistant fixtures before baking. All modules must be soldered to PCB within 24 hours after the baking, otherwise put them in the drying oven.
 
-## Stencil Design Requirements
+## Stencil design requirements
 
 To ensure the solder paste is enough and soldering joints are reliable, we use a Step-stencil for the module:
 
@@ -116,7 +116,7 @@ Enlarged view of single pad:
 The innermost edge of the aperture for each single pad under the module should be reduced to 1.1 * 1.3mm and the outermost edge should be extended to 0.6mm. 
 
 
-## Base Board Design
+## Base board design
 
 The pads in the center of AT SoM are used for internal R&D testing, and it is recommended to ignore them. There is no need to design stencil apertures to connect these.
 
@@ -140,20 +140,20 @@ The following is the design of the recommended pads on the PCB as seen from the 
 ![](/assets/images/app-notes/AN036/image9.png)
 
 
-## Mounting Process
+## Mounting process
 
-### Load Materials
+### Load materials
 
 In order to ensure mounting accuracy, for single modules that have been unpacked for baking, it is recommended for the customers to use a dedicated tray/fixture for module loading.
 
-### Automatic Placement
+### Automatic placement
 
 Select a suitable nozzle according to the module size. To keep the module's stability, please ensure that the nozzle is placed in the center of gravity, image detection and recognition are 100 % passed, and keep a medium speed when mounting the module. After the module is placed onto the motherboard, the module pins should be in alignment with the corresponding solder paste on the motherboard’s pads.
 
 ![](/assets/images/app-notes/AN036/image3.png)
 
 
-### Reflow Soldering
+### Reflow soldering
 
 It is recommended to test the temperature based on real modules. Thermocouple temperature test points should be applied to both pins on four sides and that at the bottom, to guarantee required soldering temperature. Please refer to the recommended ramp-soak-spike thermal profile for lead-free reflow soldering in the following figure.
 
@@ -188,7 +188,7 @@ For motherboard with thickness of less than 1.0 mm, it is recommended to use hig
 
 By controlling the cooling rate can the soldering defect (fragile solder joint) and negative effects on mechanical stress be avoided. Proper cooling rate will help to make the solder joint lustrous with lower solder fillet. The proper cooling rate should be -3 °C/s.
 
-#### Visual Inspection
+#### Visual inspection
 
 Please implement inspections on the soldering quality with X-ray or other optical methods after reflow soldering. For relevant standards, please refer to IPC-A-610G, as this is a BTC package, the bottom pad was soldered is enough, if the solder rises to 25% up the side of the fillet the better.
 
@@ -238,7 +238,7 @@ If the rework station was used, please make sure the correct desoldering tempera
 
 - Finally, inspect the soldering quality of BGA components and pins of the module at the bottom of modules with X-ray.
 
-## Terms and Abbreviations
+## Terms and abbreviations
 
 
 | Abbreviation | Description |
@@ -256,7 +256,7 @@ If the rework station was used, please make sure the correct desoldering tempera
 | Tg   | Glass Transition Temperature |
 
 
-## General Notes
+## General notes
 
 PARTICLE OFFERS THE INFORMATION AS A SERVICE TO ITS CUSTOMERS. THE INFORMATION PROVIDED IS BASED UPON CUSTOMERS’ REQUIREMENTS. PARTICLE MAKES EVERY EFFORT TO ENSURE THE QUALITY OF THE INFORMATION IT MAKES AVAILABLE. PARTICLE DOES NOT MAKE ANY WARRANTY AS TO THE INFORMATION CONTAINED HEREIN, AND DOES NOT ACCEPT ANY LIABILITY FOR ANY INJURY, LOSS OR DAMAGE OF ANY KIND INCURRED BY USE OF OR RELIANCE UPON THE INFORMATION. ALL INFORMATION SUPPLIED HEREIN IS SUBJECT TO CHANGE WITHOUT PRIOR NOTICE.
 
@@ -266,7 +266,7 @@ THE INFORMATION CONTAINED HERE IS PROPRIETARY TECHNICAL INFORMATION OF PARTICLE.
 
 Copyright © Particle Industries, Inc. 2020. All rights reserved.
 
-## Revision History
+## Revision history
 
 #### v2 (2021-08-11)
 

@@ -194,7 +194,7 @@ The bulk of your program, from state management, handling user input, reading fr
 
 Flashing an LED when we take a temperature reading is ok, but wouldn't it be nice if we could actually see the temperature readings we've taken somehow? With Particle Device Cloud primitives, we can do just that. First, we're going to expose our temperature variable to the Device Cloud, then we'll introduce a function for triggering device readings on-demand. Finally, we'll publish an event each time a reading is taken so that other apps can subscribe to the sensor data our device is collecting!
 
-### Adding a Variable
+### Adding a variable
 
 1. In the `setup` function, add a `Particle.variable`. This class method tells the Particle device cloud that a variable named `tempF` should be created to hold the current value of the `temp` variable in our sketch.
 

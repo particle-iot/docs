@@ -29,7 +29,7 @@ In addition, you'll need to install the following software:
 4. OpenOCD unless you've already installed [Particle Workbench](https://particle.io/workbench), in which case OpenOCD will have been installed for you.
 5. Lastly, you will need to download a [CircuitPython release](https://circuitpython.org/board/particle_xenon)
 
-## Replacing the Default Bootloader
+## Replacing the default bootloader
 
 The first step to using your Xenon with CircuitPython is to replace the Particle bootloader on the device with an nRF52-friendly bootloader. This replacement process is often referred to as "burning a bootloader."
 
@@ -37,7 +37,7 @@ _*NOTE*_: If you want to build the bootloader yourself, follow the instructions 
 
 If you choose to download the bootloader directly, you can skip to [burning the bootloader with OpenOCD](#use-openocd-to-burn-the-bootloader-to-your-xenon)
 
-### Cloning the GitHub Repo
+### Cloning the GitHub repo
 
 1. In a development folder on your machine, use a terminal to clone the `Adafruit_nRF_Bootloader` repository.
 
@@ -124,7 +124,7 @@ Next, we'll use OpenOCD to burn this bootloader `hex` file to your Xenon.
 
 If you're using a Segger J-Link Debugger to burn a new bootloader, you'll first need to disable mass storage support. Then you'll erase the flash of the Xenon, and use `make` commands to flash the bootloader to your device.
 
-#### Disable Mass Storage Support 
+#### Disable mass storage support 
 
 If this is your first time using the Segger J-Link for burning a bootloader, you'll want to disable Mass Storage support.
 
@@ -138,7 +138,7 @@ If this is your first time using the Segger J-Link for burning a bootloader, you
 
 **Note**: If you ever need to re-enable Mass Storage support, you can do so with the `MSDEnable` command.
 
-#### Build and Burn a new Bootloader
+#### Build and burn a new bootloader
 
 1.  Make sure you're still in the `Adafruit_nRF52_Bootloader` directory and run the following command to erase the underlying Nordic chip on the Xenon. At this point, the RGB LED on your Xenon will stop blinking, which is expected as the Particle Bootloader and Device OS has been removed.
 
@@ -175,7 +175,7 @@ Once you've burned a new bootloader to your Xenon and a `XENONBOOT` drive shows 
 
 The file will be copied and after a few seconds, your device will restart. The RGB LED will come on solid white and instead of a `XENONBOOT` mount, a mount named `CIRCUITPY` will show up on your machine. When you see that, you're all set to write CircuitPython code on your Xenon.
 
-## Running CircuitPython Projects
+## Running CircuitPython projects
 
 To run CircuitPython on your Xenon, use any text editor of your choosing and create a new file in the `CIRCUITPY` mount called `code.py`. Whenever you save this file, your device will be restarted.
 

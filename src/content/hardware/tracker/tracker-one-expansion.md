@@ -5,10 +5,10 @@ layout: commonTwo.hbs
 description: Adding features to the Tracker One
 ---
 
-# Tracker One Expansion
+# Tracker One expansion
 
 
-## Tracker One M8 Connector
+## Tracker One M8 connector
 
 The Tracker One can be expanded without opening the case by using the M8 connector.
 
@@ -43,7 +43,7 @@ The 8-pin connector has these signals:
 View as looking into the M8 connector on the outside of the enclosure.
 
 
-## Interface Details
+## Interface details
 
 ### Power (in)
 
@@ -90,7 +90,7 @@ If you are in need of more ports, the best solution is to use the multi-function
 Note that Serial, I2C, GPIO, and ADC on the Tracker SoM can only be used at 3.3V maximum. The pins are **not** 5V tolerant!
 
 
-### Connecting Your Expansion Device
+### Connecting your expansion device
 
 The M8 (8mm) 8-pin connector is standard, however it's not common. Some other connectors like M12 are more common, however, the 12mm connector would have required a taller enclosure to fit the larger connector. To simplify designs, Particle will provide a M8 female-to-wires cable, similar to this. 
 
@@ -137,7 +137,7 @@ Note that CAN bus is differential and consists of two lines:
 
 As the signals are differential you don't need to connect GND for CAN bus, but you do still need to connect it for Serial, I2C, or GPIO.
 
-### With the Tracker One Carrier Board
+### With the Tracker One carrier board
 
 Inside the Tracker One is the Carrier Board. It can be purchased separately in case you want to use the Tracker One features in your own enclosure. The design for the Tracker One enclosure is open-source and can be modified to fit your needs. The Carrier Board has a B8B-PH 8-pin connector on the board, and a short cable that attaches to the M8 8-pin IP67 connector mounted on the side of the enclosure.
 
@@ -152,7 +152,7 @@ When expanding on the Tracker One Carrier Board, you may prefer to connect your 
 
 ![PHR-8 to PHR-8](/assets/images/at-som/phr-8.jpg)
 
-## Application Notes
+## Application notes
 
 | App Note | 3.3V  | Qwiic | GPIO  | 5V I2C | DAC   | ADC   | Boost | Description |
 | :------- | :---: | :---: | :---: | :---:  | :---: | :---: | :---: | :-----------|
@@ -166,7 +166,7 @@ When expanding on the Tracker One Carrier Board, you may prefer to connect your 
 | [AN022](/hardware/tracker/projects/tracker-sht3x-temperature-humidity/) | &check; | | | &check; | | | | SHT3x Temperature/Humidity |
 
 
-### M8 Breakout Board
+### M8 Breakout board
 
 The [AN015 Tracker Breakout](/hardware/tracker/projects/tracker-breakout/) application note shows how to build a simple breakout board to help prototype using the Tracker One M8 connector.
 
@@ -200,7 +200,7 @@ The [AN012 Tracker 1-Wire](/hardware/tracker/projects/tracker-1wire/) shows:
 
 ![1-Wire board](/assets/images/tracker/1-wire-board.jpg)
 
-### Tank Level Sensor
+### Tank level sensor
 
 The [AN018 Tracker Tank Level Sensor](/hardware/tracker/projects/tracker-level/) shows:
 
@@ -233,7 +233,7 @@ The [AN019 Tracker Prototype to Board](/hardware/tracker/projects/tracker-protot
 
 ![Thermocouple Board](/assets/images/tracker/thermocouple-board.png)
 
-### 4-20 mA Current Loop Sensors
+### 4-20 mA current loop sensors
 
 These two app notes, [AN020 Tracker 4-20mA Sensor Single](/hardware/tracker/projects/tracker-4-20ma/) and [AN021 Tracker 4-20mA Sensor Quad](/hardware/tracker/projects/tracker-4-20ma-quad/) show how to connect a 4-20 mA current loop sensor to the Tracker One M8 port.
 
@@ -245,7 +245,7 @@ The quad port design requires an external 12V power supply, but this power suppl
 
 ![4-20mA Quad](/assets/images/tracker/420mA-quad.jpg)
 
-### SHT3x Temperature and Humidity Sensor (5V I2C)
+### SHT3x Temperature and humidity sensor (5V I2C)
 
 [AN022 Tracker SHT3x Temperature/Humidity](/hardware/tracker/projects/tracker-sht3x-temperature-humidity/) shows how to connect 5V I2C devices including the SHT30 and SHT31 temperature and humidity sensors to the Tracker One M8 connector and add data to location publishes. The board design should be compatible with all 5V I2C peripherals.
 

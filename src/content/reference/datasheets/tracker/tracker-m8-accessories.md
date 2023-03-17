@@ -77,7 +77,7 @@ The M8 cables provide a convenient way to connect external devices to the Tracke
 
 ---
 
-### Wire Gauge - M8 Cables
+### Wire gauge - M8 cables
 
 | M8 Pin | Function  | Color          | Wire Gauge |
 | :----: | :-------- | :------------- | :--------- |
@@ -90,7 +90,7 @@ The M8 cables provide a convenient way to connect external devices to the Tracke
 | 7      | CAN_N     | Blue           | 26 AWG |
 | 8      | GND       | Black          | 24 AWG |
 
-### Dimensions - M8 Cables
+### Dimensions - M8 cables
 
 {{imageOverlay src="/assets/images/at-som/m8-diagram-straight.png" alt="M8 Straight" class="full-width"}}
 
@@ -104,7 +104,7 @@ The M8 cables provide a convenient way to connect external devices to the Tracke
 | Outer Diameter | 5.0 mm |
 | Approvals | UL2464, RoHS |
 
-### Orientation - M8 Cables
+### Orientation - M8 cables
 
 The key on the M8 panel connector is at 3 o'clock (right side, nearest to the USB connector), when facing the connectors, as in the diagram above. When using the right-angle M8 cable, the cable will face away from the USB connector.
 
@@ -139,7 +139,7 @@ The ONEM8CONN is a connector similar to the M8 connector on the straight ONEM8CA
 This connector has the same pinouts as the cable above, but without the cable, so you can substitute your own cable of the desired length.
 
 
-## Other Sensors
+## Other sensors
 
 ### M8 Temperature/Humidity
 

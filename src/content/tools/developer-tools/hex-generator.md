@@ -4,7 +4,7 @@ layout: device-restore.hbs
 description: Hex File Generator
 ---
 
-# Hex File Generator
+# Hex file generator
 
 This tool makes it easy to create custom Intel hex files for flashing new devices. This is handy if you will be flashing many devices, or your contract manufacturer will be flashing your devices for you. The .hex file contains: 
 

@@ -41,7 +41,7 @@ Your system firmware version is 0.5.3
 
 This also works on the P1, assuming the USB port is exposed.
 
-### Using Wi-Fi (Photon and P1 only)
+### Using Wi-Fi (photon and P1 only)
 
 This technique is useful if you have a device built around a P1 and you don't have ports exposed.
 
@@ -186,11 +186,11 @@ Open the serial monitor app and it should ask if you want to connect to the devi
 
 Enter "i" (lowercase i, as in identify) in the box at the top of the box at the top of the screen and tap the **Write** button. The device ID (and other information, for an Electron) should be displayed.
 
-### USB Serial Number - 0.6.0 and later
+### USB Serial number - 0.6.0 and later
 
 Starting with Device OS version 0.6.0, the USB device serial number is your Device ID. This only works when your Photon or Electron is in normal operating mode or listening mode (blinking blue); it does not work in DFU mode. Also, since it only works when the device is running 0.6.0 this won't be helpful for fresh from the factory devices at this time. But it still may come in handy.
 
-#### USB Serial Number - Windows
+#### USB Serial number - Windows
 
 Open the Windows **Device Manager**, then **Ports (COM & LPT)** then select your Photon or Electron (1). Select the **Details** tab (2), and select **Device instance path** from the **Property** popup menu.
 
@@ -198,7 +198,7 @@ Your device ID is the last part of the value, after the last backslash \\.
 
 ![USB Serial Number - Windows](/assets/images/usbserialnum-win.png)
 
-#### USB Serial Number - Mac
+#### USB Serial number - Mac
 
 Open the Mac **System Information** app. It's in the **Utilities** folder within **Applications**. Select **USB** (1), then your Photon or Electron (2).
 
@@ -206,7 +206,7 @@ Your device ID is in the **Serial Number** field below.
 
 ![USB Serial Number - Mac](/assets/images/usbserialnum-mac.png)
 
-#### USB Serial Number - Linux
+#### USB Serial number - Linux
 
 Open a command shell and enter the command:
 

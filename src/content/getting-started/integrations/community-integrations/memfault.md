@@ -32,7 +32,7 @@ Viewing the details for a specific panic in the fleet, this example shows that a
 
 Tracker Edge (v18 and later) include built-in support for the Memfault library. You will still need to set up the integration to point to your Memfault instance, but you will not need to configure the firmware library as it is already included in Tracker Edge.
 
-## Memfault Configuration
+## Memfault configuration
 
 - Use the **Create Project** option in the left side of the [Memfault dashboard](https://app.memfault.com/).
 

@@ -5,13 +5,13 @@ columns: two
 ---
 
 # {{{title}}}
-## Mesh Setup over USB
+## Mesh setup over USB
 
 ### Mesh networking is [no longer supported](/reference/discontinued/hardware/mesh/). The instructions below will no longer work to create a mesh network and cannot be used.
 
 Normally, mesh networks are set up using the mobile apps for iOS and Android. Alternatively, you can set up a gateway and mesh nodes using a computer and the devices connected by USB using the process described here.
 
-### Gateway Setup
+### Gateway setup
 
 The first step is to configure your gateway device. This is your connection to the Internet and it is required. It's not possible to set up a completely standalone network at this time.
 
@@ -23,7 +23,7 @@ Your gateway can be:
 * Boron (Cellular)
 * Xenon with an Ethernet FeatherWing (Ethernet)
 
-#### Argon Gateway Setup
+#### Argon gateway setup
 
 * You must have the [Particle CLI](/getting-started/developer-tools/cli/) (version 1.47.0 or newer) installed. Use `particle update-cli` to upgrade if necessary.
 * Attach the Wi-Fi antenna to your Argon. Make sure you connect it to the correct connector, there are three U.FL connectors: WiFi, BT, and NFC.
@@ -96,7 +96,7 @@ Done! The device will be registered in the network once it is connected to the c
 * The Argon should go into listening mode for a while, then eventually go back into breathing cyan.
 * You now have a mesh network! Now you can add nodes to it using the Xenon (mesh node) instructions below.
 
-#### Boron Gateway Setup
+#### Boron Gateway setup
 
 * You must have the [Particle CLI](/getting-started/developer-tools/cli/) (version 1.47.0 or newer) installed. Use `particle update-cli` to upgrade if necessary.
 * Attach the cellular antenna to your Boron. Make sure you connect it to the correct connector, there are three U.FL connectors: cellular (on the top), BT and NFC (on the bottom).
@@ -163,7 +163,7 @@ Done! The device will be registered in the network once it is connected to the c
 * The Boron should go into listening mode for a while, then eventually go back into breathing cyan.
 * You now have a mesh network! Now you can add nodes to it using the Xenon (mesh node) instructions below.
 
-#### Xenon with Ethernet Gateway Setup
+#### Xenon with Ethernet gateway setup
 
 * Remove the Xenon from the anti-static foam before powering the device.
 * Plug the Xenon into a USB port on your computer. It should begin blinking blue.

@@ -23,6 +23,6 @@ Logs and AT commands should start scrolling freely!
 
 If you intend to submit these logs to a Support Engineer via a support ticket, ensure to collect about 10 minutes of logs that document the device struggling to connect!
 
-## Custom Firmware
+## Custom firmware
 
 Follow the instructions here: ([link](/troubleshooting/guides/device-troubleshooting/how-do-i-collect-trace-logs-from-my-device/))!

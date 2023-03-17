@@ -361,7 +361,7 @@ Or Python users:
 
 {{> codebox content="/assets/files/node-tutorial/loop2.py" format="py"}}
 
-#### Unix Shell
+#### Unix shell
 
 Or sh (or bash) users:
 

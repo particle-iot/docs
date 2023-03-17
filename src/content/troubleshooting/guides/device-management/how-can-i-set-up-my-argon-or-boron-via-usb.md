@@ -75,7 +75,7 @@ particle device rename e00fce681fffffffffc08949b argon-3b
 particle usb setup-done
 17. You have successfully set up your Boron!
 
-## Marking Setup Done
+## Marking setup done
 
 Normally when you complete the mobile phone-based setup, the setup is marked as done. In the absence of this, every time you boot your Argon or Boron, it will go back into listening mode (blinking dark blue).
 

@@ -36,7 +36,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
   * Requires Device OS 4.0.0 LTS (or later)
   
 
-#### Features - All Models
+#### Features - all models
 
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
@@ -57,7 +57,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * FCC and IC certified
  * RoHS compliant (lead-free)
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the B404X. The minimum required version is 4.0.0. You cannot use the B404X with Device OS 2.x LTS.
 
@@ -69,7 +69,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 
 {{imageOverlay src="/assets/images/b-series/b404x-block-diagram-detail.png" alt="Block Diagram Detail" class="full-width"}}
 
-## Radio Information
+## Radio information
 
 ### u-blox SARA-R510S-01B LTE cellular modem
 
@@ -211,7 +211,7 @@ VBus is connected to the USB detect pin of nRF52840 to enables the USB interface
 
 There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular radio (u-blox). We have provided two u.FL connectors to plug in the cellular and BLE antenna. These are required if you wish to use the cellular and BLE. If you do not need BLE, you do not need to connect the BLE antenna.
 
-#### Certified Cellular Antenna
+#### Certified cellular antenna
 
 {{!-- BEGIN shared-blurb 4118f060-06af-4943-b51a-a2961f9d1e88 --}}
 | Antenna | SKU | Details | Links |
@@ -263,7 +263,7 @@ Environmental:
 {{!-- END shared-blurb --}}
 
 
-#### Certified BLE Antenna 
+#### Certified BLE antenna 
 
 The following antenna is optional and can be omitted if you do not wish to use BLE. It can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
 
@@ -304,7 +304,7 @@ Environmental:
 {{!-- END shared-blurb --}}
 
 
-#### Certified NFC Antenna
+#### Certified NFC antenna
 
 {{!-- BEGIN shared-blurb 86c73bb3-0686-431e-a7b9-1ac0a47170e0 --}}
 | Antenna | SKU  | Links |
@@ -336,7 +336,7 @@ Environmental:
 {{!-- END shared-blurb --}}
 
 
-#### General Antenna Guidance
+#### General antenna guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
@@ -370,7 +370,7 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 ## Memory map
 
-### nRF52840 Flash Layout Overview
+### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
   - User Application
@@ -379,7 +379,7 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+### External SPI flash layout overview (dfu offset: 0x80000000)
 
  - OTA (1500KB, @0x00289000)
  - Reserved (420KB, @0x00220000)
@@ -449,7 +449,7 @@ Future modules with a different MCU may have different pin functions. An effort 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
-### ADC (Analog to Digital Converter)
+### ADC (analog to digital converter)
 
 The B404X supports 8 ADC inputs.
 
@@ -851,7 +851,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ---
 
-### I/O Characteristics 
+### I/O characteristics 
 
 These specifications are based on the nRF52840 datasheet.
 
@@ -890,7 +890,7 @@ These specifications are based on the nRF52840 datasheet.
 
 ## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
 
 | Parameters | Value | Unit |
 | --- | --- | --- |
@@ -918,7 +918,7 @@ One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product
 
 ---
 
-### Screw Assembly
+### Screw assembly
 
 The M.2 SoM requires a screw to hold the SoM in place because the M.2 connector does not have integrated locks and the SoM will pop up if not attached to the base board. The screw also provides better vibration resistance than locking clips.
 
@@ -929,15 +929,15 @@ The M.2 SoM requires a screw to hold the SoM in place because the M.2 connector 
 - An [alternative design](/hardware/b-series-som/som-first-board/#hold-down-screw) uses a [JAE SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) standoff. It's reflow soldered to your base board and has a threaded hole for a M2*3 screw to hold down the SoM. This may be easier to obtain.
 
 
-### Design Considerations
+### Design considerations
 
 We strongly recommend against placing components under the SOM board because there is not enough height.
 
 {{imageOverlay src="/assets/images/b-series/b-series-keep-out.png" alt="Keep-Out Area"}}
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 The B series contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an B series without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the B series module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the B series!
 
 ### Connectors
@@ -976,7 +976,7 @@ The bootloader allows you to easily update the user application via several diff
 
 ---
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC IC CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:

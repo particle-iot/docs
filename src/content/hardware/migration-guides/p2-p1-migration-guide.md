@@ -323,7 +323,7 @@ On Gen 2 devices (STM32), only the WKP pin can wake from HIBERNATE sleep mode.
 
 This restriction does not exist on the P2 and Gen 3 devices; any pin can be used to wake from all sleep modes.
 
-### CAN (Controller Area Network)
+### CAN (controller area network)
 
 The P1 supports CAN on pins D1 and D2. There is no CAN on the P2 or Gen 3 devices (except the Tracker).
 
@@ -1135,7 +1135,7 @@ Most third-party libraries are believed to be compatible. The exceptions include
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
 
 
-## Version History
+## Version history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|

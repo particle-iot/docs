@@ -9,7 +9,7 @@ includeDefinitions: [api-helper,api-helper-extras,api-helper-projects,zip]
 # {{title}}
 
 
-## The Basics
+## The basics
 
 
 ### Background
@@ -44,7 +44,7 @@ There are many types of Modbus protocol and each type is a derivative of the nex
 * Enron Modbus
 
 
-### Modbus RTU Message Structure
+### Modbus RTU message structure
 
 Modbus RTU uses a simple message structure that is easy to deploy. It communicates using raw words, bytes, and bits. The message structure is similar for each transaction. Below is a table highlighting the message structure
 
@@ -76,7 +76,7 @@ Coils were originally for relays and solenoids, but could be other types of writ
 | 23 (0x17) | Read Write Multiple Registers |
 
 
-## Example Hardware
+## Example hardware
 
 The goal of this application is to implement a Modbus RTU network using the Particle Platform as the Modbus client along with publishing the data from the modbus to the cloud.
 
@@ -94,12 +94,12 @@ There are many different Modbus temperature/humidity sensors. [This one](https:/
 
 Additional pinout information for the Mikroe SoM shield can be found in the [Mikroe guide](/hardware/expansion/mikroe/#gen-3-som-shield).
 
-### Transmit Pin
+### Transmit pin
 
 The PHY device typically gives access to a transmit pin which disables the received enable functionality during a transmit event. Note that Modbus RTU is a half-duplex protocol meaning only one device on the bus can transmit data at one point in time. If the transmit pin is not enabled and the Client is transmitting, data sent will be mirrored into the receive buffer.
 
 
-## Example Firmware
+## Example firmware
 
 Here is the project firmware:
 

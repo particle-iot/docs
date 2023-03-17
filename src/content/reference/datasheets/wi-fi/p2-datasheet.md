@@ -35,7 +35,7 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
 - 2 MB flash file system
 - FCC, IC, and CE certified
 
-### Device OS Support
+### Device OS support
 
 The P2 requires Device OS 5.0.0 or later. It is recommended that you use the latest version in the 5.x release line.
 
@@ -47,7 +47,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 
 ## Interfaces
 
-### Block Diagram
+### Block diagram
 
 {{imageOverlay src="/assets/images/p2-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
@@ -61,7 +61,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 - Device operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
 
 
-### Approved Antennas
+### Approved antennas
 
 In addition to the built-in trace antenna, the following optional external antenna is certified for use with the P2:
 
@@ -112,9 +112,9 @@ Power supply requirements:
 
 ---
 
-## Memory Map
+## Memory map
 
-### Flash Layout Overview
+### Flash layout overview
 
 | Address    | File | Purpose |
 | :--------- | :--- | :--- |
@@ -236,7 +236,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 - On the P2, Pin RGBR (PA[30]) has a 10K hardware pull-up in the module because it's a trap pin that controls the behavior of the internal 1.1V regulator. This does not affect the RGB LED but could affect your design if you are repurposing this pin as GPIO. You must not hold this pin low at boot.
 
-### ADC (Analog to Digital Converter)
+### ADC (analog to digital converter)
 
 The P2 supports six ADC inputs.
 
@@ -574,7 +574,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 {{!-- ### Overall dimensions --}}
 
-### Module Dimensions
+### Module dimensions
 
 - P1 module dimensions are: 0.787"(28mm) (W) x 1.102"(20mm) (L) x 0.0787"(2.0mm) (H) +/-0.0039"(0.1mm) (includes metal shielding)
 - The P2 should have the same width and length but the height may be slightly different as it has different metal shielding
@@ -647,7 +647,7 @@ P2 modules are available from [store.particle.io](https://store.particle.io/) as
 
 <i class="icon-right-hand"></i>For more information regarding moisture sensitivity levels, labeling, storage and drying see the MSL standard see IPC/JEDEC J-STD-020 (can be downloaded from [www.jedec.org](http://www.jedec.org)).
 
-### ESD Precautions
+### ESD precautions
 
 <i class="icon-attention"></i> The P1 module contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a P1 module without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates P1 modules.  ESD precautions should be implemented on the application board where the P1 module is mounted. Failure to observe these precautions can result in severe damage to the P1 module! <i class="icon-attention"></i>
 
@@ -687,7 +687,7 @@ The P2 is not certified for use as a wearable device.
 <dd>Over The Air; describing how firmware is transferred to the device.</dd>
 </div>
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC IC CE warnings and end product labeling requirements
 
 The FCC, IC, and CE certifications are radio module certifications only. Additional certification will be required for your completed system.
 
@@ -762,8 +762,8 @@ Radiation Exposure Statement: This equipment complies with radiation exposure li
 
 The operating frequency bands and the maximum transmitted power limit are listed below:
 - BLE 2402-2480MHz 10dBm
-- WiFi 2.4GHz band 2412-2484MHz 20dBm
-- WiFi 5GHz band 5180-5825MHz 23dBm
+- Wi-Fi 2.4GHz band 2412-2484MHz 20dBm
+- Wi-Fi 5GHz band 5180-5825MHz 23dBm
 
 ### United Kingdom
 
@@ -802,7 +802,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | 001 | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
 | 002 | 2023-03-14 | RK | Added power supply specifications |
 
-## Known Errata
+## Known errata
 
 ## Contact
 

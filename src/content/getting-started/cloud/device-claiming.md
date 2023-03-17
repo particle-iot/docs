@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# Device Claiming
+# Device claiming
 
 *A long treatise on Particle device claiming*
 
@@ -523,7 +523,7 @@ With the device in listening mode (blinking dark blue):
 particle serial wifi
 ```
 
-## Setup Done
+## Setup done
 
 On Gen 3 devices running Device OS 3.x and earlier, the setup done bit determines if setup has been completed. Until the setup done bit is set, the device will boot into listening mode (blinking dark blue), even if it has valid Wi-Fi credentials (Argon) or SIM activation (Boron, B Series SoM, Tracker).
 

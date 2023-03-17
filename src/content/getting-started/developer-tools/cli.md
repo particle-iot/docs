@@ -34,7 +34,7 @@ Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/
 
 The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
 
-### Advanced Install
+### Advanced install
 
 You can manually install the `particle-cli` Node.js package if you need the CLI installed in a different location or you need to install a specific version of the CLI. 
 
@@ -108,7 +108,7 @@ $ npm start -- help
 View [README#Development](https://github.com/particle-iot/particle-cli#development) for more
 
 
-## Getting Started
+## Getting started
 
   These next two commands are all you need to get started setting up an account, claiming a device, and discovering new features.
 
@@ -134,7 +134,7 @@ $ particle help
 $ particle help keys
 ```
 
-## Flashing over Serial for the Electron
+## Flashing over serial for the Electron
 
 If you're wanting to save data on your Electron you should definitely consider flashing your Electron over
 USB instead of OTA (over-the-air).
@@ -390,7 +390,7 @@ The first step to using the library is to include the library header, which foll
 The functions and classes from that library are then available for use in your application.
 Check out the library examples and documentation that comes with the library for specifics on using that library.
 
-## Contributing Libraries
+## Contributing libraries
 
 Contributing a library is the process where you author a library and share this with the community.
 
@@ -467,7 +467,7 @@ particle library upload
 Before the library is contributed, it is first validated. If validation succeeds, the library is contributed
 and is then available for use in your other projects. The library is not available to anyone else.
 
-### Publishing the Library
+### Publishing the library
 
 If you wish to make a contributed library available to everyone, it first needs to be published.
 

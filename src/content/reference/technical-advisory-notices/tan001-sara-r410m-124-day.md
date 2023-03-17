@@ -9,7 +9,7 @@ columns: two
 
 Published: May 17, 2021
 
-## Issue Summary
+## Issue summary
 
 u-blox has informed Particle of an issue that affects SARA-R410M-02B modules running u-blox module firmware L0.0.00.00.05.06 version A.02.00.
 
@@ -17,7 +17,7 @@ These devices run a scheduled memory housekeeping procedure once every 124 days 
 
 This issue primarily affects devices in low-power use cases (allowing their power sources to drain fully) and in use cases that frequently power-cycle the device. Devices that do not fully deplete their batteries or routinely experience quick, successive power-cycles have little to no risk of occurrence. 
 
-## Products Affected
+## Products affected
 
 The u-blox SARA-R410-02B is a component that is used in Particle E402 and Boron LTE devices. 
 
@@ -34,7 +34,7 @@ The manufacturing date of a device can be identified by doing the following:
 * Characters 1-6 are for internal tracking, Character 7-9 identify the year and week of manufacturing.
    * This Electron in the example above was manufactured in 2018, week 52\. This device would be subject to the 124-day housekeeping issue.
 
-## Issue Mitigation
+## Issue mitigation
 
 Risk of u-blox corruption is generally low given the infrequency of the housekeeping routine in question (10 seconds every 124 days). DeviceOS 1.3.1 and beyond have system firmware checks in place to address this issue in the course of normal operation. Keeping devices on up-to-date system firmware (at least DeviceOS 1.3.1) should significantly reduce exposure.
 
@@ -60,7 +60,7 @@ _Mitigation Practice_ \- using a backup battery or a supercapacitor that allow t
     
 _Mitigation Practice_ \- hard resets in user firmware by writing to the modem reset pin should be avoided. It is also best to delay any other direct, manual intervention on the u-blox modem (e.g. direct read/write commands) until _at least_ 30 seconds after boot (assuming 10 seconds for a successful registration). Please note that terms like "direct interventions" and "manual modem reset" do **not** refer to the standard functions of the DeviceOS API (e.g. `Cellular.off()`), but rather advanced commands not documented in our Reference Page.
 
-## Identifying Impacted Devices:
+## Identifying impacted devices:
 
 Particle devices with active u-blox memory corruption will fail to connect and can exhibit characteristic LED status signals and trace logs.
 

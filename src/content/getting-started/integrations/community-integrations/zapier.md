@@ -9,7 +9,7 @@ description: Using Zapier with Particle
 
 A lot of our customers are using low-code platforms to stitch together their Particle connected devices and other external services to automate and expedite their workflows. There are many platforms well suited for this type of work. Here’s an example of connecting your Particle device using Zapier.
 
-## Triggering a Zap from a Particle Event
+## Triggering a zap from a Particle event
 
 Use the Webhook in Catch Hook mode to create a webhook endpoint that will allow your Zap to trigger instantly when your Particle device publishes an event.
 

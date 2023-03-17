@@ -24,20 +24,78 @@ let dictionary = {};
 // Additional exceptions not in the dictionary. Mostly multi-word combinations that need
 // to be handled specially
 const exceptionStrings = [
+    '(USB/VUSB/VIN-powered)',
+    '(Atom IDE)',
+    '(Web IDE)',
+    '2FA',
+    'Android',
+    'Atom IDE',
+    'API',
+    'B Series',
+    'Device ID',
+    'Electron',
+    'E Series',
+    'Gen 2',
+    'Gen 3',
+    'Gen 4',
+    'G350',
+    'ID',
+    'IDE',
+    'JTAG',
+    'LED',
+    'Linux',
     'LTE Cat M1',
+    'Mac',
+    'MFA',
+    'MVP',
+    'MVPs',
+    'non-US',
+    'P Series',
+    'Photon',
+    'Photon\'s',
+    'PINs',
+    'RF',
+    'SIM',
+    'SOS',
+    'SoM',
+    'SWD',
+    'SWD/JTAG',
+    'U260',
+    'U270',
+    'US',
+    'USB',
+    'VIN',
+    'VUSB',
     'Web IDE',
+    'Windows',
 ];
 let exceptionDictionary = {};
+
+let punctuationArray = ['.', '?', '!', ':', ',', ];
 
 function updateHeading(line, options) {
     const partsArray = line.split(' ');
     const newPartsArray = [...partsArray];
 
     let firstWord = true;
+    let lastWord;
 
     for(let ii = 0; ii < partsArray.length; ii++) {
         const partOrig = partsArray[ii];
         let part = partOrig;
+
+        if (lastWord) {
+            let lastWordPunctuation = false;
+            for(const s of punctuationArray) {
+                if (lastWord.endsWith(s)) {
+                    lastWordPunctuation = true;
+                    break;
+                }
+            }
+            if (lastWordPunctuation) {
+                continue;
+            }
+        }
 
         const partLower = partOrig.toLocaleLowerCase();
         if (partLower != part) {
@@ -81,6 +139,7 @@ function updateHeading(line, options) {
             }
         }
 
+        lastWord = partOrig;
     }
 
 
@@ -93,7 +152,7 @@ function updateHeading(line, options) {
         line = newLine;
     }
 
-
+    return line;
 }
 
 async function processFile(mdFile) {
@@ -105,7 +164,7 @@ async function processFile(mdFile) {
     for(let line of origText.split('\n')) {
         if (line.startsWith('#')) {
             // A heading
-            updateHeading(line, {
+            line = updateHeading(line, {
                 lineNum,
                 mdFile,
             });
@@ -117,6 +176,7 @@ async function processFile(mdFile) {
     const newText = newTextArray.join('\n');
     if (newText != origText) {
         console.log('file changed ' + mdFile);
+        fs.writeFileSync(mdFile, newText);
     }
 }
 

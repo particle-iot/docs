@@ -707,7 +707,7 @@ If all of the fields (other than Device ID) are blank, then see "modem not respo
 Note that the IMSI is not filled in correctly on many version of cloud debug.
 
 
-## Interpreting Carrier Scan
+## Interpreting carrier scan
 
 Carrier scan is available on 2G and 3G devices only. It's not available on LTE devices.
 

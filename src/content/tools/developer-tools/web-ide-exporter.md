@@ -30,7 +30,7 @@ This tool makes it easy to export projects from the [Particle Web IDE](https://b
 - This provides the best overview of the source and is good for searching.
 - It is not recommended for working with a project, because each time you want to compile or flash, you need to choose which project you want to work with.
 
-### Single Root
+### Single root
 
 - If instead you open a single project (directory with a project.properties file), then you only see the source for that project.
 - Use the command palette (Ctrl-Shift-P or Command-Shift-P) to **Particle: Configure Project for Device** to configure the Device OS version, platform, and optionally the device to flash.
@@ -39,7 +39,7 @@ This tool makes it easy to export projects from the [Particle Web IDE](https://b
   - Use the `particle library copy` command to install libraries locally.
   - This is not necessary if you will be doing cloud builds.
 
-## Learn More
+## Learn more
 
 - To install Workbench and get a brief overview of the features, see the [Workbench Quickstart](/quickstart/workbench/).
 - For a more in-depth explanation of the features, see the [Workbench Tutorial](/getting-started/developer-tools/workbench/).

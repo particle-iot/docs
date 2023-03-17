@@ -10,7 +10,7 @@ description: Introduction to Particle cellular devices and cellular standards
 Particle has a wide variety of cellular devices to suit many applications. There's a handy table at the end to help you device what's the best device for your application, but some explanation is in order first as there are a number of decisions to make!
 
 
-## Form Factor
+## Form factor
 
 ### Boron
 
@@ -252,7 +252,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 {{!-- END do not edit content above, it is automatically generated 7a6e03da-072c-4955-922a-288e9609292a --}}
 
 
-## By Region
+## By region
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 921d1b74-0130-49e9-9322-3da75e405e4e --}}
@@ -346,7 +346,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 - Global 2G/3G devices should not be used in the United States because of the [2G/3G sunset](/getting-started/hardware/cellular-overview/#united-states).
 
 
-## By Modem
+## By modem
 
 This table lists all SKUs, sorted by the type of cellular modem in the device.
 
@@ -534,7 +534,7 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 
 {{!-- END do not edit content above, it is automatically generated 8747e7eb-420e-425e-882c-e10117b77620 --}}
 
-## Cellular Carriers
+## Cellular carriers
 
 The Particle SIM supports many carriers around the world. The [list of mobile carriers](/reference/cellular/cellular-carriers/) is the complete list, however it's important to note that different Particle SIM cards that support a different set of carriers, which may also vary depending on the device.
 

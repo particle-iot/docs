@@ -5,7 +5,7 @@ description: USB Serial Tools
 includeDefinitions: [api-helper, api-helper-extras, usb-serial]
 ---
 
-# USB Serial Tools
+# USB serial tools
 
 Your Particle device must be connected by USB to your computer and in listening mode
 (blinking dark blue). If it's in another mode, hold down MODE (SETUP on Photon) until 

@@ -7,7 +7,7 @@ redirects: true
 description: Command line interface for managing your devices for Windows, Mac OS, and Linux
 ---
 
-# CLI Command Reference
+# CLI command reference
 
 For information on how to install the Particle CLI, see the [CLI guide](/getting-started/developer-tools/cli/).
 

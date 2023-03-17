@@ -19,7 +19,7 @@ To set up the device you'll need an Android or iOS mobile phone and a connection
 - Bluetooth Antenna (2.4 GHz)
 - Cellular antenna
 
-#### The SoM Evaluation Board comes with: 
+#### The SoM evaluation board comes with: 
 
 - Evaluation board
 - Hold-down screw for M.2 SoM

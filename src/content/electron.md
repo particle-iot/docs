@@ -66,7 +66,7 @@ The Electron comes in three different versions with different u-blox cellular mo
 
 * Board dimensions: 2.0" x 0.8" x 0.3" (0.5" including headers)
 
-### Device Cloud
+### Device cloud
 Access to the Device Cloud includes:
 3MB of cellular data per device/mo (additional data $0.40/MB for most countries)
 First 3 months of Device Cloud FREE ($2.99 per device/mo after)

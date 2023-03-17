@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: Tracker M Datasheet
 ---
 
-# Tracker M Datasheet
+# Tracker M datasheet
 
 {{#unless pdf-generation}}
 {{!-- downloadButton url="/assets/pdfs/datasheets/tracker-m-datasheet.pdf" --}}
@@ -341,7 +341,7 @@ Note that the Tracker M is intended to be mounted on the bottom side of the expa
 
 
 
-### I/O Expander (IOEX)
+### I/O expander (ioex)
 
 The large number of peripheral chips on the Tracker M exceed the number of available GPIO on the P2. A MCP23S17 SPI I/O Expander is used to provide 16 additional GPIO pins. These can be accessed using the standard `digitalRead()` and `digitalWrite()` Device OS API calls.
 
@@ -371,7 +371,7 @@ The large number of peripheral chips on the Tracker M exceed the number of avail
 
 
 
-### CS DEMUX
+### CS demux
 
 The large number of SPI peripherals on the Tracker M and expansion card exceed the number of available GPIO on the P2.
 
@@ -480,7 +480,7 @@ The large number of SPI peripherals on the Tracker M and expansion card exceed t
 
 ## Mechanical specifications
 
-### Operating Temperature
+### Operating temperature
 
 To be provided at a later date.
 
@@ -508,7 +508,7 @@ To be provided at a later date.
 
 ---
 
-## Ordering Information
+## Ordering information
 
 To be provided at a later date.
 
@@ -521,13 +521,13 @@ To be provided at a later date.
 To be provided at a later date.
 
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 The Monitor One contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
-### Battery Warning
+### Battery warning
 
 **CAUTION**
 

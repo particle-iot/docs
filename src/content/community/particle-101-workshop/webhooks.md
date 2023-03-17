@@ -20,7 +20,7 @@ The IFTTT integration has been discontinued and is no longer available.
 | **Tools you’ll need**       | A Particle Argon, and the Grove Starter Kit for Particle Mesh, an IFTTT account, and a Google account.                                                                                                            |
 | **Time needed to complete** | 40 minutes                                                                                                                                                                |
 
-### Setting up an IFTTT Integration
+### Setting up an IFTTT integration
 
 IFTTT (If This, Then That) is a web-based service that allows you to create integrations via simple conditional statements, called applets. There are hundreds of pre-built services you can leverage, and first-class support for Particle devices. In this section, you're going to create an IFTTT integration that posts a tweet when you press a button on your badge.
 
@@ -108,7 +108,7 @@ Particle.publish("env-vals", jw.getBuffer(), PRIVATE);
 createEventPayload(temp, humidity, currentLightLevel);
 ```
 
-### Posting sensor values to Google Sheets
+### Posting sensor values to Google sheets
 
 1. Flash this firmware to your device and navigate to the Particle console. Every few seconds, you'll see a new `env-vals` event show up.
 
@@ -119,7 +119,7 @@ createEventPayload(temp, humidity, currentLightLevel);
 <br /><br />
 Now that you have data streaming into Google Sheets, let's transform the data and create some simple visualizations!
 
-### Processing data in Google Sheets
+### Processing data in Google sheets
 
 Before you create data visualizations with our sensor data, you need to transform the sensor values into discrete values. You'll do this by creating a simple script that processes the raw data as it is added to the main sheet, inserting each raw sensor value in a new sheet for data viz.
 
@@ -168,7 +168,7 @@ The code above is a JavaScript function that uses the Google Sheets API to get t
 If you're not seeing anything after a bit, you can click the "Check now" button in your IFTTT Applet.
   ![](/assets/images/workshops/particle-101/04/checknow.png)
 
-### Visualizing data with Google Sheets
+### Visualizing data with Google sheets
 
 Once you have some processed data, you can add a chart to your sheet!
 

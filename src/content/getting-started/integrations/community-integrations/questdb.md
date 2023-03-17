@@ -23,7 +23,7 @@ from your Particle devices via the Particle Device Cloud.
 - Query your Particle sensor data via standard SQL queries in the built-in dashboard
 - Connect to QuestDB from Grafana to build interactive, live data dashboards with alerts, thresholds, etc.
 
-## Setting Up QuestDB
+## Setting up QuestDB
 
 QuestDB is an extremely small, but very powerful time series database that is simple to set up and run with minimal configuration.
 
@@ -39,7 +39,7 @@ The example here is based on the [Air Quality Tutorial](/quickstart/aqmk-project
 
 This example also assumes that you have already built the Air Quality kit, and completed the tutorial on it such that your device is sending data to the Particle Cloud. If you have not, pleases go complete that part of the tutorial.
 
-## Configuring your QuestDB Database
+## Configuring your QuestDB database
 
 Go to your [QuestDB Console](http://localhost:9000) on your local machine (or wherever you installed QuestDB). Here we will create the table in the database for our Particle sensor data.
 
@@ -80,7 +80,7 @@ You can then refresh your Tables view in the console, and you should see your ta
 
 That's really all the configuration you'll need on the QuestDB side.
 
-## Configuring your QuestDB Webhook
+## Configuring your QuestDB webhook
 
 Go to the Integrations tab of your [Particle Console](https://console.particle.io) and click on New Integration, and then click on Web Hook
 

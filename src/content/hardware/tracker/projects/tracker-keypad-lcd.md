@@ -47,13 +47,13 @@ This example can be used three different ways:
 
 ## Hardware 
 
-### Schematic and Board
+### Schematic and board
 
 ![Schematic](/assets/images/app-notes/AN016/schematic.png)
 
 ![Board Layout](/assets/images/app-notes/AN016/board-layout.png)
 
-### Power and M8 Connection
+### Power and M8 connection
 
 ![M8 and Power](/assets/images/app-notes/AN016/power.png)
 
@@ -96,7 +96,7 @@ Displays of this type need a contrast control voltage from 0-5V. Normally a pote
 
 As a further illustration, the contrast is cloud-configurable!
 
-### Level Shifter
+### Level shifter
 
 ![Level Shifter](/assets/images/app-notes/AN016/level.png)
 
@@ -136,7 +136,7 @@ Choose one of:
 
 ## Firmware
 
-### Firmware Features
+### Firmware features
 
 #### LEDs
 
@@ -156,7 +156,7 @@ When you press buttons on the keypad the second line of the display will update.
 
 After 5 seconds of no button pressing, the next time you press a digit the keys will be cleared so you can start over with new digits.
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 
 You can download a complete project for use with Particle Workbench as a zip file here:
@@ -329,7 +329,7 @@ void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, cons
 Append the current keys that have been pressed to the location event. This is what's on the second line of the display, without the trailing spaces.
 
 
-### Cloud Configuration
+### Cloud configuration
 
 The cloud configuration cannot be set from the console, but you can set it from the CLI using curl. 
 

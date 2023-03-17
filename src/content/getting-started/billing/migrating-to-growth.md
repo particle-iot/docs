@@ -49,7 +49,7 @@ You'll be asked for the list of products to migrate, organization name, and numb
 
 </p>&nbsp;<p>
 
-## FAQ (Frequently Asked Questions)
+## FAQ (frequently asked questions)
 
 ### How am I billed for the growth plan?
 

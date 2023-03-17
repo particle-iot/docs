@@ -63,7 +63,7 @@ Open the command palette and select the *Configure Project for Device* option.
 ![](/assets/images/workshops/particle-101/02/wb-cp-name.png)
 You're now ready to program your Argon with Particle Workbench. Let's get the device plugged into your Grove kit and start working with sensors.
 
-## Unboxing the Grove Starter Kit
+## Unboxing the grove starter kit
 
 The Grove Starter Kit for Particle Mesh comes with seven different components that work out-of-the-box with Particle Mesh devices, and a Grove Shield that allows you to plug in your Feather-compatible Mesh devices for quick prototyping. The shield houses eight Grove ports that support all types of Grove accessories. For more information about the kit, [click here](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit-for-particle-mesh).
 
@@ -89,11 +89,11 @@ You won't need every sensor that comes with the Particle Starter Kit for Mesh fo
 
 Now, you're ready to start using your first Grove component!
 
-## Working with Particle Variables plus the Temperature & Humidity Sensor
+## Working with Particle variables plus the temperature & humidity sensor
 
 The Particle Device OS provides a simple way to access sensor values and device local state through the [variable primitive](/reference/device-os/api/cloud-functions/particle-variable/). Registering an item of firmware state as a variable enables you to retrieve that state from the Particle Device Cloud. Let's explore this now with the help of the Grove Temperature and Humidity sensor.
 
-### Connect the Temperature sensor
+### Connect the temperature sensor
 
 To connect the sensor, connect a Grove cable to the port on the sensor. Then, connect the other end of the cable to the `D2` port on the Grove shield.
 
@@ -206,7 +206,7 @@ humidity_dbl = humidity;
 <br /><br />
 4. Flash this code to your device and, when the Argon comes back online, move on to the next step.
 
-### Accessing Particle variables from the Console
+### Accessing Particle variables from the console
 
 1. To view the variables you just created, open the Particle Console by navigating to [console.particle.io](https://console.particle.io) and clicking on your device.
 ![](/assets/images/workshops/particle-101/02/console-list.png)
@@ -219,7 +219,7 @@ humidity_dbl = humidity;
 
 Now that you've mastered Particle variables for reading sensor data, let's look at how you can use the function primitive to trigger an action on the device. 
 
-## Working with Particle Functions and the Chainable LED
+## Working with Particle functions and the Chainable LED
 
 As with Particle variables, the [function](/reference/device-os/api/cloud-functions/particle-function/) primitive exposes our device to the Particle Device Cloud. Where variables expose state, functions expose actions.
 
@@ -281,7 +281,7 @@ toggleLed("");
 <br /><br />
 4. The last step is to flash this new code to your Argon. Once it's updated, the LED will blink red.
 
-### Setting-up Particle Functions for remote execution
+### Setting-up Particle functions for remote execution
 
 Now, let's modify our firmware to make the LED function a Particle Cloud function.
 
@@ -301,11 +301,11 @@ Particle.function("toggleLed", toggleLed);
 2. Click the *Call* button and watch the chainable LED light up at your command!
 ![](/assets/images/workshops/particle-101/02/console-func.gif)
 
-## Working with Particle Publish & Subscribe plus a light sensor
+## Working with Particle publish & subscribe plus a light sensor
 
 For the final section of this lab, you're going to explore the [Particle `pub/sub` primitives](/reference/device-os/api/cloud-functions/particle-publish/), which allows inter-device (and app!) messaging through the Particle Device Cloud. You'll use the light sensor and publish messages to all listeners when light is detected.
 
-### Connect the Light sensor
+### Connect the light sensor
 
 To connect the light sensor, connect a Grove cable to the port of the sensor. Then, connect the other end of the cable to the Analog `A0/A1` port on the Grove shield.
 
@@ -365,21 +365,21 @@ This section contains links and resources for the Grove sensors included in the 
 - [Particle Documentation](/reference/datasheets/accessories/gen3-accessories/#button)
 - [Seeed Studio Documentation](https://www.seeedstudio.com/Grove-Button-p-766.html)
 
-### Rotary Angle Sensor
+### Rotary angle sensor
 
 - Sensor Type: Analog
 - [Particle Documentation](/reference/datasheets/accessories/gen3-accessories/#rotary-angle-sensor)
 - [Seeed Studio Documentation](/reference/datasheets/accessories/gen3-accessories/#button)
 
 
-### Ultrasonic Ranger
+### Ultrasonic ranger
 
 - Sensor Type: Digital
 - [Particle Firmware Library](https://build.particle.io/libs/Grove_Ultrasonic_Ranger/1.0.0/tab/Ultrasonic.cpp)
 - [Particle Documentation](/reference/datasheets/accessories/gen3-accessories/#ultrasonic-ranger)
 - [Seeed Studio Documentation](http://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/)
 
-### Temperature and Humidity Sensor
+### Temperature and humidity sensor
 
 - Sensor Type: Digital
 - [Particle Firmware Library](https://build.particle.io/libs/Grove_Temperature_And_Humidity_Sensor/1.0.6/tab/Seeed_DHT11.cpp)

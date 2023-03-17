@@ -46,7 +46,7 @@ Beta releases of hardware are equivalent to the industry standard term “engine
 
 Beta hardware is sold in individual units only, and is not made available for purchase in mass production quantities or packaging. Beta hardware may be sold through our online stores, and will be identified as in beta in the product listing hardware.
 
-## General Availability
+## General availability
 
 **Generally Available products are considered to be fully supported and production ready.***
 
@@ -86,7 +86,7 @@ _For hardware_
 
 Deprecated SKUs can no longer be purchased. Existing devices will continue to work and be supported by at least one Particle development tool until the End of Support date, but new versions of Device OS may no longer support devices that have been deprecated.
 
-## End of Support
+## End of support
 
 **End of Support is a hardware-specific phase in which active, ongoing support of a hardware product by Particle's platform and team has ended.**
 
@@ -94,7 +94,7 @@ Hardware in the End of Support phase can no longer be purchased in any quantity 
 
 Discontinued hardware _can_ still connect to the Particle Device Cloud, but is no longer supported by our SLAs, customer support team, or limited hardware warranties.
 
-## End of Life
+## End of life
 
 **A product or feature has reached the end of its life when there is no longer any level of product functionality or platform support.**
 

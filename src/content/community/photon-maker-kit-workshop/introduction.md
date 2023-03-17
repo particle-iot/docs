@@ -5,7 +5,7 @@ columns: two
 layout: commonTwo.hbs
 ---
 
-# About This Workshop
+# About this workshop
 
 This workshop is sponsored and produced by [Particle](https:www.particle.io).
 
@@ -21,7 +21,7 @@ This workshop will take you through the basics of connecting a Particle Photon d
 4.  [Install the Particle Desktop IDE](/getting-started/developer-tools/workbench/)
 5.  [Create an Azure Account](https://azure.com)
 
-## Workshop Content
+## Workshop content
 
 - Chapter 1: Claiming your Particle Device
   - Unbox a brand new Photon, claim it to your Particle account, and make it light up with Tinker.

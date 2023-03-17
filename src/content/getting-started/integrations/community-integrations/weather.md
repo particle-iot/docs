@@ -45,7 +45,7 @@ We'll be using the "one call" API that requires your latitude and longitude. If 
 - The location is only stored in your browser until you close this tab.
 
 
-## Using the OpenWeather One Call API
+## Using the OpenWeather one call API
 
 This control uses the OpenWeather [One Call API](https://openweathermap.org/api/one-call-api). It can return a great deal of information, and excluding the parts you don't care about can make the responses faster and a more reasonable size. The default setting of the checkboxes only includes the current and daily information. 
 

@@ -450,7 +450,7 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
 - API Route: GET /v1/events
 
 
-#### Subscribe to Server-Sent Events - API rate limits
+#### Subscribe to server-sent events - API rate limits
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
@@ -464,12 +464,12 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
   - GET /v1/products/:ProductID/events/
   - GET /v1/products/:ProductID/devices/:DeviceID/events/
 
-#### Open Server-Sent Event Streams - API rate limits
+#### Open server-sent event streams - API rate limits
 
 - A maximum of 100 simultaneous connections
 - Limited by source IP address (public IP address)
 
-#### Get device data via serial Number - API rate limits
+#### Get device data via serial number - API rate limits
 
 - Maximum of  of 50 requests every hour
 - Limited per user account that generated the access token

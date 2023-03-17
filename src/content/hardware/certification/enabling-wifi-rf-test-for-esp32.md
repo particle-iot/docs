@@ -8,7 +8,7 @@ columns: two
 
 This document contains instructions for conducting RF tests with the ESP32 Wi-Fi chip on the Argon development kit.
 
-## Hardware Modifications
+## Hardware modifications
 
 There are two pins (UART) exposed on the back of the Argon for sending test mode commands to the ESP32 chip. You will need to connect these two pins to the Particle Debugger. The following diagram shows these two pins - ESP32 RX and ESP32 TX. Remember to provide the GND for the connection as well:
 
@@ -44,7 +44,7 @@ Connect the Argon to a spectrum analyzer via the U.FL (with labelled Wi-Fi) conn
   - Test Firmware: ESP32_RF_TEST_BIN_V1.3.3_20180403.bin
 - After that, click the button - load bin.
   - Note: if it doesn’t start to load, press the reset button on the Argon once.
-- Once it shows SUCC, then you can select the test parameters like Test Mode, WiFi Rate, Bandwidth and Channel.
+- Once it shows SUCC, then you can select the test parameters like Test Mode, Wi-Fi Rate, Bandwidth and Channel.
 - If you need to reduce TX power, set attenuation.
 - Click the start button and monitor the spectrum analyzer.
 

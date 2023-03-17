@@ -6,7 +6,7 @@ columns: two
 
 # Shields and accessories
 
-## Shield Shield
+## Shield shield
 
 This shield is essentially an adapter that allows the user to connect Arduino compatible shields to the Spark Core. There are two functions that this shield performs: pin mapping of the Spark Core to the Arduino pin layout and voltage translation of 3.3V to/from 5V.
 
@@ -64,7 +64,7 @@ A2        A6           PWM*, ADC**
 [Shield Shield Hardware files >](https://github.com/particle-iot/shields/tree/master/core-shields/Shield%20Shield)
 
 
-## Relay Shield
+## Relay shield
 
 ![Relay Shield Top](/assets/images/relay-shield-top.jpg)
 
@@ -91,7 +91,7 @@ The relays are SPDT (Single Pole Double Throw) type, which means they have three
 - Weight: 100g
 
 
-### Setting up the Relay Shield
+### Setting up the relay shield
 
 ![Relay Shield Connection](/assets/images/relay-shield-bulb.jpg)
 
@@ -175,7 +175,7 @@ Project Ideas
 ``ADD ILLUSTRAION OF FINGERS GETTIND ZAPPED``
 -->
 
-## Programmer Shield (JTAG)
+## Programmer shield (JTAG)
 
 ![JTAG Shield Top](/assets/images/jtag-topview.jpg)
 
@@ -198,7 +198,7 @@ All of the hardware files for the JTAG shield are available for download.
 [JTAG Shield Hardware Files >](https://github.com/particle-iot/shields/tree/master/core-shields/Programmer%20Shield)
 
 
-## Battery Shield
+## Battery shield
 
 ![Battery Shield Top](/assets/images/bshield-top.jpg)
 
@@ -258,7 +258,7 @@ When powering the Core via the battery alone, the blue LED will NOT light up.
 
 [Battery Shield Hardware Files >](https://github.com/particle-iot/shields/tree/master/core-shields/Battery%20Shield)
 
-## Spark Maker Kit
+## Spark maker kit
 
 <!--
    TO DO
@@ -542,14 +542,14 @@ Your very own Spark Core, ready to take over the world, one byte at a time.
 32. Spark Core - u.FL or CA (1)
 -->
 
-## Spark RC Car Kit
+## Spark RC car kit
 
 ![Top View](/assets/images/rc-car-top-small.jpg)
 
 The RC car kit is a two-wheeled differentially driven platform that you can control using a Spark Core.
 
 
-### Kit Contents
+### Kit contents
 
 NOTE: This is no longer available for purchase.
 
@@ -687,7 +687,7 @@ To send API commands:
 curl https://api.particle.io/v1/devices/0123456789abcdef/rccar -d access_token=123412341234 -d params=rc,FORWARD
 ```
 
-### Motor Driver Shield Specifications
+### Motor driver shield specifications
 The motor driver shield is based around the L298 [Full-bridge](http://en.wikipedia.org/wiki/H_bridge) motor driver chip.
 
 - Logic voltage: 5V DC

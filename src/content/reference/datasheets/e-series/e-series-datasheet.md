@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle E Series, Gen 2 cellular mass-production module
 ---
 
-# E Series Module Datasheet <sup>(v004)</sup>
+# E Series module datasheet <sup>(v004)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
@@ -42,7 +42,7 @@ It also comes with Particle's development tools and cloud platform for managing 
  * Embedded Particle SIM (E310, E402)
 
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 2.x LTS release line with the E Series E310, E313, E314, E402, and E404 (but not the E404X). 
 
@@ -144,9 +144,9 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 **Notes:**
 [1] Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.)
 
-## Memory Map
+## Memory map
 
-### STM32F205RGT6 Flash Layout Overview
+### STM32F205RGT6 Flash layout overview
 
 - Bootloader (16 KB)
 - DCD1 (16 KB), stores keys, mfg info, system flags, etc..
@@ -195,7 +195,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 ```
 
-### Memory Map (Common)
+### Memory map (common)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -205,7 +205,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 | EEPROM1 | 0x800C000 | 0x8010000 | 16 KB |
 | EEPROM2 | 0x8010000 | 0x8020000 | 64 KB |
 
-### Memory Map (Modular Firmware - default)
+### Memory map (modular firmware - default)
 _Before 0.6.0 firmware_
 
 | Region | Start Address | End Address | Size |
@@ -229,7 +229,7 @@ _Since 0.6.0 firmware_
 | OTA Backup | 0x80C0000 | 0x80E0000 | 128 KB |
 | Decompress region | 0x80E0000 | 0x8100000 | 128 KB |
 
-### Memory Map (Monolithic Firmware - optional)
+### Memory map (monolithic firmware - optional)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -347,7 +347,7 @@ You can download a high resolution pinout diagram in a <a href="/assets/images/e
 
 [1] PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
-## Technical Specifications
+## Technical specifications
 
 ### Absolute maximum ratings <sup>[1]</sup> <i class="icon-attention"></i>
 
@@ -462,7 +462,7 @@ For a complete list of carriers and supported countries, see the [carrier guide]
 
 ---
 
-### I/O Characteristics
+### I/O characteristics
 
 These specifications are based on the STM32F205RGT6 datasheet, with reference to E series pin nomenclature.
 
@@ -496,11 +496,11 @@ These specifications are based on the STM32F205RGT6 datasheet, with reference to
 
 <sub>[5]</sub> Pull-up and pull-down resistors are designed with a true resistance in series with switchable PMOS/NMOS. This PMOS/NMOS contribution to the series resistance is minimum (~10% order).
 
-## Mechanical Specifications
+## Mechanical specifications
 
 <div align=center><img src="/assets/images/e-series/illustrations/e0-dims.png"></div>
 
-### Dimensions and Weight
+### Dimensions and weight
  * Width = 36 mm
  * Height = 43 mm
  * Thickness = 4.6 mm
@@ -520,7 +520,7 @@ An E series part for EAGLE can be found in the [Particle EAGLE library](https://
 
 The USB data lines are terminated with 22 Ohm resistors. These data pins are also exposed via small through holes next to the USB connector and are labeled D+ and D-. The VBUS (+5VDC VCC of the USB port) is fed to the PMIC via a 3Amp Schottky diode ([SS3P3](http://www.vishay.com/docs/88944/ss3p3.pdf)). The VBUS pin is also available via the unpopulated header hole on the top-right side of the E series.
 
-### PMIC (Power Management Integrated Circuit)
+### PMIC (Power management integrated circuit)
 
 <div align=center><img src="/assets/images/e-series/schematics/e0-pmic-sch.png"></div>
 
@@ -552,7 +552,7 @@ The MFF2 SMD SIM is not an e-sim and is not reprogrammable to other carriers. It
 
 Since u-blox module's communication interface operates at 1.8VDC, while the STM32F205RGT6 microcontroller operates at 3.3VDC, we need voltage translators in-between them. This is achieved with two [SN74AVC4T245](http://www.ti.com/lit/ds/symlink/sn74avc4t245.pdf) non-inverting buffers. The default state of the USART pins is set with the help of pull-up and pull-down resistors, and the unused input pins are tied to GND.
 
-### 3.3V Regulator and Fuel Gauge
+### 3.3V regulator and fuel gauge
 
 <div align=center><img src="/assets/images/e-series/schematics/e0-reg-sch.png"></div>
 
@@ -560,7 +560,7 @@ The output (3.8V net) of the PMIC is fed directly to the u-blox cellular module 
 
 The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/MAX17043-MAX17044.pdf) fuel gauge to monitor the LiPo battery voltage and it's state of charge. The microcontroller communicates with it over an I2C interface (same channel as the PMIC).
 
-## Product Variants
+## Product variants
 
 |Name|Connectivity                   |Geography             |u-blox variant|Band Support|
 |:---|:------------------------------|:---------------------|:-------------|:-----------|
@@ -751,9 +751,9 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 {{!-- END do not edit content above, it is automatically generated 26c8707c-76ca-11eb-9439-0242ac130002 --}}
 
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 <i class="icon-attention"></i> The E series contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an E series without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates EØs.  ESD precautions should be implemented on the application board where the E series is mounted. Failure to observe these precautions can result in severe damage to the E series! <i class="icon-attention"></i>
 
@@ -795,7 +795,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 |uC  | Microcontroller |
 
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC IC CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -872,7 +872,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v004     | 14-Mar-2022   | RK     | Added deprecation notice |
 | v005     | 31-Jan-2023   | RK     | Added Device OS versions |
 
-## Known Errata
+## Known errata
 
 
 ## Contact

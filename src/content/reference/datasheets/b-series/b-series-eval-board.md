@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 description: Datasheet for the Particle B Series SoM evaluation board
 ---
-# B Series Evaluation Board
+# B Series Evaluation board
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b-series-eval-board.pdf"}}
@@ -14,7 +14,7 @@ This is a simple breakout board for Particle's B series of cellular IoT modules.
 
 The Eagle CAD design files, Gerber files, and bill of materials can be found in the [SoM eval board GitHub repository](https://github.com/particle-iot/som-eval-board).
 
-## Block Diagram
+## Block diagram
 
 ![Block Diagram](/assets/images/b-series/b-series-eval-block.png)
 
@@ -89,14 +89,14 @@ For more information about Ethernet, see the application note [AN037 Ethernet](/
 
 ---
 
-### Power Jumpers
+### Power jumpers
 
 | Jumper | Name |
 | :---: | :---: |
 | J5 | SOM_VCC | 
 | J31 | SOM\_3V3 | 
 
-### Expansion Connector
+### Expansion connector
 
 | B Series Pin | SoM Pin | | SoM Pin | B Series Pin |
 | :---: | :---: | --- | :---: | :---: |
@@ -154,7 +154,7 @@ frequency and resolution, but individual pins in the group can have a different 
 
 These rules also apply to tone() (square wave with 50% duty cycle), however since each group must share the same frequency you can only generate two different simultaneous tones of different frequencies on the B Series SoM. You cannot generate tone on group 0.
 
-## Basic Setup
+## Basic setup
 
 The basic setup for the B series to be operational is shown below:
 
@@ -163,7 +163,7 @@ The basic setup for the B series to be operational is shown below:
 - Connect power the USB (3) or a LiPo battery (4).
 - Turn on the appropriate power switches (5).
 
-### Using the PMIC and Fuel Gauge (recommended)
+### Using the PMIC and fuel gauge (recommended)
 
 There is support for bq24195 PMIC and MAX17043 fuel gauge in Device OS so you don't need to add any additional configuration.
 
@@ -180,7 +180,7 @@ It requires these jumpers, which should be installed at the factory:
 - SCL to PM\_SCL
 
 
-### Using the MicroSD Card
+### Using the MicroSD card
 
 To use the MicroSD card, you must add the jumpers for the SD_ pins.
 
@@ -198,7 +198,7 @@ With the jumpers installed, it will use the secondary SPI (SPI1) and pin D5 as t
 
 ---
 
-### Using Ethernet
+### Using ethernet
 
 To use Ethernet, you must add the jumpers:
 
@@ -220,7 +220,7 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | ETH\_INT | P0.24 | D22 | 62 |
 
 
-### Using the Grove Connectors
+### Using the Grove connectors
 
 | J11 | nRF52 Pin | SoM Pin | SoM Pin Number |
 | :---: | :---: |  :---: |  :---: | 
@@ -238,14 +238,14 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 
 
 
-## Evaluation Board Schematics
+## Evaluation board schematics
 
 ### PMIC
 
 <div align=center><img src="/assets/images/b-series/b-series-eval-schematic-pmic.png"></div>
 
 
-### Fuel Gauge
+### Fuel gauge
 
 <div align=center><img src="/assets/images/b-series/b-series-eval-schematic-fuel.png" class="small"></div>
 

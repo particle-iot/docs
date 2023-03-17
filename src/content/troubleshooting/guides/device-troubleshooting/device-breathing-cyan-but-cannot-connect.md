@@ -7,15 +7,15 @@ columns: two
 # {{{title}}}
 A device that is breathing cyan but cannot connect (e.g. you cannot ping the device in the Console) has three likely causes, both of which should be easily actionable to the user. The following outlines a few strategies to debug.
 
-## The Console Online Indicator
+## The console online indicator
 
 It's worth explicitly stating that the Console's **Online Indicator** is not a real-time status indicator. For cellular devices, it has a lag of up to as much as 46 minutes (two successive missed Keep-Alives). This article is not meant to address Devices that are "online" in the Console but not breathing Cyan in the field.
 
-## Keeping System Firmware Up To Date
+## Keeping system firmware up to date
 
 Prior to Device OS 1.3.1, firmware connectivity-blocking issues can be disguised as a "Breathing Cyan But Cannot Connect" state. This is because `Particle.connected()` returned true immediately after successfully resuming a session, but not prior to a completed handshake. While Device OS 1.3.1 fixes this issue ([link](https://github.com/particle-iot/device-os/pull/1825)), we recommend upgrading system firmware to at least the most recent production version following the instructions here ([link](/reference/device-os/versions/#sts=Device%20OS%20Versions,%20Upgrades,%20and%20Downgrades)). Note: updating your Device OS may not result in a successful connection, but it may kick the device out of the Breathing Cyan state - allowing the Status LED to show more useful information about its connectivity status. 
 
-## Checking For Sporadic RF Issues
+## Checking for sporadic RF issues
 
 An environment that has _just enough_ cellular connectivity to allow for successful connections but _not enough_ to prevent constant timeouts and long roundtrip times could put a device into this condition.   
   
@@ -34,7 +34,7 @@ _Frequent disconnects can point to issues with signal quality (Low Signal Qualit
 
 Watch for low % values in either of the above categories (e.g. < 20%), and watch for high rates of disconnects. Any of these three metrics point to an environmental/RF issue as the root cause of this device Breathing Cyan.
 
-## Identifying Blocking Firmware
+## Identifying blocking firmware
 
 In some edge cases, application firmware can interfere with a device's ability to respond to things like Pings or Function Calls (e.g. devices that reset themselves constantly, that perform blocking actions without Threading enabled, etc...). While root cause in firmware might take some time, it is easy to identify whether or not application firmware is a contributing factor to devices the Breathe Cyan but cannot connect.  
   

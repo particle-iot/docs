@@ -10,7 +10,7 @@ columns: two
 
 Published: May 4, 2021
 
-## Issue Summary
+## Issue summary
 
 Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020.
 
@@ -18,7 +18,7 @@ If there is leakage current on the GPIO, Serial, or I2C pins to the Nordic MCU a
 
 Devices that do not use the onboard M8 connector connector or shipping mode are not affected by this issue and are not at risk.
 
-## Products Affected
+## Products affected
 
 * Tracker One LTE M1 (NorAm) (ONE402MEA) v1.0
 * Tracker One LTE CAT1/3G/2G (Europe) (ONE523MEA) v1.0
@@ -32,7 +32,7 @@ All v1.0 devices were manufactured prior to August 31, 2020 (week 36). The manuf
 
  If you are having trouble determining your device's variant, please contact [Particle support](https://support.particle.io) and they can check the manufacturing logs based on your Tracker's Device ID or Serial Number.
 
-## Issue Mitigation
+## Issue mitigation
 
 If you are not using the M8 connector to expand Tracker One or are not configuring your devices into Shipping Mode you will not be affected by this and no other mitigations are required.
 

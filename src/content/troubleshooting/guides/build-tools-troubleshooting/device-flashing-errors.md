@@ -71,7 +71,7 @@ Most devices have a USB 2.0 Micro B receptacle, however some devices have USB C.
 
 {{collapse op="end"}}
 
-## Device Restore USB
+## Device restore USB
 
 The first thing you should try is  [Device Restore USB](/tools/device-restore/device-restore-usb/). It may be helpful to put the device in DFU mode (blinking yellow) before using the tool:
 
@@ -102,7 +102,7 @@ there are a few possible causes:
 - The hardware is defective. This particular failure happens more often with Gen 2 devices (STM32F205) and can't be repaired because the failure is in the flash inside the MCU.
 - See the less common scenarios below, as well.
 
-## Device Restore JTAG (SWD/JTAG)
+## Device restore JTAG (SWD/JTAG)
 
 In some cases, the device can't be restored by DFU, and can only be restored using SWD/JTAG. This requires a special programmer that allows the flash to be reprogrammed externally. See the [SWD/JTAG guide](/reference/developer-tools/jtag/) for more information.
 

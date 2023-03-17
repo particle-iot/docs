@@ -12,7 +12,7 @@ Here are the issues addressed in this article:
 * I recently imported my Particle device into a Product. While it comes online, I don't see my SIM Card anywhere.
 * Other activation failures
 
-## The SIM Activation/Deactivation Process
+## The SIM activation/deactivation process
 
 SIM Activations/Deactivations are multi-step processes involving communications between Particle and several telephony partners in charge of SIM management. When an Activation/Deactivation request comes in via our API, we direct it to hit a partner endpoint and await a success response. 
 

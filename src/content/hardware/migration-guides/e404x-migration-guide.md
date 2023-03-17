@@ -5,7 +5,7 @@ columns: two
 description: Migration guide for transitioning from the E Series E402/E404 to E404X
 ---
 
-# E404X Migration Guide
+# E404X migration guide
 
 **Preliminary pre-release version 2022-05-06**
 
@@ -17,7 +17,7 @@ This is an preliminary pre-release migration guide and the contents are subject 
 This guide assists in the transition from the E Series E402/E404 to the E404X.
 
 
-## Software Differences
+## Software differences
 
 ### User firmware binary size
 
@@ -48,7 +48,7 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 | Publish/Subscribe Event Data | 864 | 1024 |
 
 
-### Sleep Modes
+### Sleep modes
 
 - In general, the E404X will use less power in all modes.
 - In `HIBERNATE` mode, the RTC (real time clock) does not run on the E404X, so you cannot wake by time from `HIBERNATE` mode (formerly known as `SLEEP_MODE_DEEP`).
@@ -374,7 +374,7 @@ On Gen 2 devices (STM32), only the WKP pin rising can wake from HIBERNATE sleep 
 This restriction does not exist on the E404X and Gen 3 devices; any pin except B0 and B1 can be used to wake from all sleep modes, rising or falling.
 
 
-### CAN (Controller Area Network)
+### CAN (controller area network)
 
 The E series supported CAN on pins D1/D2 or C4/C5. There is no CAN on the E404X or Gen 3 devices (except the Tracker).
 
@@ -1048,7 +1048,7 @@ Most third-party libraries are believed to be compatible. The exceptions include
 Since the E404X uses the same MCU as Gen 3 devices (Boron, B Series SoM, Tracker SoM), most libraries intended for those platforms will work with no changes or minimal changes.
 
 
-## Version History
+## Version history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|

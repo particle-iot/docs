@@ -10,7 +10,7 @@ For questions with respect to the installation of Particle Workbench, please see
 
 It is generally worth also reviewing the troubleshooting documentation available by running the command `Particle: Get Help` in the Workbench Command Palette (⇧⌃P (Windows, Linux) or ⇧⌘P (Mac OS). 
 
-## Running A Basic Workbench Functionality Check
+## Running a basic workbench functionality check
 
 Before troubleshooting further, please take the following steps to ensure Workbench's basic operations are functional:
 
@@ -45,7 +45,7 @@ Take a look at the following elements of your Environment Report:
 
 Keeping this in mind, proceed with the following troubleshooting steps.
 
-## Ensuring Particle Workbench Is Properly Installed On And Configure** **d For Your System
+## Ensuring Particle workbench is properly installed and configured for your system
 
 Issues related to build tools can be complex! After all, every computer is configured differently and is governed by unique administrative permissions schema, firewalls, networking settings, etc.... The majority of Workbench issues are related to this complexity, so taking a step back and ensuring your tools are installed and configured properly is an important step to the troubleshooting process. 
 
@@ -65,7 +65,7 @@ Issues related to build tools can be complex! After all, every computer is confi
    * Open a terminal within VSCode or open a Windows Command Prompt (you may need to run the Windows Node Terminal, depending on your setup). Run the command: npm config set strict-ssl false​
 * **Scroll to the bottom of this page and follow the steps for issue reporting.**
 
-## Steps To Take If You Encounter An Intellisense Issue
+## Steps to take if you encounter an Intellisense issue
 
 An Intellisense issue can manifest in a number of ways, sometimes by incorrectly flagging missing headers, sometimes through red underscoring under correctly defined/implemented code:
 
@@ -84,7 +84,7 @@ _NOTE: if you are running an “insiders” build, rollback to a non-prerelease 
 "particle.particle-vscode-core"`.
 8. **Scroll to the bottom of this page and follow the steps for issue reporting.**
 
-## Steps To Take If Workbench Does Not Recognize Your Device
+## Steps to take if workbench does not recognize your device
 
 Hardware peripheral issues have several main causes. In order:
 
@@ -103,7 +103,7 @@ And when in normal operating mode or listening mode (blinking blue), the Device 
 ![COM driver](/assets/images/support/installing-dfu-util-23com.png)
 6. If your device is recognized in DFU Mode but not in any other mode, you may need to perform an update to that device in order for it to recognize Serial commands. In order to do so, as always, place the device in DFU Mode (hold down BOTH buttons, then release only the `RESET` button, while holding down the `MODE` button. Wait for the LED to start flashing yellow (it will flash magenta first) and release the `MODE` button once it's flashing yellow). Then run the CLI commands `particle update` followed by `particle flash --usb tinker`..
 
-## Workbench Network Error
+## Workbench network error
 
 Network Errors indicating that api.particle.io is not accessible are usually caused by restrictive network policies. Please contact your IT to enable access to api.particle.io. This error can appear when you run or other similar commands:
 
@@ -188,7 +188,7 @@ sudo apt-get install gcc-multilib libarchive-zip-perl libncurses-dev
    * if you just have the [Particle CLI](/getting-started/developer-tools/cli/), open a terminal and run `particle usb configure`  
    * Otherwise, you can download [50-particle.rules](https://github.com/particle-iot/particle-cli/blob/master/assets/50-particle.rules) and copy it to `/etc/udev/rules.d/`
 
-## How To Report Workbench Issues
+## How to report workbench issues
 
 **Particle's Support Team refers CLI and Workbench issues to our Particle Community ([link](https://community.particle.io/c/DT/CLI/52))** **.** There are several benefits to doing so - other members of our Community may already have a solution for this issue, it allows for more transparent self-service after your issue is resolved, and it also is an often direct channel to our CLI and Workbench Engineering Team. **In order to report your issue, please post in our Particle Community ([link](https://community.particle.io/c/DT/CLI/52)) following the instructions below**:
 

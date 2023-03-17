@@ -8,13 +8,13 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 
 # {{{title}}}
 
-## First Thirty (30) Days
+## First thirty (30) days
 
 Enterprise customers are required to submit a Blanket Purchase Order for contracted hardware minimums. This Blanket PO is not binding but should include your desired shipment dates and quantities for all hardware contracted to purchase in the first contract year. 
 
 Particle uses the information from your Blanket PO to forecast accurately, reduce lead times as much as possible and ultimately make your desired demand on your requested schedule.
 
-## Ongoing Order Placement
+## Ongoing order placement
 
 Enterprise customers are required to issue committed (binding) purchase orders throughout the year and Particle must accept these POs in writing, which will initiate the hardware shipments. These confirmed PO’s draw from the total quantity noted on the original Blanket PO. PO’s should be submitted to support@particle.io.
 
@@ -24,7 +24,7 @@ Changes to the original Blanket PO can be made throughout the year by sending a 
 
 A new Blanket PO must be provided by the customer within 30 days of the start date for each subsequent contract year to ensure accurate forecasting by Particle.
 
-## Additional Resources
+## Additional resources
 
 - [Shipping FAQs](/troubleshooting/faqs/shipping/what-shipping-options-does-particle-offer/)
 

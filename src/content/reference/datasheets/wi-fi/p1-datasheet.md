@@ -56,7 +56,7 @@ flash and an antenna and U.FL connector on board.
 - Soft AP setup
 - FCC, CE and IC certified
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 2.x LTS release line with the all P1 devices.
 
@@ -68,7 +68,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 
 ## Interfaces
 
-### Block Diagram
+### Block diagram
 
 <div align=center><img src="/assets/images/p1-block-diagram.png" width=700></div>
 
@@ -97,7 +97,7 @@ The default selected antenna will be the PCB antenna.
 
 The area surrounding the PCB antenna on the carrier PCB should be free of ground planes and signal traces for maximum Wi-Fi performance.
 
-### FCC Approved Antennas
+### FCC approved antennas
 
 | Antenna Type | Manufacturer | MFG. Part # | Gain |
 |-|-|-|-|
@@ -164,7 +164,7 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 
 ---
 
-### External Coexistence Interface
+### External coexistence interface
 
 **Note:** This interface is not supported by the P1 module and cannot be used.
 
@@ -180,9 +180,9 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 
 ---
 
-## Memory Map
+## Memory map
 
-### STM32F205RGY6 Flash Layout Overview
+### STM32F205RGY6 flash layout overview
 
 - Bootloader (16 KB)
 - DCT1 (16 KB), stores Wi-Fi credentials, keys, mfg info, system flags, etc..
@@ -240,7 +240,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 ```
 
-### Memory Map (Common)
+### Memory map (common)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -250,7 +250,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | EEPROM1 | 0x800C000 | 0x8010000 | 16 KB |
 | EEPROM2 | 0x8010000 | 0x8020000 | 64 KB |
 
-### Memory Map (Modular Firmware - default)
+### Memory map (modular firmware - default)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -260,7 +260,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | OTA Backup | 0x80C0000 | 0x80E0000 | 128 KB |
 | Factory Backup | 0x80E0000 | 0x8100000 | 128 KB |
 
-### Memory Map (Monolithic Firmware - optional)
+### Memory map (monolithic firmware - optional)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -315,7 +315,7 @@ You can download a high resolution pinout diagram in a <a href="/assets/images/p
 
 <sup>[2]</sup> MICRO_SPI1_SS is only for reference as a P1 module pin name.  It is technically speaking the STM32 pin PA4 which is the SS pin in an hardware SPI driven sense, however in the Particle API SPI SS is only user controlled as a GPIO. The hardware SS pin is not implemented.  The default SS pin for the Particle SPI API is A2 (STM32 pin PC2), but any GPIO can be used for this function with SPI.begin(pin).
 
-### Complete P1 Module Pin Listing
+### Complete P1 module pin listing
 
 | P1 Pin # | P1 Pin Name	| Type / STM32F205RGY6 Port | Description |
 | :-|:-|:-:|:-|
@@ -440,7 +440,7 @@ You can download a high resolution pinout diagram in a <a href="/assets/images/p
 | <sub></sub> | MCS7 | - | +/- 1.5 | dBm |
 
 
-### I/O Characteristics
+### I/O characteristics
 
 These specifications are based on the STM32F205RGY6 datasheet, with reference to Photon pin nomenclature.
 
@@ -487,13 +487,13 @@ P1 module dimensions are: 0.787"(28mm) (W) x 1.102"(20mm) (L) x 0.0787"(2.0mm) (
 <div align=center><img src="/assets/images/p1-vector.png" width=80>
 Actual size (so tiny!)</div>
 
-### P1 Module Dimensions
+### P1 module dimensions
 
 These are the physical dimensions of the P1 module itself, including all pins:
 
 <div align=center><img src="/assets/images/p1-module-dimensions.png" width=600></div>
 
-### P1 Module Recommended PCB land pattern
+### P1 module recommended PCB land pattern
 
 The P1 can be mounted directly on a carrier PCB with following PCB land pattern:
 
@@ -501,7 +501,7 @@ The P1 can be mounted directly on a carrier PCB with following PCB land pattern:
 
 A P1 part for EAGLE can be found in the [Particle EAGLE library](https://github.com/particle-iot/hardware-libraries#pcb-footprints-land-pattern)
 
-## P1 Reference Design Schematic
+## P1 reference design schematic
 
 ### Schematic - USB
 
@@ -515,17 +515,17 @@ A P1 part for EAGLE can be found in the [Particle EAGLE library](https://github.
 
 <div align=center><img src="/assets/images/p1-sch-user-io.png" width=600></div>
 
-### Schematic - P1 Wi-Fi Module
+### Schematic - P1 Wi-Fi module
 
 <div align=center><img src="/assets/images/p1-sch-wifi-module.png" height=500></div>
 
-## P1 Reference Design Layout
+## P1 reference design layout
 
-### P1 Reference Design Top Layer (GTL)
+### P1 reference design top layer (gtl)
 
 To be added.
 
-### P1 Reference Design Bottom Layer (GBL)
+### P1 reference design bottom layer (gbl)
 
 To be added.
 
@@ -566,7 +566,7 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 
 ## Product handling
 
-### Tape and Reel Info
+### Tape and reel info
 
 <div align=center><img src="/assets/images/p1-tape-and-reel.png" width=600></div>
 
@@ -576,7 +576,7 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 
 <i class="icon-right-hand"></i>For more information regarding moisture sensitivity levels, labeling, storage and drying see the MSL standard see IPC/JEDEC J-STD-020 (can be downloaded from [www.jedec.org](http://www.jedec.org)).
 
-### ESD Precautions
+### ESD precautions
 
 <i class="icon-attention"></i> The P1 module contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a P1 module without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates P1 modules.  ESD precautions should be implemented on the application board where the P1 module is mounted. Failure to observe these precautions can result in severe damage to the P1 module! <i class="icon-attention"></i>
 
@@ -610,7 +610,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 <dd>Over The Air; describing how firmware is transferred to the device.</dd>
 </div>
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC IC CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -687,7 +687,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v013 | 14-Mar-2023 | RK | Added deprecation notice |
 | v014 | 31-Jan-2023 | RK | Added Device OS versions |
 
-## Known Errata
+## Known errata
 
 We are tracking [known errata with this datasheet here](https://github.com/particle-iot/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.
 

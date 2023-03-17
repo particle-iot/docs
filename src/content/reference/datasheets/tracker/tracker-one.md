@@ -44,7 +44,7 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the Tracker One.
 
@@ -55,7 +55,7 @@ Tracker Edge v18 requires a minimum of Device OS 3.3.0. Device OS 3.x is a devel
 For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
 
 
-## Block Diagram
+## Block diagram
 
 {{imageOverlay src="/assets/images/at-som/at-carrier-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
@@ -101,7 +101,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 
 ---
 
-### Power and I/O Connector (M8)
+### Power and I/O connector (M8)
 
 | M8 Pin | Function   | Function  | Function  | I/O | Color |
 | :----: | :-------   | :-------  | :-------  | :--- | :--- |
@@ -143,7 +143,7 @@ Note that CAN bus is differential and consists of two lines:
 As the signals are differential you don't need to connect GND for CAN bus, but you do still need to connect it for Serial, I2C, or GPIO.
 
 
-### I/O Characteristics (M8)
+### I/O characteristics (M8)
 
 The three GPIO and port pins (A3/D3, RX/SDA/D9, TX/SCL/D8) have the following characteristics:
 
@@ -180,7 +180,7 @@ The CAN bus has a separate hardware transceiver and is not considered to be GPIO
 
 ---
 
-### Carrier Board Power and I/O Connector
+### Carrier board power and I/O connector
 
 The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](https://www.digikey.com/product-detail/en/jst-sales-america-inc/B8B-PH-SM4-TB-LF-SN/455-1740-1-ND/926837), 8-position, 2mm pitch, male pins, shrouded. The mating connector is the [JST PHR-8](https://www.digikey.com/product-detail/en/jst-sales-america-inc/PHR-8/455-1189-ND/608630). The female sockets are available plain, with leads, and in pre-manufactured ribbon cable formats.
 
@@ -196,7 +196,7 @@ The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](ht
 | 8         | 8      | GND       | Black          |  
 
 
-### Additional Peripherals
+### Additional peripherals
 
 | Signal | Device OS | Description |
 | :---: | :---: | :---
@@ -212,7 +212,7 @@ Note: While the USER button exists inside the Tracker One, the Tracker One is a 
 ---
 
 
-### Powering the Tracker Carrier Board
+### Powering the Tracker carrier board
 
 There are several options for powering the carrier board:
 
@@ -269,7 +269,7 @@ The **GNSS** LED indicates the GNSS fix status:
 As the GNSS antenna faces the top of the case, you also want the top of the case facing the sky to the greatest extent possible. You will likely be be unable to get a GNSS lock with the top facing down.
 
 ---
-## Tracker One Schematics
+## Tracker One schematics
 
 {{imageOverlay src="/assets/images/tracker/trackerone-sch1.png" alt="Schematic 1" class="full-width"}}
 
@@ -281,7 +281,7 @@ As the GNSS antenna faces the top of the case, you also want the top of the case
 
 ---
 
-## Peripheral Details
+## Peripheral details
 
 ### Thermistor
 
@@ -291,7 +291,7 @@ The Tracker Carrier Board contains a 100K NTC thermistor, connected to A0. It is
 
 It can be read using the [getTemperature()](/firmware/tracker-edge/tracker-edge-api-reference/#gettemperature-) API. Note that this is the temperature on the board, within the enclosure, and will typically be several degrees warmer than the ambient temperature.
 
-## Design Files
+## Design files
 
 The Tracker Carrier Board in the Tracker One is open-source and the Eagle CAD design files are available in GitHub:
 
@@ -300,7 +300,7 @@ The Tracker Carrier Board in the Tracker One is open-source and the Eagle CAD de
 
 ## Mechanical specifications
 
-### Operating Temperature
+### Operating temperature
 
 | Parameter                        | Minimum | Maximum | Units |
 | :------------------------------- | ---: | ---: | :---- |
@@ -334,7 +334,7 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 
 ---
 
-### Power consumption (Tracker One 402)
+### Power consumption (Tracker One ONE402 and ONE404)
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
@@ -374,7 +374,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ---
 
-### Power consumption (Tracker One 523)
+### Power consumption (Tracker One ONE523 and ONE524)
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
@@ -532,7 +532,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ---
 
-## Ordering Information
+## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
 
@@ -559,7 +559,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ## Certification
 
-### FCC Interference Statement
+### FCC interference statement
 
 This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) This device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
 
@@ -578,7 +578,7 @@ WARNING: Any changes or modifications to this unit not expressly approved by the
 
 This device must not be collocated or operating in conjunction with any other antenna or transmitter.
 
-### IC Interference Statement
+### IC interference statement
 
 This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -602,7 +602,7 @@ This equipment complies with IC radiation exposure limits set forth for an uncon
 
 Cet équipement est conforme aux limites d'exposition aux rayonnements IC établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps.
 
-### EU Declaration of Conformity
+### EU declaration of conformity
 
 We, Particle Industries, Inc., declare under our sole responsibility that the product, ONE523M, ONE524M, ONE523M-NB, and ONE524M-NB, to which this
 declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
@@ -624,13 +624,13 @@ UKCA Conformity:
 
 Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 The Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
-### Battery Warning
+### Battery warning
 
 **CAUTION**
 

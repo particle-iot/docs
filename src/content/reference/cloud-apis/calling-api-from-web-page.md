@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper]
 ---
-# AN032 Calling API from Web Page
+# AN032 Calling API from web page
 
 This example illustrates a few techniques for calling the Particle API from a web page.
 
@@ -473,7 +473,7 @@ function ledControl(cmd) {
 }
 ```
 
-## Sensor Page
+## Sensor page
 
 What if you wanted to send data in the other direction - from the device to a web page? You can do that too!
 
@@ -488,7 +488,7 @@ It's based on the login example above, so a lot of the code will already be fami
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN032.zip).
 This example is in the two sensorPage files (.cpp and .htm).
 
-### The Circuit
+### The circuit
 
 For testing this, instead of using an actual sensor I used a potentiometer. One side is connected to
 GND (black), the other side to 3V3 (red), and the center wiper is connected to A0 (orange).
@@ -502,7 +502,7 @@ long and is incredibly unwieldy when sitting on my desk.
 ![Tank Level](/assets/images/app-notes/AN032/tank-level.jpg)
 
 
-### Device Firmware
+### Device firmware
 
 {{> codebox content="/assets/files/app-notes/AN032/SensorPage.cpp" format="cpp" height="500" flash="true"}}
 
@@ -584,7 +584,7 @@ if (delta > MIN_DELTA_TO_PUBLISH &&
 }
 ```
 
-### Web Page
+### Web page
 
 {{> codebox content="/assets/files/app-notes/AN032/SensorPage.htm" format="html" height="500"}}
 

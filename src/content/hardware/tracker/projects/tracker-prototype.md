@@ -12,7 +12,7 @@ This application note demonstrates how start prototyping with off-the-shelf I2C 
 
 
 
-## Prototype Version
+## Prototype version
 
 One of the best ways to expand the Tracker One is using I2C, since that interface makes it possible to add multiple external peripherals off the single M8 connector. You can use the same techniques on the Tracker SoM Evaluation Board and Tracker SoM.
 
@@ -46,9 +46,9 @@ Note: All GPIO, ADC, and peripherals such as I2C, Serial, and SPI are 3.3V maxim
 
 ![Eval Board](/assets/images/app-notes/AN019/eval-board.jpg)
 
-## Device Firmware
+## Device firmware
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 
 You can download a complete project for use with Particle Workbench as a zip file here:
@@ -95,13 +95,13 @@ If you prefer to edit project.properties directly, add:
 {{> codebox content="/assets/files/app-notes/AN019/firmware/AN019.dep" height="120"}}
 
 
-### The Source
+### The source
 
 This is the modified main.cpp to implement thermocouple support:
 
 {{> codebox content="/assets/files/app-notes/AN019/firmware/main.cpp" format="cpp" height="500"}}
 
-### Digging In
+### Digging in
 
 ```cpp
 #include "SparkFun_MCP9600.h"
@@ -165,7 +165,7 @@ You'd typically connect those wires to your custom expansion board using one of 
 - Terminate with screw terminals on your board
 - Terminate by soldering the wires to your board
 
-### With the Tracker One Carrier Board directly
+### With the Tracker One carrier board directly
 
 Inside the Tracker One is the Carrier Board. It can be purchased separately in case you want to use the Tracker One features in your own enclosure. The design for the Tracker One enclosure is open-source and can be modified to fit your needs. The Carrier Board has a B8B-PH 8-pin connector on the board, and a short cable that attaches to the M8 8-pin IP67 connector mounted on the side of the enclosure.
 
@@ -173,7 +173,7 @@ Inside the Tracker One is the Carrier Board. It can be purchased separately in c
 
 When expanding on the Tracker One Carrier Board, you may prefer to connect your expansion device to the B8B-PH connector on the board directly, especially if you are putting your expansion board in the enclosure with your Tracker One Carrier Board.
 
-## M8 Thermocouple Adapter Board
+## M8 Thermocouple adapter board
 
 ![Thermocouple Board](/assets/images/app-notes/AN019/board.png)
 
@@ -195,7 +195,7 @@ The XCL223/XCL224 3.3V regulator converts the CAN_5V on the M8 connector to 3.3V
 
 Finally the MCP9600 is the thermocouple interface. That's it!
 
-### Board Layout
+### Board layout
 
 ![Board Layout](/assets/images/app-notes/AN019/board-layout.png)
 
@@ -237,7 +237,7 @@ This option is handy during development. The PHR-8 connector is much easier to p
 
 Note: Do not follow the color code in the picture. That's an early version of the cable that used a different color code.
 
-#### Screw Terminals
+#### Screw terminals
 
 Another option is to add screw terminals to your board. This makes it possible to use the M8 to flying-wires cable and terminate the cable at the screw terminals. This is a good option if you want your cable to pass through a gland.
 

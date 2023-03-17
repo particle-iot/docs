@@ -18,7 +18,7 @@ Stop by and join on of the best places online meet other people using Particle t
 
 # Resources
 
-## Official Resources
+## Official resources
 
 - [Particle Docs](/)
 - [Particle Forums](https://community.particle.io/)
@@ -41,7 +41,7 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Android SDK](/reference/mobile-sdks/android/)
 - [Webhooks](/getting-started/integrations/webhooks/)
 
-## External Resources
+## External resources
 
 - [Particle on Hackster](https://www.hackster.io/particle)
 - [Particle on Instructables](http://www.instructables.com/howto/Particle/)
@@ -55,7 +55,7 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Jonathan Beri on Embedded.fm Episode 222](https://www.embedded.fm/episodes/222)
 - [Brandon Satrom on the MacroFab Engineering Podcast Episode 122](https://macrofab.com/blog/mep-ep122-brandon-satrom-lanot/)
 
-## Useful Tools, Docs & FAQs
+## Useful tools, Docs & FAQs
 
 - [Serial FAQ](/hardware/expansion/about-serial/)
 - [I2C FAQ](/hardware/expansion/about-i2c/)
@@ -94,14 +94,14 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Photon Network Locator Example](https://github.com/rickkas7/serverlocator)
 - [Flash firmware to Particle Devices from an SD card](https://github.com/rickkas7/sdfirmwareflash)
 
-## Hardware Datasheets
+## Hardware datasheets
 
 - [Photon Datasheet](/reference/datasheets/wi-fi/photon-datasheet/)
 - [P1 Datasheet](/reference/datasheets/wi-fi/p1-datasheet/)
 - [Electron Datasheet](/reference/datasheets/e-series/electron-datasheet/)
 - [E Series Datasheet](/reference/datasheets/e-series/e-series-datasheet/)
 
-# Popular Libraries
+# Popular libraries
 
 ## Particle Libraries
 
@@ -111,7 +111,7 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Relay Shield](https://build.particle.io/libs/RelayShield/0.0.6/tab/RelayShield.cpp)
 - [Maker Kit](https://github.com/particle-iot/makerkit.git)
 
-## Community Libraries
+## Community libraries
 
 - [neopixel](https://github.com/technobly/Particle-NeoPixel.git)
 - [blynk](https://build.particle.io/libs/blynk/0.5.3/tab/blynk.cpp)

@@ -18,11 +18,11 @@ This article is divided into two sections:
 * For the current owner: [Removing a Device from its Current Account](/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/#removing-a-device-from-its-current-account)
 * For the new owner: [Claiming the Device to a New Account](/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/#claiming-a-device-to-a-new-account)
 
-## Removing A Device From Its Current Account
+## Removing a device from its current account
 
 In order to transfer a device from one account to another it first needs to be unclaimed by the prior account. You can remove the device from the account it was previously registered to by using the Particle Console, the [Particle Build IDE](https://build.particle.io/build), or the Particle CLI (see instructions below).
 
-### Using the Console
+### Using the console
 
 If you are the prior owner of the device, the Console is likely the easiest way to relinquish your claim to the device in order to transfer it to a new, different account. Simply log in to the [Console](https://console.particle.io/devices) and find the device either in your main /devices page or in the /devices endpoint of the Product the device may be connected to. From there, click the "..." on the right-hand side of the device's column and select "Unclaim Device." You're good to go!
 
@@ -59,7 +59,7 @@ where is either the familiar name or device ID of the you'd like to remove from 
 `particle device remove pinky_panda`
 4. **Confirm Removal.** Confirm that you _really_ want to remove the from your account by entering "yes" when prompted by the CLI.
 
-## Claiming A Device To A New Account
+## Claiming a device to a new account
 
 1. **Connect the device you're trying to claim to your computer.**  
 Make sure that the is connected to the Particle Device Cloud (breathing or pulsing cyan).  

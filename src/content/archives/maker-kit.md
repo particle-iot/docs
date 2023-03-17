@@ -482,7 +482,7 @@ Wouldn’t it be awesome to be able to know whether someone is occupying your of
 
 <iframe src="https://player.vimeo.com/video/178283764" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-### Set up a Slack Incoming Webhook
+### Set up a Slack incoming webhook
 A [Slack Incoming Webhook](https://api.slack.com/incoming-webhooks) listens for data from an external source and then posts it to a Slack channel of your choosing.
 
 First, make a channel for the webhook to post in. This example is for conference room availability, so we’ll make a channel called #conferenceroom. Next, click the gear icon and choose “Add an app or integration”.
@@ -528,7 +528,7 @@ The **\{{PARTICLE_EVENT_VALUE}}** field gets filled with the data sent when the 
 
 Scroll down to the bottom and hit **Create Webhook**.
 
-### Photon → Webhook Code
+### Photon → Webhook code
 Now we'll look at the code used to activate the webhook from a Photon. Here's all the code used in the project:
 ```
 /*****************************************************************************

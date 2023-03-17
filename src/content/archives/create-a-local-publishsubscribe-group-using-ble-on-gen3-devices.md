@@ -18,7 +18,7 @@ The library works by connecting the devices over BLE. One of the devices in the 
 
 Data is exchanged one to one from the Central to each Peripheral. However, when data is sent from a Peripheral to the Central, it both "consumes" the data locally, as well as forwarding the data to all the other Peripherals that it is connected with.
 
-## Typical Usage
+## Typical usage
 
 You will need 2 or more devices. One will act as the Central, and the other(s) as Peripheral.
 

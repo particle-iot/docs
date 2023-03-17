@@ -9,7 +9,7 @@ description: Manufacturing with Particle Cellular Devices
 
 This document is designed to identify best practices for manufacturing products with Particle cellular devices at scale. The following information should be interpreted as a series of informed suggestions, not as prescribed rules, and we have done our best to account for the various exceptions we might expect from the following workflow.
 
-## Assumptions & Caveats
+## Assumptions & caveats
 
 The following assumptions are made for using this document:
 
@@ -27,7 +27,7 @@ It is assumed that you have incorporated one of the following Particle SKUs into
 | Electron | Gen 2 | ELC404, ELC314, E270, E260, E350 |
 
 
-#### There is one Contract Manufacturer (CM) handling assembly of the product.
+#### There is one contract manufacturer (CM) handling assembly of the product.
 
 For small-scale deployments and testing you could also be taking assembled circuit boards and preparing the final assembly, such as putting the circuit boards in the enclosure and connecting any cables, yourself.
 
@@ -54,7 +54,7 @@ or:
 - (Customer) Device Import/Claiming/Renaming/Group Assignment performed simultaneously with or after the manufacturing process.
 
 
-#### Manufacturing test firmware has been prepared in accordance with the principles of Incoming Quality Control.
+#### Manufacturing test firmware has been prepared in accordance with the principles of incoming quality control.
 
 Incoming Quality Control or IQC is the step of validating that each part in the assembly is functional and meets quality requirements prior to assembly into the finished product.  This step may not be necessary if the part is simply removed and swapped for a new one.  However, if the part is soldered into the product thus making it difficult to remove and swap a new one into the finished product, then IQC may be required to first test the component before installing.  This is typically done for every part if the consequence of a faulty device is expensive, and done as spot-checking if less so.  The IQC test rig is typically a ZIF socket used to plug in a device, press a button and visually see a pass/fail.
 
@@ -70,7 +70,7 @@ Particle does not have an example of manufacturing test firmware, given the vari
 Particle recommends putting an LED on all baseboards; without one it can be difficult to quickly assess the functionality of the Particle device. At the very least, we strongly recommend adding a test header or test points on the board so one can access the RGB LEDs, reset, mode, and USB from a debugging adapter. 
 
 
-## Manufacturing Procedure
+## Manufacturing procedure
 
 The following procedure involves commands from the host computer via the Particle Command Line Interface (CLI) and via curl to a series of Particle Cloud API endpoints. The CLI performs device programming and curl commands perform device provisioning. It is typical for each suite of commands to be wrapped into a shell script (such as bash for Linux, Mac, or Windows with Windows Subsystem for Linux enabled), MSDOS batch file (.bat), or a node.js script.
 
@@ -138,7 +138,7 @@ curl "https://api.particle.io/v1/products/$PRODUCT_NUM/sims"
 -d access_token=$ACCESS_TOKEN
 ```
 
-## Assembly and Test
+## Assembly and test
 
 ![](/assets/images/manufacturing/assembly-test.png)
 

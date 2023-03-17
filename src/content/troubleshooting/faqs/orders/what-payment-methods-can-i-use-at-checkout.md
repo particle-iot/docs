@@ -12,13 +12,13 @@ While the Particle retail store only accepts payment via Credit Cards at this ti
 * **Credit Cards** - We accept Visa, Mastercard, American Express, and Discover credit cards.
 * **Manual Payment (ACH - US / Wire Transfer - Non-US)** - We can accept ACH payments/wire transfers on orders over $2,500, or for customers with prior approval from the Particle team. Payments made via ACH will be due to Particle prior to shipment of the order.
 
-## Paying with a Credit Card
+## Paying with a credit card
 
 On the Payment page of the checkout process, you will select "Credit card" as your payment method. You will then need to fill in the appropriate credit card information in the fields you see below.
 
 ![Wholesale_Credit_Card_Checkout.png](/assets/images/support/Wholesale_Credit_Card_Checkout.png)
 
-## Paying via ACH (US) or Wire Transfer (Non-US)
+## Paying via ACH (US) or wire transfer (non-US)
 
 The Wholesale store offers the option to pay using ACH, also referred to as Manual Payment, on any order over $2,500\. If you are a customer who has a signed contract with Particle, you may be eligible to select ACH as a payment option on all orders to receive your negotiated payment terms.
 

@@ -44,7 +44,7 @@ _NOTE: If you are running Mac OS 10.15 (Catalina), please use Safari to download
 - Ubuntu Linux (or other Debian-style distribution) is required to use the installer.
 - If you are having difficulties, there are [additional tips in the FAQ](/getting-started/developer-tools/workbench-faq/#linux-tips).
 
-### All Operating Systems
+### All operating systems
 
 After clicking through the first two screens, you'll reach the first option. It is not necessary to install the Azure IoT toolkit.
 
@@ -137,6 +137,6 @@ To compile your program and download the binary, open the Command Palette and se
 For larger projects, development teams, and products, we recommend [Particle Workbench](/workbench) instead of the Web IDE. If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
 
 
-## Learn More
+## Learn more
 
 You can learn more about Workbench features in the [Particle Workbench Tutorial](/getting-started/developer-tools/workbench/).

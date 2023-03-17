@@ -5,17 +5,17 @@ columns: two
 description: Accessories for Particle Gen 3 devices including the Argon and Boron, and other Adafruit FeatherWing accessories.
 ---
 
-# Gen 3 Accessories
+# Gen 3 accessories
 
 These accessories are for the Particle Gen 3 devices: Argon and Boron in the Adafruit Feather form-factor.
 
-## Grove Starter Kit 
+## Grove starter kit 
 
 <div align=center><img src="/assets/images/accessories/grove-kit.jpg" ></div>
 
 The Grove starter kit is designed to make your first exploration into the world of sensing and actuating a breeze. The kit comes with seven different components that work out-of-the-box with Particle Gen 3 hardware and let you focus on learning the basics. Working with Starter Kit requires no soldering and minimal wiring. Simply connect the kit’s Grove Shield (the new co-developed FeatherWing adapter from Particle and SeeedStudio) to your Particle Gen 3 board and use the included cables to connect the adapter and the sensors and actuators that you want to use. It’s a plug-and-play experience.
 
-### Kit Contents
+### Kit contents
 
  - 1x Grove Shield for Particle Gen 3 devices
  - 1x Button
@@ -60,7 +60,7 @@ It can be used on either a digital or analog input port, and the button is read 
 
 Additional information available [here.](https://www.seeedstudio.com/Grove-Button-p-766.html)
 
-#### Rotary Angle Sensor
+#### Rotary angle sensor
 
 <div align=center><img src="/assets/images/accessories/grove-mesh-starter-kit/pot.png" ></div>
 
@@ -71,7 +71,7 @@ It must be used on an analog input port, and the value is read using the primary
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-Rotary_Angle_Sensor/)
 
 
-#### Ultrasonic Ranger
+#### Ultrasonic ranger
 
 <div align=center><img src="/assets/images/accessories/grove-mesh-starter-kit/ultrasonic.png" ></div>
 
@@ -82,7 +82,7 @@ The library is available in the Web IDE as [Grove_Ultrasonic_Ranger](https://bui
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/)
 
 
-#### Temperature and Humidity Sensor
+#### Temperature and humidity sensor
 
 <div align=center><img src="/assets/images/accessories/grove-mesh-starter-kit/temphumi.png" ></div>
 
@@ -93,7 +93,7 @@ The library is available in the Web IDE as [Grove_Temperature_And_Humidity_Senso
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-TemperatureAndHumidity_Sensor/)
 
 
-#### Light Sensor v1.2
+#### Light sensor v1.2
 
 <div align=center><img src="/assets/images/accessories/grove-mesh-starter-kit/lightsensor.png" ></div>
 
@@ -188,7 +188,7 @@ The form-factor is based around the Adafruit FeatherWing Tripler. The two side c
 
 <div align=center><img src="/assets/images/accessories/ethernet-featherwing/ethernet-featherwing-plugged.png" ></div>
 
-### Pin Map
+### Pin map
 
 |Particle Pin|Ethernet FeatherWing Pin   |
 |:-------|:--------------------------|
@@ -238,7 +238,7 @@ The recommended cable for PoE is Cat 6 twisted pair with a maximum length of 100
 
 The Eagle CAD design for the PoE adapter is open source. All the files are available on our [GitHub repository](https://github.com/particle-iot/ethernet-wing).
 
-## Classic Adapter
+## Classic adapter
 
 <div align=center><img src="/assets/images/accessories/classic-adapter.png" ></div>
 
@@ -348,7 +348,7 @@ When using the classic adapter, some pins will hang off the edge. Makes sure the
 {{collapse op="end"}}
 
 
-### Pin Map
+### Pin map
 
 |Legacy Device | Gen 3 Device|
 |:-------------|:-----------|
@@ -398,7 +398,7 @@ It's not possible to use SPI with the classic adapter. The Gen 3 SPI pins (MISO,
 | MOSI | D2 | D3 |
 | MISO | D3 | D4 |
 
-### Other Features
+### Other features
 
 The Gen 3 devices do not support DAC or CAN, so those classic devices using those features won't work with the classic adapter.
 

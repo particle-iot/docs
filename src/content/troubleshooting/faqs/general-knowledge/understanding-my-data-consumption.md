@@ -11,7 +11,7 @@ For questions about **how Particle devices consume data**, including information
 
 For questions about **how Particle bills for data**, please see our [Pricing Page](https://www.particle.io/pricing/) and [Pricing FAQ](/troubleshooting/faqs/general-knowledge/pricing-faq/).  
   
-## Data Consumption In Low-Connectivity Environments
+## Data consumption in low-connectivity environments
 
 If you see unexpectedly high data usage, there are usually two main reasons:  
   
@@ -25,6 +25,6 @@ You can collect connectivity metrics by navigating to the Console page for a giv
 
 Devices with connectivity issues may experience frequent, abrupt disconnects - sometimes in the middle of the handshake process. In certain edge cases, this can lead to noticeably higher-than-expected data consumption. 
 
-## Data Latency
+## Data latency
 
 We rely on third party telephony partners to provide us with information about your data consumption. Data consumption logs (“Call Data Records” or CDRs) are processed in a large queue for execution by our telephony partner. In some instances, on high-traffic days, this can lead to delays. In some cases, this can take a few business days, leading to a perceived mismatch between your device’s real life performance and data usage displayed on the Console. 

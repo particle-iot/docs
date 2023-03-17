@@ -9,7 +9,7 @@ There are a number of ways to quickly find your Particle device's Device OS vers
   
 There are two easy ways to do so, and it depends on one thing: **has your device come online after its most recent firmware flash or not?**
 
-## The Console
+## The console
 
 If your device **has come online**, and you've been able to claim it, you can find your device's Device OS version by navigating to the /devices page of the Console - either a User account, and/or a Product page if this device belongs to a Product. For example:
 

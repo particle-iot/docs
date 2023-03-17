@@ -25,7 +25,7 @@ There are a very large number of Click shields available, however there is no se
 For some sensors, for example the TMP102 I2C temperature sensor, there is a library available in the [Particle community libraries](/reference/device-os/libraries/s/SparkFun-TMP102/).
 
 
-## Feather Shield
+## Feather shield
 
 ![Mikroe Feather](/assets/images/prototyping/mikroe-feather.png)
 
@@ -83,7 +83,7 @@ This table just shows the socket-specific pin mapping:
 | CS2 | D5 |
 
 
-## Gen 3 SoM Shield
+## Gen 3 SoM shield
 
 {{!-- BEGIN shared-blurb b644c2f2-a5ca-11ec-b909-0242ac120002 --}}
 ![Mikroe Gen 3 SoM](/assets/images/prototyping/mikroe-som.png)
@@ -142,7 +142,7 @@ If you wish to implement CAN (controller area network) with the Mikroe system, y
 
 ## Example
 
-### Gen 3 SoM Shield with TMP102 temperature sensor
+### Gen 3 SoM shield with TMP102 temperature sensor
 
 This is a simple example that uses the [Thermo-3-click](https://www.mikroe.com/thermo-3-click) temperature sensor.
 

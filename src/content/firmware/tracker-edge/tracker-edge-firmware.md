@@ -72,7 +72,7 @@ particle device add <device-id>
 
 Replace &lt;device-id> with the 24-character hex device ID.
 
-## Getting the Tracker Edge Firmware
+## Getting the Tracker Edge firmware
 
 You can download a complete project for use with Particle Workbench as a zip file here:
 
@@ -484,7 +484,7 @@ On a successful cmd request, the result is 0. A result of -22 indicates the JSON
 
 **Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
-## Learn More 
+## Learn more 
 
 - The [Tracker Edge Firmware API Reference](/firmware/tracker-edge/tracker-edge-api-reference/) has more information on the available APIs.
 - The [Tracker Eval Board I2C Example](/getting-started/tracker/tracker-eval-tutorials/#i2c-sensor-example) shows how to add I2C sensor data to your location publishes.

@@ -5,9 +5,9 @@ layout: commonTwo.hbs
 description: Introduction to the Particle Cloud for Particle IoT devices
 ---
 
-# Device Cloud Introduction
+# Device cloud introduction
 
-## Device Cloud Features
+## Device cloud features
 
 The Particle Device Cloud provides a secure, data-efficient way for your Particle devices to communicate.
 
@@ -35,7 +35,7 @@ Using CoAP over DTLS with session resume allows the cloud connection to be resum
 
 Using feature like Particle Publish allows data to be sent to external servers using as little as 150 to 200 bytes of data. Establishing a TLS/SSL connection to an external server directly from a device could use 5000 bytes of data for each piece of data sent when including the TLS/SSL handshake. This is possible because the TLS/SSL authentication is done off-device using [webhooks](/reference/cloud-apis/webhooks/) or the [server-sent-events stream](/reference/cloud-apis/api/#product-event-stream).
 
-### Communication Features
+### Communication features
 
 - [Publish and Subscribe](/getting-started/device-os/introduction-to-device-os/#particle-publish).
 - [Functions and Variables](/getting-started/device-os/introduction-to-device-os/#particle-function).
@@ -75,19 +75,19 @@ Subscribing to private events is secure, as only devices in your account can sen
 
 There is no ability for devices to send function calls to other devices; publish and subscribe should be used instead.
 
-#### Public Events
+#### Public events
 
 Prior to August 2020, a feature existed for public publish and subscribe. This allowed an event to be published and viewed by anyone on the Internet who subscribed to it. This was envisioned as been similar to public tweets on Twitter.
 
 In practice, this feature was vary rarely intentionally used and frequently unintentionally used, creating security issues. Not only would the data be viewable by the public, but when used for controlling things, anyone could send control messages. To eliminate this problem, public event support has been removed. 
 
-#### OTA Firmware Updates
+#### OTA Firmware updates
 
 Updating your device firmware and Device OS can be done securely over the Particle cloud connection that's used for the other device cloud features.
 
 
 
-## Pricing Plans
+## Pricing plans
 
 {{!-- BEGIN shared-blurb 27145a22-9b9b-11ec-b909-0242ac120002 --}}
 #### Free plan
@@ -118,7 +118,7 @@ Updating your device firmware and Device OS can be done securely over the Partic
 - [Contact sales](https://particle.io/sales/) for more information
 {{!-- END shared-blurb --}}
 
-## Data Operations
+## Data operations
 
 {{!-- BEGIN shared-blurb a7c0e9bc-9ba8-11ec-b909-0242ac120002 --}}
 The central billing element for both cellular and Wi-Fi is the Data Operation:
@@ -193,7 +193,7 @@ Support has been tested with Microsoft NPS, Cisco Secure ACS, and Cisco ISE. Fre
 
 WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
 
-### Special Wi-Fi Considerations
+### Special Wi-Fi considerations
 
 The following features are **not supported**:
 
@@ -204,17 +204,17 @@ The following features are **not supported**:
 - Wi-Fi Networks without a DHCP server with the Argon, P2, and Photon 2 require Device OS 5.3.0 or later. Earlier versions did not support static IP addresses.
 - IPv6 is not supported.
 
-## Cloud Services and Firewalls
+## Cloud services and firewalls
 
 The IP addresses used by the Particle cloud are subject to change without notice. Use the information here as a last resort if you have a network that restricts traffic and are unable to allow-list traffic by using techniques such as MAC address allow-lists.
 
-### Gen 3 and Gen 2 Cellular
+### Gen 3 and Gen 2 cellular
 
 Gen 3 devices (Argon, Boron, B Series, Tracker SoM) and Gen 2 cellular devices (Electron, E Series) all use UDP port 5684, outbound. 
 
 While you rarely need to worry about this for cellular devices, for the Argon (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/reference/device-os/api/cloud-functions/particle-keepalive/) to keep the cloud connection active.
 
-### Gen 2 and Gen 1 Wi-Fi
+### Gen 2 and gen 1 Wi-Fi
 
 The Photon, P1, and Spark Core connect to TCP Port 5683 (CoAP), outbound.
 
@@ -224,7 +224,7 @@ If you are connecting from a restrictive network that does not allow outbound TC
 
 If your device is unable to connect to the Particle cloud, but is able to connect to its network, an outbound UDP NTP request may be made to pool.ntp.org, port 123 to see if DNS and other hosts on the Internet are accessible. This is only done on connection failures, and only affects logging. It will not prevent connecting to the Particle cloud.
 
-### Cloud IP Addresses
+### Cloud IP addresses
 
 The list of servers devices connect to is subject to change and you should avoid relying on a static list of IP addresses if possible.
 
@@ -234,7 +234,7 @@ The current list is stored [here](https://infra.particle.io/v2/data/ips/device-s
 
 The devices themselves do not access the Particle Cloud using the API port, but if you are using the Tinker mobile app over Wi-Fi, curl commands, node.js scripts, etc. from a computer on the Wi-Fi or LAN, and you have a restrictive outbound network connection policy, you may need to allow-list **api.particle.io** port 443 (TLS/SSL), outbound.
 
-### Other Services
+### Other services
 
 Other common services includes:
 

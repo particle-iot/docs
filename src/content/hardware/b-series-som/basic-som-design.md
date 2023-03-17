@@ -98,7 +98,7 @@ The bill of materials for this board is:
 | 1 | M2*3 screw w/4mm head | [example](https://www.amazon.com/gp/product/B07NZ32TRB/ref=ppx_yo_dt_b_asin_title_o00_s00) | |
 
 
-## Eagle Files
+## Eagle files
 
 The eagle directory contains files for Autodesk Eagle CAD 9. It is a small two-layer board you can view and edit it with the free version of Eagle CAD.
 

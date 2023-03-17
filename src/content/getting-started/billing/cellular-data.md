@@ -7,11 +7,11 @@ description: Optimizing data using with Particle cellular devices
 
 # {{title}}
 
-## Cellular Data Service with Particle
+## Cellular data service with Particle
 
 Particle provides a number of devices with cellular connectivity including the Tracker, Boron, B Series SoM, E Series, and Electron. These can provide access in areas without Wi-Fi and provide a more seamless solution that does not depend on being able to connect to your customer's Wi-Fi network, which may involve unexpected challenges. 
 
-### Pricing Plans
+### Pricing plans
 
 {{!-- BEGIN shared-blurb 27145a22-9b9b-11ec-b909-0242ac120002 --}}
 #### Free plan
@@ -42,7 +42,7 @@ Particle provides a number of devices with cellular connectivity including the T
 - [Contact sales](https://particle.io/sales/) for more information
 {{!-- END shared-blurb --}}
 
-### Data Operations
+### Data operations
 
 {{!-- BEGIN shared-blurb a7c0e9bc-9ba8-11ec-b909-0242ac120002 --}}
 The central billing element for both cellular and Wi-Fi is the Data Operation:
@@ -87,7 +87,7 @@ If the device is believed to be online, an attempt will be made, which will cons
 
 If the transmission is not acknowledged, it is possible that up to two more attempts will be made, each adding a Data Operation. If all three attempts fail, the device will then be marked as offline.
 
-### Cellular Data Limit
+### Cellular data limit
 
 For cellular devices, there is a data limit depending on your tier. For the Free plan, the cellular data limit is {{freeTierDataOperationsCellularData}} , pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of Data Operations, so you probably won't need to worry about the exact number of bytes for each operation.
 
@@ -160,7 +160,7 @@ Particle.publish("T", String::format("%d,%d,%d,%d,%d", temperatures[0],temperatu
 
 **Update Device OS over USB** Using `particle update` over USB to upgrade your device's version of Device OS can save a significant amount of data over upgrading over-the-air.
 
-### Additional Details
+### Additional details
 
 If you're interested in the specific details about data usage, expand this section.
 

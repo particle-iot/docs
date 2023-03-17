@@ -5,11 +5,11 @@ columns: two
 ---
 
 # {{{title}}}
-## MVP Program FAQ
+## MVP Program faq
 
 Before reading this FAQ, you may want to familiarize yourself with the [Particle MVP Program overview](https://www.particle.io/mvp-program/) on the Particle website.
 
-### Are MVPs Particle Employees?
+### Are MVPs Particle employees?
 
 No. Particle MVPs are community members and independent engineers who work with Particle products on a regular basis. Many are IoT professionals who work with a variety of tools and services, and who have developed expertise over years of embedded and connected development. 
 

@@ -17,7 +17,7 @@ In this exercise, we're going to send data from IoT Hub to Power BI. When we do 
 
 ![](/assets/images/workshops/photon-maker-kit/04/power-bi-done.png)
 
-## Add a new Consumer Group to IoT Hub
+## Add a new consumer group to IoT hub
 
 1. In your IoT Hub, select "Endpoints" under the "Messaging" section and then click on "Events" under Built-in Endpoints.
 
@@ -27,7 +27,7 @@ In this exercise, we're going to send data from IoT Hub to Power BI. When we do 
 
     ![](/assets/images/workshops/photon-maker-kit/04/new-consumer-group.png)
 
-## Setting Up Stream Analytics
+## Setting up stream analytics
 
 1. Create a new Stream Analytics Job in the Azure Portal
 
@@ -83,7 +83,7 @@ In this exercise, we're going to send data from IoT Hub to Power BI. When we do 
 
     ![](/assets/images/workshops/photon-maker-kit/04/overview-start-start.png)
 
-## Create a Live Streaming Power BI Dashboard
+## Create a live streaming power BI dashboard
 
 1. Log in to Power BI at [powerbi.microsoft.com](https://powerbi.microsoft.com)
 

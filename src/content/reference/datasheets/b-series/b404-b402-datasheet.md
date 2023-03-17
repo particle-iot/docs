@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B404/B402 Datasheet
+# B404/B402 datasheet
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b404-b402-datasheet.pdf"}}
@@ -44,7 +44,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 <sup>1</sup> Not all bands enabled in software by default
 
-#### Features - All Models
+#### Features - all models
 
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
@@ -87,7 +87,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 {{!-- END shared-blurb --}}
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the B404 and B402.
 
@@ -138,7 +138,7 @@ We do not recommend using a single 3.6V supply for both VCC and 3V3 as the cellu
 
 There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular radio (u-blox). We have provided two u.FL connectors to plug in the cellular and BLE antenna. These are required if you wish to use the cellular and BLE. If you do not need BLE, you do not need to connect the BLE antenna.
 
-#### Certified Cellular Antenna
+#### Certified cellular antenna
 
 | SKU  | Description |
 | :--- | :--- |
@@ -155,7 +155,7 @@ There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular r
   - Cable length: 210 mm
   - Gain: 4.71 dBi
 
-#### General Antenna Guidance
+#### General antenna guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
@@ -189,7 +189,7 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 ## Memory map
 
-### nRF52840 Flash Layout Overview
+### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
   - User Application
@@ -198,7 +198,7 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+### External SPI flash layout overview (dfu offset: 0x80000000)
 
  - OTA (1500KB, @0x00289000)
  - Reserved (420KB, @0x00220000)
@@ -465,7 +465,7 @@ The B Series SoM has two radio modules.
 
 ---
 
-### I/O Characteristics 
+### I/O characteristics 
 
 These specifications are based on the nRF52840 datasheet.
 
@@ -504,7 +504,7 @@ These specifications are based on the nRF52840 datasheet.
 
 ## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
 
 | Parameters | Value | Unit |
 | --- | --- | --- |
@@ -532,7 +532,7 @@ One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product
 
 ---
 
-### Screw Assembly
+### Screw assembly
 
 ![Screw Assembly](/assets/images/b-series/b-series-screw.jpg)
 
@@ -552,16 +552,16 @@ We recommend this screw assembly to securely affix the B series SoM to your circ
 
 - Note that a hold-down screw is required because the M.2 connector does not have integrated locks and the SoM will pop up if not attached to the base board.
 
-### Design Considerations
+### Design considerations
 
 We strongly recommend against placing components under the SOM board because there is not enough height.
 
 {{imageOverlay src="/assets/images/b-series/b-series-keep-out.png" alt="Keep-Out Area"}}
 
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 The B series contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an B series without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the B series module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the B series!
 
 ### Connectors

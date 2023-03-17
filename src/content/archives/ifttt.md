@@ -23,7 +23,7 @@ If you're totally new to Particle, that's okay! Before you get going on the Part
 
 Lets go!
 
-## Parts of an IFTTT Recipe
+## Parts of an IFTTT recipe
 
 ### What are triggers?
 
@@ -33,7 +33,7 @@ Triggers are the _this_ part of a Recipe. Triggers are how IFTTT knows when to r
 
 Actions are what IFTTT does when the answer to your trigger question is "yes!" When set up, you can have IFTTT email you, post for you, save info to Dropbox, or many other useful functions.
 
-### What are Recipes?
+### What are recipes?
 A combination of a Trigger and an Action. IFTTT lets you connect triggers to actions.  Did someone tweet something interesting (that's a trigger), then turn my disco ball on (that's an action).
 
 ### What are ingredients?
@@ -52,7 +52,7 @@ Other IFTTT channels will provide (and sometimes automatically insert) their own
 
 ## Triggers
 
-### New Event Published
+### New event published
 
 ```C++
 // SIMPLEST SYNTAX

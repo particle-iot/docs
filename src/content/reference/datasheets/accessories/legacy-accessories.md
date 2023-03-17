@@ -5,25 +5,25 @@ columns: two
 description: Accessories for Particle Photon and Electron devices (Gen 2)
 ---
 
-# Legacy Accessories
+# Legacy accessories
 
-## Shield Shield
+## Shield shield
 
 Sometimes life can be a little difficult in the land of electronics when two systems talk a different voltage language. How do you make them talk to each other without making one of them _burn out_? The Shield Shield is the answer. This shield performs all the necessary voltage translation and provides an Arduino-compatible footprint to make it easier for you to plug in your existing Arduino shields or talk to other 5V hardware.
 
 ![Shield Shield](/assets/images/shields/shield-shield/shield-shield.png)
 
-### Shield Shield - Operation
+### Shield shield - operation
 
 We use Texas Instruments TXB0108PWR to do the voltage translation in between the Particle's device's 3.3V to a 5V logic. Unlike other IO pins, the analog pins are rated at only a max of 3.3V and **NOT** 5.0V. Please remember NOT to exceed this voltage at anytime. The shield has an on-board voltage regulator and can be powered from 7V to 15V DC source. You could also power it via the USB plug on the Particle device alone but the current would be limited to 500mA.
 
-### Shield Shield Schematic - TXB0108PWR
+### Shield shield schematic - TXB0108PWR
 
 ![Shield Shield TXB0108PWR](/assets/images/shields/shield-shield/txb0108pwr-schematic.png)
 
 The new version of the Shield Shield (v3.x.x) uses dedicated MOSFET based voltage translation on the I2C lines. We also decided to add a prototyping area in empty space in the middle of the shield.
 
-### Shield Shield Schematic - MOSFET I2C
+### Shield shield schematic - MOSFET I2C
 
 ![Shield Shield I2C](/assets/images/shields/shield-shield/mosfet-i2c-schematic.png)
 
@@ -31,7 +31,7 @@ The new version of the Shield Shield (v3.x.x) uses dedicated MOSFET based voltag
 
 **Note:** One drawback of using the TXB0108PWR as a voltage translator is that it is only capable of driving loads at short distances. Long length wires will introduce excessive capacitive loading and cause the auto direction detection to fail. To overcome this drawback, the shield shield also has an optional on-board 74ABT125 buffer that is capable of driving heavier loads in *one* direction. A user can jumper wire to whichever IO pin they would like to be translated to 5V.
 
-### Shield Shield - Pin Mapping
+### Shield shield - pin mapping
 
 ![Shield Shield Pinmapping](/assets/images/shields/shield-shield/shield-shield-pinmapping.png)
 
@@ -63,7 +63,7 @@ The new version of the Shield Shield (v3.x.x) uses dedicated MOSFET based voltag
 
 **IMPORTANT:** The Shield Shield does not map the Particle device's pins to like-numbered pins on the Arduino. In other words, D0 on the Particle device is not the same as D0 on the Arduino. Please review the pin mapping table to the right and plan accordingly.
 
-### Shield Shield - Specifications (v3.x.x)
+### Shield shield - specifications (v3.x.x)
  - Operating voltage: 7 to 15V DC
  - Current consumption: standalone 7mA at 9V DC
  - Voltage translator with auto direction detect: TXB0108PWR
@@ -85,7 +85,7 @@ Link to the Shield Shield Library and example connections for I2C, SPI, ADC, and
 add PDF template for holes
 -->
 
-## Relay Shield
+## Relay shield
 The Relay Shield allows you to take over the world, one electric appliance at a time. Want to control a lamp, fan, coffee machine, aquarium pumps or garden sprinklers? Then this is a solution for you!
 
 The shield comes with four relays that are rated at a max of 220V @10Amp allowing you to control any electric appliance rated at under 2000 Watts. You are not just limited to an appliance though; any gadget that requires high voltage and/or a lot of current can be controlled with this shield.
@@ -96,7 +96,7 @@ We have even provided a small prototyping area around the shield for you to add 
 
 **IMPORTANT:** This shield provides regulated power (5V) to the seated Particle device and relays. However, it does not support power to the devices controlled by the relays.
 
-### Relay Shield - Library
+### Relay shield - library
 If you're already logged into Build.particle.io then you can [jump directly to the library](https://build.particle.io/libs/RelayShield/0.0.6/tab/1_Blink_a_Relay.cpp) to get going quickly and easily with the RelayShield library, which wraps all the features in easy-to-use functions.
 
 Examples include:
@@ -104,19 +104,19 @@ Examples include:
 2. __Blink all the Relays__ - An extension on the simplest case
 3. __Internet Relays__ - Creating Particle.function()s so that you can turn relays on and off over the Internet
 
-### Relay Shield - Operation
+### Relay shield - operation
 
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D3, D4, D5 and D6 on the Particle device. Each relay is triggered via a NPN transistor that takes a control signal from the Particle device and switches the relay coil ON and OFF, which in turn makes or breaks the electrical contact on the output. There is also a fly-back diode connected across the coil to help protect the transistor from high voltage transients caused during switching.
 
 **NOTE:** On the under side of the relay shield (top center), you will see 4 solder pads that are by default bridged via traces. You can scratch off the trace to disconnect the control pin from the preassigned ones (D3 to D6) and wire up based on your project requirement.
 
-### Relay Shield Schematic - Control
+### Relay shield schematic - control
 
 ![Relay Shield Interface](/assets/images/shields/relay-shield/relay-shield-schematic-1.png)
 
 The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnects when the relay is ON.
 
-### Relay Shield Schematic - Power Supply
+### Relay shield schematic - power supply
 
 ![Relay Shield Power Supply](/assets/images/shields/relay-shield/relay-shield-schematic-2.png)
 
@@ -124,11 +124,11 @@ The Relay Shield uses a high efficiency [RT8259](http://www.richtek.com/download
 
 Here is an example setup to control a light bulb. The relay acts like a switch which is normally open and when pin D3 on the Particle device is turned HIGH, it activates Relay 1 thereby closing the circuit on the light bulb and turning it ON. Ta dah!
 
-### Relay Shield - Sample Setup
+### Relay shield - sample setup
 
 ![Relay Shield Setup](/assets/images/shields/relay-shield/relay-shield-setup.png)
 
-### Relay Shield - Sample Code
+### Relay shield - sample code
 
 ```cpp
 int RELAY1 = D3;
@@ -191,7 +191,7 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/relay \
   -d access_token=123412341234 -d params=r1,HIGH
 ```
 
-### Relay Shield - Specifications (v3.x.x)
+### Relay shield - specifications (v3.x.x)
  - Operating voltage: 7 to 20V DC
  - Current consumption: 150mA min to 290mA max (at 9V DC)
  - Relay Max Voltage: 220V AC
@@ -228,7 +228,7 @@ Here is how to perform that surgery:
 [picture of the pads solder jumped]
 -->
 
-## Programmer Shield
+## Programmer shield
 
 Do you want to gain complete control over your Particle device right down to its every bit of memory space? or watch as your code gets executed and debug it? Then this shield should be able to pacify that control freak inside of you.
 
@@ -245,7 +245,7 @@ For more instructions on setting up OpenOCD and using the Programmer Shield, ple
 [https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield)
 
 
-### Programmer Shield - Specifications
+### Programmer shield - specifications
  - Operating supply: USB
  - Current consumption:
  - Dimensions: 1.55" x 3.3"
@@ -256,7 +256,7 @@ For more instructions on setting up OpenOCD and using the Programmer Shield, ple
 
 ![Programmer Shield Dimensions](/assets/images/shields/prog-shield/prog-shield-dimensions.png)
 
-## Power Shield
+## Power shield
 
 The Power Shield, as the name implies, allows the Particle device to be powered from different types of power sources. The shield has an intelligent battery charger and power management unit along with a wide input voltage regulator and an I2C based fuel-gauge. You can power a Particle device with either a USB plug or a DC supply of anywhere from 7 to 20VDC and charge a [3.7V LiPo battery](https://www.sparkfun.com/products/8483) all at the same time.
 
@@ -281,7 +281,7 @@ There are two status LEDs located on the left of the JST battery connector label
 
 The Power Shield includes a MAX17043 I2C fuel gauge chip to monitor the battery level. This is connected using the I2C interface, pins D0 and D1. You can still use the I2C interface in your design, however you should avoid using D0 and D1 as GPIO as it will interfere with the fuel gauge. The Power Shield includes the I2C pull-up resistors.
 
-### Power Shield - Specifications
+### Power shield - specifications
  - Operating voltage: USB or External DC of 7 to 20V
  - Current consumption: 500mA max (USB) & 1.2A max (other DC sources)
  - Dimensions: 1" x 1.84"
@@ -292,7 +292,7 @@ The Power Shield includes a MAX17043 I2C fuel gauge chip to monitor the battery 
 
 **NOTE:** There is a know issue on the v2.1.0 of the Power Shield where the shield will fail to power up the Photon when the battery is inserted for the first time or reinserted after a long time (>60mins). The user will need to unplug and plug the battery back again for the shield to power up. The issue arises by the fact that on startup, the battery charger confuses the Photon booting up to there being a short circuit and powers off to save the device. If you are feeling adventurous, you can fix this issue by soldering a 10nF capacitor across the DPPM pin and GND. This delays the short-circuit protection at startup and lets the Photon bootup without any issues.
 
-## Internet Button
+## Internet button
 
 The Internet Button is not only an easy way to get started on the Internet of Things, it's also a clean and simple way to start building your own prototypes. Quickly start playing with LEDs, multiple buttons, an accelerometer and more without any wires or soldering.
 
@@ -305,7 +305,7 @@ The Internet Button is not only an easy way to get started on the Internet of Th
 |D6 | Button 3   | Button 2 |
 |D7 | Button 4   | Button 1 |
 
-### Internet Button - Library
+### Internet button - library
 If you're already logged into Build.particle.io then you can [jump directly to the library](https://build.particle.io/libs/InternetButton/0.1.11/tab/1_Blink_An_LED.cpp) to get going quickly and easily with the InternetButton library, which wraps all the features in easy-to-use functions.
 
 Examples include:
@@ -322,13 +322,13 @@ Examples include:
 
 ![Internet Button](/assets/images/shields/internet-button/button.png)
 
-### Internet Button - Top
+### Internet button - top
 ![Internet Button Description](/assets/images/shields/internet-button/button-description-top.png)
 
-### Internet Button - Bottom
+### Internet button - bottom
 ![Internet Button Description](/assets/images/shields/internet-button/button-description-bottom.png)
 
-### Internet Button - Specifications
+### Internet button - specifications
 
 - Operating voltage: USB or External DC of 3.3 to 5.5VDC
 - Dimensions: 2.6" x 2.6"
@@ -372,7 +372,7 @@ You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt
 
 
 
-## Photon Maker Kit Contents
+## Photon maker kit contents
 
 ![Photon Maker Kit](/assets/images/maker-kit-photon.jpg)
 
@@ -381,7 +381,7 @@ You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt
 ![Photon with Headers](/assets/images/photon-loose-top.jpg)
 [Click here for the Photon datasheet](/reference/datasheets/wi-fi/photon-datasheet/)
 
-### USB Micro B Cable (1)
+### USB Micro B cable (1)
 
 ![USB Cable](/assets/images/usb-cable.jpg)
 
@@ -391,7 +391,7 @@ A custom Particle USB cable for your Photon! We were really excited to have our 
 
 ![Flex Antenna](/assets/images/flex-antenna.jpg)
 
-### Mini Breadboard (1)
+### Mini breadboard (1)
 
 ![Photon in Breadboard](/assets/images/photon-in-breadboard.jpg)
 
@@ -403,13 +403,13 @@ A custom Particle USB cable for your Photon! We were really excited to have our 
 
 This is a 7" x 9" general purpose dot-matrix prototyping PCB.
 
-### Deluxe Jumper Wire Pack (1)
+### Deluxe jumper wire pack (1)
 
 ![Jumper Cables](/assets/images/mk-jumper-cables.jpg)
 
 Multi-colored and stripped. You can never have enough of these either.
 
-### Male to Female Jumper Wires (10)
+### Male to female jumper wires (10)
 
 ![Jumper Wires](/assets/images/mk-mf-jumper.jpg)
 
@@ -428,7 +428,7 @@ These are standard 0.1" pitch headers that can be cut to size. Very handy when b
 - 40-Pin Male Breakaway Headers (2)
 
 
-### Ceramic Capacitors (10 each)
+### Ceramic capacitors (10 each)
 
 ![Ceramic Capacitors](/assets/images/mk-ceramic-capacitor-10nF.jpg)
 
@@ -439,7 +439,7 @@ These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_ca
 
 *Note:* These are non-polar capacitors which means they can be oriented both ways.
 
-### Electrolytic Capacitor 100uF (5)
+### Electrolytic capacitor 100uF (5)
 
 ![Electrolytic Capacitors](/assets/images/mk-electrolytic-capacitor.jpg)
 
@@ -519,11 +519,11 @@ The cadmium sulfide (CdS) photo resistor was removed from newer kits because of 
 [Photo transistor datasheet >](/assets/datasheets/ALS-PT243.pdf)
 
 
-### 10K Rotary Potentiometer (1)
+### 10K rotary potentiometer (1)
 [Datasheet >](/assets/datasheets/makerkit/10k-pot.pdf)
 
 
-### Temperature Sensor (1)
+### Temperature sensor (1)
 
 ![Unsealed Temp Sensor](/assets/images/mk-temperature-unsealed.jpg)
 
@@ -538,7 +538,7 @@ The DS18B20 is an easy to use one wire digital thermometer with up to 12-bit mea
 [Datasheet >](/assets/datasheets/makerkit/DS18B20.pdf)
 
 
-### Temperature Sensor - Sealed (1)
+### Temperature sensor - sealed (1)
 
 ![Sealed Temp Sensor](/assets/images/mk-temperature-sealed.jpg)
 
@@ -548,7 +548,7 @@ This is the sealed, water proof version of the DS18B20 temperature sensor with w
 - Yellow: Sensor output (1-Wire)
 - Black: Ground
 
-### Piezo Buzzer (1)
+### Piezo buzzer (1)
 
 ![Buzzer](/assets/images/mk-buzzer.jpg)
 
@@ -563,7 +563,7 @@ Add an audible feedback to your project with this buzzer. The longer lead is pos
 
 [Datasheet >](/assets/datasheets/makerkit/buzzer.pdf)
 
-### Mini Push Buttons (3)
+### Mini push buttons (3)
 
 ![Push Buttons](/assets/images/mk-mini-pushbutton.jpg)
 
@@ -597,7 +597,7 @@ You can use this transistor to switch small loads like relays, mini motors, buzz
 
 [Datasheet >](/assets/datasheets/makerkit/pir-sensor.pdf)
 
-### Pancake Vibration Motor (1)
+### Pancake vibration motor (1)
 
 ![Pancake Motor](/assets/images/mk-vibration.jpg)
 
@@ -605,7 +605,7 @@ Wanna give your next Particle device project a tactile feedback? This vibration 
 
 [Datasheet >](/assets/datasheets/makerkit/pancake-motor.pdf)
 
-### Micro Servo (1)
+### Micro servo (1)
 
 ![RC Servo](/assets/images/mk-micro-rc-servo.jpg)
 
@@ -625,7 +625,7 @@ Wiring:
 Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or Red and Signal pin may vary as Yellow or White and sometimes Orange if there is already a Red and Black wire.
 
 
-### Serial OLED Screen,0.96"(1)
+### Serial OLED screen,0.96"(1)
 
 ![OLED](/assets/images/mk-oled.jpg)
 
@@ -642,13 +642,13 @@ This is a 128x64 pixel graphic OLED screen that can be either controlled via the
 
 [Datasheet >](/assets/datasheets/makerkit/oled.pdf)
 
-## Electron Solar Kit
+## Electron solar kit
 
 **The Electron Solar Kit has been discontinued and is no longer available.**
 
 The Solar Kit comes with everything you need to make a solar powered cellular project! Super efficient power design so you can go off-the-grid with no need of wires. It has a big 6W solar panel, waterproof enclosure with cable gland for connecting the panel, and a super low-power timing circuit so the Electron can sleep in between readings. It's an ideal solution for field sensing that needs to go on for months or years.
 
-### Using the Solar Kit
+### Using the solar kit
 Assembly:
 1. Screw the cable gland into the side of the box. If you want it to be truly water-tight, you should add some silicone caulk. Also, the inner nut may not have enough clearance to fit, but that's fine with caulking.
 2. Screw the Solar Shield down inside the box using the included M4 screws.
@@ -753,7 +753,7 @@ Examples:
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
-### Shield Specifications
+### Shield specifications
 
 ![Asset Tracker Dimensions](/assets/images/shields/asset-tracker-shield/asset-tracker-v002-dimensions.png)
 
@@ -820,7 +820,7 @@ You can choose to mount the asset tracker board inside the provided enclosure as
 
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-enclosure.png)
 
-### Electron Asset Tracker Library
+### Electron Asset Tracker library
 We've put together a great library for you to start building from! If you're already logged into the Web IDE then you can just click on [AssetTracker library](https://build.particle.io/libs/AssetTracker/0.0.10/tab/example/1_GPS_Features.ino) and you can always open the "Libraries" view in the Web IDE, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
 
 Examples:
@@ -843,7 +843,7 @@ Examples:
 
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-dims.png)
 
-### Recommended Operating Conditions
+### Recommended operating conditions
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:|
@@ -857,9 +857,9 @@ Examples:
 | Operating Temperature | T<sub>op</sub> | -40 |  | +85 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
-## Electron Sensor Kit
+## Electron sensor kit
 This is the big one! A fantastic collection of premium and versatile sensors.
-### Sensor Kit Includes
+### Sensor kit includes
 - (1) Electron
 - (1) USB Micro B Cable
 - (1) Particle SIM Card

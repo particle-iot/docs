@@ -17,7 +17,7 @@ The B Series SoM is designed for the flexibility to switch between different mod
 | B524 | b5som | &check; | EG91-E | EMEAA |
 | B523 | b5som | &nbsp; | EG9-E | Europe | 
 
-## Questions and Answers
+## Questions and answers
 
 ### Can the same software run across all devices?
 

@@ -53,7 +53,7 @@ The enterprise plan usage is measured in blocks, and you need to pick an initial
 - [How many blocks do I need?](#how-many-blocks-do-i-need-)
 
 
-## FAQ (Frequently Asked Questions)
+## FAQ (frequently asked questions)
 
 ### What is a block?
 

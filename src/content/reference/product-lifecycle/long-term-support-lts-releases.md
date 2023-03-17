@@ -9,7 +9,7 @@ Particle is constantly improving Device OS with new releases that add new featur
 
 Many enterprises building and deploying mission-critical solutions with Particle value reliability over everything else. For those customers, Particle develops and releases Long Term Support (LTS) releases of Device OS that deliver consistent behavior and stable performance for device applications over extended periods of time.
 
-## What are Long Term Support (LTS) releases?
+## What are long term support (LTS) releases?
 
 Long Term Support (LTS) releases for Device OS are independent branches of Device OS that are feature-frozen in time. They do not receive updates with new features, API changes, or improvements that change the function or standard behavior of the device. 
 
@@ -141,7 +141,7 @@ While 4.x and 5.x started from the same place, the 5.0.0-alpha.1 release adds in
 
 Developer preview releases (3.x, for example) do not have an ESM phase, now that 5.0.0 was been released, there will not be additional updates after 3.3.0.
 
-## Switching Between Release Lines
+## Switching between release lines
 
 Particle guarantees smooth upgrades to new LTS releases from prior ones, but **does not provide a comparable guarantee for Device OS downgrades, even within an LTS release branch.** 
 

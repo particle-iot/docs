@@ -44,7 +44,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 <sup>[1]</sup>The LTE model uses a MFF2 SMD Particle SIM instead of a physical SIM card. The Electron LTE is only available to existing enterprise customers who have deployed an Electron 2G/3G solution and would like to upgrade to LTE. It is only available in tray quantities. New designs should use the Boron LTE or B Series B404 SoM. It can only be used in the United States, Canada, and Mexico at this time.
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 2.x LTS release line with the all Electrons.
 
@@ -155,9 +155,9 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 **Notes:**
 [1] Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.)
 
-## Memory Map
+## Memory map
 
-### STM32F205RGT6 Flash Layout Overview
+### STM32F205RGT6 Flash layout overview
 
 - Bootloader (16 KB)
 - DCD1 (16 KB), stores keys, mfg info, system flags, etc..
@@ -215,7 +215,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 ```
 
-### Memory Map (Common)
+### Memory map (common)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -225,7 +225,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 | EEPROM1 | 0x800C000 | 0x8010000 | 16 KB |
 | EEPROM2 | 0x8010000 | 0x8020000 | 64 KB |
 
-### Memory Map (Modular Firmware - default)
+### Memory map (modular firmware - default)
 _Before 0.6.0 firmware_
 
 | Region | Start Address | End Address | Size |
@@ -251,7 +251,7 @@ _Since 0.6.0 firmware_
 
 ---
 
-### Memory Map (Monolithic Firmware - optional)
+### Memory map (monolithic firmware - optional)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -323,7 +323,7 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 You can download a high resolution pinout diagram in a <a href="/assets/images/electron/illustrations/electron_pinout.pdf" target="_blank"><strong>PDF version here.</strong></a></div><br>
 
-## Technical Specifications
+## Technical specifications
 
 ### Absolute maximum ratings <sup>[1]</sup> <i class="icon-attention"></i>
 
@@ -458,7 +458,7 @@ Please be sure to order a board that works in the country where you want to depl
 
 ---
 
-### I/O Characteristics
+### I/O characteristics
 
 These specifications are based on the STM32F205RGT6 datasheet, with reference to Electron pin nomenclature.
 
@@ -492,9 +492,9 @@ These specifications are based on the STM32F205RGT6 datasheet, with reference to
 
 <sub>[5]</sub> Pull-up and pull-down resistors are designed with a true resistance in series with switchable PMOS/NMOS. This PMOS/NMOS contribution to the series resistance is minimum (~10% order).
 
-## Mechanical Specifications
+## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
  * Width = 0.8"
  * Height = 0.65"
  * Length = 2.05"
@@ -532,7 +532,7 @@ All of the Electron hardware design files are open source and available under a 
 
 The USB data lines are terminated with 22 Ohm resistors. These data pins are also exposed via small through holes next to the USB connector and are labeled D+ and D-. The VBUS (+5VDC VCC of the USB port) is fed to the PMIC via a 3Amp Schottky diode ([SS3P3](http://www.vishay.com/docs/88944/ss3p3.pdf)). The VBUS pin is also available via the unpopulated header hole on the top-right side of the Electron.
 
-### PMIC (Power Management Integrated Circuit)
+### PMIC (Power Management integrated circuit)
 
 ![PMIC](/assets/images/electron/schematics/pmic.png)
 
@@ -564,7 +564,7 @@ The u-blox cellular module talks to the microcontroller over a full-duplex USART
 
 Since u-blox module's communication interface operates at 1.8VDC, while the STM32F205RGT6 microcontroller operates at 3.3VDC, we need voltage translators in-between them. This is achieved with two [SN74AVC4T245](http://www.ti.com/lit/ds/symlink/sn74avc4t245.pdf) non-inverting buffers. The default state of the USART pins is set with the help of pull-up and pull-down resistors, and the unused input pins are tied to GND.
 
-### 3.3V Regulator and Fuel Gauge
+### 3.3V Regulator and fuel gauge
 
 ![Regulator and Fuel Gauge](/assets/images/electron/schematics/3v3reg-fuelgauge.png)
 
@@ -578,7 +578,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 
 ![All Layers](/assets/images/electron/pcb/all-layers.png)
 
-## Bill of Materials
+## Bill of materials
 
 |QTY |Device |Value |Package |Designator | Manufacturer | MFG. Part # |
 |-----|------------|-----------|------|------|-------|---------|-------------------------|----------|---------------------|----------------|
@@ -816,9 +816,9 @@ Electrons are available from [store.particle.io](https://store.particle.io/) in 
 {{!-- END do not edit content above, it is automatically generated ab31991a-76c5-11eb-9439-0242ac130002 --}}
 
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 <i class="icon-attention"></i> The Electron contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a Electron without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates Electrons.  ESD precautions should be implemented on the application board where the Electron is mounted. Failure to observe these precautions can result in severe damage to the Electron! <i class="icon-attention"></i>
 
@@ -868,7 +868,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 |OTA | Over The Air; describing how firmware is transferred to the device. |
 |uC  | Microcontroller |
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC IC CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -956,7 +956,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v011 | 31-Jan-2023 | RK | Added Device OS versions |
 
 
-## Known Errata
+## Known errata
 
 We are tracking [known errata with this datasheet here](https://github.com/particle-iot/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.
 

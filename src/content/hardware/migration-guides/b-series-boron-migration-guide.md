@@ -432,7 +432,7 @@ The Boron has a Micro USB B connector.
 
 The B Series SoM does not have a USB connector. It is recommended that you add one to your base board for programming and troubleshooting/
 
-### NFC Tag
+### NFC tag
 
 The Boron and B Series SoM have NFC Tag support.
 
@@ -957,7 +957,7 @@ The reason there are separate platforms for the B4xx and B5xx SoM is that they h
 
 Most third-party libraries are believed to be compatible between the Boron and B Series SoM.
 
-## Version History
+## Version history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|

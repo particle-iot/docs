@@ -249,7 +249,7 @@ If the webhook receives a response from the targeted web server with something i
 
 Note that this will only appears in the Events page for the device owner. The hook events do not appear in the device-specific event log, or in the product event log.
 
-## Custom Template
+## Custom template
 
 The "Custom Template" tab of the webhook editor shows the raw configuration for the webhook. The syntax is described in the [webhook reference page](/reference/cloud-apis/webhooks/).
 
@@ -314,7 +314,7 @@ void myHandler(const char *event, const char *data) {
 
 At any time, you can see some sample firmware for both triggering and getting responses from webhooks on your Particle Console. To do this, simply click on one of your product webhooks and scroll down to "Example Device Firmware."
 
-## Advanced Topics
+## Advanced topics
 
 See [the webhook reference](/reference/cloud-apis/webhooks/) for more details on customizing webhooks with variables, examples of different webhook configurations as well as community guides on setting up webhooks with external services.
 

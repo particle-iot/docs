@@ -46,13 +46,13 @@ This example can be used three different ways:
 
 ![Board Close-Up](/assets/images/app-notes/AN018/board-close.jpg)
 
-### Schematic and Board
+### Schematic and board
 
 ![Schematic](/assets/images/app-notes/AN018/schematic.png)
 
 ![Board Layout](/assets/images/app-notes/AN018/board-layout.png)
 
-### Power and M8 Connection
+### Power and M8 connection
 
 ![M8 and Power](/assets/images/app-notes/AN018/power.png)
 
@@ -90,7 +90,7 @@ Also you can use AIN0 and AIN1 together as a differential input. AIN2 can only b
 
 One caveat: The ADS1015 does not measure edge-to-edge at 12-bit. You can adjust the settings but to measure a full 0 - 3.3V single-ended signal (PGA1 mode) results in a range of 0 - 1562, rather than 0 - 4095. It's a bit more than 10-bit ADC, essentially.
 
-### 12V Boost Converter
+### 12V boost converter
 
 ![Boost Converter](/assets/images/app-notes/AN018/boost.png)
 
@@ -102,7 +102,7 @@ Q3 is an N-channel MOSFET (2N7002) low-side switch. The gate is connected to GPI
 
 U1 is the boost converter, a Microchip Technology MIC2288YD5-TR. It's tiny, inexpensive ($0.56) and only requires a few additional passive components. It converts the 5V CAN_5V to 12V.
 
-### Tank Level Sensor Circuit
+### Tank level sensor circuit
 
 ![Level](/assets/images/app-notes/AN018/level.png)
 
@@ -159,7 +159,7 @@ Choose one of:
 
 ## Firmware
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 You can download a complete project for use with Particle Workbench as a zip file here:
 
@@ -205,7 +205,7 @@ If you prefer to edit project.properties directly, add these:
 {{> codebox content="/assets/files/app-notes/AN018/firmware/AN018.dep" height="100"}}
 
 
-### The Source
+### The source
 
 {{> codebox content="/assets/files/app-notes/AN018/firmware/main.cpp" format="cpp" height="500"}}
 

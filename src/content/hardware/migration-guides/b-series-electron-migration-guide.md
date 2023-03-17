@@ -168,7 +168,7 @@ This board a two-layer circuit board so it can be manufactured inexpensively and
 As this board doesn't really do much, you'll unlikely use it as-is, but you can use it as a tutorial for how to hook up the PMIC and fuel gauge.
 
 
-## Software Differences
+## Software differences
 
 {{!-- BEGIN shared-blurb e5b77a80-8a7a-4bd6-a7b6-8685fb87ed43 --}}
 ### User firmware binary size
@@ -222,7 +222,7 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 - Bluetooth LE (BLE 5.0) is supported on B Series SoM but not the Electron.
 
-### NFC Tag
+### NFC tag
 
 - NFC tag mode is supported on the B Series SoM but not the Electron.
 
@@ -331,7 +331,7 @@ For example, if you have 3V3 disconnect circuitry but have pull-ups to non-disco
 
 There are more UART ports on the Gen 2 devices than Gen 3. If you need more hardware serial ports, the best option is to use the [SC16IS740](https://github.com/rickkas7/SC16IS740RK) or its relatives like the SC16IS750. These devices connect by I2C or SPI, and you can add multiple ports this way.
 
-#### Serial Baud Rates
+#### Serial baud rates
 
 | Baud Rate | Gen 2 | Gen 3 |
 | ------: | :---: | :---: |
@@ -526,7 +526,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 
 - Gen 3 devices do not have built-in DAC, however they can easily be added by I2C or SPI to your base board.
 
-### CAN Bus
+### CAN bus
 
 - Gen 3 devices do not support CAN on the MCU.
 - The Tracker SoM includes CAN via a MCP25625 CAN interface with integrated transceiver.
@@ -540,7 +540,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 
 {{!-- BEGIN shared-blurb 28cd19b2-4f01-444b-8189-ba6191e6ebdd --}}
 
-### Sleep Modes
+### Sleep modes
 
 - In general, Gen 3 devices use less power in all modes.
 - In `HIBERNATE` mode, the RTC (real time clock) does not run on Gen 3 devices, so you cannot wake by time from `HIBERNATE` mode (formerly known as `SLEEP_MODE_DEEP`).
@@ -582,7 +582,7 @@ If you are relying on this behavior for external circuits, you should instead us
 
 {{!-- END shared-blurb --}}
 
-### PMIC and Fuel Gauge
+### PMIC and Fuel gauge
 
 The Electron, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
 
@@ -603,7 +603,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | USB mouse emulation | &check; | |
 
 
-### NFC Tag
+### NFC tag
 
 The B Series SoM has NFC Tag support, however you must add a U.FL antenna connector to your base board to use it.
 
@@ -1590,7 +1590,7 @@ Most common third-party libraries work on both devices. The exceptions are libra
 - EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 
-## Version History
+## Version history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|

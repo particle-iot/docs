@@ -10,7 +10,7 @@ description: Information about certifications (FCC, IC, CE, UL, etc.) for Partic
 
 Connected devices nearly always require certifications that ensure they operate within the wireless transmission specifications determined by international regulatory bodies like the FCC and CE. This part of the guide will provide you with more information on how to leverage Particle's existing certifications to reduce the cost, complexity, and time associated with demonstrating regulatory compliance with your end product.
 
-### Table of Contents
+### Table of contents
  - [FCC](#fcc) - United States
  - [IC](#ic) - Canada
  - [CE](#ce) - Europe
@@ -54,7 +54,7 @@ The Photon/PØ and P1 modules were certified with antennas of the following gain
 
 Note that your completed device will still likely require **unintentional radiator** (Part B) testing of your completed assembly.
 
-### Customer Responsibilities
+### Customer responsibilities
 Even though we've certified the Photon and PØ/P1 Modules, as a product creator you're still responsible for meeting test requirements determined by the class of your product as described by the FCC. In general, there are two types of products--**Class A** and **Class B**:
 - **Class A**: Digital device for use in commercial, industrial, or business environments.
 - **Class B**: Digital device for use in residential environment not withstanding use in commercial, business, and industrial environments. Examples of such devices include, but are not limited to, personal computers, calculators, and similar electronic devices that are marketed for use by the general public.
@@ -62,7 +62,7 @@ Even though we've certified the Photon and PØ/P1 Modules, as a product creator 
 Particle's certifications will help you decrease the time and cost associated with certification by allowing you to reuse our FCC ID as the FCC ID for your end product for Part 15c of your product's wireless certification. The remaining sections, for which all integrators and product creators are still responsible, are described below:
 
 
-#### FCC Part 15 Certification
+#### FCC Part 15 certification
 - **PART A: General Provisions and Definitions**  
   In this section, you will classify your device according to the definitions set out by the FCC. Included in this section are definitions for things like "intentional radiators", "kits", "test equipment", and "digital devices".
 
@@ -348,7 +348,7 @@ The Photon/PØ and P1 Modules are IC certified as single-modular transmitters. J
 - An antenna of the same type **and** equal or lesser gain to the antenna used for certification is used on the product.  
 - Any restrictions found in the grants are followed in the OEM's end product integration of Particle hardware.
 
-### Customer Responsibilities
+### Customer responsibilities
 
 Industry Canada follows the same testing and rules as the FCC in regards to certified modules in authorized equipment.
 
@@ -531,7 +531,7 @@ For the Photon/PØ and P1 Modules, these integration instructions are the same a
 
 The Photon/PØ and P1 Modules are certified with ETSI radio tests which can be accepted by a number of countries for radio compliance.
 
-### Customer Responsibilities
+### Customer responsibilities
 If a product has adhered to the integration guidelines and has minimal risk, it can be self-certified where manufacturers complete a Declaration of Conformity and affix the CE marking to their own product.
 
 #### Please note that Particle is not responsible in any way for issues arising from inappropriately self-certified products and devices using Particle hardware. EMC testing obligations may still be required as determined by the specific end product requirements.
@@ -688,7 +688,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [EN-62479, EN-50663 Test Report](/assets/pdfs/one523-EN62479-test-report.pdf) (updated 2022-11-15)
 - [RoHS 3.0 Test Reports](/assets/pdfs/one523-rohs.pdf)
 
-## UKCA (United Kingdom)
+## UKCA (united kingdom)
 
 - [P2](/assets/pdfs/p2-ukca.pdf)
 - [B Series SoM B523, B524](/assets/pdfs/b524-ukca.pdf) (updated 2022-11-09)
@@ -839,7 +839,7 @@ UL (Underwriters Laboratories) is an American worldwide safety consulting and ce
 ### Integration
 The large majority of UL certifications, which can be found <a target="_blank" href="https://en.wikipedia.org/wiki/UL_(safety_organization)#UL_Standards">here</a>, are standards for electrical and electronic products that utilize high voltage AC electricity for power. UL certification is typically not required for low voltage or battery powered products.
 
-### Customer Responsibilities
+### Customer responsibilities
 UL certification and safety standards are not applicable to Particle hardware, but may be applicable to the host end product in which they are integrated. It is the product creator's responsibility to ensure compliance with all UL safety standards and to obtain end product certification if required.
 
 ## PTCRB<img class="inline-header-image" src="/assets/images/logo-ptcrb.png"/>
@@ -875,7 +875,7 @@ This is the PTCRB certification level for finished cellular products. End Produc
 
 The Electron meets all of these specifications, and is thus certified by the PTCRB as an End Product.
 
-### Customer Responsibilities
+### Customer responsibilities
 
 When an End Product like the Electron is connected to a host device (PC, PDA, etc.), no certification of the host device is required.  By its design and intended user application, an End Product must:
 
@@ -932,7 +932,7 @@ The GCF is a certification partnership between European network operators, mobil
 #### Electron 3G (U270)
 - Product has completed and passed all GCF test requirements. Please [contact Particle](https://www.particle.io/sales) if you are building an end product with our 3G-U270 cellular solutions.
 
-## Carrier Certifications
+## Carrier certifications
 
 #### AT&T (LTE Cat M1)
 
@@ -950,7 +950,7 @@ The Boron LTE (BRN402), E Series LTE (E402), and B Series SoM (B402) are certifi
 - [Bluetooth Profile and Service Test Report](/assets/pdfs/p2-bt-profile-test-report.pdf)
 - [Bluetooth Module Submission](/assets/pdfs/p2-bt-module-submission.pdf)
 
-## Battery Certifications
+## Battery certifications
 
 ### Most devices
 

@@ -31,7 +31,7 @@ Features include:
 <div align="center"> <a href="/assets/images/at-som/at-som-block-diagram.png" target="_blank"> <img src="/assets/images/at-som/at-som-block-diagram.png" class="full-width"></a></div> 
 
 
-### Cloud Stack
+### Cloud stack
 
 ![Cloud Stack](/assets/images/at-som/at-cloud.png)
 
@@ -40,7 +40,7 @@ The Particle Asset Tracking system builds upon the Particle cloud foundation of 
 - The Configuration Service allows for fleet-wide and per-device configuration stored into the cloud and automatically synchronized with devices.
 - The Location Service receives geolocation and other data from devices and stores it in a database.
 
-### Firmware Stack
+### Firmware stack
 
 ![Firmware Stack](/assets/images/at-som/at-firmware.png)
 
@@ -58,25 +58,25 @@ One difference from other Particle devices is that the Tracker One firmware can 
 - Tracker Edge firmware on Tracker One can be used without modification. You can use the firmware off-the-shelf and [customize it from the Particle console](/getting-started/console/console/#product-settings), with no writing of device firmware necessary at all.
 - Easily upgrade to new versions of Tracker Edge firmware from the console and release it to your fleet with [just a few clicks](/getting-started/console/console/#using-off-the-shelf-releases).
 
-### Semi-custom Firmware
+### Semi-custom firmware
 
 - You can use the [Particle Edge reference firmware](/firmware/tracker-edge/tracker-edge-firmware/) as a base and add your own code to extend it quickly and easily.
 - Designed to make it easy to upgrade the base firmware while keeping your customizations in place.
 - Add external sensors via the Tracker One M8 connector without opening the case.
 
-### Tracker Carrier Board
+### Tracker carrier board
 
 - The circuit board in the Tracker One will be available separately for semi-custom designs.
 - Use your own enclosure or modify the Tracker One enclosure to fit your needs. The Tracker One enclosure design is open-source.
 - Optionally add an expansion daughter board using a JST PHR-8 for internal access to the same signals as the Tracker One M8 connector.
 
-### Fully Custom
+### Fully custom
 
 - Reflow solder the Tracker SoM onto your own custom base board with the features you need for your product.
 - Design your board and enclosure together to fit your needs.
 - Best option if you need external antennas for both cellular and GNSS.
 
-## Find Out More
+## Find out more
 
 ![Docs Menu](/assets/images/tracker/docs-menu.png)
 

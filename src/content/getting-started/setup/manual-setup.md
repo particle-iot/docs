@@ -163,7 +163,7 @@ In order to add your device to your product, you will need either:
 
 The CLI commands to claim a device and name a device require a Device ID. If you add a device to a product using the serial number, the console will show the Device ID corresponding to that serial number. The interactive tool below also does this.
 
-### Interactive - Get a device identifier
+### Interactive - get a device identifier
 
 This tool will get information about your device connected to your computer by USB:
 
@@ -203,11 +203,11 @@ Particle devices can be used in a product, or as sandbox developer devices. Even
 
 Using a product in the free plan is still free. You can have any combination of Wi-Fi and cellular devices in the free plan whether the devices are developer or product devices.
 
-### Interactive - Create or select a product
+### Interactive - create or select a product
 
 {{> create-or-select-product includeStatus="1"}}
 
-### Console - Create a product
+### Console - create a product
 
 - Go to the [Particle console](https://console.particle.io/). 
 
@@ -217,7 +217,7 @@ Using a product in the free plan is still free. You can have any combination of 
 
 - Fill in the fields and create the new product. Note the product ID of your new product. It's shown next to the key icon at the top of the window..
 
-### Console - Find an existing product
+### Console - find an existing product
 
 - Go to the [Particle console](https://console.particle.io/). 
 
@@ -231,13 +231,13 @@ Using a product in the free plan is still free. You can have any combination of 
 
 Adding a cellular device to a product also activates its SIM. If you skip this step, a cellular device may end up blinking green forever because it won't be able to connect to the cellular network.
 
-### Interactive - Add your device to your product
+### Interactive - add your device to your product
 
 {{> add-device-to-product }}
 
 The options for claim, mark as development, and name device are explained below.
 
-### Console - Add your device to your product
+### Console - add your device to your product
 
 - Go to the [Particle console](https://console.particle.io/). 
 
@@ -272,7 +272,7 @@ particle device add <device_id>
 
 In addition to claiming a device, it's useful to mark the device as a development device. The main purpose is to allow you to manage your own firmware flashing for the device, so you can directly program testing firmware and other custom firmware to your device. If you do not mark the device as a development device, the cloud will immediately replace your custom firmware with the default product firmware, which is probably not what you want.
 
-### Console - Mark as development device
+### Console - mark as development device
 
 - Go to the [Particle console](https://console.particle.io/). 
 
@@ -290,7 +290,7 @@ Naming your device makes it easier to identify devices in the console, but is no
 
 You should avoid using a name as a unique identifier for devices in your product, as it's not always set and not guaranteed to be unique. You should instead use the Device ID when identifying devices in a database or back-end service.
 
-### Console - Name your device
+### Console - name your device
 
 - Go to the [Particle console](https://console.particle.io/). 
 

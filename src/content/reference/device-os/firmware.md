@@ -37,7 +37,7 @@ It is also available [as a single large document](/reference/device-os/firmware/
 - Hamburger menu lists all sections
 {{/if}}
 
-## Cloud Functions
+## Cloud functions
 
 ### Overview of API field limits
 
@@ -1011,7 +1011,7 @@ While this function will disconnect from the Cloud, it will keep the connection 
 *If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. 
 Safe mode can be used to reconnect to the cloud.*
 
-### Clear Session
+### Clear session
 
 When your device connects to the Particle cloud, if often can do so by resuming the previous session. This dramatically reduces the amount of data used, from around 5-6 Kbytes of data for a full handshake to hundreds of bytes of data for a resume. While a full session handshake does not use data operations, if done excessively it can impact the total data usage on cellular devices. Sessions are automatically renegotiated every 3 days for security reasons.
 
@@ -1283,7 +1283,7 @@ This function takes one optional argument:
 It is possible that the call will block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if the system thread is busy trying to reconnect to cellular and is unable to do so. Doing operations that access the cellular modem or require access to the system thread (as is the case for `Particle.timeSyncedLast()`) from a separate worker thread is a good workaround.
 
 
-### Get Public IP
+### Get public IP
 
 Using this feature, the device can programmatically know its own public IP address.
 
@@ -1316,7 +1316,7 @@ void loop() {
 Note: Calling Particle
 
 
-### Get Device name
+### Get device name
 
 This gives you the device name that is stored in the cloud.
 
@@ -1351,7 +1351,7 @@ makes this easy. The link includes instructions and the library is available in
 Particle Workbench by using **Particle: Install Library** or in the Web IDE
 by searching for **DeviceNameHelperRK**.
 
-### Get Random seed
+### Get random seed
 
 Grab 40 bytes of randomness from the cloud and {e}n{c}r{y}p{t} away!
 
@@ -1942,7 +1942,7 @@ Get the current [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Wi-F
 particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
 ```
 
-### selectAntenna() [Antenna]
+### selectAntenna() [antenna]
 
 {{api name1="WiFi.selectAntenna"}}
 
@@ -3484,7 +3484,7 @@ Ethernet.setConfig(NetworkInterfaceConfig()
   .dns({8,8,8,8});
 ```
 
-## SoftAP HTTP Pages
+## SoftAP HTTP pages
 
 {{api name1="SoftAP"}}
 
@@ -3587,7 +3587,7 @@ by the application.
 
 The application may provide an actual page at `/index` or redirect to another page if the application prefers to have another page as its launch page.
 
-### Sending a Redirect
+### Sending a redirect
 
 The application can send a redirect response for a given page in order to manage the URL namespace, such as providing aliases for some resources.
 
@@ -3605,7 +3605,7 @@ if (strcmp(url,"/index")==0) {
 
 ```
 
-### Complete Example
+### Complete example
 
 The example source code can be downloaded [here](/assets/files/softap-example.cpp).
 
@@ -4666,7 +4666,7 @@ There are 13 different enumerated AT command responses passed by the system into
 
 It is possible that the call will block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if the system thread is busy trying to reconnect to cellular and is unable to do so. Doing operations that access the cellular modem or require access to the system thread from a separate worker thread is a good workaround.
 
-## Battery Voltage
+## Battery voltage
 
 The Argon device does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present.
 
@@ -5528,7 +5528,7 @@ setADCSampleTime is not supported on the P2, Photon 2, or Gen 3 devices (Argon, 
 
 ---
 
-## Low Level Input/Output
+## Low level input/output
 
 The Input/Ouput functions include safety checks such as making sure a pin is set to OUTPUT when doing a digitalWrite() or that the pin is not being used for a timer function.  These safety measures represent good coding and system design practice.
 
@@ -6052,7 +6052,7 @@ void loop()
 ```
 
 
-## Power Manager
+## Power manager
 
 {{api name1="SystemPowerConfiguration"}}
 
@@ -6356,7 +6356,7 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 
 ---
 
-### Power ON Configuration Reg
+### Power on configuration reg
 
 #### enableCharging()
 
@@ -6408,7 +6408,7 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 
 ---
 
-### Charge Current Control Reg
+### Charge current control reg
 
 #### setChargeCurrent()
 
@@ -6449,7 +6449,7 @@ Returns the charge current register. This is the direct register value from the 
 
 ---
 
-### PreCharge/Termination Current Control Reg
+### Precharge/termination current control reg
 
 #### setPreChargeCurrent()
 
@@ -6477,7 +6477,7 @@ Returns the charge current register. This is the direct register value from the 
 
 ---
 
-### Charge Voltage Control Reg
+### Charge voltage control reg
 
 #### setChargeVoltage()
 
@@ -6525,7 +6525,7 @@ Returns the charge voltage register. This is the direct register value from the 
 
 ---
 
-### Charge Timer Control Reg
+### Charge timer control reg
 
 #### readChargeTermRegister()
 
@@ -6547,7 +6547,7 @@ Returns the charge voltage register. This is the direct register value from the 
 
 ---
 
-### Thermal Regulation Control Reg
+### Thermal regulation control reg
 
 #### setThermalRegulation()
 
@@ -6563,7 +6563,7 @@ Returns the charge voltage register. This is the direct register value from the 
 
 ---
 
-### Misc Operation Control Reg
+### Misc operation control reg
 
 #### readOpControlRegister()
 
@@ -6627,7 +6627,7 @@ Returns the charge voltage register. This is the direct register value from the 
 
 ---
 
-### System Status Register
+### System status register
 
 #### getVbusStat()
 
@@ -8485,7 +8485,7 @@ Where the parameter, `divider` can be:
 
 The clock reference varies depending on the device.
 
-- On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SOM), the clock reference is 64 MHz.
+- On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM), the clock reference is 64 MHz.
 - On Gen 2 devices (Photon, P1, Electron, E Series), the clock reference is 120 MHz.
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setClockDivider()`.
@@ -9254,7 +9254,7 @@ HAL_I2C_Config acquireWireBuffer() {
 For devices with `Wire1` (Electron, E Series) or `Wire3` (Tracker SoM), the equivalent functions are `acquireWire1Buffer` and `acquireWire3Buffer`.
 
 
-## CAN (CANbus)
+## CAN (canbus)
 
 {{api name1="CAN"}}
 
@@ -14465,7 +14465,7 @@ Parameters:
 
 Returns `true` if this status is active, or `false` otherwise.
 
-#### Custom Patterns
+#### Custom patterns
 
 `LEDStatus` class can be subclassed to implement a custom signaling pattern.
 
@@ -14739,7 +14739,7 @@ LED_SIGNAL_POWER_OFF | Soft power down is pending | Critical | Solid gray
 
 **Note:** Signals marked with an asterisk (*) are implemented within the bootloader and currently don't support pattern type and speed customization due to flash memory constraints. This may be changed in future versions of the firmware.
 
-### LEDPriority Enum
+### LEDPriority enum
 
 {{api name1="LEDPriority"}}
 
@@ -14752,7 +14752,7 @@ This enum defines LED priorities supported by the system (from lowest to highest
 
 Internally, the system uses the same set of priorities for its own LED signaling. In a situation when both an application and the system use same priority for their active indications, system indication takes precedence. Refer to the [LEDSignal Enum](#ledsignal-enum) section for information about system signal priorities.
 
-### LEDPattern Enum
+### LEDPattern enum
 
 {{api name1="LEDPattern"}}
 
@@ -14763,7 +14763,7 @@ This enum defines LED patterns supported by the system:
   * `LED_PATTERN_FADE` : breathing color
   * `LED_PATTERN_CUSTOM` : [custom pattern](#custom-patterns)
 
-### LEDSpeed Enum
+### LEDSpeed enum
 
 {{api name1="LEDSpeed"}}
 
@@ -15708,7 +15708,7 @@ noInterrupts();
 You must enable interrupts again as quickly as possible. Never return from setup(), loop(), from a function handler, variable handler, system event handler, etc. with interrupts disabled.
 
 
-## Software Timers
+## Software timers
 
 {{api name1="Timer"}}
 
@@ -15906,7 +15906,7 @@ if (timer.isActive()) {
 }
 ```
 
-## Hardware Watchdog
+## Hardware watchdog
 
 {{since when="5.3.0"}}
 
@@ -15983,7 +15983,7 @@ Watchdog.onExpired([]() {
 });
 ```
 
-## Application Watchdog
+## Application watchdog
 
 {{since when="0.5.0"}}
 
@@ -16270,7 +16270,7 @@ Calculates the square root of a number.
 
 The function returns the number's square root *(double)*
 
-## Random Numbers
+## Random numbers
 
 The firmware incorporates a pseudo-random number generator.
 
@@ -16770,7 +16770,7 @@ On the P2, Photon 2, and Tracker M, retained memory is not available. The flash 
 {{note op="end"}}
 
 
-### Enabling Backup RAM (SRAM)
+### Enabling backup RAM (SRAM)
 
 {{api name1="FEATURE_RETAINED_MEMORY"}}
 
@@ -17528,7 +17528,7 @@ Make sure the external device can handle the pin being disconnected. This may re
 | HIBERNATE  | High-Z | Preserved | Preserved |
 
 
-## SystemSleepResult Class
+## SystemSleepResult class
 
 {{api name1="SystemSleepResult"}}
 
@@ -17947,7 +17947,7 @@ System.sleep(5);
 You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(2min)` for 2 minutes.
 
 
-### Sleep [Transitioning from Classic API]
+### Sleep [transitioning from classic API]
 
 Some common sleep commands:
 
@@ -18058,7 +18058,7 @@ config.mode(SystemSleepMode::STOP)
 SystemSleepResult result = System.sleep(config);
 ```
 
-### SleepResult Class
+### SleepResult class
 
 {{api name1="SleepResult"}}
 
@@ -18264,11 +18264,11 @@ int err = System.sleepError();
 See [`SleepResult`](#error-) documentation.
 
 
-## System Events
+## System events
 
 {{since when="0.4.9"}}
 
-### System Events Overview
+### System events overview
 
 {{api name1="System.on"}}
 
@@ -18343,7 +18343,7 @@ void setup()
 }
 ```
 
-### System Events Reference
+### System events reference
 
 These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value. The version of firmware these events became available is noted in the first column below.
 
@@ -18429,7 +18429,7 @@ The following param codes are used when the system event is ble_prov_mode:
 
 
 
-## System Modes
+## System modes
 
 {{api name1="SYSTEM_MODE"}}
 
@@ -18565,7 +18565,7 @@ When using manual mode:
 - `Particle.process()` is required even with threading enabled in MANUAL mode.
 
 
-## System Thread
+## System thread
 
 {{api name1="SYSTEM_THREAD(ENABLED)" name2="SYSTEM_THREAD"}}
 
@@ -18585,7 +18585,7 @@ SYSTEM_THREAD(ENABLED);
 
 
 
-### System Threading Behavior
+### System threading behavior
 
 When the system thread is enabled, application execution changes compared to
 non-threaded execution:
@@ -18627,7 +18627,7 @@ but not the system code, so cloud connectivity is maintained.
  - the application continues to execute during listening mode
  - the application continues to execute during OTA updates
 
-### System Functions
+### System functions
 
 With system threading enabled, the majority of the Particle API continues to run on the calling thread, as it does for non-threaded mode. For example, when a function, such as `Time.now()`, is called, it is processed entirely on the calling thread (typically the application thread when calling from `loop()`.)
 
@@ -18665,7 +18665,7 @@ void setup()
 }
 ```
 
-### Task Switching
+### Task switching
 
 The Device OS includes an RTOS (Real Time Operating System). The RTOS is responsible for switching between the application thread and the system thread, which it does automatically every millisecond. This has 2 main consequences:
 
@@ -18750,7 +18750,7 @@ void so_timing_sensitive_and_no_interrupts()
 }
 ```
 
-### Synchronizing Access to Shared System Resources
+### Synchronizing access to shared system resources
 
 With system threading enabled, the system thread and the application thread run in parallel. When both attempt to use the same resource, such as writing a message to `Serial`, there is no guaranteed order - the message printed by the system and the message printed by the application are arbitrarily interleaved as the RTOS rapidly switches between running a small part of the system code and then the application code. This results in both messages being intermixed.
 
@@ -18902,7 +18902,7 @@ To delay the application only for a period of time or the condition is not met (
 Note: `waitForNot` does not tickle the [application watchdog](#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 
-## System Calls
+## System calls
 
 ### version()
 
@@ -18986,7 +18986,7 @@ void loop()
 ```
 
 
-### System Cycle Counter
+### System cycle counter
 
 {{since when="0.4.6"}}
 
@@ -19370,7 +19370,7 @@ Allows the system to reset the device when necessary.
 
 Returns `true` if the system needs to reset the device.
 
-### Reset Reason
+### Reset reason
 
 {{api name1="System.resetReason"}}
 
@@ -19440,7 +19440,7 @@ Returns a user-defined value that has been previously specified for the `System.
 
 This overloaded method accepts an arbitrary 32-bit value, stores it to the backup register and resets the device. The value can be retrieved via `resetReasonData()` method after the device has restarted.
 
-### System Config [ set ]
+### System config [ set ]
 
 {{api name1="System.set"}}
 
@@ -19465,7 +19465,7 @@ The following configuration values can be changed:
 - `SYSTEM_CONFIG_SOFTAP_PREFIX`: the prefix of the SSID broadcast in listening mode. Defaults to Photon. Max length of `DCT_SSID_PREFIX_SIZE-1` (25). Only on Photon and P1.
 - `SYSTEM_CONFIG_SOFTAP_SUFFIX`: the suffix of the SSID broadcast in listening mode. Defaults to a random 4 character alphanumerical string. Max length of `DCT_DEVICE_ID_SIZE` (6). Only on Photon and P1.
 
-### System Flags [ disable ]
+### System flags [ disable ]
 
 {{api name1="System.disable" name2="System.enable"}}
 
@@ -19611,7 +19611,7 @@ Additional information can be found in:
 - [particle-usb library](https://github.com/particle-iot/particle-usb) which implements control requests for node.js (also available in npm) and browser-based WebUSB.
 
 
-## System Interrupts
+## System interrupts
 
 This is advanced, low-level functionality, intended primarily for library writers.
 
@@ -19785,7 +19785,7 @@ Parameters:
   * `bootloader`: (optional) if `true`, the mirror pin configuration is cleared from the DCT, disabling the feature in bootloader (default).
 
 
-### System Features
+### System features
 
 The system allows to alter certain aspects of its default behavior via the system features. The following system features are defined:
 
@@ -19843,7 +19843,7 @@ void loop() {
 }
 ```
 
-## File System
+## File system
 
 The P2, Photon 2, and Gen 3 devices (B Series SoM, Tracker SoM, Boron, Argon, and E404X) implement a POSIX-style file system API to store files on the LittleFS flash file system on the QSPI flash memory on the module.
 
@@ -19862,7 +19862,7 @@ The File System is not available on Gen 2 devices (Photon, P1, Electron, E Serie
 
 ---
 
-### File System open
+### File system open
 
 {{api name1="open"}}
 
@@ -19913,7 +19913,7 @@ When you are done accessing a file, be sure to call [`close`](#file-system-close
 
 Opening the same path again without closing opens up a new file descriptor each time, as is the case in UNIX.
 
-### File System write
+### File system write
 
 {{api name1="write"}}
 
@@ -19936,7 +19936,7 @@ On error, returns -1 and sets `errno`. Some possible `errno` values include:
 - `EBADF` Bad `fd`.
 - `ENOSPC` There is no space on the file system.
 
-### File System read
+### File system read
 
 {{api name1="read"}}
 
@@ -19957,7 +19957,7 @@ On error, returns -1 and sets `errno`. Some possible `errno` values include:
 
 - `EBADF` Bad `fd`
 
-### File System lseek
+### File system lseek
 
 {{api name1="lseek"}}
 
@@ -19975,7 +19975,7 @@ Seek to a position in a file. Affects where the next read or write will occur. S
   - `SEEK_CUR`: Seek relative to the current file position.
   - `SEEK_END`: Seek relative to the end of the file. `offset` of 0 means seek to the end of the file when using `SEEK_END`. 
 
-### File System close
+### File system close
 
 {{api name1="close"}}
 
@@ -19990,7 +19990,7 @@ Closes a file descriptor.
 
 Returns 0 on success. On error, returns -1 and sets `errno`. 
 
-### File System fsync
+### File system fsync
 
 {{api name1="fsync"}}
 
@@ -20005,7 +20005,7 @@ Synchronizes the file data flash, for example writing out any cached data.
 
 Returns 0 on success. On error, returns -1 and sets `errno`. 
 
-### File System truncate
+### File system truncate
 
 {{api name1="truncate"}}
 
@@ -20024,7 +20024,7 @@ Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errn
 - `ENOENT`: File does not exist.
 - `ENOSPC` There is no space on the file system.
 
-### File System ftruncate
+### File system ftruncate
 
 {{api name1="ftruncate"}}
 
@@ -20044,7 +20044,7 @@ Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errn
 - `ENOSPC` There is no space on the file system.
 
 
-### File System fstat
+### File system fstat
 
 {{api name1="fstat"}}
 
@@ -20071,7 +20071,7 @@ Only a subset of the `struct stat` fields are filled in. In particular:
   - For directories, the `S_IFDIR` bit is set.
   - Be sure to check for the bit, not equality, as other bits may be set (like `S_IRWXU` | `S_IRWXG` | `S_IRWXO`) may be set.
 
-### File System stat
+### File system stat
 
 {{api name1="stat"}}
 
@@ -20103,7 +20103,7 @@ Only a subset of the `struct stat` fields are filled in. In particular:
 
 The file system does not store file times (creation, modification, or access).
 
-### File System mkdir
+### File system mkdir
 
 {{api name1="mkdir"}}
 
@@ -20165,7 +20165,7 @@ The example code creates a directory if it does not already exists. It takes car
 - If the directory does not exist, it will be created.
 - It will only create the last directory in the path - it does not create a hierarchy of directories!
 
-### File System rmdir
+### File system rmdir
 
 {{api name1="rmdir"}}
 
@@ -20179,7 +20179,7 @@ Removes a directory from the file system. The directory must be empty to remove 
 - `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
 
 
-### File System unlink
+### File system unlink
 
 {{api name1="unlink"}}
 
@@ -20197,7 +20197,7 @@ Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errn
 - `EEXIST` or `ENOTEMPTY`: Directory is not empty.
 
 
-### File System rename
+### File system rename
 
 {{api name1="rename"}}
 
@@ -20214,7 +20214,7 @@ Renames a file from the file system. Can also move a file to a different directo
 Returns 0 on success. On error, returns -1 and sets `errno`. 
 
 
-### File System opendir
+### File system opendir
 
 {{api name1="opendir"}}
 
@@ -20232,7 +20232,7 @@ Open a directory stream to iterate the files in the directory. Be sure to close 
 
 Returns `NULL` (0) on error, or a non-zero value for use with `readdir`.
 
-### File System readdir
+### File system readdir
 
 {{api name1="readdir"}}
 
@@ -20260,7 +20260,7 @@ Not all fields of the `struct dirent` are filled in. You should only rely on:
 This structure is reused on subsequent calls to `readdir` so if you need to save the values, you'll need to copy them.
 
 
-### File System telldir
+### File system telldir
 
 {{api name1="telldir"}}
 
@@ -20276,7 +20276,7 @@ long telldir(DIR* pdir)
 
 Returns a numeric value for the current position in the directory that can subsequently be used with [`seekdir`](#file-system-seekdir) to go back to that position.
 
-### File System seekdir
+### File system seekdir
 
 {{api name1="seekdir"}}
 
@@ -20291,7 +20291,7 @@ void seekdir(DIR* pdir, long loc)
 - `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
 - `loc`: The location previously saved by [`telldir`](#file-system-telldir).
 
-### File System rewinddir
+### File system rewinddir
 
 {{api name1="rewinddir"}}
 
@@ -20308,7 +20308,7 @@ Starts scanning the directory from the beginning again.
 - `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
 
 
-### File System readdir_r
+### File system readdir_r
 
 {{api name1="readdir_r"}}
 
@@ -20335,7 +20335,7 @@ Not all fields of `dentry` are filled in. You should only rely on:
 
 Returns 0 on success. On error, returns -1 and sets `errno`. 
 
-### File System closedir
+### File system closedir
 
 {{api name1="closedir"}}
 
@@ -20360,7 +20360,7 @@ for Particle devices.
 _Many of the behaviors described below require
 Device OS version 1.2.0 or higher_.
 
-### Controlling OTA Availability
+### Controlling OTA availability
 
 This feature allows the application developer to control when the device
 is available for firmware updates. This affects both over-the-air (OTA)
@@ -20645,7 +20645,7 @@ device OTA updates.
 
 
 
-## Checking for Features
+## Checking for features
 
 User firmware is designed to run transparently regardless of what type of device it is run on. However, sometimes you will need to have code that varies depending on the capabilities of the device.
 
@@ -20721,14 +20721,14 @@ in order to be available for use in your application or library.
 Arduino APIs that need to be enabled explicitly are marked with "requires Arduino.h" in this reference documentation.
 
 
-### Enabling Extended Arduino SDK Compatibility
+### Enabling extended Arduino SDK compatibility
 
 The extended Arduino APIs that are added from 0.6.2 onwards are not immediately available but 
 have to be enabled by declaring Arduino support in your app or library.
 
 This is done by adding  `#include "Arduino.h"` to each source file that requires an extended Arduino API.
 
-### Arduino APIs added by Firmware Version
+### Arduino APIs added by firmware version
 
 Once `Arduino.h` has been added to a source file, additional Arduino APIs are made available.
 The APIs added are determined by the targeted firmware version. In addition to defining the new APIs,
@@ -20745,7 +20745,7 @@ and the value of the `ARDUINO` symbol.
 |SPI.usingInterrupt|NB: this function is included to allow libraries to compile, but is implemented as a empty function.|10800|0.6.2|
 |LED_BUILTIN|defines the pin that corresponds to the built-in LED|10800|0.6.2|
 
-### Adding Arduino Symbols to Applications and Libraries
+### Adding Arduino symbols to applications and libraries
 
 The Arduino SDK has a release cycle that is independent from Particle firmware. When a new Arduino SDK is released,
 the new APIs introduced will not be available in the Particle firmware until the next Particle firmware release at
@@ -20786,7 +20786,7 @@ in the Arduino support provided by Particle, and crucially, without clashes.
 
 
 
-## String Class
+## String class
 
 The String class allows you to use and manipulate strings of text in more complex ways than character arrays do. You can concatenate Strings, append to them, search for and replace substrings, and more. It takes more memory than a simple character array, but it is also more useful.
 
@@ -21530,7 +21530,7 @@ Parameters:
 Returns: A reference to the String object (`*this`). This refers to the String object itself, which has been modified, not a copy.
 
 
-## Stream Class
+## Stream class
 
 {{api name1="Stream"}}
 
@@ -22852,7 +22852,7 @@ In Arduino, it's most common to use `Serial.print()` as well as its relatives li
 
 Being able to switch from USB to UART serial is especially helpful if you are using sleep modes. Because USB serial disconnects on sleep, it can take several seconds for it to reconnect to your computer. By using UART serial (Serial1, for example) with a USB to TTL serial converter, the USB serial will stay connected to the adapter so you can begin logging immediately upon wake.
 
-### Waiting for Serial
+### Waiting for serial
 
 ```cpp
 SerialLogHandler logHandler;
@@ -22980,7 +22980,7 @@ Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu
 Log.info("millis=%s", toString(System.millis()).c_str());
 ```
 
-### Logging Levels
+### Logging levels
 
 {{api name1="LOG_LEVEL_ALL" name2="LOG_LEVEL_TRACE" name3="LOG_LEVEL_INFO" name4="LOG_LEVEL_WARN" name5="LOG_LEVEL_ERROR" name6="LOG_LEVEL_NONE"}}
 
@@ -23041,7 +23041,7 @@ In the provided example, the trace and info messages will be filtered out accord
 `0000000050 [app] WARN: This is warning message`  
 `0000000100 [app] ERROR: This is error message`
 
-### Logging Categories
+### Logging categories
 
 In addition to logging level, log messages can also be associated with some _category_ name. Categories allow to organize system and application modules into namespaces, and are used for more selective filtering of the logging output.
 
@@ -23096,7 +23096,7 @@ Category filters are specified using _initializer list_ syntax with each element
 
 If more than one filter matches a given category name, the most specific filter is used.
 
-### Additional Attributes
+### Additional attributes
 
 As described in previous sections, certain log message attributes, such as a timestamp, are automatically added to all generated messages. The library also defines some attributes that can be used for application-specific needs:
 
@@ -23132,7 +23132,7 @@ The example application specifies `code` and `details` attributes for the error 
 `0000000084 [app] INFO: Connecting to server`  
 `0000000087 [app] ERROR: Connection error [code = 111, details = Connection refused]`
 
-### Log Handlers
+### Log handlers
 
 {{api name1="SerialLogHandler" name2="Serial1LogHandler"}}
 
@@ -23179,7 +23179,7 @@ Parameters:
   * filters : category filters (not specified by default)
   * baud : baud rate (default value is 9600)
 
-#### Community Log Handlers
+#### Community log handlers
 
 The log handlers below are written by the community and are not considered "Official" Particle-supported log handlers. If you have any issues with them please raise an issue in the forums or, ideally, in the online repo for the handler.
 
@@ -23187,7 +23187,7 @@ The log handlers below are written by the community and are not considered "Offi
 - Web Log Handler by [geeksville](https://github.com/geeksville). [[Particle Web IDE](https://build.particle.io/libs/ParticleWebLog)] [[GitHub Repo](https://github.com/geeksville/ParticleWebLog)] [[Known Issues](https://github.com/geeksville/ParticleWebLog/issues/)]
 - More to come (feel free to add your own by editing the docs on GitHub)
 
-### Logger Class
+### Logger class
 
 {{api name1="Logger"}}
 
@@ -23419,7 +23419,7 @@ From user firmware, use `WiFi.macAddress()` to get the Wi-Fi MAC address.
 The MAC address is available by the Particle cloud API [get device information](/reference/cloud-apis/api/#get-device-information) in the `mac_wifi` field. 
 
 
-## Global Object Constructors
+## Global object constructors
 
 It can be convenient to use C++ objects as global variables. You must be careful about what you do in the constructor, however.
 
@@ -23563,7 +23563,7 @@ void loop() {
 ```
 
 
-## Language Syntax
+## Language syntax
 
 Particle devices are programmed in C/C++. While the Arduino compatibility features are available as described below, you can also write programs in plain C or C++, specifically:
 
@@ -23664,7 +23664,7 @@ if (x > 120)
 ```
 The statements being evaluated inside the parentheses require the use of one or more operators:
 
-#### Comparison Operators
+#### Comparison operators
 
 ```cpp
 x == y (x is equal to y)
@@ -24597,7 +24597,7 @@ There are two constants used to represent truth and falsity in the Arduino langu
 
 Note that the true and false constants are typed in lowercase unlike `HIGH, LOW, INPUT, & OUTPUT.`
 
-### Data Types
+### Data types
 
 **Note:** The Photon/P1/Electron uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for e.g. Arduino Uno).
 
@@ -24886,7 +24886,7 @@ Exceptions are disabled at the compiler level (`-fno-exceptions`) and cannot be 
 
 This means that things like `new`, `malloc`, `strdup`, etc., will not throw an exception and instead will return NULL if the allocation failed, so be sure to check for NULL return values.
 
-## Other Functions
+## Other functions
 
 The C standard library used on the device is called newlib and is described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html)
 
@@ -25131,7 +25131,7 @@ The available stack depends on the environment:
 
 The stack size cannot be changed as it's allocated by the Device OS before the user firmware is loaded. 
 
-## Device OS Versions
+## Device OS versions
 
 Particle Device OS firmware is open source and stored [here on GitHub](https://github.com/particle-iot/device-os).
 
@@ -25141,7 +25141,7 @@ New versions are published [here on GitHub](https://github.com/particle-iot/devi
 
 The process in place for releasing all Device OS versions as prerelease or default release versions can be found [here on GitHub](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
 
-### GitHub Release Notes
+### GitHub release notes
 
 Please go to GitHub to read the Changelog for your desired firmware version (Click a version below).
 
@@ -25190,7 +25190,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 |v0.5.x default releases|[v0.5.0](https://github.com/particle-iot/device-os/releases/tag/v0.5.0)|[v0.5.1](https://github.com/particle-iot/device-os/releases/tag/v0.5.1)|[v0.5.2](https://github.com/particle-iot/device-os/releases/tag/v0.5.2)|[v0.5.3](https://github.com/particle-iot/device-os/releases/tag/v0.5.3)|[v0.5.4](https://github.com/particle-iot/device-os/releases/tag/v0.5.4)|[v0.5.5](https://github.com/particle-iot/device-os/releases/tag/v0.5.5)|-|
 |v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/particle-iot/device-os/releases/tag/v0.5.3-rc.3)|-|-|-|-|
 
-### Programming and Debugging Notes
+### Programming and debugging notes
 
 If you don't see any notes below the table or if they are the wrong version, please select your Firmware Version in the table below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on GitHub and your version's notes will be found below the table :)
 

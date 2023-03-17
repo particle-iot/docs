@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# The Particle Air Quality Monitoring Kit
+# The Particle air quality monitoring kit
 
 
 The Particle Air Quality Monitoring Kit is designed to teach you how to investigate the air around you using Particle IoT hardware and software. This kit includes everything you need to build your monitoring station as well as the tutorials and documentation to keep you learning. 
