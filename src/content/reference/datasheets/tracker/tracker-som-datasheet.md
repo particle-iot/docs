@@ -410,7 +410,7 @@ Circular labels are as follows:
 | 63 | AGND | POWER | nRF52 | nRF52 analog ground. Can connect to regular GND. |
 | 64 | CAN_N | CAN | CAN | CAN Data- |
 | 65 | CAN_P | CAN | CAN | CAN Data+ |
-| 66 | CAN_5V |  | XCL9142F40 | 5V power out, 0.8A maximum. Can be controlled by software. |
+| 66 | CAN_5V |  | XCL9142F40 | 5V power out, 370 mA maximum. Can be controlled by software. |
 | 67 | GND | POWER | | Ground |
 | 68 | MCU-D- | USB D- | nRF52 | MCU USB interface D-. Optional. |
 | 69 | MCU_D+ | USB D+ | nRF52 | MCU USB interface D+. Optional. |
@@ -1356,3 +1356,4 @@ The bootloader allows you to easily update the user application via several diff
 | 021      | 2022 Aug 29 | RK | Added EU declaration of conformity |
 | 022      | 2022 Sep 16 | RK | Added UKCA conformity |
 | 023      | 2023 Jan 31 | RK | Add Device OS versions |
+| 024      | 2023 Mar 17 | RK | Pin table listed wrong maximum current for CAN_5V |
