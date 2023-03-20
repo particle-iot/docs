@@ -506,9 +506,8 @@ each device updating the next time it starts a new secure session with
 the Device Cloud. This is to ensure devices are not disrupted while in
 use as a result of the reset needed to begin running the new firmware.
 
-** Intelligent Firmware Releases** is a premium
-fleet-wide OTA mechanism that enables scaling customers
-to predictably deliver fleet-wide firmware updates at _exactly_ the
+** Intelligent Firmware Releases** is a 
+fleet-wide OTA mechanism to predictably deliver fleet-wide firmware updates at _exactly_ the
 right time.
 
 - **Context awareness to prevent disruption**: Device Cloud sends immediate OTA to
