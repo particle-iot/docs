@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AB1805_RK",
     "version": "0.0.1",
-    "installs": 599,
+    "installs": 707,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for AB1805/AM1805 RTC/Watchdog for Particle devices",

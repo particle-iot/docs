@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD32Relay",
     "version": "0.0.1",
-    "installs": 786,
+    "installs": 812,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 32 channel Spark compatible Relay Controller",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PowerShield",
     "version": "0.0.5",
-    "installs": 91382,
+    "installs": 93767,
     "license": "LGPL",
     "author": "Mohit Bhoite <mohit@particle.io>",
     "sentence": "The Power Shield allows a Particle device to be powered from different types of power sources. This library gives firmware access to the fuel gauge IC",

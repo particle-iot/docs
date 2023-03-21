@@ -7,7 +7,7 @@
   "attributes": {
     "name": "VisiGenieSpark",
     "version": "1.0.0",
-    "installs": 1275,
+    "installs": 1312,
     "license": "GNU Lesser General Public License",
     "author": "4D Systems Pty Ltd/ Paul Kourany",
     "sentence": "4D Systems Visi-Genie library for Spark",

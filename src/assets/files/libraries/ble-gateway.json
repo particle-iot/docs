@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ble-gateway",
     "version": "0.0.1",
-    "installs": 474,
+    "installs": 852,
     "license": "MIT",
     "author": "Mariano Goluboff",
     "sentence": "Connect to different BLE peripherals.",

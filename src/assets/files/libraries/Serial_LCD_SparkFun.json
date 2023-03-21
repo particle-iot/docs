@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Serial_LCD_SparkFun",
     "version": "0.0.1",
-    "installs": 14394,
+    "installs": 14550,
     "license": "LGPL",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "A port of the `serLCD` library for the 16x2 LCD. Connect the LCD's RX to the Particle's TX, and print to Serial1",

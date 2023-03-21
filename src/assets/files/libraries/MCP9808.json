@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP9808",
     "version": "0.1.2",
-    "installs": 19395,
+    "installs": 19582,
     "license": "GPLv3",
     "author": "Romain MP <romain.mp@gmail.com>",
     "sentence": "Library to support MCP9808 high precision temperature sensor",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ParticleSoftSerial",
     "version": "0.0.15",
-    "installs": 87488,
+    "installs": 88863,
     "license": "GNU Lesser General Public License",
     "author": "ScruffR",
     "sentence": "Basic SoftSerial implementation (requires SparkIntervalTimer library to work)",

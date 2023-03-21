@@ -2,23 +2,20 @@
   "type": "libraries",
   "id": "Preferences",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/Preferences/archive/2.0.0.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/Preferences/archive/2.1.0.tar.gz"
   },
   "attributes": {
     "name": "Preferences",
-    "version": "2.0.0",
-    "installs": 617,
+    "version": "2.1.0",
+    "installs": 625,
     "author": "Volodymyr Shymanskyy",
     "maintainer": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>",
-    "sentence": "Preferences library for ESP8266 and Particle Gen3 devices, with ESP32-compatible API",
+    "sentence": "Preferences library for Arduino, ESP8266 and Particle Gen3 devices",
     "paragraph": "",
     "category": "Data Storage",
     "url": "https://github.com/vshymanskyy/Preferences",
     "architectures": [
-      "esp8266",
-      "particle-argon",
-      "particle-boron",
-      "particle-xenon"
+      "all"
     ],
     "visibility": "public",
     "mine": false
@@ -137,10 +134,104 @@
         }
       },
       "added": "2022-06-17T10:16:54.020Z"
+    },
+    "2.1.0": {
+      "added": "2023-03-21T15:35:17.230Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "boron": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "bsom": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "b5som": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "tracker": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "p2": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "boron": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "bsom": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "b5som": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "tracker": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "esomx": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          },
+          "electron": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          },
+          "argon": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "boron": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          },
+          "electron": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          },
+          "argon": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "boron": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          }
+        }
+      }
     }
   },
-  "readme": "# Preferences\nPreferences library for **ESP8266** and **Particle Gen3** devices. **ESP32**-compatible API.\n\n[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)\n\n## How does it work?\n\nPreferences are stored in the internal flash filesystem in a bunch of `/nvs/{namespace}/{property}` files.  \nFilesystem should handle flash wearing, bad sectors and atomic `rename` file operation.  \n`LittleFS` handles all that, so this is the default FS driver for ESP8266.  \nParticle Gen3 devices also operate on `LittleFS` filesystem.\n\n## Supported devices\n\n- Arduino ESP8266 with LittleFS or SPIFFS\n- Particle Argon, Boron, Xenon, Tracker, BSOM\n\nCan be easily adjusted for any device with a reliable and POSIX-compatible filesystem\n\n## API\n\nCheck out ESP32 [Preferences library](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/preferences.html) API.\nDifferences:\n- `partition_label` argument is not supported in `begin()`\n- `getType()` and `freeEntries()` methods are not supported (returning dummy values)\n",
+  "readme": "# Preferences\n\n[![Arduino Library Manager](https://img.shields.io/static/v1?label=Arduino&message=v2.1.0&logo=arduino&logoColor=white&color=blue)](https://www.ardu-badge.com/Preferences)\n[![PlatformIO Registry](https://badges.registry.platformio.org/packages/vshymanskyy/library/Preferences.svg)](https://registry.platformio.org/packages/libraries/vshymanskyy/Preferences) \n\nProvides **ESP32**-compatible **Preferences** API for a wider variety of platforms:\n- **ESP8266** using LittleFS\n- **RP2040** boards with [Pico core](https://github.com/earlephilhower/arduino-pico)\n- Arduino **Nano 33 IoT, MKR1010, MKR VIDOR** using WiFiNINA storage\n- Particle Gen3 devices: **Argon, Boron, Xenon, Tracker, BSOM**\n\nAvailable from: [`Arduino Library Manager`](https://www.arduino.cc/reference/en/libraries/preferences), [`PlatformIO`](https://registry.platformio.org/libraries/vshymanskyy/Preferences), [`Particle Build`](https://build.particle.io/libs/Preferences)\n\n[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)\n\n## How does it work?\n\n```cpp\n#include <Preferences.h>\nPreferences prefs;\n\nvoid setup() {\n  Serial.begin(115200);\n  prefs.begin(\"my-app\");\n\n  int counter = prefs.getInt(\"counter\", 1); // default to 1\n  Serial.printf(\"Reboot count: %d\\n\", counter);\n  counter++;\n  prefs.putInt(\"counter\", counter);\n}\n\nvoid loop() {}\n```\n\nPreferences are stored in the internal flash filesystem in a bunch of `/nvs/{namespace}/{property}` files.  \nFilesystem should handle flash wearing, bad sectors and atomic `rename` file operation.\n- `LittleFS` handles all that, so this is the default FS driver for ESP8266. `SPIFFS` use is possible, but it is discouraged.\n- Particle Gen3 devices also operate on a built-in `LittleFS` filesystem.\n- Arduino Nano and MKR devices use the storage of the U-blox NINA module.\n\n## API\n\nCheck out ESP32 [Preferences library](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/preferences.html) API.\nDifferences:\n- `partition_label` argument is not supported in `begin()`\n- `getType()` and `freeEntries()` methods are not supported (returning dummy values)\n- `putBytes()` and `putString()` allow writing empty values (length = 0)\n- `put*()` and `get*()` operations **don't fail** if the existing value has a different type\n\n## Known issues\n\n- `clear()` is not working on Arduino Nano 33 IoT, MKR1010, MKR VIDOR. This cannot be implemented, as WiFiNINA storage doesn't provide any API to remove or enumerate directories ([along with other bugs](https://github.com/arduino-libraries/WiFiNINA/issues/created_by/vshymanskyy)). If you need to clear a namespace on these devices, you'll have to erase each key individually using `remove()`.\n",
   "allVersions": [
+    "2.1.0",
     "2.0.0"
   ]
 }

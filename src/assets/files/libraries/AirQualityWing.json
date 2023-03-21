@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AirQualityWing",
     "version": "1.0.2",
-    "installs": 1212,
+    "installs": 1227,
     "license": "GNU General Public License v3.0",
     "author": "Jared Wolff (Circuit Dojo LLC)",
     "sentence": "Library that works with the Air Quality Wing for Particle Mesh.",

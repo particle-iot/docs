@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel-nrf",
     "version": "0.0.16",
-    "installs": 500,
+    "installs": 1135,
     "license": "LGPLv3",
     "author": "Adafruit, Technobly",
     "sentence": "An Implementation of Adafruit's NeoPixel Library for the Spark Core, Particle Photon, P1, Electron and RedBear Duo",

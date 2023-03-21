@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MelodySpeaker",
     "version": "1.0.0",
-    "installs": 2488,
+    "installs": 2733,
     "license": "MIT",
     "author": "Stan Borkowski",
     "sentence": "Particle Photon Library for playing mono-tone melodies.",

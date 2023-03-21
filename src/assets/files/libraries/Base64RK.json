@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Base64RK",
     "version": "0.0.1",
-    "installs": 14581,
+    "installs": 15876,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Base64 encoded and decoder",

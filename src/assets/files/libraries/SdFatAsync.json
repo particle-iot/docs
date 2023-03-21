@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SdFatAsync",
     "version": "1.1.4",
-    "installs": 361,
+    "installs": 373,
     "license": "MIT",
     "author": "Bill Greiman <fat16lib@sbcglobal.net>",
     "maintainer": "Bryan Kadzban <github@kadzban.net>",

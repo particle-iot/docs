@@ -7,7 +7,7 @@
   "attributes": {
     "name": "base64",
     "version": "1.0.0",
-    "installs": 27965,
+    "installs": 28306,
     "author": "Adam Rudd",
     "maintainer": "Adam Rudd",
     "sentence": "A base64 library for the arduino platform, written in C",

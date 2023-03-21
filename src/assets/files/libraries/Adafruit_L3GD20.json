@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_L3GD20",
     "version": "0.1.2",
-    "installs": 608,
+    "installs": 632,
     "license": "Adafruit",
     "author": "kennethlimcp / Adafruit / marksherman",
     "sentence": "Adafruit_L3GD20/H for Particle",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP9803",
     "version": "0.0.2",
-    "installs": 977,
+    "installs": 988,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "This Library is intended for use with MCP9803 Mini module on the Particle Core/Photon platform.",

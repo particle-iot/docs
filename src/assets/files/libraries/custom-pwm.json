@@ -7,7 +7,7 @@
   "attributes": {
     "name": "custom-pwm",
     "version": "0.0.1",
-    "installs": 3730,
+    "installs": 3756,
     "license": "MIT",
     "author": "Ken Kaiser <admin@makerken.com>",
     "sentence": "Abstracting the 6.0.0 analogWrite functions",

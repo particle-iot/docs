@@ -7,7 +7,7 @@
   "attributes": {
     "name": "StepMotorController",
     "version": "0.0.32",
-    "installs": 757,
+    "installs": 783,
     "license": "",
     "author": "Ryan Kast<ryan.kast@nimble-iot.com>",
     "sentence": "Step Motor Controller Interface     ",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "InternetButtonADXL362",
     "version": "0.0.1",
-    "installs": 677,
+    "installs": 684,
     "license": "MIT License",
     "author": "Anthony Liekens <anthony@liekens.net>",
     "sentence": "Provides a library for the ADXL362 accelerometer and temperature sensor",

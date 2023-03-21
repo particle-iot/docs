@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Unified_Sensors",
     "version": "0.0.1",
-    "installs": 1983,
+    "installs": 2005,
     "license": "Adafruit",
     "author": "Matt Thompson @inet_ntoa",
     "sentence": "Adafruit Unified Sensors for Particle",

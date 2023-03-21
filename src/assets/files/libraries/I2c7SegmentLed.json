@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2c7SegmentLed",
     "version": "1.0.1",
-    "installs": 473,
+    "installs": 481,
     "license": "MIT",
     "author": "Gary Muhonen <gary@dcity.org>",
     "sentence": "Particle library for controlling I2C 7 Segment LED Displays",

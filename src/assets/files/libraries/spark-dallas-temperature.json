@@ -7,7 +7,7 @@
   "attributes": {
     "name": "spark-dallas-temperature",
     "version": "0.0.7",
-    "installs": 87120,
+    "installs": 90423,
     "license": "MIT",
     "author": "Tom de Boer <tom@tomdeboer.nl>",
     "maintainer": "Particle <libraries@particle.io>",

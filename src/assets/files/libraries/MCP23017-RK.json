@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP23017-RK",
     "version": "0.0.1",
-    "installs": 10021,
+    "installs": 10267,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for 16-port I2C GPIO Expander MCP23017",

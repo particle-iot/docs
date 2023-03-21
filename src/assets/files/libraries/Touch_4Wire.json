@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Touch_4Wire",
     "version": "0.9.5",
-    "installs": 5922,
+    "installs": 6001,
     "license": "Adafruit",
     "author": "ScruffR / Adafruit",
     "sentence": "Adafruit 4-Wire-Touchscreen library (Compatible with Core 0.3.4ff, Photon/P1 0.4.3ff)",

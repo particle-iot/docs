@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MCP23008",
     "version": "1.0.6",
-    "installs": 21648,
+    "installs": 21768,
     "license": "BSD-2",
     "author": "Limor Fried/Ladyada, Evan Simkowitz<esimkowitz@wustl.edu>",
     "sentence": "Adafruit_MCP23008 I2C expander library adapted for Particle IDE",

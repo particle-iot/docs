@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_10DOF_IMU",
     "version": "0.0.3",
-    "installs": 4122,
+    "installs": 4131,
     "license": "BSD",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Particle port of the Adafruit 10-DOF IMU Breakout L3GD20H LSM303 BMP180",

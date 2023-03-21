@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle_ADXL362",
     "version": "0.0.1",
-    "installs": 365204,
+    "installs": 366320,
     "license": "GNU Lesser GPL v3",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "Read orientation, acceleration and temperature from the ADXL362",

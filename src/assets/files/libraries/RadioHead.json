@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RadioHead",
     "version": "1.4.1",
-    "installs": 1017,
+    "installs": 1098,
     "author": "Mike McCauley <https://groups.google.com/forum/#!forum/radiohead-arduino>, SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "This is the RadioHead Packet Radio library for embedded microprocessors.",

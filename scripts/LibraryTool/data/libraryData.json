@@ -135,6 +135,119 @@
           }
         },
         "added": "2022-06-17T10:16:53.625Z"
+      },
+      "1.0.1": {
+        "added": "2023-03-21T14:47:45.634Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "boron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "bsom": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "b5som": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "tracker": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "p2": {
+              "a-rainbow": false,
+              "extra-examples": false,
+              "rgbw-strandtest": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "boron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "bsom": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "b5som": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "tracker": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "esomx": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "electron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "argon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "boron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "electron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "argon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "boron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            }
+          }
+        }
       }
     }
   },
@@ -1892,6 +2005,259 @@
           }
         },
         "added": "2022-06-17T10:16:53.635Z"
+      },
+      "6.21.0": {
+        "added": "2023-03-21T14:53:24.368Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "bsom": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "b5som": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "tracker": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "p2": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "bsom": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "b5som": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "tracker": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "esomx": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          }
+        }
       }
     }
   },
@@ -5098,6 +5464,179 @@
           }
         },
         "added": "2022-06-17T10:16:53.656Z"
+      },
+      "0.2.6": {
+        "added": "2023-03-21T15:05:18.439Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": true
+            },
+            "boron": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            },
+            "bsom": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            },
+            "b5som": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            },
+            "tracker": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            },
+            "p2": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": true
+            },
+            "boron": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            },
+            "bsom": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            },
+            "b5som": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            },
+            "tracker": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            },
+            "esomx": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": true
+            },
+            "electron": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            },
+            "argon": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": true
+            },
+            "boron": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": true
+            },
+            "electron": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            },
+            "argon": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": true
+            },
+            "boron": {
+              "1-simple": false,
+              "2-show-carriers": false,
+              "3-select-carrier": false,
+              "4-cell-locate": false,
+              "5-cellular-global-identity": false,
+              "6-no-cellular-test": false
+            }
+          }
+        }
       }
     }
   },
@@ -18919,6 +19458,119 @@
           }
         },
         "added": "2022-06-17T10:16:53.728Z"
+      },
+      "2.1.0": {
+        "added": "2023-03-21T15:11:27.684Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "boron": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "bsom": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "b5som": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "tracker": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "p2": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "boron": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "bsom": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "b5som": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "tracker": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "esomx": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "electron": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "argon": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "boron": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "electron": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "argon": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            },
+            "boron": {
+              "Basic": true,
+              "SpeedTest": false,
+              "TwoKnobs": true
+            }
+          }
+        }
       }
     }
   },
@@ -60798,6 +61450,99 @@
           }
         },
         "added": "2022-06-17T10:16:53.945Z"
+      },
+      "0.2.5": {
+        "added": "2023-03-21T15:23:48.652Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "boron": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "bsom": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "b5som": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "tracker": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "p2": {
+              "coapserver": true,
+              "coaptest": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "boron": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "bsom": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "b5som": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "tracker": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "esomx": {
+              "coapserver": true,
+              "coaptest": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "electron": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "argon": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "boron": {
+              "coapserver": true,
+              "coaptest": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "electron": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "argon": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "boron": {
+              "coapserver": true,
+              "coaptest": true
+            }
+          }
+        }
       }
     }
   },
@@ -89462,8 +90207,63 @@
             "boron": {
               "usage": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            },
+            "bsom": {
+              "usage": false
+            },
+            "b5som": {
+              "usage": false
+            },
+            "tracker": {
+              "usage": false
+            },
+            "p2": {
+              "usage": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            },
+            "bsom": {
+              "usage": false
+            },
+            "b5som": {
+              "usage": false
+            },
+            "tracker": {
+              "usage": false
+            },
+            "esomx": {
+              "usage": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
           }
-        }
+        },
+        "added": "2023-03-21T15:48:18.636Z"
       }
     }
   },
@@ -96263,6 +97063,99 @@
           }
         },
         "added": "2022-06-17T10:16:54.020Z"
+      },
+      "2.1.0": {
+        "added": "2023-03-21T15:35:17.230Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "boron": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "bsom": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "b5som": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "tracker": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "p2": {
+              "Prefs2Struct": false,
+              "StartCounter": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "boron": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "bsom": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "b5som": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "tracker": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "esomx": {
+              "Prefs2Struct": false,
+              "StartCounter": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "Prefs2Struct": false,
+              "StartCounter": false
+            },
+            "electron": {
+              "Prefs2Struct": false,
+              "StartCounter": false
+            },
+            "argon": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "boron": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "Prefs2Struct": false,
+              "StartCounter": false
+            },
+            "electron": {
+              "Prefs2Struct": false,
+              "StartCounter": false
+            },
+            "argon": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "boron": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            }
+          }
+        }
       }
     }
   },
@@ -98110,6 +99003,1542 @@
         "added": "2022-10-31T20:59:19.347Z",
         "builds": {},
         "noExamples": true
+      }
+    }
+  },
+  "ADXL345_Sparkfun_Particle": {
+    "versions": {
+      "1.0.0": {
+        "added": "2023-03-21T15:15:27.510Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "boron": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "bsom": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "b5som": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "tracker": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "p2": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "boron": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "bsom": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "b5som": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "tracker": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "esomx": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "electron": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "argon": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "boron": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "electron": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "argon": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            },
+            "boron": {
+              "SparkFun_ADXL345_Calibration": false,
+              "SparkFun_ADXL345_Example": false,
+              "SparkFun_BabyBlynkMonitorThing": false,
+              "Sparkfun_ADXL345_Graph": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "StorageHelperRK": {
+    "versions": {
+      "0.0.5": {
+        "added": "2023-03-21T15:27:56.611Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "boron": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "bsom": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "b5som": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "tracker": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "p2": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "boron": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "bsom": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "b5som": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "tracker": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "esomx": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "04-persistent": false,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "electron": {
+              "04-persistent": false,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "argon": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "boron": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "04-persistent": false,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "electron": {
+              "04-persistent": false,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "argon": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            },
+            "boron": {
+              "04-persistent": true,
+              "05-eeprom": true,
+              "06-retained": true,
+              "07-validate": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SHA1_RK": {
+    "versions": {
+      "0.0.1": {
+        "added": "2023-03-21T15:38:45.664Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "1-test-vectors": true
+            },
+            "boron": {
+              "1-test-vectors": true
+            },
+            "bsom": {
+              "1-test-vectors": true
+            },
+            "b5som": {
+              "1-test-vectors": true
+            },
+            "tracker": {
+              "1-test-vectors": true
+            },
+            "p2": {
+              "1-test-vectors": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "1-test-vectors": true
+            },
+            "boron": {
+              "1-test-vectors": true
+            },
+            "bsom": {
+              "1-test-vectors": true
+            },
+            "b5som": {
+              "1-test-vectors": true
+            },
+            "tracker": {
+              "1-test-vectors": true
+            },
+            "esomx": {
+              "1-test-vectors": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "1-test-vectors": true
+            },
+            "electron": {
+              "1-test-vectors": true
+            },
+            "argon": {
+              "1-test-vectors": true
+            },
+            "boron": {
+              "1-test-vectors": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "1-test-vectors": true
+            },
+            "electron": {
+              "1-test-vectors": true
+            },
+            "argon": {
+              "1-test-vectors": true
+            },
+            "boron": {
+              "1-test-vectors": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "String": {
+    "versions": {
+      "1.1.1": {
+        "added": "2023-03-21T15:40:18.723Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            },
+            "bsom": {
+              "usage": false
+            },
+            "b5som": {
+              "usage": false
+            },
+            "tracker": {
+              "usage": false
+            },
+            "p2": {
+              "usage": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            },
+            "bsom": {
+              "usage": false
+            },
+            "b5som": {
+              "usage": false
+            },
+            "tracker": {
+              "usage": false
+            },
+            "esomx": {
+              "usage": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_MLX90393_SSSA": {
+    "versions": {
+      "2.0.8": {
+        "added": "2023-03-21T15:41:12.167Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "boron": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "bsom": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "b5som": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "tracker": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "p2": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "boron": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "bsom": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "b5som": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "tracker": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "esomx": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "electron": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "argon": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "boron": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "electron": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "argon": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            },
+            "boron": {
+              "basicdemo": false,
+              "oled_demo": false,
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_BNO055_Library_SSSA": {
+    "versions": {
+      "1.0.2": {
+        "added": "2023-03-21T15:45:54.890Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            },
+            "bsom": {
+              "usage": true
+            },
+            "b5som": {
+              "usage": true
+            },
+            "tracker": {
+              "usage": true
+            },
+            "p2": {
+              "usage": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            },
+            "bsom": {
+              "usage": true
+            },
+            "b5som": {
+              "usage": true
+            },
+            "tracker": {
+              "usage": true
+            },
+            "esomx": {
+              "usage": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_I2C_Mux_Arduino_Library": {
+    "versions": {
+      "1.0.0": {
+        "added": "2023-03-21T15:49:05.719Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "boron": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "bsom": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "b5som": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "tracker": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "p2": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "boron": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "bsom": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "b5som": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "tracker": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "esomx": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": false
+            },
+            "electron": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "argon": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "boron": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": false
+            },
+            "electron": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "argon": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            },
+            "boron": {
+              "Example1_BasicControl": true,
+              "Example3_AdvancedWireSettings": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "LiquidCrystal_SSD1306": {
+    "versions": {
+      "1.6.0": {
+        "added": "2023-03-21T15:53:01.239Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "boron": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "bsom": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "b5som": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "tracker": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "p2": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "boron": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "bsom": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "b5som": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "tracker": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "esomx": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "electron": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "argon": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "boron": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "electron": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "argon": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            },
+            "boron": {
+              "AvrI2c128x32": false,
+              "AvrI2c128x64": false,
+              "DisplayRotationSpi": false,
+              "DisplayRotationWire": false,
+              "FontSamplesSpi": false,
+              "FontSamplesWire": false,
+              "HelloWorld": false,
+              "HelloWorldAvrI2c": false,
+              "HelloWorldSH1106Spi": false,
+              "HelloWorldSoftSpi": false,
+              "HelloWorldSpi": false,
+              "HelloWorldWire": false,
+              "InvertTextSpi": false,
+              "InvertTextWire": false,
+              "LetterSpacingSpi": false,
+              "LetterSpacingWire": false,
+              "LiquidCrystal_SSD1306_EEPROM_Prep": false,
+              "ProportionalFormSpi": false,
+              "ProportionalFormWire": false,
+              "ScrollingSpi": false,
+              "ScrollingWire": false,
+              "SixAdcFieldsSpi": false,
+              "SixAdcFieldsWire": false,
+              "SlowScrollWire": false,
+              "SmoothScrollWire": false,
+              "SoftSpi128x32": false,
+              "SoftSpi128x64": false,
+              "Spi128x32": false,
+              "Spi128x64": false,
+              "Spi128x64SH1106": false,
+              "TickerAdcDemo": false,
+              "TickerTextDemo": false,
+              "Wire128x32": false,
+              "Wire128x64": false,
+              "Wire128x64SH1106": false,
+              "cmp5x7Fonts": false,
+              "print5x7Fonts": false,
+              "usage": false
+            }
+          }
+        }
       }
     }
   }
