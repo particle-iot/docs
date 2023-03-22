@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS18B20",
     "version": "0.1.14",
-    "installs": 234992,
+    "installs": 235027,
     "license": "MIT",
     "author": "ScruffR (based on Lucas Figg's lib) ",
     "sentence": "DSB18XX Lib for Particle devices",

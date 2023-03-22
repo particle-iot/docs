@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SC16IS740RK",
     "version": "0.0.7",
-    "installs": 13129,
+    "installs": 13135,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for SC16IS740 UART",

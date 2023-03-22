@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Preferences",
     "version": "2.1.0",
-    "installs": 625,
+    "installs": 626,
     "author": "Volodymyr Shymanskyy",
     "maintainer": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>",
     "sentence": "Preferences library for Arduino, ESP8266 and Particle Gen3 devices",

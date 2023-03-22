@@ -72,10 +72,17 @@ catch (e) {
     libraryData = {};
 }
 
-async function fetchLibraryList() {
-    let libraryList = [];
+const allowAuthorsArray = [
+    '@particle.io',
+    'rickkas7',
+    'adafruit',
+    'sparkfun',
+];
 
-    for (let page = 1; page <= 16; page++) {
+async function fetchLibraryList() {
+    let libraryListRaw = [];
+
+    for (let page = 1; page <= 30; page++) {
         const data = await particle.listLibraries({
             auth: config.accessToken,
             excludeScopes: 'private',
@@ -87,9 +94,35 @@ async function fetchLibraryList() {
             break;
         }
 
-        libraryList = libraryList.concat(data.body.data);
+        libraryListRaw = libraryListRaw.concat(data.body.data);
     }
-    console.log('data', libraryList);
+    console.log('libraryListRaw ' + libraryListRaw.length + ' entries');
+
+    let libraryList = [];
+
+    for(const obj of libraryListRaw) {
+        let includeObj = false;
+        if (obj.attributes.installs > 300) {
+            includeObj = true;
+        }
+        if (!includeObj && obj.attributes.author) {
+            const author = obj.attributes.author.toLowerCase();
+            for(const a of allowAuthorsArray) {
+                if (author.indexOf(a) >= 0) {
+                    // console.log('including because of author', obj);
+                    includeObj = true;
+                    break;
+                }
+            }
+        }
+
+        if (includeObj) {
+            libraryList.push(obj);
+        }
+    }
+    console.log('libraryList ' + libraryList.length + ' entries');
+
+    //console.log('data', libraryList);
     fs.writeFileSync(libraryListPath, JSON.stringify(libraryList, null, 2));
 
     return libraryList;
