@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Lab 2: Working with Particle primitives & Grove Sensors
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            | Start programming your Argon, read sensor data, and leverage the device cloud.                         |
 | --------------------------- | --------------------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to interact with sensors, using Particle variables, cloud functions and publish/subscribe.                               |

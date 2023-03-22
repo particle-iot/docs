@@ -1086,6 +1086,8 @@ The following pins were NC on the P1 but are used on the P2.
 
 The P2 and Argon utilize BLE or USB for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
 
+Sample applications for React Native, iOS, and Android will be provided in the future.
+
 | Feature | P2 | P1 | Argon |
 | :--- | :---: | :---: | :---: |
 | Wi-Fi (SoftAP) | | &check; | |

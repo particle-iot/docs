@@ -10,6 +10,11 @@ asyncclasslink: https://github.com/particle-iot/particle-android/blob/master/clo
 
 # {{title}}
 
+{{box op="start" cssClass="boxed warningBox"}}
+The Android SDK can only be used to set up Gen 2 devices (P1 and Photon). It will be deprecated in the future.
+{{box op="end"}}
+
+
 The Particle Android SDK consists of two parts:
 
 1. [the Cloud SDK](#android-cloud-sdk): a wrapper for our REST API which enables your mobile app to interact with Particle-powered hardware through the Particle Device Cloud

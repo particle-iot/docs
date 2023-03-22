@@ -70,7 +70,7 @@
         "tiles": [
           {
             "title": "setup.particle.io",
-            "detail": "Set up your Particle device from a web browser or mobile app",
+            "detail": "Set up your Particle device from a web browser",
             "href": "https://setup.particle.io/"
           },
           {

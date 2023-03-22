@@ -11,6 +11,10 @@ Particle provides two iOS libraries:
 1. [Cloud SDK](#ios-cloud-sdk) - an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Device Cloud.
 2. [Photon Setup Library](#photon-setup-library) - a library which provides an easy setup wizard for your app users to set up their Particle-powered devices.
 
+{{box op="start" cssClass="boxed warningBox"}}
+The Photon Setup Library can only be used to set up Gen 2 devices (P1 and Photon). It will be deprecated in the future.
+{{box op="end"}}
+
 ## Requirements
 
 Cloud SDK supports iOS 8.0 and up, Photon Setup Library supports iOS 9.0 and up.

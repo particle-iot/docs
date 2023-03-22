@@ -59,10 +59,6 @@ When logging into sites like the [Particle Console](https://console.particle.io)
 
 Open the Authenticator mobile app you installed earlier. A 6-digit login code is displayed that you enter into this page. Each code is only valid for a short period of time.
 
-### From the mobile apps
-
-Two-step authentication is also supported from the iOS and Android Particle mobile apps.
-
 ### From the Particle command line interface (CLI)
 
 The [Particle CLI]() also allows two-step authentication:
@@ -80,6 +76,12 @@ Lost access to your phone? Visit https://login.particle.io/account-info
 ### From the Particle cloud API
 
 - You can use the [Javascript API](https://github.com/particle-iot/particle-api-js/blob/master/docs/api.md#sendotp) to log in using two-step authentication and manage settings.
+
+### From the mobile apps
+
+Two-step authentication is also supported from the iOS and Android Particle mobile apps.
+
+Note that the Particle mobile apps for iOS and Android will be deprecated in the future.
 
 ## Other topics
 

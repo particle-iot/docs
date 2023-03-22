@@ -151,7 +151,7 @@ You can find more information in the [Data Operations](/getting-started/billing/
 | | [P1](/reference/datasheets/wi-fi/p1-datasheet/) |  | [P2](/reference/datasheets/wi-fi/argon-datasheet/) | 
 | 2.4 GHz Wi-Fi | &check; |&check; |&check; |
 | 5 GHz Wi-Fi | &nbsp; | &nbsp; | &check; |
-| Particle mobile app supported | &check; | &check; | &check; |
+| Particle mobile app supported<sup>2</sup> | &check; | &check; | &nbsp; |
 | [Mobile SDK](/reference/mobile-sdks/ios/#photon-setup-library) for white-label setup apps | &check; | &nbsp; | &nbsp; |
 | React Native Setup Example | &nbsp; | &check; | &check; |
 | USB configuration | &check; | &check; |
@@ -162,13 +162,15 @@ You can find more information in the [Data Operations](/getting-started/billing/
 
 <sup>1</sup>WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
 
+<sup>2</sup>The Particle mobile apps for iOS and Android will be deprecated in the future. You should not rely on them for your product setup experience.
+
 ### WPA2 Enterprise
 
 WPA2 Enterprise is a variation of Wi-Fi sometimes used in corporate and educations environments. It's sometimes referred to as WPA Enterprise, and mentions of 802.1(x), RADIUS, or eduroam indicate that WPA2 Enterprise is being used.
 
 To configure a Photon, P1 using WPA2 Enterprise using the Particle CLI. Of note:
 
-- Setup can only be done over USB using the [Particle CLI](/getting-started/developer-tools/cli/) (no mobile app support).
+- Setup can only be done over USB using the [Particle CLI](/getting-started/developer-tools/cli/).
 - Requires Device OS 0.7.0 or later for WPA2 Enterprise Support.
 - Device OS 1.5.4-rc.1 or 2.0.x or later is required if concatenated certificates (intermediate certificates) are required.
 - Only one set of WPA2 Enterprise Wi-Fi credentials can be stored.

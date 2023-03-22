@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Lab 6: On-Device Debugging with Workbench
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            | Perform on-device debugging with Particle Workbench and the Particle Debugger.                                                                                        |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to create debug builds in [Workbench](https://www.particle.io/workbench); step-debugging in Workbench  |

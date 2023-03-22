@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Before you start
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 To save time at the actual workshop, the following steps should ideally be completed beforehand.
 
 1. Install the [Particle CLI](/getting-started/developer-tools/cli/) (Command Line Interface)

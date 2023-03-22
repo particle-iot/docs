@@ -9,6 +9,8 @@ devices: [ photon,electron,argon,boron,xenon]
 
 {{box op="start" cssClass="boxed warningBox"}}
 This page is no longer maintained and is provided for historical reference only
+
+The Particle mobile apps for iOS and Android will be deprecated in the future. You should use web-based or CLI setup instead.
 {{box op="end"}}
 
 You are viewing the Tinker documentation the **{{device}}**. To view the documentation for other 

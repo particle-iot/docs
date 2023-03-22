@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Session 2 - Reading from sensors and posting data to the cloud
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            | Start programming your Photon, and leverage the device cloud to take and post sensor readings. |
 | --------------------------- | ---------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to read sensor data; Using Particle variables and cloud functions.                         |

@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # About this workshop
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 This workshop is sponsored and produced by [Particle](https:www.particle.io).
 
 The workshop is a combination of a presentations and 4 hands-on sessions described in this guide.

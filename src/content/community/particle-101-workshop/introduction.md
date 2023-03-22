@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # About this workshop
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 This workshop is sponsored and produced by [Particle](https:www.particle.io). It's original presentation took place. The workshop is a combination of presentations and five hands-on sessions, as detailed below.
 
 Over the course of the workshop, you will learn the basics of connecting a Particle Argon device to the Internet, exploring essential features of the [Particle Device OS](https://www.particle.io/device-os/) and [Cloud](https://www.particle.io/device-cloud/), leveraging cutting-edge features like BLE and on-device debugging, and integrating with 3rd party services.

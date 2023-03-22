@@ -687,6 +687,8 @@ The Photon 2 and Argon utilize BLE for configuration of Wi-Fi. Using BLE allow m
 
 Neither the Photon 2 nor Argon use the Wi-Fi based setup (SoftAP) that is used on the Photon and P1.
 
+Sample applications for React Native, iOS, and Android will be provided in the future.
+
 | Feature | Photon 2 | Photon | Argon |
 | :--- | :---: | :---: | :---: |
 | Wi-Fi (SoftAP) | | &check; | |

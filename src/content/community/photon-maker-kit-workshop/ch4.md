@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Session 4 - Visualizing sensor data in the cloud
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            |                                 |
 | --------------------------- | ------------------------------- |
 | **What you’ll learn**       | Streaming data to Power BI      |

@@ -413,8 +413,6 @@ You can get the value of the variable here:
 particle get test2 sensor
 ```
 
-- Or using the Particle mobile app
-
 ### Variable calculated
 
 {{> codebox content="/assets/files/cloud-communication/variable2.cpp" format="cpp" height="300" flash="true"}}

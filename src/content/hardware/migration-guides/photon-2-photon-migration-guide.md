@@ -897,6 +897,8 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 
 The Photon 2 and Argon utilize BLE for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
 
+Sample applications for React Native, iOS, and Android will be provided in the future.
+
 | Feature | Photon 2 | Photon | Argon |
 | :--- | :---: | :---: | :---: |
 | Wi-Fi (SoftAP) | | &check; | |

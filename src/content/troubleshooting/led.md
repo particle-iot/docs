@@ -251,6 +251,7 @@ Normally, when you've successfully configured your Gen 3 device using the mobile
 
 If you have reset your configuration or have set up using USB, you may need to manually set the configuration done flag using [these instructions](/reference/developer-tools/cli/#particle-usb-setup-done) to use the `particle usb setup-done` command.
 
+With Device OS 4.0 and later, setup complete is no longer required; Wi-Fi devices will automatically exit listening mode after setting Wi-Fi credentials. Cellular devices will go directly into blinking green, not listening mode.
 {{else}}
 
 {{#if has-cellular}}

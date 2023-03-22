@@ -1108,7 +1108,6 @@ The exception is free plan products owned by you, in which case all devices, whe
 
 In the developer sandbox, non-product, there is no add devices button. The intended paths to add a device are:
 
-- Using the Particle mobile apps for iOS and Android
 - Using the [Particle CLI](/getting-started/developer-tools/cli/)
 - Using [setup.particle.io](https://setup.particle.io) 
 
@@ -1124,7 +1123,6 @@ Cellular devices with Particle SIM cards, either built-in (MFF2) or plastic nano
 In the developer sandbox, non-product, there is no import button. The intended paths to activate a SIM card are:
 
 - From [setup.particle.io](https://setup.particle.io) where you can set up a cellular device with a SIM card, or activate just the SIM card
-- From the Particle mobile apps for iOS and Android
 
 ![SIM cards - sandbox](/assets/images/console/sandbox-sims.png)
 

@@ -97,7 +97,9 @@ A product device can be claimed to any team member of a product using the [Parti
 
 ![Pre-claim Flow](/assets/images/PreclaimFlow.png)
 
-For Wi-Fi devices, you will typically need to use a mobile app and the [Photon/P1 Setup Library](/reference/mobile-sdks/ios/) to set the Wi-Fi credentials, and this provides a convenient way to claim devices at the same time.
+For Gen 2 Wi-Fi devices (P1 and Photon), you will typically need to use a mobile app and the [Photon/P1 Setup Library](/reference/mobile-sdks/ios/) to set the Wi-Fi credentials, and this provides a convenient way to claim devices at the same time.
+
+For Gen 3 Wi-Fi devices (P2, Photon 2, and Argon), sample applications for React Native, iOS, and Android will be provided in the future.
 
 As of March 2023, claiming product devices is no longer necessary to subscribe to events on-device. This can simplify the process of device onboarding. 
 

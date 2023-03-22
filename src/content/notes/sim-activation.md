@@ -2,7 +2,7 @@ In order for a cellular device to connect to the cellular network, it must have 
 
 #### Developer devices
 
-If you set up a device using [setup.particle.io](https://setup.particle.io/) or the Particle mobile app, the SIM will be activated automatically during setup.
+If you set up a device using [setup.particle.io](https://setup.particle.io/), the SIM will be activated automatically during setup.
 
 If you have deactivated the SIM, you need to reactivate it in the console to use it again, otherwise the device will be stuck in blinking green. The SIM should be listed in the top level SIM cards icon in [the console](https://console.particle.io/).
 

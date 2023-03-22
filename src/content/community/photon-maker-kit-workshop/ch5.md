@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Session 5 - Controlling your devices from the cloud
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            | Process sensor data in the cloud, and publish events to control an RGB LED on your Photon.                 |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to control an RGB LED from a Photon; Subscribing to Device Cloud events; Publishing events from Azure. |

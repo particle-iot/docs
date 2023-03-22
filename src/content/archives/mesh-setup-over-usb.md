@@ -9,8 +9,6 @@ columns: two
 
 ### Mesh networking is [no longer supported](/reference/discontinued/hardware/mesh/). The instructions below will no longer work to create a mesh network and cannot be used.
 
-Normally, mesh networks are set up using the mobile apps for iOS and Android. Alternatively, you can set up a gateway and mesh nodes using a computer and the devices connected by USB using the process described here.
-
 ### Gateway setup
 
 The first step is to configure your gateway device. This is your connection to the Internet and it is required. It's not possible to set up a completely standalone network at this time.

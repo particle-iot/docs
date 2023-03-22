@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Session 1 - Claiming your Particle device
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            | Get your Particle Photon online and claimed to your account                    |
 | --------------------------- | ------------------------------------------------------------------------------ |
 | **What you’ll learn**       | How to claim a new Particle device using a mobile app, web browser or the CLI. |

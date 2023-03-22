@@ -5,7 +5,8 @@ columns: two
 ---
 
 # {{{title}}}
-Many users set up their Argons and Borons by using the mobile apps for iOS and Android. However, it is quite simple to set up these devices over USB using the process described here.
+
+The easiest way to set up and Argon or Boron is by [setup.particle.io](https://setup.particle.io/). However, you can also use the steps below.
 
 ## Argon Setup
 

@@ -1108,6 +1108,8 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 
 The P2 and Argon utilize BLE or USB for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
 
+Sample applications for React Native, iOS, and Android will be provided in the future.
+
 | Feature | P2 | P1 | Argon |
 | :--- | :---: | :---: | :---: |
 | Wi-Fi (SoftAP) | | &check; | |

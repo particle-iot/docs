@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Session 3 - Connecting the Particle device cloud to Azure
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            | Connect your project to Azure and "backhaul" sensor data to the cloud. |
 | --------------------------- | ---------------------------------------------------------------------- |
 | **What you’ll learn**       | Piping sensor data into the Azure IoT Hub.                             |

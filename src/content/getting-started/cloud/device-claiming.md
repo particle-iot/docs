@@ -151,7 +151,7 @@ For product devices, you can claim the devices while offline by using the Partic
 
 #### Particle mobile app claiming
 
-Most developers setting up a small number of development kits will use the Particle mobile app to claim their device. For the Argon and Photon (Wi-Fi) the mobile app also sets the Wi-Fi credentials, and sets the [setup done bit](#setup-done).
+The Particle mobile app will be deprecated in the future and should not be used as part of your normal setup flow at this time.
 
 ### Unclaiming a device
 
@@ -187,10 +187,6 @@ particle device remove <device-id>
 
 You must be logged in as the owner of the device to remove it. The device does not need to be online to unclaim.
 
-#### Particle mobile app unclaiming
-
-You can unclaim developer devices from the Particle mobile app device list, click on the device, then the gear icon, then **Unclaim device**.
-
 #### Web IDE unclaiming
 
 You can unclaim developer devices from the Web IDE. Click on the **Devices** tab, then the device you want to unclaim, the **>** icon, then the red trash can icon ("Remove devices from account").
@@ -210,7 +206,7 @@ The reason this occurs is that in order to find the Device ID, the mobile app ne
 {{note op="start" type="developer"}}
 - You can unclaim the device, then claim it to the new account.
 
-- If you use the mobile app with the Photon that is not in a product, you can transfer the device immediately.
+- If you use the Particle mobile app with the Photon that is not in a product, you can transfer the device immediately.
 
 - Using the Particle CLI or Web IDE, you can claim the device. If already claimed, you can request a transfer. The the original owner will be emailed and has to respond affirmatively for the transfer to take place.
 {{note op="end"}}
@@ -327,11 +323,6 @@ From setup.particle.io you can activate a SIM:
 
 - In a device with a built-in SIM (Boron, B Series SoM, E Series, Tracker, Electron LTE) from its serial number.
 - A Particle SIM card for use in an Electron 2G/3G from the ICCID on the plastic SIM card.
-
-### Mobile app SIM activation
-
-- As part of the setup process for the Boron, B Series SoM, Electron, or E Series you can activate the SIM from the Particle mobile app.
-- You cannot set up a Tracker One using the mobile app.
 
 ### Product SIM activation
 
@@ -504,16 +495,11 @@ A claim code alone may also may associate a device with a product. It's still be
 
 ## Setting Wi-Fi credentials
 
-### Mobile app - Wi-Fi credentials
-
-The Particle mobile app is intended to set up developer devices, and thus it both sets Wi-Fi credentials and claims the device. This is what you want for developer use, but is probably not what you want for products.
-
 ### Photon setup SDK custom mobile app - Wi-Fi credentials
 
 The Photon setup SDK allows you to create your own white label iOS or Android mobile app that can set up a Photon or P1. It can set up both developer devices as well as simple auth or two-legged shadow auth customers.
 
 It cannot set up an Argon!
-
 
 ### Particle CLI - Wi-Fi credentials
 
@@ -528,10 +514,6 @@ particle serial wifi
 On Gen 3 devices running Device OS 3.x and earlier, the setup done bit determines if setup has been completed. Until the setup done bit is set, the device will boot into listening mode (blinking dark blue), even if it has valid Wi-Fi credentials (Argon) or SIM activation (Boron, B Series SoM, Tracker).
 
 **If you are using Device OS 4.0 and later, there is no setup done bit so you must skip this step.**
-
-### Mobile app - setup done
-
-If you use the Particle mobile app to set up your devices, the setup done bit will be set upon successful completion of setup.
 
 ### Particle CLI - setup done
 

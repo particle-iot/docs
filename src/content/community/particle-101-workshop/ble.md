@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Lab 3 - Working with BLE
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            | Learn how to use BLE features on Gen3 devices.                                                              |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to configure BLE for broadcasting device data; Using WebBLE to connect to and consume data from Particle devices.        |

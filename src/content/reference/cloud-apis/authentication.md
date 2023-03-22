@@ -202,12 +202,12 @@ When you're ready, click on the authentication method that makes most sense to y
 
 ## Simple authentication
 
-As the title suggests, Simple Authentication is the simplest and most straightforward to implement.
-This is because in this method, your application will not have its own
-server/back-end architecture. Instead, your web or mobile app will hit
-the Particle API directly for both session management and device
-interactions. Below is a diagram communicating how simple authentication
-works at a high level:
+Simple authentication was originally intended to make it easier to use the Particle API from a mobile 
+app without having to maintain your own back-end server. In practice, however, this was not really 
+possible because features like password reset require a back-end server. Additionally, maintaining
+access tokens and customer accounts can be tricky, especially since the device setup SDK cannot 
+be used with Gen 3 devices, the P2, and Photon 2.
+
 
 ![Simple authentication with Particle](/assets/images/simple-auth-high-level.png)
 <p class="caption">Your application interacts directly with the Particle
@@ -227,36 +227,6 @@ functions on the customer's device using the customer's access token.
 All of this is able to happen without the need to have your own server.
 All communication flows from the mobile client to the Particle cloud,
 then down to the customer's device.
-
-### Advantages of simple auth
-
-Simple auth is ideal for getting a Particle product up-and-running quickly. Without needing to build your own back-end, development time to
-creating an app to work with a Particle device is greatly reduced. There are less moving parts and opportunities to introduce bugs. In
-addition, Particle's [mobile SDKs](/reference/mobile-sdks/ios/) and [JavaScript
-SDK](/reference/cloud-apis/javascript/) will handle much of
-the heavy lifting for you when it comes to session management and device
-interaction. In short, simple auth is...simple.
-
-Another advantage of simple authentication is the ability to hide
-Particle from your customers. The SDKs allow for [front-end skinning and
-customization](/reference/mobile-sdks/ios/#customization) that will allow you to
-create your own brand experience for customers of your app. All
-interaction with Particle will happen behind the scenes, hidden from
-your customers (unless they are tech savvy enough to monitor the network
-traffic to and from your app).
-
-### Disadvantages of simple auth
-
-Without your own server, you lose some level of flexibility and ability to customize in your application. For instance, if you wanted to
-store custom information about your customer specific to your
-application like their name or their favorite pizza topping, this would
-not be currently supported with simple auth.
-
-In addition, using simple auth would make it more difficult to capture
-and use historical data about devices and customers' behavior. With your own
-server and database, you could store data about what time a customer
-turns on their lights, for example. Using simple auth, this would not be
-supported.
 
 ## Simple auth implementation
 

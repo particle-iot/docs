@@ -529,7 +529,7 @@ This tutorial is rather complicated and will require a few special things:
 
 If you have not configured your Photon Wi-Fi, you should do that now. The Photon should be breathing cyan before you start.
 
-If the Photon is currently blinking dark blue (listening mode) without Wi-Fi configured, you can use the normal tools like `particle serial wifi` or the mobile apps, or try the Photon Wi-Fi setup control.
+If the Photon is currently blinking dark blue (listening mode) without Wi-Fi configured, you can use the normal tools like `particle serial wifi`, or try the Photon Wi-Fi setup control.
 
 {{> wifi-setup }}
 

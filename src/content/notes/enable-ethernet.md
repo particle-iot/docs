@@ -1,6 +1,4 @@
-Ethernet must be enabled. This is done using System.enableFeature(FEATURE_ETHERNET_DETECTION); from code, or from the mobile app. The reason is that probing for the Ethernet controller will use SPI and the GPIO pins above, which would adversely affect code that does not use Ethernet but does use those pins for other purposes.
-
-If you want to do this from code instead of the mobile app, you will need to flash code to your device:
+Ethernet must be enabled. This is done using System.enableFeature(FEATURE_ETHERNET_DETECTION); typically from code. The reason is that probing for the Ethernet controller will use SPI and the GPIO pins above, which would adversely affect code that does not use Ethernet but does use those pins for other purposes.
 
 ```cpp
 #include "Particle.h"

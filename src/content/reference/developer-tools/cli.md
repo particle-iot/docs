@@ -20,9 +20,9 @@ For information on how to install the Particle CLI, see the [CLI guide](/getting
 $ particle setup
 ```
 
-To set up a cellular device (Electron, Boron, B Series SoM), go to [setup.particle.io](https://setup.particle.io) or use the mobile apps.
+To set up a cellular device (Electron, Boron, B Series SoM), go to [setup.particle.io](https://setup.particle.io).
 
-To set up an Argon, see [particle serial wifi](#particle-serial-wifi) or use the mobile apps.
+To set up an Argon, P2, or Photon 2 (Wi-Fi), you can use [setup.particle.io](https://setup.particle.io) or to only set Wi-Fi credentials, you can use [particle serial wifi](#particle-serial-wifi).
 
 
 ## particle login
