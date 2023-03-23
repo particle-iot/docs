@@ -336,11 +336,6 @@
       },
       [
         {
-          "dir": "pricing-faq",
-          "title": "Pricing FAQ",
-          "href": "/troubleshooting/faqs/general-knowledge/pricing-faq/"
-        },
-        {
           "dir": "particle-mvp-program",
           "title": "Particle MVP Program",
           "href": "/troubleshooting/faqs/general-knowledge/particle-mvp-program/"
