@@ -1213,6 +1213,13 @@ $(document).ready(function() {
         const apiHelperCloudDeviceSelectElem = $(thisPartial).find('.apiHelperCloudDeviceSelect');
         const apiHelperCloudApiDeviceSelectStatusElem = $(thisPartial).find('.apiHelperCloudApiDeviceSelectStatus');
 
+        let deviceSelect = {
+            options,
+            partialElem: thisPartial,
+            selectElem: apiHelperCloudDeviceSelectElem,
+        };
+        $(thisPartial).data('deviceSelect', deviceSelect);
+
         const setStatus = function(s) {
             $(apiHelperCloudApiDeviceSelectStatusElem).text(s);
         }
@@ -1231,12 +1238,41 @@ $(document).ready(function() {
                     result = dev.id;
                 }
                 result += (dev.online ? '' : ' (offline)');
+                return result;
             },                    
             hasRefresh: true,
             hasSelectDevice: true,
             onChange: async function(elem) {
                 const newVal = $(elem).val();
+                deviceSelect.dev = apiHelper.deviceListCache.find(e => e.id == newVal);
+                if (deviceSelect.onChange) {
+                    deviceSelect.onChange(deviceSelect.dev);
+                }
+                if (options.includes('deviceInfo')) {
+                    const deviceSelectInfoElem = $(thisPartial).find('.deviceSelectInfo');
+                    const tbodyElem = $(deviceSelectInfoElem).find('tbody');
+                    $(deviceSelectInfoElem).show();
+                    $(tbodyElem).empty();
 
+                    deviceSelect.dev._platform = await apiHelper.getPlatformName(deviceSelect.dev.platform_id);
+                    deviceSelect.dev._sku = await apiHelper.getSkuFromSerial(deviceSelect.dev.serial_number);
+                    if (!deviceSelect.dev._sku) {
+                        deviceSelect.dev._sku = 'Unknown';
+                    }
+                    console.log('deviceInfo', deviceSelect.dev);
+
+                    let tableData = {
+                        'id': 'Device ID',
+                        'name': 'Device Name',
+                        '_platform': 'Platform',
+                        'serial_number': 'Serial Number',
+                        '_sku': 'SKU',          
+                        'product_id': 'Product ID',                                       
+                    };
+
+                    apiHelper.simpleTableObjectMap(tbodyElem, tableData, deviceSelect.dev);
+                
+                }
             }
         });   
 
