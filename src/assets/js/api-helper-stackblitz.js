@@ -48,15 +48,40 @@ $(document).ready(function () {
         });  
     });
 
-    $('.stackblitzEmbed').each(function() {
+    $('.stackblitzEmbed').each(async function() {
         const thisPartial = $(this);
 
-        const projectId = $(thisPartial).attr('data-project');
+        let embedObject = {
+            project: $(thisPartial).data('project'),
+            width: parseInt($(thisPartial).data('width')) || 700,
+            height: parseInt($(thisPartial).data('height')) || 400,
+        }
+        $(thisPartial).data('embedObject', embedObject);
 
-        console.log('stackblitzEmbed', projectId);
+        console.log('stackblitzEmbed', embedObject);
 
-        StackBlitzSDK.embedProjectId($(thisPartial).find('.iframeDiv')[0], projectId, {
+        embedObject.vm = await StackBlitzSDK.embedProjectId($(thisPartial).find('.iframeDiv')[0], embedObject.project, {
+            width: embedObject.width,
+            height: embedObject.height,
+            showSidebar: false,
         });
+
+        $(thisPartial).find('iframe').css('max-width', embedObject.width + 'px');
+
+        const urlTimer = setInterval(async function() {
+            try {
+                embedObject.url = await embedObject.vm.preview.getUrl();
+            }
+            catch(e) {                
+            }
+            if (embedObject.url) {
+                console.log('embedObject.url', embedObject.url);
+                if (embedObject.hasUrlCallback) {
+                    embedObject.hasUrlCallback(embedObject.url);
+                }
+                clearInterval(urlTimer);
+            }
+        }, 2000);
     });
 
 
