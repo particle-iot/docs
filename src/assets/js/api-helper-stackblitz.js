@@ -48,5 +48,16 @@ $(document).ready(function () {
         });  
     });
 
+    $('.stackblitzEmbed').each(function() {
+        const thisPartial = $(this);
+
+        const projectId = $(thisPartial).attr('data-project');
+
+        console.log('stackblitzEmbed', projectId);
+
+        StackBlitzSDK.embedProjectId($(thisPartial).find('.iframeDiv')[0], projectId, {
+        });
+    });
+
 
 });
