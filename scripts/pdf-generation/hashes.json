@@ -1,6 +1,6 @@
 {
   "accessories/debugger.md": "f121cc01c46d542040fed34af2c76214",
-  "accessories/gen3-accessories.md": "8ce2d65f42adedf2598ec4b60183035d",
+  "accessories/gen3-accessories.md": "aa2b107407e5ee322759cf699de5c278",
   "accessories/legacy-accessories.md": "021f56445cbe342eb110fb8bd8979974",
   "accessories/sim-cards.md": "7d13a418cfd7dd09e4dd82d904fefea3",
   "asset-tracking/m8-temperature-humidity.md": "0b2b99825125d06c79e11436a3efc0fe",
@@ -64,13 +64,13 @@
   "wi-fi/argon-datasheet.md": "d1fe2afc93668cf08534c1a88a5215bf",
   "wi-fi/p1-datasheet.md": "b8ee63b14970cc3ba3fd4e052ab47f2e",
   "wi-fi/p2-argon-migration-guide.md": "655478980a5c181440823a6ab05ce713",
-  "wi-fi/p2-datasheet.md": "6f47327262495580f1cd4d972af8940b",
+  "wi-fi/p2-datasheet.md": "be8284c9a433fdf838c635482edc6a63",
   "wi-fi/p2-eval-board.md": "b47a94ccaadedf29b40365a78bf03afb",
   "wi-fi/p2-migration-guide.md": "c3b5c031859decc75778e6850cce1e57",
   "wi-fi/p2-p1-migration-guide.md": "96bffb1323209b76664a00a71d2ff1d8",
   "wi-fi/p2-photon-migration-guide.md": "3c8d3fb39583eae4e2c774fdcc8fd912",
   "wi-fi/photon-2-argon-migration-guide.md": "d8066bcbff652f8049740c3903999301",
-  "wi-fi/photon-2-datasheet.md": "bd1384f3efd275f3f57e8fe08fc873e4",
+  "wi-fi/photon-2-datasheet.md": "9f2799b659e24db53871a5924bf70d0a",
   "wi-fi/photon-2-photon-migration-guide.md": "97f56bbc70806aef69d9f0ea7f1d08ee",
   "wi-fi/photon-datasheet.md": "cf17332591766ccadca38a9c813a43b0"
 }

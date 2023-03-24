@@ -148,15 +148,20 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ### Flash layout overview
 
-[To be provided at a later date.]
+| Address    | File | Purpose |
+| :--------- | :--- | :--- |
+| 0x00000000 | p2-prebootloader-mbr | This file is factory configured and must never be overwritten |
+| 0x00004000 | p2-bootloader | Device OS bootloader |
+| 0x00014000 | p2-prebootloader-part1 | Bootloader for KM0 processor, infrequently modified |
+| 0x00060000 | p2-system-part1 | Device OS system part |
+
+- The location of the user binary is dependent on the size of the user binary and is not flashed to a fixed location.
+
+- **Do not chip erase the RTL872x under any circumstances!** Also do not flash anything to address 0 (prebootloader-mbr). The prebootloader-mbr is factory configured for your specific device with the private keys necessary for secure boot. If you erase or overwrite this portion of the flash you will not be able to program or use the device again.
 
 ### DCT Layout
 
-[This information is from the P1, and is likely to remain the same, but is subject to change.]
-
 The DCT area of flash memory has been mapped to a separate DFU media device so that we can incrementally update the application data. This allows one item (say, server public key) to be updated without erasing the other items.
-
-_DCT layout in `release/stable`_ <a href="https://github.com/particle-iot/device-os/blob/release/v2.x/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h" target="_blank">found here in firmware.</a>
 
 | Region | Offset | Size |
 |:---|---|---|
@@ -199,10 +204,6 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 // Regenerate Alternate Keys
 echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 ```
-
-### Memory map
-
-[To be provided at a later date.]
 
 ---
 
@@ -451,22 +452,21 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 
 ## Technical specification
 
-### Absolute maximum ratings
-
-[To be provided at a later date.]
+{{!-- ### Absolute maximum ratings --}}
 
 ### Recommended operating conditions
 
-[To be provided at a later date.]
+| Parameter | Symbol | Min | Typ | Max | Unit |
+|:-|:-|:-:|:-:|:-:|:-:|
+| Operating Temperature | T<sub>op</sub> | -20 |  | +70 | °C |
+| Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
-### Wi-Fi Specifications
 
-[To be provided at a later date.]
+{{!-- ### Wi-Fi Specifications --}}
 
 
-### I/O characteristics
+{{!-- ### I/O Characteristics --}}
 
-[To be provided at a later date.]
 
 ### Power consumption
 
@@ -489,14 +489,14 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ## Mechanical specifications
 
+{{!--
 ### Dimensions and weight
-
-[To be provided at a later date.]
 
 - The Photon 2 is designed to compliant with the Adafruit Feather form-factor (2.0" x 0.9")
 - It has male header pins on the bottom of the module
 - Unlike the Argon and Boron, the Photon 2 uses SMD pins on the bottom because the P2 module is too wide to fit between two rows of PTH pins 0.8" apart
 - It will not be available in a "no headers" version as there are components on the bottom side of the board
+--}}
 
 ### Mating connectors
 
@@ -516,18 +516,12 @@ The Photon 2 can be directly soldered onto the PCB or be mounted with the above 
 <div align=center><img src="/assets/images/argon/argon-landing-pattern.png" ></div>
 
 
-### Overall dimensions
+{{!-- ### Overall dimensions --}}
 
-[To be provided at a later date.]
-
-### Module dimensions
-
-[To be provided at a later date.]
+{{!-- ### Module dimensions --}}
 
 
 ## Ordering information
-
-[To be provided at a later date.]
 
 Photon 2 modules are available from [store.particle.io](https://store.particle.io/).
 
@@ -549,8 +543,8 @@ Photon 2 modules are available from [store.particle.io](https://store.particle.i
 
 -	RoHS
 -	CE
--	FCC ID: [To be provided at a later date.]
--	IC: [To be provided at a later date.]
+-	FCC ID: 2AEMI-P2
+-	IC: 20127-P2
 
 ## Product handling
 
@@ -620,7 +614,7 @@ In the event that these conditions can not be met (for example certain laptop co
 
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
-> Contains FCC ID: [To be provided at a later date]
+> Contains FCC ID: 2AEMI-P
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
@@ -646,7 +640,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC: [To be provided at a later date]
+> Contains transmitter module IC: 20127-P2
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -673,6 +667,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2023-02-14 | RK | Updated Photon 2 graphic to fix pin labels |
 |     | 2023-03-06 | RK | SWDIO is D7 not D8 |
 |     | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
+|     | 2023-03-24 | RK | Added FCC and IC IDs |
 
 ## Known errata
 
