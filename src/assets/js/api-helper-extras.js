@@ -2710,6 +2710,9 @@ $(document).ready(function() {
     $('.apiHelperCreateOrSelectProduct').each(function() {
         const thisPartial = $(this);
 
+        const options = $(thisPartial).data('options').split(',');
+        // sandboxOnly - don't show org options even if the account is in an org
+
         const platformSelectElem = $(thisPartial).find('.apiHelperPlatformSelect');
         const deviceTypeSKUsElem = $(thisPartial).find('.deviceTypeSKUs');
 
@@ -2753,6 +2756,11 @@ $(document).ready(function() {
             return;
         }
 
+        $(document).on('deviceSelected', function(event, deviceObj) {
+            $(platformSelectElem).val(deviceObj.platform_id.toString());
+            $(platformSelectElem).trigger('change');
+        })
+
         productSelector.getOptions = function(options) {
             if (!options) {
                 options = {};
@@ -2765,7 +2773,7 @@ $(document).ready(function() {
 
             options.platformId = parseInt(platformIdStr);
 
-            if (productSelector.orgs.length) {
+            if (productSelector.orgs.length && !options.includes(sandboxOnly)) {
                 // Has organizations
 
                 // sandbox or org
@@ -2833,6 +2841,12 @@ $(document).ready(function() {
             let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
             productSelector.getOptions(settings);
             apiHelper.manualSettings.save();
+
+            const productSelectValString = $(productSelectElem).val();
+            if (productSelectValString) {
+                console.log('triggering commonProductSelected', productSelectValString);
+                $(thisPartial).trigger('commonProductSelected', [parseInt(productSelectValString)]);
+            }
         }
 
         const updateNewExistingButton = function() {
@@ -2870,7 +2884,7 @@ $(document).ready(function() {
             
             const sandboxOrg = sandboxOrgRadioCheckedVal();
 
-            if (productSelector.orgs.length) {
+            if (productSelector.orgs.length && !options.includes(sandboxOnly)) {
                 // Has organizations
 
                 $(sandboxOrgRowElem).show();

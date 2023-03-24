@@ -58,8 +58,6 @@ $(document).ready(function () {
         }
         $(thisPartial).data('embedObject', embedObject);
 
-        console.log('stackblitzEmbed', embedObject);
-
         embedObject.vm = await StackBlitzSDK.embedProjectId($(thisPartial).find('.iframeDiv')[0], embedObject.project, {
             width: embedObject.width,
             height: embedObject.height,

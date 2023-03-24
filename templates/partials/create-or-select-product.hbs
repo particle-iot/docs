@@ -1,4 +1,5 @@
-<div class="apiHelperCreateOrSelectProduct apiHelperManualSetup"> 
+{{#if standalone}}<div class="apiHelper"><div class="apiHelperBox">{{/if}}
+<div class="apiHelperCreateOrSelectProduct apiHelperManualSetup" data-options="{{options}}"> 
     <!-- api-helper, api-helper-extras, api-helper-usb -->
     <table class="apiHelperTableNoMargin">
         <tbody>
@@ -23,12 +24,12 @@
                 <td>&nbsp;</td>
             </tr>
             <tr class="productSelectorRow" style="display:none">
-                <td class="apiHelperProductSelectorLabel"><label><input type="radio" name="newExisting" value="new" />New Product</label> named</td>
+                <td class="apiHelperProductSelectorLabel"><label><input type="radio" name="newExisting" value="new" {{#if defaultNewProduct}}checked{{/if}} />New Product</label> named</td>
                 <td><input type="text" size="20" class="productNameInput"  style="padding-top: 7px;"/></td>
                 <td><button class="createProductButton">Create product</button></td>
             </tr>
             <tr class="productSelectorRow" style="display:none">
-                <td class="apiHelperProductSelectorLabel"><label><input type="radio" name="newExisting" value="existing" checked/>Existing Product</label></td>
+                <td class="apiHelperProductSelectorLabel"><label><input type="radio" name="newExisting" value="existing" {{#unless defaultNewProduct}}checked{{/unless}}/>Existing Product</label></td>
                 <td><select class="apiHelperProductSelect apiHelperSelect" style="padding-top: 5px;"></select></td>
                 <td><button class="refreshProducts">Refresh product list</button></td>
             </tr>
@@ -41,3 +42,5 @@
         </tbody>
     </table>            
 </div>
+{{#if standalone}}</div></div>{{/if}}
+

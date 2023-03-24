@@ -20,6 +20,8 @@ To begin, select a device from your Particle account:
 
 ### Create a product
 
+{{> create-or-select-product options="sandboxOnly" standalone="1" defaultNewProduct="1"}}
+
 ### Add device to product
 
 ### Mark device as development
