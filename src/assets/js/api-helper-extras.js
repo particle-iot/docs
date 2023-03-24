@@ -1205,26 +1205,21 @@ $(document).ready(function() {
 
     });
     
-    $('.apiHelperCloudApiDeviceSelect').each(async function() {
+    $('.apiHelperDeviceSelect').each(async function() {
         const thisPartial = $(this);
-
+        
         const options = $(thisPartial).data('options').split(',');
 
-        const apiHelperCloudDeviceSelectElem = $(thisPartial).find('.apiHelperCloudDeviceSelect');
-        const apiHelperCloudApiDeviceSelectStatusElem = $(thisPartial).find('.apiHelperCloudApiDeviceSelectStatus');
+        const deviceSelectSelectElem = $(thisPartial).find('.deviceSelectSelect');
 
         let deviceSelect = {
             options,
             partialElem: thisPartial,
-            selectElem: apiHelperCloudDeviceSelectElem,
+            selectElem: deviceSelectSelectElem,
         };
         $(thisPartial).data('deviceSelect', deviceSelect);
 
-        const setStatus = function(s) {
-            $(apiHelperCloudApiDeviceSelectStatusElem).text(s);
-        }
-
-        apiHelper.deviceList(apiHelperCloudDeviceSelectElem, {
+        apiHelper.deviceList(deviceSelectSelectElem, {
             deviceFilter: function(dev) {
                 return true;
             },
@@ -1271,7 +1266,8 @@ $(document).ready(function() {
                     };
 
                     apiHelper.simpleTableObjectMap(tbodyElem, tableData, deviceSelect.dev);
-                
+                    
+                    $(thisPartial).trigger('deviceSelected', [deviceSelect.dev]);
                 }
             }
         });   

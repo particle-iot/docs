@@ -577,6 +577,7 @@ apiHelper.deviceList = function(elems, options) {
                     $(optionElem).text(options.getTitle ? options.getTitle(dev) : dev.name);
 
                     if ((!options.hasSelectDevice) && !options.hasAllDevices && first) {
+                        console.log('not hasSelectDevice, selecting first', dev);
                         $(optionElem).attr('selected', 'selected');
                     }
                     first = false;

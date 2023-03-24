@@ -115,18 +115,21 @@ $(document).ready(function () {
         $(parentElem).find('.apiHelperApiRequest').show();
     };
 
-    apiHelper.deviceList($('.apiHelperCloudDeviceSelect'), {
-        getTitle: function (dev) {
-            return dev.name + ' (' + dev.id + ')' + (dev.online ? '' : ' (offline)');
-        },
-        hasRefresh: true,
-        onChange: function (elem) {
-            const deviceId = $(elem).val();
-
-            const thisPartial = $(elem).closest('div.apiHelperDeviceVariable');
-
-        }
-    });
+    const cloudDeviceSelectElems = $('.apiHelperCloudDeviceSelect');
+    if (cloudDeviceSelectElems.length > 0) {
+        apiHelper.deviceList(cloudDeviceSelectElems, {
+            getTitle: function (dev) {
+                return dev.name + ' (' + dev.id + ')' + (dev.online ? '' : ' (offline)');
+            },
+            hasRefresh: true,
+            onChange: function (elem) {
+                const deviceId = $(elem).val();
+    
+                const thisPartial = $(elem).closest('div.apiHelperDeviceVariable');
+    
+            }
+        });    
+    }
 
     const simpleGetConfigs = [
         {

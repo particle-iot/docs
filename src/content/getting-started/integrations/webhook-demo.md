@@ -16,7 +16,7 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-extras,api-helper-pr
 
 To begin, select a device from your Particle account:
 
-{{> cloud-api-device-select options="deviceInfo"}}
+{{> device-select options="deviceInfo"}}
 
 ### Create a product
 
