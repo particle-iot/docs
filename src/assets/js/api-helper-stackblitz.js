@@ -63,7 +63,7 @@ $(document).ready(function () {
         embedObject.vm = await StackBlitzSDK.embedProjectId($(thisPartial).find('.iframeDiv')[0], embedObject.project, {
             width: embedObject.width,
             height: embedObject.height,
-            showSidebar: false,
+            view: 'editor',
         });
 
         $(thisPartial).find('iframe').css('max-width', embedObject.width + 'px');
