@@ -24,7 +24,8 @@ To begin, select a device from your Particle account:
 
 ### Add device to product
 
-### Mark device as development
+{{> common-product-operations}}
+
 
 ### Create a product webhook
 
