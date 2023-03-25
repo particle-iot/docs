@@ -1,11 +1,24 @@
 <!-- webhook-demo -->
-<div class="webhookDemo apiHelper" data-control="{{#if start}}start{{/if}}">
+<div class="webhookDemo apiHelper" data-control="{{#if start}}start{{/if}}{{#if selectDevice}}selectDevice{{/if}}">
     <div class="apiHelperBox">
         {{#if start}}
             <div id="canStart" style="display:none">
-                <p><button id="startButton">Start Demo</button></p>
+                <p><button class="startDemo">Start Demo</button></p>
             </div>
         {{/if}}
+        {{#if selectDevice}}
+            <div class="showWhenStarted" style="display:none">
+                <p>Select device: <select class="apiHelperSelect deviceListSelect apiHelperCommonDevice"></select></p>
+                <div class="deviceSelectInfo" style="display:none">
+                    <table class="apiHelperTableNoMargin">
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>            
+        {{/if}}
+        <div class="hideWhenStarted">
+            <p><a class="startDemo">Start Demo</a> to interact with it.</p>
+        </div>
     </div>
 </div>
 
