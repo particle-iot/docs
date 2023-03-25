@@ -3,9 +3,38 @@ $(document).ready(function() {
         return;
     }
 
+    if (!apiHelper.auth || !apiHelper.auth.username) {
+        return;
+    }
+
+    const localStorageKey = 'webhookDemo';
+
     let webhookDemo = {      
-        started: false,  
+        started: false,
+        settings: {},
     };
+
+    try {
+        const s = localStorage.getItem(localStorageKey);
+        if (s) {
+            webhookDemo.settings = JSON.parse(s);
+            if (webhookDemo.settings.username != apiHelper.auth.username) {
+                webhookDemo.settings = {};
+            }    
+        }
+    }
+    catch(e) {        
+    }
+    webhookDemo.settings.username = apiHelper.auth.username;
+
+    const updateSettings = function() {
+        localStorage.setItem(localStorageKey, JSON.stringify(webhookDemo.settings));
+    }
+
+    const updateProductSelector = async function() {
+        // const productSelectElem = $('#productSelect');
+
+    }
 
     $('.webhookDemo[data-control="start"]').each(async function() {
         $(this).data('webhookDemo', webhookDemo);
@@ -20,7 +49,6 @@ $(document).ready(function() {
             $('.hideWhenStarted').hide();
 
             webhookDemo.started = true;
-            $('.webhookDemo').trigger('webhookDemoStarted');
 
             const embedObject = $('.stackblitzEmbed').data('embedObject');
             embedObject.load();
@@ -50,8 +78,8 @@ $(document).ready(function() {
         hasRefresh: true,
         hasSelectDevice: true,
         onChange: async function(elem) {
-            const newVal = $(elem).val();
-            webhookDemo.deviceObj = apiHelper.deviceListCache.find(e => e.id == newVal);
+            webhookDemo.settings.deviceId = $(elem).val();
+            webhookDemo.deviceObj = apiHelper.deviceListCache.find(e => e.id == webhookDemo.settings.deviceId);
             const deviceSelectInfoElem = $('.deviceSelectInfo');
             const tbodyElem = $(deviceSelectInfoElem).find('tbody');
             $(deviceSelectInfoElem).show();
@@ -62,6 +90,10 @@ $(document).ready(function() {
             if (!webhookDemo.deviceObj._sku) {
                 webhookDemo.deviceObj._sku = 'Unknown';
             }
+            webhookDemo.settings.platformId = webhookDemo.deviceObj.platform_id;
+                        
+            updateSettings();
+
             console.log('deviceInfo', webhookDemo.deviceObj);
 
             let tableData = {
@@ -75,7 +107,53 @@ $(document).ready(function() {
 
             apiHelper.simpleTableObjectMap(tbodyElem, tableData, webhookDemo.deviceObj);
             
-            $('.webhookDemo').trigger('deviceSelected');
+            $('.webhookDemo').trigger('webhookDemoState', ['deviceSelected']);
+            $('.noDeviceSelected').hide();
+
+            updateProductSelector();
         }
     }); 
+
+
+    apiHelper.getCarriersJson().then(function(carriersJsonIn) {
+        webhookDemo.carriersJson = carriersJsonIn;
+
+        let platforms = [];
+        
+        for(const platformName in webhookDemo.carriersJson.deviceConstants) {
+            const platformObj = webhookDemo.carriersJson.deviceConstants[platformName];
+            if (platformObj.productEligible) {
+                platforms.push(platformName);
+            }
+        }
+        platforms.sort(function(a, b) {
+            return carriersJson.deviceConstants[a].displayName.localeCompare(webhookDemo.carriersJson.deviceConstants[b].displayName);
+        })
+
+        for(const platformName of platforms) {
+            const platformObj = webhookDemo.carriersJson.deviceConstants[platformName];
+            const optionElem = document.createElement('option');
+            $(optionElem).text(platformObj.displayName + ' (' + platformObj.id + ')');
+            $(optionElem).attr('value', platformObj.id.toString());
+            $('#devicePlatformSelect').append(optionElem);    
+        }
+    });
+
+    $('#devicePlatformSelect').on('change', function() {
+        const valString = $(this).val();
+        if (valString == '-') {
+            // Select
+            return;
+        }
+        const firstOptionElem = $(this).find('option').first();
+        if ($(firstOptionElem).val() == '-') {
+            $(firstOptionElem).remove();
+        }
+
+        webhookDemo.settings.platformId = parseInt(valString);
+        updateSettings();
+
+        updateProductSelector();
+    });
+
 });

@@ -1,5 +1,5 @@
 <!-- webhook-demo -->
-<div class="webhookDemo apiHelper" data-control="{{#if start}}start{{/if}}{{#if selectDevice}}selectDevice{{/if}}">
+<div class="webhookDemo apiHelper" data-control="{{#if start}}start{{/if}}{{#if selectDevice}}selectDevice{{/if}}{{#if selectProduct}}selectProduct{{/if}}">
     <div class="apiHelperBox">
         {{#if start}}
             <div id="canStart" style="display:none">
@@ -14,6 +14,33 @@
                         <tbody></tbody>
                     </table>
                 </div>
+            </div>            
+        {{/if}}
+        {{#if selectProduct}}
+            <div class="showWhenStarted" style="display:none">                
+                <table class="apiHelperTableNoMargin">
+                    <tbody>
+                        <tr class="noDeviceSelected">
+                            <td colspan="2">You should select a device above first. However, if you don't yet have a device 
+                                you can use some of the features of this tutorial by selecting the type of device plan to 
+                                get or want to simulate.                                
+                            </td>
+                        </tr>
+                        <tr class="noDeviceSelected">
+                            <td colspan="2">Device platform: <select id="devicePlatformSelect" class="apiHelperSelect">
+                                <option value="-">Select device platform</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label><input type="radio" id="createNewProduct" checked/>Create new product</label></td>
+                            <td><input type="text" size="20" /></td>
+                        </tr>
+                        <tr>
+                            <td><label><input type="radio" id="useExistingProduct"/>Use an existing product</label></td>
+                            <td><select id="productSelect" class="apiHelperSelect"></select></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>            
         {{/if}}
         <div class="hideWhenStarted">
