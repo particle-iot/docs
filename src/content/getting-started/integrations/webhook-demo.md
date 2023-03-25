@@ -3,28 +3,35 @@ title: Webhook demo
 columns: two
 layout: commonTwo.hbs
 description: Webhook demo
-includeDefinitions: [api-helper,api-helper-cloud,api-helper-extras,api-helper-projects,stackblitz,zip]
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-extras,api-helper-projects,stackblitz,webhook-demo,zip]
 ---
 
 # {{title}}
 
+This is an interactive tutorial that shows how to use Particle.publish to send data from a Particle device to a cloud service by a webhook.
+
+In order to use this tutorial, you must be logged into your Particle account:
+
 {{> sso}}
+
+It works best if you already have a Particle device set up and claimed to your account, but you can still go through parts of this tutorial without a device.
+
+{{> webhook-demo start="1"}}
+
+- This tutorial is recommended for use on a computer (Windows, Linux, Mac, Chromebook), not a tablet or phone
+- The Chrome web browser is recommended. Most features work on Firefox and Safari. It does not work on Edge or Internet Explorer.
 
 ## Cloud setup
 
 ### Select a device
 
-To begin, select a device from your Particle account:
 
-{{> device-select options="deviceInfo"}}
 
 ### Create a product
 
-{{> create-or-select-product options="sandboxOnly" standalone="1" defaultNewProduct="1"}}
 
 ### Add device to product
 
-{{> common-product-operations}}
 
 
 ### Create a product webhook
@@ -39,7 +46,7 @@ In order to use webhooks, you need to have a server to receive the requests. Thi
 
 The server is written in node.js (Javascript) using the ExpressJS framework. 
 
-{{> stackblitz-embed project="node-mx6mjb" width="700" height="500"}}
+{{> stackblitz-embed project="node-mx6mjb" width="700" height="500" options="waitLoad"}}
 
 ## Testing
 

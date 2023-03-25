@@ -2706,57 +2706,6 @@ $(document).ready(function() {
 
     });
 
-    $('.apiHelperCommonProductOptions').each(function() {
-        const thisPartial = $(this);
-
-        const optionsTableElem = $(thisPartial).find('.optionsTable');
-        const statusDivElem = $(thisPartial).find('.statusDiv');
-        let commonProductOptions = {
-
-        };
-        $(thisPartial).data('commonProductOptions', commonProductOptions);
-
-        
-        const setStatus = function(s) {
-            $(statusDivElem).text(s);
-        }
-
-        const updatedDeviceOrProduct = function() {
-            if (commonProductOptions.deviceObj && commonProductOptions.productId) {
-                $(optionsTableElem).show();
-                setStatus('');
-            }
-            else
-            if (commonProductOptions.deviceObj) {
-                $(optionsTableElem).hide();
-                setStatus('Product not yet selected');
-            }
-            else 
-            if (commonProductOptions.productId) {
-                $(optionsTableElem).hide();
-                setStatus('Device not yet selected');
-            }
-            else {
-                $(optionsTableElem).hide();
-                setStatus('Device and product not yet selected');
-            }
-        };
-        updatedDeviceOrProduct();
-
-        $(document).on('deviceSelected', function(event, deviceObj) {
-            console.log('deviceSelected', deviceObj);
-            commonProductOptions.deviceObj = deviceObj;
-            updatedDeviceOrProduct();
-        });
-        $(document).on('commonProductSelected', function(event, productId) {
-            console.log('commonProductSelected', productId);
-            commonProductOptions.productId = productId;
-            updatedDeviceOrProduct();
-        });
-
-        
-    });
-
 
     $('.apiHelperCreateOrSelectProduct').each(function() {
         const thisPartial = $(this);
