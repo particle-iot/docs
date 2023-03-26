@@ -210,11 +210,75 @@ $(document).ready(function() {
         else {
             $('#createNewProductButton').prop('disabled', true);
             $('#useExistingProduct').prop('checked', true);
+
+            if ($('#productSelect').val()) {
+                webhookDemo.settings.productId = parseInt($('#productSelect').val());
+                updateSettings();                
+            }
         }
     });
 
-    $('#createNewProductButton').on('click', function() {
+    $('#productSelect').on('change', function() {
+        webhookDemo.settings.productId = parseInt($('#productSelect').val());
+        updateSettings();                
+    })
 
+
+    $('#createNewProductButton').on('click', function() {
+        setStatus('Creating product...');
+
+        const request = {                
+            contentType: 'application/json',
+            data: JSON.stringify(requestDataObj),
+            dataType: 'json',
+            error: function (jqXHR) {
+                // gtag('event', 'Error', {'event_category':simpleGetConfig.gaAction, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
+                console.log('error', jqXHR);
+                setStatus('Product creation failed');
+            },
+            headers: {
+                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                'Accept': 'application/json'
+            },
+            method: 'POST',
+            success: function (resp, textStatus, jqXHR) {
+                // gtag('event', 'Success', {'event_category':simpleGetConfig.gaAction});
+                console.log('success', resp);
+                // ok: boolean
+                // product: object
+                //      id: int product ID
+                //      platform_id
+                //      name
+                //      slug
+                //      description
+                //      settings: object
+                //      groups: array
+                //      device_count: integer
+                if (resp.ok) {
+                    // Add to popup and select
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', resp.product.id.toString());
+                    $(optionElem).text(resp.product.name + ' (' + resp.product.id + ') (newly created)');
+                    $('#devicePlatformSelect').append(optionElem);    
+
+                    $('#createNewProductButton').prop('disabled', true);
+                    $('#createNewProduct').prop('checked', true);
+                    $('#useExistingProduct').prop('checked', true);
+
+                    webhookDemo.settings.productId = resp.product.id;
+                    updateSettings();            
+
+                    setStatus('Product ' + resp.product.name + ' successfully created');
+                }
+                else {
+                    setStatus('Product creation failed');
+                    console.log('request failed', resp);
+                }
+            },
+            url: 'https://api.particle.io/v1/user/products/',
+        };
+
+        $.ajax(request);
     });
 
 });
