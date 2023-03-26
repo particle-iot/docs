@@ -34,6 +34,41 @@ $(document).ready(function() {
     const updateProductSelector = async function() {
         // const productSelectElem = $('#productSelect');
 
+        console.log('updateProductSelector', webhookDemo);
+
+        webhookDemo.productsData = await apiHelper.getProducts();
+
+        webhookDemo.productsData.products.sort(function (a, b) {
+            return a.name.localeCompare(b.name);
+        });
+
+        const lastSelected = $('#productSelect').val();
+        $('#productSelect').empty();
+
+        for(const product of webhookDemo.productsData.products) {
+            if (product.platform_id == webhookDemo.settings.platformId) {
+                const optionElem = document.createElement('option');
+                $(optionElem).attr('value', product.id.toString());
+                $(optionElem).text(product.name + ' (' + product.id + ')');
+                $('#productSelect').append(optionElem);    
+
+                /*
+                let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+                if (settings.productId == product.id) {
+                    $(productSelectElem).val(product.id.toString());
+                    $(newExistingRadioElem).prop('checked', false);
+                    $(existingRadioElem).prop('checked', true);
+                    $(createProductButtonElem).prop('disabled', true);
+                }
+                */
+            }
+        }
+        if (lastSelected) {
+            $('#productSelect').val(lastSelected);
+        }
+
+        const newProductName = 'webhook-demo-' + webhookDemo.settings.platformName.toLowerCase() + '-' + Math.floor(Math.random() * 999999);
+        $('#newProductNameInput').val(newProductName);
     }
 
     $('.webhookDemo[data-control="start"]').each(async function() {
@@ -85,7 +120,7 @@ $(document).ready(function() {
             $(deviceSelectInfoElem).show();
             $(tbodyElem).empty();
 
-            webhookDemo.deviceObj._platform = await apiHelper.getPlatformName(webhookDemo.deviceObj.platform_id);
+            webhookDemo.deviceObj._platform = webhookDemo.settings.platformName = await apiHelper.getPlatformName(webhookDemo.deviceObj.platform_id);
             webhookDemo.deviceObj._sku = await apiHelper.getSkuFromSerial(webhookDemo.deviceObj.serial_number);
             if (!webhookDemo.deviceObj._sku) {
                 webhookDemo.deviceObj._sku = 'Unknown';
@@ -109,6 +144,7 @@ $(document).ready(function() {
             
             $('.webhookDemo').trigger('webhookDemoState', ['deviceSelected']);
             $('.noDeviceSelected').hide();
+            $('.platformSelected').show();
 
             updateProductSelector();
         }
@@ -139,7 +175,7 @@ $(document).ready(function() {
         }
     });
 
-    $('#devicePlatformSelect').on('change', function() {
+    $('#devicePlatformSelect').on('change', async function() {
         const valString = $(this).val();
         if (valString == '-') {
             // Select
@@ -151,9 +187,35 @@ $(document).ready(function() {
         }
 
         webhookDemo.settings.platformId = parseInt(valString);
-        updateSettings();
+        webhookDemo.settings.platformName = await apiHelper.getPlatformName(webhookDemo.settings.platformId);
 
+        updateSettings();
         updateProductSelector();
+
+        $('.platformSelected').show();
+    });
+
+    $('#newProductNameInput').on('change', function() {
+        $('.productRadio').prop('checked', false);
+        $('#createNewProduct').prop('checked', true);
+    });
+
+    $('.productRadio').on('click', function() {
+        const createNew = $(this).attr('id') == 'createNewProduct';
+        $('.productRadio').prop('checked', false);
+        if (createNew) {
+            $('#createNewProductButton').prop('disabled', false);
+            $('#createNewProduct').prop('checked', true);
+        }
+        else {
+            $('#createNewProductButton').prop('disabled', true);
+            $('#useExistingProduct').prop('checked', true);
+        }
+    });
+
+    $('#createNewProductButton').on('click', function() {
+
     });
 
 });
+

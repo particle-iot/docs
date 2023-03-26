@@ -31,12 +31,12 @@
                                 <option value="-">Select device platform</option>
                             </select></td>
                         </tr>
-                        <tr>
-                            <td><label><input type="radio" id="createNewProduct" checked/>Create new product</label></td>
-                            <td><input type="text" size="20" /></td>
+                        <tr class="platformSelected" style="display:none;">
+                            <td><label><input type="radio" id="createNewProduct" class="productRadio" checked/>Create new product</label></td>
+                            <td><input type="text" size="30" id="newProductNameInput" /><button id="createNewProductButton">Create</button></td>
                         </tr>
-                        <tr>
-                            <td><label><input type="radio" id="useExistingProduct"/>Use an existing product</label></td>
+                        <tr class="platformSelected" style="display:none;">
+                            <td><label><input type="radio" id="useExistingProduct" class="productRadio" />Use an existing product</label></td>
                             <td><select id="productSelect" class="apiHelperSelect"></select></td>
                         </tr>
                     </tbody>
