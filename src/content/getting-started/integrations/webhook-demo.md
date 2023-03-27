@@ -37,6 +37,7 @@ It works best if you already have a Particle device set up and claimed to your a
 
 ### Add device to product
 
+{{> webhook-demo-add-device}}
 
 
 ### Create a product webhook

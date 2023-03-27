@@ -31,6 +31,28 @@ $(document).ready(function() {
         localStorage.setItem(localStorageKey, JSON.stringify(webhookDemo.settings));
     }
 
+
+    const updateAddDevice = function() {
+        $('.addDeviceOptions').hide();
+
+        if (!webhookDemo.deviceObj) {
+            $('.addDeviceNoDevice').show();
+        }
+        else
+        if (!webhookDemo.settings.productId) {
+            $('.addDeviceNoProduct').show();
+        }
+        else
+        if (webhookDemo.deviceObj.product_id == webhookDemo.settings.productId) {
+            $('.addDeviceAlreadyAdded').show();
+        }
+        else {
+            $('.addDeviceCanAddDevice').show();
+        }
+
+        
+    }
+
     const updateProductSelector = async function() {
         // const productSelectElem = $('#productSelect');
 
@@ -73,6 +95,8 @@ $(document).ready(function() {
         if (webhookDemo.url) {
             await updateWebhookUrl();
         }
+
+        updateAddDevice();
     }
 
     const updateProduct = async function() {
@@ -95,7 +119,10 @@ $(document).ready(function() {
 
 
         console.log('updateProduct', webhookDemo);
+
+        updateAddDevice();
     }
+
 
     const updateWebhookUrl = async function() {
         const hookUrl = webhookDemo.url + '/hook';
@@ -188,6 +215,8 @@ $(document).ready(function() {
             $('.platformSelected').show();
 
             updateProductSelector();
+            updateAddDevice();
+
         }
     }); 
 
@@ -268,7 +297,12 @@ $(document).ready(function() {
 
 
     $('#createNewProductButton').on('click', function() {
-        setStatus('Creating product...');
+        let requestDataObj = {
+            product: {
+                name: $('#newProductNameInput').val(),
+                platform_id: webhookDemo.settings.platformId,
+            },
+        };
 
         const request = {                
             contentType: 'application/json',
@@ -277,7 +311,7 @@ $(document).ready(function() {
             error: function (jqXHR) {
                 // gtag('event', 'Error', {'event_category':simpleGetConfig.gaAction, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                 console.log('error', jqXHR);
-                setStatus('Product creation failed');
+                //setStatus('Product creation failed');
             },
             headers: {
                 'Authorization': 'Bearer ' + apiHelper.auth.access_token,
@@ -302,19 +336,20 @@ $(document).ready(function() {
                     const optionElem = document.createElement('option');
                     $(optionElem).attr('value', resp.product.id.toString());
                     $(optionElem).text(resp.product.name + ' (' + resp.product.id + ') (newly created)');
-                    $('#devicePlatformSelect').append(optionElem);    
+                    $('#productSelect').append(optionElem);    
+                    $('#productSelect').val(resp.product.id.toString());
 
                     $('#createNewProductButton').prop('disabled', true);
-                    $('#createNewProduct').prop('checked', true);
+                    $('#createNewProduct').prop('checked', false);
                     $('#useExistingProduct').prop('checked', true);
 
                     webhookDemo.settings.productId = resp.product.id;
                     updateSettings();            
 
-                    setStatus('Product ' + resp.product.name + ' successfully created');
+                    // setStatus('Product ' + resp.product.name + ' successfully created');
                 }
                 else {
-                    setStatus('Product creation failed');
+                    // setStatus('Product creation failed');
                     console.log('request failed', resp);
                 }
             },
@@ -322,6 +357,12 @@ $(document).ready(function() {
         };
 
         $.ajax(request);
+    });
+
+    $('#addDeviceButton').on('click', async function() {
+
+        // updateAddDevice();
+
     });
 
 });
