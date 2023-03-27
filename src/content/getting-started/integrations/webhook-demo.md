@@ -16,7 +16,7 @@ In order to use this tutorial, you must be logged into your Particle account:
 
 To start the demo, click **Start Demo**:
 
-{{> webhook-demo start="1"}}
+{{> webhook-demo-start}}
 
 ## Cloud setup
 
@@ -26,12 +26,12 @@ In this section we'll set up a product, add your device, and create a webhook.
 
 It works best if you already have a Particle device set up and claimed to your account, but you can still go through parts of this tutorial without a device. Just skip to the next step if you don't have a device yet.
 
-{{> webhook-demo selectDevice="1"}}
+{{> webhook-demo-select-device}}
 
 
 ### Select a product
 
-{{> webhook-demo selectProduct="1"}}
+{{> webhook-demo-select-product}}
 
 
 
@@ -44,11 +44,11 @@ It works best if you already have a Particle device set up and claimed to your a
 | Parameter | Value | 
 | :--- | :--- |
 | Event | WebhookDemo01 |
-| URL | |
+| URL | <span class="webhookUrlSpan"></span> |
 | Method | POST |
 
 
-{{> webhook-demo webhook="1"}}
+{{> webhook-demo-webhook }}
 
 ### Test webhook
 

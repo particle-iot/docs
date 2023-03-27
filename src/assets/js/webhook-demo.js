@@ -98,7 +98,10 @@ $(document).ready(function() {
     }
 
     const updateWebhookUrl = async function() {
-        console.log('updateWebhookUrl ' + webhookDemo.url)
+        const hookUrl = webhookDemo.url + '/hook';
+        console.log('updateWebhookUrl ' + hookUrl);
+
+        $('.webhookUrlSpan').text(hookUrl);
     }
 
     $('.webhookDemo[data-control="start"]').each(async function() {
