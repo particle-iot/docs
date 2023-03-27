@@ -53,6 +53,8 @@ It works best if you already have a Particle device set up and claimed to your a
 
 ### Test webhook
 
+{{> webhook-demo-test }}
+
 ## Device firmware
 
 {{> project-browser project="webhook-demo" default-file="src/webhook-demo.cpp" height="400" flash="true"}}

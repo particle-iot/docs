@@ -55,26 +55,77 @@ $(document).ready(function() {
 
     const updateCreateWebhook = function() {
         $('.createWebhookOptions').hide();
+        $('.testWebhookOptions').hide();
 
         if (!webhookDemo.settings.productId) {
-            $('.createWebhookNoProduct').show();
+            $('.webhookDemoNoProduct').show();
         }
         else
         if (!webhookDemo.hookUrl) {
-            $('.createWebhookNoUrl').show();
+            $('.webhookDemoNoUrl').show();
         }
         else {
             let found = webhookDemo.webhooks.find(e => e.event == webhookName);
             if (found) {
                 $('.createWebhookAlreadyAdded').show();
+                $('.testWebhookCanTest').show();
             }
             else {
                 $('.createWebhookCanCreate').show();
-
-            }
-            
+                $('.testWebhookNoWebhook').show();
+            }           
         }
+
     };
+
+
+    const createOrUpdateWebhook = async function(options = {}) {
+        let body = '{ "deviceId":"{{{PARTICLE_DEVICE_ID}}}", "ts":"{{{PARTICLE_PUBLISHED_AT}}}", "sensor":{{{PARTICLE_EVENT_VALUE}}} }';
+
+        let settings = {
+            integration_type: 'Webhook',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            url: webhookDemo.hookUrl,
+            noDefaults: true,
+            method: 'POST',
+            body,
+            responseTopic: '{{{PARTICLE_DEVICE_ID}}}/hook-response/{{{PARTICLE_EVENT_NAME}}}',
+            errorResponseTopic: '{{{PARTICLE_DEVICE_ID}}}/hook-error/{{{PARTICLE_EVENT_NAME}}}',
+            // responseTemplate
+        };
+        console.log('settings', settings);
+
+        let integrationObj = webhookDemo.webhooks.find(e => e.event == webhookName);
+        if (integrationObj) {
+            console.log('update integration', integrationObj);
+            const resp = await apiHelper.particle.editIntegration({
+                integrationId: integrationObj.integrationId,
+                event: webhookName, 
+                settings, 
+                product: webhookDemo.settings.productId,
+                auth: apiHelper.auth.access_token});
+            console.log('edit resp', resp);    
+        }
+        else 
+        if (!options.updateOnly) {
+            const resp = await apiHelper.particle.createIntegration({
+                event: webhookName, 
+                settings, 
+                product: webhookDemo.settings.productId,
+                auth: apiHelper.auth.access_token});
+
+            console.log('create resp', resp);    
+            webhookDemo.settings.integrationId = resp.body.id;
+            updateSettings();                
+
+            webhookDemo.webhooks = (await apiHelper.particle.listIntegrations({
+                product: webhookDemo.settings.productId,
+                auth: apiHelper.auth.access_token,
+            })).body;            
+        }
+    }
 
     const updateProductSelector = async function() {
         // const productSelectElem = $('#productSelect');
@@ -139,7 +190,7 @@ $(document).ready(function() {
             auth: apiHelper.auth.access_token,
         })).body;
 
-        webhookDemo.webhooks = (await apiHelper.particle.listWebhooks({
+        webhookDemo.webhooks = (await apiHelper.particle.listIntegrations({
             product: webhookDemo.settings.productId,
             auth: apiHelper.auth.access_token,
         })).body;
@@ -208,8 +259,9 @@ $(document).ready(function() {
         $('.webhookUrlSpan').text(webhookDemo.hookUrl);
 
         updateCreateWebhook();
-    }
 
+        await createOrUpdateWebhook({updateOnly:true});
+    }
 
     $('.webhookDemo[data-control="start"]').each(async function() {
         $(this).data('webhookDemo', webhookDemo);
@@ -435,38 +487,27 @@ $(document).ready(function() {
         }
     });
 
+
     $('#createWebhookButton').on('click', async function() {
-        let body = '{ "deviceId":"{{{PARTICLE_DEVICE_ID}}}", "ts":"{{{PARTICLE_PUBLISHED_AT}}}", "sensor":{{{PARTICLE_EVENT_VALUE}}} }';
-
-        let settings = {
-            integration_type: 'Webhook',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            url: webhookDemo.hookUrl,
-            noDefaults: true,
-            method: 'POST',
-            body,
-            responseTopic: '{{{PARTICLE_DEVICE_ID}}}/hook-response/{{{PARTICLE_EVENT_NAME}}}',
-            errorResponseTopic: '{{{PARTICLE_DEVICE_ID}}}/hook-error/{{{PARTICLE_EVENT_NAME}}}',
-            // responseTemplate
-            product: webhookDemo.settings.productId,
-        };
-        console.log('settings', settings);
-
-        const resp = await apiHelper.particle.createIntegration({event: webhookName, settings, auth: apiHelper.auth.access_token});
-        console.log('resp', resp);
-
-        webhookDemo.settings.integrationId = resp.body.id;
-        updateSettings();                
-
-        webhookDemo.webhooks = (await apiHelper.particle.listWebhooks({
-            product: webhookDemo.settings.productId,
-            auth: apiHelper.auth.access_token,
-        })).body;
+        await createOrUpdateWebhook();
 
         updateCreateWebhook();
-        
+    
+    });
+
+    $('#testWebhookButton').on('click', async function() {
+        let eventDataObj = {
+            sensor: 25,
+        };
+
+        const resp = await apiHelper.particle.publishEvent({ 
+            name: webhookName, 
+            data: JSON.stringify(eventDataObj), 
+            product: webhookDemo.settings.productId,
+            auth: apiHelper.auth.access_token,
+        });
+
+        console.log('resp', resp);
 
     });
 
