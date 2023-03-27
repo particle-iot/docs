@@ -577,7 +577,6 @@ apiHelper.deviceList = function(elems, options) {
                     $(optionElem).text(options.getTitle ? options.getTitle(dev) : dev.name);
 
                     if ((!options.hasSelectDevice) && !options.hasAllDevices && first) {
-                        console.log('not hasSelectDevice, selecting first', dev);
                         $(optionElem).attr('selected', 'selected');
                     }
                     first = false;
@@ -596,6 +595,10 @@ apiHelper.deviceList = function(elems, options) {
             if (!firstLoad && oldValue && oldValue != 'refresh') {
                 $(elem).val(oldValue);
             }
+            if (options.onUpdateList) {
+                options.onUpdateList();
+            }
+
             firstLoad = false;
         });
     };

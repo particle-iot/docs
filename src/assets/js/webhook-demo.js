@@ -92,6 +92,15 @@ $(document).ready(function() {
         const newProductName = 'webhook-demo-' + webhookDemo.settings.platformName.toLowerCase() + '-' + Math.floor(Math.random() * 999999);
         $('#newProductNameInput').val(newProductName);
 
+        if (webhookDemo.settings.productId) {
+            $('#productSelect').val(webhookDemo.settings.productId);
+            if ($('#productSelect').val() == webhookDemo.settings.productId) {
+                $('#productSelect').trigger('change');
+                $('#createNewProduct').prop('checked', false);
+                $('#useExistingProduct').prop('checked', true);
+            }
+        }
+
         if (webhookDemo.url) {
             await updateWebhookUrl();
         }
@@ -138,8 +147,8 @@ $(document).ready(function() {
 
         $('#canStart').show();
 
-        $('.startDemo').on('click', async function() {
-            $('#startButton').prop('disabled', true);
+        $('#startDemo').on('click', async function() {
+            $('#startDemo').prop('disabled', true);
             $('.showWhenStarted').show();
             $('.hideWhenStarted').hide();
 
@@ -147,7 +156,6 @@ $(document).ready(function() {
 
             const embedObject = $('.stackblitzEmbed').data('embedObject');
             embedObject.hasUrlCallback = async function(url) {
-                console.log('hasUrlCallback ' + url);
                 webhookDemo.url = url;
                 if (webhookDemo.settings.productId) {
                     await updateWebhookUrl();
@@ -216,8 +224,16 @@ $(document).ready(function() {
 
             updateProductSelector();
             updateAddDevice();
-
-        }
+        },
+        onUpdateList: function() {
+            if (webhookDemo.settings.deviceId) {
+                console.log('onUpdateList ' + webhookDemo.settings.deviceId);
+                $(deviceListSelectElem).val(webhookDemo.settings.deviceId);
+                if ($(deviceListSelectElem).val() == webhookDemo.settings.deviceId) {
+                    $(deviceListSelectElem).trigger('change');
+                }
+            }
+        },
     }); 
 
 
@@ -243,6 +259,7 @@ $(document).ready(function() {
             $(optionElem).attr('value', platformObj.id.toString());
             $('#devicePlatformSelect').append(optionElem);    
         }
+
     });
 
     $('#devicePlatformSelect').on('change', async function() {
