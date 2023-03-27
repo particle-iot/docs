@@ -1,51 +1,53 @@
-<!-- webhook-demo -->
-<div class="webhookDemo apiHelper" data-control="{{#if start}}start{{/if}}{{#if selectDevice}}selectDevice{{/if}}{{#if selectProduct}}selectProduct{{/if}}">
+<div class="webhookDemo apiHelper" data-control="{{#if start}}start{{/if}}{{#if selectDevice}}selectDevice{{/if}}{{#if selectProduct}}selectProduct{{/if}}{{#if webhook}}webhook{{/if}}">
     <div class="apiHelperBox">
         {{#if start}}
-            <div id="canStart" style="display:none">
-                <p><button class="startDemo">Start Demo</button></p>
-            </div>
+        <div id="canStart" style="display:none">
+            <p><button class="startDemo">Start Demo</button></p>
+        </div>
         {{/if}}
         {{#if selectDevice}}
-            <div class="showWhenStarted" style="display:none">
-                <p>Select device: <select class="apiHelperSelect deviceListSelect apiHelperCommonDevice"></select></p>
-                <div class="deviceSelectInfo" style="display:none">
-                    <table class="apiHelperTableNoMargin">
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>            
+        <div class="showWhenStarted" style="display:none">
+            <p>Select device: <select class="apiHelperSelect deviceListSelect apiHelperCommonDevice"></select></p>
+            <div class="deviceSelectInfo" style="display:none">
+                <table class="apiHelperTableNoMargin">
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>            
         {{/if}}
         {{#if selectProduct}}
-            <div class="showWhenStarted" style="display:none">                
-                <table class="apiHelperTableNoMargin">
-                    <tbody>
-                        <tr class="noDeviceSelected">
-                            <td colspan="2">You should select a device above first. However, if you don't yet have a device 
-                                you can use some of the features of this tutorial by selecting the type of device plan to 
-                                get or want to simulate.                                
-                            </td>
-                        </tr>
-                        <tr class="noDeviceSelected">
-                            <td colspan="2">Device platform: <select id="devicePlatformSelect" class="apiHelperSelect">
-                                <option value="-">Select device platform</option>
-                            </select></td>
-                        </tr>
-                        <tr class="platformSelected" style="display:none;">
-                            <td><label><input type="radio" id="createNewProduct" class="productRadio" checked/>Create new product</label></td>
-                            <td><input type="text" size="30" id="newProductNameInput" /><button id="createNewProductButton">Create</button></td>
-                        </tr>
-                        <tr class="platformSelected" style="display:none;">
-                            <td><label><input type="radio" id="useExistingProduct" class="productRadio" />Use an existing product</label></td>
-                            <td><select id="productSelect" class="apiHelperSelect"></select></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>            
+        <div class="showWhenStarted" style="display:none">                
+            <table class="apiHelperTableNoMargin">
+                <tbody>
+                    <tr class="noDeviceSelected">
+                        <td colspan="2">You should select a device above first. However, if you don't yet have a device 
+                            you can use some of the features of this tutorial by selecting the type of device plan to 
+                            get or want to simulate.                                
+                        </td>
+                    </tr>
+                    <tr class="noDeviceSelected">
+                        <td colspan="2">Device platform: <select id="devicePlatformSelect" class="apiHelperSelect">
+                            <option value="-">Select device platform</option>
+                        </select></td>
+                    </tr>
+                    <tr class="platformSelected" style="display:none;">
+                        <td><label><input type="radio" id="createNewProduct" class="productRadio" checked/>Create new product</label></td>
+                        <td><input type="text" size="30" id="newProductNameInput" /><button id="createNewProductButton">Create</button></td>
+                    </tr>
+                    <tr class="platformSelected" style="display:none;">
+                        <td><label><input type="radio" id="useExistingProduct" class="productRadio" />Use an existing product</label></td>
+                        <td><select id="productSelect" class="apiHelperSelect"></select></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>            
+        {{/if}}
+        {{#if webhook}}
+        <div class="showWhenStarted" style="display:none">
+        </div>
         {{/if}}
         <div class="hideWhenStarted">
             <p><a class="startDemo">Start Demo</a> to interact with it.</p>
         </div>
     </div>
 </div>
-

@@ -69,6 +69,36 @@ $(document).ready(function() {
 
         const newProductName = 'webhook-demo-' + webhookDemo.settings.platformName.toLowerCase() + '-' + Math.floor(Math.random() * 999999);
         $('#newProductNameInput').val(newProductName);
+
+        if (webhookDemo.url) {
+            await updateWebhookUrl();
+        }
+    }
+
+    const updateProduct = async function() {
+        // webhookDemo.settings.productId
+
+        webhookDemo.productInfo = (await apiHelper.particle.getProduct({
+            product: webhookDemo.settings.productId,
+            auth: apiHelper.auth.access_token,
+        })).body;
+
+        webhookDemo.webhooks = (await apiHelper.particle.listWebhooks({
+            product: webhookDemo.settings.productId,
+            auth: apiHelper.auth.access_token,
+        })).body;
+
+        webhookDemo.productFirmware = (await apiHelper.particle.listProductFirmware({
+            product: webhookDemo.settings.productId,
+            auth: apiHelper.auth.access_token,
+        })).body;
+
+
+        console.log('updateProduct', webhookDemo);
+    }
+
+    const updateWebhookUrl = async function() {
+        console.log('updateWebhookUrl ' + webhookDemo.url)
     }
 
     $('.webhookDemo[data-control="start"]').each(async function() {
@@ -86,6 +116,14 @@ $(document).ready(function() {
             webhookDemo.started = true;
 
             const embedObject = $('.stackblitzEmbed').data('embedObject');
+            embedObject.hasUrlCallback = async function(url) {
+                console.log('hasUrlCallback ' + url);
+                webhookDemo.url = url;
+                if (webhookDemo.settings.productId) {
+                    await updateWebhookUrl();
+                }
+            }
+
             embedObject.load();
         })
     
@@ -200,7 +238,7 @@ $(document).ready(function() {
         $('#createNewProduct').prop('checked', true);
     });
 
-    $('.productRadio').on('click', function() {
+    $('.productRadio').on('click', async function() {
         const createNew = $(this).attr('id') == 'createNewProduct';
         $('.productRadio').prop('checked', false);
         if (createNew) {
@@ -214,13 +252,15 @@ $(document).ready(function() {
             if ($('#productSelect').val()) {
                 webhookDemo.settings.productId = parseInt($('#productSelect').val());
                 updateSettings();                
+                await updateProduct();
             }
         }
     });
 
-    $('#productSelect').on('change', function() {
+    $('#productSelect').on('change', async function() {
         webhookDemo.settings.productId = parseInt($('#productSelect').val());
         updateSettings();                
+        await updateProduct();
     })
 
 

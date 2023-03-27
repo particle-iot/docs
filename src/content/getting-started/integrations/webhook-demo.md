@@ -18,9 +18,6 @@ It works best if you already have a Particle device set up and claimed to your a
 
 {{> webhook-demo start="1"}}
 
-- This tutorial is recommended for use on a computer (Windows, Linux, Mac, Chromebook), not a tablet or phone
-- The Chrome web browser is recommended. Most features work on Firefox and Safari. It does not work on Edge or Internet Explorer.
-
 ## Cloud setup
 
 ### Select a device
@@ -40,8 +37,19 @@ It works best if you already have a Particle device set up and claimed to your a
 
 ### Create a product webhook
 
+| Parameter | Value | 
+| :--- | :--- |
+| Event | WebhookDemo01 |
+| URL | |
+| Method | POST |
+
+
+{{> webhook-demo webhook="1"}}
+
 
 ## Device firmware
+
+{{> project-browser project="webhook-demo" default-file="src/webhook-demo.cpp" height="400" flash="true"}}
 
 
 ## Demo server
