@@ -26,28 +26,7 @@ Device OS support for existing and new Supply Secure SKUs is as documented below
 
 ### Device OS support  
 
-| Product class | Generation | Product family                                                                                  | SKUs                              | Supply Secure? | 2.x (LTS) | 3.x (Feat) | 4.x (LTS) | 5.x (Feat) |
-| ------------- | ---------- | ----------------------------------------------------------------------------------------------- | --------------------------------- | -------------- | --------- | ---------- | --------- | ---------- |
-| Wi-Fi         | Gen 3      | Argon                          | ARGNTRAY50                        | 🚫             | ✅         | ✅          | ✅         | ✅          |
-| Wi-Fi         | Gen 2      | P0)                                 | P0REEL                            | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Wi-Fi         | Gen 2      | P1                                 | P1REEL                            | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Wi-Fi         | Gen 2      | Photon                        | PHNTRAYH, PHNTRAYNOH              | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Wi-Fi         | Gen 3      | P2                                 | P2REEL                            | ✅              | 🚫        | 🚫         | 🚫        | ✅ v5.0+    |
-| Cellular      | Gen 3      | B Series LTE M1       | B402MTY, B404MTY                  | 🚫             | ✅         | ✅          | ✅         | ✅          | 
-| Cellular      | Gen 3      | Boron 2G/3G               | BRN310TRAY50, BRN314TRAY50        | 🚫             | ✅         | ✅          | ✅         | ✅          |
-| Cellular      | Gen 3      | Boron LTE M1             | BRN402TRAY50, BRN404TRAY50        | 🚫             | ✅         | ✅          | ✅         | ✅          |
-| Cellular      | Gen 2      | E Series 2G/3G         | E310TRAY50, E313TY, E314TRAY50    | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Cellular      | Gen 2      | E Series LTE M1       | E402TRAY50\. E404TRAY50           | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Cellular      | Gen 2      | Electron 2G               | E350TRAY50                        | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Cellular      | Gen 2      | Electron 2G/3G         | E260TRAY50, E270TRAY50, ELC314TY  | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Cellular      | Gen 2      | Electron LTE M1       | ELC402TY, ELC404TY                | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Cellular      | Gen 3      | B Series LTE CAT 1 | B523MTY, B524MTY                  | ✅              | ✅         | ✅          | ✅         | ✅          |
-| Cellular      | Gen 3      | B Series LTE M1       | B404X                             | ✅              | ✅ v2.3+   | ✅ v3.2+    | ✅         | ✅          |
-| Cellular      | Gen 3      | Boron LTE M1            | BRN404X                           | ✅              | ✅ v2.3+   | ✅ v3.2+    | ✅         | ✅          |
-| Cellular      | Gen 3      | E Series LTE M1       | E404X                             | ✅              | 🚫        | 🚫         | 🚫        | ✅ v5.x+    |
-| Tracker       | Gen 3      | Tracker One               | ONE402M, ONE404M, ONE523M ONE524M | 🚫             | 🚫        | ✅          | ✅         | ✅          |
-| Tracker       | Gen 3      | Tracker SoM               | T402M T404M                       | 🚫             | 🚫        | ✅          | ✅         | ✅          |
-| Tracker       | Gen 3      | Tracker SoM               | T404, T524                      | ✅              | 🚫        | 🚫         | 🚫        | ✅          |
+See [Recommended Device OS versions](/reference/device-os/versions/) for the current recommended versions.
 
 #### How will prices change for these new modules?
 All Supply Secure SKUs will be offered at pricing that is equivalent to the contracted pricing of the SKUs that they replace.
