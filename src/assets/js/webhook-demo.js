@@ -8,6 +8,7 @@ $(document).ready(function() {
     }
 
     const localStorageKey = 'webhookDemo';
+    const webhookName = 'WebhookDemo01';
 
     let webhookDemo = {      
         started: false,
@@ -48,10 +49,32 @@ $(document).ready(function() {
         }
         else {
             $('.addDeviceCanAddDevice').show();
-        }
-
-        
+        }        
     }
+
+
+    const updateCreateWebhook = function() {
+        $('.createWebhookOptions').hide();
+
+        if (!webhookDemo.settings.productId) {
+            $('.createWebhookNoProduct').show();
+        }
+        else
+        if (!webhookDemo.hookUrl) {
+            $('.createWebhookNoUrl').show();
+        }
+        else {
+            let found = webhookDemo.webhooks.find(e => e.event == webhookName);
+            if (found) {
+                $('.createWebhookAlreadyAdded').show();
+            }
+            else {
+                $('.createWebhookCanCreate').show();
+
+            }
+            
+        }
+    };
 
     const updateProductSelector = async function() {
         // const productSelectElem = $('#productSelect');
@@ -130,46 +153,11 @@ $(document).ready(function() {
         console.log('updateProduct', webhookDemo);
 
         updateAddDevice();
+        updateCreateWebhook();
     }
 
 
-    const updateWebhookUrl = async function() {
-        const hookUrl = webhookDemo.url + '/hook';
-        console.log('updateWebhookUrl ' + hookUrl);
 
-        $('.webhookUrlSpan').text(hookUrl);
-    }
-
-    $('.webhookDemo[data-control="start"]').each(async function() {
-        $(this).data('webhookDemo', webhookDemo);
-
-        // Do stuff for browser compatibility checks here
-
-        $('#canStart').show();
-
-        $('#startDemo').on('click', async function() {
-            $('#startDemo').prop('disabled', true);
-            $('.showWhenStarted').show();
-            $('.hideWhenStarted').hide();
-
-            webhookDemo.started = true;
-
-            const embedObject = $('.stackblitzEmbed').data('embedObject');
-            embedObject.hasUrlCallback = async function(url) {
-                webhookDemo.url = url;
-                if (webhookDemo.settings.productId) {
-                    await updateWebhookUrl();
-                }
-            }
-
-            embedObject.load();
-        })
-    
-
-    });
-
-    const deviceListSelectElem = $('.deviceListSelect');
-    
     const updateDevice = async function() {
         // webhookDemo.settings.deviceId
         webhookDemo.deviceObj = (await apiHelper.particle.getDevice({
@@ -213,6 +201,46 @@ $(document).ready(function() {
         updateAddDevice();
     };
 
+    const updateWebhookUrl = async function() {
+        webhookDemo.hookUrl = webhookDemo.url + '/hook';
+        console.log('updateWebhookUrl ' + webhookDemo.hookUrl);
+
+        $('.webhookUrlSpan').text(webhookDemo.hookUrl);
+
+        updateCreateWebhook();
+    }
+
+
+    $('.webhookDemo[data-control="start"]').each(async function() {
+        $(this).data('webhookDemo', webhookDemo);
+
+        // Do stuff for browser compatibility checks here
+
+        $('#canStart').show();
+
+        $('#startDemo').on('click', async function() {
+            $('#startDemo').prop('disabled', true);
+            $('.showWhenStarted').show();
+            $('.hideWhenStarted').hide();
+
+            webhookDemo.started = true;
+
+            const embedObject = $('.stackblitzEmbed').data('embedObject');
+            embedObject.hasUrlCallback = async function(url) {
+                webhookDemo.url = url;
+                if (webhookDemo.settings.productId) {
+                    await updateWebhookUrl();
+                }
+            }
+
+            embedObject.load();
+        })
+    
+
+    });
+
+    const deviceListSelectElem = $('.deviceListSelect');
+    
     apiHelper.deviceList(deviceListSelectElem, {
         deviceFilter: function(dev) {
             return true;
@@ -400,13 +428,46 @@ $(document).ready(function() {
         console.log('resp', resp);
 
         if (resp.statusCode == 200 && resp.body.updated == 1) {
-
+            updateDevice();
         }
+        else {
+            // TODO: Error handling
+        }
+    });
 
+    $('#createWebhookButton').on('click', async function() {
+        let body = '{ "deviceId":"{{{PARTICLE_DEVICE_ID}}}", "ts":"{{{PARTICLE_PUBLISHED_AT}}}", "sensor":{{{PARTICLE_EVENT_VALUE}}} }';
 
-        // updateAddDevice();
+        let settings = {
+            integration_type: 'Webhook',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            url: webhookDemo.hookUrl,
+            noDefaults: true,
+            method: 'POST',
+            body,
+            responseTopic: '{{{PARTICLE_DEVICE_ID}}}/hook-response/{{{PARTICLE_EVENT_NAME}}}',
+            errorResponseTopic: '{{{PARTICLE_DEVICE_ID}}}/hook-error/{{{PARTICLE_EVENT_NAME}}}',
+            // responseTemplate
+            product: webhookDemo.settings.productId,
+        };
+        console.log('settings', settings);
 
+        const resp = await apiHelper.particle.createIntegration({event: webhookName, settings, auth: apiHelper.auth.access_token});
+        console.log('resp', resp);
+
+        webhookDemo.settings.integrationId = resp.body.id;
+        updateSettings();                
+
+        webhookDemo.webhooks = (await apiHelper.particle.listWebhooks({
+            product: webhookDemo.settings.productId,
+            auth: apiHelper.auth.access_token,
+        })).body;
+
+        updateCreateWebhook();
         
+
     });
 
 });
