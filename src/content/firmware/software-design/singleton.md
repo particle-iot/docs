@@ -228,14 +228,14 @@ uint8_t MyClass::readStatusRegister() {
 
 Finally, you put the code you want to run in the `threadFunction`. It's a class member so it has access to all class members (including the mutex). It typically runs forever - you never return from it.
 
-In order to yield CPU time to other threads, you either call `os_thread_yield()` or `delay()`, both of which will yield the CPU. 
+In order to yield CPU time to other threads, you should call `delay(1)` to allow the next thread to execute. 
 
 ```cpp
 
 os_thread_return_t MyClass::threadFunction(void) {
     while(true) {
         // Put your code to run in the worker thread here
-        os_thread_yield();
+        delay(1);
     }
 }
 ```

@@ -243,60 +243,9 @@ Argon:
 
 The reason it's bad and unpredictable is that when the thread begins execution, it does not yield until its 1 millisecond time slice is completed used up and interrupted.
 
-### With yield
-
-A much better idea is to yield the CPU when you're done instead of crazy looping like that. Here's my modified threadFunction:
-
-```cpp
-void threadFunction(void) {
-	while(true) {
-		counter++;
-
-		os_thread_yield();
-	}
-	// You must not return from the thread function
-}
-```
-
-Photon 1.4.2:
-
-```
-0000008001 [app] INFO: counter=1002
-0000009001 [app] INFO: counter=1000
-0000010001 [app] INFO: counter=1004
-0000011001 [app] INFO: counter=1002
-0000012001 [app] INFO: counter=1000
-0000013001 [app] INFO: counter=1002
-0000014001 [app] INFO: counter=1002
-```
-
-Electron:
-
-```
-0000008000 [app] INFO: counter=988
-0000009000 [app] INFO: counter=1000
-0000010000 [app] INFO: counter=1000
-0000011000 [app] INFO: counter=1000
-0000012000 [app] INFO: counter=1000
-```
-
-Argon:
-
-```
-0000033322 [app] INFO: counter=998
-0000034322 [app] INFO: counter=998
-0000035322 [app] INFO: counter=998
-0000036322 [app] INFO: counter=999
-0000037322 [app] INFO: counter=999
-```
-
-As you can see, the results are much more predictable, and the thread runs pretty close to 1000 times per second. It also means that other threads run more predictably.
-
 ### Yielding using delay
 
-While the example above used `os_thread_yield()` you can get exactly the same results using `delay(1)`. The reason is that `delay()` also yields to other threads internally, and won't resume until the delay is complete. Since the thread scheduler is also on a 1 millisecond schedule, it works out the same.
-
-You can use whichever you prefer.
+The `delay()` function yields to other threads internally, and won't resume until the delay is complete. Since the thread scheduler is also on a 1 millisecond schedule, setting it to 1 will delay until the next timeslice.
 
 ```cpp
 #include "Particle.h"
@@ -1096,7 +1045,7 @@ void threadFunction(void *param) {
 			Log.info("button pressed %d times", times);
 		}
 
-		os_thread_yield();
+		delay(1);
 	}
 
 	// You must not return from the thread function
@@ -1298,7 +1247,7 @@ os_result_t os_thread_yield(void);
 
 Yields the current thread's execution time slice to allow other threads to run. If you don't call this or other function that yields, the thread will get a full 1 millisecond time slices.
 
-Calling `delay(1)` is effectively the same as `os_thread_yield()` as it will give up the current time slices until the next scheduled time slices.
+You should use `delay(1)` instead of `os_thread_yield()` due to a bug in some versions of Device OS where `os_thread_yield()` does not yield to threads of equal priority, which can cause unexpected behavior. Because the task scheduler timeslice is 1 millisecond, the calls behave similarly.
 
 
 #### os\_thread\_delay\_until
