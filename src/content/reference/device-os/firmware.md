@@ -2115,7 +2115,7 @@ WiFi.setCredentials(ssid, password, auth);
 WiFi.setCredentials("My_Router", "wepistheworst", WEP);
 ```
 
-When used with hidden or offline networks, the security cipher is also required.
+When used with hidden or offline networks, the security cipher is also required. This is only supported on the Photon and P1. The Argon, P2, and Photon 2 do not support connecting to hidden networks.
 
 ```cpp
 
