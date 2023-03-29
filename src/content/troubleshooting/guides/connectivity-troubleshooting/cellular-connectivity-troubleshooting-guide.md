@@ -65,7 +65,7 @@ _We also convert this value to a readable “%”. You can refer to this percent
 * **Device.network.cellular.operator**  
 _Seeing -1200 here indicates the response from the modem was not received in a timely manner and would indicate a bad signal. **Please note that on DeviceOS 1.5.0, this key returns -1200 regardless of signal strength: a regression that was fixed in DeviceOS 1.5.1.**_
 * **Device.cloud.connection.error**  
-_Common errors here include 1 (ping timeout) and 17 (error establishing a session), both commonly associated with signal issues. See below for more information about error codes!_
+_Common errors here include 1 (ping timeout) and 17 (error establishing a session), both commonly associated with signal issues. These codes can be found [here](/reference/device-os/api/debugging/waiting-for-serial/#comm-protocol-errors).
 * **Device.power.source**  
 _Useful to determine what is powering your device (VIN, battery, etc…). **It’s worth explicitly stating that 2G/3G devices have specific current requirements ([link](/reference/datasheets/e-series/electron-datasheet/#usb)) in order to connect.**_
 * **Device.power.battery.state**  

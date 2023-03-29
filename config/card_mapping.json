@@ -944,6 +944,7 @@
   "/reference/device-os/firmware/#serial-print-vs-log-info": "/reference/device-os/api/debugging/serial-print-vs-log-info/",
   "/reference/device-os/firmware/#waiting-for-serial": "/reference/device-os/api/debugging/waiting-for-serial/",
   "/reference/device-os/firmware/#comm-protocol-errors": "/reference/device-os/api/debugging/comm-protocol-errors/",
+  "/reference/device-os/firmware/#system-errors": "/reference/device-os/api/debugging/system-errors/",
   "/reference/device-os/firmware/#logging": "/reference/device-os/api/logging/logging/",
   "/reference/device-os/firmware/#logging-levels": "/reference/device-os/api/logging/logging-levels/",
   "/reference/device-os/firmware/#logging-categories": "/reference/device-os/api/logging/logging-categories/",

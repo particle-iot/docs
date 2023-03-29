@@ -150,6 +150,11 @@ You can also click on the **Health Check** link to execute a real-time diagnosti
 test for the device. For more info on this, check out the [Health
 Check](#health-check) section.
 
+#### Error codes
+
+Error codes in `device.cloud.connection.error` are described in [comm.protocol errors](/reference/device-os/api/debugging/waiting-for-serial/#comm-protocol-errors).
+
+
 #### Cellular vitals
 
 As of Device OS version 1.2.1, cellular devices (i.e. Boron, B SoM,

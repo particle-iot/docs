@@ -125,6 +125,7 @@
   "/cards/firmware/debugging/comm-protocol-errors": "/reference/device-os/api/debugging/comm-protocol-errors",
   "/cards/firmware/debugging/debugging": "/reference/device-os/api/debugging/debugging",
   "/cards/firmware/debugging/serial-print-vs-log-info": "/reference/device-os/api/debugging/serial-print-vs-log-info",
+  "/cards/firmware/debugging/system-errors": "/reference/device-os/api/debugging/system-errors",
   "/cards/firmware/debugging/using-a-serial-terminal": "/reference/device-os/api/debugging/using-a-serial-terminal",
   "/cards/firmware/debugging/waiting-for-serial": "/reference/device-os/api/debugging/waiting-for-serial",
   "/cards/firmware/device-identifiers/data-matrix-sticker": "/reference/device-os/api/device-identifiers/data-matrix-sticker",

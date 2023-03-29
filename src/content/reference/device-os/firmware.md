@@ -22937,6 +22937,10 @@ void setup() {
 
 ### comm.protocol errors
 
+{{api name1="comm.protocol" name2="device.cloud.connection.error"}}
+
+The following codes appear as `[comm.protocol] ERROR` in the USB debug logs, and also as the code in `device.cloud.connection.error` in Device Vitals.
+
 ```
 Dec 17 01:36:22 [comm.protocol] ERROR: Event loop error 1
 Dec 17 01:36:42 [comm.protocol.handshake] ERROR: Handshake failed: 25
@@ -22946,7 +22950,7 @@ Dec 17 01:39:54 [comm.protocol] ERROR: Event loop error 1
 Dec 17 01:41:37 [comm.protocol] ERROR: Handshake: could not receive HELLO response 10
 ```
 
-The system includes a number of logging statements if it is having trouble connecting to the cloud. These errors are defined [in the source](https://github.com/particle-iot/device-os/blob/develop/communication/inc/protocol_defs.h#L25). 
+The system includes a number of logging statements if it is having trouble connecting to the cloud. These errors are defined in the Device OS source in [protocol_defs.h](https://github.com/particle-iot/device-os/blob/develop/communication/inc/protocol_defs.h#L25). 
 
 | Number | Constant | Description |
 | :--- | :--- | :--- |
@@ -22984,6 +22988,41 @@ The system includes a number of logging statements if it is having trouble conne
 | 31 | INTERNAL | |
 | 32 | OTA_UPDATE_ERROR | |
 
+### System errors
+
+{{api name1="SYSTEM_ERROR"}}
+
+System errors are negative integers. Below are some common errors:
+
+| Number | Constant | Description |
+| :----- | :--- | :--- |
+|      0 | `SYSTEM_ERROR_NONE` | Success |
+|   -100 | ` SYSTEM_ERROR_UNKNOWN` | Unknown error|
+|   -110 | ` SYSTEM_ERROR_BUSY` | Resource busy |
+|   -120 | ` SYSTEM_ERROR_NOT_SUPPORTED` | Operation not supported |
+|   -130 | ` SYSTEM_ERROR_ABORTED` | Operation aborted |
+|   -140 | ` SYSTEM_ERROR_TIMEOUT` | Operation timed out|
+|   -150 | ` SYSTEM_ERROR_NOT_FOUND` | Resource not found |
+|   -160 | ` SYSTEM_ERROR_ALREADY_EXISTS` | Resource already exists|
+|   -180 | ` SYSTEM_ERROR_TOO_LARGE` | Data is too large |
+|   -190 | ` SYSTEM_ERROR_NOT_ENOUGH_DATA` | Data is too small |
+|   -191 | ` SYSTEM_ERROR_LIMIT_EXCEEDED` | Limit exceeded for operation |
+|   -200 | ` SYSTEM_ERROR_END_OF_STREAM` | End of stream reached unexpectedly |
+|   -210 | ` SYSTEM_ERROR_INVALID_STATE` | Invalid state for operation |
+|   -219 | ` SYSTEM_ERROR_FLASH_IO` | Flash memory I/O error |
+|   -220 | ` SYSTEM_ERROR_IO` | I/O error |
+|   -221 | ` SYSTEM_ERROR_WOULD_BLOCK` | Operation would block |
+|   -225 | ` SYSTEM_ERROR_FILE` | File system error |
+|   -230 | ` SYSTEM_ERROR_NETWORK` | Network error |
+|   -240 | ` SYSTEM_ERROR_PROTOCOL` | Protocol error |
+|   -250 | ` SYSTEM_ERROR_INTERNAL` | Internal error |
+|   -260 | ` SYSTEM_ERROR_NO_MEMORY` | Insufficient memory |
+|   -270 | ` SYSTEM_ERROR_INVALID_ARGUMENT` | Invalid argument |
+|   -280 | ` SYSTEM_ERROR_BAD_DATA` | Invalid data format |
+|   -290 | ` SYSTEM_ERROR_OUT_OF_RANGE` | Value out of range |
+|   -300 | ` SYSTEM_ERROR_DEPRECATED` | Deprecated |
+
+The full list of errors is available in the [Device OS system_error.h file](https://github.com/particle-iot/device-os/blob/develop/services/inc/system_error.h#L25).
 
 ## Logging
 
