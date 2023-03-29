@@ -8,22 +8,57 @@ const char *eventName = "WebhookDemo01";
 
 const std::chrono::milliseconds publishInterval = 5min;
 unsigned long lastPublishMillis = -publishInterval.count();
+int hookSequence = 0;
+bool buttonClicked = false;
 
+void hookResponseHandler(const char *event, const char *data);
+void clickHandler(system_event_t event, int param);
 float readTemperature();
 void publishSensorData();
 
 void setup() 
 {
+    Particle.subscribe(System.deviceID() + "/hook-response/" + String(eventName), hookResponseHandler);
 
+    // Register a click handler for the MODE button
+    System.on(button_click, clickHandler);
 }
 
 void loop() 
 {
+    if (hookSequence == 0 && Particle.connected())
+    {
+        // Wait until Particle.connected because the rand() is seeded from the cloud
+        hookSequence = rand();
+    }
+
     if (Particle.connected() && millis() - lastPublishMillis >= publishInterval.count()) {
         lastPublishMillis = millis();
 
         publishSensorData();
     }
+
+    if (buttonClicked)
+    {
+        buttonClicked = false;
+        publishSensorData();
+    }
+}
+
+
+void hookResponseHandler(const char *event, const char *data)
+{
+    Log.info("hook response %s", data);
+}
+
+// MODE button click handler
+void clickHandler(system_event_t event, int param)
+{
+    // int times = system_button_clicks(param);
+
+    // This can be called from an interrupt context so you can only use the small
+    // number of interrupt-safe functions here
+    buttonClicked = true;
 }
 
 float readTemperatureC() 
@@ -50,7 +85,12 @@ void publishSensorData()
     float temperatureC = readTemperatureC();
 
     writer.beginObject();
+    writer.name("id").value(hookSequence++);
     writer.name("t").value(temperatureC);
+#if HAL_PLATFORM_POWER_MANAGEMENT
+    writer.name("powerSource").value(System.powerSource());
+    writer.name("soc").value(System.batteryCharge());
+#endif
     writer.endObject();
     writer.buffer()[std::min(writer.bufferSize(), writer.dataSize())] = 0;
 
