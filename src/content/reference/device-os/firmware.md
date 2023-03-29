@@ -2761,6 +2761,59 @@ By default the device uses its [device ID](#deviceid-) as hostname. See [WiFi.se
 Hostname setting is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
 or Ethernet (Gen 3), P2, or Photon 2.
 
+### wlan_get_country_code
+
+{{api name1="wlan_get_country_code"}}
+
+{{since when="5.0.0"}}
+
+Gets the Wi-Fi country code or region code. The default is WLAN_CC_US. This is not automatically set; if you need to use a different country code it must be set manually.
+
+```cpp
+// PROTOTYPE
+int wlan_get_country_code(void* reserved);
+
+// EXAMPLE
+wlan_country_code_t ccType = wlan_get_country_code(nullptr);
+```
+
+See the list of code in [wlan_set_country_code](#wlan_set_country_code).
+
+This API is available only on the P2 and Photon 2 in Device OS 5.0.0 and later.
+
+### wlan_set_country_code
+
+{{api name1="wlan_set_country_code"}}
+
+{{since when="5.0.0"}}
+
+Sets the Wi-Fi country code or region code. The default is WLAN_CC_US. This is not automatically set; you must manually set it if the country you are using the device in requires setting a specific Wi-Fi channel plan. The setting is stored in the DCT (configration flash memory) and is not reset when flashing user firmware, Device OS, or when clearing Wi-Fi credentials.
+
+
+```cpp
+// PROTOTYPE
+int wlan_set_country_code(wlan_country_code_t country, void* reserved);
+
+// EXAMPLE
+wlan_set_country_code(wlan_country_code_t::WLAN_CC_JP, nullptr);
+```
+
+| Country Code | Value |
+| :--- | :--- |
+| wlan_country_code_t::WLAN_CC_UNSET | 0x0000 |
+| wlan_country_code_t::WLAN_CC_US | 0x5553 |
+| wlan_country_code_t::WLAN_CC_EU | 0x4555 |
+| wlan_country_code_t::WLAN_CC_JP | 0x4A50 |
+| wlan_country_code_t::WLAN_CC_CA | 0x4341 |
+| wlan_country_code_t::WLAN_CC_MX | 0x4D58 |
+| wlan_country_code_t::WLAN_CC_GB | 0x4742 |
+| wlan_country_code_t::WLAN_CC_AU | 0x4155 |
+| wlan_country_code_t::WLAN_CC_KR | 0x4B52 |
+| wlan_country_code_t::WLAN_CC_WORLD | 0xFFFE |
+
+This API is available only on the P2 and Photon 2 in Device OS 5.0.0 and later.
+
+This setting is stored at the DCT offset `DCT_COUNTRY_CODE_OFFSET` (`country_code`, offset 1758, 2 bytes) and thus can also be set in DFU mode using the `-a 1` to store in alt bank 1 (DCT).
 
 ### WiFiCredentials class
 

@@ -718,6 +718,8 @@
   "/cards/firmware/wifi/wifi": "/reference/device-os/api/wifi/wifi",
   "/cards/firmware/wifi/wificredentials-class": "/reference/device-os/api/wifi/wificredentials-class",
   "/cards/firmware/wifi/wifisignal-class": "/reference/device-os/api/wifi/wifisignal-class",
+  "/cards/firmware/wifi/wlan_get_country_code": "/reference/device-os/api/wifi/wlan_get_country_code",
+  "/cards/firmware/wifi/wlan_set_country_code": "/reference/device-os/api/wifi/wlan_set_country_code",
   "/cards/firmware/wifi/wlaneaptype-enum": "/reference/device-os/api/wifi/wlaneaptype-enum",
   "/cards/firmware/wifi/wlansecuritycipher-enum": "/reference/device-os/api/wifi/wlansecuritycipher-enum",
   "/cards/firmware/wire-i2c": "/reference/device-os/api/wire-i2c/wire-i2c",

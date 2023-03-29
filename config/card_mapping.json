@@ -87,6 +87,8 @@
   "/reference/device-os/firmware/#usedynamicip-": "/reference/device-os/api/wifi/usedynamicip/",
   "/reference/device-os/firmware/#sethostname-": "/reference/device-os/api/wifi/sethostname/",
   "/reference/device-os/firmware/#hostname-": "/reference/device-os/api/wifi/hostname/",
+  "/reference/device-os/firmware/#wlan_get_country_code": "/reference/device-os/api/wifi/wlan_get_country_code/",
+  "/reference/device-os/firmware/#wlan_set_country_code": "/reference/device-os/api/wifi/wlan_set_country_code/",
   "/reference/device-os/firmware/#wificredentials-class": "/reference/device-os/api/wifi/wificredentials-class/",
   "/reference/device-os/firmware/#wificredentials-": "/reference/device-os/api/wifi/wificredentials-class/#wificredentials-",
   "/reference/device-os/firmware/#setssid-": "/reference/device-os/api/wifi/wificredentials-class/#setssid-",
