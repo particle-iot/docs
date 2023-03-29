@@ -3,7 +3,7 @@ title: Webhook demo
 columns: two
 layout: commonTwo.hbs
 description: Webhook demo
-includeDefinitions: [api-helper,api-helper-cloud,api-helper-extras,api-helper-projects,stackblitz,webhook-demo,zip]
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-events,api-helper-extras,api-helper-projects,webhook-demo,zip]
 ---
 
 # {{title}}
@@ -55,18 +55,19 @@ It works best if you already have a Particle device set up and claimed to your a
 
 {{> webhook-demo-test }}
 
+### Webhook server data
+
+The table below is the decoded data that was received by the webhook server.
+
+{{> webhook-demo-data-table }}
+
+
 ## Device firmware
 
 {{> project-browser project="webhook-demo" default-file="src/webhook-demo.cpp" height="400" flash="true"}}
 
 
-## Demo server
 
-In order to use webhooks, you need to have a server to receive the requests. This could be running on your own server, or a cloud-based server, but this example runs right in your web browser.
-
-The server is written in node.js (Javascript) using the ExpressJS framework. 
-
-{{> stackblitz-embed project="node-mx6mjb" width="700" height="500" options="waitLoad"}}
 
 ## Testing
 

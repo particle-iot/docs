@@ -9,6 +9,7 @@ $(document).ready(function() {
 
     const localStorageKey = 'webhookDemo';
     const webhookName = 'WebhookDemo01';
+    const serverUrlBase = 'https://api.webhook-demo.com/';
 
     let webhookDemo = {      
         started: false,
@@ -30,6 +31,76 @@ $(document).ready(function() {
 
     const updateSettings = function() {
         localStorage.setItem(localStorageKey, JSON.stringify(webhookDemo.settings));
+    }
+
+
+
+    const startSession = function() {
+        // Create a new SSE session which creates a new tutorial session
+        const evtSource = new EventSource(serverUrlBase + 'stream', {withCredentials:false});
+
+        evtSource.addEventListener('start', async function(event) {
+            const dataObj = JSON.parse(event.data);
+
+            webhookDemo.sessionId = dataObj.sessionId;
+
+            webhookDemo.url = serverUrlBase + 'hook/' + webhookDemo.sessionId;
+            if (webhookDemo.settings.productId) {
+                await updateWebhookUrl();
+            }
+
+            apiHelper.particle.getEventStream({ deviceId: 'mine', auth: apiHelper.auth.access_token }).then(function(stream) {                
+                stream.on('event', function(event) {
+                    try {
+                        console.log('event', event);
+
+                        // event.name, .data, .published_at, .coreid
+                        if (event.name.indexOf(webhookName) >= 0 || event.name.indexOf(webhookDemo.sessionId) >= 0) {
+                            // logAddItem({op:'event', event});    
+                        }
+                    }
+                    catch(e) {
+                        console.log('exception in event listener', e);
+                    }
+                });
+            });
+        });
+
+        evtSource.addEventListener('hook', function(event) {
+            try {
+                const hookObj = JSON.parse(event.data);
+
+                console.log('hook', hookObj);
+                // logAddItem({op:'hook', hook: hookObj});    
+
+                try {
+                    const bodyObj = JSON.parse(hookObj.body);
+                    updateDataTable(apiHelper.flattenObject(bodyObj));
+                }
+                catch(e) {
+                }
+            }
+            catch(e) {
+                console.log('exception in hook listener', e);
+            }
+        });
+
+
+        evtSource.addEventListener('hookResponse', function(event) {
+            try {
+                const hookObj = JSON.parse(event.data);
+
+                console.log('hookResponse', hookObj);
+                // logAddItem({op:'hookResponse', hook: hookObj});    
+            }
+            catch(e) {
+                console.log('exception in hook listener', e);
+            }
+        });
+
+        evtSource.onerror = function(err) {
+            console.error("EventSource failed:", err);
+        };
     }
 
 
@@ -101,7 +172,7 @@ $(document).ready(function() {
         if (integrationObj) {
             console.log('update integration', integrationObj);
             const resp = await apiHelper.particle.editIntegration({
-                integrationId: integrationObj.integrationId,
+                integrationId: integrationObj.id,
                 event: webhookName, 
                 settings, 
                 product: webhookDemo.settings.productId,
@@ -263,6 +334,58 @@ $(document).ready(function() {
         await createOrUpdateWebhook({updateOnly:true});
     }
 
+    const updateDataTable = function(dataObj) {
+        if (!webhookDemo.dataTableColumns) {
+            webhookDemo.dataTableColumns = [];
+        }
+
+        const tableElem = $('#webhookDemoDataTable');
+        const theadElem = $(tableElem).find('thead');
+        const tbodyElem = $(tableElem).find('thead');
+        
+        // Add columns if necessary
+        let columnsUpdated = false;
+        for(const key in dataObj) {            
+            if (!webhookDemo.dataTableColumns.find(e => e.key == key)) {
+                // Add column
+                const headerElem = document.createElement('th');
+                $(headerElem).text(key);
+
+                webhookDemo.dataTableColumns.push({
+                    key,
+                    headerElem,
+                });
+                columnsUpdated = true;
+            }
+        }
+        if (columnsUpdated) {
+            $(theadElem).empty();
+            const trElem = document.createElement('tr');
+
+            for(const colObj of webhookDemo.dataTableColumns) {
+                $(trElem).append(colObj.headerElem);
+            }
+            $(theadElem).append(trElem);
+        }
+        
+        const trElem = document.createElement('tr');
+        for(const colObj of webhookDemo.dataTableColumns) {
+            const tdElem = document.createElement('td');
+
+            if (dataObj[colObj.key]) {
+                $(tdElem).text(dataObj[colObj.key]);
+            }
+            else {
+                $(tdElem).html('&nbsp;');
+            }
+
+            $(trElem).append(tdElem);
+        }
+        $(tbodyElem).append(trElem);
+
+        
+    }
+
     $('.webhookDemo[data-control="start"]').each(async function() {
         $(this).data('webhookDemo', webhookDemo);
 
@@ -270,6 +393,7 @@ $(document).ready(function() {
 
         $('#canStart').show();
 
+        
         $('#startDemo').on('click', async function() {
             $('#startDemo').prop('disabled', true);
             $('.showWhenStarted').show();
@@ -277,15 +401,7 @@ $(document).ready(function() {
 
             webhookDemo.started = true;
 
-            const embedObject = $('.stackblitzEmbed').data('embedObject');
-            embedObject.hasUrlCallback = async function(url) {
-                webhookDemo.url = url;
-                if (webhookDemo.settings.productId) {
-                    await updateWebhookUrl();
-                }
-            }
-
-            embedObject.load();
+            startSession();
         })
     
 
@@ -497,7 +613,7 @@ $(document).ready(function() {
 
     $('#testWebhookButton').on('click', async function() {
         let eventDataObj = {
-            sensor: 25,
+            t: 25,
         };
 
         const resp = await apiHelper.particle.publishEvent({ 

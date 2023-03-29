@@ -3190,6 +3190,40 @@ $(document).ready(function() {
     });
 
 
+
+    apiHelper.flattenObject = function(objIn) {
+        let objOut = {};
+
+        console.log('flattenObject objIn', objIn);
+
+        
+        const flattenInternal = function(valueIn, prefix) {
+            if (Array.isArray(valueIn)) {
+                for(let ii = 0; ii < valueIn.length; ii++) {
+                    const newKey = prefix + '[' + ii + ']';
+                    flattenInternal(valueIn[ii], newKey);
+                }
+            }
+            else
+            if (typeof valueIn == 'object') {
+                for(const key in valueIn) {
+                    const newKey = prefix + (prefix != '' ? '.' : '') + key;
+                    flattenInternal(valueIn[key], newKey);
+                }
+            }
+            else {
+                objOut[prefix] = valueIn;
+            }
+        }
+        flattenInternal(objIn, '');
+
+
+        console.log('flattenObject objOut', objOut);
+
+        return objOut;
+    }
+
+
 });
 
 
