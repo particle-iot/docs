@@ -4,7 +4,7 @@ SerialLogHandler logHandler;
 SYSTEM_THREAD(ENABLED);
 
 
-const char *eventName = "webhookDemo01";
+const char *eventName = "WebhookDemo01";
 
 const std::chrono::milliseconds publishInterval = 5min;
 unsigned long lastPublishMillis = -publishInterval.count();

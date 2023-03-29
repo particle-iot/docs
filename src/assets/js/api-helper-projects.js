@@ -342,13 +342,11 @@ $(document).ready(function() {
 
             let formData = new FormData();
 
-            let targetVersion = 'latest';
             if ($(targetVersionSelect).length > 0) {
-                targetVersion = $(targetVersionSelect).val();
+                formData.append('build_target_version', $(targetVersionSelect).val());
             }
 
             formData.append('deviceId', device);
-            formData.append('build_target_version', targetVersion);
             let fileNum = 0;
 
             const addDir = async function(path, zipDir) {
