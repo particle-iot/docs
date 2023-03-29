@@ -43,8 +43,10 @@ $(document).ready(function() {
             const dataObj = JSON.parse(event.data);
 
             webhookDemo.sessionId = dataObj.sessionId;
+            console.log('new sessionId ' + webhookDemo.sessionId);
 
             webhookDemo.url = serverUrlBase + 'hook/' + webhookDemo.sessionId;
+            webhookDemo.hookUrl = webhookDemo.url + '/hook';
             if (webhookDemo.settings.productId) {
                 await updateWebhookUrl();
             }
@@ -324,7 +326,6 @@ $(document).ready(function() {
     };
 
     const updateWebhookUrl = async function() {
-        webhookDemo.hookUrl = webhookDemo.url + '/hook';
         console.log('updateWebhookUrl ' + webhookDemo.hookUrl);
 
         $('.webhookUrlSpan').text(webhookDemo.hookUrl);
