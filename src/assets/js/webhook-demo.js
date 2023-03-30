@@ -50,22 +50,7 @@ $(document).ready(function() {
             if (webhookDemo.settings.productId) {
                 await updateWebhookUrl();
             }
-
-            apiHelper.particle.getEventStream({ deviceId: 'mine', auth: apiHelper.auth.access_token }).then(function(stream) {                
-                stream.on('event', function(event) {
-                    try {
-                        console.log('event', event);
-
-                        // event.name, .data, .published_at, .coreid
-                        if (event.name.indexOf(webhookName) >= 0 || event.name.indexOf(webhookDemo.sessionId) >= 0) {
-                            // logAddItem({op:'event', event});    
-                        }
-                    }
-                    catch(e) {
-                        console.log('exception in event listener', e);
-                    }
-                });
-            });
+            
         });
 
         evtSource.addEventListener('hook', function(event) {
@@ -403,6 +388,23 @@ $(document).ready(function() {
             webhookDemo.started = true;
 
             startSession();
+
+
+            apiHelper.particle.getEventStream({ product: webhookDemo.settings.productId, auth: apiHelper.auth.access_token }).then(function(stream) {                
+                stream.on('event', function(event) {
+                    try {
+                        console.log('event', event);
+
+                        // event.name, .data, .published_at, .coreid
+                        if (event.name.indexOf(webhookName) >= 0 || event.name.indexOf(webhookDemo.sessionId) >= 0) {
+                            // logAddItem({op:'event', event});    
+                        }
+                    }
+                    catch(e) {
+                        console.log('exception in Particle event stream listener', e);
+                    }
+                });
+            });
         })
     
 

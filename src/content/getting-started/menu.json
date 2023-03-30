@@ -300,7 +300,8 @@
       {
         "dir": "webhook-demo",
         "title": "Webhook demo",
-        "href": "/getting-started/integrations/webhook-demo/"
+        "href": "/getting-started/integrations/webhook-demo/",
+        "internal": true
       },
       {
         "dir": "webhooks",
