@@ -45,8 +45,8 @@ $(document).ready(function() {
             webhookDemo.sessionId = dataObj.sessionId;
             console.log('new sessionId ' + webhookDemo.sessionId);
 
-            webhookDemo.url = serverUrlBase + 'hook/' + webhookDemo.sessionId;
-            webhookDemo.hookUrl = webhookDemo.url + '/hook';
+            webhookDemo.hookUrl = serverUrlBase + 'hook/' + webhookDemo.sessionId;
+            webhookDemo.controlUrl = serverUrlBase + 'control/' + webhookDemo.sessionId;
             if (webhookDemo.settings.productId) {
                 await updateWebhookUrl();
             }
@@ -233,7 +233,7 @@ $(document).ready(function() {
             }
         }
 
-        if (webhookDemo.url) {
+        if (webhookDemo.hookUrl) {
             await updateWebhookUrl();
         }
 
@@ -242,6 +242,17 @@ $(document).ready(function() {
 
     const updateProduct = async function() {
         // webhookDemo.settings.productId
+
+        webhookDemo.productDevices = await apiHelper.getAllDevices({
+            productId: webhookDemo.settings.productId,
+        });
+        // console.log('webhookDemo.productDevices', webhookDemo.productDevices);
+        webhookDemo.deviceNames = {};
+        for(const dev of webhookDemo.productDevices) {
+            webhookDemo.deviceNames[dev.id] = dev.name || dev.id;
+        }
+        // console.log('webhookDemo.deviceNames', webhookDemo.deviceNames);
+
 
         webhookDemo.productInfo = (await apiHelper.particle.getProduct({
             product: webhookDemo.settings.productId,
@@ -319,6 +330,9 @@ $(document).ready(function() {
 
         await createOrUpdateWebhook({updateOnly:true});
 
+        /*
+        // This does not seem to be necessary, as long as the server is set to have a long enough maximum request time. 
+        // It's currently set to 30 minutes.
         if (!webhookDemo.pingTimer) {
             webhookDemo.pingTimer = window.setInterval(function() {
                 let requestDataObj = {
@@ -344,12 +358,13 @@ $(document).ready(function() {
                         console.log('ping success', resp);
                         
                     },
-                    url: webhookDemo.url + '/control/' + webhookDemo.sessionId
+                    url: webhookDemo.controlUrl,
                 };
         
                 $.ajax(request);
             }, 60000);
         }
+        */
     }
 
     const updateDataTable = function(dataObj) {
@@ -404,6 +419,38 @@ $(document).ready(function() {
         
     }
 
+    const updateEventLog = function(event) {
+        if (!webhookDemo.eventLogColumns) {
+            webhookDemo.eventLogColumns = [];
+
+            $('#eventsHeader > tr > th').each(function() {
+                const key = $(this).data('key');
+                webhookDemo.eventLogColumns.push({
+                    key
+                })
+            });
+
+            console.log('webhookDemo.eventLogColumns', webhookDemo.eventLogColumns);
+        }
+    
+        // .deviceName, .name, .data, .published_at, .coreid
+
+        const trElem = document.createElement('tr');
+
+        for(let colObj of webhookDemo.eventLogColumns) {
+            const tdElem = document.createElement('td');
+            if (event[colObj.key]) {
+                $(tdElem).text(event[colObj.key]);
+            }
+            else {
+                $(tdElem).html('&nbsp;');
+            }
+            $(trElem).append(tdElem);
+        }
+
+        $('#eventsTable').prepend(trElem);
+    }
+
     $('.webhookDemo[data-control="start"]').each(async function() {
         $(this).data('webhookDemo', webhookDemo);
 
@@ -426,6 +473,10 @@ $(document).ready(function() {
                 stream.on('event', function(event) {
                     try {
                         console.log('event', event);
+
+                        event.deviceName = webhookDemo.deviceNames[event.coreid] || event.coreid;
+
+                        updateEventLog(event);
 
                         // event.name, .data, .published_at, .coreid
                         if (event.name.indexOf(webhookName) >= 0 || event.name.indexOf(webhookDemo.sessionId) >= 0) {

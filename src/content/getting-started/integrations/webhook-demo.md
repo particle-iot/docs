@@ -65,6 +65,13 @@ The table below is the decoded data that was received by the webhook server.
 {{> webhook-demo-data-table }}
 
 
+### Event log
+
+This control shows the same information that is shown in the Events tab in your product so you don't need to switch between multiple windows.
+
+{{> webhook-demo-events }}
+
+
 ## Device firmware
 
 {{> project-browser project="webhook-demo" default-file="src/webhook-demo.cpp" height="400" flash="true"}}
