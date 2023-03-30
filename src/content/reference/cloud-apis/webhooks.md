@@ -18,6 +18,7 @@ EXAMPLE WEBHOOK
 {
   "eventName": "Metric",
   "url": "http://example.com",
+  "name": "Record my metric",
   "headers": {
     "X-Timestamp": "\{{PARTICLE_PUBLISHED_AT}}"
   },
@@ -76,6 +77,16 @@ EXAMPLES
 _Required_
 
 The web address that will be targeted when the webhook is triggered.
+
+### name
+
+```
+EXAMPLE
+"name": "Trigger alert"
+```
+
+A human-readable description of the webhook. If you don't provide a name, the default name will be something like "event for domain.com".
+
 
 ### requestType
 
