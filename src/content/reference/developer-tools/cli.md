@@ -499,6 +499,7 @@ $ particle webhook create webhook.json
 {
     "event": "librato_",
     "url": "https://metrics-api.librato.com/v1/metrics",
+    "name": "Publish to Librato",
     "requestType": "POST",
     "auth": {
         "username": "YOUR_LIBRATO_USERNAME",
