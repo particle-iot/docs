@@ -182,6 +182,12 @@
         "href": "/reference/cellular/cellular-carriers/"
       },
       {
+        "dir": "verizon-faq",
+        "title": "Verizon FAQ",
+        "href": "/reference/cellular/verizon-faq/",
+        "internal": true
+      },
+      {
         "dir": "lte-cat-1-expansion",
         "title": "LTE Cat 1 Expansion",
         "href": "/reference/cellular/lte-cat-1-expansion/"

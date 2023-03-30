@@ -635,6 +635,48 @@ const generatorConfig = require('./generator-config');
         return md;
     };
 
+    updater.generateVerizonSku = function(options = {}) {
+        let tableData = [];
+
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (!skuObj.verizon) {
+                // Not Verizon
+                return;
+            }
+            
+            tableData.push(skuObj);
+        });
+
+        tableData.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+        });
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'name',
+                    title: 'SKU',
+                },
+                {
+                    key: 'desc',
+                    title: 'Description',
+                },
+                {
+                    key: 'cellAnt',
+                    title: 'Antenna',
+                },
+                {
+                    key: 'cellAntAlt',
+                    title: 'Antenna Alternative',
+                },
+            ]
+        };
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);
+    };
+
+
     updater.generateUsbCable = function(options = {}) {
         let tableData = [];
 

@@ -19459,7 +19459,8 @@
       "prefix": "P033",
       "platformId": 23,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "B404MTY",
@@ -19488,7 +19489,8 @@
       "prefix": "P033",
       "platformId": 23,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "B404XMEA",
@@ -19520,7 +19522,8 @@
       "wholesale": true,
       "retail": true,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "B404XMTY",
@@ -19552,7 +19555,8 @@
       "wholesale": true,
       "retail": false,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "B523MEA",
@@ -19996,7 +20000,8 @@
       "prefix": "P028",
       "platformId": 13,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "BRN404KIT",
@@ -20026,7 +20031,8 @@
       "prefix": "P028",
       "platformId": 13,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "BRN404TRAY50",
@@ -20056,7 +20062,8 @@
       "prefix": "P028",
       "platformId": 13,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "BRN404X",
@@ -20089,7 +20096,8 @@
       "wholesale": true,
       "retail": true,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "BRN404XKIT",
@@ -20122,7 +20130,8 @@
       "wholesale": true,
       "retail": true,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "BRN404XTRAY50",
@@ -20155,7 +20164,8 @@
       "wholesale": true,
       "retail": false,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "E260KIT",
@@ -20699,7 +20709,8 @@
       "prefix": "P052",
       "platformId": 10,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "ELC314TY",
@@ -20802,7 +20813,8 @@
       "prefix": "P036",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "FWNG-ETH",
@@ -21122,7 +21134,8 @@
       "prefix": "P031",
       "platformId": 26,
       "usb": "c",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "ONE404MTY",
@@ -21159,7 +21172,8 @@
       "prefix": "P031",
       "platformId": 26,
       "usb": "c",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "ONE523MEA",
@@ -22074,7 +22088,8 @@
       "prefix": "P031",
       "platformId": 26,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "T404MKIT",
@@ -22109,7 +22124,8 @@
       "prefix": "P031",
       "platformId": 26,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "T404MTY",
@@ -22147,7 +22163,8 @@
       "prefix": "P031",
       "platformId": 26,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "T523MEA",

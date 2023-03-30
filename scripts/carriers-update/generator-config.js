@@ -28,7 +28,13 @@ const path = require('path');
                 }); 
             } 
         },
-
+        // verizon-faq
+        {            
+            guid: '45d4d59b-d643-41d2-96ef-a7ec73124a9c', 
+            generatorFn:function(updater) {
+                return updater.generateVerizonSku(); 
+            }             
+        },
         // Manual setup
         {
             guid: '58997959-6743-4757-8081-18a46c2f6abf', 
