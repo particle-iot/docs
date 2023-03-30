@@ -58,9 +58,17 @@ Starting the demo will start the webhook server and start monitoring events.
 
 {{> webhook-demo-test }}
 
+
+### Explainer 
+
+Once you start the demo and events start flowing, either by using the Test button above, or from a device, the section below will explain what is happening.
+
+{{> webhook-demo-explainer }}
+
+
 ### Webhook server data
 
-The table below is the decoded data that was received by the webhook server.
+The table below is the decoded data that was received by the webhook server. This is the kind of data that you'd be able to use in a custom web or mobile app, but you'd probably use something fancier than just a table.
 
 {{> webhook-demo-data-table }}
 

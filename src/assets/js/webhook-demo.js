@@ -34,6 +34,107 @@ $(document).ready(function() {
     }
 
 
+    const updateExplainer = function(explainObj) {
+        console.log('updateExplainer', explainObj);
+
+        const explainerSettings = {
+            eventWidth: '330px',
+            hookWidth: '330px',
+        };
+
+        const trElem = document.createElement('tr');
+
+        {
+            const tdElem = document.createElement('td');
+            $(tdElem).css('width', explainerSettings.eventWidth);
+            $(tdElem).css('text-align', 'left');
+
+            if (explainObj.kind == 'event') {
+                const tableElem = document.createElement('table');
+
+                const tbodyElem = document.createElement('tbody');
+
+                if (explainObj.event.name == webhookName) {
+                    $('#explainerTable').empty();
+                }
+
+                const fields = [
+                    {
+                        key: 'name',
+                        title: 'Event Name',
+                    },
+                    {
+                        key: 'data',
+                        title: 'Event Data',
+                    },
+                    {
+                        key: 'deviceName',
+                        title: 'Device',
+                    },
+                    {
+                        key: 'published_at',
+                        title: 'Published At',
+                    }
+                ];
+                for(const field of fields) {
+                    const trInnerElem = document.createElement('tr');
+
+                    {
+                        const tdInnerElem = document.createElement('td');
+                        $(tdInnerElem).text(field.title);
+                        $(trInnerElem).append(tdInnerElem);    
+                    }
+                    {
+                        const tdInnerElem = document.createElement('td');
+                        $(tdInnerElem).text(explainObj.event[field.key]);
+                        $(trInnerElem).append(tdInnerElem);    
+                    }
+
+                    $(tbodyElem).append(trInnerElem);
+                }
+
+                $(tableElem).append(tbodyElem);
+
+                $(tdElem).append(tableElem);
+            }
+            else {
+                $(tdElem).html('&nbsp;');
+            }
+            $(trElem).append(tdElem);
+        }
+        {
+            const tdElem = document.createElement('td');
+            $(tdElem).css('width', explainerSettings.hookWidth);
+            $(tdElem).css('text-align', 'left');
+
+            if (explainObj.kind == 'hook' || explainObj.kind == 'hookResponse') {
+                const tableElem = document.createElement('table');
+
+                const tbodyElem = document.createElement('tbody');
+
+                if (explainObj.kind == 'hook') {
+                    // hookObj  .hookId, .body, .headers, .method, .originalUrl, .query (object)
+                }
+                else
+                if (explainObj.kind == 'hookResponse') {
+                    // hookObj  .hookId, .statusCode, contentType, body, 
+                }
+
+                $(tableElem).append(tbodyElem);
+
+                $(tdElem).append(tableElem);
+            }
+            else {
+                $(tdElem).html('&nbsp;');
+            }
+
+            $(trElem).append(tdElem);
+        }
+        
+        $('#explainerTable').append(trElem);
+
+    }
+
 
     const startSession = function() {
         // Create a new SSE session which creates a new tutorial session
@@ -60,6 +161,11 @@ $(document).ready(function() {
                 console.log('hook', hookObj);
                 // logAddItem({op:'hook', hook: hookObj});    
 
+                updateExplainer({
+                    kind: 'hook',
+                    hookObj,
+                });
+
                 try {
                     const bodyObj = JSON.parse(hookObj.body);
                     updateDataTable(apiHelper.flattenObject(bodyObj));
@@ -79,6 +185,13 @@ $(document).ready(function() {
 
                 console.log('hookResponse', hookObj);
                 // logAddItem({op:'hookResponse', hook: hookObj});    
+
+                updateExplainer({
+                    kind: 'hookResponse',
+                    hookObj,
+                });
+
+
             }
             catch(e) {
                 console.log('exception in hook listener', e);
@@ -480,7 +593,11 @@ $(document).ready(function() {
 
                         // event.name, .data, .published_at, .coreid
                         if (event.name.indexOf(webhookName) >= 0 || event.name.indexOf(webhookDemo.sessionId) >= 0) {
-                            // logAddItem({op:'event', event});    
+                            // logAddItem({op:'event', event});   
+                            updateExplainer({
+                                kind: 'event',
+                                event,
+                            });
                         }
                     }
                     catch(e) {
