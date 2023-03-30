@@ -60,7 +60,6 @@ Note that these instructions are intended to be used to set up individual develo
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | USB-C |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | USB-C |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | USB-C |
 | PHN2KIT | Photon 2, Kit [x1] | Micro B |
 | PHN2MEA | Photon 2, [x1] | Micro B |
 | PHOTONH | Photon with Headers, [x1] | Micro B |
@@ -73,7 +72,6 @@ Note that these instructions are intended to be used to set up individual develo
 | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | Micro B |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | Micro B |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | Micro B |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -129,7 +127,6 @@ Note that these instructions are intended to be used to set up individual develo
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | &nbsp; |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | &check; |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | &check; |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | &check; |
 | PHN2KIT | Photon 2, Kit [x1] | &nbsp; |
 | PHN2MEA | Photon 2, [x1] | &nbsp; |
 | PHOTONH | Photon with Headers, [x1] | &nbsp; |
@@ -145,8 +142,6 @@ Note that these instructions are intended to be used to set up individual develo
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | &check; |
 | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | &check; |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | &check; |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | &check; |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

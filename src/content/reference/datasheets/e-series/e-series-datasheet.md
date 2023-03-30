@@ -735,16 +735,16 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | NRND | E314KIT|
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | NRND | |
 | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | &check; | NRND | |
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | E404KIT|
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | E404TRAY50|
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | |
+| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | E404XTRAY50|
 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND | |
 | E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
-| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Deprecated | E314MOD1|
+| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Deprecated | |
 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | Deprecated | |
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | U201 |  | Deprecated | |
 | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | &check; | Deprecated | |
-| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | E404MOD1|
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
+| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | |
+| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | E404XTRAY50|
 | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 |  | End of life | |
 
 

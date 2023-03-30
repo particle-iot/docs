@@ -32,8 +32,6 @@ If you want an off-the-shelf device can requires little or no hardware design, t
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | GA |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | GA |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | GA |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | In development |
-| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated b7083b52-4bd3-47a6-85e8-396922c41b33 --}}
@@ -436,11 +434,12 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | &check; | GA |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | &check; | GA |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | &check; | &check; | GA |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | &check; | In development |
-| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &check; | &check; | In development |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &nbsp; | &check; | In development |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | In development |
-| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &check; | In development |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &nbsp; | &check; | GA |
+| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &check; | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated b9f495c6-80bc-49d7-a4b7-cb210f89fb65 --}}
@@ -774,12 +773,15 @@ The following pins are used by Ethernet. In Device OS 5.3.0 and later these can 
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | &nbsp; | &nbsp; | GA |
 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | Global | &nbsp; | &nbsp; | GA |
 | P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | &nbsp; | &nbsp; | GA |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &nbsp; | &check; | GA |
+| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &check; | GA |
 | PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | &nbsp; | In development |
 | PHN2MEA | Photon 2, [x1] | Global | &nbsp; | &nbsp; | In development |
 | PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | &nbsp; | In development |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &nbsp; | &check; | In development |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | In development |
-| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &check; | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated 2de596b8-2889-4df7-86d1-910d5551b34f --}}

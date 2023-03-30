@@ -3991,7 +3991,7 @@ SIM card, you can restore the use of the Particle SIM by using
 {{note op="start" type="gen2"}}
 On the Electron 2G, U260, U270, and ELC314, there is only a 4FF nano SIM card slot. There is no internal SIM so you must always have a SIM card in the SIM card holder on the bottom of the device for normal operation. 
 
-The Electron LTE (ELC404X, ELC404, and ELC402) and E Series (E310, E314, E402, E404, and E404X), have a built-in MFF2 SMD SIM. Since 
+The Electron LTE (ELC404, and ELC402) and E Series (E310, E314, E402, E404, and E404X), have a built-in MFF2 SMD SIM. Since 
 you cannot use a 3rd-party SIM card, you do not have to set the APN as the Particle SIM APN is built-in.
 
 - The APN must be set in all user firmware as it is only saved in the modem memory and the setting is erased when powered down.

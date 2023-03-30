@@ -29,7 +29,7 @@ The MFF2 embedded SIM card is not a programmed eSIM. It's basically the same as 
 | Electron 3G | U260 | &check; | &nbsp; |
 | Electron 3G | U270 |  &check; | &nbsp; |
 | Electron Global | ELC314 | &check; | &nbsp; |
-| Electron LTE (Cat M1) | ELC404X ELC404 ELC402 | &nbsp; | &check; |
+| Electron LTE (Cat M1) | ELC404 ELC402 | &nbsp; | &check; |
 | E Series 2G/3G | E314 E310 | &nbsp; | &check; |
 | E Series LTE (Cat M1) | E404X E404 E402 | &nbsp; | &check; |
 

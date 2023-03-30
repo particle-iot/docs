@@ -20,14 +20,9 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EG91-E |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EG91-EX |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EG91-EX |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EG91-EX |
-| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EG91-EX |
 | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EG91-EX |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EG91-EX |
 | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EG91-EX |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EG91-EX |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EG91-EX |
-| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EG91-EX |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
