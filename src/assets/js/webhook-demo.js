@@ -318,6 +318,38 @@ $(document).ready(function() {
         updateCreateWebhook();
 
         await createOrUpdateWebhook({updateOnly:true});
+
+        if (!webhookDemo.pingTimer) {
+            webhookDemo.pingTimer = window.setInterval(function() {
+                let requestDataObj = {
+                    op: 'ping',
+                };
+        
+                const request = {                
+                    contentType: 'application/json',
+                    data: JSON.stringify(requestDataObj),
+                    dataType: 'json',
+                    error: function (jqXHR) {
+                        // gtag('event', 'Error', {'event_category':simpleGetConfig.gaAction, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
+                        console.log('ping error', jqXHR);
+                        //setStatus('Product creation failed');
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                        'Accept': 'application/json'
+                    },
+                    method: 'POST',
+                    success: function (resp, textStatus, jqXHR) {
+                        // gtag('event', 'Success', {'event_category':simpleGetConfig.gaAction});
+                        console.log('ping success', resp);
+                        
+                    },
+                    url: webhookDemo.url + '/control/' + webhookDemo.sessionId
+                };
+        
+                $.ajax(request);
+            }, 60000);
+        }
     }
 
     const updateDataTable = function(dataObj) {
