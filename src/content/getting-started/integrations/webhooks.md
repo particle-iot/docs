@@ -231,7 +231,11 @@ You can also customize the structure of the data that gets sent. In the "Advance
 
 ## Monitoring your webhooks
 
-The easiest way to observe webhook activity is to view the Integrations tab in the Particle Console. Double click on the integration you want to view and the page shows the history, recent calls, and recent errors.
+The easiest way to observe webhook activity is to view the Integrations tab in the Particle Console. You'll see the number of attempts to send events to your webhook for the current day (starting at midnight UTC). Click on the row to expand it to see the 30 day history. See the [webhook troubleshooting guide](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-webhookintegration-issues/) for details on what these numbers mean.
+
+![Integrations list](/assets/images/integrations-list-expanded.png)
+
+To get more details, click on the name of the integration you want to view and the page shows the history, recent calls, and recent errors.
 
 Timeout indicates that a response was not received within 20 seconds. There are two different but related timeout errors:
 
@@ -244,10 +248,10 @@ Additionally, you can view the Events page of your Particle Console. Every time 
 
 If the webhook receives a response from the targeted web server with something in the body, a `hook-response` event will also appear in your event stream containing the response. This event will _only_ appear in your event stream if the web service returned something in the `body` of its response to the Particle cloud.
 
-![Webhook Logs](/assets/images/webhook-logs.png)
+![Webhook Logs](/assets/images/integrations-event-log.png)
 <p class="caption">`hook-sent` and `hook-response` events will appear in your event stream for an active webhook</p>
 
-Note that this will only appears in the Events page for the device owner. The hook events do not appear in the device-specific event log, or in the product event log.
+Note that this will appears in the Events page for the device owner and the product, but not in the device-specific event log.
 
 ## Custom template
 
