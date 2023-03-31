@@ -44,6 +44,16 @@ $(document).ready(function() {
 
             return divElem;
         }
+        const makePreDiv = function(s) {
+            const divElem = document.createElement('div');
+
+            const preElem = document.createElement('pre');
+            $(preElem).text(s);
+            $(divElem).append(preElem);
+            $(divElem).text(s);
+
+            return divElem;
+        }
 
         const explainerSettings = {
             eventWidth: '330px',
@@ -138,20 +148,28 @@ $(document).ready(function() {
             const flexItemElem = document.createElement('div');
             $(flexItemElem).css('flex-basis', explainerSettings.hookWidth);
 
-            let text = '';
 
             if (explainObj.kind == 'hook' || explainObj.kind == 'hookResponse') {
 
                 if (explainObj.kind == 'hook') {
-                    text += 'This is where your webhook server has received the request';
                     // hookObj  .hookId, .body, .headers, .method, .originalUrl, .query (object)
+                    let text = '';
+                    text += 'This is where your webhook server has received the request';
+                    $(flexItemElem).append(makeTextDiv(text));
+
+
+                    $(flexItemElem).append(makePreDiv(explainObj.hookObj.headers));
+                    
                 }
                 else
                 if (explainObj.kind == 'hookResponse') {
-                    text += 'This is where your webhook server has processed the request and is returning a response';
                     // hookObj  .hookId, .statusCode, contentType, body, 
+
+                    let text = '';
+                    text += 'This is where your webhook server has processed the request and is returning a response';
+                    $(flexItemElem).append(makeTextDiv(text));
+                    $(flexItemElem).append(makePreDiv(explainObj.hookObj.body));
                 }
-                $(flexItemElem).append(makeTextDiv(text));
 
             }
 
