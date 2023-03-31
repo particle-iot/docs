@@ -16,6 +16,10 @@ Particle thoroughly logs the request and response of the last 10 Webhook success
 
 Please be aware that Integrations contained within a Product are only visible once you've selected that Product's page within the Console.
 
+Find the integration that is having issues by looking at the number of failures in Today's traffic. You can also expand the row to view the history over the last 30 days.
+
+![Integrations list](/assets/images/integrations-list-expanded.png)
+
 After selecting a given Integration, the contents of this panel are likely familiar to you: a section on **Integration Info**, **Example Device Firmware**, and then - most relevant to our concerns here - the **History** section. Scroll down to **History** and take a note of the graph. A healthy state might look something like this:
 
   

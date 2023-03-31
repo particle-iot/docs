@@ -138,8 +138,6 @@ particle usb stop-listening
 
 To set up your device, go to [https://setup.particle.io](https://setup.particle.io). This will guide you through the steps needed to activate your SIM and set up your device.
 
-![Setup](/assets/images/tracker/setup.png)
-
 If you prefer to manually set up your device, click on the triangle to open the manual setup instructions:
 
 {{collapse op="start" label="Manual Setup"}}
