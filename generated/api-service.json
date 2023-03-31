@@ -2182,7 +2182,7 @@
             "group": "Success 200",
             "type": "Array",
             "optional": false,
-            "field": "inupdatedDeviceIds",
+            "field": "invalidDeviceIds",
             "description": "<p>Device identifiers that were invalid and could not be imported</p>"
           }
         ]
@@ -2190,7 +2190,7 @@
       "examples": [
         {
           "title": "POST /v1/products/:productIdOrSlug/devices",
-          "content": "POST /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"updated\":1,\n \"updatedDeviceIds\":[\"abc1234\"],\n \"existingDeviceIds\":[],\n\t\"nonmemberDeviceIds\":[],\n\t\"inupdatedDeviceIds\":[]\n}",
+          "content": "POST /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"updated\":1,\n \"updatedDeviceIds\":[\"abc1234\"],\n \"existingDeviceIds\":[],\n\t\"nonmemberDeviceIds\":[],\n\t\"invalidDeviceIds\":[]\n}",
           "type": "json"
         }
       ]
@@ -5823,6 +5823,13 @@
           {
             "group": "Parameter",
             "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;<event> for <domain>&quot; if omitted.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
             "optional": false,
             "field": "requestType",
             "description": "<p>Type of web request triggered by the webhook that can be set to GET, POST, PUT, or DELETE</p>"
@@ -5990,7 +5997,7 @@
       "examples": [
         {
           "title": "POST /v1/webhooks",
-          "content": " POST /v1/webhooks\n HTTP/1.1 201 Created\n\n {\n\t  \"ok\": true\n\t  \"id\": \"12345\",\n\t  \"url\": \"https://samplesite.com\",\n\t  \"event\": \"hello\",\n\t  \"created_at\": \"2016-04-28T17:06:33.123Z\",\n\t  \"hookUrl\": \"https://api.particle.io/v1/webhooks/12345\"\n }",
+          "content": " POST /v1/webhooks\n HTTP/1.1 201 Created\n\n {\n\t  \"ok\": true\n\t  \"id\": \"12345\",\n\t  \"url\": \"https://samplesite.com\",\n\t  \"event\": \"hello\",\n\t  \"name\": \"hello for samplesite.com\",\n\t  \"created_at\": \"2016-04-28T17:06:33.123Z\",\n\t  \"hookUrl\": \"https://api.particle.io/v1/webhooks/12345\"\n }",
           "type": "json"
         }
       ]
@@ -6034,6 +6041,13 @@
             "optional": false,
             "field": "hub_name",
             "description": "<p>The name of your Azure IoT Hub</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;<event> for &lt;hub_name&gt;&quot; if omitted.</p>"
           },
           {
             "group": "Parameter",
@@ -6156,7 +6170,7 @@
       "examples": [
         {
           "title": "POST /v1/integrations",
-          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"AzureIotHub\",\n\t\"hub_name\":\"your-iot-hub-name\",\n\t\"policy_name\":\"iothubowner\",\n\t\"policy_key\": \"123abc\",\n\t\"ok\":true,\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
+          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"AzureIotHub\",\n\t\"hub_name\":\"your-iot-hub-name\",\n  \"name\": \"foo for yout-iot-hub-name\",\n\t\"policy_name\":\"iothubowner\",\n\t\"policy_key\": \"123abc\",\n\t\"ok\":true,\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
           "type": "json"
         }
       ]
@@ -6200,6 +6214,13 @@
             "optional": false,
             "field": "topic",
             "description": "<p>The Google Cloud Pub Sub topic name for publishing messages</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;<event> for <topic>&quot; if omitted.</p>"
           },
           {
             "group": "Parameter",
@@ -6287,7 +6308,7 @@
       "examples": [
         {
           "title": "POST /v1/integrations",
-          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"GoogleCloudPubSub\",\n\t\"topic\": \"your/topic/name\",\n\t\"ok\":true,\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
+          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"GoogleCloudPubSub\",\n\t\"topic\": \"your/topic/name\",\n  \"name\": \"foo for name\",\n\t\"ok\":true,\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
           "type": "json"
         }
       ]
@@ -6324,6 +6345,13 @@
             "optional": false,
             "field": "event",
             "description": "<p>The name of the Particle event that should trigger the integration</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;<event> for Google Maps&quot; if omitted.</p>"
           },
           {
             "group": "Parameter",
@@ -6418,7 +6446,7 @@
       "examples": [
         {
           "title": "POST /v1/integrations",
-          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"GoogleMaps\",\n\t\"ok\":true,\n\t\"api_key\": \"123abc\",\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
+          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n  \"name': \"foo for Google Maps\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"GoogleMaps\",\n\t\"ok\":true,\n\t\"api_key\": \"123abc\",\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
           "type": "json"
         }
       ]
@@ -6468,6 +6496,13 @@
             "optional": true,
             "field": "url",
             "description": "<p>The web address that will be targeted when the webhook is triggered</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook</p>"
           },
           {
             "group": "Parameter",
@@ -6597,7 +6632,7 @@
       "examples": [
         {
           "title": "PUT /v1/integrations/12345",
-          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"Webhook\",\n\t\t\"url\":\"https://weather.com\",\n\t\t\"requestType\":\"POST\"\n\t}\n}",
+          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t    \"name\": \"Check weather\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"Webhook\",\n\t\t\"url\":\"https://weather.com\",\n\t\t\"requestType\":\"POST\"\n\t}\n}",
           "type": "json"
         }
       ]
@@ -6634,6 +6669,13 @@
             "optional": true,
             "field": "event",
             "description": "<p>The name of the Particle event that should trigger the integration</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook</p>"
           },
           {
             "group": "Parameter",
@@ -6714,7 +6756,7 @@
       "examples": [
         {
           "title": "PUT /v1/integrations/12345",
-          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"AzureIotHub\",\n\t\t\"hub_name\": \"your_iot_hub\",\n\t\t\"policy_name\": \"policy_name\"\n\t\t\"policy_key\": \"123abc\"\n\t}\n}",
+          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"AzureIotHub\",\n\t\t\"hub_name\": \"your_iot_hub\",\n\t    \"name\": \"Send to Azure\",\n\t\t\"policy_name\": \"policy_name\"\n\t\t\"policy_key\": \"123abc\"\n\t}\n}",
           "type": "json"
         }
       ]
@@ -6751,6 +6793,13 @@
             "optional": true,
             "field": "event",
             "description": "<p>The name of the Particle event that should trigger the integration</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook</p>"
           },
           {
             "group": "Parameter",
@@ -6810,7 +6859,7 @@
       "examples": [
         {
           "title": "PUT /v1/integrations/12345",
-          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"GoogleCloudPubSub\",\n\t\t\"topic\": \"your/topic/name\"\n\t}\n}",
+          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"GoogleCloudPubSub\",\n\t    \"name\": \"Send to Google\",\n\t\t\"topic\": \"your/topic/name\"\n\t}\n}",
           "type": "json"
         }
       ]
@@ -6847,6 +6896,13 @@
             "optional": true,
             "field": "event",
             "description": "<p>The name of the Particle event that should trigger the integration</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook</p>"
           },
           {
             "group": "Parameter",
@@ -6906,7 +6962,7 @@
       "examples": [
         {
           "title": "PUT /v1/integrations/12345",
-          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"GoogleMaps\",\n\t\t\"api_key\": \"123abc\"\n\t}\n}",
+          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"GoogleMaps\",\n\t    \"name\": \"Send to Google Maps\",\n\t\t\"api_key\": \"123abc\"\n\t}\n}",
           "type": "json"
         }
       ]
@@ -6982,7 +7038,7 @@
       "examples": [
         {
           "title": "GET /v1/integrations/12345",
-          "content": "GET /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"eventName\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"logs\": [...],\n\t\t\"integration_type\":\"Webhook\",\n\t\t\"url\":\"https://weather.com\",\n\t\t\"requestType\":\"POST\"\n\t}\n}",
+          "content": "GET /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"eventName\",\n\t    \"name\": \"Check weather\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"logs\": [...],\n\t\t\"integration_type\":\"Webhook\",\n\t\t\"url\":\"https://weather.com\",\n\t\t\"requestType\":\"POST\"\n\t}\n}",
           "type": "json"
         }
       ]
