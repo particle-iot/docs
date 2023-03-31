@@ -101,7 +101,7 @@ $(document).ready(function() {
             }
             else
             if (explainObj.event.name.indexOf('hook-sent') >= 0) {
-                text += 'The Particle webhook server has sent the event to your webhook server.'
+                text += 'The Particle webhook server has sent the event to your webhook server. You can also see this event in the product event stream in the console.'
                 bannerOptions.title = 'Event (hook-sent)';
                 bannerOptions.color = colors.eventHook;
             }
@@ -167,6 +167,17 @@ $(document).ready(function() {
             $(tableElem).append(tbodyElem);
 
             $(divOuterElem).append(tableElem);
+
+            try {
+                const jsonData = JSON.parse(explainObj.event.data);
+
+                text = 'The data sent by your device appears to be JSON formatted, which we recommend.'
+                $(divOuterElem).append(makeTextDiv(text));
+                $(divOuterElem).append(makePreDiv(JSON.stringify(jsonData, null, 4)));
+            }
+            catch(e) {
+
+            }
         }
         else
         if (explainObj.kind == 'hook') {
@@ -207,7 +218,7 @@ $(document).ready(function() {
 
             let text = '';
             text += 'Your webhook server has processed the request and is returning a response. ';
-            text += 'The contents below depend on your application, but we recommend returning JSON data, with a success or ok indication,';
+            text += 'The contents below depend on your application, but we recommend returning JSON data, with a success or ok indication, ';
             text += 'rather than returning a HTTP error code.'
             $(divOuterElem).append(makeTextDiv(text));
             $(divOuterElem).append(makePreDiv(explainObj.hookObj.body));
@@ -222,7 +233,7 @@ $(document).ready(function() {
             let text = '';
             text += 'The data that was received by your webhook server, which depends on your webhook configuration and '
             text += 'the data sent by the device.'
-            $(divOuterElem).append(makeTextDiv());
+            $(divOuterElem).append(makeTextDiv(text));
             $(divOuterElem).append(makePreDiv(explainObj.data));
         }
 
@@ -368,6 +379,8 @@ $(document).ready(function() {
             // responseTemplate
         };
         console.log('settings', settings);
+
+        $('#webhookSource > pre').text(JSON.stringify(settings, null, 4));
 
         let integrationObj = webhookDemo.webhooks.find(e => e.event == webhookName);
         if (integrationObj) {
@@ -917,6 +930,7 @@ $(document).ready(function() {
 
     $('#testWebhookButton').on('click', async function() {
         let eventDataObj = {
+            id: Math.floor(Math.random() * 1000000),
             t: 25,
         };
 
@@ -932,4 +946,17 @@ $(document).ready(function() {
     });
 
 });
+
+
+/*
+
+{
+    "deviceId": "e00fce685a0a538e3b39dd27",
+    "ts": "2023-03-31T17:49:49.387Z",
+    "sensor": {
+        "id": 316534727,
+        "t": -123
+    }
+}
+*/
 
