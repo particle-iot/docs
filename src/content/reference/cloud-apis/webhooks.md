@@ -596,7 +596,7 @@ For each logged webhook, you'll be able to see the source event that triggered t
 webhook, the HTTP request sent to the webhook URL, and the full HTTP
 response from the webhook server.
 
-![Webhook Logs](/assets/images/webhooks/webhook-logs.png)
+![Webhook Logs](/assets/images/integrations-event-log.png)
 
 ## Using the CLI
 

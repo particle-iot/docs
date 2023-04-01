@@ -115,7 +115,7 @@ Your device should now restart and start publishing the event that will trigger 
 
 To ensure that everything is working properly, head over to your Logs hub on the console. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. If the webhook receives a response from the targeted web server with something in the `body`, a `hook-response` event will also appear in your event stream containing the response.
 
-![Webhook Logs](/assets/images/webhook-logs.png)
+![Webhook Logs](/assets/images/integrations-event-log.png)
 <p class="caption">`hook-sent` and `hook-response` events will appear in your event stream for an active webhook</p>
 
 You should see three types of events appearing in your stream:
