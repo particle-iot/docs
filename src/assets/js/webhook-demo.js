@@ -467,6 +467,7 @@ $(document).ready(function() {
         else {
             webhookDemo.settings.integrationId = 0;
         }
+        updateCleanup();
     }
 
     const updateProductSelector = async function() {
@@ -536,7 +537,6 @@ $(document).ready(function() {
             webhookDemo.deviceNames[dev.id] = dev.name || dev.id;
         }
         // console.log('webhookDemo.deviceNames', webhookDemo.deviceNames);
-
 
         webhookDemo.productInfo = (await apiHelper.particle.getProduct({
             product: webhookDemo.settings.productId,
@@ -1093,7 +1093,7 @@ $(document).ready(function() {
         }
 
         if ($('#cleanupProduct').prop('checked')) {
-            msg += ' delete the product ' + webhookDemo.productInfo.name + ' (' + webhookDemo.productInfo.id + ')';
+            msg += ' delete the product ' + webhookDemo.productInfo.name + ' (' + webhookDemo.settings.productId + ')';
         }
         msg += '?';
 
@@ -1103,15 +1103,17 @@ $(document).ready(function() {
 
         await stopDemo();
     
-        if ($('#cleanupWebhook').prop('checked')) {
+        if ($('#cleanupWebhook').prop('checked') && !$('#cleanupWebhook').prop('disabled')) {
             const resp = await apiHelper.particle.deleteIntegration({
                 integrationId: webhookDemo.settings.integrationId,
                 product: webhookDemo.settings.productId,
                 auth: apiHelper.auth.access_token});
 
             console.log('delete webhook resp', resp);    
+            webhookDemo.settings.integrationId = 0;
+            webhookDemo.webhooks = null;
         }
-        if ($('#cleanupDevices').prop('checked')) {
+        if ($('#cleanupDevices').prop('checked') && !$('#cleanupDevices').prop('disabled')) {
             for(const dev of webhookDemo.productDevices) {
                 const resp = await apiHelper.particle.removeDevice({
                     deviceId: dev.id,
@@ -1119,11 +1121,12 @@ $(document).ready(function() {
                     auth: apiHelper.auth.access_token});
 
                 console.log('remove device resp', resp);  
+                webhookDemo.productDevices = null
             }                
         }
-        if ($('#cleanupProduct').prop('checked')) {
+        if ($('#cleanupProduct').prop('checked') && !$('#cleanupProduct').prop('disabled')) {
             // 
-            console.log('deleting product ' + webhookDemo.productInfo.id );
+            console.log('deleting product ' + webhookDemo.settings.productId);
             await new Promise(function(resolve, reject) {
 
                 const request = {                
@@ -1152,7 +1155,15 @@ $(document).ready(function() {
         
                 $.ajax(request);            
             });
+
+            webhookDemo.settings.productId = 0;
+            webhookDemo.productInfo = null;
+            webhookDemo.webhooks = null;
+            webhookDemo.productFirmware = null;
         }
+
+        updateSettings();
+        updateCleanup();
 
     });
     
