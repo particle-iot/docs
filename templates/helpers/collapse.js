@@ -90,7 +90,17 @@ module.exports = function(context) {
 			}
 
 			var id = crypto.randomBytes(12).toString("hex");
-			html += '</p><p onclick="collapseToggle(\'' + id + '\')" style="' + styleOptions + '"><img src="/assets/images/disclosure-right.png" style="position:static; display:inline; margin:4px; width:12px; height:12px;" id="i' + id + '"/>' + context.hash.label + '</p>';
+
+			let pictureSrc = '<picture />';
+			pictureSrc += '<source srcset="/assets/images/disclosure-right-dark.png" media="(prefers-color-scheme: dark)" />'
+			pictureSrc += '<img src="/assets/images/disclosure-right.png" style="display:inline; position:static; margin:0px 4px; width:14px; height:14px;" id="ir' + id + '" />'
+			pictureSrc += '</picture>';
+			pictureSrc += '<picture />';
+			pictureSrc += '<source srcset="/assets/images/disclosure-down-dark.png" media="(prefers-color-scheme: dark)" />'
+			pictureSrc += '<img src="/assets/images/disclosure-down.png" style="display:none; position:static; margin:0px 4px; width:14px; height:14px;" id="id' + id + '"/>'
+			pictureSrc += '</picture>';
+
+			html += '</p><p onclick="collapseToggle(\'' + id + '\')" style="' + styleOptions + '">' + pictureSrc + context.hash.label + '</p>';
 			
 			html += '<div id="s' + id + '" class="collapseIndent" style="display:none">';
 		}

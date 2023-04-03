@@ -118,6 +118,19 @@ $(document).ready(function() {
 });
 
 function collapseToggle(id) {	 
+	const isOpen = $('#id' + id).is(':visible');
+	console.log('collapseToggle isOpen=' + isOpen + ' id=' + id);
+	if (isOpen) {
+		$('#id' + id).css('display', 'none');
+		$('#ir' + id).css('display', 'inline');
+		$('#s' + id).hide();
+	}
+	else {
+		$('#id' + id).css('display', 'inline');
+		$('#ir' + id).css('display', 'none');
+		$('#s' + id).show();
+	}
+	/*
 	if ($('#i' + id).attr('src').includes('down')) {
 		$('#s' + id).hide();
 		$('#i' + id).attr('src', '/assets/images/disclosure-right.png');
@@ -126,6 +139,7 @@ function collapseToggle(id) {
 		$('#s' + id).show();
 		$('#i' + id).attr('src', '/assets/images/disclosure-down.png');
 	}
+	*/
 }
 
 function collapseSelector(event, genericCssClass, switchTo) {
