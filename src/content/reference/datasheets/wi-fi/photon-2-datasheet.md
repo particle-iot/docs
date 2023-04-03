@@ -614,7 +614,7 @@ In the event that these conditions can not be met (for example certain laptop co
 
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
-> Contains FCC ID: 2AEMI-P
+> Contains FCC ID: 2AEMI-P2
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
@@ -668,6 +668,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2023-03-06 | RK | SWDIO is D7 not D8 |
 |     | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
 |     | 2023-03-24 | RK | Added FCC and IC IDs |
+|     | 2023-04-03 | RK | Fixed typo in FCC ID in one location |
 
 ## Known errata
 
