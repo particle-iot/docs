@@ -8,7 +8,8 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-events,api-helper-ex
 
 # {{title}}
 
-This is an interactive tutorial that shows how to use Particle.publish to send data from a Particle device to a cloud service by a webhook.
+This is an interactive tutorial that shows how to use Particle.publish to send data from a Particle device to a cloud service by a webhook. You'd use a technique like this for sending sensor or location data from your Particle device to the Particle cloud and then to your servers via a webhook.
+
 
 In order to use this tutorial, you must be logged into your Particle account:
 
@@ -95,5 +96,12 @@ If you have your Particle device connected by USB to your computer (Windows, Lin
 
 
 ### Cloud logs
+
+
+## Clean up
+
+If you are done using this tutorial, you can clean up the things that were created during this tutorial.
+
+{{> webhook-demo-cleanup }}
 
 
