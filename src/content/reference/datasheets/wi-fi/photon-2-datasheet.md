@@ -647,6 +647,22 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
 
+**Restrictions of use**
+
+The products are used in terminal products such as industrial control equipment and smart home equipment.
+
+**Transmitter specifications**
+
+| Frequency Range         | RF power rating/field strength | Antenna information | Emissions designator |
+| :---------------------- | :----------------- | :--- |:--- |
+| 2412-2462 MHz           | 0.376704W          | PCB Antenna, 2.41 dBi | 17M9D1D |
+| 2402-2480 MHz           | 0.009354W          | PCB Antenna, 2.41 dBi | 1M02F1D |
+| 2402-2480 MHz           | 0.008670W          | PCB Antenna, 2.41 dBi | 2M06F1D |
+| 5180-5240/5190-5230 MHz | 0.073282/0081283W  | PCB Antenna, 1.28 dBi | 18M6D1D/38M2D1D |
+| 5260-5320/5270-5310 MHz | 0.081658/0.077090W | PCB Antenna, 1.60 dBi | 18M9D1D/37M5D1D |
+| 5500-5700/5510-5670 MHz | 0.097949/0.091833W | PCB Antenna, 1.74 dBi | 19M2D1D/38M0D1D |
+| 5745-5825/5755-5795 MHz | 0.091411/0.090365W | PCB Antenna, 1.21 dBi | 19M6D1D/36M8D1D |
+
 ## Revision history
 
 | Revision | Date | Author | Comments |
@@ -668,7 +684,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2023-03-06 | RK | SWDIO is D7 not D8 |
 |     | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
 |     | 2023-03-24 | RK | Added FCC and IC IDs |
-|     | 2023-04-03 | RK | Fixed typo in FCC ID in one location |
+|     | 2023-04-03 | RK | Fixed typo in FCC ID in one location, IC restrictions |
 
 ## Known errata
 
