@@ -612,7 +612,9 @@ $(document).ready(function() {
 
         updateCreateWebhook();
 
-        await createOrUpdateWebhook({updateOnly:true});
+        // The webhook is automatically created now. To restore the behavior of only doing it
+        // when the button is pressed, add this as the parameter: {updateOnly:true}
+        await createOrUpdateWebhook();
 
         /*
         // This does not seem to be necessary, as long as the server is set to have a long enough maximum request time. 
@@ -1047,13 +1049,14 @@ $(document).ready(function() {
         }
     });
 
-
+    // This is not currently used; the webhook is created automatically
+    /*
     $('#createWebhookButton').on('click', async function() {
         await createOrUpdateWebhook();
 
         updateCreateWebhook();
-    
     });
+    */
 
     $('#testWebhookButton').on('click', async function() {
         let eventDataObj = {

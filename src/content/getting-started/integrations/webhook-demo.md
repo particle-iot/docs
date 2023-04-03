@@ -43,6 +43,8 @@ Starting the demo will start the webhook server and start monitoring events.
 
 ### Create a product webhook
 
+Normally you'll create a webhook in your product from the console. Because the server URL changes every time you start the demo, the tutorial will just create it for you automatically.
+
 | Parameter | Value | 
 | :--- | :--- |
 | Event | WebhookDemo01 |
@@ -52,8 +54,54 @@ Starting the demo will start the webhook server and start monitoring events.
 
 {{> webhook-demo-webhook }}
 
+{{collapse op="start" label="Tell me more about creating a webhook"}}
+
+Each webhook contains a number of parameters. In this webhook:
+
+- The event name. When an event is published from the device or API, if the event name begins with this string, the webhook will be triggered. 
+Note that this is a prefix match, not a string match! This is why the event name is set to `WebhookDemo01`. If it were just `WebhookDemo` it would trigger on 
+`WebhookDemo` as well as `WebhookDemo02`, which is probably not what you want to do. However, you can take advantage of the prefix to use a single 
+webhook to handle multiple things, which is easier to maintain than a large number of webhooks.
+- `integration_type`: This is `webhook`. There are special integrations for Azure, Google Cloud, etc. but this is the setting to connect to your own server.
+- `headers`: This specifies any additional headers to pass to your server. This demo includes two:
+  - `Content-Type`: The kind of data we're sending from the webhook.
+  - `Authorization`: This is optional, but provides a good way to authenticate your webhook, described in greater detail below.
+- `url`: The server URL. This will change every time you run the demo or refresh this page. This is specific to how this demo runs in your browser; your server URL will probably not change. 
+Note that this URL is https (TLS/SSL encrypted). This is not required, but highly recommended for security reasons.
+- `noDefaults`: This indicates that default fields should not be added to the POST data, as we manage them ourselves.
+- `method`: The demo server expects POST. Other common methods are GET, PUT, and DELETE.
+- `body`: This is the data that will be sent to your server. This will be explained in more detail below.
+- `responseTopic`: When the response from the webhook server is returned, this is the event that is used. You device may want to subscribe to this to get the result on-device.
+- `errorEesponseTopic`: When the webhook server returns an error, this is the event that is used. 
+
+**Body**
+
+The `body` declaration creates a new JSON-formatted object containing:
+
+- The requesting Device ID (it's `api` if testing the webhook).
+- A timestamp when the event was received by the Particle cloud (not the time it was generated on-device).
+- A key `sensor` which contains the JSON object that the device published. This allows the device to send additional fields without having to modify the webhook.
+
+**Data operations**
+
+- Every time a device publishes an event, it incurs one data operation. 
+- The webhook usage is not metered
+- If you subscribe to an responseTopic on your device, it will count as an additional data operation, thus counting as two total in most cases.
+- Make sure you configure the responseTopic correctly, however, as doing it incorrectly can cause an avalanche of data operations in large fleets!
+
+**Response topic**
+
+The response topic is `{{{PARTICLE_DEVICE_ID}}}/hook-response/{{{PARTICLE_EVENT_NAME}}}`. The reason it begins with `{{{PARTICLE_DEVICE_ID}}}` is that it 
+allows the device to subscribe to responses only from webhooks it triggers. If you left this out, the device would receive the response from every device
+in your fleet, which is probably not what you want, and will cause a huge number of data operations to be used.
+
+**Chained events**
+
+You cannot chain webhooks. In other words, if you create a webhook that has an event name corresponding to a response topic (hook-response), it will never be triggered. 
+This is done to prevent loops, which could easily get out of control causing excessive data operations and server load.
 
 
+{{collapse op="end"}}
 
 ### Test webhook
 
