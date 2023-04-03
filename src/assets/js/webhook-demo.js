@@ -314,6 +314,10 @@ $(document).ready(function() {
                 await updateWebhookUrl();
             }
             
+            await sendControl({
+                op: 'hookResponse',
+                authorization: hookAuthorization,   
+            })
         });
 
         evtSource.addEventListener('hook', function(event) {
@@ -605,6 +609,31 @@ $(document).ready(function() {
         updateAddDevice();
     };
 
+    const sendControl = function(requestDataObj) {
+        return new Promise(function(resolve, reject) {
+            const request = {                
+                contentType: 'application/json',
+                data: JSON.stringify(requestDataObj),
+                dataType: 'json',
+                error: function (jqXHR) {
+                    console.log('control error', jqXHR);
+                    reject();
+                },
+                headers: {
+                    'Accept': 'application/json'
+                },
+                method: 'POST',
+                success: function (resp, textStatus, jqXHR) {
+                    console.log('control success', resp);                
+                    resolve(resp);
+                },
+                url: webhookDemo.controlUrl,
+            };
+
+            $.ajax(request);
+        });
+    }
+
     const updateWebhookUrl = async function() {
         console.log('updateWebhookUrl ' + webhookDemo.hookUrl);
 
@@ -616,40 +645,23 @@ $(document).ready(function() {
         // when the button is pressed, add this as the parameter: {updateOnly:true}
         await createOrUpdateWebhook();
 
-        /*
+        
         // This does not seem to be necessary, as long as the server is set to have a long enough maximum request time. 
         // It's currently set to 30 minutes.
+        /*
         if (!webhookDemo.pingTimer) {
-            webhookDemo.pingTimer = window.setInterval(function() {
-                let requestDataObj = {
-                    op: 'ping',
-                };
-        
-                const request = {                
-                    contentType: 'application/json',
-                    data: JSON.stringify(requestDataObj),
-                    dataType: 'json',
-                    error: function (jqXHR) {
-                        // gtag('event', 'Error', {'event_category':simpleGetConfig.gaAction, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
-                        console.log('ping error', jqXHR);
-                        //setStatus('Product creation failed');
-                    },
-                    headers: {
-                        'Accept': 'application/json'
-                    },
-                    method: 'POST',
-                    success: function (resp, textStatus, jqXHR) {
-                        // gtag('event', 'Success', {'event_category':simpleGetConfig.gaAction});
-                        console.log('ping success', resp);
-                        
-                    },
-                    url: webhookDemo.controlUrl,
-                };
-        
-                $.ajax(request);
+            webhookDemo.pingTimer = window.setInterval(async function() {
+                try {
+                    await sendControl({
+                        op: 'ping',
+                    });    
+                }
+                catch(e) {                    
+                }
             }, 60000);
         }
         */
+        
     }
 
     const updateDataTable = function(dataObj) {

@@ -3,7 +3,7 @@ title: Webhook demo
 columns: two
 layout: commonTwo.hbs
 description: Webhook demo
-includeDefinitions: [api-helper,api-helper-cloud,api-helper-events,api-helper-extras,api-helper-projects,webhook-demo,zip]
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-events,api-helper-extras,api-helper-projects,usb-serial,webhook-demo,zip]
 ---
 
 # {{title}}
@@ -100,12 +100,28 @@ in your fleet, which is probably not what you want, and will cause a huge number
 You cannot chain webhooks. In other words, if you create a webhook that has an event name corresponding to a response topic (hook-response), it will never be triggered. 
 This is done to prevent loops, which could easily get out of control causing excessive data operations and server load.
 
+**Security**
+
+To help secure your webhook:
+
+- Be sure you are using https (TLS/SSL encrypted).
+- Use a valid SSL certificate from a known provider (not a self-signed certificate).
+- Including a `Authorization` header in the webhook with a pre-shared random key can make your connection more secure if you also check it in your server. 
 
 {{collapse op="end"}}
 
 ### Test webhook
 
 {{> webhook-demo-test }}
+
+{{collapse op="start" label="Tell me more about testing a webhook"}}
+This is similar, but not the same, as the **Test** button in the console.
+
+This publishes and event using the Particle cloud API, but it includes simulated data, similar to what the device firmware below sends.
+
+When you use the API to create an event, the source Device ID is "api" instead of an actual Device ID. You cannot simulate sending from a Device ID
+using the API. This is intentional to prevent being able to spoof data from a device.
+{{collapse op="end"}}
 
 
 ### Explainer 
@@ -121,6 +137,13 @@ The table below is the decoded data that was received by the webhook server. Thi
 
 {{> webhook-demo-data-table }}
 
+{{collapse op="start" label="Tell me more about server data"}}
+In this demo, the webhook sends POST data in JSON format. The server data shown is the decoded version of this data.
+
+Additionally, fields that you sent up from the device are also broken out into their own columns.
+
+This demo is just to show decoded data. In you server, you'd probably do something more useful than just displaying it in a table. You might store the data in a database, do calculations with the data, or alert on values out of range.
+{{collapse op="end"}}
 
 ### Event log
 
@@ -133,17 +156,210 @@ This control shows the same information that is shown in the Events tab in your 
 
 {{> project-browser project="webhook-demo" default-file="src/webhook-demo.cpp" height="400" flash="true"}}
 
+### Firmware deep dive
 
+This is standard boilerplate you'll see in most applications.
 
+- Using `SerialLogHandler` is preferable to using `Serial.print` for debugging.
+- You should always use `SYSTEM_THREAD(ENABLED)`.
 
-## Testing
+```cpp
+#include "Particle.h"
+SerialLogHandler logHandler;
+SYSTEM_THREAD(ENABLED);
+```
+
+The code defines the name of the event to publish here. If the name of the webhook prefix matches this string, the webhook will fire. For example:
+
+| Event | Webhook is run? |
+| :--- | :---: |
+| `WebhookDemo01` | Yes |
+| `WebhookDemo` | No |
+| `SomethingElse` | No |
+| `WebhookDemo011` | Yes |
+| `WebhookDemo01Test` | Yes |
+
+```cpp
+const char *eventName = "WebhookDemo01";
+```
+
+This sets how often the firmware publishes, in this example, every 5 minutes, starting immediately after connecting to the cloud. Other examples would be "30s" for 30 seconds or "1h" for 1 hour. Beware of short intervals as they can use a large number of data operations!
+
+Hint: `lastPublishMillis` could be initialized to 0 instead. This would wait 5 minutes before the first publish. This is a good safety net because if a bug causes your device to reboot continuously, it could result in an excessively large number of publishes.
+
+```cpp
+const std::chrono::milliseconds publishInterval = 5min;
+unsigned long lastPublishMillis = -publishInterval.count();
+```
+
+These global variables are described below, where they're used.
+
+```cpp
+int hookSequence = 0;
+bool buttonClicked = false;
+```
+
+These are forward declarations - function names that are used before they are implemented in the .cpp file. 
+
+If your main source file is .ino instead of .cpp, you don't need forward declarations because they're generated for you, but it's better programming practice to use .cpp files and include them explicitly.
+
+```cpp
+void hookResponseHandler(const char *event, const char *data);
+void clickHandler(system_event_t event, int param);
+float readTemperature();
+void publishSensorData();
+```
+
+This is the standard setup function. The first thing it does is register a handler to receive the hook-response. This must match what is configured in the webhook.
+
+Note that the event name begins with the Device ID (24 character hexadecimal). This is done so the device only receives the hook response for the events
+that this device publishes. If you don't do this in both the webhook and the C++ source code, then the device will receive a response for any device in the 
+product that publishes to the webhook, which is probably not what you want, and can generate a very large number of data operations.
+
+```cpp
+void setup() 
+{
+    Particle.subscribe(System.deviceID() + "/hook-response/" + String(eventName), hookResponseHandler);
+```
+
+This code also publishes when you click the MODE button. You probably won't do this in your production code, but it's handy during testing.
+
+```cpp
+    // Register a click handler for the MODE button
+System.on(button_click, clickHandler);
+```    
+
+When this code publishes an event, it includes an id number in it that increases with each publish. This is good practice, and it makes it easier 
+to de-dupe events received multiple times. It is possible for your webhook to be called more than once for the same event in the case that the
+event ACK is lost. A sequence number makes it easier to detect this.
+
+While it's usually fine to start with a sequence of 0, another option is to seed it with a random number. In order for it to actually be random
+you need to wait until after connected to the Particle cloud. At boot, the `rand()` function is not only pseudo-random, but unseeded so every device
+at boot has the same value of `rand()`. Once cloud connected it gets seeded from a random number from the cloud. At that point, it's still
+pseudo-random (linear congruential generator, LCG, as implemented in glibc), but at least it will start from a different random point.
+
+```cpp
+if (hookSequence == 0 && Particle.connected())
+{
+    // Wait until Particle.connected because the rand() is seeded from the cloud
+    hookSequence = rand();
+}
+```
+
+This is how time-based publishes work. Additionally:
+
+- Always check `Particle.connected()` before attempting to publish.
+- When doing time-based calculations, always follow the pattern here. Storing the next time to publish and other techniques can fail when the `millis()` counter rolls over to 0 every 49 days. The code as written here is safe cross rollover.
+
+```cpp
+if (Particle.connected() && millis() - lastPublishMillis >= publishInterval.count()) {
+    lastPublishMillis = millis();
+
+    publishSensorData();
+}
+```
+
+The button handler can run as an interrupt service routine, so you can't publish directly from the handler. Instead, set a flag and handle it from loop. If you are using a physical button connected to a GPIO, don't forget to add debouncing code.
+
+```cpp
+if (buttonClicked)
+{
+    buttonClicked = false;
+    publishSensorData();
+}
+```
+
+This code doesn't really do anything with the webhook response; it just writes it to the USB serial debug console. But you could add code here to do something more useful.
+
+Don't publish from a subscription handler! They share a single buffer and the data will be corrupted.
+
+```cpp
+void hookResponseHandler(const char *event, const char *data)
+{
+    Log.info("hook response %s", data);
+}
+```
+
+This function just simulates data so you don't need to wire up an actual temperature sensor to your device. You could replace this code with code that actually reads a temperature sensor.
+
+```cpp
+float readTemperatureC() 
+{
+    // This code doesn't actually read the temperature, it just returns a random number,
+    // but you could easily put the code to read an actual sensor here.
+    static float lastTemperatureC = -100;
+
+    if (lastTemperatureC != -100) {
+        lastTemperatureC += (float) ((rand() % 6) - 3);
+    }
+    else {
+        lastTemperatureC = (float) (rand() % 40);
+    }
+    return lastTemperatureC;
+}
+```
+
+This is the function that is called to publish data to the Particle cloud. 
+
+- A buffer is allocated to hold the event, which can be up to 1024 bytes of data.
+- Formatting the data in the publish as JSON is recommended for flexibility and easy of maintenance. 
+- The `JSONBufferWriter` makes this easy.
+
+```cpp
+void publishSensorData()
+{
+    char publishDataBuf[particle::protocol::MAX_EVENT_DATA_LENGTH + 1];
+
+    JSONBufferWriter writer(publishDataBuf, sizeof(publishDataBuf) - 1);
+
+    float temperatureC = readTemperatureC();
+```
+
+This is the code to add things to the event:
+
+- `id` is the sequential `hookSequence` value, used for de-duplicating events.
+- `t` is the temperature from `readTemperatureC()` (a made-up value).
+- On cellular devices with a bq24195 PMIC and fuel gauge, the `powerSource` and battery state-of-charge (`soc`) are included.
+- You can easily add more data here without having to modify the webhook!
+
+```cpp
+writer.beginObject();
+writer.name("id").value(hookSequence++);
+writer.name("t").value(temperatureC);
+#if HAL_PLATFORM_POWER_MANAGEMENT
+writer.name("powerSource").value(System.powerSource());
+writer.name("soc").value(System.batteryCharge());
+#endif
+writer.endObject();
+writer.buffer()[std::min(writer.bufferSize(), writer.dataSize())] = 0;
+```
+
+And finally publish the data to the Particle cloud. You may see example code that includes `PRIVATE`, which is no longer necessary as all events are private. 
+
+```cpp
+Particle.publish(eventName, publishDataBuf);
+```
 
 ### Device logs
 
 If you have your Particle device connected by USB to your computer (Windows, Linux, Mac, or Chromebook), and you are using the Chrome web browser, you can monitor your device's USB serial debug log from this interactive control. You can also use `particle serial monitor` from the Particle CLI if you prefer. Both are optional, but are good for troubleshooting.
 
+{{> usb-serial-console}}
 
-### Cloud logs
+
+## Expand your device fleet
+
+### Upload product firmware
+
+
+### Release to product
+
+
+
+## Further study
+
+### Add more data fields
+
 
 
 ## Clean up
