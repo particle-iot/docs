@@ -158,6 +158,12 @@ This control shows the same information that is shown in the Events tab in your 
 {{> webhook-demo-events }}
 
 
+### Your device fleet
+
+This control shows the status of devices in your product fleet.
+
+{{> webhook-demo-fleet }}
+
 ## Device firmware
 
 {{> project-browser project="webhook-demo" default-file="src/webhook-demo.cpp" height="400" flash="true"}}
@@ -271,7 +277,9 @@ The button handler can run as an interrupt service routine, so you can't publish
 if (buttonClicked)
 {
     buttonClicked = false;
-    publishSensorData();
+    if (Particle.connected()) {
+        publishSensorData();
+    }
 }
 ```
 

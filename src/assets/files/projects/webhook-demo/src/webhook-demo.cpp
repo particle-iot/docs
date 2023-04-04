@@ -41,7 +41,9 @@ void loop()
     if (buttonClicked)
     {
         buttonClicked = false;
-        publishSensorData();
+        if (Particle.connected()) {
+            publishSensorData();
+        }
     }
 }
 

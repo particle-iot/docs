@@ -85,8 +85,6 @@ $(document).ready(function() {
     
 
     const updateExplainer = function(explainObj) {
-        console.log('updateExplainer', explainObj);
-
         let nextExplainer;
 
         const colors = {
@@ -324,9 +322,6 @@ $(document).ready(function() {
             try {
                 const hookObj = JSON.parse(event.data);
 
-                console.log('hook', hookObj);
-                // logAddItem({op:'hook', hook: hookObj});    
-
                 updateExplainer({
                     kind: 'hook',
                     hookObj,
@@ -348,9 +343,6 @@ $(document).ready(function() {
         evtSource.addEventListener('hookResponse', function(event) {
             try {
                 const hookObj = JSON.parse(event.data);
-
-                console.log('hookResponse', hookObj);
-                // logAddItem({op:'hookResponse', hook: hookObj});    
 
                 updateExplainer({
                     kind: 'hookResponse',
@@ -434,7 +426,6 @@ $(document).ready(function() {
             errorResponseTopic: '{{{PARTICLE_DEVICE_ID}}}/hook-error/{{{PARTICLE_EVENT_NAME}}}',
             // responseTemplate
         };
-        console.log('settings', settings);
 
         $('#webhookSource > pre').text(JSON.stringify(settings, null, 4));
 
@@ -588,8 +579,6 @@ $(document).ready(function() {
                     
         updateSettings();
 
-        console.log('deviceInfo', webhookDemo.deviceObj);
-
         let tableData = {
             'id': 'Device ID',
             'name': 'Device Name',
@@ -716,7 +705,57 @@ $(document).ready(function() {
         
     }
 
+    let updateFleet;
+
+    const updateProductDevice = async function(deviceId) {
+        const  deviceObj = (await apiHelper.particle.getDevice({
+            deviceId: deviceId,
+            product: webhookDemo.settings.productId,
+            auth: apiHelper.auth.access_token,
+        })).body;
+
+        let found = false;
+        for(let ii = 0; ii < webhookDemo.productDevices.length; ii++) {
+            if (webhookDemo.productDevices[ii].id == deviceId) {
+                webhookDemo.productDevices[ii] = deviceObj;
+                found = true;
+                console.log('updating single device ' + deviceId);
+                updateFleet({deviceId});
+                break;
+            }
+        }
+        if (!found) {
+            webhookDemo.productDevices.push(deviceObj);
+            updateFleet();
+        }
+    }
+
     const updateEventLog = function(event) {
+        switch(event.name) {
+            case 'spark/status':
+                // data = "online" or "offline"
+                setTimeout(function() {
+                    // Delay is required because the device state change occurs slightly
+                    // after the event is sent
+                    updateProductDevice(event.coreid);
+                }, 2000);
+                break;
+
+            case 'spark/device/diagnostics/update':
+                break;
+
+            case 'spark/device/updates/pending':
+            case 'spark/device/updates/forced':
+            case 'spark/device/updates/enabled':
+                // data = "true" or "false"
+                break;
+
+            case 'spark/device/last_reset':
+                // data = "power_down" or other constants
+                break;
+                
+        }
+
         if (!webhookDemo.eventLogColumns) {
             webhookDemo.eventLogColumns = [];
 
@@ -727,7 +766,6 @@ $(document).ready(function() {
                 })
             });
 
-            console.log('webhookDemo.eventLogColumns', webhookDemo.eventLogColumns);
         }
     
         // .deviceName, .name, .data, .published_at, .coreid
@@ -746,6 +784,80 @@ $(document).ready(function() {
         }
 
         $('#eventsTable').prepend(trElem);
+    }
+
+    // Forward declared above
+    updateFleet = function(options = {}) {
+
+        if (!options.deviceId) {
+            $('#fleetTable').empty();
+
+            webhookDemo.fleetColumns = [];
+            webhookDemo.fleetRows = [];
+
+            $('#fleetHeader > tr > th').each(function() {
+                webhookDemo.fleetColumns.push({
+                    key: $(this).data('key'),
+                    style: $(this).data('style'),
+                });
+            });
+
+            for(const deviceObj of webhookDemo.productDevices) {
+                const rowElem = document.createElement('tr');
+                $('#fleetTable').append(rowElem);
+
+                webhookDemo.fleetRows.push({
+                    deviceId: deviceObj.id,
+                    rowElem,
+                })
+            }
+
+        }
+
+        for(const fleetRowObj of webhookDemo.fleetRows) {
+
+            if (options.deviceId && options.deviceId != fleetRowObj.deviceId) {
+                continue;
+            }
+
+            // .id, .name, .online, .owner, .product_id, .system_firmware_version
+            // .last_handshake_at, .last_heard, 
+
+            $(fleetRowObj.rowElem).empty();
+
+            const deviceObj = webhookDemo.productDevices.find(e => e.id == fleetRowObj.deviceId);
+
+            for(const colObj of webhookDemo.fleetColumns) {
+                const cellElem = document.createElement('td');
+
+                if (deviceObj[colObj.key]) {
+                    switch(colObj.key) {
+                        default:
+                            switch(colObj.style) {
+                                case 'greenCheck':
+                                    if (deviceObj[colObj.key]) {
+                                        $(cellElem).html('\u2705'); // green check
+                                    }
+                                    else {
+                                        $(cellElem).html('&nbsp;');
+                                    }
+                                    break;
+
+                                default:
+                                    $(cellElem).text(deviceObj[colObj.key]);
+                                    break;
+                            }
+                            break;
+                    }
+                }
+                else {
+                    $(cellElem).html('&nbsp;');
+                }
+
+                $(fleetRowObj.rowElem).append(cellElem);
+            }
+        }
+
     }
 
     const startDemo = async function() {
@@ -779,7 +891,7 @@ $(document).ready(function() {
                             
             webhookDemo.particleStream.on('event', function(event) {
                 try {
-                    console.log('event', event);
+                    // console.log('event', event);
 
                     event.deviceName = webhookDemo.deviceNames[event.coreid] || event.coreid;
 
@@ -801,6 +913,8 @@ $(document).ready(function() {
         }
 
         updateCleanup();
+
+        updateFleet();
 
         setTimeout(function() {
             $('#startDemo').text('Stop demo', false);
@@ -891,7 +1005,6 @@ $(document).ready(function() {
         },
         onUpdateList: function() {
             if (webhookDemo.settings.deviceId) {
-                console.log('onUpdateList ' + webhookDemo.settings.deviceId);
                 $(deviceListSelectElem).val(webhookDemo.settings.deviceId);
                 if ($(deviceListSelectElem).val() == webhookDemo.settings.deviceId) {
                     $(deviceListSelectElem).trigger('change');
@@ -1055,6 +1168,7 @@ $(document).ready(function() {
 
         if (resp.statusCode == 200 && resp.body.updated == 1) {
             updateDevice();
+            updateProductDevice(webhookDemo.settings.deviceId);
         }
         else {
             // TODO: Error handling
