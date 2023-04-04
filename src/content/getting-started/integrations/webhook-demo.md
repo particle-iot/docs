@@ -3,7 +3,7 @@ title: Webhook demo
 columns: two
 layout: commonTwo.hbs
 description: Webhook demo
-includeDefinitions: [api-helper,api-helper-cloud,api-helper-events,api-helper-extras,api-helper-projects,usb-serial,webhook-demo,zip]
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-events,api-helper-extras,api-helper-library,api-helper-projects,usb-serial,webhook-demo,zip]
 ---
 
 # {{title}}
@@ -28,9 +28,15 @@ It works best if you already have a Particle device set up and claimed to your a
 
 ### Select a product
 
+You should typically start with a product. You'll eventually need one to scale, and it makes it easier to group devices. This demo requires a product, and you should generally create a new one just for this demo.
+
 {{> webhook-demo-select-product}}
 
 ### Add device to product
+
+Whenever you have a product, you must add devices to it. When you scale, you will typically add all of the devices in your order at once, as you will be emailed a list of the Device IDs in your order. 
+
+In the growth and enterprise plans, just adding the Device ID to the product does not affect billing; billing only starts the first time the device connects to the Particle cloud.
 
 {{> webhook-demo-add-device}}
 
@@ -339,6 +345,23 @@ And finally publish the data to the Particle cloud. You may see example code tha
 ```cpp
 Particle.publish(eventName, publishDataBuf);
 ```
+
+### Open in Workbench
+
+The recommended development environment for Particle firmware is [Particle Workbench](/workbench/). To open this project in Workbench:
+
+- Use the **Download Full Project (*.zip)** option in [Device Firmware](#device-firmware), above.
+- Extract the zip file on your computer.
+- Open Visual Studio Code
+- Use the File - Open option to open the directory you just extracted. Make sure you open the directory, not a single file in it.
+
+Most operations are in the **command palette** (Ctrl-Shift-P on Windows and Linux, Command-Shift-P on Mac). Some useful commands:
+
+- **Particle: Login** Log into your Particle account.
+- **Particle: Configure Project for Device** Set the type of device and the version of Device OS you want to use.
+- **Particle: Cloud flash** Compile the project and flash it to a device OTA.
+- **Particle: Cloud compile** Compile the project and download the .bin file.
+
 
 ### Device logs
 

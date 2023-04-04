@@ -16,6 +16,9 @@ $(document).ready(function() {
   
         const projectUrlBase = '/assets/files/projects/' + project;
 
+        const trackerAssetsDir = '/assets/files/tracker/'; 
+        const vsCodeSettingsUrl = trackerAssetsDir + 'vscode.zip';
+
         const outputCodeElem = $(thisElem).find('.apiHelperProjectBrowserOutputCode');
         const outputPreElem = $(thisElem).find('.apiHelperProjectBrowserOutputPre');
         const outputDivElem = $(thisElem).find('.apiHelperProjectBrowserOutputDiv');
@@ -36,8 +39,10 @@ $(document).ready(function() {
         let configFileOrig;
         let projectZip;
 
+
         const getProjectZip = async function() {
             if (!projectZip) {
+
                 projectZip = new zip.fs.FS();
 
                 setStatus('Getting project source...')
@@ -65,7 +70,7 @@ $(document).ready(function() {
                         }
                     }
                 }
-                addDir('', projectZip.root.children[0]);
+                addDir('', projectZip.root.children[0]);                
             }
             return projectZip;
         }
@@ -309,9 +314,122 @@ $(document).ready(function() {
 			gtag('event', 'File Copy', {'event_category':gaCategory, 'event_label':curPath});
 		});
 
-        $(thisElem).find('.apiHelperProjectDownloadZipButton').on('click', async function() {
-			const zipFs = await getProjectZip();
+        $(thisElem).find('.apiHelperProjectDownloadZipButton').on('click', async function() {        
+            const zipFs = await getProjectZip();
 
+            // This assumes that the top level is a directory, which we always do so the entire project will appear in a folder.        
+            const topDirName = zipFs.root.children[0].name;
+            zipFsTopDir = zipFs.find(topDirName);
+
+            let dependencies = [];
+
+            const projectPropertiesEntry = zipFs.find(topDirName + '/project.properties');
+            if (projectPropertiesEntry) {
+                const projectPropertiesText = await projectPropertiesEntry.getText();
+
+                let newFile = '';
+
+                for(const line of projectPropertiesText.split('\n')) {
+                    if (line.startsWith('dependencies.')) {
+                        const dotIndex = line.indexOf('.');
+                        const equalIndex = line.indexOf('=');
+                        if (dotIndex > 0 && equalIndex > dotIndex) {
+                            dependencies.push({
+                                name: line.substring(dotIndex + 1, equalIndex),
+                                ver: line.substring(equalIndex + 1),
+                            })
+                            newFile += 'orig_' + line + '\n';
+                        }
+                        else {
+                            newFile += line + '\n';
+                        }
+                    }
+                    else {
+                        newFile += line + '\n';
+                    }
+                }
+                if (newFile != projectPropertiesText) {
+                    projectPropertiesEntry.replaceText(newFile);
+                }
+            }
+
+            if (dependencies.length) {
+                let zipFsLibDir = zipFs.find(topDirName + '/lib');
+                if (!zipFsLibDir) {
+                    zipFsLibDir = zipFsTopDir.addDirectory('lib');
+                }
+                
+                for(const depObj of dependencies) {
+
+
+                    const untarData = await new Promise(function(resolve, reject) {
+                        const url = 'https://api.particle.io/v1/libraries/' + depObj.name + '/archive/' + depObj.ver + '.tar.gz';
+
+                        fetch(url)
+                            .then(response => response.arrayBuffer())
+                            .then(function(gzipData) {
+                                const tarData = window.pako.inflate(gzipData);
+
+                                untar(tarData.buffer)
+                                    .progress(function(data) {
+                                    })
+                                    .then(async function(untarData) {
+                                        resolve(untarData);
+                                    }); 
+                                });
+                    });
+
+                    let zipFsThisLibDir = zipFs.find(topDirName + '/lib/' + depObj.name);
+                    if (!zipFsThisLibDir) {
+                        zipFsThisLibDir = zipFsLibDir.addDirectory(depObj.name);
+                    }
+    
+                    let libDirs = {};
+
+                    // untarData is an array of objects
+                    //  .name filename (full path, does not begin with /)
+                    //  .type string "0" = file, "5" = directory
+                    //  .buffer ArrayBuffer of data
+                    for(const libFile of untarData) {
+                        let dirName = '';
+                        let fileName = libFile.name;
+                        const lastSlashIndex = libFile.name.lastIndexOf('/');
+                        if (lastSlashIndex >= 0) {
+                            dirName = libFile.name.substring(0, lastSlashIndex);
+                            fileName = libFile.name.substring(lastSlashIndex + 1);
+                        }
+
+                        if (libFile.type == '5') {
+
+                            if (libFile.name == '.' || libFile.name == '..') {
+                                // Skip these
+                            }
+                            else {
+                                // 
+                                let zipFsThisDir = zipFs.find(topDirName + '/lib/' + depObj.name + '/' + libFile.name);
+                                if (!zipFsThisDir) {
+                                    libDirs[libFile.name] = zipFsThisLibDir.addDirectory(libFile.name);
+                                }
+                            }
+                        }
+                        else
+                        if (libFile.type == '0') {                            
+                            let zipFsThisDir = zipFsThisLibDir;
+                            if (dirName != '') {
+                                zipFsThisDir = libDirs[dirName];
+                            }
+                            if (zipFsThisDir) {
+                                zipFsThisDir.addUint8Array(fileName, new Uint8Array(libFile.buffer));   
+                            }
+                        }
+                    }
+                }
+            }
+
+            
+            const zipFsVsCodeDir = zipFsTopDir.addDirectory('.vscode');
+            await zipFsVsCodeDir.importHttpContent(vsCodeSettingsUrl);
+        
             const blob = await zipFs.exportBlob({
                 level:0
             });
