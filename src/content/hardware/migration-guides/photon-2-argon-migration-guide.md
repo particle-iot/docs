@@ -133,6 +133,9 @@ Most boards, including Ethernet, use primary `SPI`, which works the same between
 - Each SPI device must have a unique CS pin.
 - The Argon supports SPI slave mode only on `SPI1` (D pins).
 
+If you are using SPI, Device OS 5.3.1 or later is recommended. Prior to that version, SPI ran at half of the set speed, and SPI1 ran at double the set speed. 
+Timing has also been improved for large DMA transfers; prior to 5.3.1, there could be 1 µs gaps for every 16 bytes of data transferred.
+
 
 #### SPI - Gen 3 devices (including Argon)
 

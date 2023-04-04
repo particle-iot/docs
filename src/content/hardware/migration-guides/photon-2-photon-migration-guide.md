@@ -112,6 +112,9 @@ Both the Photon and Photon 2 have two SPI ports, however the pins are different 
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+If you are using SPI, Device OS 5.3.1 or later is recommended. Prior to that version, SPI ran at half of the set speed, and SPI1 ran at double the set speed. 
+Timing has also been improved for large DMA transfers; prior to 5.3.1, there could be 1 µs gaps for every 16 bytes of data transferred.
+
 #### SPI - Gen 2 devices (including Photon)
 
 | | SPI | SPI1 |

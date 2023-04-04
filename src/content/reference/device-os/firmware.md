@@ -8333,6 +8333,9 @@ The P2 and Photon 2 supports two SPI (serial peripheral interconnect) ports.
 - SPI1 uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
 - SPI1 shares the same pins as Serial2
 
+If you are using SPI, Device OS 5.3.1 or later is recommended. Prior to that version, SPI ran at half of the set speed, and SPI1 ran at double the set speed. 
+Timing has also been improved for large DMA transfers; prior to 5.3.1, there could be 1 µs gaps for every 16 bytes of data transferred.
+
 {{note op="end"}}
 
 
