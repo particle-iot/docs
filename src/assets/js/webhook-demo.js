@@ -11,6 +11,9 @@ $(document).ready(function() {
     const webhookName = 'WebhookDemo01';
     const serverUrlBase = 'https://api.webhook-demo.com/';
     const hookAuthorization = '9BQuGrR3ZhrPjBPBAQPRdSWNUFdAPLWseD7GzS5Cjg6tn43W';
+    const gaCategory = 'WebhookDemo01';
+
+    gtag('event', 'opened', {'event_category':gaCategory});
 
     let webhookDemo = {      
         started: false,
@@ -401,7 +404,6 @@ $(document).ready(function() {
                 $('.testWebhookCanTest').show();
             }
             else {
-                $('.createWebhookCanCreate').show();
                 $('.testWebhookNoWebhook').show();
             }           
         }
@@ -852,6 +854,8 @@ $(document).ready(function() {
             return;
         }
 
+        gtag('event', 'startDemo', {'event_category':gaCategory});
+
         $('#startDemo').prop('disabled', true);
         $('.showWhenStarted').show();
         $('.hideWhenStarted').hide();
@@ -913,6 +917,7 @@ $(document).ready(function() {
         if (!webhookDemo.started) {
             return;
         }
+        gtag('event', 'stopDemo', {'event_category':gaCategory});
 
         $('#startDemo').prop('disabled', true);
         $('.showWhenStarted').hide();
@@ -1011,6 +1016,7 @@ $(document).ready(function() {
             hasRefresh: true,
             hasSelectDevice: true,
             onChange: async function(elem) {
+                gtag('event', 'selectedDevice', {'event_category':gaCategory});
                 webhookDemo.settings.deviceId = $(elem).val();
                 await updateDevice();
             },
@@ -1070,6 +1076,8 @@ $(document).ready(function() {
         updateSettings();
         updateProductSelector();
 
+        gtag('event', 'platformSelected', {'event_category':gaCategory});
+
         $('.platformSelected').show();
     });
 
@@ -1121,7 +1129,7 @@ $(document).ready(function() {
             data: JSON.stringify(requestDataObj),
             dataType: 'json',
             error: function (jqXHR) {
-                // gtag('event', 'Error', {'event_category':simpleGetConfig.gaAction, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
+                gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                 console.log('error', jqXHR);
                 //setStatus('Product creation failed');
             },
@@ -1131,7 +1139,7 @@ $(document).ready(function() {
             },
             method: 'POST',
             success: function (resp, textStatus, jqXHR) {
-                // gtag('event', 'Success', {'event_category':simpleGetConfig.gaAction});
+                gtag('event', 'createNewProduct', {'event_category':gaCategory});
                 console.log('success', resp);
                 // ok: boolean
                 // product: object
@@ -1181,37 +1189,37 @@ $(document).ready(function() {
         console.log('resp', resp);
 
         if (resp.statusCode == 200 && resp.body.updated == 1) {
+            gtag('event', 'addDeviceSuccess', {'event_category':gaCategory});
             updateDevice();
             updateProductDevice(webhookDemo.settings.deviceId);
         }
         else {
             // TODO: Error handling
+            gtag('event', 'addDeviceFailed', {'event_category':gaCategory});
         }
     });
-
-    // This is not currently used; the webhook is created automatically
-    /*
-    $('#createWebhookButton').on('click', async function() {
-        await createOrUpdateWebhook();
-
-        updateCreateWebhook();
-    });
-    */
 
     $('#testWebhookButton').on('click', async function() {
         let eventDataObj = {
             id: Math.floor(Math.random() * 1000000),
             t: 25,
         };
-
-        const resp = await apiHelper.particle.publishEvent({ 
-            name: webhookName, 
-            data: JSON.stringify(eventDataObj), 
-            product: webhookDemo.settings.productId,
-            auth: apiHelper.auth.access_token,
-        });
-
-        console.log('resp', resp);
+        
+        try {
+            const resp = await apiHelper.particle.publishEvent({ 
+                name: webhookName, 
+                data: JSON.stringify(eventDataObj), 
+                product: webhookDemo.settings.productId,
+                auth: apiHelper.auth.access_token,
+            });
+    
+            console.log('resp', resp);
+    
+            gtag('event', 'testWebhookSuccess', {'event_category':gaCategory});
+        }
+        catch(e) {
+            gtag('event', 'testWebhookFailed', {'event_category':gaCategory});            
+        }
 
     });
 
@@ -1244,60 +1252,79 @@ $(document).ready(function() {
             return;
         }
 
+        gtag('event', 'cleanupStarted', {'event_category':gaCategory});
+
         await stopDemo();
     
         if ($('#cleanupWebhook').prop('checked') && !$('#cleanupWebhook').prop('disabled')) {
-            const resp = await apiHelper.particle.deleteIntegration({
-                integrationId: webhookDemo.settings.integrationId,
-                product: webhookDemo.settings.productId,
-                auth: apiHelper.auth.access_token});
-
-            console.log('delete webhook resp', resp);    
+            try {
+                const resp = await apiHelper.particle.deleteIntegration({
+                    integrationId: webhookDemo.settings.integrationId,
+                    product: webhookDemo.settings.productId,
+                    auth: apiHelper.auth.access_token});
+    
+                console.log('delete webhook resp', resp);        
+                gtag('event', 'cleanupDeleteWebhook', {'event_category':gaCategory});
+            }
+            catch(e) {
+                console.log('delete webhook exception', e);        
+            }
             webhookDemo.settings.integrationId = 0;
             webhookDemo.webhooks = null;
         }
         if ($('#cleanupDevices').prop('checked') && !$('#cleanupDevices').prop('disabled')) {
             for(const dev of webhookDemo.productDevices) {
-                const resp = await apiHelper.particle.removeDevice({
-                    deviceId: dev.id,
-                    product: webhookDemo.settings.productId,
-                    auth: apiHelper.auth.access_token});
-
-                console.log('remove device resp', resp);  
-                webhookDemo.productDevices = null
+                try {
+                    const resp = await apiHelper.particle.removeDevice({
+                        deviceId: dev.id,
+                        product: webhookDemo.settings.productId,
+                        auth: apiHelper.auth.access_token});
+    
+                    console.log('remove device resp', resp);      
+                }
+                catch(e) {
+                    console.log('remove device exception', e);      
+                }
             }                
+            gtag('event', 'cleanupRemoveDevices', {'event_category':gaCategory});
+            webhookDemo.productDevices = null
         }
         if ($('#cleanupProduct').prop('checked') && !$('#cleanupProduct').prop('disabled')) {
             // 
             console.log('deleting product ' + webhookDemo.settings.productId);
-            await new Promise(function(resolve, reject) {
+            try {
+                await new Promise(function(resolve, reject) {
 
-                const request = {                
-                    contentType: 'application/json',
-                    dataType: 'json',
-                    error: function (jqXHR) {
-                        // gtag('event', 'Error', {'event_category':simpleGetConfig.gaAction, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
-                        console.log('product delete error', jqXHR);
-                        //setStatus('Product creation failed');
-                        reject();
-                    },
-                    headers: {
-                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                        'Accept': 'application/json'
-                    },
-                    method: 'DELETE',
-                    success: function (resp, textStatus, jqXHR) {
-                        // gtag('event', 'Success', {'event_category':simpleGetConfig.gaAction});
-                        console.log('product delete success', resp);
-                        resolve();                        
-                    },
-                    method: 'DELETE',
-                    url: 'https://api.particle.io/v1/products/' + webhookDemo.productInfo.id 
-                };
-        
-                $.ajax(request);            
-            });
-
+                    const request = {                
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        error: function (jqXHR) {
+                            gtag('event', 'cleanupDeleteProductFailed', {'event_category':gaCategory});
+                            console.log('product delete error', jqXHR);
+                            //setStatus('Product creation failed');
+                            reject();
+                        },
+                        headers: {
+                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                            'Accept': 'application/json'
+                        },
+                        method: 'DELETE',
+                        success: function (resp, textStatus, jqXHR) {
+                            gtag('event', 'cleanupDeleteProductSuccess', {'event_category':gaCategory});
+                            console.log('product delete success', resp);
+                            resolve();                        
+                        },
+                        method: 'DELETE',
+                        url: 'https://api.particle.io/v1/products/' + webhookDemo.productInfo.id 
+                    };
+            
+                    $.ajax(request);            
+                });    
+            }
+            catch(e) {
+                console.log('delete product exception', e);
+            }
+            
             webhookDemo.settings.productId = 0;
             webhookDemo.productInfo = null;
             webhookDemo.webhooks = null;
