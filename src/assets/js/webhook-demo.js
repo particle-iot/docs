@@ -470,12 +470,6 @@ $(document).ready(function() {
 
         console.log('updateProductSelector', webhookDemo);
 
-        webhookDemo.productsData = await apiHelper.getProducts();
-
-        webhookDemo.productsData.products.sort(function (a, b) {
-            return a.name.localeCompare(b.name);
-        });
-
         const lastSelected = $('#productSelect').val();
         $('#productSelect').empty();
 
@@ -485,16 +479,6 @@ $(document).ready(function() {
                 $(optionElem).attr('value', product.id.toString());
                 $(optionElem).text(product.name + ' (' + product.id + ')');
                 $('#productSelect').append(optionElem);    
-
-                /*
-                let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
-                if (settings.productId == product.id) {
-                    $(productSelectElem).val(product.id.toString());
-                    $(newExistingRadioElem).prop('checked', false);
-                    $(existingRadioElem).prop('checked', true);
-                    $(createProductButtonElem).prop('disabled', true);
-                }
-                */
             }
         }
         if (lastSelected) {
@@ -811,7 +795,10 @@ $(document).ready(function() {
                     rowElem,
                 })
             }
+        }
 
+        if (!webhookDemo.fleetRows) {
+            return;
         }
 
         for(const fleetRowObj of webhookDemo.fleetRows) {
@@ -980,39 +967,66 @@ $(document).ready(function() {
     });
 
     const deviceListSelectElem = $('.deviceListSelect');
+
     
-    apiHelper.deviceList(deviceListSelectElem, {
-        deviceFilter: function(dev) {
-            return true;
-        },
-        getTitle: function(dev) {
-            let result;
+    apiHelper.getProducts().then(function(data) {
+        webhookDemo.productsData = data;
 
-            if (dev.name) {
-                result = dev.name;
-            }
-            else {
-                result = dev.id;
-            }
-            result += (dev.online ? '' : ' (offline)');
-            return result;
-        },                    
-        hasRefresh: true,
-        hasSelectDevice: true,
-        onChange: async function(elem) {
-            webhookDemo.settings.deviceId = $(elem).val();
-            await updateDevice();
-        },
-        onUpdateList: function() {
-            if (webhookDemo.settings.deviceId) {
-                $(deviceListSelectElem).val(webhookDemo.settings.deviceId);
-                if ($(deviceListSelectElem).val() == webhookDemo.settings.deviceId) {
-                    $(deviceListSelectElem).trigger('change');
+        webhookDemo.productsData.products.sort(function (a, b) {
+            return a.name.localeCompare(b.name);
+        });
+
+        webhookDemo.productsNames = {};
+        
+        for(const p of webhookDemo.productsData.products) {
+            webhookDemo.productsNames[p.id.toString()] = p.name;
+        }
+
+        apiHelper.deviceList(deviceListSelectElem, {
+            deviceFilter: function(dev) {
+                return true;
+            },
+            getTitle: function(dev) {
+                let result;
+
+                if (dev.name) {
+                    result = dev.name;
                 }
-            }
-        },
-    }); 
+                else {
+                    result = dev.id;
+                }
+                result += (dev.online ? '' : ' (offline)');
 
+                if (dev.product_id != dev.platform_id) {
+                    if (webhookDemo.productsNames[dev.product_id]) {
+                        result += ' (product ' + webhookDemo.productsNames[dev.product_id] + ')';
+                    }
+                    else {
+                        result += ' (product ' + dev.product_id + ')';
+                    }
+                }
+
+                return result;
+            },                    
+            hasRefresh: true,
+            hasSelectDevice: true,
+            onChange: async function(elem) {
+                webhookDemo.settings.deviceId = $(elem).val();
+                await updateDevice();
+            },
+            onUpdateList: async function() {
+                if (webhookDemo.settings.deviceId) {
+                    $(deviceListSelectElem).val(webhookDemo.settings.deviceId);
+                    if ($(deviceListSelectElem).val() == webhookDemo.settings.deviceId) {
+                        await updateDevice();
+                    }
+                }
+            },
+        }); 
+
+    });
+
+    
 
     apiHelper.getCarriersJson().then(function(carriersJsonIn) {
         webhookDemo.carriersJson = carriersJsonIn;
@@ -1260,7 +1274,6 @@ $(document).ready(function() {
 
                 const request = {                
                     contentType: 'application/json',
-                    data: JSON.stringify(requestDataObj),
                     dataType: 'json',
                     error: function (jqXHR) {
                         // gtag('event', 'Error', {'event_category':simpleGetConfig.gaAction, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
