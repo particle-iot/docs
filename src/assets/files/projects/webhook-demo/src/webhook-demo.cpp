@@ -13,7 +13,7 @@ bool buttonClicked = false;
 
 void hookResponseHandler(const char *event, const char *data);
 void clickHandler(system_event_t event, int param);
-float readTemperature();
+float readTemperatureC();
 void publishSensorData();
 
 void setup() 

@@ -383,20 +383,31 @@ If you have your Particle device connected by USB to your computer (Windows, Lin
 {{> usb-serial-console}}
 
 
-## Expand your device fleet
+## More things to try
+
+### Expand your device fleet
+
+Use the **Add Devices** button in the {{webhook-demo-link link="devices" text="devices tab"}} in the console to add another device to your project.
+
+You can monitor both devices from this page!
+
 
 ### Upload product firmware
 
+Use Workbench to build a firmware binary, then upload the binary to {{webhook-demo-link link="firmware" text="firmware tab"}} in your product in the console.
 
-### Release to product
+You can use this to flash all devices in your product fleet with new firmware in just a few clicks.
 
-
-
-## Further study
+Also, once you set default product firmware and add a device, it will be immediately flashed with your product firmware if online, or automatically when it next comes online.
 
 ### Add more data fields
 
+Try adding additional data fields to your product firmware using the `JSONWriter`. You can add integer, floating point, and string variables easily. These will automatically be included via 
+the webhook and will show up in the data table.
 
+### Add a real sensor
+
+Instead of just using random data, try connecting a real temperature sensor and hooking it up into the `readTemperatureC()` function.
 
 ## Clean up
 
@@ -404,4 +415,4 @@ If you are done using this tutorial, you can clean up the things that were creat
 
 {{> webhook-demo-cleanup }}
 
-
+Don't forget to turn off your device or flash different firmware (or Tinker) to it so it doesn't continue to publish events and use data operations.
