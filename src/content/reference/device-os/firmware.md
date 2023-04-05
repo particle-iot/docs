@@ -16324,8 +16324,6 @@ Calculates the value of a number raised to a power. `pow()` can be used to raise
 
 The function returns the result of the exponentiation *(double)*
 
-EXAMPLE **TBD**
-
 ### sqrt()
 
 Calculates the square root of a number.
