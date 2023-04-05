@@ -13071,6 +13071,16 @@ Clears the error code of the most recent `write()` operation setting it to `0`. 
 
 Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function).
 
+{{note op="start" type="warning"}}
+In most cases, using `TCPClient` is not recommended. If you want to export data off your device, we recommend using `Particle.publish()` and webhooks.
+
+- `TCPClient` does not itself support HTTP. HTTP requires a 3rd-party library.
+- There is no https library for Particle devices, so you cannot connect to a TLS/SSL encrypted HTTP server. This means your data could be viewed, modified, or redirected as it crosses the Internet.
+- Even if there were, doing a TLS/SSL authentication uses a large amount of data, up to 5 kilobytes per connection. The Particle cloud connection uses DTLS which is able to resume a session with much lower overhead and keep it alive for longer periods of time without having to re-authenticate.
+- It is not possible to maintain TCP connections when the device is in sleep mode.
+- Other protocols such as MQTT are not built-in and require 3rd-party libraries. We recommed using `Particle.publish()` and webhooks instead of MQTT. Using MQTT without TLS/SSL is not secure.
+{{note op="end"}}
+
 ```cpp
 // SYNTAX
 TCPClient client;
