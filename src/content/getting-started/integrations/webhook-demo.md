@@ -32,6 +32,8 @@ You should typically start with a product. You'll eventually need one to scale, 
 
 {{> webhook-demo-select-product}}
 
+You can find all of your sandbox products in the {{webhook-demo-link link="sandbox/products" text="productsTab"}} in the Particle console.
+
 ### Add device to product
 
 Whenever you have a product, you must add devices to it. When you scale, you will typically add all of the devices in your order at once, as you will be emailed a list of the Device IDs in your order. 
@@ -39,6 +41,8 @@ Whenever you have a product, you must add devices to it. When you scale, you wil
 In the growth and enterprise plans, just adding the Device ID to the product does not affect billing; billing only starts the first time the device connects to the Particle cloud.
 
 {{> webhook-demo-add-device}}
+
+You will normally use the **Add Devices** button in the {{webhook-demo-link link="devices" text="devices tab"}} in the console to do this in your real products.
 
 ### Start demo
 
@@ -57,6 +61,7 @@ Normally you'll create a webhook in your product from the console. Because the s
 | URL | <span class="webhookUrlSpan"></span> |
 | Method | POST |
 
+You can {{webhook-demo-link link="webhook" text="open the webhook in the console"}} once it has been created.
 
 {{> webhook-demo-webhook }}
 
@@ -121,9 +126,9 @@ To help secure your webhook:
 {{> webhook-demo-test }}
 
 {{collapse op="start" label="Tell me more about testing a webhook"}}
-This is similar, but not the same, as the **Test** button in the console.
+This is similar, but not the same, as the **Test** button in the {{webhook-demo-link link="webhook" text="webhook configuration"}} in the console.
 
-This publishes and event using the Particle cloud API, but it includes simulated data, similar to what the device firmware below sends.
+This button publishes and event using the Particle cloud API, but it includes simulated data, similar to what the device firmware below sends.
 
 When you use the API to create an event, the source Device ID is "api" instead of an actual Device ID. You cannot simulate sending from a Device ID
 using the API. This is intentional to prevent being able to spoof data from a device.
@@ -153,14 +158,14 @@ This demo is just to show decoded data. In you server, you'd probably do somethi
 
 ### Event log
 
-This control shows the same information that is shown in the Events tab in your product so you don't need to switch between multiple windows.
+This control shows the same information that is shown in the {{webhook-demo-link link="events" text="events tab"}} in your product so you don't need to switch between multiple windows.
 
 {{> webhook-demo-events }}
 
 
 ### Your device fleet
 
-This control shows the status of devices in your product fleet.
+This control shows the status of devices in your product fleet. It's similar to the {{webhook-demo-link link="devices" text="devices tab"}} in your product in the console.
 
 {{> webhook-demo-fleet }}
 

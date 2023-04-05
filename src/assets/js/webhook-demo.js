@@ -37,6 +37,52 @@ $(document).ready(function() {
         localStorage.setItem(localStorageKey, JSON.stringify(webhookDemo.settings));
     }
 
+    const updateLinks = function() {
+
+        $('.webhookDemoLink').each(function() {
+            let link = $(this).data('link');
+
+            let isSandbox = false;
+            if (link.startsWith('sandbox/')) {
+                isSandbox = true;
+                link = link.substring(8);
+            }
+
+            let newLink = 'https://console.particle.io/';
+
+            if (!isSandbox && webhookDemo.productInfo) {
+                newLink += webhookDemo.productInfo.slug + '/';
+            }
+            
+            if (isSandbox || webhookDemo.productInfo) {
+                switch(link) {
+                    case 'product':
+                        break;
+
+                    case 'webhook':
+                        if (webhookDemo.settings.integrationId) {
+                            newLink += 'integrations/webhooks/' + webhookDemo.settings.integrationId;
+                        }
+                        break;
+
+                    case 'devices':
+                    case 'events':
+                    case 'firmware':
+                    case 'integrations':
+                    case 'team':
+                    case 'authentication':
+                    case 'settings':
+                    default:
+                        newLink += link;
+                        break;
+                }    
+            }
+
+            $(this).prop('href', newLink);
+        });
+
+    }
+
     const updateCleanup = function() {
         // cleanupWebhook cleanupDevices cleanupProduct
         // cleanupButton
@@ -408,6 +454,7 @@ $(document).ready(function() {
             }           
         }
         updateCleanup();
+        updateLinks();
     };
 
 
@@ -464,6 +511,7 @@ $(document).ready(function() {
         else {
             webhookDemo.settings.integrationId = 0;
         }
+        updateLinks();
         updateCleanup();
     }
 
@@ -475,12 +523,17 @@ $(document).ready(function() {
         const lastSelected = $('#productSelect').val();
         $('#productSelect').empty();
 
+        let demoProductId = 0;
+
         for(const product of webhookDemo.productsData.products) {
             if (product.platform_id == webhookDemo.settings.platformId) {
                 const optionElem = document.createElement('option');
                 $(optionElem).attr('value', product.id.toString());
                 $(optionElem).text(product.name + ' (' + product.id + ')');
                 $('#productSelect').append(optionElem);    
+            }
+            if (!demoProductId && product.name.startsWith('webhook-demo-')) {
+                demoProductId = product.id;
             }
         }
         if (lastSelected) {
@@ -489,6 +542,10 @@ $(document).ready(function() {
 
         const newProductName = 'webhook-demo-' + webhookDemo.settings.platformName.toLowerCase() + '-' + Math.floor(Math.random() * 999999);
         $('#newProductNameInput').val(newProductName);
+
+        if (!webhookDemo.settings.productId && demoProductId) {
+            webhookDemo.settings.productId = demoProductId;
+        }
 
         if (webhookDemo.settings.productId) {
             $('#productSelect').val(webhookDemo.settings.productId);
@@ -539,6 +596,7 @@ $(document).ready(function() {
 
         updateAddDevice();
         updateCreateWebhook();
+        updateLinks();
     }
 
 
