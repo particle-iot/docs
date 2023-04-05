@@ -999,9 +999,11 @@ $(document).ready(function() {
         }
         webhookDemo.particleStreamCloseTimer = setTimeout(function() {
             // Executes 5 minutes later
-            webhookDemo.particleStream.end();
-            webhookDemo.particleStream = null;
-            webhookDemo.particleStreamProductId = 0;
+            if (webhookDemo.particleStream) {
+                webhookDemo.particleStream.end();
+                webhookDemo.particleStream = null;
+                webhookDemo.particleStreamProductId = 0;                    
+            }
         }, 300000);
 
         setTimeout(function() {
