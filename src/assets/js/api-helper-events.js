@@ -26,14 +26,23 @@ apiHelper.eventViewer.addRow = function(eventViewerElem, event, eventsIndex) {
 
     const time = event.published_at.replace('T', ' ');
 
-    let html = '<tr data-events-index="' + eventsIndex + '">';
-    html += '<td class="apiHelperEventViewerEvent">' + event.name + '</td>';
-    html += '<td class="apiHelperEventViewerData">' + event.data + '</td>';
-    html += '<td class="apiHelperEventViewerDevice">' + deviceName + '</td>';
-    html += '<td class="apiHelperEventViewerTime">' + time + '</td>';
-    html += '</tr>';
+    const trElem = document.createElement('tr');
+    $(trElem).data('events-index', eventsIndex);
 
-    $(eventViewerElem).find('.apiHelperEventViewerOutput > table > tbody').prepend(html);
+    const fields = [
+        { cssClass: 'apiHelperEventViewerEvent', value: event.name},
+        { cssClass: 'apiHelperEventViewerEvent', value: event.data},
+        { cssClass: 'apiHelperEventViewerDevice', value: deviceName},
+        { cssClass: 'apiHelperEventViewerTime', value: time},
+    ];
+    for(const field of fields) {
+        const tdElem = document.createElement('td');
+        $(tdElem).addClass(field.cssClass);
+        $(tdElem).text(field.value);    
+        $(trElem).append(tdElem);
+    }
+
+    $(eventViewerElem).find('.apiHelperEventViewerOutput > table > tbody').prepend(trElem);
 };
 
 apiHelper.eventViewer.event = function(event) {

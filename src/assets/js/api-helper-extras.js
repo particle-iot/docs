@@ -1205,19 +1205,21 @@ $(document).ready(function() {
 
     });
     
-    $('.apiHelperCloudApiDeviceSelect').each(async function() {
+    $('.apiHelperDeviceSelect').each(async function() {
         const thisPartial = $(this);
-
+        
         const options = $(thisPartial).data('options').split(',');
 
-        const apiHelperCloudDeviceSelectElem = $(thisPartial).find('.apiHelperCloudDeviceSelect');
-        const apiHelperCloudApiDeviceSelectStatusElem = $(thisPartial).find('.apiHelperCloudApiDeviceSelectStatus');
+        const deviceSelectSelectElem = $(thisPartial).find('.deviceSelectSelect');
 
-        const setStatus = function(s) {
-            $(apiHelperCloudApiDeviceSelectStatusElem).text(s);
-        }
+        let deviceSelect = {
+            options,
+            partialElem: thisPartial,
+            selectElem: deviceSelectSelectElem,
+        };
+        $(thisPartial).data('deviceSelect', deviceSelect);
 
-        apiHelper.deviceList(apiHelperCloudDeviceSelectElem, {
+        apiHelper.deviceList(deviceSelectSelectElem, {
             deviceFilter: function(dev) {
                 return true;
             },
@@ -1231,12 +1233,42 @@ $(document).ready(function() {
                     result = dev.id;
                 }
                 result += (dev.online ? '' : ' (offline)');
+                return result;
             },                    
             hasRefresh: true,
             hasSelectDevice: true,
             onChange: async function(elem) {
                 const newVal = $(elem).val();
+                deviceSelect.dev = apiHelper.deviceListCache.find(e => e.id == newVal);
+                if (deviceSelect.onChange) {
+                    deviceSelect.onChange(deviceSelect.dev);
+                }
+                if (options.includes('deviceInfo')) {
+                    const deviceSelectInfoElem = $(thisPartial).find('.deviceSelectInfo');
+                    const tbodyElem = $(deviceSelectInfoElem).find('tbody');
+                    $(deviceSelectInfoElem).show();
+                    $(tbodyElem).empty();
 
+                    deviceSelect.dev._platform = await apiHelper.getPlatformName(deviceSelect.dev.platform_id);
+                    deviceSelect.dev._sku = await apiHelper.getSkuFromSerial(deviceSelect.dev.serial_number);
+                    if (!deviceSelect.dev._sku) {
+                        deviceSelect.dev._sku = 'Unknown';
+                    }
+                    console.log('deviceInfo', deviceSelect.dev);
+
+                    let tableData = {
+                        'id': 'Device ID',
+                        'name': 'Device Name',
+                        '_platform': 'Platform',
+                        'serial_number': 'Serial Number',
+                        '_sku': 'SKU',          
+                        'product_id': 'Product ID',                                       
+                    };
+
+                    apiHelper.simpleTableObjectMap(tbodyElem, tableData, deviceSelect.dev);
+                    
+                    $(thisPartial).trigger('deviceSelected', [deviceSelect.dev]);
+                }
             }
         });   
 
@@ -2678,6 +2710,9 @@ $(document).ready(function() {
     $('.apiHelperCreateOrSelectProduct').each(function() {
         const thisPartial = $(this);
 
+        const options = $(thisPartial).data('options').split(',');
+        // sandboxOnly - don't show org options even if the account is in an org
+
         const platformSelectElem = $(thisPartial).find('.apiHelperPlatformSelect');
         const deviceTypeSKUsElem = $(thisPartial).find('.deviceTypeSKUs');
 
@@ -2721,6 +2756,11 @@ $(document).ready(function() {
             return;
         }
 
+        $(document).on('deviceSelected', function(event, deviceObj) {
+            $(platformSelectElem).val(deviceObj.platform_id.toString());
+            $(platformSelectElem).trigger('change');
+        })
+
         productSelector.getOptions = function(options) {
             if (!options) {
                 options = {};
@@ -2733,7 +2773,7 @@ $(document).ready(function() {
 
             options.platformId = parseInt(platformIdStr);
 
-            if (productSelector.orgs.length) {
+            if (productSelector.orgs.length && !options.includes(sandboxOnly)) {
                 // Has organizations
 
                 // sandbox or org
@@ -2801,6 +2841,17 @@ $(document).ready(function() {
             let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
             productSelector.getOptions(settings);
             apiHelper.manualSettings.save();
+
+            let productId = 0;
+            if (options.newExisting != 'new') {
+                const productSelectValString = $(productSelectElem).val();
+                if (productSelectValString) {
+                    productId = parseInt(productSelectValString);
+                }
+            }
+
+            console.log('triggering commonProductSelected', productId);
+            $(thisPartial).trigger('commonProductSelected', [productId]);
         }
 
         const updateNewExistingButton = function() {
@@ -2838,7 +2889,7 @@ $(document).ready(function() {
             
             const sandboxOrg = sandboxOrgRadioCheckedVal();
 
-            if (productSelector.orgs.length) {
+            if (productSelector.orgs.length && !options.includes(sandboxOnly)) {
                 // Has organizations
 
                 $(sandboxOrgRowElem).show();
@@ -3137,6 +3188,40 @@ $(document).ready(function() {
         
 
     });
+
+
+
+    apiHelper.flattenObject = function(objIn) {
+        let objOut = {};
+
+        console.log('flattenObject objIn', objIn);
+
+        
+        const flattenInternal = function(valueIn, prefix) {
+            if (Array.isArray(valueIn)) {
+                for(let ii = 0; ii < valueIn.length; ii++) {
+                    const newKey = prefix + '[' + ii + ']';
+                    flattenInternal(valueIn[ii], newKey);
+                }
+            }
+            else
+            if (typeof valueIn == 'object') {
+                for(const key in valueIn) {
+                    const newKey = prefix + (prefix != '' ? '.' : '') + key;
+                    flattenInternal(valueIn[key], newKey);
+                }
+            }
+            else {
+                objOut[prefix] = valueIn;
+            }
+        }
+        flattenInternal(objIn, '');
+
+
+        console.log('flattenObject objOut', objOut);
+
+        return objOut;
+    }
 
 
 });

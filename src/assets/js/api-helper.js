@@ -372,6 +372,39 @@ apiHelper.confirmFlash = function() {
 }
 
 
+apiHelper.simpleTableRow = function(tbodyElem, key, value) {
+    const trElem = document.createElement('tr');
+
+    let tdElem;
+
+    tdElem = document.createElement('td');
+    $(tdElem).text(key);
+    $(trElem).append(tdElem);
+
+    tdElem = document.createElement('td');
+    $(tdElem).text(value);
+    $(trElem).append(tdElem);
+
+    $(tbodyElem).append(trElem);                
+}
+
+apiHelper.simpleTableObject = function(tbodyElem, obj) {
+    for(const key in obj) {
+        const value = obj[key];
+
+        apiHelper.simpleTableRow(tbodyElem, key, value);
+    }
+}
+
+apiHelper.simpleTableObjectMap = function(tbodyElem, keys, data) {
+    for(const key in keys) {
+        const label = keys[key];
+        apiHelper.simpleTableRow(tbodyElem, label, data[key]);
+    }
+
+}
+
+
 apiHelper.sandboxProducts = function() {
     let sandboxProducts = {
     };
@@ -505,6 +538,7 @@ apiHelper.deviceList = function(elems, options) {
         options = {};
     }
 
+    let firstLoad = true;
 
     const updateList = function() {
         $(elems).each(function() {
@@ -550,6 +584,7 @@ apiHelper.deviceList = function(elems, options) {
                     $(elem).append(optionElem);
                 }
             });
+
             if (apiHelper.deviceListCache.length == 0) {
                 optionElem = document.createElement('option');
                 $(optionElem).attr('value', 'none');
@@ -557,9 +592,14 @@ apiHelper.deviceList = function(elems, options) {
 
                 $(elem).append(optionElem);
             }        
-            if (oldValue && oldValue != 'refresh') {
+            if (!firstLoad && oldValue && oldValue != 'refresh') {
                 $(elem).val(oldValue);
             }
+            if (options.onUpdateList) {
+                options.onUpdateList();
+            }
+
+            firstLoad = false;
         });
     };
 

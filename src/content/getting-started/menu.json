@@ -298,6 +298,12 @@
         "href": "/getting-started/integrations/integrations/"
       },
       {
+        "dir": "webhook-demo",
+        "title": "Webhook demo",
+        "href": "/getting-started/integrations/webhook-demo/",
+        "internal": true
+      },
+      {
         "dir": "webhooks",
         "title": "Webhooks",
         "href": "/getting-started/integrations/webhooks/"
