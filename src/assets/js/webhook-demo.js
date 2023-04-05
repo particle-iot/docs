@@ -600,6 +600,8 @@ $(document).ready(function() {
         updateAddDevice();
         updateCreateWebhook();
         updateLinks();
+
+        $('#startDemo').prop('disabled', false);
     }
 
 
@@ -1397,6 +1399,7 @@ $(document).ready(function() {
 
         updateSettings();
         updateCleanup();
+        $('#startDemo').prop('disabled', true);
 
     });
     
