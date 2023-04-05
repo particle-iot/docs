@@ -204,9 +204,9 @@ $(document).ready(function() {
             }
             else
             if (explainObj.event.name.indexOf('hook-response') >= 0) {
-                text += 'The response data from your webhook server, converted into a Particle event that can be received by your device:'
+                text += 'The response data from your webhook server, converted into a Particle event that can be received by your device. '
                 bannerOptions.title = 'Event (hook-response)';
-                bannerOptions.color = colors.eventHook;                
+                bannerOptions.color = colors.eventHook;                       
             }
             else
             if (explainObj.event.name.indexOf('hook-error') >= 0) {
@@ -268,7 +268,10 @@ $(document).ready(function() {
             try {
                 const jsonData = JSON.parse(explainObj.event.data);
 
-                text = 'The data sent by your device appears to be JSON formatted, which we recommend.'
+                text = 'The data sent by your device appears to be JSON formatted, which we recommend. '
+                if (jsonData.id) {
+                    text += 'The data contains a unique id field, which can help associate requests and responses and handle deduplication.';
+                }
                 $(divOuterElem).append(makeTextDiv(text));
                 $(divOuterElem).append(makePreDiv(JSON.stringify(jsonData, null, 4)));
             }
@@ -315,8 +318,8 @@ $(document).ready(function() {
 
             let text = '';
             text += 'Your webhook server has processed the request and is returning a response. ';
-            text += 'The contents below depend on your application, but we recommend returning JSON data, with a success or ok indication, ';
-            text += 'rather than returning a HTTP error code.'
+            text += 'The contents below depend on your application.';
+
             $(divOuterElem).append(makeTextDiv(text));
             $(divOuterElem).append(makePreDiv(explainObj.hookObj.body));
         }
@@ -1273,6 +1276,9 @@ $(document).ready(function() {
     
             console.log('resp', resp);
     
+            $('#testEventDataDiv').show();
+            $('#testEventData').text(JSON.stringify(eventDataObj, null, 4));
+
             gtag('event', 'testWebhookSuccess', {'event_category':gaCategory});
         }
         catch(e) {
