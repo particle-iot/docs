@@ -784,6 +784,7 @@
   "/reference/device-os/firmware/#enablereset-": "/reference/device-os/api/system-calls/enablereset/",
   "/reference/device-os/firmware/#resetpending-": "/reference/device-os/api/system-calls/resetpending/",
   "/reference/device-os/firmware/#reset-reason": "/reference/device-os/api/system-calls/reset-reason/",
+  "/reference/device-os/firmware/#backupramsync": "/reference/device-os/api/system-calls/backupramsync/",
   "/reference/device-os/firmware/#system-config-set-": "/reference/device-os/api/system-calls/system-config-set/",
   "/reference/device-os/firmware/#system-flags-disable-": "/reference/device-os/api/system-calls/system-flags-disable/",
   "/reference/device-os/firmware/#system-enablefeature": "/reference/device-os/api/system-calls/system-enablefeature/",

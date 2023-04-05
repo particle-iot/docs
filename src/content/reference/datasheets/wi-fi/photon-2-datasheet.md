@@ -380,6 +380,22 @@ The Photon 2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `
 
 The Photon 2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`, or `CHANGE`. Pin D10 is the same module pin location as the Argon pin D8, which is also the WKP pin.
 
+### Retained memory
+
+The P2 and Photon 2 have limited support for retained memory in Device OS 5.3.1 and later:
+
+Retained memory is preserved with the following limitations:
+
+- When entering `HIBERNATE` sleep mode.
+- Under programmatic reset, such as `System.reset()` and OTA firmware upgrades.
+- In limited cases when using pin reset (RESET button or externally triggered reset).
+
+By default, the retained memory is saved every 10 seconds, so changes made to retained variables between the last save and an unplanned system reset will
+be lost. Calling [`System.backupRamSync`](#backupramsync) on the P2 and Photon 2 can make sure the data is saved. The data is saved to a dedicated flash page in the RTL827x MCU 
+however you should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear.
+
+Prior to Device OS 5.3.1, retained memory is not supported. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
+
 ### Pins Photon 2 vs. P2
 
 The pins on the Photon 2 map directly the pins with the same name on the P2.
@@ -688,6 +704,7 @@ The products are used in terminal products such as industrial control equipment 
 |     | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
 |     | 2023-03-24 | RK | Added FCC and IC IDs |
 |     | 2023-04-03 | RK | Fixed typo in FCC ID in one location, IC restrictions |
+|     | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
 
 ## Known errata
 

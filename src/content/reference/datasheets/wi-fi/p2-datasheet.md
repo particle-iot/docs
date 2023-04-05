@@ -441,6 +441,22 @@ The P2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING
 
 The P2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`, or `CHANGE`. Pin D10 is the same module pin location (pin 30) as the P1 WKP (A7) pin.
 
+### Retained memory
+
+The P2 and Photon 2 have limited support for retained memory in Device OS 5.3.1 and later:
+
+Retained memory is preserved with the following limitations:
+
+- When entering `HIBERNATE` sleep mode.
+- Under programmatic reset, such as `System.reset()` and OTA firmware upgrades.
+- In limited cases when using pin reset (RESET button or externally triggered reset).
+
+By default, the retained memory is saved every 10 seconds, so changes made to retained variables between the last save and an unplanned system reset will
+be lost. Calling [`System.backupRamSync`](#backupramsync) on the P2 and Photon 2 can make sure the data is saved. The data is saved to a dedicated flash page in the RTL827x MCU 
+however you should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear.
+
+Prior to Device OS 5.3.1, retained memory is not supported. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
+
 
 ### Complete module pin listing
 
@@ -799,6 +815,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 |     | 2023-01-31 | RK | Add Device OS versions |
 | 001 | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
 | 002 | 2023-03-14 | RK | Added power supply specifications |
+| 003 | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
 
 ## Known errata
 

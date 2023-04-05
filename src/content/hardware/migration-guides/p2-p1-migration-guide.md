@@ -421,11 +421,21 @@ Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` functi
 
 ### Retained memory
 
-Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset, is not available on the P2. This also prevents system usage of retained memory, including session resumption on reset.
+The P2 and Photon 2 have limited support for retained memory, also referred to as Backup RAM or SRAM, in Device OS 5.3.1 and later.
 
-On Gen 2 and Gen 3 devices, retained memory is 3068 bytes. 
+Retained memory is preserved with the following limitations:
 
-The flash file system can be used for data storage on the P2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
+- When entering `HIBERNATE` sleep mode.
+- Under programmatic reset, such as `System.reset()` and OTA firmware upgrades.
+- In limited cases when using pin reset (RESET button or externally triggered reset).
+
+By default, the retained memory is saved every 10 seconds, so changes made to retained variables between the last save and an unplanned system reset will
+be lost. Calling `System.backupRamSync` on the P2 and Photon 2 can make sure the data is saved. The data is saved to a dedicated flash page in the RTL827x MCU 
+however you should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear.
+
+Prior to Device OS 5.3.1, retained memory is not supported. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
+
+Retained memory is 3068 bytes. 
 
 ### Flash file system
 
@@ -1157,3 +1167,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-10-05 | RK | Added HIBERNATE sleep section |
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
 | 001 | 2023-03-13 | RK | Removed preliminary banner |
+| 002 | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |

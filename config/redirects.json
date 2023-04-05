@@ -546,6 +546,7 @@
   "/cards/firmware/string-class/touppercase": "/reference/device-os/api/string-class/touppercase",
   "/cards/firmware/string-class/trim": "/reference/device-os/api/string-class/trim",
   "/cards/firmware/system-calls": "/reference/device-os/api/system-calls/version",
+  "/cards/firmware/system-calls/backupramsync": "/reference/device-os/api/system-calls/backupramsync",
   "/cards/firmware/system-calls/batterycharge": "/reference/device-os/api/system-calls/batterycharge",
   "/cards/firmware/system-calls/batterystate": "/reference/device-os/api/system-calls/batterystate",
   "/cards/firmware/system-calls/buttonpushed": "/reference/device-os/api/system-calls/buttonpushed",

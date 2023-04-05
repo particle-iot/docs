@@ -16712,7 +16712,19 @@ On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM), retained memory is o
 ---
 
 {{note op="start" type="P2"}}
-The P2 and Photon 2 do not support backup RAM. In some cases, the flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
+The P2 and Photon 2 have limited support for retained memory in Device OS 5.3.1 and later.
+
+Retained memory is preserved with the following limitations:
+
+- When entering `HIBERNATE` sleep mode.
+- Under programmatic reset, such as `System.reset()` and OTA firmware upgrades.
+- In limited cases when using pin reset (RESET button or externally triggered reset).
+
+By default, the retained memory is saved every 10 seconds, so changes made to retained variables between the last save and an unplanned system reset will
+be lost. Calling [`System.backupRamSync`](#backupramsync) on the P2 and Photon 2 can make sure the data is saved. The data is saved to a dedicated flash page in the RTL827x MCU 
+however you should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear.
+
+Prior to Device OS 5.3.1, retained memory is not supported. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
 {{note op="end"}}
 
 ---
@@ -19495,6 +19507,31 @@ Returns a user-defined value that has been previously specified for the `System.
 `reset(uint32_t data)`
 
 This overloaded method accepts an arbitrary 32-bit value, stores it to the backup register and resets the device. The value can be retrieved via `resetReasonData()` method after the device has restarted.
+
+### backupRamSync
+
+{{api name1="System.backupRamSync"}}
+
+{{since when="5.3.1"}}
+
+The P2 and Photon 2 have limited support for retained memory in Device OS 5.3.1 and later. Retained memory is preserved with the following limitations:
+
+- When entering `HIBERNATE` sleep mode.
+- Under programmatic reset, such as `System.reset()` and OTA firmware upgrades.
+- In limited cases when using pin reset (RESET button or externally triggered reset).
+
+By default, the retained memory is saved every 10 seconds, so changes made to retained variables between the last save and an unplanned system reset will
+be lost. Calling `System.backupRamSync` on the P2 and Photon 2 can make sure the data is saved. The data is saved to a dedicated flash page in the RTL827x MCU 
+however you should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear.
+
+Prior to Device OS 5.3.1, retained memory is not supported. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
+
+```cpp
+// PROTOTYPE
+System.backupRamSync();
+```
+
+On all other devices, retained memory is preserved as a special section of battery backed RAM and no special precautions are required.
 
 ### System config [ set ]
 
