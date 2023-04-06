@@ -1,10 +1,10 @@
 <div class="webhookDemo apiHelper" data-control="addDevice">
     <div class="apiHelperBox">
-        <div class="addDeviceOptions addDeviceNoProduct" style="display:none;">
+        <div id="addDevicesNoProductDiv">
             <p>A product has not been selected yet. Select a product above first.</p>
         </div>
-        <div>
-            <table id="sandboxDevicesTable apiHelperTableNoMargin">
+        <div id="addDevicesTableDiv" style="display:none;">
+            <table id="sandboxDevicesTable" class="apiHelperTableNoMargin">
                 <thead>
                     <tr>
                         <th data-key="_add">Add To Product</th>
@@ -17,9 +17,11 @@
                 <tbody>                    
                 </tbody>
             </table>
-        </div>
-        <div class="addDeviceOptions addDeviceCanAddDevice" style="display:none;">
-            <p><button id="addDeviceButton">Add Devices to Product</button></p>
+            <div>
+                <p><button id="addDevicesButton">Add Devices to Product</button></p>
+            </div>
+            <div id="addDevicesStatusDiv">
+            </div>
         </div>
     </div>
 </div>
