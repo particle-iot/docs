@@ -16846,10 +16846,23 @@ void loop() {
 You cannot store dynamically allocated object in retained memory. Some examples of things that cannot be used:
 
 - `String` variables
-- Standard C++ containers such as `std::list`, `std::vector`, `std:queue`, etc.
+- Standard C++ containers such as `std::list`, `std::vector`, `std:map`, etc.
 - Anything that stores data in a separate block on the heap, allocated with `new` or `malloc`
 
 You can store string data by allocating a fixed `char` array in retained variable, but you cannot retain a `String`.
+
+### Retained data validation
+
+Be sure to validate the data before using it. The data is reinitialized to default values 
+on cold boot, however there are cases where the data could be invalid. For example, if the device
+is reset during the process of writing data.
+
+Storing the data in a struct and using a CRC or hash is a good defensive technique. It can also
+gracefully handle adding new retained variables, or changing the size of retained variables.
+
+When doing a user firmware update, retained memory is typically preserved, but in addition to 
+explicit changes in the data your retain, the compiler may also relocate retained data unexpectedly.
+Using additional sanity checks can help prevent using invalid data.
 
 
 ### Enabling backup RAM (SRAM)
@@ -16872,44 +16885,6 @@ void setup()
   System.enableFeature(FEATURE_RETAINED_MEMORY));
 }
 ```
-
-### Making changes to the layout or types of retained variables
-
-When adding new `retained` variables to an existing set of `retained` variables,
-it's a good idea to add them after the existing variables. this ensures the
-existing retained data is still valid even with the new code.
-
-For example, if we wanted to add a new variable `char name[50]` we should add this after
-the existing `retained` variables:
-
-```
-retained float lastTemperature;
-retained int numberOfPresses;
-retained int numberOfTriesRemaining = 10;
-retained char name[50];
-```
-
-If instead we added `name` to the beginning or middle of the block of variables,
-the program would end up reading the stored values of the wrong variables.  This is
-because the new code would be expecting to find the variables in a different memory location.
-
-Similarly, you should avoid changing the type of your variables as this will also
-alter the memory size and location of data in memory.
-
-This caveat is particularly important when updating firmware without power-cycling
-the device, which uses a software reset to reboot the device.  This will allow previously
-`retained` variables to persist.
-
-During development, a good suggestion to avoid confusion is to design your application to work
-correctly when power is being applied for the first time, and all `retained` variables are
-initialized.  If you must rearrange variables, simply power down the device (VIN and VBAT)
-after changes are made to allow reinitialization of `retained` variables on the next power
-up of the device.
-
-It's perfectly fine to mix regular and `retained` variables, but for clarity we recommend
-keeping the `retained` variables in their own separate block. In this way it's easier to recognize
-when new `retained` variables are added to the end of the list, or when they are rearranged.
-
 
 
 ## Macros
