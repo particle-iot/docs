@@ -16841,9 +16841,15 @@ void loop() {
  */
 ```
 
-{{note op="start" type="P2"}}
-On the P2, Photon 2, and Tracker M, retained memory is not available. The flash file system can be used in some applications as an alternative.
-{{note op="end"}}
+### Dynamically allocated objects
+
+You cannot store dynamically allocated object in retained memory. Some examples of things that cannot be used:
+
+- `String` variables
+- Standard C++ containers such as `std::list`, `std::vector`, `std:queue`, etc.
+- Anything that stores data in a separate block on the heap, allocated with `new` or `malloc`
+
+You can store string data by allocating a fixed `char` array in retained variable, but you cannot retain a `String`.
 
 
 ### Enabling backup RAM (SRAM)
