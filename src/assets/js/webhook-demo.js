@@ -132,6 +132,33 @@ $(document).ready(function() {
 
     }
     
+    const makeBanner = function(options) {
+        const bannerDivElem = document.createElement('div');
+        $(bannerDivElem).css('padding', '10px 10px 10px 10px');
+        $(bannerDivElem).css('margin', '10px 0px 10px 0px');
+        $(bannerDivElem).css('text-align', 'center');
+        $(bannerDivElem).css('background-color', options.color);
+        $(bannerDivElem).text(options.title);
+        return bannerDivElem;
+    }
+
+    const makeTextDiv = function(s) {
+        const divElem = document.createElement('div');
+
+        $(divElem).text(s);
+
+        return divElem;
+    }
+    const makePreDiv = function(s) {
+        const divElem = document.createElement('div');
+
+        const preElem = document.createElement('pre');
+        $(preElem).addClass('apiHelperMonoSmall');
+        $(preElem).text(s);
+        $(divElem).append(preElem);
+
+        return divElem;
+    }
 
     const updateExplainer = function(explainObj) {
         let nextExplainer;
@@ -146,34 +173,6 @@ $(document).ready(function() {
             hookResponse: '#FF9F61',    // COLOR_Tangerine_400
             parsedData: '#FFADBD',   // COLOR_Watermelon_400
         };
-
-        const makeBanner = function(options) {
-            const bannerDivElem = document.createElement('div');
-            $(bannerDivElem).css('padding', '10px 10px 10px 10px');
-            $(bannerDivElem).css('margin', '10px 0px 10px 0px');
-            $(bannerDivElem).css('text-align', 'center');
-            $(bannerDivElem).css('background-color', options.color);
-            $(bannerDivElem).text(options.title);
-            return bannerDivElem;
-        }
-
-        const makeTextDiv = function(s) {
-            const divElem = document.createElement('div');
-
-            $(divElem).text(s);
-
-            return divElem;
-        }
-        const makePreDiv = function(s) {
-            const divElem = document.createElement('div');
-
-            const preElem = document.createElement('pre');
-            $(preElem).addClass('apiHelperMonoSmall');
-            $(preElem).text(s);
-            $(divElem).append(preElem);
-
-            return divElem;
-        }
 
         const divOuterElem = document.createElement('div');
 
@@ -655,7 +654,6 @@ $(document).ready(function() {
                 key: $(this).data('key'),
             });
         });
-        console.log('columns', columns);
 
         $('#sandboxDevicesTable > tbody').empty();
 
@@ -1188,9 +1186,88 @@ $(document).ready(function() {
 
         
         });
+    });
+
+    $('.webhookDemo[data-control="product-config"]').each(async function() {
+        webhookDemo.productConfigOptions = $(this).data('options').split(',');
+
+        const boxElem = $(this).find('.apiHelperBox');
+
+        const copyTemplate = function() {
+            const copyElem = $('.productConfigTemplate')[0].cloneNode(true);
+            $(copyElem).removeClass('productConfigTemplate');
+            $(copyElem).show();
+            return copyElem;
+        };
+
+
+        for(const option of webhookDemo.productConfigOptions) {
+            const outerDivElem = copyTemplate();
+
+            const setExplanationText = function(s) {
+                $(outerDivElem).find('.webhookDemoProductConfigExplanation').text(s);
+            }
+    
+            if (option.startsWith('apiUser:')) {
+                $(outerDivElem).find('.webhookDemoProductConfigBanner').text('API Users');
+
+                let msg = '';
+                msg += 'An API user is required for the webhook to be able to access the Particle API.';
+                setExplanationText(msg);
+
+                const scopes = [];
+
+                const parts = option.split(':');
+                for(let ii = 1; (ii + 1) < parts.length; ii += 2) {
+                    scopes.push(parts[ii] + ':' + parts[ii + 1]);                    
+                }
+
+                console.log('scopes', scopes);
+            }
+            else
+            if (option.startsWith('webhook:')) {
+                $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Webhooks');
+
+                let msg = '';
+                msg += 'A webhook is required to allow the device to query the device group list.';
+                setExplanationText(msg);
+
+                const webhookKind = option.split(':', 2)[1];
+                
+                console.log('webhookKind', webhookKind);
+            }
+            else
+            if (option.startsWith('deviceGroups:')) {
+                $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Device Groups');
+
+                let msg = '';
+                msg += 'Two sample device groups are required. You can add more later.';
+                setExplanationText(msg);
+
+
+                const groups = [];
+
+                const parts = option.split(':');
+                for(let ii = 1; ii < parts.length; ii++) {
+                    groups.push(parts[ii]);                    
+                }
+
+                console.log('groups', groups);
+            }
+
+            $(boxElem).append(outerDivElem);
+        }
+    });
+
+    $('.webhookDemo[data-control="upload-firmware"]').each(async function() {
+        webhookDemo.productConfigOptions = $(this).data('options').split(',');
+
+        const boxElem = $(this).find('.apiHelperBox');
+
+        console.log('upload-firmware');
+    });
     
 
-    });
 
     const carriersPromise = new Promise(function(resolve, reject) {
         apiHelper.getCarriersJson().then(function(carriersJsonIn) {
@@ -1210,8 +1287,6 @@ $(document).ready(function() {
 
             for(const platformName of platforms) {
                 const platformObj = webhookDemo.carriersJson.deviceConstants[platformName];
-
-                console.log('platformObj', platformObj);
 
                 if (!platformObj.productEligible) {
                     continue;

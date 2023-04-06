@@ -20,15 +20,26 @@ In order to use this tutorial, you must be logged into your Particle account:
 
 You should typically start with a product. You'll eventually need one to scale, and it makes it easier to group devices. 
 
-This demo requires a product, and you should generally create a new one just for this demo. Each product can only have a single device platform, so you must select that first.
+This demo requires a product, and you should create a new one just for this demo. Each product can only have a single device platform, so you must select that first.
 
 {{> webhook-demo-select-product}}
 
 You can find all of your sandbox products in the {{webhook-demo-link link="sandbox/products" text="productsTab"}} in the Particle console.
 
+
+### Product setup
+
+There are a number of things that this demo needs to function properly:
+
+- An API user so the webhook can publish an event
+- A webhook so the device can request its device groups
+- Two device groups; you can create more later if desired
+
+{{> webhook-demo-product-config options="apiUser:groups:list,webhook:deviceGroup,deviceGroups:GroupA:GroupB"}}
+
 ### Upload firmware to product
 
-This demo requ
+{{> webhook-demo-upload-firmware }} 
 
 ### Add devices to product
 
