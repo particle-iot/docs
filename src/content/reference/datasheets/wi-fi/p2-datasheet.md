@@ -452,7 +452,7 @@ Retained memory is preserved with the following limitations:
 - In limited cases when using pin reset (RESET button or externally triggered reset).
 
 By default, the retained memory is saved every 10 seconds, so changes made to retained variables between the last save and an unplanned system reset will
-be lost. Calling [`System.backupRamSync`](#backupramsync) on the P2 and Photon 2 can make sure the data is saved. The data is saved to a dedicated flash page in the RTL827x MCU 
+be lost. Calling [`System.backupRamSync`](/reference/device-os/api/system-calls/backupramsync/) on the P2 and Photon 2 can make sure the data is saved. The data is saved to a dedicated flash page in the RTL827x MCU 
 however you should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear.
 
 Prior to Device OS 5.3.1, retained memory is not supported. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
