@@ -647,6 +647,59 @@ $(document).ready(function() {
         updateAddDevice();
     };
 
+    const updateDevicesList = function() {
+        // webhookDemo.settings.platformId = parseInt(valString);
+        // webhookDemo.settings.platformName = await apiHelper.getPlatformName(webhookDemo.settings.platformId);
+        // apiHelper.deviceListCache.find(e => e.id == webhookDemo.settings.deviceId);
+        console.log('webhookDemo.settings.platformId ' + webhookDemo.settings.platformId );
+        console.log('apiHelper.deviceListCache', apiHelper.deviceListCache);
+        
+        let columns = [];
+        $('#sandboxDevicesTable > thead > tr > th').each(function() {
+            columns.push({
+                key: $(this).data('key'),
+            });
+        });
+        console.log('columns', columns);
+
+        $('#sandboxDevicesTable > tbody').empty();
+
+        for(const devObj of apiHelper.deviceListCache) {
+            if (devObj.platform_id != webhookDemo.settings.platformId) {
+                continue;
+            }
+
+            const rowElem = document.createElement('tr');
+
+            for(const colObj of columns) {
+                const cellElem = document.createElement('td');
+                switch(colObj.key) {
+                    case '_add':
+                        {
+                            const checkboxElem = document.createElement('input');
+                            $(cellElem).append(checkboxElem);
+                        }
+                        break;
+
+                    case '_product':
+                        break;
+
+                    default:
+                        if (devObj[colObj.key]) {
+                            $(cellElem).text(devObj[colObj.key]);
+                        }  
+                        else {
+                            $(cellElem).html('&nbsp;');
+                        }
+                        break;
+                }
+                $(rowElem).append(cellElem);
+            }
+        
+            $('#sandboxDevicesTable > tbody').append(rowElem);
+        }
+    };
+
     const sendControl = function(requestDataObj) {
         return new Promise(function(resolve, reject) {
             const request = {                
@@ -1138,6 +1191,7 @@ $(document).ready(function() {
         webhookDemo.settings.platformId = parseInt(valString);
         webhookDemo.settings.platformName = await apiHelper.getPlatformName(webhookDemo.settings.platformId);
 
+        updateDevicesList();
         updateSettings();
         updateProductSelector();
 
