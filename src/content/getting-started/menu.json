@@ -176,6 +176,12 @@
         "dir": "device-claiming",
         "title": "Device claiming",
         "href": "/getting-started/cloud/device-claiming/"
+      },
+      {
+        "dir": "function-publish-demo",
+        "title": "Function and publish demo",
+        "href": "/getting-started/cloud/function-publish-demo/",
+        "internal": true
       }
     ],
     {

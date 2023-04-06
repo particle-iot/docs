@@ -1170,6 +1170,9 @@ $(document).ready(function() {
     $('.webhookDemo[data-control="start"]').each(async function() {
         $(this).data('webhookDemo', webhookDemo);
 
+        webhookDemo.mode = $(this).data('mode');
+        webhookDemo.options = $(this).data('options').split(',');
+
         // Do stuff for browser compatibility checks here
 
         $('#canStart').show();
@@ -1207,6 +1210,16 @@ $(document).ready(function() {
 
             for(const platformName of platforms) {
                 const platformObj = webhookDemo.carriersJson.deviceConstants[platformName];
+
+                console.log('platformObj', platformObj);
+
+                if (!platformObj.productEligible) {
+                    continue;
+                }
+                if (platformObj.features.includes('trackerServices') && webhookDemo.options.includes('noTracker')) {
+                    continue;
+                }
+
                 const optionElem = document.createElement('option');
                 $(optionElem).text(platformObj.displayName + ' (' + platformObj.id + ')');
                 $(optionElem).attr('value', platformObj.id.toString());
