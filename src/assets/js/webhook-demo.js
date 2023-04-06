@@ -414,27 +414,6 @@ $(document).ready(function() {
     }
 
 
-    const updateAddDevice = function() {
-        $('.addDeviceOptions').hide();
-
-        if (!webhookDemo.deviceObj) {
-            $('.addDeviceNoDevice').show();
-        }
-        else
-        if (!webhookDemo.settings.productId) {
-            $('.addDeviceNoProduct').show();
-        }
-        else
-        if (webhookDemo.deviceObj.product_id == webhookDemo.settings.productId) {
-            $('.addDeviceAlreadyAdded').show();
-        }
-        else {
-            $('.addDeviceCanAddDevice').show();
-        }
-        updateCleanup();
-    }
-
-
     const updateCreateWebhook = function() {
         $('.createWebhookOptions').hide();
         $('.testWebhookOptions').hide();
@@ -563,7 +542,7 @@ $(document).ready(function() {
             await updateWebhookUrl();
         }
 
-        updateAddDevice();
+        updateCleanup();
     }
 
     const updateProduct = async function() {
@@ -597,9 +576,10 @@ $(document).ready(function() {
 
         console.log('updateProduct', webhookDemo);
 
-        updateAddDevice();
+        updateDevicesList();
         updateCreateWebhook();
         updateLinks();
+        updateCleanup();
 
         $('#startDemo').prop('disabled', false);
     }
@@ -613,7 +593,6 @@ $(document).ready(function() {
             auth: apiHelper.auth.access_token,
         })).body;
         
-        //apiHelper.deviceListCache.find(e => e.id == webhookDemo.settings.deviceId);
         const deviceSelectInfoElem = $('.deviceSelectInfo');
         const tbodyElem = $(deviceSelectInfoElem).find('tbody');
         $(deviceSelectInfoElem).show();
@@ -644,8 +623,182 @@ $(document).ready(function() {
         $('.platformSelected').show();
 
         updateProductSelector();
-        updateAddDevice();
+        updateCleanup();
     };
+
+    const updateDevicesAddButton = function() {
+        let enableCanAdd = false;
+        for(const addDevObj of webhookDemo.addDevicesTable) {
+            if (addDevObj.canAdd && $(addDevObj.checkboxElem).prop('checked')) {
+                enableCanAdd = true;
+            }
+        }
+        $('#addDevicesButton').prop('disabled', !enableCanAdd);
+    }
+
+    const updateDevicesList = function() {        
+        if (!webhookDemo.settings.productId) {
+            $('#addDevicesNoProductDiv').show();
+            $('#addDevicesTableDiv').hide();
+            return;
+        }
+        $('#addDevicesNoProductDiv').hide();
+        $('#addDevicesTableDiv').show();
+
+        // webhookDemo.settings.platformId = parseInt(valString);
+        // webhookDemo.settings.platformName = await apiHelper.getPlatformName(webhookDemo.settings.platformId);
+        console.log('webhookDemo.settings.platformId ' + webhookDemo.settings.platformId );
+        
+        let columns = [];
+        $('#sandboxDevicesTable > thead > tr > th').each(function() {
+            columns.push({
+                key: $(this).data('key'),
+            });
+        });
+        console.log('columns', columns);
+
+        $('#sandboxDevicesTable > tbody').empty();
+
+        webhookDemo.addDevicesTable = [];
+
+        for(const devObj of webhookDemo.sandboxDevices) {
+            if (devObj.platform_id != webhookDemo.settings.platformId) {
+                continue;
+            }
+
+            const rowElem = document.createElement('tr');
+            let checkboxElem;
+            let alreadyAdded = false;
+            let canAdd = false;
+
+            for(const colObj of columns) {
+                const cellElem = document.createElement('td');
+                switch(colObj.key) {
+                    case '_add':
+                        {
+                            checkboxElem = document.createElement('input');
+                            $(checkboxElem).attr('type', 'checkbox');
+                            $(cellElem).append(checkboxElem);
+
+                            $(checkboxElem).on('click', function() {
+                                updateDevicesAddButton();
+                            })
+                        }
+                        break;
+
+                    case '_product':
+                        if (devObj.product_id == webhookDemo.settings.productId) {
+                            $(cellElem).text('Already added to product');
+                            $(checkboxElem).attr('checked', false);
+                            $(checkboxElem).attr('disabled', true);
+                            alreadyAdded = true;
+                        }
+                        else 
+                        if (devObj.product_id == devObj.platform_id) {
+                            $(cellElem).text('Sandbox device');
+                            canAdd = true;
+                        }
+                        else {
+                            if (webhookDemo.productsNames[devObj.product_id]) {
+                                $(cellElem).text('Product ' + webhookDemo.productsNames[devObj.product_id]);
+                            }
+                            else {
+                                $(cellElem).text('Product ' + devObj.product_id);
+                            }
+                            canAdd = true;
+                        }
+                        break;
+
+                    default:
+                        if (devObj[colObj.key]) {
+                            $(cellElem).text(devObj[colObj.key]);
+                        }  
+                        else {
+                            $(cellElem).html('&nbsp;');
+                        }
+                        break;
+                }
+                $(rowElem).append(cellElem);
+            }
+            webhookDemo.addDevicesTable.push({
+                devObj,
+                rowElem,
+                checkboxElem,
+                alreadyAdded,
+                canAdd,
+            });
+
+            $('#sandboxDevicesTable > tbody').append(rowElem);
+        }
+
+        updateDevicesAddButton();
+
+    };
+
+    $('#addDevicesButton').on('click', async function() {
+        $('#addDevicesButton').prop('disabled', true);
+
+        const setStatus = function(s) {
+            $('#addDevicesStatusDiv').text(s);
+        }
+        
+        let devicesToImport = [];
+        for(const addDevObj of webhookDemo.addDevicesTable) {
+            if (addDevObj.canAdd && $(addDevObj.checkboxElem).prop('checked')) {
+                devicesToImport.push(addDevObj.devObj.id);
+            }
+        }
+        console.log('devicesToImport', devicesToImport);
+        if (devicesToImport.length == 0) {
+            return;
+        }
+
+        if (devicesToImport.length == 1) {
+            setStatus('Importing device to product...')
+        }
+        else {
+            setStatus('Importing ' + devicesToImport.length + ' devices to product...')
+        }
+
+        try {
+            let formData = new FormData();
+        
+            let blob = new Blob([devicesToImport.join('\n')], {type:'text/plain'});
+            formData.append('file', blob, 'devices.txt');
+            formData.append('import_sims', 'true');
+            formData.append('claim_user', apiHelper.auth.username);
+    
+            const importRes = await new Promise(function(resolve, reject) {
+                $.ajax({
+                    data: formData,
+                    contentType: false,
+                    error: function(err) {
+                        console.log('error importing devices', err);
+                        reject(err);
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                        'Accept': 'application/json'
+                    },
+                    method: 'POST',
+                    processData: false,
+                    success: function (resp) {
+                        resolve(resp);
+                    },
+                    url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices'
+                });    
+            });
+            console.log('importRes', importRes);
+    
+            setStatus('Importing devices successful!');
+        }
+        catch(e) {
+            setStatus('Importing failed')
+        }
+
+        webhookDemo.sandboxDevices = await apiHelper.getAllDevices({});
+        updateDevicesList();
+    });
 
     const sendControl = function(requestDataObj) {
         return new Promise(function(resolve, reject) {
@@ -1036,94 +1189,115 @@ $(document).ready(function() {
 
     });
 
+    const carriersPromise = new Promise(function(resolve, reject) {
+        apiHelper.getCarriersJson().then(function(carriersJsonIn) {
+            webhookDemo.carriersJson = carriersJsonIn;
+
+            let platforms = [];
+            
+            for(const platformName in webhookDemo.carriersJson.deviceConstants) {
+                const platformObj = webhookDemo.carriersJson.deviceConstants[platformName];
+                if (platformObj.productEligible) {
+                    platforms.push(platformName);
+                }
+            }
+            platforms.sort(function(a, b) {
+                return carriersJson.deviceConstants[a].displayName.localeCompare(webhookDemo.carriersJson.deviceConstants[b].displayName);
+            })
+
+            for(const platformName of platforms) {
+                const platformObj = webhookDemo.carriersJson.deviceConstants[platformName];
+                const optionElem = document.createElement('option');
+                $(optionElem).text(platformObj.displayName + ' (' + platformObj.id + ')');
+                $(optionElem).attr('value', platformObj.id.toString());
+                $('#devicePlatformSelect').append(optionElem);    
+            }
+            resolve();
+        });
+    });
+
     const deviceListSelectElem = $('.deviceListSelect');
 
-    
-    apiHelper.getProducts().then(function(data) {
-        webhookDemo.productsData = data;
-
-        webhookDemo.productsData.products.sort(function (a, b) {
-            return a.name.localeCompare(b.name);
-        });
-
-        webhookDemo.productsNames = {};
+    const productsPromise = new Promise(function(resolve, reject) {
         
-        for(const p of webhookDemo.productsData.products) {
-            webhookDemo.productsNames[p.id.toString()] = p.name;
-        }
+        apiHelper.getProducts().then(function(data) {
+            webhookDemo.productsData = data;
 
-        apiHelper.deviceList(deviceListSelectElem, {
-            deviceFilter: function(dev) {
-                return true;
-            },
-            getTitle: function(dev) {
-                let result;
+            webhookDemo.productsData.products.sort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            });
 
-                if (dev.name) {
-                    result = dev.name;
-                }
-                else {
-                    result = dev.id;
-                }
-                result += (dev.online ? '' : ' (offline)');
+            webhookDemo.productsNames = {};
+            
+            for(const p of webhookDemo.productsData.products) {
+                webhookDemo.productsNames[p.id.toString()] = p.name;
+            }
 
-                if (dev.product_id != dev.platform_id) {
-                    if (webhookDemo.productsNames[dev.product_id]) {
-                        result += ' (product ' + webhookDemo.productsNames[dev.product_id] + ')';
+            /*
+            apiHelper.deviceList(deviceListSelectElem, {
+                deviceFilter: function(dev) {
+                    return true;
+                },
+                getTitle: function(dev) {
+                    let result;
+
+                    if (dev.name) {
+                        result = dev.name;
                     }
                     else {
-                        result += ' (product ' + dev.product_id + ')';
+                        result = dev.id;
                     }
-                }
+                    result += (dev.online ? '' : ' (offline)');
 
-                return result;
-            },                    
-            hasRefresh: true,
-            hasSelectDevice: true,
-            onChange: async function(elem) {
-                gtag('event', 'selectedDevice', {'event_category':gaCategory});
-                webhookDemo.settings.deviceId = $(elem).val();
-                await updateDevice();
-            },
-            onUpdateList: async function() {
-                if (webhookDemo.settings.deviceId) {
-                    $(deviceListSelectElem).val(webhookDemo.settings.deviceId);
-                    if ($(deviceListSelectElem).val() == webhookDemo.settings.deviceId) {
-                        await updateDevice();
+                    if (dev.product_id != dev.platform_id) {
+                        if (webhookDemo.productsNames[dev.product_id]) {
+                            result += ' (product ' + webhookDemo.productsNames[dev.product_id] + ')';
+                        }
+                        else {
+                            result += ' (product ' + dev.product_id + ')';
+                        }
                     }
-                }
-            },
-        }); 
 
+                    return result;
+                },                    
+                hasRefresh: true,
+                hasSelectDevice: true,
+                onChange: async function(elem) {
+                    gtag('event', 'selectedDevice', {'event_category':gaCategory});
+                    webhookDemo.settings.deviceId = $(elem).val();
+                    await updateDevice();
+                },
+                onUpdateList: async function() {
+                    if (webhookDemo.settings.deviceId) {
+                        $(deviceListSelectElem).val(webhookDemo.settings.deviceId);
+                        if ($(deviceListSelectElem).val() == webhookDemo.settings.deviceId) {
+                            await updateDevice();
+                        }
+                    }
+                },
+            }); 
+            */
+           
+            resolve();
+        });
+    });
+
+    const devicesPromise = new Promise(function(resolve, reject) {
+        apiHelper.getAllDevices({}).then(function(devices) {
+            webhookDemo.sandboxDevices = devices;
+            resolve();
+        });
+    });
+
+
+    Promise.all([carriersPromise, productsPromise, devicesPromise]).then(function() {
+        if (webhookDemo.settings.platformId) {
+            $('#devicePlatformSelect').val(webhookDemo.settings.platformId.toString());
+            $('#devicePlatformSelect').trigger('change');
+        }
     });
 
     
-
-    apiHelper.getCarriersJson().then(function(carriersJsonIn) {
-        webhookDemo.carriersJson = carriersJsonIn;
-
-        let platforms = [];
-        
-        for(const platformName in webhookDemo.carriersJson.deviceConstants) {
-            const platformObj = webhookDemo.carriersJson.deviceConstants[platformName];
-            if (platformObj.productEligible) {
-                platforms.push(platformName);
-            }
-        }
-        platforms.sort(function(a, b) {
-            return carriersJson.deviceConstants[a].displayName.localeCompare(webhookDemo.carriersJson.deviceConstants[b].displayName);
-        })
-
-        for(const platformName of platforms) {
-            const platformObj = webhookDemo.carriersJson.deviceConstants[platformName];
-            const optionElem = document.createElement('option');
-            $(optionElem).text(platformObj.displayName + ' (' + platformObj.id + ')');
-            $(optionElem).attr('value', platformObj.id.toString());
-            $('#devicePlatformSelect').append(optionElem);    
-        }
-
-    });
-
     $('#devicePlatformSelect').on('change', async function() {
         const valString = $(this).val();
         if (valString == '-') {
@@ -1137,7 +1311,9 @@ $(document).ready(function() {
 
         webhookDemo.settings.platformId = parseInt(valString);
         webhookDemo.settings.platformName = await apiHelper.getPlatformName(webhookDemo.settings.platformId);
+        webhookDemo.settings.productId = 0;
 
+        updateDevicesList();
         updateSettings();
         updateProductSelector();
 
@@ -1160,7 +1336,7 @@ $(document).ready(function() {
 
             webhookDemo.settings.productId = 0;
             updateSettings();
-            updateAddDevice();
+            updateCleanup();
         }
         else {
             $('#createNewProductButton').prop('disabled', true);
@@ -1397,6 +1573,9 @@ $(document).ready(function() {
             webhookDemo.productInfo = null;
             webhookDemo.webhooks = null;
             webhookDemo.productFirmware = null;
+
+            webhookDemo.sandboxDevices = await apiHelper.getAllDevices({});
+            updateDevicesList();
         }
 
         updateSettings();

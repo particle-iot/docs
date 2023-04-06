@@ -19,28 +19,23 @@ In order to use this tutorial, you must be logged into your Particle account:
 
 In this section we'll set up a product, add your device, and create a webhook.
 
-### Select a device
-
-It works best if you already have a Particle device set up and claimed to your account, but you can still go through parts of this tutorial without a device. Just skip to the next step if you don't have a device yet.
-
-{{> webhook-demo-select-device}}
-
-
 ### Select a product
 
-You should typically start with a product. You'll eventually need one to scale, and it makes it easier to group devices. This demo requires a product, and you should generally create a new one just for this demo.
+You should typically start with a product. You'll eventually need one to scale, and it makes it easier to group devices. 
+
+This demo requires a product, and you should generally create a new one just for this demo. Each product can only have a single device platform, so you must select that first.
 
 {{> webhook-demo-select-product}}
 
 You can find all of your sandbox products in the {{webhook-demo-link link="sandbox/products" text="productsTab"}} in the Particle console.
 
-### Add device to product
+### Add devices to product
 
-Whenever you have a product, you must add devices to it. When you scale, you will typically add all of the devices in your order at once, as you will be emailed a list of the Device IDs in your order. 
+Whenever you have a product, you must add devices to it. When you scale, you will typically add all of the devices in your order at once, as you will be emailed a list of the Device IDs in your order. In the growth and enterprise plans, just adding the Device ID to the product does not affect billing; billing only starts the first time the device connects to the Particle cloud.
 
-In the growth and enterprise plans, just adding the Device ID to the product does not affect billing; billing only starts the first time the device connects to the Particle cloud.
+For this demo, you can just select existing devices from your developer sandbox to use in this tutorial. If you do not have a device yet, you can skip this step and use the **Test** feature to show how the webhook works without a device.
 
-{{> webhook-demo-add-device}}
+{{> webhook-demo-add-devices}}
 
 You will normally use the **Add Devices** button in the {{webhook-demo-link link="devices" text="devices tab"}} in the console to do this in your real products.
 
