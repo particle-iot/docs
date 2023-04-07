@@ -34,17 +34,15 @@ Starting the demo will start monitoring events and set up the product you have s
 
 ### Product setup
 
-There are a number of things that this demo needs to function properly:
-
-- An API user so the webhook can publish an event
-- A webhook so the device can request its device groups
-- Two device groups; you can create more later if desired
-
 {{> webhook-demo-product-config options="functionPublishApiUser,functionPublishWebhook,functionPublishDeviceGroups"}}
 
 ### Upload firmware to product
 
 {{> webhook-demo-upload-firmware }} 
+
+
+{{> project-browser project="function-publish-demo" default-file="src/function-publish-demo.cpp" height="400" flash="true"}}
+
 
 ### Add devices to product
 
@@ -55,4 +53,19 @@ For this demo, you can just select existing devices from your developer sandbox 
 {{> webhook-demo-add-devices}}
 
 You will normally use the **Add Devices** button in the {{webhook-demo-link link="devices" text="devices tab"}} in the console to do this in your real products.
+
+### Your device fleet
+
+This control shows the status of devices in your product fleet. It's similar to the {{webhook-demo-link link="devices" text="devices tab"}} in your product in the console.
+
+{{> webhook-demo-fleet groups="1"}}
+
+
+### Functions
+
+{{> webhook-demo-function-publish-function}}
+
+### Publish
+
+{{> webhook-demo-function-publish-publish}}
 
