@@ -26,6 +26,11 @@ This demo requires a product, and you should create a new one just for this demo
 
 You can find all of your sandbox products in the {{webhook-demo-link link="sandbox/products" text="productsTab"}} in the Particle console.
 
+### Start demo
+
+Starting the demo will start monitoring events and set up the product you have selected.
+
+{{> webhook-demo-start mode="function-publish" options="noTracker"}}
 
 ### Product setup
 
@@ -35,7 +40,7 @@ There are a number of things that this demo needs to function properly:
 - A webhook so the device can request its device groups
 - Two device groups; you can create more later if desired
 
-{{> webhook-demo-product-config options="apiUser:groups:list,webhook:deviceGroup,deviceGroups:GroupA:GroupB"}}
+{{> webhook-demo-product-config options="functionPublishApiUser,functionPublishWebhook,functionPublishDeviceGroups"}}
 
 ### Upload firmware to product
 
@@ -51,8 +56,3 @@ For this demo, you can just select existing devices from your developer sandbox 
 
 You will normally use the **Add Devices** button in the {{webhook-demo-link link="devices" text="devices tab"}} in the console to do this in your real products.
 
-### Start demo
-
-Starting the demo will start monitoring events.
-
-{{> webhook-demo-start mode="function-publish" options="noTracker"}}
