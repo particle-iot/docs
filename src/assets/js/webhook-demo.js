@@ -599,10 +599,10 @@ $(document).ready(function() {
                 $(optionElem).attr('value', dev.id);
 
                 if (dev.name) {
-                    $(optionElem).text(dev.name);
+                    $(optionElem).text(dev.name + ' (' + dev.id + ')');
                 }
                 else {
-                    $(optionElem).text(dev.id.toString());
+                    $(optionElem).text(dev.id);
                 }
                 $(deviceSelectElem).append(optionElem);
             }
@@ -661,7 +661,7 @@ $(document).ready(function() {
                 const requestObj = {
                     arg: JSON.stringify(groupRequestObj),
                 };
-                
+
                 const url = 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' +  options.deviceId + '/setDeviceGroups';
                 console.log('call function', url);
     
@@ -1440,7 +1440,7 @@ $(document).ready(function() {
                                 if (webhookDemo.deviceGroups.groups.length > 0) {
                                     let groupNames = [];
 
-                                    for(const group of getResp.groups) {
+                                    for(const group of webhookDemo.deviceGroups.groups) {
                                         groupNames.push(group.name);
 
                                         const optionElem = document.createElement('option');

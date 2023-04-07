@@ -54,18 +54,46 @@ For this demo, you can just select existing devices from your developer sandbox 
 
 You will normally use the **Add Devices** button in the {{webhook-demo-link link="devices" text="devices tab"}} in the console to do this in your real products.
 
+## Testing
+
+The test firmware updates the status LED color of the device on request from the cloud in several situations:
+
+- A function call to the specified device
+- A publish of the `setColor` event to all devices in the product
+- A publish to the group-specific event, such as `groupa/setColor`. This event will trigger all devices in `groupa` to set their status LED color.
+
 ### Your device fleet
 
 This control shows the status of devices in your product fleet. It's similar to the {{webhook-demo-link link="devices" text="devices tab"}} in your product in the console.
 
 {{> webhook-demo-fleet options="groupSelector"}}
 
+Use the `groupa` and `groupb` checkboxes to set some devices to `groupa` and some to `groupb`. A device can be in more than one group, if desired.
+
+The test firmware uses a library to allow the device to monitor its device group assignments and automatically change what it responds to within a few seconds of changing the settings using the control above.
+
+If the device is offline or in sleep mode, it will get the current device group settings from the cloud after it comes online.
 
 ### Functions
 
 {{> webhook-demo-function-publish-function}}
 
+This control will set the status LED of the specified device to the specified color for 10 seconds.
+
+Functions are directed at a single device, by its Device ID. This is good when you want to control a single device at a time.
+
+You can only call functions when the device is online. If the device is turned off or in sleep mode, the function call will fail with an error.
+
+Unlike publish, however, the error indicates that the function was or was not handled. With publish, there is no indication to the caller whether any device received the publish.
+
 ### Publish
 
 {{> webhook-demo-function-publish-publish}}
 
+This control will set the status LED of all devices or certain device groups to the specified color for 10 seconds.
+
+Publish goes out to zero or more devices. This is handy when you need to broadcast to many devices, or a selection of devices, at the same time.
+
+The downside is that you don't know whether any devices received the publish, and if the device is offline, the publish is lost forever and the device will not receive it later.
+
+## Firmware explanation
