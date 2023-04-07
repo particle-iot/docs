@@ -58,7 +58,7 @@ You will normally use the **Add Devices** button in the {{webhook-demo-link link
 
 This control shows the status of devices in your product fleet. It's similar to the {{webhook-demo-link link="devices" text="devices tab"}} in your product in the console.
 
-{{> webhook-demo-fleet groups="1"}}
+{{> webhook-demo-fleet options="groupSelector"}}
 
 
 ### Functions

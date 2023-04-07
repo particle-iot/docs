@@ -562,6 +562,25 @@ $(document).ready(function() {
             auth: apiHelper.auth.access_token,
         })).body;
 
+        webhookDemo.deviceGroups = await new Promise(function(resolve, reject) {                
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    reject(jqXHR);
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    resolve(resp);
+                },
+                url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/groups',
+            }
+            $.ajax(request);
+        });
+        console.log('webhookDemo.deviceGroups', webhookDemo.deviceGroups);
 
         console.log('updateProduct', webhookDemo);
 
@@ -595,6 +614,84 @@ $(document).ready(function() {
     }
 
 
+    const updateGroups = async function(options) {
+        console.log('updateGroups', options);
+        let requestDataObj = {
+            groups: options.groups,
+        };
+        console.log('requestDataObj', requestDataObj);
+
+        try {
+            const setResp = await new Promise(function(resolve, reject) {
+                const request = {                
+                    contentType: 'application/json',
+                    data: JSON.stringify(requestDataObj),
+                    dataType: 'json',
+                    error: function (jqXHR) {
+                        console.log('control error', jqXHR);
+                        reject();
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                        'Accept': 'application/json'
+                    },
+                    method: 'PUT',
+                    success: function (resp, textStatus, jqXHR) {
+                        console.log('control success', resp);                
+                        resolve(resp);
+                    },
+                    url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' + options.deviceId,
+                };
+    
+                $.ajax(request);
+            });
+            console.log('setResp', setResp);
+    
+            webhookDemo.deviceObj = (await apiHelper.particle.getDevice({
+                deviceId: options.deviceId,
+                auth: apiHelper.auth.access_token,
+            })).body;
+    
+            const callResp = await new Promise(function(resolve, reject) {
+    
+                const groupRequestObj = {
+                    groups: options.groups,
+                }
+
+                const requestObj = {
+                    arg: JSON.stringify(groupRequestObj),
+                };
+                
+                const url = 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' +  options.deviceId + '/setDeviceGroups';
+                console.log('call function', url);
+    
+                let request = {
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    data: JSON.stringify(requestObj),
+                    error: function (jqXHR) {
+                        reject(jqXHR);
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                        'Accept': 'application/json'
+                    },
+                    method: 'POST',
+                    success: function (resp, textStatus, jqXHR) {
+                        resolve(resp);
+                    },
+                    url,
+                }
+    
+                $.ajax(request);
+            });
+            console.log('call resp', callResp);        
+        }
+        catch(e) {
+            console.log('exception updating groups', e);
+        }
+
+    }
 
     const updateDevice = async function() {
         // webhookDemo.settings.deviceId
@@ -999,6 +1096,7 @@ $(document).ready(function() {
 
     // Forward declared above
     updateFleet = function(options = {}) {
+        const fleetOptions = $('.webhookDemo[data-control="fleet"]').data('options').split(',');
 
         if (!options.deviceId) {
             $('#fleetTable').empty();
@@ -1006,12 +1104,31 @@ $(document).ready(function() {
             webhookDemo.fleetColumns = [];
             webhookDemo.fleetRows = [];
 
+            $('#fleetHeader > tr > th').find('.groupColumn').remove();
+
             $('#fleetHeader > tr > th').each(function() {
                 webhookDemo.fleetColumns.push({
                     key: $(this).data('key'),
                     style: $(this).data('style'),
                 });
             });
+
+            if (fleetOptions.includes('groupSelector')) {                
+                // .groups
+                for(const groupObj of webhookDemo.deviceGroups.groups) {
+                    const thElem = document.createElement('th');
+                    $(thElem).addClass('groupColumn');
+                    $(thElem).text(groupObj.name);
+                    $('#fleetHeader > tr').append(thElem);
+
+                    webhookDemo.fleetColumns.push({
+                        name: groupObj.name,
+                        style: 'groupCheckbox',
+                    });
+                }
+            }
+
+
 
             for(const deviceObj of webhookDemo.productDevices) {
                 const rowElem = document.createElement('tr');
@@ -1044,33 +1161,64 @@ $(document).ready(function() {
             for(const colObj of webhookDemo.fleetColumns) {
                 const cellElem = document.createElement('td');
 
-                if (deviceObj[colObj.key]) {
-                    switch(colObj.key) {
-                        case 'groups':
-                            $(cellElem).text(deviceObj[colObj.key].join(', '));
-                            break;
+                switch(colObj.key) {
+                    case 'groups':
+                        $(cellElem).text(deviceObj[colObj.key].join(', '));
+                        break;
 
-                        default:
-                            switch(colObj.style) {
-                                case 'greenCheck':
-                                    if (deviceObj[colObj.key]) {
-                                        $(cellElem).html('\u2705'); // green check
-                                    }
-                                    else {
-                                        $(cellElem).html('&nbsp;');
-                                    }
-                                    break;
+                    default:
+                        switch(colObj.style) {
+                            case 'greenCheck':
+                                if (deviceObj[colObj.key]) {
+                                    $(cellElem).html('\u2705'); // green check
+                                }
+                                else {
+                                    $(cellElem).html('&nbsp;');
+                                }
+                                break;
 
-                                default:
+                            case 'groupCheckbox':
+                                {
+                                    const checkboxElem = document.createElement('input');
+                                    $(checkboxElem).attr('type', 'checkbox');
+                                    if (deviceObj.groups && deviceObj.groups.includes(colObj.name)) {
+                                        $(checkboxElem).attr('checked', 'checked');
+                                    }
+                                    $(checkboxElem).on('click', async function() {
+                                        const checked = $(checkboxElem).prop('checked');
+                                        let newGroups = [];
+                                        if (checked) {
+                                            newGroups = deviceObj.groups;
+                                            newGroups.push(colObj.name);
+                                        }
+                                        else {
+                                            for(const g of deviceObj.groups) {
+                                                if (g != colObj.name) {
+                                                    newGroups.push(g);
+                                                }
+                                            }
+                                        }
+                                        await updateGroups({
+                                            deviceId: deviceObj.id,
+                                            groups: newGroups,
+                                        });
+                                    });
+                                    $(cellElem).append(checkboxElem);    
+                                }
+                                break;
+
+                            default:
+                                if (deviceObj[colObj.key]) {
                                     $(cellElem).text(deviceObj[colObj.key]);
-                                    break;
-                            }
-                            break;
-                    }
+                                }
+                                else {
+                                    $(cellElem).html('&nbsp;');
+                                }
+                                break;
+                        }
+                        break;
                 }
-                else {
-                    $(cellElem).html('&nbsp;');
-                }
+            
 
                 $(fleetRowObj.rowElem).append(cellElem);
             }
@@ -1286,16 +1434,10 @@ $(document).ready(function() {
                             msg += 'Two sample device groups are required. You can add more later.';
                             setExplanationText(msg);
             
-                            try {
-                                const getResp = await simpleProductRequest({
-                                    method: 'GET',
-                                    api: 'groups',
-                                });
-                                console.log('groups getResp', getResp);
-                                
+                            try {                                
                                 $('.webhookDemoProductGroupSelect > option').not(':first').remove();
 
-                                if (getResp.groups.length > 0) {
+                                if (webhookDemo.deviceGroups.groups.length > 0) {
                                     let groupNames = [];
 
                                     for(const group of getResp.groups) {
@@ -1306,9 +1448,7 @@ $(document).ready(function() {
                                         $(optionElem).text(group.name);
                                         $('.webhookDemoProductGroupSelect').append(optionElem);
                                     }
-
-                                    
-
+                        
                                     setStatusText('The product already has device groups configured; using existing groups: ' + groupNames.join(', '));
                                     break;
                                 }

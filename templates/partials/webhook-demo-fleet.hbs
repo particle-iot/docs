@@ -1,4 +1,4 @@
-<div class="webhookDemo apiHelper" data-control="fleet">
+<div class="webhookDemo apiHelper" data-control="fleet" data-options="{{options}}">
     <div class="apiHelperBox">
         <div class="showWhenStarted" style="display:none">
             <table class="apiHelperTableNoMargin">
@@ -8,7 +8,6 @@
                         <th data-key="id">Device ID</th>
                         <th data-key="online" data-style="greenCheck">Online</th>
                         {{#if deviceOsVersion}}<th data-key="system_firmware_version">Device OS Version</th>{{/if}}
-                        {{#if groups}}<th data-key="groups">Groups</th>{{/if}}
                     </tr>
                 </thead>
                 <tbody id="fleetTable">

@@ -21,6 +21,7 @@ void setup()
     DeviceGroupHelper::instance()
         .withRetrievalModeAtStart()
         .withNotifyCallback(groupCallback)
+        .withFunction("setDeviceGroups")
         .setup();   
 }
 
