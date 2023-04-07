@@ -21,17 +21,6 @@ $(document).ready(function() {
         settings: {},
     };
 
-    try {
-        const s = localStorage.getItem(localStorageKey);
-        if (s) {
-            webhookDemo.settings = JSON.parse(s);
-            if (webhookDemo.settings.username != apiHelper.auth.username) {
-                webhookDemo.settings = {};
-            }    
-        }
-    }
-    catch(e) {        
-    }
     webhookDemo.settings.username = apiHelper.auth.username;
 
     const updateSettings = function() {
@@ -1146,7 +1135,6 @@ $(document).ready(function() {
                     return new Promise(function(resolve, reject) {                
                         let request = {
                             dataType: 'json',
-                            data: options.data,
                             error: function (jqXHR) {
                                 reject(jqXHR);
                             },
@@ -1159,6 +1147,10 @@ $(document).ready(function() {
                                 resolve(resp);
                             },
                             url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/' + options.api,
+                        }
+                        if (options.json) {
+                            request.contentType = 'application/json';
+                            request.data = JSON.stringify(options.json);
                         }
         
                         $.ajax(request);
@@ -1278,6 +1270,37 @@ $(document).ready(function() {
                                 });
                                 console.log('groups getResp', getResp);
                                 
+                                if (getResp.groups.length > 0) {
+                                    setStatusText('The product already has device groups configured; using existing groups.');
+                                    break;
+                                }
+
+                                const groups = [
+                                    {
+                                        name: 'GroupA',
+                                        group: 'Testing group A',
+                                        // color: 
+                                    },
+                                    {
+                                        name: 'GroupB',
+                                        group: 'Testing group B',
+                                        // color: 
+                                    },
+                                ];
+
+                                for(const group of groups) {
+                                    console.log('creating group');
+
+                                    const postResp = await simpleProductRequest({
+                                        method: 'POST',
+                                        api: 'groups',
+                                        json: group,
+                                    });
+                                    console.log('groups postResp', postResp);
+                                }
+
+                                setStatusText('Created ' + groups.length + ' device groups for testing purposes.');
+
                             }
                             catch(e) {
                                 console.log('device groups exception', e);
@@ -1425,7 +1448,19 @@ $(document).ready(function() {
         }
     
         webhookDemo.options = $(this).data('options').split(',');
-            
+
+        try {
+            const s = localStorage.getItem(localStorageKey);
+            if (s) {
+                webhookDemo.settings = JSON.parse(s);
+                if (webhookDemo.settings.username != apiHelper.auth.username) {
+                    webhookDemo.settings = {};
+                }    
+            }
+        }
+        catch(e) {        
+        }
+    
         gtag('event', 'opened', {'event_category':gaCategory});
 
         // Do stuff for browser compatibility checks here
@@ -1557,6 +1592,7 @@ $(document).ready(function() {
 
 
     Promise.all([carriersPromise, productsPromise, devicesPromise]).then(function() {
+        console.log('promise done', webhookDemo.settings)
         if (webhookDemo.settings.platformId) {
             $('#devicePlatformSelect').val(webhookDemo.settings.platformId.toString());
             $('#devicePlatformSelect').trigger('change');
