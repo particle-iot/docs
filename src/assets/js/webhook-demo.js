@@ -1485,20 +1485,123 @@ $(document).ready(function() {
                             }
                         }
                         break;
+
+                    case 'functionPublishFirmware':
+                        {
+                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Product firmware');
+    
+                            let msg = '';
+                            msg += 'This demo requires product firmware.';
+                            setExplanationText(msg);
+
+                            console.log('webhookDemo.productFirmware', webhookDemo.productFirmware);
+                            
+                            if (webhookDemo.productFirmware.length != 0) {
+                                setStatus('It appears that the firmware has already been compiled and uploaded. Using existing firmware.');
+                                break;
+                            }
+                            
+                            try {
+                                setStatusText('Getting project firmware...');
+                                const getFormData = $('.apiHelperProjectBrowser').data('getFormData');
+                                const formData = await getFormData({
+                                    product_id: webhookDemo.settings.productId,
+                                    platform_id: webhookDemo.settings.platformId,
+                                    // build_target_version
+                                });
+                                
+                                setStatusText('Compiling firmware binary...');
+
+                                const compileRes = await new Promise(function(resolve, reject) {
+                                    const request = {
+                                        contentType: false,
+                                        data: formData,
+                                        dataType: 'json',
+                                        error: function (jqXHR) {
+                                            /*
+                                            gtag('event', 'Flash Device Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
+                                            if (startTimer) {
+                                                clearTimeout(startTimer);
+                                                startTimer = null;
+                                            }
+                                            setStatus('Compile and flash failed');
+                                            $(flashDeviceButton).prop('disabled', false);
+                                            */
+                                           reject(jqXHR);
+                                        },
+                                        headers: {
+                                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                            'Accept': 'application/json'
+                                        },
+                                        method: 'POST',
+                                        processData: false,
+                                        success: function (resp, textStatus, jqXHR) {
+                                            /*
+                                            gtag('event', 'Flash Device Success', {'event_category':gaCategory});
+                                            if (startTimer) {
+                                                clearTimeout(startTimer);
+                                                startTimer = null;
+                                            }
+                                            setStatus('Compile succeeded, flash started!');
+                                            $(flashDeviceButton).prop('disabled', false);
+                        
+                                            setTimeout(function() {
+                                                setStatus('');
+                                            }, 8000);            
+                                            */
+                                           resolve(resp);    
+                                        },
+                                        url: 'https://api.particle.io/v1/binaries/',
+                                    };
+                        
+                                    $.ajax(request);
+                                });
+
+                                console.log('compileRes', compileRes);
+
+                                setStatusText('Downloading firmware binary...');
+
+                                const binary = await new Promise(function(resolve, reject) {
+                                    fetch('https://api.particle.io' + compileRes.binary_url + '?access_token=' + apiHelper.auth.access_token) 
+                                        .then(response => response.arrayBuffer())
+                                        .then(buffer => resolve(buffer));
+                                });
+                                
+                                /*
+
+                                const downloadBinaryRes = await new Promise(function(resolve, reject) {
+                                    const request = {
+                                        error: function (jqXHR) {
+
+                                           reject(jqXHR);
+                                        },
+                                        method: 'GET',
+                                        processData: false,
+                                        success: function (resp, textStatus, jqXHR) {
+
+                                           resolve(resp);    
+                                        },
+                                        url: 'https://api.particle.io' + compileRes.binary_url + '?access_token=' + apiHelper.auth.access_token,
+                                    };
+                        
+                                    $.ajax(request);
+                                });
+                                */
+                                console.log('binary', binary);
+
+                                setStatusText('Project firmware updated!');
+                            }
+                            catch(e) {
+                                console.log('compile firmware exception', e);
+                            }
+                        }
+                        break;
     
                 }
     
     
                 $(boxElem).append(outerDivElem);
             }
-        });
-    
-        $('.webhookDemo[data-control="upload-firmware"]').each(async function() {
-            webhookDemo.productConfigOptions = $(this).data('options').split(',');
-    
-            const boxElem = $(this).find('.apiHelperBox');
-    
-            console.log('upload-firmware');
         });
                 
         $('.webhookDemo[data-control="function-publish-function"]').each(async function() {

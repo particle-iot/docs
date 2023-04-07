@@ -34,15 +34,7 @@ Starting the demo will start monitoring events and set up the product you have s
 
 ### Product setup
 
-{{> webhook-demo-product-config options="functionPublishApiUser,functionPublishWebhook,functionPublishDeviceGroups"}}
-
-### Upload firmware to product
-
-{{> webhook-demo-upload-firmware }} 
-
-
-{{> project-browser project="function-publish-demo" default-file="src/function-publish-demo.cpp" height="400" flash="true"}}
-
+{{> webhook-demo-product-config options="functionPublishApiUser,functionPublishWebhook,functionPublishDeviceGroups,functionPublishFirmware"}}
 
 ### Add devices to product
 
@@ -97,3 +89,6 @@ Publish goes out to zero or more devices. This is handy when you need to broadca
 The downside is that you don't know whether any devices received the publish, and if the device is offline, the publish is lost forever and the device will not receive it later.
 
 ## Firmware explanation
+
+{{> project-browser project="function-publish-demo" default-file="src/function-publish-demo.cpp" height="400" flash="true"}}
+
