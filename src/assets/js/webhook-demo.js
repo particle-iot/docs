@@ -534,9 +534,7 @@ $(document).ready(function() {
         updateCleanup();
     }
 
-    const updateProduct = async function() {
-        // webhookDemo.settings.productId
-
+    const updateProductDevices = async function() {
         webhookDemo.productDevices = await apiHelper.getAllDevices({
             productId: webhookDemo.settings.productId,
         });
@@ -546,6 +544,31 @@ $(document).ready(function() {
             webhookDemo.deviceNames[dev.id] = dev.name || dev.id;
         }
         // console.log('webhookDemo.deviceNames', webhookDemo.deviceNames);
+        $('.webhookDemoProductDeviceSelect').each(async function() {
+            const deviceSelectElem = this;
+            console.log('webhookDemoProductDeviceSelect', webhookDemo.productDevices)
+            $(deviceSelectElem).empty();
+
+            for(const dev of webhookDemo.productDevices) {
+                const optionElem = document.createElement('option');
+                $(optionElem).attr('value', dev.id);
+
+                if (dev.name) {
+                    $(optionElem).text(dev.name + ' (' + dev.id + ')');
+                }
+                else {
+                    $(optionElem).text(dev.id);
+                }
+                $(deviceSelectElem).append(optionElem);
+            }
+            $('.disableNoProductDevices').prop('disabled', webhookDemo.productDevices.length == 0);                
+        });
+
+    }
+
+    const updateProduct = async function() {
+        // webhookDemo.settings.productId
+        await updateProductDevices();
 
         webhookDemo.productInfo = (await apiHelper.particle.getProduct({
             product: webhookDemo.settings.productId,
@@ -589,25 +612,6 @@ $(document).ready(function() {
         updateLinks();
         updateCleanup();
 
-        $('.webhookDemoProductDeviceSelect').each(async function() {
-            const deviceSelectElem = this;
-            console.log('webhookDemoProductDeviceSelect', webhookDemo.productDevices)
-            $(deviceSelectElem).empty();
-
-            for(const dev of webhookDemo.productDevices) {
-                const optionElem = document.createElement('option');
-                $(optionElem).attr('value', dev.id);
-
-                if (dev.name) {
-                    $(optionElem).text(dev.name + ' (' + dev.id + ')');
-                }
-                else {
-                    $(optionElem).text(dev.id);
-                }
-                $(deviceSelectElem).append(optionElem);
-            }
-            $('.disableNoProductDevices').prop('disabled', webhookDemo.productDevices.length == 0);                
-        });
 
         
         $('#startDemo').prop('disabled', false);
@@ -744,13 +748,6 @@ $(document).ready(function() {
     }
 
     const updateDevicesList = function() {        
-        if (!webhookDemo.settings.productId) {
-            $('#addDevicesNoProductDiv').show();
-            $('#addDevicesTableDiv').hide();
-            return;
-        }
-        $('#addDevicesNoProductDiv').hide();
-        $('#addDevicesTableDiv').show();
 
         // webhookDemo.settings.platformId = parseInt(valString);
         // webhookDemo.settings.platformName = await apiHelper.getPlatformName(webhookDemo.settings.platformId);
@@ -841,6 +838,9 @@ $(document).ready(function() {
 
     };
 
+    let updateFleet; // Forward declaration
+
+
     $('#addDevicesButton').on('click', async function() {
         $('#addDevicesButton').prop('disabled', true);
 
@@ -902,8 +902,13 @@ $(document).ready(function() {
             setStatus('Importing failed')
         }
 
+        // Update sandbox devices
         webhookDemo.sandboxDevices = await apiHelper.getAllDevices({});
         updateDevicesList();
+
+        // Update product devices
+        await updateProductDevices();
+        updateFleet();
     });
 
     const sendControl = function(requestDataObj) {
@@ -1012,8 +1017,6 @@ $(document).ready(function() {
 
         
     }
-
-    let updateFleet;
 
     const updateProductDevice = async function(deviceId) {
         const  deviceObj = (await apiHelper.particle.getDevice({
@@ -1226,13 +1229,14 @@ $(document).ready(function() {
 
     }
 
+
     const updatePostStart = async function() {
 
         $('.webhookDemo[data-control="product-config"]').each(async function() {
 
             webhookDemo.productConfigOptions = $(this).data('options').split(',');
     
-            const boxElem = $(this).find('.apiHelperBox');
+            const configItemsElem = $(this).find('.configItems');
     
             const copyTemplate = function() {
                 const copyElem = $('.productConfigTemplate')[0].cloneNode(true);
@@ -1244,9 +1248,69 @@ $(document).ready(function() {
             const functionPublishWebhookName = 'G52ES20Q_DeviceGroup'
     
             // apiUser:groups:list,webhook:deviceGroup,deviceGroups:GroupA:GroupB
-    
+            let outerDivElems = {};
+
             for(const option of webhookDemo.productConfigOptions) {
                 const outerDivElem = copyTemplate();
+
+                const setExplanationText = function(s) {
+                    $(outerDivElem).find('.webhookDemoProductConfigExplanation').text(s);
+                }
+
+                switch(option) {
+                    case 'functionPublishApiUser':
+                        {
+                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('API Users');
+    
+                            let msg = '';
+                            msg += 'An API user is required for the webhook to be able to access the Particle API.';
+                            setExplanationText(msg);                                
+                        }
+                        break;
+    
+                    case 'functionPublishWebhook':
+                        {
+                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Webhooks');
+    
+                            let msg = '';
+                            msg += 'A webhook is required to allow the device to query the device group list.';
+                            setExplanationText(msg);
+                                                         
+                        }
+                        break;
+    
+                    case 'functionPublishDeviceGroups':
+                        {
+                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Device Groups');
+    
+                            let msg = '';
+                            msg += 'Two sample device groups are required. You can add more later.';
+                            setExplanationText(msg);
+            
+                            
+                        }
+                        break;
+
+                    case 'functionPublishFirmware':
+                        {
+                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Product firmware');
+    
+                            let msg = '';
+                            msg += 'This demo requires product firmware.';
+                            setExplanationText(msg);
+
+                        }
+                        break;
+    
+                }
+    
+                $(configItemsElem).append(outerDivElem);
+                outerDivElems[option] = outerDivElem;
+            }
+    
+            for(const option of webhookDemo.productConfigOptions) {
+                console.log('setting up option', option);
+                const outerDivElem = outerDivElems[option];
     
                 const setExplanationText = function(s) {
                     $(outerDivElem).find('.webhookDemoProductConfigExplanation').text(s);
@@ -1332,11 +1396,7 @@ $(document).ready(function() {
                 switch(option) {
                     case 'functionPublishApiUser':
                         {
-                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('API Users');
-    
-                            let msg = '';
-                            msg += 'An API user is required for the webhook to be able to access the Particle API.';
-                            setExplanationText(msg);
+
                                     
                             try {
                                 const getResp = await apiUserRequest({
@@ -1382,12 +1442,7 @@ $(document).ready(function() {
     
                     case 'functionPublishWebhook':
                         {
-                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Webhooks');
-    
-                            let msg = '';
-                            msg += 'A webhook is required to allow the device to query the device group list.';
-                            setExplanationText(msg);
-        
+
                             let settings = {
                                 integration_type: 'Webhook',
                                 headers: {
@@ -1428,11 +1483,7 @@ $(document).ready(function() {
     
                     case 'functionPublishDeviceGroups':
                         {
-                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Device Groups');
-    
-                            let msg = '';
-                            msg += 'Two sample device groups are required. You can add more later.';
-                            setExplanationText(msg);
+
             
                             try {                                
                                 $('.webhookDemoProductGroupSelect > option').not(':first').remove();
@@ -1488,16 +1539,21 @@ $(document).ready(function() {
 
                     case 'functionPublishFirmware':
                         {
-                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Product firmware');
-    
-                            let msg = '';
-                            msg += 'This demo requires product firmware.';
-                            setExplanationText(msg);
 
                             console.log('webhookDemo.productFirmware', webhookDemo.productFirmware);
                             
                             if (webhookDemo.productFirmware.length != 0) {
-                                setStatus('It appears that the firmware has already been compiled and uploaded. Using existing firmware.');
+
+                                const binary = await new Promise(function(resolve, reject) {
+                                    fetch('https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/firmware/1/binary' + '?access_token=' + apiHelper.auth.access_token) 
+                                        .then(response => response.arrayBuffer())
+                                        .then(buffer => resolve(buffer));
+                                });
+                   
+                                console.log('downloaded binary', binary);
+                                webhookDemo.firmwareBinary = binary; // ArrayBuffer
+
+                                setStatusText('It appears that the firmware has already been compiled and uploaded. Using existing firmware.');
                                 break;
                             }
                             
@@ -1518,15 +1574,6 @@ $(document).ready(function() {
                                         data: formData,
                                         dataType: 'json',
                                         error: function (jqXHR) {
-                                            /*
-                                            gtag('event', 'Flash Device Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
-                                            if (startTimer) {
-                                                clearTimeout(startTimer);
-                                                startTimer = null;
-                                            }
-                                            setStatus('Compile and flash failed');
-                                            $(flashDeviceButton).prop('disabled', false);
-                                            */
                                            reject(jqXHR);
                                         },
                                         headers: {
@@ -1536,19 +1583,6 @@ $(document).ready(function() {
                                         method: 'POST',
                                         processData: false,
                                         success: function (resp, textStatus, jqXHR) {
-                                            /*
-                                            gtag('event', 'Flash Device Success', {'event_category':gaCategory});
-                                            if (startTimer) {
-                                                clearTimeout(startTimer);
-                                                startTimer = null;
-                                            }
-                                            setStatus('Compile succeeded, flash started!');
-                                            $(flashDeviceButton).prop('disabled', false);
-                        
-                                            setTimeout(function() {
-                                                setStatus('');
-                                            }, 8000);            
-                                            */
                                            resolve(resp);    
                                         },
                                         url: 'https://api.particle.io/v1/binaries/',
@@ -1566,30 +1600,76 @@ $(document).ready(function() {
                                         .then(response => response.arrayBuffer())
                                         .then(buffer => resolve(buffer));
                                 });
-                                
-                                /*
+                   
+                                console.log('binary', binary);
+                                webhookDemo.firmwareBinary = binary; // ArrayBuffer
 
-                                const downloadBinaryRes = await new Promise(function(resolve, reject) {
+                                setStatusText('Uploading firmware binary to product...');
+
+                                let productFormData = new FormData();
+
+                                productFormData.append('version', '1');
+                                productFormData.append('title', 'Demo firmware');
+                                productFormData.append('binary', new Blob([binary]));
+
+                                const uploadRes = await new Promise(function(resolve, reject) {
                                     const request = {
+                                        contentType: false,
+                                        data: productFormData,
+                                        dataType: 'json',
                                         error: function (jqXHR) {
-
                                            reject(jqXHR);
                                         },
-                                        method: 'GET',
+                                        headers: {
+                                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                            'Accept': 'application/json'
+                                        },
+                                        method: 'POST',
                                         processData: false,
                                         success: function (resp, textStatus, jqXHR) {
-
                                            resolve(resp);    
                                         },
-                                        url: 'https://api.particle.io' + compileRes.binary_url + '?access_token=' + apiHelper.auth.access_token,
+                                        url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/firmware',
                                     };
                         
                                     $.ajax(request);
-                                });
-                                */
-                                console.log('binary', binary);
+                                });                                
+                                console.log('uploadRes', uploadRes);
 
-                                setStatusText('Project firmware updated!');
+                                /*
+                                let releaseReqObj = {
+                                    version: 1,
+                                    // groups: [],
+                                    intelligent: true,
+                                    product_default: true,
+                                }
+
+                                const releaseRes = await new Promise(function(resolve, reject) {
+                                    const request = {
+                                        contentType: 'application/json',
+                                        data: JSON.stringify(releaseReqObj),
+                                        dataType: 'json',
+                                        error: function (jqXHR) {
+                                           reject(jqXHR);
+                                        },
+                                        headers: {
+                                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                            'Accept': 'application/json'
+                                        },
+                                        method: 'PUT',
+                                        processData: false,
+                                        success: function (resp, textStatus, jqXHR) {
+                                           resolve(resp);    
+                                        },
+                                        url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/firmware/release',
+                                    };
+                        
+                                    $.ajax(request);
+                                });    
+                                console.log('releaseRes', releaseRes);
+                                */
+
+                                setStatusText('Project firmware uploaded!');
                             }
                             catch(e) {
                                 console.log('compile firmware exception', e);
@@ -1599,8 +1679,6 @@ $(document).ready(function() {
     
                 }
     
-    
-                $(boxElem).append(outerDivElem);
             }
         });
                 
@@ -1815,6 +1893,7 @@ $(document).ready(function() {
             $('#startDemo').prop('disabled', false);
         }, 3000);
 
+        // This function is async but we don't wait for it here
         updatePostStart();
     }
 
