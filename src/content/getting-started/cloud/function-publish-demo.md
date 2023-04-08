@@ -92,3 +92,10 @@ The downside is that you don't know whether any devices received the publish, an
 
 {{> project-browser project="function-publish-demo" default-file="src/function-publish-demo.cpp" height="400" flash="true"}}
 
+## Clean up
+
+If you are done using this tutorial, you can clean up the things that were created during this tutorial.
+
+{{> webhook-demo-cleanup }}
+
+Don't forget to turn off your device or flash different firmware (or Tinker) to it so it doesn't continue to publish events and use data operations.

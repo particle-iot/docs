@@ -408,6 +408,6 @@ Instead of just using random data, try connecting a real temperature sensor and 
 
 If you are done using this tutorial, you can clean up the things that were created during this tutorial.
 
-{{> webhook-demo-cleanup }}
+{{> webhook-demo-cleanup webhook="1"}}
 
 Don't forget to turn off your device or flash different firmware (or Tinker) to it so it doesn't continue to publish events and use data operations.
