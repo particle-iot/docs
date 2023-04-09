@@ -1387,6 +1387,44 @@ $(document).ready(function() {
                 $(copyElem).show();
                 return copyElem;
             };
+
+            const configChecklist = function(options) {
+                let configChecklist = {};
+
+                configChecklist.steps = options.steps;
+
+                const tableElem = document.createElement('table');
+                $(tableElem).addClass('apiHelperTableNoMargin');
+                
+                const tbodyElem = document.createElement('tbody');
+                
+                for(const step of configChecklist.steps) {
+                    const trElem = step.rowElem = document.createElement('tr');
+
+                    const indicatorElem = step.indicatorElem = document.createElement('td');
+                    $(trElem).append(indicatorElem);
+
+                    const titleElem = step.titleElem = document.createElement('td');
+                    if (step.title) {
+                        $(titleElem).text(step.title);
+                    }
+                    $(trElem).append(titleElem);
+
+                    $(tbodyElem).append(trElem);
+                }
+                $(tableElem).append(tbodyElem);
+                $(options.containerElem).append(tableElem);
+
+                configChecklist.getStep = function(key) {
+                    return configChecklist.steps.find(e => e.key == key);
+                }
+
+                configChecklist.setIndicator = function(key, indicator) {
+                    $(configChecklist.steps.find(e => e.key == key).indicatorElem).text(indicator);
+                }
+
+                return configChecklist;
+            };
     
     
             // apiUser:groups:list,webhook:deviceGroup,deviceGroups:GroupA:GroupB
@@ -1441,6 +1479,28 @@ $(document).ready(function() {
                             msg += 'This demo requires product firmware.';
                             setExplanationText(msg);
 
+                            webhookDemo.firmwareChecklist = configChecklist({
+                                steps: [
+                                    {
+                                        key: 'compile',
+                                        title: 'Compile demo product firmware',    
+                                    },
+                                    {
+                                        key: 'upload',
+                                        title: 'Upload product firmware',    
+                                    },
+                                    {
+                                        key: 'wait',
+                                        title: 'Wait for a device to come online with firmware (required for release)',
+                                    },
+                                    {
+                                        key: 'release',
+                                        title: 'Release and set default product firmware',    
+                                    },
+                                ],
+                                containerElem: $(outerDivElem).find('.webhookDemoProductConfigStatus'),
+                            });
+                            $(outerDivElem).find('.webhookDemoProductConfigStatus').show();
                         }
                         break;
     
@@ -1698,19 +1758,17 @@ $(document).ready(function() {
                                     console.log('downloaded binary', binary);
                                     webhookDemo.firmwareBinary = binary; // ArrayBuffer
 
-                                    setStatusText('It appears that the firmware has already been compiled and uploaded. Using existing firmware.');
+                                    webhookDemo.firmwareChecklist.setIndicator('compile', '\u2705'); // green check
+                                    webhookDemo.firmwareChecklist.setIndicator('upload', '\u2705'); // green check
                                 }
                                 else {
-                                    setStatusText('Getting project firmware...');
                                     const getFormData = $('.apiHelperProjectBrowser').data('getFormData');
                                     const formData = await getFormData({
                                         product_id: webhookDemo.settings.productId,
                                         platform_id: webhookDemo.settings.platformId,
                                         // build_target_version
                                     });
-                                    
-                                    setStatusText('Compiling firmware binary...');
-    
+                                        
                                     const compileRes = await new Promise(function(resolve, reject) {
                                         const request = {
                                             contentType: false,
@@ -1735,8 +1793,8 @@ $(document).ready(function() {
                                     });
     
                                     console.log('compileRes', compileRes);
-    
-                                    setStatusText('Downloading firmware binary...');
+                                    webhookDemo.firmwareChecklist.setIndicator('compile', '\u2705'); // green check
+
     
                                     const binary = await new Promise(function(resolve, reject) {
                                         fetch('https://api.particle.io' + compileRes.binary_url + '?access_token=' + apiHelper.auth.access_token) 
@@ -1746,9 +1804,7 @@ $(document).ready(function() {
                        
                                     console.log('binary', binary);
                                     webhookDemo.firmwareBinary = binary; // ArrayBuffer
-    
-                                    setStatusText('Uploading firmware binary to product...');
-    
+        
                                     let productFormData = new FormData();
     
                                     productFormData.append('version', webhookDemo.firmwareVersion.toString());
@@ -1778,15 +1834,17 @@ $(document).ready(function() {
                                         $.ajax(request);
                                     });                                
                                     console.log('uploadRes', uploadRes);
+                                    webhookDemo.firmwareChecklist.setIndicator('upload', '\u2705'); // green check
                                 }
                                 
                                 if (webhookDemo.hasDefaultProductFirmware) {
-                                    setStatusText('Product has default firmware.');
+                                    webhookDemo.firmwareChecklist.setIndicator('wait', '\u2705'); // green check
+                                    webhookDemo.firmwareChecklist.setIndicator('release', '\u2705'); // green check
                                     break;
                                 }
 
-                                setStatusText('Waiting for a device to come online with product firmware...');
                                 await webhookDemo.runningProductFirmware;
+                                webhookDemo.firmwareChecklist.setIndicator('wait', '\u2705'); // green check
 
                                 let releaseReqObj = {
                                     version: webhookDemo.firmwareVersion,
@@ -1818,9 +1876,8 @@ $(document).ready(function() {
                                     $.ajax(request);
                                 });    
                                 console.log('releaseRes', releaseRes);
-                                
+                                webhookDemo.firmwareChecklist.setIndicator('release', '\u2705'); // green check
 
-                                setStatusText('Project firmware setup complete!');
                             }
                             catch(e) {
                                 console.log('compile firmware exception', e);
