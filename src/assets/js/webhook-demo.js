@@ -18,7 +18,47 @@ $(document).ready(function() {
         settings: {},
     };
 
+    $('.webhookDemo[data-control="start"]').each(function() {
+        $(this).data('webhookDemo', webhookDemo);
+
+        webhookDemo.mode = $(this).data('mode');
+        switch(webhookDemo.mode) {
+            case 'webhook01':
+                webhookDemo.localStorageKey = 'webhookDemo';
+                webhookDemo.webhookName = gaCategory = 'WebhookDemo01';
+                webhookDemo.productNamePrefix = 'webhook-demo-';
+                webhookDemo.firmwareVersion = 1;
+                break;
+
+            case 'function-publish':
+                webhookDemo.localStorageKey = 'functionPublishDemo';
+                webhookDemo.webhookName = gaCategory = 'G52ES20Q_DeviceGroup';
+                webhookDemo.productNamePrefix = 'function-publish-demo-';
+                webhookDemo.firmwareVersion = 1;
+                webhookDemo.requiredFunctions = ['setColor', 'setDeviceGroups'];
+                break;
+        }
+    
+        webhookDemo.options = $(this).data('options').split(',');
+    });
+
+    try {
+        const s = localStorage.getItem(webhookDemo.localStorageKey);
+        if (s) {
+            webhookDemo.settings = JSON.parse(s);
+            if (webhookDemo.settings.username != apiHelper.auth.username) {
+                webhookDemo.settings = {};
+                console.log('cleared settings, username change');
+            }    
+        }
+    }
+    catch(e) {        
+    }
+    console.log('loaded settings', webhookDemo.settings);
+
     webhookDemo.settings.username = apiHelper.auth.username;
+    
+    gtag('event', 'opened', {'event_category':gaCategory});
 
     const updateSettings = function() {
         if (webhookDemo.localStorageKey) {
@@ -336,7 +376,7 @@ $(document).ready(function() {
     }
 
 
-    const startSession = function() {
+    const startWebhookSession = function() {
         // Create a new SSE session which creates a new tutorial session
         const evtSource = webhookDemo.serverStream = new EventSource(serverUrlBase + 'stream', {withCredentials:false});
 
@@ -1876,7 +1916,9 @@ $(document).ready(function() {
 
         webhookDemo.started = true;
 
-        startSession();
+        if (webhookDemo.mode == 'webhook01') {
+            startWebhookSession();
+        }
 
         if (webhookDemo.particleStream && webhookDemo.particleStreamProductId != webhookDemo.settings.productId) {
             console.log('closing Particle event stream for product ' + webhookDemo.particleStreamProductId);
@@ -1969,42 +2011,7 @@ $(document).ready(function() {
     }
 
     $('.webhookDemo[data-control="start"]').each(async function() {
-        $(this).data('webhookDemo', webhookDemo);
-
-        webhookDemo.mode = $(this).data('mode');
-        switch(webhookDemo.mode) {
-            case 'webhook01':
-                webhookDemo.localStorageKey = 'webhookDemo';
-                webhookDemo.webhookName = gaCategory = 'WebhookDemo01';
-                webhookDemo.productNamePrefix = 'webhook-demo-';
-                webhookDemo.firmwareVersion = 1;
-                break;
-
-            case 'function-publish':
-                webhookDemo.localStorageKey = 'functionPublishDemo';
-                webhookDemo.webhookName = gaCategory = 'G52ES20Q_DeviceGroup';
-                webhookDemo.productNamePrefix = 'function-publish-demo-';
-                webhookDemo.firmwareVersion = 1;
-                webhookDemo.requiredFunctions = ['setColor', 'setDeviceGroups'];
-                break;
-        }
     
-        webhookDemo.options = $(this).data('options').split(',');
-
-        try {
-            const s = localStorage.getItem(localStorageKey);
-            if (s) {
-                webhookDemo.settings = JSON.parse(s);
-                if (webhookDemo.settings.username != apiHelper.auth.username) {
-                    webhookDemo.settings = {};
-                }    
-            }
-        }
-        catch(e) {        
-        }
-    
-        gtag('event', 'opened', {'event_category':gaCategory});
-
         // Do stuff for browser compatibility checks here
 
         $('#canStart').show();
@@ -2020,6 +2027,7 @@ $(document).ready(function() {
 
         
         });
+
     });
 
 
@@ -2135,10 +2143,12 @@ $(document).ready(function() {
 
     Promise.all([carriersPromise, productsPromise, devicesPromise]).then(function() {
         console.log('promise done', webhookDemo.settings)
+
         if (webhookDemo.settings.platformId) {
             $('#devicePlatformSelect').val(webhookDemo.settings.platformId.toString());
             $('#devicePlatformSelect').trigger('change');
         }
+
     });
 
     

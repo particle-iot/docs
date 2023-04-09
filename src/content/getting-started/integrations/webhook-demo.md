@@ -29,6 +29,12 @@ This demo requires a product, and you should generally create a new one just for
 
 You can find all of your sandbox products in the {{webhook-demo-link link="sandbox/products" text="productsTab"}} in the Particle console.
 
+### Start demo
+
+Starting the demo will start the webhook server and start monitoring events.
+
+{{> webhook-demo-start mode="webhook01" options="noTracker"}}
+
 ### Add devices to product
 
 Whenever you have a product, you must add devices to it. When you scale, you will typically add all of the devices in your order at once, as you will be emailed a list of the Device IDs in your order. In the growth and enterprise plans, just adding the Device ID to the product does not affect billing; billing only starts the first time the device connects to the Particle cloud.
@@ -38,12 +44,6 @@ For this demo, you can just select existing devices from your developer sandbox 
 {{> webhook-demo-add-devices}}
 
 You will normally use the **Add Devices** button in the {{webhook-demo-link link="devices" text="devices tab"}} in the console to do this in your real products.
-
-### Start demo
-
-Starting the demo will start the webhook server and start monitoring events.
-
-{{> webhook-demo-start mode="webhook01" options="noTracker"}}
 
 
 ### Create a product webhook
