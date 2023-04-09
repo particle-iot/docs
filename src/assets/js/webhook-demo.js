@@ -1419,9 +1419,28 @@ $(document).ready(function() {
                     return configChecklist.steps.find(e => e.key == key);
                 }
 
-                configChecklist.setIndicator = function(key, indicator) {
+                configChecklist.setIndicatorText = function(key, indicator) {
                     $(configChecklist.steps.find(e => e.key == key).indicatorElem).text(indicator);
                 }
+
+                configChecklist.setIndicatorIcon = function(key, iconName) {
+                    const imgElem = document.createElement('img');
+                    $(imgElem).attr('src', '/assets/images/device-setup/' + iconName);
+                    $(imgElem).css('width', '16px');
+                    $(imgElem).css('height', '16px');
+                    $(imgElem).css('margin', '2px');
+
+                    $(configChecklist.steps.find(e => e.key == key).indicatorElem).html(imgElem);
+                }
+
+                configChecklist.setIndicatorSpin = function(key) {
+                    configChecklist.setIndicatorIcon(key, 'spinner-48.gif');
+                }
+                configChecklist.setIndicatorOK = function(key) {
+                    configChecklist.setIndicatorIcon(key, 'ok-48.png');
+                }
+
+                
 
                 return configChecklist;
             };
@@ -1667,7 +1686,9 @@ $(document).ready(function() {
                                 let found = webhookDemo.webhooks.find(e => e.event == webhookDemo.webhookName);
                                 if (found) {
                                     setStatusText('The webhook ' + webhookDemo.webhookName + ' already exists.');
+                                    console.log('existing webhook', found);
                                     webhookDemo.settings.integrationId = found.id;
+                                    updateSettings();                                
                                     break;
                                 }    
                             }
@@ -1758,10 +1779,12 @@ $(document).ready(function() {
                                     console.log('downloaded binary', binary);
                                     webhookDemo.firmwareBinary = binary; // ArrayBuffer
 
-                                    webhookDemo.firmwareChecklist.setIndicator('compile', '\u2705'); // green check
-                                    webhookDemo.firmwareChecklist.setIndicator('upload', '\u2705'); // green check
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('compile'); //
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('upload');
                                 }
                                 else {
+                                    webhookDemo.firmwareChecklist.setIndicatorSpin('compile');
+
                                     const getFormData = $('.apiHelperProjectBrowser').data('getFormData');
                                     const formData = await getFormData({
                                         product_id: webhookDemo.settings.productId,
@@ -1793,7 +1816,7 @@ $(document).ready(function() {
                                     });
     
                                     console.log('compileRes', compileRes);
-                                    webhookDemo.firmwareChecklist.setIndicator('compile', '\u2705'); // green check
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('compile');
 
     
                                     const binary = await new Promise(function(resolve, reject) {
@@ -1805,6 +1828,8 @@ $(document).ready(function() {
                                     console.log('binary', binary);
                                     webhookDemo.firmwareBinary = binary; // ArrayBuffer
         
+                                    webhookDemo.firmwareChecklist.setIndicatorSpin('upload');
+
                                     let productFormData = new FormData();
     
                                     productFormData.append('version', webhookDemo.firmwareVersion.toString());
@@ -1834,17 +1859,18 @@ $(document).ready(function() {
                                         $.ajax(request);
                                     });                                
                                     console.log('uploadRes', uploadRes);
-                                    webhookDemo.firmwareChecklist.setIndicator('upload', '\u2705'); // green check
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('upload');
                                 }
                                 
                                 if (webhookDemo.hasDefaultProductFirmware) {
-                                    webhookDemo.firmwareChecklist.setIndicator('wait', '\u2705'); // green check
-                                    webhookDemo.firmwareChecklist.setIndicator('release', '\u2705'); // green check
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('wait');
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('release');
                                     break;
                                 }
 
+                                webhookDemo.firmwareChecklist.setIndicatorSpin('wait');
                                 await webhookDemo.runningProductFirmware;
-                                webhookDemo.firmwareChecklist.setIndicator('wait', '\u2705'); // green check
+                                webhookDemo.firmwareChecklist.setIndicatorOK('wait');
 
                                 let releaseReqObj = {
                                     version: webhookDemo.firmwareVersion,
@@ -1852,6 +1878,7 @@ $(document).ready(function() {
                                     intelligent: true,
                                     product_default: true,
                                 }
+                                webhookDemo.firmwareChecklist.setIndicatorSpin('release');
 
                                 const releaseRes = await new Promise(function(resolve, reject) {
                                     const request = {
@@ -1876,7 +1903,7 @@ $(document).ready(function() {
                                     $.ajax(request);
                                 });    
                                 console.log('releaseRes', releaseRes);
-                                webhookDemo.firmwareChecklist.setIndicator('release', '\u2705'); // green check
+                                webhookDemo.firmwareChecklist.setIndicatorOK('release');
 
                             }
                             catch(e) {
