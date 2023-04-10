@@ -682,6 +682,15 @@ $(document).ready(function() {
             $.ajax(request);
         });
 
+        $('.webhookDemoProductGroupSelect > option').not(':first').remove();
+        for(const group of webhookDemo.deviceGroups.groups) {
+            const optionElem = document.createElement('option');
+            $(optionElem).attr('value', group.name);
+            $(optionElem).text(group.name);
+            $('.webhookDemoProductGroupSelect').append(optionElem);
+        }
+
+
         console.log('updateProduct', webhookDemo);
 
         updateDevicesList();
@@ -1734,18 +1743,11 @@ $(document).ready(function() {
 
             
                             try {                                
-                                $('.webhookDemoProductGroupSelect > option').not(':first').remove();
-
                                 if (webhookDemo.deviceGroups.groups.length > 0) {
                                     let groupNames = [];
 
                                     for(const group of webhookDemo.deviceGroups.groups) {
                                         groupNames.push(group.name);
-
-                                        const optionElem = document.createElement('option');
-                                        $(optionElem).attr('value', group.name);
-                                        $(optionElem).text(group.name);
-                                        $('.webhookDemoProductGroupSelect').append(optionElem);
                                     }
                         
                                     setStatusText('The product already has device groups configured; using existing groups: ' + groupNames.join(', '));
