@@ -10,6 +10,7 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-events,api-helper-ex
 
 This is an interactive tutorial that shows how to use Particle.publish to send data from a Particle device to a cloud service by a webhook. You'd use a technique like this for sending sensor or location data from your Particle device to the Particle cloud and then to your servers via a webhook.
 
+- If you're interesting in controlling devices and the differences between publish and functions, see the [function and publish demo](/getting-started/cloud/function-publish-demo/).
 
 In order to use this tutorial, you must be logged into your Particle account:
 
@@ -28,6 +29,8 @@ This demo requires a product, and you should generally create a new one just for
 {{> webhook-demo-select-product}}
 
 You can find all of your sandbox products in the {{webhook-demo-link link="sandbox/products" text="productsTab"}} in the Particle console.
+
+There is no charge for creating products in your free developer sandbox and there is no limit on the number of products, though there is a limit to the number of devices in the free plan.
 
 ### Start demo
 
@@ -167,6 +170,8 @@ This control shows the status of devices in your product fleet. It's similar to 
 ## Device firmware
 
 {{> project-browser project="webhook-demo" default-file="src/webhook-demo.cpp" height="400" flash="true"}}
+
+{{collapse op="start" label="Tell me more the device firmware"}}
 
 ### Firmware deep dive
 
@@ -354,6 +359,9 @@ And finally publish the data to the Particle cloud. You may see example code tha
 Particle.publish(eventName, publishDataBuf);
 ```
 
+{{collapse op="end"}}
+
+
 ### Open in Workbench
 
 The recommended development environment for Particle firmware is [Particle Workbench](/workbench/). To open this project in Workbench:
@@ -410,4 +418,5 @@ If you are done using this tutorial, you can clean up the things that were creat
 
 {{> webhook-demo-cleanup webhook="1"}}
 
-Don't forget to turn off your device or flash different firmware (or Tinker) to it so it doesn't continue to publish events and use data operations.
+You should flash Tinker using the option above or turn the device off after completing the tutorial so it doesn't continue to publish events, 
+which will consume data operations even if you're not actively using the tutorial.

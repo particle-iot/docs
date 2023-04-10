@@ -629,6 +629,7 @@ $(document).ready(function() {
 
         if (webhookDemo.productHasFirmware) {
             if (webhookDemo.runningProductFirmwareResolve) {
+                console.log('calling runningProductFirmwareResolve')
                 webhookDemo.runningProductFirmwareResolve();
                 webhookDemo.runningProductFirmwareResolve = null;
             }
@@ -1123,7 +1124,7 @@ $(document).ready(function() {
                 setTimeout(function() {
                     // Delay is required because the device state change occurs slightly
                     // after the event is sent
-                    updateProductDevice(event.coreid);
+                    updateProductDevices();
                 }, 2000);
                 break;
 
@@ -1369,6 +1370,7 @@ $(document).ready(function() {
                 $(fleetRowObj.rowElem).append(cellElem);
             }
         }
+        updateCleanup();
 
     }
 
@@ -2520,6 +2522,8 @@ $(document).ready(function() {
         await stopDemo();
     
         if ($('#cleanupWebhook').prop('checked') && !$('#cleanupWebhook').prop('disabled')) {
+            // TODO: If deleting the product, delete all integrations as you cannot delete 
+            // a product that has integrations
             try {
                 const resp = await apiHelper.particle.deleteIntegration({
                     integrationId: webhookDemo.settings.integrationId,

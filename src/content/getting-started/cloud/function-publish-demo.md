@@ -10,6 +10,8 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-events,api-helper-ex
 
 This is an interactive tutorial that show the difference between functions and subscribing to Particle events on-device, and how you can use these techniques to send commands to remote devices. To fully experience the demo, you should have two or more devices of the same type. Both cellular and Wi-Fi devices are supported, however this demo does not work with the Tracker and isn't useful if your device does not have a visible status LED.
 
+- If you're interesting in having devices trigger external services, see the [webhook demo](/getting-started/integrations/webhook-demo/).
+
 In order to use this tutorial, you must be logged into your Particle account:
 
 {{> sso}}
@@ -26,6 +28,8 @@ This demo requires a product, and you should create a new one just for this demo
 
 You can find all of your sandbox products in the {{webhook-demo-link link="sandbox/products" text="productsTab"}} in the Particle console.
 
+There is no charge for creating products in your free developer sandbox and there is no limit on the number of products, though there is a limit to the number of devices in the free plan.
+
 ### Start demo
 
 Starting the demo will start monitoring events and set up the product you have selected.
@@ -35,6 +39,20 @@ Starting the demo will start monitoring events and set up the product you have s
 ### Product setup
 
 {{> webhook-demo-product-config options="functionPublishApiUser,functionPublishWebhook,functionPublishDeviceGroups,functionPublishFirmware"}}
+
+{{collapse op="start" label="Tell me more about what was set up"}}
+
+#### API users
+
+#### Webhooks
+
+#### Device groups
+
+
+#### Product firmware
+
+{{collapse op="end"}}
+
 
 ### Add devices to product
 
@@ -60,11 +78,18 @@ This control shows the status of devices in your product fleet. It's similar to 
 
 {{> webhook-demo-fleet options="groupSelector"}}
 
-Use the `groupa` and `groupb` checkboxes to set some devices to `groupa` and some to `groupb`. A device can be in more than one group, if desired.
+- The **online** column shows a green checkbox if the device is online and connected to the Particle cloud.
 
-The test firmware uses a library to allow the device to monitor its device group assignments and automatically change what it responds to within a few seconds of changing the settings using the control above.
+- The **firmware** column shows a green checkbox if the device has product firmware and has come online at least once. 
+When you onboard your first device, you have to manually request the firmware be flashed to it. Click the **Flash** link to do this.
 
-If the device is offline or in sleep mode, it will get the current device group settings from the cloud after it comes online.
+- The **development** column checkbox shows if the device has the **Mark as Development device** flag set. You can also change the 
+state using this checkbox. You normally should leave this turned off.
+
+- Use the **groupa** and **groupb** checkboxes to set some devices to **groupa** and some to **groupb**. A device can be in more than one group, if desired.
+Clicking the checkbox changes the state in the cloud and if the device is online, reconfigures it in a few seconds. If the device is offline or in sleep mode, it will get the current device group settings from the cloud after it comes online.
+
+
 
 ### Functions
 
@@ -88,9 +113,13 @@ Publish goes out to zero or more devices. This is handy when you need to broadca
 
 The downside is that you don't know whether any devices received the publish, and if the device is offline, the publish is lost forever and the device will not receive it later.
 
-## Firmware explanation
+## Device firmware
 
 {{> project-browser project="function-publish-demo" default-file="src/function-publish-demo.cpp" height="400" flash="true"}}
+
+{{collapse op="start" label="Tell me more the device firmware"}}
+{{collapse op="end"}}
+
 
 ## Clean up
 
@@ -98,4 +127,3 @@ If you are done using this tutorial, you can clean up the things that were creat
 
 {{> webhook-demo-cleanup }}
 
-Don't forget to turn off your device or flash different firmware (or Tinker) to it so it doesn't continue to publish events and use data operations.
