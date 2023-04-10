@@ -123,6 +123,15 @@ $(document).ready(function() {
         // cleanupWebhook cleanupDevices cleanupProduct
         // cleanupButton
 
+        if (!webhookDemo.productDevices || !webhookDemo.webhooks) {
+            $('#cleanupStartWarning').show();
+            $('#cleanupCanRun').hide();
+            return;
+        }
+
+        $('#cleanupStartWarning').hide();
+        $('#cleanupCanRun').show();
+
         if (!webhookDemo.settings.productId) {
             // No product selected
             $('#cleanupButton').prop('disabled', true);
@@ -131,29 +140,13 @@ $(document).ready(function() {
 
         $('#cleanupButton').prop('disabled', false);
 
-        
-        /*
-        if (!webhookDemo.deviceObj) {
-            // No device selected
-        }
-        
-        if (webhookDemo.deviceObj && webhookDemo.deviceObj.product_id == webhookDemo.settings.productId) {
-            // Device in product
-        }
-         
-
-        if (!webhookDemo.hookUrl) {
-        }
-        */
-
         $('#cleanupWebhook').prop('disabled', true);
         $('#cleanupTinker').prop('disabled', true);
         $('#cleanupDevices').prop('disabled', true);
         $('#cleanupProduct').prop('disabled', true);
 
-
         
-        if (webhookDemo.settings.integrationId) {
+        if (!webhookDemo.webhooks || webhookDemo.webhooks.length == 0) {
             $('#cleanupWebhook').prop('disabled', false);
         }
 
@@ -1170,8 +1163,27 @@ $(document).ready(function() {
 
         for(let colObj of webhookDemo.eventLogColumns) {
             const tdElem = document.createElement('td');
-            if (event[colObj.key]) {
-                $(tdElem).text(event[colObj.key]);
+
+            let value = event[colObj.key];
+
+            switch(colObj.key) {
+                case 'name':
+                case 'data':
+                    $(tdElem).css('max-width', '200px');
+                    break;
+
+                case 'published_at':
+                    {
+                        let tIndex = value.indexOf('T');
+                        if (tIndex) {
+                            value = value.substring(tIndex + 1);
+                        }
+                    }
+                    break;
+            }
+
+            if (value) {
+                $(tdElem).text(value);
             }
             else {
                 $(tdElem).html('&nbsp;');
@@ -1192,7 +1204,7 @@ $(document).ready(function() {
             webhookDemo.fleetColumns = [];
             webhookDemo.fleetRows = [];
 
-            $('#fleetHeader > tr > th').find('.groupColumn').remove();
+            $('#fleetHeader > tr').find('.groupColumn').remove();
 
             $('#fleetHeader > tr > th').each(function() {
                 webhookDemo.fleetColumns.push({
@@ -1384,6 +1396,66 @@ $(document).ready(function() {
     }
 
 
+    const configChecklist = function(options) {
+        let configChecklist = {};
+
+        configChecklist.steps = options.steps;
+
+        const tableElem = document.createElement('table');
+        $(tableElem).addClass('apiHelperTableNoMargin');
+        
+        const tbodyElem = document.createElement('tbody');
+        
+        for(const step of configChecklist.steps) {
+            const trElem = step.rowElem = document.createElement('tr');
+
+            const indicatorElem = step.indicatorElem = document.createElement('td');
+            $(trElem).append(indicatorElem);
+
+            const titleElem = step.titleElem = document.createElement('td');
+            if (step.title) {
+                $(titleElem).text(step.title);
+            }
+            $(trElem).append(titleElem);
+
+            $(tbodyElem).append(trElem);
+        }
+        $(tableElem).append(tbodyElem);
+        $(options.containerElem).append(tableElem);
+
+        configChecklist.getStep = function(key) {
+            return configChecklist.steps.find(e => e.key == key);
+        }
+
+        configChecklist.setIndicatorText = function(key, indicator) {
+            $(configChecklist.steps.find(e => e.key == key).indicatorElem).text(indicator);
+        }
+
+        configChecklist.setIndicatorIcon = function(key, iconName) {
+            const imgElem = document.createElement('img');
+            $(imgElem).attr('src', '/assets/images/device-setup/' + iconName);
+            $(imgElem).css('width', '16px');
+            $(imgElem).css('height', '16px');
+            $(imgElem).css('margin', '2px');
+
+            $(configChecklist.steps.find(e => e.key == key).indicatorElem).html(imgElem);
+        }
+
+        configChecklist.setIndicatorSpin = function(key) {
+            configChecklist.setIndicatorIcon(key, 'spinner-48.gif');
+        }
+        configChecklist.setIndicatorOK = function(key) {
+            configChecklist.setIndicatorIcon(key, 'ok-48.png');
+        }
+        configChecklist.setIndicatorRedX = function(key) {
+            configChecklist.setIndicatorIcon(key, 'x-mark-48.png');
+        }            
+
+        return configChecklist;
+    };
+
+
+
     const updatePostStart = async function() {
 
         $('.webhookDemo[data-control="product-config"]').each(async function() {
@@ -1399,65 +1471,6 @@ $(document).ready(function() {
                 return copyElem;
             };
 
-            const configChecklist = function(options) {
-                let configChecklist = {};
-
-                configChecklist.steps = options.steps;
-
-                const tableElem = document.createElement('table');
-                $(tableElem).addClass('apiHelperTableNoMargin');
-                
-                const tbodyElem = document.createElement('tbody');
-                
-                for(const step of configChecklist.steps) {
-                    const trElem = step.rowElem = document.createElement('tr');
-
-                    const indicatorElem = step.indicatorElem = document.createElement('td');
-                    $(trElem).append(indicatorElem);
-
-                    const titleElem = step.titleElem = document.createElement('td');
-                    if (step.title) {
-                        $(titleElem).text(step.title);
-                    }
-                    $(trElem).append(titleElem);
-
-                    $(tbodyElem).append(trElem);
-                }
-                $(tableElem).append(tbodyElem);
-                $(options.containerElem).append(tableElem);
-
-                configChecklist.getStep = function(key) {
-                    return configChecklist.steps.find(e => e.key == key);
-                }
-
-                configChecklist.setIndicatorText = function(key, indicator) {
-                    $(configChecklist.steps.find(e => e.key == key).indicatorElem).text(indicator);
-                }
-
-                configChecklist.setIndicatorIcon = function(key, iconName) {
-                    const imgElem = document.createElement('img');
-                    $(imgElem).attr('src', '/assets/images/device-setup/' + iconName);
-                    $(imgElem).css('width', '16px');
-                    $(imgElem).css('height', '16px');
-                    $(imgElem).css('margin', '2px');
-
-                    $(configChecklist.steps.find(e => e.key == key).indicatorElem).html(imgElem);
-                }
-
-                configChecklist.setIndicatorSpin = function(key) {
-                    configChecklist.setIndicatorIcon(key, 'spinner-48.gif');
-                }
-                configChecklist.setIndicatorOK = function(key) {
-                    configChecklist.setIndicatorIcon(key, 'ok-48.png');
-                }
-
-                
-
-                return configChecklist;
-            };
-    
-    
-            // apiUser:groups:list,webhook:deviceGroup,deviceGroups:GroupA:GroupB
             let outerDivElems = {};
 
             for(const option of webhookDemo.productConfigOptions) {
@@ -2428,6 +2441,7 @@ $(document).ready(function() {
                     $(optionElem).text(resp.product.name + ' (' + resp.product.id + ') (newly created)');
                     $('#productSelect').append(optionElem);    
                     $('#productSelect').val(resp.product.id.toString());
+                    $('#useExistingProduct').prop('disabled', false);
 
                     $('#createNewProductButton').prop('disabled', true);
                     $('#createNewProduct').prop('checked', false);
@@ -2526,31 +2540,77 @@ $(document).ready(function() {
             return;
         }
 
+        const cleanupWebhook = $('#cleanupWebhook').prop('checked') && !$('#cleanupWebhook').prop('disabled');
+        const cleanupTinker = $('#cleanupTinker').prop('checked') && !$('#cleanupTinker').prop('disabled');
+        const cleanupDevices = $('#cleanupDevices').prop('checked') && !$('#cleanupDevices').prop('disabled');
+        const cleanupProduct = $('#cleanupProduct').prop('checked') && !$('#cleanupProduct').prop('disabled')
+
+        let cleanupSteps = [];
+
+        if (cleanupWebhook) {
+            cleanupSteps.push({
+                key: 'webhook',
+                title: 'Delete webhooks (required to delete products)',    
+            });
+        }
+        if (cleanupTinker) {
+            cleanupSteps.push({
+                key: 'tinker',
+                title: 'Flash tinker firmware to devices',    
+            });
+        }
+        if (cleanupDevices) {
+            cleanupSteps.push({
+                key: 'devices',
+                title: 'Remove devices from product (required to delete products)',    
+            });
+        }
+        if (cleanupProduct) {
+            cleanupSteps.push({
+                key: 'product',
+                title: 'Delete product',    
+            });
+        }
+ 
+        const cleanupChecklist = configChecklist({
+            steps: cleanupSteps,
+            containerElem: $('#cleanupProgressDiv'),
+        });
+        $('#cleanupProgressDiv').show();
+
         gtag('event', 'cleanupStarted', {'event_category':gaCategory});
 
         await stopDemo();
     
-        if ($('#cleanupWebhook').prop('checked') && !$('#cleanupWebhook').prop('disabled')) {
+        if (cleanupWebhook) {
             // TODO: If deleting the product, delete all integrations as you cannot delete 
             // a product that has integrations
             try {
-                const resp = await apiHelper.particle.deleteIntegration({
-                    integrationId: webhookDemo.settings.integrationId,
-                    product: webhookDemo.settings.productId,
-                    auth: apiHelper.auth.access_token});
-    
-                console.log('delete webhook resp', resp);        
+                cleanupChecklist.setIndicatorSpin('webhook');
+
+                for(const hook of webhookDemo.webhooks) {
+                    const resp = await apiHelper.particle.deleteIntegration({
+                        integrationId: hook.id,
+                        product: webhookDemo.settings.productId,
+                        auth: apiHelper.auth.access_token});
+        
+                    console.log('delete webhook resp', resp);            
+                }
+
                 gtag('event', 'cleanupDeleteWebhook', {'event_category':gaCategory});
+                cleanupChecklist.setIndicatorOK('webhook');
             }
             catch(e) {
                 console.log('delete webhook exception', e);        
+                cleanupChecklist.setIndicatorRedX('webhook');
             }
             webhookDemo.settings.integrationId = 0;
             webhookDemo.webhooks = null;
         }
 
-        if ($('#cleanupTinker').prop('checked') && !$('#cleanupTinker').prop('disabled')) {
+        if (cleanupTinker) {
             let deviceTargetVersion;
+            cleanupChecklist.setIndicatorSpin('tinker');
 
             for(const dev of webhookDemo.productDevices) {
                 if (!deviceTargetVersion || apiHelper.versionSort(dev.system_firmware_version, deviceTargetVersion) < 0) {
@@ -2619,11 +2679,14 @@ $(document).ready(function() {
                     console.log('flash device exception', e);      
                 }
             }     
+            cleanupChecklist.setIndicatorOK('tinker');
             gtag('event', 'cleanupTinker', {'event_category':gaCategory});
         }
 
 
-        if ($('#cleanupDevices').prop('checked') && !$('#cleanupDevices').prop('disabled')) {
+        if (cleanupDevices) {
+            cleanupChecklist.setIndicatorSpin('devices');
+
             for(const dev of webhookDemo.productDevices) {
                 try {
                     const resp = await apiHelper.particle.removeDevice({
@@ -2637,13 +2700,15 @@ $(document).ready(function() {
                     console.log('remove device exception', e);      
                 }
             }                
+            cleanupChecklist.setIndicatorOK('devices');
             gtag('event', 'cleanupRemoveDevices', {'event_category':gaCategory});
             webhookDemo.productDevices = null
         }
-        if ($('#cleanupProduct').prop('checked') && !$('#cleanupProduct').prop('disabled')) {
+        if (cleanupProduct) {
             // 
             console.log('deleting product ' + webhookDemo.settings.productId);
             try {
+                cleanupChecklist.setIndicatorSpin('product');
                 await new Promise(function(resolve, reject) {
 
                     const request = {                
@@ -2671,9 +2736,11 @@ $(document).ready(function() {
             
                     $.ajax(request);            
                 });    
+                cleanupChecklist.setIndicatorOK('product');
             }
             catch(e) {
                 console.log('delete product exception', e);
+                cleanupChecklist.setIndicatorRedX('product');
             }
             
             webhookDemo.settings.productId = 0;
