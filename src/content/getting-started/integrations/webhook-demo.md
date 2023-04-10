@@ -10,6 +10,7 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-events,api-helper-ex
 
 This is an interactive tutorial that shows how to use Particle.publish to send data from a Particle device to a cloud service by a webhook. You'd use a technique like this for sending sensor or location data from your Particle device to the Particle cloud and then to your servers via a webhook.
 
+- If you're interesting in controlling devices and the differences between publish and functions, see the [function and publish demo](/getting-started/cloud/function-publish-demo/).
 
 In order to use this tutorial, you must be logged into your Particle account:
 
@@ -23,11 +24,20 @@ In this section we'll set up a product, add your device, and create a webhook.
 
 You should typically start with a product. You'll eventually need one to scale, and it makes it easier to group devices. 
 
-This demo requires a product, and you should generally create a new one just for this demo. Each product can only have a single device platform, so you must select that first.
+This demo requires a product, and each product can only have a single device platform, so you must select that first.
 
 {{> webhook-demo-select-product}}
 
 You can find all of your sandbox products in the {{webhook-demo-link link="sandbox/products" text="productsTab"}} in the Particle console.
+
+There is no charge for creating products in your free developer sandbox and there is no limit on the number of products, though there is a limit to the number of devices in the free plan.
+
+### Start demo
+
+Starting the demo will start the webhook server and start monitoring events.
+
+{{> webhook-demo-start mode="webhook01" options="noTracker"}}
+
 
 ### Add devices to product
 
@@ -38,12 +48,6 @@ For this demo, you can just select existing devices from your developer sandbox 
 {{> webhook-demo-add-devices}}
 
 You will normally use the **Add Devices** button in the {{webhook-demo-link link="devices" text="devices tab"}} in the console to do this in your real products.
-
-### Start demo
-
-Starting the demo will start the webhook server and start monitoring events.
-
-{{> webhook-demo-start}}
 
 
 ### Create a product webhook
@@ -116,6 +120,36 @@ To help secure your webhook:
 
 {{collapse op="end"}}
 
+
+### Your device fleet
+
+This control shows the status of devices in your product fleet. It's similar to the {{webhook-demo-link link="devices" text="devices tab"}} in your product in the console.
+
+Once you've added a device to your product, it will show up here. Use the **Flash** link to flash the product firmware to your device.
+
+{{> webhook-demo-fleet }}
+
+- The **online** column shows a green checkbox if the device is online and connected to the Particle cloud.
+
+- The **firmware** column shows a green checkbox if the device has product firmware and has come online at least once. 
+When you onboard your first device, you have to manually request the firmware be flashed to it. Click the **Flash** link to do this.
+
+- The **development** column checkbox shows if the device has the **Mark as Development device** flag set. You can also change the 
+state using this checkbox. You normally should leave this turned off.
+
+### Product firmware setup
+
+{{> webhook-demo-product-config options="productFirmware"}}
+
+Setting up product firmware involves several steps:
+
+- Compiling the firmware, typically using Particle Workbench.
+- Uploading to the console from the {{webhook-demo-link link="webhook" text="firmware"}} tab of your product.
+- Flashing the firmware to at least one device manually.
+- Releasing the firmware as the default firmware for the product.
+
+Once you've set the default firmware, and newly added device will automatically be flashed with this firmware when it connects to the cloud.
+
 ### Test webhook
 
 {{> webhook-demo-test }}
@@ -158,17 +192,11 @@ This control shows the same information that is shown in the {{webhook-demo-link
 {{> webhook-demo-events }}
 
 
-### Your device fleet
-
-This control shows the status of devices in your product fleet. It's similar to the {{webhook-demo-link link="devices" text="devices tab"}} in your product in the console.
-
-{{> webhook-demo-fleet }}
-
 ## Device firmware
 
 {{> project-browser project="webhook-demo" default-file="src/webhook-demo.cpp" height="400" flash="true"}}
 
-### Firmware deep dive
+{{collapse op="start" label="Tell me more the device firmware"}}
 
 This is standard boilerplate you'll see in most applications.
 
@@ -354,6 +382,9 @@ And finally publish the data to the Particle cloud. You may see example code tha
 Particle.publish(eventName, publishDataBuf);
 ```
 
+{{collapse op="end"}}
+
+
 ### Open in Workbench
 
 The recommended development environment for Particle firmware is [Particle Workbench](/workbench/). To open this project in Workbench:
@@ -408,6 +439,7 @@ Instead of just using random data, try connecting a real temperature sensor and 
 
 If you are done using this tutorial, you can clean up the things that were created during this tutorial.
 
-{{> webhook-demo-cleanup }}
+{{> webhook-demo-cleanup webhook="1"}}
 
-Don't forget to turn off your device or flash different firmware (or Tinker) to it so it doesn't continue to publish events and use data operations.
+You should flash Tinker using the option above or turn the device off after completing the tutorial so it doesn't continue to publish events, 
+which will consume data operations even if you're not actively using the tutorial.

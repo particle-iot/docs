@@ -7,21 +7,43 @@ $(document).ready(function() {
         return;
     }
 
-    const localStorageKey = 'webhookDemo';
-    const webhookName = 'WebhookDemo01';
     const serverUrlBase = 'https://api.webhook-demo.com/';
     const hookAuthorization = '9BQuGrR3ZhrPjBPBAQPRdSWNUFdAPLWseD7GzS5Cjg6tn43W';
-    const gaCategory = 'WebhookDemo01';
 
-    gtag('event', 'opened', {'event_category':gaCategory});
-
+    // These will be overridden based on the demo
+    let gaCategory;
+    
     let webhookDemo = {      
         started: false,
         settings: {},
     };
 
+    $('.webhookDemo[data-control="start"]').each(function() {
+        $(this).data('webhookDemo', webhookDemo);
+
+        webhookDemo.mode = $(this).data('mode');
+        switch(webhookDemo.mode) {
+            case 'webhook01':
+                webhookDemo.localStorageKey = 'webhookDemo';
+                webhookDemo.webhookName = gaCategory = 'WebhookDemo01';
+                webhookDemo.productNamePrefix = 'webhook-demo-';
+                webhookDemo.firmwareVersion = 1;
+                break;
+
+            case 'function-publish':
+                webhookDemo.localStorageKey = 'functionPublishDemo';
+                webhookDemo.webhookName = gaCategory = 'G52ES20Q_DeviceGroup';
+                webhookDemo.productNamePrefix = 'function-publish-demo-';
+                webhookDemo.firmwareVersion = 1;
+                webhookDemo.requiredFunctions = ['setColor', 'setDeviceGroups'];
+                break;
+        }
+    
+        webhookDemo.options = $(this).data('options').split(',');
+    });
+
     try {
-        const s = localStorage.getItem(localStorageKey);
+        const s = localStorage.getItem(webhookDemo.localStorageKey);
         if (s) {
             webhookDemo.settings = JSON.parse(s);
             if (webhookDemo.settings.username != apiHelper.auth.username) {
@@ -31,10 +53,22 @@ $(document).ready(function() {
     }
     catch(e) {        
     }
+
     webhookDemo.settings.username = apiHelper.auth.username;
+    
+    gtag('event', 'opened ' + webhookDemo.mode, {'event_category':gaCategory});
+
+    webhookDemo.runningProductFirmware = new Promise(function(resolve, reject) {
+        webhookDemo.runningProductFirmwareResolve = resolve;
+    });
+    webhookDemo.haveServerUrl = new Promise(function(resolve, reject) {
+        webhookDemo.haveServerUrlResolve = resolve;
+    });
 
     const updateSettings = function() {
-        localStorage.setItem(localStorageKey, JSON.stringify(webhookDemo.settings));
+        if (webhookDemo.localStorageKey) {
+            localStorage.setItem(webhookDemo.localStorageKey, JSON.stringify(webhookDemo.settings));
+        }
     }
 
     const updateLinks = function() {
@@ -87,6 +121,15 @@ $(document).ready(function() {
         // cleanupWebhook cleanupDevices cleanupProduct
         // cleanupButton
 
+        if (!webhookDemo.productDevices || !webhookDemo.webhooks) {
+            $('#cleanupStartWarning').show();
+            $('#cleanupCanRun').hide();
+            return;
+        }
+
+        $('#cleanupStartWarning').hide();
+        $('#cleanupCanRun').show();
+
         if (!webhookDemo.settings.productId) {
             // No product selected
             $('#cleanupButton').prop('disabled', true);
@@ -95,43 +138,61 @@ $(document).ready(function() {
 
         $('#cleanupButton').prop('disabled', false);
 
-        
-        /*
-        if (!webhookDemo.deviceObj) {
-            // No device selected
-        }
-        
-        if (webhookDemo.deviceObj && webhookDemo.deviceObj.product_id == webhookDemo.settings.productId) {
-            // Device in product
-        }
-         
-
-        if (!webhookDemo.hookUrl) {
-        }
-        */
-
         $('#cleanupWebhook').prop('disabled', true);
+        $('#cleanupTinker').prop('disabled', true);
         $('#cleanupDevices').prop('disabled', true);
         $('#cleanupProduct').prop('disabled', true);
 
-
-        if (webhookDemo.settings.integrationId) {
+        
+        if (webhookDemo.webhooks.length > 0) {
             $('#cleanupWebhook').prop('disabled', false);
         }
 
-        if (webhookDemo.productDevices) {
-            if (webhookDemo.productDevices.length > 0) {
-                $('#cleanupDevices').prop('disabled', false);
-            }
-        
-            if (webhookDemo.productDevices.length == 0 || $('#cleanupDevices').prop('checked')) {
-                // Can only delete an empty product
-                $('#cleanupProduct').prop('disabled', false);
+        if (webhookDemo.productDevices.length > 0) {
+            $('#cleanupDevices').prop('disabled', false);
+        }
+        for(const dev of webhookDemo.productDevices) {
+            if (dev.online && dev.firmware_version == webhookDemo.firmwareVersion) {
+                $('#cleanupTinker').prop('disabled', false);
             }
         }
+    
+        if ((webhookDemo.webhooks.length == 0 || $('#cleanupWebhook').prop('checked')) &&
+            (webhookDemo.productDevices.length == 0 || $('#cleanupDevices').prop('checked'))) {
+            // Can only delete an empty product
+            $('#cleanupProduct').prop('disabled', false);
+        }
+    
 
     }
     
+    const makeBanner = function(options) {
+        const bannerDivElem = document.createElement('div');
+        $(bannerDivElem).css('padding', '10px 10px 10px 10px');
+        $(bannerDivElem).css('margin', '10px 0px 10px 0px');
+        $(bannerDivElem).css('text-align', 'center');
+        $(bannerDivElem).css('background-color', options.color);
+        $(bannerDivElem).text(options.title);
+        return bannerDivElem;
+    }
+
+    const makeTextDiv = function(s) {
+        const divElem = document.createElement('div');
+
+        $(divElem).text(s);
+
+        return divElem;
+    }
+    const makePreDiv = function(s) {
+        const divElem = document.createElement('div');
+
+        const preElem = document.createElement('pre');
+        $(preElem).addClass('apiHelperMonoSmall');
+        $(preElem).text(s);
+        $(divElem).append(preElem);
+
+        return divElem;
+    }
 
     const updateExplainer = function(explainObj) {
         let nextExplainer;
@@ -147,34 +208,6 @@ $(document).ready(function() {
             parsedData: '#FFADBD',   // COLOR_Watermelon_400
         };
 
-        const makeBanner = function(options) {
-            const bannerDivElem = document.createElement('div');
-            $(bannerDivElem).css('padding', '10px 10px 10px 10px');
-            $(bannerDivElem).css('margin', '10px 0px 10px 0px');
-            $(bannerDivElem).css('text-align', 'center');
-            $(bannerDivElem).css('background-color', options.color);
-            $(bannerDivElem).text(options.title);
-            return bannerDivElem;
-        }
-
-        const makeTextDiv = function(s) {
-            const divElem = document.createElement('div');
-
-            $(divElem).text(s);
-
-            return divElem;
-        }
-        const makePreDiv = function(s) {
-            const divElem = document.createElement('div');
-
-            const preElem = document.createElement('pre');
-            $(preElem).addClass('apiHelperMonoSmall');
-            $(preElem).text(s);
-            $(divElem).append(preElem);
-
-            return divElem;
-        }
-
         const divOuterElem = document.createElement('div');
 
 
@@ -183,7 +216,7 @@ $(document).ready(function() {
             
 
             let text = '';
-            if (explainObj.event.name == webhookName) {
+            if (explainObj.event.name == webhookDemo.webhookName) {
                 text += 'The Particle event ';
                 if (explainObj.event.coreid == 'api') {
                     text += 'generated by the Test button or Cloud API:';
@@ -222,7 +255,7 @@ $(document).ready(function() {
 
             const tbodyElem = document.createElement('tbody');
 
-            if (explainObj.event.name == webhookName) {
+            if (explainObj.event.name == webhookDemo.webhookName) {
                 $('#explainerTable').empty();
             }
 
@@ -348,7 +381,7 @@ $(document).ready(function() {
     }
 
 
-    const startSession = function() {
+    const startWebhookSession = function() {
         // Create a new SSE session which creates a new tutorial session
         const evtSource = webhookDemo.serverStream = new EventSource(serverUrlBase + 'stream', {withCredentials:false});
 
@@ -356,7 +389,6 @@ $(document).ready(function() {
             const dataObj = JSON.parse(event.data);
 
             webhookDemo.sessionId = dataObj.sessionId;
-            console.log('new sessionId ' + webhookDemo.sessionId);
 
             webhookDemo.hookUrl = serverUrlBase + 'hook/' + webhookDemo.sessionId;
             webhookDemo.controlUrl = serverUrlBase + 'control/' + webhookDemo.sessionId;
@@ -426,7 +458,7 @@ $(document).ready(function() {
             $('.webhookDemoNoUrl').show();
         }
         else {
-            let found = webhookDemo.webhooks.find(e => e.event == webhookName);
+            let found = webhookDemo.webhooks.find(e => e.event == webhookDemo.webhookName);
             if (found) {
                 $('.createWebhookAlreadyAdded').show();
                 $('.testWebhookCanTest').show();
@@ -451,7 +483,7 @@ $(document).ready(function() {
             },
             url: webhookDemo.hookUrl,
             noDefaults: true,
-            method: 'POST',
+            requestType: 'POST',
             body,
             responseTopic: '{{{PARTICLE_DEVICE_ID}}}/hook-response/{{{PARTICLE_EVENT_NAME}}}',
             errorResponseTopic: '{{{PARTICLE_DEVICE_ID}}}/hook-error/{{{PARTICLE_EVENT_NAME}}}',
@@ -460,28 +492,31 @@ $(document).ready(function() {
 
         $('#webhookSource > pre').text(JSON.stringify(settings, null, 4));
 
-        let integrationObj = webhookDemo.webhooks.find(e => e.event == webhookName);
+        let integrationObj = webhookDemo.webhooks.find(e => e.event == webhookDemo.webhookName);
         if (integrationObj) {
-            console.log('update integration', integrationObj);
             webhookDemo.settings.integrationId = integrationObj.id;
 
             const resp = await apiHelper.particle.editIntegration({
                 integrationId: integrationObj.id,
-                event: webhookName, 
+                event: webhookDemo.webhookName, 
                 settings, 
                 product: webhookDemo.settings.productId,
                 auth: apiHelper.auth.access_token});
-            console.log('edit resp', resp);    
+            // console.log('edit resp', resp);    
+
+            gtag('event', 'editIntegration', {'event_category':gaCategory,'value':(resp.ok ? 1 : 0)});
         }
         else 
         if (!options.updateOnly) {
             const resp = await apiHelper.particle.createIntegration({
-                event: webhookName, 
+                event: webhookDemo.webhookName, 
                 settings, 
                 product: webhookDemo.settings.productId,
                 auth: apiHelper.auth.access_token});
 
-            console.log('create resp', resp);    
+            gtag('event', 'createIntegration', {'event_category':gaCategory,'value':(resp.ok ? 1 : 0)});
+
+            // console.log('create resp', resp);    
             webhookDemo.settings.integrationId = resp.body.id;
             updateSettings();                
 
@@ -500,29 +535,32 @@ $(document).ready(function() {
     const updateProductSelector = async function() {
         // const productSelectElem = $('#productSelect');
 
-        console.log('updateProductSelector', webhookDemo);
-
         const lastSelected = $('#productSelect').val();
         $('#productSelect').empty();
 
         let demoProductId = 0;
+        let haveExisting = false;
 
         for(const product of webhookDemo.productsData.products) {
             if (product.platform_id == webhookDemo.settings.platformId) {
-                const optionElem = document.createElement('option');
-                $(optionElem).attr('value', product.id.toString());
-                $(optionElem).text(product.name + ' (' + product.id + ')');
-                $('#productSelect').append(optionElem);    
+                if (product.name.startsWith(webhookDemo.productNamePrefix)) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', product.id.toString());
+                    $(optionElem).text(product.name + ' (' + product.id + ')');
+                    $('#productSelect').append(optionElem);    
+                    haveExisting = true;
+                }
             }
-            if (!demoProductId && product.name.startsWith('webhook-demo-')) {
+            if (!demoProductId && product.name.startsWith(webhookDemo.productNamePrefix)) {
                 demoProductId = product.id;
             }
         }
         if (lastSelected) {
             $('#productSelect').val(lastSelected);
         }
+        $('#useExistingProduct').prop('disabled', !haveExisting);
 
-        const newProductName = 'webhook-demo-' + webhookDemo.settings.platformName.toLowerCase() + '-' + Math.floor(Math.random() * 999999);
+        const newProductName = webhookDemo.productNamePrefix + webhookDemo.settings.platformName.toLowerCase() + '-' + Math.floor(Math.random() * 999999);
         $('#newProductNameInput').val(newProductName);
 
         if (!webhookDemo.settings.productId && demoProductId) {
@@ -545,18 +583,90 @@ $(document).ready(function() {
         updateCleanup();
     }
 
-    const updateProduct = async function() {
-        // webhookDemo.settings.productId
-
+    const updateProductDevices = async function() {
         webhookDemo.productDevices = await apiHelper.getAllDevices({
             productId: webhookDemo.settings.productId,
         });
-        // console.log('webhookDemo.productDevices', webhookDemo.productDevices);
+
+        webhookDemo.productHasFirmware = 0;
+        webhookDemo.productNeedsFirmware = 0;
+        
+        for(const dev of webhookDemo.productDevices) {
+            if (dev.firmware_version == webhookDemo.firmwareVersion) {
+                webhookDemo.productHasFirmware++;
+            }
+            else {
+                webhookDemo.productNeedsFirmware++;
+            }            
+        }
+
         webhookDemo.deviceNames = {};
         for(const dev of webhookDemo.productDevices) {
             webhookDemo.deviceNames[dev.id] = dev.name || dev.id;
         }
-        // console.log('webhookDemo.deviceNames', webhookDemo.deviceNames);
+        $('.webhookDemoProductDeviceSelect').each(async function() {
+            const deviceSelectElem = this;
+            $(deviceSelectElem).empty();
+
+            for(const dev of webhookDemo.productDevices) {
+                const optionElem = document.createElement('option');
+                $(optionElem).attr('value', dev.id);
+
+                if (dev.name) {
+                    $(optionElem).text(dev.name + ' (' + dev.id + ')');
+                }
+                else {
+                    $(optionElem).text(dev.id);
+                }
+                $(deviceSelectElem).append(optionElem);
+            }
+            $('.disableNoProductDevices').prop('disabled', webhookDemo.productDevices.length == 0);                
+        });
+
+        if (webhookDemo.productHasFirmware) {
+            if (webhookDemo.runningProductFirmwareResolve) {
+                webhookDemo.runningProductFirmwareResolve();
+                webhookDemo.runningProductFirmwareResolve = null;
+            }
+        }
+
+        updateCleanup();
+
+    }
+
+    const updateDeviceGroups = async function() {
+        webhookDemo.deviceGroups = await new Promise(function(resolve, reject) {                
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    reject(jqXHR);
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    resolve(resp);
+                },
+                url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/groups',
+            }
+            $.ajax(request);
+        });
+
+        $('.webhookDemoProductGroupSelect > option').not(':first').remove();
+        for(const group of webhookDemo.deviceGroups.groups) {
+            const optionElem = document.createElement('option');
+            $(optionElem).attr('value', group.name);
+            $(optionElem).text(group.name);
+            $('.webhookDemoProductGroupSelect').append(optionElem);
+        }
+
+    }
+
+    const updateProduct = async function() {
+        // webhookDemo.settings.productId
+        await updateProductDevices();
 
         webhookDemo.productInfo = (await apiHelper.particle.getProduct({
             product: webhookDemo.settings.productId,
@@ -573,18 +683,97 @@ $(document).ready(function() {
             auth: apiHelper.auth.access_token,
         })).body;
 
+        webhookDemo.hasDefaultProductFirmware = !!webhookDemo.productFirmware.find(e => e.product_default);
 
-        console.log('updateProduct', webhookDemo);
+        webhookDemo.productFirmwareUploaded = !!webhookDemo.productFirmware.find(e => e.version == webhookDemo.firmwareVersion);
+        
+        await updateDeviceGroups();
 
         updateDevicesList();
         updateCreateWebhook();
         updateLinks();
         updateCleanup();
+        updateFleet();
 
+        
         $('#startDemo').prop('disabled', false);
     }
 
 
+    const updateGroups = async function(options) {
+        let requestDataObj = {
+            groups: options.groups,
+        };
+
+        try {
+            const setResp = await new Promise(function(resolve, reject) {
+                const request = {                
+                    contentType: 'application/json',
+                    data: JSON.stringify(requestDataObj),
+                    dataType: 'json',
+                    error: function (jqXHR) {
+                        console.log('control error', jqXHR);
+                        reject();
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                        'Accept': 'application/json'
+                    },
+                    method: 'PUT',
+                    success: function (resp, textStatus, jqXHR) {
+                        resolve(resp);
+                    },
+                    url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' + options.deviceId,
+                };
+    
+                $.ajax(request);
+            });
+            // console.log('setResp', setResp);
+    
+            webhookDemo.deviceObj = (await apiHelper.particle.getDevice({
+                deviceId: options.deviceId,
+                auth: apiHelper.auth.access_token,
+            })).body;
+    
+            const callResp = await new Promise(function(resolve, reject) {
+    
+                const groupRequestObj = {
+                    groups: options.groups,
+                }
+
+                const requestObj = {
+                    arg: JSON.stringify(groupRequestObj),
+                };
+
+                const url = 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' +  options.deviceId + '/setDeviceGroups';
+    
+                let request = {
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    data: JSON.stringify(requestObj),
+                    error: function (jqXHR) {
+                        reject(jqXHR);
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                        'Accept': 'application/json'
+                    },
+                    method: 'POST',
+                    success: function (resp, textStatus, jqXHR) {
+                        resolve(resp);
+                    },
+                    url,
+                }
+    
+                $.ajax(request);
+            });
+            // console.log('call resp', callResp);        
+        }
+        catch(e) {
+            console.log('exception updating groups', e);
+        }
+
+    }
 
     const updateDevice = async function() {
         // webhookDemo.settings.deviceId
@@ -637,17 +826,6 @@ $(document).ready(function() {
     }
 
     const updateDevicesList = function() {        
-        if (!webhookDemo.settings.productId) {
-            $('#addDevicesNoProductDiv').show();
-            $('#addDevicesTableDiv').hide();
-            return;
-        }
-        $('#addDevicesNoProductDiv').hide();
-        $('#addDevicesTableDiv').show();
-
-        // webhookDemo.settings.platformId = parseInt(valString);
-        // webhookDemo.settings.platformName = await apiHelper.getPlatformName(webhookDemo.settings.platformId);
-        console.log('webhookDemo.settings.platformId ' + webhookDemo.settings.platformId );
         
         let columns = [];
         $('#sandboxDevicesTable > thead > tr > th').each(function() {
@@ -655,7 +833,6 @@ $(document).ready(function() {
                 key: $(this).data('key'),
             });
         });
-        console.log('columns', columns);
 
         $('#sandboxDevicesTable > tbody').empty();
 
@@ -735,6 +912,9 @@ $(document).ready(function() {
 
     };
 
+    let updateFleet; // Forward declaration
+
+
     $('#addDevicesButton').on('click', async function() {
         $('#addDevicesButton').prop('disabled', true);
 
@@ -748,7 +928,6 @@ $(document).ready(function() {
                 devicesToImport.push(addDevObj.devObj.id);
             }
         }
-        console.log('devicesToImport', devicesToImport);
         if (devicesToImport.length == 0) {
             return;
         }
@@ -788,7 +967,7 @@ $(document).ready(function() {
                     url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices'
                 });    
             });
-            console.log('importRes', importRes);
+            // console.log('importRes', importRes);
     
             setStatus('Importing devices successful!');
         }
@@ -796,8 +975,13 @@ $(document).ready(function() {
             setStatus('Importing failed')
         }
 
+        // Update sandbox devices
         webhookDemo.sandboxDevices = await apiHelper.getAllDevices({});
         updateDevicesList();
+
+        // Update product devices
+        await updateProductDevices();
+        updateFleet();
     });
 
     const sendControl = function(requestDataObj) {
@@ -815,7 +999,6 @@ $(document).ready(function() {
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
-                    console.log('control success', resp);                
                     resolve(resp);
                 },
                 url: webhookDemo.controlUrl,
@@ -826,8 +1009,6 @@ $(document).ready(function() {
     }
 
     const updateWebhookUrl = async function() {
-        console.log('updateWebhookUrl ' + webhookDemo.hookUrl);
-
         $('.webhookUrlSpan').text(webhookDemo.hookUrl);
 
         updateCreateWebhook();
@@ -835,23 +1016,6 @@ $(document).ready(function() {
         // The webhook is automatically created now. To restore the behavior of only doing it
         // when the button is pressed, add this as the parameter: {updateOnly:true}
         await createOrUpdateWebhook();
-
-        
-        // This does not seem to be necessary, as long as the server is set to have a long enough maximum request time. 
-        // It's currently set to 30 minutes.
-        /*
-        if (!webhookDemo.pingTimer) {
-            webhookDemo.pingTimer = window.setInterval(async function() {
-                try {
-                    await sendControl({
-                        op: 'ping',
-                    });    
-                }
-                catch(e) {                    
-                }
-            }, 60000);
-        }
-        */
         
     }
 
@@ -907,8 +1071,6 @@ $(document).ready(function() {
         
     }
 
-    let updateFleet;
-
     const updateProductDevice = async function(deviceId) {
         const  deviceObj = (await apiHelper.particle.getDevice({
             deviceId: deviceId,
@@ -921,7 +1083,6 @@ $(document).ready(function() {
             if (webhookDemo.productDevices[ii].id == deviceId) {
                 webhookDemo.productDevices[ii] = deviceObj;
                 found = true;
-                console.log('updating single device ' + deviceId);
                 updateFleet({deviceId});
                 break;
             }
@@ -939,8 +1100,9 @@ $(document).ready(function() {
                 setTimeout(function() {
                     // Delay is required because the device state change occurs slightly
                     // after the event is sent
-                    updateProductDevice(event.coreid);
-                }, 2000);
+                    updateProductDevices();
+                    updateFleet();
+                }, 3000);
                 break;
 
             case 'spark/device/diagnostics/update':
@@ -976,8 +1138,27 @@ $(document).ready(function() {
 
         for(let colObj of webhookDemo.eventLogColumns) {
             const tdElem = document.createElement('td');
-            if (event[colObj.key]) {
-                $(tdElem).text(event[colObj.key]);
+
+            let value = event[colObj.key];
+
+            switch(colObj.key) {
+                case 'name':
+                case 'data':
+                    $(tdElem).css('max-width', '200px');
+                    break;
+
+                case 'published_at':
+                    {
+                        let tIndex = value.indexOf('T');
+                        if (tIndex) {
+                            value = value.substring(tIndex + 1);
+                        }
+                    }
+                    break;
+            }
+
+            if (value) {
+                $(tdElem).text(value);
             }
             else {
                 $(tdElem).html('&nbsp;');
@@ -990,6 +1171,7 @@ $(document).ready(function() {
 
     // Forward declared above
     updateFleet = function(options = {}) {
+        const fleetOptions = $('.webhookDemo[data-control="fleet"]').data('options').split(',');
 
         if (!options.deviceId) {
             $('#fleetTable').empty();
@@ -997,12 +1179,31 @@ $(document).ready(function() {
             webhookDemo.fleetColumns = [];
             webhookDemo.fleetRows = [];
 
+            $('#fleetHeader > tr').find('.groupColumn').remove();
+
             $('#fleetHeader > tr > th').each(function() {
                 webhookDemo.fleetColumns.push({
                     key: $(this).data('key'),
                     style: $(this).data('style'),
                 });
             });
+
+            if (fleetOptions.includes('groupSelector')) {                
+                // .groups
+                for(const groupObj of webhookDemo.deviceGroups.groups) {
+                    const thElem = document.createElement('th');
+                    $(thElem).addClass('groupColumn');
+                    $(thElem).text(groupObj.name);
+                    $('#fleetHeader > tr').append(thElem);
+
+                    webhookDemo.fleetColumns.push({
+                        name: groupObj.name,
+                        style: 'groupCheckbox',
+                    });
+                }
+            }
+
+
 
             for(const deviceObj of webhookDemo.productDevices) {
                 const rowElem = document.createElement('tr');
@@ -1035,33 +1236,837 @@ $(document).ready(function() {
             for(const colObj of webhookDemo.fleetColumns) {
                 const cellElem = document.createElement('td');
 
-                if (deviceObj[colObj.key]) {
-                    switch(colObj.key) {
-                        default:
-                            switch(colObj.style) {
-                                case 'greenCheck':
-                                    if (deviceObj[colObj.key]) {
-                                        $(cellElem).html('\u2705'); // green check
+                switch(colObj.key) {
+                    case 'groups':
+                        $(cellElem).text(deviceObj[colObj.key].join(', '));
+                        break;
+
+                    case 'development': 
+                        {
+                            const checkboxElem = document.createElement('input');
+                            $(checkboxElem).attr('type', 'checkbox');
+                            if (deviceObj.development) {
+                                $(checkboxElem).attr('checked', 'checked');        
+                            }
+                            $(checkboxElem).on('click', async function() {
+                                const checked = $(checkboxElem).prop('checked');
+                                await apiHelper.particle.markAsDevelopmentDevice({ 
+                                    deviceId: deviceObj.id,
+                                    development: checked,
+                                    product: webhookDemo.settings.productId,
+                                    auth: apiHelper.auth.access_token,
+                                });                
+                                await updateProductDevices();
+                            });
+                            $(cellElem).append(checkboxElem);    
+                            $(cellElem).css('text-align', 'center');
+                        }
+                        break;
+
+
+                    default:
+                        switch(colObj.style) {
+                            case 'greenCheck':
+                                if (deviceObj[colObj.key]) {
+                                    $(cellElem).html('\u2705'); // green check
+                                }
+                                else {
+                                    $(cellElem).html('&nbsp;');
+                                }
+                                $(cellElem).css('text-align', 'center');
+                                break;
+
+                            case 'firmware':
+                                if (deviceObj[colObj.key] == webhookDemo.firmwareVersion) {
+                                    // TODO: Also check functions here
+                                    $(cellElem).html('\u2705'); // green check
+                                }
+                                else {
+                                    if (deviceObj.online) {
+                                        const aElem = document.createElement('a');
+                                        $(aElem).text('Flash');
+                                        $(aElem).on('click', async function() {
+                                            $(cellElem).text('Flashing');
+
+                                            await new Promise(function(resolve, reject) {
+                                                let formData = new FormData();
+
+                                                let blob = new Blob([webhookDemo.firmwareBinary], {type:'application/octet-stream'});
+                                                formData.append('file', blob, 'firmware.bin');
+                                    
+                                                $.ajax({
+                                                    data: formData,
+                                                    contentType: false,
+                                                    error: function(err) {
+                                                        reject();
+                                                    },
+                                                    method: 'PUT',
+                                                    processData: false,
+                                                    success: function (resp) {
+                                                        resolve();
+                                                    },
+                                                    url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' + deviceObj.id + "?access_token=" + apiHelper.auth.access_token,
+                                                });    
+                                            });        
+                                            
+                                        });
+                                        $(cellElem).html(aElem);
                                     }
                                     else {
-                                        $(cellElem).html('&nbsp;');
+                                        $(cellElem).html('\u274c'); // red x
                                     }
-                                    break;
+                                }
+                                $(cellElem).css('text-align', 'center');
+                                break;
 
-                                default:
+                            case 'groupCheckbox':
+                                {
+                                    const checkboxElem = document.createElement('input');
+                                    $(checkboxElem).attr('type', 'checkbox');
+                                    if (deviceObj.groups && deviceObj.groups.includes(colObj.name)) {
+                                        $(checkboxElem).attr('checked', 'checked');
+                                    }
+                                    $(checkboxElem).on('click', async function() {
+                                        const checked = $(checkboxElem).prop('checked');
+                                        let newGroups = [];
+                                        if (checked) {
+                                            newGroups = deviceObj.groups;
+                                            newGroups.push(colObj.name);
+                                        }
+                                        else {
+                                            for(const g of deviceObj.groups) {
+                                                if (g != colObj.name) {
+                                                    newGroups.push(g);
+                                                }
+                                            }
+                                        }
+                                        await updateGroups({
+                                            deviceId: deviceObj.id,
+                                            groups: newGroups,
+                                        });
+                                    });
+                                    $(cellElem).append(checkboxElem);    
+                                }
+                                $(cellElem).css('text-align', 'center');
+                                break;
+
+                            default:
+                                if (deviceObj[colObj.key]) {
                                     $(cellElem).text(deviceObj[colObj.key]);
-                                    break;
-                            }
-                            break;
-                    }
+                                }
+                                else {
+                                    $(cellElem).html('&nbsp;');
+                                }
+                                break;
+                        }
+                        break;
                 }
-                else {
-                    $(cellElem).html('&nbsp;');
-                }
+            
 
                 $(fleetRowObj.rowElem).append(cellElem);
             }
         }
+        updateCleanup();
+
+    }
+
+
+    const configChecklist = function(options) {
+        let configChecklist = {};
+
+        configChecklist.steps = options.steps;
+
+        const tableElem = document.createElement('table');
+        $(tableElem).addClass('apiHelperTableNoMargin');
+        
+        const tbodyElem = document.createElement('tbody');
+        
+        for(const step of configChecklist.steps) {
+            const trElem = step.rowElem = document.createElement('tr');
+
+            const indicatorElem = step.indicatorElem = document.createElement('td');
+            $(trElem).append(indicatorElem);
+
+            const titleElem = step.titleElem = document.createElement('td');
+            if (step.title) {
+                $(titleElem).text(step.title);
+            }
+            $(trElem).append(titleElem);
+
+            $(tbodyElem).append(trElem);
+        }
+        $(tableElem).append(tbodyElem);
+        $(options.containerElem).append(tableElem);
+
+        configChecklist.getStep = function(key) {
+            return configChecklist.steps.find(e => e.key == key);
+        }
+
+        configChecklist.setIndicatorText = function(key, indicator) {
+            $(configChecklist.steps.find(e => e.key == key).indicatorElem).text(indicator);
+        }
+
+        configChecklist.setIndicatorIcon = function(key, iconName) {
+            const imgElem = document.createElement('img');
+            $(imgElem).attr('src', '/assets/images/device-setup/' + iconName);
+            $(imgElem).css('width', '16px');
+            $(imgElem).css('height', '16px');
+            $(imgElem).css('margin', '2px');
+
+            $(configChecklist.steps.find(e => e.key == key).indicatorElem).html(imgElem);
+        }
+
+        configChecklist.setIndicatorSpin = function(key) {
+            configChecklist.setIndicatorIcon(key, 'spinner-48.gif');
+        }
+        configChecklist.setIndicatorOK = function(key) {
+            configChecklist.setIndicatorIcon(key, 'ok-48.png');
+        }
+        configChecklist.setIndicatorRedX = function(key) {
+            configChecklist.setIndicatorIcon(key, 'x-mark-48.png');
+        }            
+
+        return configChecklist;
+    };
+
+
+
+    const updatePostStart = async function() {
+
+        $('.webhookDemo[data-control="product-config"]').each(async function() {
+
+            webhookDemo.productConfigOptions = $(this).data('options').split(',');
+    
+            const configItemsElem = $(this).find('.configItems');
+    
+            const copyTemplate = function() {
+                const copyElem = $('.productConfigTemplate')[0].cloneNode(true);
+                $(copyElem).removeClass('productConfigTemplate');
+                $(copyElem).show();
+                return copyElem;
+            };
+
+            let outerDivElems = {};
+
+            for(const option of webhookDemo.productConfigOptions) {
+                const outerDivElem = copyTemplate();
+
+                const setExplanationText = function(s) {
+                    $(outerDivElem).find('.webhookDemoProductConfigExplanation').text(s);
+                }
+
+                switch(option) {
+                    case 'functionPublishApiUser':
+                        {
+                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('API Users');
+    
+                            let msg = '';
+                            msg += 'An API user is required for the webhook to be able to access the Particle API.';
+                            setExplanationText(msg);                                
+                        }
+                        break;
+                        
+                    case 'functionPublishWebhook':
+                        {
+                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Webhooks');
+    
+                            let msg = '';
+                            msg += 'A webhook is required to allow the device to query the device group list.';
+                            setExplanationText(msg);
+                                                         
+                        }
+                        break;
+    
+                    case 'functionPublishDeviceGroups':
+                        {
+                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Device Groups');
+    
+                            let msg = '';
+                            msg += 'Two sample device groups are required. You can add more later.';
+                            setExplanationText(msg);
+            
+                            
+                        }
+                        break;
+
+                    case 'productFirmware':
+                        {
+                            $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Product firmware');
+    
+                            let msg = '';
+                            msg += 'This demo requires product firmware.';
+                            setExplanationText(msg);
+
+                            webhookDemo.firmwareChecklist = configChecklist({
+                                steps: [
+                                    {
+                                        key: 'compile',
+                                        title: 'Compile demo product firmware',    
+                                    },
+                                    {
+                                        key: 'upload',
+                                        title: 'Upload product firmware',    
+                                    },
+                                    {
+                                        key: 'wait',
+                                        title: 'Wait for a device to come online with firmware (required for release)',
+                                    },
+                                    {
+                                        key: 'release',
+                                        title: 'Release and set default product firmware',    
+                                    },
+                                ],
+                                containerElem: $(outerDivElem).find('.webhookDemoProductConfigStatus'),
+                            });
+                            $(outerDivElem).find('.webhookDemoProductConfigStatus').show();
+                        }
+                        break;
+    
+                }
+    
+                $(configItemsElem).append(outerDivElem);
+                outerDivElems[option] = outerDivElem;
+            }
+    
+            for(const option of webhookDemo.productConfigOptions) {
+                const outerDivElem = outerDivElems[option];
+    
+                const setExplanationText = function(s) {
+                    $(outerDivElem).find('.webhookDemoProductConfigExplanation').text(s);
+                }
+                const setStatusText = function(s) {
+                    $(outerDivElem).find('.webhookDemoProductConfigStatus').show();
+                    $(outerDivElem).find('.webhookDemoProductConfigStatus').text(s);
+                }
+                const setDataText = function(s) {
+                    $(outerDivElem).find('.webhookDemoProductConfigData').show();
+                    $(outerDivElem).find('.webhookDemoProductConfigData > pre').text(s);
+                }
+    
+                const apiUserRequest = function(options) {
+                    return new Promise(function(resolve, reject) {                
+                        let request = {
+                            dataType: 'json',
+                            error: function (jqXHR) {
+                                reject(jqXHR);
+                            },
+                            headers: {
+                                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                'Accept': 'application/json'
+                            },
+                            method: options.method,
+                            success: function (resp, textStatus, jqXHR) {
+                                resolve(resp);
+                            },
+                            url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/team',
+                        }
+                        switch(options.method) {
+                            case 'GET':
+                                break;
+    
+                            case 'POST':
+                                {
+                                    let reqData = {
+                                        friendly_name: options.friendlyName,
+                                        scopes: options.scopes,
+                                    };
+                    
+                                    request.contentType = 'application/json';
+                                    request.data = JSON.stringify(reqData);                
+                                }
+                                break;
+    
+                            case 'DELETE':
+                                request.url += '/' + options.user;
+                                break;
+                        }
+    
+    
+                        $.ajax(request);
+                    });
+                };
+    
+                const simpleProductRequest = function(options) {
+                    return new Promise(function(resolve, reject) {                
+                        let request = {
+                            dataType: 'json',
+                            error: function (jqXHR) {
+                                reject(jqXHR);
+                            },
+                            headers: {
+                                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                'Accept': 'application/json'
+                            },
+                            method: options.method || 'GET',
+                            success: function (resp, textStatus, jqXHR) {
+                                resolve(resp);
+                            },
+                            url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/' + options.api,
+                        }
+                        if (options.json) {
+                            request.contentType = 'application/json';
+                            request.data = JSON.stringify(options.json);
+                        }
+        
+                        $.ajax(request);
+                    });
+                }
+                    
+                switch(option) {
+                    case 'functionPublishApiUser':
+                        {
+
+                                    
+                            try {
+                                const getResp = await apiUserRequest({
+                                    method: 'GET',
+                                });
+    
+                                if (webhookDemo.settings.tokenUsername) {
+                                    let found = false;
+                                    for(const member of getResp.team) {
+                                        if (member.username == webhookDemo.settings.tokenUsername) {
+                                            found = true;
+                                            break;
+                                        }
+                                    }
+                                    if (found) {
+                                        setStatusText('API user ' + webhookDemo.settings.tokenUsername + ' already exists and will be reused.');
+                                        break;
+                                    }
+                                }
+                                
+                                const postResp = await apiUserRequest({
+                                    method: 'POST',
+                                    friendlyName: 'FunctionPublishDemo',
+                                    scopes: ['devices:get'],
+                                }); 
+                                
+                                webhookDemo.settings.tokenUsername = postResp.created.username;
+                                webhookDemo.settings.token = postResp.created.tokens[0].token;
+                                updateSettings();
+    
+                                setStatusText('API user ' + webhookDemo.settings.tokenUsername + ' created, using token ' + webhookDemo.settings.token);
+                                gtag('event', 'apiUserCreated', {'event_category':gaCategory});
+                            }
+                            catch(e) {
+                                console.log('apiUser exception', e);
+                            }
+                        }
+                        break;
+
+                    case 'functionPublishWebhook':
+                        {
+
+                            let settings = {
+                                integration_type: 'Webhook',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/{{PARTICLE_DEVICE_ID}}',
+                                noDefaults: true,
+                                requestType: 'GET',
+                                query: {
+                                    'access_token': webhookDemo.settings.token,
+                                },
+                                responseTopic: '{{{PARTICLE_DEVICE_ID}}}/hook-response/{{{PARTICLE_EVENT_NAME}}}',
+                                responseTemplate: '{"groups":[{{{groups}}}],"name":"{{{name}}}","product_id":{{product_id}},"development":{{development}},"notes":"{{{notes}}}"}',
+                                errorResponseTopic: '{{{PARTICLE_DEVICE_ID}}}/hook-error/{{{PARTICLE_EVENT_NAME}}}',
+                            };
+                    
+                            setDataText(JSON.stringify(settings, null, 4));
+                    
+                            if (webhookDemo.webhooks) {
+                                let found = webhookDemo.webhooks.find(e => e.event == webhookDemo.webhookName);
+                                if (found) {
+                                    setStatusText('The webhook ' + webhookDemo.webhookName + ' already exists.');
+                                    webhookDemo.settings.integrationId = found.id;
+                                    updateSettings();                                
+                                    break;
+                                }    
+                            }
+
+                            const resp = await apiHelper.particle.createIntegration({
+                                event: webhookDemo.webhookName, 
+                                settings, 
+                                product: webhookDemo.settings.productId,
+                                auth: apiHelper.auth.access_token});
+                
+                            // console.log('create resp', resp);    
+                            webhookDemo.settings.integrationId = resp.body.id;
+                            gtag('event', 'functionPublishWebhookSuccess', {'event_category':gaCategory});
+                            updateSettings();                                
+                        }
+                        break;
+    
+                    case 'functionPublishDeviceGroups':
+                        {
+
+            
+                            try {                                
+                                if (webhookDemo.deviceGroups.groups.length > 0) {
+                                    let groupNames = [];
+
+                                    for(const group of webhookDemo.deviceGroups.groups) {
+                                        groupNames.push(group.name);
+                                    }
+                        
+                                    setStatusText('The product already has device groups configured; using existing groups: ' + groupNames.join(', '));
+                                    break;
+                                }
+
+                                const groups = [
+                                    {
+                                        name: 'GroupA',
+                                        group: 'Testing group A',
+                                        // color: 
+                                    },
+                                    {
+                                        name: 'GroupB',
+                                        group: 'Testing group B',
+                                        // color: 
+                                    },
+                                ];
+
+                                for(const group of groups) {
+
+                                    const postResp = await simpleProductRequest({
+                                        method: 'POST',
+                                        api: 'groups',
+                                        json: group,
+                                    });
+                                    // console.log('groups postResp', postResp);
+                                }
+
+                                setStatusText('Created ' + groups.length + ' device groups for testing purposes.');
+                                gtag('event', 'deviceGroupsCreated', {'event_category':gaCategory});
+
+                                await updateDeviceGroups();
+                                updateFleet();
+
+                            }
+                            catch(e) {
+                                console.log('device groups exception', e);
+                            }
+                        }
+                        break;
+
+                    case 'productFirmware':
+                        {
+                        
+                            try {
+                    
+                                if (webhookDemo.productFirmware.length != 0) {
+
+                                    const binary = await new Promise(function(resolve, reject) {
+                                        fetch('https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/firmware/1/binary' + '?access_token=' + apiHelper.auth.access_token) 
+                                            .then(response => response.arrayBuffer())
+                                            .then(buffer => resolve(buffer));
+                                    });
+                                    gtag('event', 'productFirmwareBinaryDownloaded', {'event_category':gaCategory});
+
+                                    // console.log('downloaded binary', binary);
+                                    webhookDemo.firmwareBinary = binary; // ArrayBuffer
+
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('compile'); //
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('upload');
+                                }
+                                else {
+                                    webhookDemo.firmwareChecklist.setIndicatorSpin('compile');
+
+                                    const getFormData = $('.apiHelperProjectBrowser').data('getFormData');
+
+                                    gtag('event', 'productFirmwareSourceDownloaded', {'event_category':gaCategory});
+
+                                    const formData = await getFormData({
+                                        product_id: webhookDemo.settings.productId,
+                                        platform_id: webhookDemo.settings.platformId,
+                                        // build_target_version
+                                    });
+                                        
+                                    const compileRes = await new Promise(function(resolve, reject) {
+                                        const request = {
+                                            contentType: false,
+                                            data: formData,
+                                            dataType: 'json',
+                                            error: function (jqXHR) {
+                                               reject(jqXHR);
+                                            },
+                                            headers: {
+                                                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                                'Accept': 'application/json'
+                                            },
+                                            method: 'POST',
+                                            processData: false,
+                                            success: function (resp, textStatus, jqXHR) {
+                                               resolve(resp);    
+                                            },
+                                            url: 'https://api.particle.io/v1/binaries/',
+                                        };
+                            
+                                        $.ajax(request);
+                                    });
+    
+                                    gtag('event', 'productFirmwareSourceCompiled', {'event_category':gaCategory});
+
+                                    // console.log('compileRes', compileRes);
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('compile');
+
+    
+                                    const binary = await new Promise(function(resolve, reject) {
+                                        fetch('https://api.particle.io' + compileRes.binary_url + '?access_token=' + apiHelper.auth.access_token) 
+                                            .then(response => response.arrayBuffer())
+                                            .then(buffer => resolve(buffer));
+                                    });
+                       
+                                    gtag('event', 'productFirmwareBinaryDownloaded', {'event_category':gaCategory});
+
+                                    // console.log('binary', binary);
+                                    webhookDemo.firmwareBinary = binary; // ArrayBuffer
+        
+                                    webhookDemo.firmwareChecklist.setIndicatorSpin('upload');
+
+                                    let productFormData = new FormData();
+    
+                                    productFormData.append('version', webhookDemo.firmwareVersion.toString());
+                                    productFormData.append('title', 'Demo firmware');
+                                    productFormData.append('binary', new Blob([binary]), 'firmware.bin');
+    
+                                    const uploadRes = await new Promise(function(resolve, reject) {
+                                        const request = {
+                                            contentType: false,
+                                            data: productFormData,
+                                            dataType: 'json',
+                                            error: function (jqXHR) {
+                                               reject(jqXHR);
+                                            },
+                                            headers: {
+                                                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                                'Accept': 'application/json'
+                                            },
+                                            method: 'POST',
+                                            processData: false,
+                                            success: function (resp, textStatus, jqXHR) {
+                                               resolve(resp);    
+                                            },
+                                            url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/firmware',
+                                        };
+                            
+                                        $.ajax(request);
+                                    });                        
+                                    gtag('event', 'productFirmwareUploaded', {'event_category':gaCategory});
+        
+                                    // console.log('uploadRes', uploadRes);
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('upload');
+                                }
+                                
+                                if (webhookDemo.hasDefaultProductFirmware) {
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('wait');
+                                    webhookDemo.firmwareChecklist.setIndicatorOK('release');
+                                    break;
+                                }
+
+                                webhookDemo.firmwareChecklist.setIndicatorSpin('wait');
+                                await webhookDemo.runningProductFirmware;
+                                webhookDemo.firmwareChecklist.setIndicatorOK('wait');
+
+                                gtag('event', 'productFirmwareOnDevice', {'event_category':gaCategory});
+
+                                let releaseReqObj = {
+                                    version: webhookDemo.firmwareVersion,
+                                    // groups: [],
+                                    intelligent: true,
+                                    product_default: true,
+                                }
+                                webhookDemo.firmwareChecklist.setIndicatorSpin('release');
+
+                                const releaseRes = await new Promise(function(resolve, reject) {
+                                    const request = {
+                                        contentType: 'application/json',
+                                        data: JSON.stringify(releaseReqObj),
+                                        dataType: 'json',
+                                        error: function (jqXHR) {
+                                           reject(jqXHR);
+                                        },
+                                        headers: {
+                                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                            'Accept': 'application/json'
+                                        },
+                                        method: 'PUT',
+                                        processData: false,
+                                        success: function (resp, textStatus, jqXHR) {
+                                           resolve(resp);    
+                                        },
+                                        url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/firmware/release',
+                                    };
+                        
+                                    $.ajax(request);
+                                });    
+                                // console.log('releaseRes', releaseRes);
+                                webhookDemo.firmwareChecklist.setIndicatorOK('release');
+                                gtag('event', 'productFirmwareRelased', {'event_category':gaCategory});
+
+                            }
+                            catch(e) {
+                                console.log('compile firmware exception', e);
+                            }
+                        }
+                        break;
+    
+                }
+    
+            }
+        });
+                
+        $('.webhookDemo[data-control="function-publish-function"]').each(async function() {
+            const thisElem = this;
+
+            const selectElem = $(thisElem).find('.webhookDemoProductDeviceSelect');
+
+            const setStatus = function(s) {
+                $(thisElem).find('.statusDiv').text(s);
+            }
+
+            let clearTimer;
+
+            $($(thisElem).find('.functionPublishCallFunctionButton')).on('click', async function() {
+
+                const deviceId = $(selectElem).val();
+
+                const colorHex = $(thisElem).find('input[type="color"]').val();
+
+                const colorInt = parseInt(colorHex.substring(1), 16);
+
+                const colorCommaSep = Math.floor(colorInt / 65536) % 256 + ',' + Math.floor(colorInt / 256) % 256 + ',' + colorInt % 256
+
+                setStatus('Calling function setColor ' + colorCommaSep + ' on device ' + deviceId);
+
+                const resp = await new Promise(function(resolve, reject) {
+
+                    const requestObj = {
+                        arg: colorCommaSep,
+                    };
+
+
+                    let request = {
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        data: JSON.stringify(requestObj),
+                        error: function (jqXHR) {
+                            reject(jqXHR);
+                        },
+                        headers: {
+                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                            'Accept': 'application/json'
+                        },
+                        method: 'POST',
+                        success: function (resp, textStatus, jqXHR) {
+                            resolve(resp);
+                        },
+                        url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' +  $(selectElem).val() + '/setColor',
+                    }
+    
+                    $.ajax(request);
+                });
+
+                // console.log('resp', resp);
+                if (resp.connected && resp.return_value == 0) {
+                    setStatus('Function called successfully');
+                    gtag('event', 'functionPublishFunctionSuccess', {'event_category':gaCategory});
+                }
+                else 
+                if (!resp.connected) {
+                    setStatus('Error calling function, device is offline');
+                    gtag('event', 'functionPublishFunctionError', {'event_category':gaCategory});
+                }
+                else {
+                    setStatus('Error calling function');
+                    gtag('event', 'functionPublishFunctionError', {'event_category':gaCategory});
+                }
+                if (clearTimer) {
+                    clearTimeout(clearTimer);
+                    clearTimer = 0;
+                }
+                clearTimer = setTimeout(function() {
+                    setStatus('');
+                }, 5000);
+
+                // connected, return_value
+
+            });
+        });
+
+        $('.webhookDemo[data-control="function-publish-publish"]').each(async function() {
+            const thisElem = this;
+
+            const selectElem = $(thisElem).find('.webhookDemoProductGroupSelect');
+
+            const setStatus = function(s) {
+                $(thisElem).find('.statusDiv').text(s);
+            }
+
+            let clearTimer;
+
+            $($(thisElem).find('.functionPublishPublishButton')).on('click', async function() {
+
+                let eventName = "setColor";
+                const groupName = $(selectElem).val();
+                if (groupName != '-') {
+                    eventName = groupName + '/' + eventName;
+                }
+
+                const colorHex = $(thisElem).find('input[type="color"]').val();
+
+                const colorInt = parseInt(colorHex.substring(1), 16);
+
+                const colorCommaSep = Math.floor(colorInt / 65536) % 256 + ',' + Math.floor(colorInt / 256) % 256 + ',' + colorInt % 256
+
+                setStatus('Publishing event ' + eventName + ' with data ' + colorCommaSep);
+
+                const resp = await new Promise(function(resolve, reject) {
+
+                    const requestObj = {
+                        name: eventName,
+                        data: colorCommaSep,                        
+                    };
+
+
+                    let request = {
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        data: JSON.stringify(requestObj),
+                        error: function (jqXHR) {
+                            reject(jqXHR);
+                        },
+                        headers: {
+                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                            'Accept': 'application/json'
+                        },
+                        method: 'POST',
+                        success: function (resp, textStatus, jqXHR) {
+                            resolve(resp);
+                        },
+                        url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/events',
+                    }
+    
+                    $.ajax(request);
+                });
+
+                // console.log('resp', resp);
+                gtag('event', 'functionPublishPublishSuccess', {'event_category':gaCategory});
+
+                if (clearTimer) {
+                    clearTimeout(clearTimer);
+                    clearTimer = 0;
+                }
+                clearTimer = setTimeout(function() {
+                    setStatus('');
+                }, 5000);
+
+                // connected, return_value
+
+            });
+        });
 
     }
 
@@ -1070,7 +2075,7 @@ $(document).ready(function() {
             return;
         }
 
-        gtag('event', 'startDemo', {'event_category':gaCategory});
+        gtag('event', 'startDemo ' + webhookDemo.mode, {'event_category':gaCategory});
 
         $('#startDemo').prop('disabled', true);
         $('.showWhenStarted').show();
@@ -1078,10 +2083,12 @@ $(document).ready(function() {
 
         webhookDemo.started = true;
 
-        startSession();
+        if (webhookDemo.mode == 'webhook01') {
+            startWebhookSession();
+        }
 
         if (webhookDemo.particleStream && webhookDemo.particleStreamProductId != webhookDemo.settings.productId) {
-            console.log('closing Particle event stream for product ' + webhookDemo.particleStreamProductId);
+            // console.log('closing Particle event stream for product ' + webhookDemo.particleStreamProductId);
             if (webhookDemo.particleStreamCloseTimer) {
                 clearTimeout(webhookDemo.particleStreamCloseTimer);
                 webhookDemo.particleStreamCloseTimer = 0;
@@ -1092,7 +2099,7 @@ $(document).ready(function() {
         }
         
         if (!webhookDemo.particleStream) {
-            console.log('starting Particle event stream for product ' + webhookDemo.settings.productId)
+            // console.log('starting Particle event stream for product ' + webhookDemo.settings.productId)
             webhookDemo.particleStreamProductId = webhookDemo.settings.productId;
             webhookDemo.particleStream = await apiHelper.particle.getEventStream({ product: webhookDemo.settings.productId, auth: apiHelper.auth.access_token });
                             
@@ -1105,7 +2112,7 @@ $(document).ready(function() {
                     updateEventLog(event);
 
                     // event.name, .data, .published_at, .coreid
-                    if (event.name.indexOf(webhookName) >= 0 || event.name.indexOf(webhookDemo.sessionId) >= 0) {
+                    if (event.name.indexOf(webhookDemo.webhookName) >= 0 || event.name.indexOf(webhookDemo.sessionId) >= 0) {
                         // logAddItem({op:'event', event});   
                         updateExplainer({
                             kind: 'event',
@@ -1127,21 +2134,26 @@ $(document).ready(function() {
             $('#startDemo').text('Stop demo', false);
             $('#startDemo').prop('disabled', false);
         }, 3000);
+
+        // This function is async but we don't wait for it here
+        updatePostStart();
     }
 
     const stopDemo = async function() {
         if (!webhookDemo.started) {
             return;
         }
-        gtag('event', 'stopDemo', {'event_category':gaCategory});
+        gtag('event', 'stopDemo ' + webhookDemo.mode, {'event_category':gaCategory});
 
         $('#startDemo').prop('disabled', true);
         $('.showWhenStarted').hide();
         $('.hideWhenStarted').show();
         webhookDemo.started = false;
 
-        webhookDemo.serverStream.close();
-        webhookDemo.serverStream = null;
+        if (webhookDemo.serverStream) {
+            webhookDemo.serverStream.close();
+            webhookDemo.serverStream = null;    
+        }
 
         // Defer closing the Particle event stream in case we start quickly, to avoid making too many connections
         // as the SSE event stream is rate-limited.
@@ -1168,8 +2180,7 @@ $(document).ready(function() {
     }
 
     $('.webhookDemo[data-control="start"]').each(async function() {
-        $(this).data('webhookDemo', webhookDemo);
-
+    
         // Do stuff for browser compatibility checks here
 
         $('#canStart').show();
@@ -1185,9 +2196,10 @@ $(document).ready(function() {
 
         
         });
-    
 
     });
+
+
 
     const carriersPromise = new Promise(function(resolve, reject) {
         apiHelper.getCarriersJson().then(function(carriersJsonIn) {
@@ -1207,6 +2219,14 @@ $(document).ready(function() {
 
             for(const platformName of platforms) {
                 const platformObj = webhookDemo.carriersJson.deviceConstants[platformName];
+
+                if (!platformObj.productEligible) {
+                    continue;
+                }
+                if (platformObj.features.includes('trackerServices') && webhookDemo.options.includes('noTracker')) {
+                    continue;
+                }
+
                 const optionElem = document.createElement('option');
                 $(optionElem).text(platformObj.displayName + ' (' + platformObj.id + ')');
                 $(optionElem).attr('value', platformObj.id.toString());
@@ -1232,51 +2252,6 @@ $(document).ready(function() {
             for(const p of webhookDemo.productsData.products) {
                 webhookDemo.productsNames[p.id.toString()] = p.name;
             }
-
-            /*
-            apiHelper.deviceList(deviceListSelectElem, {
-                deviceFilter: function(dev) {
-                    return true;
-                },
-                getTitle: function(dev) {
-                    let result;
-
-                    if (dev.name) {
-                        result = dev.name;
-                    }
-                    else {
-                        result = dev.id;
-                    }
-                    result += (dev.online ? '' : ' (offline)');
-
-                    if (dev.product_id != dev.platform_id) {
-                        if (webhookDemo.productsNames[dev.product_id]) {
-                            result += ' (product ' + webhookDemo.productsNames[dev.product_id] + ')';
-                        }
-                        else {
-                            result += ' (product ' + dev.product_id + ')';
-                        }
-                    }
-
-                    return result;
-                },                    
-                hasRefresh: true,
-                hasSelectDevice: true,
-                onChange: async function(elem) {
-                    gtag('event', 'selectedDevice', {'event_category':gaCategory});
-                    webhookDemo.settings.deviceId = $(elem).val();
-                    await updateDevice();
-                },
-                onUpdateList: async function() {
-                    if (webhookDemo.settings.deviceId) {
-                        $(deviceListSelectElem).val(webhookDemo.settings.deviceId);
-                        if ($(deviceListSelectElem).val() == webhookDemo.settings.deviceId) {
-                            await updateDevice();
-                        }
-                    }
-                },
-            }); 
-            */
            
             resolve();
         });
@@ -1291,10 +2266,12 @@ $(document).ready(function() {
 
 
     Promise.all([carriersPromise, productsPromise, devicesPromise]).then(function() {
+
         if (webhookDemo.settings.platformId) {
             $('#devicePlatformSelect').val(webhookDemo.settings.platformId.toString());
             $('#devicePlatformSelect').trigger('change');
         }
+
     });
 
     
@@ -1381,7 +2358,7 @@ $(document).ready(function() {
             method: 'POST',
             success: function (resp, textStatus, jqXHR) {
                 gtag('event', 'createNewProduct', {'event_category':gaCategory});
-                console.log('success', resp);
+
                 // ok: boolean
                 // product: object
                 //      id: int product ID
@@ -1399,6 +2376,7 @@ $(document).ready(function() {
                     $(optionElem).text(resp.product.name + ' (' + resp.product.id + ') (newly created)');
                     $('#productSelect').append(optionElem);    
                     $('#productSelect').val(resp.product.id.toString());
+                    $('#useExistingProduct').prop('disabled', false);
 
                     $('#createNewProductButton').prop('disabled', true);
                     $('#createNewProduct').prop('checked', false);
@@ -1406,6 +2384,7 @@ $(document).ready(function() {
 
                     webhookDemo.settings.productId = resp.product.id;
                     updateSettings();            
+                    updateProduct();
 
                     // setStatus('Product ' + resp.product.name + ' successfully created');
                 }
@@ -1427,7 +2406,7 @@ $(document).ready(function() {
             deviceId: webhookDemo.settings.deviceId,
             auth: apiHelper.auth.access_token,
         });
-        console.log('resp', resp);
+        // console.log('resp', resp);
 
         if (resp.statusCode == 200 && resp.body.updated == 1) {
             gtag('event', 'addDeviceSuccess', {'event_category':gaCategory});
@@ -1448,13 +2427,13 @@ $(document).ready(function() {
         
         try {
             const resp = await apiHelper.particle.publishEvent({ 
-                name: webhookName, 
+                name: webhookDemo.webhookName, 
                 data: JSON.stringify(eventDataObj), 
                 product: webhookDemo.settings.productId,
                 auth: apiHelper.auth.access_token,
             });
     
-            console.log('resp', resp);
+            // console.log('resp', resp);
     
             $('#testEventDataDiv').show();
             $('#testEventData').text(JSON.stringify(eventDataObj, null, 4));
@@ -1467,8 +2446,8 @@ $(document).ready(function() {
 
     });
 
-    $('#cleanupDevices').on('click', function() {
-        // Can't delete a product with devices, so this checkbox makes a difference
+    $('.cleanupUpdateOnClick').on('click', function() {
+        // Can't delete a product with webhooks or devices, so these checkboxes makes a difference
         updateCleanup();
     });
     
@@ -1496,27 +2475,152 @@ $(document).ready(function() {
             return;
         }
 
+        const cleanupWebhook = $('#cleanupWebhook').prop('checked') && !$('#cleanupWebhook').prop('disabled');
+        const cleanupTinker = $('#cleanupTinker').prop('checked') && !$('#cleanupTinker').prop('disabled');
+        const cleanupDevices = $('#cleanupDevices').prop('checked') && !$('#cleanupDevices').prop('disabled');
+        const cleanupProduct = $('#cleanupProduct').prop('checked') && !$('#cleanupProduct').prop('disabled')
+
+        let cleanupSteps = [];
+
+        if (cleanupWebhook) {
+            cleanupSteps.push({
+                key: 'webhook',
+                title: 'Delete webhooks (required to delete products)',    
+            });
+        }
+        if (cleanupTinker) {
+            cleanupSteps.push({
+                key: 'tinker',
+                title: 'Flash tinker firmware to devices',    
+            });
+        }
+        if (cleanupDevices) {
+            cleanupSteps.push({
+                key: 'devices',
+                title: 'Remove devices from product (required to delete products)',    
+            });
+        }
+        if (cleanupProduct) {
+            cleanupSteps.push({
+                key: 'product',
+                title: 'Delete product',    
+            });
+        }
+ 
+        const cleanupChecklist = configChecklist({
+            steps: cleanupSteps,
+            containerElem: $('#cleanupProgressDiv'),
+        });
+        $('#cleanupProgressDiv').show();
+
         gtag('event', 'cleanupStarted', {'event_category':gaCategory});
 
         await stopDemo();
     
-        if ($('#cleanupWebhook').prop('checked') && !$('#cleanupWebhook').prop('disabled')) {
+        if (cleanupWebhook) {
+            // TODO: If deleting the product, delete all integrations as you cannot delete 
+            // a product that has integrations
             try {
-                const resp = await apiHelper.particle.deleteIntegration({
-                    integrationId: webhookDemo.settings.integrationId,
-                    product: webhookDemo.settings.productId,
-                    auth: apiHelper.auth.access_token});
-    
-                console.log('delete webhook resp', resp);        
+                cleanupChecklist.setIndicatorSpin('webhook');
+
+                for(const hook of webhookDemo.webhooks) {
+                    const resp = await apiHelper.particle.deleteIntegration({
+                        integrationId: hook.id,
+                        product: webhookDemo.settings.productId,
+                        auth: apiHelper.auth.access_token});
+        
+                    // console.log('delete webhook resp', resp);            
+                }
+
                 gtag('event', 'cleanupDeleteWebhook', {'event_category':gaCategory});
+                cleanupChecklist.setIndicatorOK('webhook');
             }
             catch(e) {
                 console.log('delete webhook exception', e);        
+                cleanupChecklist.setIndicatorRedX('webhook');
             }
             webhookDemo.settings.integrationId = 0;
             webhookDemo.webhooks = null;
         }
-        if ($('#cleanupDevices').prop('checked') && !$('#cleanupDevices').prop('disabled')) {
+
+        if (cleanupTinker) {
+            let deviceTargetVersion;
+            cleanupChecklist.setIndicatorSpin('tinker');
+
+            for(const dev of webhookDemo.productDevices) {
+                if (!deviceTargetVersion || apiHelper.versionSort(dev.system_firmware_version, deviceTargetVersion) < 0) {
+                    deviceTargetVersion = dev.system_firmware_version;
+                }
+            }
+            
+            let deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
+
+            // 
+            const platformObj = deviceRestoreInfo.platforms.find(e => e.id == webhookDemo.settings.platformId);
+
+            const versionsList = deviceRestoreInfo.versionsZipByPlatform[platformObj.name];
+
+            const targetVersion = versionsList.find(e => apiHelper.versionSort(e, deviceTargetVersion) >= 0);
+
+            const baseUrl = '/assets/files/device-restore/' + targetVersion + '/' + platformObj.name;
+
+            const zipUrl = baseUrl + '.zip';
+
+            //setStatus('Downloading restore image...');
+        
+            const zipFs = new zip.fs.FS();
+        
+            await zipFs.importHttpContent(zipUrl);
+
+            let zipEntry = zipFs.find('tinker.bin');
+            
+            let partBinary = await zipEntry.getUint8Array();
+            
+            let formData = new FormData();
+
+            let blob = new Blob([partBinary], {type:'application/octet-stream'});
+            formData.append('file', blob, 'firmware.bin');
+            
+
+            for(const dev of webhookDemo.productDevices) {
+                try {
+                    // Mark as development so the device won't get flashed product firmware
+                    await apiHelper.particle.markAsDevelopmentDevice({ 
+                        deviceId: dev.id,
+                        development: true,
+                        product: webhookDemo.settings.productId,
+                        auth: apiHelper.auth.access_token,
+                    });                
+
+                    // Flash tinker
+                    await new Promise(function(resolve, reject) {
+                        $.ajax({
+                            data: formData,
+                            contentType: false,
+                            error: function(err) {
+                                reject();
+                            },
+                            method: 'PUT',
+                            processData: false,
+                            success: function (resp) {
+                                resolve();
+                            },
+                            url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' + dev.id + "?access_token=" + apiHelper.auth.access_token,
+                        });    
+                    });
+                }
+                catch(e) {
+                    console.log('flash device exception', e);      
+                }
+            }     
+            cleanupChecklist.setIndicatorOK('tinker');
+            gtag('event', 'cleanupTinker', {'event_category':gaCategory});
+        }
+
+
+        if (cleanupDevices) {
+            cleanupChecklist.setIndicatorSpin('devices');
+
             for(const dev of webhookDemo.productDevices) {
                 try {
                     const resp = await apiHelper.particle.removeDevice({
@@ -1524,19 +2628,20 @@ $(document).ready(function() {
                         product: webhookDemo.settings.productId,
                         auth: apiHelper.auth.access_token});
     
-                    console.log('remove device resp', resp);      
+                    // console.log('remove device resp', resp);      
                 }
                 catch(e) {
                     console.log('remove device exception', e);      
                 }
             }                
+            cleanupChecklist.setIndicatorOK('devices');
             gtag('event', 'cleanupRemoveDevices', {'event_category':gaCategory});
             webhookDemo.productDevices = null
         }
-        if ($('#cleanupProduct').prop('checked') && !$('#cleanupProduct').prop('disabled')) {
+        if (cleanupProduct) {
             // 
-            console.log('deleting product ' + webhookDemo.settings.productId);
             try {
+                cleanupChecklist.setIndicatorSpin('product');
                 await new Promise(function(resolve, reject) {
 
                     const request = {                
@@ -1555,7 +2660,6 @@ $(document).ready(function() {
                         method: 'DELETE',
                         success: function (resp, textStatus, jqXHR) {
                             gtag('event', 'cleanupDeleteProductSuccess', {'event_category':gaCategory});
-                            console.log('product delete success', resp);
                             resolve();                        
                         },
                         method: 'DELETE',
@@ -1564,9 +2668,11 @@ $(document).ready(function() {
             
                     $.ajax(request);            
                 });    
+                cleanupChecklist.setIndicatorOK('product');
             }
             catch(e) {
                 console.log('delete product exception', e);
+                cleanupChecklist.setIndicatorRedX('product');
             }
             
             webhookDemo.settings.productId = 0;
