@@ -10,11 +10,14 @@ PRODUCT_VERSION(1);
 
 void groupCallback(DeviceGroupHelper::NotificationType notificationType, const char *group);
 
-
+int firmwareVersion = (int) __system_product_version;
 SetColor setColor;
 
 void setup() 
 {
+    // This variable is used to more easily identify which product firmware is running
+    Particle.variable("FunctionPublishDemo01", firmwareVersion);
+
     setColor.function("setColor");
     setColor.subscribe("setColor");
 

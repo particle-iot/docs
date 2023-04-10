@@ -24,7 +24,7 @@ In this section we'll set up a product, add your device, and create a webhook.
 
 You should typically start with a product. You'll eventually need one to scale, and it makes it easier to group devices. 
 
-This demo requires a product, and you should generally create a new one just for this demo. Each product can only have a single device platform, so you must select that first.
+This demo requires a product, and each product can only have a single device platform, so you must select that first.
 
 {{> webhook-demo-select-product}}
 
@@ -37,6 +37,7 @@ There is no charge for creating products in your free developer sandbox and ther
 Starting the demo will start the webhook server and start monitoring events.
 
 {{> webhook-demo-start mode="webhook01" options="noTracker"}}
+
 
 ### Add devices to product
 
@@ -119,6 +120,36 @@ To help secure your webhook:
 
 {{collapse op="end"}}
 
+
+### Your device fleet
+
+This control shows the status of devices in your product fleet. It's similar to the {{webhook-demo-link link="devices" text="devices tab"}} in your product in the console.
+
+Once you've added a device to your product, it will show up here. Use the **Flash** link to flash the product firmware to your device.
+
+{{> webhook-demo-fleet }}
+
+- The **online** column shows a green checkbox if the device is online and connected to the Particle cloud.
+
+- The **firmware** column shows a green checkbox if the device has product firmware and has come online at least once. 
+When you onboard your first device, you have to manually request the firmware be flashed to it. Click the **Flash** link to do this.
+
+- The **development** column checkbox shows if the device has the **Mark as Development device** flag set. You can also change the 
+state using this checkbox. You normally should leave this turned off.
+
+### Product firmware setup
+
+{{> webhook-demo-product-config options="productFirmware"}}
+
+Setting up product firmware involves several steps:
+
+- Compiling the firmware, typically using Particle Workbench.
+- Uploading to the console from the {{webhook-demo-link link="webhook" text="firmware"}} tab of your product.
+- Flashing the firmware to at least one device manually.
+- Releasing the firmware as the default firmware for the product.
+
+Once you've set the default firmware, and newly added device will automatically be flashed with this firmware when it connects to the cloud.
+
 ### Test webhook
 
 {{> webhook-demo-test }}
@@ -161,19 +192,11 @@ This control shows the same information that is shown in the {{webhook-demo-link
 {{> webhook-demo-events }}
 
 
-### Your device fleet
-
-This control shows the status of devices in your product fleet. It's similar to the {{webhook-demo-link link="devices" text="devices tab"}} in your product in the console.
-
-{{> webhook-demo-fleet }}
-
 ## Device firmware
 
 {{> project-browser project="webhook-demo" default-file="src/webhook-demo.cpp" height="400" flash="true"}}
 
 {{collapse op="start" label="Tell me more the device firmware"}}
-
-### Firmware deep dive
 
 This is standard boilerplate you'll see in most applications.
 

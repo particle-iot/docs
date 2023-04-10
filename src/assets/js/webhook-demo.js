@@ -63,6 +63,9 @@ $(document).ready(function() {
     webhookDemo.runningProductFirmware = new Promise(function(resolve, reject) {
         webhookDemo.runningProductFirmwareResolve = resolve;
     });
+    webhookDemo.haveServerUrl = new Promise(function(resolve, reject) {
+        webhookDemo.haveServerUrlResolve = resolve;
+    });
 
     const updateSettings = function() {
         if (webhookDemo.localStorageKey) {
@@ -1130,6 +1133,7 @@ $(document).ready(function() {
                     // Delay is required because the device state change occurs slightly
                     // after the event is sent
                     updateProductDevices();
+                    updateFleet();
                 }, 2000);
                 break;
 
@@ -1473,7 +1477,7 @@ $(document).ready(function() {
                             setExplanationText(msg);                                
                         }
                         break;
-    
+                        
                     case 'functionPublishWebhook':
                         {
                             $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Webhooks');
@@ -1497,7 +1501,7 @@ $(document).ready(function() {
                         }
                         break;
 
-                    case 'functionPublishFirmware':
+                    case 'productFirmware':
                         {
                             $(outerDivElem).find('.webhookDemoProductConfigBanner').text('Product firmware');
     
@@ -1667,7 +1671,7 @@ $(document).ready(function() {
                             }
                         }
                         break;
-    
+
                     case 'functionPublishWebhook':
                         {
 
@@ -1768,7 +1772,7 @@ $(document).ready(function() {
                         }
                         break;
 
-                    case 'functionPublishFirmware':
+                    case 'productFirmware':
                         {
 
                             console.log('webhookDemo.productFirmware', webhookDemo.productFirmware);

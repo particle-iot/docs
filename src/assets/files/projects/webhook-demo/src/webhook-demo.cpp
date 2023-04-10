@@ -3,6 +3,7 @@
 SerialLogHandler logHandler;
 SYSTEM_THREAD(ENABLED);
 
+PRODUCT_VERSION(1);
 
 const char *eventName = "WebhookDemo01";
 
@@ -10,6 +11,7 @@ const std::chrono::milliseconds publishInterval = 5min;
 unsigned long lastPublishMillis = -publishInterval.count();
 int hookSequence = 0;
 bool buttonClicked = false;
+int firmwareVersion = (int) __system_product_version;
 
 void hookResponseHandler(const char *event, const char *data);
 void clickHandler(system_event_t event, int param);
@@ -19,6 +21,9 @@ void publishSensorData();
 void setup() 
 {
     Particle.subscribe(System.deviceID() + "/hook-response/" + String(eventName), hookResponseHandler);
+
+    // This variable is used to more easily identify which product firmware is running
+    Particle.variable("WebhookDemo01", firmwareVersion);
 
     // Register a click handler for the MODE button
     System.on(button_click, clickHandler);
