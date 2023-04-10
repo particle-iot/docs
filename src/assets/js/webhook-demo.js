@@ -545,13 +545,17 @@ $(document).ready(function() {
         $('#productSelect').empty();
 
         let demoProductId = 0;
+        let haveExisting = false;
 
         for(const product of webhookDemo.productsData.products) {
             if (product.platform_id == webhookDemo.settings.platformId) {
-                const optionElem = document.createElement('option');
-                $(optionElem).attr('value', product.id.toString());
-                $(optionElem).text(product.name + ' (' + product.id + ')');
-                $('#productSelect').append(optionElem);    
+                if (product.name.startsWith(webhookDemo.productNamePrefix)) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', product.id.toString());
+                    $(optionElem).text(product.name + ' (' + product.id + ')');
+                    $('#productSelect').append(optionElem);    
+                    haveExisting = true;
+                }
             }
             if (!demoProductId && product.name.startsWith(webhookDemo.productNamePrefix)) {
                 demoProductId = product.id;
@@ -560,6 +564,7 @@ $(document).ready(function() {
         if (lastSelected) {
             $('#productSelect').val(lastSelected);
         }
+        $('#useExistingProduct').prop('disabled', !haveExisting);
 
         const newProductName = webhookDemo.productNamePrefix + webhookDemo.settings.platformName.toLowerCase() + '-' + Math.floor(Math.random() * 999999);
         $('#newProductNameInput').val(newProductName);
