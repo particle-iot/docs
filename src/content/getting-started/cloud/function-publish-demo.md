@@ -54,7 +54,14 @@ In order for the webhook to determine the device groups of a device, an API user
 
 #### Webhooks
 
-The webhook is called by the device group helper library to query the device groups for the device.
+The webhook is called by the device group helper library to query the device groups for the device. 
+
+- The device publishes the event `G52ES20Q_DeviceGroup` at startup.
+- The webhook triggers on this event and requests the URL `https://api.particle.io/v1/products/20379/devices/{{PARTICLE_DEVICE_ID}}`. The `{{PARTICLE_DEVICE_ID}}` is replaced by the Device ID of the requesting device.
+This will get the device information for that device.
+- The response template extracts the grous, name, product_id, development, and notes fields out of the device info. Only a subset is returned so the response will fit in 1024 bytes.
+- The response topic includes `{{{PARTICLE_DEVICE_ID}}}` so the response will only go to that specified device, not all devices in the fleet.
+
 
 #### Device groups
 

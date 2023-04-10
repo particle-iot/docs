@@ -48,17 +48,15 @@ $(document).ready(function() {
             webhookDemo.settings = JSON.parse(s);
             if (webhookDemo.settings.username != apiHelper.auth.username) {
                 webhookDemo.settings = {};
-                console.log('cleared settings, username change');
             }    
         }
     }
     catch(e) {        
     }
-    console.log('loaded settings', webhookDemo.settings);
 
     webhookDemo.settings.username = apiHelper.auth.username;
     
-    gtag('event', 'opened', {'event_category':gaCategory});
+    gtag('event', 'opened ' + webhookDemo.mode, {'event_category':gaCategory});
 
     webhookDemo.runningProductFirmware = new Promise(function(resolve, reject) {
         webhookDemo.runningProductFirmwareResolve = resolve;
@@ -391,7 +389,6 @@ $(document).ready(function() {
             const dataObj = JSON.parse(event.data);
 
             webhookDemo.sessionId = dataObj.sessionId;
-            console.log('new sessionId ' + webhookDemo.sessionId);
 
             webhookDemo.hookUrl = serverUrlBase + 'hook/' + webhookDemo.sessionId;
             webhookDemo.controlUrl = serverUrlBase + 'control/' + webhookDemo.sessionId;
@@ -497,7 +494,6 @@ $(document).ready(function() {
 
         let integrationObj = webhookDemo.webhooks.find(e => e.event == webhookDemo.webhookName);
         if (integrationObj) {
-            console.log('update integration', integrationObj);
             webhookDemo.settings.integrationId = integrationObj.id;
 
             const resp = await apiHelper.particle.editIntegration({
@@ -506,7 +502,9 @@ $(document).ready(function() {
                 settings, 
                 product: webhookDemo.settings.productId,
                 auth: apiHelper.auth.access_token});
-            console.log('edit resp', resp);    
+            // console.log('edit resp', resp);    
+
+            gtag('event', 'editIntegration', {'event_category':gaCategory,'value':(resp.ok ? 1 : 0)});
         }
         else 
         if (!options.updateOnly) {
@@ -516,7 +514,9 @@ $(document).ready(function() {
                 product: webhookDemo.settings.productId,
                 auth: apiHelper.auth.access_token});
 
-            console.log('create resp', resp);    
+            gtag('event', 'createIntegration', {'event_category':gaCategory,'value':(resp.ok ? 1 : 0)});
+
+            // console.log('create resp', resp);    
             webhookDemo.settings.integrationId = resp.body.id;
             updateSettings();                
 
@@ -534,8 +534,6 @@ $(document).ready(function() {
 
     const updateProductSelector = async function() {
         // const productSelectElem = $('#productSelect');
-
-        console.log('updateProductSelector', webhookDemo);
 
         const lastSelected = $('#productSelect').val();
         $('#productSelect').empty();
@@ -602,15 +600,12 @@ $(document).ready(function() {
             }            
         }
 
-        // console.log('webhookDemo.productDevices', webhookDemo.productDevices);
         webhookDemo.deviceNames = {};
         for(const dev of webhookDemo.productDevices) {
             webhookDemo.deviceNames[dev.id] = dev.name || dev.id;
         }
-        // console.log('webhookDemo.deviceNames', webhookDemo.deviceNames);
         $('.webhookDemoProductDeviceSelect').each(async function() {
             const deviceSelectElem = this;
-            console.log('webhookDemoProductDeviceSelect', webhookDemo.productDevices)
             $(deviceSelectElem).empty();
 
             for(const dev of webhookDemo.productDevices) {
@@ -630,7 +625,6 @@ $(document).ready(function() {
 
         if (webhookDemo.productHasFirmware) {
             if (webhookDemo.runningProductFirmwareResolve) {
-                console.log('calling runningProductFirmwareResolve')
                 webhookDemo.runningProductFirmwareResolve();
                 webhookDemo.runningProductFirmwareResolve = null;
             }
@@ -640,29 +634,7 @@ $(document).ready(function() {
 
     }
 
-    const updateProduct = async function() {
-        // webhookDemo.settings.productId
-        await updateProductDevices();
-
-        webhookDemo.productInfo = (await apiHelper.particle.getProduct({
-            product: webhookDemo.settings.productId,
-            auth: apiHelper.auth.access_token,
-        })).body.product;
-
-        webhookDemo.webhooks = (await apiHelper.particle.listIntegrations({
-            product: webhookDemo.settings.productId,
-            auth: apiHelper.auth.access_token,
-        })).body;
-
-        webhookDemo.productFirmware = (await apiHelper.particle.listProductFirmware({
-            product: webhookDemo.settings.productId,
-            auth: apiHelper.auth.access_token,
-        })).body;
-
-        webhookDemo.hasDefaultProductFirmware = !!webhookDemo.productFirmware.find(e => e.product_default);
-
-        webhookDemo.productFirmwareUploaded = !!webhookDemo.productFirmware.find(e => e.version == webhookDemo.firmwareVersion);
-        
+    const updateDeviceGroups = async function() {
         webhookDemo.deviceGroups = await new Promise(function(resolve, reject) {                
             let request = {
                 dataType: 'json',
@@ -690,14 +662,38 @@ $(document).ready(function() {
             $('.webhookDemoProductGroupSelect').append(optionElem);
         }
 
+    }
 
-        console.log('updateProduct', webhookDemo);
+    const updateProduct = async function() {
+        // webhookDemo.settings.productId
+        await updateProductDevices();
+
+        webhookDemo.productInfo = (await apiHelper.particle.getProduct({
+            product: webhookDemo.settings.productId,
+            auth: apiHelper.auth.access_token,
+        })).body.product;
+
+        webhookDemo.webhooks = (await apiHelper.particle.listIntegrations({
+            product: webhookDemo.settings.productId,
+            auth: apiHelper.auth.access_token,
+        })).body;
+
+        webhookDemo.productFirmware = (await apiHelper.particle.listProductFirmware({
+            product: webhookDemo.settings.productId,
+            auth: apiHelper.auth.access_token,
+        })).body;
+
+        webhookDemo.hasDefaultProductFirmware = !!webhookDemo.productFirmware.find(e => e.product_default);
+
+        webhookDemo.productFirmwareUploaded = !!webhookDemo.productFirmware.find(e => e.version == webhookDemo.firmwareVersion);
+        
+        await updateDeviceGroups();
 
         updateDevicesList();
         updateCreateWebhook();
         updateLinks();
         updateCleanup();
-
+        updateFleet();
 
         
         $('#startDemo').prop('disabled', false);
@@ -705,11 +701,9 @@ $(document).ready(function() {
 
 
     const updateGroups = async function(options) {
-        console.log('updateGroups', options);
         let requestDataObj = {
             groups: options.groups,
         };
-        console.log('requestDataObj', requestDataObj);
 
         try {
             const setResp = await new Promise(function(resolve, reject) {
@@ -727,7 +721,6 @@ $(document).ready(function() {
                     },
                     method: 'PUT',
                     success: function (resp, textStatus, jqXHR) {
-                        console.log('control success', resp);                
                         resolve(resp);
                     },
                     url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' + options.deviceId,
@@ -735,7 +728,7 @@ $(document).ready(function() {
     
                 $.ajax(request);
             });
-            console.log('setResp', setResp);
+            // console.log('setResp', setResp);
     
             webhookDemo.deviceObj = (await apiHelper.particle.getDevice({
                 deviceId: options.deviceId,
@@ -753,7 +746,6 @@ $(document).ready(function() {
                 };
 
                 const url = 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices/' +  options.deviceId + '/setDeviceGroups';
-                console.log('call function', url);
     
                 let request = {
                     contentType: 'application/json',
@@ -775,7 +767,7 @@ $(document).ready(function() {
     
                 $.ajax(request);
             });
-            console.log('call resp', callResp);        
+            // console.log('call resp', callResp);        
         }
         catch(e) {
             console.log('exception updating groups', e);
@@ -834,10 +826,6 @@ $(document).ready(function() {
     }
 
     const updateDevicesList = function() {        
-
-        // webhookDemo.settings.platformId = parseInt(valString);
-        // webhookDemo.settings.platformName = await apiHelper.getPlatformName(webhookDemo.settings.platformId);
-        console.log('webhookDemo.settings.platformId ' + webhookDemo.settings.platformId );
         
         let columns = [];
         $('#sandboxDevicesTable > thead > tr > th').each(function() {
@@ -940,7 +928,6 @@ $(document).ready(function() {
                 devicesToImport.push(addDevObj.devObj.id);
             }
         }
-        console.log('devicesToImport', devicesToImport);
         if (devicesToImport.length == 0) {
             return;
         }
@@ -980,7 +967,7 @@ $(document).ready(function() {
                     url: 'https://api.particle.io/v1/products/' + webhookDemo.settings.productId + '/devices'
                 });    
             });
-            console.log('importRes', importRes);
+            // console.log('importRes', importRes);
     
             setStatus('Importing devices successful!');
         }
@@ -1012,7 +999,6 @@ $(document).ready(function() {
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
-                    console.log('control success', resp);                
                     resolve(resp);
                 },
                 url: webhookDemo.controlUrl,
@@ -1023,8 +1009,6 @@ $(document).ready(function() {
     }
 
     const updateWebhookUrl = async function() {
-        console.log('updateWebhookUrl ' + webhookDemo.hookUrl);
-
         $('.webhookUrlSpan').text(webhookDemo.hookUrl);
 
         updateCreateWebhook();
@@ -1032,23 +1016,6 @@ $(document).ready(function() {
         // The webhook is automatically created now. To restore the behavior of only doing it
         // when the button is pressed, add this as the parameter: {updateOnly:true}
         await createOrUpdateWebhook();
-
-        
-        // This does not seem to be necessary, as long as the server is set to have a long enough maximum request time. 
-        // It's currently set to 30 minutes.
-        /*
-        if (!webhookDemo.pingTimer) {
-            webhookDemo.pingTimer = window.setInterval(async function() {
-                try {
-                    await sendControl({
-                        op: 'ping',
-                    });    
-                }
-                catch(e) {                    
-                }
-            }, 60000);
-        }
-        */
         
     }
 
@@ -1116,7 +1083,6 @@ $(document).ready(function() {
             if (webhookDemo.productDevices[ii].id == deviceId) {
                 webhookDemo.productDevices[ii] = deviceObj;
                 found = true;
-                console.log('updating single device ' + deviceId);
                 updateFleet({deviceId});
                 break;
             }
@@ -1136,7 +1102,7 @@ $(document).ready(function() {
                     // after the event is sent
                     updateProductDevices();
                     updateFleet();
-                }, 2000);
+                }, 3000);
                 break;
 
             case 'spark/device/diagnostics/update':
@@ -1563,7 +1529,6 @@ $(document).ready(function() {
             }
     
             for(const option of webhookDemo.productConfigOptions) {
-                console.log('setting up option', option);
                 const outerDivElem = outerDivElems[option];
     
                 const setExplanationText = function(s) {
@@ -1656,15 +1621,11 @@ $(document).ready(function() {
                                 const getResp = await apiUserRequest({
                                     method: 'GET',
                                 });
-                                console.log('getResp', getResp);
     
                                 if (webhookDemo.settings.tokenUsername) {
-                                    console.log('existing token username ' + webhookDemo.settings.tokenUsername);
                                     let found = false;
                                     for(const member of getResp.team) {
-                                        console.log('member', member);
                                         if (member.username == webhookDemo.settings.tokenUsername) {
-                                            console.log('found', member);
                                             found = true;
                                             break;
                                         }
@@ -1680,13 +1641,13 @@ $(document).ready(function() {
                                     friendlyName: 'FunctionPublishDemo',
                                     scopes: ['devices:get'],
                                 }); 
-                                console.log('postResp', postResp);
                                 
                                 webhookDemo.settings.tokenUsername = postResp.created.username;
                                 webhookDemo.settings.token = postResp.created.tokens[0].token;
                                 updateSettings();
     
                                 setStatusText('API user ' + webhookDemo.settings.tokenUsername + ' created, using token ' + webhookDemo.settings.token);
+                                gtag('event', 'apiUserCreated', {'event_category':gaCategory});
                             }
                             catch(e) {
                                 console.log('apiUser exception', e);
@@ -1719,7 +1680,6 @@ $(document).ready(function() {
                                 let found = webhookDemo.webhooks.find(e => e.event == webhookDemo.webhookName);
                                 if (found) {
                                     setStatusText('The webhook ' + webhookDemo.webhookName + ' already exists.');
-                                    console.log('existing webhook', found);
                                     webhookDemo.settings.integrationId = found.id;
                                     updateSettings();                                
                                     break;
@@ -1732,8 +1692,9 @@ $(document).ready(function() {
                                 product: webhookDemo.settings.productId,
                                 auth: apiHelper.auth.access_token});
                 
-                            console.log('create resp', resp);    
+                            // console.log('create resp', resp);    
                             webhookDemo.settings.integrationId = resp.body.id;
+                            gtag('event', 'functionPublishWebhookSuccess', {'event_category':gaCategory});
                             updateSettings();                                
                         }
                         break;
@@ -1768,17 +1729,20 @@ $(document).ready(function() {
                                 ];
 
                                 for(const group of groups) {
-                                    console.log('creating group');
 
                                     const postResp = await simpleProductRequest({
                                         method: 'POST',
                                         api: 'groups',
                                         json: group,
                                     });
-                                    console.log('groups postResp', postResp);
+                                    // console.log('groups postResp', postResp);
                                 }
 
                                 setStatusText('Created ' + groups.length + ' device groups for testing purposes.');
+                                gtag('event', 'deviceGroupsCreated', {'event_category':gaCategory});
+
+                                await updateDeviceGroups();
+                                updateFleet();
 
                             }
                             catch(e) {
@@ -1789,8 +1753,6 @@ $(document).ready(function() {
 
                     case 'productFirmware':
                         {
-
-                            console.log('webhookDemo.productFirmware', webhookDemo.productFirmware);
                         
                             try {
                     
@@ -1801,8 +1763,9 @@ $(document).ready(function() {
                                             .then(response => response.arrayBuffer())
                                             .then(buffer => resolve(buffer));
                                     });
-                    
-                                    console.log('downloaded binary', binary);
+                                    gtag('event', 'productFirmwareBinaryDownloaded', {'event_category':gaCategory});
+
+                                    // console.log('downloaded binary', binary);
                                     webhookDemo.firmwareBinary = binary; // ArrayBuffer
 
                                     webhookDemo.firmwareChecklist.setIndicatorOK('compile'); //
@@ -1812,6 +1775,9 @@ $(document).ready(function() {
                                     webhookDemo.firmwareChecklist.setIndicatorSpin('compile');
 
                                     const getFormData = $('.apiHelperProjectBrowser').data('getFormData');
+
+                                    gtag('event', 'productFirmwareSourceDownloaded', {'event_category':gaCategory});
+
                                     const formData = await getFormData({
                                         product_id: webhookDemo.settings.productId,
                                         platform_id: webhookDemo.settings.platformId,
@@ -1841,7 +1807,9 @@ $(document).ready(function() {
                                         $.ajax(request);
                                     });
     
-                                    console.log('compileRes', compileRes);
+                                    gtag('event', 'productFirmwareSourceCompiled', {'event_category':gaCategory});
+
+                                    // console.log('compileRes', compileRes);
                                     webhookDemo.firmwareChecklist.setIndicatorOK('compile');
 
     
@@ -1851,7 +1819,9 @@ $(document).ready(function() {
                                             .then(buffer => resolve(buffer));
                                     });
                        
-                                    console.log('binary', binary);
+                                    gtag('event', 'productFirmwareBinaryDownloaded', {'event_category':gaCategory});
+
+                                    // console.log('binary', binary);
                                     webhookDemo.firmwareBinary = binary; // ArrayBuffer
         
                                     webhookDemo.firmwareChecklist.setIndicatorSpin('upload');
@@ -1883,8 +1853,10 @@ $(document).ready(function() {
                                         };
                             
                                         $.ajax(request);
-                                    });                                
-                                    console.log('uploadRes', uploadRes);
+                                    });                        
+                                    gtag('event', 'productFirmwareUploaded', {'event_category':gaCategory});
+        
+                                    // console.log('uploadRes', uploadRes);
                                     webhookDemo.firmwareChecklist.setIndicatorOK('upload');
                                 }
                                 
@@ -1897,6 +1869,8 @@ $(document).ready(function() {
                                 webhookDemo.firmwareChecklist.setIndicatorSpin('wait');
                                 await webhookDemo.runningProductFirmware;
                                 webhookDemo.firmwareChecklist.setIndicatorOK('wait');
+
+                                gtag('event', 'productFirmwareOnDevice', {'event_category':gaCategory});
 
                                 let releaseReqObj = {
                                     version: webhookDemo.firmwareVersion,
@@ -1928,8 +1902,9 @@ $(document).ready(function() {
                         
                                     $.ajax(request);
                                 });    
-                                console.log('releaseRes', releaseRes);
+                                // console.log('releaseRes', releaseRes);
                                 webhookDemo.firmwareChecklist.setIndicatorOK('release');
+                                gtag('event', 'productFirmwareRelased', {'event_category':gaCategory});
 
                             }
                             catch(e) {
@@ -1994,16 +1969,19 @@ $(document).ready(function() {
                     $.ajax(request);
                 });
 
-                console.log('resp', resp);
+                // console.log('resp', resp);
                 if (resp.connected && resp.return_value == 0) {
                     setStatus('Function called successfully');
+                    gtag('event', 'functionPublishFunctionSuccess', {'event_category':gaCategory});
                 }
                 else 
                 if (!resp.connected) {
                     setStatus('Error calling function, device is offline');
+                    gtag('event', 'functionPublishFunctionError', {'event_category':gaCategory});
                 }
                 else {
                     setStatus('Error calling function');
+                    gtag('event', 'functionPublishFunctionError', {'event_category':gaCategory});
                 }
                 if (clearTimer) {
                     clearTimeout(clearTimer);
@@ -2074,8 +2052,9 @@ $(document).ready(function() {
                     $.ajax(request);
                 });
 
-                console.log('resp', resp);
-                
+                // console.log('resp', resp);
+                gtag('event', 'functionPublishPublishSuccess', {'event_category':gaCategory});
+
                 if (clearTimer) {
                     clearTimeout(clearTimer);
                     clearTimer = 0;
@@ -2096,7 +2075,7 @@ $(document).ready(function() {
             return;
         }
 
-        gtag('event', 'startDemo', {'event_category':gaCategory});
+        gtag('event', 'startDemo ' + webhookDemo.mode, {'event_category':gaCategory});
 
         $('#startDemo').prop('disabled', true);
         $('.showWhenStarted').show();
@@ -2109,7 +2088,7 @@ $(document).ready(function() {
         }
 
         if (webhookDemo.particleStream && webhookDemo.particleStreamProductId != webhookDemo.settings.productId) {
-            console.log('closing Particle event stream for product ' + webhookDemo.particleStreamProductId);
+            // console.log('closing Particle event stream for product ' + webhookDemo.particleStreamProductId);
             if (webhookDemo.particleStreamCloseTimer) {
                 clearTimeout(webhookDemo.particleStreamCloseTimer);
                 webhookDemo.particleStreamCloseTimer = 0;
@@ -2120,7 +2099,7 @@ $(document).ready(function() {
         }
         
         if (!webhookDemo.particleStream) {
-            console.log('starting Particle event stream for product ' + webhookDemo.settings.productId)
+            // console.log('starting Particle event stream for product ' + webhookDemo.settings.productId)
             webhookDemo.particleStreamProductId = webhookDemo.settings.productId;
             webhookDemo.particleStream = await apiHelper.particle.getEventStream({ product: webhookDemo.settings.productId, auth: apiHelper.auth.access_token });
                             
@@ -2164,7 +2143,7 @@ $(document).ready(function() {
         if (!webhookDemo.started) {
             return;
         }
-        gtag('event', 'stopDemo', {'event_category':gaCategory});
+        gtag('event', 'stopDemo ' + webhookDemo.mode, {'event_category':gaCategory});
 
         $('#startDemo').prop('disabled', true);
         $('.showWhenStarted').hide();
@@ -2273,51 +2252,6 @@ $(document).ready(function() {
             for(const p of webhookDemo.productsData.products) {
                 webhookDemo.productsNames[p.id.toString()] = p.name;
             }
-
-            /*
-            apiHelper.deviceList(deviceListSelectElem, {
-                deviceFilter: function(dev) {
-                    return true;
-                },
-                getTitle: function(dev) {
-                    let result;
-
-                    if (dev.name) {
-                        result = dev.name;
-                    }
-                    else {
-                        result = dev.id;
-                    }
-                    result += (dev.online ? '' : ' (offline)');
-
-                    if (dev.product_id != dev.platform_id) {
-                        if (webhookDemo.productsNames[dev.product_id]) {
-                            result += ' (product ' + webhookDemo.productsNames[dev.product_id] + ')';
-                        }
-                        else {
-                            result += ' (product ' + dev.product_id + ')';
-                        }
-                    }
-
-                    return result;
-                },                    
-                hasRefresh: true,
-                hasSelectDevice: true,
-                onChange: async function(elem) {
-                    gtag('event', 'selectedDevice', {'event_category':gaCategory});
-                    webhookDemo.settings.deviceId = $(elem).val();
-                    await updateDevice();
-                },
-                onUpdateList: async function() {
-                    if (webhookDemo.settings.deviceId) {
-                        $(deviceListSelectElem).val(webhookDemo.settings.deviceId);
-                        if ($(deviceListSelectElem).val() == webhookDemo.settings.deviceId) {
-                            await updateDevice();
-                        }
-                    }
-                },
-            }); 
-            */
            
             resolve();
         });
@@ -2332,7 +2266,6 @@ $(document).ready(function() {
 
 
     Promise.all([carriersPromise, productsPromise, devicesPromise]).then(function() {
-        console.log('promise done', webhookDemo.settings)
 
         if (webhookDemo.settings.platformId) {
             $('#devicePlatformSelect').val(webhookDemo.settings.platformId.toString());
@@ -2425,7 +2358,7 @@ $(document).ready(function() {
             method: 'POST',
             success: function (resp, textStatus, jqXHR) {
                 gtag('event', 'createNewProduct', {'event_category':gaCategory});
-                console.log('success', resp);
+
                 // ok: boolean
                 // product: object
                 //      id: int product ID
@@ -2473,7 +2406,7 @@ $(document).ready(function() {
             deviceId: webhookDemo.settings.deviceId,
             auth: apiHelper.auth.access_token,
         });
-        console.log('resp', resp);
+        // console.log('resp', resp);
 
         if (resp.statusCode == 200 && resp.body.updated == 1) {
             gtag('event', 'addDeviceSuccess', {'event_category':gaCategory});
@@ -2500,7 +2433,7 @@ $(document).ready(function() {
                 auth: apiHelper.auth.access_token,
             });
     
-            console.log('resp', resp);
+            // console.log('resp', resp);
     
             $('#testEventDataDiv').show();
             $('#testEventData').text(JSON.stringify(eventDataObj, null, 4));
@@ -2596,7 +2529,7 @@ $(document).ready(function() {
                         product: webhookDemo.settings.productId,
                         auth: apiHelper.auth.access_token});
         
-                    console.log('delete webhook resp', resp);            
+                    // console.log('delete webhook resp', resp);            
                 }
 
                 gtag('event', 'cleanupDeleteWebhook', {'event_category':gaCategory});
@@ -2619,8 +2552,7 @@ $(document).ready(function() {
                     deviceTargetVersion = dev.system_firmware_version;
                 }
             }
-            console.log('deviceTargetVersion', deviceTargetVersion);
-
+            
             let deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
 
             // 
@@ -2696,7 +2628,7 @@ $(document).ready(function() {
                         product: webhookDemo.settings.productId,
                         auth: apiHelper.auth.access_token});
     
-                    console.log('remove device resp', resp);      
+                    // console.log('remove device resp', resp);      
                 }
                 catch(e) {
                     console.log('remove device exception', e);      
@@ -2708,7 +2640,6 @@ $(document).ready(function() {
         }
         if (cleanupProduct) {
             // 
-            console.log('deleting product ' + webhookDemo.settings.productId);
             try {
                 cleanupChecklist.setIndicatorSpin('product');
                 await new Promise(function(resolve, reject) {
@@ -2729,7 +2660,6 @@ $(document).ready(function() {
                         method: 'DELETE',
                         success: function (resp, textStatus, jqXHR) {
                             gtag('event', 'cleanupDeleteProductSuccess', {'event_category':gaCategory});
-                            console.log('product delete success', resp);
                             resolve();                        
                         },
                         method: 'DELETE',
