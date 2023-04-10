@@ -146,25 +146,25 @@ $(document).ready(function() {
         $('#cleanupProduct').prop('disabled', true);
 
         
-        if (!webhookDemo.webhooks || webhookDemo.webhooks.length == 0) {
+        if (webhookDemo.webhooks.length > 0) {
             $('#cleanupWebhook').prop('disabled', false);
         }
 
-        if (webhookDemo.productDevices) {
-            if (webhookDemo.productDevices.length > 0) {
-                $('#cleanupDevices').prop('disabled', false);
-            }
-            for(const dev of webhookDemo.productDevices) {
-                if (dev.online && dev.firmware_version == webhookDemo.firmwareVersion) {
-                    $('#cleanupTinker').prop('disabled', false);
-                }
-            }
-        
-            if (webhookDemo.productDevices.length == 0 || $('#cleanupDevices').prop('checked')) {
-                // Can only delete an empty product
-                $('#cleanupProduct').prop('disabled', false);
+        if (webhookDemo.productDevices.length > 0) {
+            $('#cleanupDevices').prop('disabled', false);
+        }
+        for(const dev of webhookDemo.productDevices) {
+            if (dev.online && dev.firmware_version == webhookDemo.firmwareVersion) {
+                $('#cleanupTinker').prop('disabled', false);
             }
         }
+    
+        if ((webhookDemo.webhooks.length == 0 || $('#cleanupWebhook').prop('checked')) &&
+            (webhookDemo.productDevices.length == 0 || $('#cleanupDevices').prop('checked'))) {
+            // Can only delete an empty product
+            $('#cleanupProduct').prop('disabled', false);
+        }
+    
 
     }
     
@@ -2513,8 +2513,8 @@ $(document).ready(function() {
 
     });
 
-    $('#cleanupDevices').on('click', function() {
-        // Can't delete a product with devices, so this checkbox makes a difference
+    $('.cleanupUpdateOnClick').on('click', function() {
+        // Can't delete a product with webhooks or devices, so these checkboxes makes a difference
         updateCleanup();
     });
     

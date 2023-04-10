@@ -194,7 +194,7 @@ setColor.function("setColor");
 setColor.subscribe("setColor");
 ```
 
-This sets up the Device Group Helper library. 
+This sets up the [Device Group Helper library](https://github.com/rickkas7/DeviceGroupHelperRK). 
 
 - It retrieves the device groups at boot (this uses 2 data operations). This uses a product webhook.
 - It calls a function when the device groups are retrieved
@@ -247,8 +247,44 @@ for(auto it = groups.begin(); it != groups.end(); it++) {
 }
 ```
 
+Also note the contents of the project.properties file. To include a library, you must include it in project.properties and include any relevant header files.
+
 
 {{collapse op="end"}}
+
+### Event log
+
+This control shows the same information that is shown in the {{webhook-demo-link link="events" text="events tab"}} in your product so you don't need to switch between multiple windows.
+
+Published events show up here, but function calls and variable requests do not, as they are not events.
+
+{{> webhook-demo-events }}
+
+
+
+### Device logs
+
+If you have your Particle device connected by USB to your computer (Windows, Linux, Mac, or Chromebook), and you are using the Chrome web browser, you can monitor your device's USB serial debug log from this interactive control. You can also use `particle serial monitor` from the Particle CLI if you prefer. Both are optional, but are good for troubleshooting.
+
+{{> usb-serial-console}}
+
+
+
+### Open in Workbench
+
+The recommended development environment for Particle firmware is [Particle Workbench](/workbench/). To open this project in Workbench:
+
+- Use the **Download Full Project (*.zip)** option in [Device Firmware](#device-firmware), above.
+- Extract the zip file on your computer.
+- Open Visual Studio Code
+- Use the File - Open option to open the directory you just extracted. Make sure you open the directory, not a single file in it.
+
+Most operations are in the **command palette** (Ctrl-Shift-P on Windows and Linux, Command-Shift-P on Mac). Some useful commands:
+
+- **Particle: Login** Log into your Particle account.
+- **Particle: Configure Project for Device** Set the type of device and the version of Device OS you want to use.
+- **Particle: Cloud flash** Compile the project and flash it to a device OTA.
+- **Particle: Cloud compile** Compile the project and download the .bin file.
 
 
 ## Clean up
