@@ -3063,6 +3063,14 @@ $(document).ready(function() {
 
                 await flashDevice();
 
+                if (deviceInfo.platformVersionInfo.isRTL872x && ((mode == 'doctor') || (mode == 'setup') || (mode == 'restore'))) {
+                    reqObj = {
+                        op: 'disableFeature',
+                        feature: 9, // FEATURE_DISABLE_LISTENING_MODE
+                    } 
+                    const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                }
+
                 if (mode == 'product') {
                     setSetupStep('setupStepProductDone');
                     gtag('event', 'Product flash complete', {'event_category':gaCategory});    
