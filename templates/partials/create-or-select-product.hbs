@@ -1,4 +1,3 @@
-{{#if standalone}}<div class="apiHelper"><div class="apiHelperBox">{{/if}}
 <div class="apiHelperCreateOrSelectProduct apiHelperManualSetup" data-options="{{options}}"> 
     <!-- api-helper, api-helper-extras, api-helper-usb -->
     <table class="apiHelperTableNoMargin">
@@ -33,14 +32,10 @@
                 <td><select class="apiHelperProductSelect apiHelperSelect" style="padding-top: 5px;"></select></td>
                 <td><button class="refreshProducts">Refresh product list</button></td>
             </tr>
-{{#if includeStatus}}
-            <tr>
+            <tr class="statusRow" style="display:none;">
                 <td colspan="2" class="statusMessage"></td>
                 <td>&nbsp;</td>
             </tr>
-{{/if}}
         </tbody>
     </table>            
 </div>
-{{#if standalone}}</div></div>{{/if}}
-
