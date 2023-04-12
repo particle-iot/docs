@@ -5825,7 +5825,7 @@
             "type": "String",
             "optional": true,
             "field": "name",
-            "description": "<p>A human-readable description of the webhook. Defaults to &quot;<event> for <domain>&quot; if omitted.</p>"
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;{event} for {domain}&quot; if omitted.</p>"
           },
           {
             "group": "Parameter",
@@ -6047,7 +6047,7 @@
             "type": "String",
             "optional": true,
             "field": "name",
-            "description": "<p>A human-readable description of the webhook. Defaults to &quot;<event> for &lt;hub_name&gt;&quot; if omitted.</p>"
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;{event} for {hub_name}&quot; if omitted.</p>"
           },
           {
             "group": "Parameter",
@@ -6220,7 +6220,7 @@
             "type": "String",
             "optional": true,
             "field": "name",
-            "description": "<p>A human-readable description of the webhook. Defaults to &quot;<event> for <topic>&quot; if omitted.</p>"
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;{event} for {topic}&quot; if omitted.</p>"
           },
           {
             "group": "Parameter",
@@ -6351,7 +6351,7 @@
             "type": "String",
             "optional": true,
             "field": "name",
-            "description": "<p>A human-readable description of the webhook. Defaults to &quot;<event> for Google Maps&quot; if omitted.</p>"
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;{event} for Google Maps&quot; if omitted.</p>"
           },
           {
             "group": "Parameter",
@@ -8546,7 +8546,7 @@
       "examples": [
         {
           "title": "GET /v1/products/:productIdOrSlug/team",
-          "content": "GET /v1/products/:productIdOrSlug/team\nHTTP/1.1 200 OK\n{\n\t \"ok\": true.\n\t \"team\": [\n       {\n\t\t\t\"_id\":\"9980222caf8bad191600019b\",\n\t\t\t\"username\":\"jeff@particle.io\",\n\t\t\t\"no_mfa\": true\n\t\t},\n       ...\n  ]\n}",
+          "content": "GET /v1/products/:productIdOrSlug/team\nHTTP/1.1 200 OK\n{\n\t \"ok\": true.\n\t \"team\": [\n       {\n\t\t\t\"_id\":\"9980222caf8bad191600019b\",\n\t\t\t\"username\":\"jeff@particle.io\",\n\t\t\t\"no_mfa\": true,\n\t\t\t\"scim_provisioned\": true,\n\t\t\t\"no_password\": true\n\t\t},\n       ...\n  ]\n}",
           "type": "json"
         }
       ]
@@ -10953,13 +10953,6 @@
             "optional": false,
             "field": "action",
             "description": "<p>Set to <code>activate</code> to trigger SIM activation</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Boolean",
-            "optional": false,
-            "field": "async",
-            "description": "<p>Set to true for activating a SIM asynchronously. Poll the Get SIM information endpoint to find out when the activation is finished.</p>"
           }
         ]
       }
@@ -11236,7 +11229,7 @@
       "examples": [
         {
           "title": "GET /v1/user",
-          "content": "GET /v1/user\nHTTP/1.1 200 OK\n{\n  \"username\": \"testuser@particle.io\",\n  \"subscription_ids\": [],\n  \"account_info\": {\n    \"first_name\": \"Test\",\n    \"last_name\": \"User\",\n    \"business_account\": false\n  },\n  \"mfa\": {\n    \"enabled\": false\n  },\n  \"wifi_device_count\": 0,\n  \"cellular_device_count\": 0\n}",
+          "content": "GET /v1/user\nHTTP/1.1 200 OK\n{\n  \"username\": \"testuser@particle.io\",\n  \"subscription_ids\": [],\n  \"account_info\": {\n    \"first_name\": \"Test\",\n    \"last_name\": \"User\",\n    \"business_account\": false\n  },\n  scim_provisioned: false,\n  no_password: false,\n  \"mfa\": {\n    \"enabled\": false\n  },\n  \"wifi_device_count\": 0,\n  \"cellular_device_count\": 0\n}",
           "type": "json"
         }
       ]
