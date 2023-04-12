@@ -2712,6 +2712,11 @@ $(document).ready(function() {
 
         const options = $(thisPartial).data('options').split(',');
         // sandboxOnly - don't show org options even if the account is in an org
+        // status - show status row
+
+        if (options.includes('status')) {
+            $(thisPartial).show('.statusRow');
+        }
 
         const platformSelectElem = $(thisPartial).find('.apiHelperPlatformSelect');
         const deviceTypeSKUsElem = $(thisPartial).find('.deviceTypeSKUs');

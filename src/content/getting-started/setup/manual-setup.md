@@ -200,7 +200,7 @@ Using a product in the free plan is still free. You can have any combination of 
 
 ### Interactive - create or select a product
 
-{{> create-or-select-product includeStatus="1"}}
+{{> create-or-select-product options="status"}}
 
 ### Console - create a product
 
