@@ -540,6 +540,12 @@
         "dir": "tan011",
         "title": "TAN011 - Tracker SoM default application firmware issue",
         "href": "/reference/technical-advisory-notices/tan011/"
+      },
+      {
+        "dir": "tan012",
+        "title": "TAN012 - Rare connectivity issue with BRN404X, B404X, and E404X",
+        "href": "/reference/technical-advisory-notices/tan012/",
+        "internal": true
       }
     ],
     {

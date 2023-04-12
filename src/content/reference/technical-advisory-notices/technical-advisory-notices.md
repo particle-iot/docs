@@ -19,6 +19,7 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 
 - [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/) Shipping mode issue impacting Tracker One v1.0 devices manufactured before August 31, 2020.
 - [TAN006 - Tracker SoM GNSS Interface](/reference/technical-advisory-notices/tan006-tracker-som-gnss-interface/)
+- [TAN011 - Tracker SoM default application firmware issue](/reference/technical-advisory-notices/tan011/)
 
 ### Boron/B Series SoM
 
@@ -51,4 +52,5 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN008 - B404 Manufacturing Firmware 2.3.0](/reference/technical-advisory-notices/tan008/)
 - [TAN009 - SARA-R410 Intermittent Increased Connection Time](/reference/technical-advisory-notices/tan009/)
 - [TAN010 - SARA-R410 SIM Initialization](/reference/technical-advisory-notices/tan010/)
+- [TAN011 - Tracker SoM default application firmware issue](/reference/technical-advisory-notices/tan011/)
 
