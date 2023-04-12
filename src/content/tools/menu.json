@@ -71,6 +71,12 @@
         "dir": "configure-wi-fi",
         "title": "Configure Wi-Fi",
         "href": "/tools/developer-tools/configure-wi-fi/"
+      },
+      {
+        "dir": "modbus-debugging",
+        "title": "Modbus debugging",
+        "href": "/tools/developer-tools/modbus-debugging/",
+        "internal": true
       }
     ],
     {
