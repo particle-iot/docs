@@ -94,9 +94,14 @@ $(document).ready(function() {
         $('#usbConnect').on('click', async function() {
             const filters = [];
 
-            modbus.port = await navigator.serial.requestPort({ filters });
+            try {
+                modbus.port = await navigator.serial.requestPort({ filters });
             
-            modbus.handleConnection();
+                modbus.handleConnection();    
+            }
+            catch(e) {
+                console.log('cancel connect', e);
+            }
         });
     });
     
