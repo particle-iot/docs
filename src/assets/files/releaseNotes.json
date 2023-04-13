@@ -26254,6 +26254,189 @@
                 2627,
                 2628
             ]
+        },
+        "v5.3.1": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.3.1",
+            "tag_name": "v5.3.1",
+            "name": "v5.3.1 (Argon/Boron/B SoM/B5 SoM/Tracker/Tracker M/E SoM X/P2)",
+            "prerelease": true,
+            "created_at": "2023-04-11T19:14:05Z",
+            "published_at": "2023-04-13T17:03:42Z",
+            "entries": [
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2633
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Adds Wiring API System.backupRamSync() to manually backup `retained` variables"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2647
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix problems waking from sleep mode"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2629
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes inconsistent BLE state issues"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2630
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes pmic shared interrupt and usb detection"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2631
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes D7 configuration when exiting hibernate mode"
+                },
+                {
+                    "tags": [
+                        "rtl872x",
+                        "bootloader"
+                    ],
+                    "prs": [
+                        2625,
+                        2638
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes USB serial port not being connectable on AMD based Windows"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2633,
+                        2642,
+                        2644
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes `retained` variables not being saved, now periodically saved every 10s"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2636
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes assertion failure waiting for connection events from the stack when `BLE.connect()` called"
+                },
+                {
+                    "tags": [
+                        "nRF52"
+                    ],
+                    "prs": [
+                        2635
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes watchdog timer reload value accuracy"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2637
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "hal: Fixes BLE notifying multiple times"
+                },
+                {
+                    "tags": [
+                        "r510"
+                    ],
+                    "prs": [
+                        2639,
+                        2645
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Enables PS (packet switched) only mode for R510 modems (Boron/BSoM/ESoMX)"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2634
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "hal: Fixes I2C failing to read/write from/to slave device"
+                },
+                {
+                    "tags": [
+                        "p2"
+                    ],
+                    "prs": [
+                        2641
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes SPI speed settings, and improves SPI DMA timing for larger transfers"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2643
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "hal: uart may deadlock on initialization"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2646
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Dont enable usart RX/TX pullups"
+                }
+            ],
+            "prs": [
+                2625,
+                2629,
+                2630,
+                2631,
+                2633,
+                2634,
+                2635,
+                2636,
+                2637,
+                2638,
+                2639,
+                2641,
+                2642,
+                2643,
+                2644,
+                2645,
+                2646,
+                2647
+            ]
         }
     },
     "pulls": {
@@ -38489,6 +38672,157 @@
             "state": "closed",
             "created_at": "2023-02-21T19:00:52Z",
             "detail": "As title says"
+        },
+        "2629": {
+            "url": "https://github.com/particle-iot/device-os/pull/2629",
+            "number": 2629,
+            "title": "Fix inconsistent BLE state issue.",
+            "state": "closed",
+            "created_at": "2023-02-24T03:01:53Z",
+            "detail": "1. It may be failed to stop BLE advertising\n2. BLE scanning may timeout most of time\n3. BLE scanning may cause buffer overflow\n4. BLE disconnection might be failed\n5. It may be failed to establish a new BLE connection"
+        },
+        "2630": {
+            "url": "https://github.com/particle-iot/device-os/pull/2630",
+            "number": 2630,
+            "title": "[rtl872x] Fixes PMIC shared interruptFix, and usb detection",
+            "state": "closed",
+            "created_at": "2023-02-28T01:06:46Z",
+            "detail": "VIN on TrackerM hardware on `5.3.0`/`develop` is broken again. \n\nThe power source also always shows as `VIN` when on USB power. \nThis is due to `HAL_PLATFORM_POWER_WORKAROUND_USB_HOST_VIN_SOURCE` define. `HAL_USB_Get_State()` is not implemented / always returns `HAL_USB_STATE_NONE`. This forces the `VIN` source even if the PMIC reports USB source due to the following:\n```\n    switch (powerSourceFromStatus(status)) {\n      case POWER_SOURCE_USB_HOST: {\n        if (vin || usb_state < HAL_USB_STATE_POWERED) { // <------ This is always true, so SRC is always set to `POWER_SOURCE_VIN`\n        if (vin) {\n          src = POWER_SOURCE_VIN;\n          applyVinConfig();\n        }\n    ...\n```"
+        },
+        "2631": {
+            "url": "https://github.com/particle-iot/device-os/pull/2631",
+            "number": 2631,
+            "title": "[rtl872x] Fixes D7 configuration when exiting hibernate mode",
+            "state": "closed",
+            "created_at": "2023-03-01T17:00:02Z",
+            "detail": "D7 (PA27) outputs high after entering hibernate mode, even if it is configured as `OUTPUT` and outputs `LOW` before sleep."
+        },
+        "2633": {
+            "url": "https://github.com/particle-iot/device-os/pull/2633",
+            "number": 2633,
+            "title": "[rtl872x] Adds API to manually/periodically backup retained sram",
+            "state": "closed",
+            "created_at": "2023-03-03T12:08:48Z",
+            "detail": "RTL872x-based platforms cannot preserve variables that is marked as \"retained\" when pin reset happens."
+        },
+        "2634": {
+            "url": "https://github.com/particle-iot/device-os/pull/2634",
+            "number": 2634,
+            "title": "[rtl872x] hal: I2C may fail to read/write from/to slave device.",
+            "state": "closed",
+            "created_at": "2023-03-08T08:32:20Z",
+            "detail": "1. RTL872x-based platforms acting as I2C master may failed to communicate with certain type of slave device.\n2. RTL872x-based platforms acting as I2C slave may failed to communicate with I2C master."
+        },
+        "2635": {
+            "url": "https://github.com/particle-iot/device-os/pull/2635",
+            "number": 2635,
+            "title": "nRF52: watchdog timeout is not accurate",
+            "state": "closed",
+            "created_at": "2023-03-09T09:06:18Z",
+            "detail": "As the title describes. The method of calculating the watchdog reload value may cause the intermediate value overflow, which results in an incorrect reload value being loaded to register."
+        },
+        "2636": {
+            "url": "https://github.com/particle-iot/device-os/pull/2636",
+            "number": 2636,
+            "title": "[rtl872x] ble: start BLE stack/event dispatching before a connection attempt",
+            "state": "closed",
+            "created_at": "2023-03-14T15:00:17Z",
+            "detail": "`BLE.connect()` causes an assertion failure waiting for connection events from the stack."
+        },
+        "2637": {
+            "url": "https://github.com/particle-iot/device-os/pull/2637",
+            "number": 2637,
+            "title": "[rtl872x] hal: fix BLE notifying data issue.",
+            "state": "closed",
+            "created_at": "2023-03-24T18:11:03Z",
+            "detail": "Invoking `BleCharacteristic::setValue()` in characteristic's on written callback will send data multiple times due to retries."
+        },
+        "2638": {
+            "url": "https://github.com/particle-iot/device-os/pull/2638",
+            "number": 2638,
+            "title": "[rtl872x] usb: force SDK to pass recipient=interface requests by faking type=class",
+            "state": "closed",
+            "created_at": "2023-03-28T00:30:03Z",
+            "detail": "After #2625 it seems that the Realtek SDK has new behavior again and doesn't pass even more interface requests to setup request callback."
+        },
+        "2639": {
+            "url": "https://github.com/particle-iot/device-os/pull/2639",
+            "number": 2639,
+            "title": "[r510] enable PS (packet switched) Only mode for R510 modems (Boron/BSoM/ESoMX)",
+            "state": "closed",
+            "created_at": "2023-03-29T05:15:29Z",
+            "detail": "Currently R510 based devices (Boron/BSoM/ESoMX) power up with CS (Circuit Switched) and PS (Packet Switched) operation modes both enabled.  CS mode is not used, therefor it may be disabled which simplifies the data centric nature of the device."
+        },
+        "2640": {
+            "url": "https://github.com/particle-iot/device-os/pull/2640",
+            "number": 2640,
+            "title": "[r510] enable PS (packet switched) Only mode for R510 modems (Boron/BSoM/ESoMX)",
+            "state": "open",
+            "created_at": "2023-03-29T05:17:35Z",
+            "detail": "Currently R510 based devices (Boron/BSoM/ESoMX) power up with CS (Circuit Switched) and PS (Packet Switched) operation modes both enabled.  CS mode is not used, therefor it may be disabled which simplifies the data centric nature of the device."
+        },
+        "2641": {
+            "url": "https://github.com/particle-iot/device-os/pull/2641",
+            "number": 2641,
+            "title": "[p2] fixes SPI speed settings",
+            "state": "closed",
+            "created_at": "2023-04-04T14:59:54Z",
+            "detail": "P2/Photon2 SPI speeds were half of what was set, while SPI1 was twice that set. There are 1us gaps between every 16 bytes transferred when transferring large buffers."
+        },
+        "2642": {
+            "url": "https://github.com/particle-iot/device-os/pull/2642",
+            "number": 2642,
+            "title": "[rtl872x] hal: do not restore backup ram out of flash in case of soft or wdg reset",
+            "state": "closed",
+            "created_at": "2023-04-05T16:23:51Z",
+            "detail": "A regression was introduced in #2633 where stale backup ram backup (sic!) was restored out of flash in case of soft or watchdog reset, which actually do preserve RAM contents, so this action is not required and has the potential of restoring stale data instead."
+        },
+        "2643": {
+            "url": "https://github.com/particle-iot/device-os/pull/2643",
+            "number": 2643,
+            "title": "[rtl872x] hal: uart may deadlock on initialization.",
+            "state": "closed",
+            "created_at": "2023-04-06T06:00:56Z",
+            "detail": "If the device on the other end of the UART bus is transmitting while doing `Serial1.begin()`, the P2 freezes."
+        },
+        "2644": {
+            "url": "https://github.com/particle-iot/device-os/pull/2644",
+            "number": 2644,
+            "title": "[rtl872x] Avoid direct flash read when syncing backup RAM to flash",
+            "state": "closed",
+            "created_at": "2023-04-06T20:12:03Z",
+            "detail": "5.3.1 release testing discovered failures during file system tests."
+        },
+        "2645": {
+            "url": "https://github.com/particle-iot/device-os/pull/2645",
+            "number": 2645,
+            "title": "minor fix to ensure PS only mode is only applied to R510 at this time",
+            "state": "closed",
+            "created_at": "2023-04-07T15:19:32Z",
+            "detail": "R410 was failing the `slo/connect_time` tests due to PS only mode not being saved for R410 devices."
+        },
+        "2646": {
+            "url": "https://github.com/particle-iot/device-os/pull/2646",
+            "number": 2646,
+            "title": "[rtl872x] Dont enable usart RX/TX pullups",
+            "state": "closed",
+            "created_at": "2023-04-11T17:08:42Z",
+            "detail": "P2 USARTs enable software pullups on TX/RX pins, which is unnecessary."
+        },
+        "2647": {
+            "url": "https://github.com/particle-iot/device-os/pull/2647",
+            "number": 2647,
+            "title": "[rtl872x] fix sleep PSRAM",
+            "state": "closed",
+            "created_at": "2023-04-11T17:34:54Z",
+            "detail": "1. Application thread stack is statically allocated from SRAM\n2. Heap allocations prefer SRAM first now, and then PSRAM, previously it was the opposite\n3. ^^ Makes System thread also have stack on SRAM, not PSRAM\n4. Minor: system thread has a distinct thread name vs default active_object\n5. PSRAM suspend/resume procedure issues resolved\n6. Stub out direct flash read from BLE SDK code (we do not allow direct flash access without our HAL functions)"
+        },
+        "2648": {
+            "url": "https://github.com/particle-iot/device-os/pull/2648",
+            "number": 2648,
+            "title": "Device OS 5.3.1 Release",
+            "state": "closed",
+            "created_at": "2023-04-11T19:37:13Z"
         }
     }
 }
