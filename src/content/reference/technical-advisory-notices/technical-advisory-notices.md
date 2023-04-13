@@ -30,12 +30,14 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN008 - B404 Manufacturing Firmware 2.3.0](/reference/technical-advisory-notices/tan008/)
 - [TAN009 - SARA-R410 Intermittent Increased Connection Time](/reference/technical-advisory-notices/tan009/)
 - [TAN010 - SARA-R410 SIM Initialization](/reference/technical-advisory-notices/tan010/)
+- [TAN012 - Rare connectivity issue with BRN404X, B404X, and E404X](/reference/technical-advisory-notices/tan012/)
 
 ### Electron/E Series
 
 - [TAN001 - SARA-R410M "124-day"](/reference/technical-advisory-notices/tan001-sara-r410m-124-day/) Power-off procedure recommendations for Particle devices running u-blox SARA-R410M-02B modules
 - [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](/reference/technical-advisory-notices/tan004-power-off-recommendations-for-sara-r410m-equipped-devices/)
 - [TAN005 - SARA-R410-02B-03](/reference/technical-advisory-notices/tan005-sara-r410-02b-03/)
+- [TAN012 - Rare connectivity issue with BRN404X, B404X, and E404X](/reference/technical-advisory-notices/tan012/)
 
 ## Manufacturing firmware updates
 
@@ -53,4 +55,4 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN009 - SARA-R410 Intermittent Increased Connection Time](/reference/technical-advisory-notices/tan009/)
 - [TAN010 - SARA-R410 SIM Initialization](/reference/technical-advisory-notices/tan010/)
 - [TAN011 - Tracker SoM default application firmware issue](/reference/technical-advisory-notices/tan011/)
-
+- [TAN012 - Rare connectivity issue with BRN404X, B404X, and E404X](/reference/technical-advisory-notices/tan012/)
