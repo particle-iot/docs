@@ -158,18 +158,10 @@ $(document).ready(function() {
         return modbus;
     }
 
-
-    $('.modbusClient, .modbusAnalyzer').each(function() {
-        const thisPartial = $(this);
-
-        const modbus = createModbusHandler(thisPartial);
-
-        modbus.setup();
-
-    });
-    
     $('.modbusClient').each(function() {
         const thisPartial = $(this);
+        const modbus = createModbusHandler(thisPartial);
+        modbus.setup();
 
         $(thisPartial).find('.clientMode').on('change', function() {
             const mode = $(this).val();
@@ -181,6 +173,8 @@ $(document).ready(function() {
 
         $(thisPartial).find('.sendRawHexButton').on('click', function() {
             const rawHex = $(thisPartial).find('.rawHexInput').val();
+
+            
         });
 
 
@@ -188,6 +182,8 @@ $(document).ready(function() {
 
     $('.modbusAnalyzer').each(function() {
         const thisPartial = $(this);
+        const modbus = createModbusHandler(thisPartial);
+        modbus.setup();
 
 
     });
