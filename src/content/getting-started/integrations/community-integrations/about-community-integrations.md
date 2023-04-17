@@ -22,3 +22,4 @@ If you'd like to contribute an integration:
 - The documentation content at docs.particle.io is Apache 2 licensed, so submissions will have that license as well.
 - Once your content is ready, send an email to docs-submission (at) particle.io.
 
+A good example is the [Influx Data](/getting-started/integrations/community-integrations/influxdata/) documentation, which is a contributed submission.
