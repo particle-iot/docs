@@ -34,6 +34,11 @@ $(document).ready(function() {
             writer.releaseLock();
         };
     
+        modbus.sendUint8Array = async function(a) {
+            const writer = modbus.port.writable.getWriter();
+            await writer.write(a);
+            writer.releaseLock();
+        }
     
         modbus.disconnect = async function() {
             if (modbus.port.readable && modbus.reader) {
@@ -65,10 +70,7 @@ $(document).ready(function() {
             }
 
             await modbus.port.open({ baudRate: baudRate });
-    
-            const textDecoder = new TextDecoderStream();
-            const readableStreamClosed = modbus.port.readable.pipeTo(textDecoder.writable);
-    
+        
             if (modbus.onConnect) {
                 modbus.onConnect();
             }
@@ -78,8 +80,8 @@ $(document).ready(function() {
             $(modbus.connectButtonElem).text('Disconnect');
 
 
-            while (modbus.port.readable && modbus.keepReading) {
-                modbus.reader = textDecoder.readable.getReader();
+            while (modbus.keepReading) {
+                modbus.reader = modbus.port.readable.getReader();
     
                 try {
                     while (true) {
@@ -87,6 +89,7 @@ $(document).ready(function() {
                         if (done) {
                             break;
                         }
+                        console.log('value', value);
                         if (modbus.onReceive) {
                             modbus.onReceive(value);
                         }
@@ -99,9 +102,7 @@ $(document).ready(function() {
                     modbus.reader.releaseLock();
                 }
             }
-    
-            await readableStreamClosed.catch(() => {});
-    
+        
             await modbus.port.close();
     
             if (modbus.onDisconnect) {
@@ -172,9 +173,25 @@ $(document).ready(function() {
         $(thisPartial).find('.clientMode').trigger('change');
 
         $(thisPartial).find('.sendRawHexButton').on('click', function() {
-            const rawHex = $(thisPartial).find('.rawHexInput').val();
+            let hex = $(thisPartial).find('.rawHexInput').val();
 
-            
+            let a = [];
+
+            hex = hex.replace(/0[Xx]/g, '');
+            for(let part of hex.split(/[ ,]+/)) {
+                if ((part.length % 2) == 1) {
+                    part = '0' + part;
+                }
+                while(part.length >= 2) {
+                    a.push(parseInt(part.substring(0, 2), 16));
+                    
+                    part = part.substring(2);
+                }
+            }
+
+            const ua = new Uint8Array(a);
+            console.log('ua', ua);
+            modbus.sendUint8Array(ua);
         });
 
 
