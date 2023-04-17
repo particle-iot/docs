@@ -2,7 +2,30 @@
     <div class="apiHelper">
         <div class="apiHelperBox">
             <div class="webSerialAvailable" style="display:none;">
-                <button id="usbConnect">Connect</button>
+                <div>
+                    Baud rate: <input type="text" size="8" value="9600" class="baudRateInput"/>
+                    <select class="baudRateSelect apiHelperSelect">
+                        <option value="-" selected>-</option>
+                        <option value="9600">9600</option>
+                        <option value="19200">19200</option>
+                        <option value="38400">38400</option>
+                        <option value="57600">57600</option>
+                    </select> &nbsp;&nbsp;
+                    <button class="usbConnect">Connect</button>
+                </div>
+                <div class="connectedDiv" style="display:none;">
+                    <div>
+                        <select class="clientMode apiHelperSelect">
+                            <option value="rawHex">Raw hex request</option>
+                        </select>
+                    </div>
+                    <div class="modeContent">
+                        <div class="rawHexMode" style="display:none">
+                            <input type="text" size="60" class="rawHexInput" />
+                            <button class="sendRawHexButton">Send</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="webSerialNotAvailable" style="display:none;">
                 This tool is only available on Chrome, Edge, and Opera browsers on Windows, Linux, Mac, and Chromebook. It is not available on other
