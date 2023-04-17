@@ -330,6 +330,11 @@
       },
       [
         {
+          "dir": "about-community-integrations",
+          "title": "About community integrations",
+          "href": "/getting-started/integrations/community-integrations/about-community-integrations/"
+        },
+        {
           "dir": "azure-iot-hub",
           "title": "Azure IoT Hub",
           "href": "/getting-started/integrations/community-integrations/azure-iot-hub/"
