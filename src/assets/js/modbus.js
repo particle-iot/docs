@@ -89,7 +89,6 @@ $(document).ready(function() {
                         if (done) {
                             break;
                         }
-                        console.log('value', value);
                         if (modbus.onReceive) {
                             modbus.onReceive(value);
                         }
@@ -164,16 +163,39 @@ $(document).ready(function() {
         const modbus = createModbusHandler(thisPartial);
         modbus.setup();
 
+        let currentResponse = [];
+
+        const updateResponse = function() {
+            const s = currentResponse.reduce((str, byte) => str + byte.toString(16).padStart(2, '0') + ' ', '');
+
+            $(thisPartial).find('.rawHexResponse').text(s);
+        }
+
         $(thisPartial).find('.clientMode').on('change', function() {
             const mode = $(this).val();
 
             $(thisPartial).find('.modeContent').children().hide();
             $(thisPartial).find('.' + mode + 'Mode').show();
+
+            if (mode == 'rawHex') {
+                modbus.onReceive = function(value) {
+                    console.log('rawHex', value);  
+
+                    for(const v of value.values()) {
+                        currentResponse.push(v);    
+                    }
+                    updateResponse();
+                };
+            }
         });
         $(thisPartial).find('.clientMode').trigger('change');
 
-        $(thisPartial).find('.sendRawHexButton').on('click', function() {
+        const sendRawHex = function() {
+            $(thisPartial).find('.sendRawHexButton').prop('disabled', true);
             let hex = $(thisPartial).find('.rawHexInput').val();
+
+            currentResponse = [];
+            updateResponse();
 
             let a = [];
 
@@ -192,8 +214,22 @@ $(document).ready(function() {
             const ua = new Uint8Array(a);
             console.log('ua', ua);
             modbus.sendUint8Array(ua);
-        });
 
+            setTimeout(function() {
+                $(thisPartial).find('.sendRawHexButton').prop('disabled', false);
+            }, 500);
+        }
+
+        $(thisPartial).find('.sendRawHexButton').on('click', sendRawHex);
+
+        $(thisPartial).find('.rawHexInput').on('keydown', function(ev) {
+            if (ev.key != 'Enter') {
+                return;
+            }
+
+            ev.preventDefault();
+            sendRawHex();    
+        });  
 
     });
 
