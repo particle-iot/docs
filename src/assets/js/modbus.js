@@ -17,9 +17,54 @@ $(document).ready(function() {
             baudRateInputElem: $(elem).find('.baudRateInput'),
             baudRateSelectElem: $(elem).find('.baudRateSelect'),
             connectedDivElem: $(elem).find('.connectedDiv'),
+            rawHexRequestElem: $(elem).find('.rawHexRequest'),
+            rawHexResponseElem: $(elem).find('.rawHexResponse'),
+    
             isConnected: false,
         };
         $(elem).data('modbus', modbus);
+
+        modbus.crc16 = function(ua) {
+            // https://stackoverflow.com/questions/70916752/crc-16-checksum-calculator-with-vanilla-js
+            let crc = 0xFFFF;
+            let odd;
+        
+            for(const value of ua.values()) {
+                crc = crc ^ value;
+        
+                for (let bit = 0; bit < 8; bit++) {
+                    odd = crc & 0x0001;
+                    crc = crc >> 1;
+                    if (odd) {
+                        crc = crc ^ 0xA001;
+                    }
+                }
+            }
+            
+            // Note: This is 16-bits, but it goes on the wire LSB first (crc & 0xff) then (crc >> 8)
+            return crc;
+        };
+        
+        modbus.addRawHex = function(elem, ua) {
+            for(const v of ua.values()) {
+                const divElem = document.createElement('div');
+                $(divElem).css('padding', '0px 3px 0px 3px');
+
+                const hex = v.toString(16).padStart(2, '0');
+
+                let tooltip = '';
+                tooltip += '0x' + hex;
+                tooltip += ', ' + v + ' (dec)';
+                if (v >= 33 && v < 127) {
+                    tooltip += ', ' + String.fromCharCode(v) + ' (ASCII)';
+                }
+                $(divElem).attr('title', tooltip);
+                
+                $(divElem).text(hex);
+
+                $(elem).append(divElem);
+            }
+        };
 
         modbus.reconnectHandler = async function(event) {
             modbus.port = event.target;
@@ -29,14 +74,17 @@ $(document).ready(function() {
         modbus.sendString = async function(str) {
     
             const encoder = new TextEncoder();
-            const writer = modbus.port.writable.getWriter();
-            await writer.write(encoder.encode(str));
+            const writer = modbusport.writable.getWriter();
+            const ua = encoder.encode(str);
+            modbus.addRawHex(modbus.rawHexRequestElem, ua);
+            await writer.write(ua);
             writer.releaseLock();
         };
     
-        modbus.sendUint8Array = async function(a) {
+        modbus.sendUint8Array = async function(ua) {
             const writer = modbus.port.writable.getWriter();
-            await writer.write(a);
+            modbus.addRawHex(modbus.rawHexRequestElem, ua);
+            await writer.write(ua);
             writer.releaseLock();
         }
     
@@ -52,6 +100,11 @@ $(document).ready(function() {
             }
     
             navigator.serial.removeEventListener('connect', modbus.reconnectHandler);
+        };
+
+        modbus.clearRequestResponse = function() {
+            $(modbus.rawHexRequestElem).empty();
+            $(modbus.rawHexResponseElem).empty();
         };
     
         modbus.handleConnection = async function() {
@@ -89,6 +142,7 @@ $(document).ready(function() {
                         if (done) {
                             break;
                         }
+                        modbus.addRawHex(modbus.rawHexResponseElem, value);
                         if (modbus.onReceive) {
                             modbus.onReceive(value);
                         }
@@ -161,15 +215,11 @@ $(document).ready(function() {
     $('.modbusClient').each(function() {
         const thisPartial = $(this);
         const modbus = createModbusHandler(thisPartial);
+
+        const rawHexInputCrcCheckboxElem = $(thisPartial).find('.rawHexInputCrcCheckbox');
+
         modbus.setup();
 
-        let currentResponse = [];
-
-        const updateResponse = function() {
-            const s = currentResponse.reduce((str, byte) => str + byte.toString(16).padStart(2, '0') + ' ', '');
-
-            $(thisPartial).find('.rawHexResponse').text(s);
-        }
 
         $(thisPartial).find('.clientMode').on('change', function() {
             const mode = $(this).val();
@@ -177,25 +227,23 @@ $(document).ready(function() {
             $(thisPartial).find('.modeContent').children().hide();
             $(thisPartial).find('.' + mode + 'Mode').show();
 
+            /*
             if (mode == 'rawHex') {
                 modbus.onReceive = function(value) {
                     console.log('rawHex', value);  
 
-                    for(const v of value.values()) {
-                        currentResponse.push(v);    
-                    }
-                    updateResponse();
                 };
             }
+            */
         });
         $(thisPartial).find('.clientMode').trigger('change');
 
         const sendRawHex = function() {
             $(thisPartial).find('.sendRawHexButton').prop('disabled', true);
-            let hex = $(thisPartial).find('.rawHexInput').val();
 
-            currentResponse = [];
-            updateResponse();
+            modbus.clearRequestResponse();
+
+            let hex = $(thisPartial).find('.rawHexInput').val();
 
             let a = [];
 
@@ -211,8 +259,18 @@ $(document).ready(function() {
                 }
             }
 
-            const ua = new Uint8Array(a);
+            let ua = new Uint8Array(a);
+
+            if ($(rawHexInputCrcCheckboxElem).prop('checked')) {
+                let crc = modbus.crc16(ua);
+
+                a.push(crc & 0xff);
+                a.push(crc >> 8);
+                ua = new Uint8Array(a);
+            }
+
             console.log('ua', ua);
+
             modbus.sendUint8Array(ua);
 
             setTimeout(function() {

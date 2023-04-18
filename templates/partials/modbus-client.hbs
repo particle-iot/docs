@@ -21,14 +21,23 @@
                     </div>
                     <div class="modeContent">
                         <div class="rawHexMode" style="display:none">
-                            <div class="rawHexRequest">
+                            <div>
+                                <label><input type="checkbox" class="rawHexInputCrcCheckbox"/>Calculate and append CRC to input</label>
+                            </div>
+                            <div>
                                 <input type="text" size="60" class="rawHexInput" />
                                 <button class="sendRawHexButton">Send</button>
                             </div>
-                            <div class="rawHexResponse">                                
-                            </div>
                         </div>
                     </div>
+                    <div class="outputDiv connectedDiv" style="display:none;">
+                        <div>Request (raw hex):</div>
+                        <div class="rawHexRequest" style="display: flex;">
+                        </div>
+                        <div style="padding-top:5px;">Response (raw hex):</div>
+                        <div class="rawHexResponse" style="display: flex;">            
+                        </div>
+                    </div>            
                 </div>
             </div>
             <div class="webSerialNotAvailable" style="display:none;">
