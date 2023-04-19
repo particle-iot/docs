@@ -789,7 +789,7 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/b402-rohs3.pdf)
 
-#### B Series SoM B523
+#### B Series SoM B524/B523
 
 - [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf)
 
