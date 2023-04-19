@@ -145,6 +145,11 @@ Additional FCC Test Reports:
 - [FCC Grant 15C DTS transmitter](/assets/pdfs/e404x-fcc-15c-dts.pdf)
 - [FCC Grant 15C PCS transmitter](/assets/pdfs/e404x-fcc-15c-pcs.pdf)
 - [FCC Grant 15B Licensed Receiver](/assets/pdfs/e404x-fcc-15b-receiver.pdf)
+- [FCC Part 15 Subpart B, Class B Test report](/assets/pdfs/e402-fcc-part15b-test-report.pdf)
+- [RF Exposure Report FCC Part 2, Section 2.1091](/assets/pdfs/e404x-fcc-rf-exposure.pdf)
+- [FCC Part 22](/assets/pdfs/e404x-fcc-part22-test-report.pdf)
+- [FCC Part 24](/assets/pdfs/e404x-fcc-part24-test-report.pdf)
+- [FCC Part 27](/assets/pdfs/e404x-fcc-part27-test-report.pdf)
 - [BLE test report](/assets/pdfs/e404x-ble-test-report.pdf)
 
 
@@ -401,6 +406,12 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 #### E Series E404X (R510 modem)
 - IC ID: **20127-E404X**
 - [Certificate of conformity](/assets/pdfs/e404x-ic.pdf)
+- [ICES-003 Issue 7:2020 Class B](/assets/pdfs/e402-ic-ices003-7.pdf)
+- [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/e404x-ic-ices003-7-test-report.pdf)
+- [Test Report RS-130](/assets/pdfs/e404x-ic-rs130.pdf)
+- [Test Report RS-133](/assets/pdfs/e404x-ic-rs133.pdf)
+- [Test Report RS-139](/assets/pdfs/e404x-ic-rs139.pdf)
+- [ISED RF Exposure Report](/assets/pdfs/e404x-ic-ised-rf-exposure.pdf)
 
 
 #### E Series E310 and E314 (U201 modem)
