@@ -36,7 +36,7 @@
           "href": "/firmware/software-design/finite-state-machines/"
         }
       ]
-    },    
+    },
     {
       "dir": "best-practices",
       "isSection": true
@@ -51,6 +51,12 @@
         "dir": "about-apps",
         "title": "About apps",
         "href": "/firmware/best-practices/about-apps/"
+      },
+      {
+        "dir": "github-actions",
+        "title": "Github Actions (CI/CD)",
+        "href": "/firmware/best-practices/github-actions/",
+        "internal": true
       },
       {
         "dir": "json",
