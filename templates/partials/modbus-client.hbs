@@ -17,6 +17,7 @@
                     <div>
                         <select class="clientMode apiHelperSelect">
                             <option value="rawHex">Raw hex request</option>
+                            <option value="readInput">Read input request</option>
                         </select>
                     </div>
                     <div class="modeContent">
@@ -29,14 +30,49 @@
                                 <button class="sendRawHexButton">Send</button>
                             </div>
                         </div>
+                        <div class="readInputMode" style="display:none">
+                            <table class="apiHelperTableNoMargin">
+                                <tbody>
+                                    <tr>
+                                        <td>Server address</td>
+                                        <td><input type="text" size="6" value="1" class="serverAddress"/></td>
+                                        <td>(1-255)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Starting register</td>
+                                        <td><input type="text" size="6" value="1" class="readInputStart"/></td>
+                                        <td>(1-65535)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Number of points</td>
+                                        <td><input type="text" size="6" value="1" class="readInputNum"/></td>
+                                        <td>(1-120, limited by size)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"><button class="readInputButton">Request</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="outputDiv connectedDiv" style="display:none;">
                         <div>Request (raw hex):</div>
-                        <div class="rawHexRequest" style="display: flex;">
+                        <div class="rawHexRequest" style="display: flex;"></div>
+                        <div style="padding-top:5px;">Request (decoded):</div>
+                        <div class="requestDecoded">
+                            <table class="apiHelperTableNoMargin">
+                                <thead>
+                                    <tr>
+                                        <th>Value</th>
+                                        <th>Description</th>
+                                    </tr>                      
+                                </thead>
+                                <tbody>                                    
+                                </tbody>
+                            </table>
                         </div>
                         <div style="padding-top:5px;">Response (raw hex):</div>
-                        <div class="rawHexResponse" style="display: flex;">            
-                        </div>
+                        <div class="rawHexResponse" style="display: flex;"></div>
                     </div>            
                 </div>
             </div>

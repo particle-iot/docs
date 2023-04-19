@@ -19,7 +19,7 @@ $(document).ready(function() {
             connectedDivElem: $(elem).find('.connectedDiv'),
             rawHexRequestElem: $(elem).find('.rawHexRequest'),
             rawHexResponseElem: $(elem).find('.rawHexResponse'),
-    
+            requestDecodedElem: $(elem).find('.requestDecoded'),
             isConnected: false,
         };
         $(elem).data('modbus', modbus);
@@ -104,6 +104,7 @@ $(document).ready(function() {
 
         modbus.clearRequestResponse = function() {
             $(modbus.rawHexRequestElem).empty();
+            $(modbus.requestDecodedElem).find('table > tbody').empty();
             $(modbus.rawHexResponseElem).empty();
         };
     
@@ -288,6 +289,24 @@ $(document).ready(function() {
             ev.preventDefault();
             sendRawHex();    
         });  
+
+        /*
+        input type="text" size="6" value="1" class="serverAddress"/></td>
+                                    <td>(1-255)</td>
+                                </tr>
+                                <tr>
+                                    <td>Starting register</td>
+                                    <td><input type="text" size="6" value="1" class="readInputStart"/></td>
+                                    <td>(1-65535)</td>
+                                </tr>
+                                <tr>
+                                    <td>Number of points</td>
+                                    <td><input type="text" size="6" value="1" class="readInputNum"/></td>
+                                    <td>(1-120, limited by size)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"><button class="readInputButton
+        */
 
     });
 
