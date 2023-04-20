@@ -44,7 +44,29 @@ $(document).ready(function() {
             // Note: This is 16-bits, but it goes on the wire LSB first (crc & 0xff) then (crc >> 8)
             return crc;
         };
-        
+
+        modbus.decoder = function(elem) {
+            let decoder = {
+                elem,
+                data: [],
+            };
+
+            decoder.clear = function() {
+                $(decoder.elem).empty();
+                decoder.data = [];
+            };
+
+            decoder.parse = function(ua) {
+                for(const value of ua.values()) {
+                    decoder.data.push(value);
+                }
+                
+            }
+
+
+            return decoder;
+        };
+
         modbus.addRawHex = function(elem, ua) {
             for(const v of ua.values()) {
                 const divElem = document.createElement('div');
