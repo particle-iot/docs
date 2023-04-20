@@ -18,13 +18,17 @@ The [Tracker Edge Firmware API Reference](/firmware/tracker-edge/tracker-edge-ap
 
 ## Using off-the-shelf releases
 
-In your product in the [console](https://console.particle.io), click on the **Firmware** icon.
+Your Tracker device is pre-configured with Tracker Edge firmware that you can use out of the box with no flashing of firmware necessary.
 
-![Releases](/assets/images/tracker/release.png)
+{{collapse op="start" label="Show prior behavior"}}
+Before April 2023, when you created a new product for the Tracker (platform 26), the default Tracker Edge firmware was automatically
+added to your product as well.
 
-Instead of having to manually upload firmware that you write, by default new releases are automatically added to your firmware list. Just click the **Release Firmware** link to release a new version to your fleet.
+When a new version of Tracker Edge was released, if you had not uploaded your own product firmware, the new release would be added to the list, but not set as default.
 
-Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added.
+This behavior was removed because it was confusing and would not work properly with the Monitor One.
+{{collapse op="end"}}
+
 
 ## Development device setup
 

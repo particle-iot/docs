@@ -46,12 +46,6 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 ### Device OS support
 
-It is recommended that you use the latest version in the 4.x LTS release line with the Tracker One.
-
-ONE404X and ONE524X devices, when released, will require a Device OS 4.x LTS release. If you plan on having a mixed fleet of Tracker devices containing the T404X, T524X, ONE404X or ONE524X, we recommend upgrading all device to the latest 4.x LTS release.
-
-Tracker Edge v18 requires a minimum of Device OS 3.3.0. Device OS 3.x is a developer preview release and has reached its end-of-support date. We recommend that all Tracker fleets upgrade to Device OS 4.x.
-
 For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
 
 

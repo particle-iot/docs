@@ -56,7 +56,6 @@ One difference from other Particle devices is that the Tracker One firmware can 
 
 - Tracker One hardware is designed to be used without modification. It's fully assembled and ready to go.
 - Tracker Edge firmware on Tracker One can be used without modification. You can use the firmware off-the-shelf and [customize it from the Particle console](/getting-started/console/console/#product-settings), with no writing of device firmware necessary at all.
-- Easily upgrade to new versions of Tracker Edge firmware from the console and release it to your fleet with [just a few clicks](/getting-started/console/console/#using-off-the-shelf-releases).
 
 ### Semi-custom firmware
 
