@@ -52,4 +52,4 @@ void loop() {
 // refrain from declaring any interrupts and try and keep your test firmware as empty as possible
 ```
 
-It is worth stating that the majority of these issues do boil down to blocking firmware, so performing the above test is an essential component of the troubleshooting process. If all of the above fails, please [open a support ticket.](https://support.particle.io)
+It is worth stating that the majority of these issues do boil down to blocking firmware, so performing the above test is an essential component of the troubleshooting process.

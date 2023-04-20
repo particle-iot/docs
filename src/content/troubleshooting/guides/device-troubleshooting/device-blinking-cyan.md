@@ -58,4 +58,3 @@ If you have physical access to the in question, here's how to change the Key on 
 6. Place your into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 7. It's a good idea to run the `particle keys server` command in case your server keys or address are corrupted.
 8. Run the `particle keys doctor xxxxx` command, where xxxxx is the device ID you copied just earlier. This will generate a new public/private key pair and automatically download it to your device, and also send the public key up to the Cloud.
-9. If `particle keys doctor` fails to send the keys to the cloud, please contact [Particle support](https://support.particle.io/).

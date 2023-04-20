@@ -25,8 +25,6 @@ Some things to note:
 3. If you are working with a Product SIM, please manually attempt to re-import the SIM after your first attempt. If this fails, please wait up to 24 hours and try again.
 4. Finally, do check for reported latency on <http://status.particle.io>.
 
-If it’s been longer than 24 hours and you still are unable to Activate or Deactivate your SIM, please go ahead and open a support ticket ([https://particle.io/support)](https://particle.io/support) referencing your SIM’s ICCID. 
-
 You can find your SIM's ICCID (the identifier for your SIM Card)in two ways. If your device has come online in the past and is visible in the Console, merely click on the Device in question to check the ICCID number. If the device has never come online, you can find this information by either checking the packaging for your Particle SIM and/or (especially in the case of embedded SIM devices), following the instructions [here.](/troubleshooting/guides/device-management/finding-your-device-id/)
 
 ## Other activation failures

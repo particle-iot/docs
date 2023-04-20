@@ -701,6 +701,3 @@ https://www.particle.io
 
 https://community.particle.io
 
-**Email**
-
-https://support.particle.io

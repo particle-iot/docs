@@ -553,7 +553,7 @@ Particle open source projects and many community libraries are stored in GitHub,
 	
 ### Particle: Audit Environment
 
-Prints information about the VS Code environment and settings to the Output window. This can be useful to send in [technical support requests](https://particle.io/support). 
+Prints information about the VS Code environment and settings to the Output window.
 
 If you are sharing the information in a public place like the [community forums](https://community.particle.io) be sure there isn't sensitive information you do not want to share in the data.
 

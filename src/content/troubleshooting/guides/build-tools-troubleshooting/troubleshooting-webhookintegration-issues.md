@@ -151,4 +151,3 @@ The vast majority of Webhook-related issues reported to Particle ultimately are 
    * **Critical:** since we do only log the last 10 successes and errors, please take screenshots of any fully-expanded Errors from the Console page (see above).
 * Specific DeviceIDs and Event Names (in the case of missing requests)
 
-As always, you can submit a support ticket via [support.particle.io!](https://support.particle.io)

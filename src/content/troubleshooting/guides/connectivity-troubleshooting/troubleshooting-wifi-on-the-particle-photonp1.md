@@ -44,7 +44,7 @@ After calling `WiFi.on()`, the steps undertaken to connect are as follows:
 [app] INFO: ssid=myNetwork security=wpa2 cipher=AES
 ```
 
-* As well as the results of: `Available access points`. At this stage, an array of available APs should display. If your device cannot find your AP, that can point either to a network compatibility issue (see our Wi-Fi Connectivity Guide - [link](/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/)), or to a simple proximity issue (go closer to the AP). If no APs appear, create a Mobile Hotspot to test - if this fails, [open up a support ticket](https://support.particle.io).
+* As well as the results of: `Available access points`. At this stage, an array of available APs should display. If your device cannot find your AP, that can point either to a network compatibility issue (see our Wi-Fi Connectivity Guide - [link](/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/)), or to a simple proximity issue (go closer to the AP).
 * Failures that appear immediately after the Wi-Fi scan point to an authentication issue. However, **t** **ake note of the RAM that’s available to your device** (this will be reported by `[app] Free Memory:` and you can modify Cloud Debug source to reveal this information wherever you would like). If your device has low RAM, might not be able to connect because the WICED stack needs to allocate quite a bit (for a WPA2 Enterprise connection it can be as much as 10k).
 
 ## IP connectivity

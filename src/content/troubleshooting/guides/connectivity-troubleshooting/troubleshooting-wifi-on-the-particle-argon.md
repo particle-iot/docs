@@ -50,7 +50,7 @@ After calling `WiFi.on()`, the steps undertaken to connect are as follows:
 
 ## Network scan and authentication
 
-* The device will scan for networks via the `CWLAP` AT command - this the AT command implicated when you run `WiFi.connect()` or `WiFi.scan()`. At this stage, an array of available APs should display. If your device cannot find your AP, that can point either to a network compatibility issue (see our Wi-Fi Connectivity Guide - [link](/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/)), or to a simple proximity issue (go closer to the AP). If no APs appear, create a Mobile Hotspot to test - if this fails, [open up a support ticket](https://support.particle.io).
+* The device will scan for networks via the `CWLAP` AT command - this the AT command implicated when you run `WiFi.connect()` or `WiFi.scan()`. At this stage, an array of available APs should display. If your device cannot find your AP, that can point either to a network compatibility issue (see our Wi-Fi Connectivity Guide - [link](/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/)), or to a simple proximity issue (go closer to the AP).
 * Your Wi-Fi credentials are stored inside the Argon's filesystem. It will scroll through the enumerated APs and look for SSID + Password matches. The authentication process begins and is confirmed by this line:
 
 ```

@@ -124,8 +124,6 @@ Once you have the logs, scan through it and look out for the following responses
 
 _2,3 indicates your SIM card is being rejected by the local tower. **Please ensure that your SIM card is active!** If your SIM card is indeed active, this error could occur for various infrastructural reasons; it might resolve itself if you have a day or two to wait._ 
 
-_If not, please [submit a support ticket](https://support.particle.io/) at so we can check with our MVNO what is going on._
-
 #### 2,2
 
 _2,2 indicates no compatible carrier is available on the local tower for the SIM card._
@@ -138,7 +136,6 @@ _2,0 indicates a lack of available local towers._
 
 _Indicates a successful connection to the tower._  
 
-Once you have these logs in hand, reach out to our [support team](https://support.particle.io/) with about 10 minutes or so of those logs! 
 
 #### Uninstalling cloud debug
 

@@ -278,4 +278,4 @@ Follow these steps to migrate a v1 Particle library to the new v2 structure usin
 - **Versioning**: You can upload a private version multiple times with the same version number, but once you publish a version to the public you won’t be able to upload with the same version number. If you make a small mistake just increase the version number and upload again. Version numbers are free!
 
 If you're having additional issues with library migration or contribution, please feel free to post a message in the 
-[community forums](https://community.particle.io), or send us a message via our [support portal](https://support.particle.io).
+[community forums](https://community.particle.io).

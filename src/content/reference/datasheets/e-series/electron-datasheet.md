@@ -970,6 +970,3 @@ We are tracking [known errata with this datasheet here](https://github.com/parti
 
 [https://community.particle.io](https://community.particle.io)
 
-**Email**
-
-[https://support.particle.io](https://support.particle.io)
