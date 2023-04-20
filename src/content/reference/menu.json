@@ -545,6 +545,11 @@
         "dir": "tan012",
         "title": "TAN012 - Rare connectivity issue with BRN404X, B404X, and E404X",
         "href": "/reference/technical-advisory-notices/tan012/"
+      },
+      {
+        "dir": "tan013",
+        "title": "TAN013 - Tracker Manufacturing Firmware 3.3.0",
+        "href": "/reference/technical-advisory-notices/tan013/"
       }
     ],
     {

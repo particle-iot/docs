@@ -32,13 +32,13 @@ All Particle devices ship with Particle Device OS software, including Device OS,
 | Photon | 1.4.4 | 2019-12-16 |
 | P0 | 1.4.4 | 2019-12-16 |
 | P1 | 1.4.4 | 2019-12-16 |
-| Tracker SoM T404 LTE-M1 NorAm EtherSIM | 3.1.0 | 2021-11-03 |
-| Tracker SoM T402 LTE-M1 NorAm | 3.1.0 | 2021-11-03 |
-| Tracker One ONE524 LTE Cat 1 EMEAA EtherSIM | 3.1.0 | 2021-11-03 |
-| Tracker One ONE523 LTE Cat 1 EMEAA | 3.1.0 | 2021-11-03 |
+| Tracker SoM T404 LTE-M1 NorAm EtherSIM | 3.3.0 | 2023-04-20 |
+| Tracker SoM T402 LTE-M1 NorAm | 3.3.0 | 2023-04-20 |
+| Tracker One ONE524 LTE Cat 1 EMEAA EtherSIM | 3.3.0 | 2023-04-20 |
+| Tracker One ONE523 LTE Cat 1 EMEAA | 3.3.0 | 2023-04-20 |
 | Xenon | 1.4.4 | 2020-01-08 |
 
-- The Tracker Edge version for the Tracker One and Tracker SoM is v16, updated 2021-11-04
+- The Tracker Edge version for the Tracker One and Tracker SoM is v18, updated 2023-04-20
 - The B404X, BRN404X, and E404X require Device OS 4.0.1 or later and cannot be downgraded
 - B Series SoM B404 NORAM EtherSIM requires Device OS 2.3.0 or later and cannot be downgraded
 
