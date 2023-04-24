@@ -19,8 +19,9 @@ $(document).ready(function() {
             connectedDivElem: $(elem).find('.connectedDiv'),
             rawHexRequestElem: $(elem).find('.rawHexRequest'),
             rawHexResponseElem: $(elem).find('.rawHexResponse'),
-            requestDecodedElem: $(elem).find('.requestDecoded'),
+            decodedOutputElem: $(elem).find('.decodedOutput'),
             isConnected: false,
+            data: [],
         };
         $(elem).data('modbus', modbus);
 
@@ -45,27 +46,118 @@ $(document).ready(function() {
             return crc;
         };
 
-        modbus.decoder = function(elem) {
-            let decoder = {
-                elem,
-                data: [],
-            };
+        modbus.parseData = function() {
+            console.log('parseData', modbus.data);
 
-            decoder.clear = function() {
-                $(decoder.elem).empty();
-                decoder.data = [];
-            };
+            if (modbus.data.length < 4) {
+                // Not enough data
+                return;
+            }
 
-            decoder.parse = function(ua) {
-                for(const value of ua.values()) {
-                    decoder.data.push(value);
+            const readUInt16BE = function(offset) {
+                return (modbus.data[offset].value << 8) | modbus.data[offset + 1].value;
+            }
+            const readUInt16LE = function(offset) {
+                return modbus.data[offset].value | (modbus.data[offset + 1].value << 8);
+            }
+            const calcCRC = function(crcOffset) {
+                let a = [];
+                for(let ii = 0; ii < crcOffset; ii++) {
+                    a.push(modbus.data[ii].value);
                 }
-                
+                return modbus.crc16(new Uint8Array(a));
+            }
+
+            let decoded = {
+                serverAddr: modbus.data[0].value,
+                function: modbus.data[1].value,                
+            };
+
+            let decodedAsRequest = {};
+            let decodedAsResponse = {};
+            
+            switch(decoded.function) {
+                case 4: // Read input
+                    if (modbus.data.length >= 8) {
+                        decodedAsRequest.startAddr = readUInt16BE(2);
+                        decodedAsRequest.numPoints = readUInt16BE(4);
+                        decodedAsRequest.crcOffset = 6;
+                    }
+                    if (modbus.data.length >= 5) {
+                        decodedAsResponse.byteCount = modbus.data[3];
+                        if (modbus.data.length >= (3 + decodedAsResponse.byteCount + 2)) {
+                            decodedAsResponse.crcOffset = 3 + decodedAsResponse.byteCount;
+                        }
+                    }
+                    break;
+            }
+
+            if (decodedAsRequest.crcOffset) {
+                decodedAsRequest.crcData = readUInt16LE(decodedAsRequest.crcOffset);
+                decodedAsRequest.crcCalc = calcCRC(decodedAsRequest.crcOffset);
+                decodedAsRequest.crcValid = (decodedAsRequest.crcData == decodedAsRequest.crcCalc);
+            }
+            if (decodedAsResponse.crcOffset) {
+                decodedAsResponse.crcData = readUInt16LE(decodedAsResponse.crcOffset);
+                decodedAsResponse.crcCalc = calcCRC(decodedAsResponse.crcOffset);
+                decodedAsResponse.crcValid = (decodedAsResponse.crcData == decodedAsResponse.crcCalc);
             }
 
 
-            return decoder;
+            console.log('decodedAsRequest', decodedAsRequest);
+            console.log('decodedAsResponse', decodedAsResponse);
+
+            if (decodedAsRequest.crcOffset && modbus.data[0].received) {
+
+            }
+            
+
+            /*
+            Request:
+            - 01 = Server Address
+            - 04 = Function (Read Input)
+            - 00 01 = Starting address (0x0001)
+            - 00 02 = Number of points (0x0002)
+            - 20 0B = CRC
+
+            Response:
+            - 01 = Server Address
+            - 04 = Function (Read Input 0x04)
+            - 04 = Byte Count 
+            - 00 FC = 252 = 25.2°C
+            - 01 19 = 281 = 28.1 %RH
+            - FB EE = CRC
+            */
         };
+
+        modbus.addData = function(ua, options = {}) {
+        
+            for(let ii = 0; ii < ua.length; ii++) {
+                let obj = Object.assign({}, options, {
+                    value: ua[ii],
+                    chunkIndex: ii,
+                    ts: Date.now(),
+                });
+                if (ii == 0) {
+                    obj.chunkFirst = true;
+                }
+                if (ii == (ua.length - 1)) {
+                    obj.chunkLast = true;
+                }
+                if (modbus.data.length > 0) {
+                    if ((obj.ts - modbus.data[modbus.data.length - 1].ts) >= 5) {
+                        obj.gapBefore = true;
+                        modbus.data[modbus.data.length - 1].gapAfter = true;
+                    }
+                }
+                else {
+                    obj.gapBefore = true;
+                }
+
+                modbus.data.push(obj);
+            }       
+            modbus.parseData();         
+        }
 
         modbus.addRawHex = function(elem, ua) {
             for(const v of ua.values()) {
@@ -155,6 +247,11 @@ $(document).ready(function() {
             $(modbus.connectButtonElem).prop('disabled', false);
             $(modbus.connectButtonElem).text('Disconnect');
 
+            let addDataOptions = {                    
+            }
+            if (setupOptions.isClient) {
+                addDataOptions.received = true;
+            }
 
             while (modbus.keepReading) {
                 modbus.reader = modbus.port.readable.getReader();
@@ -166,6 +263,7 @@ $(document).ready(function() {
                             break;
                         }
                         modbus.addRawHex(modbus.rawHexResponseElem, value);
+                        modbus.addData(value, addDataOptions);
                         if (modbus.onReceive) {
                             modbus.onReceive(value);
                         }
@@ -192,7 +290,8 @@ $(document).ready(function() {
             $(modbus.connectedDivElem).hide();
         }
 
-        modbus.setup = function() {
+        modbus.setup = function(setupOptions) {
+            modbus.setupOptions = setupOptions;
 
             $(modbus.connectButtonElem).on('click', async function() {
                 $(modbus.connectButtonElem).prop('disabled', true);
@@ -241,7 +340,9 @@ $(document).ready(function() {
 
         const rawHexInputCrcCheckboxElem = $(thisPartial).find('.rawHexInputCrcCheckbox');
 
-        modbus.setup();
+        modbus.setup({
+            isClient: true,
+        });
 
 
         $(thisPartial).find('.clientMode').on('change', function() {
@@ -295,6 +396,7 @@ $(document).ready(function() {
             console.log('ua', ua);
 
             modbus.sendUint8Array(ua);
+            modbus.addData(ua, {sent:true});
 
             setTimeout(function() {
                 $(thisPartial).find('.sendRawHexButton').prop('disabled', false);
@@ -335,7 +437,9 @@ $(document).ready(function() {
     $('.modbusAnalyzer').each(function() {
         const thisPartial = $(this);
         const modbus = createModbusHandler(thisPartial);
-        modbus.setup();
+        modbus.setup({
+            isAnalyzer: true,
+        });
 
 
     });
