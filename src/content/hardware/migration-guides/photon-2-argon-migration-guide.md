@@ -349,12 +349,14 @@ The constant is from the ADC range (0 - 4095) mapped to the voltage from 0 - 5 V
 The charge indicator on the Photon 2 can be read using:
 
 ```
+pinMode(CHG, INPUT_PULLUP);
 bool charging = digitalRead(CHG);
 ```
 
 On the Photon 2, the `CHG` digital input is `HIGH` (1) when charging and `LOW` (0) when not charging.
 
-The voltage formula is different than the Argon, and the logic of the `CHG` pin is opposite!
+The voltage formula is different than the Argon, and the logic of the `CHG` pin is opposite! Also the Photon 2 requires `INPUT_PULLUP`.
+
 
 ```cpp
 float voltage = analogRead(BATT) * 0.0011224; // Argon
