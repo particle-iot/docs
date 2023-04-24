@@ -18,7 +18,20 @@ description: Desktop IDE for programming Particle IoT devices for Windows, Mac O
 
 {{youtube "https://www.youtube.com/embed/w7xOmJR2HeE"}}
 
+{{note op="start" type="note"}}
+If you are using Ubuntu Linux 22 or later, you must install `libfuse2` before running the installer so the installer is able to open the installer file system as a non-root user.
+
+```
+sudo add-apt-repository universe
+sudo apt install libfuse2
+```
+
+For more information, see the [AppImageKit instructions](https://github.com/AppImage/AppImageKit/wiki/FUSE).
+{{note op="end"}}
+
 If you are interested in using Particle Workbench with the Tracker One or Tracker SoM, see [Tracker Edge Firmware](/firmware/tracker-edge/tracker-edge-firmware/) for additional information.
+
+
 
 ## Workbench features
 

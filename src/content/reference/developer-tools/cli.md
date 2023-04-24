@@ -199,6 +199,11 @@ $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 Note that the CLI since 1.9.0 has support for firmware libraries via the [particle library](#particle-library)
 commands.
 
+{{note op="start" type="P2"}}
+At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
+should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+{{note op="end"}}
+
 
 ### Target a specific firmware version for flashing
 
@@ -211,6 +216,11 @@ version on your device or if you want to try a pre-release version.
 # compile your application with the 0.5.0 Device OS version and flash it
 $ particle flash --target 0.5.0 0123456789ABCDEFGHI my_project
 ```
+
+{{note op="start" type="P2"}}
+At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
+should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+{{note op="end"}}
 
 
 ### Flashing a known app
@@ -259,6 +269,11 @@ $ particle compile photon app.ino library1.cpp library1.h --saveTo firmware.bin
 $ particle flash --usb firmware.bin
 ```
 
+{{note op="start" type="P2"}}
+At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
+should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+{{note op="end"}}
+
 
 ## particle compile
 
@@ -297,6 +312,10 @@ If you want to build a library that can be used for both Arduino and Particle, h
 #endif
 ```
 
+{{note op="start" type="P2"}}
+At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
+should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+{{note op="end"}}
 
 ### Compiling a directory
 
@@ -308,6 +327,11 @@ $ particle compile photon my_project_folder
 # by default the current directory will be compiled
 $ particle compile photon
 ```
+
+{{note op="start" type="P2"}}
+At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
+should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+{{note op="end"}}
 
 
 ### Compiling one or more source files
@@ -345,6 +369,11 @@ Or the Spark Core, which requires 1.4.4 or earlier:
 ```sh
 $ particle compile core --target 1.4.4 my_project
 ```
+
+{{note op="start" type="P2"}}
+At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
+should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+{{note op="end"}}
 
 
 ## particle project

@@ -969,4 +969,3 @@ We are tracking [known errata with this datasheet here](https://github.com/parti
 **Community Forums**
 
 [https://community.particle.io](https://community.particle.io)
-
