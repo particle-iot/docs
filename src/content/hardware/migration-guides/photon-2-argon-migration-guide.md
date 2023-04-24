@@ -336,6 +336,32 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+### Battery and charge pins
+
+The Photon 2 does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present. The P2 does not include a LiPo battery connector, but if you connect your battery to `VBAT_MEAS`, this technique also works with the P2.
+
+```cpp
+float voltage = analogRead(A6) / 819.2;
+```
+
+The constant is from the ADC range (0 - 4095) mapped to the voltage from 0 - 5 VDC (the maximum supported on VBAT_MEAS). 
+
+The charge indicator on the Photon 2 can be read using:
+
+```
+bool charging = digitalRead(CHG);
+```
+
+On the Photon 2, the `CHG` digital input is `HIGH` (1) when charging and `LOW` (0) when not charging.
+
+The voltage formula is different than the Argon, and the logic of the `CHG` pin is opposite!
+
+```cpp
+float voltage = analogRead(BATT) * 0.0011224; // Argon
+bool charging = !digitalRead(CHG); // Argon
+```
+
+
 ### Interrupts
 
 All pins can be used for interrupts on Gen 3 devices and the Photon 2.
@@ -739,3 +765,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-10-05 | RK | Added HIBERNATE sleep section |
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
 |     | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
+|     | 2023-04-24 | RK | Document VBAT_MEAS and CHG |

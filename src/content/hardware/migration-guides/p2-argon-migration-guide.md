@@ -476,6 +476,19 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+
+### Battery voltage
+
+The P2 does not include a LiPo battery connector, but if you connect your battery to `VBAT_MEAS`, you can measure the battery voltage as follows:
+
+```cpp
+float voltage = analogRead(A6) / 819.2;
+```
+
+The constant is from the ADC range (0 - 4095) mapped to the voltage from 0 - 5 VDC (the maximum supported on VBAT_MEAS). 
+
+Note that battery voltage during discharge of a LiPo battery is not linear, so for battery powered applications where you need to know the state of charge, an external fuel gauge chip (such as the MAX17043 used on the Boron) is recommended.
+
 ### Retained memory
 
 The P2 and Photon 2 have limited support for retained memory, also referred to as Backup RAM or SRAM, in Device OS 5.3.1 and later.
@@ -1135,3 +1148,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
 | 001 | 2023-03-13 | RK | Removed preliminary banner |
 | 002 | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
+| 003 | 2023-04-24 | RK | Document VBAT_MEAS and CHG |

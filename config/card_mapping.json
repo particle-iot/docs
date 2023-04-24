@@ -166,6 +166,8 @@
   "/reference/device-os/firmware/#localip--2": "/reference/device-os/api/cellular/localip/",
   "/reference/device-os/firmware/#command-": "/reference/device-os/api/cellular/command/",
   "/reference/device-os/firmware/#battery-voltage": "/reference/device-os/api/battery-voltage/battery-voltage/",
+  "/reference/device-os/firmware/#battery-voltage-photon-2": "/reference/device-os/api/battery-voltage/battery-voltage-photon-2/",
+  "/reference/device-os/firmware/#battery-voltage-argon": "/reference/device-os/api/battery-voltage/battery-voltage-argon/",
   "/reference/device-os/firmware/#fuelgauge": "/reference/device-os/api/fuelgauge/fuelgauge/",
   "/reference/device-os/firmware/#getvcell-": "/reference/device-os/api/fuelgauge/getvcell/",
   "/reference/device-os/firmware/#getsoc-": "/reference/device-os/api/fuelgauge/getsoc/",

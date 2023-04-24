@@ -276,6 +276,9 @@ The Photon 2 supports six ADC inputs.
 - ADC inputs are single-ended and limited to 0 to 3.3V
 - Resolution is 12 bits
 
+The `VBAT_MEAS` pin is connected to Li+ on the Photon 2 and is used to measure the battery voltage by using `analogRead(A6)`. The value returned is 0 - 4095 (inclusive, 12-bit) but represents voltage from 0 - 5 VDC, not 3.3V as is the case with the other ADC inputs.
+
+
 ### UART serial
 
 The Photon 2 supports three UART serial interfaces. 
@@ -369,6 +372,24 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
+
+### Battery and charge pins
+
+The Photon 2 does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present. 
+
+```cpp
+float voltage = analogRead(A6) / 819.2;
+```
+
+The constant is from the ADC range (0 - 4095) mapped to the voltage from 0 - 5 VDC (the maximum supported on VBAT_MEAS). 
+
+The charge indicator on the Photon 2 can be read using:
+
+```cpp
+bool charging = digitalRead(CHG);
+```
+
+On the Photon 2, the `CHG` digital input is `HIGH` (1) when charging and `LOW` (0) when not charging.
 
 ### BLE (Bluetooth LE)
 
@@ -738,6 +759,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |     | 2023-04-03 | RK | Fixed typo in FCC ID in one location, IC restrictions |
 |     | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
 |     | 2023-04-10 | RK | Outdoor use restrictions |
+|     | 2023-04-24 | RK | Document VBAT_MEAS and CHG |
 
 ## Known errata
 

@@ -4720,6 +4720,27 @@ It is possible that the call will block for an indeterminate amount of time, pos
 
 ## Battery voltage
 
+### Battery Voltage - Photon 2
+
+The Photon 2 does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present. The P2 does not include a LiPo battery connector, but if you connect your battery to `VBAT_MEAS`, this technique also works with the P2.
+
+```cpp
+float voltage = analogRead(A6) / 819.2;
+```
+
+The constant is from the ADC range (0 - 4095) mapped to the voltage from 0 - 5 VDC (the maximum supported on VBAT_MEAS). 
+
+The charge indicator on the Photon 2 can be read using:
+
+```cpp
+bool charging = digitalRead(CHG);
+```
+
+On the Photon 2, the `CHG` digital input is `HIGH` (1) when charging and `LOW` (0) when not charging.
+
+
+### Battery Voltage - Argon
+
 The Argon device does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present.
 
 ```cpp
@@ -4728,10 +4749,18 @@ float voltage = analogRead(BATT) * 0.0011224;
 
 The constant 0.0011224 is based on the voltage divider circuit (R1 = 806K, R2 = 2M) that lowers the 3.6V LiPo battery output to a value that can be read by the ADC.
 
+The charge indicator on the Argon can be read using:
+
+```cpp
+bool charging = !digitalRead(CHG);
+```
+
+In other words, the `CHG` input is 0 when charging and 1 when not charging, and the `!` inverts this logic to make it easier to use.
+
 ---
 
 {{note op="start" type="note"}}
-This technique applies only to the Argon. For the Boron, Electron, and E Series, see the FuelGauge, below.
+This technique applies only to the Argon and Photon 2. For the Boron, Electron, and E Series, see the FuelGauge, below.
 
 The Photon and P1 don't have built-in support for a battery.
 {{note op="end"}}
