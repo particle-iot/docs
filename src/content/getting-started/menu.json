@@ -180,8 +180,7 @@
       {
         "dir": "function-publish-demo",
         "title": "Function and publish demo",
-        "href": "/getting-started/cloud/function-publish-demo/",
-        "internal": true
+        "href": "/getting-started/cloud/function-publish-demo/"
       }
     ],
     {
@@ -304,15 +303,14 @@
         "href": "/getting-started/integrations/integrations/"
       },
       {
-        "dir": "webhook-demo",
-        "title": "Webhook demo",
-        "href": "/getting-started/integrations/webhook-demo/",
-        "internal": true
-      },
-      {
         "dir": "webhooks",
         "title": "Webhooks",
         "href": "/getting-started/integrations/webhooks/"
+      },
+      {
+        "dir": "webhook-demo",
+        "title": "Webhook demo",
+        "href": "/getting-started/integrations/webhook-demo/"
       },
       {
         "dir": "google-cloud-platform",
