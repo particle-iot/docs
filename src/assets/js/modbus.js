@@ -70,66 +70,117 @@ $(document).ready(function() {
 
             let decoded = {
                 serverAddr: modbus.data[0].value,
-                function: modbus.data[1].value,                
+                function: modbus.data[1].value,
+                table: [],        
+            };
+            decoded.table.push({
+                key: 'Server Address',
+                value: decoded.serverAddress,                
+            });
+            decoded.table.push({
+                key: 'Function',
+                value: decoded.function,                
+            });
+
+            let decodedPossibilities = {
+                request: {
+                    request: true,
+                    table: [],
+                },
+                response: {
+                    response: true,
+                    table: [],
+                },
             };
 
-            let decodedAsRequest = {};
-            let decodedAsResponse = {};
-            
             switch(decoded.function) {
                 case 4: // Read input
+                    // Read input request
                     if (modbus.data.length >= 8) {
-                        decodedAsRequest.startAddr = readUInt16BE(2);
-                        decodedAsRequest.numPoints = readUInt16BE(4);
-                        decodedAsRequest.crcOffset = 6;
+                        decodedPossibilities.request.startAddr = readUInt16BE(2);
+                        decodedPossibilities.request.numPoints = readUInt16BE(4);
+                        decodedPossibilities.request.crcOffset = 6;
+
+                        decodedPossibilities.request.table.push({
+                            key: 'Start Address',
+                            value: decodedPossibilities.request.startAddr,
+                        });
+                        decodedPossibilities.request.table.push({
+                            key: 'Num Points',
+                            value: decodedPossibilities.request.numPoints,
+                        });
                     }
+                    // Read input response
                     if (modbus.data.length >= 5) {
-                        decodedAsResponse.byteCount = modbus.data[3];
-                        if (modbus.data.length >= (3 + decodedAsResponse.byteCount + 2)) {
-                            decodedAsResponse.crcOffset = 3 + decodedAsResponse.byteCount;
+                        decodedPossibilities.response.byteCount = modbus.data[2].value;
+                        if (modbus.data.length >= (3 + decodedPossibilities.response.byteCount + 2)) {
+                            decodedPossibilities.response.crcOffset = 3 + decodedPossibilities.response.byteCount;
+
+                            decodedPossibilities.response.table.push({
+                                key: 'Data length',
+                                value: modbus.data.length,
+                            });    
+                            // TODO: Put pointer to data here 
                         }
                     }
                     break;
             }
 
-            if (decodedAsRequest.crcOffset) {
-                decodedAsRequest.request = true;
-                decodedAsRequest.length = decodedAsRequest.crcOffset + 2;
-                decodedAsRequest.crcData = readUInt16LE(decodedAsRequest.crcOffset);
-                decodedAsRequest.crcCalc = calcCRC(decodedAsRequest.crcOffset);
-                decodedAsRequest.crcValid = (decodedAsRequest.crcData == decodedAsRequest.crcCalc);
-            }
-            if (decodedAsResponse.crcOffset) {
-                decodedAsResponse.response = true;
-                decodedAsResponse.length = decodedAsResponse.crcOffset + 2;
-                decodedAsResponse.crcData = readUInt16LE(decodedAsResponse.crcOffset);
-                decodedAsResponse.crcCalc = calcCRC(decodedAsResponse.crcOffset);
-                decodedAsResponse.crcValid = (decodedAsResponse.crcData == decodedAsResponse.crcCalc);
+            for(const key in decodedPossibilities) {
+                if (decodedPossibilities[key].crcOffset) {
+                    decodedPossibilities[key].length = decodedPossibilities[key].crcOffset + 2;
+                    decodedPossibilities[key].crcData = readUInt16LE(decodedPossibilities[key].crcOffset);
+                    decodedPossibilities[key].crcCalc = calcCRC(decodedPossibilities[key].crcOffset);
+                    decodedPossibilities[key].crcValid = (decodedPossibilities[key].crcData == decodedPossibilities[key].crcCalc);
+                }    
             }
 
+            // console.log('decodedPossibilities', decodedPossibilities);
 
-            console.log('decodedAsRequest', decodedAsRequest);
-            console.log('decodedAsResponse', decodedAsResponse);
+            let useOption;
 
-            if (decodedAsRequest.crcOffset && modbus.data[0].sent && modbus.data.length >= decodedAsRequest.length) {
+            if (decodedPossibilities.request.length && modbus.data[0].sent && modbus.data.length >= decodedPossibilities.request.length) {
                 // Is a known request, and we have the whole request
-                decoded = Object.assign(decodedAsRequest, decoded);
+                useOption = decodedPossibilities.request;
             }
             else
-            if (decodedAsResponse.crcOffset && modbus.data[0].received && modbus.data.length >= decodedAsResponse.length) {
+            if (decodedPossibilities.response.length && modbus.data[0].received && modbus.data.length >= decodedPossibilities.response.length) {
                 // Is a known response, and we have the whole response
-                decoded = Object.assign(decodedAsResponse, decoded);
+                useOption = decodedPossibilities.response;
             }
             else 
-            if (decodedAsRequest.crcValid) {
-                decoded = Object.assign(decodedAsRequest, decoded);
+            if (decodedPossibilities.request.crcValid) {
+                useOption = decodedPossibilities.request;
             }
             else 
-            if (decodedAsResponse.crcValid) {
-                decoded = Object.assign(decodedAsResponse, decoded);                
+            if (decodedPossibilities.response.crcValid) {
+                useOption = decodedPossibilities.response;
             }
 
-            console.log('decoded', decoded);
+            if (useOption) {
+                for(const key in useOption) {
+                    if (key != 'table') {
+                        decoded[key] = useOption[key];
+                    }
+                }
+                for(const obj of useOption.table) {
+                    decoded.table.push(obj);
+                }
+
+                // TODO: Put CRC check here!
+                decoded.table.push({
+                    key: 'CRC',
+                    value: decoded.crcData,
+                });
+
+                console.log('decoded', decoded);
+
+                modbus.data.splice(0, decoded.length);
+                if (modbus.data.length) {
+                    modbus.parseData();   
+                }
+            }
+
 
             /*
             Request:
