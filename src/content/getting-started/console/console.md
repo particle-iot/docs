@@ -65,6 +65,10 @@ To visit the page go to [https://console.particle.io/events](https://console.par
 
 The left side of the page contains a real-time log of events passing through the cloud. You'll get the name, data, timestamp and the device name associated with each event as it comes in. Oh Yeah! And, if you click on the event, you can see the event data.
 
+#### Exporting events
+
+The [Event Viewer Tool](/tools/cloud-tools/events/) can be used if you want to export events to a file or spreadsheet.
+
 #### How to publish events
 
 Publishing events can be achieved in multiple ways:
@@ -204,6 +208,11 @@ Additionally, all organization members still have a private sandbox in their acc
 
 If you already have your devices in a product, the entire product can be moved into your growth organization without affecting the customers, access tokens, or cloud API endpoints, so this should be a relatively easy transition.
 
+### Cellular usage
+
+To view detailed cellular usage information for SIMs in a product you can use the [cellular usage tool](/troubleshooting/connectivity/cellular-usage/).
+
+
 ## Product tools
 
 For many using Particle, the end-goal is to move from a single prototype
@@ -333,6 +342,9 @@ Where each line is one Device ID. Once you have your file ready, drop it onto th
 As noted at the bottom of the dialog box, if you previously rolled out
 firmware, those newly imported devices will be updated over the air to
 that firmware next time they connect to the Particle Device Cloud.
+
+The [Import Devices Tool](/tools/cloud-tools/import-devices/) can be used to simplify the process of doing multiple operations such as adding the device, claiming, naming, etc. for multiple devices.
+
 
 ### Rollout firmware
 
@@ -1152,6 +1164,11 @@ If you click the **...** button on the right side of the product device list, th
 
 **Add Devices** allows a single device ID, or a file of device IDs, to be added to a product. Within the free sandbox, there is a limit of 100 devices. This is across all device types, and is further reduced by the non-product devices claimed by the product owner.
 
+If you wish to both unclaim and remove a device, always select **Unclaim device** first. If you remove the device from the product, it will no longer appear in the list.
+
+The [List Devices Tool](/tools/cloud-tools/list-devices) can be used to export a list of devices to a spreadsheet.
+
+The [Device Remove Tool](/tools/cloud-tools/device-remove/) can be used to simplify the process of removing multiple devices.
 
 ### Products SIM cards - sandbox
 
