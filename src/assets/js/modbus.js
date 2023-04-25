@@ -93,11 +93,15 @@ $(document).ready(function() {
             }
 
             if (decodedAsRequest.crcOffset) {
+                decodedAsRequest.request = true;
+                decodedAsRequest.length = decodedAsRequest.crcOffset + 2;
                 decodedAsRequest.crcData = readUInt16LE(decodedAsRequest.crcOffset);
                 decodedAsRequest.crcCalc = calcCRC(decodedAsRequest.crcOffset);
                 decodedAsRequest.crcValid = (decodedAsRequest.crcData == decodedAsRequest.crcCalc);
             }
             if (decodedAsResponse.crcOffset) {
+                decodedAsResponse.response = true;
+                decodedAsResponse.length = decodedAsResponse.crcOffset + 2;
                 decodedAsResponse.crcData = readUInt16LE(decodedAsResponse.crcOffset);
                 decodedAsResponse.crcCalc = calcCRC(decodedAsResponse.crcOffset);
                 decodedAsResponse.crcValid = (decodedAsResponse.crcData == decodedAsResponse.crcCalc);
@@ -107,10 +111,25 @@ $(document).ready(function() {
             console.log('decodedAsRequest', decodedAsRequest);
             console.log('decodedAsResponse', decodedAsResponse);
 
-            if (decodedAsRequest.crcOffset && modbus.data[0].received) {
-
+            if (decodedAsRequest.crcOffset && modbus.data[0].sent && modbus.data.length >= decodedAsRequest.length) {
+                // Is a known request, and we have the whole request
+                decoded = Object.assign(decodedAsRequest, decoded);
             }
-            
+            else
+            if (decodedAsResponse.crcOffset && modbus.data[0].received && modbus.data.length >= decodedAsResponse.length) {
+                // Is a known response, and we have the whole response
+                decoded = Object.assign(decodedAsResponse, decoded);
+            }
+            else 
+            if (decodedAsRequest.crcValid) {
+                decoded = Object.assign(decodedAsRequest, decoded);
+            }
+            else 
+            if (decodedAsResponse.crcValid) {
+                decoded = Object.assign(decodedAsResponse, decoded);                
+            }
+
+            console.log('decoded', decoded);
 
             /*
             Request:
@@ -249,7 +268,7 @@ $(document).ready(function() {
 
             let addDataOptions = {                    
             }
-            if (setupOptions.isClient) {
+            if (modbus.setupOptions.isClient) {
                 addDataOptions.received = true;
             }
 
