@@ -20,6 +20,7 @@ $(document).ready(function() {
             rawHexRequestElem: $(elem).find('.rawHexRequest'),
             rawHexResponseElem: $(elem).find('.rawHexResponse'),
             decodedOutputElem: $(elem).find('.decodedOutput'),
+            decodedOutputBodyElem: $(elem).find('.decodedOutput > table > tbody'),
             isConnected: false,
             data: [],
             requests: {},
@@ -190,7 +191,7 @@ $(document).ready(function() {
                                 if (origRequest) {
                                     label += ' Address ' + (ii / 2 + origRequest.startAddr);
                                 } 
-                                let value16 = (modbus.data[ii + 2].value << 8) | (modbus.data[ii + 3].value);
+                                let value16 = (modbus.data[ii + 3].value << 8) | (modbus.data[ii + 4].value);
                                 
                                 let signed16 = (value16 < 32768) ? value16 : (value16 - 65536);
 
@@ -220,6 +221,17 @@ $(document).ready(function() {
                     key: 'CRC',
                     value: decoded.crcData,
                 });
+
+                for(const obj of decoded.table) {
+                    const trElem = document.createElement('tr');
+
+                    for(const key of ['key', 'value']) {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(obj[key]);
+                        $(trElem).append(tdElem);
+                    }
+                    $(modbus.decodedOutputBodyElem).append(trElem);
+                }
 
                 console.log('decoded', decoded);
 
@@ -585,24 +597,6 @@ $(document).ready(function() {
             ev.preventDefault();
             sendReadInput();    
         });
-
-        /*
-        input type="text" size="6" value="1" class="serverAddress"/></td>
-                                    <td>(1-255)</td>
-                                </tr>
-                                <tr>
-                                    <td>Starting register</td>
-                                    <td><input type="text" size="6" value="1" class="readInputStart"/></td>
-                                    <td>(1-65535)</td>
-                                </tr>
-                                <tr>
-                                    <td>Number of points</td>
-                                    <td><input type="text" size="6" value="1" class="readInputNum"/></td>
-                                    <td>(1-120, limited by size)</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3"><button class="readInputButton
-        */
 
     });
 
