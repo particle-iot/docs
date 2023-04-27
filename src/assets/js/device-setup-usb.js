@@ -49,7 +49,7 @@ $(document).ready(function() {
         }
         gaCategory = 'USB Device Setup ' + mode;
 
-        const noLoginRequired = (mode == 'restore' || mode == 'wifi');
+        const noLoginRequired = (mode == 'restore' || mode == 'wifi' || mode == 'cloud');
 
         if (noLoginRequired || apiHelper.auth) {
             $(thisElem).find('.deviceSetupLoggedIn').show();
