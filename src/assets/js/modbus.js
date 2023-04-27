@@ -22,6 +22,7 @@ $(document).ready(function() {
             decodedOutputElem: $(elem).find('.decodedOutput'),
             isConnected: false,
             data: [],
+            requests: {},
         };
         $(elem).data('modbus', modbus);
 
@@ -75,7 +76,7 @@ $(document).ready(function() {
             };
             decoded.table.push({
                 key: 'Server Address',
-                value: decoded.serverAddress,                
+                value: decoded.serverAddr,                
             });
             decoded.table.push({
                 key: 'Function',
@@ -110,21 +111,21 @@ $(document).ready(function() {
                             value: decodedPossibilities.request.numPoints,
                         });
                     }
-                    // Read input response
+                    break;
+            }
+
+            switch(decoded.function) {
+                case 4: // Read input
                     if (modbus.data.length >= 5) {
                         decodedPossibilities.response.byteCount = modbus.data[2].value;
                         if (modbus.data.length >= (3 + decodedPossibilities.response.byteCount + 2)) {
                             decodedPossibilities.response.crcOffset = 3 + decodedPossibilities.response.byteCount;
-
-                            decodedPossibilities.response.table.push({
-                                key: 'Data length',
-                                value: modbus.data.length,
-                            });    
-                            // TODO: Put pointer to data here 
+                            decodedPossibilities.response.dataSize = 16; // bits per register
                         }
                     }
                     break;
             }
+
 
             for(const key in decodedPossibilities) {
                 if (decodedPossibilities[key].crcOffset) {
@@ -167,6 +168,53 @@ $(document).ready(function() {
                     decoded.table.push(obj);
                 }
 
+                if (decoded.byteCount) {
+                    decoded.table.push({
+                        key: 'Data length',
+                        value: decoded.byteCount,
+                    });    
+                    // TODO: Put pointer to data here 
+                    console.log('have byteCount for serverAddr ' + decoded.serverAddr);
+                    const origRequest = modbus.requests[decoded.serverAddr.toString()];
+                    if (origRequest) {
+                        console.log('request startAddr=' + origRequest.startAddr);
+                    }
+
+                    switch(decoded.dataSize) {
+                        case 1:
+                            break;
+
+                        case 16:
+                            for(let ii = 0; ii < decoded.byteCount; ii += 2) {
+                                let label = 'Index ' + (ii / 2 + 1);
+                                if (origRequest) {
+                                    label += ' Address ' + (ii / 2 + origRequest.startAddr);
+                                } 
+                                let value16 = (modbus.data[ii + 2].value << 8) | (modbus.data[ii + 3].value);
+                                
+                                let signed16 = (value16 < 32768) ? value16 : (value16 - 65536);
+
+                                const hex = value16.toString(16).padStart(4, '0');
+                                
+                                let value = '0x' + hex; 
+                                
+                                if (signed16 > 0) {
+                                    value += ' (' + value16 + ' dec)';
+                                }
+                                else {
+                                    value += ' (' + value16 + ' dec unsigned, ' + signed16 + ' dec signed)';
+                                }
+
+                                decoded.table.push({
+                                    key: label,
+                                    value: value,
+                                });                                                
+                            }
+                            break;
+                    }
+
+                }
+
                 // TODO: Put CRC check here!
                 decoded.table.push({
                     key: 'CRC',
@@ -174,6 +222,10 @@ $(document).ready(function() {
                 });
 
                 console.log('decoded', decoded);
+
+                if (decoded.request) {
+                    modbus.requests[decoded.serverAddr.toString()] = decoded;
+                }
 
                 modbus.data.splice(0, decoded.length);
                 if (modbus.data.length) {
@@ -408,6 +460,8 @@ $(document).ready(function() {
         const thisPartial = $(this);
         const modbus = createModbusHandler(thisPartial);
 
+        const readInputModeElem = $(thisPartial).find('.readInputMode');
+
         const rawHexInputCrcCheckboxElem = $(thisPartial).find('.rawHexInputCrcCheckbox');
 
         modbus.setup({
@@ -432,6 +486,22 @@ $(document).ready(function() {
         });
         $(thisPartial).find('.clientMode').trigger('change');
 
+        const sendArray = function(a, options = {}) {
+            let ua = new Uint8Array(a);
+
+            if (options.addCrc) {
+                let crc = modbus.crc16(ua);
+
+                a.push(crc & 0xff);
+                a.push(crc >> 8);
+                ua = new Uint8Array(a);
+            }
+            console.log('ua', ua);
+
+            modbus.sendUint8Array(ua);
+            modbus.addData(ua, {sent:true});            
+        }
+        
         const sendRawHex = function() {
             $(thisPartial).find('.sendRawHexButton').prop('disabled', true);
 
@@ -453,25 +523,29 @@ $(document).ready(function() {
                 }
             }
 
-            let ua = new Uint8Array(a);
+            const sendArrayOptions = {
+                addCrc: $(rawHexInputCrcCheckboxElem).prop('checked'),
+            };
 
-            if ($(rawHexInputCrcCheckboxElem).prop('checked')) {
-                let crc = modbus.crc16(ua);
-
-                a.push(crc & 0xff);
-                a.push(crc >> 8);
-                ua = new Uint8Array(a);
-            }
-
-            console.log('ua', ua);
-
-            modbus.sendUint8Array(ua);
-            modbus.addData(ua, {sent:true});
+            sendArray(a, sendArrayOptions);
 
             setTimeout(function() {
                 $(thisPartial).find('.sendRawHexButton').prop('disabled', false);
             }, 500);
         }
+
+        const pushUint8 = function(a, elemOrNumber) {
+            const value = (typeof(elemOrNumber) == 'number') ? elemOrNumber : parseInt($(elemOrNumber).val());
+
+            a.push(value % 256);
+        }
+        const pushUint16BE = function(a, elemOrNumber) {
+            const value = (typeof(elemOrNumber) == 'number') ? elemOrNumber : parseInt($(elemOrNumber).val());
+
+            a.push((value >> 8) % 256);
+            a.push(value % 256);
+        }
+
 
         $(thisPartial).find('.sendRawHexButton').on('click', sendRawHex);
 
@@ -483,6 +557,34 @@ $(document).ready(function() {
             ev.preventDefault();
             sendRawHex();    
         });  
+
+
+        const sendReadInput = function() {
+            $(thisPartial).find('.readInputButton').prop('disabled', true);
+            let a = [];
+
+            pushUint8(a, $(readInputModeElem).find('.serverAddress'));
+            pushUint8(a, 4); // read input
+            pushUint16BE(a, $(readInputModeElem).find('.readInputStart'));
+            pushUint16BE(a, $(readInputModeElem).find('.readInputNum'));
+
+            sendArray(a, {addCrc: true});
+
+            setTimeout(function() {
+                $(thisPartial).find('.readInputButton').prop('disabled', false);
+            }, 500);
+        };
+
+        $(thisPartial).find('.readInputButton').on('click', sendReadInput);
+
+        $(readInputModeElem).find('input[type="text"]').on('keydown', function(ev) {
+            if (ev.key != 'Enter') {
+                return;
+            }
+
+            ev.preventDefault();
+            sendReadInput();    
+        });
 
         /*
         input type="text" size="6" value="1" class="serverAddress"/></td>
