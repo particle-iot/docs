@@ -246,6 +246,7 @@ Additional FCC Test Reports:
 - [FCC Part 22](/assets/pdfs/boron310-fcc-part22-test-report.pdf)
 - [FCC Part 24](/assets/pdfs/boron310-fcc-part24-test-report.pdf)
 
+{{!-- 
 #### Boron LTE Cat M1 (BRN404X)
 
 - FCC ID: 2AEMI-BRN404X
@@ -253,8 +254,7 @@ Additional FCC Test Reports:
 - [Attestation 15 Subpart B, Class B (sDoC)](/assets/pdfs/brn404x-fcc-part15b.pdf)
 - [Test report FCC Part 22, Part 24, Part 27](/assets/pdfs/brn404x-fcc-part22-24-27.pdf)
 - [RF Exposure Report FCC Part 2, Section 2.1091](/assets/pdfs/brn404x-fcc-rf-exposure.pdf)
-
-
+--}}
 
 #### Boron LTE Cat M1 (BRN402 and BRN404)
 
@@ -484,6 +484,7 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [ICES-003 Issue 7:2020 Class B](/assets/pdfs/boron310-ic-ices003-7.pdf)
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/boron310-ic-ices003-7-test-report.pdf)
 
+{{!-- 
 #### Boron LTE Cat M1 (BRN404X)
 
 - IC ID: **20127-BRN404X**
@@ -491,7 +492,7 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/brn404x-ic-ices003-7-test-report.pdf)
 - [Test Report RS-132 Issue 3, RSS-133 Issue 6, RSS-139 Issue 4](/assets/pdfs/brn404x-ic-rs132.pdf)
 - [ISED RF Exposure Report](/assets/pdfs/brn404x-ic-ised-rf-exposure.pdf)
-
+--}}
 
 #### Boron LTE Cat M1 (BRN402 and BRN404)
 
