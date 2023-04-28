@@ -246,6 +246,15 @@ Additional FCC Test Reports:
 - [FCC Part 22](/assets/pdfs/boron310-fcc-part22-test-report.pdf)
 - [FCC Part 24](/assets/pdfs/boron310-fcc-part24-test-report.pdf)
 
+#### Boron LTE Cat M1 (BRN404X)
+
+- FCC ID: 2AEMI-BRN404X
+- [Grant of equipment authorization (DTS)](/assets/pdfs/brn404x-fcc-dts.pdf)
+- [Attestation 15 Subpart B, Class B (sDoC)](/assets/pdfs/brn404x-fcc-part15b.pdf)
+- [Test report FCC Part 22, Part 24, Part 27](/assets/pdfs/brn404x-fcc-part22-24-27.pdf)
+- [RF Exposure Report FCC Part 2, Section 2.1091](/assets/pdfs/brn404x-fcc-rf-exposure.pdf)
+
+
 
 #### Boron LTE Cat M1 (BRN402 and BRN404)
 
@@ -294,6 +303,16 @@ NFC certification:
 - FCC ID: [2AEMI-XENN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=BsbBaeGLV6xp1u%2BNfGYUDw%3D%3D&fcc_id=2AEMI-XENN)
 - [Certificate of Conformity](/assets/pdfs/xenon-nfc-fcc.pdf)
 - [Test reports](/assets/pdfs/xenon-nfc-fcc-test-report.pdf)
+
+#### B Series SoM B404X
+
+- FCC ID: 2AEMI-B404X
+- [Grant of equipment authorization (DTS)](/assets/pdfs/b404x-fcc-dts.pdf)
+- [Grant of equipment authorization (PCB)](/assets/pdfs/b404x-fcc-pcb.pdf)
+- [Attestation 15 Subpart B, Class B (sDoC)](/assets/pdfs/b404x-fcc-part15b.pdf)
+- [Test report FCC Part 15 Subpart C, Section 15.247](/assets/pdfs/b404x-fcc-part15c.pdf)
+- [Test report FCC Part 22, Part 24, Part 27](/assets/pdfs/b404x-fcc-part22-24-27.pdf)
+
 
 #### B Series SoM B402 & B404
 
@@ -465,6 +484,14 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [ICES-003 Issue 7:2020 Class B](/assets/pdfs/boron310-ic-ices003-7.pdf)
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/boron310-ic-ices003-7-test-report.pdf)
 
+#### Boron LTE Cat M1 (BRN404X)
+
+- IC ID: **20127-BRN404X**
+- [Test Report RSS-247 Issue 2, RSS-Gen Issue 5](/assets/pdfs/brn404x-ic-rss247-2.pdf)
+- [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/brn404x-ic-ices003-7-test-report.pdf)
+- [Test Report RS-132 Issue 3, RSS-133 Issue 6, RSS-139 Issue 4](/assets/pdfs/brn404x-ic-rs132.pdf)
+- [ISED RF Exposure Report](/assets/pdfs/brn404x-ic-ised-rf-exposure.pdf)
+
 
 #### Boron LTE Cat M1 (BRN402 and BRN404)
 
@@ -480,6 +507,15 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [Test Report RSS-247 Issue 2, RSS-Gen Issue 5](/assets/pdfs/boron402-ic-rss247-2.pdf)
 - [ICES-003 Issue 7:2020 Class B](/assets/pdfs/boron402-ic-ices003-7.pdf)
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/boron402-ic-ices003-7-test-report.pdf)
+
+#### B Series SoM B404X
+
+- IC ID: **20127-B404X**
+- [Certificate of Conformity](/assets/pdfs/b404x-ic.pdf)
+- [Test Report RSS-247 Issue 2, RSS-Gen Issue 5](/assets/pdfs/b404x-ic-rss247-2.pdf)
+- [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/b404x-ic-ices003-7.pdf)
+- [Test Report RS-132 Issue 3, RSS-133 Issue 6, RSS-139 Issue 4](/assets/pdfs/b404x-ic-rs132.pdf)
+
 
 #### B Series SoM B402 and B404
 
@@ -954,6 +990,8 @@ The Boron LTE (BRN402), E Series LTE (E402), and B Series SoM (B402) are certifi
 - [Summary](/assets/pdfs/bluetooth-summary.pdf)
 - [Tracker SoM 402](/assets/pdfs/t402-bluetooth.pdf)
 - [Tracker SoM 523](/assets/pdfs/t523-bluetooth.pdf)
+- [B404X](/assets/pdfs/b404x-bluetooth.pdf)
+- [BRN404X](/assets/pdfs/brn404x-bluetooth.pdf)
 
 ### P2 - Bluetooth
 
