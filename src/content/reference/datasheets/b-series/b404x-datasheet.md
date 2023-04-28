@@ -944,6 +944,16 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 {{imageOverlay src="/assets/images/b-series/B404X-schematic-sim.png" alt="SIM and Flash" class="full-width"}}
 
+---
+
+## Assembly
+
+### Conformal coatings
+
+B Series SoM modules should not use a conformal coating to protect the module from water. Some components on the SoM cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+
+Furthermore, you cannot safely protect the the connection between the M.2 SoM and the M.2 NGFF connector by using a coating. Using an enclosure that protects both your base board and the B Series SoM as a single waterproof assembly is recommended instead.
+
 
 ---
 
@@ -1064,3 +1074,4 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 028      | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
 | 029      | 2023-01-31 | RK | Add Device OS versions |
 | 030      | 2023-03-07 | RK | Update BLE antenna text |
+| 031      | 2023-04-28 | RK | Add conformal coating warning |

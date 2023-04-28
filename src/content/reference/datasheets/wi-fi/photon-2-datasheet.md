@@ -561,6 +561,25 @@ The Photon 2 can be directly soldered onto the PCB or be mounted with the above 
 
 {{!-- ### Module dimensions --}}
 
+## Assembly
+
+### Water soluble flux
+
+If you are attaching a Photon 2 to a custom base board, we recommend using a socket. As there are components on the bottom side of the Photon 2 there is no version available with castellated holes, solder pads, or similar techniques for direct surface mounting.
+
+The pin headers on the bottom of the Photon 2 are not intended to be reflowed using paste-in-hole. 
+
+If you wish to surface mount module, you should directly use the P2 module on your base board instead of incorporating the Photon 2.
+
+If you decide to wave solder or hand-solder the Photon 2 directly to your base board, water soluble flux should not be used. There are components within the P2 module that are moisture-sensitive, and wash water can get trapped under the RF shields, causing damage.
+
+Use no-clean flux instead if you must solder the Photon 2 module.
+
+### Conformal coatings
+
+Photon 2 modules should not use a conformal coating to protect the module from water. Some components on the module cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+
+Furthermore, the buttons cannot be protected by using a coating. Using an enclosure that protects both your base board and the Photon 2 module as a single waterproof assembly is recommended instead.
 
 ## Ordering information
 
@@ -761,6 +780,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |     | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
 |     | 2023-04-10 | RK | Outdoor use restrictions |
 |     | 2023-04-24 | RK | Document VBAT_MEAS and CHG |
+|     | 2023-04-28 | RK | Add conformal coating and flux notes |
 
 ## Known errata
 

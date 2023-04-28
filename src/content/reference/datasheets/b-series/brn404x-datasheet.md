@@ -733,6 +733,26 @@ The complete schematic and board files are open source and available on Particle
 
 {{imageOverlay src="/assets/images/boron/schematic-interfaces.png" large="/assets/images/boron/schematic-interfaces.png" alt="Interfaces" }}
 
+
+## Assembly
+
+### Water soluble flux
+
+When attaching a Boron to your base board, we recommend using a socket. As there are components on the bottom side of the Boron there is no version available with castellated holes, solder pads, or similar techniques for direct surface mounting.
+
+The pin headers on the bottom of the Boron are not intended to be reflowed using paste-in-hole. 
+
+If you decide to wave solder or hand-solder the Boron directly to your base board, water soluble flux should not be used. There are components within the Boron module that are moisture-sensitive, and wash water can get trapped under the RF shields, causing damage.
+
+Use no-clean flux instead if you must solder the Boron module.
+
+### Conformal coatings
+
+Boron modules should not use a conformal coating to protect the module from water. Some components on the module cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+
+Furthermore, the buttons cannot be protected by using a coating. Using an enclosure that protects both your base board and the Boron module as a single waterproof assembly is recommended instead.
+
+
 <!---
 ## Bill of materials
 -->
@@ -883,6 +903,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 016      | 2023-01-31 | RK | Add Device OS versions |
 | 017      | 2023-03-07 | RK | Update BLE antenna text |
 | 018      | 2023-03-29 | RK | Updated 3.3V regulator |
+| 019      | 2023-04-28 | RK | Add conformal coating and flux notes |
 
 ## Known errata
 

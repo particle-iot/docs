@@ -632,6 +632,13 @@ Note: The labels for CTS and RTS are reversed in this schematic.
 
 {{imageOverlay src="/assets/images/b-series/b523-schematic-misc2.png" alt="Buffers"}}
 
+## Assembly
+
+### Conformal coatings
+
+B Series SoM modules should not use a conformal coating to protect the module from water. Some components on the SoM cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+
+Furthermore, you cannot safely protect the the connection between the M.2 SoM and the M.2 NGFF connector by using a coating. Using an enclosure that protects both your base board and the B Series SoM as a single waterproof assembly is recommended instead.
 
 
 ## Default settings
@@ -828,3 +835,4 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | 017      | 10-Dec-2022 | RK | Added PMIC notes |
 | 018      | 06-Jan-2022 | RK | Clarify power supply notes for VCC and 3V3 |
 | 019      | 31-Jan-2023 | RK | Add Device OS versions |
+| 020      | 28-Apr-2023 | RK | Add conformal coating warning |

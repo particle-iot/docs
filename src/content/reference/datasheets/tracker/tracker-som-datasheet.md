@@ -1069,6 +1069,21 @@ Dimensions are in millimeters.
 
 For information on production soldering, stencils, and layout, see [AN036 LCC Module SMT](/scaling/manufacturing/lcc-module-smt/).
 
+## Assembly
+
+### Water soluble flux
+
+Water soluble flux should not be used with the Tracker SoM module. There are components within the Tracker SoM that are moisture-sensitive, and 
+wash water can get trapped under the RF shields, causing damage.
+
+Use no-clean flux instead.
+
+### Conformal coatings
+
+We do not recommend using a conformal coating on the Tracker SoM module to protect the module from water. Some components on the SoM cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+ 
+Using an enclosure that protects both your base board and the Tracker SoM as a single waterproof assembly is recommended instead. This is the process used by the Tracker One, which includes an IP67-rated enclosure and external connectors.
+
 ---
 
 ## Certification
@@ -1355,3 +1370,4 @@ The bootloader allows you to easily update the user application via several diff
 | 022      | 2022 Sep 16 | RK | Added UKCA conformity |
 | 023      | 2023 Jan 31 | RK | Add Device OS versions |
 | 024      | 2023 Mar 17 | RK | Pin table listed wrong maximum current for CAN_5V |
+| 025      | 2023 Apr 28 | RK | Add conformal coating and flux notes |

@@ -599,6 +599,15 @@ Note: The labels for CTS and RTS are reversed in this schematic.
 
 {{imageOverlay src="/assets/images/b-series/schematic-buffers.png" alt="Buffers"}}
 
+## Assembly
+
+### Conformal coatings
+
+B Series SoM modules should not use a conformal coating to protect the module from water. Some components on the SoM cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+
+Furthermore, you cannot safely protect the the connection between the M.2 SoM and the M.2 NGFF connector by using a coating. Using an enclosure that protects both your base board and the B Series SoM as a single waterproof assembly is recommended instead.
+
+
 ## Default settings
 
 The B series comes pre-programmed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
@@ -664,3 +673,4 @@ The bootloader allows you to easily update the user application via several diff
 | 019      | 10-Dec-2022 | RK | Added PMIC notes |
 | 020      | 06-Jan-2023 | RK | Clarify power supply notes for VCC and 3V3 |
 | 021      | 31-Jan-2023 | RK | Add Device OS versions |
+| 022      | 28-Apr-2023 | RK | Add conformal coating warning |

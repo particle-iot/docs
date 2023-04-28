@@ -677,6 +677,22 @@ P2 modules are available from [store.particle.io](https://store.particle.io/) as
 
 <i class="icon-attention"></i> The P1 module contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a P1 module without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates P1 modules.  ESD precautions should be implemented on the application board where the P1 module is mounted. Failure to observe these precautions can result in severe damage to the P1 module! <i class="icon-attention"></i>
 
+## Assembly
+
+### Water soluble flux
+
+Water soluble flux should not be used with the P2 module. There are components within the module that are moisture-sensitive, and 
+wash water can get trapped under the RF shields, causing damage.
+
+Use no-clean flux instead.
+
+### Conformal coatings
+
+We do not recommend using a conformal coating on the P2 module to protect the module from water. Some components on the module cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+
+Using an enclosure that protects both your base board and the P2 module as a single waterproof assembly is recommended instead.
+
+
 ## Default settings
 
 The P2 module comes pre-programmed with a bootloader and a user application called Tinker.  This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
@@ -861,6 +877,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 003 | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
 | 004 | 2023-04-10 | RK | Outdoor use restrictions |
 | 005 | 2023-04-24 | RK | Document VBAT_MEAS |
+| 006 | 2023-04-28 | RK | Add conformal coating and flux notes |
 
 ## Known errata
 
