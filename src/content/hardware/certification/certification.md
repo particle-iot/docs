@@ -310,6 +310,7 @@ NFC certification:
 - [Grant of equipment authorization (DTS)](/assets/pdfs/b404x-fcc-dts.pdf)
 - [Grant of equipment authorization (PCB)](/assets/pdfs/b404x-fcc-pcb.pdf)
 - [Attestation 15 Subpart B, Class B (sDoC)](/assets/pdfs/b404x-fcc-part15b.pdf)
+- [RF Exposure Report FCC Part 2, Section 2.1091](/assets/pdfs/b404x-fcc-rf-exposure.pdf)
 - [Test report FCC Part 15 Subpart C, Section 15.247](/assets/pdfs/b404x-fcc-part15c.pdf)
 - [Test report FCC Part 22, Part 24, Part 27](/assets/pdfs/b404x-fcc-part22-24-27.pdf)
 
