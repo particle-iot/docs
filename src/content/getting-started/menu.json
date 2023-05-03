@@ -91,6 +91,11 @@
         "href": "/getting-started/setup/manual-setup/"
       },
       {
+        "dir": "wifi-setup",
+        "title": "Wi-Fi setup",
+        "href": "/getting-started/setup/wifi-setup/"
+      },
+      {
         "dir": "accounts",
         "title": "Accounts and access controls",
         "href": "/getting-started/setup/accounts/"
