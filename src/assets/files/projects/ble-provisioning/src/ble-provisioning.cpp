@@ -2,6 +2,9 @@
 SYSTEM_MODE(SEMI_AUTOMATIC);
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
 
+// For product firmware, set the version here:
+// PRODUCT_VERSION(1)
+
 STARTUP(System.enableFeature(FEATURE_DISABLE_LISTENING_MODE));
 
 const char* serviceUuid = "6E400021-B5A3-F393-E0A9-E50E24DCCA9E";
