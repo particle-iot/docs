@@ -83,3 +83,5 @@ To use this built-in tool, connect your P2, Photon 2, or Argon by USB and use th
 
 {{> device-setup-usb mode="wifi"}}
 
+If you'd like to implement this same technique from your own web site, you can find an example app in Github at [https://github.com/particle-iot/wifi-setup-usb-example](https://github.com/particle-iot/wifi-setup-usb-example).
+
