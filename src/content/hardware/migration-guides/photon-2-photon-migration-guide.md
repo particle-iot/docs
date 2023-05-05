@@ -33,7 +33,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 |  | Realtek Semiconductor | ST Microelectronics | Nordic Semiconductor |
 | CPU | Cortex M33 @ 200 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 64 MHz |
 | | Cortex M23 @ 20 MHz | | |
-| RAM<sup>2</sup> | 512 KB | 128 KB | 256 KB |
+| RAM<sup>2</sup> | 4608 KB | 128 KB | 256 KB |
 | Flash<sup>3</sup> | 16 MB | 1 MB | 1 MB | 
 | Hardware FPU | &check; | | &check; |
 | Secure Boot | &check; | | |
@@ -64,7 +64,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 
 <sup>1</sup>A small amount of the flash file system is used by Device OS, most is available for user data storage using the POSIX filesystem API. This is separate from the flash memory used for Device OS, user application, and OTA transfers.
 
-<sup>2</sup> Total RAM; amount available to user applications is smaller.
+<sup>2</sup> Total RAM; amount available to user applications is smaller. On the Photon 2, available RAM is approximately 3072 KB. On the Photon, it is 55 KB.
 
 <sup>3</sup> Total built-in flash; amount available to user applications is smaller. The Argon also has a 4 MB external flash, a portion of which is available to user applications as a flash file system.
 

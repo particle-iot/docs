@@ -24,7 +24,7 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 |  | Realtek Semiconductor | ST Microelectronics | Nordic Semiconductor |
 | CPU | Cortex M33 @ 200 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 64 MHz |
 | | Cortex M23 @ 20 MHz | | |
-| RAM<sup>2</sup> | 512 KB | 128 KB | 256 KB |
+| RAM<sup>2</sup> | 4608 KB | 128 KB | 256 KB |
 | Flash<sup>3</sup> | 16 MB | 1 MB | 1 MB | 
 | Hardware FPU | &check; | | &check; |
 | Secure Boot | &check; | | |
@@ -57,7 +57,7 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 
 <sup>1</sup>A small amount of the flash file system is used by Device OS, most is available for user data storage using the POSIX filesystem API. This is separate from the flash memory used for Device OS, user application, and OTA transfers.
 
-<sup>2</sup> Total RAM; amount available to user applications is smaller.
+<sup>2</sup> Total RAM; amount available to user applications is smaller. On the P2, available RAM is approximately 3072 KB. On the P1, it is 55 KB.
 
 <sup>3</sup> Total built-in flash; amount available to user applications is smaller. The Argon also has a 4 MB external flash, a portion of which is available to user applications as a flash file system.
 
@@ -1168,3 +1168,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
 | 001 | 2023-03-13 | RK | Removed preliminary banner |
 | 002 | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
+| 003 | 2023-05-05 | RK | Fix available RAM |

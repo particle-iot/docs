@@ -453,6 +453,12 @@ The P2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING
 
 The P2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`, or `CHANGE`. Pin D10 is the same module pin location (pin 30) as the P1 WKP (A7) pin.
 
+### RAM
+
+The P2 has 512 KB of static RAM (SRAM) and 4 MB of pseudo-static RAM (PSRAM). 
+
+Around 3072 KB (3 MB) of RAM is available for user applications. Heap allocations are made first from SRAM, then from PSRAM, as necessary.
+
 ### Retained memory
 
 The P2 and Photon 2 have limited support for retained memory in Device OS 5.3.1 and later:
@@ -878,6 +884,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 004 | 2023-04-10 | RK | Outdoor use restrictions |
 | 005 | 2023-04-24 | RK | Document VBAT_MEAS |
 | 006 | 2023-04-28 | RK | Add conformal coating and flux notes |
+| 007 | 2023-05-05 | RK | Update available RAM |
 
 ## Known errata
 
