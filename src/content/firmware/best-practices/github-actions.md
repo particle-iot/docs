@@ -86,17 +86,25 @@ The implementation of this feature is broken down in to several high level bucke
 
 We recommend using an access token for your product that has limited capabilities using the API Users feature. The [API users tool](https://docs.particle.io/getting-started/cloud/cloud-api/#api-users) allows you to easily create an access token.
 
-TODO: insert screenshot here
+![API User](/assets/images/github-actions-api-user.png)
 
-In this example, most of the **firmware** options are enabled along with **devices: update** which is needed to flash firmware. You do not need to add a specific role to compile source code. 
+| Purpose | Required scope |
+| :--- | :--- |
+| Compile | (no scope required) |
+| Flash firmware to a device | `devices:update` |
+| Upload product firmware | `firmware:create` |
 
 Make sure you save the token in a secure location as you won't be able to download it again after you leave this page. Likewise, since it grants access to your account you should keep it secure and never commit it to a public source repository. 
 
+The exception to this rule is if you are using the flash device action. Because the flash device action uses the non-product device flashing endpoint it cannot use a product-specific API user, and thus must have an access token for your account.
+
 ### Add to Github secrets
 
-Settings - Security - Secrets and variables - Actions
+Github secrets allows you to securely pass things like access tokens even from public repositories. You can find them in your repository in Settings - Security - Secrets and variables - Actions. 
 
-`PARTICLE_ACCESS_TOKEN`
+![Secrets](/assets/images/github-actions-secrets.png)
+
+You should save the access token you created in the previous step as `PARTICLE_ACCESS_TOKEN`. 
 
 ### Documentation Required
 
@@ -221,27 +229,101 @@ Once you've writen your .yaml file:
 
 ### Flash action
 
+While being able to compile the firmware is a good start, you will typically want to test it on an actual device. This can be automated with Github actions as well.
+
+- It should be added to your product
+- It should use **Mark as Development** so it can be flashed with custom code before release
+- It must be claimed to your account even if you normally use unclaimed product devices in your product
+- Your access token must be a user-level access token, not an API user.
+
+For better security, you may want to create a new Particle user only for testing devices and claim the devices to that account and use an access token for that account, however that user will still need to be a team member for your product.
+
+```yaml
+name: Compile and flash firmware
+
+on: [push]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Compile application
+        id: compile
+        uses: particle-iot/compile-action@main
+        with:
+          particle-platform-name: 'p2'
+          sources-folder: '.'
+          device-os-version: '5.3.1'
+          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware-artifact
+          path: ${{ steps.compile.outputs.artifact-path }}
+
+      - name: Flash device
+        uses: particle-iot/flash-device-action@main
+        with:
+          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
+          device-id: 'a3d9e2b1c6f7481234567890'
+          firmware-path: ${{ steps.compile.outputs.artifact-path }}
+```
 
 ### Automatic versioning
 
+Product firmware requires the version to be embedded in the firmware in the main .cpp or .ino file. For example:
+
+```cpp
+PRODUCT_VERSION(1);
+```
+
+Often if you are developing locally before committing to Github you can increment this version as part of your development workflow.
+
+However, there is also an action that can update your source to the latest version number and commit the change to Github for you.
+
+See [auto versioning](https://github.com/particle-iot/compile-action/blob/main/AUTO_VERSION.md) for details.
 
 ### Upload to product
 
-        - Examples of common use cases
-            - Basic use: [https://github.com/particle-iot/compile-action#example-pipeline](https://github.com/particle-iot/compile-action#example-pipeline)
-            - With auto-versioning for product firmware: [https://github.com/particle-iot/compile-action/blob/main/AUTO_VERSION.md#example-workflows](https://github.com/particle-iot/compile-action/blob/main/AUTO_VERSION.md#example-workflows)
-    - Flash Action
-        - Explanation
-            - The Device Flash Action flashes firmware built in CI to a test device
-        - Example use
-            
-```yaml
-name: CI
+Using Github actions can significantly simply your product firmware build workflow. Typically you will develop locally, and when you're ready to create a new product firmware:
 
-on: [push]
+- Commit the code to Github. This could be to a branch or to main, depending on your build practices.
+
+- When you are ready to release, tag the release
+
+```bash
+git tag -a v1 -m "Initial version"
+git push origin v1
+```
+
+- When a release is tagged, the workflow below will automatically:
+  
+  - Compile the source and create a firmware binary artifact. This can be downloaded from Github.
+
+  - Upload the binary to your product
+
+
+The [firmware-upload-action](https://github.com/particle-iot/firmware-upload-action) contains additional instructions and also provides an example where a Github release can be made in addition to tagging and uploading product firmware.
+
+
+
+```yaml
+
+name: Compile and Release
+
+# This workflow runs on git tags
+# It will only run when a tag is pushed to the repository that matches the pattern "v*"
+on:
+  push:
+    tags:
+      - 'v*'
 
 jobs:
-  compile:
+  compile-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -249,75 +331,29 @@ jobs:
 
       - name: Compile application
         id: compile
-        uses: particle-iot/compile-action@v1
+        uses: particle-iot/compile-action@main
         with:
-          particle-platform-name: 'boron'
+          particle-platform-name: 'p2'
           sources-folder: '.'
-
-      - name: Flash development device
-        uses: particle-iot/flash-device-action@v1
-        with:
+          device-os-version: '5.3.1'
           particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
-          device-id: 'e00fce68ae40841234567890'
-          firmware-path: ${{ steps.compile.outputs.artifact-path }}
 
-      - name: Upload artifact to GitHub
+      - name: Upload artifacts to GitHub
         uses: actions/upload-artifact@v3
         with:
-          name: firmware
           path: ${{ steps.compile.outputs.artifact-path }}
-```
-            
-    - Upload Action
-        - Explanation
-            - The Firmware Upload Action uploads firmware built in CI to a product
-            - It does not release the firmware to any devices (i.e. no OTAs happen)
-        - Example use
-            
-```yaml
-name: Tracker CI
 
-on: [push]
-
-jobs:
-  compile:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Compile application
-        id: compile
-        uses: particle-iot/compile-action@v1
-        with:
-          particle-platform-name: 'boron'
-          sources-folder: '.'
-
-      - name: Flash development device
-        uses: particle-iot/flash-device-action@v1
+      - name: Upload product firmware to Particle
+        uses: particle-iot/firmware-upload-action@main
         with:
           particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
-          device-id: 'e00fce68ae40841234567890'
           firmware-path: ${{ steps.compile.outputs.artifact-path }}
+          firmware-version: ${{ steps.compile.outputs.firmware-version }}
+          product-id: '<product-id>'
+          title: 'Firmware v${{ steps.compile.outputs.firmware-version }}'
+          description: '[Firmware v${{ steps.compile.outputs.firmware-version }} GitHub Release](${{ steps.release.outputs.html_url }})'
 
-			- name: Upload firmware to Particle product
-				uses: particle-iot/firmware-upload-action@v1
-				with:
-				  particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
-	        product-id: 10000
-					version: ${{ steps.compile.outputs.firmware-version }}
-          binary: ${{ steps.compile.outputs.artifact-path }}
-          description: ""
-          title: "title"
-
-      - name: Upload artifact to GitHub
-        uses: actions/upload-artifact@v3
-        with:
-          name: firmware
-          path: ${{ steps.compile.outputs.artifact-path }}
 ```
-            
-
 
 ## Additional resources
 
