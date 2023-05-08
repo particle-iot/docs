@@ -170,13 +170,13 @@ Proposed information for GitHub Actions for firmware application development:
 
 Using the [compile action](https://github.com/particle-iot/compile-action) can be used to create firmware binaries from source code pushed to Github. This also serves to validate that code committed to Github can be compiled successfully, and a compile error will show up on your Github repository page, and an email will typically be generated as well.
 
-You Github action uses a runner, a virtual machine that runs the workflow. This can either be a Github hosted runner, or a self-hosted runner. Even in the free Github tier, minutes of Github runner are available to run your actions, currently 2000 minutes per month.
+You Github action uses a runner, a virtual machine that runs the workflow. This can either be a Github hosted runner, or a self-hosted runner. Even in the free Github tier, minutes of Github runner are available to run your actions, currently 2000 minutes per month. A simple project may run in under 30 seconds, so that's a lot of builds!
 
 If you are using the Github hosted runner, you don't need to configure anything else in your account; it's enabled by default.
 
 If you are using a self-hosted runner, follow the [Github instructions for self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
-For compiling code, you can either do the build in the Github runner itself, using the Particle buildpack, or build using the Particle cloud compilers. Using the cloud compiler may make sense for free-tier runners as it will take an additional 30 to 60 seconds to set up and run the buildpack used to compile the code within the runner.
+For compiling code, you can either do the build in the Github runner itself, using the Particle buildpack, or build using the Particle cloud compilers. Using the Particle cloud compiler may make sense for free-tier runners as it will take an additional 30 to 60 seconds to set up and run the buildpack used to compile the code within the runner.
 
 When using the Particle cloud compiler, a Particle access token is required, typically stored in Github secrets. Your compile.yaml file only includes the secret name, not the actual access token, so you can use this securely even on public repositories. Additionally, a API user who has few other privileges can be used to minimize the danger even if your account secret is exposed.
 
@@ -184,44 +184,19 @@ To set up a compile action, create a `.github` directory at the top of your repo
 
 This example uses this file, `.github/workflows/compile.yaml`. The filename does not need to be `compile` but it does need to be a `.yaml` file.
 
-
-```yaml
-name: Compile Firmware
-
-on: [push]
-
-jobs:
-  compile:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Compile application
-        id: compile
-        uses: particle-iot/compile-action@main
-        with:
-          particle-platform-name: 'boron'
-          sources-folder: '.'
-          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: firmware-artifact
-          path: ${{ steps.compile.outputs.artifact-path }}
-
-```
+{{> codebox content="/assets/files/github-actions/compile.yaml" format="yaml" height="300"}}
 
 - Be careful when copying and editing the file as leading spaces are very significant in yaml files!
 - The `uses: actions/checkout@v3` command uses the built-in Github actions step for checking out the code from Github. It will automatically use the correct code for the branch you have committed the change to.
 - The `uses: particle-iot/compile-action@main` command uses the Particle compile action. It automatically retrieves it from the [particle-iot](https://github.com/particle-iot/) Github account in the [compile-action](https://github.com/particle-iot/compile-action) repository. This example uses the latest in the `main` branch, but you make prefer to use a specific version such as `particle-iot/compile-action@v1`.
 - `particle-platform-name: 'boron'` should be updated to specify the platform you want to build for, such as `boron`, `bsom`, `b5som`, etc.
+- `device-os-version` allowed values include: `default`, `latest`, `latest-lts`, or a semver version number such as `4.x`, `^5.3.0`, `1.4.4`.
 - The `sources-folder` is typically `.` which means the top of the repository. This is often the directory containing the `project.properties` file.
 - The `particle-access-token` is specified when using the Particle cloud compiler to compile your binary. It can be an API user token, and all valid API user tokens can compile, a specific scope does not need to be added.
 - The Upload artifact saves the firmware binary so it can be downloaded from the Github actions tab of your repository.
 
-Once you've writen your .yaml file:
+
+Once you've written your .yaml file:
                 
 - Commit and push the **`compile.yml`** file to your repository.
 - The GitHub Actions workflow will automatically start compiling your firmware upon each push to the repository.
@@ -238,40 +213,7 @@ While being able to compile the firmware is a good start, you will typically wan
 
 For better security, you may want to create a new Particle user only for testing devices and claim the devices to that account and use an access token for that account, however that user will still need to be a team member for your product.
 
-```yaml
-name: Compile and flash firmware
-
-on: [push]
-
-jobs:
-  compile:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Compile application
-        id: compile
-        uses: particle-iot/compile-action@main
-        with:
-          particle-platform-name: 'p2'
-          sources-folder: '.'
-          device-os-version: '5.3.1'
-          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: firmware-artifact
-          path: ${{ steps.compile.outputs.artifact-path }}
-
-      - name: Flash device
-        uses: particle-iot/flash-device-action@main
-        with:
-          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
-          device-id: 'a3d9e2b1c6f7481234567890'
-          firmware-path: ${{ steps.compile.outputs.artifact-path }}
-```
+{{> codebox content="/assets/files/github-actions/compile-and-flash.yaml" format="yaml" height="300"}}
 
 ### Automatic versioning
 
@@ -310,48 +252,10 @@ git push origin v1
 The [firmware-upload-action](https://github.com/particle-iot/firmware-upload-action) contains additional instructions and also provides an example where a Github release can be made in addition to tagging and uploading product firmware.
 
 
+{{> codebox content="/assets/files/github-actions/compile-and-upload.yaml" format="yaml" height="300"}}
 
 ```yaml
 
-name: Compile and Release
-
-# This workflow runs on git tags
-# It will only run when a tag is pushed to the repository that matches the pattern "v*"
-on:
-  push:
-    tags:
-      - 'v*'
-
-jobs:
-  compile-release:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Compile application
-        id: compile
-        uses: particle-iot/compile-action@main
-        with:
-          particle-platform-name: 'p2'
-          sources-folder: '.'
-          device-os-version: '5.3.1'
-          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
-
-      - name: Upload artifacts to GitHub
-        uses: actions/upload-artifact@v3
-        with:
-          path: ${{ steps.compile.outputs.artifact-path }}
-
-      - name: Upload product firmware to Particle
-        uses: particle-iot/firmware-upload-action@main
-        with:
-          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
-          firmware-path: ${{ steps.compile.outputs.artifact-path }}
-          firmware-version: ${{ steps.compile.outputs.firmware-version }}
-          product-id: '<product-id>'
-          title: 'Firmware v${{ steps.compile.outputs.firmware-version }}'
-          description: '[Firmware v${{ steps.compile.outputs.firmware-version }} GitHub Release](${{ steps.release.outputs.html_url }})'
 
 ```
 

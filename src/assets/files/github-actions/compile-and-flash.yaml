@@ -1,0 +1,32 @@
+name: Compile and flash firmware
+
+on: [push]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Compile application
+        id: compile
+        uses: particle-iot/compile-action@main
+        with:
+          particle-platform-name: 'p2'
+          sources-folder: '.'
+          device-os-version: '5.3.1'
+          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware-artifact
+          path: ${{ steps.compile.outputs.artifact-path }}
+
+      - name: Flash device
+        uses: particle-iot/flash-device-action@main
+        with:
+          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
+          device-id: 'a3d9e2b1c6f7481234567890'
+          firmware-path: ${{ steps.compile.outputs.artifact-path }}
