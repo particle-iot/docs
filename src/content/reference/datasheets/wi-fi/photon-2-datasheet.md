@@ -782,6 +782,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |     | 2023-04-24 | RK | Document VBAT_MEAS and CHG |
 |     | 2023-04-28 | RK | Add conformal coating and flux notes |
 |     | 2023-05-05 | RK | Update available RAM |
+|     | 2023-05-08 | RK | Added VBAT_MEAS and CHG to block diagram |
 
 ## Known errata
 
