@@ -52,15 +52,16 @@ Issues related to build tools can be complex! After all, every computer is confi
 **Delete the following files and directories** if available:
 
 * `.npm-cache`  
-   * `autoupdate`  
-   * `error.log`  
-   * `node-v8.15.0-<os>-<cpu>`  
-   (e.g. `node-v8.15.0-windows-x64`, `node-v8.15.0-darwin-x64`, `node-v8.15.0-linux-x64`)  
-   * `node_modules`  
-   * `package-lock.json`  
-   * `plugin-cache.json`  
-   * `profile.json`  
-   * `tmp`
+* `autoupdate`  
+* `error.log`  
+* `node-v<version>-<os>-<cpu>`  
+(e.g. `node-v16.20.0-windows-x64`, `node-v16.20.0-darwin-x64`, `node-v16.20.0-linux-x64`)  
+* `node_modules`  
+* `package.json`  
+* `package-lock.json`  
+* `plugin-cache.json`  
+* `profile.json`  
+* `tmp`
 
 **Update** the CLI:
 
