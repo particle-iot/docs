@@ -41,12 +41,12 @@ You can manually install the `particle-cli` Node.js package if you need the CLI 
 Make sure you have a recent [LTS version of Node.js](http://nodejs.org/) installed.
 
 ```sh
-# check that you have node.js 10 or above. Check http://nodejs.org on how to update node.js
+# check that you have node.js 16 or above. Check http://nodejs.org on how to update node.js
 $ node -v
-v10.15.1
-# check that you have npm 6 or above
+v16.20.0
+# check that you have npm 8 or above
 $ npm -v
-6.4.1
+8.19.4
 ```
 
 Next, open a command prompt or terminal, and install by typing:
