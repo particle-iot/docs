@@ -83,6 +83,11 @@
         "href": "/tools/cloud-tools/list-devices/"
       },
       {
+        "dir": "api-users",
+        "title": "API Users",
+        "href": "/tools/cloud-tools/api-users/"
+      },
+      {
         "dir": "events",
         "title": "Event viewer",
         "href": "/tools/cloud-tools/events/"
