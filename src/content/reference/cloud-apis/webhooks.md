@@ -36,9 +36,15 @@ EXAMPLE WEBHOOK
 
 The 3 main parts of the webhook are: which events from which devices trigger it, which service it targets and what data format to use.
 
-An event will trigger a webhook if:
-- The event name starts with the webhook `eventName`.
-- The device that published the event matches the webhook `deviceID` or all devices you own if `deviceID` is omitted.
+An event will trigger a webhook if the event name starts with the webhook `eventName`.
+
+Additionally, for non-product (developer sandbox) webhooks: 
+
+- If the webhook has a Device ID specified, only that single Device ID can trigger the webhook.
+- If the webhook has Any specified, then any device claimed to the account that owns the webhook can trigger the webhook by sending the event.
+
+For product devices, any product device can trigger the webhook. There are no Device ID filters for product webhooks.
+
 ## Webhook properties
 
 Webhook are created by specifying several properties in a configuration file in [JSON format](http://www.w3schools.com/js/js_json_intro.asp).
@@ -109,7 +115,9 @@ EXAMPLE
 
 If specified trigger on events from this device only. When omitted, triggers on events by all your devices.
 
-Triggering by device name is not supported.
+Triggering by device name is not supported. You cannot specify multiple devices.
+
+This option can only be used for developer sandbox webhooks. You cannot use a device ID filter in a product webhook.
 
 ### headers
 
