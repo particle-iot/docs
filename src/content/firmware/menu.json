@@ -55,8 +55,7 @@
       {
         "dir": "github-actions",
         "title": "Github Actions (CI/CD)",
-        "href": "/firmware/best-practices/github-actions/",
-        "internal": true
+        "href": "/firmware/best-practices/github-actions/"
       },
       {
         "dir": "json",

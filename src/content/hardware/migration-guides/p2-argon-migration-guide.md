@@ -98,6 +98,8 @@ The Photon 2 is a pin-based module that contains a P2, and may be appropriate in
 
 ![Photon 2 Rendering](/assets/images/photon2-rendering.png)
 
+The [P2 reference design](https://github.com/particle-iot/p2-reference-design) is a full breakout board with additional Feather sockets that are compatible with the Photon 2.
+
 
 ### Status LED
 

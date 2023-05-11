@@ -19,6 +19,8 @@ The P2 evaluation board is not a product and was only produced in limited quanti
 
 This is a simple breakout board for Particle's P2 Wi-Fi module. It breaks out all of its pins via easy to use headers. The board features a USB port, a barrel jack power connector, buttons, and RGB LED as well as Feather, Grove, and Qwiic connectors for prototyping with external sensors, displays, etc..
 
+The design for this board is open-source and can be found in [P2 reference design in Github](https://github.com/particle-iot/p2-reference-design).
+
 ## Description
 
 {{imageOverlay src="/assets/images/p2-eval-labeled.png" alt="P2 eval board" class="full-width"}}

@@ -629,7 +629,9 @@ When laying out your board:
 
 ![P2 Keepout](/assets/images/p2-keepout.png)
 
-{{!-- ## Reference Design Schematic --}}
+## Reference design
+
+A [P2 reference design](https://github.com/particle-iot/p2-reference-design) is available in Github. The repository includes schematics, board layout, footprints, for Eagle CAD.
 
 ## Recommended solder reflow profile
 
@@ -885,6 +887,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 005 | 2023-04-24 | RK | Document VBAT_MEAS |
 | 006 | 2023-04-28 | RK | Add conformal coating and flux notes |
 | 007 | 2023-05-05 | RK | Update available RAM |
+| 008 | 2023-05-11 | RK | Add link to reference design |
 
 ## Known errata
 
