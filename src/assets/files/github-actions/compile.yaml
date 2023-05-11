@@ -11,14 +11,13 @@ jobs:
 
       - name: Compile application
         id: compile
-        uses: particle-iot/compile-action@main
+        uses: particle-iot/compile-action@v1
         with:
           particle-platform-name: 'boron'
-          sources-folder: '.'
           particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: firmware-artifact
-          path: ${{ steps.compile.outputs.artifact-path }}
+          path: ${{ steps.compile.outputs.firmware-path }}

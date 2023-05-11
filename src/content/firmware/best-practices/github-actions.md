@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: Github actions (CI/CD)
 ---
 
-# {{title}}
+# {{title}} (Beta)
 
 ## Background
 
@@ -92,8 +92,6 @@ Github secrets allows you to securely pass things like access tokens even from p
 
 You should save the access token you created in the previous step as `PARTICLE_ACCESS_TOKEN`. 
 
-If you are using the action to automatically create a Github release, you will also need to set `GITHUB_ACCESS_TOKEN`. This is not necessary if you are not using that action.
-
 ## Examples
 
 ### Compile action
@@ -132,25 +130,23 @@ This step is almost always required and checks out the version of the code that 
         uses: actions/checkout@v3
 ```
 
-This calls the Particle compile action. This specifies that the action is in the `particle-iot` Github in the [compile-action](https://github.com/particle-iot/compile-action) repository. You can view the source there, and there are also additional README and instruction files there. The `@main` indicates that the latest commit on the `main` branch will be used. You may also specify a release like `@v1`,
+This calls the Particle compile action. This specifies that the action is in the `particle-iot` Github in the [compile-action](https://github.com/particle-iot/compile-action) repository. You can view the source there, and there are also additional README and instruction files there. The `@v1` indicates the latest v1.x version.
 
 ```
       - name: Compile application
         id: compile
-        uses: particle-iot/compile-action@main
+        uses: particle-iot/compile-action@v1
 ```
 
 The options are specified here.
 
 - `particle-platform-name` is the platform such as `boron`, `bsom`, `b5som`, `p2`, etc.
-- `sources-folder` is typically `.` (build from the top of the repository)
 - `device-os-version` allowed values include: `default`, `latest`, `latest-lts`, or a semver version number such as `4.x`, `^5.3.0`, `1.4.4`.
 - `particle-access-token` is specified when using the Particle cloud compiler to compile your binary. It can be an API user token, and all valid API user tokens can compile, a specific scope does not need to be added. If omitted, the build will be done using the Particle buildpack within the runner itself.
 
 ```yaml
         with:
           particle-platform-name: 'boron'
-          sources-folder: '.'
           device-os-version: 'latest-lts'
           particle-access-token: $\{{ secrets.PARTICLE_ACCESS_TOKEN }}
 ```
@@ -162,7 +158,7 @@ The upload artifact saves the built binary. This can be downloaded from the Gith
         uses: actions/upload-artifact@v3
         with:
           name: firmware-artifact
-          path: $\{{ steps.compile.outputs.artifact-path }}
+          path: $\{{ steps.compile.outputs.firmware-path }}
 ```
 
 Once you've written your .yaml file:
@@ -188,18 +184,18 @@ Make sure you update the `device-id` field with the Device ID (24-character hex)
 
 ```yaml
       - name: Flash device
-        uses: particle-iot/flash-device-action@main
+        uses: particle-iot/flash-device-action@v1
         with:
           particle-access-token: $\{{ secrets.PARTICLE_ACCESS_TOKEN }}
           device-id: 'a3d9e2b1c6f7481234567890'
-          firmware-path: $\{{ steps.compile.outputs.artifact-path }}
+          firmware-path: $\{{ steps.compile.outputs.firmware-path }}
 ```
 
 You can find additional instructions in the [flash-device-action](https://github.com/particle-iot/flash-device-action) repository.
 
 ### Automatic versioning
 
-Product firmware requires the version to be embedded in the firmware in the main .cpp or .ino file. For example:
+Product firmware requires the version to be embedded in the firmware in the main .cpp. For example:
 
 ```cpp
 PRODUCT_VERSION(1);
@@ -210,6 +206,8 @@ Often if you are developing locally before committing to Github you can incremen
 However, there is also an action that can update your source to the latest version number and commit the change to Github for you.
 
 See [auto versioning](https://github.com/particle-iot/compile-action/blob/main/AUTO_VERSION.md) for details.
+
+If you are using a .ino file as your main project source file you will need to use manual versioning or convert it to a .cpp file, which typically only requires a few minor changes. See [ino file preprocessor](/reference/device-os/api/preprocessor/preprocessor/) for more information.
 
 ### Upload to product
 
@@ -240,10 +238,10 @@ Most of the parameters are boilerplate, but don't forget to update `product-id` 
 
 ```yaml
       - name: Upload product firmware to Particle
-        uses: particle-iot/firmware-upload-action@main
+        uses: particle-iot/firmware-upload-action@v1
         with:
           particle-access-token: $\{{ secrets.PARTICLE_ACCESS_TOKEN }}
-          firmware-path: $\{{ steps.compile.outputs.artifact-path }}
+          firmware-path: $\{{ steps.compile.outputs.firmware-path }}
           firmware-version: $\{{ steps.compile.outputs.firmware-version }}
           product-id: '12345'
           title: 'Firmware v$\{{ steps.compile.outputs.firmware-version }}'

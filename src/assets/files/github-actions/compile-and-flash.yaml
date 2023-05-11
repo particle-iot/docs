@@ -11,10 +11,9 @@ jobs:
 
       - name: Compile application
         id: compile
-        uses: particle-iot/compile-action@main
+        uses: particle-iot/compile-action@v1
         with:
           particle-platform-name: 'p2'
-          sources-folder: '.'
           device-os-version: '5.3.1'
           particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
 
@@ -22,11 +21,11 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: firmware-artifact
-          path: ${{ steps.compile.outputs.artifact-path }}
+          path: ${{ steps.compile.outputs.firmware-path }}
 
       - name: Flash device
-        uses: particle-iot/flash-device-action@main
+        uses: particle-iot/flash-device-action@v1
         with:
           particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
           device-id: 'a3d9e2b1c6f7481234567890'
-          firmware-path: ${{ steps.compile.outputs.artifact-path }}
+          firmware-path: ${{ steps.compile.outputs.firmware-path }}
