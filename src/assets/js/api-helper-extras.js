@@ -2851,7 +2851,7 @@ $(document).ready(function() {
             apiHelper.manualSettings.save();
 
             let productId = 0;
-            if (options.newExisting != 'new') {
+            if (settings.newExisting != 'new') {
                 const productSelectValString = $(productSelectElem).val();
                 if (productSelectValString) {
                     productId = parseInt(productSelectValString);
