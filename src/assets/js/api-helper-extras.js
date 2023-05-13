@@ -2710,11 +2710,14 @@ $(document).ready(function() {
     $('.apiHelperCreateOrSelectProduct').each(function() {
         const thisPartial = $(this);
 
-        const options = $(thisPartial).data('options').split(',');
+        let partialOptions = $(thisPartial).data('options').split(',');
+        if (!partialOptions) {
+            partialOptions = [];
+        }
         // sandboxOnly - don't show org options even if the account is in an org
         // status - show status row
 
-        if (options.includes('status')) {
+        if (partialOptions.includes('status')) {
             $(thisPartial).show('.statusRow');
         }
 
@@ -2778,7 +2781,7 @@ $(document).ready(function() {
 
             options.platformId = parseInt(platformIdStr);
 
-            if (productSelector.orgs.length && !options.includes(sandboxOnly)) {
+            if (productSelector.orgs.length && !partialOptions.includes('sandboxOnly')) {
                 // Has organizations
 
                 // sandbox or org
@@ -2894,7 +2897,7 @@ $(document).ready(function() {
             
             const sandboxOrg = sandboxOrgRadioCheckedVal();
 
-            if (productSelector.orgs.length && !options.includes(sandboxOnly)) {
+            if (productSelector.orgs.length && !partialOptions.includes('sandboxOnly')) {
                 // Has organizations
 
                 $(sandboxOrgRowElem).show();

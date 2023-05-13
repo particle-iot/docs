@@ -1039,10 +1039,12 @@ $(document).ready(function() {
                             $(claimUsernameSelectElem).val(oldClaimUser);
                         }    
                     }
+                    $(thisPartial).find('.productSelected').show();
                 }
                 else {
                     $(claimUsernameSelectElem).empty();
                     teamList = null;
+                    $(thisPartial).find('.productSelected').hide();
                 }
 
                 let urlConfig = {};
