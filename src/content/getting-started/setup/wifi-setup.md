@@ -6,7 +6,6 @@ description: Wi-Fi setup
 includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-projects, api-helper-protobuf, api-helper-usb, api-helper-extras, api-helper-tickets, webdfu, zip]
 ---
 
-
 # {{title}}
 
 This page includes information on how to set up Wi-Fi on fleets of P2, Photon 2, or Argon devices. If you are interested in setting up a single device, see [setup options](/getting-started/setup/setup-options).
@@ -62,18 +61,154 @@ If multiple users setting up your product in close proximity is unlikely, and th
 
 ### Provisioning firmware
 
-You would normally include this within your standard product firmware to allow both device provisioning and your normal application. This code will allow you to easily 
+You would normally include this within your standard product firmware to allow both device provisioning and your normal application. 
+
+#### Standard mobile secret firmware
+
+This is the standard firmware that uses the mobile secret that is set at the factory. You would typically need to use a data matrix decoded in your mobile app to read this off the serial number sticker. This example should be used with the iOS native example, below.
+
+- Device Name: `aabbcc`
+- Mobile Secret: (set at factory, varies by devices and is encoded in the data matrix code on the serial number sticker)
 
 {{> project-browser project="ble-provisioning" default-file="src/ble-provisioning.cpp" height="400" flash="true" options="gen3" target=">=3.3"}}
+
+#### Fixed mobile secret firmware
+
+This example shows how to use a fixed mobile secret. In this case it's set to `AAAAAAAAAAAAAAA` (15 uppercase letter A). Using a fixed mobile secret is less secure, but you do not need to scan the serial number sticker, so it may be an acceptable trade-off in some cases. This example is easier to use with the React Native and Android native examples since you don't need to read the data matrix sticker to get your device's mobile secret and can just paste in that string.
+
+- Device Name: `aabbcc`
+- Mobile Secret: `AAAAAAAAAAAAAAA` (it must be 15 characters in length)
+
+{{> project-browser project="ble-provisioning3" default-file="src/ble-provisioning3.cpp" height="400" flash="true" options="gen3" target=">=3.3"}}
 
 
 ## React native example
 
+The react native example is designed to be built using [Expo](https://expo.dev/). Using Expo EAS is fast and easy, and eliminates the need to install the full development environments (Xcode for iOS and Android Studio for Android) because it can build in the cloud. The free tier allows 30 cloud builds per month, though iOS counts as 2 builds. You can pay on demand, or purchase a production plan with a large number of builds. Additionally, the Expo cloud build allows you to build iOS apps from Windows, which is not normally possible.
+
+You can, however, export a native project that can be built with native development tools, as well.
+
+- Download the [react native example](https://github.com/particle-iot/rn-ble-setup) from Github
+- Make sure node 16 or above is installed with npm 8 or above. 
+- You will also need a global install of [yarn](https://classic.yarnpkg.com/lang/en/docs/install/).
+
+Install the dependencies using:
+
+```
+cd rn-ble-setup
+npm install --legacy-peer-deps
+```
+
+The `--legacy-peer-deps` is because the setup application uses `react@18` and the setup library uses `react@^17.0.2`, but does work properly with `react@18` and that option allows the peer dependency in the setup library to be ignored.
+
+You will need to configure two settings in app.json in the project. These should be set to your domain instead of Particle:
+
+```
+    "ios": {
+      "bundleIdentifier": "io.particle.blesetup",
+```
+
+```
+    "android": {
+      "package": "io.particle.blesetup",
+```
+
+
+You will also need to install the Expo [eas-cli](https://docs.expo.dev/eas-update/getting-started/) globally:
+
+```
+npm install --global eas-cli
+```
+
+If you are going to be using cloud builds, you should also install the **Expo Go** mobile app. 
+
+### iOS development app - react native
+
+Building an iOS app using Expo EAS is as easy as:
+
+```
+npx eas build -p ios --profile development 
+```
+
+This will do a cloud build of the iOS app, and eliminates the need to install a local development environment. In the Expo EAS cloud build, iOS builds are more expensive, as they could as two builds in the free plan, and are $2 instead of $1 a la carte. You may want to do initial development and testing on Android for this reason.
+
+Follow the instructions when prompted to connect to your Apple developer account, register your device with Expo (if you have not already done so), and install and run the demo app.
+
+
+### Android development app - react native
+
+```
+npx eas build -p android --profile development 
+```
+
+This will do a cloud build of the Android app, and eliminates the need to install a local development environment.
+
+Follow the instructions when prompted to register your device with Expo (if you have not already done so), and install and run the demo app.
+
+
+### Export native source
+
+Instead of using the Expo EAS cloud build service you can export source to build using native tools.
+
+This will create a project that can be opened in Xcode on a Mac to build an iOS mobile app:
+
+```
+npx eas build -p ios --profile development --local
+```
+
+This will create project that can be opened in Android Studio to build an Android app:
+
+```
+npx eas build -p android --profile development --local
+```
+
 ## iOS native example
+
+- Download the [iOS native example](https://github.com/particle-iot/iOSBLEExample) from Github
+- Install XCode
+- Enable your iOS device for development mode (BLE cannot be used in the emulator)
+- Flash the "standard mobile secret firmware" above to Particle P2, Photon 2, or Argon.
+- You will need an Apple developer account in order to be able to sign the binaries, create provisioning profiles, etc.
+
+### Settings - iOS native example
+
+- Select your team in General - Targets iOSBLEExample
+- Make sure a provisioning profile and signing certificate are selected
+- Build an run the example
+
 
 ## Android native example
 
 The Android example app is not a fully functional setup application. 
+
+
+### Settings
+
+- Download the [Android native example](https://github.com/particle-iot/AndroidBLEExample) from Github
+- Tested with Android Studio Flamingo
+- [Enable developer options](https://developer.android.com/studio/run/device) on your Android device (the emulator cannot be used with BLE)
+- Follow the instructions in the README of the AndroidBLEExample repository
+- It is OK to upgrade the Android Gradle Plug-in using the automatic tool
+- Flash the "fixed mobile secret firmware" above to Particle P2, Photon 2, or Argon.
+
+The Android sample app does not handle scanning the data matrix code on the device. The fixed mobile secret firmware sets it to `AAAAAAAAAAAAAAA` (15 of the uppercase letter A).
+
+Note that the setup code is the value set in the firmware using `BLE.setDeviceName` and is set to `aabbcc`. From the factory, this would be the last 6 characters of the serial number instead. You would probably set this to be your product or company name.
+
+In app - java - io.particle.bleexample - MainActivity, update the `setupCode` (device name) and `mobileSecret`:
+
+```
+private final String setupCode = "aabbcc";
+// Mobile secret available on the QR sticker on the device
+private final String mobileSecret = "AAAAAAAAAAAAAAA";
+```
+
+- Run the application on your Android device.
+- You will need to allow precise location, because access to local BLE devices requires this.
+
+
+
+
 
 ## USB setup
 
