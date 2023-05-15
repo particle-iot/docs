@@ -19,14 +19,17 @@ The recommended setup process for Wi-Fi device fleets:
 
 When your customer receives their device they will need to configure Wi-Fi so it can connect to their Wi-Fi network. There are several options:
 
-- The recommended option is that you provide a custom mobile app for iOS and Android based on our React Native example app. This will allow the device to be configured by BLE from the customer's mobile device.
-- We also have sample code for native iOS and Android that shows how to use the setup protocol over BLE, but this is not a complete setup app and you will need to do additional app development.
+- The recommended option is that you provide a custom mobile app for iOS and Android based on our React Native example app.
+- We also have sample code for native iOS (Swift) and native Android (Javascript) example apps.
+
+Note that these are not complete drop-in applications. They only show how to use the configuration over BLE feature and will still require user interface and other work to build a complete configuration user interface.
 
 ### Provisioning mode
 
 Device provisioning mode allows for secure device setup over BLE (Bluetooth LE 5), typically from a mobile device (iOS or Android). This mode allows easier setup of P2, Photon 2, and Argon than the previous requirement of using listening mode (blinking dark blue):
 
 - Provisioning mode can run concurrently with your user firmware, with or without a valid Wi-Fi connection. This makes it easier for users to reconfigure their Wi-Fi later without having to change the device mode first, which previously required using physical buttons. Instead, they can reconfigure right from your mobile app.
+
 - Provisioning mode can restrict interaction to devices running your product firmware. This prevents accidentally seeing and configuring other Particle devices including developer kits or devices associated with other products. This also prevents the mobile apps for other products from seeing your devices.
 
 Previously, on the Photon and P1, setup could be done in listening mode (blinking dark blue) using USB serial (CDC) or by SoftAP, which allows setup over Wi-Fi. Setup over Wi-Fi from a mobile device is somewhat cumbersome because you need to use the mobile device Wi-Fi configuration settings to select a different Wi-Fi network. SoftAP is not available on newer devices.
@@ -47,6 +50,8 @@ The big change is that we no longer recommend making Particle REST API calls dir
 
 Instead, we recommend that you handle authenticating your users entirely in your back-end. You might choose to implement your own, or use any number of common authentication schemes like authenticate with Facebook, Google, SMS, etc.. This also means that you no longer need to share any customer-specific information with Particle. You handle that entirely on your end.
 
+This also makes it significantly easier to use a combination of mobile app and web app, depending on what your customers prefer to use.
+
 ### Provisioning settings
 
 There are a number of configurable parameters needed for device provisioning:
@@ -59,9 +64,16 @@ There are a number of configurable parameters needed for device provisioning:
 
 If multiple users setting up your product in close proximity is unlikely, and the highest level of security is not necessary, setting both a constant device name and mobile secret eliminates the need to scan the serial number sticker, which may be desirable trade-off for user setup simplicity.
 
-### Provisioning firmware
+This is what the service UUIDs look like in the Particle device firmware:
 
-You would normally include this within your standard product firmware to allow both device provisioning and your normal application. 
+```
+const char* serviceUuid = "6E400021-B5A3-F393-E0A9-E50E24DCCA9E";
+const char* rxUuid = "6E400022-B5A3-F393-E0A9-E50E24DCCA9E";
+const char* txUuid = "6E400023-B5A3-F393-E0A9-E50E24DCCA9E";
+const char* versionUuid = "6E400024-B5A3-F393-E0A9-E50E24DCCA9E";
+```
+
+### Provisioning firmware
 
 #### Standard mobile secret firmware
 
@@ -88,7 +100,7 @@ The react native example is designed to be built using [Expo](https://expo.dev/)
 
 You can, however, export a native project that can be built with native development tools, as well.
 
-- Download the [react native example](https://github.com/particle-iot/rn-ble-setup) from Github
+- Download the [react native example](https://github.com/particle-iot/rn-ble-setup) from Github.
 - Make sure node 16 or above is installed with npm 8 or above. 
 - You will also need a global install of [yarn](https://classic.yarnpkg.com/lang/en/docs/install/).
 
@@ -120,7 +132,7 @@ You will also need to install the Expo [eas-cli](https://docs.expo.dev/eas-updat
 npm install --global eas-cli
 ```
 
-If you are going to be using cloud builds, you should also install the **Expo Go** mobile app. 
+If you are going to be using cloud builds, you should also install the **Expo Go** mobile app on your iOS and Android devices.
 
 ### iOS development app - react native
 
@@ -130,7 +142,7 @@ Building an iOS app using Expo EAS is as easy as:
 npx eas build -p ios --profile development 
 ```
 
-This will do a cloud build of the iOS app, and eliminates the need to install a local development environment. In the Expo EAS cloud build, iOS builds are more expensive, as they could as two builds in the free plan, and are $2 instead of $1 a la carte. You may want to do initial development and testing on Android for this reason.
+This will do a cloud build of the iOS app, and eliminates the need to install a local development environment. In the Expo EAS cloud build, iOS builds are more expensive, as they count as two builds in the free plan, and are $2 instead of $1 a la carte. You may want to do initial development and testing on Android for this reason.
 
 Follow the instructions when prompted to connect to your Apple developer account, register your device with Expo (if you have not already done so), and install and run the demo app.
 
@@ -164,9 +176,11 @@ npx eas build -p android --profile development --local
 
 ## iOS native example
 
-- Download the [iOS native example](https://github.com/particle-iot/iOSBLEExample) from Github
-- Install XCode
-- Enable your iOS device for development mode (BLE cannot be used in the emulator)
+Building native iOS apps requires a Mac.
+
+- Download the [iOS native example](https://github.com/particle-iot/iOSBLEExample) from Github.
+- Install XCode.
+- Enable your iOS device for development mode (BLE cannot be used in the emulator).
 - Flash the "standard mobile secret firmware" above to Particle P2, Photon 2, or Argon.
 - You will need an Apple developer account in order to be able to sign the binaries, create provisioning profiles, etc.
 
@@ -174,21 +188,19 @@ npx eas build -p android --profile development --local
 
 - Select your team in General - Targets iOSBLEExample
 - Make sure a provisioning profile and signing certificate are selected
-- Build an run the example
-
+- Build and run the example
 
 ## Android native example
 
-The Android example app is not a fully functional setup application. 
-
+The Android example app is not a fully functional setup application; it just shows how to use the BLE setup protocol.
 
 ### Settings
 
-- Download the [Android native example](https://github.com/particle-iot/AndroidBLEExample) from Github
-- Tested with Android Studio Flamingo
-- [Enable developer options](https://developer.android.com/studio/run/device) on your Android device (the emulator cannot be used with BLE)
-- Follow the instructions in the README of the AndroidBLEExample repository
-- It is OK to upgrade the Android Gradle Plug-in using the automatic tool
+- Download the [Android native example](https://github.com/particle-iot/AndroidBLEExample) from Github.
+- Tested with Android Studio Flamingo, but should work with other versions.
+- [Enable developer options](https://developer.android.com/studio/run/device) on your Android device (the emulator cannot be used with BLE).
+- Follow the instructions in the README of the AndroidBLEExample repository.
+- It is OK to upgrade the Android Gradle Plug-in using the automatic tool.
 - Flash the "fixed mobile secret firmware" above to Particle P2, Photon 2, or Argon.
 
 The Android sample app does not handle scanning the data matrix code on the device. The fixed mobile secret firmware sets it to `AAAAAAAAAAAAAAA` (15 of the uppercase letter A).
@@ -205,9 +217,6 @@ private final String mobileSecret = "AAAAAAAAAAAAAAA";
 
 - Run the application on your Android device.
 - You will need to allow precise location, because access to local BLE devices requires this.
-
-
-
 
 
 ## USB setup
