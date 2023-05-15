@@ -1,14 +1,16 @@
 ---
-title: Wi-Fi setup
+title: Wi-Fi setup options
 columns: two
 layout: commonTwo.hbs
-description: Wi-Fi setup
+description: Wi-Fi setup options
 includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-projects, api-helper-protobuf, api-helper-usb, api-helper-extras, api-helper-tickets, webdfu, zip]
 ---
 
 # {{title}}
 
-This page includes information on how to set up Wi-Fi on fleets of P2, Photon 2, or Argon devices. If you are interested in setting up a single device, see [setup options](/getting-started/setup/setup-options).
+This page includes information on how to set up Wi-Fi on P2, Photon 2, or Argon devices that are used by your customers who are using a product that you have created on the Particle platform. 
+
+If you are interested in setting up a single device for your own software development, see [setup options](/getting-started/setup/setup-options).
 
 ### Provisioning mode
 
@@ -16,12 +18,12 @@ BLE provisioning mode is an alternative to listening mode (blinking dark blue) t
 
 - You will typically use custom service UUIDs, so your mobile app will only see devices with your firmware, not other Particle developer kits.
 - Likewise, other products' mobile apps won't see your devices.
-- Customizable device names and company ID.
+- Customizable device names and company ID (full white-label).
 
 Unlike listening mode (blinking dark blue), BLE provisioning mode:
 
 - Can run concurrently with your user firmware, allowing your mobile app to communicate directly with the device over BLE without putting the device in a specific mode.
-- This also means that Wi-Fi credentials can be reconfigured without requiring an external button.
+- Wi-Fi credentials can be reconfigured without requiring an external button.
 - Does not interrupt the cloud connection if used after connecting to the cloud.
 
 In order to use BLE provisioning mode, you must already have added the device to your product and flashed your user firmware to it. The onboarding process will typically be:
@@ -29,25 +31,14 @@ In order to use BLE provisioning mode, you must already have added the device to
 - Add the Device IDs you will be using to your product. When you order in tray or reel quantities from the Particle wholesale store you will be emailed this list.
 - Flash your product firmware to your devices by USB or SWD/JTAG.
 
-Additionally, you will need something for your customers to configure their Wi-Fi credentials. There are a number of options:
+Additionally, you will need something for your customers to configure their Wi-Fi credentials. There are a number of options described in this document:
 
-- Particle React Native sample application for iOS and Android
-- Custom iOS native sample application
-- Custom Android native sample application
-- WebUSB based browser application (does not work on iOS)
+- [React Native sample application](#react-native-example) for iOS and Android
+- [iOS native sample application](#ios-native-example)
+- [Android native sample application](#android-native-example)
+- [WebUSB-based browser application](#usb-setup) (does not work on iOS)
 
 Note that the Particle mobile apps cannot be used with BLE provisioning mode. The older Photon device setup SDKs for iOS and Android only work with the Photon and P1 using SoftAP and do not work with BLE-based setup.
-
-Unlike the previous Particle mobile setup experience, BLE provisioning works differently:
-
-| BLE Provisioning | Old Particle mobile apps |
-| :---: | :---: |
-| Device added to a product in advance | No product support  |
-| Flash firmware and Device OS in advance | Flash firmware and Device OS by BLE |
-| Use with unclaimed product devices | Claim to a developer account |
-| Cloud API calls made from your back-end | Cloud API calls made directly from mobile app |
-
-Note that these are recommendations; if you wish to use two-legged customer accounts you can do so, however there is no built-in support for doing so.
 
 
 ## Setup protocol overview
@@ -66,13 +57,15 @@ In BLE terminology, the Particle device is the BLE peripheral, which accepts con
 
 ### Device name
 
-By default, the device name that appears in the BLE advertising packet is something like "P Series-AB123X". The last 6 characters match the last 6 characters of the serial number, which is printed on the serial number sticker and also encoded in the data matrix code on the label.
+By default, the device name that appears in the BLE advertising packet is something like "P Series-AB123X". The last 6 characters match the last 6 characters of the serial number, which is printed on the serial number sticker and also encoded in the data matrix code (looks similar to a QR code) on the label.
 
 Imagine you are in a classroom with many people configuring their devices at the same time. This makes sure the correct device is selected when there are multiple devices in BLE range.
 
-You can set a custom name base, such as your company or product name by changing a setting in the DCT (configuration flash). 
+You can set a custom name base, such as your company or product name instead of "P Series" by changing a setting in the DCT (configuration flash). 
 
 You can also set the entire name to a fixed string from your product firmware, eliminating the serial number part. If you do not expect your customers to be configuring multiple devices in close proximity, this can simplify the setup experience by eliminating the need to scan the data matrix sticker if you also use a fixed mobile secret, as described in the next section.
+
+It is also possible to use a fixed mobile secret and a custom name base, but still including the last 6 characters of the serial number. This is useful if you think your customers may be configuring multiple devices in close proximity, but you do not want to implement scanning of the data matrix code. In this scenario, the customer only needs to type a 6-character alphanumeric code (the last 6 characters of the serial number), which you could easily put on a sticker on the outside of your product.
 
 ### Encryption
 
@@ -82,11 +75,13 @@ The encryption key is includes the device mobile secret. By default, this is def
 
 It's also possible to specify a mobile secret in device firmware. This could be used to set all of your product devices to be the same mobile secret. This is not recommended for security reasons, but in some applications it may be desireable to trade the additional security for the simplicity of not having to scan the data matrix sticker from your mobile app.
 
+Even with a fixed mobile secret the connection is still encrypted, it's just that it uses an encryption key that is stored in the user firmware binary, so it theoretically could be extracted.
+
 ### Control requests
 
 Finally, the act of getting the list of Wi-Fi networks and configuring the Wi-Fi credentials is done using control requests. These are request and response binary packets that are encoded using protobufs.
 
-On Particle devices, control requests can be made of encrypted BLE, and also can be done over USB using the same control request format. There are many control requests defined that include many features beyond Wi-Fi configuration.
+On Particle devices, control requests can be made over encrypted BLE, and also can be done over USB using the same control request format. There are many control requests defined that include many features beyond Wi-Fi configuration.
 
 There is also an application-defined control request. This allows your application to implement a custom control request handler that accepts requests either from BLE or USB. This is handy if you need to configure things beyond the Particle-defined control requests. You define your own payload; we recommend using JSON for it as it's often easier to handle than protobufs. The Tracker uses this to allow control functions like enter shipping mode to be made by USB, BLE, or by Particle.function.
 
@@ -108,9 +103,7 @@ Previously, on the Photon and P1, setup could be done in listening mode (blinkin
 
 We highly recommend that you limit customer device setup to only setting Wi-Fi credentials.
 
-Previously, when using the Device Setup SDK for iOS and Android, Wi-Fi setup was mixed in with device firmware upgrade and device claiming. 
-
-Claiming makes the process significantly more complicated because of the need to manage customer accounts and access tokens. Product devices no longer need to be claimed, so eliminating this step saves a lot of effort.
+Previously, the device setup SDK mixed in Particle account creation, device claiming, and access token management with Wi-Fi credential setting. This significantly increased the complexity of the setup process.
 
 Likewise, the [web-based Particle device setup](https://setup.particle.io/) and the old Particle mobile apps have features for upgrading Device OS. Instead, we recommend that you set up the devices ahead of time with the appropriate Device OS and firmware, which eliminates the need to include that functionality in the mobile app, and also makes the setup process significantly faster for your users.
 
@@ -122,9 +115,11 @@ Instead, we recommend that you handle authenticating your users entirely in your
 
 This also makes it significantly easier to use a combination of mobile app and web app, depending on what your customers prefer to use.
 
-### Provisioning settings
+Note that these are recommendations; if you wish to use two-legged customer accounts and send Particle API calls directly from your mobile app you can do so, however there is no built-in support.
 
-There are a number of configurable parameters needed for device provisioning:
+### BLE Provisioning settings
+
+There are a number of configurable parameters needed for device provisioning over BLE:
 
 - BLE service UUIDs. These are embedded in the device firmware and also in your mobile app. Changing these settings prevents other mobile apps from being able to interact with your devices.
 
