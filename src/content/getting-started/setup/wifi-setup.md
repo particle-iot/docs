@@ -12,7 +12,7 @@ This page includes information on how to set up Wi-Fi on fleets of P2, Photon 2,
 
 ### Provisioning mode
 
-BLE provisioning mode is an alternative to listening mode (blinking dark blue) which allows customization of the user experience. For example:
+BLE provisioning mode is an alternative to listening mode (blinking dark blue) that allows customization of the user experience. For example:
 
 - You will typically use custom service UUIDs, so your mobile app will only see devices with your firmware, not other Particle developer kits.
 - Likewise, other products' mobile apps won't see your devices.
@@ -32,15 +32,15 @@ In order to use BLE provisioning mode, you must already have added the device to
 Additionally, you will need something for your customers to configure their Wi-Fi credentials. There are a number of options:
 
 - Particle React Native sample application for iOS and Android
-- Custom iOS native application
-- Custom Android native application
+- Custom iOS native sample application
+- Custom Android native sample application
 - WebUSB based browser application (does not work on iOS)
 
 Note that the Particle mobile apps cannot be used with BLE provisioning mode. The older Photon device setup SDKs for iOS and Android only work with the Photon and P1 using SoftAP and do not work with BLE-based setup.
 
 Unlike the previous Particle mobile setup experience, BLE provisioning works differently:
 
-| BLE Provisioning | Old Particle mobile setup |
+| BLE Provisioning | Old Particle mobile apps |
 | :---: | :---: |
 | Device added to a product in advance | No product support  |
 | Flash firmware and Device OS in advance | Flash firmware and Device OS by BLE |
@@ -56,13 +56,23 @@ If you are using one of the standard examples you probably don't need to dig thi
 
 ### BLE connection
 
-The setup process is based on BLE 5 (Bluetooth LE) but does not depend on BLE pairing. It does encrypt the information, but using an application layer encryption, not BLE pairing (like LESC).
+The setup process is based on BLE 5 (Bluetooth LE) but does not depend on BLE pairing. It does encrypt the information, but using an application layer encryption, not BLE pairing, such as LESC pairing.
 
-The setup process uses a BLE service which has three characteristics (tx, rx, and version). The standard listening mode setup on the Argon, P2, and Photon 2 has a set of service and characteristic UUIDs, which are all 128 bit unique IDs. This allows the BLE configuration service to be detected by your BLE client (mobile app, computer with BLE, etc.).
+The setup process uses a BLE service that has three characteristics (tx, rx, and version). The standard listening mode setup on the Argon, P2, and Photon 2 has a set of service and characteristic UUIDs, which are all 128 bit unique IDs. This allows the BLE configuration service to be detected by your BLE client (mobile app, computer with BLE, etc.).
 
 It is also possible to customize these UUIDs when using BLE provisioning mode. This is useful for custom products because it means your BLE client will only see your product devices, not random Particle developer kits.
 
 In BLE terminology, the Particle device is the BLE peripheral, which accepts connections for configuration and implements a service. Your mobile app is the BLE central.
+
+### Device name
+
+By default, the device name that appears in the BLE advertising packet is something like "P Series-AB123X". The last 6 characters match the last 6 characters of the serial number, which is printed on the serial number sticker and also encoded in the data matrix code on the label.
+
+Imagine you are in a classroom with many people configuring their devices at the same time. This makes sure the correct device is selected when there are multiple devices in BLE range.
+
+You can set a custom name base, such as your company or product name by changing a setting in the DCT (configuration flash). 
+
+You can also set the entire name to a fixed string from your product firmware, eliminating the serial number part. If you do not expect your customers to be configuring multiple devices in close proximity, this can simplify the setup experience by eliminating the need to scan the data matrix sticker if you also use a fixed mobile secret, as described in the next section.
 
 ### Encryption
 
@@ -70,7 +80,7 @@ Because setup does not rely on BLE pairing it has an encryption layer using the 
 
 The encryption key is includes the device mobile secret. By default, this is defined in the factory and is unique per-device. It's encoded in the data matrix code (which looks like a QR code) along with the serial number. Typically this code is scanned by the the camera in your mobile app. 
 
-It's also possible to specify a mobile secret in device firmware. This could be used to set all of your product devices to be the same mobile secret. This is not recommended for security reasons, but in some applications it may be desireable to trade the additional security for the simplicity of not having to scan the data matrix code. With a fixed mobile secret you typically do not need to scan the serial number sticker.
+It's also possible to specify a mobile secret in device firmware. This could be used to set all of your product devices to be the same mobile secret. This is not recommended for security reasons, but in some applications it may be desireable to trade the additional security for the simplicity of not having to scan the data matrix sticker from your mobile app.
 
 ### Control requests
 
@@ -79,6 +89,8 @@ Finally, the act of getting the list of Wi-Fi networks and configuring the Wi-Fi
 On Particle devices, control requests can be made of encrypted BLE, and also can be done over USB using the same control request format. There are many control requests defined that include many features beyond Wi-Fi configuration.
 
 There is also an application-defined control request. This allows your application to implement a custom control request handler that accepts requests either from BLE or USB. This is handy if you need to configure things beyond the Particle-defined control requests. You define your own payload; we recommend using JSON for it as it's often easier to handle than protobufs. The Tracker uses this to allow control functions like enter shipping mode to be made by USB, BLE, or by Particle.function.
+
+Since BLE provisioning mode work even when your application firmware is running, this provides a way for your mobile app to communicate with your devices over BLE, in addition to being able to communicate over the cloud.
 
 Additional information can be found in:
 
