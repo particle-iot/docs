@@ -119,6 +119,12 @@
         "dir": "power-management-faq",
         "title": "Power Management FAQ",
         "href": "/reference/device-os/power-management-faq/"
+      },
+      {
+        "dir": "wifi-setup-options",
+        "title": "Wi-Fi setup options",
+        "href": "/reference/device-os/wifi-setup-options/",
+        "internal": true
       }
     ],
     {
