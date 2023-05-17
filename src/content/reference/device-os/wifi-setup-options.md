@@ -41,9 +41,9 @@ Additionally, you will need something for your customers to configure their Wi-F
 - [React Native sample application](#react-native-example) for iOS and Android
 - [iOS native sample application](#ios-native-example)
 - [Android native sample application](#android-native-example)
-- [WebUSB-based browser application](#usb-setup) (does not work on iOS)
+- [From a web browser using WebUSB](#usb-setup) (does not work on iOS)
 
-Note that the Particle mobile apps cannot be used with BLE provisioning mode. The older Photon device setup SDKs for iOS and Android only work with the Photon and P1 using SoftAP and do not work with BLE-based setup.
+The Particle mobile apps cannot be used after BLE provisioning mode has been enabled. The older Photon device setup SDKs for iOS and Android only work with the Photon and P1 using SoftAP and do not work with BLE-based setup.
 
 
 ## Setup protocol overview
@@ -93,14 +93,14 @@ Since BLE provisioning mode works even when your application firmware is running
 Additional information can be found in:
 
 - [Device OS header listing all control request types](https://github.com/particle-iot/device-os/blob/develop/system/inc/system_control.h)
-- [particle-usb library](https://github.com/particle-iot/particle-usb) which implements control requests for node.js (also available in npm) and browser-based WebUSB
+- [particle-usb library](https://github.com/particle-iot/particle-usb) which implements control requests for node.js and browser-based WebUSB
 
 
 ### Listening mode
 
 You can still use listening mode (blinking dark blue) with the P2, Photon 2, and Argon, when connecting by USB, if it has not been disabled. For example, the `particle serial wifi` command can be used from the Particle CLI to configure Wi-Fi credentials. The newer control request method is generally preferred, however, because of the increased flexibility and robustness. Typically when BLE provisioning mode is enabled, listening mode is disabled, so you will generally want to select one or the other.
 
-The [Device Restore USB](/tools/device-restore/device-restore-usb/) tool reenables listening mode, as well as flashing Device OS and Tinker-compatible firmware.
+The [Web Device Doctor](/tools/doctor/) tool will reenables listening mode, flash Device OS, and flash Tinker-compatible firmware to a device.
 
 Previously, on the Photon and P1, setup could be done in listening mode (blinking dark blue) using USB serial (CDC) or by SoftAP, which allows setup over Wi-Fi. Setup over Wi-Fi from a mobile device is somewhat cumbersome because you need to use the mobile device Wi-Fi configuration settings to select a different Wi-Fi network. SoftAP is not available on newer devices.
 
@@ -174,6 +174,9 @@ private final UUID versionCharUUID = UUID.fromString("6e400024-b5a3-f393-e0a9-e5
 ### Provisioning firmware
 
 Make sure the version of Device OS on your device matches the version you have targeted when compiling provisioning firmware. If Device OS needs an upgrade, and your device does not yet have Wi-Fi credentials, it cannot go online to upgrade Device OS OTA. In this case, the device will go into blinking dark blue (listening mode), and your provisioning firmware will not run, so you won't be able to configure credentials in BLE provisioning mode. In production, we recommend flashing Device OS, bootloader, and your product firmware at the same time over USB or SWD/JTAG to prevent this scenario.
+
+- Device OS 5.3.1 or later is recommended on the P2 and Photon 2
+- Device OS 3.3.0 or later is required on the Argon
 
 #### Standard mobile secret firmware
 
