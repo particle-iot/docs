@@ -3131,7 +3131,7 @@
         {
           "num": 5,
           "name": "LIPO",
-          "desc": "Connect to + pin on the LiPo battery, 3.6V maximum",
+          "desc": "Connect to + pin on the LiPo battery, 4.2V maximum",
           "isPower": true
         },
         {
@@ -6039,7 +6039,7 @@
         {
           "num": 5,
           "name": "LIPO",
-          "desc": "Connect to + pin on the LiPo battery, 3.6V maximum",
+          "desc": "Connect to + pin on the LiPo battery, 4.2V maximum",
           "isPower": true
         },
         {

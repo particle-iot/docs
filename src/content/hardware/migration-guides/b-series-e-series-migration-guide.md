@@ -1177,7 +1177,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | :--- | :--- |
 | Pin Number | 5|
 | Pin Name | LIPO|
-| Description | Connect to + pin on the LiPo battery, 3.6V maximum|
+| Description | Connect to + pin on the LiPo battery, 4.2V maximum|
 #### MISO
 | | Added to B Series SoM |
 | :--- | :--- |

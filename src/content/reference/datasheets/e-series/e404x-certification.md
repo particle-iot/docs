@@ -444,7 +444,7 @@ It cannot be programmed by the ST-LINK/V2.
 | 2 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 3 | VBUS | Connect to VBUS power pin on the USB port | &nbsp; |
 | 4 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
-| 5 | LIPO | Connect to + pin on the LiPo battery, 3.6V maximum | &nbsp; |
+| 5 | LIPO | Connect to + pin on the LiPo battery, 4.2V maximum | &nbsp; |
 | 6 | NC | Do not connect to anything | &nbsp; |
 | 7 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 8 | PMID | Connected to the PMID pin of the PMIC (may change) | &nbsp; |

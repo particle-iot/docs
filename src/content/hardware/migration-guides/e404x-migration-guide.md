@@ -505,7 +505,7 @@ No pin functions have been added to previously unused (NC) pins.
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | LIPO|
-| Description | Connect to + pin on the LiPo battery, 3.6V maximum|
+| Description | Connect to + pin on the LiPo battery, 4.2V maximum|
 #### Module Pin 6 (NC)
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
