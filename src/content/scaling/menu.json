@@ -58,6 +58,11 @@
         "href": "/scaling/quick-start-guide/billing/"
       },
       {
+        "dir": "enterprise-sso",
+        "title": "Enterprise Single Sign On (SSO)",
+        "href": "/scaling/quick-start-guide/enterprise-sso/"
+      },
+      {
         "dir": "enterprise-order-placement",
         "title": "Enterprise Order Placement",
         "href": "/scaling/quick-start-guide/enterprise-order-placement/"
