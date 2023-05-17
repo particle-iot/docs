@@ -221,6 +221,16 @@ apiHelper.parseDeviceLine = async function(line) {
             }
             result.serial = token;
         }
+        else {
+            if (token.match(/[A-Z]{2}[A-Za-z0-9]+/)) {
+                // Allow things that might be a serial instead of ignoring them
+                if (!result) {
+                    result = {};
+                }
+                result.serial = token;    
+            }
+        }
+
         // Possibly add support for mobile secret here
     }
     return result;
