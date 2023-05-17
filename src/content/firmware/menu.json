@@ -81,6 +81,11 @@
         "dir": "scheduling",
         "title": "Scheduling",
         "href": "/firmware/best-practices/scheduling/"
+      },
+      {
+        "dir": "firmware-build-options",
+        "title": "Firmware build options",
+        "href": "/firmware/best-practices/firmware-build-options/"
       }
     ],
     {
