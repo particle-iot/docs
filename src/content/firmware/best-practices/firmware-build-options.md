@@ -56,7 +56,7 @@ This option is recommended if:
 - You want to do builds locally and not depend on a cloud service like the Particle cloud compilers or a Github actions runner
 - You want to assure that every build is completely clean and does not have any remnants of previous builds
 
-Essentially, the Docker buildpack is a container for building user firmware for a specific platform (boron, bsom, p2, etc.) and Device OS version. It contains the compiler, make, and other tools that are necessary and does not depend on any locally installed tools (except Docker). It contains the pre-built Device OS user firmware stubs so it does not need to build all of Device OS from source.
+The Docker buildpack is a container image for building user firmware for a specific platform (boron, bsom, p2, etc.) and Device OS version. It contains the compiler, make, and other tools that are necessary and does not depend on any locally installed tools (except Docker). It contains the pre-built Device OS user firmware stubs so it does not need to build all of Device OS from source.
 
 This is actually how the cloud compiler works. When you cloud compile, it spins up a container to run your build, saves the built firmware binary, then deletes the container.
 
@@ -82,6 +82,10 @@ The parameters to a buildpack build are:
 - The image name (specific to a Device OS version and platform)
 - The container name (optional)
 
+**Buildpacks were developed for Particle internal purposes.**
+
+Buildparks are actively utilized within Particle and are available to be used by Particle customers. There could be changes in the future that may affect your build scripts, however.
+
 ### Source preparation
 
 There are two important caveats to building using a buildpack:
@@ -101,7 +105,7 @@ If you are using Particle Workbench, this is easy because `particle library copy
 
 Download the container image. For example:
 
-```
+```html
 docker pull particle/buildpack-particle-firmware:5.3.1-p2
 ```
 
@@ -110,7 +114,7 @@ docker pull particle/buildpack-particle-firmware:5.3.1-p2
 
 The download will take 30 seconds to a minute or two, and the image is around 2 GB.
 
-This step requires the Internet, of course, but Docker has the ability to save and load these images to your local disk using `docker save` and `docker load` so you could do this completely offline, once you downloaded the container image once.
+This step requires the Internet, of course, but Docker has the ability to save and load these images to your local disk using `docker save` and `docker load` so you can copy the image completely offline, using a USB drive, for example, once you downloaded the container image once.
 
 | Platform | PLATFORM_ID | Notes |
 | :--- | :---: | :--- | 
@@ -135,12 +139,12 @@ You use the `docker run` command to start a new container and run the build in i
 | `--name=`*name* | Name of the container (optional) |
 | `-v `*local_path*`:/input` | Path to the source directory, must be an absolute path |
 | `-v `*output_path*`:/output` | Path to the output directory, must be an absolute path |
-| `-e PLATFORM_ID=*numeric_platform_id* | The numberic platform ID you are building for |
+| `-e PLATFORM_ID=`*numeric_platform_id* | The numeric platform ID you are building for |
 | *image_name* | The name of the image file |
 
 For example:
 
-```
+```html
 docker run --name=compile-0001 -v /Users/rick/Documents/src/BlinkLed:/input -v /Users/rick/Documents/src/build-test/output:/output -e PLATFORM_ID=32 particle/buildpack-particle-firmware:5.3.1-p2
 ```
 
@@ -152,14 +156,14 @@ When the build is complete, you'll find your firmware binary in the output direc
 
 You'll also find `memory_use.log` which contains output you may be familiar with from the Web IDE.
 
-```
+```html
    text    data     bss     dec     hex filename
    5570     124    2854    8548    2164 /workspace/target/workspace.elf
 ```
 
-Once you've copied the firmware.bin from the output directory, you can delete the container.
+You can now delete the container:
 
-```
+```html
 docker rm compile-0001
 ```
 
