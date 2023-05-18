@@ -70,10 +70,10 @@ Please pay attention to the polarity of the JST-PH LiPo connector. Not all LiPo 
 ![LiPo Polarity](/assets/images/lipo-polarity.png)
 
 #### Li+ pin
-This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Argon. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
+This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Photon 2. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
 
 #### 3V3 PIN
-This pin is the output of the on board 3.3V step-down switching regulator. The regulator is rated at 500mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Argon first. This pin can also be used to power the Argon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
+This pin is the output of the on board 3.3V step-down switching regulator. The regulator is rated at 500mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Photon 2 first. Unlike the Photon, this pin _CANNOT_ be used to power the Photon 2.
 
 #### EN pin
 
@@ -783,6 +783,8 @@ SE, SI, SK, TR, UA, UK(NI).
 |     | 2023-04-28 | RK | Add conformal coating and flux notes |
 |     | 2023-05-05 | RK | Update available RAM |
 |     | 2023-05-08 | RK | Added VBAT_MEAS and CHG to block diagram |
+|     | 2023-05-18 | RK | Add warning that the Photon 2 cannot be powered by 3V3 |
+
 
 ## Known errata
 

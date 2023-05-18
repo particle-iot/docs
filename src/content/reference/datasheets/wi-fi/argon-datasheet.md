@@ -94,7 +94,7 @@ Please pay attention to the polarity of the LiPo connector. Not all LiPo batteri
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Argon. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
 
 #### 3V3 PIN
-This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Argon first. This pin can also be used to power the Argon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
+This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Argon first. Unlike the Photon, this pin _CANNOT_ be used to power the Argon.
 
 #### EN pin
 
@@ -497,6 +497,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v007     | 28-Jul-2021 | RK | Corrected number of SPI ports (2) in peripherals and GPIO |
 | v008     | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 | v009     | 14-Mar-2022 | RK | Added deprecation notice |
+| v010     | 18-May-2023 | RK | Add warning that the Argon cannot be powered by 3V3 |
 
 ## Known errata
 
