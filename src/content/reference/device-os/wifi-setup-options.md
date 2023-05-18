@@ -132,7 +132,7 @@ There are a number of configurable parameters needed for device provisioning ove
 
 - Mobile secret. Every Particle device has a mobile secret written to it at the factory. It's also printed on in the data matrix code (similar to a QR code) on the serial number sticker. This is used for secure communication over BLE between your mobile app, which has presumably scanned the data matrix code, and the device, which already knows its mobile secret stored in flash memory. You can, however, configure the mobile secret to be a single pre-shared secret across all of your product devices. This is less secure, since an attacker who is nearby, knows the pre-shared secret, and is listening at the time of Wi-Fi configuration, could intercept and decrypt the communications. 
 
-If multiple users setting up your product in close proximity is unlikely, and the highest level of security is not necessary, setting both a constant device name and mobile secret eliminates the need to scan the serial number sticker, which may be desirable trade-off for user setup simplicity.
+If multiple users setting up your product in close proximity is unlikely, and the highest level of security is not necessary, setting both a constant device name and mobile secret eliminates the need to scan the serial number sticker or enter a 6-character code. The downside of this is that users will be able to configure any of your products at any time from your mobile app. In order to prevent being able to configure devices of other of your customers, you would need to add additional safety checks, preferably both in firmware and your mobile app.
 
 This is what the service UUIDs look like in the Particle device firmware:
 
@@ -170,6 +170,24 @@ private final UUID rxCharUUID = UUID.fromString("6e400023-b5a3-f393-e0a9-e50e24d
 private final UUID versionCharUUID = UUID.fromString("6e400024-b5a3-f393-e0a9-e50e24dcca9e");
 ```
 
+### Comparison
+
+| Method       | Secret  | Unique ID  | Scan    | Listening | Multiple | Details |
+| :----------- | :-----: | :--------: | :-----: | :-------: | :------: | :--- |
+| Factory      | &check; | &check;    | &check; | &check;   | &check;  | Most secure |
+| Provisioning | &check; | &check;    | &check; |           | &check;  | Does not require mode change |
+| Fixed Secret |         | &check;    |         |           | &check;  | Requires entering 6 character code |
+| Fixed ID     |         |            |         |           |          | Can configure any nearby device |
+
+
+Column definitions:
+
+- Secret: Uses unique mobile secret on device, read by scanning the data matrix code on the serial number label
+- Unique ID: Requires the last 6 characters of the serial number for configuration, either by entering it, or by scanning the data matrix sticker
+- Scan: Requires scanning the data matrix sticker
+- Listening: Requires being in listening mode (blinking dark blue)
+- Multiple: Scan set up multiple devices in close proximity, such as in a classroom
+
 
 ### Provisioning firmware
 
@@ -196,6 +214,7 @@ This example shows how to use a fixed mobile secret. In this case it's set to `A
 
 {{> project-browser project="ble-provisioning3" default-file="src/ble-provisioning3.cpp" height="400" flash="true" options="gen3" target=">=3.3"}}
 
+Using both a fixed mobile secret and a fixed device name is not recommended because it allows anyone who knows both the device name and mobile secret to control any of your devices, including those of other customers of your product, via BLE, unless you add additional safety checks to your firmware and mobile app.
 
 ## React native example
 
