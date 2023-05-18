@@ -26437,6 +26437,84 @@
                 2646,
                 2647
             ]
+        },
+        "v5.3.2": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.3.2",
+            "tag_name": "v5.3.2",
+            "name": "v5.3.2 (Argon/Boron/B SoM/B5 SoM/Tracker/Tracker M/E SoM X/P2)",
+            "prerelease": false,
+            "created_at": "2023-05-16T18:17:06Z",
+            "published_at": "2023-05-18T20:15:26Z",
+            "entries": [
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2654
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "SPI and GPIO HAL changes to support Neopixel"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2651
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Implement WiFi.selectAntenna"
+                },
+                {
+                    "tags": [
+                        "nRF52"
+                    ],
+                    "prs": [
+                        2652
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "UART sleep/wakeup"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2649
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix Wifi stack issues"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2650
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE scanning panic"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2653
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Fix burnin GPIO and SPI Flash tests for photon 2"
+                }
+            ],
+            "prs": [
+                2649,
+                2650,
+                2651,
+                2652,
+                2653,
+                2654
+            ]
         }
     },
     "pulls": {
@@ -38823,6 +38901,53 @@
             "title": "Device OS 5.3.1 Release",
             "state": "closed",
             "created_at": "2023-04-11T19:37:13Z"
+        },
+        "2649": {
+            "url": "https://github.com/particle-iot/device-os/pull/2649",
+            "number": 2649,
+            "title": "[rtl872x] hal: wifi stack stopping to work issue",
+            "state": "closed",
+            "created_at": "2023-04-17T15:14:54Z"
+        },
+        "2650": {
+            "url": "https://github.com/particle-iot/device-os/pull/2650",
+            "number": 2650,
+            "title": "[rtl872x] BLE scanning panic",
+            "state": "closed",
+            "created_at": "2023-04-18T08:39:31Z",
+            "detail": "BLE scanning may finally panic after running for a long time, bacause of corrupted BLE stack."
+        },
+        "2651": {
+            "url": "https://github.com/particle-iot/device-os/pull/2651",
+            "number": 2651,
+            "title": "[rtl872x] Implement WiFi.selectAntenna",
+            "state": "closed",
+            "created_at": "2023-04-18T23:36:33Z",
+            "detail": "`WiFi.selectAntenna()` is not implemented for P2"
+        },
+        "2652": {
+            "url": "https://github.com/particle-iot/device-os/pull/2652",
+            "number": 2652,
+            "title": "[nRF52] UART sleep/wakeup",
+            "state": "closed",
+            "created_at": "2023-04-24T16:49:29Z",
+            "detail": "Device wakes up immediately if uart is confirgured as wakeup source and the uart has received data before sleep."
+        },
+        "2653": {
+            "url": "https://github.com/particle-iot/device-os/pull/2653",
+            "number": 2653,
+            "title": "[rtl872x] Fix burnin GPIO and SPI Flash tests for photon 2",
+            "state": "closed",
+            "created_at": "2023-05-02T22:43:49Z",
+            "detail": "Both the GPIO and SPI Flash burn in tests fail on Photon 2 test jig\nAdditionally, GPIO tests were failing due to logical efuse data reads being incorrect and not returning an error code."
+        },
+        "2654": {
+            "url": "https://github.com/particle-iot/device-os/pull/2654",
+            "number": 2654,
+            "title": "[rtl872x] spi_hal / gpio_hal changes for neopixel",
+            "state": "closed",
+            "created_at": "2023-05-10T22:03:43Z",
+            "detail": "Desirable to add P2 / Photon 2 platform support in the NeoPixel library."
         }
     }
 }
