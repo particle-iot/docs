@@ -99,7 +99,13 @@
         "dir": "wpa2-enterprise",
         "title": "WPA2 Enterprise Wi-Fi Setup",
         "href": "/getting-started/setup/wpa2-enterprise/"
+      },
+      {
+        "dir": "wifi-setup-options",
+        "title": "Wi-Fi setup for products",
+        "href": "/reference/device-os/wifi-setup-options/"
       }
+
     ],
     {
       "dir": "device-os",

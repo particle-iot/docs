@@ -12,6 +12,9 @@ We highly recommend using the [web-based setup](https://setup.particle.io/) as i
 
 Note that these instructions are intended to be used to set up individual developer devices, not product fleets, though there are some common steps.
 
+If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-Fi setup options](/reference/device-os/wifi-setup-options/).
+
+
 ## Prerequisites 
 
 - Manual setup requires a Windows, Linux, or Mac computer. It cannot be completed on a phone, tablet, or Chromebook.
