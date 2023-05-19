@@ -12,10 +12,6 @@ This page includes information on how to set up Wi-Fi on P2, Photon 2, or Argon 
 
 If you are interested in setting up a single device for your own software development, see [setup options](/getting-started/setup/setup-options).
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is a pre-release version of the document, and some of the repositories that it links to are not public yet.
-{{box op="end"}}
-
 ### Provisioning mode
 
 BLE provisioning mode is an alternative to listening mode (blinking dark blue) that allows customization of the user experience. For example:
