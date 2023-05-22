@@ -17376,11 +17376,13 @@ Specifies wake on pin. The mode is:
 
 You can use `.gpio()` multiple times to wake on any of multiple pins, with the limitations below.
 
-If you are using `RISING` mode, then an internal pull-down, equivalent to `INPUT_PULLDOWN` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices.
+If you are using `RISING` mode, then an internal pull-down, equivalent to `INPUT_PULLDOWN` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices. It varies depending on the pin on the P2 and Photon 2.
 
-If you are using `FALLING` mode, then an internal pull-up, equivalent to `INPUT_PULLUP` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices.
+If you are using `FALLING` mode, then an internal pull-up, equivalent to `INPUT_PULLUP` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices. It varies depending on the pin on the P2 and Photon 2.
 
-This pull can be an issue if you are connecting the wake pin to a voltage divider! Using `CHANGE` mode does not add pull and can be used to work around this. Make sure the pin is not left floating when using `CHANGE`.
+If you are using `CHANGE` mode, then pull is removed prior to sleep, even if you explictly added it using `pinMode()` and `INPUT_PULLUP` or `INPUT_PULLDOWN`. Make sure the pin is not left floating when using `CHANGE`. 
+
+This pull can be an issue if you are connecting the wake pin to a voltage divider! Using `CHANGE` mode does not add pull and can be used to work around this. There are pins on the P2 and Photon 2 that have 2.1K internal pull resistors that can easily overpower your voltage divider resistors.
 
 ---
 
