@@ -7,7 +7,7 @@
   "attributes": {
     "name": "test-library-publish",
     "version": "0.0.2",
-    "installs": 204,
+    "installs": 247,
     "license": "MIT",
     "author": "Joe Goggins <joe@particle.io>",
     "sentence": "A simple library that illustrates coding conventions of a Spark Library",

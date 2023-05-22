@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RTClibrary",
     "version": "1.2.1",
-    "installs": 21763,
+    "installs": 23769,
     "author": "Adafruit",
     "sentence": "A fork of Jeelab's fantastic RTC library",
     "paragraph": "A fork of Jeelab's fantastic RTC library",

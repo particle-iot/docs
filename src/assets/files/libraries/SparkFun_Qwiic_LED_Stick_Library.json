@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_LED_Stick_Library",
     "version": "1.0.5",
-    "installs": 170,
+    "installs": 215,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Library for the SparkFun Qwiic LED Stick",

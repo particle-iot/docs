@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunAS726X",
     "version": "1.0.0",
-    "installs": 650,
+    "installs": 699,
     "author": "Andrew England",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "A library to drive the AMS AS726X NIR/VIS Spectrum Sensor",

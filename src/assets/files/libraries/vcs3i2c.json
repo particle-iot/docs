@@ -7,7 +7,7 @@
   "attributes": {
     "name": "vcs3i2c",
     "version": "0.1.0",
-    "installs": 2774,
+    "installs": 2813,
     "author": "Tinovi",
     "sentence": "Arduino i2c sensor moisture sensor library",
     "repository": "https://github.com/tinovi/i2cArduino",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DiagnosticsHelperRK",
     "version": "0.0.2",
-    "installs": 26174,
+    "installs": 26385,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Functions for accessing diagnostics data on-device",

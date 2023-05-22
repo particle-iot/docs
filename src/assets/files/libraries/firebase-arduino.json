@@ -7,7 +7,7 @@
   "attributes": {
     "name": "firebase-arduino",
     "version": "1.0.0",
-    "installs": 240,
+    "installs": 320,
     "author": "firebase",
     "architectures": [],
     "visibility": "public",
@@ -113,6 +113,106 @@
             "usage": false
           },
           "boron": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "boron": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "bsom": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "b5som": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "tracker": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "p2": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "boron": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "bsom": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "b5som": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "tracker": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false,
+            "usage": false
+          },
+          "esomx": {
             "FirebaseCloudMessaging_Send_ESP8266": false,
             "FirebaseDemo_ESP8266": false,
             "FirebaseNeoPixel_ESP8266": false,

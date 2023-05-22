@@ -7,7 +7,7 @@
   "attributes": {
     "name": "uuidV4",
     "version": "1.0.1",
-    "installs": 921,
+    "installs": 1029,
     "license": "MIT",
     "author": "Micah L Abelson",
     "sentence": "A Particle library to create version 4 universally unique identifier (UUID)",

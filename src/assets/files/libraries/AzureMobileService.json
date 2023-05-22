@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AzureMobileService",
     "version": "0.0.3",
-    "installs": 360,
+    "installs": 409,
     "license": "GPL",
     "author": "Brian Sherwin <github:bsherwin>; Paul DeCarlo <github:toolboc>; Bill Fink <github:WhatsTheBigIT>",
     "sentence": "Simplify getting data to Azure Mobile Services",

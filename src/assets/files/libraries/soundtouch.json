@@ -7,7 +7,7 @@
   "attributes": {
     "name": "soundtouch",
     "version": "0.1.3",
-    "installs": 272,
+    "installs": 338,
     "license": "MIT",
     "author": "mattbornski",
     "sentence": "Bose Soundtouch discovery and control on local network",

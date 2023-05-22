@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SHT31",
     "version": "1.0.1",
-    "installs": 7121,
+    "installs": 7172,
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
     "sentence": "Arduino library to control Grove SHT31 Temp Humi Sensor.",

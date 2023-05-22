@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Particle-WebSockets",
     "version": "2.0.8",
-    "installs": 569,
+    "installs": 618,
     "author": "emcniece <emcniece@gmail.com>",
     "sentence": "WebSockets for Arduino (Server + Client)",
     "paragraph": "use 2.x.x for ESP and 1.3 for AVR",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_FRAM_SPI",
     "version": "1.1.1",
-    "installs": 527,
+    "installs": 575,
     "author": "ladyada",
     "architectures": [],
     "visibility": "public",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkJson",
     "version": "0.0.2",
-    "installs": 219927,
+    "installs": 220552,
     "license": "Choose a license",
     "author": "bblanchon",
     "sentence": "JSON library Ported from @bblanchon",

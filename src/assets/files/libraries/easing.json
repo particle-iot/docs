@@ -7,7 +7,7 @@
   "attributes": {
     "name": "easing",
     "version": "0.0.2",
-    "installs": 102,
+    "installs": 324,
     "license": "CC BY-SA 4.0",
     "author": "Chuan Khoo",
     "sentence": "Easing library port of the Arduino Easing Library by Anthony Brown.",
@@ -49,8 +49,63 @@
           "boron": {
             "basic": false
           }
+        },
+        "5.0.1": {
+          "argon": {
+            "basic": false
+          },
+          "boron": {
+            "basic": false
+          },
+          "bsom": {
+            "basic": false
+          },
+          "b5som": {
+            "basic": false
+          },
+          "tracker": {
+            "basic": false
+          },
+          "p2": {
+            "basic": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "basic": false
+          },
+          "boron": {
+            "basic": false
+          },
+          "bsom": {
+            "basic": false
+          },
+          "b5som": {
+            "basic": false
+          },
+          "tracker": {
+            "basic": false
+          },
+          "esomx": {
+            "basic": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "basic": false
+          },
+          "electron": {
+            "basic": false
+          },
+          "argon": {
+            "basic": false
+          },
+          "boron": {
+            "basic": false
+          }
         }
-      }
+      },
+      "added": "2023-05-19T20:12:58.760Z"
     }
   },
   "readme": "# easing\n\nEasing library port of the Arduino Easing Library (Anthony Brown), for the Particle platform.\n\nThe Arduino Easing library itself is an AVR port of the original ActionScript easing functions (Robert Penner). For those of you who used to develop heavily in AS2/AS3, this will be very familiar to you as the Tweener classes. For more background and examples of the easing functions go to: http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/\n\n## Usage\n\nRefer to the basic example for a method that uses the [SparkIntervalTimer](https://github.com/pkourany/SparkIntervalTimer) library to trigger easing updates at regular time intervals. This is just one method to have time-accurate easing setup in your Particle device / Arduino.\n\nIt is up to you to implement your own approach to timing intervals, reversal (i.e. palindrome/yoyo animation); the role of this easing library is to calculate easing curve values.\n\nSee the [examples](examples) folder for more details.\n\n_TODO: more examples_\n\n## Documentation\n\nImport the library. Use the Particle library management interface to do this.\n\n```\n#include \"easing.h\"\n```\n\nInstantiate an easing class according to your preference:\n```\nSineEase easeObj;\n```\n\nBesides a sine ease, you can also choose from:\n\n```\nBackEase easeObj;\nBounceEase easeObj;\nCircularEase easeObj;\nCubicEase easeObj;\nElasticEase easeObj;\nExponentialEase easeObj;\nLinearEase easeObj;\nQuadraticEase easeObj;\nQuarticEase easeObj;\nQuinticEase easeObj;\n```\n(Refer to http://andybrown.me.uk/2010/12/05/animation-on-the-arduino-with-easing-functions/ on what each easing type does)\n\nInitialise the easing object by defining the duration, in seconds, needed of the easing operation. Typically this is done in `setup()` or anywhere in your code right before the easing is triggered:\n```\neaseObj.setDuration(EASE_DUR);\n```\n\nNext, define the magnitude of the easing range. This consequently determines the resolution of the easing function along with setDuration. Depending on use case, a good starting range is 100. This means your easing function will output values from 0.0 to 100.0. Setting setDuration to 1 will give you a normalised range (0. to 1.), although you will lose PLENTY of resolution.\n\n```\neaseObj.setTotalChangeInPosition(100);\n```\n\nFinally, calculate the eased position by calling the easeIn / easeOut / easeInOut function. This is typically called in some looping / animation routine in your code:\n```\neasedPosition = easeObj.easeInOut(t);\n```\n(where `easedPosition` is a previously declared double to store the eased range, and `t` is a fractional increment between 0.0 and EASE_DUR (set in `setDuration`)).\n\n## Additional Functions\n\nTwo of the easing methods allow further configuration:\n\n### BackEase\n__setOvershoot(NUMBER)__  \nset the overshoot value. The higher the value the greater the overshoot.\n\n### ElasticEase\n__setPeriod(NUMBER)__  \nset the period.  \n\n__setAmplitude(NUMBER)__  \nset the amplitude.\n\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add easing_myname` to add the library to a project on your machine or add the easing_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.\n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nArduino Easing Library Copyright 2010 Andy Brown.\n\nThe contents of this repository is a derivative of Andy Brown's Arduino Easing Library.\nCopyright 2017 Chuan Khoo\n\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.\nhttps://creativecommons.org/licenses/by-sa/4.0/\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD8Relay",
     "version": "1.0.0",
-    "installs": 8022,
+    "installs": 8094,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 8 channel Spark compatible Relay Controller",

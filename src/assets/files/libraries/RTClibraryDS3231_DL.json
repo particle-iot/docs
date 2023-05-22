@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RTClibraryDS3231_DL",
     "version": "1.14.2",
-    "installs": 2703,
+    "installs": 3866,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "A fork of Jeelab's fantastic RTC library",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Custom_SSD1306",
     "version": "1.0.3",
-    "installs": 5685,
+    "installs": 5780,
     "author": "Tomais Williamson",
     "sentence": "A wrapper for the SSD1306 series of OLED displays",
     "architectures": [],

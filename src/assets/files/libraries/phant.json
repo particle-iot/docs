@@ -7,7 +7,7 @@
   "attributes": {
     "name": "phant",
     "version": "0.0.4",
-    "installs": 231,
+    "installs": 307,
     "license": "GPL v3",
     "author": "Romain MP <romain.mp@gmail.com>",
     "sentence": "A simple library to send data to a Phant server",
@@ -50,8 +50,63 @@
           "boron": {
             "phant": true
           }
+        },
+        "5.0.1": {
+          "argon": {
+            "phant": true
+          },
+          "boron": {
+            "phant": true
+          },
+          "bsom": {
+            "phant": true
+          },
+          "b5som": {
+            "phant": true
+          },
+          "tracker": {
+            "phant": true
+          },
+          "p2": {
+            "phant": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "phant": true
+          },
+          "boron": {
+            "phant": true
+          },
+          "bsom": {
+            "phant": true
+          },
+          "b5som": {
+            "phant": true
+          },
+          "tracker": {
+            "phant": true
+          },
+          "esomx": {
+            "phant": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "phant": true
+          },
+          "electron": {
+            "phant": true
+          },
+          "argon": {
+            "phant": true
+          },
+          "boron": {
+            "phant": true
+          }
         }
-      }
+      },
+      "added": "2023-05-19T20:32:42.538Z"
     }
   },
   "readme": "About\n===\n\nThis library is based on [Phant-Arduino](https://github.com/sparkfun/phant-arduino)\n\nThis library use Spark firmware [TCPClient library](http://docs.spark.io/firmware/#communication-tcpclient) to send resquests to a Phant server.\nSuccess or failure is not currently validated.\n\nSpark Libraries can be used in the [Spark IDE](https://www.spark.io/build).\n_Soon_ you'll also be able to use them with the [Spark CLI](https://github.com/spark/spark-cli) and when compiling firmware locally with [Spark core-firmware](https://github.com/spark/core-firmware).\n\n## Usage\n\n## TODO\n* Add more documentation\n* Add example scripts\n* Testing\n",

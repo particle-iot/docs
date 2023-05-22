@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NDEF-MFRC522",
     "version": "2.1.2",
-    "installs": 562,
+    "installs": 622,
     "license": "BSD License",
     "author": "Aaron Roller<aaron.roller@aawhere.com>,Don Coleman <don.coleman@gmail.com>",
     "maintainer": "Aaron Roller <aaron.roller@aawhere.com> ",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "freertos4core",
     "version": "0.2.0",
-    "installs": 2919,
+    "installs": 2964,
     "license": "GPLv3",
     "author": "mdma <mat dot mcgowan+spark at gmail dot com>",
     "sentence": "Adds FreeRTOS (multithreading, timers, queues, mutexes etc.) to the Core. Requires system firmware version 0.4.6 or later.",

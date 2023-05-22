@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LSM9DS1",
     "version": "1.0.1",
-    "installs": 1451,
+    "installs": 1499,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for LSM9DS1 9-DOF sensor board.",

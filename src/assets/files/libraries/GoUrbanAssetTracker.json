@@ -7,7 +7,7 @@
   "attributes": {
     "name": "GoUrbanAssetTracker",
     "version": "0.0.10",
-    "installs": 88,
+    "installs": 131,
     "license": "LGPL",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "Functions to make the Asset Tracker for Electron easy to use!",

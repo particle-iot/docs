@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SwitchFramFeatherRK",
     "version": "0.0.1",
-    "installs": 22,
+    "installs": 66,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Demo board with DIP and BCD switches, and FRAM non-volatile memory",
     "url": "https://github.com/rickkas7/SwitchFramFeatherRK",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TrackerWiFiLocatorTestRK",
     "version": "0.0.1",
-    "installs": 79,
+    "installs": 125,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for using Google Maps Device Locator Integration",

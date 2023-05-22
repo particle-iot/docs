@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EthernetCellularRK",
     "version": "0.0.3",
-    "installs": 1342,
+    "installs": 1672,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Ethernet with cellular backup for Particle devices",

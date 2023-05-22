@@ -7,7 +7,7 @@
   "attributes": {
     "name": "beta-cube-library-v31",
     "version": "0.3.1",
-    "installs": 1016,
+    "installs": 1055,
     "license": "MIT",
     "author": "Alex Hornstein & Owen Trueblood (Text by Hape, included in library by Werner Moecke)",
     "sentence": "Controls an LED Cube",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SdCardLogHandlerRK",
     "version": "0.1.0",
-    "installs": 22934,
+    "installs": 23310,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "LogHandler for writing log messages to an micro SD card using the SdFat library",

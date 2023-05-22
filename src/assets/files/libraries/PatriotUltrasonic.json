@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotUltrasonic",
     "version": "2.0.0",
-    "installs": 370,
+    "installs": 438,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to support ultrasonic proximity detectors.",

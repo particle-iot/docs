@@ -7,7 +7,7 @@
   "attributes": {
     "name": "cwop-particle",
     "version": "0.0.10",
-    "installs": 420,
+    "installs": 462,
     "license": "See associated license file",
     "author": "Andrew Keyser <legoguy@gmail.com>",
     "sentence": "CWOP weather data reporting library for Particle Core, Photon, Electron and P1.",

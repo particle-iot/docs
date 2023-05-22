@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel__spark_internet_button",
     "version": "0.0.5",
-    "installs": 1039,
+    "installs": 1089,
     "license": "GNU GPLv3",
     "author": "Adafruit, Technobly, Gregoryfenton",
     "sentence": "An Implementation of Adafruit's NeoPixel Library for the Spark Core Spark Internet Button",

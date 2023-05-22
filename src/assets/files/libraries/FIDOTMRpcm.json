@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FIDOTMRpcm",
     "version": "1.0.0",
-    "installs": 247,
+    "installs": 312,
     "author": "C Guy",
     "architectures": [],
     "visibility": "public",
@@ -91,6 +91,82 @@
             "usage": true
           },
           "boron": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "boron": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "bsom": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "b5som": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "tracker": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "p2": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "boron": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "bsom": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "b5som": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "tracker": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "esomx": {
             "basic": false,
             "music": false,
             "progmem": false,

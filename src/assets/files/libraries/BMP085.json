@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BMP085",
     "version": "2.0.0",
-    "installs": 1684,
+    "installs": 1748,
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
     "sentence": "Arduino library to control Grove Barometer Sensor BMP085/BMP180.",

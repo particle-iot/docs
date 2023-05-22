@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MDNS",
     "version": "2.0.0",
-    "installs": 21921,
+    "installs": 22066,
     "license": "MIT",
     "author": "Mark Hornsby <me@markhornsby.uk>",
     "sentence": "Support for multicast name and DNS service registration",

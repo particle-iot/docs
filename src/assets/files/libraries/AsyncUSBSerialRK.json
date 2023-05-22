@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AsyncUSBSerialRK",
     "version": "0.0.1",
-    "installs": 2,
+    "installs": 47,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Asynchronous USB Serial (CDC) for the Particle P2 and Photon 2",

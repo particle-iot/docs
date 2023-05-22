@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Twist_Arduino_Library",
     "version": "1.0.3",
-    "installs": 135,
+    "installs": 215,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic Twist Digital Encoder",

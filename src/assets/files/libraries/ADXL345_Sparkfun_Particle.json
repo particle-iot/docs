@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADXL345_Sparkfun_Particle",
     "version": "1.0.0",
-    "installs": 1296,
+    "installs": 2445,
     "author": "Rob Parke",
     "sentence": "Particle library for the Sparkfun ADXL345 Accelerometer",
     "paragraph": "Particle library for the Sparkfun ADXL345 Accelerometer based on the Sparkfun library for Arduino",

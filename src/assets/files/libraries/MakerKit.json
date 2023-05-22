@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MakerKit",
     "version": "1.2.0",
-    "installs": 8155,
+    "installs": 8241,
     "license": "BSD",
     "author": "Owen Smithyman",
     "sentence": "A library with examples for each Particle Maker Kit tutorial.",

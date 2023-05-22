@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_ChainableLED",
     "version": "1.0.2",
-    "installs": 52607,
+    "installs": 54222,
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
     "sentence": "Particle library to control Grove_ChainableLED.",

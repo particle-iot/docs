@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WaveshareEPaper29b",
     "version": "0.0.2",
-    "installs": 1631,
+    "installs": 1676,
     "license": "MIT",
     "author": "Yehui from Waveshare (port ScruffR)",
     "sentence": "Support for the Waveshare 2.9\" EPaper Module B (white/black/red)",

@@ -2,21 +2,19 @@
   "type": "libraries",
   "id": "ADXL362DMA",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/ADXL362DMA/archive/0.0.5.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/ADXL362DMA/archive/0.0.6.tar.gz"
   },
   "attributes": {
     "name": "ADXL362DMA",
-    "version": "0.0.5",
-    "installs": 3838,
+    "version": "0.0.6",
+    "installs": 3889,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "ADXL362 accelerometer driver with SPI DMA support",
     "url": "https://github.com/rickkas7/ADXL362DMA",
     "repository": "https://github.com/rickkas7/ADXL362DMA.git",
     "architectures": [
-      "particle-photon",
-      " particle-p1",
-      " particle-electron"
+      "*"
     ],
     "visibility": "public",
     "mine": false
@@ -111,10 +109,144 @@
         }
       },
       "added": "2022-06-17T10:16:53.833Z"
+    },
+    "0.0.6": {
+      "added": "2023-05-19T19:38:21.128Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "boron": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "bsom": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "b5som": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "tracker": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "p2": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "boron": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "bsom": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "b5som": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "tracker": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "esomx": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "electron": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "argon": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "boron": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "electron": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "argon": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          },
+          "boron": {
+            "1-simple-ADXL362DMA": true,
+            "2-fifo-ADXL362DMA": true,
+            "3-tcp-ADXL362DMA": false,
+            "4-rollpitch-ADXL362DMA": true
+          }
+        }
+      }
     }
   },
-  "readme": "# ADXL362DMA\n*Library for ADXL362 accelerometer that uses SPI DMA for efficient transfers*\n\nThe ADXL362 is an inexpensive 3-DOF ultra-low power accelerometer. It can do movement detection from rest continuously at 270 nA (yes, nano-amps!) and also has a large FIFO that makes it possible to buffer samples while the processor is busy or even sleeping.\n\nData sheet:\nhttp://www.analog.com/media/en/technical-documentation/data-sheets/ADXL362.pdf\n\n\n",
+  "readme": "# ADXL362DMA\n*Library for ADXL362 accelerometer that uses SPI DMA for efficient transfers*\n\nThe ADXL362 is an inexpensive 3-DOF ultra-low power accelerometer. It can do movement detection from rest continuously at 270 nA (yes, nano-amps!) and also has a large FIFO that makes it possible to buffer samples while the processor is busy or even sleeping. \n\nThe GY362 is a compatible version of the ADXL362 and also works with this library.\n\n- [Github repository](https://github.com/rickkas7/ADXL362DMA)\n- License: MIT (free for use in open or closed source projects, including commercial products)\n- [Datasheet](http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL362.pdf)\n- [Full browsable API documentation](https://rickkas7.github.io/ADXL362DMA/index.html)\n\n## Usage\n\n### Hardware connections\n\nThis library uses the ADXL362 in SPI mode.\n\n![Breadboard](images/accel.png)\n\n| Breakout | Particle Device | Color | Description |\n| :---: | :---: | :---: | :---: |\n| VIN  | 3V3 | Red | 3.3V DC Power |\n| GND  | GND | Black | Ground |\n| SCL / SCLK  | Orange | SPI CLK |\n| SDA / MOSI / SDI  | Blue | SPI MOSI |\n| SDO / MISO |  Green | SPI MISO |\n| CS   | A2 | Yellow | SPI Chip Select |\n| INT2 | n/c | | Interrupt 2 (not used) |\n| INT1 | n/c | | Interrupt 1 (not used) |\n\n\n### Software\n\nInstantiate a global object for the accelerometer. The first parameter is the SPI bus amd the second is the CS line.\n\n```cpp\nADXL362DMA accel(SPI, A2);\n```\n\nInitialize the chip:\n\n```cpp\naccel.softReset();\nwhile(accel.readStatus() == 0) {\n    Log.info(\"no status yet, waiting for accelerometer\");\n    delay(1000);\n}\n```\n\nEnable measuring mode (it boots into standby mode):\n\n```cpp\naccel.setMeasureMode(true);\n```\n}\n\nRead data. There is also a function to read roll and pitch data instead of raw data, see example 4-rollpitch.\n\n```cpp\nint16_t x, y, z;\n\naccel.readXYZ(x, y, z);\n\nSerial.printlnf(\"%5d %5d %5d\", (int)x, (int)y, (int)z);\n```\n\n",
   "allVersions": [
+    "0.0.6",
     "0.0.5",
     "0.0.4"
   ]

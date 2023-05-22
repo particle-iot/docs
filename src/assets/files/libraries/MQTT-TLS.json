@@ -2,12 +2,12 @@
   "type": "libraries",
   "id": "MQTT-TLS",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/MQTT-TLS/archive/0.2.25.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/MQTT-TLS/archive/0.2.26.tar.gz"
   },
   "attributes": {
     "name": "MQTT-TLS",
-    "version": "0.2.25",
-    "installs": 74977,
+    "version": "0.2.26",
+    "installs": 76237,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/MQTT-TLS",
@@ -173,10 +173,104 @@
         }
       },
       "added": "2022-06-17T10:16:53.672Z"
+    },
+    "0.2.26": {
+      "added": "2023-05-19T19:23:39.376Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "bsom": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "b5som": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "tracker": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "p2": {
+            "a1-example": true,
+            "a2-example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "bsom": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "b5som": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "tracker": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "esomx": {
+            "a1-example": true,
+            "a2-example": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "a1-example": false,
+            "a2-example": false
+          },
+          "electron": {
+            "a1-example": false,
+            "a2-example": false
+          },
+          "argon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "a1-example": false,
+            "a2-example": false
+          },
+          "electron": {
+            "a1-example": false,
+            "a2-example": false
+          },
+          "argon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          }
+        }
+      }
     }
   },
-  "readme": "# MQTT-TLS for Photon, Spark Core\n<a href=\"http://mqtt.org/\" target=_blank>MQTT</a> publish/subscribe TLS library for Photon, Spark Core. This library based <a href=\"https://github.com/hirotakaster/MQTT\">MQTT for Photon, Spark Core</a> and mbedTLS 3.1.0/2.28.0/2.16.3.\n\n\n## Requirement\n* Argon, Boron firmware version over 3.1.0 and later could use the MQTT-TLS 0.2.24, 0.2.25.\n* Other Platform target is MQTT-TLS 0.2.23(mbedTLS 2.16.3).\n\n## Chiper List(default settings)\nmbedTLS 2.28.0, 3.1.0\n* ECDHE|DHE, RSA|ECDSA, CHACHA20_POLY_1305|AES[128|256], GCM,CCM[|_8],CBC,SHA[|256|384],\n\nmbedTLS 2.16.3\n* TLS_RSA_WITH_AES_[128|256]_GCM_SHA[1|256|512]\n* TLS_ECDHE_ECDSA_WITH_AES_[128|256]_GCM_SHA[385|256]\n* TLS_EMPTY_RENOGOTIATION_INFO_SCSV\n\n\n## Source Code\nThis lightweight library source code are only 2 files. firmware -> MQTT-TLS.cpp, MQTT-TLS.h.\n\nApplication can use QOS0,1,2 and retain flag when send a publish message.\n\nThis library tested on test.mosquitto.org, mqtt.eclipse.org, AWS IoT Gateway, Google IoT Core, Azure IoT Hub MQTT servers.\n\n\n## Example\nSome sample sketches for Spark Core and Photon included(firmware/examples/).\n - a1-example.ino\t: simple pub/sub sample. \n \n```C++\n\n#include \"MQTT-TLS.h\"\n\nvoid callback(char* topic, byte* payload, unsigned int length);\n\n#define LET_ENCRYPT_CA_PEM                                              \\\n\"-----BEGIN CERTIFICATE----- \\r\\n\"                                      \\\n\"MIIFjTCCA3WgAwIBAgIRANOxciY0IzLc9AUoUSrsnGowDQYJKoZIhvcNAQELBQAw\\r\\n\"  \\\n\"TzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2Vh\\r\\n\"  \\\n\"cmNoIEdyb3VwMRUwEwYDVQQDEwxJU1JHIFJvb3QgWDEwHhcNMTYxMDA2MTU0MzU1\\r\\n\"  \\\n\"WhcNMjExMDA2MTU0MzU1WjBKMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNTGV0J3Mg\\r\\n\"  \\\n\"RW5jcnlwdDEjMCEGA1UEAxMaTGV0J3MgRW5jcnlwdCBBdXRob3JpdHkgWDMwggEi\\r\\n\"  \\\n\"MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCc0wzwWuUuR7dyXTeDs2hjMOrX\\r\\n\"  \\\n\"NSYZJeG9vjXxcJIvt7hLQQWrqZ41CFjssSrEaIcLo+N15Obzp2JxunmBYB/XkZqf\\r\\n\"  \\\n\"89B4Z3HIaQ6Vkc/+5pnpYDxIzH7KTXcSJJ1HG1rrueweNwAcnKx7pwXqzkrrvUHl\\r\\n\"  \\\n\"Npi5y/1tPJZo3yMqQpAMhnRnyH+lmrhSYRQTP2XpgofL2/oOVvaGifOFP5eGr7Dc\\r\\n\"  \\\n\"Gu9rDZUWfcQroGWymQQ2dYBrrErzG5BJeC+ilk8qICUpBMZ0wNAxzY8xOJUWuqgz\\r\\n\"  \\\n\"uEPxsR/DMH+ieTETPS02+OP88jNquTkxxa/EjQ0dZBYzqvqEKbbUC8DYfcOTAgMB\\r\\n\"  \\\n\"AAGjggFnMIIBYzAOBgNVHQ8BAf8EBAMCAYYwEgYDVR0TAQH/BAgwBgEB/wIBADBU\\r\\n\"  \\\n\"BgNVHSAETTBLMAgGBmeBDAECATA/BgsrBgEEAYLfEwEBATAwMC4GCCsGAQUFBwIB\\r\\n\"  \\\n\"FiJodHRwOi8vY3BzLnJvb3QteDEubGV0c2VuY3J5cHQub3JnMB0GA1UdDgQWBBSo\\r\\n\"  \\\n\"SmpjBH3duubRObemRWXv86jsoTAzBgNVHR8ELDAqMCigJqAkhiJodHRwOi8vY3Js\\r\\n\"  \\\n\"LnJvb3QteDEubGV0c2VuY3J5cHQub3JnMHIGCCsGAQUFBwEBBGYwZDAwBggrBgEF\\r\\n\"  \\\n\"BQcwAYYkaHR0cDovL29jc3Aucm9vdC14MS5sZXRzZW5jcnlwdC5vcmcvMDAGCCsG\\r\\n\"  \\\n\"AQUFBzAChiRodHRwOi8vY2VydC5yb290LXgxLmxldHNlbmNyeXB0Lm9yZy8wHwYD\\r\\n\"  \\\n\"VR0jBBgwFoAUebRZ5nu25eQBc4AIiMgaWPbpm24wDQYJKoZIhvcNAQELBQADggIB\\r\\n\"  \\\n\"ABnPdSA0LTqmRf/Q1eaM2jLonG4bQdEnqOJQ8nCqxOeTRrToEKtwT++36gTSlBGx\\r\\n\"  \\\n\"A/5dut82jJQ2jxN8RI8L9QFXrWi4xXnA2EqA10yjHiR6H9cj6MFiOnb5In1eWsRM\\r\\n\"  \\\n\"UM2v3e9tNsCAgBukPHAg1lQh07rvFKm/Bz9BCjaxorALINUfZ9DD64j2igLIxle2\\r\\n\"  \\\n\"DPxW8dI/F2loHMjXZjqG8RkqZUdoxtID5+90FgsGIfkMpqgRS05f4zPbCEHqCXl1\\r\\n\"  \\\n\"eO5HyELTgcVlLXXQDgAWnRzut1hFJeczY1tjQQno6f6s+nMydLN26WuU4s3UYvOu\\r\\n\"  \\\n\"OsUxRlJu7TSRHqDC3lSE5XggVkzdaPkuKGQbGpny+01/47hfXXNB7HntWNZ6N2Vw\\r\\n\"  \\\n\"p7G6OfY+YQrZwIaQmhrIqJZuigsrbe3W+gdn5ykE9+Ky0VgVUsfxo52mwFYs1JKY\\r\\n\"  \\\n\"2PGDuWx8M6DlS6qQkvHaRUo0FMd8TsSlbF0/v965qGFKhSDeQoMpYnwcmQilRh/0\\r\\n\"  \\\n\"ayLThlHLN81gSkJjVrPI0Y8xCVPB4twb1PFUd2fPM3sA1tJ83sZ5v8vgFv2yofKR\\r\\n\"  \\\n\"PB0t6JzUA81mSqM3kxl5e+IZwhYAyO0OTg3/fs8HqGTNKd9BqoUwSRBzp06JMg5b\\r\\n\"  \\\n\"rUCGwbCUDI0mxadJ3Bz4WxR6fyNpBK2yAinWEsikxqEt\\r\\n\"  \\\n\"-----END CERTIFICATE----- \"\nconst char letencryptCaPem[] = LET_ENCRYPT_CA_PEM;\n\n/**\n * if want to use IP address,\n * byte server[] = { XXX,XXX,XXX,XXX };\n * MQTT client(server, 1883, callback);\n * want to use domain name,\n * MQTT client(\"www.sample.com\", 1883, callback);\n * mqtt.eclipse.org is Eclipse Open MQTT Broker: https://iot.eclipse.org/getting-started\n **/\nMQTT client(\"mqtt.eclipse.org\", 8883, callback);\n\n// recieve message\nvoid callback(char* topic, byte* payload, unsigned int length) {\n    char p[length + 1];\n    memcpy(p, payload, length);\n    p[length] = NULL;\n    String message(p);\n\n    if (message.equals(\"RED\"))\n        RGB.color(255, 0, 0);\n    else if (message.equals(\"GREEN\"))\n        RGB.color(0, 255, 0);\n    else if (message.equals(\"BLUE\"))\n        RGB.color(0, 0, 255);\n    else\n        RGB.color(255, 255, 255);\n    delay(1000);\n}\n\n#define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)\nunsigned long lastSync = millis();\nvoid setup() {\n    if (millis() - lastSync > ONE_DAY_MILLIS) {\n        Particle.syncTime();\n        lastSync = millis();\n    }\n\n    RGB.control(true);\n\n    // enable tls. set Root CA pem file.\n    // if you don't use TLS, comment out this line.\n    client.enableTls(letencryptCaPem, sizeof(letencryptCaPem));\n    Serial.println(\"tls enable\");\n\n    // connect to the server\n    client.connect(\"sparkclient\");\n\n    // publish/subscribe\n    if (client.isConnected()) {\n        Serial.println(\"client connected\");\n        client.publish(\"outTopic/message\", \"hello world\");\n        client.subscribe(\"inTopic/message\");\n    }\n}\n\nvoid loop() {\n    if (client.isConnected())\n        client.loop();\n    delay(200);\n}\n\n```\n\n## Configure mbedTLS options\nDeveloper could easy to change the mbedTLS options (mbedtls/config.h) for application and firmware size. This library use a lot of Flash area for encryption method and limit to user application size. Because of that's developer could enable/disable the mbedTLS option with comment out the option parameters for the Flash spaces. When enable/disable the option parameter, it's carefully check the server/application TLS connectivity and security.\n\nHere is application firmware size(byte) and mbedTLS options on Particle Workbench(local compiler).\n\n| device | RSA/ECDSA,ECDH(default) | RSA only | remove SHA512 option |\n----|----|----|----\n| Argon(0.8.0.-rc27) | 90308 | 76964 | 70884 |\n| Photon(1.0.0) | 89492 | 76164 | 70100 |\n\nexp.1) If application use TLS_RSA_WITH_AES_256_GCM_SHA256 certification only, developer could comment out the following ECC/SHA512 options from mbedtls/config.h for Flash spaces.\nMBEDTLS_KEY_EXCHANGE_ECDHE_ECDSA_ENABLED,MBEDTLS_ASN1_WRITE_C,MBEDTLS_ECDH_C,MBEDTLS_ECDSA_C,MBEDTLS_ECP_C,MBEDTLS_SHA512_C\n\nexp.2) Here is the default config.h and config-mini.h application size comparison with a1-example.cpp on Particle Photon firmware version 1.0.1 build VScode local compiler.\n\nconfig.h\n\n|text|data|bss|de|hex|filename|\n----|----|----|----|----|----\n|89492|168|11896|101556|18cb4|a1-example.elf|\n\n\nconfig-mini.h\n\n|text|data|bss|de|hex|filename|\n----|----|----|----|----|----\n|66868|148|11736|78752|133a0|a1-example.elf|\n\n\n",
+  "readme": "# MQTT-TLS for Photon, Spark Core\r\n<a href=\"http://mqtt.org/\" target=_blank>MQTT</a> publish/subscribe TLS library for Photon, Spark Core. This library based <a href=\"https://github.com/hirotakaster/MQTT\">MQTT for Photon, Spark Core</a> and mbedTLS 3.1.0/2.28.0/2.16.3.\r\n\r\n\r\n## Requirement\r\n* Argon, Boron firmware version over 3.1.0 and later could use the MQTT-TLS 0.2.24, 0.2.25.\r\n* Other Platform target is MQTT-TLS 0.2.23(mbedTLS 2.16.3).\r\n\r\n## Chiper List(default settings)\r\nmbedTLS 2.28.0, 3.1.0\r\n* ECDHE|DHE, RSA|ECDSA, CHACHA20_POLY_1305|AES[128|256], GCM,CCM[|_8],CBC,SHA[|256|384],\r\n\r\nmbedTLS 2.16.3\r\n* TLS_RSA_WITH_AES_[128|256]_GCM_SHA[1|256|512]\r\n* TLS_ECDHE_ECDSA_WITH_AES_[128|256]_GCM_SHA[385|256]\r\n* TLS_EMPTY_RENOGOTIATION_INFO_SCSV\r\n\r\n\r\n## Source Code\r\nThis lightweight library source code are only 2 files. firmware -> MQTT-TLS.cpp, MQTT-TLS.h.\r\n\r\nApplication can use QOS0,1,2 and retain flag when send a publish message.\r\n\r\nThis library tested on test.mosquitto.org, mqtt.eclipse.org, AWS IoT Gateway, Google IoT Core, Azure IoT Hub MQTT servers.\r\n\r\n\r\n## Example\r\nSome sample sketches for Spark Core and Photon included(firmware/examples/).\r\n - a1-example.ino\t: simple pub/sub sample. \r\n \r\n```C++\r\n\r\n#include \"MQTT-TLS.h\"\r\n\r\nvoid callback(char* topic, byte* payload, unsigned int length);\r\n\r\n#define LET_ENCRYPT_CA_PEM                                              \\\r\n\"-----BEGIN CERTIFICATE----- \\r\\n\"                                      \\\r\n\"MIIFjTCCA3WgAwIBAgIRANOxciY0IzLc9AUoUSrsnGowDQYJKoZIhvcNAQELBQAw\\r\\n\"  \\\r\n\"TzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2Vh\\r\\n\"  \\\r\n\"cmNoIEdyb3VwMRUwEwYDVQQDEwxJU1JHIFJvb3QgWDEwHhcNMTYxMDA2MTU0MzU1\\r\\n\"  \\\r\n\"WhcNMjExMDA2MTU0MzU1WjBKMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNTGV0J3Mg\\r\\n\"  \\\r\n\"RW5jcnlwdDEjMCEGA1UEAxMaTGV0J3MgRW5jcnlwdCBBdXRob3JpdHkgWDMwggEi\\r\\n\"  \\\r\n\"MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCc0wzwWuUuR7dyXTeDs2hjMOrX\\r\\n\"  \\\r\n\"NSYZJeG9vjXxcJIvt7hLQQWrqZ41CFjssSrEaIcLo+N15Obzp2JxunmBYB/XkZqf\\r\\n\"  \\\r\n\"89B4Z3HIaQ6Vkc/+5pnpYDxIzH7KTXcSJJ1HG1rrueweNwAcnKx7pwXqzkrrvUHl\\r\\n\"  \\\r\n\"Npi5y/1tPJZo3yMqQpAMhnRnyH+lmrhSYRQTP2XpgofL2/oOVvaGifOFP5eGr7Dc\\r\\n\"  \\\r\n\"Gu9rDZUWfcQroGWymQQ2dYBrrErzG5BJeC+ilk8qICUpBMZ0wNAxzY8xOJUWuqgz\\r\\n\"  \\\r\n\"uEPxsR/DMH+ieTETPS02+OP88jNquTkxxa/EjQ0dZBYzqvqEKbbUC8DYfcOTAgMB\\r\\n\"  \\\r\n\"AAGjggFnMIIBYzAOBgNVHQ8BAf8EBAMCAYYwEgYDVR0TAQH/BAgwBgEB/wIBADBU\\r\\n\"  \\\r\n\"BgNVHSAETTBLMAgGBmeBDAECATA/BgsrBgEEAYLfEwEBATAwMC4GCCsGAQUFBwIB\\r\\n\"  \\\r\n\"FiJodHRwOi8vY3BzLnJvb3QteDEubGV0c2VuY3J5cHQub3JnMB0GA1UdDgQWBBSo\\r\\n\"  \\\r\n\"SmpjBH3duubRObemRWXv86jsoTAzBgNVHR8ELDAqMCigJqAkhiJodHRwOi8vY3Js\\r\\n\"  \\\r\n\"LnJvb3QteDEubGV0c2VuY3J5cHQub3JnMHIGCCsGAQUFBwEBBGYwZDAwBggrBgEF\\r\\n\"  \\\r\n\"BQcwAYYkaHR0cDovL29jc3Aucm9vdC14MS5sZXRzZW5jcnlwdC5vcmcvMDAGCCsG\\r\\n\"  \\\r\n\"AQUFBzAChiRodHRwOi8vY2VydC5yb290LXgxLmxldHNlbmNyeXB0Lm9yZy8wHwYD\\r\\n\"  \\\r\n\"VR0jBBgwFoAUebRZ5nu25eQBc4AIiMgaWPbpm24wDQYJKoZIhvcNAQELBQADggIB\\r\\n\"  \\\r\n\"ABnPdSA0LTqmRf/Q1eaM2jLonG4bQdEnqOJQ8nCqxOeTRrToEKtwT++36gTSlBGx\\r\\n\"  \\\r\n\"A/5dut82jJQ2jxN8RI8L9QFXrWi4xXnA2EqA10yjHiR6H9cj6MFiOnb5In1eWsRM\\r\\n\"  \\\r\n\"UM2v3e9tNsCAgBukPHAg1lQh07rvFKm/Bz9BCjaxorALINUfZ9DD64j2igLIxle2\\r\\n\"  \\\r\n\"DPxW8dI/F2loHMjXZjqG8RkqZUdoxtID5+90FgsGIfkMpqgRS05f4zPbCEHqCXl1\\r\\n\"  \\\r\n\"eO5HyELTgcVlLXXQDgAWnRzut1hFJeczY1tjQQno6f6s+nMydLN26WuU4s3UYvOu\\r\\n\"  \\\r\n\"OsUxRlJu7TSRHqDC3lSE5XggVkzdaPkuKGQbGpny+01/47hfXXNB7HntWNZ6N2Vw\\r\\n\"  \\\r\n\"p7G6OfY+YQrZwIaQmhrIqJZuigsrbe3W+gdn5ykE9+Ky0VgVUsfxo52mwFYs1JKY\\r\\n\"  \\\r\n\"2PGDuWx8M6DlS6qQkvHaRUo0FMd8TsSlbF0/v965qGFKhSDeQoMpYnwcmQilRh/0\\r\\n\"  \\\r\n\"ayLThlHLN81gSkJjVrPI0Y8xCVPB4twb1PFUd2fPM3sA1tJ83sZ5v8vgFv2yofKR\\r\\n\"  \\\r\n\"PB0t6JzUA81mSqM3kxl5e+IZwhYAyO0OTg3/fs8HqGTNKd9BqoUwSRBzp06JMg5b\\r\\n\"  \\\r\n\"rUCGwbCUDI0mxadJ3Bz4WxR6fyNpBK2yAinWEsikxqEt\\r\\n\"  \\\r\n\"-----END CERTIFICATE----- \"\r\nconst char letencryptCaPem[] = LET_ENCRYPT_CA_PEM;\r\n\r\n/**\r\n * if want to use IP address,\r\n * byte server[] = { XXX,XXX,XXX,XXX };\r\n * MQTT client(server, 1883, callback);\r\n * want to use domain name,\r\n * MQTT client(\"www.sample.com\", 1883, callback);\r\n * mqtt.eclipse.org is Eclipse Open MQTT Broker: https://iot.eclipse.org/getting-started\r\n **/\r\nMQTT client(\"mqtt.eclipse.org\", 8883, callback);\r\n\r\n// recieve message\r\nvoid callback(char* topic, byte* payload, unsigned int length) {\r\n    char p[length + 1];\r\n    memcpy(p, payload, length);\r\n    p[length] = NULL;\r\n    String message(p);\r\n\r\n    if (message.equals(\"RED\"))\r\n        RGB.color(255, 0, 0);\r\n    else if (message.equals(\"GREEN\"))\r\n        RGB.color(0, 255, 0);\r\n    else if (message.equals(\"BLUE\"))\r\n        RGB.color(0, 0, 255);\r\n    else\r\n        RGB.color(255, 255, 255);\r\n    delay(1000);\r\n}\r\n\r\n#define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)\r\nunsigned long lastSync = millis();\r\nvoid setup() {\r\n    if (millis() - lastSync > ONE_DAY_MILLIS) {\r\n        Particle.syncTime();\r\n        lastSync = millis();\r\n    }\r\n\r\n    RGB.control(true);\r\n\r\n    // enable tls. set Root CA pem file.\r\n    // if you don't use TLS, comment out this line.\r\n    client.enableTls(letencryptCaPem, sizeof(letencryptCaPem));\r\n    Serial.println(\"tls enable\");\r\n\r\n    // connect to the server\r\n    client.connect(\"sparkclient\");\r\n\r\n    // publish/subscribe\r\n    if (client.isConnected()) {\r\n        Serial.println(\"client connected\");\r\n        client.publish(\"outTopic/message\", \"hello world\");\r\n        client.subscribe(\"inTopic/message\");\r\n    }\r\n}\r\n\r\nvoid loop() {\r\n    if (client.isConnected())\r\n        client.loop();\r\n    delay(200);\r\n}\r\n\r\n```\r\n\r\n## Configure mbedTLS options\r\nDeveloper could easy to change the mbedTLS options (mbedtls/config.h) for application and firmware size. This library use a lot of Flash area for encryption method and limit to user application size. Because of that's developer could enable/disable the mbedTLS option with comment out the option parameters for the Flash spaces. When enable/disable the option parameter, it's carefully check the server/application TLS connectivity and security.\r\n\r\nHere is application firmware size(byte) and mbedTLS options on Particle Workbench(local compiler).\r\n\r\n| device | RSA/ECDSA,ECDH(default) | RSA only | remove SHA512 option |\r\n----|----|----|----\r\n| Argon(0.8.0.-rc27) | 90308 | 76964 | 70884 |\r\n| Photon(1.0.0) | 89492 | 76164 | 70100 |\r\n\r\nexp.1) If application use TLS_RSA_WITH_AES_256_GCM_SHA256 certification only, developer could comment out the following ECC/SHA512 options from mbedtls/config.h for Flash spaces.\r\nMBEDTLS_KEY_EXCHANGE_ECDHE_ECDSA_ENABLED,MBEDTLS_ASN1_WRITE_C,MBEDTLS_ECDH_C,MBEDTLS_ECDSA_C,MBEDTLS_ECP_C,MBEDTLS_SHA512_C\r\n\r\nexp.2) Here is the default config.h and config-mini.h application size comparison with a1-example.cpp on Particle Photon firmware version 1.0.1 build VScode local compiler.\r\n\r\nconfig.h\r\n\r\n|text|data|bss|de|hex|filename|\r\n----|----|----|----|----|----\r\n|89492|168|11896|101556|18cb4|a1-example.elf|\r\n\r\n\r\nconfig-mini.h\r\n\r\n|text|data|bss|de|hex|filename|\r\n----|----|----|----|----|----\r\n|66868|148|11736|78752|133a0|a1-example.elf|\r\n\r\n\r\n",
   "allVersions": [
+    "0.2.26",
     "0.2.25",
     "0.2.24",
     "0.2.23",

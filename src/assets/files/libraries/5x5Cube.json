@@ -7,7 +7,7 @@
   "attributes": {
     "name": "5x5Cube",
     "version": "0.0.11",
-    "installs": 89,
+    "installs": 311,
     "license": "MIT",
     "author": "Bryan Schremp <netnut@outlook.com>",
     "sentence": "A fork of the L3DCube Library for a 5x5x5 cube w/8mm through hole WS2812B LEDs.",
@@ -50,8 +50,63 @@
           "boron": {
             "blink": false
           }
+        },
+        "5.0.1": {
+          "argon": {
+            "blink": false
+          },
+          "boron": {
+            "blink": false
+          },
+          "bsom": {
+            "blink": false
+          },
+          "b5som": {
+            "blink": false
+          },
+          "tracker": {
+            "blink": false
+          },
+          "p2": {
+            "blink": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "blink": false
+          },
+          "boron": {
+            "blink": false
+          },
+          "bsom": {
+            "blink": false
+          },
+          "b5som": {
+            "blink": false
+          },
+          "tracker": {
+            "blink": false
+          },
+          "esomx": {
+            "blink": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "blink": false
+          },
+          "electron": {
+            "blink": false
+          },
+          "argon": {
+            "blink": false
+          },
+          "boron": {
+            "blink": false
+          }
         }
-      }
+      },
+      "added": "2023-05-19T20:31:04.729Z"
     }
   },
   "readme": "# 5X5Cube",

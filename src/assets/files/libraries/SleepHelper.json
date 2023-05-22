@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SleepHelper",
     "version": "0.0.4",
-    "installs": 58,
+    "installs": 108,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Library asynchronous publish with a file-based queue on Particle Gen 3 devices",

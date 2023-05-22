@@ -7,7 +7,7 @@
   "attributes": {
     "name": "homekit-relay-switch",
     "version": "0.0.1",
-    "installs": 90,
+    "installs": 304,
     "architectures": [],
     "visibility": "public",
     "mine": false
@@ -18,7 +18,8 @@
   "versions": {
     "0.0.1": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2023-05-19T20:34:19.817Z"
     }
   },
   "readme": "# Deprecated\n\nPlease see library `particle-hap`.\n",

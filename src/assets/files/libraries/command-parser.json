@@ -7,7 +7,7 @@
   "attributes": {
     "name": "command-parser",
     "version": "0.0.2",
-    "installs": 87,
+    "installs": 311,
     "license": "MIT",
     "author": "Daniel Sundberg <daniel.sundberg@gmail.com>",
     "sentence": "Multi command parser for use with Spark.function()",
@@ -50,8 +50,63 @@
           "boron": {
             "example": false
           }
+        },
+        "5.0.1": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "p2": {
+            "example": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "esomx": {
+            "example": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
         }
-      }
+      },
+      "added": "2023-05-19T20:31:42.776Z"
     }
   },
   "readme": "command-parser\n==============\n\ncommand parser for use with Spark.function()\n",

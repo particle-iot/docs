@@ -7,7 +7,7 @@
   "attributes": {
     "name": "google-maps-device-locator",
     "version": "0.0.7",
-    "installs": 191083,
+    "installs": 194335,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for using Google Maps Device Locator Integration",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SF_CCS811",
     "version": "1.2.0",
-    "installs": 5956,
+    "installs": 6000,
     "author": "Bre Tuck",
     "architectures": [],
     "visibility": "public",

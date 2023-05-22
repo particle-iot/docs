@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD_Ethernet_Overlay",
     "version": "1.0.1",
-    "installs": 3241,
+    "installs": 3307,
     "license": "MIT",
     "author": "Travis Elliott w NCD.io",
     "sentence": "Library for use with NCD Particle Ethernet Overlay.",

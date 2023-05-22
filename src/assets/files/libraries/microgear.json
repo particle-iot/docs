@@ -7,7 +7,7 @@
   "attributes": {
     "name": "microgear",
     "version": "1.2.2",
-    "installs": 244,
+    "installs": 311,
     "author": "Chavee",
     "architectures": [],
     "visibility": "public",
@@ -58,6 +58,46 @@
             "Basic": false
           },
           "boron": {
+            "Basic": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Basic": false
+          },
+          "boron": {
+            "Basic": false
+          },
+          "bsom": {
+            "Basic": false
+          },
+          "b5som": {
+            "Basic": false
+          },
+          "tracker": {
+            "Basic": false
+          },
+          "p2": {
+            "Basic": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Basic": false
+          },
+          "boron": {
+            "Basic": false
+          },
+          "bsom": {
+            "Basic": false
+          },
+          "b5som": {
+            "Basic": false
+          },
+          "tracker": {
+            "Basic": false
+          },
+          "esomx": {
             "Basic": false
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ard-stdlib",
     "version": "1.0.0",
-    "installs": 664,
+    "installs": 948,
     "license": "GPL-3.0 License.",
     "author": "Vladimir Talybin",
     "sentence": "Type traits and utilities from C++17/20/23 and experimental TS.",

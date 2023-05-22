@@ -248,6 +248,119 @@
             }
           }
         }
+      },
+      "1.0.3": {
+        "added": "2023-05-19T19:05:47.925Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "boron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "bsom": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "b5som": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "tracker": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "p2": {
+              "a-rainbow": false,
+              "extra-examples": false,
+              "rgbw-strandtest": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "boron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "bsom": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "b5som": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "tracker": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "esomx": {
+              "a-rainbow": false,
+              "extra-examples": false,
+              "rgbw-strandtest": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "electron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "argon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "boron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "electron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "argon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "boron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            }
+          }
+        }
       }
     }
   },
@@ -2008,6 +2121,259 @@
       },
       "6.21.0": {
         "added": "2023-03-21T14:53:24.368Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "bsom": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "b5som": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "tracker": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "p2": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "bsom": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "b5som": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "tracker": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "esomx": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          }
+        }
+      },
+      "6.21.2": {
+        "added": "2023-05-19T19:11:21.618Z",
         "builds": {
           "5.0.1": {
             "argon": {
@@ -8098,6 +8464,99 @@
           }
         },
         "added": "2022-06-17T10:16:53.672Z"
+      },
+      "0.2.26": {
+        "added": "2023-05-19T19:23:39.376Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "boron": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "bsom": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "b5som": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "tracker": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "p2": {
+              "a1-example": true,
+              "a2-example": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "boron": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "bsom": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "b5som": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "tracker": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "esomx": {
+              "a1-example": true,
+              "a2-example": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "electron": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "argon": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "boron": {
+              "a1-example": true,
+              "a2-example": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "electron": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "argon": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "boron": {
+              "a1-example": true,
+              "a2-example": true
+            }
+          }
+        }
       }
     }
   },
@@ -36591,6 +37050,139 @@
           }
         },
         "added": "2022-06-17T10:16:53.833Z"
+      },
+      "0.0.6": {
+        "added": "2023-05-19T19:38:21.128Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "boron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "bsom": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "b5som": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "tracker": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "p2": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "boron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "bsom": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "b5som": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "tracker": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "esomx": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "electron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "argon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "boron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "electron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "argon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "boron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            }
+          }
+        }
       }
     }
   },
@@ -81100,6 +81692,46 @@
             "boron": {
               "XivelyLibSample": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "XivelyLibSample": false
+            },
+            "boron": {
+              "XivelyLibSample": false
+            },
+            "bsom": {
+              "XivelyLibSample": false
+            },
+            "b5som": {
+              "XivelyLibSample": false
+            },
+            "tracker": {
+              "XivelyLibSample": false
+            },
+            "p2": {
+              "XivelyLibSample": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "XivelyLibSample": false
+            },
+            "boron": {
+              "XivelyLibSample": false
+            },
+            "bsom": {
+              "XivelyLibSample": false
+            },
+            "b5som": {
+              "XivelyLibSample": false
+            },
+            "tracker": {
+              "XivelyLibSample": false
+            },
+            "esomx": {
+              "XivelyLibSample": false
+            }
           }
         },
         "added": "2022-06-17T10:16:54.117Z"
@@ -84869,8 +85501,63 @@
             "boron": {
               "phant": true
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "phant": true
+            },
+            "boron": {
+              "phant": true
+            },
+            "bsom": {
+              "phant": true
+            },
+            "b5som": {
+              "phant": true
+            },
+            "tracker": {
+              "phant": true
+            },
+            "p2": {
+              "phant": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "phant": true
+            },
+            "boron": {
+              "phant": true
+            },
+            "bsom": {
+              "phant": true
+            },
+            "b5som": {
+              "phant": true
+            },
+            "tracker": {
+              "phant": true
+            },
+            "esomx": {
+              "phant": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "phant": true
+            },
+            "electron": {
+              "phant": true
+            },
+            "argon": {
+              "phant": true
+            },
+            "boron": {
+              "phant": true
+            }
           }
-        }
+        },
+        "added": "2023-05-19T20:32:42.538Z"
       }
     }
   },
@@ -86255,6 +86942,46 @@
             "boron": {
               "mdns": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "mdns": false
+            },
+            "boron": {
+              "mdns": false
+            },
+            "bsom": {
+              "mdns": false
+            },
+            "b5som": {
+              "mdns": false
+            },
+            "tracker": {
+              "mdns": false
+            },
+            "p2": {
+              "mdns": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "mdns": false
+            },
+            "boron": {
+              "mdns": false
+            },
+            "bsom": {
+              "mdns": false
+            },
+            "b5som": {
+              "mdns": false
+            },
+            "tracker": {
+              "mdns": false
+            },
+            "esomx": {
+              "mdns": false
+            }
           }
         },
         "added": "2022-06-17T10:16:54.115Z"
@@ -87062,6 +87789,106 @@
               "FirebaseStream_ESP8266": false,
               "usage": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "boron": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "bsom": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "b5som": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "tracker": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "p2": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "boron": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "bsom": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "b5som": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "tracker": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "esomx": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            }
           }
         },
         "added": "2022-06-17T10:16:54.120Z"
@@ -87285,6 +88112,58 @@
               "singleDevice": false
             },
             "boron": {
+              "multiDevice": false,
+              "singleDevice": false
+            }
+          },
+          "5.0.1": {
+            "argon": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "boron": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "bsom": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "b5som": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "tracker": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "p2": {
+              "multiDevice": false,
+              "singleDevice": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "boron": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "bsom": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "b5som": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "tracker": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "esomx": {
               "multiDevice": false,
               "singleDevice": false
             }
@@ -87552,8 +88431,143 @@
               "UdpClient": false,
               "UdpServer": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "boron": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "bsom": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "b5som": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "tracker": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "p2": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "boron": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "bsom": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "b5som": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "tracker": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "esomx": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "electron": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "argon": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "boron": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            }
           }
-        }
+        },
+        "added": "2023-05-19T20:19:22.021Z"
       }
     }
   },
@@ -88454,6 +89468,82 @@
               "progmem": false,
               "usage": true
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "boron": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "bsom": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "b5som": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "tracker": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "p2": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "boron": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "bsom": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "b5som": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "tracker": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "esomx": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            }
           }
         },
         "added": "2022-06-17T10:16:54.118Z"
@@ -88850,6 +89940,79 @@
             }
           }
         }
+      },
+      "1.0.4": {
+        "added": "2023-05-19T19:47:13.634Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "serialwrite": false
+            },
+            "boron": {
+              "serialwrite": false
+            },
+            "bsom": {
+              "serialwrite": false
+            },
+            "b5som": {
+              "serialwrite": false
+            },
+            "tracker": {
+              "serialwrite": false
+            },
+            "p2": {
+              "serialwrite": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "serialwrite": false
+            },
+            "boron": {
+              "serialwrite": false
+            },
+            "bsom": {
+              "serialwrite": false
+            },
+            "b5som": {
+              "serialwrite": false
+            },
+            "tracker": {
+              "serialwrite": false
+            },
+            "esomx": {
+              "serialwrite": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "serialwrite": false
+            },
+            "electron": {
+              "serialwrite": false
+            },
+            "argon": {
+              "serialwrite": false
+            },
+            "boron": {
+              "serialwrite": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "serialwrite": false
+            },
+            "electron": {
+              "serialwrite": false
+            },
+            "argon": {
+              "serialwrite": false
+            },
+            "boron": {
+              "serialwrite": false
+            }
+          }
+        }
       }
     }
   },
@@ -89159,6 +90322,46 @@
               "Basic": false
             },
             "boron": {
+              "Basic": false
+            }
+          },
+          "5.0.1": {
+            "argon": {
+              "Basic": false
+            },
+            "boron": {
+              "Basic": false
+            },
+            "bsom": {
+              "Basic": false
+            },
+            "b5som": {
+              "Basic": false
+            },
+            "tracker": {
+              "Basic": false
+            },
+            "p2": {
+              "Basic": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "Basic": false
+            },
+            "boron": {
+              "Basic": false
+            },
+            "bsom": {
+              "Basic": false
+            },
+            "b5som": {
+              "Basic": false
+            },
+            "tracker": {
+              "Basic": false
+            },
+            "esomx": {
               "Basic": false
             }
           }
@@ -89576,8 +90779,63 @@
             "boron": {
               "usage": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            },
+            "bsom": {
+              "usage": false
+            },
+            "b5som": {
+              "usage": false
+            },
+            "tracker": {
+              "usage": false
+            },
+            "p2": {
+              "usage": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            },
+            "bsom": {
+              "usage": false
+            },
+            "b5som": {
+              "usage": false
+            },
+            "tracker": {
+              "usage": false
+            },
+            "esomx": {
+              "usage": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
           }
-        }
+        },
+        "added": "2023-05-19T20:18:45.605Z"
       }
     }
   },
@@ -89862,7 +91120,8 @@
     "versions": {
       "0.0.1": {
         "builds": {},
-        "noExamples": true
+        "noExamples": true,
+        "added": "2023-05-19T20:24:34.338Z"
       }
     }
   },
@@ -90044,8 +91303,175 @@
               "usage": false,
               "writeCharacters": true
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "boron": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "bsom": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "b5som": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "tracker": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "p2": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "boron": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "bsom": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "b5som": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "tracker": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "esomx": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "electron": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "argon": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "boron": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            }
           }
-        }
+        },
+        "added": "2023-05-19T20:00:40.115Z"
       }
     }
   },
@@ -90080,8 +91506,63 @@
             "boron": {
               "basic": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "basic": false
+            },
+            "boron": {
+              "basic": false
+            },
+            "bsom": {
+              "basic": false
+            },
+            "b5som": {
+              "basic": false
+            },
+            "tracker": {
+              "basic": false
+            },
+            "p2": {
+              "basic": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "basic": false
+            },
+            "boron": {
+              "basic": false
+            },
+            "bsom": {
+              "basic": false
+            },
+            "b5som": {
+              "basic": false
+            },
+            "tracker": {
+              "basic": false
+            },
+            "esomx": {
+              "basic": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "basic": false
+            },
+            "electron": {
+              "basic": false
+            },
+            "argon": {
+              "basic": false
+            },
+            "boron": {
+              "basic": false
+            }
           }
-        }
+        },
+        "added": "2023-05-19T20:12:58.760Z"
       }
     }
   },
@@ -90697,7 +92178,8 @@
     "versions": {
       "0.0.1": {
         "builds": {},
-        "noExamples": true
+        "noExamples": true,
+        "added": "2023-05-19T20:34:19.817Z"
       }
     }
   },
@@ -90823,8 +92305,63 @@
             "boron": {
               "blink": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "blink": false
+            },
+            "boron": {
+              "blink": false
+            },
+            "bsom": {
+              "blink": false
+            },
+            "b5som": {
+              "blink": false
+            },
+            "tracker": {
+              "blink": false
+            },
+            "p2": {
+              "blink": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "blink": false
+            },
+            "boron": {
+              "blink": false
+            },
+            "bsom": {
+              "blink": false
+            },
+            "b5som": {
+              "blink": false
+            },
+            "tracker": {
+              "blink": false
+            },
+            "esomx": {
+              "blink": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "blink": false
+            },
+            "electron": {
+              "blink": false
+            },
+            "argon": {
+              "blink": false
+            },
+            "boron": {
+              "blink": false
+            }
           }
-        }
+        },
+        "added": "2023-05-19T20:31:04.729Z"
       }
     }
   },
@@ -90859,8 +92396,63 @@
             "boron": {
               "usage": true
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            },
+            "bsom": {
+              "usage": true
+            },
+            "b5som": {
+              "usage": true
+            },
+            "tracker": {
+              "usage": true
+            },
+            "p2": {
+              "usage": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            },
+            "bsom": {
+              "usage": true
+            },
+            "b5som": {
+              "usage": true
+            },
+            "tracker": {
+              "usage": true
+            },
+            "esomx": {
+              "usage": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
           }
-        }
+        },
+        "added": "2023-05-19T19:59:06.442Z"
       }
     }
   },
@@ -91154,8 +92746,63 @@
             "boron": {
               "example": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "example": false
+            },
+            "boron": {
+              "example": false
+            },
+            "bsom": {
+              "example": false
+            },
+            "b5som": {
+              "example": false
+            },
+            "tracker": {
+              "example": false
+            },
+            "p2": {
+              "example": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "example": false
+            },
+            "boron": {
+              "example": false
+            },
+            "bsom": {
+              "example": false
+            },
+            "b5som": {
+              "example": false
+            },
+            "tracker": {
+              "example": false
+            },
+            "esomx": {
+              "example": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "example": false
+            },
+            "electron": {
+              "example": false
+            },
+            "argon": {
+              "example": false
+            },
+            "boron": {
+              "example": false
+            }
           }
-        }
+        },
+        "added": "2023-05-19T20:31:42.776Z"
       }
     }
   },
@@ -96352,8 +97999,191 @@
               "roomba": false,
               "singlenixie": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "boron": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "bsom": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "b5som": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "tracker": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "p2": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "boron": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "bsom": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "b5som": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "tracker": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "esomx": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "electron": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "argon": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            },
+            "boron": {
+              "BH1750LightSensor": false,
+              "BME280TemperatureHumiditySensor": false,
+              "adaptica_door_opener": false,
+              "homestation": false,
+              "lightbulb": false,
+              "lightsensor": false,
+              "relayswitch": false,
+              "roomba": false,
+              "singlenixie": false
+            }
           }
-        }
+        },
+        "added": "2023-05-19T20:35:12.121Z"
       }
     }
   },
@@ -104170,6 +106000,119 @@
             }
           }
         }
+      },
+      "0.0.3": {
+        "added": "2023-05-19T20:46:05.759Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "boron": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "bsom": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "b5som": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "tracker": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "p2": {
+              "1-simple": true,
+              "2-notify": true,
+              "3-extra-fields": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "boron": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "bsom": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "b5som": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "tracker": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "esomx": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "1-simple": true,
+              "2-notify": true,
+              "3-extra-fields": true
+            },
+            "electron": {
+              "1-simple": true,
+              "2-notify": true,
+              "3-extra-fields": true
+            },
+            "argon": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "boron": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "1-simple": true,
+              "2-notify": true,
+              "3-extra-fields": true
+            },
+            "electron": {
+              "1-simple": true,
+              "2-notify": true,
+              "3-extra-fields": true
+            },
+            "argon": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            },
+            "boron": {
+              "1-simple": false,
+              "2-notify": false,
+              "3-extra-fields": false
+            }
+          }
+        }
       }
     }
   },
@@ -107641,6 +109584,406 @@
               "1-usage": false,
               "2-self-test": false,
               "3-no-sleep": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "hvsLED": {
+    "versions": {
+      "1.0.2": {
+        "added": "2023-05-19T19:45:18.599Z",
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "hvsMAX14830": {
+    "versions": {
+      "1.0.1": {
+        "added": "2023-05-19T19:45:18.803Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            },
+            "bsom": {
+              "usage": true
+            },
+            "b5som": {
+              "usage": true
+            },
+            "tracker": {
+              "usage": true
+            },
+            "p2": {
+              "usage": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            },
+            "bsom": {
+              "usage": true
+            },
+            "b5som": {
+              "usage": true
+            },
+            "tracker": {
+              "usage": true
+            },
+            "esomx": {
+              "usage": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "ArduinoJson6113": {
+    "versions": {
+      "6.11.3": {
+        "added": "2023-05-19T19:49:08.697Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "bsom": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "b5som": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "tracker": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "p2": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "bsom": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "b5som": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "tracker": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "esomx": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonGeneratorExample": false,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": false,
+              "StringExample": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Microphone_PDM": {
+    "versions": {
+      "0.0.1": {
+        "added": "2023-05-19T20:50:43.953Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "1-audio-over-tcp": true
+            },
+            "boron": {
+              "1-audio-over-tcp": false
+            },
+            "bsom": {
+              "1-audio-over-tcp": false
+            },
+            "b5som": {
+              "1-audio-over-tcp": false
+            },
+            "tracker": {
+              "1-audio-over-tcp": true
+            },
+            "p2": {
+              "1-audio-over-tcp": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "1-audio-over-tcp": true
+            },
+            "boron": {
+              "1-audio-over-tcp": false
+            },
+            "bsom": {
+              "1-audio-over-tcp": false
+            },
+            "b5som": {
+              "1-audio-over-tcp": false
+            },
+            "tracker": {
+              "1-audio-over-tcp": true
+            },
+            "esomx": {
+              "1-audio-over-tcp": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "1-audio-over-tcp": false
+            },
+            "electron": {
+              "1-audio-over-tcp": false
+            },
+            "argon": {
+              "1-audio-over-tcp": true
+            },
+            "boron": {
+              "1-audio-over-tcp": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "1-audio-over-tcp": false
+            },
+            "electron": {
+              "1-audio-over-tcp": false
+            },
+            "argon": {
+              "1-audio-over-tcp": true
+            },
+            "boron": {
+              "1-audio-over-tcp": false
             }
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "M8RelayRK",
     "version": "0.0.1",
-    "installs": 8,
+    "installs": 52,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle library for M8 relay boards",
