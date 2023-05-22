@@ -179,6 +179,9 @@ It requires these jumpers, which should be installed at the factory:
 - SDA to PM\_SDA
 - SCL to PM\_SCL
 
+### Power consumption
+
+We do not recommend using the B Series eval board for power consumption measurements. It's impossible to completely disconnect the Wiznet W5500 Ethernet interface without removing the chip from the board. This will result in significantly higher power consumption measurements than you would have in most applications.
 
 ### Using the MicroSD card
 
