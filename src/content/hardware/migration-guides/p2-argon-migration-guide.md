@@ -1130,10 +1130,42 @@ If you have a product based on the Argon, you will need to create a separate pro
 
 ### Third-party libraries
 
+{{!-- BEGIN shared-blurb 0ac81e91-31f6-4a87-9d78-f10f016ab102 --}}
+
 Most third-party libraries are believed to be compatible. The exceptions include:
 
 - Libraries for MCU-specific features (such as ADC DMA)
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
+- Libraries that manipulate GPIO at high speeds or are timing-dependent
+
+#### DS18B20 (1-Wire temperature sensor)
+
+- Not compatible
+- OneWire library requires high-speed GPIO support
+- Can use [DS2482](https://github.com/rickkas7/DS2482-RK) I2C to 1-Wire bridge chip instead
+- SHT30 sensors (I2C) may be an alternative in some applications
+
+#### NeoPixel (WS2812, WS2812B, and WS2813)
+
+- Requires Device OS 5.3.2 or later and [Particle-NeoPixel](https://github.com/technobly/Particle-NeoPixel) version 1.0.3.
+
+#### OneWire
+
+- Not compatible
+- OneWire library requires high-speed GPIO support
+- Can use [DS2482](https://github.com/rickkas7/DS2482-RK) I2C to OneWire bridge instead
+
+#### SHT1x (temperature and humidity sensor)
+
+- Not compatible, requires high-speed GPIO support
+- SHT3x using I2C is recommended
+
+#### SparkIntervalTimer 
+
+- Not compatible at this time
+- Requires hardware timer support from user firmware
+
+{{!-- END shared-blurb --}}
 
 
 ## Version history
