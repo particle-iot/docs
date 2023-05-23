@@ -1145,6 +1145,12 @@ Most third-party libraries are believed to be compatible. The exceptions include
 - Can use [DS2482](https://github.com/rickkas7/DS2482-RK) I2C to 1-Wire bridge chip instead
 - SHT30 sensors (I2C) may be an alternative in some applications
 
+#### FastLED
+
+- Not compatible. 
+- In theory the library could be modified to use the same technique as the NeoPixel library.
+
+
 #### NeoPixel (WS2812, WS2812B, and WS2813)
 
 - Requires Device OS 5.3.2 or later and [Particle-NeoPixel](https://github.com/technobly/Particle-NeoPixel) version 1.0.3.
