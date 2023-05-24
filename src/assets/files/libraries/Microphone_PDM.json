@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Microphone_PDM",
     "version": "0.0.1",
-    "installs": 0,
+    "installs": 2,
     "license": "Apache 2",
     "author": "rick@particle.io",
     "sentence": "PDM (pulse density modulation) digital microphone library for RTL872x and nRF52 on Particle",

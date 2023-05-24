@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Keypad_I2C",
     "version": "0.2.11",
-    "installs": 8233,
+    "installs": 8237,
     "author": "Evan Simkowitz <esimkowitz@wustl.edu>, Mark Stanley <mstanley@technologist.com>, Alexander Brevig <alexanderbrevig@gmail.com>, Sandro Lange",
     "maintainer": "Evan Simkowitz <esimkowitz@wustl.edu>",
     "sentence": "Particle IDE library for using a keypad with an I2C I/O expander",

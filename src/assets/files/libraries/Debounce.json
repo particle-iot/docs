@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Debounce",
     "version": "0.0.1",
-    "installs": 91093,
+    "installs": 91121,
     "license": "MIT",
     "author": "David Washington <github:dwcares>; Thomas Ouellet Fredericks <github:thomasfredericks>;",
     "sentence": "Debounce digital inputs",

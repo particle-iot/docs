@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PololuHighPowerStepperDriver",
     "version": "1.0.0",
-    "installs": 796,
+    "installs": 797,
     "author": "Pololu",
     "sentence": "Pololu High-Power Stepper Motor Driver library for Particle",
     "paragraph": "This is a library for Particle devices that helps interface with Pololu High-Power Stepper Motor Drivers.",

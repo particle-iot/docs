@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DebounceSwitchRK",
     "version": "0.0.1",
-    "installs": 1039,
+    "installs": 1041,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for debouncing switches",

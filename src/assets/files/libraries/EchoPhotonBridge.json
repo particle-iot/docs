@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EchoPhotonBridge",
     "version": "0.7.5",
-    "installs": 5782,
+    "installs": 5784,
     "license": "Attribution-NonCommercial-ShareAlike 4.0 International CC BY-NC-SA 4.0",
     "author": "Jeremy Proffitt <proffitt.jeremy@gmail.com>",
     "sentence": "Interface Your Photon to Amazon Echo/Alexa Home Automation",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MLX90393_SSSA",
     "version": "2.0.8",
-    "installs": 560,
+    "installs": 594,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Driver for the MLX90393 magenetic field sensor",

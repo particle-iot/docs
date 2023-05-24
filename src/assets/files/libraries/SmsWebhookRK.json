@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SmsWebhookRK",
     "version": "0.0.2",
-    "installs": 2911,
+    "installs": 2925,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Library for Particle devices to easily send SMS via a webhook to Twilio",

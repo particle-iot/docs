@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS2482-RK",
     "version": "0.0.3",
-    "installs": 1704,
+    "installs": 1706,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for DS2482 I2C to 1-Wire interface",

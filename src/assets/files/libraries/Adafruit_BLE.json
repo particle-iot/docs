@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BLE",
     "version": "0.0.3",
-    "installs": 12101,
+    "installs": 12103,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Particle port of Adafruit BlueFruitLE nRF51 Bluetooth LE library",

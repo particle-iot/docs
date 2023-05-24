@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HC-SR04",
     "version": "1.0.1",
-    "installs": 30580,
+    "installs": 30592,
     "license": "GPL3",
     "author": "rnash",
     "sentence": "Class to drive the HC-SR04 range finder.",

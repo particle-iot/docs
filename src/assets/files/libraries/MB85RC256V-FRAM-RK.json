@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MB85RC256V-FRAM-RK",
     "version": "0.0.5",
-    "installs": 6294,
+    "installs": 6316,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for DS75 temperature sensor",

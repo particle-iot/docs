@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ard-streams",
     "version": "1.0.2",
-    "installs": 1401,
+    "installs": 1435,
     "author": "Vladimir Talybin",
     "sentence": "This library includes iostreams that otherwise overflow the flash memory.",
     "paragraph": "Arduino STL iostreams.",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AssetTrackerRK",
     "version": "0.4.2",
-    "installs": 53516,
+    "installs": 53624,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Alternate library for AssetTracker using TinyGPS++",

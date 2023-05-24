@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ADS1X15",
     "version": "0.1.2",
-    "installs": 45694,
+    "installs": 45696,
     "license": "BSD",
     "author": "Koos du Preez <kdupreez@hotmail.com>",
     "sentence": "Library for ADS1x15 series of 12-bit and 16-bit Analog to Digital converter breakout boards",

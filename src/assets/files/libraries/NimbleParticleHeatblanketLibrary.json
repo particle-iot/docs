@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NimbleParticleHeatblanketLibrary",
     "version": "0.12.1",
-    "installs": 3004,
+    "installs": 3005,
     "author": "Ryan Kast",
     "sentence": "A collection of classes and helpers for Nimble based Heatblanket controlling on a Particle device",
     "paragraph": "A collection of classes and helpers for Nimble based Heatblanket controlling on a Particle device",
