@@ -16007,12 +16007,53 @@ if (timer.isActive()) {
 
 {{since when="5.3.0"}}
 
-Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B Series SoM, Argon, Tracker SoM) and RTL827x (P2, Photon 2, Tracker M) can use the hardware watchdog built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode.
+Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B Series SoM, Argon, Tracker SoM, E404X) and RTL827x (P2, Photon 2) can use the hardware watchdog built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode.
 
-Typically you start it from setup(). Since it does not run during firmware updates, it's safe to use a relatively short timeout, however you probably don't want to set it lower than 30 seconds to prevent unintended resets.
+Typically you start it from `setup()`. Since it does not run during firmware updates, it's safe to use a relatively short timeout, however you probably don't want to set it lower than 30 seconds to prevent unintended resets. 
 
-The watchdog is automatically stopped before sleep mode and when reset, so it will not adversely affect safe mode, DFU mode, or OTA upgrades of Device OS.
+The hardware watchdog is automatically stopped before entering safe mode or DFU mode so it will not affect upgrades of user firmware or Device OS, which may take longer than the typical watchdog timeout. 
 
+### Sleep considerations
+
+On all platforms, the default is for the watchdog to continue running during sleep mode.
+
+On the Boron, B Series SoM, Tracker, Argon, and E404X (nRF52840), the `WatchdogCap::SLEEP_RUNNING` defaults to on, which is to say the watchdog continues to run while in sleep. It can, however, be explictly cleared so the watchdog will be paused while in sleep mode. 
+
+On the P2 and Photon 2 (RTL872x), the watchdog contiues to run in sleep mode. However, you could manually stop it before sleep mode.
+
+For best compatibility across devices, we recommend that you set a watchdog timeout longer than your sleep period, plus an allowance for the time it takes to go to sleep, and wake up from sleep, which could add 30 seconds to a minute. This also provides extra safety in case the device does not wake up at the expected time, as the watchdog will reset the system in this case. This could happen if you have a bug in your logic for how long to sleep, for example.
+
+#### Watchdog capabilities
+
+{{api name1="WatchdogConfiguration.capabilities"}}
+
+```cpp
+// Getting capabiltiies
+WatchdogInfo info;
+Watchdog.getInfo(info); 
+
+// Get the capabilities that are always enabled
+WatchdogCaps mandatoryCaps = info.mandatoryCapabilities();
+
+// Get the capabilities that can be turned off
+WatchdogCaps optionalCaps = info.capabilities();
+```
+
+The capabilities vary depending on the platform:
+
+| Capability | nRF52 | RTL872x | Details |
+| :--- | :---: | :---: | :--- |
+| `WatchdogCap::RESET` | Mandatory | Default | Reset device on watchdog timeout expired |
+| `WatchdogCap::NOTIFY`| Optional | &nbsp; | Generate an interrupt on expired |
+| `WatchdogCap::NOTIFY_ONLY`| &nbsp; | Optional | Generate an interrupt on expired without resetting the device|
+| `WatchdogCap::RECONFIGURABLE` | &nbsp;| Optional | Can be re-configured after started |
+| `WatchdogCap::STOPPABLE` | &nbsp; | Optional | Can be stopped after started |
+| `WatchdogCap::SLEEP_RUNNING` | Default | <sup>1</sup> | Watchdog runs while in sleep mode | 
+| `WatchdogCap::DEBUG_RUNNING` | Optional | Mandatory | Can be paused in debug mode |
+| Minimim Timeout | 1 | 1 | |
+| Maximum Timeout | 131071 s | 8190 s| |
+
+<sup>1</sup>On the RTL872x platform, the watchdog cannot be automatically stopped in sleep mode.
 
 ### Watchdog.init
 
@@ -16030,24 +16071,23 @@ The maximium varies by platform:
 - Boron, B Series SoM, Argon, Tracker SoM (nRF52840): 131,071,999 milliseconds
 - P2 and Photon 2 (RTL872x): 8,190,000 milliseconds (around 2 hours and 15 minutes)
 
-#### Watchdog capabilities
-
-{{api name1="WatchdogConfiguration.capabilities"}}
-
-On nRF52840 (Boron, B Series SoM, Argon, Tracker SoM) devices, you can optionally keep the watchdog running during sleep by using a capabilities flag:
-
-```cpp
-Watchdog.init(WatchdogConfiguration()
-  .capabilities(WatchdogCap::SLEEP_RUNNING)
-  .timeout(20min));
-Watchdog.start();
-```
+You can only call `init()` if the watchdog is not currently running. On the nRF52 platform (Boron, B Series SoM, Argon, Tracker SoM) you cannot stop the watchdog, so you necessarily can only start it once until the device is reset. This also means you cannot change the watchdog time period on the nRF52 platform.
 
 ### Watchdog.start
 
 {{api name1="Watchdog.start"}}
 
-You typically start it when initializating.
+You typically start it when initializating during setup().
+
+### Watchdog.stop
+
+{{api name1="Watchdog.stop"}}
+
+RTL872x platform (P2, Photon 2): You can stop the watchdog after starting it.
+
+nRF52 platform (Boron, B Series SoM, Argon, Tracker SoM): `stop()` is not available due to hardware limitations.
+
+For maximum compatibility across devices, you should design your watchdog configuration to avoid having to stop the watchdog.
 
 ### Watchdog.refresh
 
@@ -16057,17 +16097,33 @@ You must call `Watchdog.refresh()` more often than the timeout interval. You can
 
 If you have logic that blocks loop, you must also call it while blocking. Beware of using long `delay()` if you are using the hardware watchdog.
 
+Beware of setting a short watchdog timeout if you call `Watchdog.refresh()` only from `loop()` if you have lengthy operations that occur during `setup()`. Since the watchdog is already running, it could fire before you actually are able to refresh the watchdog the first time.
+
 ```cpp
 // Call on every loop, or when blocking
 Watchdog.refresh(); 
 ```
 
-It is possible to set an expired handler, which is called right before the system is reset. Since the device is probably in an unstable state at that point, you are limited in what you can do from the expired handler. Additionally, it's called an interrupt context (ISR) so you cannot allocate memory, make Particle calls (like publish), cellular modem calls, etc.. About the only thing you can do safely is set a retained variable. Unlike the application watchdog, you should not reset the system from the handler; it will automatically be reset after you return.
+#### Watchdog SLEEP_RUNNING
+
+{{api name1="SLEEP_RUNNING"}}
+
+```cpp
+Watchdog.init(WatchdogConfiguration()
+  .capabilities(WatchdogCap::NOTIFY | WatchdogCap::DEBUG_RUNNING)
+  .timeout(5min));
+Watchdog.start();
+```
+
+On nRF52840 (Boron, B Series SoM, Argon, Tracker SoM, E404X) devices, you can optionally stop the watchdog from running during sleep by setting the capabilities.
+
+The default is `WatchdogCap::NOTIFY | WatchdogCap::SLEEP_RUNNING | WatchdogCap::DEBUG_RUNNING` so not setting `WatchdogCap::SLEEP_RUNNING` will pause the watchdog while in sleep mode.
+
+Since pausing the watchdog is not possible on the RTL872x platform (P2 and Photon 2), we recommend that you set your watchdog and sleep timeout parameters to avoid having to stop the watchdog on sleep. This also provides extra safety in case the device does not wake up at the expected time, as the watchdog will reset the system in this case. This could happen if you have a bug in your logic for how long to sleep, for example.
 
 ### Watchdog.onExpired
 
 {{api name1="Watchdog.onExpired"}}
-
 
 ```cpp
 // As a global variable:
@@ -16079,6 +16135,14 @@ Watchdog.onExpired([]() {
   watchdogExpiredFlag = true;
 });
 ```
+
+It is possible to set an expired handler. Since the device is probably in an unstable state at that point, you are limited in what you can do from the expired handler. Additionally, it's called an interrupt context (ISR) so you cannot allocate memory, make Particle calls (like publish), cellular modem calls, etc.. About the only thing you can do safely is set a retained variable. 
+
+RTL872x platform (P2, Photon 2): If the `onExpired()` callback is used, the device will not automatically reset.
+
+nRF52 platform (Boron, B Series SoM, Argon, Tracker SoM): The `onExpired()` callback is available, and the device will always reset shortly after the callback is called.
+
+Due to the limitations of `onExpired()` and the difference between platforms, we recommed not using this feature.
 
 ## Application watchdog
 

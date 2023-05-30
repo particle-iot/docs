@@ -7,7 +7,7 @@ description: Datasheet for the Particle P1, Gen 2 Wi-Fi mass-production module
 
 {{#unless pdf-generation}}
 
-# P1 Datasheet <sup>(v013)</sup>
+# P1 Datasheet
 
 {{downloadButton url="/assets/pdfs/datasheets/p1-datasheet.pdf"}}
 

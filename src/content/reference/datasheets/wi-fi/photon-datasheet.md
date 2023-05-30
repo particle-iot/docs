@@ -7,7 +7,7 @@ description: Datasheet for the Particle Photon, Gen 2 Wi-Fi development kit
 
 {{#unless pdf-generation}}
 
-# Photon Datasheet <sup>(v021)</sup>
+# Photon Datasheet
 
 **Model number:** PHOTONH, PHOTONNOH
 

@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle E Series, Gen 2 cellular mass-production module
 ---
 
-# E Series module datasheet <sup>(v004)</sup>
+# E Series module datasheet
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
