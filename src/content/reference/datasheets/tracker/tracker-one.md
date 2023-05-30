@@ -496,7 +496,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Poland | ONE524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
 | Portugal | ONE524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
 | Qatar | ONE524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
-| Romania | ONE524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Romania | ONE524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
 | Rwanda | ONE524 | 2G, 3G, Cat1 | Airtel, MTN |
 | Serbia | ONE524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | ONE524 | 2G, 3G, Cat1 | Airtel |

@@ -686,7 +686,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Portugal | E314 | 2G, 3G | NOS, TMN, Vodafone |
 | Puerto Rico | E314 | 2G, 3G | Claro |
 | Qatar | E314 | 2G, 3G | Ooredoo, Vodafone |
-| Romania | E314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Romania | E314 | 2G, 3G | Orange, Telekom Romania, Vodafone |
 | Rwanda | E314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | E314 | 2G, 3G | Flow |
 | Saint Lucia | E314 | 2G, 3G | Flow |

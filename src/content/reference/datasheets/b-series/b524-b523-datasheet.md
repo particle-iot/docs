@@ -766,7 +766,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Poland | B524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
 | Portugal | B524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
 | Qatar | B524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
-| Romania | B524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Romania | B524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
 | Rwanda | B524 | 2G, 3G, Cat1 | Airtel, MTN |
 | Serbia | B524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | B524 | 2G, 3G, Cat1 | Airtel |

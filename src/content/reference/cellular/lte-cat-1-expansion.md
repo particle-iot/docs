@@ -208,7 +208,6 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Portugal | Vodafone | &nbsp; |
 | Qatar | Ooredoo | &check; |
 | Qatar | Vodafone | &check; |
-| Romania | DigiMobil | &nbsp; |
 | Romania | Orange | &nbsp; |
 | Romania | Telekom Romania | &nbsp; |
 | Romania | Vodafone | &nbsp; |

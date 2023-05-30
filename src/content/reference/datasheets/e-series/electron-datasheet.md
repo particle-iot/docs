@@ -749,7 +749,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Portugal | ELC314 | 2G, 3G | NOS, TMN, Vodafone |
 | Puerto Rico | ELC314 | 2G, 3G | Claro |
 | Qatar | ELC314 | 2G, 3G | Ooredoo, Vodafone |
-| Romania | ELC314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Romania | ELC314 | 2G, 3G | Orange, Telekom Romania, Vodafone |
 | Rwanda | ELC314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | ELC314 | 2G, 3G | Flow |
 | Saint Lucia | ELC314 | 2G, 3G | Flow |

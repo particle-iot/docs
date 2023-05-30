@@ -635,7 +635,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Portugal | BRN314 | 2G, 3G | NOS, TMN, Vodafone |
 | Puerto Rico | BRN314 | 2G, 3G | Claro |
 | Qatar | BRN314 | 2G, 3G | Ooredoo, Vodafone |
-| Romania | BRN314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Romania | BRN314 | 2G, 3G | Orange, Telekom Romania, Vodafone |
 | Rwanda | BRN314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | BRN314 | 2G, 3G | Flow |
 | Saint Lucia | BRN314 | 2G, 3G | Flow |

@@ -2655,7 +2655,7 @@
     },
     {
       "name": "Netherlands Antilles",
-      "isoCode": "",
+      "isoCode": "AN",
       "regions": [
         "Caribbean",
         "Americas"
@@ -12231,13 +12231,6 @@
       ],
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "preferredRate": true,
-        "paygRate": 0.1
-      },
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow3G": true,
@@ -12909,6 +12902,17 @@
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ]
+    },
+    {
+      "country": "Netherlands Antilles",
+      "carrier": "UTS",
+      "bands": [
+        "2G-900",
+        "2G-1800",
+        "3G-1",
+        "3G-5",
+        "LTE-3"
       ]
     },
     {
@@ -13918,6 +13922,18 @@
     },
     {
       "country": "Peru",
+      "carrier": "Bitel",
+      "aliaes": [
+        "Viettel"
+      ],
+      "bands": [
+        "2G-1900",
+        "3G-2",
+        "LTE-8"
+      ]
+    },
+    {
+      "country": "Peru",
       "carrier": "Claro",
       "sunset2G": "?",
       "sunset3G": "?",
@@ -14575,30 +14591,6 @@
         "LTE-3",
         "LTE-7",
         "LTE-20"
-      ]
-    },
-    {
-      "country": "Romania",
-      "carrier": "DigiMobil",
-      "sunset2G": "NA",
-      "sunset3G": "?",
-      "supersim": {
-        "preferredRate": true,
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
-      "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
-      "bands": [
-        "2G-900",
-        "2G-1800",
-        "3G-1",
-        "3G-8",
-        "LTE-38"
       ]
     },
     {
@@ -18096,6 +18088,19 @@
       "bands": [
         "2G-1900",
         "3G-2"
+      ]
+    },
+    {
+      "country": "United States",
+      "carrier": "US Cellular",
+      "lteM1": false,
+      "bands": [
+        "LTE-5",
+        "LTE-12"
+      ],
+      "noBands": [
+        "2G",
+        "3G"
       ]
     },
     {
