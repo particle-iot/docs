@@ -10983,7 +10983,7 @@
     "url": "/v1/products/:productIdOrSlug/sims",
     "title": "Import and activate product SIMs",
     "name": "listProductSims",
-    "description": "<p>Import a group of SIM cards into a product. SIM cards will be activated upon import. Activated SIM cards will receive a prorated charge for the 1MB data plan for the remainder of the month on your next invoice. Either pass an array of ICCIDs or include a file containing a list of SIM cards.</p> <p>Import and activation will be queued for processing.</p> <p>Importing a SIM card associated with a device will also import the device into the product.</p>",
+    "description": "<p>Import a group of SIM cards into a product. SIM cards will be activated upon import. Activated SIM cards will receive a prorated charge for the 1MB data plan for the remainder of the month on your next invoice. Either pass an array of ICCIDs or include a file containing a list of SIM cards.</p> <p>Import and activation will be queued for processing. You will receive an email with the import results when all SIM cards have been processed.</p> <p>Importing a SIM card associated with a device will also import the device into the product.</p>",
     "group": "Sims_7",
     "parameter": {
       "fields": {

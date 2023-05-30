@@ -157,7 +157,7 @@
       "added": "2022-06-17T10:16:53.779Z"
     }
   },
-  "readme": "\n\nsimple OSC\n===\nSimple library for sending and receiving OSC messages from Photon.\n\n## What it does\n\n- send floats\n- send ints\n- send string\n- receive floats\n- receive ints\n\n## What it doesn't\n\n- receive string\n- receive blobs\n- manage other OSC messages (booleans, timetags, bundles...)\n\n#BEWARE\n\n- If you try to send something different than floats and ints to the Photon, it will not work (you shouldn't be able to retrieve the datas.\n- The following code isn't tested on particle1, any feedbacks are welcome.\n- Another port of the osc library [exist]( https://github.com/trublion/sparkcore_osc).\n\n--------------------------\n[[Antoine M*]](ameisso.fr)",
+  "readme": "\n\nsimple OSC\n===\nSimple library for sending and receiving OSC messages from Photon.\n\n## What it does\n\n- send floats\n- send ints\n- send string\n- receive floats\n- receive ints\n\n## What it doesn't\n\n- receive string\n- receive blobs\n- manage other OSC messages (booleans, timetags, bundles...)\n\n#BEWARE\n\n- If you try to send something different than floats and ints to the Photon, it will not work (you shouldn't be able to retrieve the datas.\n- The following code isn't tested on particle1, any feedbacks are welcome.\n- Another port of the osc library exist.\n\n--------------------------\n[[Antoine M*]](ameisso.fr)",
   "allVersions": [
     "0.0.3",
     "0.0.2"

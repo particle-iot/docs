@@ -324,6 +324,56 @@ async function testBuilds() {
     }
 }
 
+function fixMd(md) {
+    let offset = 0;
+    while(offset < md.length) {
+        const m = md.substring(offset).match(/(!{0,1})\[([^\]]*)\]\(([^\)]*)\)/);
+        if (!m) {
+            break;
+        }
+
+        let parts = {
+            before: md.substring(0, offset + m.index),
+            after: md.substring(offset + m.index + m[0].length),
+            replacement: m[0],
+            isImage: (m[1] == '!'),
+            alt: m[2],
+            link: m[3],
+            m,
+        }
+
+        if (parts.isImage) {
+            // Image
+            if (parts.alt.length) {
+                parts.replacement = parts.alt + ' (image removed)';
+            }
+            else {
+                parts.replacement = '(image removed)';
+            }
+        }
+        else {
+            // Link
+            if (parts.link.startsWith('http')) {
+                // absolute link, leave in place
+            }
+            else {
+                // Relative link, remove
+                if (parts.alt.length) {
+                    parts.replacement = parts.alt;
+                }
+                else {
+                    parts.replacement = '(link unavailable in preview)';
+                }
+            }
+        }
+
+        // console.log('parts', parts);
+        md = parts.before + parts.replacement + parts.after;
+        offset = parts.before.length + parts.replacement.length;        
+    }
+    return md;
+}
+
 async function generate() {
 
     const librariesDir = path.join(__dirname, '../../src/assets/files/libraries');
@@ -374,6 +424,9 @@ async function generate() {
                     const readmePath = path.join(libVerDir, name);
                     if (fs.existsSync(readmePath)) {
                         libInfo.readme = fs.readFileSync(readmePath, 'utf8');
+                        if (name.endsWith('.md')) {
+                            libInfo.readme = fixMd(libInfo.readme);
+                        }
                         return true;
                     }
                     else {

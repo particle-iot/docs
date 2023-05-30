@@ -109,7 +109,7 @@
       "added": "2022-06-17T10:16:54.006Z"
     }
   },
-  "readme": "ADXL362\n=======\n\nA library for manipulating ADXL362 accelerometer and temperature sensor for the Spark Core and Spark Internet Button v1.0.\nImplementation based on the ADXL362 library for Arduino, https://github.com/annem/ADXL362 by Anne Mahaffey and Jonathan Ruiz de Garibay, ported to Spark by Anthony Liekens.\n\nComponents Required\n---\n- Spark core\n- Example built with the Spark Internet Button v1.0 or ADXL362 connected to the Spark PCI bus\n\nExample Usage\n---\n\nSee this [example](firmware/examples/ADXL362_SimpleRead.cpp) for details.\n",
+  "readme": "ADXL362\n=======\n\nA library for manipulating ADXL362 accelerometer and temperature sensor for the Spark Core and Spark Internet Button v1.0.\nImplementation based on the ADXL362 library for Arduino, https://github.com/annem/ADXL362 by Anne Mahaffey and Jonathan Ruiz de Garibay, ported to Spark by Anthony Liekens.\n\nComponents Required\n---\n- Spark core\n- Example built with the Spark Internet Button v1.0 or ADXL362 connected to the Spark PCI bus\n\nExample Usage\n---\n\nSee this example for details.\n",
   "allVersions": [
     "0.0.1"
   ]

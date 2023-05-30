@@ -94,7 +94,7 @@
       }
     }
   },
-  "readme": "# Benchmark\n\nA simple code execution time library for Particle devices (Photon, Electron)\n\n## Usage\n\n```\n#include \"benchmark.h\"\n\nvoid loop() {\n  uint32_t duration = Benchmark.measure([&] {\n    // do long stuff here\n  });\n\n  // or measure a whole function\n  uint32_t fnDuration = Benchmark.measure(longFunction);\n}\n```\n\nSee [complete example](examples/measure/measure.ino) in the examples directory.\n\n## License\nCopyright 2016 Julien Vanier\nReleased under the MIT license\n",
+  "readme": "# Benchmark\n\nA simple code execution time library for Particle devices (Photon, Electron)\n\n## Usage\n\n```\n#include \"benchmark.h\"\n\nvoid loop() {\n  uint32_t duration = Benchmark.measure([&] {\n    // do long stuff here\n  });\n\n  // or measure a whole function\n  uint32_t fnDuration = Benchmark.measure(longFunction);\n}\n```\n\nSee complete example in the examples directory.\n\n## License\nCopyright 2016 Julien Vanier\nReleased under the MIT license\n",
   "allVersions": [
     "1.0.2",
     "1.0.1"

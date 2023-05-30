@@ -112,7 +112,7 @@
       "added": "2022-06-17T10:16:54.106Z"
     }
   },
-  "readme": "# LoopWaiter\n\nA header only library to simplify waiting on MCUs without using a delay. This library is published as a Particle Library for use with the Particle Photon and Particle Electron platforms. For other platforms just copy the header file [LoopWaiter.h](src/LoopWaiter.h) to your project. \n\nThe library has been tested using [Google Test](https://github.com/google/googletest) and [fff](https://github.com/meekrosoft/fff).\n\n## Usage\n\nSee the [example](examples/usage/usage.ino) for a complete example.\n\nYou may clone this repository and run the tests by doing the following:\n\n```\nmkdir build\ncd build\ncmake ..\nmake\nmake test\n```\n\n## LICENSE\n\nCopyright 2018 Jidesh Veeramachaneni  \nDistributed under the MIT License\n",
+  "readme": "# LoopWaiter\n\nA header only library to simplify waiting on MCUs without using a delay. This library is published as a Particle Library for use with the Particle Photon and Particle Electron platforms. For other platforms just copy the header file LoopWaiter.h to your project. \n\nThe library has been tested using [Google Test](https://github.com/google/googletest) and [fff](https://github.com/meekrosoft/fff).\n\n## Usage\n\nSee the example for a complete example.\n\nYou may clone this repository and run the tests by doing the following:\n\n```\nmkdir build\ncd build\ncmake ..\nmake\nmake test\n```\n\n## LICENSE\n\nCopyright 2018 Jidesh Veeramachaneni  \nDistributed under the MIT License\n",
   "allVersions": [
     "1.0.2",
     "1.0.1",
