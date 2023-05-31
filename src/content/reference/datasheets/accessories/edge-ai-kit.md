@@ -15,6 +15,21 @@ The Edge AI kit provides a number of accessories that can be used with your Part
 
 This breakout board allows you to detect motion and orientation. Using Edge AI you can filter for certain types of motion. It can also be used for wake-on-motion to wake from sleep. 
 
+![](/assets/images/edge-kit/adxl362-1.jpeg)
+
+The connections on the breakout are:
+
+| Breakout | Connect To | Details |
+| :---: | :---: | :--- |
+| INT1 | Any | Any available GPIO if using interrupt 1 (optional) |
+| INT2 | Any | Any available GPIO if using interrupt 2 (optional) |
+| CS | Any | SPI Chip Select. Use any available GPIO (required) |
+| SDO | MISO | SPI MISO (required) |
+| SDI | MOSI | SPI MOSI (required) |
+| SCL | SCK | SPI SDK (required). Not I2C SCL (D1)! |
+| GND | GND | Ground |
+| VIN | 3V3 | 3.3V power |
+
 See the [Accelerometer example](#accelerometer-example), below, for more details.
 
 ### PDM MEMS microphone
@@ -24,6 +39,20 @@ This breakout board is a digital microphone. It's intended for voice application
 ![](/assets/images/edge-kit/mic-1.jpeg)
 
 ![](/assets/images/edge-kit/mic-2.jpeg)
+
+The connections on the breakout are:
+
+| Breakout | Connect To | Details |
+| :---: | :---: | :--- |
+| 3V | 3V3 | 3.3V power |
+| GND | GND | Ground |
+| SEL | NC | Typically leave unconnected, left/right select |
+| CLK | A0 | PDM Clock |
+| DAT | A1 | PDM Data |
+
+Use the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library. The library can be used for RTL872x (P2, Photon 2) and nRF52 (Boron, B Series SoM, Tracker SoM, Argon). It does not support Gen 2 devices (Electron, E Series, Photon, P1).
+
+On the nRF52 you can use other GPIO for PDM clock and data, but using A0 and A1 will assure compatibility with the Photon 2.
 
 See the [PDM MEMS microphone example](#pdm-mems-microphone-example), below, for more details.
 
@@ -50,6 +79,18 @@ Care should be used when setting the adjustable gain - if you set it to maximum 
 ![](/assets/images/edge-kit/loudness-1.jpeg)
 
 ![](/assets/images/edge-kit/loudness-2.jpeg)
+
+The breakout includes a Grove connector to flying leads cable. It's also possible to use a 4-pin Grove-to-Grove cable if you have a board with a Grove connector and a Grove Feather Adapter.
+
+![](/assets/images/edge-kit/grove-cable.jpeg)
+
+| Breakout | Color | Connect To | Details |
+| :---: | :---: | :---: | :--- |
+| GND | Black | GND | Ground |
+| 3V | Red | 3V3 | 3.3V power |
+| NC | White | | Not used |
+| SIG | Yellow | Any `A` | Connect to an analog input pin |
+
 
 ### MQ2 gas sensor for LPG, i-butane, propane, methane, alcohol
 
@@ -89,6 +130,13 @@ You don't need to connect both D0 and A0, you can use just one of them. The pote
 This sensor detects heat using a passive infrared (PIR) sensor. It's typically used to sense humans (and other warm-blooded animals). It requires 5V so you cannot use it when powered by a LiPo battery but it will work when connected to USB. The output is only 3.3V so it's safe to connect to any available GPIO.
 
 ![](/assets/images/edge-kit/pir-1.jpeg)
+
+| Breakout | Connect To | Details |
+| :---: | :---: | :--- |
+| +5V | VUSB | 5V power (when powered by USB) |
+| OUT | Any | Connect to any available GPIO |
+| GND | GND | Ground |
+
 
 ### LEDs
 
