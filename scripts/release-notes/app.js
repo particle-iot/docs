@@ -333,6 +333,18 @@ async function run() {
         if (releaseNotesNew != releaseNotesOrig) {
             console.log('updated ' + releaseNotesPath);
             fs.writeFileSync(releaseNotesPath, releaseNotesNew);
+
+            // Clear version Update
+            try {
+                const versionUpdatePath = path.join(configDir, 'versionUpdate.json');
+
+                let json = JSON.parse(fs.readFileSync(versionUpdatePath, 'utf8'));
+                delete json.updated;
+                fs.writeFileSync(versionUpdatePath, JSON.stringify(json, null, 4));
+            }
+            catch(e) {
+                console.log('exception updating versionUpdate.json', e);
+            }
         }
     }
 

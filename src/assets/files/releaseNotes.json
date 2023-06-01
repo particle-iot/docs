@@ -26515,6 +26515,236 @@
                 2653,
                 2654
             ]
+        },
+        "v4.1.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v4.1.0",
+            "tag_name": "v4.1.0",
+            "name": "v4.1.0 (Argon/Boron/B SoM/B5 SoM/Tracker/E SoM X)",
+            "prerelease": false,
+            "created_at": "2023-05-31T00:43:29Z",
+            "published_at": "2023-06-01T00:34:01Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2595,
+                        2626
+                    ],
+                    "section": "FEATURES",
+                    "text": "Hardware watchdog"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2570
+                    ],
+                    "section": "FEATURES",
+                    "text": "Server key rotation"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2621
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Wi-Fi/cellular network manager bugfixes"
+                },
+                {
+                    "tags": [
+                        "nRF52"
+                    ],
+                    "prs": [
+                        2652
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "UART sleep/wakeup"
+                },
+                {
+                    "tags": [
+                        "nRF52"
+                    ],
+                    "prs": [
+                        2635
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "watchdog timeout is not accurate"
+                },
+                {
+                    "tags": [
+                        "nRF52"
+                    ],
+                    "prs": [
+                        2615
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE plus RTC sleep causes hardfault"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2629
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix inconsistent BLE state issue"
+                },
+                {
+                    "tags": [
+                        "wiring",
+                        "gen3"
+                    ],
+                    "prs": [
+                        2619
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Allow gen3 to select internal ADC reference source"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2587
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "System setup and BLE threading improvements"
+                },
+                {
+                    "tags": [
+                        "quectel"
+                    ],
+                    "prs": [
+                        2589
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Account for \"eMTC\" type while obtaining signal values"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2572
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix i2c hal deadlock"
+                },
+                {
+                    "tags": [
+                        "r510"
+                    ],
+                    "prs": [
+                        2640
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "enable PS (packet switched) Only mode for R510 modems (Boron/BSoM/ESoMX)  [See TAN012](https://docs.particle.io/reference/technical-advisory-notices/tan012/)"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2627
+                    ],
+                    "section": "INTERNAL",
+                    "text": "turn off NCP before testing wiring/watchdog"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2620
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Remove manual wakeup. Hibernate + watchdog on platforms that support it"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2617
+                    ],
+                    "section": "INTERNAL",
+                    "text": "add more watchdog test cases"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2611
+                    ],
+                    "section": "INTERNAL",
+                    "text": "mailbox support and support for resets within tests"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2558
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Move `no_fixture_i2c` to correct dir and symlink to `integration/wiring`"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2534
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Fix listening mode tests"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2622
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Ensure thread07 test executes as intended"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2578
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Protobuf defs refactor / fixes submessage encoding after nanopb 0.4.5 upgrade"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2563
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Update nanopb to 0.4.5"
+                }
+            ],
+            "prs": [
+                2534,
+                2558,
+                2563,
+                2570,
+                2572,
+                2578,
+                2587,
+                2589,
+                2595,
+                2611,
+                2615,
+                2617,
+                2619,
+                2620,
+                2621,
+                2622,
+                2626,
+                2627,
+                2629,
+                2635,
+                2640,
+                2652
+            ]
         }
     },
     "pulls": {
@@ -38948,6 +39178,21 @@
             "state": "closed",
             "created_at": "2023-05-10T22:03:43Z",
             "detail": "Desirable to add P2 / Photon 2 platform support in the NeoPixel library."
+        },
+        "2655": {
+            "url": "https://github.com/particle-iot/device-os/pull/2655",
+            "number": 2655,
+            "title": "Device OS v4.1.0 Backports",
+            "state": "closed",
+            "created_at": "2023-05-24T05:53:02Z"
+        },
+        "2656": {
+            "url": "https://github.com/particle-iot/device-os/pull/2656",
+            "number": 2656,
+            "title": "[rtl872x] Allow KM4 SDK Bootloader images to boot",
+            "state": "open",
+            "created_at": "2023-05-31T18:55:51Z",
+            "detail": "We want to allow Particle built prebootloader binaries to boot Realtek SDK based KM4 bootloader binaries. This is broken in the current Device OS."
         }
     }
 }
