@@ -84,7 +84,7 @@ The parameters to a buildpack build are:
 
 **Buildpacks were developed for Particle internal purposes.**
 
-Buildparks are actively utilized within Particle and are available to be used by Particle customers. There could be changes in the future that may affect your build scripts, however.
+Buildpacks are actively utilized within Particle and are available to be used by Particle customers. There could be changes in the future that may affect your build scripts, however.
 
 ### Source preparation
 
