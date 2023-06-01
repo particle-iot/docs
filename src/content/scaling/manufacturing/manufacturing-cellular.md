@@ -294,7 +294,7 @@ It's generally best to use unclaimed product devices at this time.
 - Claiming is still allowed, if you prefer to continue to use claiming.
 {{!-- END shared-blurb --}}
 
-If you do wish to continue to claim devices, claim the device to an administrator email associated with the product. At the time this document was written, claiming is required for webhook responses to work for that device.
+If you do wish to continue to claim devices, claim the device to an administrator email associated with the product.
 
 A generic administrator account is strongly recommended (particle@company.com, for example) across your entire Product and/or Organization structure for easy transfer of ownership and centralized billing.
 
@@ -311,7 +311,7 @@ After the Device ID has been retrieved, the provisioning process as outlined abo
 - The device is imported to a product
 - The device is added to a group
 - The device is given a name (optional)
-- The device is claimed
+- The device is claimed (optional)
 
 These steps can be automated using a script which can greatly speed up the process of performing the steps on multiple devices.
 
