@@ -48,7 +48,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 ### Block diagram
 
 {{imageOverlay src="/assets/images/photon2-block-diagram.png" alt="Block Diagram" class="full-width"}}
-
+ 
 ### Power
 
 #### USB
