@@ -94,6 +94,17 @@ Particle's certifications will help you decrease the time and cost associated wi
 - [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=VG3YVqF5xjUgj%2BOio7CoOw%3D%3D&fcc_id=COFWMNBM11)
 - [Test Firmware and Instructions](/assets/files/P0_P1_FCC_Firmware.zip)
 
+#### Photon 2
+
+- FCC ID: 2AEMI-P2 (this is the same as the P2 because the Photon 2 includes the P2 module)
+- [FCC Grant of Equipment Authorization (DTS)](/assets/pdfs/phn2-fcc-grant-dts.pdf)
+- [FCC Grant of Equipment Authorization (NII)](/assets/pdfs/phn2-fcc-grant-nii.pdf)
+{{!-- - [RF Exposure Report FCC Part 2, Section 2.1091](/assets/pdfs/phn2-fcc-rf-exposure.pdf) --}}
+- [FCC 15.247 Bluetooth LE Test Report](/assets/pdfs/phn2-fcc-15-247-btle.pdf)
+- [FCC 15.247 Wi-Fi Test Report](/assets/pdfs/phn2-fcc-15-247-wifi.pdf)
+- [FCC 15.407 Test Report](/assets/pdfs/phn2-fcc-15-407.pdf)
+
+
 #### P2 Module
 
 - FCC ID: 2AEMI-P2
@@ -381,6 +392,16 @@ Industry Canada follows the same testing and rules as the FCC in regards to cert
 ### Documentation
 For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipmentSearch/searchRadioEquipments?execution=e2s1&lang=en) using the IC ID for each Particle device, respectively.
 
+#### Photon 2 Module
+- IC ID: **20127-P2** (this is the same as the P2 because the Photon 2 includes the P2 module)
+- [Certificate of Conformity](/assets/pdfs/phn2-ic-certificate.pdf)
+- [IC RSS-247 BTLE Test Report](/assets/pdfs/phn2-ic-rss247-btle.pdf)
+- [IC RSS-247 Wi-Fi 2.4 GHz Test Report](/assets/pdfs/phn2-ic-rss247-wifi.pdf)
+- [IC RSS-247 Wi-Fi 5 GHz Test Report](/assets/pdfs/phn2-ic-rss247-wifi5.pdf)
+{{!-- - [IC RSS-247 DFS Test Report](/assets/pdfs/phn2-ic-rss247-dfs.pdf)
+ - [IC RSS-102 RF Exposure Report](/assets/pdfs/phn2-ic-rf-exposure.pdf) --}}
+
+
 #### P2 Module
 - IC ID: **20127-P2**
 - [Certificate of Conformity](/assets/pdfs/p2-ic-certificate.pdf)
@@ -613,13 +634,27 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [Declaration of Conformity](/assets/pdfs/new-certs/ce/p1-declaration.pdf) (2018-06-19)
 - [Certificate of Conformity](/assets/pdfs/new-certs/ce/p1-ce-certification2017.pdf) (2018-06-19)
 
+#### Photon 2
+- [Certificate of Conformity](/assets/pdfs/phn2-ce-certificate.pdf)
+- [EN 300-328 Bluetooth LE Test Report](/assets/pdfs/phn2-EN300-328-btle-test-report.pdf)
+- [EN 300-328 Wi-Fi Test Report](/assets/pdfs/phn2-EN300-328-wifi-test-report.pdf)
+- [EN 300-440 Wi-Fi 5 GHz Test Report](/assets/pdfs/phn2-EN300-440-wifi-test-report.pdf)
+- [EN 301-489 Test Report](/assets/pdfs/phn2-EN301-489-test-report.pdf)
+- [EN 301-893 Wi-Fi 5 GHz Test Report](/assets/pdfs/phn2-EN301-893-wifi-test-report.pdf)
+- [EN 301-893 Dynamic Frequency Selection DFS Test Report](/assets/pdfs/phn2-EN301-893-dfs-test-report.pdf)
+- [EN62311 Test Report](/assets/pdfs/phn2-EN62311-test-report.pdf)
+- [EN62368 Test Report](/assets/pdfs/phn2-EN62368-test-report.pdf)
+- [EN62479 Test Report](/assets/pdfs/phn2-EN62479-test-report.pdf)
+
+
+
 #### P2 Module
 - [Certificate of Conformity](/assets/pdfs/p2-ce-certificate.pdf)
 - [EN 300-328 Bluetooth LE Test Report](/assets/pdfs/p2-EN300-328-btle-test-report.pdf)
 - [EN 300-328 Wi-Fi Test Report](/assets/pdfs/p2-EN300-328-wifi-test-report.pdf)
 - [EN 300-440 Wi-Fi 5 GHz Test Report](/assets/pdfs/p2-EN300-440-wifi-test-report.pdf)
-- [EN 301-893 Wi-Fi 5 GHz Test Report](/assets/pdfs/p2-EN301-893-wifi-test-report.pdf)
 - [EN 301-489 Test Report](/assets/pdfs/p2-EN301-489-test-report.pdf)
+- [EN 301-893 Wi-Fi 5 GHz Test Report](/assets/pdfs/p2-EN301-893-wifi-test-report.pdf)
 - [EN 301-893 Dynamic Frequency Selection DFS Test Report](/assets/pdfs/p2-EN301-893-dfs-test-report.pdf)
 - [EN62311 Test Report](/assets/pdfs/p2-EN62311-test-report.pdf)
 - [EN62368 Test Report](/assets/pdfs/p2-EN62368-test-report.pdf)
@@ -745,6 +780,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 
 ## UKCA (united kingdom)
 
+- [Photon 2](/assets/pdfs/phn2-ukca.pdf)
 - [P2](/assets/pdfs/p2-ukca.pdf)
 - [B Series SoM B523, B524](/assets/pdfs/b524-ukca.pdf) (updated 2022-11-09)
 - [Tracker One ONE524, ONE523](/assets/pdfs/one523-ukca.pdf) (updated 2022-11-15)
@@ -815,6 +851,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 #### P1
 
 - [Test Report](/assets/pdfs/p1-rohs.pdf) (2021-09-16)
+
+#### Photon 2
+
+- [Test Report](/assets/pdfs/phn2-rohs.pdf)
 
 #### P2
 
