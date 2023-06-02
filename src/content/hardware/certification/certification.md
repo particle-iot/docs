@@ -635,7 +635,8 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [Certificate of Conformity](/assets/pdfs/new-certs/ce/p1-ce-certification2017.pdf) (2018-06-19)
 
 #### Photon 2
-- [Certificate of Conformity](/assets/pdfs/phn2-ce-certificate.pdf)
+- [Certificate of Conformity](/assets/pdfs/phn2-ce-certificate.pdf) 
+- [Attestation](/assets/pdfs/phn2-ce-attestation.pdf)
 - [EN 300-328 Bluetooth LE Test Report](/assets/pdfs/phn2-EN300-328-btle-test-report.pdf)
 - [EN 300-328 Wi-Fi Test Report](/assets/pdfs/phn2-EN300-328-wifi-test-report.pdf)
 - [EN 300-440 Wi-Fi 5 GHz Test Report](/assets/pdfs/phn2-EN300-440-wifi-test-report.pdf)
@@ -854,7 +855,7 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 #### Photon 2
 
-- [Test Report](/assets/pdfs/phn2-rohs.pdf)
+- [Test Report](/assets/pdfs/phn2-rohs3.pdf)
 
 #### P2
 
