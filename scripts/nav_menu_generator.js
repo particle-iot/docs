@@ -64,6 +64,9 @@ function generateNavMenu(files, fileName, contentDir) {
                     if (item.tiles) {
                         tileItem = item;
                     }
+                    if (item.hidden || item.internal) {
+                        fileObj.noIndex = true;
+                    }
                 }
 
                 if (item.isSection) {
