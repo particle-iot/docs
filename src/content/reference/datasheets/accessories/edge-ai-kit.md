@@ -15,7 +15,7 @@ The Edge AI kit provides a number of accessories that can be used with your Part
 
 This breakout board allows you to detect motion and orientation. Using Edge AI you can filter for certain types of motion. It can also be used for wake-on-motion to wake from sleep. 
 
-![](/assets/images/edge-kit/adxl362-1.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/adxl362-1.jpeg" alt="ADXL362" }}
 
 The connections on the breakout are:
 
@@ -31,15 +31,13 @@ The connections on the breakout are:
 | VIN | Red | V3 | 3.3V power |
 
 
-![](/assets/images/edge-kit/adxl362-3.png)
+{{imageOverlay src="/assets/images/edge-kit/adxl362-3.png" alt="ADXL362 Assembly" }}
 
 ### PDM MEMS microphone
 
 This breakout board is a digital microphone. It's intended for voice applications, not high-fidelity recording. Using Edge AI you cam implement similar voice commands using the microphone. It can also be used to detect specific sounds, such as an alarm siren.
 
-![](/assets/images/edge-kit/mic-1.jpeg)
-
-![](/assets/images/edge-kit/mic-2.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/mic-1.jpeg" alt="PDM Microphone" }}
 
 The connections on the breakout are:
 
@@ -51,19 +49,18 @@ The connections on the breakout are:
 | CLK | Blue | A0 | PDM Clock |
 | DAT | Green | A1 | PDM Data |
 
+{{imageOverlay src="/assets/images/edge-kit/mic-3.jpeg" alt="PDM Microphone Assembled" }}
+
 Use the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library. The library can be used for RTL872x (P2, Photon 2) and nRF52 (Boron, B Series SoM, Tracker SoM, Argon). It does not support Gen 2 devices (Electron, E Series, Photon, P1).
 
 On the nRF52 you can use other GPIO for PDM clock and data, but using A0 and A1 will assure compatibility with the Photon 2.
-
-
-![](/assets/images/edge-kit/mic-3.jpeg)
 
 
 ### SW18020P vibration sensor
 
 The vibration sensor a simple digital output that detects motion. This is simpler to use than the accelerometer, but less flexible. It is a two-terminal device that looks like an electrolytic capacitor.
 
-![](/assets/images/edge-kit/vibration.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/vibration.jpeg" alt="Vibration sensor" }}
 
 We recommend that you connect one terminal to 3V3 and the other to an available GPIO, typically a `D` pin but an `A` pin can also be used.
 
@@ -95,9 +92,9 @@ bool vibrating = (digitalRead(D2) == HIGH);
 
 This sensor measures distance, and provides an analog output that is proportional to distance that you can connect to an `A` pin and use `analogRead()` to read. Note that this sensor requires 5V so you cannot use it when powered by a LiPo battery but it will work when connected to USB. The analog output is a maximum of 3V so it's safe to connect to an analog input, which supports a maximum of 3.3V.
 
-![](/assets/images/edge-kit/distance-1.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/distance-1.jpeg" alt="Distance sensor" }}
 
-![](/assets/images/edge-kit/distance-2.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/distance-2.jpeg" alt="Distance sensor" }}
 
 | Pin | Color | Connect To | Description |
 | :---: | :--- | :--- | :--- |
@@ -131,13 +128,14 @@ The loudness sensor provides an analog output that is proportional to the loudne
 
 Care should be used when setting the adjustable gain - if you set it to maximum gain and it is very loud, the output could exceed the recommended maximum of 3.3V on analog inputs.
 
-![](/assets/images/edge-kit/loudness-1.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/loudness-1.jpeg" alt="Loudness sensor" }}
 
-![](/assets/images/edge-kit/loudness-2.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/loudness-2.jpeg" alt="Loudness sensor" }}
+
 
 The breakout includes a Grove connector to flying leads cable. It's also possible to use a 4-pin Grove-to-Grove cable if you have a board with a Grove connector and a Grove Feather Adapter.
 
-![](/assets/images/edge-kit/grove-cable.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/grove-cable.jpeg" alt="Grove cable" }}
 
 | Breakout | Color | Connect To | Details |
 | :---: | :---: | :---: | :--- |
@@ -153,9 +151,10 @@ This is a sensor for detecting the presence of various combustible gasses. It re
 
 The potentiometer determines the threshold for the digital output.
 
-![](/assets/images/edge-kit/mq2-1.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/mq2-1.jpeg" alt="Gas sensor" }}
 
-![](/assets/images/edge-kit/mq2-2.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/mq2-2.jpeg" alt="Gas sensor" }}
+
 
 You don't need to connect both D0 and A0, you can use just one of them.
 
@@ -177,11 +176,11 @@ There are also other members of the MQ sensor family (not included in this kit):
 
 The YL-69 soil moisture sensor provides a digital or analog output based on soil moisture. It is not a high-precision sensor.
 
-![](/assets/images/edge-kit/soil-1.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/soil-1.jpeg" alt="Soil moisture sensor" }}
 
 The fork-shaped probe connects to the adapter board by the two-pin female-to-female jumper wires. The sensor connects to the two-pin side of the adapter board. There is no polarity on this connection.
 
-![](/assets/images/edge-kit/soil-2.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/soil-2.jpeg" alt="Soil moisture sensor" }}
 
 The other side has the following pins:
 
@@ -200,7 +199,7 @@ You don't need to connect both D0 and A0, you can use just one of them. The pote
 
 This sensor detects heat using a passive infrared (PIR) sensor. It's typically used to sense humans (and other warm-blooded animals). It requires 5V so you cannot use it when powered by a LiPo battery but it will work when connected to USB. The output is only 3.3V so it's safe to connect to any available GPIO.
 
-![](/assets/images/edge-kit/pir-1.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/pir-1.jpeg" alt="Motion sensor" }}
 
 | Breakout | Connect To | Details |
 | :---: | :---: | :--- |
@@ -213,7 +212,7 @@ This sensor detects heat using a passive infrared (PIR) sensor. It's typically u
 
 Several light-emitting diodes (LEDs) are included in the kit, and can be used as indicator lights. The LEDs in your kit may vary slightly from the items pictured here.
 
-![LEDs](/assets/images/edge-kit/leds.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/leds.jpeg" alt="LEDs" }}
 
 LEDs require a current limiting resistor. Typically you will use 1K&ohm; (Brown - Black - Red - Gold) so the LED will not be overly bright.
 
@@ -225,7 +224,8 @@ You can use  330 &ohm; (Orange - Orange - Brown - Gold) if you need maximum brig
 
 ### Resistors
 
-![](/assets/images/edge-kit/resistors-2.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/resistors-2.jpeg" alt="Resistors" }}
+
 
 Resistors have a standardized color code.
 
@@ -244,24 +244,25 @@ The resistors in the kit include:
 
 The kit contains a standard USB-A to Micro-B cable. You can use any USB cable, but for programming over USB make sure you are using a full USB data cable and not a "charging only" cable.
 
-![USB cable](/assets/images/edge-kit/usb.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/usb.jpeg" alt="USB cable" }}
+
 
 ### Breadboard
 
 The kit contains a solderless breadboard. 
 
-![](/assets/images/edge-kit/breadboard.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/breadboard.jpeg" alt="Breadboard" }}
 
 Electrically, the holes in a solderless breadboard are connected like this:
 
-![](/assets/images/edge-kit/breadboard-wiring.jpg)
+{{imageOverlay src="/assets/images/edge-kit/breadboard-wiring.jpg" alt="Breadboard wiring" }}
 
 <p class="attribution">Source: [Wikipedia](https://en.wikipedia.org/wiki/Breadboard#/media/File:Pcb33.430-g1.jpg), Florian Schäffer, License: CC BY-SA 4.0</p>
 
 
 ### Jumper wires
 
-![](/assets/images/edge-kit/wires.jpeg)
+{{imageOverlay src="/assets/images/edge-kit/wires.jpeg" alt="Wires" }}
 
 We recommend that you use:
 
