@@ -225,6 +225,15 @@ You can use  330 &ohm; (Orange - Orange - Brown - Gold) if you need maximum brig
 - The shorter lead in the negative connection or cathode. The case may also have a flattened spot on the cathode side.
 - The current limiting resistor can be on either the positive or negative side, but there must be a separate current limiting resistor for each LED if you have more than one.
 
+Instead of the LEDs above, your kit may include different LEDs:
+
+![LEDs](/assets/images/kit-leds.jpg)
+
+- IR LED (blue-ish)
+- White LED (clear with rounded top)
+- Red LED (included with most kits that contain a photo transistor instead of the white LED to reduce confusion)
+- [Photo transistor](/assets/datasheets/ALS-PT243.pdf) (clear and flat on top)
+
 ### Resistors
 
 {{imageOverlay src="/assets/images/edge-kit/resistors-2.jpeg" alt="Resistors" }}
