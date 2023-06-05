@@ -893,9 +893,15 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/argon-rohs.pdf)
 
+
 #### Boron 2G/3G (BRN310, U201 modem)
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/boron310-rohs.pdf)
+
+#### Boron LTE Cat M1 (BRN404X, SARA-R510 modem)
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/brn404x-rohs.pdf)
+
 
 #### Boron LTE Cat M1 (BRN402, SARA-R410M-02B modem)
 
