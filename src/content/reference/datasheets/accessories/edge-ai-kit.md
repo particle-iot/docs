@@ -33,6 +33,9 @@ The connections on the breakout are:
 
 {{imageOverlay src="/assets/images/edge-kit/adxl362-3.png" alt="ADXL362 Assembly" }}
 
+Use the [ADXL362DMA](https://github.com/rickkas7/ADXL362DMA) library, or other compatible library. The library includes the full API definitions, as well as example code for getting raw accelerometer data and for doing simple orientation calculation.
+
+
 ### PDM MEMS microphone
 
 This breakout board is a digital microphone. It's intended for voice applications, not high-fidelity recording. Using Edge AI you cam implement similar voice commands using the microphone. It can also be used to detect specific sounds, such as an alarm siren.
@@ -51,7 +54,7 @@ The connections on the breakout are:
 
 {{imageOverlay src="/assets/images/edge-kit/mic-3.jpeg" alt="PDM Microphone Assembled" }}
 
-Use the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library. The library can be used for RTL872x (P2, Photon 2) and nRF52 (Boron, B Series SoM, Tracker SoM, Argon). It does not support Gen 2 devices (Electron, E Series, Photon, P1).
+Use the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library. The library can be used for RTL872x (P2, Photon 2) and nRF52 (Boron, B Series SoM, Tracker SoM, Argon). It does not support Gen 2 devices (Electron, E Series, Photon, P1). The library includes sample code for capturing audio samples and additional information.
 
 On the nRF52 you can use other GPIO for PDM clock and data, but using A0 and A1 will assure compatibility with the Photon 2.
 
