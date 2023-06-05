@@ -255,7 +255,7 @@ The kit contains a solderless breadboard.
 
 Electrically, the holes in a solderless breadboard are connected like this:
 
-{{imageOverlay src="/assets/images/edge-kit/breadboard-wiring.jpg" alt="Breadboard wiring" }}
+{{imageOverlay src="/assets/images/edge-kit/breadboard-wiring.jpeg" alt="Breadboard wiring" }}
 
 <p class="attribution">Source: [Wikipedia](https://en.wikipedia.org/wiki/Breadboard#/media/File:Pcb33.430-g1.jpg), Florian Schäffer, License: CC BY-SA 4.0</p>
 
