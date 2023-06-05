@@ -19,18 +19,19 @@ This breakout board allows you to detect motion and orientation. Using Edge AI y
 
 The connections on the breakout are:
 
-| Breakout | Connect To | Details |
-| :---: | :---: | :--- |
-| INT1 | Any | Any available GPIO if using interrupt 1 (optional) |
-| INT2 | Any | Any available GPIO if using interrupt 2 (optional) |
-| CS | Any | SPI Chip Select. Use any available GPIO (required) |
-| SDO | MISO | SPI MISO (required) |
-| SDI | MOSI | SPI MOSI (required) |
-| SCL | SCK | SPI SDK (required). Not I2C SCL (D1)! |
-| GND | GND | Ground |
-| VIN | 3V3 | 3.3V power |
+| Breakout | Color | Connect To | Details |
+| :---: | :--- | :---: | :--- |
+| INT1 | | Any | Any available GPIO if using interrupt 1 (optional) |
+| INT2 | | Any | Any available GPIO if using interrupt 2 (optional) |
+| CS | Yellow | Any | SPI Chip Select. Use any available GPIO (required) |
+| SDO | Green | MISO | SPI MISO (required) |
+| SDI | Blue | MOSI | SPI MOSI (required) |
+| SCL | Orange | SCK | SPI SDK (required). Not I2C SCL (D1)! |
+| GND | Black | GND | Ground |
+| VIN | Red | V3 | 3.3V power |
 
-See the [Accelerometer example](#accelerometer-example), below, for more details.
+
+![](/assets/images/edge-kit/adxl362-3.png)
 
 ### PDM MEMS microphone
 
@@ -42,24 +43,53 @@ This breakout board is a digital microphone. It's intended for voice application
 
 The connections on the breakout are:
 
-| Breakout | Connect To | Details |
-| :---: | :---: | :--- |
-| 3V | 3V3 | 3.3V power |
-| GND | GND | Ground |
-| SEL | NC | Typically leave unconnected, left/right select |
-| CLK | A0 | PDM Clock |
-| DAT | A1 | PDM Data |
+| Breakout | Color | Connect To | Details |
+| :---: | :--- | :---: | :--- |
+| 3V | Red | 3V3 | 3.3V power |
+| GND | Black | GND | Ground |
+| SEL | | NC | Typically leave unconnected, left/right select |
+| CLK | Blue | A0 | PDM Clock |
+| DAT | Green | A1 | PDM Data |
 
 Use the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library. The library can be used for RTL872x (P2, Photon 2) and nRF52 (Boron, B Series SoM, Tracker SoM, Argon). It does not support Gen 2 devices (Electron, E Series, Photon, P1).
 
 On the nRF52 you can use other GPIO for PDM clock and data, but using A0 and A1 will assure compatibility with the Photon 2.
 
-See the [PDM MEMS microphone example](#pdm-mems-microphone-example), below, for more details.
+
+![](/assets/images/edge-kit/mic-3.jpeg)
+
 
 ### SW18020P vibration sensor
 
-The vibration sensor a simple digital output that detects motion. This is simpler to use than the accelerometer, but less flexible.
+The vibration sensor a simple digital output that detects motion. This is simpler to use than the accelerometer, but less flexible. It is a two-terminal device that looks like an electrolytic capacitor.
 
+![](/assets/images/edge-kit/vibration.jpeg)
+
+We recommend that you connect one terminal to 3V3 and the other to an available GPIO, typically a `D` pin but an `A` pin can also be used.
+
+Set the pin mode, for example if using `D2`:
+
+```cpp
+pinMode(D2, INPUT_PULLDOWN);
+```
+
+To read the vibration status, use:
+
+```
+bool vibrating = (digitalRead(D2) == HIGH);
+```
+
+- Max voltage: 12V
+- Max current: 50mA
+- Conductive time: ~2ms
+- Closed resistance <10 ohm
+- Open resistance: >10M ohm
+- Operating temperature range: -40 to 80 C
+- Pull force of terminal: 500gf for 1 min
+- Operating lifespan: up to 200,000 cycles
+- Dimensions (excluding pin): 4.77mm (0.19in) diameter x 11.18mm (0.44in) length
+- Dimensions (including pin): 21.5mm (0.85") length
+- Weight: 0.22g (.008oz)
 
 ### GP2Y0A710K0F 100-550cm IR Distance sensor
 
@@ -69,6 +99,31 @@ This sensor measures distance, and provides an analog output that is proportiona
 
 ![](/assets/images/edge-kit/distance-2.jpeg)
 
+| Pin | Color | Connect To | Description |
+| :---: | :--- | :--- | :--- |
+| 1 | Black | GND | Ground |
+| 2 | Red | VUSB | 5V Supply |
+| 3 | Red | VUSB | 5V Supply  |
+| 4 | White | `A` pin | Output voltage |
+| 5 | Black | GND | Ground |
+
+The sensor has 5 output pins, but the red and black (power) lines are duplicated.
+
+The white wire should be connected to an available analog input (`A`) pin.
+
+Note that the analog value is inverse from the voltage, and not linear. See the datasheet for more information.
+
+| Distance | Voltage | Value |
+| :--- | ---: | ---: |
+| 100cm | 2.5V | 3102 |
+| 200cm | 1.8V | 2233 |
+| 550cm | 0.25V | 310 |
+
+
+- Distance measuring range: 100cm to 550cm
+- Supply voltage: 4.5V to 5.5V
+- Operating current: 30 mA
+- [Sensor datasheet](/assets/datasheets/gp2y0a710k.pdf)
 
 ### Loudness sensor with LM2904 opamp
 
@@ -96,11 +151,27 @@ The breakout includes a Grove connector to flying leads cable. It's also possibl
 
 This is a sensor for detecting the presence of various combustible gasses. It requires 5V so you cannot use it when powered by a LiPo battery but it will work when connected to USB. Also, this type of sensor has a small heater inside, which is not well suited for being battery powered.
 
-Care should be used when setting the adjustable gain - if you set it to maximum gain and there is a high concentration of a detectable gas, the output could exceed the recommended maximum of 3.3V on analog inputs.
+The potentiometer determines the threshold for the digital output.
 
 ![](/assets/images/edge-kit/mq2-1.jpeg)
 
 ![](/assets/images/edge-kit/mq2-2.jpeg)
+
+You don't need to connect both D0 and A0, you can use just one of them.
+
+- D0 can be connected to any digital (`D`) or analog (`A`) input on your Particle device.
+- A0 can be connected to any analog (`A`) input  on your Particle device. 
+
+When reading the analog input, low concentration of gas will result in values closer to 0. Values closer to 4095 (the maximum) indicate high levels of detectable gasses. By using the analog output, you can adjust the sensitivity in software.
+
+The potentiometer controls the gas level level that switches D0 on and off.
+
+There are also other members of the MQ sensor family (not included in this kit):
+
+- MQ3 alcohol vapor
+- MQ5 LP gas and natural gas
+- MQ9 Carbon monoxide
+
 
 ### Soil moisture sensor (resistance-type)
 
@@ -168,11 +239,6 @@ The resistors in the kit include:
 | Brown - Black - Red - Gold | 1K&ohm; | Transistor gate or current limiting |
 | Brown - Black - Orange - Gold | 10K&ohm; | Pull-up or pull-down |
 
-### Capacitor
-
-![](/assets/images/edge-kit/capacitor.jpeg)
-
-The kit includes a capacitor, which is typically used to smooth your input power source in certain conditions.
 
 ### USB
 
@@ -186,14 +252,19 @@ The kit contains a solderless breadboard.
 
 ![](/assets/images/edge-kit/breadboard.jpeg)
 
+Electrically, the holes in a solderless breadboard are connected like this:
+
+![](/assets/images/edge-kit/breadboard-wiring.jpg)
+
+<p class="attribution">Source: [Wikipedia](https://en.wikipedia.org/wiki/Breadboard#/media/File:Pcb33.430-g1.jpg), Florian Schäffer, License: CC BY-SA 4.0</p>
+
 
 ### Jumper wires
 
 ![](/assets/images/edge-kit/wires.jpeg)
 
-## Example applications
+We recommend that you use:
 
-### PDM MEMS Microphone example
-
-### Accelerometer example
+- Red for 3V3 (3.3V power)
+- Black for GND (ground)
 
