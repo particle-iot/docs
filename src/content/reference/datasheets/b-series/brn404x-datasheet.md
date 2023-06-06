@@ -682,7 +682,7 @@ GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA)
  
  * Weight = 10 grams
 
-### 3D Models
+### 3D models
 
 3D models of the Boron are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/mesh/boron) in formats including step, iges, stl, and f3d.
 

@@ -326,7 +326,7 @@ Maximum Carrier Board Dimensions (mm):
 
 Note: The Tracker Carrier Board has a smaller bottom tab to provide space for the M8 connector.
 
-### 3D Models
+### 3D models
 
 3D models of the Tracker One enclosure are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/Tracker%20One) in step format.
 

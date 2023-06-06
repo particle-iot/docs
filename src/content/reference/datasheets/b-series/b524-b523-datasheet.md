@@ -555,7 +555,7 @@ These specifications are based on the nRF52840 datasheet.
 
 Dimensions are in millimeters.
 
-### 3D Models
+### 3D models
 
 3D models of the B Series SoM module are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/B-Series/B523) in formats including step, iges, stl, and f3d.
 

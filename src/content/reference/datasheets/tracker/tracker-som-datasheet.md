@@ -989,7 +989,7 @@ Weight will be provided at a later date.
 Dimensions are in millimeters.
 
 
-### 3D Models
+### 3D models
 
 3D models of the Tracker SoM module are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/T-SoM/T402) in formats including step, iges, and stl.
 

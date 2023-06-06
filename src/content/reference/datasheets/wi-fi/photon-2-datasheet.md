@@ -557,7 +557,7 @@ The Photon 2 can be directly soldered onto the PCB or be mounted with the above 
 <div align=center><img src="/assets/images/argon/argon-landing-pattern.png" ></div>
 
 
-### 3D Models
+### 3D models
 
 3D models of the Photon 2 module are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/Photon2) in formats including step, iges, and f3z.
 
