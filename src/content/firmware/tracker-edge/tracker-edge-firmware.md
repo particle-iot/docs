@@ -91,7 +91,8 @@ You can download a complete project for use with Particle Workbench as a zip fil
 {{box op="start" cssClass="boxed warningBox"}}
 Tracker Edge v18 can only be built by the Particle Workbench local compile. It cannot be built by the CLI or cloud compliers.
 
-Tracker Edge v18 should target Device OS 3.3.0 (not 4.x or 5.x).
+It is recommended that Tracker fleets upgrade to the latest Device OS 4.x LTS (currently {{version mode="latestRelease" line="4"}}). 
+You can also use Device OS 3.3.0, or the 5.x developer preview release line.
 {{box op="end"}}
 
 - Open Particle Workbench.
