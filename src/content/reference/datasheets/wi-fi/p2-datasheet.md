@@ -629,6 +629,10 @@ When laying out your board:
 
 ![P2 Keepout](/assets/images/p2-keepout.png)
 
+### 3D Models
+
+3D models of the P2 module are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/P2) in formats including step, iges, and f3z.
+
 ## Reference design
 
 A [P2 reference design](https://github.com/particle-iot/p2-reference-design) is available in Github. The repository includes schematics, board layout, footprints, for Eagle CAD.

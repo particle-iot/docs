@@ -4504,7 +4504,7 @@
     "examples": [
       {
         "title": "buildTargets",
-        "content": "$ curl \"https://api.particle.io/v1/build_targets?access_token=1234\"",
+        "content": "$ curl \"https://api.particle.io/v1/build_targets\"",
         "type": "bash"
       }
     ],
@@ -4530,7 +4530,7 @@
       "examples": [
         {
           "title": "buildTargets",
-          "content": "PUT /v1/build_targets\nHTTP/1.1 200 OK\n{\n  \"targets\": [\n    {\n      \"platforms\": [\n        0,\n        10,\n        8,\n        6\n      ],\n      \"prereleases\": [],\n      \"firmware_vendor\": \"Particle\",\n      \"version\": \"0.6.1\"\n    }\n  ],\n  \"platforms\": {\n    \"Core\": 0,\n    \"Photon\": 6,\n    \"P1\": 8,\n    \"Electron\": 10\n  }\n}",
+          "content": " PUT /v1/build_targets\n HTTP/1.1 200 OK\n {\n   \"targets\": [\n     {\n       \"platforms\": [\n         0,\n         10,\n         8,\n         6\n       ],\n       \"prereleases\": [],\n       \"firmware_vendor\": \"Particle\",\n       \"version\": \"0.6.1\"\n     }\n   ],\n   \"platforms\": {\n     \"Core\": 0,\n     \"Photon\": 6,\n     \"P1\": 8,\n     \"Electron\": 10\n   },\n   \"default_versions\": {\n     \"0\": \"0.7.0\",\n     \"6\": \"2.3.1\",\n     \"8\": \"2.3.1\",\n     \"10\": \"2.3.1\"\n    }\n }\nAs of April, 2023, an access token is no longer required to call this API.",
           "type": "json"
         }
       ]
@@ -7975,8 +7975,8 @@
             "group": "Parameter",
             "type": "File",
             "optional": false,
-            "field": "binary",
-            "description": "<p>A binary file encoded in <code>multipart/form-data</code> format containing the contents of the product firmware</p>"
+            "field": "file",
+            "description": "<p>A binary file encoded in <code>multipart/form-data</code> format containing the contents of the product firmware (<code>binary</code> is also accepted for backwards compatibility)</p>"
           },
           {
             "group": "Parameter",
@@ -8010,7 +8010,7 @@
     "examples": [
       {
         "title": "Example request",
-        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/firmware?access_token=1234\" \\\n       -F binary=@firmware.bin \\\n       -F version=1 \\\n       -F title=firmware",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/firmware?access_token=1234\" \\\n       -F file=@firmware.bin \\\n       -F version=1 \\\n       -F title=firmware",
         "type": "bash"
       }
     ],

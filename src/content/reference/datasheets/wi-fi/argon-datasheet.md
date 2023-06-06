@@ -326,6 +326,10 @@ GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA)
  
  * Weight = 10 grams
 
+### 3D Models
+
+3D models of the Argon are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/mesh/argon) in formats including step, iges, stl, and f3d.
+
 ### Mating connectors
 
 The Argon uses two single row 0.1" pitch male header pins. One of them is 16 pin while the other is 12 pin. It can be mounted with matching 0.1" pitch female headers with a typical height of 0.335" (8.5mm). When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for the Argon:
