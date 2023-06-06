@@ -1591,14 +1591,14 @@ const svg = require('./svg');
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/monitor-one-expansion-blank.svg'),
             outputPath: 'assets/images/monitor-one-expansion.svg',
             // scale to make height 500px
-            deviceImageTransform: 'translate(245,0) scale(2.6)',
-            width: 980,
+            deviceImageTransform: 'translate(285,0) scale(2.6)',
+            width: 1100,
             height: 800,
             background: 'white',
             pins: [
                 {   // Left side
                     num: 1,
-                    x: 250,
+                    x: 290,
                     y: 202,
                     numDelta: 1,
                     xDelta: 0,
@@ -1608,7 +1608,7 @@ const svg = require('./svg');
                     yDir: 0,
                     columns: [
                         {
-                            width: 60,
+                            width: 100,
                             keys: ['name'],
                         },
                         {
@@ -1624,7 +1624,7 @@ const svg = require('./svg');
                 },
                 {   // Right side
                     num: 25,
-                    x: 674,
+                    x: 714,
                     y: 685,
                     numDelta: 1,
                     xDelta: 0,
@@ -1634,7 +1634,7 @@ const svg = require('./svg');
                     yDir: 0,
                     columns: [
                         {
-                            width: 60,
+                            width: 100,
                             keys: ['name'],
                         },
                         {
