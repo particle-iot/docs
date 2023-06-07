@@ -357,16 +357,6 @@ These pins have a 3.3V maximum and are **not** 5V tolerant!
 
 You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
-## Subscribing to events
-
-By default, Tracker One and Tracker SoM devices are unclaimed product devices. One caveat of this is that your firmware cannot use [`Particle.subscribe`](/reference/device-os/api/cloud-functions/particle-subscribe/) to subscribe to events. You can either:
-
-- Use [`Particle.function`](/reference/device-os/api/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
-
-- Claim the Tracker devices to an account. Often this will be a single account for all devices, possibly the owner of the product.
-
-For more information, see [Device claiming](/getting-started/cloud/device-claiming/).
-
 ## Using GitHub with Tracker Edge
 
 [GitHub](https://github.com/) is a tool for source code control, issue, and release management. It's great for managing Particle projects in Workbench. For many uses, it's free, too. There are many features, entire books, and tutorials about [Git](https://git-scm.com/) (the underlying source code control system) and GitHub (a service that allows you to store files in the cloud). This is just an overview.
