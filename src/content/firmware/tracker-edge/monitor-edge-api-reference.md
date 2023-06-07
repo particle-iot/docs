@@ -1020,12 +1020,7 @@ Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 MonitorOneUserLed::instance().get_rgb2_instance().
 ```
 
-### ADP8866_RGB
-
-```cpp
-// PROTOTYPE
-void setColor(uint32_t color);
-```
+### color - ADP8866_RGB
 
 ```cpp
 // PROTOTYPE
@@ -1035,6 +1030,14 @@ void color(uint8_t r, uint8_t g, uint8_t b);
 MonitorOneUserLed::instance().get_rgb2_instance().color(0,128,0);
 ```
 
+### setColor - ADP8866_RGB
+
+```cpp
+// PROTOTYPE
+void setColor(uint32_t color);
+```
+
+### brightness - ADP8866_RGB
 
 ```cpp
 // PROTOTYPE
@@ -1044,10 +1047,15 @@ void brightness(uint8_t brightness, bool update = true);
 MonitorOneUserLed::instance().get_rgb2_instance().brightness(80);
 ```
 
+### off - ADP8866_RGB
+
 ```cpp
 // PROTOTYPE
 void off();
 ```
+
+### on - ADP8866_RGB
+
 
 ```cpp
 // PROTOTYPE
@@ -1057,10 +1065,15 @@ void on();
 MonitorOneUserLed::instance().get_rgb2_instance().on();
 ```
 
+### toggle - ADP8866_RGB
+
+
 ```cpp
 // PROTOTYPE
 void toggle();
 ```
+
+### setPattern - ADP8866_RGB
 
 ```cpp
 // PROTOTYPE
@@ -1069,6 +1082,8 @@ void setPattern(LEDPattern pattern);
 // EXAMPLE
 MonitorOneUserLed::instance().get_rgb2_instance().setPattern(LED_PATTERN_FADE);
 ````
+
+### setPeriod - ADP8866_RGB
 
 ```cpp
 // PROTOTYPE
