@@ -592,7 +592,13 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 {{imageOverlay src="/assets/images/b-series/schematic-conn.png" alt="M.2 Connector"}}
 
-Note: The labels for CTS and RTS are reversed in this schematic.
+Note: An earlier version of this document had reversed the labels D2 and D3 in the diagram located here. The correct assignments are pictured above and are as follows:
+
+| SoM Pin | nRF52 Pin | Device OS Pin | Serial1 Flow Control |
+| :---: | :---: | :---: | :---: |
+| 40 | P1.01 | D3 | CTS |
+| 42 | P1.02 | D2 | RTS |
+
 
 ### SIM and Flash
 
@@ -680,3 +686,4 @@ The bootloader allows you to easily update the user application via several diff
 | 020      | 06-Jan-2023 | RK | Clarify power supply notes for VCC and 3V3 |
 | 021      | 31-Jan-2023 | RK | Add Device OS versions |
 | 022      | 28-Apr-2023 | RK | Add conformal coating warning |
+| 023      | 07-Jun-2023 | RK | Fixed diagram of M.2 connector in schematics |

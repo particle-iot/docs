@@ -624,8 +624,6 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 {{imageOverlay src="/assets/images/b-series/b523-schematic-conn.png" alt="M.2 connector"}}
 
-Note: The labels for CTS and RTS are reversed in this schematic.
-
 ### SIM and Flash
 
 {{imageOverlay src="/assets/images/b-series/b523-schematic-sim.png" alt="SIM"}}
