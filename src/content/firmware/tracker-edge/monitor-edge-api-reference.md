@@ -1016,9 +1016,11 @@ Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 
 ## User LED
 
-```
-MonitorOneUserLed::instance().get_rgb2_instance().
-```
+There are two "user" LEDs, however LED rgb1 (the top one), defaults to being the GNSS lock indicator.
+
+You can, however, use rgb2 (the bottom one), for your own use. To do this, obtain the rgb2 instance using 
+`MonitorOneUserLed::instance().get_rgb2_instance().` and then use one of the methods of the `ADP8866_RGB` class.
+
 
 ### color - ADP8866_RGB
 
@@ -1030,12 +1032,16 @@ void color(uint8_t r, uint8_t g, uint8_t b);
 MonitorOneUserLed::instance().get_rgb2_instance().color(0,128,0);
 ```
 
+Set the color of the LED using red, green, and blue values (0-255). Note that there are `on()` and `off()` methods; you should turn the LED off instead of setting the color to black (0, 0, 0);
+
 ### setColor - ADP8866_RGB
 
 ```cpp
 // PROTOTYPE
 void setColor(uint32_t color);
 ```
+Set the color of the LED using a single 24-bit value 0x00RRGGBB in a uint32_t. Note that there are `on()` and `off()` methods; you should turn the LED off instead of setting the color to black (0x00000000).
+
 
 ### brightness - ADP8866_RGB
 
@@ -1047,6 +1053,8 @@ void brightness(uint8_t brightness, bool update = true);
 MonitorOneUserLed::instance().get_rgb2_instance().brightness(80);
 ```
 
+Sets the brightness from 0 (minimum) to 255 (maximum). The default is maximum.
+
 ### off - ADP8866_RGB
 
 ```cpp
@@ -1054,8 +1062,9 @@ MonitorOneUserLed::instance().get_rgb2_instance().brightness(80);
 void off();
 ```
 
-### on - ADP8866_RGB
+Turns the LED off.
 
+### on - ADP8866_RGB
 
 ```cpp
 // PROTOTYPE
@@ -1065,13 +1074,16 @@ void on();
 MonitorOneUserLed::instance().get_rgb2_instance().on();
 ```
 
-### toggle - ADP8866_RGB
+Turns the LED on, with the same color and pattern settings it had prior to being turned off.
 
+### toggle - ADP8866_RGB
 
 ```cpp
 // PROTOTYPE
 void toggle();
 ```
+
+Toggles the on/off state of the LED. When toggled on the LED will have the same color and pattern settings it had prior to being turned off.
 
 ### setPattern - ADP8866_RGB
 
@@ -1083,9 +1095,20 @@ void setPattern(LEDPattern pattern);
 MonitorOneUserLed::instance().get_rgb2_instance().setPattern(LED_PATTERN_FADE);
 ````
 
+The `LEDPattern` uses the Device OS LED pattern codes:
+
+| Pattern | Value |
+| :--- | :---: |
+| `LED_PATTERN_SOLID` | 1 |
+| `LED_PATTERN_BLINK` | 2 |
+| `LED_PATTERN_FADE`  | 3 |
+
+
 ### setPeriod - ADP8866_RGB
 
 ```cpp
 // PROTOTYPE
 void setPeriod(uint16_t period);
 ```
+
+Set the blink or fade period in milliseconds.
