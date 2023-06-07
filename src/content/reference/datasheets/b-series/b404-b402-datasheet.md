@@ -599,7 +599,7 @@ Note: An earlier version of this document had reversed the labels D2 and D3 in t
 | 40 | P1.01 | D3 | CTS |
 | 42 | P1.02 | D2 | RTS |
 
- 
+
 ### SIM and Flash
 
 {{imageOverlay src="/assets/images/b-series/schematic-sim.png" alt="SIM and Flash" class="full-width"}}
