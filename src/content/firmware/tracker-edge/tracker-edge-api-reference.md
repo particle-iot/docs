@@ -212,7 +212,7 @@ Use this to access the `TrackerShipping` object. You will rarely need to do this
 
 Since the Tracker One has a LiPo battery inside the case, and the case is screwed together, it's inconvenient to unplug the battery. Shipping mode puts the device in a very low power mode (even less than sleep mode) by using the power management controller (PMIC) to disconnect the battery. Shipping mode can be enabled from the console, so you don't need to have a custom firmware build to enter shipping mode. Note that you can only exit shipping mode by externally powering a Tracker One by USB or the M8 connector.
 
-You might want to use the API if you have a physical button to enter shipping mode on a custom device. You could have the button handler in your user firmware call `tracking.shipping.enter();` to enter shipping mode locally.
+You might want to use the API if you have a physical button to enter shipping mode on a custom device. You could have the button handler in your user firmware call `Tracker::instance().shipping.enter();` to enter shipping mode locally.
 
 **Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 

@@ -59,11 +59,11 @@ void loop()
 
 ``` 
 
-### init() - Tracker
+### init() - Edge
 
 ```cpp
 // PROTOTYPE 
-void Tracker::init();
+void Edge::init();
 
 // EXAMPLE
 Edge::instance().init();
@@ -104,7 +104,7 @@ Edge::instance().loop()
 
 You must call the `loop()` method from `loop()` in your main application file.
 
-You can add your own code to loop, however you should avoid using `delay()` or other functions that block. If you would like to publish your own events (separate from the location events), you can use the Tracker cloud service to publish safely without blocking the loop.
+You can add your own code to loop, however you should avoid using `delay()` or other functions that block. If you would like to publish your own events (separate from the location events), you can use the Edge cloud service to publish safely without blocking the loop.
 
 ### stop() - Edge
 
@@ -133,7 +133,7 @@ This can be used in addition to [`EdgeConfiguration`](/#EdgeConfiguration) for m
 uint32_t getModel();
 ```
 
-Gets the model of Tracker. 
+Gets the model.
 
 | Model Code | Constant | Description | 
 | :--------- | :--- | :---- |
@@ -149,10 +149,10 @@ Gets the model of Tracker.
 uint32_t getVariant();
 ```
 
-Gets the variant of the Tracker. This is current 0x0001 for all devices.
+Gets the variant. This is current 0x0001 for all devices.
 
 
-### cloudService - Tracker
+### cloudService - Edge
 
 ```
 // PROTOTYPE 
@@ -170,10 +170,10 @@ Use this to access the [`CloudService`](/firmware/tracker-edge/tracker-edge-api-
 EdgeLocation location;
 
 // EXAMPLE
-Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
+Edge::instance().location.regLocGenCallback(myLocationGenerationCallback);
 ```
 
-Use this to access the [`EdgeLocation`](/firmware/tracker-edge/tracker-edge-api-reference/#edgelocation) object. Note that there are two different services, `LocationService` and `EdgeLocation`.
+Use this to access the [`EdgeLocation`](/firmware/tracker-edge/tracker-edge-api-reference/#edgelocation) object. Note that there are two different services, `EdgeGnssAbstraction` and `EdgeLocation`.
 
 The `EdgeLocation` is typically used to register a location generation callback; this allows custom data to be added to the location publish.
 
@@ -181,37 +181,35 @@ The `EdgeLocation` is typically used to register a location generation callback;
 
 ```
 // PROTOTYPE 
-LocationService locationService;
+EdgeGnssAbstraction locationService;
 
 // EXAMPLE
 LocationStatus locationStatus;
-Tracker::instance().locationService.getStatus(locationStatus);
+Edge::instance().locationService.getStatus(locationStatus);
 Log.info("GPS lock=%d", locationStatus.locked);
 ```
 
-Use this to access the [`LocationService`](/firmware/tracker-edge/tracker-edge-api-reference/#locationservice) object. Note that there are two different services, `LocationService` and `EdgeLocation`.
+Use this to access the [`EdgeGnssAbstraction`](/firmware/tracker-edge/tracker-edge-api-reference/#locationservice) object. Note that there are two different services, `EdgeGnssAbstraction` and `EdgeLocation`.
 
-The `LocationService` is normally configured from the console to enable features like publish on movement outside radius. These settings are made in the console per-product, though they also can be overridden per-device from the cloud.
+The `EdgeGnssAbstraction` is normally configured from the console to enable features like publish on movement outside radius. These settings are made in the console per-product, though they also can be overridden per-device from the cloud.
 
-You may want to use the `LocationService` directly to query GNSS status (fix or not) as well as the most recent location data from your user firmware.
+You may want to use the `EdgeGnssAbstraction` directly to query GNSS status (fix or not) as well as the most recent location data from your user firmware.
 
 ### shipping - Edge
 
 ```
 // PROTOTYPE 
-TrackerShipping shipping;
+EdgeShipping shipping;
 
 // EXAMPLE
-Tracker::instance().shipping.enter();
+Edge::instance().shipping.enter();
 ```
 
-Use this to access the `TrackerShipping` object. You will rarely need to do this because shipping mode is typically managed from the console.
+Use this to access the `EdgeShipping` object. You will rarely need to do this because shipping mode is typically managed from the console.
 
-Since the Tracker One has a LiPo battery inside the case, and the case is screwed together, it's inconvenient to unplug the battery. Shipping mode puts the device in a very low power mode (even less than sleep mode) by using the power management controller (PMIC) to disconnect the battery. Shipping mode can be enabled from the console, so you don't need to have a custom firmware build to enter shipping mode. Note that you can only exit shipping mode by externally powering a Tracker One by USB or the M8 connector.
+Since the Monitor One has a LiPo battery inside the case, and the case is screwed together, it's inconvenient to unplug the battery. Shipping mode puts the device in a very low power mode (even less than sleep mode) by using the power management controller (PMIC) to disconnect the battery. Shipping mode can be enabled from the console, so you don't need to have a custom firmware build to enter shipping mode. Note that you can only exit shipping mode by externally powering the Monitor One by the M12 connector or the internal USB connector.
 
-You might want to use the API if you have a physical button to enter shipping mode on a custom device. You could have the button handler in your user firmware call `tracking.shipping.enter();` to enter shipping mode locally.
-
-**Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Edge One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
+You might want to use the API if you have a physical button to enter shipping mode on a custom device. You could have the button handler in your user firmware call `Edge::instance().shipping.enter()` to enter shipping mode locally.
 
 ### configService - Edge
 
@@ -238,7 +236,7 @@ See the [Tracker Configuration Tutorial](/reference/tracker/tracker-configuratio
 EdgeMotion motionService;
 ```
 
-Use this to access the `EdgeMotion` object. You will rarely need to do this because the motion detection mode is normally controlled by the configuration service from the cloud. For example, you can set the Tracker to publish on movement, but this setting is normally made from a configuration in the console, not from user firmware.
+Use this to access the `EdgeMotion` object. You will rarely need to do this because the motion detection mode is normally controlled by the configuration service from the cloud. For example, you can set the Monitor One to publish on movement, but this setting is normally made from a configuration in the console, not from user firmware.
 
 
 ## EdgeConfiguration
@@ -259,7 +257,7 @@ void setup()
 
 ### enableIoCanPower - EdgeConfiguration
 
-The `enableIoCanPower()` method controls the behavior of Tracker FW to enable the power on at initialization as well as coming out of sleep. If this is true then the firmware will control it on and off. If false, the user must control.
+The `enableIoCanPower()` method controls the behavior of Edge FW to enable the power on at initialization as well as coming out of sleep. If this is true then the firmware will control it on and off. If false, the user must control.
 
 | enableIoCanPower | enableIoCanPowerSleep | Meaning |
 | :--------------: | :-------------------: | :--- |
@@ -274,7 +272,7 @@ The `enableIoCanPowerSleep()` controls behavior before and after sleep. If enabl
 
 ### disableCharging (set) - EdgeConfiguration
 
-If the application wishes to manually disable charging, these methods can be used. This is not typical, normally the Tracker will manage enabling or disabling charging automatically based on input current available and temperature.
+If the application wishes to manually disable charging, these methods can be used. This is not typical, normally the Monitor One will manage enabling or disabling charging automatically based on input current available and temperature.
 
 However if the application has knowledge of its external power supply, it may want to fine-tune the charging behavior of the tracker in cases such as:
 
@@ -289,7 +287,7 @@ EdgeConfiguration& disableCharging(bool disable)
 - `disable` set to `true`: Charging is disabled
 - `disable` set to `false`: Charging is enabled (default)
 
-This setting is not saved to flash, you should set it in your application whenever you believe charging should be manually diasbled.
+This setting is not saved to flash, you should set it in your application whenever you believe charging should be manually disabled.
 
 ### disableCharging (get) - EdgeConfiguration
 
@@ -348,7 +346,7 @@ Gets the number of times to try GNSS initialization. The default is 1.
 
 ## CloudService
 
-The `CloudService` is initialized by `Tracker` so you don't need to set it up, but you may want use some methods for non-blocking publish from your code. You can also register a custom command handler:
+The `CloudService` is initialized by `Edge` so you don't need to set it up, but you may want use some methods for non-blocking publish from your code. You can also register a custom command handler:
 
 ### regCommandCallback - CloudService
 
@@ -388,7 +386,7 @@ Some commands you can enter into the box:
 | :------ | :--- |
 | `{"cmd":"enter_shipping"}` | Enter shipping mode |
 | `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
-| `{"cmd":"reset"}` | Gracefully reset the device (Tracker Edge v13 and later) |
+| `{"cmd":"reset"}` | Gracefully reset the device |
 
 Using `regCommandCallback` is an alternative to using `Particle.function`. One advantage is that `cmd` handlers are always in JSON format and the JSON parameters are automatically parsed and passed to your callback. 
 
@@ -435,7 +433,7 @@ void myLocationGenerationCallback(JSONWriter &writer,
 }
 ```
 
-Note: Tracker Edge v12 and later have built-in support for speed in the "spd" field of the location publish so you no longer need to add code to view the speed as detected by the GNSS.
+Note: Tracker Edge v12 and later have built-in support for speed in the "spd" field of the location publish so you no longer need to add code to view the speed as detected by the GNSS, this is just an illustration of using the callback.
 
 
 Registers a function or method to be called to add custom data to a location publish.
@@ -484,19 +482,19 @@ void setup() {
 Registers a function to be called back with enhanced location information. If enabled in the [location configuration](/getting-started/console/console/#location-settings), location fusion, Wi-Fi and cellular tower information can be used to get an approximate location when GNSS is not available. This information is generated by the Particle cloud, but it is also possible to receive the enhanced location update on-device using regEnhancedLocCallback.
 
 
-## LocationService
+## EdgeGnssAbstraction
 
-The `LocationService` is initialized by `Tracker` so you don't need to set it up, but you may want use it to find the GNSS information such as fix status and the most recent location data from user firmware.
+The `EdgeGnssAbstraction` is initialized by `Edge` so you don't need to set it up, but you may want use it to find the GNSS information such as fix status and the most recent location data from user firmware.
 
 
-### getLocation() - LocationService
+### getLocation() - EdgeGnssAbstraction
 
 ```cpp
 // PROTOTYPE
 int getLocation(LocationPoint& point);
 ```
 
-### LocationPoint - LocationService
+### LocationPoint - EdgeGnssAbstraction
 
 ```cpp
 // DEFINTION
@@ -534,7 +532,7 @@ struct LocationPoint {
 
 
 
-### LocationTimescale - LocationService 
+### LocationTimescale - EdgeGnssAbstraction 
 
 ```cpp
 // DEFINITION
@@ -563,7 +561,7 @@ if (locationPoint.timeScale == LocationTimescale::TIMESCALE_GPS) {
 | `TIMESCALE_BD` | BeiDou (China) |
 
 
-### getStatus() - LocationService 
+### getStatus() - EdgeGnssAbstraction 
 
 ```cpp
 // PROTOTYPE
@@ -577,7 +575,7 @@ Log.info("GPS lock=%d", locationStatus.locked);
 
 Get the status of the GNSS, including whether it's powered on and has a fix. The [`LocationStatus`](/firmware/tracker-edge/tracker-edge-api-reference/#locationstatus-locationservice) object is filled in by this method.
 
-### LocationStatus - LocationService
+### LocationStatus - EdgeGnssAbstraction
 
 ```cpp
 // DEFINITION
@@ -595,20 +593,20 @@ The `LocationStatus` struct is filled in by [`getStatus()`](/firmware/tracker-ed
 | `locked` | The GNSS has lock or fix (1) or not (0) | 
 
 
-## TrackerSleep
+## EdgeSleep
 
-The `TrackerSleep` object manages sleep mode on the Tracker SoM and Tracker One.
+The `EdgeSleep` object manages sleep mode on the Monitor One.
 
 You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker-sleep/).
 
-### isSleepDisabled() - TrackerSleep
+### isSleepDisabled() - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 bool isSleepDisabled();
 
 // EXAMPLE
-if (!TrackerSleep::instance().isSleepDisabled()) {
+if (!EdgeSleep::instance().isSleepDisabled()) {
     // Execute this code when sleep is enabled
 }
 ```
@@ -617,14 +615,14 @@ Sleep mode is enabled in the [cloud configuration settings](/getting-started/con
 
 This call just checks the value of a variable so you do not need to cache the result; you can call this frequently if needed.
 
-### isFullWakeCycle() - TrackerSleep
+### isFullWakeCycle() - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 bool isFullWakeCycle();
 
 // EXAMPLE
-if (TrackerSleep::instance().isFullWakeCycle()) {
+if (EdgeSleep::instance().isFullWakeCycle()) {
     // Do extra processing on full wake cycle
 }
 ```
@@ -633,14 +631,14 @@ The maximum location update frequency is determined from the [cloud configuratio
 
 You can determine if this is a full wake cycle (connecting to cellular) using `isFullWakeCycle()`. To force a full wake cycle, use [`forceFullWakeCycle()`](#forcefullwakecycle-trackersleep).
 
-### forceFullWakeCycle() - TrackerSleep
+### forceFullWakeCycle() - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int forceFullWakeCycle();
 
 // EXAMPLE
-TrackerSleep::instance().forceFullWakeCycle();
+EdgeSleep::instance().forceFullWakeCycle();
 ```
 
 The maximum location update frequency is determined from the [cloud configuration](/getting-started/console/console/#location-settings). When waking up from external sources such as motion (IMU), BLE, GPIO pin interrupts, etc. it's possible to do a short wake cycle to handle this interrupt, then go back to sleep without turning on the cellular modem. This preserves battery power and also prevents excessive reconnection. It is possible for your mobile carrier to ban your SIM for aggressive reconnection if it does a full reconnection more often than every 10 minutes.
@@ -649,14 +647,14 @@ To force a full wake cycle, use `forceFullWakeCycle()`. This should be done with
 
 Forcing a full wake cycle will shift the full wake period. For example, if you have a minimum publish period of 15 minutes and force a full wake cycle prematurely, then next full wake cycle will be 15 minutes from now (not from the previous full wake).
 
-### wakeFor(pin) - TrackerSleep
+### wakeFor(pin) - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int wakeFor(pin_t pin, InterruptMode mode);
 
 // EXAMPLE
-TrackerSleep::instance().wakeFor(D5, RISING);
+EdgeSleep::instance().wakeFor(D5, RISING);
 ```
 
 Set a pin as a wake source. The mode is one of:
@@ -673,28 +671,28 @@ To stop using a pin as a wake-up source, use [`ignore()`](#ignore-pin-trackersle
 
 Waking from GPIO is common if you have a hardware sensor connected to a GPIO that you want to use for a wake source. If you have an I2C or SPI sensor, you may instead want to use [`wakeAt()`](#wakeat-trackersleep) to wake the MCU, read the sensor, and go back to sleep. Note that this also will obey the minimum publish period so you can wake frequently using `wakeAt()` without excessive reconnection or battery use.
 
-### ignore(pin) - TrackerSleep
+### ignore(pin) - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int ignore(pin_t pin);
 
 // EXAMPLE
-TrackerSleep::instance().ignore(D5);
+EdgeSleep::instance().ignore(D5);
 ```
 
 To no longer use pin as a wake source, reversing a `wakeFor` call, use `ignore()`.
 
 Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 
-### wakeForBle() - TrackerSleep
+### wakeForBle() - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int wakeForBle();
 
 // EXAMPLE
-TrackerSleep::instance().wakeForBle();
+EdgeSleep::instance().wakeForBle();
 ```
 
 Enable BLE (Bluetooth LE) as a wake-up source. 
@@ -708,45 +706,45 @@ This brief wake-up only services the radio. User firmware and Device OS do not r
 
 To stop using BLE as a wake-up source, use [`ignoreBle()`](#ignoreble-trackersleep).
 
-### ignoreBle() - TrackerSleep
+### ignoreBle() - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int ignoreBle();
 
 // EXAMPLE
-TrackerSleep::instance().ignoreBle();
+EdgeSleep::instance().ignoreBle();
 ```
 
 Stop using BLE as a wake-up source that was enabled using [`wakeForBle()`](#wakeforble-trackersleep).
 
-### wakeFor(network) - TrackerSleep
+### wakeFor(network) - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int wakeFor(network_interface_t netif);
 
 // EXAMPLE
-TrackerSleep::instance().wakeFor(NETWORK_INTERFACE_CELLULAR);
+EdgeSleep::instance().wakeFor(NETWORK_INTERFACE_CELLULAR);
 ```
 
 Sets wake-on-network mode. This will allow incoming data on the cellular interface such as a function call, variable request, subscribed event, or OTA request to wake the device from sleep. This requires keeping the cellular modem active, which will increase power usage, however it will speed up reconnection and eliminates issues with aggressive reconnection.
 
 Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code. Only `NETWORK_INTERFACE_CELLULAR` is supported; using a different network interface will result in a `SYSTEM_ERROR_NOT_SUPPORTED` error.
 
-### ignore(network) - TrackerSleep
+### ignore(network) - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int ignore(network_interface_t netif);
 
 // EXAMPLE
-TrackerSleep::instance().ignore(NETWORK_INTERFACE_CELLULAR);
+EdgeSleep::instance().ignore(NETWORK_INTERFACE_CELLULAR);
 ```
 
 Disables wake-on-network mode.
 
-### wakeFor(SystemSleepFlag) - TrackerSleep
+### wakeFor(SystemSleepFlag) - EdgeSleep
 
 ```cpp
 // PROTOTYPE
@@ -759,87 +757,87 @@ The only supported flag is:
 
 - `SystemSleepFlag::WAIT_CLOUD`
 
-You do not need to specify this as [graceful disconnect mode](/reference/device-os/api/cloud-functions/particle-setdisconnectoptions/) is used in Tracker Edge, and this also makes sure all cloud messages have been sent.
+You do not need to specify this as [graceful disconnect mode](/reference/device-os/api/cloud-functions/particle-setdisconnectoptions/) is used in Monitor Edge, and this also makes sure all cloud messages have been sent.
 
-### pauseSleep() - TrackerSleep
+### pauseSleep() - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int pauseSleep();
 
 // EXAMPLE
-TrackerSleep::instance().pauseSleep();
+EdgeSleep::instance().pauseSleep();
 ```
 
 Normally, the [post publish execution time](/getting-started/console/console/#sleep-settings) determines how long to stay awake. If you want to force the device to stay awake, your firmware can use `pauseSleep()`. To resume allowing sleep to occur again, call [`resumeSleep()`](#resumesleep-trackersleep).
 
 To prevent sleep for an additional number of seconds, you can use [`extendExecution()`](#extendexecution-trackersleep).
 
-### resumeSleep() - TrackerSleep
+### resumeSleep() - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int resumeSleep();
 
 // EXAMPLE
-TrackerSleep::instance().resumeSleep();
+EdgeSleep::instance().resumeSleep();
 ```
 
 Normally, the [post-publish execution time](/getting-started/console/console/#sleep-settings) determines how long to stay awake. If you want to force the device to stay awake, your firmware can use [`pauseSleep()`](#pausesleep-trackersleep). 
 
 To resume allowing sleep to occur again, call `resumeSleep()`. If the post-publish execution time has not been met yet, resume sleep only allows it to occur when the time is met. It does not force an immediate sleep.
 
-### extendExecution() - TrackerSleep
+### extendExecution() - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 uint32_t extendExecution(uint32_t seconds) 
 
 // EXAMPLE
-TrackerSleep::instance().extendExecution(10);
+EdgeSleep::instance().extendExecution(10);
 ```
 
 Normally, the [post-publish execution time](/getting-started/console/console/#sleep-settings) determines how long to stay awake. If you want to add additional time to this period, you can use `extendExecution(). This only affects this sleep cycle. On the next sleep - wake cycle the default will be restored from the cloud. You can only make the period longer, not shorter, with this call.
 
 If you want to control staying awake from code instead of by time, your firmware can use [`pauseSleep()`](#pausesleep-trackersleep) and [`resumeSleep()`](#resumesleep-trackersleep). If you want to extend execution for a certain number of seconds from now, use [`extendExecutionFromNow`](#extendexecutionfromnow-trackersleep).
 
-### extendExecutionFromNow - TrackerSleep
+### extendExecutionFromNow - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 uint32_t extendExecutionFromNow(uint32_t seconds, bool force = false) 
 
 // EXAMPLE
-TrackerSleep::instance().extendExecutionFromNow(30);
+EdgeSleep::instance().extendExecutionFromNow(30);
 ```
 
 Normally, the [post-publish execution time](/getting-started/console/console/#sleep-settings) determines how long to stay awake. To stay awake for additional time from now, use `extendExecutionFromNow()`.
 
-For example, `TrackerSleep::instance().extendExecutionFromNow(30)` will extend execution to 30 seconds from now, if this is longer than the configured post-publish execution time.
+For example, `EdgeSleep::instance().extendExecutionFromNow(30)` will extend execution to 30 seconds from now, if this is longer than the configured post-publish execution time.
 
 ---
 
 ```cpp
 // EXAMPLE - Can shorten execution window
-TrackerSleep::instance().extendExecutionFromNow(2, true);
+EdgeSleep::instance().extendExecutionFromNow(2, true);
 ```
 
 If you want to set the execution time, with the possibility of shortening the post-publish execution time, pass `true` for the `force` parameter.
 
 If you want to control staying awake from code instead of by time, your firmware can use [`pauseSleep()`](#pausesleep-trackersleep) and [`resumeSleep()`](#resumesleep-trackersleep). If you want to extend execution for a certain number of seconds, use [`extendExecution`](#extendexecution-trackersleep).
 
-### wakeAt() - TrackerSleep
+### wakeAt() - EdgeSleep
 
 ```cpp
 // PROTOTYPE
-TrackerSleepError wakeAtSeconds(unsigned int uptimeSeconds);
-TrackerSleepError wakeAtMilliseconds(system_tick_t milliseconds);
-TrackerSleepError wakeAtMilliseconds(uint64_t milliseconds);
-TrackerSleepError wakeAt(std::chrono::milliseconds ms);
+EdgeSleepError wakeAtSeconds(unsigned int uptimeSeconds);
+EdgeSleepError wakeAtMilliseconds(system_tick_t milliseconds);
+EdgeSleepError wakeAtMilliseconds(uint64_t milliseconds);
+EdgeSleepError wakeAt(std::chrono::milliseconds ms);
 
 // EXAMPLE
 // Wake 60 seconds from now (60000 ms) if earlier than the currently schedule wake
-TrackerSleep::instance().wakeAtMilliseconds(System.millis() + 60000);
+EdgeSleep::instance().wakeAtMilliseconds(System.millis() + 60000);
 ```
 
 Normally the wake time is determined by the minimum location update frequency in the [cloud configuration](/getting-started/console/console/#location-settings). You can adjust this from code using the variations of `wakeAt()`.
@@ -854,22 +852,22 @@ You may want to use this feature to take the value of a more complicated sensor 
 
 Returns:
 
-- `TrackerSleepError::NONE` Time was scheduled
-- `TrackerSleepError::TIME_IN_PAST` Given time happened in the past
-- `TrackerSleepError::TIME_SKIPPED` Given time happens later than a sooner wake request
+- `EdgeSleepError::NONE` Time was scheduled
+- `EdgeSleepError::TIME_IN_PAST` Given time happened in the past
+- `EdgeSleepError::TIME_SKIPPED` Given time happens later than a sooner wake request
 
-### SleepCallback - TrackerSleep
+### SleepCallback - EdgeSleep
 
 ```cpp
 // DEFINITION
-using SleepCallback = std::function<void(TrackerSleepContext context)>;
+using SleepCallback = std::function<void(EdgeSleepContext context)>;
 
 // PROTOTYPE
-void mySleepCallback(TrackerSleepContext context);
+void mySleepCallback(EdgeSleepContext context);
 
-// TrackerSleepContext
-struct TrackerSleepContext {
-    TrackerSleepReason reason;
+// EdgeSleepContext
+struct EdgeSleepContext {
+    EdgeSleepReason reason;
     size_t loop;
     uint64_t lastSleepMs;
     uint64_t lastWakeMs;
@@ -877,8 +875,8 @@ struct TrackerSleepContext {
     uint64_t modemOnMs;
 };
 
-// TrackerSleepReason
-enum class TrackerSleepReason {
+// EdgeSleepReason
+enum class EdgeSleepReason {
     PREPARE_SLEEP,
     CANCEL_SLEEP,
     SLEEP,
@@ -891,18 +889,18 @@ enum class TrackerSleepReason {
 
 ```
 
-Your firmware can register functions to be called during sleep-related events. The callback function has this prototype and the `TrackerSleepContext` specifies information about the sleep. Note that the data passed to the callback is a copy of the current state; you cannot affect a change by modifying it directly.
+Your firmware can register functions to be called during sleep-related events. The callback function has this prototype and the `EdgeSleepContext` specifies information about the sleep. Note that the data passed to the callback is a copy of the current state; you cannot affect a change by modifying it directly.
 
 - `reason` The reason for the call, so a single callback function can be registered for multiple purposes.
 
-  - `TrackerSleepReason::PREPARE_SLEEP` Preparing to sleep. You should put lengthy operations and anything that changes the sleep duration here.
-  - `TrackerSleepReason::CANCEL_SLEEP` Sleep was started, but then canceled. If you turned off peripherals in `PREPARE_SLEEP`, turn then back on.
-  - `TrackerSleepReason::SLEEP` Last step before sleep. Avoid doing anything lengthy here. 
-  - `TrackerSleepReason::WAKE` Just woke from sleep.
-  - `TrackerSleepReason::STATE_TO_CONNECTING` for state change handlers, entering the CONNECTING state.
-  - `TrackerSleepReason::STATE_TO_EXECUTION` for state change handlers, entering the EXECUTION state.
-  - `TrackerSleepReason::STATE_TO_SLEEP` for state change handlers, entering the SLEEP state.
-  - `TrackerSleepReason::STATE_TO_SHUTDOWN` for state change handlers, entering the SHUTDOWN state (about to enter shipping mode).
+  - `EdgeSleepReason::PREPARE_SLEEP` Preparing to sleep. You should put lengthy operations and anything that changes the sleep duration here.
+  - `EdgeSleepReason::CANCEL_SLEEP` Sleep was started, but then canceled. If you turned off peripherals in `PREPARE_SLEEP`, turn then back on.
+  - `EdgeSleepReason::SLEEP` Last step before sleep. Avoid doing anything lengthy here. 
+  - `EdgeSleepReason::WAKE` Just woke from sleep.
+  - `EdgeSleepReason::STATE_TO_CONNECTING` for state change handlers, entering the CONNECTING state.
+  - `EdgeSleepReason::STATE_TO_EXECUTION` for state change handlers, entering the EXECUTION state.
+  - `EdgeSleepReason::STATE_TO_SLEEP` for state change handlers, entering the SLEEP state.
+  - `EdgeSleepReason::STATE_TO_SHUTDOWN` for state change handlers, entering the SHUTDOWN state (about to enter shipping mode).
 
 - `loop` Incremented on each call to loop.
 - `lastSleepMs` The last time, in milliseconds, the system went to sleep.
@@ -912,14 +910,14 @@ Your firmware can register functions to be called during sleep-related events. T
  
 The times in milliseconds are values from `System.millis()`. This does not rely on the system real-time clock being set, and is not affected by daylight saving time or timezones. It is a 64-bit time millisecond values that will effectively never roll over to 0. Since sleep mode uses ULTRA_LOW_POWER mode, the `System.millis()` counter continues to increment while in sleep. The `System.millis()` value does reset to 0 on reset or cold boot, but the sleep cycles also reset in that condition.
 
-### registerSleepPrepare - TrackerSleep
+### registerSleepPrepare - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int registerSleepPrepare(SleepCallback callback);
 
 // EXAMPLE
-TrackerSleep::instance().registerSleepPrepare(myCallback);
+EdgeSleep::instance().registerSleepPrepare(myCallback);
 ```
 
 Register a callback to be called while preparing for sleep. You can register the same function for more than one purpose and use the `reason` field of the context to determine what occurred.
@@ -934,7 +932,7 @@ If you wish to update the sleep duration to allow for a short wake cycle, you mu
 
 ```cpp
 // Cancel the pending sleep
-TrackerSleep::instance().updateNextWake(0);
+EdgeSleep::instance().updateNextWake(0);
 ```
 
 From the sleep prepare callback, call `updateNextWake(0)` to cancel this sleep and stay awake instead. The sleep cancel callback will be called.
@@ -944,14 +942,14 @@ If you are powering down external hardware, and the operation is fast, you may w
 If you have a graceful shutdown process that takes more than a hundred milliseconds or so, you should use `registerSleepPrepare`. You need to handle both the `registerSleepWake` and `registerSleepCancel` to turn your external peripheral back on if you use `registerSleepPrepare`.
 
 
-### registerSleepCancel - TrackerSleep
+### registerSleepCancel - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int registerSleepCancel(SleepCallback callback);
 
 // EXAMPLE
-TrackerSleep::instance().registerSleepCancel(myCallback);
+EdgeSleep::instance().registerSleepCancel(myCallback);
 ```
 
 Register a callback to be called immediately after cancelling sleep.
@@ -960,14 +958,14 @@ Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 
 If you powered down external hardware in the `registerSleepPrepare` callback, you should undo that operation here and power it back on, as the device will resume normal execution when sleep is canceled.
 
-### registerSleep - TrackerSleep
+### registerSleep - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int registerSleep(SleepCallback callback);
 
 // EXAMPLE
-TrackerSleep::instance().registerSleep(myCallback);
+EdgeSleep::instance().registerSleep(myCallback);
 ```
 
 Register a callback to be called immediately prior to going to sleep. You can register the same function for more than one purpose and use the `reason` field of the context to determine what occurred.
@@ -978,14 +976,14 @@ You should avoid doing any lengthy operations in the `registerSleep` callback. Y
 
 If you are powering down an external peripheral and the operation is fast, such as changing a GPIO that controls a MOSFET or load switch, you can do that safely from the `registerSleep` callback.
 
-### registerWake - TrackerSleep
+### registerWake - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int registerWake(SleepCallback callback);
 
 // EXAMPLE
-TrackerSleep::instance().registerWake(myCallback);
+EdgeSleep::instance().registerWake(myCallback);
 ```
 
 Register a callback to be called immediately after waking from sleep.
@@ -994,24 +992,24 @@ Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 
 If you powered down external hardware in the `registerSleepPrepare` or `registerSleep` callback, you should undo that operation here and power it back on. 
 
-Tracker sleep uses `ULTRA_LOW_POWER` mode, so execution continues after sleep with variables intact. It does not run `setup()` again.
+Monitor Edge sleep uses `ULTRA_LOW_POWER` mode, so execution continues after sleep with variables intact. It does not run `setup()` again.
 
-### registerStateChange - TrackerSleep
+### registerStateChange - EdgeSleep
 
 ```cpp
 // PROTOTYPE
 int registerStateChange(SleepCallback callback);
 
 // EXAMPLE
-TrackerSleep::instance().registerStateChange(myCallback);
+EdgeSleep::instance().registerStateChange(myCallback);
 ```
 
 Register a callback to be called immediately after sleep state change. You can find out the state being transitioned into using the `context.reason` field, which will be one of:
 
-  - `TrackerSleepReason::STATE_TO_CONNECTING` for state change handlers, entering the CONNECTING state.
-  - `TrackerSleepReason::STATE_TO_EXECUTION` for state change handlers, entering the EXECUTION state.
-  - `TrackerSleepReason::STATE_TO_SLEEP` for state change handlers, entering the SLEEP state.
-  - `TrackerSleepReason::STATE_TO_SHUTDOWN` for state change handlers, entering the SHUTDOWN state (about to enter shipping mode).
+  - `EdgeSleepReason::STATE_TO_CONNECTING` for state change handlers, entering the CONNECTING state.
+  - `EdgeSleepReason::STATE_TO_EXECUTION` for state change handlers, entering the EXECUTION state.
+  - `EdgeSleepReason::STATE_TO_SLEEP` for state change handlers, entering the SLEEP state.
+  - `EdgeSleepReason::STATE_TO_SHUTDOWN` for state change handlers, entering the SHUTDOWN state (about to enter shipping mode).
 
 Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 
