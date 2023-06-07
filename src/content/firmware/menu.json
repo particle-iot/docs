@@ -102,7 +102,17 @@
         "dir": "tracker-edge-api-reference",
         "title": "Tracker Edge API reference",
         "href": "/firmware/tracker-edge/tracker-edge-api-reference/"
-      }
+      },
+      {
+        "dir": "monitor-edge-firmware",
+        "title": "Monitor edge firmware",
+        "href": "/firmware/tracker-edge/monitor-edge-firmware/"
+      },
+      {
+        "dir": "monitor-edge-api-reference",
+        "title": "Monitor Edge API reference",
+        "href": "/firmware/tracker-edge/monitor-edge-api-reference/"
+      },
     ],
     {
       "dir": "low-power",
