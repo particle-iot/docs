@@ -26,8 +26,11 @@
         {
           "num": 9,
           "name": "NFC2_VIN_EN",
-          "desc": "VIN enable",
+          "desc": "GPIO (used for relay on IO expansion card)",
+          "isIO": true,
           "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
           "isNFC": false,
           "hardwarePin": "P0.10",
           "somPin": 27
@@ -36,7 +39,10 @@
           "num": 10,
           "name": "NFC1_PERIPH_INT",
           "desc": "Peripheral interrupt (active low)",
+          "isIO": true,
           "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
           "isNFC": false,
           "hardwarePin": "P0.09",
           "somPin": 26

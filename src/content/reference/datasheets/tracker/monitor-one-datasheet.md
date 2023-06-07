@@ -11,24 +11,22 @@ description: Monitor One Datasheet
 {{!-- downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf" --}}
 {{/unless}} {{!-- pdf-generation --}}
 
-**Pre-release draft 2022-10-27 for review only. Do not distribute or share this URL!**
-
 {{box op="start" cssClass="boxed warningBox"}}
-This is an preliminary pre-release datasheet and the contents are subject to change.
+This is an pre-release datasheet and the contents are subject to change.
 {{box op="end"}}
 
 {{imageOverlay src="/assets/images/monitor-one/front-on-post.jpg" alt="Front view" class="full-width no-darken"}}
 
 *The pictures in this preliminary datasheet are of a pre-release unit. The production units will be a different color, and may have other minor differences.*
 
-The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
+The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for an expansion card and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
-- **Ready to go** with rugged IP67-rated enclosure with room inside for expansion cards and additional connectors.
-- **Flexible power supply** to easily add asset tracking to most devices with a 6 - 90 VDC power input and a large 18650 LiPo battery pack.
+- **Ready to go** with rugged IP67-rated enclosure with room inside for an expansion card.
+- **Flexible power supply** to easily add asset tracking to most devices with a 6 - 30 VDC power input and a large 18650 LiPo battery pack.
 - **Internal or external antennas** for cellular and GNSS.
-- **Temperature sensors** within the enclosure, and also a battery pack temperature sensor.
-- **Expansion cards** allow for custom features.
-- **RGB LEDs** for system status, and two user RGB LEDs for your own use, visible from outside the enclosure.
+- **Temperature sensors** on the carrier board, and also a battery pack temperature sensor.
+- **Expansion card connector** to allow for custom application specific hardware.
+- **RGB LED** for system status, and two user RGB LEDs for your own use, visible from outside the enclosure.
 - **User button**, waterproof and accessible from outside the enclosure.
 
  
@@ -37,6 +35,15 @@ The Monitor One is an off-the-shelf complete design, like the Tracker One. The M
 {{imageOverlay src="/assets/images/monitor-one/block-diagram2.png" alt="Block diagram" class="full-width"}}
 
 Details about the Tracker SoM that is contained within the Monitor One can be found in the [Tracker SoM Datasheet](/reference/datasheets/tracker/tracker-som-datasheet/).
+
+## Certification
+
+{{box op="start" cssClass="boxed warningBox"}}
+The Monitor One DK (Developer's Kit) is currently in the engineering sample stage.
+
+Certification is not expected until September or October 2023.
+{{box op="end"}}
+
 
 ## External features
 
@@ -49,10 +56,10 @@ Details about the Tracker SoM that is contained within the Monitor One can be fo
 |  2 | GNSS antenna (internal) |
 |  3 | Cellular antenna (internal) |
 |  4 | External connectors (on bottom) |
-|  5 | Magnetic, bolt-down, or strap down mounting bracket |
+|  5 | Magnetic, bolt-down, or strap-down mounting bracket |
 |  6 | User RGB LEDs (2) |
 |  7 | User button (externally accessible) |
-|  8 | Wi-Fi geolocation antenna (internal) |
+|  8 | Wi-Fi geolocation antenna (internal, optional) |
 
 ### User button
 
@@ -85,21 +92,35 @@ The bottom plate of the Monitor One can be customized with different connectors 
 
 By default the Monitor One uses the internal cellular and GNSS antennas, but can be switched to using the external connectors inside the enclosure.
 
+The cellular (1) and GNSS (4) antennas are not connected internally at the factory. In order to use the external connectors you must open the case, disconnect the internal antenna, and instead connect the U.FL connector for the external jack.
+
+The Monitor One is equipped with 2 external-facing SMA bulkhead connectors for both cellular and GNSS but are disconnected internally. The hardware is ready for use with external antennas giving the ability to connect a wide variety of application-specific antennas. It is recommended that the user perform required RF certifications with the selected antenna installed as the Monitor One has only been certified for use in select regions with the internal antennas.
+
 
 ## Mounting
 
-The Monitor One is intended to be mounted in the orientation shown at the top of the page, with the connectors facing down. You can also mount it with the mounting plate facing down as the GNSS antenna is angled to allow it to work in either orientation.
+The Monitor One is intended to be mounted in the orientation shown at the top of the page, with the connectors facing down. You can also mount it with the mounting plate mounted on a flat surface as the GNSS antenna is angled to allow it to work in either orientation.
 
-When using external cellular and GNSS antennas you can orient the Monitor One in any direction.
+When using external cellular and GNSS antennas you can orient the Monitor One in other directions.
 
-The mounting plate contains two magnets that allow it to be easily mounted on a metal surface, or to a metal plate affixed to a non-metal surface, such as the wood post shown above.
+{{imageOverlay src="/assets/images/monitor-one/back-labeled.png" alt="Back View" class="full-width"}}
 
-{{imageOverlay src="/assets/images/monitor-one/back-view.jpg" alt="Back View" class="full-width"}}
+| Label | Details |
+| :---: | :--- |
+| 1 | Mounting screw or bolt holes|
+| 2 | Slots for strap mounting |
+| 3 | Magnets |
+| 4 | Mounting plate removal screw |
 
-The mounting plate is removable from the back of the unit after removing the screw on the bottom, near the expansion connectors.
+The mounting plate contains two magnets (3) that allow it to be easily mounted on a metal surface.
 
-Once removed, you can screw or bolt the mounting plate to a surface and reattach the Monitor One. This is good for rough conditions and to help prevent theft.
+The mounting plate is removable from the back of the unit after removing the screw on the bottom (4), near the expansion connectors.
 
+Once removed, you can screw or bolt the mounting plate through the four holes (1) and reattach the Monitor One. This is good for rough conditions and for mounting on non-metal surfaces.
+
+The mounting plate can be strap mounted through the two slots (2).
+
+The magnets do not need to removed to use screw, bolt, or strap mounting.
 
 | Dimensions | Metric | SAE      |
 | :--------- | -----: |  ------: |
@@ -111,11 +132,11 @@ Once removed, you can screw or bolt the mounting plate to a surface and reattach
 
 | Dimensions | Metric | SAE      |
 | :--------- | -----: |  ------: |
-| Bolt/screw head hole diameter | 12.46 mm | 31/64" |
-| Bolt/screw head maximum height | 4.0 mm | 5/32" |
-| Bolt/screw hole diameter | 4.33 mm | 11/64" |
-| Bolt/screw shaft to surface | 3.65 mm | 9/64" |
-| Recommended bolt | M4 | #8 |
+| Bolt/screw head hole diameter (maximum) | 12.46 mm | 31/64" |
+| Bolt/screw head maximum height (maximum) | 4.0 mm | 5/32" |
+| Bolt/screw hole diameter (maximum) | 4.33 mm | 11/64" |
+| Bolt/screw shaft to surface (maximum) | 3.65 mm | 9/64" |
+| Recommended bolt or screw | M4 | #8 |
 
 
 {{imageOverlay src="/assets/images/monitor-one/hole-dim.png" alt="Mounting bracket screw hole dimensions" class="full-width"}}
@@ -157,10 +178,159 @@ When mounting using a strap, the strap will hold the mounting bracket against a 
 | 20 | Tracker SoM module |
 | 21 | Wi-Fi geolocation antenna (internal, not pictured) |
 
+## IO expansion card
+
+The Monitor One is designed with easy-to-use expansion headers and an enclosure with sufficient space inside for an expansion card, and for additional expansion connector through the wall of enclosure.
+
+The Monitor One DK (Developer's Kit) includes the IO expansion card, which includes:
+
+| Feature | Location | Details |
+| :--- | :--- | :--- |
+| VIN | M12 8-pin | Power input, 6 - 30V DC |
+| CAN Bus | M12 8-pin | |
+| RS485 (Modbus) | M12 8-pin | |
+| 4-20 mA input | M12 8-pin | |
+| 0-10V analog input | M12 8-pin | |
+| 12-24V slow-signal input | M12 4-pin | Opto-isolated |
+| Relay | M12 4-pin | 30VDC 2A maximum |
+| QWIIC connector | expansion card | 3.3V I2C |
+
+### IO expansion M12 8-pin to flying leads
+
+The Monitor One includes a M12 8-pin male to flying leads cable, 1500&plusmn;20mm (about 60 inches or 5 feet). This is used to power the Monitor One, and also use the 4-20mA, 0-10V analog in, CAN bus, and RS485 (Modbus) interfaces.
+
+![M12 Cable Connector](/assets/images/monitor-one/m12-cable.png)
+
+<p class="attribution">Looking at the pins on the end of the connector on the cable</p>
+
+| Conn P1 (M12)| Color | Function | GPIO |
+| :---: | :---: | :--- | :--- | :---: |
+| 1 | White | CAN_P | |
+| 2 | Red | VIN (6-30 VDC) | |
+| 3 | Green | 4-20mA input | A7 |
+| 4 | Yellow | 0-10V input | A6 |
+| 5 | Gray | RS485_N | |
+| 6 | Pink | RS485_P | |
+| 7 | Blue | CAN_N | |
+| 8 | Black | Ground | |
+
+{{imageOverlay src="/assets/images/monitor-one/m12-8-flying.png" alt="M12 8-pin flying leads" class="full-width"}}
+
+Also included is an adapter from screw terminals to a 5.5x2.1mm barrel jack, center positive. If you disconnect and reconnect the adapter, make sure the + screw terminal is connected to red and the - screw terminal is connected to black. An appropriate 24 VDC power adapter is included.
+
+Any 6VDC to 30VDC power adapter at 2A with a 5.5x2.1mm barrel connector, center positive can be used instead, if desired. For automotive use, you can use this power input directly to a 12V or 24V vehicle power system as the power supply is designed to handle transient voltage present on vehicle power systems.
+
+The RS485 and CAN interface pins on the M12 8-pin connector cannot be used as GPIO.
+
+### IO expansion M12 4-pin to flying leads
+
+The Monitor One includes a M12 4-pin male to flying leads cable, 1500&plusmn;20mm (about 60 inches or 5 feet).
+
+{{imageOverlay src="/assets/images/monitor-one/m12-4-flying.png" alt="M12 8-pin flying leads" class="full-width"}}
+
+| Conn P1 (M12)| Color | Function | GPIO |
+| :---: | :---: | :--- | :--- | :---: |
+| 1 | Red | 12-24V slow-signal input | A5 |
+| 2 | Green | Relay COM | |
+| 3 | Black | Ground | |
+| 4 | Blue | Relay (NO) | NFC_PIN2 |
+
+
+
+### IO expansion card details
+
+{{imageOverlay src="/assets/images/monitor-one/monitor-io.png" alt="IO expansion card" class="full-width"}}
+
+| Label | Details |
+| :---: | :--- |
+|  1 | Prototyping area |
+|  2 | Power LED (LED1) |
+|  3 | RESET and MODE buttons |
+|  4 | QWIIC (I2C) connector |
+|  5 | RS-485 120 ohm termination resistor enable (JP3) |
+|  6 | RS-485 pull-up resistor (JP4) |
+|  8 | RS-485 pill-down resistor (JP5) |
+|  9 | CAN_5V LED (LED3) |
+| 10 | Relay energized LED (LED2) |
+| 11 | CAN termination resistor enable (JP9) |
+| 12 | CAN termination capacitor enable (JP10) |
+| 13 | Slow-signal input (12-24V) powered (LED4) |
+| 14 | M12 8-pin solder jumpers, location for prototyping wires |
+| 16 | Connector to M12 8-pin |
+| 17 | Slow-signal input (12-24V) and GND |
+| 18 | Relay COM and NO (normally open) |
+| 19 | Access to expansion card signals |
+| 20 | Access to expansion card signals |
+
+
+The M12 4-pin bulkhead connector has flying leads that are connected to the screw terminals (18) as follows:
+
+| M12 Pin | Color | Card |
+| :---: | :---: | :--- | :---: |
+| 1 | Red | INPUT |
+| 2 | Green | COM |
+| 3 | Black | GND |
+| 4 | Blue | NO |
+
+
+### Customizing the IO expansion card
+
+If you wish to build upon the IO expansion card, there is a small prototyping area (1). 
+
+If you need signals from the expansion card interface, they are available in the rows of pins (19, 20).
+
+If you wish to disable an interface that you are not using and re-use the pins on the M12 8-pin connector, there is a small trace jumper between the rows of pins in area (14). Cutting this trace isolates the expansion card signal from the signal to the connector (16). Then you can solder a small jumper wire to replace the signal on the M12 8-pin.
+
+### Block diagram - IO expansion card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-block.png" alt="Block diagram" class="full-width"}}
+
+
+### Schematics - IO expansion card
+
+#### Interconnects - IO expansion card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-interconnects-1.png" alt="Interconnects" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/io-card-interconnects-2.png" alt="Interconnects" class="full-width"}}
+
+#### RS485 - IO expansion card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-rs485.png" alt="RS-485" class="full-width"}}
+
+
+#### CAN - IO expansion card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-can.png" alt="CAN" class="full-width"}}
+
+#### 4-20mA - IO expansion card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-4-20mA.png" alt="4-20mA" class="full-width"}}
+
+#### 0-10V - IO expansion card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-10v.png" alt="0-10V" class="full-width"}}
+
+#### Slow signal input - IO expansion card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-slow-signal.png" alt="slow signal input" class="full-width"}}
+
+
+#### Relay - IO expansion card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-relay.png" alt="relay" class="full-width"}}
+
+
+#### EEPROM - IO expansion card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-eeprom.png" alt="eeprom" class="full-width"}}
+
+
+### Board layout - IO expansion card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-board.png" alt="Board layout" class="full-width"}}
+
 
 ## Expansion card interface
-
-Tracker M is designed with easy-to-use expansion headers and an enclosure with sufficient space inside for an expansion card, and for additional expansion connector through the wall of enclosure.
 
 - Expansion card size: 50mm x 90mm (approximately 2" x 3.5")
 - Connectors: 24-pin 0.1" headers (two, one on each long side)
@@ -169,7 +339,20 @@ Tracker M is designed with easy-to-use expansion headers and an enclosure with s
 
 Pre-built expansion cards will be available, including a prototyping breadboard expansion card. You can also design and fabricate your own.
 
-{{imageOverlay src="/assets/images/monitor-one/expansion-proto.png" alt="Prototyping expansion card" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/proto-labeled.png" alt="Prototyping expansion card" class="full-width"}}
+
+| Label | Feature |
+| :---: | :--- |
+|  1 | QWIIC (I2C) connector |
+|  2 | RESET and MODE buttons |
+|  3 | EEPROM |
+|  4 | Prototyping area |
+|  5 | Access to expansion port signals |
+|  6 | Access to bulkhead connector signals |
+|  7 | B8B-PH connector, connect to M12 8-pin |
+|  8 | Screw terminals, connect to M12 4-pin |
+
+
 
 ### Expansion card pinout
 
@@ -185,7 +368,7 @@ Pre-built expansion cards will be available, including a prototyping breadboard 
 
 | Label | Feature |
 | :---: | :--- |
-| 14 | Expansion card to external connector cable (M8 to PHR8) |
+| 14 | Expansion card to external connector cable (M12 to PHR8) |
 | 17 | Expansion card external connector #1 (M12, 8-pin) |
 | 22 | Location of expansion card (green outline) |
 
@@ -193,24 +376,23 @@ The enclosure typically has a panel-mount M12 8 pin female connector in location
 
 The functions of the pins on the M12 8-pin connector are dependent on your base board, but the following pinouts are recommended:
 
-| Conn P1 (M12) | Conn P2 (PHR-8) | Function | 
-| :---: | :---: | :--- |
-| 1 | 8 | |
-| 2 | 1 | VIN |
-| 3 | 3 | CAN_P |
-| 4 | 4 | CAN_N |
-| 5 | 5 |  |
-| 6 | 6 |  |
-| 7 | 7 |  |
-| 8 | 2 | Ground |
-| Round | Rectangular | |
-| Enclosure | Expansion Card | |
+| Conn P1 (M12) | Conn P2 (PHR-8) | Color | Function | 
+| :---: | :---: | :--- | :--- |
+| 2 | 1 | Red | VIN (6-30 VDC) |
+| 8 | 2 | Black | Ground |
+| 6 | 3 | Pink | RS485_P |
+| 5 | 4 | Gray | RS485_N |
+| 1 | 5 | White | CAN_P|
+| 7 | 6 | Blue | CAN_N |
+| 4 | 7 | Yellow | 0-10V input |
+| 3 | 8 | Green | 4-20mA input |
+| Round | Rectangular | | |
+| Enclosure | Expansion Card | | |
 
-{{imageOverlay src="/assets/images/monitor-one/m8-phr8-cable.png" alt="M8 to PHR-8 cable" class="full-width"}}
 
-Note: wire color may vary from this graphic.
+{{imageOverlay src="/assets/images/monitor-one/m12-phr8-cable.png" alt="M12-8 to PHR-8 cable" class="full-width"}}
 
-- Cable length: 75mm
+- Cable length: 60 &plusmn;5 mm 
 - Wire gauge: 24 AWG
 - M12 8-pin connector, A-coded
 
@@ -220,7 +402,9 @@ The standard M12 connectors are IP67 waterproof (connected or not), 12 mm in dia
 
 The panel-mount 8-pin connector on the Monitor One is female, with the following pinout:
 
-{{imageOverlay src="/assets/images/monitor-one/8pin-connector-panel.png" alt="M12 connector" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/M12-panel.png" alt="M12 panel connector" class="full-width"}}
+
+<p class="attribution">Looking at the bulkhead connector from outside the enclosure</p>
 
 The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 
@@ -233,6 +417,8 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 
 | Pin Name | Description | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- |
+| NFC2_VIN_EN | GPIO (used for relay on IO expansion card) | 27 | P0.10 |
+| NFC1_PERIPH_INT | Peripheral interrupt (active low) | 26 | P0.09 |
 | TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | 38 | P0.05 |
 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | 39 | P0.04 |
 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | 40 | P0.29 |
@@ -248,6 +434,17 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 - On the Monitor One, pins A0 and A1 are used in I2C mode by the user RGB LED temperature sensor. Pins A0 and A1 cannot be used as GPIO.
 - On the Monitor One, you should not use A2 and A3 as GPIO or analog inputs as they are used by the external user button and battery temperature thermistor.
 - All GPIO are 3.3V and are not 5V tolerant.
+
+When using the IO expansion card:
+
+| Pin | Direction | Function |
+| :---: | :---: | :--- |
+| A4 | Output | Direction control for RS485 |
+| A5 | Digital Input | Slow signal input, optoisolated, 12V to 24V = HIGH |
+| A6 | Analog Input | Analog input, 0-10V, 10V=4095 |
+| A7 | Analog Input | 4-20mA, 4mA=0, 20mA=4095 |
+| NFC_PIN2 | Output | Relay coil, HIGH = energized |
+
 
 ### ADC
 
@@ -375,7 +572,7 @@ Note that the two 60.4 ohm resistors are DNP (do not populate). If populated, th
 | 6 | NC | &nbsp; | &nbsp; |
 | 7 | NC | &nbsp; | &nbsp; |
 | 8 | NC | &nbsp; | &nbsp; |
-| 9 | NFC2_VIN_EN | VIN enable | P0.10 |
+| 9 | NFC2_VIN_EN | GPIO (used for relay on IO expansion card) | P0.10 |
 | 10 | NFC1_PERIPH_INT | Peripheral interrupt (active low) | P0.09 |
 | 11 | TSOM_MODE | MODE button (active low) | P1.13 |
 | 12 | TSOM_RESET | RESET button (active low) | P0.08 |
@@ -465,7 +662,7 @@ This is not necessary if your external peripherals are powered by 3V3 or CAN_5V.
 
 By default, if power is applied at the VIN pin it will be used to power the Monitor One and charge the built-in battery.
 
-If you are supplying VIN from another, larger battery pack, and want to be able to disconnect the VIN power supply to minimize current loss, you can do so using the following circuit:
+If you are supplying VIN from another, larger battery pack, and want to be able to disconnect the VIN power supply to minimize current loss, you can do so using the following circuit in lieu of using NFC2 as the relay pin, as the IO expansion card does.
 
 {{imageOverlay src="/assets/images/monitor-one/vin-disable.png" alt="VIN disable" class="full-width"}}
 
@@ -545,8 +742,10 @@ By disconnecting the VIN power supply, it reduces the current used by the VIN an
 
 ### Operating temperature
 
-To be provided at a later date.
-
+| Parameter                        | Minimum | Maximum | Units |
+| :------------------------------- | ---: | ---: | :---- |
+| Operating temperature | -10 | 60 | &deg;C |
+| Battery charging enabled | 0 | 40 | &deg;C |
 
 ### Dimensions and weight
 
@@ -614,3 +813,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 |:-----|:-------|:---------|
 | 2022-10-24 | RK | For internal review only |
 | 2023-02-14 | RK | Updated diagrams |
+| 2023-06-07 | RK | Numerous updates |

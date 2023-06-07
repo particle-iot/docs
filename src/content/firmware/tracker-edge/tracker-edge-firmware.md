@@ -60,7 +60,7 @@ You can choose to leave your device unclaimed, however:
 
 - When prompted to select the Tracker device you want to work with, will need to specify it by Device ID (24 character hex) or hit Esc and manually put the Tracker in DFU mode (blinking yellow) using the buttons on the device.
 
-- You will not be able to subscribe to events from your custom firmware.
+- You will not be able cloud flash (OTA) an unclaimed product device from the Particle CLI or Workbench.
 
 #### Claim
 
