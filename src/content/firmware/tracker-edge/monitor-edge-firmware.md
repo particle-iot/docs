@@ -210,6 +210,18 @@ void loop()
 
 For more information about the reason for using `Edge::instance()` and the singleton pattern, see application note [AN034 singleton pattern](/firmware/software-design/singleton/).
 
+## Customization
+
+You can add your own source code in `main.cpp` if desired, as there is very little that will change between version of Monitor Edge.
+
+The `user_setup.cpp` file, however, is where most of the changes will be made. The implementation of the features of your expansion card go there, for example.
+
+### buttonHandler
+
+You can implement single-tap, multi-tap, and long press of the user button that's available outside the enclosure. The default implementation
+uses it to display the cellular signal strength on the status LED on short press. You can, however, replace the contents of this function 
+to do other things instead.
+
 
 ## Using GitHub with Monitor Edge
 
@@ -258,21 +270,21 @@ Open your project in Workbench:
   - Run **Particle: Configure Workspace for Device**, select version 3.3.0, or later, Tracker, and your device. 
   - Run **Particle: Compile and Flash**.
 
-Now that you have a mirror, you're free to do things like update main.cpp and even edit the other Tracker source as desired. When you **Stage**, **Commit** and **Push**, the changes will be saved to your own GitHub private repository only.
+Now that you have a mirror, you're free to do things like update main.cpp and even edit the other Monitor Edge source as desired. When you **Stage**, **Commit** and **Push**, the changes will be saved to your own GitHub private repository only.
 
 ```bash
 cd mon-test1
 git remote add official https://github.com/particle-iot/monitor-edge.git
 ```
 
-Link the two repositories. This makes it possible to merge changes from the official version later on, when new versions of Tracker Edge are released. This merge is smart, so it won't overwrite your changes if there are no conflicts, but if both you and Particle changed the same lines of source, this may be flagged as a conflict and you will need to manually figure out which to keep. You only need to run this command once.
+Link the two repositories. This makes it possible to merge changes from the official version later on, when new versions of Monitor Edge are released. This merge is smart, so it won't overwrite your changes if there are no conflicts, but if both you and Particle changed the same lines of source, this may be flagged as a conflict and you will need to manually figure out which to keep. You only need to run this command once.
 
 ```
 cd mon-test1
 git pull official develop
 ```
 
-This is how to merge updates from the official repository into yours. When a new version of Tracker Edge is released, you run a command to pull the changes from that release into your repository. You then resolve any conflicts and then push the changes to your repository. The steps are:
+This is how to merge updates from the official repository into yours. When a new version of Monitor Edge is released, you run a command to pull the changes from that release into your repository. You then resolve any conflicts and then push the changes to your repository. The steps are:
 
 - **Pull** the changes from the official repository
 - Resolve any conflicts
@@ -321,9 +333,9 @@ Some commands you can enter into the box:
 | :------ | :--- |
 | `{"cmd":"enter_shipping"}` | Enter shipping mode |
 | `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
-| `{"cmd":"reset"}` | Gracefully reset the device (Tracker Edge v13 and later) |
+| `{"cmd":"reset"}` | Gracefully reset the device |
 
-Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. It works on the Tracker SoM evaluation board, but is less useful there since it has physical power switches.
+Shipping mode powers off the device by disconnecting the battery. This allows a Monitor One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by powering the device from the M12 8-pin connector.
 
 It's also possible to [create custom `cmd` handlers](/firmware/tracker-edge/tracker-edge-api-reference/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
 
