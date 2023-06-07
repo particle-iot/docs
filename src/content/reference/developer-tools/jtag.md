@@ -40,6 +40,7 @@ To make it easy to restore a device to a completely known state, we've provided 
 - On the Argon and Tracker SoM, the NCP (network coprocessor) image for the ESP32 Wi-Fi module cannot be flashed using SWD/JTAG. See [Argon and Tracker NCP](#argon-and-tracker-ncp) below for more information.
 - On Gen 3 devices the Bootloader, Soft Device, UICR bytes, Device OS, and Tinker are restored.
 - On the Tracker, Tracker Edge is restored instead of Tinker. However since the 5x2 SWD connector is not populated on the Tracker One, and the pins are not exposed through the M8, it may not be practical to flash a Tracker One by SWD/JTAG.
+- On the Tracker, with 5.4.0 and later and 4.2.0 and later, UICR bytes are not set for compatibility with the Monitor One
 - On Gen 2 devices the Bootloader, Device OS, and Tinker are restored.
 
 The general procedure is:
