@@ -19,9 +19,9 @@ This is an pre-release datasheet and the contents are subject to change.
 
 *The pictures in this preliminary datasheet are of a pre-release unit. The production units will be a different color, and may have other minor differences.*
 
-The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
+The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for an expansion card and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
-- **Ready to go** with rugged IP67-rated enclosure with room inside for expansion cards.
+- **Ready to go** with rugged IP67-rated enclosure with room inside for an expansion card.
 - **Flexible power supply** to easily add asset tracking to most devices with a 6 - 30 VDC power input and a large 18650 LiPo battery pack.
 - **Internal or external antennas** for cellular and GNSS.
 - **Temperature sensors** on the carrier board, and also a battery pack temperature sensor.
@@ -39,7 +39,9 @@ Details about the Tracker SoM that is contained within the Monitor One can be fo
 ## Certification
 
 {{box op="start" cssClass="boxed warningBox"}}
-The Monitor One DK (Developer's Kit) is currently in the engineering sample stage. Certification is not expected until September or October 2023.
+The Monitor One DK (Developer's Kit) is currently in the engineering sample stage.
+
+Certification is not expected until September or October 2023.
 {{box op="end"}}
 
 
@@ -57,7 +59,7 @@ The Monitor One DK (Developer's Kit) is currently in the engineering sample stag
 |  5 | Magnetic, bolt-down, or strap-down mounting bracket |
 |  6 | User RGB LEDs (2) |
 |  7 | User button (externally accessible) |
-|  8 | Wi-Fi geolocation antenna (internal) |
+|  8 | Wi-Fi geolocation antenna (internal, optional) |
 
 ### User button
 
@@ -261,6 +263,15 @@ The Monitor One includes a M12 4-pin male to flying leads cable, 1500&plusmn;20m
 | 20 | Access to expansion card signals |
 
 
+The M12 4-pin bulkhead connector has flying leads that are connected to the screw terminals (18) as follows:
+
+| M12 Pin | Color | Card |
+| :---: | :---: | :--- | :---: |
+| 1 | Red | INPUT |
+| 2 | Green | COM |
+| 3 | Black | GND |
+| 4 | Blue | NO |
+
 
 ### Customizing the IO expansion card
 
@@ -423,6 +434,17 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 - On the Monitor One, pins A0 and A1 are used in I2C mode by the user RGB LED temperature sensor. Pins A0 and A1 cannot be used as GPIO.
 - On the Monitor One, you should not use A2 and A3 as GPIO or analog inputs as they are used by the external user button and battery temperature thermistor.
 - All GPIO are 3.3V and are not 5V tolerant.
+
+When using the IO expansion card:
+
+| Pin | Direction | Function |
+| :---: | :---: | :--- |
+| A4 | Output | Direction control for RS485 |
+| A5 | Digital Input | Slow signal input, optoisolated, 12V to 24V = HIGH |
+| A6 | Analog Input | Analog input, 0-10V, 10V=4095 |
+| A7 | Analog Input | 4-20mA, 4mA=0, 20mA=4095 |
+| NFC_PIN2 | Output | Relay coil, HIGH = energized |
+
 
 ### ADC
 
