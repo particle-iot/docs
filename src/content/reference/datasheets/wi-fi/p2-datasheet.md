@@ -608,10 +608,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ### Module dimensions
 
-- P1 module dimensions are: 0.787"(28mm) (W) x 1.102"(20mm) (L) x 0.0787"(2.0mm) (H) +/-0.0039"(0.1mm) (includes metal shielding)
-- The P2 should have the same width and length but the height may be slightly different as it has different metal shielding
-
-<div align=center><img src="/assets/images/p1-module-dimensions.png" width=600></div>
+- P2 module dimensions are: 0.787"(28mm) (W) x 1.102"(20mm) (L) x 0.118"(3.0mm) (H) +/-0.0039"(0.1mm) (includes metal shielding)
 
 ### Recommended PCB land pattern
 
@@ -892,6 +889,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 006 | 2023-04-28 | RK | Add conformal coating and flux notes |
 | 007 | 2023-05-05 | RK | Update available RAM |
 | 008 | 2023-05-11 | RK | Add link to reference design |
+| 009 | 2023-06-07 | RK | Add module height (3mm) |
 
 ## Known errata
 
