@@ -1,8 +1,8 @@
 ---
-title: Monitor edge firmware
+title: Monitor Edge firmware
 columns: two
 layout: commonTwo.hbs
-description: Monitor edge firmware
+description: Monitor Edge firmware
 ---
 
 # {{title}}
@@ -85,7 +85,7 @@ void setup()
 }
 ```
 
-You can also specify additional configuration parameters via the `EdgeConfiguration` class passed to the `init()` method. This is explained in greater detail [below](/#EdgeConfiguration). 
+You can also specify additional configuration parameters via the `EdgeConfiguration` class passed to the `init()` method. This is explained in greater detail [below](#edgeconfiguration). 
 
 This example shows how to control the behavior of CAN_PWR, the 5V supply for the CAN bus. 
 
@@ -124,7 +124,7 @@ void enableIoCanPower(bool enable);
 
 Turn on or off CAN_PWR, the 5V supply for the CAN bus.
 
-This can be used in addition to [`EdgeConfiguration`](/#EdgeConfiguration) for more fine-grained control over CAN_PWR. For example, you might leave it off except during the brief intervals where you want to read an external sensor connected to I2C on the M8.
+This can be used in addition to [`EdgeConfiguration`](#EdgeConfiguration) for more fine-grained control over CAN_PWR. For example, you might leave it off except during the brief intervals where you want to read an external sensor connected to I2C on the M8.
 
 ### getModel() - Edge
 
@@ -159,7 +159,7 @@ Gets the variant. This is current 0x0001 for all devices.
 CloudService cloudService;
 ```
 
-Use this to access the [`CloudService`](/firmware/tracker-edge/tracker-edge-api-reference/#cloudservice) object. The cloud service makes it easy to do non-blocking publishes from your code, in addition to the built-in location publishes. 
+Use this to access the [`CloudService`](#cloudservice) object. The cloud service makes it easy to do non-blocking publishes from your code, in addition to the built-in location publishes. 
 
 
 
@@ -173,7 +173,7 @@ EdgeLocation location;
 Edge::instance().location.regLocGenCallback(myLocationGenerationCallback);
 ```
 
-Use this to access the [`EdgeLocation`](/firmware/tracker-edge/tracker-edge-api-reference/#edgelocation) object. Note that there are two different services, `EdgeGnssAbstraction` and `EdgeLocation`.
+Use this to access the [`EdgeLocation`](#edgelocation) object. Note that there are two different services, `EdgeGnssAbstraction` and `EdgeLocation`.
 
 The `EdgeLocation` is typically used to register a location generation callback; this allows custom data to be added to the location publish.
 
@@ -189,7 +189,7 @@ Edge::instance().locationService.getStatus(locationStatus);
 Log.info("GPS lock=%d", locationStatus.locked);
 ```
 
-Use this to access the [`EdgeGnssAbstraction`](/firmware/tracker-edge/tracker-edge-api-reference/#locationservice) object. Note that there are two different services, `EdgeGnssAbstraction` and `EdgeLocation`.
+Use this to access the [`EdgeGnssAbstraction`](#locationservice) object. Note that there are two different services, `EdgeGnssAbstraction` and `EdgeLocation`.
 
 The `EdgeGnssAbstraction` is normally configured from the console to enable features like publish on movement outside radius. These settings are made in the console per-product, though they also can be overridden per-device from the cloud.
 
@@ -573,7 +573,7 @@ Edge::instance().locationService.getStatus(locationStatus);
 Log.info("GPS lock=%d", locationStatus.locked);
 ```
 
-Get the status of the GNSS, including whether it's powered on and has a fix. The [`LocationStatus`](/firmware/tracker-edge/tracker-edge-api-reference/#locationstatus-locationservice) object is filled in by this method.
+Get the status of the GNSS, including whether it's powered on and has a fix. The [`LocationStatus`](#locationstatus-locationservice) object is filled in by this method.
 
 ### LocationStatus - EdgeGnssAbstraction
 
@@ -585,7 +585,7 @@ struct LocationStatus {
 };
 ```
 
-The `LocationStatus` struct is filled in by [`getStatus()`](/firmware/tracker-edge/tracker-edge-api-reference/#getstatus-locationservice). It has two fields that contain boolean values (0 = false, 1 = true):
+The `LocationStatus` struct is filled in by [`getStatus()`](#getstatus-locationservice). It has two fields that contain boolean values (0 = false, 1 = true):
 
 | Field | Description |
 | :--- | :--- |
