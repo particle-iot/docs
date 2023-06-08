@@ -16,6 +16,14 @@ One difference between the Monitor One and other Particle devices is that the Mo
 
 The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-api-reference/) is also available.
 
+| | Monitor One | Tracker One | Tracker Eval Board | Tracker SoM |
+| :--- | :---: | :---: | :---: | :---: |
+| Form-factor | Assembled | Assembled | Evaluation board | SMD component |
+| Power | M12 connector | M8 or USB-C | USB-C or barrel | 6 - 17 VDC |
+| Firmware | Monitor Edge | Tracker Edge | Tracker Edge | Tracker Edge |
+| MCU | Tracker SoM | Tracker SoM | Tracker SoM | Tracker SoM |
+| Platform | tracker (26) | tracker (26) | tracker (26) | tracker (26) |
+
 ## Using off-the-shelf releases
 
 Your Monitor OPne device is pre-configured with Monitor Edge firmware that you can use out of the box with no flashing of firmware necessary.
@@ -188,12 +196,10 @@ Setup calls `Edge::instance().init()`. This is required! Since the sample uses `
 
 You can add your own code to `setup()` as well.
 
-```
+```cpp
 void setup()
 {
     Edge::instance().init();
-
-    Particle.connect();
 }
 ```
 

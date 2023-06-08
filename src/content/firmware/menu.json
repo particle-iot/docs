@@ -106,12 +106,14 @@
       {
         "dir": "monitor-edge-firmware",
         "title": "Monitor Edge firmware",
-        "href": "/firmware/tracker-edge/monitor-edge-firmware/"
+        "href": "/firmware/tracker-edge/monitor-edge-firmware/",
+        "internal": true
       },
       {
         "dir": "monitor-edge-api-reference",
         "title": "Monitor Edge API reference",
-        "href": "/firmware/tracker-edge/monitor-edge-api-reference/"
+        "href": "/firmware/tracker-edge/monitor-edge-api-reference/",
+        "internal": true
       }
     ],
     {

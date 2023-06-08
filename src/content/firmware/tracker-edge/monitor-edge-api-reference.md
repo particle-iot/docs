@@ -125,7 +125,7 @@ void enableIoCanPower(bool enable);
 
 Turn on or off CAN_PWR, the 5V supply for the CAN bus.
 
-This can be used in addition to [`EdgeConfiguration`](#EdgeConfiguration) for more fine-grained control over CAN_PWR. For example, you might leave it off except during the brief intervals where you want to read an external sensor connected to I2C on the M8.
+This can be used in addition to [`EdgeConfiguration`](#edgeconfiguration) for more fine-grained control over CAN_PWR. For example, you might leave it off except during the brief intervals where you want to read an external sensor connected to I2C on the M8.
 
 ### getModel() - Edge
 
@@ -190,7 +190,7 @@ Edge::instance().locationService.getStatus(locationStatus);
 Log.info("GPS lock=%d", locationStatus.locked);
 ```
 
-Use this to access the [`EdgeGnssAbstraction`](#locationservice) object. Note that there are two different services, `EdgeGnssAbstraction` and `EdgeLocation`.
+Use this to access the [`EdgeGnssAbstraction`](#edgegnssabstraction) object. Note that there are two different services, `EdgeGnssAbstraction` and `EdgeLocation`.
 
 The `EdgeGnssAbstraction` is normally configured from the console to enable features like publish on movement outside radius. These settings are made in the console per-product, though they also can be overridden per-device from the cloud.
 
@@ -574,7 +574,7 @@ Edge::instance().locationService.getStatus(locationStatus);
 Log.info("GPS lock=%d", locationStatus.locked);
 ```
 
-Get the status of the GNSS, including whether it's powered on and has a fix. The [`LocationStatus`](#locationstatus-locationservice) object is filled in by this method.
+Get the status of the GNSS, including whether it's powered on and has a fix. The [`LocationStatus`](#locationstatus-edgegnssabstraction) object is filled in by this method.
 
 ### LocationStatus - EdgeGnssAbstraction
 
@@ -586,7 +586,7 @@ struct LocationStatus {
 };
 ```
 
-The `LocationStatus` struct is filled in by [`getStatus()`](#getstatus-locationservice). It has two fields that contain boolean values (0 = false, 1 = true):
+The `LocationStatus` struct is filled in by [`getStatus()`](#getstatus-edgegnssabstraction). It has two fields that contain boolean values (0 = false, 1 = true):
 
 | Field | Description |
 | :--- | :--- |
@@ -630,7 +630,7 @@ if (EdgeSleep::instance().isFullWakeCycle()) {
 
 The maximum location update frequency is determined from the [cloud configuration](/getting-started/console/console/#location-settings). When waking up from external sources such as motion (IMU), BLE, GPIO pin interrupts, etc. it's possible to do a short wake cycle to handle this interrupt, then go back to sleep without turning on the cellular modem. This preserves battery power and also prevents excessive reconnection. It is possible for your mobile carrier to ban your SIM for aggressive reconnection if it does a full reconnection more often than every 10 minutes.
 
-You can determine if this is a full wake cycle (connecting to cellular) using `isFullWakeCycle()`. To force a full wake cycle, use [`forceFullWakeCycle()`](#forcefullwakecycle-trackersleep).
+You can determine if this is a full wake cycle (connecting to cellular) using `isFullWakeCycle()`. To force a full wake cycle, use [`forceFullWakeCycle()`](#forcefullwakecycle-edgesleep).
 
 ### forceFullWakeCycle() - EdgeSleep
 
@@ -666,11 +666,11 @@ Set a pin as a wake source. The mode is one of:
 
 Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 
-Waking by a pin still is subject to the minimum publish period. If the minimum publish period has not been met yet, then this will be a short wake cycle and the device will wake, but will not connect to cellular. Your code can override this by calling [`forceFullWakeCycle()`](#forcefullwakecycle-trackersleep).
+Waking by a pin still is subject to the minimum publish period. If the minimum publish period has not been met yet, then this will be a short wake cycle and the device will wake, but will not connect to cellular. Your code can override this by calling [`forceFullWakeCycle()`](#forcefullwakecycle-edgesleep).
 
-To stop using a pin as a wake-up source, use [`ignore()`](#ignore-pin-trackersleep).
+To stop using a pin as a wake-up source, use [`ignore()`](#ignore-pin-edgesleep).
 
-Waking from GPIO is common if you have a hardware sensor connected to a GPIO that you want to use for a wake source. If you have an I2C or SPI sensor, you may instead want to use [`wakeAt()`](#wakeat-trackersleep) to wake the MCU, read the sensor, and go back to sleep. Note that this also will obey the minimum publish period so you can wake frequently using `wakeAt()` without excessive reconnection or battery use.
+Waking from GPIO is common if you have a hardware sensor connected to a GPIO that you want to use for a wake source. If you have an I2C or SPI sensor, you may instead want to use [`wakeAt()`](#wakeat-edgesleep) to wake the MCU, read the sensor, and go back to sleep. Note that this also will obey the minimum publish period so you can wake frequently using `wakeAt()` without excessive reconnection or battery use.
 
 ### ignore(pin) - EdgeSleep
 
@@ -705,7 +705,7 @@ In addition to wake on BLE, this keeps the BLE subsystem activated so the nRF52 
 
 This brief wake-up only services the radio. User firmware and Device OS do not resume execution if waking only to service the radio. If the radio receives incoming data or connection attempt packets, then the MCU completely wakes up in order to handle those events.
 
-To stop using BLE as a wake-up source, use [`ignoreBle()`](#ignoreble-trackersleep).
+To stop using BLE as a wake-up source, use [`ignoreBle()`](#ignoreble-edgesleep).
 
 ### ignoreBle() - EdgeSleep
 
@@ -717,7 +717,7 @@ int ignoreBle();
 EdgeSleep::instance().ignoreBle();
 ```
 
-Stop using BLE as a wake-up source that was enabled using [`wakeForBle()`](#wakeforble-trackersleep).
+Stop using BLE as a wake-up source that was enabled using [`wakeForBle()`](#wakeforble-edgesleep).
 
 ### wakeFor(network) - EdgeSleep
 
@@ -770,9 +770,9 @@ int pauseSleep();
 EdgeSleep::instance().pauseSleep();
 ```
 
-Normally, the [post publish execution time](/getting-started/console/console/#sleep-settings) determines how long to stay awake. If you want to force the device to stay awake, your firmware can use `pauseSleep()`. To resume allowing sleep to occur again, call [`resumeSleep()`](#resumesleep-trackersleep).
+Normally, the [post publish execution time](/getting-started/console/console/#sleep-settings) determines how long to stay awake. If you want to force the device to stay awake, your firmware can use `pauseSleep()`. To resume allowing sleep to occur again, call [`resumeSleep()`](#resumesleep-edgesleep).
 
-To prevent sleep for an additional number of seconds, you can use [`extendExecution()`](#extendexecution-trackersleep).
+To prevent sleep for an additional number of seconds, you can use [`extendExecution()`](#extendexecution-edgesleep).
 
 ### resumeSleep() - EdgeSleep
 
@@ -784,7 +784,7 @@ int resumeSleep();
 EdgeSleep::instance().resumeSleep();
 ```
 
-Normally, the [post-publish execution time](/getting-started/console/console/#sleep-settings) determines how long to stay awake. If you want to force the device to stay awake, your firmware can use [`pauseSleep()`](#pausesleep-trackersleep). 
+Normally, the [post-publish execution time](/getting-started/console/console/#sleep-settings) determines how long to stay awake. If you want to force the device to stay awake, your firmware can use [`pauseSleep()`](#pausesleep-edgesleep). 
 
 To resume allowing sleep to occur again, call `resumeSleep()`. If the post-publish execution time has not been met yet, resume sleep only allows it to occur when the time is met. It does not force an immediate sleep.
 
@@ -800,7 +800,7 @@ EdgeSleep::instance().extendExecution(10);
 
 Normally, the [post-publish execution time](/getting-started/console/console/#sleep-settings) determines how long to stay awake. If you want to add additional time to this period, you can use `extendExecution(). This only affects this sleep cycle. On the next sleep - wake cycle the default will be restored from the cloud. You can only make the period longer, not shorter, with this call.
 
-If you want to control staying awake from code instead of by time, your firmware can use [`pauseSleep()`](#pausesleep-trackersleep) and [`resumeSleep()`](#resumesleep-trackersleep). If you want to extend execution for a certain number of seconds from now, use [`extendExecutionFromNow`](#extendexecutionfromnow-trackersleep).
+If you want to control staying awake from code instead of by time, your firmware can use [`pauseSleep()`](#pausesleep-edgesleep) and [`resumeSleep()`](#resumesleep-edgesleep). If you want to extend execution for a certain number of seconds from now, use [`extendExecutionFromNow`](#extendexecutionfromnow-edgesleep).
 
 ### extendExecutionFromNow - EdgeSleep
 
@@ -825,7 +825,7 @@ EdgeSleep::instance().extendExecutionFromNow(2, true);
 
 If you want to set the execution time, with the possibility of shortening the post-publish execution time, pass `true` for the `force` parameter.
 
-If you want to control staying awake from code instead of by time, your firmware can use [`pauseSleep()`](#pausesleep-trackersleep) and [`resumeSleep()`](#resumesleep-trackersleep). If you want to extend execution for a certain number of seconds, use [`extendExecution`](#extendexecution-trackersleep).
+If you want to control staying awake from code instead of by time, your firmware can use [`pauseSleep()`](#pausesleep-edgesleep) and [`resumeSleep()`](#resumesleep-edgesleep). If you want to extend execution for a certain number of seconds, use [`extendExecution`](#extendexecution-edgesleep).
 
 ### wakeAt() - EdgeSleep
 
@@ -847,7 +847,7 @@ The next wake time is always calculated using `System.millis()`. This does not r
 
 If you have other wake sources such as movement (IMU), GPIO, BLE, network, etc. you can still wake earlier than this time. 
 
-If you schedule a wake before the maximum location update frequency, the wake will be a short wake cycle, where only the device wakes and a cellular connection is enabled. You can override this during your short wake by using [`forceFullWakeCycle()`](#forcefullwakecycle-trackersleep).
+If you schedule a wake before the maximum location update frequency, the wake will be a short wake cycle, where only the device wakes and a cellular connection is enabled. You can override this during your short wake by using [`forceFullWakeCycle()`](#forcefullwakecycle-edgesleep).
 
 You may want to use this feature to take the value of a more complicated sensor that requires external power, or uses I2C or SPI. You can frequently wake using `wakeAt()` but only turn on cellular and publish at the maximum location update frequency. This of course requires that you store these values for later publishing. An example of this can be found in the [short wake with less frequent publish example](/reference/tracker/tracker-sleep/#frequent-short-wake-with-less-frequent-publish).
 
