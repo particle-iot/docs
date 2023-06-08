@@ -1,13 +1,11 @@
 ---
-title: Monitor Edge firmware api reference
+title: Monitor Edge firmware API reference
 columns: two
 layout: commonTwo.hbs
-description: Monitor Edge firmware api reference
+description: Monitor Edge firmware API reference
 ---
 
 # {{title}}
-
-
 
 One difference between the Monitor One, Tracker One, and other Particle devices is that the Tracker One firmware can be used in three different ways:
 

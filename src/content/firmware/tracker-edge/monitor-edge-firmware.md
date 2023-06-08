@@ -26,7 +26,7 @@ The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-ap
 
 ## Using off-the-shelf releases
 
-Your Monitor OPne device is pre-configured with Monitor Edge firmware that you can use out of the box with no flashing of firmware necessary.
+Your Monitor One device is pre-configured with Monitor Edge firmware that you can use out of the box with no flashing of firmware necessary.
 
 Configuration can be done online, through the Particle [console](https://console.particle.io/). 
 To learn about the console, see [Tracker settings](/getting-started/console/console/#asset-tracker-features).
@@ -229,6 +229,27 @@ uses it to display the cellular signal strength on the status LED on short press
 to do other things instead.
 
 
+## Sending commands
+
+When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
+
+<div align=center><img src="/assets/images/tracker/tracker-enter-shipping.png" class="small"></div>
+
+Some commands you can enter into the box:
+
+| Command | Purpose |
+| :------ | :--- |
+| `{"cmd":"enter_shipping"}` | Enter shipping mode |
+| `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
+| `{"cmd":"reset"}` | Gracefully reset the device |
+
+Shipping mode powers off the device by disconnecting the battery. This allows a Monitor One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by powering the device from the M12 8-pin connector.
+
+It's also possible to [create custom `cmd` handlers](/firmware/tracker-edge/monitor-edge-api-reference/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
+
+On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
+
+
 ## Using GitHub with Monitor Edge
 
 [GitHub](https://github.com/) is a tool for source code control, issue, and release management. It's great for managing Particle projects in Workbench. For many uses, it's free, too. There are many features, entire books, and tutorials about [Git](https://git-scm.com/) (the underlying source code control system) and GitHub (a service that allows you to store files in the cloud). This is just an overview.
@@ -254,14 +275,14 @@ In the example above we just use **Clone** to make a private copy of the source 
 Create a new GitHub repository in your account. In this case, I created **mon-test1** and made it a private repository. Since we're going to mirror, it's not necessary to create a README or LICENSE.
 
 ```bash
-git clone --bare https://github.com/particle-iot/tracker-edge.git
-cd tracker-edge.git
+git clone --bare https://github.com/particle-iot/monitor-edge.git
+cd monitor-edge.git
 git push --mirror https://github.com/rickkas7/mon-test1.git
 ```
 
 Run the commands to mirror the changes into the repository you just created. Be sure to change the last URL to match the URL for your repository!
 
-At this point you can delete the tracker-edge.git directory as it's no longer needed.
+At this point you can delete the monitor-edge.git directory as it's no longer needed.
 
 ```bash
 git clone https://github.com/rickkas7/mon-test1.git
@@ -326,26 +347,6 @@ To summarize:
   - **Stage** indicates this file should be committed
   - **Commit** marks all of the changes are ready to go as one package of changes
   - **Push** uploads the package of changes to GitHub
-
-## Sending commands
-
-When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
-
-<div align=center><img src="/assets/images/tracker/tracker-enter-shipping.png" class="small"></div>
-
-Some commands you can enter into the box:
-
-| Command | Purpose |
-| :------ | :--- |
-| `{"cmd":"enter_shipping"}` | Enter shipping mode |
-| `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
-| `{"cmd":"reset"}` | Gracefully reset the device |
-
-Shipping mode powers off the device by disconnecting the battery. This allows a Monitor One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by powering the device from the M12 8-pin connector.
-
-It's also possible to [create custom `cmd` handlers](/firmware/tracker-edge/tracker-edge-api-reference/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
-
-On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
 
 
 ## Learn more 
