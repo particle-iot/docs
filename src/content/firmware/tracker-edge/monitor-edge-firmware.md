@@ -8,11 +8,11 @@ description: Monitor Edge firmware
 # {{title}}
 
 
-One difference between the Tracker One and other Particle devices is that the Tracker One firmware can be used in three different ways:
+One difference between the Monitor One and other Particle devices is that the Monitor Edge firmware can be used in three different ways:
 
 - Completely off-the-shelf. With its cloud-based configuration, you can use the firmware as-is with no modifications in some cases.
-- Semi-custom. The Tracker One firmware is customizable on-device making it possible to add new sensors and customize behavior while still making it easy to upgrade the base firmware.
-- Custom. The Tracker One firmware is open-source so you can duplicate and modify it ("fork") for completely custom applications. Or build your own completely from scratch.
+- Semi-custom. The Monitor Edge firmware is customizable on-device making it possible to add new sensors and customize behavior while still making it easy to upgrade the base firmware.
+- Custom. The Monitor Edge firmware is open-source so you can duplicate and modify it ("fork") for completely custom applications. Or build your own completely from scratch.
 
 The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-api-reference/) is also available.
 
@@ -27,9 +27,9 @@ To learn about the console, see [Tracker settings](/getting-started/console/cons
 
 ## Development device setup
 
-If you are going to develop firmware for the Monitor One, Tracker One, or Tracker SoM, you have to perform a few additional steps.
+If you are going to develop firmware for the Monitor One you have to perform a few additional steps.
 
-- Your firmware will typically be based on Tracker Edge, as outlined below. This is not a requirement and you can build your own firmware from the ground-up, however you will not have the cloud configuration, location event support, and the libraries for the GNSS (GPS), IMU (accelerometer), CAN bus, and other Tracker-specific peripherals.
+- Your firmware will typically be based on Monitor Edge, as outlined below. This is not a requirement and you can build your own firmware from the ground-up, however you will not have the cloud configuration, location event support, and the libraries for the GNSS (GPS), IMU (accelerometer), CAN bus, and other Tracker-specific peripherals.
 - All Tracker devices must be part of a product, as described in [setup](/getting-started/tracker/tracker-setup/).
 - By default, Tracker devices are not claimed to your account. This may affect development.
 
@@ -71,7 +71,7 @@ particle device add <device-id>
 
 Replace &lt;device-id> with the 24-character hex device ID.
 
-## Getting the Tracker Edge firmware
+## Getting the Monitor Edge firmware
 
 The Monitor Edge firmware can be downloaded from GitHub:
 
@@ -150,7 +150,7 @@ This doesn't look like much, but a lot of stuff happens behind the scenes and is
 
 Digging into this:
 
-These are some standard Tracker include files that you will likely need:
+These are some standard Monitor Edge include files that you will likely need:
 
 ```cpp
 #include "Particle.h"
@@ -164,7 +164,7 @@ SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 ```
 
-Since all Tracker devices must belong to a product, you should set the product ID and version. You can either set the product ID to `PLATFORM_ID` which means use the product that the device has been added to, or you can set the product ID to your actual product ID value. The version is arbitrary, though it should be sequential and can only have value from 1 to 65535.
+Since all Tracker devices must belong to a product, you should set the version. The `EDGE_PRODUCT_ID` is not necessary when targeting Device OS 4.0 or later.
 
 ```cpp
 #if EDGE_PRODUCT_NEEDED
