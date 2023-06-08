@@ -71,9 +71,12 @@ A waterproof button is available from the outside of the enclosure.
 ### User LEDs (2)
 
 - There are two small RGB LEDs visible from the outside on the side of the unit, next to the user button.
-- You can program custom colors, blinking, and fade effects for each LED from your user firmware.
+- The upper LED defaults to being a GNSS lock indicator:
+  - Off: GNSS off
+  - Blinking (green): attempting to get a GNSS fix
+  - On (green): GNSS fix acquired
+- You can program custom colors, blinking, and fade effects from your user firmware for the lower LED.
 - LEDs are controlled by a ADP8866 I2C LED controller.
-
 
 ### Connectors
 
