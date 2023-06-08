@@ -228,6 +228,7 @@ You can implement single-tap, multi-tap, and long press of the user button that'
 uses it to display the cellular signal strength on the status LED on short press. You can, however, replace the contents of this function 
 to do other things instead.
 
+Note that a very long press of greater than approximately 10 seconds causes a hardware reset of the Monitor One, so be careful to not do that accidentally.
 
 ## Sending commands
 
