@@ -90,6 +90,6 @@ To set up the device and associate it with your Particle account, visit [setup.p
 
 ## Additional resources
 
-- [Monitor One datasheet](reference/datasheets/tracker/monitor-one-datasheet/)
+- [Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/)
 - [Console settings](/getting-started/console/console/#asset-tracker-features)
 {{!-- - [Monitor Edge firmware](/firmware/tracker-edge/monitor-edge-firmware/) --}}

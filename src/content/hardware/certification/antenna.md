@@ -195,7 +195,7 @@ In order to avoid having to complete steps 2 and 3 again, a substitute antenna m
 2. Have equal or lesser gain in all bands.
 3. Similar in-band and out-of-band characteristics.
 
-All Particle cellular devices include a trace-style PCB or flex monopole antenna, which are considered to be the same type. A different type of antenna is a dipole antenna ("duck antenna"), which would require recertification.
+All Particle cellular devices include a trace-style PCB or flex antenna, which are considered to be the same type.
 
 The equal or lesser gain in all bands test is why you can't substitute the ANTCW2EA (Particle cellular antenna) for the ANT-FLXU (Taoglas FXUB63) on the Boron, even though it works quite well. The ANTCW2EA has higher gain in some bands, so using it would require recertification. For example, ANTCW2EA has 1.42 dBi gain vs. 1.0 dBi in Band 13, the 700 MHz band.
 
