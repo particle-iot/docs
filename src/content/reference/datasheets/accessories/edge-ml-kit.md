@@ -1,19 +1,19 @@
 ---
-title: Edge AI kit
+title: Edge ML kit
 columns: two
 layout: commonTwo.hbs
-description: Edge AI kit
+description: Edge ML kit
 ---
 
 # {{title}}
 
-The Edge AI kit provides a number of accessories that can be used with your Particle Photon 2 device. While the parts in the kit can be used with other Particle devices, the Edge AI features will only work on the P2 and Photon 2 at this time because of the limited amount of flash and RAM on older devices.
+The Edge ML kit provides a number of accessories that can be used with your Particle Photon 2 device. While the parts in the kit can be used with other Particle devices, the Edge ML features will only work on the P2 and Photon 2 at this time because of the limited amount of flash and RAM on older devices.
 
 ## Kit components
 
 ### ADXL362 (GY362) accelerometer breakout
 
-This breakout board allows you to detect motion and orientation. Using Edge AI you can filter for certain types of motion. It can also be used for wake-on-motion to wake from sleep. 
+This breakout board allows you to detect motion and orientation. Using Edge ML you can filter for certain types of motion. It can also be used for wake-on-motion to wake from sleep. 
 
 {{imageOverlay src="/assets/images/edge-kit/adxl362-1.jpeg" alt="ADXL362" }}
 
@@ -38,7 +38,7 @@ Use the [ADXL362DMA](https://github.com/rickkas7/ADXL362DMA) library, or other c
 
 ### PDM MEMS microphone
 
-This breakout board is a digital microphone. It's intended for voice applications, not high-fidelity recording. Using Edge AI you cam implement similar voice commands using the microphone. It can also be used to detect specific sounds, such as an alarm siren.
+This breakout board is a digital microphone. It's intended for voice applications, not high-fidelity recording. Using Edge ML you cam implement similar voice commands using the microphone. It can also be used to detect specific sounds, such as an alarm siren.
 
 {{imageOverlay src="/assets/images/edge-kit/mic-1.jpeg" alt="PDM Microphone" }}
 

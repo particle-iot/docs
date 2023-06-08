@@ -47,6 +47,10 @@ module.exports = function(string) {
 	case 'Le':
 		txt = 'LE'; // As in Bluetooth LE
 		break;
+
+	case 'Ml':
+		txt = 'ML'; // Machine Learning
+		break;
 	
 	default:
 		break;

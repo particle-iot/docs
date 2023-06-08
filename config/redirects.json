@@ -1928,6 +1928,7 @@
   "/reference/community": "/community/community",
   "/reference/datasheets": "/reference/datasheets/tracker/tracker-som-datasheet",
   "/reference/datasheets/accessories": "/reference/datasheets/accessories/gen3-accessories",
+  "/reference/datasheets/accessories/edge-ai-kit": "/reference/datasheets/accessories/edge-ml-kit",
   "/reference/datasheets/b-series": "/reference/datasheets/b-series/b404-b402-datasheet",
   "/reference/datasheets/b-series/b404x-b404-b402-datasheet": "/reference/datasheets/b-series/b404x-datasheet",
   "/reference/datasheets/tracker": "/reference/datasheets/tracker/tracker-som-datasheet",

@@ -432,9 +432,9 @@
           "href": "/reference/datasheets/accessories/gen3-accessories/"
         },
         {
-          "dir": "edge-ai-kit",
-          "title": "Edge AI kit",
-          "href": "/reference/datasheets/accessories/edge-ai-kit/",
+          "dir": "edge-ml-kit",
+          "title": "Edge ML kit",
+          "href": "/reference/datasheets/accessories/edge-ml-kit/",
           "internal": true
         },
         {
