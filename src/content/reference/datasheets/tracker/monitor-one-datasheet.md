@@ -405,7 +405,7 @@ The standard M12 connectors are IP67 waterproof (connected or not), 12 mm in dia
 
 The panel-mount 8-pin connector on the Monitor One is female, with the following pinout:
 
-{{imageOverlay src="/assets/images/monitor-one/M12-panel.png" alt="M12 panel connector" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/m12-panel.png" alt="M12 panel connector" class="full-width"}}
 
 <p class="attribution">Looking at the bulkhead connector from outside the enclosure</p>
 
