@@ -3124,6 +3124,9 @@ $(document).ready(function () {
                 $(thisElem).find('.productSelectorRow').hide();
                 $(thisElem).find('.sandboxOrgRow').hide();
                 $(thisElem).find('.orgSelectorRow').show();
+
+                setStatus('');
+                enableButton();
             }
 
         };
@@ -3177,7 +3180,10 @@ $(document).ready(function () {
 
                 const friendlyName = $(friendlyNameElem).val();
 
-                if (curScopes.length > 0 && friendlyName.length > 0 && productId) {
+                const prodOrgVal = $(thisElem).find('.prodOrg:checked').val();
+                const isOrgUser = (prodOrgVal == 'org');
+
+                if (curScopes.length > 0 && friendlyName.length > 0 && (productId || isOrgUser)) {
                     $(actionButtonElem).prop('disabled', false);
                 }
                 else {
