@@ -134,7 +134,13 @@ $ particle help
 $ particle help keys
 ```
 
-## Flashing over serial for the Electron
+## Flashing using serial (listening mode)
+
+We recommend that you use DFU mode (blinking yellow) with `particle flash --usb` instead of listening mode (blinking dark blue).
+
+In the long-ago past the CLI did not install drivers for DFU mode, so `--serial` mode was sometimes easier. However, listening mode does not communicate errors well, and also is subject to interference from user application firmware, and is no longer recommended.
+
+{{collapse op="start" label="Show older technique using --serial mode"}}
 
 If you're wanting to save data on your Electron you should definitely consider flashing your Electron over
 USB instead of OTA (over-the-air).
@@ -159,6 +165,8 @@ mode](/tutorials/device-os/led/electron/#safe-mode) blinking magenta you should 
 ```
 $ particle update
 ```
+{{collapse op="end"}}
+
 
 ## Blink an LED with Tinker
 
@@ -236,7 +244,7 @@ Then let's compile that program to make sure it's valid code.  The CLI will auto
 
 ```sh
 # how to compile a program without flashing to your device
-$ particle compile photon blinky.ino
+$ particle compile boron blinky.ino
 Including:
 blinky.ino
 attempting to compile firmware
@@ -246,14 +254,19 @@ saved firmware to firmware_123456781234.bin
 Compiled firmware downloaded.
 ```
 
-Replace photon with the type of device you have:
+Replace boron with the type of device you have:
 
-- argon
-- boron
-- photon
-- p1
-- electron (also E series)
-
+{{!-- BEGIN shared-blurb 866d92e9-015e-457e-b34a-367d8a73f443 --}}
+  - `p2` (also Photon 2)
+  - `boron`
+  - `argon`
+  - `bsom` (B Series SoM, 4xx)
+  - `b5som` (B Series SoM, 5xx)
+  - `tracker`
+  - `photon`
+  - `p1`
+  - `electron` (also E Series)
+{{!-- END shared-blurb --}}
 
 Now that we have a valid program, let's flash it to our device!  We can use either the source code again, or we can send our binary.
 
@@ -444,15 +457,13 @@ It's a good idea to test often, by writing code in the consuming project that us
 
 ### Consuming the library
 
-To test your changes in the library, compile the project using `particle compile <platform>`
+To test your changes in the library, compile the project using `particle compile <platform> <directory>`
 
-`particle compile photon`
+`particle compile boron . --saveTo firmware.bin`
 
 This will create a `.bin` file which you then flash to your device.
 
 `particle flash mydevice firmware.bin`
-
-(Replace the name `firmware.bin` with the name of the `.bin` file produced by the compile step.)
 
 ### Contributing the library
 

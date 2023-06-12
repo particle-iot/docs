@@ -47,6 +47,7 @@ With this feature, your Particle device can not only update itself, but also upd
 Including assets is as easy as including an `assets/` directory in your project and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB in size and do not use additional data operations.
 {{!-- END shared-blurb --}}
 
+
 ## USB (particle update)
 
 Using the `particle update` command in the Particle CLI is the most common way that end-users upgrade their devices, however there are a number of caveats:

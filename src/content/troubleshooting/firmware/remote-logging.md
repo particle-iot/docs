@@ -19,7 +19,7 @@ void setup() {
     Log.error("This is error message, error=%d", errCode);
 
     // Format text message
-    Log.info("System version: %s", (const char*)System.version());
+    Log.info("Device OS version: %s", (const char*)System.version());
 }
 
 void loop() {

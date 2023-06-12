@@ -322,15 +322,17 @@ should always manually target 5.3.1 or later, for example, `--target 5.3.1`, ins
 
   Compiles one or more source file, or a directory of source files, and downloads a firmware binary to your computer. The cloud compiler is device-specific, so the name of device you want to target (or its alias) must be provided as an argument. The supported devices are:
 
-  - p2 (also Photon 2)
-  - boron
-  - argon
-  - bsom (B Series SoM, 4xx)
-  - b5som (B Series SoM, 5xx)
-  - tracker
-  - boron
-  - electron (also E Series)
-  - p1
+{{!-- BEGIN shared-blurb 866d92e9-015e-457e-b34a-367d8a73f443 --}}
+  - `p2` (also Photon 2)
+  - `boron`
+  - `argon`
+  - `bsom` (B Series SoM, 4xx)
+  - `b5som` (B Series SoM, 5xx)
+  - `tracker`
+  - `photon`
+  - `p1`
+  - `electron` (also E Series)
+{{!-- END shared-blurb --}}
 
   **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it in [preprocessor](/reference/device-os/api/preprocessor/preprocessor/) in the Device OS Firmware API reference.
 
@@ -912,7 +914,7 @@ Modules
 
 If you see any `FAIL` entries, there is likely a missing dependency, such as a bootloader that needs to be upgraded. Normally this will be corrected automatically over-the-air, but if you cannot connect to the cloud the dependency cannot be fixed OTA.
 
-The version numbers in the output can be mapped to common version numbers using [this table](https://github.com/particle-iot/device-os/blob/develop/system/system-versions.md). For example, system version 1512 is more commonly known as 1.5.2.
+The version numbers in the output can be mapped to common version numbers using [this table](https://github.com/particle-iot/device-os/blob/develop/system/system-versions.md). For example, Device OS version 1512 is more commonly known as 1.5.2.
 
 
 ## particle usb

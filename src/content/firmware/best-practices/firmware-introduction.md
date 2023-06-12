@@ -321,9 +321,9 @@ For more information see, [Global object constructors](/reference/device-os/api/
 
 You must be very careful when using [SINGLE_THREADED_BLOCK](/reference/device-os/api/system-thread/single_threaded_block/) and you should avoid using it except to surround very small blocks of code that use only simple operations such as manipulating variables (such as queues), `digitalWrite()`, and `delayMicroseconds()`. 
 
-The reason is that many resources in the system are protected by mutexes. This includes things like SPI, I2C, the cellular modem, and logging. This is necessary so only a single thread can access the resource at time, but code that does not need that resource can continue to execute normally, and threads can swap as needed.
+The reason is that many resources in Device OS are protected by mutexes. This includes things like SPI, I2C, the cellular modem, and logging. This is necessary so only a single thread can access the resource at time, but code that does not need that resource can continue to execute normally, and threads can swap as needed.
 
-If you attempt to acquire a lock on a resource from inside a `SINGLE_THREADED_BLOCK` that is currently in use by another thread, the system will **deadlock**. Your thread will not proceed, because the resource is locked. However, since you have disabled thread switching because you used `SINGLE_THREADED_BLOCK`, the resource lock can never be freed, because the other thread cannot be swapped in.
+If you attempt to acquire a lock on a resource from inside a `SINGLE_THREADED_BLOCK` that is currently in use by another thread, the device will **deadlock**. Your thread will not proceed, because the resource is locked. However, since you have disabled thread switching because you used `SINGLE_THREADED_BLOCK`, the resource lock can never be freed, because the other thread cannot be swapped in.
 
 In old versions of Device OS, some resources like SPI were not protected. This caused failures when the system thread and user thread attempted to access SPI at the same time. The solution is use a mutex, but if you have code that previously used SPI from a `SINGLE_THREADED_BLOCK`, which does not actually solve the simultaneous access issue, it would fail with newer versions of Device OS by deadlocking.
 
@@ -387,7 +387,7 @@ A few of the locations that are **not** ISRs:
 - [Calculated variable handlers](/reference/device-os/api/cloud-functions/particle-variable-calculated/) are called from the loop thread.
 - [Subscription handlers](/reference/device-os/api/cloud-functions/particle-subscribe/) are called from the loop thread, however you cannot `Particle.publish` from a subscription handler.
 - [Serial events](/reference/device-os/api/serial/serialevent/) are called from the loop thread.
-- [Application watchdog callback](/reference/device-os/api/application-watchdog/application-watchdog/) but the system is probably unstable when it is called.
+- [Application watchdog callback](/reference/device-os/api/application-watchdog/application-watchdog/) but the device is probably unstable when it is called.
 
 In old versions of Device OS, allocating memory from an ISR would proceed, except randomly corrupt memory, often causing the device to crash later for completely unrelated reasons. Newer versions of Device OS will panic immediately, which makes it seem like code that previously worked no longer works on newer versions of Device OS, but really this is an improvement over randomly failing later.
 

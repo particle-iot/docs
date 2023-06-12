@@ -59,7 +59,7 @@ From the Particle CLI, you can use a command such as:
 particle compile p2 . --target 3.2.1-p2.3 --saveTo firmware.bin
 ```
 
-Note that you must specify a target system version when building for the P2. If an upgrade of Device OS is required, it will be updated OTA.
+Note that you must specify a target Device OS version when building for the P2. If an upgrade of Device OS is required, it will be updated OTA.
 
 ### Using the Web IDE
 

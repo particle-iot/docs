@@ -185,6 +185,11 @@ On Gen 3 devices, over-the-air (OTA) updates have two features that can improve 
 
 - Combined OTA can combine Device OS and user firmware updates into a single binary that requires only one download and one reboot to install.
 - Resumable OTA allows an update to resume from the point it stopped, instead of starting over from the beginning if interrupted.
+
+### System OTA
+
+[System OTA](/getting-started/cloud/ota-updates/#system-ota) (available in Device OS 5.4.0 and later), makes it possible to include bundled assets in an OTA software update that can be delivered to other processors and components in your product. 
+
 {{!-- END shared-blurb --}}
 
 ### Increased API field limits
