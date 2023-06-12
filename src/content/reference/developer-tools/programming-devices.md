@@ -33,6 +33,20 @@ OTA is how most devices are upgraded in the field. This can also be done during 
 
 OTA will only ever upgrade the Device OS version; it will not downgrade. Device OS is generally backward compatible. If you built your user firmware targeting, say, 1.5.2, it would likely run correctly on Device OS 2.1.0. However, because of differences between versions, this is not always possible. Thus if you are relying on OTA, it is possible that devices from the factory could contain a newer version than you initially developed for.
 
+### System OTA
+
+{{!-- BEGIN shared-blurb e724be96-469f-4bf2-bead-c8c962accad8 --}}
+System OTA (available in Device OS 5.4.0 and later), makes it easy to include bundled assets that can be delivered to other processors and components in your system via an over-the-air update.
+
+With this feature, your Particle device can not only update itself, but also update the components connected to it, such as:
+
+- Coprocessors
+- Graphics and fonts for external displays
+- Sound samples for device with audio output capabilities
+
+Including assets is as easy as including an `assets/` directory in your project and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB in size and do not use additional data operations.
+{{!-- END shared-blurb --}}
+
 ## USB (particle update)
 
 Using the `particle update` command in the Particle CLI is the most common way that end-users upgrade their devices, however there are a number of caveats:

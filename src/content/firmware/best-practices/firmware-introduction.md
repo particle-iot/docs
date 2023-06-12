@@ -54,6 +54,13 @@ On Gen 2 devices, SWD/JTAG is only enabled by default in the bootloader. Compile
 Some very old versions of Device OS on the Photon and P1 included a copy of the bootloader in the system parts. The techniques above are used instead in current versions of Device OS.
 {{collapse op="end"}}
 
+---
+
+### System OTA
+
+Particle System OTA (available in Device OS 5.4.0 and later), allows users to include bundled assets in an OTA software update that can be delivered to other processors and components in your product. Bundled assets can be up to 1 MB in size and do not use additional data operations.
+
+With this feature, your Particle device can not only update itself, but also update the components connected to it.
 
 ### Program structure
 
