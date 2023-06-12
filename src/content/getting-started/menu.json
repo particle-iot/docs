@@ -190,6 +190,11 @@
         "href": "/getting-started/cloud/ota-updates/"
       },
       {
+        "dir": "subspace",
+        "title": "Subspace",
+        "href": "/getting-started/cloud/subspace/"
+      },
+      {
         "dir": "cloud-api",
         "title": "Cloud API",
         "href": "/getting-started/cloud/cloud-api/"
