@@ -167,8 +167,8 @@ Example `particle.include` file that includes all `.def` files:
 Example `particle.ignore` file to not upload the `test` and `docs` directories in a library.
 
 ```
-test
-docs
+test/**
+docs/**
 ```
 
 ### Older file structures
