@@ -91,6 +91,8 @@ A project contains a number of files. Here's what's in a small sample project:
 
 If you already have an existing Particle project (with a `project.properties` file), you can import it to create the necessary VS Code files by using the command **Particle: Import Project** from the command palette.
 
+You can also have `particle.include` and `particle.ignore` files for controlling which files are uploaded when cloud compiling. See [particle.include and particle.ignore](/getting-started/device-os/firmware-libraries/#particle-include-and-particle-ignore).
+
 ### Cloud build and flash
 
 Before you can build in the cloud (the way Particle Web IDE and Particle CLI normally build), you need to select the device you wish to build for.

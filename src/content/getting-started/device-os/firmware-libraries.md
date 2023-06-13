@@ -117,40 +117,6 @@ MyLibrary/
 
 ## Project file structure
 
-There are 3 kinds of project structure:
-
-- legacy
-- simple
-- extended
-
-### Legacy structure
-
-The legacy project structure stores files in the root of the project. There is no project definition file. This is
-the structure used by all projects prior to libraries v2.
-
-```
-myapp/
-  application.ino
-```
-
-A legacy project does not support using libraries.
-
-### Simple structure
-
-The simple project structure is similar to the legacy structure - the project sources are stored in the root. However,
-the project also includes a project definition file `project.properties`. Even saving a blank `project.properties` file
-is enough to make a simple project.
-
-```
-myapp/
-  myapp.ino
-  project.properties
-```
-
-A simple project has standard support for libraries; libraries can be added to the project via the CLI `library add` command.
-
-### Extended structure
-
 The extended structure expands on the simple structure, placing all application sources in the `src` folder.
 
 ```
@@ -165,6 +131,78 @@ An extended project has full support for libraries, supporting both `library add
 An extended project can be created by using the CLI `particle project create` command.
 
 Your main application file can be a .cpp or a .ino file.
+
+### Projects with pseudo-libraries
+
+It's also possible to include library-like files in the `lib` directory. See [Workbench pseudo-libraries](#workbench-pseudo-libraries), below, for more information.
+
+```
+myapp/
+  project.properties
+  src/
+    myapp.cpp
+  lib/
+    library1/
+      src/
+        library1.cpp
+    SharedCode/
+      src/
+        SharedCode.cpp
+```
+
+### particle.include and particle.ignore
+
+The `particle.include` and `particle.ignore` files provide a way to include or exclude additional files from the cloud compiler. Please note that these files are only for special extras and the default files like the source and header files are handled separately and are not affected by the patterns specified in these two files. The include and ignore files can be located either in the project's root directory or in any of its subdirectories.
+
+When the particle.include file is placed in the root directory, files matching the specified patterns are searched recursively from the root directory. On the other hand, if the particle.include file is placed in a subdirectory, the search for matching files is performed recursively starting from that subdirectory as the base. The system automatically handles duplicates, so there is no need to worry about them.
+
+Similarly, the particle.ignore file follows the same behavior, but instead of including files, it excludes files that match the specified patterns from being sent to the cloud compiler.
+
+Example `particle.include` file that includes all `.def` files:
+
+```
+**/*.def
+```
+
+Example `particle.ignore` file to not upload the `test` and `docs` directories in a library.
+
+```
+test
+docs
+```
+
+### Older file structures
+
+These file structures are currently still supported, but may be deprecated in the future. We recommend using the structure above, with the `src` directory and a `project.properties` file, for all projects.
+
+{{collapse op="start" label="Show older file structures"}}
+**Legacy structure**
+
+The legacy project structure stores files in the root of the project. There is no project definition file. This is
+the structure used by all projects prior to libraries v2.
+
+```
+myapp/
+  application.ino
+```
+
+A legacy project does not support using libraries.
+
+**Simple structure**
+
+The simple project structure is similar to the legacy structure - the project sources are stored in the root. However,
+the project also includes a project definition file `project.properties`. Even saving a blank `project.properties` file
+is enough to make a simple project.
+
+```
+myapp/
+  myapp.ino
+  project.properties
+```
+
+A simple project has standard support for libraries; libraries can be added to the project via the CLI `library add` command.
+
+{{collapse op="end"}}
 
 ## Using libraries
 
