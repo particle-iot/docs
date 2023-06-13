@@ -66,6 +66,14 @@ With this feature, your Particle device can not only update itself, but also upd
 Including assets is as easy as including an `assets/` directory in your project and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB in size and do not use additional data operations.
 {{!-- END shared-blurb --}}
 
+- Particle Workbench and the Particle CLI will automatically generated bundled assets when the project directory (containing the `project.properties` file) contains an `assets` directory.
+- When using **Particle: Compile Application** or `particle compile` projects with bundled assets are built into a .zip file. This file contains both the firmware binary (.bin) as well as the assets. 
+- The asset bundle .zip can be uploaded to the console as product firmware binary.
+- When using **Particle: Flash application** or `particle flash` the same process is followed, except the device is flashed.
+- When flashing OTA, the asset bundle is transmitted using resumable OTA and compression for efficient data use.
+- You will need to include code in your application firmware to process the additional assets, such as sending them to a coprocessor or saving them to the file system.
+- Creating bundled assets will not be not possible in the Web IDE. Particle Workbench is recommended.
+
 ### Reliable and resilient
 
 Sending an OTA update is arguably one of the riskiest actions you can take on a connected device. Mishandling OTA updates could at a minimum cause temporary disruption, or at worst force the device into an unrecoverable state.
