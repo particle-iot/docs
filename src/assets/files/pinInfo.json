@@ -26,7 +26,7 @@
         {
           "num": 9,
           "name": "NFC2_VIN_EN",
-          "desc": "GPIO (used for relay on IO expansion card)",
+          "desc": "GPIO (used for relay on I/O Card)",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,

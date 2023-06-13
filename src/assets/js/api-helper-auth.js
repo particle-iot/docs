@@ -184,6 +184,9 @@ $(document).ready(function() {
         else {
             showNotLoggedIn();
         }
+        if (window.location.href.startsWith('http://localhost')) {
+            $('.internalMenuItem').show();
+        }
 
         if (typeof apiHelper != 'undefined') {
             if (auth) {

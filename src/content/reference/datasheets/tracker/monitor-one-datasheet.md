@@ -39,7 +39,7 @@ Details about the Tracker SoM that is contained within the Monitor One can be fo
 ## Certification
 
 {{box op="start" cssClass="boxed warningBox"}}
-The Monitor One DK (Developer's Kit) is currently in the engineering sample stage.
+The Monitor One Developer's Edition is currently in the engineering sample stage.
 
 Certification is not expected until September or October 2023.
 {{box op="end"}}
@@ -181,11 +181,11 @@ When mounting using a strap, the strap will hold the mounting bracket against a 
 | 20 | Tracker SoM module |
 | 21 | Wi-Fi geolocation antenna (internal, not pictured) |
 
-## IO expansion card
+## I/O Card
 
 The Monitor One is designed with easy-to-use expansion headers and an enclosure with sufficient space inside for an expansion card, and for additional expansion connector through the wall of enclosure.
 
-The Monitor One DK (Developer's Kit) includes the IO expansion card, which includes:
+The Monitor One Developer's Edition includes the I/O Card, which includes:
 
 | Feature | Location | Details |
 | :--- | :--- | :--- |
@@ -198,7 +198,7 @@ The Monitor One DK (Developer's Kit) includes the IO expansion card, which inclu
 | Relay | M12 4-pin | 30VDC 2A maximum |
 | QWIIC connector | expansion card | 3.3V I2C |
 
-### IO expansion M12 8-pin to flying leads
+### I/O Card M12 8-pin to flying leads
 
 The Monitor One includes a M12 8-pin male to flying leads cable, 1500&plusmn;20mm (about 60 inches or 5 feet). This is used to power the Monitor One, and also use the 4-20mA, 0-10V analog in, CAN bus, and RS485 (Modbus) interfaces.
 
@@ -225,7 +225,7 @@ Any 6VDC to 30VDC power adapter at 2A with a 5.5x2.1mm barrel connector, center 
 
 The RS485 and CAN interface pins on the M12 8-pin connector cannot be used as GPIO.
 
-### IO expansion M12 4-pin to flying leads
+### I/O Card M12 4-pin to flying leads
 
 The Monitor One includes a M12 4-pin male to flying leads cable, 1500&plusmn;20mm (about 60 inches or 5 feet).
 
@@ -240,9 +240,9 @@ The Monitor One includes a M12 4-pin male to flying leads cable, 1500&plusmn;20m
 
 
 
-### IO expansion card details
+### I/O Card details
 
-{{imageOverlay src="/assets/images/monitor-one/monitor-io.png" alt="IO expansion card" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/monitor-io.png" alt="I/O Card" class="full-width"}}
 
 | Label | Details |
 | :---: | :--- |
@@ -276,73 +276,66 @@ The M12 4-pin bulkhead connector has flying leads that are connected to the scre
 | 4 | Blue | NO |
 
 
-### Customizing the IO expansion card
+### Customizing the I/O Card
 
-If you wish to build upon the IO expansion card, there is a small prototyping area (1). 
+If you wish to build upon the I/O Card, there is a small prototyping area (1). 
 
 If you need signals from the expansion card interface, they are available in the rows of pins (19, 20).
 
 If you wish to disable an interface that you are not using and re-use the pins on the M12 8-pin connector, there is a small trace jumper between the rows of pins in area (14). Cutting this trace isolates the expansion card signal from the signal to the connector (16). Then you can solder a small jumper wire to replace the signal on the M12 8-pin.
 
-### Block diagram - IO expansion card
+### Block diagram - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-block.png" alt="Block diagram" class="full-width"}}
 
 
-### Schematics - IO expansion card
+### Schematics - I/O Card
 
-#### Interconnects - IO expansion card
+#### Interconnects - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-interconnects-1.png" alt="Interconnects" class="full-width"}}
 {{imageOverlay src="/assets/images/monitor-one/io-card-interconnects-2.png" alt="Interconnects" class="full-width"}}
 
-#### RS485 - IO expansion card
+#### RS485 - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-rs485.png" alt="RS-485" class="full-width"}}
 
 
-#### CAN - IO expansion card
+#### CAN - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-can.png" alt="CAN" class="full-width"}}
 
-#### 4-20mA - IO expansion card
+#### 4-20mA - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-4-20mA.png" alt="4-20mA" class="full-width"}}
 
-#### 0-10V - IO expansion card
+#### 0-10V - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-10v.png" alt="0-10V" class="full-width"}}
 
-#### Slow signal input - IO expansion card
+#### Slow signal input - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-slow-signal.png" alt="slow signal input" class="full-width"}}
 
 
-#### Relay - IO expansion card
+#### Relay - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-relay.png" alt="relay" class="full-width"}}
 
 
-#### EEPROM - IO expansion card
+#### EEPROM - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-eeprom.png" alt="eeprom" class="full-width"}}
 
 
-### Board layout - IO expansion card
+### Board layout - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-board.png" alt="Board layout" class="full-width"}}
 
 
-## Expansion card interface
+## Prototype Card
 
-- Expansion card size: 50mm x 90mm (approximately 2" x 3.5")
-- Connectors: 24-pin 0.1" headers (two, one on each long side)
-- Male header pins on the bottom of expansion card
-- Attachment: 4 screws to standoffs (M3 screw recommended)
-
-Pre-built expansion cards will be available, including a prototyping breadboard expansion card. You can also design and fabricate your own.
-
-{{imageOverlay src="/assets/images/monitor-one/proto-labeled.png" alt="Prototyping expansion card" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/proto-labeled.png" alt="Prototype Card" class="full-width"}}
 
 | Label | Feature |
 | :---: | :--- |
@@ -354,6 +347,58 @@ Pre-built expansion cards will be available, including a prototyping breadboard 
 |  6 | Access to bulkhead connector signals |
 |  7 | B8B-PH connector, connect to M12 8-pin |
 |  8 | Screw terminals, connect to M12 4-pin |
+
+### B8B-PH connector
+
+The left connector (7) attaches to the M12 8-pin connector with a short adapter cable. You don't have to use this cable setup, but it's often convenient to do so.
+
+- Connector: [JST B8B-PH](https://www.digikey.com/en/products/detail/jst-sales-america-inc/B8B-PH-SM4-TBT-LF-SN/9918868) (right angle)
+- Mates with: [JST PHR-8](https://www.digikey.com/en/products/detail/jst-sales-america-inc./PHR-8/608630)
+
+| Connector B8B-PH | Color | M12 Pin | Function |
+| :---: | :---: | :---: | :--- |
+| 8 | 2 | Red | VIN (6-30 VDC) |
+| 7 | 8 | Black | Ground |
+| 6 | 6 | Pink | |
+| 5 | 5 | Gray | |
+| 4 | 1 | White | |
+| 3 | 7 | Blue | |
+| 2 | 4 | Yellow | |
+| 1 | 3 | Green | |
+
+- We recommend that you keep pin 8 (VIN) and pin 7 (GND) is the same positions.
+- Other pins can be used as desired.
+- The pins on the board layout are numbered 8 - 1 left to right, opposite of how the pins on the cable are numbered.
+
+
+### Screw terminals
+
+| Screw Terminal | Color | M12 Pin |
+| :---: | :---: | :---: |
+| A | Red | 1 |
+| B | Black | 3 |
+| C | Green | 2 |
+| D | Blue | 4 |
+
+- The order of these pins isn't significant, but this is how the I/O Card is wired, so it probably best to be consistent.
+
+
+### Schematics - Prototyping Card
+
+{{imageOverlay src="/assets/images/monitor-one/prototype-card-1.png" alt="Prototype Card Schematics" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/prototype-card-2.png" alt="Prototype Card Schematics" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/prototype-card-3.png" alt="Prototype Card Schematics" class="full-width"}}
+
+
+## Expansion card interface
+
+- Expansion card size: 50mm x 90mm (approximately 2" x 3.5")
+- Connectors: 24-pin 0.1" headers (two, one on each long side)
+- Male header pins on the bottom of expansion card
+- Attachment: 4 screws to standoffs (M3 screw recommended)
+
+Pre-built expansion cards will be available, including the Prototype Card. You can also design and fabricate your own.
+
 
 
 
@@ -420,7 +465,7 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 
 | Pin Name | Description | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- |
-| NFC2_VIN_EN | GPIO (used for relay on IO expansion card) | 27 | P0.10 |
+| NFC2_VIN_EN | GPIO (used for relay on I/O Card) | 27 | P0.10 |
 | NFC1_PERIPH_INT | Peripheral interrupt (active low) | 26 | P0.09 |
 | TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | 38 | P0.05 |
 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | 39 | P0.04 |
@@ -438,7 +483,7 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 - On the Monitor One, you should not use A2 and A3 as GPIO or analog inputs as they are used by the external user button and battery temperature thermistor.
 - All GPIO are 3.3V and are not 5V tolerant.
 
-When using the IO expansion card:
+When using the I/O Card:
 
 | Pin | Direction | Function |
 | :---: | :---: | :--- |
@@ -575,7 +620,7 @@ Note that the two 60.4 ohm resistors are DNP (do not populate). If populated, th
 | 6 | NC | &nbsp; | &nbsp; |
 | 7 | NC | &nbsp; | &nbsp; |
 | 8 | NC | &nbsp; | &nbsp; |
-| 9 | NFC2_VIN_EN | GPIO (used for relay on IO expansion card) | P0.10 |
+| 9 | NFC2_VIN_EN | GPIO (used for relay on I/O Card) | P0.10 |
 | 10 | NFC1_PERIPH_INT | Peripheral interrupt (active low) | P0.09 |
 | 11 | TSOM_MODE | MODE button (active low) | P1.13 |
 | 12 | TSOM_RESET | RESET button (active low) | P0.08 |
@@ -665,7 +710,7 @@ This is not necessary if your external peripherals are powered by 3V3 or CAN_5V.
 
 By default, if power is applied at the VIN pin it will be used to power the Monitor One and charge the built-in battery.
 
-If you are supplying VIN from another, larger battery pack, and want to be able to disconnect the VIN power supply to minimize current loss, you can do so using the following circuit in lieu of using NFC2 as the relay pin, as the IO expansion card does.
+If you are supplying VIN from another, larger battery pack, and want to be able to disconnect the VIN power supply to minimize current loss, you can do so using the following circuit in lieu of using NFC2 as the relay pin, as the I/O Card does.
 
 {{imageOverlay src="/assets/images/monitor-one/vin-disable.png" alt="VIN disable" class="full-width"}}
 
@@ -817,3 +862,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2022-10-24 | RK | For internal review only |
 | 2023-02-14 | RK | Updated diagrams |
 | 2023-06-07 | RK | Numerous updates |
+| 2023-06-13 | RK | Add Prototype Card, update card names |
