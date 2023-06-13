@@ -88,20 +88,48 @@ You can download a complete project for use with Particle Workbench as a zip fil
 - In order to use the Geofencing features, Tracker Edge v17 is required.
 - In order to use Store and Forward, Tracker Edge v18 is required
 
-{{box op="start" cssClass="boxed warningBox"}}
-Tracker Edge v18 can only be built by the Particle Workbench local compile. It cannot be built by the CLI or cloud compliers.
+After you've downloaded the source zip file:
 
-It is recommended that Tracker fleets upgrade to the latest Device OS 4.x LTS (currently {{version mode="latestRelease" line="4"}}). 
-You can also use Device OS 3.3.0, or the 5.x developer preview release line.
-{{box op="end"}}
-
+- Extract the downloaded .zip file.
 - Open Particle Workbench.
 - From the command palette, **Particle: Import Project**.
-- Run **Particle: Configure Workspace for Device**, select version 3.3.0, Tracker, and your device.
-- Run **Particle: Flash application (local)**.
+- Run **Particle: Configure Workspace for Device**, select version 3.3.0 or later, Tracker, and your device.
+- Run **Particle: Flash application (local)** or **Particle: Cloud flash**.
 
 Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
+It is recommended that Tracker fleets upgrade to the latest Device OS 4.x LTS (currently {{version mode="latestRelease" line="4"}}). 
+You can also use Device OS 3.3.0, or the 5.x developer preview release line with Tracker Edge v18.
+
+### Tracker Edge v18
+
+Prior to June 2023, you could not build Tracker Edge v18 using the cloud compilers. This included **Particle: Cloud compile** and **Particle: Cloud flash** in Workbench and the `particle compile` and `particle flash` commands in the CLI. 
+
+With Particle CLI version 3.11.1 and later, you can now cloud compile, with one additional caveat. To update your CLI version if necessary, use:
+
+```
+particle update-cli
+```
+
+The other requirement is that the top level of your tracker-edge directory contain a [particle.include](/assets/files/tracker/particle.include) file. The contents are:
+
+```
+**/*.def
+```
+
+If you've downloaded Tracker Edge v18 using the tool above recently, it was inserted automatically for you. If you've previously downloaded and modified the Tracker Edge v18 source, you can create the file or download and save it.
+
+With those two changes you can cloud compile Tracker Edge v18.
+
+### Tracker Edge v17 and Earlier
+
+Tracker Edge v17 and earlier will not build on Device OS 4.x LTS without a modification. In main.cpp, comment out this line when using Device OS 4.x LTS:
+
+```
+PRODUCT_ID(TRACKER_PRODUCT_ID);
+```
+
+Tracker Edge v17 and earlier will not build on Device OS 5.x without modification. We recommend that you use Tracker Edge v18 with Device OS 5.0.0 and later.
 
 ### Manually
 
@@ -124,6 +152,8 @@ git submodule update --recursive
 - Run **Particle: Flash application (local)**.
 
 Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
+
+If you are cloning Tracker Edge v18 and would like to be able to cloud compile, you must add a [particle.include](/assets/files/tracker/particle.include) in the tracker-edge directory. Earlier tracker-edge firmware do not need it, later version already have it, and if you use the tool above it's automatically added if necessary.
 
 ## Overview
 

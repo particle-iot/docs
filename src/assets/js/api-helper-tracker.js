@@ -56,6 +56,7 @@ async function buildTrackerDownload(options) {
     const trackerEdgeUrl = trackerAssetsDir + options.version + '.zip';
     const vsCodeSettingsUrl = trackerAssetsDir + 'vscode.zip';
 
+    // https://gildas-lormeau.github.io/zip.js/fs-api.html
     const zipFs = new zip.fs.FS();
 
     options.setStatus('Getting tracker edge source...')
@@ -66,6 +67,13 @@ async function buildTrackerDownload(options) {
 
     const zipFsVsCodeDir = zipFsTrackerDir.addDirectory('.vscode');
     await zipFsVsCodeDir.importHttpContent(vsCodeSettingsUrl);
+
+    if (options.version == 'v18') {
+        const incResp = await fetch(trackerAssetsDir + 'particle.include');
+        const incBlob = await incResp.blob();
+
+        zipFsTrackerDir.addBlob('particle.include', incBlob);
+    }
 
     const srcDir = zipFs.find(zipFsTrackerDir.getFullname() + '/src');
 
