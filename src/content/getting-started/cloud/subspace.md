@@ -73,3 +73,132 @@ Finally, once the calculation is complete, the lambda function generates a set o
 In this way, a lambda function acts like a tiny, self-contained program that can be used to perform a specific task or calculation. Because they are small and self-contained, they are easy to write, test, and deploy, making them a powerful tool for solving complex problems in a modular and scalable way.
 
 {{collapse op="end"}}
+
+### Logic blocks
+
+Logic blocks can be edited from the [Particle console](https://console.particle.io/) or using the Particle cloud API. At this time, blocks are only available in organization accounts (growth an enterprise). First select your organization at the top of the console, then if you have logic blocks available to your account a new icon **Blocks** will appear in the left tool palette.
+
+![Blocks Tab](/assets/images/subspace/blocks-tab.png)
+
+Creating a block involves setting one or more triggers and setting the code to run.
+
+![Create Block](/assets/images/subspace/blocks-tab.png)
+
+There are currently two options for triggering: Particle event or scheduled (cron):
+
+![Trigger Type](/assets/images/subspace/trigger-type.png)
+
+When triggering by an event, there are two required parameters:
+
+- Event name (prefix match)
+- Product the event will be generated in
+
+![Trigger Event](/assets/images/subspace/trigger-event.png)
+
+When using a scheduled trigger a cron-style schedule string is required, see the next section for the syntax.
+
+![Trigger Scheduled](/assets/images/subspace/trigger-cron.png)
+
+### Cron syntax
+
+When scheduling events, **cron** syntax is used. A chron schedule consists of 5 space-separated fields for:
+
+| Field | Range |
+| :--- | :--- |
+| minute | 0 - 59 |
+| hour | 0 - 23 |
+| day of month | 1 - 31|
+| month | 1 - 12 |
+| day of week | 0 = Sunday, 1 = Monday, ..., 6 = Saturday |
+
+Additionally, three special characters are allowed:
+
+| Character | Meaning |
+| :---: | :--- |
+| `*` | All (wildcard) |
+| `,` | List of options (any of the list) |
+| `-` | Range (inclusive) |
+
+This most easily illustrated by examples:
+
+| Example | Description |
+| :--- | :--- |
+| `0 * * * *` | Every hour at minute = 0 |
+| `0 4 * * *` | Every day at 4:00 UTC (minute = 0, hour = 4) |
+| `0 4,8,12,16 * * *` | Every day at 4:00, 8:00, 12:00, at 16:00 UTC |
+| `0 4 * * 1-5` | Every weekday at 4:00 UTC (minute = 0, hour = 4, day of week = 1 - 5 or Monday - Friday |
+
+### Logic block code
+
+The logic block code is Javascript. You can use built-in language features such as:
+
+- calculations
+- if blocks
+- for and while loops
+- functions
+- JSON features like `JSON.parse()` and `JSON.stringify()`
+- `console.log`
+- [Particle Blocks API](#particle-blocks-api) (below)
+
+You cannot use features such as:
+
+- functions implemented in external packages (no package.json)
+- network access (access to external APIs using things like fetch)
+- long running operations
+- asynchronous features like async/await, promises, etc.
+
+### Particle Blocks API
+
+#### Particle.getTrigger()
+
+Returns an object containing the raw trigger and its details. Depending on the details.type which specifies what
+triggered this runtime, you'll have access to different sets of data.
+
+```js
+// EXAMPLE
+const trigger = Particle.getTrigger();
+const data = JSON.parse(trigger.details.event_data);
+console.log('JSON data', data);
+```
+
+The `trigger` object has the following Typescript definition:
+
+```js
+interface PubSubDetails {
+    type: 'PubSub',
+    event_name: string,
+    event_data?: string,
+    device_id: string,
+    product_id?: number,
+    user_id?: string,
+}
+
+interface ChronDetails {
+    type: 'Chron',
+    id: number,
+    version: number,
+    start_at: string,
+    end_at: string
+}
+
+interface Trigger {
+    trigger_id?: string,
+    organization_id: string,
+    published_at: string,
+    details: PubSubDetails | ChronDetails
+}
+```
+
+#### Particle.publish
+
+Synchronously publishes an event to the Particle cloud. This event can be subscribed to on-device or be used to trigger a webhook.
+
+```
+// PROTOTYPE
+publish(name: string, data?: any, tags?: { productId: number, userId: number }): boolean,
+```
+
+- `name` The name of the event
+- `data` The particle publish data. This can be a string or an object. If an object, it will be serialized to JSON using `JSON.stringify`.
+- `tags` Allows specifying a `productId` or `userId` which you would like the data to be published to
+
