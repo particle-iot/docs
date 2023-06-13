@@ -58,9 +58,7 @@ In particular, logic blocks are short-running and consist only of calculations, 
 
 In lambda calculus, functions are treated as mathematical entities that can be passed around and applied to other functions, just like numbers or variables. A function in lambda calculus is defined using a "lambda" expression, which consists of an input variable, an arrow, and an expression that defines what the function does. For example, the function that takes a number x and adds 1 to it can be written as:
 
-```
-x -> x + 1
-```
+x &rarr; x + 1
 
 In lambda calculus, functions can be composed to create more complex functions, and functions can be applied to other functions to produce new functions. This allows for the creation of sophisticated functions from simpler building blocks, making it a powerful tool for describing and reasoning about computation.
 
