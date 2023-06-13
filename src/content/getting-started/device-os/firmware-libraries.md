@@ -171,11 +171,11 @@ test
 docs
 ```
 
-### Deprecated file structures
+### Older file structures
 
-There are some file structure that are no longer supported. They are included here for reference but can no longer be used.
+These file structures are currently still supported, but may be deprecated in the future. We recommend using the structure above, with the `src` directory and a `project.properties` file, for all projects.
 
-{{collapse op="start" label="Show deprecated file structures"}}
+{{collapse op="start" label="Show older file structures"}}
 **Legacy structure**
 
 The legacy project structure stores files in the root of the project. There is no project definition file. This is

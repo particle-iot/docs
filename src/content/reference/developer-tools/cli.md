@@ -186,6 +186,7 @@ _NOTE: Currently, only Gen2 devices are supported_
 $ particle flash 0123456789ABCDEFGHI my_project
 ```
 
+For the recommended layout for project folders, see [project file structure](/getting-started/device-os/firmware-libraries/#project-file-structure).
 
 ### Flashing one or more source files
 
@@ -327,6 +328,8 @@ $ particle compile photon my_project_folder
 # by default the current directory will be compiled
 $ particle compile photon
 ```
+
+For the recommended layout for project folders, see [project file structure](/getting-started/device-os/firmware-libraries/#project-file-structure).
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
