@@ -52,12 +52,22 @@ In fact, **one must have visibility and control over all four of these component
 
 Other IoT platforms may market an OTA feature, but in reality only provide a small sliver of the functionality required perform a complete, reliable, and secure update — leaving your team to piece together a bespoke solution that distracts them from spending valuable time on the features that make your IoT product unique.
 
-### System OTA
+### Particle OTA
+
+Particle OTA is a fully-integrated over-the-air software update system that is built into the Particle IoT PaaS and Device OS. It allows customers to safely and reliably push software updates to single devices or entire fleets of devices directly from Particle’s device management console and developer tools, with no implementation work necessary.
+
+Particle OTA allows you to update your entire IoT device (both the Particle device and any other components) by delivering three kinds of updates:
+
+- **Application OTA** allows users to update the firmware application they are running on the Particle device in order to introduce new features, fix bugs, and generally improve the software application over time.
+
+- **Device OS OTA** allows users to update Device OS to the latest version alongside an application update so that Device OS can be kept up to date with improvements and bug fixes while properly testing against the user-generated software application.
+
+- **Asset OTA** allows users to include bundled assets in an OTA software update that can be delivered to other processors and components in the electronics system so that the Particle device can be responsible not just for updating itself but also the system that surrounds the device.
+
+### Asset OTA
 
 {{!-- BEGIN shared-blurb e724be96-469f-4bf2-bead-c8c962accad8 --}}
-System OTA (available in Device OS 5.4.0 and later), makes it easy to include bundled assets that can be delivered to other processors and components in your system via an over-the-air update.
-
-With this feature, your Particle device can not only update itself, but also update the components connected to it, such as:
+Asset OTA (available in Device OS 5.5.0 and later), makes it easy to include bundled assets that can be delivered to other processors and components in your system, such as:
 
 - Coprocessors
 - Graphics and fonts for external displays
@@ -189,7 +199,7 @@ The second parameter is typically a directory path, or in this case `.` for the 
 
 When used with products, the device must not only be marked as a development device, but also claimed to your Particle account. For this reason, we recommend each developer have their own device, claimed to their own account, and often on their desk with each access to buttons and the USB debug serial port, for ease of development.
 
-With Device OS 5.4.0 and later, you can also flash a device with both a firmware binary and additional assets for [System OTA](#system-ota) using the Particle CLI.
+With Device OS 5.5.0 and later, you can also flash a device with both a firmware binary and additional assets for [Asset OTA](#asset-ota) using the Particle CLI.
 
 ### Flash via the rest API
 

@@ -203,9 +203,9 @@ $ particle flash 0123456789ABCDEFGHI . --target 5.3.1
 
 #### Flashing a directory with assets
 
-[System OTA](/getting-started/cloud/ota-updates/#system-ota) (available in Device OS 5.4.0 and later), makes it possible to include bundled assets in an OTA software update that can be delivered to other processors and components in your product. 
+[Asset OTA](/getting-started/cloud/ota-updates/#asset-ota) (available in Device OS 5.5.0 and later), makes it possible to include bundled assets in an OTA software update that can be delivered to other processors and components in your product. 
 
-The `particle flash` command supports system OTA. Your project directory will typically look like:
+The `particle flash` command supports asset OTA. Your project directory will typically look like:
 
 ```
 my_project/
@@ -394,9 +394,9 @@ should always manually target 5.3.1 or later, for example, `--target 5.3.1`, ins
 
 #### Compiling a directory with assets
 
-[System OTA](/getting-started/cloud/ota-updates/#system-ota) (available in Device OS 5.4.0 and later), makes it possible to include bundled assets in an OTA software update that can be delivered to other processors and components in your product. 
+[Asset OTA](/getting-started/cloud/ota-updates/#asset-ota) (available in Device OS 5.5.0 and later), makes it possible to include bundled assets in an OTA software update that can be delivered to other processors and components in your product. 
 
-The `particle compile` command supports system OTA. Your project directory will typically look like:
+The `particle compile` command supports asset OTA. Your project directory will typically look like:
 
 ```
 my_project/
