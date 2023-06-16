@@ -26745,6 +26745,69 @@
                 2640,
                 2652
             ]
+        },
+        "v5.4.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.4.0",
+            "tag_name": "v5.4.0",
+            "name": "v5.4.0 (Argon/Boron/B SoM/B5 SoM/Tracker/Tracker M/E SoM X/P2)",
+            "prerelease": true,
+            "created_at": "2023-06-13T18:56:58Z",
+            "published_at": "2023-06-16T15:39:09Z",
+            "entries": [
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2659
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "USB HID Mouse/Keyboard support"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2657
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix/nanopb string max size"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2661
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes clean target for applications with large number of files + P2 PSRAM size calculation issues"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2656
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Allow KM4 SDK Bootloader images to boot"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2658
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Combined MFG firmware"
+                }
+            ],
+            "prs": [
+                2656,
+                2657,
+                2658,
+                2659,
+                2661
+            ]
         }
     },
     "pulls": {
@@ -39193,6 +39256,58 @@
             "state": "open",
             "created_at": "2023-05-31T18:55:51Z",
             "detail": "We want to allow Particle built prebootloader binaries to boot Realtek SDK based KM4 bootloader binaries. This is broken in the current Device OS."
+        },
+        "2657": {
+            "url": "https://github.com/particle-iot/device-os/pull/2657",
+            "number": 2657,
+            "title": "Fix/nanopb string max size",
+            "state": "closed",
+            "created_at": "2023-06-01T17:42:22Z"
+        },
+        "2658": {
+            "url": "https://github.com/particle-iot/device-os/pull/2658",
+            "number": 2658,
+            "title": "Combined MFG firmware",
+            "state": "closed",
+            "created_at": "2023-06-06T09:58:30Z"
+        },
+        "2659": {
+            "url": "https://github.com/particle-iot/device-os/pull/2659",
+            "number": 2659,
+            "title": "[rtl872x] usb: HID",
+            "state": "closed",
+            "created_at": "2023-06-06T12:37:46Z",
+            "detail": "USB HID (Mouse / Keyboard) support for P2 / Photon 2.\n\nSame APIs as previously on Photon / P1 / Electron:\nhttps://docs.particle.io/reference/device-os/api/keyboard/keyboard/\nhttps://docs.particle.io/reference/device-os/api/mouse/mouse/"
+        },
+        "2660": {
+            "url": "https://github.com/particle-iot/device-os/pull/2660",
+            "number": 2660,
+            "title": "Ledger API",
+            "state": "open",
+            "created_at": "2023-06-08T11:15:36Z"
+        },
+        "2661": {
+            "url": "https://github.com/particle-iot/device-os/pull/2661",
+            "number": 2661,
+            "title": "Fixes clean target for applications with large number of fils + P2 PSRAM size calculation issues",
+            "state": "closed",
+            "created_at": "2023-06-08T17:16:50Z",
+            "detail": "1. Applications with large number of sources can trigger `Argument list too long` when Make calls shell + rm + list of files to remove\n2. PSRAM size calculations for RTL872x-based platforms do not account for `.dynalib` section, which also resides in PSRAM"
+        },
+        "2662": {
+            "url": "https://github.com/particle-iot/device-os/pull/2662",
+            "number": 2662,
+            "title": "[nrf] Add Factory Reset Tests",
+            "state": "open",
+            "created_at": "2023-06-12T21:32:43Z",
+            "detail": "Factory Reset is a feature where an application module can be stored in flash at a specified `EXTERNAL_FLASH_FAC_ADDRESS` address and copied over the running application either by the firmware itself via `System.factoryReset()` or via a USB control request. \n\nThis feature is used internally and by some customers but is not tested. We should expand the automated testing to cover these use cases."
+        },
+        "2663": {
+            "url": "https://github.com/particle-iot/device-os/pull/2663",
+            "number": 2663,
+            "title": "Device OS 5.4.0 Release",
+            "state": "closed",
+            "created_at": "2023-06-13T18:12:37Z"
         }
     }
 }
