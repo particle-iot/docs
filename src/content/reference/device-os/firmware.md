@@ -7690,11 +7690,13 @@ Full capabilities include:
 
 ---
 
-{{note op="start" type="gen2"}}
-Mouse and Keyboard are available only on Gen 2 devices (Photon, P1, Electron, and E Series).
+Keyboard and Mouse support is only available on some devices and Device OS versions:
 
-These features are not available on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
-{{note op="end"}}
+| Device | Device OS Version |
+| :--- | :--- |
+| P2, Photon 2 | 5.4.0 and later |
+| Photon, P1, Electron, E Series | 0.6.0 and later |
+| Boron, B Series SoM, Argon, Tracker, E404X | Not Supported |
 
 ### begin()
 
@@ -8044,11 +8046,13 @@ This object allows your device to act as a native USB HID Keyboard.
 
 ---
 
-{{note op="start" type="gen2"}}
-Mouse and Keyboard are available only on Gen 2 devices (Photon, P1, Electron, and E Series).
+Keyboard and Mouse support is only available on some devices and Device OS versions:
 
-These features are not available on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
-{{note op="end"}}
+| Device | Device OS Version |
+| :--- | :--- |
+| P2, Photon 2 | 5.4.0 and later |
+| Photon, P1, Electron, E Series | 0.6.0 and later |
+| Boron, B Series SoM, Argon, Tracker, E404X | Not Supported |
 
 ### begin()
 
