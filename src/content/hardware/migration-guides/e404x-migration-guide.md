@@ -7,13 +7,6 @@ description: Migration guide for transitioning from the E Series E402/E404 to E4
 
 # E404X migration guide
 
-**Preliminary pre-release version 2022-05-06**
-
-{{box op="start" cssClass="boxed warningBox"}}
-This is an preliminary pre-release migration guide and the contents are subject to change.
-{{box op="end"}}
-
-
 This guide assists in the transition from the E Series E402/E404 to the E404X.
 
 

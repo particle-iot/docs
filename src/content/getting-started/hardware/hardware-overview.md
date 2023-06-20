@@ -120,8 +120,8 @@ If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 | :--- | :--- | :--- | :---: | :--- |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &nbsp; | GA |
-| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | In development |
-| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | In development |
+| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | GA |
+| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
@@ -695,9 +695,9 @@ The P1 is intended for production use. It is an older Gen 2 models as is depreca
 | :--- | :--- | :--- | :--- |
 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | Global | GA |
 | P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | GA |
-| PHN2KIT | Photon 2, Kit [x1] | Global | In development |
-| PHN2MEA | Photon 2, [x1] | Global | In development |
-| PHN2MTY | Photon 2, Tray [x50] | Global | In development |
+| PHN2KIT | Photon 2, Kit [x1] | Global | GA |
+| PHN2MEA | Photon 2, [x1] | Global | GA |
+| PHN2MTY | Photon 2, Tray [x50] | Global | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b--}}
@@ -721,9 +721,9 @@ These modules are pin-compatible in the Feather form-factor, so you can make two
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &nbsp; | GA |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | GA |
-| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | In development |
-| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | In development |
-| PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | In development |
+| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | GA |
+| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | GA |
+| PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated a4c0c80f-3745-4b3c-b6dd-e774c4c71ad5 --}}
@@ -773,15 +773,15 @@ The following pins are used by Ethernet. In Device OS 5.3.0 and later these can 
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | &nbsp; | &nbsp; | GA |
 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | Global | &nbsp; | &nbsp; | GA |
 | P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | &nbsp; | &nbsp; | GA |
+| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | &nbsp; | GA |
+| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | &nbsp; | GA |
+| PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | &nbsp; | GA |
 | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &nbsp; | &check; | GA |
 | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
 | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
 | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &nbsp; | &check; | GA |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
 | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &check; | GA |
-| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | &nbsp; | In development |
-| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | &nbsp; | In development |
-| PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | &nbsp; | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated 2de596b8-2889-4df7-86d1-910d5551b34f --}}

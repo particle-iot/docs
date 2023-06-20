@@ -7,12 +7,6 @@ description: Migration guide for transitioning from the Argon to Photon 2
 
 # Photon 2 from Argon migration guide
 
-**Preliminary pre-release version 2022-04-18**
-
-{{box op="start" cssClass="boxed warningBox"}}
-This is an preliminary pre-release migration guide and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
-{{box op="end"}}
-
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/photon-2-argon-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}

@@ -247,9 +247,9 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 | P1 Wi-Fi Module, Reel [x500] | P1REEL | trace | 3 | &nbsp; | NRND|
 | P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | trace | 4 | &nbsp; | GA|
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | trace | 4 | &nbsp; | GA|
-| Photon 2, [x1] | PHN2MEA | trace | 4 | &nbsp; | In development|
-| Photon 2, Kit [x1] | PHN2KIT | trace | 4 | &nbsp; | In development|
-| Photon 2, Tray [x50] | PHN2MTY | trace | 4 | &nbsp; | In development|
+| Photon 2, [x1] | PHN2MEA | trace | 4 | &nbsp; | GA|
+| Photon 2, Kit [x1] | PHN2KIT | trace | 4 | &nbsp; | GA|
+| Photon 2, Tray [x50] | PHN2MTY | trace | 4 | &nbsp; | GA|
 | Photon with Headers Starter Kit, [x1] | PHOTONKIT | chip | 3 | &nbsp; | Deprecated|
 | Photon with Headers, [x1] | PHOTONH | chip | 3 | &nbsp; | Deprecated|
 | Photon with Headers, Tray [x50] | PHNTRAYH | chip | 3 | &nbsp; | NRND|
@@ -368,9 +368,9 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | ANT-FLXV2 | &nbsp; | GA|
 | P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | &check; | 4 | &nbsp; | GA|
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | &check; | 4 | &nbsp; | GA|
-| Photon 2, [x1] | PHN2MEA | &check; | 4 | &nbsp; | In development|
-| Photon 2, Kit [x1] | PHN2KIT | &check; | 4 | &nbsp; | In development|
-| Photon 2, Tray [x50] | PHN2MTY | &check; | 4 | &nbsp; | In development|
+| Photon 2, [x1] | PHN2MEA | &check; | 4 | &nbsp; | GA|
+| Photon 2, Kit [x1] | PHN2KIT | &check; | 4 | &nbsp; | GA|
+| Photon 2, Tray [x50] | PHN2MTY | &check; | 4 | &nbsp; | GA|
 | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | &nbsp; | &nbsp; | GA|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &nbsp; | &nbsp; | NRND|
 | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | &check; | &nbsp; | &nbsp; | GA|

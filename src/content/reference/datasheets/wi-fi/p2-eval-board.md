@@ -7,8 +7,6 @@ description: Datasheet for the Particle P2 Evaluation Board
 
 # P2 Evaluation Board
 
-**Preliminary pre-release version 2022-04-18**
-
 {{box op="start" cssClass="boxed warningBox"}}
 The P2 evaluation board is not a product and was only produced in limited quantities for testing.
 {{box op="end"}}

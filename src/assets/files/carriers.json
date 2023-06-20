@@ -21541,7 +21541,7 @@
     {
       "name": "PHN2KIT",
       "desc": "Photon 2, Kit [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -21567,7 +21567,7 @@
     {
       "name": "PHN2MEA",
       "desc": "Photon 2, [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -21593,7 +21593,7 @@
     {
       "name": "PHN2MTY",
       "desc": "Photon 2, Tray [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": true,
       "wifi": true,
       "gen": "3",

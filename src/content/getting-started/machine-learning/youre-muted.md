@@ -61,6 +61,7 @@ Keyboard.click(KEY_A, MOD_LALT); // Windows
 ```
 
 - Connect your Photon 2 to your computer with a USB cable.
+- Use **Particle: Clean application (local)** to make sure there are no remnants from a previous build.
 - Use **Particle: Flash Application (local)** or **Particle: Compile Application (local)**. You must use the local option; the firmware cannot be compiled using the cloud compile options (Cloud Compile or Cloud Flash). 
 
 

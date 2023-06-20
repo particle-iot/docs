@@ -594,9 +594,9 @@ Photon 2 modules are available from [store.particle.io](https://store.particle.i
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
-| PHN2KIT | Photon 2, Kit [x1] | Global | In development | |
-| PHN2MEA | Photon 2, [x1] | Global | In development | |
-| PHN2MTY | Photon 2, Tray [x50] | Global | In development | |
+| PHN2KIT | Photon 2, Kit [x1] | Global | GA | |
+| PHN2MEA | Photon 2, [x1] | Global | GA | |
+| PHN2MTY | Photon 2, Tray [x50] | Global | GA | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -789,7 +789,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |     | 2023-05-05 | RK | Update available RAM |
 |     | 2023-05-08 | RK | Added VBAT_MEAS and CHG to block diagram |
 |     | 2023-05-18 | RK | Add warning that the Photon 2 cannot be powered by 3V3 |
-
+|   1 | 2023-06-20 | RK | Initial version |
 
 ## Known errata
 
