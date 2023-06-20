@@ -7,7 +7,9 @@ description: Edge ML kit
 
 # {{title}}
 
-The Edge ML kit provides a number of accessories that can be used with your Particle Photon 2 device. While the parts in the kit can be used with other Particle devices, the Edge ML features will only work on the P2 and Photon 2 at this time because of the limited amount of flash and RAM on older devices.
+The Edge ML kit provides a number of accessories that can be used with your Particle Photon 2 device. While the parts in the kit can be used with other Particle devices, the Edge ML features will only work on the P2 and Photon 2 at this time because of the limited amount of flash and RAM on older devices. 
+
+Your kit may be labeled Edge AI, and it has the same contents as described here.
 
 ## Kit components
 

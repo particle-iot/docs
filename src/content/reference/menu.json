@@ -434,8 +434,7 @@
         {
           "dir": "edge-ml-kit",
           "title": "Edge ML kit",
-          "href": "/reference/datasheets/accessories/edge-ml-kit/",
-          "internal": true
+          "href": "/reference/datasheets/accessories/edge-ml-kit/"
         },
         {
           "dir": "legacy-accessories",

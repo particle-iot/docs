@@ -1,0 +1,124 @@
+---
+title: Doorbell SMS
+columns: two
+layout: commonTwo.hbs
+description: Doorbell SMS
+---
+
+# {{title}}
+
+![Doorbell SMS](/assets/images/edge-kit/doorbell.jpeg)
+
+The doorbell detector works by training a model to detect the sound of your doorbell. The Photon 2 runs a classifier to detect this sound and when detected, publishes as Particle event, which triggers a Webhook, which goes to a Twilio service to generate a SMS message. 
+
+The sound processing is done entirely on-device and no ambient audio is uploaded to the Internet and cannot be saved locally. 
+
+
+## Wiring the microphone
+
+You will need the following hardware, included in the [Edge ML Kit](/reference/datasheets/accessories/edge-ml-kit/)
+
+- PDM digital microphone
+- Photon 2 (included with the Edge ML Kit)
+
+{{imageOverlay src="/assets/images/edge-kit/mic-1.jpeg" alt="PDM Microphone" }}
+
+The connections on the breakout are:
+
+| Breakout | Color | Connect To | Details |
+| :---: | :--- | :---: | :--- |
+| 3V | Red | 3V3 | 3.3V power |
+| GND | Black | GND | Ground |
+| SEL | | NC | Typically leave unconnected, left/right select |
+| CLK | Blue | A0 | PDM Clock |
+| DAT | Green | A1 | PDM Data |
+
+{{imageOverlay src="/assets/images/edge-kit/mic-3.jpeg" alt="PDM Microphone Assembled" }}
+
+
+## Twilio Setup
+
+This method could easily be updated to work with other SMS providers, however you may need to change authentication methods and the keys where the data is stored.
+
+- [Sign up for a trial Twilio account](https://www.twilio.com/try-twilio) if you don't already have an account set up.
+
+- Follow the instructions to [Buy a number](https://www.twilio.com/docs/sms/quickstart/node). Make sure it has SMS enabled!
+
+![Buy Number](/assets/images/edge-kit/buy-number.jpg)
+
+- In the [Twilio Dashboard](https://www.twilio.com/console) (1), note the **Account SID** (2) and **Auth Token** (3). You'll need these to create the webhook.
+
+![Twilio Dashboard](/assets/images/edge-kit/dashboard.png)
+
+
+### Webhook Setup
+
+- Open the [Particle Console](https://console.particle.io) and select the **Integrations** tab.
+
+- Create a new **Webhook** integration.
+
+![Basic configuration](/assets/images/edge-kit/webhook-1.png)
+
+- Select an **Event Name**. The default configured in the library is **SendSmsEvent** (case-sensitive!) but you can change it and use the `withEventName()` method to reconfigure the library. They must match and follow event naming rules (1 - 64 ASCII characters; only use letters, numbers, underscores, dashes and slashes. Spaces and special characters should not be used). Also note that the event name is a prefix, so any event name beginning with that string will trigger the webhook.
+
+- Enter the **URL**. Make sure you subtitute your Account SID for `$TWILIO_ACCOUNT_SID`! 
+
+```
+https://api.twilio.com/2010-04-01/Accounts/$TWILIO_ACCOUNT_SID/Messages.json
+```
+
+- **Request Type: POST** is the default and the correct value.
+
+- **Request Format: Web Form** is the default and the correct value.
+
+- **Device: Any** is the default. You could also restrict the webhook to a specific device so only that device could send SMS messages.
+
+- Open the **Advanced Settings**.
+
+![Advanced Settings](/assets/images/edge-kit/webhook-2.png)
+
+- In **Form Fields** select **Custom**.
+
+  - Enter **From** (case-sensitive) and the SMS phone number you want to send from. This must be a Twilio Programmable Messaging phone number, not your actual phone number! Also note that it must be begin with `+` then country code, so it will begin with `+1` in the United States.
+  - Enter **To** and `{{{t}}}` (case-sensitive). The triple curly brackets are required. If you are only going to ever send to your own phone, you could enter your phone number here instead of `{{{t}}}` but make sure it begins with a `+`.
+  - Enter **Body** and `{{{b}}}` (case-sensitive). 
+
+- **Query Parameters** should remain empty.
+
+- In **HTTP Basic Auth** enter:
+
+  - In **Username** enter your Account SID. Note that your Account SID goes in two places: the URL and the Username!
+
+  - In **Password** enter your account Auth Token.
+
+- In **HTTP Headers** the default **Content-Type** of `application/x-www-form-urlencoded` is correct.
+
+- Save the Webhook.
+
+
+## Build the software
+
+This tutorial is a complete example, using a pre-trained model from [Edge Impulse](https://www.edgeimpulse.com/).
+
+- Download the [zip file containing the full source](/assets/files/edge-ml/Doorbell_Chimes_inferencing.zip)
+- Extract the contents of the zip file
+- Open Particle Workbench. From the Command Palette (Ctrl-Shift-P on Windows and Linux, Cmd-Shift-P on Mac):
+- **Particle: Import Project**. Select the `project.properties` file in the zip file you just extracted.
+- Use **Particle: Configure Project For Device** and select **deviceOS@5.4.0** and **P2**. The P2 option is also used for the Photon 2. Device OS 5.4.0 or later is required.
+- Update src/main.cpp to set the phone number to send to and the message to send.
+
+```cpp
+Log.info("Got doorbell chimes, sending SMS!");
+lastPublish = millis();
+SmsMessage mesg;
+mesg.withRecipient("+12125551212")
+    .withMessage("Doorbell!");
+SmsWebhook::instance().queueSms(mesg);
+```
+
+- Connect your Photon 2 to your computer with a USB cable.
+- Use **Particle: Flash Application (local)** or **Particle: Compile Application (local)**. You must use the local option; the firmware cannot be compiled using the cloud compile options (Cloud Compile or Cloud Flash). 
+
+
+
+

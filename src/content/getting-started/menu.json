@@ -105,7 +105,6 @@
         "title": "Wi-Fi setup for products",
         "href": "/reference/device-os/wifi-setup-options/"
       }
-
     ],
     {
       "dir": "device-os",
@@ -379,6 +378,27 @@
           "href": "/getting-started/integrations/community-integrations/memfault/"
         }
       ]
+    ],
+    {
+      "dir": "machine-learning",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "machine-learning",
+        "title": "Machine Learning",
+        "href": "/getting-started/machine-learning/machine-learning/"
+      },
+      {
+        "dir": "doorbell",
+        "title": "Doorbell SMS",
+        "href": "/getting-started/machine-learning/doorbell/"
+      },
+      {
+        "dir": "youre-muted",
+        "title": "You're muted",
+        "href": "/getting-started/machine-learning/youre-muted/"
+      }
     ],
     {
       "dir": "hardware-tutorials",
