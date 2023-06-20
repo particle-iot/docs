@@ -15,7 +15,7 @@ description: Monitor One Datasheet
 This is an pre-release datasheet and the contents are subject to change.
 {{box op="end"}}
 
-{{imageOverlay src="/assets/images/monitor-one/front-on-post.jpg" alt="Front view" class="full-width no-darken"}}
+{{imageOverlay src="/assets/images/monitor-one/monitor-one-closed.jpg" alt="Front view" class="full-width no-darken"}}
 
 *The pictures in this preliminary datasheet are of a pre-release unit. The production units will be a different color, and may have other minor differences.*
 
@@ -197,6 +197,8 @@ The Monitor One Developer's Edition includes the I/O Card, which includes:
 | 12-24V slow-signal input | M12 4-pin | Opto-isolated |
 | Relay | M12 4-pin | 30VDC 2A maximum |
 | QWIIC connector | expansion card | 3.3V I2C |
+
+{{imageOverlay src="/assets/images/monitor-one/monitor-one-iocard.jpg" alt="I/O Card" class="full-width"}}
 
 ### I/O Card M12 8-pin to flying leads
 
@@ -863,3 +865,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2023-02-14 | RK | Updated diagrams |
 | 2023-06-07 | RK | Numerous updates |
 | 2023-06-13 | RK | Add Prototype Card, update card names |
+| 2023-06-20 | RK | Added photos |

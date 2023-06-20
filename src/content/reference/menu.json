@@ -283,8 +283,7 @@
         {
           "dir": "monitor-one-datasheet",
           "title": "Monitor One Datasheet",
-          "href": "/reference/datasheets/tracker/monitor-one-datasheet/",
-          "internal": true
+          "href": "/reference/datasheets/tracker/monitor-one-datasheet/"
         },
         {
           "dir": "tracker-m-datasheet",
