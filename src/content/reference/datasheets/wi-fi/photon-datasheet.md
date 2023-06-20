@@ -14,9 +14,8 @@ description: Datasheet for the Particle Photon, Gen 2 Wi-Fi development kit
 {{downloadButton url="/assets/pdfs/datasheets/photon-datasheet.pdf"}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-The Photon has been deprecated. The recommended replacement is the [Photon 2](/reference/datasheets/wi-fi/photon-2-datasheet/).
-
-See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
+The Photon has been deprecated. The recommended replacement is the Photon 2. See the [Photon 2 Datasheet](/reference/datasheets/wi-fi/photon-2-datasheet/) 
+and [Photon 2 from Photon Migration Guide](/hardware/migration-guides/photon-2-photon-migration-guide/) for more information.
 {{box op="end"}}
 
 <div align=center><img src="/assets/images/photon_vector2_600.png" width=200></div>

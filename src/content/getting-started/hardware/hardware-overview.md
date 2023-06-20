@@ -104,7 +104,7 @@ There are also evaluation kits for the B Series SoM, Tracker SoM, and E Series m
 
 If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#cellular-or-wi-fi) below.
 
-- The Argon has been deprecated and will be replaced by the Photon 2. For the differences, see the [Argon to Photon 2 migration guide](/hardware/migration-guides/photon-2-argon-migration-guide/).
+- The Argon has been deprecated and has been replaced by the Photon 2. For the differences, see the [Argon to Photon 2 migration guide](/hardware/migration-guides/photon-2-argon-migration-guide/).
 - The Boron 2G/3G (BRN314KIT) has been deprecated (along with all other 2G/3G SKUs) as the u-blox SARA-U201 cellular modem module on it is end-of-life.
 - The Boron LTE Cat M1 (BRN404KIT or BRN404X) is the recommended model for the United States, Canada, and Mexico.
 - Can be powered by USB, rechargeable LiPo battery, or an external power supply.
@@ -218,7 +218,7 @@ For more information about the Tracker SoM, see [Cellular - Tracker SoM](#tracke
 The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
 - The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
-- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
+- The E402 and E404 has been replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
 - New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
@@ -458,7 +458,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
 - The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
-- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
+- The E402 and E404 has been replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
 - New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
@@ -595,19 +595,11 @@ The Photon 2 will replace the Argon as the prototyping Wi-Fi device.
 
 ![](/assets/images/argon/argon-top.png)
 
-The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bottom). It is deprecated and will be replaced by the Photon 2.
+The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bottom). It is deprecated and has been replaced by the Photon 2.
 
 - [Argon datasheet](/reference/datasheets/wi-fi/argon-datasheet/)
 - [Ways to expand Gen 3 feather devices](#prototyping) (above)
 - [Photon 2 from Argon migration guide](/hardware/migration-guides/photon-2-argon-migration-guide/)
-
-{{!-- BEGIN do not edit content below, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10 --}}
-
-| SKU | Description | Region | Lifecycle |
-| :--- | :--- | :--- | :--- |
-
-
-{{!-- END do not edit content above, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10--}}
 
 #### P2 (Production Wi-Fi)
 

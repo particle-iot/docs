@@ -169,7 +169,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
 - The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
-- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
+- The E402 and E404 has been replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
 - New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
