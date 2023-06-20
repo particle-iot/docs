@@ -841,7 +841,7 @@ EdgeSleep::instance().wakeAtMilliseconds(System.millis() + 60000);
 
 Normally the wake time is determined by the minimum location update frequency in the [cloud configuration](/getting-started/console/console/#location-settings). You can adjust this from code using the variations of `wakeAt()`.
 
-The next wake time is always calculated using `System.millis()`. This does not rely on the system real-time clock being set, and is not affected by daylight saving time or timezones. It is a 64-bit time millisecond values that will effectively never roll over to 0. Since sleep mode uses ULTRA_LOW_POWER mode, the `System.millis()` counter continues to increment while in sleep. The `System.millis()` value does reset to 0 on reset or cold boot, but the sleep cycles also reset in that condition.
+The next wake time is always calculated using `System.millis()`. This does not rely on the device real-time clock being set, and is not affected by daylight saving time or timezones. It is a 64-bit time millisecond values that will effectively never roll over to 0. Since sleep mode uses ULTRA_LOW_POWER mode, the `System.millis()` counter continues to increment while in sleep. The `System.millis()` value does reset to 0 on reset or cold boot, but the sleep cycles also reset in that condition.
 
 If you have other wake sources such as movement (IMU), GPIO, BLE, network, etc. you can still wake earlier than this time. 
 
@@ -902,12 +902,12 @@ Your firmware can register functions to be called during sleep-related events. T
   - `EdgeSleepReason::STATE_TO_SHUTDOWN` for state change handlers, entering the SHUTDOWN state (about to enter shipping mode).
 
 - `loop` Incremented on each call to loop.
-- `lastSleepMs` The last time, in milliseconds, the system went to sleep.
-- `lastWakeMs` The last time, in milliseconds, the system woke from sleep.
-- `nextWakeMs` The next time, in milliseconds, the system will wake from sleep.
+- `lastSleepMs` The last time, in milliseconds, the device went to sleep.
+- `lastWakeMs` The last time, in milliseconds, the device woke from sleep.
+- `nextWakeMs` The next time, in milliseconds, the device will wake from sleep.
 - `modemOnMs` The time, in milliseconds, when the modem was turned on.
  
-The times in milliseconds are values from `System.millis()`. This does not rely on the system real-time clock being set, and is not affected by daylight saving time or timezones. It is a 64-bit time millisecond values that will effectively never roll over to 0. Since sleep mode uses ULTRA_LOW_POWER mode, the `System.millis()` counter continues to increment while in sleep. The `System.millis()` value does reset to 0 on reset or cold boot, but the sleep cycles also reset in that condition.
+The times in milliseconds are values from `System.millis()`. This does not rely on the device real-time clock being set, and is not affected by daylight saving time or timezones. It is a 64-bit time millisecond values that will effectively never roll over to 0. Since sleep mode uses ULTRA_LOW_POWER mode, the `System.millis()` counter continues to increment while in sleep. The `System.millis()` value does reset to 0 on reset or cold boot, but the sleep cycles also reset in that condition.
 
 ### registerSleepPrepare - EdgeSleep
 

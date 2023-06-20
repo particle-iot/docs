@@ -75,7 +75,7 @@ MyLibrary/
     MyLibrary.cpp
     MyLibrary.h
   library.properties
-  README.me
+  README.md
   LICENSE
 ```
 

@@ -253,9 +253,9 @@ You can change the product firmware version by the fleet-wide default, a device 
 
 This will either upgrade (move to a higher version number) or downgrade as necessary.
 
-Device firmware includes a target system version. This is the minimum version of Device OS that is required for the firmware to run. If the target system version is greater than the version on the device, the device will go into safe mode (breathing magenta, red and blue at the same time), and then the cloud will update required dependencies such as Device OS (multiple parts if necessary), bootloader, Soft Device (Gen 3), and NCP (Gen 3, rarely).
+Device firmware includes a target Device OS version. This is the minimum version of Device OS that is required for the firmware to run. If the target Device OS version is greater than the version on the device, the device will go into safe mode (breathing magenta, red and blue at the same time), and then the cloud will update required dependencies such as Device OS (multiple parts if necessary), bootloader, Soft Device (Gen 3), and NCP (Gen 3, rarely).
 
-However, since target system version is a minimum, it is never downgraded. Your firmware that targets an older version of Device OS should generally work on newer versions of Device OS, however the full environment may vary from the way it was before upgrade then downgrade.
+However, since target Device OS version is a minimum, it is never downgraded. Your firmware that targets an older version of Device OS should generally work on newer versions of Device OS, however the full environment may vary from the way it was before upgrade then downgrade.
 
 ### Wildcard product firmware
 

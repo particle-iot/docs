@@ -131,7 +131,7 @@ void loop()
 We can't publish 1000 times a second, so we use the following construct to only publish every
 `publishPeriod`. We configured it above to be 30 seconds but you can set it anything 1 second or higher.
 
-`millis()` is the number of milliseconds since system boot. You must always set it up exactly
+`millis()` is the number of milliseconds since the device has booted. You must always set it up exactly
 like this: `millis() - lastTime >= periodBetweenRuns`. The reason is that `millis()` rolls over to zero
 every 49 days, and doing things like trying to remember the next time to run, instead of the last time
 you ran, often does not work properly across rollover. This exact construct is always safe across rollover.

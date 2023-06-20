@@ -14,15 +14,17 @@ For information on how to install the Particle CLI, see the [CLI guide](/getting
 
 ## particle setup
 
-  Everything you need to get started using a Particle Photon or P1 device from the command line. Create an account or log in, set up Wi-Fi to a device and claim the device to your Particle account.
-
-```sh
-$ particle setup
-```
-
 To set up a cellular device (Electron, Boron, B Series SoM), go to [setup.particle.io](https://setup.particle.io).
 
 To set up an Argon, P2, or Photon 2 (Wi-Fi), you can use [setup.particle.io](https://setup.particle.io) or to only set Wi-Fi credentials, you can use [particle serial wifi](#particle-serial-wifi).
+
+To set up a Photon or P1 only, you can use:
+
+```sh
+# Photon or P1 only!
+$ particle setup
+```
+
 
 
 ## particle login
@@ -186,7 +188,49 @@ _NOTE: Currently, only Gen2 devices are supported_
 $ particle flash 0123456789ABCDEFGHI my_project
 ```
 
-For the recommended layout for project folders, see [project file structure](/getting-started/device-os/firmware-libraries/#project-file-structure).
+More commonly, you will be in the directory containing your `project.properties` file and instead use `.`, which is the current directory.
+
+```sh
+$ cd my_project
+$ particle flash 0123456789ABCDEFGHI .
+```
+
+You can also target a specific version of Device OS in the `particle flash` command:
+
+```sh
+$ particle flash 0123456789ABCDEFGHI . --target 5.3.1
+```
+
+#### Flashing a directory with assets
+
+[Asset OTA](/getting-started/cloud/ota-updates/#asset-ota) (available in Device OS 5.5.0 and later), makes it possible to include bundled assets in an OTA software update that can be delivered to other processors and components in your product. 
+
+The `particle flash` command supports asset OTA. Your project directory will typically look like:
+
+```
+my_project/
+  src/
+    my_project.cpp
+    my_project.h
+  assets/
+    coprocessor.bin
+  project.properties
+  README.md
+```
+
+### Flashing a pre-compiled binary OTA
+
+You can flash a binary that you have previously compiled to a .bin file:
+
+```sh
+$ particle flash 0123456789ABCDEFGHI firmware.bin
+```
+
+You can also flash a pre-compiled binary with assets in a .zip file:
+
+```sh
+$ particle flash 0123456789ABCDEFGHI product.zip
+```
 
 ### Flashing one or more source files
 
@@ -214,8 +258,8 @@ This is useful if you are not ready to upgrade to the latest Device OS
 version on your device or if you want to try a pre-release version.
 
 ```sh
-# compile your application with the 0.5.0 Device OS version and flash it
-$ particle flash --target 0.5.0 0123456789ABCDEFGHI my_project
+# compile your application with the 5.3.1 Device OS version and flash it
+$ particle flash --target 5.3.1 0123456789ABCDEFGHI my_project
 ```
 
 {{note op="start" type="P2"}}
@@ -226,12 +270,10 @@ should always manually target 5.3.1 or later, for example, `--target 5.3.1`, ins
 
 ### Flashing a known app
 
-You can easily reset a device back to a previous existing app with a quick command. Two app names are reserved right now: "tinker" and "cc3000".  Tinker is the original firmware that ships with the device, and cc3000 will patch the wifi module on the Spark Core. 
+You can easily reset a device back to a previous existing app with a quick command. Tinker is the original firmware that ships with the device and can be flashed as follows:
 
 ```sh
 $ particle flash deviceName tinker
-$ particle flash deviceName cc3000
-
 ```
 
 You can also update the factory reset version using the `--factory` flag, over USB with `--usb`, or over serial using `--serial`.
@@ -242,7 +284,6 @@ $ particle flash --usb tinker
 $ particle flash --serial tinker
 ```
 
-
 ### Flashing a product device
 
 To flash a product device, use the `particle cloud flash` command and set the `--product` flag to your product's id.
@@ -252,6 +293,7 @@ To flash a product device, use the `particle cloud flash` command and set the `-
 $ particle cloud flash 0123456789abcdef01234567 --product 12345
 ```
 
+If the specified Device ID is not marked as a development device, the firmware that you have flashed may be immediately overwritten by the default or locked product firmware.
 
 ### Compiling remotely and flashing locally
 
@@ -259,10 +301,10 @@ To work locally, but use the cloud compiler, simply use the compile command, and
 
 ```sh
 # how to compile a directory of source code and tell the CLI where to save the results
-$ particle compile photon my_project_folder --saveTo firmware.bin
+$ particle compile boron my_project_folder --saveTo firmware.bin
 OR
 # how to compile a list of source files
-$ particle compile photon app.ino library1.cpp library1.h --saveTo firmware.bin
+$ particle compile boron app.ino library1.cpp library1.h --saveTo firmware.bin
 
 # how to flash a pre-compiled binary over usb to your device
 # make sure your device is flashing yellow and connected via USB
@@ -280,23 +322,22 @@ should always manually target 5.3.1 or later, for example, `--target 5.3.1`, ins
 
   Compiles one or more source file, or a directory of source files, and downloads a firmware binary to your computer. The cloud compiler is device-specific, so the name of device you want to target (or its alias) must be provided as an argument. The supported devices are:
 
-  - photon ('p')
-  - core ('c')
-  - electron ('e')
-  - p1
-  - argon
-  - boron
-  - bsom (B Series SoM)
-
+{{!-- BEGIN shared-blurb 866d92e9-015e-457e-b34a-367d8a73f443 --}}
+  - `p2` (also Photon 2)
+  - `boron`
+  - `argon`
+  - `bsom` (B Series SoM, 4xx)
+  - `b5som` (B Series SoM, 5xx)
+  - `tracker`
+  - `photon`
+  - `p1`
+  - `electron` (also E Series)
+{{!-- END shared-blurb --}}
 
   **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it in [preprocessor](/reference/device-os/api/preprocessor/preprocessor/) in the Device OS Firmware API reference.
 
 ```bash
-$ particle compile photon myapp.ino
-$ particle compile p myapp.ino
-
-$ particle compile electron myapp.ino
-$ particle compile e myapp.ino
+$ particle compile boron myapp.ino
 ```
 
 ---
@@ -324,12 +365,56 @@ You can setup a directory of source files and libraries for your project, and th
 
 ```sh
 # how to compile a directory of source code
-$ particle compile photon my_project_folder
+$ particle compile boron my_project_folder
 # by default the current directory will be compiled
-$ particle compile photon
+$ particle compile boron
 ```
 
-For the recommended layout for project folders, see [project file structure](/getting-started/device-os/firmware-libraries/#project-file-structure).
+More commonly, you will be in the directory containing your `project.properties` file and instead use `.`, which is the current directory.
+
+You can also specify the filename to save to. If the filename exists, it will be overwritten.
+
+```sh
+$ cd my_project
+$ particle compile p2 . --saveTo firmware.bin
+```
+
+You can also target a specific version of Device OS in the `particle flash` command:
+
+```sh
+$ particle flash 0123456789ABCDEFGHI . --target 5.3.1
+```
+
+
+{{note op="start" type="P2"}}
+At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
+should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
+{{note op="end"}}
+
+
+#### Compiling a directory with assets
+
+[Asset OTA](/getting-started/cloud/ota-updates/#asset-ota) (available in Device OS 5.5.0 and later), makes it possible to include bundled assets in an OTA software update that can be delivered to other processors and components in your product. 
+
+The `particle compile` command supports asset OTA. Your project directory will typically look like:
+
+```
+my_project/
+  src/
+    my_project.cpp
+    my_project.h
+  assets/
+    coprocessor.bin
+  project.properties
+  README.md
+```
+
+```sh
+$ cd my_project
+$ particle compile boron .
+```
+
+Note that when you compile a project containing an `assets/` directory, a .zip file will created instead of a `.bin` file. This zip file contains both a compiled firmware binary and the assets in your assets folder.
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
@@ -341,7 +426,7 @@ should always manually target 5.3.1 or later, for example, `--target 5.3.1`, ins
 
 ```sh
 # how to compile a list of source files
-$ particle compile photon app.ino library1.cpp library1.h
+$ particle compile boron app.ino library1.cpp library1.h
 ```
 
 
@@ -354,7 +439,7 @@ version on your device.
 
 ```sh
 # compile your application with the 0.5.0 Device OS version
-$ particle compile photon --target 0.5.0 my_project
+$ particle compile boron --target 0.5.0 my_project
 $ particle compile electron myapp.ino --target 0.5.1`
 $ `particle flash <deviceid> myapp.ino --target 0.5.1` would compile and
 flash myapp.ino for device <deviceid> against Device OS version 0.5.1.
@@ -829,7 +914,7 @@ Modules
 
 If you see any `FAIL` entries, there is likely a missing dependency, such as a bootloader that needs to be upgraded. Normally this will be corrected automatically over-the-air, but if you cannot connect to the cloud the dependency cannot be fixed OTA.
 
-The version numbers in the output can be mapped to common version numbers using [this table](https://github.com/particle-iot/device-os/blob/develop/system/system-versions.md). For example, system version 1512 is more commonly known as 1.5.2.
+The version numbers in the output can be mapped to common version numbers using [this table](https://github.com/particle-iot/device-os/blob/develop/system/system-versions.md). For example, Device OS version 1512 is more commonly known as 1.5.2.
 
 
 ## particle usb
@@ -1126,6 +1211,7 @@ file.bin
  It depends on a system module number 1 at version 6
 ```
 
+You can also inspect a .zip file containing a binary with additional assets.
 
 ## particle token
 

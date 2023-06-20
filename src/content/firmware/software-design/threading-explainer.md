@@ -13,7 +13,7 @@ Particle devices (Gen 2 and Gen 3, including the Photon, P1, Electron, E Series,
 
 
 
-The threading system in Device OS is stable, and threads are used by the system internally and can be used judiciously.
+Threading in Device OS is stable, and threads are used by Device OS internally and can be used judiciously.
 
 Because Particle Devices have limited RAM and no virtual memory it's impractical to use a large number of threads. You should not expect to start dozens of threads as you might in a Java application, for example.
 
@@ -482,7 +482,7 @@ Argon 1.4.2:
 
 ### Synchronized access
 
-Many system resources are not thread-safe and you must manually manage synchronization.
+Many device resources are not thread-safe and you must manually manage synchronization.
 
 For example, the USB serial debug port (Serial) can only be called safely from multiple threads if you surround all accesses with WITH_LOCK(), as in:
 
@@ -933,7 +933,7 @@ However you must avoid within a SINGLE\_THREADED\_BLOCK:
 - Any call that can block (`Particle.publish`, `Cellular.RSSI`, and others)
 - Any function that uses a mutex to guard a resource (`Log.info`, SPI transactions, etc.)
 
-The problem with mutex guarded resources is a bit tricky. For example: `Log.info` uses a mutex to prevent multiple threads from trying to log at the same time, causing the messages to be mixed together. However the code runs with interrupts and thread swapping enabled. Say the system thread is logging and your user thread code swaps in. The system thread still holds the logging mutex. Your code enters a SINGLE\_THREADED\_BLOCK, then does `Log.info`. The system will deadlock at this point. Your `Log.info` in the user thread blocks on the logging mutex. However it will never become available because thread swapping has been disabled, so the system thread can never release it. Both threads will stop running at this point.
+The problem with mutex guarded resources is a bit tricky. For example: `Log.info` uses a mutex to prevent multiple threads from trying to log at the same time, causing the messages to be mixed together. However the code runs with interrupts and thread swapping enabled. Say the system thread is logging and your user thread code swaps in. The system thread still holds the logging mutex. Your code enters a SINGLE\_THREADED\_BLOCK, then does `Log.info`. The device will deadlock at this point. Your `Log.info` in the user thread blocks on the logging mutex. However it will never become available because thread swapping has been disabled, so the system thread can never release it. Both threads will stop running at this point.
 
 Because it's hard to know exactly what resources will be guarded by a mutex its best to minimize the use of SINGLE\_THREADED\_BLOCK.
 
@@ -1089,7 +1089,7 @@ Thread(const char* name, os_thread_fn_t function, void* function_param=NULL,
 - `name` Name for the thread. Currently limited to 16 bytes. Not really used for anything and does not need to be unique.
 - `function` the thread function
 - `function_param` optional context data to pass to the thread function
-- `priority` the thread priority (optional). The default is 2. Smaller numbers are lower priority. The idle task priority is 0 and is the lowest. The maximum is currently 9. Avoid creating very high priority threads as they can adversely affect the operation of the rest of the system.
+- `priority` the thread priority (optional). The default is 2. Smaller numbers are lower priority. The idle task priority is 0 and is the lowest. The maximum is currently 9. Avoid creating very high priority threads as they can adversely affect the operation of the rest of the device.
 - `stack_size` the stack size (optional). Default is 3K bytes (3072 bytes).
 
 The `function` parameter is the type:
@@ -1168,7 +1168,7 @@ os_result_t os_thread_create(os_thread_t* result, const char* name,
 
 - `result` filled in with the `os_thread_t` thread handle for the new thread
 - `name` Name for the thread. Currently limited to 16 bytes. Not really used for anything and does not need to be unique.
-- `priority` the thread priority (optional). The default is 2. Smaller numbers are lower priority. The idle task priority is 0 and is the lowest. The maximum is currently 9. Avoid creating very high priority threads as they can adversely affect the operation of the rest of the system.
+- `priority` the thread priority (optional). The default is 2. Smaller numbers are lower priority. The idle task priority is 0 and is the lowest. The maximum is currently 9. Avoid creating very high priority threads as they can adversely affect the operation of the device.
 - `fun` thread function
 - `thread_param` optional context data that is passed to the thread function.
 - `stack_size` the stack size (optional). Default is 3K bytes (3072 bytes).

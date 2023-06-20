@@ -52,6 +52,38 @@ In fact, **one must have visibility and control over all four of these component
 
 Other IoT platforms may market an OTA feature, but in reality only provide a small sliver of the functionality required perform a complete, reliable, and secure update — leaving your team to piece together a bespoke solution that distracts them from spending valuable time on the features that make your IoT product unique.
 
+### Particle OTA
+
+Particle OTA is a fully-integrated over-the-air software update system that is built into the Particle IoT PaaS and Device OS. It allows customers to safely and reliably push software updates to single devices or entire fleets of devices directly from Particle’s device management console and developer tools, with no implementation work necessary.
+
+Particle OTA allows you to update your entire IoT device (both the Particle device and any other components) by delivering three kinds of updates:
+
+- **Application OTA** allows users to update the firmware application they are running on the Particle device in order to introduce new features, fix bugs, and generally improve the software application over time.
+
+- **Device OS OTA** allows users to update Device OS to the latest version alongside an application update so that Device OS can be kept up to date with improvements and bug fixes while properly testing against the user-generated software application.
+
+- **Asset OTA** allows users to include bundled assets in an OTA software update that can be delivered to other processors and components in the electronics system so that the Particle device can be responsible not just for updating itself but also the system that surrounds the device.
+
+### Asset OTA
+
+{{!-- BEGIN shared-blurb e724be96-469f-4bf2-bead-c8c962accad8 --}}
+Asset OTA (available in Device OS 5.5.0 and later), makes it easy to include bundled assets that can be delivered to other processors and components in your system, such as:
+
+- Coprocessors
+- Graphics and fonts for external displays
+- Sound samples for device with audio output capabilities
+
+Including assets is as easy as including an `assets/` directory in your project and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB in size and do not use additional data operations.
+{{!-- END shared-blurb --}}
+
+- Particle Workbench and the Particle CLI will automatically generated bundled assets when the project directory (containing the `project.properties` file) contains an `assets` directory.
+- When using **Particle: Compile Application** or `particle compile` projects with bundled assets are built into a .zip file. This file contains both the firmware binary (.bin) as well as the assets. 
+- The asset bundle .zip can be uploaded to the console as product firmware binary.
+- When using **Particle: Flash application** or `particle flash` the same process is followed, except the device is flashed.
+- When flashing OTA, the asset bundle is transmitted using resumable OTA and compression for efficient data use.
+- You will need to include code in your application firmware to process the additional assets, such as sending them to a coprocessor or saving them to the file system.
+- Creating bundled assets will not be not possible in the Web IDE. Particle Workbench is recommended.
+
 ### Reliable and resilient
 
 Sending an OTA update is arguably one of the riskiest actions you can take on a connected device. Mishandling OTA updates could at a minimum cause temporary disruption, or at worst force the device into an unrecoverable state.
@@ -157,10 +189,17 @@ From the Particle [Web IDE](https://build.particle.io), you simply select the de
 From the [Particle CLI](https://particle.io/cli/), you use a command like:
 
 ```
-particle flash my-device my-app.ino
+cd MyProject
+particle flash boron3 .
 ```
 
+The first parameter is a device name or Device ID (24-character hex).
+
+The second parameter is typically a directory path, or in this case `.` for the current directory, which is typically the directory containing the `project.properties` file, `src` directory, and application source.
+
 When used with products, the device must not only be marked as a development device, but also claimed to your Particle account. For this reason, we recommend each developer have their own device, claimed to their own account, and often on their desk with each access to buttons and the USB debug serial port, for ease of development.
+
+With Device OS 5.5.0 and later, you can also flash a device with both a firmware binary and additional assets for [Asset OTA](#asset-ota) using the Particle CLI.
 
 ### Flash via the rest API
 
