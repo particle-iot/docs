@@ -52,7 +52,7 @@ This tutorial is a complete example, using a pre-trained model from [Edge Impuls
 - Extract the contents of the zip file
 - Open Particle Workbench. From the Command Palette (Ctrl-Shift-P on Windows and Linux, Cmd-Shift-P on Mac):
 - **Particle: Import Project**. Select the `project.properties` file in the zip file you just extracted.
-- Use **Particle: Configure Project For Device** and select **deviceOS@5.4.0** and **P2**. The P2 option is also used for the Photon 2. Device OS 5.4.0 or later is required.
+- Use **Particle: Configure Project For Device** and select **deviceOS@5.4.0** and **P2**. The P2 option is also used for the Photon 2. Device OS 5.4.0 or later is required for keyboard emulation.
 - In src/main.cpp, you'll need to configure the keyboard shortcut to what was set above. 
 
 ```cpp
