@@ -8,6 +8,8 @@ columns: two
 
 Particle has teamed up with [Edge Impulse](https://www.edgeimpulse.com/) to provide edge machine learning (ML), artificial intelligence (AI) for the Particle platform, in particular the P2 and Photon 2. The faster processor and large RAM and flash memory on these devices are ideal for on-device machine learning.
 
+You can find additional projects on the [Edge Impulse ML projects page](https://www.edgeimpulse.com/projects/all?search=particle).
+
 ## Tutorials
 
 We have two tutorials available that utilize the Photon 2 and the PDM digital microphone in the [Edge ML Kit](/reference/datasheets/accessories/edge-ml-kit/).

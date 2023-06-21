@@ -120,6 +120,11 @@ SmsWebhook::instance().queueSms(mesg);
 - Use **Particle: Clean application (local)** to make sure there are no remnants from a previous build.
 - Use **Particle: Flash Application (local)** or **Particle: Compile Application (local)**. You must use the local option; the firmware cannot be compiled using the cloud compile options (Cloud Compile or Cloud Flash). 
 
+## Learn more
+
+- You can find additional projects on the [Edge Impulse ML projects page](https://www.edgeimpulse.com/projects/all?search=particle).
+- Learn how to create your own projects in the [Edge Impulse documentation](https://docs.edgeimpulse.com/docs).
+
 
 
 
