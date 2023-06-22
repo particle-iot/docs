@@ -548,6 +548,7 @@ HTML escaping of the values):
 - `\{{{PARTICLE_EVENT_NAME}}}`: The name of the event that triggers the webhook
 - `\{{{PARTICLE_EVENT_VALUE}}}`: The data associated with the event
 - `\{{{PARTICLE_PUBLISHED_AT}}}`: When the event was published
+- `\{{{PRODUCT_ID}}}`: The Product ID of the device that triggered the webhook
 
 Product webhooks also have access to:
 
