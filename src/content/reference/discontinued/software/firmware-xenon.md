@@ -17139,7 +17139,7 @@ Particle devices are programmed in C/C++. While the Arduino compatibility featur
 | 1.2.1 and later | gcc C++14 | gcc C11 |
 | earlier versions | gcc C++11 | gcc C11 |
 
-The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
+The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/reference/en)
 
 ### Structure
 
