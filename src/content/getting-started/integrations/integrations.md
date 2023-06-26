@@ -71,11 +71,3 @@ Because of the simultaneous connection limit, if you want to subscribe to multip
 
 {{!-- END shared-blurb --}}
 
-### Direct connection
-
-The alternative is directly connecting to external services:
-
-<img src="/assets/images/DirectFlow.png" class="full-width"/>
-
-
-The disadvantage of this approach is that you cannot leverage the Particle cloud authentication. You need to separately authenticate each transaction. While there are third-party libraries for using protocols like HTTP and TLS/SSL, these libraries are large and not official. Doing a https connection for each piece of data you want to upload might use 5K of data per connection! This is much less efficient than using an integration or SSE.
