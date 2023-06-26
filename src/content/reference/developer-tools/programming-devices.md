@@ -42,7 +42,7 @@ Asset OTA (available in Device OS 5.5.0 and later), makes it easy to include bun
 - Graphics and fonts for external displays
 - Sound samples for device with audio output capabilities
 
-Including assets is as easy as including an `assets/` directory in your project and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB in size and do not use additional data operations.
+Including assets is as easy as including an directory in your project, specifying it in the `project.properties` and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB in size (after compression) and do not use additional data operations.
 {{!-- END shared-blurb --}}
 
 

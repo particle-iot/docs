@@ -73,10 +73,15 @@ Asset OTA (available in Device OS 5.5.0 and later), makes it easy to include bun
 - Graphics and fonts for external displays
 - Sound samples for device with audio output capabilities
 
-Including assets is as easy as including an `assets/` directory in your project and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB in size and do not use additional data operations.
+Including assets is as easy as including an directory in your project, specifying it in the `project.properties` and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB in size (after compression) and do not use additional data operations.
 {{!-- END shared-blurb --}}
 
-- Particle Workbench and the Particle CLI will automatically generated bundled assets when the project directory (containing the `project.properties` file) contains an `assets` directory.
+- Particle Workbench and the Particle CLI will automatically generated bundled assets when the `project.properties` file contains an `assetOtaFolder` key and a value containing a valid directory.
+
+```
+assetOtaFolder=assets
+```
+
 - When using **Particle: Compile Application** or `particle compile` projects with bundled assets are built into a .zip file. This file contains both the firmware binary (.bin) as well as the assets. 
 - The asset bundle .zip can be uploaded to the console as product firmware binary.
 - When using **Particle: Flash application** or `particle flash` the same process is followed, except the device is flashed.

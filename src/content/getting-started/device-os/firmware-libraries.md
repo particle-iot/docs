@@ -171,6 +171,26 @@ test/**
 docs/**
 ```
 
+### Asset OTA
+
+Particle Workbench and the Particle CLI will automatically generated bundled assets when the `project.properties` file contains an `assetOtaFolder` key and a value containing a valid directory.
+
+```
+assetOtaFolder=assets
+```
+
+For example:
+
+```
+myapp/
+  project.properties
+  src/
+    myapp.cpp
+  assets/
+    coprocessor.bin
+```
+
+
 ### Older file structures
 
 These file structures are currently still supported, but may be deprecated in the future. We recommend using the structure above, with the `src` directory and a `project.properties` file, for all projects.
