@@ -513,15 +513,15 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
-| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 63.8 | 65.8 | 68.9 | mA |
-| Operating Current (uC on, BLE advertising)  | I<sub>ble_adv</sub> | 62.4 | 66.1 | 73.8 | mA |
-| Operating Current (uC on, radio connected to access point) | I<sub>wifi_conn_ap</sub> | 62.3 | 67.8 | 325 | mA |
-| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 549 | 579 | 608 | uA |
-| STOP mode sleep, time wake-up | I<sub>stop_intrtc</sub> | 543 | 572 | 604 | uA |
-| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 549 | 579 | 608 | uA |
-| ULP mode sleep, time wake-up | I<sub>ulp_intrtc</sub> | 543 | 572 | 604 | uA |
-| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 93.8 | 114 | 133 | uA |
-| HIBERNATE mode sleep, time wake-up | I<sub>hib_intrtc</sub> | 93.3 | 115 | 133 | uA |
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 21.4 | 23.2 | 23.8 | mA |
+| Operating Current (uC on, BLE advertising)  | I<sub>ble_adv</sub> | 54.7 | 58.7 | 70.7 | mA |
+| Operating Current (uC on, radio connected to access point) | I<sub>wifi_conn_ap</sub> | 54.6 | 60.5 | 265 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 492 | 549 | 608 | uA |
+| STOP mode sleep, time wake-up | I<sub>stop_intrtc</sub> | 500 | 552 | 598 | uA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 492 | 549 | 608| uA |
+| ULP mode sleep, time wake-up | I<sub>ulp_intrtc</sub> | 500 | 552 | 598 | uA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> |  | 114 | 249 | uA |
+| HIBERNATE mode sleep, time wake-up | I<sub>hib_intrtc</sub> |  | 114 | 253 | uA |
 
 <sup>1</sup>The min, and particularly peak, values may consist of very short transients.
 The typical (typ) values are the best indicator of overall power consumption over time. The 
@@ -790,6 +790,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |     | 2023-05-08 | RK | Added VBAT_MEAS and CHG to block diagram |
 |     | 2023-05-18 | RK | Add warning that the Photon 2 cannot be powered by 3V3 |
 |   1 | 2023-06-20 | RK | Initial version |
+|   2 | 2023-06-30 | RK | Updated power consumption |
 
 ## Known errata
 
