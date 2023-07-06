@@ -830,6 +830,8 @@ $(document).ready(function() {
 
             const moduleTypeNames = ['', 'Bootloader', 'System Part', 'User Part', 'Monolithic', 'NCP', 'Softdevice (Radio Stack)']; 
 
+            const binaryVersionNames = ['', 'bootloader', 'system_part', 'user_part', 'monolithic', 'ncp_firmware', 'radio_stack']; 
+
             // Validity values:
             // 0 (or omitted): valid
             // 1 integrity check failed
@@ -854,6 +856,10 @@ $(document).ready(function() {
                 return moduleTypeNames[moduleType];
             }
 
+            moduleInfo.moduletypeProtobufToBinaryVersionName = function(moduleType) {
+                return binaryVersionNames[moduleType];
+            }    
+        
             moduleInfo.moduleTypeProtobufToSystem = function(moduleType) {
                 return systemModuleTypes[moduleType];
             };
@@ -866,6 +872,37 @@ $(document).ready(function() {
                 }
                 return 0;
             };
+
+            moduleInfo.getDescriptiveName = function(modOrDep) {
+                let descriptiveName;
+
+                if (modOrDep.moduleType == 1) {
+                    switch(modOrDep.index) {
+                        case 2:
+                            descriptiveName = 'prebootloader-part1';
+                            break;
+
+                        case 1:
+                            descriptiveName = 'prebootloader-mbr';
+                            break;
+
+                        default:
+                            descriptiveName = 'bootloader';
+                            break;
+                    }
+                }
+                else
+                if (modOrDep.moduleType == 2) {
+                    descriptiveName = 'system-part' + modOrDep.index;
+                }
+                else {
+                    descriptiveName = moduleInfo.moduletypeProtobufToName(modOrDep.moduleType);
+                    if (typeof modOrDep.index != 'undefined') {
+                        descriptiveName += ' (index ' + modOrDep.index + ')';
+                    }    
+                }
+                return descriptiveName;
+            }
 
             moduleInfo.getByModuleTypeIndex = function(moduleType, index) {
                 // Pass 1: Exact match
@@ -963,12 +1000,7 @@ $(document).ready(function() {
             $(tableBodyElem).html('');
 
             const formatModuleIndex = function(obj) {
-                if (obj.index) {
-                    return moduleInfo.moduletypeProtobufToName(obj.moduleType) + ' ' + obj.index;
-                }
-                else {
-                    return moduleInfo.moduletypeProtobufToName(obj.moduleType);
-                }
+                return moduleInfo.getDescriptiveName(obj);
             }
 
             const formatVersion = function(obj) {
