@@ -109,6 +109,11 @@ Power supply requirements:
 - Maintain these values at no-load as well as maximum load
 {{!-- END shared-blurb --}}
 
+In some cases, it may be necessary to add a supervisory/reset IC, such as the [SG Micro SGM809-RXN3L/TR](https://www.sg-micro.com/show-product-617.html). 
+
+- If your power supply has a slew rate from 1.5V to 3.0V slower than 15 ms, a reset IC is required.
+- If your power supply at power off cannot be guaranteed to drop below 0.3V before powering back up, a reset IC required.
+
 
 ---
 
@@ -890,6 +895,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 007 | 2023-05-05 | RK | Update available RAM |
 | 008 | 2023-05-11 | RK | Add link to reference design |
 | 009 | 2023-06-07 | RK | Add module height (3mm) |
+| 010 | 2023-07-07 | RK | Add supervisory reset IC recommendation |
 
 ## Known errata
 
