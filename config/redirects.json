@@ -1924,6 +1924,7 @@
   "/reference/asset-tracking": "/firmware/tracker-edge/tracker-edge-api-reference",
   "/reference/asset-tracking/tracker-edge-firmware": "/firmware/tracker-edge/tracker-edge-api-reference",
   "/reference/cellular": "/reference/cellular/cellular-carriers",
+  "/reference/cellular/verizon-faq2": "/reference/cellular/verizon-faq",
   "/reference/cli": "/reference/developer-tools/cli",
   "/reference/cloud-apis": "/reference/cloud-apis/api",
   "/reference/community": "/community/community",
