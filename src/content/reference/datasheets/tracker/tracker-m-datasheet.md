@@ -142,6 +142,14 @@ Note that the Tracker M is intended to be mounted on the bottom side of the expa
 
 - On the Tracker M, pins D0 and D1 are used in I2C mode by the temperature sensor. Pins D0 and D1 cannot be used as GPIO.
 
+#### GPIO - CAN expansion card
+
+With the Particle CAN expansion card, A0 and A5 cannot be used as user GPIO as they are used for:
+
+- A0: HIGH enables the 5V boost converter, used for CAN and 5V UART
+- A5: HIGH enables the UART. Both A0 and A5 must be high to use the UART (RX/TX)
+
+
 ### ADC
 
 {{!-- BEGIN do not edit content below, it is automatically generated ad9f1e40-1d9e-4fc3-9789-34453572592c --}}
@@ -202,6 +210,7 @@ Note that the Tracker M is intended to be mounted on the bottom side of the expa
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+- With the Particle CAN expansion card, both A0 (5V enable) and A5 (UART enable) must be set HIGH to use the UART.
 
 
 ### PWM
