@@ -19,6 +19,10 @@ With Verizon support, customers can now access all three major US carriers – A
 
 ## FAQ
 
+### Which Particle customers are eligible to access the Verizon network?
+
+All enterprise accounts will have access to the Verizon network, in addition to AT&T and T-Mobile.
+
 ### What Particle products have access to Verizon support?
 
 Particle has an extensive portfolio of LTE-ready, Supply Secure devices in the US that have been thoroughly tested for Verizon reliability and performance, including:
@@ -36,7 +40,7 @@ Particle has an extensive portfolio of LTE-ready, Supply Secure devices in the U
 
 ### How will my fleet pick up Verizon?
 
-Particle will enable it for your devices automatically, without any action required on your part.
+Particle will enable it for eligible devices in your enterprise organization automatically, without any action required on your part.
 
 ### How does the device know which carrier to connect to?
 
@@ -52,7 +56,7 @@ This is an ordered list, set by the mobile provider. In other words, Verizon is 
 
 You cannot override the priority list set by the mobile provider.
 
-### Is there a Device OS version requirement
+### Is there a Device OS version requirement?
 
 At this time, an upgrade of Device OS is not generally required.
 
