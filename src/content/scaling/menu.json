@@ -23,12 +23,6 @@
       ]
     },
     {
-      "dir": "enterprise",
-      "title": "Enterprise Hub",
-      "href": "/scaling/enterprise/",
-      "internal": true
-    },
-    {
       "dir": "quick-start-guide",
       "isSection": true
     },

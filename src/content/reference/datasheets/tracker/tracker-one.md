@@ -13,7 +13,7 @@ description: Datasheet for the Particle One Enclosure and Carrier Board
 
 ![Tracker One](/assets/images/t-one.svg)
 
-The Tracker One is a ready-to-go Tracker SoM carrier board with optional weatherproof enclosure.
+The Tracker One is a ready-to-go Particle gateway device with a Tracker SoM carrier board and weatherproof enclosure.
 
 - **Ready to go** with IP67-rated enclosure.
 - **GNSS Antenna Onboard:** convenient high-gain GNSS antenna for easy access to GNSS signals.
@@ -24,6 +24,8 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 - **RGB LED** for use as both a user-configurable device as well as Particle status information.
 
 ![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
+
+Particle gateway device like the Monitor One and Tracker One are designed to be used off-the-shelf to interface to other devices and sensors using standard protocols such as CAN bus, I2C, and serial.
 
 
 ### Model comparison

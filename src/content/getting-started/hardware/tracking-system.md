@@ -15,9 +15,13 @@ The Particle Asset Tracking System is an integrated, customizable, hardware, fir
 
 The [Tracker One](/reference/datasheets/tracker/tracker-one/) is a complete system with a waterproof IP67-rated enclosure.
 
-![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
+![Tracker One Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
 
-The [Tracker SoM](/reference/datasheets/tracker/tracker-som-datasheet/) system-on-a-module is inside the Tracker One, but can also be purchased separately so you can reflow solder it to your own custom base board for the ultimate in flexibility.
+The [Monitor One](/reference/datasheets/tracker/monitor-one-datasheet/) is enclosed in a heavy duty waterproof enclosure that is large enough to contain expansion cards.
+
+![Monitor One Enclosure](/assets/images/monitor-one/monitor-one-closed.jpg)
+
+The [Tracker SoM](/reference/datasheets/tracker/tracker-som-datasheet/) system-on-a-module is inside the Tracker One and Monitor One, but can also be purchased separately so you can reflow solder it to your own custom base board for the ultimate in flexibility.
 
 ![SoM](/assets/images/t523-som.svg)
 

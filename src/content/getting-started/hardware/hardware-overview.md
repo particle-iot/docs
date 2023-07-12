@@ -10,13 +10,14 @@ includeDefinitions: [api-helper, carrier-family-map]
 
 *Finding the right Particle hardware for your project*
 
-- If you want an off-the-shelf, complete device with little or no hardware design required, see [off-the-shelf complete](#off-the-shelf-complete) below.
+- If you want an off-the-shelf, complete device with little or no hardware design required, see [off-the-shelf complete](#off-the-shelf-complete) gateways, below.
 - One way to start finding the right device is whether you're a hobbyist, prototyping, or producing a product. To start there, see [prototype or production](#prototype-or-production) below.
 - Another way to start is by deciding on [cellular or Wi-Fi](#cellular-or-wi-fi) first.
 
 
 ## Off-the-shelf complete
 
+Particle gateway devices contain a cellular communication module in an enclosure with the required antennas and certification. A waterproof connector makes it easy to add external sensors and devices that communicate over protocols such as CAN bus, serial, and I2C. 
 
 ### Tracker One
 
@@ -85,6 +86,11 @@ If you are interested in measuring temperature and humidity, an [external sensor
 
 {{!-- END do not edit content above, it is automatically generated 6a02fd77-1222-4208-8da5-45c9290c5f6d --}}
 
+### Monitor One
+
+The Monitor One has the same cellular and processor module (Tracker SoM), but is enclosed in a heavy duty waterproof enclosure that is large enough to contain expansion cards.
+
+The [Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/) is available and a limited number of developer preview units are currently available. 
 
 ## Prototype or production
 
@@ -139,6 +145,7 @@ There are numerous ways to expand Gen 3 devices:
   - Keypads
   - Small displays
 - [Grove](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and displays connect to digital, analog, I2C, and serial devices with a simple 4-pin cable.
+- [Mikroe](/hardware/expansion/mikroe/) has a large number of expansion boards for both Feather and M.2 SoM devices.
 
 
 Its also possible to prototype with these easy to use modules, then include the same functionality on a custom board later. The Adafruit and SparkFun designs are all open-source and include hardware design files for EagleCAD.
@@ -159,6 +166,7 @@ While you can use prototyping devices at scale, if you will be needing devices o
 
 The software for prototyping and production devices is similar. It's often possible to use a single code base to work with both types of modules. And, in many cases, across both Gen 2 and Gen 3 devices, or across both cellular and Wi-Fi devices.
 
+For best compatibility in the future we recommend designing around the M.2 (B Series SoM) form-factor, which is a better size to accommodate future communication modules. The Feather (Boron) form-factor is too narrow to fit cellular modules like the EG91 LTE Cat M1 module used in the B Series SoM B524.
 
 #### B Series SoM (Gen 3 Cellular)
 

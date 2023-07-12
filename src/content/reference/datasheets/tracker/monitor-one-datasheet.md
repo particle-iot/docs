@@ -19,7 +19,7 @@ This is an pre-release datasheet and the contents are subject to change.
 
 *The pictures in this preliminary datasheet are of a pre-release unit. The production units will be a different color, and may have other minor differences.*
 
-The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for an expansion card and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
+The Monitor One is an off-the-shelf complete gateway design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for an expansion card and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
 - **Ready to go** with rugged IP67-rated enclosure with room inside for an expansion card.
 - **Flexible power supply** to easily add asset tracking to most devices with a 6 - 30 VDC power input and a large 18650 LiPo battery pack.
@@ -29,7 +29,8 @@ The Monitor One is an off-the-shelf complete design, like the Tracker One. The M
 - **RGB LED** for system status, and two user RGB LEDs for your own use, visible from outside the enclosure.
 - **User button**, waterproof and accessible from outside the enclosure.
 
- 
+Particle gateway device like the Monitor One and Tracker One are designed to be used off-the-shelf to interface to other devices and sensors using standard protocols such as CAN bus, I2C, and serial.
+
 ## Block diagram
 
 {{imageOverlay src="/assets/images/monitor-one/block-diagram2.png" alt="Block diagram" class="full-width"}}

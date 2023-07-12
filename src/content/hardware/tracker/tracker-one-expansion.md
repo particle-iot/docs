@@ -10,7 +10,9 @@ description: Adding features to the Tracker One
 
 ## Tracker One M8 connector
 
-The Tracker One can be expanded without opening the case by using the M8 connector.
+The Tracker One can be expanded without opening the case by using the M8 connector. 
+
+Particle gateway devices, including the Tracker One, and it's larger relative, the [Monitor One](/reference/datasheets/tracker/monitor-one-datasheet/), are off-the-shelf designs that include an enclosed cellular module and a connector to attach additional sensors and other devices by protocols such as CAN bus, serial, or I2C interfaces.
 
 ![Expansion Port](/assets/images/at-som/expansion-highlight.png)
 
