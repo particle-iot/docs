@@ -44,7 +44,7 @@ It was previously common for cellular products to claim all devices to a single 
 - You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
 - If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
 - If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
-- Claiming is still allowed, if you prefer to continue to use claiming.
+- Claiming is still allowed, if you prefer to continue to use claiming, but not recommended.
 {{!-- END shared-blurb --}}
 
 {{note op="end"}}
@@ -448,7 +448,9 @@ Customers are an optional feature. They allow API access to specific devices typ
 
 **We generally recommend not using customers**, unless you are using the device setup SDK for the P1 or Photon. It's generally unnecessary in other cases.
 
-In lieu of customers, many cellular products claim all devices to a single account or use unclaimed product devices. Not using customers does not preclude having a mobile app, it just requires you handle authentication and API access control from your servers instead of having Particle handle it for you. This may be preferable if you are contracting out your development as you can make a generic mobile app using native APIs or a framework with no specific Particle dependencies, which widens the possible number of mobile developers you can use.
+{{collapse op="start" label="Show older information"}}
+
+In lieu of customers, many cellular products claim all devices to a single account or use unclaimed product devices. Not using customers does not preclude having a mobile app, it just requires you handle authentication and API access control from your servers instead of having Particle handle it for you. This may be preferable if you are contracting out your development as you can make a generic mobile app using native APIs or a framework with no specific Particle dependencies, which widens the possible number of mobile developers you can use. However, this is no longer necessary and unclaimed product devices are even easier than using a single claimed account.
 
 There are two types of customers:
 
@@ -519,6 +521,10 @@ particle usb setup-done
 ```
 
 This should be done with the device in normal operating mode or listening mode.
+
+
+{{collapse op="end"}}
+
 
 ## Device identifiers
 

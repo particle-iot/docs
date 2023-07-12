@@ -17,15 +17,7 @@ This is actually one of the most important differentiators, because there Wi-Fi 
 
 With cellular devices, you generally don't have to directly communicate with the device to set it up, so there are many more options available.
 
-{{note op="start" type="product"}}
-The most common way to configure Wi-Fi for a product using Wi-Fi on using the Gen 2 P1 module is to use the [Photon Device Setup SDK for iOS](/reference/mobile-sdks/ios/) and [Android](/reference/mobile-sdks/android/). It can handle setting up the Wi-Fi network, as well as claiming the device to an account (described in more detail below). There are other possibilities, including the use of SoftAP, which are also discussed below.
-
-There is currently no setup SDK for use with the Argon. It is not recommended for products.
-{{note op="end"}}
-
-{{note op="start" type="developer"}}
-For individual developers you can manually configure the Wi-Fi using the Particle mobile app or the Particle CLI on the Argon, P1, or Photon. If you don't have to worry about Wi-Fi setup, then you have more options available, pretty much like cellular devices.
-{{note op="end"}}
+For more the options available for Wi-Fi setup, see [Wi-Fi setup options](/reference/device-os/wifi-setup-options/).
 
 
 ### Web app or mobile app
@@ -52,6 +44,14 @@ In addition to making development easier, these frameworks are popular, and if y
 You may prefer to use the native tools and SDKs for iOS and Android. If you only want to support one platform, this is often a good choice.
 
 ## Customers
+
+We recommend that you implement your own user management features on your front and back-end. You may want to use common third-party login features such as login with Google, Facebook, Twitter, etc. instead of implementing your own from scratch, but this not required.
+
+Instead of issuing Particle access tokens to your users, encapsulate all Particle REST API calls within your back-end. This will greatly simplify your implementation and eliminate the need to manage user-specific Particle access tokens, customer accounts, and device claiming.
+
+This also encapsulates Particle-specific API calls to a small part of your back-end. This eliminates the need to have a Particle-specific mobile or web app developer if you are contracting out your app development.
+
+{{collapse op="start" label="Show older information"}}
 
 Customers are a feature of the Particle API, mainly to make it easier for your customers using a mobile app to interact with their devices. However, the use of customers is optional, and even though initially they look simple, are actually quite complicated to use.
 
@@ -95,36 +95,9 @@ If you are making the Particle API calls from your back-end there is no need to 
 
 Instead of using Particle's authentication system, or your own proprietary system, it may make sense to use one of the many single sign-on options. For example, allowing you to use your existing login to Facebook, Google, GitHub, etc.. There are many libraries to assist with this, and most web developers will be familiar with doing this if you want to create a web app with single sign-on.
 
-{{note op="start" type="developer"}}
 For personal home automation tasks you can hardcode an authentication token for your account directly into your mobile app. For better security, you should use a product (even if it's just for you) and use an [API user](/reference/cloud-apis/api/#api-users) that only has limited functionality, such as get variable and call function. 
 
 **You should never hardcode access tokens in commercial products!**
-{{note op="end"}}
 
-
-## Wi-Fi other configuration options
-
-### P1 and Photon SoftAP
-
-The P1 and Photon support SoftAP (software access point) mode for Wi-Fi configuration. This is what the [Photon Device Setup SDK for iOS](/reference/mobile-sdks/ios/) and [Android](/reference/mobile-sdks/android/) use. 
-
-However, it's also possible to use SoftAP directly in less common scenarios. This can be done from a computer or mobile web browser and directly connecting to the Photon or P1 in setup mode. You can customize the user interface using [SoftAP Pages](/reference/device-os/api/softap-http-pages/softap-http-pages/).
-
-### Argon
-
-The Argon does not have a Wi-Fi based configuration. It uses Bluetooth LE (BLE), which is generally easier to use on modern mobile devices because you do not need to disconnect from your Wi-Fi network to set up your Particle device.
-
-However, because there is no Argon setup SDK for iOS or Android, it's difficult to implement in a custom mobile app. The Particle mobile apps for [iOS](https://github.com/particle-iot/particle-tinker-app-ios) and [Android](https://github.com/particle-iot/particle-android) are open-source and can serve as a model, but it's not easy to drop that code into an existing mobile app.
-
-### USB setup
-
-It is also possible to configure Wi-Fi on a Particle device over USB, typically from a computer.
-
-This could be done using the Particle CLI, a custom computer-based application, a scripting language such as node.js, or in some cases a browser-based tool.
-
-Due to the complexity and difficulty with installing software on customer's computers, it's not commonly done, but it is possible.
-
-### Hardware-based setup
-
-If you have a display and keyboard connected to your Particle device, you could set up Wi-Fi entirely on the device, with no external mobile app or computer required. This is rare, but it is feasible. 
+{{collapse op="end"}}
 

@@ -8,6 +8,48 @@ layout: commonTwo.hbs
 
 ## Introduction
 
+### Cellular devices
+
+For cellular devices, we recommend:
+
+- Adding all devices to your product in advance.
+- Flashing your product firmware and Device OS to devices in advance.
+- Leaving devices unclaimed, as claimning is no longer necessary.
+
+If you wish to provide a mobile app or web app for your customers, we recommend that you implement your own user management features on your front and back-end. You may want to use common third-party login features such as login with Google, Facebook, Twitter, etc. instead of implementing your own from scratch, but this not required.
+
+Instead of issuing Particle access tokens to your users, encapsulate all Particle REST API calls within your back-end. This will greatly simplify your implementation and eliminate the need to manage user-specific Particle access tokens and device claiming.
+
+### Wi-Fi devices 
+
+For Wi-Fi devices (P2, Photon 2, and Argon), we recommend:
+
+- Adding all devices to your product in advance.
+- Flashing your product firmware and Device OS to devices in advance.
+- Leaving devices unclaimed, as claimning is no longer necessary.
+- Providing a mobile app or web app to allow your customers to configure the device Wi-Fi.
+
+We recommend that you implement your own user management features on your front and back-end. You may want to use common third-party login features such as login with Google, Facebook, Twitter, etc. instead of implementing your own from scratch, but this not required.
+
+Instead of issuing Particle access tokens to your users, encapsulate all Particle REST API calls within your back-end. This will greatly simplify your implementation and eliminate the need to manage user-specific Particle access tokens and device claiming.
+
+For more information, see [Wi-Fi setup options](/reference/device-os/wifi-setup-options/).
+
+## Older information
+
+Previously, Particle recommended using various features like customer accounts, the Device Setup SDK, and various authentication tokens for customer devices. This is no longer recommended. The original information is available below for reference, but should not be used for new designs.
+
+For new designs:
+
+- Do not use the device setup SDK, as it is not compatible with current devices and will be deprecated.
+- Avoid the iOS SDK and Android SDKs, as these will be deprecated in the future. Instead make Particle REST API calls from your back-end.
+- Do not claim devices to customer accounts. This eliminates the need for simple auth and two-legged shadow customers.
+
+
+{{collapse op="start" label="Show older information"}}
+
+## Introduction
+
 For any Particle-powered product to function properly, there are **four involved
 parties**:
 
@@ -560,4 +602,5 @@ https://api.particle.io/oauth/token
 The response will be identical to the new access token creation endpoint above. Refresh tokens can only be used product oAuth tokens. They cannot be used to renew a Particle developer account access token (particle:particle).
 
 
+{{collapse op="end"}}
 

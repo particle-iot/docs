@@ -60,7 +60,7 @@ Programming devices can be done:
 
 ## 3\. Device and Claiming
 
-In addition to being part of the Product, devices typically need to be **claimed** to an account. For cellular Products, it is common to create a single account that all devices are claimed to. It's also possible to use [two-legged shadow customers](/reference/cloud-apis/authentication/#two-legged-authentication), for both cellular and Wi-Fi devices.
+It is no longer necessary to claim devices. Eliminating this step will greatly simplify device onboarding.
 
 [Learn more about Device Claiming](/getting-started/products/introduction-to-products/#device-and-claiming)
 

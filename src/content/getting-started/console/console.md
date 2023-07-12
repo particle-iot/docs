@@ -651,9 +651,11 @@ Particle cloud
 
 ### Managing customers
 
-Now that you have set up a Product, your customers will be able to create accounts on the Particle platform that are registered to your Product. When properly implemented, your customers will have no idea that Particle is behind the scenes; they will feel like they are creating an account with *ACME, Inc.*.
+**Customers are generally unnecessary unless you are using the Device Setup SDK for the P1 and Photon.** We recommend not using customers unless absolutely necessary as it will add considerable complexity. The Device Setup SDK cannot be used with the P2, Photon 2, or Argon.
 
-**Customers are generally unnecessary unless you are using the Device Setup SDK for the P1 and Photon.** We recommend not using customers unless absolutely necessary as it will add considerable complexity.
+{{collapse op="start" label="Show older information"}}
+
+Now that you have set up a Product, your customers will be able to create accounts on the Particle platform that are registered to your Product. When properly implemented, your customers will have no idea that Particle is behind the scenes; they will feel like they are creating an account with *ACME, Inc.*.
 
 There are three ways you can authenticate your customers:
 
@@ -674,9 +676,10 @@ Unclaimed product devices eliminate the claiming step entirely. This simplifies 
 - You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
 - If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
 - If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
-- Claiming is still allowed, if you prefer to continue to use claiming.
+- Claiming is still allowed, if you prefer to continue to use claiming, but not recommended.
 {{!-- END shared-blurb --}}
 
+{{collapse op="end"}}
 
 ### Monitoring event logs
 

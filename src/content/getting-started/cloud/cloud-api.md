@@ -294,7 +294,7 @@ As of March 2023, claiming product devices is no longer necessary to subscribe t
 - You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
 - If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
 - If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
-- Claiming is still allowed, if you prefer to continue to use claiming.
+- Claiming is still allowed, if you prefer to continue to use claiming, but not recommended.
 {{!-- END shared-blurb --}}
 
 ### Restricted access user token authentication (products)

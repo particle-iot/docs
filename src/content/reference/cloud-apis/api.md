@@ -930,11 +930,16 @@ please see [the guide](/getting-started/console/device-groups/).
 
 
 ## Customers
+
+If you wish to provide a mobile app or web app for your customers, we recommend that you implement your own user management features on your front and back-end. You may want to use common third-party login features such as login with Google, Facebook, Twitter, etc. instead of implementing your own from scratch, but this not required. Implementing user management this way will eliminate the need for customer-specific Particle access tokens, which will greatly simplify the implementation of your front and back-end.
+
 {{> api group=apiGroups.Customers}}
 
 ### Reset password (simple auth)
 
-In most cases, we recommend using **Two-Legged Auth** where you have complete control over your customers and accounts. **Simple Auth** can be used as a simpler alternative, however you will need to provide an additional service if you want to allow your customers to be able to reset their password by email. The process works like this:
+If you wish to provide a mobile app or web app for your customers, we recommend that you implement your own user management features on your front and back-end. We do not recommend using simple auth or two-legged shadow customers in most cases now.
+
+ **Simple Auth** can be used as a simpler alternative, however you will need to provide an additional service if you want to allow your customers to be able to reset their password by email. The process works like this:
 
 1. Customer loses access, clicks "forgot password" on your mobile or front-end app.
 2. App hits an endpoint on your back-end. The back-end app should know your Particle access token, the one you used to create that product, and, optionally, list of valid customer emails.
