@@ -16985,6 +16985,32 @@ void setup()
 }
 ```
 
+## Persistent settings
+
+{{api name1="Persistent settings"}}
+
+There are a number of persistent settings on devices that are not erased in most situations:
+
+- Preserved on reboot
+- Preserved on flashing user firmware
+- Preserved on updating Device OS
+- Preserved on [Device Restore USB](/tools/device-restore/device-restore-usb/) and device-os-flash-util
+
+These settings include:
+
+- Cellular APN settings (Gen 3 and later, not Gen 2)
+- Wi-Fi network credentials, DHCP/Static IP setting, gateway, and DNS setting
+- Antenna setting (Wi-Fi and BLE)
+- Ethernet detection enabled
+- Ethernet pin remapping
+- Disable listening mode
+- Setup done (Gen 3 only and only in Device OS 3.x and earlier)
+- System power manager enabled
+- EEPROM contents
+- System LED scheme
+- System LED pin remapping
+- DCT settings
+- [System features](/reference/device-os/api/system-calls/system-enablefeature/)
 
 ## Macros
 
