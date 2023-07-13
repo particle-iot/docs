@@ -166,6 +166,36 @@ const path = require('path');
                 }); 
             } 
         },     
+        {
+            guid:'0e3f5e76-cfaf-4215-8c3c-b764621ff10f', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('electron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'U201';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'10a242d8-273c-4d63-8aa1-69cc12bdc1fd', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('electron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'G350';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'2ed15218-3c7e-4866-b3f4-a27dff5ac592', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('electron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'U260';
+                    }        
+                }); 
+            } 
+        },
         // datasheets/electron/e404x-migration-guide.md
         {
             guid:'6c533551-bce6-4c2e-b248-c7274f4b1b22', 
@@ -335,6 +365,26 @@ const path = require('path');
                 }); 
             } 
         },
+        {
+            guid:'d1aa84ec-2018-4446-8bcf-2f0380abf834', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('boron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'R410';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'785e45e8-9da4-45d9-a1f5-71add831195b', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('boron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'U201';
+                    }        
+                }); 
+            } 
+        },        
         // datasheets/boron/b404-b402-datasheet.md
         {
             guid:'91d8b83c-76ce-11eb-9439-0242ac130002', 
@@ -588,6 +638,26 @@ const path = require('path');
                 return updater.generateFamilySkus('tracker', {
                     filterFn:function(skuObj) {
                         return !skuObj.name.startsWith('T') || skuObj.skuClass == 'eval';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'ff0124f9-1fef-464c-ad08-4d1379202ede', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('T') || skuObj.modem != 'BG96-MC';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'e63f1897-f6da-4b67-a67d-045960454fd6', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('ONE') || skuObj.modem != 'BG96-MC';
                     }        
                 }); 
             } 
@@ -2409,6 +2479,36 @@ const path = require('path');
                 return updater.generateFamilySkus('e series'); 
             } 
         },
+        {
+            guid:'32ab7e42-640f-462e-bcf5-be48681aa6ab', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('e series', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'U201';
+                    }        
+                }); 
+            } 
+        },        
+        {
+            guid:'e2dcb80b-980f-400f-8151-672b236a194c', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('e series', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'R410';
+                    }        
+                }); 
+            } 
+        },        
+        {
+            guid:'d3744bfd-dee2-4722-8b14-624c4eca69ac', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('e series', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'R510';
+                    }        
+                }); 
+            } 
+        },        
         {
             // SKUs by region
             guid:'921d1b74-0130-49e9-9322-3da75e405e4e',

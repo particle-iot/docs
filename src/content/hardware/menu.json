@@ -328,6 +328,11 @@
         "href": "/hardware/certification/certification/"
       },
       {
+        "dir": "certification-documents",
+        "title": "Certification documents",
+        "href": "/hardware/certification/certification-documents/"
+      },
+      {
         "dir": "antenna",
         "title": "Antennas",
         "href": "/hardware/certification/antenna/"

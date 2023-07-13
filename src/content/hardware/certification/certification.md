@@ -10,6 +10,10 @@ description: Information about certifications (FCC, IC, CE, UL, etc.) for Partic
 
 Connected devices nearly always require certifications that ensure they operate within the wireless transmission specifications determined by international regulatory bodies like the FCC and CE. This part of the guide will provide you with more information on how to leverage Particle's existing certifications to reduce the cost, complexity, and time associated with demonstrating regulatory compliance with your end product.
 
+
+If you are looking for the actual certification document PDF files, see [certification documents](/hardware/certification/certification-documents/).
+
+
 ### Table of contents
  - [FCC](#fcc) - United States
  - [IC](#ic) - Canada
