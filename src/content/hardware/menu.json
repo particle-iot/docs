@@ -338,6 +338,11 @@
         "href": "/hardware/certification/antenna/"
       },
       {
+        "dir": "battery-certification",
+        "title": "Battery certification",
+        "href": "/hardware/certification/battery-certification/"
+      },
+      {
         "dir": "enabling-wifi-rf-test-for-esp32",
         "title": "Enabling Wi-Fi RF Test for ESP32",
         "href": "/hardware/certification/enabling-wifi-rf-test-for-esp32/"

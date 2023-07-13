@@ -9,7 +9,6 @@ description: Certification documents (FCC, IC, CE, etc.) for Particle devices.
 
 
 
-
 ## Argon
 
 The Argon is not recommended for new designs and will be deprecated with the existing stock is depleted. You should use the Photon 2 instead.
@@ -104,6 +103,7 @@ All designs using the B402 and B404 should migrate to the pin and software compa
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+
 ### CE (Europe) - B402 and B404 B Series SoM
 
 The B402, B404, and B404X are not certified for use in Europe at this time.
@@ -158,6 +158,10 @@ The B402, B404, and B404X are not certified for use in Europe at this time.
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
+
+### Bluetooth - B404X B Series SoM
+
+- [Bluetooth](/assets/pdfs/b404x-bluetooth.pdf)
 
 ### CE (Europe) - B404X B Series SoM 
 
@@ -408,6 +412,11 @@ Additional FCC Test Reports:
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
+
+
+### Bluetooth - BRN404X Boron LTE Cat M1
+
+- [Bluetooth](/assets/pdfs/brn404x-bluetooth.pdf)
 
 
 ### CE (Europe) - BRN404X Boron LTE Cat M1
@@ -948,6 +957,11 @@ The P1 module is deprecated. All designs should use the P2 module instead.
 
 {{!-- END do not edit content above, it is automatically generated a201cbf3-f21d-4b34-ac10-a713ef5a857e --}}
 
+### Bluetooth - P2
+
+- [Bluetooth RF Test Report](/assets/pdfs/p2-bt-rf-test-report.pdf)
+- [Bluetooth Profile and Service Test Report](/assets/pdfs/p2-bt-profile-test-report.pdf)
+- [Bluetooth Module Submission](/assets/pdfs/p2-bt-module-submission.pdf)
 
 ### CE (Europe) - P2
 
@@ -1118,6 +1132,10 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+### Bluetooth - T402 T404 Tracker SoM NorAm
+
+- [Bluetooth](/assets/pdfs/t402-bluetooth.pdf)
+
 ### CE (Europe) - T402 T404 Tracker SoM NorAm
 
 The T402 and T404 are not certified for use in Europe.
@@ -1179,6 +1197,12 @@ The T402 and T404 are not certified for use in Europe.
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+
+### Bluetooth - T523 T524 Tracker SoM EMEAA
+
+- [Bluetooth](/assets/pdfs/t523-bluetooth.pdf)
+
 
 ### CE (Europe) - T523 T524 Tracker SoM EMEAA
 
