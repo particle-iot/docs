@@ -196,6 +196,16 @@ const path = require('path');
                 }); 
             } 
         },
+        {
+            guid:'ff7523c9-9847-44f7-a749-752bc2c2f22c', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('electron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'U270';
+                    }        
+                }); 
+            } 
+        },
         // datasheets/electron/e404x-migration-guide.md
         {
             guid:'6c533551-bce6-4c2e-b248-c7274f4b1b22', 
@@ -653,11 +663,31 @@ const path = require('path');
             } 
         },
         {
+            guid:'33d26d3d-613c-4ebc-96d0-cc1488f6ce4d', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('T') || skuObj.modem != 'EG91-EX';
+                    }        
+                }); 
+            } 
+        },
+        {
             guid:'e63f1897-f6da-4b67-a67d-045960454fd6', 
             generatorFn:function(updater) {
                 return updater.generateFamilySkus('tracker', {
                     filterFn:function(skuObj) {
                         return !skuObj.name.startsWith('ONE') || skuObj.modem != 'BG96-MC';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'1bd8150d-c605-497c-b973-14aaae0ddada', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('ONE') || skuObj.modem != 'EG91-EX';
                     }        
                 }); 
             } 
