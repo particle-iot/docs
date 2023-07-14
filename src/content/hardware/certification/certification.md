@@ -30,17 +30,14 @@ In the United States, all Particle devices are classified as Class B devices.
 > Digital devices fall into two categories -- Class A and Class B. Class A digital devices are ones that are marketed exclusively for use in business, industrial and commercial environments. Class B digital devices are ones that are marketed for use anywhere, including residential environments.
 <p class="attribution">[FCC Bulletin OET62](https://transition.fcc.gov/oet/info/documents/bulletins/oet62/oet62rev.pdf) (pdf)</p>
 
-
 ### CE (European Union) - RF certifications
 
 In the European Union, RF certifications are often referred to as RED, Radio Equipment Directive 2014/53/EU. This is not a single certification, but
 a collection of further certifications for specific types of devices and uses. 
 
-Particle devices that can be deployed in the European Union have the required RED certifications.
-
 ## Unintentional radiator certification
 
-Almost all products will require unintentional radiator certification. This assures that your combined assembly of any custom parts you've added plus the Particle device 
+**Almost all products will require unintentional radiator certification.** This assures that your combined assembly of any custom parts you've added plus the Particle device 
 do not emit spurious electromagnetic radiation that would affect other electronic devices. 
 
 Fortunately this is the least expensive and easiest certification. A certification house will operate your device and test for RF emissions. They will provide 
@@ -59,7 +56,14 @@ This is often referred to as a sDoC, self-declaration of conformity. You don't g
 
 Unintentional radiator testing can be as low as US$ 1000 and can take as little as a few weeks, though the cost and time can vary.
 
-This operates similarly in Canada (ISED) and Europe (CE). 
+This operates similarly in Canada (ISED). 
+
+### CE (European Union) - Unintentional radiator certification
+
+The closest equivalent of FCC Part 15 subpart B testing in the European Union is IEC 62311:2019. 
+
+> IEC 62311:2019 applies to electronic and electrical equipment for which no dedicated product standard or product family standard regarding human exposure to electromagnetic fields applies. It covers equipment with intentional or non-intentional radiators as well as a combination thereof.
+
 
 ## Intentional radiator certification
 
