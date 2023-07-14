@@ -28,7 +28,7 @@ Additionally, these resources can be helpful:
 In the United States, all Particle devices are classified as Class B devices.
 
 > Digital devices fall into two categories -- Class A and Class B. Class A digital devices are ones that are marketed exclusively for use in business, industrial and commercial environments. Class B digital devices are ones that are marketed for use anywhere, including residential environments.
-<p class="attribution">FCC Bulletin OET62</p>
+<p class="attribution">[FCC Bulletin OET62](https://transition.fcc.gov/oet/info/documents/bulletins/oet62/oet62rev.pdf) (pdf)</p>
 
 
 ### CE (European Union) - RF certifications
@@ -83,7 +83,7 @@ authorized with the intentional radiator may be marketed with, and used with, th
 No retesting of this system configuration is required. The marketing or use of a system configuration
 that employs an antenna of a different type, or that operates at a higher gain, than the antenna
 authorized with the intentional radiator is not permitted.
-<p class="attribution">FCC Title 47, Part 15, Section 15.204</p>
+<p class="attribution">[FCC Title 47, Part 15, Section 15.204](https://www.law.cornell.edu/cfr/text/47/15.204)</p>
 
 This is generally interpreted as equal or lesser gain in each frequency band that is supported, which can be significant because gain my vary between bands and a 
 single higher-gain band may affect your ability to use a substitute antenna.
