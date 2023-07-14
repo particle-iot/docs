@@ -414,7 +414,9 @@ The P2 (RTL8721D) software consists of five parts:
 
 The P2 requires OpenOCD 0.11.0 or later. Make sure you've updated your Particle Workbench software to the current version to make sure you have the correct version of OpenOCD installed. On the Mac, Homebrew also includes an appropriate version of OpenOCD.
 
-- Download the [flashing script](/assets/files/p2-flash.zip) that will simplify the flashing procedure. Extract the zip file.
+- Download the flashing scripts:
+  - [rtl872x.tcl](https://github.com/particle-iot/device-os/blob/develop/scripts/rtl872x.tcl)
+  - [flash.sh](https://github.com/particle-iot/device-os/blob/develop/scripts/flash.sh) 
 
 - Download the [P2 binary zip file](/reference/developer-tools/programming-devices/#usb-particle-cli-manually-) that contains the system, bootloader, etc.. Extract it in the p2-flash directory.
 
