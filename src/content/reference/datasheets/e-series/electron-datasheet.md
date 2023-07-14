@@ -398,7 +398,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ### Radio specifications
 
-The Electron is available in different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B or R410M-03).
+The Electron is available in different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B-00 or R410M-02B-03).
 
 Some countries have already stopped supporting 2G, including Australia, Japan, Korea, Singapore, and Taiwan. The cellular carrier used by the Electron no longer supports 2G in New Zealand and Switzerland. The G350 cannot be used in these countries.
 
@@ -439,7 +439,7 @@ Please be sure to order a board that works in the country where you want to depl
 | Band 2 (1900 MHz) | &check; | &check; | &nbsp; |
 |Power Class | Class 3 (24 dBm) |Class 3 (24 dBm) | Class 3 (24 dBm) |
 
-#### u-blox SARA-R410M-02B or R410M-03
+#### u-blox SARA-R410M-02B-00 or R410M-02B-03
 
 | Parameter | Value |
 | --- | --- |

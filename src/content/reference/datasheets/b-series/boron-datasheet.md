@@ -28,7 +28,7 @@ The BRN404X model (LTE Cat M1, North America) can be found in the [Boron BRN404X
 #### Features - BRN402, BRN404 (Boron LTE)
 
  * The BRN402 and BRN404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
- * u-blox SARA-R410M-02B or R410M-03 LTE modem
+ * u-blox SARA-R410M-02B-00 or R410M-02B-03 LTE modem
  * LTE Cat M1 module
  * Support for United States, Canada, and Mexico only
  * 3GPP Release 13 LTE Cat M1 
@@ -400,7 +400,7 @@ Boron has two radio modules, the nRF52 MCU BLE radio, and a cellular module, dep
 - Global 2G/3G.
 - Not recommended for use in the United States due to the shutdown of 2G and 3G networks in 2022.
 
-#### u-blox SARA-R410M-02B or R410M-03
+#### u-blox SARA-R410M-02B-00 or R410M-02B-03
 
 | Parameter | Value |
 | --- | --- |

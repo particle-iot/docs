@@ -428,7 +428,7 @@ For a complete list of carriers and supported countries, see the [carrier guide]
 
 ---
 
-#### u-blox SARA-R410M-02B or R410M-03
+#### u-blox SARA-R410M-02B-00 or R410M-02B-03
 
 | Parameter | Value |
 | --- | --- |

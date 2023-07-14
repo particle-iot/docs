@@ -32,7 +32,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 #### Features - B402, B404
 
- * u-blox SARA-R410M-02B or R410M-03 LTE modem (B402, B404)
+ * u-blox SARA-R410M-02B-00 or R410M-02B-03 LTE modem (B402, B404)
   * The B402 and B404 have been deprecated, replacement is the B404X. See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
@@ -441,7 +441,7 @@ The B Series SoM has two radio modules.
   - 103 dBm sensitivity in 125 kbps Bluetooth® low energy mode (long range)
   - 20 to +8 dBm TX power, configurable in 4 dB steps
 
-#### u-blox SARA-R410M-02B or R410M-03
+#### u-blox SARA-R410M-02B-00 or R410M-02B-03
 
 | Parameter | Value |
 | --- | --- |
