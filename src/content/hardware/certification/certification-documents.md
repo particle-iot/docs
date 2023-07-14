@@ -1284,4 +1284,3 @@ NFC certification:
 ### RoHS - Xenon
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/xenon-rohs.pdf)
-
