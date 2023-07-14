@@ -729,7 +729,7 @@ FCC Part 15 Subpart B, Class B (sDoC):
 
 
 
-## Electron ELC402 and ELC404 LTE Cat M1 (R410M)
+## ELC402 and ELC404 LTE Cat M1 (R410M)
 
 ### FCC (United States) - Electron ELC402 and ELC404 LTE Cat M1 (R410M)
 

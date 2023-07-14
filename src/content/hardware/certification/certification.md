@@ -173,15 +173,27 @@ This is one of the reasons many small electronic devices use an external or wall
 
 ## RoHS
 
-In some cases, your completed assembly may require RoHS certification. This is a test to make sure your completed assembly does not 
-contain prohibited materials. In some cases, your certification house will simply check the RoHS status of any components you use in your
+RoHS stands for the "Restriction of Hazardous Substances Directive" adopted by the European Union in 2003 and effective as of 2006. It restricts the import and distribution of electronic and electrical equipment with six hazardous materials within the EU. Those hazardous materials are listed below:
+
+| Substance Name  | Allowable Limit |
+| ------------- | ------------- |
+| Lead (Pb)  | less than 1000ppm  |
+| Mercury (Hg)  | less than 100ppm |
+| Cadmium (Cd) | less than 100ppm |
+| Hexavalent chromium (Cr6+) | less than 1000ppm |
+| Polybrominated biphenyls (PBB) | less than 1000ppm |
+| Polybrominated diphenyl ether (PBDE) | less than 1000ppm |
+
+Even though it is not required in the United States, some consumers may prefer products that meet RoHS standards.
+
+In some cases, your completed assembly may require RoHS certification. In some cases, your certification house will simply check the RoHS status of any components you use in your
 design (printed circuit boards, components, connectors, etc.) to makes sure they are safe. In other cases, they will disassemble your product
 and perform chemical tests on the components. 
 
 RoHS is self-certified (by your certification house, not you), so you do not need to file this test with any authority, but it still may be required,
 particularly in the EU.
 
-All Particle devices have RoHS certification.
+All Particle devices have RoHS certification, even those that are not sold in the European Union.
 
 ## REACH
 
