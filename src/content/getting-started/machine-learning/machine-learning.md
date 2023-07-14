@@ -26,6 +26,7 @@ The sound processing is done entirely on-device and no ambient audio is uploaded
 
 - [Doorbell SMS tutorial page](/getting-started/machine-learning/doorbell/)
 
+{{!-- 
 ### You're muted
 
 ![Zoom](/assets/images/edge-kit/zoom.png)
@@ -33,3 +34,4 @@ The sound processing is done entirely on-device and no ambient audio is uploaded
 This detector is trained to recognize the phrase "You're muted" and generate a keystroke to unmute your Zoom session. 
 
 - [You're muted tutorial page](/getting-started/machine-learning/youre-muted/)
+--}}
