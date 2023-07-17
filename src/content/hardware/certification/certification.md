@@ -69,12 +69,16 @@ The closest equivalent of FCC Part 15 subpart B testing in the European Union is
 
 If you use the same antenna as was used for the Particle certification, or a sufficiently similar one (as described below), you can often avoid having to do 
 intentional radiator certification. Whenever possible, you should try to avoid intentional radiator as it's significantly more expensive and complicated. 
-You should expect it to cost US$ 20000 to $ 30000 and may take 4 to 8 weeks.
+You should expect it to cost US$ 20000 to $ 30000 and will typically take 4 to 8 weeks, but can take even longer.
 
 The reason this certification is more expensive is that for cellular devices, it will test the output in every supported cellular band with your combination 
 of Particle device and antenna. This requires a special test SIM and test firmware. 
 
 For Wi-Fi devices this is done for every Wi-Fi band.
+
+If you add additional radio modules, you product will also need to undergo intentional radiator testing. The exception is a module that is itself 
+certified and not directly connected to the Particle device. For example, a product that includes a BLE sensor in addition to the Particle 
+device does not require intentional radiator certification if it uses the standard Particle antennas.
 
 ### Equal or lesser gain test
 
@@ -116,9 +120,6 @@ If you use the Particle SIM card, you generally do not need to worry about cellu
 
 If you are using a 3rd-party SIM card with devices that supports one, you may need to obtain cellular certification such as PTCRB in the United States and Canada, 
 and GFC in Europe.
-
-Additionally, some carriers may require additional certification to use their networks. For example, AT&T and Verizon in the United States require this
-for LTE Cat M1 devices, but it is not required for devices with a Particle SIM card as it has already been completed.
 
 ### PTCRB - Cellular certifications
 
