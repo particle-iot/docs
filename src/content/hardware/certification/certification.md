@@ -513,7 +513,7 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - IC ID: **20127-BRN404X**
 - [Certificate of Conformity](/assets/pdfs/brn404x-ic.pdf)
 - [Test Report RSS-247 Issue 2, RSS-Gen Issue 5](/assets/pdfs/brn404x-ic-rss247-2.pdf)
-- [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/brn404x-ic-ices003-7-test-report.pdf)
+- [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/brn404x-ic-ices003-7-test-report.pdf) (updated 2023-07-17)
 - [Test Report RS-132 Issue 3, RSS-133 Issue 6, RSS-139 Issue 4](/assets/pdfs/brn404x-ic-rs132.pdf)
 - [ISED RF Exposure Report](/assets/pdfs/brn404x-ic-ised-rf-exposure.pdf)
 - [RSS-102 Annex A](/assets/pdfs/brn404x-ic-rss-102-annex-a.pdf)
