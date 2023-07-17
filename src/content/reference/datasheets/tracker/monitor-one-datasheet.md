@@ -11,10 +11,6 @@ description: Monitor One Datasheet
 {{!-- downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf" --}}
 {{/unless}} {{!-- pdf-generation --}}
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is an pre-release datasheet and the contents are subject to change.
-{{box op="end"}}
-
 {{imageOverlay src="/assets/images/monitor-one/monitor-one-closed.jpg" alt="Front view" class="full-width no-darken"}}
 
 *The pictures in this preliminary datasheet are of a pre-release unit. The production units will be a different color, and may have other minor differences.*
@@ -30,6 +26,8 @@ The Monitor One is an off-the-shelf complete gateway design, like the Tracker On
 - **User button**, waterproof and accessible from outside the enclosure.
 
 Particle gateway device like the Monitor One and Tracker One are designed to be used off-the-shelf to interface to other devices and sensors using standard protocols such as CAN bus, I2C, and serial.
+
+For information on setting up a Monitor One Developer Edition, see the [Monitor One Quickstart](/quickstart/monitor-one/).
 
 ## Block diagram
 
@@ -61,6 +59,7 @@ Certification is not expected until September or October 2023.
 |  6 | User RGB LEDs (2) |
 |  7 | User button (externally accessible) |
 |  8 | Wi-Fi geolocation antenna (internal, optional) |
+|  9 | Cover screws (6) (M2 hex, 2mm) |
 
 ### User button
 
@@ -114,7 +113,7 @@ When using external cellular and GNSS antennas you can orient the Monitor One in
 | 1 | Mounting screw or bolt holes|
 | 2 | Slots for strap mounting |
 | 3 | Magnets |
-| 4 | Mounting plate removal screw |
+| 4 | Mounting plate removal screw (M3 hex, 3mm) |
 
 The mounting plate contains two magnets (3) that allow it to be easily mounted on a metal surface.
 
@@ -867,3 +866,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2023-06-07 | RK | Numerous updates |
 | 2023-06-13 | RK | Add Prototype Card, update card names |
 | 2023-06-20 | RK | Added photos |
+| 2023-07-17 | RK | Link to quick start, screw sizes |
