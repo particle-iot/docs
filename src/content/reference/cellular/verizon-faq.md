@@ -89,14 +89,14 @@ No additional certifications are required.
 | :--- | :--- | :--- | :--- |
 | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | ANTCW2EA | &nbsp; |
 | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANTCW2EA | &nbsp; |
-| B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | PARANTC41EA | &nbsp; |
-| B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | PARANTC41EA | &nbsp; |
+| B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | PARANTC41EA | ANT-FLXU |
+| B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | PARANTC41EA | ANT-FLXU |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | ANT-FLXU | &nbsp; |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | ANT-FLXU | &nbsp; |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | &nbsp; |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | PARANTC41EA | &nbsp; |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | PARANTC41EA | &nbsp; |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | PARANTC41EA | &nbsp; |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | PARANTC41EA | ANT-FLXU |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | PARANTC41EA | ANT-FLXU |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | PARANTC41EA | ANT-FLXU |
 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | PARANTC41EA |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | ANTCW2EA |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | 1 | &nbsp; |

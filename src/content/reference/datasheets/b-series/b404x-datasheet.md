@@ -127,6 +127,8 @@ There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular r
 
 #### Certified cellular antenna
 
+The following antenna is included in single-unit packages that include an antenna.
+
 {{!-- BEGIN shared-blurb 4118f060-06af-4943-b51a-a2961f9d1e88 --}}
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
@@ -166,6 +168,60 @@ Mechanical:
 | Material | Flexible polymer | |
 | Connector and cable | U.FL and 1.13mm mini coax | |
 | Cable length | 183 | mm |
+
+Environmental:
+
+| Parameter | Value |
+| :--- | :---: |
+| Operating temperature | -40°C to 85°C |
+| Storage temperature | -40°C to 85°C |
+| ROHS Compliant | &check; |
+{{!-- END shared-blurb --}}
+
+
+#### Alternate cellular antenna
+
+Additionally, the following antenna is certified as an alternative antenna.
+
+{{!-- BEGIN shared-blurb 90598618-a6c7-470c-af25-e0186e9768a7 --}}
+| Antenna | SKU | Details | Links |
+| :----- | :--- | :------ | :---- |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
+
+General antenna parameters:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Antenna Type | Dipole | |
+| Radiation Properties | Omnidirectional | |
+| Maximum Input Power | 5 | watts |
+| Polarization | Linear | |
+| Impedance | 50 | ohms |
+
+Antenna parameters in frequency ranges:
+
+| Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| Peak Gain | 1 | 3.5 | 5 | 5 | 4.5| dBi |
+| Efficiency | 50 | 78 | 65 | 75 | 75 | % |
+| Average Gain | -3 | -2 | -2.5 | -2 | -2 | dB |
+
+Antenna parameters in specific frequency bands:
+
+| Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| Max VSWR | 2.0 | 1.8 | 1.7 | 1.7 | 2.3 | |
+| Max Return Loss | -10 | -11 | -12 | -12 | -8 | dB |
+
+Mechanical:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Dimensions | 96 x 21 x 0.2 | mm |
+| Material | Flexible polymer | |
+| Connector and cable | U.FL and 1.37mm mini coax | |
+| Cable length | 150 | mm |
 
 Environmental:
 
@@ -1089,3 +1145,4 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 030      | 2023-03-07 | RK | Update BLE antenna text |
 | 031      | 2023-04-28 | RK | Add conformal coating warning |
 | 033      | 2023-06-07 | RK | Fixed diagram of M.2 connector in schematics |
+| 034      | 2023-07-18 | RK | Added alternate antenna ANT-FLXU |

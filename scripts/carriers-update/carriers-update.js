@@ -1001,7 +1001,17 @@ const generatorConfig = require('./generator-config');
             md += ' | ' + (skuObj.cellAntInc ? '&check;' : '&nbsp;');
 
             md += ' | ' + skuObj.cellAnt;
-            md += ' | ' + (skuObj.cellAntAlt ? skuObj.cellAntAlt + '<sup>2</sup>' : '&nbsp;');
+
+            if (skuObj.cellAntAlt) {
+                let footnote = '2';
+                if (skuObj.cellAntAlt == 'ANT-FLXU') {
+                    footnote = '3';
+                }
+                md += ' | ' + skuObj.cellAntAlt + '<sup>' + footnote + '</sup>';
+            }
+            else {
+                md += ' | &nbsp;';
+            }
 
             md += ' | ' + skuObj.lifecycle;
 
