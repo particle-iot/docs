@@ -71,9 +71,56 @@ However, in some cases you data will be too large, or have a different cadence t
 
 ### BackgroundPublish
 
-The `BackgroundPublish` class is available in both Tracker Edge and Monitor Edge, however you will typically not need to use it directly. It handles publishing events from a thread so the calling thread does not block.
+The `BackgroundPublish` class is available in both Tracker Edge and Monitor Edge. You should use this class instead of calling `Particle.publish()` directly, if you only want to publish and not queue the event using store and forward. This is useful for temporal events that indicate the current state and you do not need all of the historical events when offline.
 
-As this is a specialized class, the the class is somewhat complicated to use, it is not documented here, but the source code can be found in `lib/background-publish/` in the Tracker Edge and Monitor Edge firmware if you are interested.
+The `BackgroundPublish` class is a singleton and you can get the object using `BackgroundPublish::instance()`. The header file is `BackgroundPublish.h` though within the Edge files it will already be included in most cases.
+
+The main differences between BackgroundPublish and regular `Particle.publish` are:
+
+- BackgroundPublish will never block the calling thread; it will call a callback either on success or failure.
+- It handles buffering events (in memory) to rate limit outgoing publishes. 
+- Up to 8 events will be buffered in RAM. Beyond that, the publish function returns false and the event is not queued.
+- It handles two priority queues, managing rate limiting between Edge, DiskQueue, and your events.
+- In cases of immediate failure (queue full, invalid parameters), the function will return `false` and will not call the callback.
+
+#### publish - BackgroundPublish
+
+```cpp
+// PROTOTYPE
+bool publish(const char* name,
+                const char* data = nullptr,
+                PublishFlags flags = PRIVATE,
+                std::size_t priority = 0u,
+                publish_callback cb = nullptr);
+
+// EXAMPLE
+BackgroundPublish::instance().publish("myCustomEvent", eventData);
+```
+
+- `name` is the event name, same as `Particle.publish`. This parameter is required.
+- `data` is the event data (optional), same as `Particle.publish`.
+- `flags` are the `PublishFlags`. The default is `PRIVATE`. The only other option you may want to use is `NO_ACK` (cellular devices only).
+- `priority` is the priority level. The default is 0 (high priority) and there is also 1 (low priority).
+- `cb` is the callback to call on success or failed (optional)
+
+You can omit the callback if you want to publish if online, but discard if offline.
+
+The event name and data are copied and do not need to remain in scope until the callback is called.
+
+```cpp
+// PROTOTYPE for publish_callback
+void callback(particle::Error status, const char *event_name, const char *event_data)
+```
+
+- `status` is `particle::Error::NONE` (0) or an system error code on error
+- `event_name` is the event name that was published (on success) or did not publish (on error)
+- `event_data` is the event data
+
+Note that on error the event is not queued to disk when using `BackgroundPublish` directly. You must use the higher level classes if you also want to handle queuing when there is no connectivity. This is intentionally omitted from `BackgroundPublish`.
+
+There are other overloads that take a `Context` which allows you to pass additional data to the callback but because `publish_callback` is a `std::function` you can also use lamba capture to pass additional data to your callback.
+
+
 
 ### DiskQueue
 
