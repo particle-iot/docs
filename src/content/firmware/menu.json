@@ -112,6 +112,11 @@
         "dir": "monitor-edge-api-reference",
         "title": "Monitor Edge API reference",
         "href": "/firmware/tracker-edge/monitor-edge-api-reference/"
+      },
+      {
+        "dir": "store-and-forward",
+        "title": "Store and forward",
+        "href": "/firmware/tracker-edge/store-and-forward/"
       }
     ],
     {
