@@ -699,6 +699,22 @@ $(document).ready(function () {
                     if (buttonObj.nonOrgRequired && !!apiHelper.selectedOrg) {
                         continue;
                     }
+                    if (buttonObj.enterpriseRequired) {
+                        let orgInfo;
+                        try {
+                            orgInfo = JSON.parse(localStorage.getItem('apiHelperOrg'));
+                            if (!apiHelper.auth || orgInfo.username != apiHelper.auth.username || !orgInfo.agreements) {
+                                // Username changed, ignore cached 
+                                orgInfo = null;
+                            }
+                        }
+                        catch(e) {                    
+                        }
+                        if (!orgInfo || !orgInfo.isEnterprise) {
+                            continue;
+                        }
+                    }
+
                     if (buttonObj.hidden) {
                         continue;
                     }

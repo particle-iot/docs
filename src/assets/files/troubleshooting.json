@@ -131,7 +131,7 @@
                 {
                     "page": 227,
                     "comment": "Submit purchase order",
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 },
                 {
                     "title": "View billing and data operations usage page in the console",
@@ -200,7 +200,7 @@
                 {
                     "title": "I'd like to create a support ticket for another technical issue",
                     "page": 360006636913,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -310,7 +310,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 114,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -382,7 +382,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 117,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -471,7 +471,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 360005653314,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -506,7 +506,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 1500000002882,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -549,7 +549,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 1500000002701,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -584,7 +584,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 360005653294,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -638,7 +638,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 360006631353,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -662,7 +662,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 1500000002842,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -737,7 +737,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 1500000008462,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ],
             "paths": [
@@ -798,7 +798,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 360005659054,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ],
             "paths": [
@@ -1026,7 +1026,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 360005659054,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -1125,7 +1125,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 1500000002902,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ],
             "paths": [
