@@ -171,9 +171,37 @@ It is also available on the bottom of the box. The serial number begins with "P"
 
 Just follow the instructions in the setup application to complete setup.
 
-## Additional resources
+## Next steps
 
-- [Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/)
-- [Console settings](/getting-started/console/console/#asset-tracker-features)
+### Console
+
+The [Particle console](https://console.particle.io/) is where you can view and configure your Monitor One, or an entire fleet of devices. 
+
+The [console getting started guide](/getting-started/console/console/#map) is a good place to start.
+
+![Map View](/assets/images/tracker/map-view.png)
+
+In some cases, you can configure your Monitor One settings entirely from the cloud may not need custom firmware at all.
+
+![Location Settings](/assets/images/tracker/settings-1.png)
+
+### Particle Workbench
+
+[Particle Workbench](/getting-started/developer-tools/workbench/) is the development environment for the Monitor One. From that link you 
+can download Workbench, based on Visual Studio Code, for Windows, Linux, and Mac.
+
+### Monitor Edge
+
+The firmware on the Monitor One is Monitor Edge, which is included on the device but is open source and can be customized for your specific application.
+
 - [Monitor Edge firmware](/firmware/tracker-edge/monitor-edge-firmware/)
 
+It builds on the standard features of Particle device firmware and the Device OS API:
+
+- [Introduction to Particle Device Firmware](/firmware/best-practices/firmware-introduction/)
+- [Device OS API](/reference/device-os/api/introduction/introduction/)
+
+
+For further technical information about the Monitor One, see the Monitor One datasheet.
+
+- [Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/)
