@@ -1380,4 +1380,3 @@ The bootloader allows you to easily update the user application via several diff
 | 024      | 2023 Mar 17 | RK | Pin table listed wrong maximum current for CAN_5V |
 | 025      | 2023 Apr 28 | RK | Add conformal coating and flux notes |
 | 026      | 2023 Jul 19 | RK | Block diagram had incorrect RGB pins |
-

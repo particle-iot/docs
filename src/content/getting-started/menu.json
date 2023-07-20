@@ -348,6 +348,11 @@
           "href": "/getting-started/integrations/community-integrations/influxdata/"
         },
         {
+          "dir": "blynk",
+          "title": "Blynk",
+          "href": "/getting-started/integrations/community-integrations/blynk/"
+        },
+        {
           "dir": "questdb",
           "title": "QuestDB",
           "href": "/getting-started/integrations/community-integrations/questdb/"
