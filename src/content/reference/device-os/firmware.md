@@ -25395,10 +25395,14 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v5.0.x releases|[v5.1.0](https://github.com/particle-iot/device-os/releases/tag/v5.1.0)|[v5.2.0](https://github.com/particle-iot/device-os/releases/tag/v5.2.0)|[v5.3.0](https://github.com/particle-iot/device-os/releases/tag/v5.3.0)|[v5.3.1](https://github.com/particle-iot/device-os/releases/tag/v5.3.1)|[v5.3.2](https://github.com/particle-iot/device-os/releases/tag/v5.3.2)|[v5.4.0](https://github.com/particle-iot/device-os/releases/tag/v5.4.0)|-|
+|v5.4.x releases|[v5.4.0](https://github.com/particle-iot/device-os/releases/tag/v5.4.0)|[v5.4.1](https://github.com/particle-iot/device-os/releases/tag/v5.4.1)|-|-|-|-|-|
+|v5.3.x releases|[v5.3.0](https://github.com/particle-iot/device-os/releases/tag/v5.3.0)|[v5.3.1](https://github.com/particle-iot/device-os/releases/tag/v5.3.1)|[v5.3.2](https://github.com/particle-iot/device-os/releases/tag/v5.3.2)|-|-|-|-|
+|v5.2.x releases|[v5.2.0](https://github.com/particle-iot/device-os/releases/tag/v5.2.0)|-|-|-|-|-|-|
+|v5.1.x releases|[v5.1.0](https://github.com/particle-iot/device-os/releases/tag/v5.1.0)|-|-|-|-|-|-|
 |v5.0.x releases|[v5.0.1](https://github.com/particle-iot/device-os/releases/tag/v5.0.1)|-|-|-|-|-|-|
 |v5.0.x releases|[v5.0.0](https://github.com/particle-iot/device-os/releases/tag/v5.0.0)|-|-|-|-|-|-|
-|v4.0.x releases|[v4.0.0](https://github.com/particle-iot/device-os/releases/tag/v4.0.0)|[v4.0.1](https://github.com/particle-iot/device-os/releases/tag/v4.0.1)|[v4.0.2](https://github.com/particle-iot/device-os/releases/tag/v4.0.2)|[v4.1.0](https://github.com/particle-iot/device-os/releases/tag/v4.1.0)|-|-|-|
+|v4.1.x releases|[v4.1.0](https://github.com/particle-iot/device-os/releases/tag/v4.1.0)|-|-|-|-|-|-|
+|v4.0.x releases|[v4.0.0](https://github.com/particle-iot/device-os/releases/tag/v4.0.0)|[v4.0.1](https://github.com/particle-iot/device-os/releases/tag/v4.0.1)|[v4.0.2](https://github.com/particle-iot/device-os/releases/tag/v4.0.2)|-|-|-|-|
 |v4.0.x prereleases|[v4.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v4.0.0-beta.1)|[v4.0.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v4.0.1-rc.1)|-|-|-|-|-|
 |v3.3.x releases|[v3.3.0](https://github.com/particle-iot/device-os/releases/tag/v3.3.0)|[v3.3.1](https://github.com/particle-iot/device-os/releases/tag/v3.3.1)|-|-|-|-|-|
 |v3.3.x prereleases|[v3.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.3.0-rc.1)|-|-|-|-|-|-|
@@ -25444,10 +25448,15 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v5.0.x releases|[v5.1.0](/reference/device-os/firmware/?fw_ver=5.1.0&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|[v5.2.0](/reference/device-os/firmware/?fw_ver=5.2.0&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|[v5.3.0](/reference/device-os/firmware/?fw_ver=5.3.0&cli_ver=3.7.0&electron_parts=3#programming-and-debugging-notes)|[v5.3.1](/reference/device-os/firmware/?fw_ver=5.3.1&cli_ver=3.7.0&electron_parts=3#programming-and-debugging-notes)|[v5.3.2](/reference/device-os/firmware/?fw_ver=5.3.2&cli_ver=3.10.1&electron_parts=3#programming-and-debugging-notes)|[v5.4.0](/reference/device-os/firmware/?fw_ver=5.4.0&cli_ver=3.11.0&electron_parts=3#programming-and-debugging-notes)|
-|v5.0.x releases|[v5.0.1](/reference/device-os/firmware/?fw_ver=5.0.1&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
-|v5.0.x releases|[v5.0.0](/reference/device-os/firmware/?fw_ver=5.0.0&cli_ver=3.4.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
-|v4.0.x releases|[v4.0.0](/reference/device-os/firmware/?fw_ver=4.0.0&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|[v4.0.1](/reference/device-os/firmware/?fw_ver=4.0.1&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|[v4.0.2](/reference/device-os/firmware/?fw_ver=4.0.2&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|[v4.1.0](/reference/device-os/firmware/?fw_ver=4.1.0&cli_ver=3.11.0&electron_parts=3#programming-and-debugging-notes)|-|-|
+|v5.4.x releases|[v5.4.0](/reference/device-os/firmware/?fw_ver=5.4.0&cli_ver=3.11.0&electron_parts=3#programming-and-debugging-notes)|[v5.4.1](/reference/device-os/firmware/?fw_ver=5.4.1&cli_ver=3.11.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v5.3.x releases|[v5.3.0](/reference/device-os/firmware/?fw_ver=5.3.0&cli_ver=3.7.0&electron_parts=3#programming-and-debugging-notes)|[v5.3.1](/reference/device-os/firmware/?fw_ver=5.3.1&cli_ver=3.7.0&electron_parts=3#programming-and-debugging-notes)|[v5.3.2](/reference/device-os/firmware/?fw_ver=5.3.2&cli_ver=3.10.1&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
+|v5.2.x releases|[v5.2.0](/reference/device-os/firmware/?fw_ver=5.2.0&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v5.1.x releases|[v5.1.0](/reference/device-os/firmware/?fw_ver=5.1.0&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v5.0.x releases|[v5.0.1](/reference/device-os/firmware/?fw_ver=5.0.1&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v5.0.x releases|[v5.0.1](/reference/device-os/firmware/?fw_ver=5.0.1&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v5.0.x releases|[v5.0.0](/reference/device-os/firmware/?fw_ver=5.0.0&cli_ver=3.4.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v4.1.x releases|[v4.1.0](/reference/device-os/firmware/?fw_ver=4.1.0&cli_ver=3.11.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v4.0.x releases|[v4.0.0](/reference/device-os/firmware/?fw_ver=4.0.0&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|[v4.0.1](/reference/device-os/firmware/?fw_ver=4.0.1&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|[v4.0.2](/reference/device-os/firmware/?fw_ver=4.0.2&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v4.0.x prereleases|[v4.0.0-beta.1](/reference/device-os/firmware/?fw_ver=4.0.0-beta.1&cli_ver=3.3.3&electron_parts=3#programming-and-debugging-notes)|[v4.0.1-rc.1](/reference/device-os/firmware/?fw_ver=4.0.1-rc.1&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v3.3.x releases|[v3.3.0](/reference/device-os/firmware/?fw_ver=3.3.0&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|[v3.3.1](/reference/device-os/firmware/?fw_ver=3.3.1&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v3.3.x prereleases|[v3.3.0-rc.1](/reference/device-os/firmware/?fw_ver=3.3.0-rc.1&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
@@ -25490,6 +25499,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v3.11.3 = 5.4.1
 v3.11.0 = 4.1.0, 5.4.0
 v3.10.1 = 5.3.2
 v3.7.0  = 5.3.0, 5.3.1
@@ -25640,6 +25650,8 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@5.3.2endif
 ##### @FW_VER@5.4.0if
 ##### @FW_VER@5.4.0endif
+##### @FW_VER@5.4.1if
+##### @FW_VER@5.4.1endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -25742,6 +25754,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@3.10.1endif
 ##### @CLI_VER@3.11.0if
 ##### @CLI_VER@3.11.0endif
+##### @CLI_VER@3.11.3if
+##### @CLI_VER@3.11.3endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
