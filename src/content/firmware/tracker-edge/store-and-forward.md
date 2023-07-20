@@ -69,9 +69,60 @@ However, in some cases you data will be too large, or have a different cadence t
 
 ![Priority queues](/assets/images/tracker/priority-queues.png)
 
+
+### CloudService send (Monitor Edge)
+
+If you want to publish your own custom events that are not queued, but still mixed in with and rate-limited with store and forward events, 
+use the CloudService in Tracker Edge and Monitor Edge. 
+
+- It does not block the calling thread; it will call a callback either on success or failure.
+- It handles buffering events (in memory) to rate limit outgoing publishes. 
+- Up to 8 events will be buffered in RAM. Beyond that, the publish function returns false and the event is not queued.
+- It handles two priority queues, managing rate limiting between Edge, DiskQueue, and your events.
+- In cases of immediate failure (queue full, invalid parameters), the function will return and will not call the callback.
+
+There are many options and overloads to `CloudService::send()` however you will typically only need a subset:
+
+```cpp
+// PROTOTYPE - CloudService - Monitor Edge
+int send(const char *data,
+    PublishFlags publish_flags = PRIVATE,
+    CloudServicePublishFlags cloud_flags = CloudServicePublishFlags::NONE,
+    cloud_service_ack_callback cb=nullptr,
+    unsigned int timeout_ms=std::numeric_limits<system_tick_t>::max(),
+    const char *event_name=nullptr,
+    uint32_t req_id=0,
+    std::size_t priority=0u);
+```
+
+- `data` is the event data, same as `Particle.publish`. It is copied and does not need to remain allocated after send returns.
+- `publish_flags` are the `PublishFlags`. The default is `PRIVATE`. The only other option you may want to use is `NO_ACK` (cellular devices only).
+- `cloud_flags` are flags for the CloudService. Default is `CloudServicePublishFlags::NONE`. The other valid value is `FULL_ACK` however this is not practical to use outside of the Edge configuration service because it requires server-side support.
+- `cb` is the callback to call on success or failed (optional), see below.
+- `timeout_ms` is the timeout. Default is `std::numeric_limits<system_tick_t>::max()` (no timeout). This is only used for `FULL_ACK`.
+- `event_name` is the name of the event, as used with `Particle.publish`. It is copied and does not need to remain allocated after send returns.
+- `req_id` is only used for `FULL_ACK``, pass 0 or use the default value otherwise.
+- `priority` is the priority level. The default is 0 (high priority) and there is also 1 (low priority).
+
+Return 0 on success, or a non-zero error code. Returns `-EBUSY` (-16) if BackgroundPublish was unable to queue the event for sending because the RAM-based queue was full.
+
+
+```cpp
+// PROTOTYPE - cloud_service_ack_callback - Monitor Edge
+int (CloudServiceStatus status, String &&) 
+```
+- `status` is `particle::Error::NONE` (0) or an system error code on error
+
+The return value for the callback is not currently used, but you should return 0.
+
+
+
+{{!-- 
 ### BackgroundPublish
 
-The `BackgroundPublish` class is available in both Tracker Edge and Monitor Edge. You should use this class instead of calling `Particle.publish()` directly, if you only want to publish and not queue the event using store and forward. This is useful for temporal events that indicate the current state and you do not need all of the historical events when offline.
+The `BackgroundPublish` class is available in both Tracker Edge only. While the class is available in Monitor Edge, you cannot 
+
+You should use this class instead of calling `Particle.publish()` directly, if you only want to publish and not queue the event using store and forward. This is useful for temporal events that indicate the current state and you do not need all of the historical events when offline.
 
 The `BackgroundPublish` class is a singleton and you can get the object using `BackgroundPublish::instance()`. The header file is `BackgroundPublish.h` though within the Edge files it will already be included in most cases.
 
@@ -120,7 +171,9 @@ Note that on error the event is not queued to disk when using `BackgroundPublish
 
 There are other overloads that take a `Context` which allows you to pass additional data to the callback but because `publish_callback` is a `std::function` you can also use lamba capture to pass additional data to your callback.
 
+--}}
 
 
 ### DiskQueue
 
+Combining `CloudService` and `DiskQueue` classes makes it possible to implement your own event queue. This is separate from the Edge event queue, and can have its own settings. It does, however, handle 
