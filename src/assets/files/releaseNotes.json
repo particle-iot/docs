@@ -26808,6 +26808,50 @@
                 2659,
                 2661
             ]
+        },
+        "v5.4.1": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.4.1",
+            "tag_name": "v5.4.1",
+            "name": "v5.4.1 (Argon/Boron/B SoM/B5 SoM/Tracker/Tracker M/E SoM X/P2)",
+            "prerelease": true,
+            "created_at": "2023-07-18T18:16:13Z",
+            "published_at": "2023-07-20T23:36:44Z",
+            "entries": [
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2664
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "dynamically enable Wi-Fi stack on demand"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2665
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "linker: stop relying on .dynalib + .psram_text being contiguous and properly and similarly aligned within LMA and VMA, just copy them separately"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2664
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fix BLE race condition"
+                }
+            ],
+            "prs": [
+                2664,
+                2665
+            ]
         }
     },
     "pulls": {
@@ -39308,6 +39352,85 @@
             "title": "Device OS 5.4.0 Release",
             "state": "closed",
             "created_at": "2023-06-13T18:12:37Z"
+        },
+        "2664": {
+            "url": "https://github.com/particle-iot/device-os/pull/2664",
+            "number": 2664,
+            "title": "[rtl872x] dynamically enable Wi-Fi stack on demand and fix BLE race c…",
+            "state": "closed",
+            "created_at": "2023-06-21T11:16:36Z",
+            "detail": "RTL872x-specific:\n\nAs of right now, the Wi-Fi stack is enabled on startup to support BLE functionality and it is always enabled during the application's life time. Thus, it consumes extremely high power that is around 60mA.\n\nThere is also deadlock and race condition in BLE HAL. The race condition happens when BLE is connected, followed by  entering sleep mode."
+        },
+        "2665": {
+            "url": "https://github.com/particle-iot/device-os/pull/2665",
+            "number": 2665,
+            "title": "[rtl872x] linker: stop relying on .dynalib + .psram_text being contiguous and properly and similarly aligned within LMA and VMA, just copy them separately",
+            "state": "closed",
+            "created_at": "2023-06-21T20:53:29Z",
+            "detail": "Some user apps break expectations of `.dynalib` + `.psram_text` being contiguous and similarly aligned in LMA (flash) and VMA (PSRAM)."
+        },
+        "2666": {
+            "url": "https://github.com/particle-iot/device-os/pull/2666",
+            "number": 2666,
+            "title": "[photon2] fix GPIOs sleep configuration.",
+            "state": "open",
+            "created_at": "2023-07-03T14:54:10Z",
+            "detail": "1. All GPIOs cannot disable pull resistors when they are configured as output.\n2. ~~All GPIOs cannot remain `HIGH` in hibernate mode if they are configured as output `HIGH`.~~ All GPIOs are actually shutdown in hibernate mode.\n3. SWD DAT that is configured as GPIO cannot remain `LOW` in hibernate mode if it is configured as output `LOW`.\n4.  SWD DAT that is configured as SWD actives high in hibernate/stop/ulp mode, which results in power leakage [Photon2 only].\n5. SWD CLK that is configured as GPIO makes SWD DAT actives high in hibernate mode, which results in power leakage [Photon2 only]."
+        },
+        "2667": {
+            "url": "https://github.com/particle-iot/device-os/pull/2667",
+            "number": 2667,
+            "title": "[rtl872x] RTC is not remained after waking up from hibernate mode.",
+            "state": "open",
+            "created_at": "2023-07-07T09:36:23Z",
+            "detail": "RTC is always reset after waking up from hibernate mode."
+        },
+        "2668": {
+            "url": "https://github.com/particle-iot/device-os/pull/2668",
+            "number": 2668,
+            "title": "Assets OTA",
+            "state": "open",
+            "created_at": "2023-07-11T10:28:40Z",
+            "detail": "Assets OTA"
+        },
+        "2669": {
+            "url": "https://github.com/particle-iot/device-os/pull/2669",
+            "number": 2669,
+            "title": "[test] resolve sleep20 test failures.",
+            "state": "open",
+            "created_at": "2023-07-12T14:28:30Z",
+            "detail": "`wiring/sleep20` test failures:\n- Test `12_System_Sleep_With_Configuration_Object_Hibernate_Mode_Bypass_Network_Off_Execution_Time` [Photon2]\n- Test `33_System_Sleep_With_Configuration_Object_Stop_Mode_Execution_Time` [Argon/Photon2]\n- Test `34_System_Sleep_With_Configuration_Object_Ultra_Low_Power_Mode_Wakeup_Execution_Time` [Argon/Photon2]\n- Test `35_System_Sleep_With_Configuration_Object_Network_Power_State_Consistent_Off` [ Argon/Photon2]\n\n---"
+        },
+        "2670": {
+            "url": "https://github.com/particle-iot/device-os/pull/2670",
+            "number": 2670,
+            "title": "Device OS 5.4.1 Release",
+            "state": "closed",
+            "created_at": "2023-07-18T18:22:14Z"
+        },
+        "2671": {
+            "url": "https://github.com/particle-iot/device-os/pull/2671",
+            "number": 2671,
+            "title": "[rtl872x] fix incorrect I2C read timeout",
+            "state": "open",
+            "created_at": "2023-07-19T05:47:50Z",
+            "detail": "I2C read timeout is not correct."
+        },
+        "2672": {
+            "url": "https://github.com/particle-iot/device-os/pull/2672",
+            "number": 2672,
+            "title": "[rtl872x] hal: make USB CDC a bit quicker by scheduling TX from timer callback delayed by 1ms",
+            "state": "open",
+            "created_at": "2023-07-19T09:54:53Z",
+            "detail": "USB stack on RTL872x platforms is pretty slow due to processing of interrupts in a task thread and weird scheduling. As a consequence this makes USB CDC (Serial) pretty slow especially on Device->Host path."
+        },
+        "2673": {
+            "url": "https://github.com/particle-iot/device-os/pull/2673",
+            "number": 2673,
+            "title": "[rtl872x] WPA3 and hidden SSID support",
+            "state": "open",
+            "created_at": "2023-07-19T13:46:54Z",
+            "detail": "Support for WPA3 and hidden SSIDs (note that correct channel plan e.g. US needs to be set for 5GHz hidden SSID support to work, otherwise 5GHz scans are passive)."
         }
     }
 }

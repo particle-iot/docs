@@ -17374,13 +17374,15 @@ In this mode on wake, device is reset, running setup() again.
 ---
 
 {{note op="start" type="P2"}}
-- The P2, Photon 2, and Tracker M can only wake from `HIBERNATE` mode on `WKP` (D10), `RISING`, `FALLING`, or `CHANGE`.
+- The P2 and Photon 2 do not support holding a GPIO in `OUTPUT` mode when in `HIBERNATE` mode. The pin will go into high impedance mode.
+
+- The P2 and Photon 2 can only wake from `HIBERNATE` mode on `WKP` (D10), `RISING`, `FALLING`, or `CHANGE`.
 
 - On the Photon 2, pin D10 is in the same position as the Argon/Feather pin D8. 
 
 - On the P2, pins S4, S5, and S6 do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
 
-- On the Photon 2, pin S4 is in the position of A4 on the Argon and other Feather devices. It do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+- On the Photon 2, pin S4 is in the position of A4 on the Argon and other Feather devices. It does not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
 
 - The P2, Photon 2, and Tracker M do not support wake on analog.
 {{note op="end"}}

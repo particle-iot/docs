@@ -78,8 +78,9 @@ The table below lists the certified model numbers.
 
 ### Is additional certification required?
 
-No additional certifications are required.
+No additional certifications are required if you are using the antenna that the Particle device was certified. See the [antenna guide](/hardware/certification/antenna/) for more information.
 
+If you are using a different antenna, and had previously undergone intentional radiator certification, but did not certify on B13 (700 MHz), you will need to recertify. AT&T uses B12 (700 MHz), not B13.
 
 ## Supported SKUs
 
