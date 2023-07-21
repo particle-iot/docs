@@ -11,11 +11,6 @@ description: You're Muted
 
 This detector is trained to recognize the phrase "You're muted" and generate a keystroke to unmute your Zoom session. 
 
-{{box op="start" cssClass="boxed warningBox"}}
-This demo requires Device OS 5.4.1 or later, expected to be related in late July, 2023.
-{{box op="end"}}
-
-
 ## Wiring the microphone
 
 You will need the following hardware, included in the [Edge ML Kit](/reference/datasheets/accessories/edge-ml-kit/)
@@ -57,7 +52,7 @@ This tutorial is a complete example, using a pre-trained model from [Edge Impuls
 - Extract the contents of the zip file
 - Open Particle Workbench. From the Command Palette (Ctrl-Shift-P on Windows and Linux, Cmd-Shift-P on Mac):
 - **Particle: Import Project**. Select the `project.properties` file in the zip file you just extracted.
-- Use **Particle: Configure Project For Device** and select **deviceOS@5.4.0** and **P2**. The P2 option is also used for the Photon 2. Device OS 5.4.1 or later is required for keyboard emulation.
+- Use **Particle: Configure Project For Device** and select **deviceOS@5.4.0** and **P2**. The P2 option is also used for the Photon 2. Device OS 5.4.1 or later is required for this demo.
 - In src/main.cpp, you'll need to configure the keyboard shortcut to what was set above. 
 
 ```cpp
