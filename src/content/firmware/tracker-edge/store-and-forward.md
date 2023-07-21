@@ -70,7 +70,7 @@ However, in some cases you data will be too large, or have a different cadence t
 ![Priority queues](/assets/images/tracker/priority-queues.png)
 
 
-### CloudService send (Monitor Edge)
+### CloudService send
 
 If you want to publish your own custom events that are not queued, but still mixed in with and rate-limited with store and forward events, 
 use the CloudService in Tracker Edge and Monitor Edge. 
@@ -80,6 +80,59 @@ use the CloudService in Tracker Edge and Monitor Edge.
 - Up to 8 events will be buffered in RAM. Beyond that, the publish function returns false and the event is not queued.
 - It handles two priority queues, managing rate limiting between Edge, DiskQueue, and your events.
 - In cases of immediate failure (queue full, invalid parameters), the function will return and will not call the callback.
+
+
+#### CloudService send - helper
+
+There are two annoyances with using `CloudService::send` from your code:
+
+- The API is slightly different between Tracker Edge and Monitor Edge
+- There are a bunch of options you don't need
+
+The `EdgeEventQueueRK` library, whose purpose is mainly to simplify private event queues on disk, also implements
+a helper function to making using CloudService send easier. You can use this even if you are not using the disk queue.
+
+```cpp
+// PROTOTYPE - EdgeEventQueueRK
+static int cloudServicePublish(const char *eventName, const char *eventData, PublishFlags publishFlags = {}, size_t priority = 0, std::function<int(CloudServiceStatus)> cb = 0);
+```
+
+- `eventName` The event name, as is used in `Particle.publish`. 
+
+- `eventData` The event data, as is used in `Particle.publish`.
+
+- `publishFlags` Publish flags, as is used in Particle.publish. This is optional, and if omitted the default flags are used.
+
+- `priority` 0 or 1. 0 is the default queue and 1 is the low priority queue.
+
+- `cb`` Callback function to be called on successful completion or error. Optional. Not called if an immediate error
+results in a non-zero result code; callback is only called if the return value is 0.
+
+- Returns `int`` 0 on success or a non-zero error code
+
+The callback function has this prototype:
+
+```cpp
+int callback(CloudServiceStatus status)
+```
+
+- `status` is `particle::Error::NONE` (0) or an system error code on error
+
+Callback is a std::function so you can pass a lambda, which allows you to pass additional data via capture variables, or
+call a C++ class method and instance easily.
+
+The eventName and eventValue are copied and do not need to remain valid until the callback is called. Once the
+cloudServicePublish call returns, the variables can go out of scope, so it's safe for them to be local variables
+on the stack.
+
+Using cloudServicePublish interleaves your event with others in the system in a queue in RAM. The queue is finite
+in size (currently 8 elements per priority queue) and if the queue is full, -EBUSY (-16) is returned.
+
+Note that this function does not use the disk queue! It's a low-level function used by the publish method in this
+class, or you can use it for your own purposes if you want to publish events that are not saved to disk if the device
+is currently offline.
+
+#### CloudService send - Monitor Edge
 
 There are many options and overloads to `CloudService::send()` however you will typically only need a subset:
 
@@ -115,7 +168,41 @@ int (CloudServiceStatus status, String &&)
 
 The return value for the callback is not currently used, but you should return 0.
 
+#### CloudService send - Tracker Edge
 
+There are many options and overloads to `CloudService::send()` however you will typically only need a subset:
+
+```cpp
+// PROTOTYPE - CloudService - Tracker Edge
+int send(const char *data,
+    PublishFlags publish_flags = PRIVATE,
+    CloudServicePublishFlags cloud_flags = CloudServicePublishFlags::NONE,
+    cloud_service_send_cb_t cb=nullptr,
+    unsigned int timeout_ms=std::numeric_limits<system_tick_t>::max(),
+    const char *event_name=nullptr,
+    uint32_t req_id=0,
+    std::size_t priority=0u);
+```
+
+- `data` is the event data, same as `Particle.publish`. It is copied and does not need to remain allocated after send returns.
+- `publish_flags` are the `PublishFlags`. The default is `PRIVATE`. The only other option you may want to use is `NO_ACK` (cellular devices only).
+- `cloud_flags` are flags for the CloudService. Default is `CloudServicePublishFlags::NONE`. The other valid value is `FULL_ACK` however this is not practical to use outside of the Edge configuration service because it requires server-side support.
+- `cb` is the callback to call on success or failed (optional), see below.
+- `timeout_ms` is the timeout. Default is `std::numeric_limits<system_tick_t>::max()` (no timeout). This is only used for `FULL_ACK`.
+- `event_name` is the name of the event, as used with `Particle.publish`. It is copied and does not need to remain allocated after send returns.
+- `req_id` is only used for `FULL_ACK``, pass 0 or use the default value otherwise.
+- `priority` is the priority level. The default is 0 (high priority) and there is also 1 (low priority).
+
+Return 0 on success, or a non-zero error code. Returns `-EBUSY` (-16) if BackgroundPublish was unable to queue the event for sending because the RAM-based queue was full.
+
+
+```cpp
+// PROTOTYPE - cloud_service_ack_callback - Tracker Edge
+int (CloudServiceStatus status, JSONValue *, const char *, const void *context) 
+```
+- `status` is `particle::Error::NONE` (0) or an system error code on error
+
+The return value for the callback is not currently used, but you should return 0.
 
 {{!-- 
 ### BackgroundPublish
