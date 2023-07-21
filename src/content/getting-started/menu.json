@@ -353,6 +353,11 @@
           "href": "/getting-started/integrations/community-integrations/blynk/"
         },
         {
+          "dir": "pushover",
+          "title": "Pushover (push notifications)",
+          "href": "/getting-started/integrations/community-integrations/pushover/"
+        },
+        {
           "dir": "questdb",
           "title": "QuestDB",
           "href": "/getting-started/integrations/community-integrations/questdb/"
