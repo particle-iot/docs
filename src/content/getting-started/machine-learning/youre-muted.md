@@ -67,7 +67,6 @@ Keyboard.click(KEY_A, MOD_LALT); // Windows
 
 ## Building using Docker
 
-{{!-- BEGIN shared-blurb 27145a22-9b9b-11ec-b909-0242ac120002 --}}
 Particularly on Windows, you can significantly speed up builds by using Docker. Also, if you get the error `Argument list too long` on Windows, using Docker can work around this issue. For more information, see also [building using a buildpack](/firmware/best-practices/firmware-build-options/#using-buildpack).
 
 - Download and install [Docker Desktop](https://www.docker.com/). 
@@ -92,7 +91,7 @@ docker run --name=edge-compile -v C:\Users\rickk\Desktop\You_re_Muted__inferenci
 ```
 
 - The `--name` is optional, however it makes it easier to keep track of your containers
-- Note that `-v` takes the local path, which must be an absolute path, and either `:/input` or `:/output`
+- Note that `-v` takes the local path, which must be an absolute path, and either `:/input` or `:/output`, which can be the same path
 - You need to include `PLATFORM_ID` with the numeric platform ID (32 for P2 and Photon 2)
 - You can use a different version of Device OS instead of `5.4.1` if desired
 - `-p2` is used for both P2 and Photon 2
@@ -104,8 +103,6 @@ When the build is complete, you'll find your firmware binary in the output direc
 ```
 docker rm edge-compile
 ```
-
-{{!-- END shared-blurb --}}
 
 ## Learn more
 
