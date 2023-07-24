@@ -121,6 +121,46 @@ SmsWebhook::instance().queueSms(mesg);
 - Use **Particle: Clean application (local)** to make sure there are no remnants from a previous build.
 - Use **Particle: Flash Application (local)** or **Particle: Compile Application (local)**. You must use the local option; the firmware cannot be compiled using the cloud compile options (Cloud Compile or Cloud Flash). 
 
+## Building using Docker
+
+Particularly on Windows, you can significantly speed up builds by using Docker. Also, if you get the error `Argument list too long` on Windows, using Docker can work around this issue. For more information, see also [building using a buildpack](/firmware/best-practices/firmware-build-options/#using-buildpack).
+
+- Download and install [Docker Desktop](https://www.docker.com/). 
+- Docker Desktop does not automatically start when you log in, but does need to be running to do Docker builds.
+- The first time you install it will take longer to download the buildpack, but subsequent builds will reuse it and be much faster.
+- From the Command Palette (Ctrl-Shift-P) select **Particle: Launch CLI**.
+- You use the `docker run` command to start a new container and run the build in it.
+
+| Command Fragment | Description |
+| :--- | :--- |
+| `docker run` | Create a run a container |
+| `--name=`*name* | Name of the container (optional) |
+| `-v `*local_path*`:/input` | Path to the source directory, must be an absolute path |
+| `-v `*output_path*`:/output` | Path to the output directory, must be an absolute path |
+| `-e PLATFORM_ID=`*numeric_platform_id* | The numeric platform ID you are building for |
+| *image_name* | The name of the image file |
+
+For example, if my source directory is `C:\Users\rickk\Desktop\Doorbell_Chimes_inferencing`:
+
+```html
+docker run --name=edge-compile -v C:\Users\rickk\Desktop\Doorbell_Chimes_inferencing:/input -v C:\Users\rickk\Desktop\Doorbell_Chimes_inferencing:/output -e PLATFORM_ID=32 particle/buildpack-particle-firmware:5.4.1-p2
+```
+
+- The `--name` is optional, however it makes it easier to keep track of your containers
+- Note that `-v` takes the local path, which must be an absolute path, and either `:/input` or `:/output`, which can be the same path
+- You need to include `PLATFORM_ID` with the numeric platform ID (32 for P2 and Photon 2)
+- You can use a different version of Device OS instead of `5.4.1` if desired
+- `-p2` is used for both P2 and Photon 2
+
+When the build is complete, you'll find your firmware binary in the output directory as `firmware.bin`.
+
+- You can now delete the container artifacts:
+
+```
+docker rm edge-compile
+```
+
+
 ## Learn more
 
 - You can find additional projects on the [Edge Impulse ML projects page](https://www.edgeimpulse.com/projects/all?search=particle).
