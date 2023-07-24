@@ -713,7 +713,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Uganda | E314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | E314 | 2G, 3G | Kyivstar, Life, MTS |
 | United Kingdom | E314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
-| United States | E404 | M1 | AT&T |
+| United States | E404 | M1 | AT&T, T-Mobile (USA)<sup>5</sup> |
 | Uruguay | E314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | E314 | 2G, 3G | Beeline |
 | Venezuela | E314 | 2G, 3G | Movistar |
@@ -724,6 +724,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 
 {{!-- END do not edit content above, it is automatically generated 2445e222-76e2-11eb-9439-0242ac130002 --}}
 
+<sup>5</sup>T-Mobile in the United States only officially supports LTE Cat NB1, which is not supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas, and where enabled, this device can connect to it.
 
 ## Ordering information
 

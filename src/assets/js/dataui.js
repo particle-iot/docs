@@ -1214,6 +1214,10 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
                                         cellContents += '<sup>' + options.footnotes['warnTMobile'] + '</sup>';
                                         showFootnotes.warnTMobile = true;                                        
                                     }
+                                    if (options.footnotes && options.footnotes['warnVerizon'] && obj[planKey].allowM1 == 7) {
+                                        cellContents += '<sup>' + options.footnotes['warnVerizon'] + '</sup>';
+                                        showFootnotes.warnVerizon = true;                                        
+                                    }
                                 }
                                 else {
                                     cellContents = '\u2753'; // Red question
@@ -1314,6 +1318,10 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
                 'and where enabled, this device can connect to it. ' +
                 'There is no coverage map as T-Mobile does not acknowledge the existence of LTE Cat M1 coverage.</td></tr>';                            
             }
+            if (showFootnotes.warnVerizon) {
+                html += '<tr><td><sup>' + options.footnotes.warnVerizon + '</sup></td><td>Verizon is only available on enterprise plans.</td></tr>';                            
+            }
+
 
             
             html += '</table>\n';

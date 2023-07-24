@@ -18118,7 +18118,13 @@
       "noBands": [
         "2G",
         "3G"
-      ]
+      ],
+      "supersim": {
+        "allow2G": false,
+        "allow3G": false,
+        "allowCat1": false,
+        "allowM1": 7
+      }
     },
     {
       "country": "United States",

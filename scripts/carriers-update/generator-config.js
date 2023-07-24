@@ -59,7 +59,7 @@ const path = require('path');
         {
             guid:'0ca3e34e-76e2-11eb-9439-0242ac130002',
             generatorFn:function(updater) {
-                return updater.generateCountryList('electron'); 
+                return updater.generateCountryList('electron', {noVerizon: true}); 
             } 
         },
         // E Series datasheet
@@ -72,7 +72,7 @@ const path = require('path');
         {
             guid:'2445e222-76e2-11eb-9439-0242ac130002',
             generatorFn:function(updater) {
-                return updater.generateCountryList('e series'); 
+                return updater.generateCountryList('e series', {noVerizon: true}); 
             } 
         },
         // datasheets/electron/e-series-eval-board.md
