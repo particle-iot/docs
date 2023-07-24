@@ -637,7 +637,7 @@ The bootloader allows you to easily update the user application via several diff
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Canada | B404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Mexico | B404 | M1 | AT&T |
+| Mexico | B404 | M1 | AT&T, Telcel |
 | United States | B404 | M1 | AT&T |
 
 

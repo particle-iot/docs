@@ -765,7 +765,7 @@ The complete schematic and board files are open source and available on Particle
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Canada | BRN404X | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Mexico | BRN404X | M1 | AT&T |
+| Mexico | BRN404X | M1 | AT&T, Telcel |
 | United States | BRN404X | M1 | AT&T |
 
 

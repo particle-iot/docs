@@ -1105,7 +1105,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Canada | B404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Mexico | B404 | M1 | AT&T |
+| Mexico | B404 | M1 | AT&T, Telcel |
 | United States | B404 | M1 | AT&T |
 
 

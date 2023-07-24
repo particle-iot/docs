@@ -1252,7 +1252,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Malawi | T524 | 2G, 3G, Cat1 | Airtel |
 | Malaysia | T524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
 | Malta | T524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
-| Mexico | T404 | M1 | AT&T |
+| Mexico | T404 | M1 | AT&T, Telcel |
 | Moldova | T524 | 2G, 3G, Cat1 | Moldcell, Orange |
 | Mongolia | T524 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | T524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |

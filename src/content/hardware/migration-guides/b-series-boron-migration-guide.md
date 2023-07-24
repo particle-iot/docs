@@ -66,7 +66,7 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Canada | B404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Mexico | B404 | M1 | AT&T |
+| Mexico | B404 | M1 | AT&T, Telcel |
 | United States | B404 | M1 | AT&T |
 
 

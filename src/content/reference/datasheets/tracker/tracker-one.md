@@ -484,7 +484,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Malawi | ONE524 | 2G, 3G, Cat1 | Airtel |
 | Malaysia | ONE524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
 | Malta | ONE524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
-| Mexico | ONE404 | M1 | AT&T |
+| Mexico | ONE404 | M1 | AT&T, Telcel |
 | Moldova | ONE524 | 2G, 3G, Cat1 | Moldcell, Orange |
 | Mongolia | ONE524 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | ONE524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |

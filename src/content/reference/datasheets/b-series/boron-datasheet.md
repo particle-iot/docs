@@ -614,8 +614,8 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Malawi | BRN314 | 2G, 3G | Airtel |
 | Malaysia | BRN314 | 2G, 3G | Celcom, DiGi, Maxis |
 | Malta | BRN314 | 2G, 3G | Go Mobile, Vodafone |
-| Mexico | BRN404 | M1 | AT&T |
-| Mexico | BRN404X | M1 | AT&T |
+| Mexico | BRN404 | M1 | AT&T, Telcel |
+| Mexico | BRN404X | M1 | AT&T, Telcel |
 | Moldova | BRN314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | BRN314 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | BRN314 | 2G, 3G | Mtel, T-Mobile, Telenor |

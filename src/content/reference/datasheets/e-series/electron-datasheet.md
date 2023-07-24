@@ -725,7 +725,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Malawi | ELC314 | 2G, 3G | Airtel |
 | Malaysia | ELC314 | 2G, 3G | Celcom, DiGi, Maxis |
 | Malta | ELC314 | 2G, 3G | Go Mobile, Vodafone |
-| Mexico | ELC404 | M1 | AT&T |
+| Mexico | ELC404 | M1 | AT&T, Telcel |
 | Moldova | ELC314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | ELC314 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | ELC314 | 2G, 3G | Mtel, T-Mobile, Telenor |

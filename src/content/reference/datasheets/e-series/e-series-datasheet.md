@@ -662,7 +662,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Malawi | E314 | 2G, 3G | Airtel |
 | Malaysia | E314 | 2G, 3G | Celcom, DiGi, Maxis |
 | Malta | E314 | 2G, 3G | Go Mobile, Vodafone |
-| Mexico | E404 | M1 | AT&T |
+| Mexico | E404 | M1 | AT&T, Telcel |
 | Moldova | E314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | E314 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | E314 | 2G, 3G | Mtel, T-Mobile, Telenor |

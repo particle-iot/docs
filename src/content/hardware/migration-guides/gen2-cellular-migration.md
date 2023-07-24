@@ -797,7 +797,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Malta | Vodafone | &check; | &check; | &check; | &nbsp; |
 | Mexico | AT&T | &check; | <sup>NRND</sup> | &nbsp; | &check; |
 | Mexico | Movistar | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Mexico | Telcel | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| Mexico | Telcel | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
 | Moldova | Moldcell | &nbsp; | &check; | &check; | &nbsp; |
 | Moldova | Orange | &check; | &check; | &check; | &nbsp; |
 | Mongolia | Mobicom | &nbsp; | &check; | &check; | &nbsp; |
