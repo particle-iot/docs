@@ -102,7 +102,8 @@ This tutorial is a complete example, using a pre-trained model from [Edge Impuls
 
 - Download the [zip file containing the full source](/assets/files/edge-ml/Doorbell_Chimes_inferencing.zip)
 - Extract the contents of the zip file
-- Open Particle Workbench. From the Command Palette (Ctrl-Shift-P on Windows and Linux, Cmd-Shift-P on Mac):
+- Open Particle Workbench. From the Command Palette (Ctrl-Shift-P on Windows and Linux, Cmd-Shift-P on Mac).
+- If not logged in to your Particle account, **Particle: Login** as this is necessary to install libraries.
 - **Particle: Import Project**. Select the `project.properties` file in the zip file you just extracted.
 - Use **Particle: Configure Project For Device** and select **deviceOS@5.3.2** and **P2**. The P2 option is also used for the Photon 2. Device OS 5.3.2 or later is required.
 - Update src/main.cpp to set the phone number to send to and the message to send.

@@ -50,7 +50,8 @@ This tutorial is a complete example, using a pre-trained model from [Edge Impuls
 
 - Download the [zip file containing the full source](/assets/files/edge-ml/You_re_Muted__inferencing.zip)
 - Extract the contents of the zip file
-- Open Particle Workbench. From the Command Palette (Ctrl-Shift-P on Windows and Linux, Cmd-Shift-P on Mac):
+- Open Particle Workbench. From the Command Palette (Ctrl-Shift-P on Windows and Linux, Cmd-Shift-P on Mac).
+- If not logged in to your Particle account, **Particle: Login** as this is necessary to install libraries.
 - **Particle: Import Project**. Select the `project.properties` file in the zip file you just extracted.
 - Use **Particle: Configure Project For Device** and select **deviceOS@5.4.0** and **P2**. The P2 option is also used for the Photon 2. Device OS 5.4.1 or later is required for this demo.
 - In src/main.cpp, you'll need to configure the keyboard shortcut to what was set above. 
