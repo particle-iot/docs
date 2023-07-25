@@ -66,6 +66,10 @@ However, in some cases you data will be too large, or have a different cadence t
 
 ### Priority queues
 
+There are two priority queues:
+
+- 0 (high priority) can be used to send out urgent, timely events
+- 1 (normal priority) is used for location publishes and is the default when using the helper library
 
 ![Priority queues](/assets/images/tracker/priority-queues.png)
 
@@ -84,53 +88,12 @@ use the CloudService in Tracker Edge and Monitor Edge.
 
 #### CloudService send - helper
 
-There are two annoyances with using `CloudService::send` from your code:
+There are two annoyances with using `CloudService::send` directly from your code:
 
 - The API is slightly different between Tracker Edge and Monitor Edge
 - There are a bunch of options you don't need
 
-The `EdgeEventQueueRK` library, whose purpose is mainly to simplify private event queues on disk, also implements
-a helper function to making using CloudService send easier. You can use this even if you are not using the disk queue.
-
-```cpp
-// PROTOTYPE - EdgeEventQueueRK
-static int cloudServicePublish(const char *eventName, const char *eventData, PublishFlags publishFlags = {}, size_t priority = 0, std::function<int(CloudServiceStatus)> cb = 0);
-```
-
-- `eventName` The event name, as is used in `Particle.publish`. 
-
-- `eventData` The event data, as is used in `Particle.publish`.
-
-- `publishFlags` Publish flags, as is used in Particle.publish. This is optional, and if omitted the default flags are used.
-
-- `priority` 0 or 1. 0 is the default queue and 1 is the low priority queue.
-
-- `cb`` Callback function to be called on successful completion or error. Optional. Not called if an immediate error
-results in a non-zero result code; callback is only called if the return value is 0.
-
-- Returns `int`` 0 on success or a non-zero error code
-
-The callback function has this prototype:
-
-```cpp
-int callback(CloudServiceStatus status)
-```
-
-- `status` is `particle::Error::NONE` (0) or an system error code on error
-
-Callback is a std::function so you can pass a lambda, which allows you to pass additional data via capture variables, or
-call a C++ class method and instance easily.
-
-The eventName and eventValue are copied and do not need to remain valid until the callback is called. Once the
-cloudServicePublish call returns, the variables can go out of scope, so it's safe for them to be local variables
-on the stack.
-
-Using cloudServicePublish interleaves your event with others in the system in a queue in RAM. The queue is finite
-in size (currently 8 elements per priority queue) and if the queue is full, -EBUSY (-16) is returned.
-
-Note that this function does not use the disk queue! It's a low-level function used by the publish method in this
-class, or you can use it for your own purposes if you want to publish events that are not saved to disk if the device
-is currently offline.
+There is a helper library, described below, that makes it easier to use CloudService send, but this is optional.
 
 #### CloudService send - Monitor Edge
 
@@ -260,7 +223,87 @@ There are other overloads that take a `Context` which allows you to pass additio
 
 --}}
 
+## Helper library
 
-### DiskQueue
+While you can use `CloudService` and `DiskQueue` directly, it's easier to use a helper library which encapsulates some of the complexity. You could also just use the library as a reference for making your own implementation.
 
-Combining `CloudService` and `DiskQueue` classes makes it possible to implement your own event queue. This is separate from the Edge event queue, and can have its own settings. It does, however, handle 
+The [EdgeEventQueueRK](https://github.com/rickkas7/EdgeEventQueueRK/) library makes it easy to implement both queued and non-queued publishes
+while maintaining compatibility with the rate-limiting built into the Edge software. It works with both Tracker Edge (v18 and later) and Monitor Edge
+firmware.
+
+### Initialization example - helper
+
+Add to `setup()` (Tracker Edge) or `user_setup()` (Monitor Edge):
+
+```cpp
+privateEventQueue
+    .withSizeLimit(50 * 1024)
+    .withQueuePath("/usr/testq")
+    .setup();
+```
+
+### Add to loop - helper
+
+Add to `loop()` (Tracker Edge) or `user_loop()` (Monitor Edge):
+
+```cpp
+privateEventQueue.loop();
+```
+
+### Queued send - helper
+
+This automatically handles:
+
+- Queuing events to the flash file system
+- Rate limiting publishes
+- Managing high and normal priority event queues
+
+```cpp
+// EXAMPLE
+privateEventQueue.publish("eventQueueTest", eventData);
+```
+
+
+### Non-queued send - helper
+
+It also implements a helper function to making using CloudService send easier. You can use this even if you are not using the disk queue.
+
+```cpp
+// PROTOTYPE - EdgeEventQueueRK
+static int cloudServicePublish(const char *eventName, const char *eventData, PublishFlags publishFlags = {}, size_t priority = 0, std::function<int(CloudServiceStatus)> cb = 0);
+```
+
+- `eventName` The event name, as is used in `Particle.publish`. 
+
+- `eventData` The event data, as is used in `Particle.publish`.
+
+- `publishFlags` Publish flags, as is used in Particle.publish. This is optional, and if omitted the default flags are used.
+
+- `priority` 0 or 1. 0 is the default queue and 1 is the low priority queue.
+
+- `cb` Callback function to be called on successful completion or error. Optional. Not called if an immediate error
+results in a non-zero result code; callback is only called if the return value is 0.
+
+- Returns `int` 0 on success or a non-zero error code
+
+The callback function has this prototype:
+
+```cpp
+int callback(CloudServiceStatus status)
+```
+
+- `status` is `particle::Error::NONE` (0) or an system error code on error
+
+Callback is a `std::function`` so you can pass a lambda, which allows you to pass additional data via capture variables, or
+call a C++ class method and instance easily.
+
+The `eventName`` and `eventValue`` are copied and do not need to remain valid until the callback is called. Once the
+cloudServicePublish call returns, the variables can go out of scope, so it's safe for them to be local variables
+on the stack.
+
+Using cloudServicePublish interleaves your event with others in the system in a queue in RAM. The queue is finite
+in size (currently 8 elements per priority queue) and if the queue is full, -EBUSY (-16) is returned.
+
+Note that this function does not use the disk queue! It's a low-level function used by the publish method in this
+class, or you can use it for your own purposes if you want to publish events that are not saved to disk if the device
+is currently offline.
