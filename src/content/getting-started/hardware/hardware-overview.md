@@ -115,7 +115,7 @@ If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 - The Boron LTE Cat M1 (BRN404KIT or BRN404X) is the recommended model for the United States, Canada, and Mexico.
 - Can be powered by USB, rechargeable LiPo battery, or an external power supply.
 - All Boron devices include a built-in Particle SIM card ([free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required).
-- Starter kits include a mini-breadboard, USB cable, two resistors (220 ohm), one red LED, and one photodiode.
+- Starter kits include a mini-breadboard, USB cable, two resistors (220 ohm), one red LED, and one phototransistor.
 - ARG-STRTKT includes a variety of [Grove](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and a display.
 - A battery is included with the Boron 2G/3G (BRN314) as the cellular modem uses more power for brief periods of time than a standard laptop USB port will supply.
 

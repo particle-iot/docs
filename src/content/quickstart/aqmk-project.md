@@ -86,7 +86,7 @@ Now, let’s create a new project for the application firmware. The steps below 
 
 ## Measuring dust levels
 
-Now that we have everything set-up, let’s connect the Dust sensor. The Grove Dust sensor is a Shinyei PPD42 device that uses Static light scattering with a red LED, a photodiode, and an infrared LED to measure the amount of dust particles in the air. It’s a clever little digital device, and is easy to set-up if you have a few formulas in hand.
+Now that we have everything set-up, let’s connect the Dust sensor. The Grove Dust sensor is a Shinyei PPD42 device that uses Static light scattering with a red LED, a phototransistor, and an infrared LED to measure the amount of dust particles in the air. It’s a clever little digital device, and is easy to set-up if you have a few formulas in hand.
 
 1. In the project you just created, we need to add some items at the top of your firmware, before the `setup` and `loop`. First, add a reference to use the newlib Math functions by including the Math.h header file. This lets us use the pow() function with our first sensor. Next, add a couple #define directives.  The first is for the digital pin of your dust sensor, and the second is the number of milliseconds that we want to elapse between sensor readings.
 
