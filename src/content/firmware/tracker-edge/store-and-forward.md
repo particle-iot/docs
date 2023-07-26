@@ -63,6 +63,7 @@ If you want to add to the `loc` event, see these documents:
 - Adding to `loc` in [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/#adding-to-the-location-event)
 
 However, in some cases your data will be too large, or have a different cadence than the location publishes, in which case you can use 
+the techniques below.
 
 ### Priority queues
 
@@ -123,7 +124,7 @@ int send(const char *data,
 - `cb` is the callback to call on success or failed (optional), see below.
 - `timeout_ms` is the timeout. Default is `std::numeric_limits<system_tick_t>::max()` (no timeout). This is only used for `FULL_ACK`.
 - `event_name` is the name of the event, as used with `Particle.publish`. It is copied and does not need to remain allocated after send returns.
-- `req_id` is only used for `FULL_ACK``, pass 0 or use the default value otherwise.
+- `req_id` is only used for `FULL_ACK`, pass 0 or use the default value otherwise.
 - `priority` is the priority level. The default is 0 (high priority) and there is also 1 (low priority).
 
 Return 0 on success, or a non-zero error code. Returns `-EBUSY` (-16) if BackgroundPublish was unable to queue the event for sending because the RAM-based queue was full.
@@ -159,7 +160,7 @@ int send(const char *data,
 - `cb` is the callback to call on success or failed (optional), see below.
 - `timeout_ms` is the timeout. Default is `std::numeric_limits<system_tick_t>::max()` (no timeout). This is only used for `FULL_ACK`.
 - `event_name` is the name of the event, as used with `Particle.publish`. It is copied and does not need to remain allocated after send returns.
-- `req_id` is only used for `FULL_ACK``, pass 0 or use the default value otherwise.
+- `req_id` is only used for `FULL_ACK`, pass 0 or use the default value otherwise.
 - `priority` is the priority level. The default is 0 (high priority) and there is also 1 (low priority).
 
 Return 0 on success, or a non-zero error code. Returns `-EBUSY` (-16) if BackgroundPublish was unable to queue the event for sending because the RAM-based queue was full.
@@ -236,7 +237,7 @@ While you can use `CloudService` and `DiskQueue` directly, it's easier to use a 
 
 The [EdgeEventQueue](https://github.com/particle-iot/EdgeEventQueue/) library makes it easy to implement both queued and non-queued publishes
 while maintaining compatibility with the rate-limiting built into the Edge software. It works with both Tracker Edge (v18 and later) and Monitor Edge
-firmware. This link includes additional information on setup options and the API.
+firmware. The Github link includes additional information on setup options and the API.
 
 ### Initialization example - helper
 
@@ -301,10 +302,10 @@ int callback(CloudServiceStatus status)
 
 - `status` is `particle::Error::NONE` (0) or an system error code on error
 
-Callback is a `std::function`` so you can pass a lambda, which allows you to pass additional data via capture variables, or
+Callback is a `std::function` so you can pass a lambda, which allows you to pass additional data via capture variables, or
 call a C++ class method and instance easily.
 
-The `eventName`` and `eventValue`` are copied and do not need to remain valid until the callback is called. Once the
+The `eventName` and `eventValue` are copied and do not need to remain valid until the callback is called. Once the
 cloudServicePublish call returns, the variables can go out of scope, so it's safe for them to be local variables
 on the stack.
 
