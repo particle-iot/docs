@@ -4758,6 +4758,9 @@ bool charging = !digitalRead(CHG);
 
 In other words, the `CHG` input is 0 when charging and 1 when not charging, and the `!` inverts this logic to make it easier to use.
 
+On the Argon, the `PWR` input is 1 when there is 5V power on the Micro USB connector or VUSB pin. You can use `digitalRead(PWR)` to find the value.
+On cellular devices with a PMIC, you should use [`System.powerSource()`](#powersource-) instead.
+
 ---
 
 {{note op="start" type="note"}}
