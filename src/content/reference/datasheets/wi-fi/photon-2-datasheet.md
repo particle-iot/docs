@@ -81,9 +81,9 @@ The **EN** pin is not a power pin, per se, but it controls the 3V3 power. The EN
 
 The EN pin can force the device into a deep power-down state where it uses very little power. It also can used to assure that the device is completely reset, similar to unplugging it, with one caveat:
 
-If using the EN pin to deeply reset the device, you must be careful not to allow leakage current back into the nRF52 MCU by GPIO or by pull-ups to 3V3. If you only power external devices by 3V3 you won't run into this, as 3V3 is de-powered when EN is low. 
+If using the EN pin to deeply reset the device, you must be careful not to allow leakage current back into the MCU by GPIO or by pull-ups to 3V3. If you only power external devices by 3V3 you won't run into this, as 3V3 is de-powered when EN is low. 
 
-However, if you have circuitry that is powered by a separate, external power supply, you must be careful. An externally powered circuit that drives a nRF52 GPIO high when EN is low can provide enough current to keep the nRF52 from powering down and resetting. Likewise, a pull-up to an external power supply can do the same thing. Be sure that in no circumstances can power by supplied to the nRF52 when 3V3 is de-powered.
+However, if you have circuitry that is powered by a separate, external power supply, you must be careful. An externally powered circuit that drives a GPIO high when EN is low can provide enough current to keep the MCU from powering down and resetting. Likewise, a pull-up to an external power supply can do the same thing. Be sure that in no circumstances can power by supplied to the MCU when 3V3 is de-powered.
 
 ### Antenna
 
@@ -791,6 +791,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |     | 2023-05-18 | RK | Add warning that the Photon 2 cannot be powered by 3V3 |
 |   1 | 2023-06-20 | RK | Initial version |
 |   2 | 2023-06-30 | RK | Updated power consumption |
+|   3 | 2023-07-26 | RK | EN pin description listed wrong MCU |
 
 ## Known errata
 
