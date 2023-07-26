@@ -371,22 +371,34 @@ const generatorConfig = require('./generator-config');
                     if (!modemObj.technologies.includes(tech)) {
                         return;
                     }
-                    if (!ccObj.supersim['allow' + tech]) {
+                    const allowFlag = ccObj.supersim['allow' + tech]; 
+                    if (!allowFlag) {
                         return;
                     }
-                    if (tech == 'M1' && ccObj.supersim['allowM1'] == 5) {
-                        // T-Mobile unofficial support
+                    if (tech == 'M1' && allowFlag == 5) {
+                        // T-Mobile unofficial support (no longer hiding)
+                        // return;
+                    }
+                    if (options.noVerizon && tech == 'M1' && allowFlag == 7) {
+                        // Verizon on Electron LTE and E404 is not supported
                         return;
                     }
+
                     if (!showTechnologies.includes(tech)) {
                         showTechnologies.push(tech);
                     }
-                    hasTech = true;
+                    hasTech = allowFlag;
                 });
                 if (!hasTech) {
                     return;
                 }
-                carriers.push(ccObj.carrier);
+
+                let carrier = ccObj.carrier;
+                if (hasTech !== true) {
+                    carrier += '<sup>' + hasTech + '</sup>';
+                }
+
+                carriers.push(carrier);
             });
 
             if (carriers.length == 0) {

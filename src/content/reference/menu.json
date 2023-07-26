@@ -189,8 +189,7 @@
       {
         "dir": "verizon-faq2",
         "title": "Verizon FAQ",
-        "href": "/reference/cellular/verizon-faq2/",
-        "internal": true
+        "href": "/reference/cellular/verizon-faq2/"
       },
       {
         "dir": "lte-cat-1-expansion",
