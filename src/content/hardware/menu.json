@@ -324,13 +324,23 @@
     [
       {
         "dir": "certification",
-        "title": "Certifications",
+        "title": "Certification",
         "href": "/hardware/certification/certification/"
+      },
+      {
+        "dir": "certification-documents",
+        "title": "Certification documents",
+        "href": "/hardware/certification/certification-documents/"
       },
       {
         "dir": "antenna",
         "title": "Antennas",
         "href": "/hardware/certification/antenna/"
+      },
+      {
+        "dir": "battery-certification",
+        "title": "Battery certification",
+        "href": "/hardware/certification/battery-certification/"
       },
       {
         "dir": "enabling-wifi-rf-test-for-esp32",
