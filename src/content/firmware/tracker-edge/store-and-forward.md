@@ -34,7 +34,7 @@ When drop_old is used, and the queue is at maximum size, a new entry is added to
 
 When drop_new is used, and the queue is at maximum size, new entries are immediately discarded.
 
-Each event in the queue is a single file on the LittleFS flash file system. The file system uses 4096 byte (4K) sectors, and the minimum size size is 2 sectors, one for data and one of the file metadata. Thus each even will take 8K of flash file system space, regardless of the size of the data in the event. 
+Each event in the queue is a single file on the LittleFS flash file system. The file system uses 4096 byte (4K) sectors, and the minimum size size is 2 sectors, one for data and one of the file metadata. Thus each event will take 8K of flash file system space, regardless of the size of the data in the event. 
 
 ## Edge firmware
 
@@ -62,16 +62,21 @@ If you want to add to the `loc` event, see these documents:
 - Adding to `loc` in [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/#adding-to-the-location-event)
 - Adding to `loc` in [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/#adding-to-the-location-event)
 
-However, in some cases you data will be too large, or have a different cadence than the location publishes, in which case you can use 
+However, in some cases your data will be too large, or have a different cadence than the location publishes, in which case you can use 
 
 ### Priority queues
 
 There are two priority queues:
 
 - 0 (high priority) can be used to send out urgent, timely events
-- 1 (normal priority) is used for location publishes and is the default when using the helper library
+- 1 (normal priority) is used and is the default when using the helper library
+
+For location publishes, it will initially attempt to use the high priority queue. If the device is offline, it will be added to
+the disk queue. When the disk queue is uploaded after coming back online, the loc events will be put into the normal priority queue.
 
 ![Priority queues](/assets/images/tracker/priority-queues.png)
+
+It is possible to add additional priority queues by modifying the cloud_service.h file, but this is not generally necessary.
 
 
 ### CloudService send
@@ -85,6 +90,7 @@ use the CloudService in Tracker Edge and Monitor Edge.
 - It handles two priority queues, managing rate limiting between Edge, DiskQueue, and your events.
 - In cases of immediate failure (queue full, invalid parameters), the function will return and will not call the callback.
 
+{{!-- 
 
 #### CloudService send - helper
 
@@ -166,6 +172,7 @@ int (CloudServiceStatus status, JSONValue *, const char *, const void *context)
 - `status` is `particle::Error::NONE` (0) or an system error code on error
 
 The return value for the callback is not currently used, but you should return 0.
+--}}
 
 {{!-- 
 ### BackgroundPublish
@@ -223,13 +230,13 @@ There are other overloads that take a `Context` which allows you to pass additio
 
 --}}
 
-## Helper library
+## EdgeEventQueue Helper library
 
-While you can use `CloudService` and `DiskQueue` directly, it's easier to use a helper library which encapsulates some of the complexity. You could also just use the library as a reference for making your own implementation.
+While you can use `CloudService` and `DiskQueue` directly, it's easier to use a helper library which encapsulates some of the complexity. 
 
-The [EdgeEventQueueRK](https://github.com/rickkas7/EdgeEventQueueRK/) library makes it easy to implement both queued and non-queued publishes
+The [EdgeEventQueue](https://github.com/particle-iot/EdgeEventQueue/) library makes it easy to implement both queued and non-queued publishes
 while maintaining compatibility with the rate-limiting built into the Edge software. It works with both Tracker Edge (v18 and later) and Monitor Edge
-firmware.
+firmware. This link includes additional information on setup options and the API.
 
 ### Initialization example - helper
 
