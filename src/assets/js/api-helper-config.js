@@ -117,25 +117,37 @@ apiHelper.getTrackerConfig = function(product, deviceId, completion) {
 };
 
 
-$(document).ready(function() {
+$(document).ready(async function() {
     if ($('.apiHelper').length == 0) {
         return;
     }
 
     let sandboxTrackerProducts = [];
+    let fileIndex = {};
 
+    await new Promise(function(resolve, reject) {
+        fetch('/assets/files/tracker/file-index.json')
+        .then(response => response.json())
+        .then(function(data) {
+            fileIndex = data;
+            console.log('fileIndex', fileIndex);
+            resolve();
+        });
+    });
 
+    
     const trackerSchemeButtonElems = $('.apiHelperConfigSchemaUpload, .apiHelperConfigSchemaDownload, .apiHelperConfigSchemaDefault, ' + 
         '.codeboxUploadSchemaButton, .apiHelperTrackerConfigSet, .apiHelperTrackerConfigDefault');
 
     const buildTrackerDeviceMenu = function(product) {
+        const selectElems = $('.apiHelperTrackerDeviceSelect');
+
         if (!product) {
             let html = '<option disabled>Select a product first</option>'
             $('.apiHelperTrackerDeviceSelect').html(html);
             $(trackerSchemeButtonElems).prop('disabled', true);
             return;
         }
-        const selectElems = $('.apiHelperTrackerDeviceSelect');
 
         $(selectElems).each(function() {
             const selectElem = $(this);
@@ -286,7 +298,6 @@ $(document).ready(function() {
     else {
         // Not logged in
     }
-
 
 
     $('.apiHelperTrackerProductSelect').each(function(index) {
@@ -456,11 +467,46 @@ $(document).ready(function() {
             $(configSchemaPartial).find('.apiHelperConfigSchemaStatus').html(status);
         };
 
+        const apiHelperTrackerSchemaVersionElem = $('.apiHelperTrackerSchemaVersion');
+
+        let deviceFirmware;
+
+        const deviceFirmwareChanged = function() {
+            deviceFirmware = $('.deviceFirmwareRadio:checked').val();
+            console.log('deviceFirmware', deviceFirmware);
+
+            $(apiHelperTrackerSchemaVersionElem).each(function() {
+                $(this).find('option').not(':first').remove();
+            });
+            
+            for(const obj of fileIndex.schemas[deviceFirmware]) {
+                const optionElem = document.createElement('option');
+                $(optionElem).attr('value', obj.file);
+                $(optionElem).text('v' + obj.ver);
+
+                $(apiHelperTrackerSchemaVersionElem).append(optionElem);
+            }
+
+            switch(deviceFirmware) {
+                case 'tracker':
+                    break;
+
+                case 'monitor':
+                    break;
+            }
+        };
+        deviceFirmwareChanged();
+
+        $('.deviceFirmwareRadio').on('click', function() {
+            $('.deviceFirmwareRadio').prop('checked', false);
+            $(this).prop('checked', true);
+            deviceFirmwareChanged();
+        });
 
         $('.apiHelperConfigSchemaDownload').on('click', function(ev) {
             const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
             const product = $(configSchemaPartial).find('.apiHelperTrackerProductSelect').val();
-            const deviceId = $(configSchemaPartial).find('.apiHelperTrackerDeviceSelect').val();
+            const deviceId = 'default';
 
             apiHelper.downloadSchema('schema.json', product, deviceId, function(err) {
                 if (!err) {
@@ -483,7 +529,7 @@ $(document).ready(function() {
         $('.apiHelperConfigSchemaUpload').on('click', function() {
             const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
             const product = $(configSchemaPartial).find('.apiHelperTrackerProductSelect').val();
-            const deviceId = $(configSchemaPartial).find('.apiHelperTrackerDeviceSelect').val();
+            const deviceId = 'default';
 
             setStatus(configSchemaPartial, 'Select schema to upload...');
 
@@ -529,7 +575,7 @@ $(document).ready(function() {
         $('.apiHelperConfigSchemaDefault').on('click', function() {
             const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
             const product = $(configSchemaPartial).find('.apiHelperTrackerProductSelect').val();
-            const deviceId = $(configSchemaPartial).find('.apiHelperTrackerDeviceSelect').val();
+            const deviceId = 'default';
             const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
 
             setStatus(configSchemaPartial, 'Restoring default schema...');
@@ -897,7 +943,6 @@ $(document).ready(function() {
             .then(function(data) {
                 schemaPropertyTemplate = data;
             });
-
         /*
         fetch('/assets/files/tracker/default-schema.json')
             .then(response => response.json())
