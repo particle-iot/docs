@@ -30,6 +30,8 @@ The connections on the breakout are:
 | CLK | Blue | A0 | PDM Clock |
 | DAT | Green | A1 | PDM Data |
 
+The pinout for the Photon 2 can be found on its [datasheet](https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/#pin-markings).
+
 {{imageOverlay src="/assets/images/edge-kit/mic-3.jpeg" alt="PDM Microphone Assembled" }}
 
 ## Configure Zoom
