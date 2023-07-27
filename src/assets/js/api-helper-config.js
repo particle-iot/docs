@@ -136,7 +136,7 @@ $(document).ready(async function() {
     });
 
     
-    const trackerSchemeButtonElems = $('.apiHelperConfigSchemaUpload, .apiHelperConfigSchemaDownload, .apiHelperConfigSchemaDefault, ' + 
+    const trackerSchemeButtonElems = $('.apiHelperConfigSchemaUpload, .apiHelperConfigSchemaDownload, .apiHelperConfigSchemaSet, ' + 
         '.codeboxUploadSchemaButton, .apiHelperTrackerConfigSet, .apiHelperTrackerConfigDefault');
 
     const buildTrackerDeviceMenu = function(product) {
@@ -536,6 +536,7 @@ $(document).ready(async function() {
                 });
             });    
 
+            
             $(thisPartial).find('.apiHelperConfigSchemaUpload').on('click', function() {
                 const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
                 const product = $(configSchemaPartial).find('.apiHelperTrackerProductSelect').val();
@@ -582,39 +583,72 @@ $(document).ready(async function() {
                 
             });    
 
-            $(thisPartial).find('.apiHelperConfigSchemaDefault').on('click', function() {
+            $(thisPartial).find('.apiHelperConfigSchemaSet').on('click', async function() {
                 const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
                 const product = $(configSchemaPartial).find('.apiHelperTrackerProductSelect').val();
                 const deviceId = 'default';
                 const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
 
+                setStatus(configSchemaPartial, 'Saving backup schema...');
+                await new Promise(function(resolve, reject) {
+                    apiHelper.downloadSchema('backup-schema.json', product, deviceId, function(err) {
+                        if (err) {
+                            reject(err);
+                        }
+                        else {
+                            resolve();
+                        }
+                    });
+                });
+
+                let schemaFile = $(apiHelperTrackerSchemaVersionElem).val();
+                if (schemaFile == 'default') {
+                    setStatus(configSchemaPartial, 'Restoring default schema...');
+
+                    $.ajax({
+                        data: '{}',
+                        error: function(err) {
+                            gtag('event', 'Restore Default Error', {'event_category':'Tracker Schema', 'event_label':err.responseJSON.message});
+                            setStatus(configSchemaPartial, 'Error deleting schema: ' + err.responseJSON.message + '.<br/>This is normal if there is no custom schema defined.');
+                            setTimeout(function() {
+                                setStatus('');
+                            }, 10000);
+                        },
+                        headers: {
+                            'Authorization':'Bearer ' + apiHelper.auth.access_token,
+                            'Content-Type':'application/schema+json'
+                        },
+                        method: 'DELETE',
+                        success: function (resp) {
+                            gtag('event', 'Restore Default Success', {'event_category':'Tracker Schema'});
+                            setStatus(configSchemaPartial, 'Successfully restored.');
+                            setTimeout(function() {
+                                setStatus('');
+                            }, 4000);
+                        },
+                        url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
+                    });        
+                }
+                else {
+                    setStatus(configSchemaPartial, 'Downloading schema...');
+                    const schemaData = await new Promise(function(resolve, reject) {
+                        fetch('/assets/files/tracker/' + schemaFile)
+                            .then(response => response.text())
+                            .then(function(data) {
+                                resolve(data);
+                            });
+                    });
+
+                    setStatus(configSchemaPartial, 'Setting schema...');
+
+                    await new Promise(function(resolve, reject) {
+                        apiHelper.uploadSchema(schemaData, product, deviceId, resolve);
+                    });
+
+                    setStatus(configSchemaPartial, 'Schema updated!');
 
 
-                setStatus(configSchemaPartial, 'Restoring default schema...');
-
-                $.ajax({
-                    data: '{}',
-                    error: function(err) {
-                        gtag('event', 'Restore Default Error', {'event_category':'Tracker Schema', 'event_label':err.responseJSON.message});
-                        setStatus(configSchemaPartial, 'Error deleting schema: ' + err.responseJSON.message + '.<br/>This is normal if there is no custom schema defined.');
-                        setTimeout(function() {
-                            setStatus('');
-                        }, 10000);
-                    },
-                    headers: {
-                        'Authorization':'Bearer ' + apiHelper.auth.access_token,
-                        'Content-Type':'application/schema+json'
-                    },
-                    method: 'DELETE',
-                    success: function (resp) {
-                        gtag('event', 'Restore Default Success', {'event_category':'Tracker Schema'});
-                        setStatus(configSchemaPartial, 'Successfully restored.');
-                        setTimeout(function() {
-                            setStatus('');
-                        }, 4000);
-                    },
-                    url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
-                });    
+                }
             });    
 
         });
