@@ -4,6 +4,7 @@ shared: true
 columns: two
 layout: commonTwo.hbs
 description: Web-based management for your Particle IoT devices
+includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, zip]
 ---
 
 # {{title}}
@@ -1105,6 +1106,8 @@ Tracker One and Monitor One devices share the same platform ID, and by default n
 
 To enable the Monitor One features, use this control to change the product schema to Monitor One and add the additional tabs shown below.
 
+{{> sso}}
+
 {{> config-schema options="monitor" }}
 
 
@@ -1112,19 +1115,14 @@ To enable the Monitor One features, use this control to change the product schem
 
 These settings are for the I/O Card configuration. 
 
-![I/O Config](/assets/images/tracker/io-config-1.png)
-![I/O Config](/assets/images/tracker/io-config-2.png)
-![I/O Config](/assets/images/tracker/io-config-3.png)
+{{imageOverlay src="/assets/images/tracker/io-config-1.png" alt="I/O card settings" }}
+{{imageOverlay src="/assets/images/tracker/io-config-2.png" alt="I/O card settings" }}
+{{imageOverlay src="/assets/images/tracker/io-config-3.png" alt="I/O card settings" }}
+
 
 ### I/O card calibration
 
-![I/O Calibration Config](/assets/images/tracker/io-calibration-config.png)
-
-### Reverting a schema change
-
-If you have accidentally changed a Tracker One product to a Monitor One product schema, you can use [this tool](/reference/tracker/tracker-configuration/#restore-default-schema) to restore the original Tracker schema. When you do this you will see these warnings in the console, however they are not harmful.
-
-![I/O Settings Error](/assets/images/tracker/io-settings-error.png)
+{{imageOverlay src="/assets/images/tracker/io-calibration-config.png" alt="I/O card calibration settings" }}
 
 
 ## Devices and SIM cards

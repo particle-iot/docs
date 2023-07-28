@@ -503,24 +503,29 @@ $(document).ready(async function() {
                 $(thisPartial).find('.noDownloadUpload').hide();
             }
 
-            const fixedModeOptions = ['tracker', 'monitor'];
-            let fixedMode;
-            if (urlOptions.mode && fixedModeOptions.includes(urlOptions.mode)) {
-                fixedMode = urlOptions.mode;
+            const defaultModeOptions = ['tracker', 'monitor'];
+            let defaultMode;
+            if (urlOptions.mode && defaultModeOptions.includes(urlOptions.mode)) {
+                defaultMode = urlOptions.mode;
             }
-            
-            if (!fixedMode) {
-                for(const m of fixedModeOptions) {
+
+            if (!defaultMode) {
+                for(const m of defaultModeOptions) {
                     if (options.includes(m)) {
-                        fixedMode = m;
+                        defaultMode = m;
                         break; 
                     }
                 }    
             }
 
-            if (fixedMode) {
-                $(thisPartial).find('.apiHelperTrackerEdgeRow').hide();
+            let deviceFirmware;
+
+            if (defaultMode) {
+                $(thisPartial).find('.deviceFirmwareRadio').prop('checked', false);
+                $(thisPartial).find('.deviceFirmwareRadio[value="' + defaultMode + '"]').prop('checked', true);
+                deviceFirmware = $(thisPartial).find('.deviceFirmwareRadio:checked').val();
             }
+
             const alwaysBackup = options.includes('backup');
             if (alwaysBackup) {
                 $(thisPartial).find('.alwaysBackup').hide();
@@ -533,15 +538,9 @@ $(document).ready(async function() {
 
             const apiHelperTrackerSchemaVersionElem = $(thisPartial).find('.apiHelperTrackerSchemaVersion');
 
-            let deviceFirmware;
 
             const deviceFirmwareChanged = function() {
-                if (fixedMode) {
-                    deviceFirmware = fixedMode;
-                }
-                else {
-                    deviceFirmware = $(thisPartial).find('.deviceFirmwareRadio:checked').val();
-                }
+                deviceFirmware = $(thisPartial).find('.deviceFirmwareRadio:checked').val();
 
                 $(apiHelperTrackerSchemaVersionElem).each(function() {
                     $(this).find('option').not(':first').remove();
