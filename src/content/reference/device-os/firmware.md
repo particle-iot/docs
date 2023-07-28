@@ -6303,7 +6303,6 @@ To reset all settings to the default values:
 void setup() {
     // To restore the default configuration
     SystemPowerConfiguration conf;
-    conf.feature(SystemPowerFeature::DISABLE);
     System.setPowerConfiguration(conf);
 }
 ```
