@@ -457,7 +457,7 @@ Be sure to update:
 
 To remove the Engine panel and restore the default schema use the **Restore Default Schema** button:
 
-{{> config-schema }}
+{{> config-schema options=""}}
 
 ### Using the console
 

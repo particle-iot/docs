@@ -189,7 +189,7 @@ If you set this schema you can go to the console and view your fleet configurati
 
 To remove the Engine panel and restore the default schema use the **Restore Default Schema** button:
 
-{{> config-schema }}
+{{> config-schema options="" }}
 
 
 ### Viewing in the console
@@ -343,7 +343,7 @@ Be sure to use the full schema, not just the part with "Mine" as a custom schema
 
 To remove the Mine panel and restore the default schema use the **Restore Default Schema** button:
 
-{{> config-schema }}
+{{> config-schema options="" }}
 
 
 ### Console - Example

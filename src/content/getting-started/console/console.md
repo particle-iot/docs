@@ -1099,6 +1099,34 @@ On a successful cmd request, the result is 0. A result of -22 indicates the JSON
 
 **Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
+## Monitor One Settings
+
+Tracker One and Monitor One devices share the same platform ID, and by default new products default to being Tracker One products.
+
+To enable the Monitor One features, use this control to change the product schema to Monitor One and add the additional tabs shown below.
+
+{{> config-schema options="monitor" }}
+
+
+### I/O card config
+
+These settings are for the I/O Card configuration. 
+
+![I/O Config](/assets/images/tracker/io-config-1.png)
+![I/O Config](/assets/images/tracker/io-config-2.png)
+![I/O Config](/assets/images/tracker/io-config-3.png)
+
+### I/O card calibration
+
+![I/O Calibration Config](/assets/images/tracker/io-calibration-config.png)
+
+### Reverting a schema change
+
+If you have accidentally changed a Tracker One product to a Monitor One product schema, you can use [this tool](/reference/tracker/tracker-configuration/#restore-default-schema) to restore the original Tracker schema. When you do this you will see these warnings in the console, however they are not harmful.
+
+![I/O Settings Error](/assets/images/tracker/io-settings-error.png)
+
+
 ## Devices and SIM cards
 
 There are multiple lists of devices and SIM card lists, and this section describes which one is which.

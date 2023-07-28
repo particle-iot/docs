@@ -135,6 +135,20 @@ $(document).ready(async function() {
         });
     });
 
+    let urlOptions = {};
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams) {
+        let opt = urlParams.get('product');
+        if (opt) {
+            urlOptions.product = parseInt(opt);
+        }
+        opt = urlParams.get('mode');
+        if (opt) {
+            urlOptions.mode = opt;
+        }
+    }
+
     
     const trackerSchemeButtonElems = $('.apiHelperConfigSchemaUpload, .apiHelperConfigSchemaDownload, .apiHelperConfigSchemaSet, ' + 
         '.codeboxUploadSchemaButton, .apiHelperTrackerConfigSet, .apiHelperTrackerConfigDefault');
@@ -197,6 +211,15 @@ $(document).ready(async function() {
         }
         let html = '';
 
+        if (urlOptions.product) {
+            if (!productArray.find(e => e.id == urlOptions.product)) {
+                html += '<option value="' + urlOptions.product+ '">' + urlOptions.product + '</option>';
+                $(elems).html(html);
+                $(elems).trigger('change');
+                return;
+            }    
+        }
+
         if (productArray.length == 0) {
             html = '<option disabled>No Tracker products available</option>'
             buildTrackerDeviceMenu();
@@ -204,7 +227,7 @@ $(document).ready(async function() {
         }        
         else {
             if (options.noSelectFirst) {
-                html += '<option value="" default>Select Product</option>'
+                html += '<option value="" selected>Select Product</option>'
             }
             for(const prod of productArray) {
                 html += '<option value="' + prod.id + '">' + prod.name + ' (' + prod.id + ')</option>';
@@ -215,6 +238,10 @@ $(document).ready(async function() {
             if (!options.noSelectFirst) {
                 $(elems).trigger('change');
             }
+        }
+        if (urlOptions.product) {
+            $(elems).val(urlOptions.product);
+            $(elems).trigger('change');
         }
 
     };
@@ -235,7 +262,7 @@ $(document).ready(async function() {
 
             const productSelectElems = $('.apiHelperTrackerProductSelect');
 
-            if (productSelectElems.length > 0 && apiHelper.auth) {
+            if (productSelectElems.length > 0 && apiHelper.auth && !urlOptions.product) {
                 const orgsData = await apiHelper.getOrgs();
 
                 // No orgs: orgsData.organizations empty array
@@ -344,6 +371,10 @@ $(document).ready(async function() {
                 apiHelper.getTrackerConfig(product, deviceId, function(configObj) {
 
                     $(buttonElems).prop('disabled', false);
+
+                    if (!configObj) {
+                        return;
+                    }
 
                     const showElem = $(trackerConfigElem).find('.apiHelperTrackerConfigShow');
 
@@ -466,6 +497,35 @@ $(document).ready(async function() {
         $('.apiHelperConfigSchema').each(function() {
             const thisPartial = $(this);
 
+            const options = ($(thisPartial).data('options') || '').split(',');
+
+            if (options.includes('noDownloadUpload')) {
+                $(thisPartial).find('.noDownloadUpload').hide();
+            }
+
+            const fixedModeOptions = ['tracker', 'monitor'];
+            let fixedMode;
+            if (urlOptions.mode && fixedModeOptions.includes(urlOptions.mode)) {
+                fixedMode = urlOptions.mode;
+            }
+            
+            if (!fixedMode) {
+                for(const m of fixedModeOptions) {
+                    if (options.includes(m)) {
+                        fixedMode = m;
+                        break; 
+                    }
+                }    
+            }
+
+            if (fixedMode) {
+                $(thisPartial).find('.apiHelperTrackerEdgeRow').hide();
+            }
+            const alwaysBackup = options.includes('backup');
+            if (alwaysBackup) {
+                $(thisPartial).find('.alwaysBackup').hide();
+            }
+
             // 
             const setStatus = function(configSchemaPartial, status) {
                 $(thisPartial).find('.apiHelperConfigSchemaStatus').html(status);
@@ -476,8 +536,12 @@ $(document).ready(async function() {
             let deviceFirmware;
 
             const deviceFirmwareChanged = function() {
-                deviceFirmware = $(thisPartial).find('.deviceFirmwareRadio:checked').val();
-                console.log('deviceFirmware', deviceFirmware);
+                if (fixedMode) {
+                    deviceFirmware = fixedMode;
+                }
+                else {
+                    deviceFirmware = $(thisPartial).find('.deviceFirmwareRadio:checked').val();
+                }
 
                 $(apiHelperTrackerSchemaVersionElem).each(function() {
                     $(this).find('option').not(':first').remove();
@@ -492,7 +556,7 @@ $(document).ready(async function() {
                             $(this).find('option:first').prop('selected', false);
                             break;
                     }                    
-                });
+                });    
                 
                 if (deviceFirmware) {
                     for(const obj of fileIndex.schemas[deviceFirmware]) {
@@ -589,17 +653,19 @@ $(document).ready(async function() {
                 const deviceId = 'default';
                 const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
 
-                setStatus(configSchemaPartial, 'Saving backup schema...');
-                await new Promise(function(resolve, reject) {
-                    apiHelper.downloadSchema('backup-schema.json', product, deviceId, function(err) {
-                        if (err) {
-                            reject(err);
-                        }
-                        else {
-                            resolve();
-                        }
-                    });
-                });
+                if (alwaysBackup || $(thisPartial).find('.saveBackup').prop('checked')) {
+                    setStatus(configSchemaPartial, 'Saving backup schema...');
+                    await new Promise(function(resolve, reject) {
+                        apiHelper.downloadSchema('backup-schema.json', product, deviceId, function(err) {
+                            if (err) {
+                                reject(err);
+                            }
+                            else {
+                                resolve();
+                            }
+                        });
+                    });    
+                }
 
                 let schemaFile = $(apiHelperTrackerSchemaVersionElem).val();
                 if (schemaFile == 'default') {

@@ -1,4 +1,4 @@
-<div class="apiHelper apiHelperLoggedIn apiHelperConfigSchema" style="display:none;">
+<div class="apiHelper apiHelperLoggedIn apiHelperConfigSchema" style="display:none;" data-options="{{options}}">
     <div class="apiHelperBox">
         <div style="padding-top: 5px">
             <table class="apiHelperProductSelectorTable">
@@ -12,7 +12,7 @@
                 </tr>
             </table>
         </div>
-        <div style="padding-top: 5px">
+        <div style="padding-top: 5px" class="noDownloadUpload">
             <button class="apiHelperConfigSchemaDownload apiHelperButton">Download Schema</button>&nbsp;&nbsp;
             <input type="file" class="apiHelperConfigSchemaFileInput" accept="*.json" style="display:none">
             <button class="apiHelperConfigSchemaUpload apiHelperButton">Upload Schema</button>&nbsp;&nbsp;
@@ -31,6 +31,9 @@
                     <td><select class="apiHelperTrackerSchemaVersion apiHelperSelect">
                         <option value="default" selected>Cloud Default (for Tracker Edge)</option>
                     </select></td>
+                </tr>
+                <tr class="alwaysBackup">
+                    <td colspan="2"><label><input type="checkbox" class="saveBackup">Download backup of existing schema before setting</label></td>
                 </tr>
             </table>
         </div>
