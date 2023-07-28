@@ -4,6 +4,7 @@ shared: true
 columns: two
 layout: commonTwo.hbs
 description: Web-based management for your Particle IoT devices
+includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, zip]
 ---
 
 # {{title}}
@@ -1098,6 +1099,31 @@ It's also possible to [create custom `cmd` handlers](/firmware/tracker-edge/trac
 On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
 
 **Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
+
+## Monitor One Settings
+
+Tracker One and Monitor One devices share the same platform ID, and by default new products default to being Tracker One products.
+
+To enable the Monitor One features, use this control to change the product schema to Monitor One and add the additional tabs shown below.
+
+{{> sso}}
+
+{{> config-schema options="monitor" }}
+
+
+### I/O card config
+
+These settings are for the I/O Card configuration. 
+
+{{imageOverlay src="/assets/images/tracker/io-config-1.png" alt="I/O card settings" }}
+{{imageOverlay src="/assets/images/tracker/io-config-2.png" alt="I/O card settings" }}
+{{imageOverlay src="/assets/images/tracker/io-config-3.png" alt="I/O card settings" }}
+
+
+### I/O card calibration
+
+{{imageOverlay src="/assets/images/tracker/io-calibration-config.png" alt="I/O card calibration settings" }}
+
 
 ## Devices and SIM cards
 

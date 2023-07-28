@@ -143,12 +143,13 @@ This picture shows how elements in the schema directly map to what you can see i
 
 ### Default schema
 
-This is the full schema for Tracker Edge, as of version 13. You won't need to understand the whole thing yet, but this is what it looks like:
+This is the full schema for Tracker Edge. You won't need to understand the whole thing yet, but this is what it looks like:
 
 {{> codebox content="/assets/files/tracker/default-schema.json" format="json" height="300"}}
 
-- The `geofence` module was added in v13.
+- The `geofence` module was added in schema v13.
 - The `deviceLevelOnly` boolean flag was added in v13. This allows a configuration module to only be configured per-device, regardless of whether it's a development device or not.
+- The `monitor` module (MemFault) was added in schema v18.
 - The schema version does not change with every Tracker Edge version, and does not match. For example, Tracker Edge v17 is used with schema v13.
 
 ### Data types
@@ -188,7 +189,7 @@ If you set this schema you can go to the console and view your fleet configurati
 
 To remove the Engine panel and restore the default schema use the **Restore Default Schema** button:
 
-{{> config-schema }}
+{{> config-schema options="" }}
 
 
 ### Viewing in the console
@@ -236,31 +237,9 @@ curl -X GET 'https://api.particle.io/v1/products/:productId/config?access_token=
 
 This will return a big block of JSON data and save it in the file backup-schema.json.
 
-Or, the device-specific schema for a development device:
-
-```
-curl -X GET 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H 'Accept: application/schema+json' -o backup-schema.json
-```
-
-- `:productId` with your product ID
-- `:deviceId` with your Device ID that is set as a development device. 
-- `:accessToken` with a product access token, described above.
-
 #### Setting a custom schema
 
 There is no UI for setting the configuration in the console, but you, you will need to set it using curl:
-
-```
-curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @engine-schema.json
-```
-
-- `:productId` with your product ID
-- `:deviceId` with your Device ID that is set as a development device. 
-- `:accessToken` with a product access token, described above.
-
-To restore the normal behavior, instead of using `@engine-schema.json`, use `@backup-schema.json` you saved in the previous step.
-
-Or, for product-wide configuration:
 
 ```
 curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @engine-schema.json
@@ -364,7 +343,7 @@ Be sure to use the full schema, not just the part with "Mine" as a custom schema
 
 To remove the Mine panel and restore the default schema use the **Restore Default Schema** button:
 
-{{> config-schema }}
+{{> config-schema options="" }}
 
 
 ### Console - Example

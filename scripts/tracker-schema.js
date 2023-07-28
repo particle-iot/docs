@@ -57,12 +57,123 @@ function updateConfigurationSchemas(files, dir, options) {
 	});
 }
 
+function updateFileIndex(files, dir, options) {
+	const fileIndexPath = path.join(dir, 'file-index.json');
+
+	let indexObj = {
+	};
+	
+	{
+		// Schemas
+		indexObj.schemas = {};
+		const kinds = [];
+		for(const file of fs.readdirSync(dir)) {
+			const m = file.match(/([a-z]+)-config-schema-([0-9]+)/);
+			if (m) {
+				const kind = m[1];
+				const ver = parseInt(m[2]);
+				if (!indexObj.schemas[kind]) {
+					indexObj.schemas[kind] = [];
+					kinds.push(kind);
+				}
+				indexObj.schemas[kind].push({
+					ver,
+					file,
+				});
+			}
+		}
+
+		for(const kind of kinds) {
+			indexObj.schemas[kind].sort(function(a, b) {
+				// Descending by version
+				return b.ver - a.ver;
+			});
+		}
+	}
+
+	{
+		// Edge Binary Versions
+		indexObj.firmwareBinaries = {};
+		const kinds = [];
+		for(const file of fs.readdirSync(dir)) {
+			const m = file.match(/([a-z]+)-edge-([0-9]+)\@([-.0-9A-Za-z]+)\.bin/);
+			if (m) {
+				const kind = m[1];
+				const ver = parseInt(m[2]);
+				const target = m[3];
+
+				if (!indexObj.firmwareBinaries[kind]) {
+					indexObj.firmwareBinaries[kind] = [];
+					kinds.push(kind);
+				}
+				indexObj.firmwareBinaries[kind].push({
+					ver,
+					file,
+					target,
+				});
+			}
+		}
+
+		for(const kind of kinds) {
+			indexObj.firmwareBinaries[kind].sort(function(a, b) {
+				// Descending by version
+				return b.ver - a.ver;
+			});
+		}
+	}
+
+	{
+		// Source Versions
+		indexObj.firmwareSource = {};
+		const kinds = [];
+		for(const file of fs.readdirSync(dir)) {
+			let m = file.match(/monitor-edge-([0-9]+)\.zip/);
+			if (m) {
+				const kind = 'monitor';
+				const ver = parseInt(m[1]);
+				if (!indexObj.firmwareSource[kind]) {
+					indexObj.firmwareSource[kind] = [];
+					kinds.push(kind);
+				}
+				indexObj.firmwareSource[kind].push({
+					ver,
+					file,
+				});
+			}
+			m = file.match(/v([0-9]+)\.zip/);
+			if (m) {
+				const kind = 'tracker';
+				const ver = parseInt(m[1]);
+				if (!indexObj.firmwareSource[kind]) {
+					indexObj.firmwareSource[kind] = [];
+					kinds.push(kind);
+				}
+				indexObj.firmwareSource[kind].push({
+					ver,
+					file,
+				});
+			}
+		}
+
+		for(const kind of kinds) {
+			indexObj.firmwareSource[kind].sort(function(a, b) {
+				// Descending by version
+				return b.ver - a.ver;
+			});
+		}
+	}
+	const newFileIndexStr = JSON.stringify(indexObj, null, indentLevel);
+	updateFileIfChanged(files, fileIndexPath, newFileIndexStr);
+
+}
+
 
 module.exports = function(options) {
 
 	return function(files, metalsmith, done) {
         const dir = metalsmith.path(options.dir);
 		updateConfigurationSchemas(files, dir, options);
+		updateFileIndex(files, dir, options);
 		done();
 	};
 };

@@ -1,0 +1,113 @@
+{
+  "schemas": {
+    "monitor": [
+      {
+        "ver": 1,
+        "file": "monitor-config-schema-1.json"
+      }
+    ],
+    "tracker": [
+      {
+        "ver": 18,
+        "file": "tracker-config-schema-18.json"
+      },
+      {
+        "ver": 17,
+        "file": "tracker-config-schema-17.json"
+      }
+    ]
+  },
+  "firmwareBinaries": {
+    "monitor": [
+      {
+        "ver": 1,
+        "file": "monitor-edge-1@4.0.2.bin",
+        "target": "4.0.2"
+      }
+    ],
+    "tracker": [
+      {
+        "ver": 18,
+        "file": "tracker-edge-18@3.3.0.bin",
+        "target": "3.3.0"
+      },
+      {
+        "ver": 17,
+        "file": "tracker-edge-17@3.2.0.bin",
+        "target": "3.2.0"
+      },
+      {
+        "ver": 16,
+        "file": "tracker-edge-16@3.1.0.bin",
+        "target": "3.1.0"
+      },
+      {
+        "ver": 15,
+        "file": "tracker-edge-15@3.1.0.bin",
+        "target": "3.1.0"
+      },
+      {
+        "ver": 14,
+        "file": "tracker-edge-14@3.0.0.bin",
+        "target": "3.0.0"
+      },
+      {
+        "ver": 13,
+        "file": "tracker-edge-13@3.0.0.bin",
+        "target": "3.0.0"
+      },
+      {
+        "ver": 12,
+        "file": "tracker-edge-12@3.0.0-rc.2.bin",
+        "target": "3.0.0-rc.2"
+      },
+      {
+        "ver": 11,
+        "file": "tracker-edge-11@2.0.0-rc.4.bin",
+        "target": "2.0.0-rc.4"
+      }
+    ]
+  },
+  "firmwareSource": {
+    "monitor": [
+      {
+        "ver": 1,
+        "file": "monitor-edge-1.zip"
+      }
+    ],
+    "tracker": [
+      {
+        "ver": 18,
+        "file": "v18.zip"
+      },
+      {
+        "ver": 17,
+        "file": "v17.zip"
+      },
+      {
+        "ver": 16,
+        "file": "v16.zip"
+      },
+      {
+        "ver": 15,
+        "file": "v15.zip"
+      },
+      {
+        "ver": 14,
+        "file": "v14.zip"
+      },
+      {
+        "ver": 13,
+        "file": "v13.zip"
+      },
+      {
+        "ver": 12,
+        "file": "v12.zip"
+      },
+      {
+        "ver": 11,
+        "file": "v11.zip"
+      }
+    ]
+  }
+}

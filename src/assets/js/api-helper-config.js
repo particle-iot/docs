@@ -117,25 +117,56 @@ apiHelper.getTrackerConfig = function(product, deviceId, completion) {
 };
 
 
-$(document).ready(function() {
+$(document).ready(async function() {
     if ($('.apiHelper').length == 0) {
         return;
     }
 
     let sandboxTrackerProducts = [];
+    let fileIndex = {};
 
+    await new Promise(function(resolve, reject) {
+        fetch('/assets/files/tracker/file-index.json')
+        .then(response => response.json())
+        .then(function(data) {
+            fileIndex = data;
+            resolve();
+        });
+    });
 
-    const trackerSchemeButtonElems = $('.apiHelperConfigSchemaUpload, .apiHelperConfigSchemaDownload, .apiHelperConfigSchemaDefault, ' + 
+    let urlOptions = {};
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams) {
+        let opt;
+        org = urlParams.get('org');
+        if (opt) {
+            urlOptions.org = opt;
+        }        
+
+        opt = urlParams.get('product');
+        if (opt) {
+            urlOptions.product = parseInt(opt);
+        }
+        opt = urlParams.get('mode');
+        if (opt) {
+            urlOptions.mode = opt;
+        }
+    }
+
+    
+    const trackerSchemeButtonElems = $('.apiHelperConfigSchemaUpload, .apiHelperConfigSchemaDownload, .apiHelperConfigSchemaSet, ' + 
         '.codeboxUploadSchemaButton, .apiHelperTrackerConfigSet, .apiHelperTrackerConfigDefault');
 
     const buildTrackerDeviceMenu = function(product) {
+        const selectElems = $('.apiHelperTrackerDeviceSelect');
+
         if (!product) {
             let html = '<option disabled>Select a product first</option>'
             $('.apiHelperTrackerDeviceSelect').html(html);
             $(trackerSchemeButtonElems).prop('disabled', true);
             return;
         }
-        const selectElems = $('.apiHelperTrackerDeviceSelect');
 
         $(selectElems).each(function() {
             const selectElem = $(this);
@@ -185,6 +216,15 @@ $(document).ready(function() {
         }
         let html = '';
 
+        if (urlOptions.product) {
+            if (!productArray.find(e => e.id == urlOptions.product)) {
+                html += '<option value="' + urlOptions.product+ '">' + urlOptions.product + '</option>';
+                $(elems).html(html);
+                $(elems).trigger('change');
+                return;
+            }    
+        }
+
         if (productArray.length == 0) {
             html = '<option disabled>No Tracker products available</option>'
             buildTrackerDeviceMenu();
@@ -192,7 +232,7 @@ $(document).ready(function() {
         }        
         else {
             if (options.noSelectFirst) {
-                html += '<option value="" default>Select Product</option>'
+                html += '<option value="" selected>Select Product</option>'
             }
             for(const prod of productArray) {
                 html += '<option value="' + prod.id + '">' + prod.name + ' (' + prod.id + ')</option>';
@@ -203,6 +243,10 @@ $(document).ready(function() {
             if (!options.noSelectFirst) {
                 $(elems).trigger('change');
             }
+        }
+        if (urlOptions.product) {
+            $(elems).val(urlOptions.product);
+            $(elems).trigger('change');
         }
 
     };
@@ -223,7 +267,7 @@ $(document).ready(function() {
 
             const productSelectElems = $('.apiHelperTrackerProductSelect');
 
-            if (productSelectElems.length > 0 && apiHelper.auth) {
+            if (productSelectElems.length > 0 && apiHelper.auth && !urlOptions.product) {
                 const orgsData = await apiHelper.getOrgs();
 
                 // No orgs: orgsData.organizations empty array
@@ -288,7 +332,6 @@ $(document).ready(function() {
     }
 
 
-
     $('.apiHelperTrackerProductSelect').each(function(index) {
 
         const parentDiv = $(this).closest('div');
@@ -333,6 +376,10 @@ $(document).ready(function() {
                 apiHelper.getTrackerConfig(product, deviceId, function(configObj) {
 
                     $(buttonElems).prop('disabled', false);
+
+                    if (!configObj) {
+                        return;
+                    }
 
                     const showElem = $(trackerConfigElem).find('.apiHelperTrackerConfigShow');
 
@@ -451,113 +498,231 @@ $(document).ready(function() {
 
 
     if (($('.apiHelperConfigSchema').length > 0) && apiHelper.auth) {
-        // 
-        const setStatus = function(configSchemaPartial, status) {
-            $(configSchemaPartial).find('.apiHelperConfigSchemaStatus').html(status);
-        };
+        
+        $('.apiHelperConfigSchema').each(function() {
+            const thisPartial = $(this);
+
+            const options = ($(thisPartial).data('options') || '').split(',');
+
+            if (options.includes('noDownloadUpload')) {
+                $(thisPartial).find('.noDownloadUpload').hide();
+            }
+
+            const defaultModeOptions = ['tracker', 'monitor'];
+            let defaultMode;
+            if (urlOptions.mode && defaultModeOptions.includes(urlOptions.mode)) {
+                defaultMode = urlOptions.mode;
+            }
+
+            if (!defaultMode) {
+                for(const m of defaultModeOptions) {
+                    if (options.includes(m)) {
+                        defaultMode = m;
+                        break; 
+                    }
+                }    
+            }
+
+            let deviceFirmware;
+
+            if (defaultMode) {
+                $(thisPartial).find('.deviceFirmwareRadio').prop('checked', false);
+                $(thisPartial).find('.deviceFirmwareRadio[value="' + defaultMode + '"]').prop('checked', true);
+                deviceFirmware = $(thisPartial).find('.deviceFirmwareRadio:checked').val();
+            }
+
+            const alwaysBackup = options.includes('backup');
+            if (alwaysBackup) {
+                $(thisPartial).find('.alwaysBackup').hide();
+            }
+
+            // 
+            const setStatus = function(configSchemaPartial, status) {
+                $(thisPartial).find('.apiHelperConfigSchemaStatus').html(status);
+            };
+
+            const apiHelperTrackerSchemaVersionElem = $(thisPartial).find('.apiHelperTrackerSchemaVersion');
 
 
-        $('.apiHelperConfigSchemaDownload').on('click', function(ev) {
-            const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
-            const product = $(configSchemaPartial).find('.apiHelperTrackerProductSelect').val();
-            const deviceId = $(configSchemaPartial).find('.apiHelperTrackerDeviceSelect').val();
+            const deviceFirmwareChanged = function() {
+                deviceFirmware = $(thisPartial).find('.deviceFirmwareRadio:checked').val();
 
-            apiHelper.downloadSchema('schema.json', product, deviceId, function(err) {
-                if (!err) {
-                    setStatus(configSchemaPartial, 'Downloaded!');
-                    gtag('event', 'Download Success', {'event_category':'Tracker Schema'});
-                    setTimeout(function() {
-                        setStatus('');
-                    }, 4000);    
+                $(apiHelperTrackerSchemaVersionElem).each(function() {
+                    $(this).find('option').not(':first').remove();
+                    switch(deviceFirmware) {
+                        case 'tracker':
+                            $(this).find('option:first').prop('disabled', false);
+                            $(this).find('option:first').prop('selected', true);
+                            break;
+        
+                        case 'monitor':
+                            $(this).find('option:first').prop('disabled', true);
+                            $(this).find('option:first').prop('selected', false);
+                            break;
+                    }                    
+                });    
+                
+                if (deviceFirmware) {
+                    for(const obj of fileIndex.schemas[deviceFirmware]) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', obj.file);
+                        $(optionElem).text('v' + obj.ver);
+    
+                        $(apiHelperTrackerSchemaVersionElem).append(optionElem);
+                    }    
                 }
-                else {
-                    gtag('event', 'Download Error', {'event_category':'Tracker Schema', 'event_label':err});
-                    setStatus(configSchemaPartial, 'Error downloading schema ' + err);
-                    setTimeout(function() {
-                        setStatus('');
-                    }, 10000);
-                }
+
+            };
+            deviceFirmwareChanged();
+
+            $(thisPartial).find('.deviceFirmwareRadio').on('click', function() {
+                $(thisPartial).find('.deviceFirmwareRadio').prop('checked', false);
+                $(this).prop('checked', true);
+                deviceFirmwareChanged();
             });
-        });    
 
-        $('.apiHelperConfigSchemaUpload').on('click', function() {
-            const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
-            const product = $(configSchemaPartial).find('.apiHelperTrackerProductSelect').val();
-            const deviceId = $(configSchemaPartial).find('.apiHelperTrackerDeviceSelect').val();
+            $(thisPartial).find('.apiHelperConfigSchemaDownload').on('click', function(ev) {
+                const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
+                const product = $(configSchemaPartial).find('.apiHelperTrackerProductSelect').val();
+                const deviceId = 'default';
 
-            setStatus(configSchemaPartial, 'Select schema to upload...');
-
-            $(configSchemaPartial).find('.apiHelperConfigSchemaFileInput').on('change', function() {
-                const fileList = this.files[0];
-
-                setStatus(configSchemaPartial, 'Saving backup schema...');
-
-                apiHelper.downloadSchema('backup-schema.json', product, deviceId, function(err) {
+                apiHelper.downloadSchema('schema.json', product, deviceId, function(err) {
                     if (!err) {
-                        setStatus(configSchemaPartial, 'Uploading schema...');
-                        apiHelper.uploadSchemaFile(fileList, product, deviceId, function(err) {
-                            if (!err) {
-                                setStatus(configSchemaPartial, 'Schema uploaded!');
-                                gtag('event', 'Upload Success', {'event_category':'Tracker Schema'});
-                                setTimeout(function() {
-                                    setStatus('');
-                                }, 4000);
-                            }
-                            else {
-                                gtag('event', 'Upload Error Saving Schema', {'event_category':'Tracker Schema', 'event_label':err});
-                                setStatus(configSchemaPartial, 'Error saving schema ' + err);
-                                setTimeout(function() {
-                                    setStatus('');
-                                }, 10000);        
-                            }
-                        });
+                        setStatus(configSchemaPartial, 'Downloaded!');
+                        gtag('event', 'Download Success', {'event_category':'Tracker Schema'});
+                        setTimeout(function() {
+                            setStatus('');
+                        }, 4000);    
                     }
                     else {
-                        gtag('event', 'Upload Error Saving Backup Schema', {'event_category':'Tracker Schema', 'event_label':err});
-                        setStatus(configSchemaPartial, 'Error saving backup schema ' + err);
+                        gtag('event', 'Download Error', {'event_category':'Tracker Schema', 'event_label':err});
+                        setStatus(configSchemaPartial, 'Error downloading schema ' + err);
                         setTimeout(function() {
                             setStatus('');
                         }, 10000);
                     }
                 });
-            });
-
-            $(configSchemaPartial).find('.apiHelperConfigSchemaFileInput').click();
-            
-        });    
-
-        $('.apiHelperConfigSchemaDefault').on('click', function() {
-            const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
-            const product = $(configSchemaPartial).find('.apiHelperTrackerProductSelect').val();
-            const deviceId = $(configSchemaPartial).find('.apiHelperTrackerDeviceSelect').val();
-            const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
-
-            setStatus(configSchemaPartial, 'Restoring default schema...');
-
-            $.ajax({
-                data: '{}',
-                error: function(err) {
-                    gtag('event', 'Restore Default Error', {'event_category':'Tracker Schema', 'event_label':err.responseJSON.message});
-                    setStatus(configSchemaPartial, 'Error deleting schema: ' + err.responseJSON.message + '.<br/>This is normal if there is no custom schema defined.');
-                    setTimeout(function() {
-                        setStatus('');
-                    }, 10000);
-                },
-                headers: {
-                    'Authorization':'Bearer ' + apiHelper.auth.access_token,
-                    'Content-Type':'application/schema+json'
-                },
-                method: 'DELETE',
-                success: function (resp) {
-                    gtag('event', 'Restore Default Success', {'event_category':'Tracker Schema'});
-                    setStatus(configSchemaPartial, 'Successfully restored.');
-                    setTimeout(function() {
-                        setStatus('');
-                    }, 4000);
-                },
-                url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
             });    
-        });    
+
+            
+            $(thisPartial).find('.apiHelperConfigSchemaUpload').on('click', function() {
+                const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
+                const product = $(configSchemaPartial).find('.apiHelperTrackerProductSelect').val();
+                const deviceId = 'default';
+
+                setStatus(configSchemaPartial, 'Select schema to upload...');
+
+                $(configSchemaPartial).find('.apiHelperConfigSchemaFileInput').on('change', function() {
+                    const fileList = this.files[0];
+
+                    setStatus(configSchemaPartial, 'Saving backup schema...');
+
+                    apiHelper.downloadSchema('backup-schema.json', product, deviceId, function(err) {
+                        if (!err) {
+                            setStatus(configSchemaPartial, 'Uploading schema...');
+                            apiHelper.uploadSchemaFile(fileList, product, deviceId, function(err) {
+                                if (!err) {
+                                    setStatus(configSchemaPartial, 'Schema uploaded!');
+                                    gtag('event', 'Upload Success', {'event_category':'Tracker Schema'});
+                                    setTimeout(function() {
+                                        setStatus('');
+                                    }, 4000);
+                                }
+                                else {
+                                    gtag('event', 'Upload Error Saving Schema', {'event_category':'Tracker Schema', 'event_label':err});
+                                    setStatus(configSchemaPartial, 'Error saving schema ' + err);
+                                    setTimeout(function() {
+                                        setStatus('');
+                                    }, 10000);        
+                                }
+                            });
+                        }
+                        else {
+                            gtag('event', 'Upload Error Saving Backup Schema', {'event_category':'Tracker Schema', 'event_label':err});
+                            setStatus(configSchemaPartial, 'Error saving backup schema ' + err);
+                            setTimeout(function() {
+                                setStatus('');
+                            }, 10000);
+                        }
+                    });
+                });
+
+                $(configSchemaPartial).find('.apiHelperConfigSchemaFileInput').click();
+                
+            });    
+
+            $(thisPartial).find('.apiHelperConfigSchemaSet').on('click', async function() {
+                const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
+                const product = $(configSchemaPartial).find('.apiHelperTrackerProductSelect').val();
+                const deviceId = 'default';
+                const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
+
+                if (alwaysBackup || $(thisPartial).find('.saveBackup').prop('checked')) {
+                    setStatus(configSchemaPartial, 'Saving backup schema...');
+                    await new Promise(function(resolve, reject) {
+                        apiHelper.downloadSchema('backup-schema.json', product, deviceId, function(err) {
+                            if (err) {
+                                reject(err);
+                            }
+                            else {
+                                resolve();
+                            }
+                        });
+                    });    
+                }
+
+                let schemaFile = $(apiHelperTrackerSchemaVersionElem).val();
+                if (schemaFile == 'default') {
+                    setStatus(configSchemaPartial, 'Restoring default schema...');
+
+                    $.ajax({
+                        data: '{}',
+                        error: function(err) {
+                            gtag('event', 'Restore Default Error', {'event_category':'Tracker Schema', 'event_label':err.responseJSON.message});
+                            setStatus(configSchemaPartial, 'Error deleting schema: ' + err.responseJSON.message + '.<br/>This is normal if there is no custom schema defined.');
+                            setTimeout(function() {
+                                setStatus('');
+                            }, 10000);
+                        },
+                        headers: {
+                            'Authorization':'Bearer ' + apiHelper.auth.access_token,
+                            'Content-Type':'application/schema+json'
+                        },
+                        method: 'DELETE',
+                        success: function (resp) {
+                            gtag('event', 'Restore Default Success', {'event_category':'Tracker Schema'});
+                            setStatus(configSchemaPartial, 'Successfully restored.');
+                            setTimeout(function() {
+                                setStatus('');
+                            }, 4000);
+                        },
+                        url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
+                    });        
+                }
+                else {
+                    setStatus(configSchemaPartial, 'Downloading schema...');
+                    const schemaData = await new Promise(function(resolve, reject) {
+                        fetch('/assets/files/tracker/' + schemaFile)
+                            .then(response => response.text())
+                            .then(function(data) {
+                                resolve(data);
+                            });
+                    });
+
+                    setStatus(configSchemaPartial, 'Setting schema...');
+
+                    await new Promise(function(resolve, reject) {
+                        apiHelper.uploadSchema(schemaData, product, deviceId, resolve);
+                    });
+
+                    setStatus(configSchemaPartial, 'Schema updated!');
+
+
+                }
+            });    
+
+        });
+
 
     }
 
@@ -897,7 +1062,6 @@ $(document).ready(function() {
             .then(function(data) {
                 schemaPropertyTemplate = data;
             });
-
         /*
         fetch('/assets/files/tracker/default-schema.json')
             .then(response => response.json())
