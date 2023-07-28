@@ -110,6 +110,11 @@
         "href": "/troubleshooting/connectivity/cellular-usage/"
       },
       {
+        "dir": "configuration-schema",
+        "title": "Configuration schema",
+        "href": "/tools/cloud-tools/configuration-schema/"
+      },
+      {
         "dir": "tinker",
         "title": "Tinker",
         "href": "/tools/cloud-tools/tinker/"

@@ -130,7 +130,6 @@ $(document).ready(async function() {
         .then(response => response.json())
         .then(function(data) {
             fileIndex = data;
-            console.log('fileIndex', fileIndex);
             resolve();
         });
     });
@@ -139,7 +138,13 @@ $(document).ready(async function() {
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams) {
-        let opt = urlParams.get('product');
+        let opt;
+        org = urlParams.get('org');
+        if (opt) {
+            urlOptions.org = opt;
+        }        
+
+        opt = urlParams.get('product');
         if (opt) {
             urlOptions.product = parseInt(opt);
         }
