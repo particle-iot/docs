@@ -55,7 +55,7 @@ This tutorial is a complete example, using a pre-trained model from [Edge Impuls
 - Open Particle Workbench. From the Command Palette (Ctrl-Shift-P on Windows and Linux, Cmd-Shift-P on Mac).
 - If not logged in to your Particle account, **Particle: Login** as this is necessary to install libraries.
 - **Particle: Import Project**. Select the `project.properties` file in the zip file you just extracted.
-- Use **Particle: Configure Project For Device** and select **deviceOS@5.4.0** and **P2**. The P2 option is also used for the Photon 2. Device OS 5.4.1 or later is required for this demo.
+- Use **Particle: Configure Project For Device** and select **deviceOS@5.4.1** and **P2**. The P2 option is also used for the Photon 2. Device OS 5.4.1 or later is required for this demo.
 - In src/main.cpp, you'll need to configure the keyboard shortcut to what was set above. 
 
 ```cpp
@@ -65,7 +65,9 @@ Keyboard.click(KEY_A, MOD_LALT); // Windows
 
 - Connect your Photon 2 to your computer with a USB cable.
 - Use **Particle: Clean application (local)** to make sure there are no remnants from a previous build.
-- Use **Particle: Flash Application (local)** or **Particle: Compile Application (local)**. You must use the local option; the firmware cannot be compiled using the cloud compile options (Cloud Compile or Cloud Flash). 
+- Use **Particle: Cloud compile** or **Particle: Cloud Flash**, **Particle: Flash Application (local)**, **Particle: Compile Application (local)**.
+
+If you are building locally and you get a `region `SRAM' overflowed by 4 bytes` error, using the cloud compiler or Docker compile will solve this occasional problem.
 
 ## Building using Docker
 
