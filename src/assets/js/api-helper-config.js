@@ -210,7 +210,7 @@ $(document).ready(async function() {
         }    
         fetchPage(1);
     };
-    const buildProductMenu = function(productArray, elems, options) {
+    const buildProductMenu = async function(productArray, elems, options) {
         if (!options) {
             options = {};
         }
@@ -218,7 +218,21 @@ $(document).ready(async function() {
 
         if (urlOptions.product) {
             if (!productArray.find(e => e.id == urlOptions.product)) {
-                html += '<option value="' + urlOptions.product+ '">' + urlOptions.product + '</option>';
+                try {
+                    const productRes = await apiHelper.particle.getProduct({ 
+                        product: urlOptions.product,
+                        auth: apiHelper.auth.access_token 
+                    });
+                    // console.log('productRes', productRes);
+                    // body.product.
+                    //  id, name, description, device_count, groups[], etc.
+    
+                    html += '<option value="' + urlOptions.product + '">' + productRes.body.name + ' (' + urlOptions.product + ')</option>';    
+                }
+                catch(e) {
+                    html += '<option value="' + urlOptions.product + '">' + urlOptions.product + '</option>';    
+                }
+
                 $(elems).html(html);
                 $(elems).trigger('change');
                 return;
@@ -257,7 +271,7 @@ $(document).ready(async function() {
             const productsResp = await apiHelper.getProducts();
             sandboxTrackerProducts = apiHelper.filterByTrackerPlatform(productsResp.products);
 
-            buildProductMenu(sandboxTrackerProducts, $('.apiHelperTrackerProductSelect'), {});
+            await buildProductMenu(sandboxTrackerProducts, $('.apiHelperTrackerProductSelect'), {});
             if (sandboxTrackerProducts.length > 0) {
                 $('.apiHelperTrackerProductSelect').trigger('change');
             }
@@ -299,11 +313,11 @@ $(document).ready(async function() {
             
                                 const orgTrackerProducts = apiHelper.filterByTrackerPlatform(orgProductsResp.products);
 
-                                buildProductMenu(orgTrackerProducts, productSelectElems, {noSelectFirst:true});
+                                await buildProductMenu(orgTrackerProducts, productSelectElems, {noSelectFirst:true});
                             }
                             else {
                                 // 
-                                buildProductMenu(sandboxTrackerProducts, productSelectElems, {});
+                                await buildProductMenu(sandboxTrackerProducts, productSelectElems, {});
                             }
                         
                             $(orgSelectElems).val(orgId);
