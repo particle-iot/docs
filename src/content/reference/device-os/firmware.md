@@ -19518,6 +19518,68 @@ Power Management including battery charge is available on the Boron, B Series So
 It is not available on the P2, Photon 2, Argon, Photon, or P1.
 {{note op="end"}}
 
+### onAssetsOta
+
+{{api name1="System.onAssetsOta"}}
+
+{{since when="5.5.0"}}
+
+{{!-- BEGIN shared-blurb e724be96-469f-4bf2-bead-c8c962accad8 --}}
+Asset OTA (available in Device OS 5.5.0 and later), makes it easy to include bundled assets that can be delivered to other processors and components in your system, such as:
+
+- Coprocessors
+- Graphics and fonts for external displays
+- Sound samples for device with audio output capabilities
+
+Including assets is as easy as including an directory in your project, specifying it in the `project.properties` and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB in size (after compression) and do not use additional data operations.
+
+The compression algorithm is similar to gzip, so using a gzip program on the assets folder on your computer will yield the approximate size after compression.
+{{!-- END shared-blurb --}}
+
+The `System.onAssetsOta()` call is typically called from the `STARTUP()` macro. This is because Asset OTA occurs before setup() and loop() are run, so you can upgrade your external components before the new version of your user firmware is run.
+
+```cpp
+void handleAssets(spark::Vector<ApplicationAsset> assets);
+STARTUP(System.onAssetsOta(handleAssets));
+```
+
+- The parameter is a `std::function` so it can be a C++11 lambda, if desired.
+- An additional overload also takes a context pointer.
+- An additional overload allows the callback to be an method of a C++ class.
+
+See [`ApplicationAsset`](#applicationasset) class for using the vector of application asset objects passed to your callback function.
+
+
+### assetsHandled
+
+{{since when="5.5.0"}}
+
+{{api name1="System.assetsHandled"}}
+
+In your handleAssets function, upon completion you will typically call the `System.assetsHandled()` method. This will release the temporary storage used by the asset bundle. Once you've handled the assets your asset handler function will not be called again until a new user binary and asset bundle is flashed to the device.
+
+```cpp
+// PROTOTYPE
+static int assetsHandled(bool state = true);
+
+// EXAMPLE - Mark assets as handled
+System.assetsHandled();
+```
+
+### assetsAvailable
+
+{{since when="5.5.0"}}
+
+{{api name1="System.assetsAvailable"}}
+
+
+```cpp
+// PROTOTYPE
+static spark::Vector<ApplicationAsset> assetsAvailable();
+```
+
+See [`ApplicationAsset`](#applicationasset) class for using the vector of application asset objects returned by this function.
+
 
 ### disableReset()
 
@@ -20856,6 +20918,237 @@ device OTA updates.
 | Device OS &lt; 1.2.0 | N/A | N/A |
 | Device OS &gt;= 1.2.0 | Supported | Supported |
 
+## Asset OTA
+
+{{since when="5.5.0"}}
+
+In addition to the methods in the `System` class, including [`System.onAssetsOta``](#onassetsota) and ['System.assetsHandled()`](#assetshandled), the functions is this section are used to process the asset bundles.
+
+```cpp
+// EXAMPLE
+void handleAssets(spark::Vector<ApplicationAsset> assets) 
+{
+  for (ApplicationAsset& asset: assets) {
+    // Process each asset here
+  }
+
+  System.assetsHandled(true);
+}
+```
+
+### ApplicationAsset
+
+{{since when="5.5.0"}}
+
+The `ApplicationAsset` class is a container that refers to an asset in the system and allows you to stream the contents. 
+
+You can read the data byte-by-byte or by buffer. Because it inherits from [`Stream`](#stream-class) class, you can use those methods as well.
+
+#### name() - ApplicationAsset
+
+{{api name1="ApplicationAsset::name"}}
+
+```cpp
+// PROTOTYPE
+String name() const;
+```
+
+Returns the asset filename as a `String`. 
+
+#### hash() - ApplicationAsset
+
+{{api name1="ApplicationAsset::hash"}}
+
+```cpp
+// PROTOTYPE
+AssetHash hash() const;
+```
+
+#### size() - ApplicationAsset
+
+{{api name1="ApplicationAsset::size"}}
+
+```cpp
+// PROTOTYPE
+size_t size() const;
+```
+
+Returns the size of the asset in bytes. This is unaffected by the current read position.
+
+#### isValid() - ApplicationAsset
+
+{{api name1="ApplicationAsset::isValid"}}
+
+```cpp
+// PROTOTYPE
+bool isValid() const;
+```
+
+Returns `true` if the asset appears to be valid (has a name and a hash).
+
+
+#### isReadable() - ApplicationAsset
+
+{{api name1="ApplicationAsset::isReadable"}}
+
+```cpp
+// PROTOTYPE
+bool isReadable();
+```
+
+Returns `true` if there are bytes to read (asset not empty, not at end of file).
+
+#### available() - ApplicationAsset
+
+{{api name1="ApplicationAsset::available"}}
+
+```cpp
+// PROTOTYPE
+int available() override;
+```
+
+Returns the number of bytes available to read. If you want the total size of the asset, use `size()` instead.
+
+#### read() - ApplicationAsset
+
+{{api name1="ApplicationAsset::read"}}
+
+```cpp
+// PROTOTYPES
+int read() override;
+virtual int read(char* buffer, size_t size);
+```
+
+Read and return a single byte, or read multiple bytes into your buffer.
+
+#### peek() - ApplicationAsset
+
+{{api name1="ApplicationAsset::peek"}}
+
+```cpp
+// PROTOTYPES
+int peek() override;
+virtual int peek(char* buffer, size_t size);
+```
+
+Read data into a buffer without consuming it, so the next read will re-read the data. Streams are not seekable or rewindable.
+
+#### skip() - ApplicationAsset
+
+{{api name1="ApplicationAsset::skip"}}
+
+```cpp
+// PROTOTYPE
+virtual int skip(size_t size);
+```
+
+Skip the specified number of bytes so the next `read()`, `readBuffer()`, etc. will read from that point. Streams are not seekable or rewindable.
+
+### AssetHash
+
+{{since when="5.5.0"}}
+
+{{api name1="AssetHash"}}
+
+Class for generating a hash (digest) of data. Currently uses SHA-256, but could be extended to use other hash types in the future.
+
+This class implements a one-shot hashing of data that is entirely stored in RAM. It does not support generating a hash from
+multiple buffers of data (streaming hash).
+
+
+#### Constructor - AssetHash
+
+{{api name1="AssetHash::constructor"}}
+
+```cpp
+// PROTOTYPES
+AssetHash();
+AssetHash(const char* hash, size_t length, Type type = Type::DEFAULT);
+AssetHash(const uint8_t* hash, size_t length, Type type = Type::DEFAULT);
+AssetHash(const Buffer& hash, Type type = Type::DEFAULT);
+AssetHash(const AssetHash& other) = default;
+AssetHash(AssetHash&& other) = default;
+```
+
+The hash is generated for you by the ApplicationAsset class, but in some cases you may want to construct your own.
+
+You pass the entire data to the constructor. There is no option to pass the data in multiple buffers.
+
+#### type() - AssetHash
+
+{{api name1="AssetHash::type"}}
+
+```cpp
+// PROTOTYPE
+Type type() const;
+```
+
+Returns the type:
+
+- `AssetHash::Type::INVALID` (-1) - Invalid, occurs when using the default constructor
+- `AssetHash::Type::SHA256` (0) - SHA-256 (32 byte hash)
+- `AssetHash::Type::DEFAULT` - Alias for `AssetHash::Type::SHA256`
+
+{{api name1="AssetHash::Type::SHA256"}}
+{{api name1="AssetHash::Type::DEFAULT"}}
+
+
+#### hash() - AssetHash
+
+{{api name1="AssetHash::hash"}}
+
+```cpp
+// PROTOTYPE
+const Buffer& hash() const;
+```
+
+Returns a reference to the binary representation of the hash. 
+
+In most cases, you will use `toString()` or the equality test instead of this method.
+
+#### isValid() - AssetHash
+
+{{api name1="AssetHash::isValid"}}
+
+```cpp
+// PROTOTYPE
+bool isValid() const;
+```
+
+Returns `true` if the hash type is set and is not empty.
+
+#### toString() - AssetHash
+
+{{api name1="AssetHash::toString"}}
+
+```cpp
+// PROTOTYPE
+String toString() const;
+```
+
+Returns a text representation of the hash. For SHA-256, this is 64 lowercase hexadecimal (0-9, a-f) characters.
+
+#### operator==() - AssetHash
+
+{{api name1="AssetHash::operator=="}}
+
+```cpp
+// PROTOTYPE
+bool operator==(const AssetHash& other) const;
+```
+
+Returns `true` if two hashes are equal.
+
+#### operator!=() - AssetHash
+
+{{api name1="AssetHash::operator!="}}
+
+```cpp
+// PROTOTYPE
+bool operator!=(const AssetHash& other) const;
+```
+
+Returns `true` if two hashes are not equal.
 
 
 ## Checking for features
@@ -21764,6 +22057,9 @@ Some of the Particle classes that rely on Stream include :
 `setTimeout()` sets the maximum milliseconds to wait for stream data, it defaults to 1000 milliseconds.
 
 ```cpp
+// PROTOTYPE
+void setTimeout(system_tick_t timeout);
+
 // SYNTAX
 stream.setTimeout(time);
 ```
@@ -21782,6 +22078,10 @@ Returns: None
 `find()` reads data from the stream until the target string of given length is found.
 
 ```cpp
+// PROTOTYPES
+bool find(char *target);
+bool find(char *target, size_t length); 
+
 // SYNTAX
 stream.find(target);		// reads data from the stream until the target string is found
 stream.find(target, length);	// reads data from the stream until the target string of given length is found
@@ -21802,6 +22102,10 @@ Returns: returns true if target string is found, false if timed out
 `findUntil()` reads data from the stream until the target string or terminator string is found.
 
 ```cpp
+// PROTOTYPES
+bool findUntil(char *target, char *terminator);
+bool findUntil(char *target, size_t targetLen, char *terminate, size_t termLen);
+
 // SYNTAX
 stream.findUntil(target, terminal);		// reads data from the stream until the target string or terminator is found
 stream.findUntil(target, terminal, length);	// reads data from the stream until the target string of given length or terminator is found
@@ -21823,6 +22127,9 @@ Returns: returns true if target string or terminator string is found, false if t
 `readBytes()` read characters from a stream into a buffer. The function terminates if the determined length has been read, or it times out.
 
 ```cpp
+// PROTOTYPE
+size_t readBytes( char *buffer, size_t length); 
+
 // SYNTAX
 stream.readBytes(buffer, length);
 ```
@@ -21842,6 +22149,9 @@ Returns: returns the number of characters placed in the buffer (0 means no valid
 `readBytesUntil()` reads characters from a stream into a buffer. The function terminates if the terminator character is detected, the determined length has been read, or it times out.
 
 ```cpp
+// PROTOTYPE
+size_t readBytesUntil( char terminator, char *buffer, size_t length);
+
 // SYNTAX
 stream.readBytesUntil(terminator, buffer, length);
 ```
@@ -21862,6 +22172,9 @@ Returns: returns the number of characters placed in the buffer (0 means no valid
 `readString()` reads characters from a stream into a string. The function terminates if it times out.
 
 ```cpp
+// PROTOTYPE
+String readString();
+
 // SYNTAX
 stream.readString();
 ```
@@ -21879,6 +22192,9 @@ Returns: the entire string read from stream (String)
 `readStringUntil()` reads characters from a stream into a string until a terminator character is detected. The function terminates if it times out.
 
 ```cpp
+// PROTOTYPE
+String readStringUntil(char terminator);
+
 // SYNTAX
 stream.readStringUntil(terminator);
 ```
@@ -21900,6 +22216,10 @@ Returns: the entire string read from stream, until the terminator character is d
  - Parsing stops when no characters have been read for a configurable time-out value, or a non-digit is read;
 
 ```cpp
+// PROTOTYPE
+long parseInt();
+long parseInt(char skipChar);
+
 // SYNTAX
 stream.parseInt();
 stream.parseInt(skipChar);	// allows format characters (typically commas) in values to be ignored
@@ -21919,6 +22239,10 @@ Returns: parsed int value (long). If no valid digits were read when the time-out
 `parseFloat()` as `parseInt()` but returns the first valid floating point value from the current position.
 
 ```cpp
+// PROTOTYPES
+float parseFloat();
+float parseFloat(char skipChar);
+
 // SYNTAX
 stream.parsetFloat();
 stream.parsetFloat(skipChar);	// allows format characters (typically commas) in values to be ignored
