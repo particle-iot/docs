@@ -20923,7 +20923,7 @@ Including assets is as easy as including an directory in your project, specifyin
 The compression algorithm is similar to gzip, so using a gzip program on the assets folder on your computer will yield the approximate size after compression.
 {{!-- END shared-blurb --}}
 
-In addition to the methods in the `System` class, including [`System.onAssetsOta`](#onassetsota) and ['System.assetsHandled()`](#assetshandled), the functions is this section are used to process the asset bundles.
+In addition to the methods in the `System` class, including [`System.onAssetsOta`](#onassetsota-system) and ['System.assetsHandled()`](#assetshandled-system), the functions is this section are used to process the asset bundles.
 
 For complete code examples, see [asset-ota-examples](https://github.com/particle-iot/asset-ota-examples) in the Particle Github repository.
 
@@ -20946,8 +20946,8 @@ void handleAssets(spark::Vector<ApplicationAsset> assets)
 
 {{since when="5.5.0"}}
 
-The `ApplicationAsset` class is a container that refers to an asset in the system and allows you to stream the contents. When you use [`System.onAssetsOta`](#onassetsota) 
-or [`System.assetsAvailable`](#assetsavailable), you will be passed a `Vector` of `ApplicationAsset` objects. You will typically iterate this vector and process each asset in the asset bundle.
+The `ApplicationAsset` class is a container that refers to an asset in the system and allows you to stream the contents. When you use [`System.onAssetsOta`](#onassetsota-system) 
+or [`System.assetsAvailable`](#assetsavailable-system), you will be passed a `Vector` of `ApplicationAsset` objects. You will typically iterate this vector and process each asset in the asset bundle.
 
 You can read the data byte-by-byte or by buffer. Because it inherits from [`Stream`](#stream-class) class, you can use those methods as well.
 
