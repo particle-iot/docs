@@ -28,6 +28,13 @@ const path = require('path');
                 }); 
             } 
         },
+        // product-lifecycle-policy-status
+        {            
+            guid: 'ac230403-4883-4c71-8781-601d6ca5a0fa', 
+            generatorFn:function(updater) {
+                return updater.generateSkuLifecycle(); 
+            }             
+        },
         // verizon-faq
         {            
             guid: '45d4d59b-d643-41d2-96ef-a7ec73124a9c', 
