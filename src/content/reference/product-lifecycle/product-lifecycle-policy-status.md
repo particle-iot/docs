@@ -24,29 +24,6 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 
 ### Deprecated, End of Sale, and End of Support products
 
-| Gen   | Conn.  | SKU          | Description                                  | Last updated | Status         | Last buy | End of support |
-| ----- | ------ | ------------ | -------------------------------------------- | ------------ | -------------- | -------- | -------------- |
-| Gen 2 | Wi-Fi  | PHNTRAYH     | Photon with Headers, Tray \[x50\]            | 3/15/22      | NRND           | 6/30/22  | 3/31/25        |
-| Gen 2 | Wi-Fi  | PHNTRAYNOH   | Photon without Headers, Tray \[x50\]         | 3/15/22      | NRND           | 6/30/22  | 3/31/25        |
-| Gen 2 | Wi-Fi  | P0REEL       | P0 Wi-Fi Module, Reel \[x1000\]              | 3/15/22      | Deprecated     | 6/30/22  | 3/31/25        |
-| Gen 2 | Wi-Fi  | P1REEL       | P1 Wi-Fi Module, Reel \[x500\]               | 3/15/22      | NRND           | 6/30/22  | 3/31/25        |
-| Gen 2 | 2G     | E350TRAY50   | E Series 2G (Global), Tray \[x50\]           | 3/15/22      | Deprecated     | 6/30/22  | 3/31/25        |
-| Gen 2 | 2G, 3G | E310TRAY50   | E Series 2G/3G (Global - E310), Tray \[x50\] | 3/15/22      | Deprecated     | 6/30/22  | 3/31/25        |
-| Gen 2 | 2G, 3G | E313TY       | E Series 2G/3G (Global - E313), Tray \[x50\] | 3/15/22      | Deprecated     | 6/30/22  | 3/31/25        |
-| Gen 2 | 2G, 3G | E314TRAY50   | E Series 2G/3G (Global - E313), Tray \[x50\] | 3/15/22      | NRND           | 6/30/22  | 3/31/25        |
-| Gen 2 | LTE M1 | ELC402TY     | Electron LTE CAT-M1 (NorAm), Tray \[x50\]    | 3/15/22      | Deprecated     | 6/30/22  | 3/31/25        |
-| Gen 2 | LTE M1 | E402TRAY50   | E Series LTE CAT-M1 (NorAm), Tray \[x50\]    | 3/15/22      | Deprecated     | 6/30/22  | 3/31/25        |
-| Gen 3 | Wi-Fi  | ARGNTRAY50   | Argon, Tray \[x50\]                          | 3/15/22      | NRND           | 6/30/22  | 3/31/25        |
-| Gen 3 | 2G, 3G | BRN310TRAY50 | Boron 2G/3G (Global), Tray \[x50\]           | 3/15/22      | NRND           | 6/30/22  | 3/31/25        |
-| Gen 3 | 2G, 3G | BRN314TRAY50 | Boron 2G/3G (Global), Tray \[x50\]           | 3/15/22      | NRND           | 6/30/22  | 3/31/25        |
-| Gen 3 | LTE M1 | B402MTY      | B Series LTE CAT-M1 (NorAm), Tray \[x50\]    | 3/15/22      | NRND           | 6/30/22  | 3/31/25        |
-| Gen 3 | LTE M1 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray \[x50\]       | 3/15/22      | NRND           | 6/30/22  | 3/31/25        |
-| Gen 2 | 2G, 3G | E260TRAY50   | Electron 2G/3G (Americas/Aus), Tray \[x50\]  |              | Deprecated     |          | 3/31/25        |
-| Gen 2 | 2G, 3G | E270TRAY50   | Electron 2G/3G (EMEA), Tray \[x50\]          |              | NRND           |          | 3/31/25        |
-| Gen 2 | 2G     | E350TRAY50   | Electron 2G (Global), Tray \[x50\]           |              | Deprecated     |          | 3/31/25        |
-| Gen 3 | Mesh   | XENNTRAY50   | Xenon in Trays                               |              | End of Support | 4/20/20  | 12/31/20       |
-
-
 {{!-- BEGIN do not edit content below, it is automatically generated ac230403-4883-4c71-8781-601d6ca5a0fa --}}
 
 | SKU | Description | Gen | Lifecycle | Replacement | End of support |
@@ -79,6 +56,8 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | 2 | Deprecated | &nbsp; | &nbsp; |
 | P0REEL | P0 Wi-Fi Module, Reel [x2000] | 2 | Deprecated | &nbsp; | &nbsp; |
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | 3 | Deprecated | T524MTY | &nbsp; |
+| E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | 2 | End of life | &nbsp; | &nbsp; |
+| XENNTRAY50 | Xenon [x50] | 3 | End of life | &nbsp; | 2020-12-31 |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

@@ -809,7 +809,7 @@ const generatorConfig = require('./generator-config');
 
         // Filter
         updater.datastore.data.skus.forEach(function(skuObj) {
-            if (!skuObj.lifecycle.startsWith('NRND') && skuObj.lifecycle != 'Deprecated') {
+            if (!skuObj.lifecycle.startsWith('NRND') && skuObj.lifecycle != 'Deprecated' && skuObj.lifecycle != 'End of life') {
                 return;
             }
             

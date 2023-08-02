@@ -37,29 +37,8 @@ All Supply Secure SKUs will be offered at pricing that is equivalent to the cont
 The scope of impact of the silicon shortage is extremely broad, and has affected nearly every hardware SKU in our portfolio.  
 The following enterprise (bulk) SKUs _**are impacted**_ by the silicon shortage and _**will be Deprecated and designed End of Sale once material availability is exhausted**_:  
 
-- Gen 2 Wi-Fi  
-  - P0 Wi-Fi Module (P0REEL)  
-  - P1 Wi-Fi Module (P1REEL)  
-  - Photon with Headers (PHNTRAYH)  
-  - Photon without Headers (PHNTRAYNOH)  
-- Gen 2 Cellular  
-  - E Series 2G/3G (E310TRAY50, E313TY, E314TRAY50)  
-  - E Series LTE CAT M1 (E402TRAY50 and E404TRAY50)  
-  - Electron 2G/3G (ELC314TY)  
-  - Electron LTE M1 (ELC402TY and ELC404TY)  
-- Gen 3 Wi-Fi  
-  - Argon (ARGNTRAY50)  
-- Gen 3 Cellular  
-  - B Series LTE CAT M1 (B402MTY and B404MTY)  
-  - B Series LTE CAT 1 (B523MTY)  
-  - Boron 2G/3G (BRN314MTY)  
-  - Boron LTE M1 (BRN402MTY and B404MTY)  
-- Gen 3 Tracker  
-  - Tracker SoM LTE M1 (T402MTY)  
-  - Tracker SoM LTE CAT 1 (T523MTY)  
-  - Tracker One LTE M1 (ONE402MTY)  
-  - Tracker One LTE CAT 1 (ONE523MTY)  
-
+For the specific SKUs affected by this notice, see [Product lifecycle policy status](/reference/product-lifecycle/product-lifecycle-policy-status/).
+)  
 The following enterprise SKUs are _**not currently impacted**_ by the silicon shortage (currently Supply Secure, no replacements planned):  
    * B Series LTE CAT 1 (B524MTY)
 
