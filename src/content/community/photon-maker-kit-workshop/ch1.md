@@ -9,6 +9,8 @@ layout: commonTwo.hbs
 
 {{box op="start" cssClass="boxed warningBox"}}
 This page is no longer maintained and is provided for historical reference only
+
+The Particle mobile app for iOS will be deprecated in the future. The Android app has been deprecated. You should use web-based or CLI setup instead.
 {{box op="end"}}
 
 | **Project Goal**            | Get your Particle Photon online and claimed to your account                    |
@@ -32,7 +34,7 @@ Once you've claimed your Photon, you'll use [Tinker](/guide/getting-started/tink
 ## Before you start
 
 1.  Create a new [Particle account](https://login.particle.io/signup)
-2.  Install the Particle [iOS](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) or [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) App
+2.  Install the Particle Mobile App
 3.  [Install the Particle CLI](/getting-started/developer-tools/cli/#install-the-particle-cli)
 4.  [Install the Particle Desktop IDE](/getting-started/developer-tools/workbench/)
 

@@ -10,7 +10,7 @@ devices: [ photon,electron,argon,boron,xenon]
 {{box op="start" cssClass="boxed warningBox"}}
 This page is no longer maintained and is provided for historical reference only
 
-The Particle mobile apps for iOS and Android will be deprecated in the future. You should use web-based or CLI setup instead.
+The Particle mobile app for iOS will be deprecated in the future. The Android app has been deprecated. You should use web-based or CLI setup instead.
 {{box op="end"}}
 
 You are viewing the Tinker documentation the **{{device}}**. To view the documentation for other 
@@ -38,7 +38,7 @@ To get started, you'll need the following things:
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor or other resistance-based sensor, such as a Thermistor or Force-Sensitive Resistor {{#if photon}}(Photoresistor included with Photon Kit and Maker Kit){{/if}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * Particle Mobile App 
 * **Experience**
     * Connecting your Device with your [smartphone or USB](/quickstart/photon/) 
 
@@ -189,7 +189,7 @@ To get started, you'll need the following things:
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor or other resistance-based sensor, such as a Thermistor or Force-Sensitive Resistor {{#if photon}}(Photoresistor included with Photon Kit and Maker Kit){{/if}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * Particle Mobile App 
 * **Experience**
     * Connecting your Device with your [smartphone or USB](/quickstart/photon/) 
 
@@ -352,7 +352,7 @@ To get started, you'll need the following things:
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor or other resistance-based sensor, such as a Thermistor or Force-Sensitive Resistor {{#if photon}}(Photoresistor included with Photon Kit and Maker Kit){{/if}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * Particle Mobile App
 * **Experience**
     * Connecting your Device [smartphone or USB](/quickstart/electron/)
 
@@ -515,7 +515,7 @@ To get started, you'll need the following things:
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor or other resistance-based sensor, such as a Thermistor or Force-Sensitive Resistor {{#if photon}}(Photoresistor included with Photon Kit and Maker Kit){{/if}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher)
+  * Particle Mobile App 
 * **Experience**
     * Connecting your Device with your smartphone or over USB
 

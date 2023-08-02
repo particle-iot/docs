@@ -10,6 +10,12 @@ columns: two
 
 Air quality monitoring is a common IoT use case, whether gauging dust levels in a workshop or industrial setting, or measuring overall air quality in a public space. In this tutorial, you’ll learn how to perform air quality monitoring with the [Particle Air Quality Monitoring kit](https://part.cl/air-quality-kit), display readings on a screen, and publish data to the Particle Device Cloud.
 
+{{box op="start" cssClass="boxed warningBox"}}
+The air quality monitoring kit has been deprecated. This page is no longer maintained and is provided for historical reference only
+
+The Particle mobile app for iOS will be deprecated in the future. The Android app has been deprecated. You should use web-based or CLI setup instead.
+{{box op="end"}}
+
 ## The air quality kit comes with the following things:
 
 {{box op="start"}}
@@ -29,7 +35,7 @@ If you want to jump ahead to the completed code, see [the full listing and downl
 For this tutorial, you’ll need the following Particle tools and services:
 
 - A [Particle account](https://login.particle.io)
-- The Particle mobile app for [iOS](https://apps.apple.com/us/app/particle-iot/id991459054) or [Android](https://play.google.com/store/apps/details?id=io.particle.android.app&hl=en_US)
+- The Particle mobile app
 - [Particle Workbench](https://particle.io/workbench)
 
 ## Claiming your particle device
