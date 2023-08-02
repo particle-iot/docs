@@ -20923,11 +20923,11 @@ Including assets is as easy as including an directory in your project, specifyin
 The compression algorithm is similar to gzip, so using a gzip program on the assets folder on your computer will yield the approximate size after compression.
 {{!-- END shared-blurb --}}
 
-In addition to the methods in the `System` class, including [`System.onAssetsOta`](#onassetsota-system) and ['System.assetsHandled()`](#assetshandled-system), the functions is this section are used to process the asset bundles.
+In addition to the methods in the `System` class, including [`System.onAssetsOta()`](#onassetsota-system) and [`System.assetsHandled()`](#assetshandled-system), the functions is this section are used to process the asset bundles.
 
 For complete code examples, see [asset-ota-examples](https://github.com/particle-iot/asset-ota-examples) in the Particle Github repository.
 
-For information on building a binary with assets using the Particle CLI, see [Compiling a directory with assets](/reference/developer-tools/cli/#compiling-a-directory-with-assets).
+For information on building a binary with assets using the Particle CLI, see [Compiling a directory with assets](/reference/developer-tools/cli/#compiling-a-directory-with-assets). This method also works for the **Particle: Cloud Compile** and **Particle: Cloud Flash** options in Particle Workbench.
 
 
 ```cpp
