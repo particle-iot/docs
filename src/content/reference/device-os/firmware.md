@@ -19518,17 +19518,19 @@ Power Management including battery charge is available on the Boron, B Series So
 It is not available on the P2, Photon 2, Argon, Photon, or P1.
 {{note op="end"}}
 
-### onAssetsOta - System
+### onAssetOta - System
 
-{{api name1="System.onAssetsOta"}}
+{{api name1="System.onAssetOta"}}
 
 {{since when="5.5.0"}}
 
-The `System.onAssetsOta()` call is typically made from the `STARTUP()` macro as your asset handler functionm must be registered before `setup()` is called.
+Register a handler function that will be called by Device OS when new assets have been delivered to the device using Asset OTA. Your handler will be called before the application `setup()`. It will receive a vector of all the application assets, not just the new ones.
+
+The `System.onAssetOta()` call is typically made from the `STARTUP()` macro to ensure your handler is registered before `setup()` is called.
 
 ```cpp
 void handleAssets(spark::Vector<ApplicationAsset> assets);
-STARTUP(System.onAssetsOta(handleAssets));
+STARTUP(System.onAssetOta(handleAssets));
 ```
 
 - The parameter is a `std::function` so it can be a C++11 lambda, if desired.
@@ -19544,7 +19546,11 @@ See [`ApplicationAsset`](#applicationasset) class for using the vector of applic
 
 {{api name1="System.assetsHandled"}}
 
-In your handleAssets function, upon completion you will typically call the `System.assetsHandled()` method. This will release the temporary storage used by the asset bundle. Once you've handled the assets your asset handler function will not be called again until a new user binary and asset bundle is flashed to the device.
+Marks the assets as having been handled so that the assets handler you registered using `onAssetOta` will not be called on next boot.
+
+Once the asset handler function sucessfully processes all assets, you will typically call the `System.assetsHandled()` method.
+
+Once you've marked the assets as handled, your asset handler function will not be called again until new assets are flashed to the device.
 
 ```cpp
 // PROTOTYPE
@@ -19552,6 +19558,9 @@ static int assetsHandled(bool state = true);
 
 // EXAMPLE - Mark assets as handled
 System.assetsHandled();
+
+// Mark the asset handler as needing to run on next boot
+System.assetHandled(false);
 ```
 
 ### assetsAvailable - System
@@ -19565,7 +19574,8 @@ System.assetsHandled();
 static spark::Vector<ApplicationAsset> assetsAvailable();
 ```
 
-Instead of registering an asset handler function using `onAssetsOta()` you can check for one using `assetsAvailable()`.
+Get a vector of all the assets that were bundled with your application.
+This can be called while the application runs, instead of registering an asset handler function using `onAssetOta()`
 
 See [`ApplicationAsset`](#applicationasset) class for using the vector of application asset objects returned by this function.
 
@@ -20923,7 +20933,7 @@ Including assets is as easy as including an directory in your project, specifyin
 The compression algorithm is similar to gzip, so using a gzip program on the assets folder on your computer will yield the approximate size after compression.
 {{!-- END shared-blurb --}}
 
-In addition to the methods in the `System` class, including [`System.onAssetsOta()`](#onassetsota-system) and [`System.assetsHandled()`](#assetshandled-system), the functions is this section are used to process the asset bundles.
+In addition to the methods in the `System` class, including [`System.onAssetOta()`](#onassetota-system) and [`System.assetsHandled()`](#assetshandled-system), the functions is this section are used to process the asset bundles.
 
 For complete code examples, see [asset-ota-examples](https://github.com/particle-iot/asset-ota-examples) in the Particle Github repository.
 
@@ -20946,7 +20956,7 @@ void handleAssets(spark::Vector<ApplicationAsset> assets)
 
 {{since when="5.5.0"}}
 
-The `ApplicationAsset` class is a container that refers to an asset in the system and allows you to stream the contents. When you use [`System.onAssetsOta`](#onassetsota-system) 
+The `ApplicationAsset` class is a container that refers to an asset in the system and allows you to stream the contents. When you use [`System.onAssetOta`](#onassetota-system) 
 or [`System.assetsAvailable`](#assetsavailable-system), you will be passed a `Vector` of `ApplicationAsset` objects. You will typically iterate this vector and process each asset in the asset bundle.
 
 You can read the data byte-by-byte or by buffer. Because it inherits from [`Stream`](#stream-class) class, you can use those methods as well.
@@ -20984,6 +20994,17 @@ size_t size() const;
 
 Returns the size of the asset in bytes. This is unaffected by the current read position.
 
+#### storageSize() - ApplicationAsset
+
+{{api name1="ApplicationAsset::storageSize"}}
+
+```cpp
+// PROTOTYPE
+size_t storageSize() const;
+```
+
+Returns how many bytes the asset takes on the device storage. This is typically smaller than `size()` since assets are stored compressed.
+
 #### isValid() - ApplicationAsset
 
 {{api name1="ApplicationAsset::isValid"}}
@@ -21016,7 +21037,7 @@ Returns `true` if there are bytes to read (asset not empty, not at end of file).
 int available() override;
 ```
 
-Returns the number of bytes available to read. If you want the total size of the asset, use `size()` instead.
+Returns the number of bytes available to read, or 0 if at end of the asset or an error occurred. `available()` may not return the total size of the asset on the first call. For that, use `size()`.
 
 #### read() - ApplicationAsset
 
