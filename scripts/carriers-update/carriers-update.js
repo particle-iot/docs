@@ -829,6 +829,10 @@ const generatorConfig = require('./generator-config');
                 return;
             }
 
+            if (skuObj.lifecycle.startsWith('NRND') && skuObj.endOfSupport) {
+                delete skuObj.endOfSupport;
+            }
+
             tableData.push(skuObj);
         });
 
