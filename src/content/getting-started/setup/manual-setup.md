@@ -63,8 +63,9 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | USB-C |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | USB-C |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Micro B |
 | PHN2KIT | Photon 2, Kit [x1] | Micro B |
-| PHN2MEA | Photon 2, [x1] | Micro B |
+| PHN2MEA | Photon 2 [x1] | Micro B |
 | PHOTONH | Photon with Headers, [x1] | Micro B |
 | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Micro B |
 | PHOTONNOH | Photon without Headers, Dev board Kit [x1] | Micro B |
@@ -130,8 +131,9 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | &nbsp; |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | &check; |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | &check; |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | &nbsp; |
 | PHN2KIT | Photon 2, Kit [x1] | &nbsp; |
-| PHN2MEA | Photon 2, [x1] | &nbsp; |
+| PHN2MEA | Photon 2 [x1] | &nbsp; |
 | PHOTONH | Photon with Headers, [x1] | &nbsp; |
 | PHOTONKIT | Photon with Headers Starter Kit, [x1] | &nbsp; |
 | PHOTONNOH | Photon without Headers, Dev board Kit [x1] | &nbsp; |

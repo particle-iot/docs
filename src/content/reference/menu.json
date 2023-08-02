@@ -336,18 +336,6 @@
           "dir": "boron-datasheet",
           "title": "Boron datasheet",
           "href": "/reference/datasheets/b-series/boron-datasheet/"
-        },
-        {
-          "dir": "b404x-certification",
-          "title": "B Series B404X Certification",
-          "href": "/reference/datasheets/b-series/b404x-certification/",
-          "hidden": true
-        },
-        {
-          "dir": "brn404x-certification",
-          "title": "BRN404X Certification",
-          "href": "/reference/datasheets/b-series/brn404x-certification/",
-          "hidden": true
         }
       ],
       {

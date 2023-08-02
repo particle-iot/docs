@@ -112,12 +112,12 @@ The following cables will be available:
 
 | SKU          | Description |
 | :----------- | :--- |
-| ONEM8CABEA   | Tracker One M8 Accessory Cable (Straight), (x1) |
-| ONEM8CABTY   | Tracker One M8 Accessory Cable (Straight), (x40) |
-| ONEM8CABRAEA | Tracker One M8 Accessory Cable (Right Angle) |
-| ONEM8CABRATY | Tracker One M8 Accessory Cable (Right Angle), (x40) |
-| ONEM8CONNEA  | Tracker One M8 Connector (Straight) |
-| ONEM8CONNTY  | Tracker One M8 Connector (Straight), (x40) |
+| M8CABEA   | Tracker One M8 Accessory Cable (Straight), (x1) |
+| M8CABTY   | Tracker One M8 Accessory Cable (Straight), (x40) |
+| M8CABRAEA | Tracker One M8 Accessory Cable (Right Angle) |
+| M8CABRATY | Tracker One M8 Accessory Cable (Right Angle), (x40) |
+| M8CONNEA  | Tracker One M8 Connector (Straight) |
+| M8CONNTY  | Tracker One M8 Connector (Straight), (x40) |
 
 The color code is as follows:
 

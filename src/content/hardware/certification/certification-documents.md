@@ -96,9 +96,9 @@ All designs using the B402 and B404 should migrate to the pin and software compa
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | B404XMEA|
+| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404XMTY|
 | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | B404XMEA|
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | B404XMTY|
-| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | B404XMTY|
+| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -1063,9 +1063,10 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | GA | |
 | PHN2KIT | Photon 2, Kit [x1] | Global | GA | |
-| PHN2MEA | Photon 2, [x1] | Global | GA | |
-| PHN2MTY | Photon 2, Tray [x50] | Global | GA | |
+| PHN2MEA | Photon 2 [x1] | Global | Beta | |
+| PHN2MTY | Photon 2, Tray [x50] | Global | Beta | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

@@ -800,6 +800,98 @@ const generatorConfig = require('./generator-config');
 
     }
 
+    updater.generateSkuLifecycle = function(options) {
+        let tableData = [];
+
+        if (!options) {
+            options = {};
+        }
+
+        // Filter
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (!skuObj.lifecycle.startsWith('NRND') && skuObj.lifecycle != 'Deprecated' && skuObj.lifecycle != 'End of life') {
+                return;
+            }
+            
+            if (options.omitSkus) {
+                if (options.omitSkus.includes(skuObj.name)) {
+                    return true;
+                }
+            }
+
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+
+            if (!skuObj.multiple || skuObj.accessory) {
+                return;
+            }
+
+            tableData.push(skuObj);
+        });
+
+        const columns = [
+            {
+                key: 'name',
+                title: 'SKU'
+            },
+            {
+                key: 'desc',
+                title: 'Description'
+            },
+            {
+                key: 'gen',
+                title: 'Gen',
+                align: 'center'
+            },
+            {
+                key: 'lifecycle',
+                title: 'Lifecycle',
+                align: 'center'
+            },
+            {
+                key: 'replacement',
+                title: 'Replacement',
+                align: 'center'
+            },
+            {
+                key: 'endOfSupport',
+                title: 'End of support',
+                align: 'center'
+            },
+
+        ];
+
+        // Generate data
+        let tableOptions = {
+            columns
+        };
+
+
+        // Sort table rows
+        tableData.sort(function(a, b) {
+            if (options.sortFn) {
+                return options.sortFn(a, b);
+            }
+
+            const lifecycleA = updater.datastore.findSkuLifecycle(a.lifecycle);
+            const lifecycleB = updater.datastore.findSkuLifecycle(b.lifecycle);
+
+            let cmp = lifecycleA.sortOrder - lifecycleB.sortOrder;
+            if (cmp) {
+                return cmp;
+            }
+
+            return a.name.localeCompare(b.name);
+        });
+
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);
+    }
+
 
     updater.generateSkuList = function(options) {
         let skus = [];
@@ -1102,7 +1194,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.bleAntInt && !skuObj.bleAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life') {
                 return;
             }
 
@@ -1155,7 +1247,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.nfcAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life') {
                 return;
             }
 
@@ -1210,7 +1302,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.gnssAntInt && !skuObj.gnssAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life') {
                 return;
             }
 
@@ -1262,7 +1354,7 @@ const generatorConfig = require('./generator-config');
 
         // Filter
         updater.datastore.data.skus.forEach(function(skuObj) {
-            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life') {
                 return;
             }
 
@@ -1412,7 +1504,7 @@ const generatorConfig = require('./generator-config');
             if (!skuObj.cellAnt) {
                 return;
             }
-            if (/*skuObj.lifecycle == 'Discontinued' || */skuObj.lifecycle == 'Hidden') {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'End of life') {
                 return;
             }
 
@@ -1479,7 +1571,7 @@ const generatorConfig = require('./generator-config');
 
         // Filter
         updater.datastore.data.skus.forEach(function(skuObj) {
-            if (skuObj.lifecycle == 'Discontinued' && skuObj.skuClass == 'kit') {
+            if (skuObj.lifecycle == 'Deprecated' && skuObj.skuClass == 'kit') {
                 // Hide discontinued kits
                 return;
             }

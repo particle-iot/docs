@@ -19298,7 +19298,8 @@
       "prefix": "ARNT",
       "platformId": 12,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "ASSET2GV2",
@@ -19414,7 +19415,7 @@
     {
       "name": "B402MTY",
       "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "B404XMTY",
       "modem": "R410",
       "multiple": true,
@@ -19439,7 +19440,11 @@
       "prefix": "P007",
       "platformId": 23,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "B404MEA",
@@ -19478,7 +19483,7 @@
     {
       "name": "B404MTY",
       "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "B404XMTY",
       "modem": "R410",
       "multiple": true,
@@ -19504,7 +19509,11 @@
       "platformId": 23,
       "usb": false,
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "B404XMEA",
@@ -19611,7 +19620,7 @@
     {
       "name": "B523MTY",
       "desc": "B Series LTE CAT-1/3G/2G (Europe), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "B524MTY",
       "modem": "EG91-E",
       "multiple": true,
@@ -19637,7 +19646,11 @@
       "prefix": "P020",
       "platformId": 25,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "B524MEA",
@@ -19793,7 +19806,8 @@
       "prefix": "B31T",
       "platformId": 13,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "BRN314KIT",
@@ -19860,7 +19874,8 @@
       "prefix": "P027",
       "platformId": 13,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "BRN402",
@@ -19986,7 +20001,8 @@
       "prefix": "B40T",
       "platformId": 13,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "BRN404",
@@ -20288,7 +20304,8 @@
       "wholesale": true,
       "retail": false,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "E310KIT",
@@ -20495,7 +20512,8 @@
       "prefix": "P029",
       "platformId": 10,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "E350KIT",
@@ -20623,7 +20641,8 @@
       "prefix": "E40T",
       "platformId": 10,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "E404KIT",
@@ -20734,6 +20753,18 @@
       "verizon": true
     },
     {
+      "name": "EDGEAISNSRKIT",
+      "desc": "Edge ML Kit for Photon 2 (Photon 2 NOT included)",
+      "lifecycle": "GA",
+      "accessory": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "usb": false,
+      "batteryRequired": false,
+      "skuRegion": "global"
+    },
+    {
       "name": "ELC314TY",
       "desc": "Electron 2G/3G (Global - U201) , Tray [x50]",
       "lifecycle": "NRND",
@@ -20757,7 +20788,8 @@
       "prefix": "P035",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "ELC402EA",
@@ -20810,7 +20842,8 @@
       "prefix": "E4DT",
       "platformId": 10,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "ELC404TY",
@@ -20946,14 +20979,13 @@
     },
     {
       "name": "M8CABEA",
-      "desc": "M8 Accessory Cable 5V Power 3.3V Logic (Straight), [x1]",
+      "desc": "M8 Accessory Cable (Straight), [x1]",
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "prefix": "己出貨430PCS，暫不能改",
       "skuRegion": "global",
       "usb": false,
       "batteryRequired": false
@@ -20967,7 +20999,6 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "prefix": "己出貨500PCS，暫不能改",
       "skuRegion": "global",
       "usb": false,
       "batteryRequired": false
@@ -21194,7 +21225,8 @@
       "platformId": 26,
       "usb": "c",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "ONE523MEA",
@@ -21272,7 +21304,8 @@
       "prefix": "P025",
       "platformId": 26,
       "usb": "c",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "ONE524MEA",
@@ -21346,75 +21379,8 @@
       "prefix": "P032",
       "platformId": 26,
       "usb": "c",
-      "batteryRequired": true
-    },
-    {
-      "name": "ONEM8CABEA",
-      "desc": "M8 Accessory Cable 5V Power 3.3V Logic (Straight), [x1]",
-      "lifecycle": "GA",
-      "accessory": true,
-      "multiple": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "12 weeks",
-      "allocation": false,
-      "inStock": "low",
-      "skuRegion": "global",
-      "usb": false,
-      "batteryRequired": false
-    },
-    {
-      "name": "ONEM8CABRAEA",
-      "desc": "M8 Accessory Cable 5V Power 3.3V Logic Right Angle), [x1]",
-      "lifecycle": "GA",
-      "accessory": true,
-      "multiple": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "12 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "skuRegion": "global",
-      "usb": false,
-      "batteryRequired": false
-    },
-    {
-      "name": "ONEM8CABRATY",
-      "desc": "M8 Accessory Cable 5V Power 3.3V Logic (Right Angle), [x40]",
-      "lifecycle": "GA",
-      "accessory": true,
-      "multiple": true,
-      "moq": 40,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "12 weeks",
-      "allocation": false,
-      "inStock": "no",
-      "skuRegion": "global",
-      "usb": false,
-      "batteryRequired": false
-    },
-    {
-      "name": "ONEM8CABTY",
-      "desc": "M8 Accessory Cable 5V Power 3.3V Logic Straight), [x40]",
-      "lifecycle": "GA",
-      "accessory": true,
-      "multiple": true,
-      "moq": 40,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "12 weeks",
-      "allocation": false,
-      "inStock": "no",
-      "skuRegion": "global",
-      "usb": false,
-      "batteryRequired": false
+      "batteryRequired": true,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "P0MOD10",
@@ -21496,7 +21462,8 @@
       "prefix": "",
       "platformId": 8,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "P2MOD10",
@@ -21551,6 +21518,31 @@
       "batteryRequired": false
     },
     {
+      "name": "PHN2EDGEKIT",
+      "desc": "Edge ML Kit for Photon 2 (Photon 2 included)",
+      "lifecycle": "GA",
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "wifi": true,
+      "gen": "3",
+      "family": "p series",
+      "skuClass": "prototyping",
+      "skuRegion": "global",
+      "wifiAntInt": "trace",
+      "wifiAntIntInc": true,
+      "wifiAntExt": "4",
+      "wifiAntExtInc": false,
+      "bleAntInt": "trace",
+      "bleAntIntInc": true,
+      "bleAntExt": "4",
+      "bleAntExtInc": false,
+      "prefix": "P051",
+      "platformId": 32,
+      "usb": "micro-b",
+      "batteryRequired": false
+    },
+    {
       "name": "PHN2KIT",
       "desc": "Photon 2, Kit [x1]",
       "lifecycle": "GA",
@@ -21578,8 +21570,8 @@
     },
     {
       "name": "PHN2MEA",
-      "desc": "Photon 2, [x1]",
-      "lifecycle": "GA",
+      "desc": "Photon 2 [x1]",
+      "lifecycle": "Beta",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -21605,7 +21597,7 @@
     {
       "name": "PHN2MTY",
       "desc": "Photon 2, Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Beta",
       "multiple": true,
       "wifi": true,
       "gen": "3",
@@ -21648,7 +21640,8 @@
       "prefix": "PHHT",
       "platformId": 6,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "PHNTRAYNOH",
@@ -21670,7 +21663,8 @@
       "prefix": "PHNT",
       "platformId": 6,
       "usb": "micro-b",
-      "batteryRequired": false
+      "batteryRequired": false,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "PHOTONH",
@@ -22000,7 +21994,8 @@
       "prefix": "P024",
       "platformId": 26,
       "usb": false,
-      "batteryRequired": false
+      "batteryRequired": false,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "T404MEA",
@@ -22036,7 +22031,10 @@
       "platformId": 26,
       "usb": false,
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "T404MKIT",
@@ -22072,7 +22070,10 @@
       "platformId": 26,
       "usb": "micro-b",
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "T404MTY",
@@ -22111,7 +22112,8 @@
       "platformId": 26,
       "usb": false,
       "batteryRequired": false,
-      "verizon": true
+      "verizon": true,
+      "endOfSupport": "2025-03-31"
     },
     {
       "name": "T523MEA",
@@ -22260,7 +22262,10 @@
       "prefix": "P032",
       "platformId": 26,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "T524MKIT",
@@ -22295,7 +22300,10 @@
       "prefix": "P032",
       "platformId": 26,
       "usb": "micro-b",
-      "batteryRequired": true
+      "batteryRequired": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "T524MTY",
@@ -22333,7 +22341,39 @@
       "prefix": "P032",
       "platformId": 26,
       "usb": false,
-      "batteryRequired": true
+      "batteryRequired": true,
+      "endOfSupport": "2025-03-31"
+    },
+    {
+      "name": "XENNTRAY50",
+      "desc": "Xenon [x50]",
+      "lifecycle": "End of life",
+      "multiple": true,
+      "wifi": false,
+      "cellular": false,
+      "gen": "3",
+      "family": "mesh",
+      "skuClass": "production",
+      "skuRegion": "global",
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": false,
+      "wifiAntExtInc": false,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "batteryConn": true,
+      "usb": "micro-b",
+      "batteryRequired": false,
+      "platformId": 14,
+      "prefix": "XENT",
+      "endOfSupport": "2020-12-31"
     }
   ],
   "skuClass": [
@@ -22693,6 +22733,14 @@
       "family": "p series",
       "name": "P Series",
       "wifi": true
+    },
+    {
+      "family": "mesh",
+      "name": "Mesh",
+      "wifi": false,
+      "mesh": true,
+      "cellular": false,
+      "hidden": true
     }
   ],
   "skuLifecycle": [
@@ -22702,8 +22750,8 @@
       "sortOrder": 1
     },
     {
-      "name": "Sampling",
-      "desc": "Pre-release samples in testing",
+      "name": "Beta",
+      "desc": "Pre-release samples in beta testing",
       "sortOrder": 2
     },
     {

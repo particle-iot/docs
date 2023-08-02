@@ -594,9 +594,10 @@ Photon 2 modules are available from [store.particle.io](https://store.particle.i
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | GA | |
 | PHN2KIT | Photon 2, Kit [x1] | Global | GA | |
-| PHN2MEA | Photon 2, [x1] | Global | GA | |
-| PHN2MTY | Photon 2, Tray [x50] | Global | GA | |
+| PHN2MEA | Photon 2 [x1] | Global | Beta | |
+| PHN2MTY | Photon 2, Tray [x50] | Global | Beta | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
