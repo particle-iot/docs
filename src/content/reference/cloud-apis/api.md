@@ -423,6 +423,24 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
 - API Route: POST /oauth/token
 {{!-- END shared-blurb --}}
 
+#### List access tokens - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- API Route: GET /v1/access_tokens
+
+#### Delete an access token - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- API Route: DELETE /v1/access_tokens/:token
+
+#### Create a user account - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- API Route: POST /v1/users
+
 #### Delete user account - API rate limits
 
 - Maximum of 100 requests every 5 minutes
