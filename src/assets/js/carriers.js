@@ -36,7 +36,7 @@ carriers2.buildMenu = function() {
         // Device Popup
         let html = '';
         datastore.data.skuFamily.forEach(function(obj, index1) {
-            if (obj.wifi) {
+            if (obj.wifi || obj.cellular === false || !obj.group) {
                 return;
             }
             html += '<optgroup label="' + obj.name + '">';
@@ -327,7 +327,7 @@ rec2.selectMenu = function() {
                 // skuFamilyObj.family = 'tracker', 'b series', ...
                 let skusForModemSimFamily = [];
 
-                if (skuFamilyObj.wifi) {
+                if (skuFamilyObj.wifi || skuFamilyObj.cellular === false) {
                     return;
                 }
 
@@ -549,7 +549,7 @@ rec2.selectMenu = function() {
 
 
     datastore.data.skuFamily.forEach(function(skuFamilyObj) {
-        if (skuFamilyObj.wifi) {
+        if (skuFamilyObj.wifi || skuFamilyObj.cellular == false) {
             return;
         }
         if (!recs.YES || !recs.YES.skuFamily[skuFamilyObj.family]) {
@@ -569,7 +569,7 @@ rec2.selectMenu = function() {
         html += '<h2>Not recommended for new designs (NRND)</h2>';
 
         datastore.data.skuFamily.forEach(function(skuFamilyObj) {
-            if (skuFamilyObj.wifi) {
+            if (skuFamilyObj.wifi || skuFamilyObj.cellular == false) {
                 return;
             }
             if (!recs.NRND || !recs.NRND.skuFamily[skuFamilyObj.family]) {
@@ -585,7 +585,7 @@ rec2.selectMenu = function() {
     html += '<h2>Not recommended</h2>';
 
     datastore.data.skuFamily.forEach(function(skuFamilyObj) {
-        if (skuFamilyObj.wifi) {
+        if (skuFamilyObj.wifi || skuFamilyObj.cellular == false) {
             return;
         }
         if (!recs.NR || !recs.NR.skuFamily[skuFamilyObj.family]) {
@@ -893,7 +893,7 @@ countryDetails.buildMenu = function() {
     // Device Popup
     let html = '';
     datastore.data.skuFamily.forEach(function(obj, index1) {
-        if (obj.wifi) {
+        if (obj.wifi || obj.cellular === false) {
             return;
         }
         html += '<optgroup label="' + obj.name + '">';
