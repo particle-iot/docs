@@ -147,9 +147,9 @@ guide](/integrations/webhooks/)
 - [Webhooks
 tutorial](/integrations/webhooks/)
 - [Azure IoT Hub
-tutorial](/getting-started/integrations/community-integrations/azure-iot-hub/)
+tutorial](/integrations/community-integrations/azure-iot-hub/)
 - [Google Cloud Platform
-tutorial](/getting-started/integrations/google-cloud-platform/)
+tutorial](/integrations/google-cloud-platform/)
 
 ## Billing & usage
 
