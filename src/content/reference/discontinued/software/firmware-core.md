@@ -9927,7 +9927,7 @@ void loop()
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/getting-started/integrations/webhooks/).
+When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/integrations/webhooks/).
 {{/if}} {{!-- has-cellular --}}
 
 ### connected()
@@ -10245,7 +10245,7 @@ There are two primary ways of working with UDP - buffered operation and unbuffer
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/getting-started/integrations/webhooks/).
+When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/integrations/webhooks/).
 {{/if}} {{!-- has-cellular --}}
 
 ### begin()

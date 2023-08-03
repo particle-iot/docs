@@ -42,7 +42,7 @@ Use the [ADXL362DMA](https://github.com/rickkas7/ADXL362DMA) library, or other c
 
 This breakout board is a digital microphone. It's intended for voice applications, not high-fidelity recording. Using Edge ML you cam implement similar voice commands using the microphone. It can also be used to detect specific sounds, such as an alarm siren.
 
-There are machine learning tutorials using this microphone on the [machine learning](/getting-started/machine-learning/) page.
+There are machine learning tutorials using this microphone on the [machine learning](/getting-started/machine-learning/machine-learning/) page.
 
 {{imageOverlay src="/assets/images/edge-kit/mic-1.jpeg" alt="PDM Microphone" }}
 

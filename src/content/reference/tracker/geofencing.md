@@ -40,7 +40,7 @@ There are additional values that can be included in the `trig` array that indica
 
 Thus geofence data can be processed by any methods used to handle location events, including:
 
-- [Webhooks](/getting-started/integrations/webhooks/)
+- [Webhooks](/integrations/webhooks/)
 - Other integrations such as [Google Cloud Platform](/getting-started/integrations/google-cloud-platform/)
 - The [Server-Sent Events Stream](/reference/cloud-apis/api/#product-event-stream)
 - [Querying historical location data](/reference/cloud-apis/api/#location)

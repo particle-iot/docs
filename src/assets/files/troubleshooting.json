@@ -517,7 +517,7 @@
             "buttons": [
                 {
                     "title": "Visit the integrations getting started guide",
-                    "url": "/getting-started/integrations/integrations/"
+                    "url": "/integrations/integrations"
                 },
                 {
                     "title": "Visit the console to manage integrations",

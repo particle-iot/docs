@@ -278,7 +278,7 @@ You will need to make a `POST` request to the [refresh device
 vitals](/reference/cloud-apis/api/#refresh-device-vitals) API endpoint, then listen for the
 published event from the device either using the [server-sent event
 stream](/reference/cloud-apis/api/#product-event-streamh) or by
-[setting up a webhook](/getting-started/integrations/webhooks/) that
+[setting up a webhook](/integrations/webhooks/) that
 triggers off of the `spark/device/diagnostics/update` event.
 
 

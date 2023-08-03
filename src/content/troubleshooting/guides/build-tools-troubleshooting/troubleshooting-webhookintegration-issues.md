@@ -6,7 +6,7 @@ columns: two
 
 # {{{title}}}
 
-If your Particle-based Integration endpoint is failing to receive data, or is throwing unexpected errors, this article is a great starting point for your troubleshooting investigation. It's also worth exploring our Webhooks Tutorial ([link](/getting-started/integrations/webhooks/)) and our API documentation ([link](/reference/cloud-apis/webhooks/)) before proceeding to troubleshoot.
+If your Particle-based Integration endpoint is failing to receive data, or is throwing unexpected errors, this article is a great starting point for your troubleshooting investigation. It's also worth exploring our Webhooks Tutorial ([link](/integrations/webhooks/)) and our API documentation ([link](/reference/cloud-apis/webhooks/)) before proceeding to troubleshoot.
 
 ## Navigating to the integrations page
 

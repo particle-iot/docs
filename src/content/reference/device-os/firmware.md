@@ -13171,7 +13171,7 @@ void loop()
 
 ---
 {{note op="start" type="cellular"}}
-On cellular devices, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/getting-started/integrations/webhooks/).
+On cellular devices, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/integrations/webhooks/).
 
 Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yearly quota. However, they do use cellular data and could cause you to exceed the monthly data limit for your account.
 {{note op="end"}}
