@@ -54,4 +54,4 @@ Finally, you will be asked to confirm that you can comply with the due diligence
 
 ![Due Dilligence](/assets/images/support/lastquestioncompliance.png)
 
-Checking “Yes” for this question will direct you to the checkout screen. If for any reason you have failed the survey please contact our [support team.](/support/)
+Checking “Yes” for this question will direct you to the checkout screen. If for any reason you have failed the survey please contact our [support team.](/troubleshooting/troubleshooting/)

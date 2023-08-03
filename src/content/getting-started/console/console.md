@@ -143,13 +143,13 @@ For more information on how to start using integrations, you should
 check out:
 
 - [Webhooks
-guide](/getting-started/integrations/webhooks/)
+guide](/integrations/webhooks/)
 - [Webhooks
-tutorial](/getting-started/integrations/webhooks/)
+tutorial](/integrations/webhooks/)
 - [Azure IoT Hub
-tutorial](/getting-started/integrations/community-integrations/azure-iot-hub/)
+tutorial](/integrations/community-integrations/azure-iot-hub/)
 - [Google Cloud Platform
-tutorial](/getting-started/integrations/google-cloud-platform/)
+tutorial](/integrations/google-cloud-platform/)
 
 ## Billing & usage
 
@@ -928,7 +928,7 @@ You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker
 
 Device Monitoring publishes additional metrics and also fault (crash log) information. This can help troubleshoot problems, however it will use additional data operations.
 
-See the [Memfault Integration](/getting-started/integrations/community-integrations/memfault/) for more information.
+See the [Memfault Integration](/integrations/community-integrations/memfault/) for more information.
 
 ### Device settings
 

@@ -16,7 +16,7 @@ This is an interactive tutorial that show the difference between functions and s
 
 To fully experience the demo, you should have two or more devices of the same type. Both cellular and Wi-Fi devices are supported, however this demo does not work with the Tracker and isn't useful if your device does not have a visible status LED.
 
-- If you're interesting in having devices trigger external services, see the [webhook demo](/getting-started/integrations/webhook-demo/).
+- If you're interesting in having devices trigger external services, see the [webhook demo](/integrations/webhook-demo/).
 
 In order to use this tutorial, you must be logged into your Particle account:
 

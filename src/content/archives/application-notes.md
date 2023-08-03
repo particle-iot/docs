@@ -47,7 +47,7 @@ in mains power applications.
 - [AN005 Threading Explainer](/firmware/software-design/threading-explainer/) provides detailed information on using execution threads on Particle devices.
 - [AN008 Using a Xenon with the Nordic SDK](/reference/discontinued/hardware/xenon-nordic-sdk/)
 - [AN010 Finite State Machines](/firmware/software-design/finite-state-machines/) shows some of the ways to effectively structure your code using finite state machines.
-- [AN011 Publish to Google Sheets](/getting-started/integrations/community-integrations/publish-to-google-sheets/) shows how you can publish directly to Google G Suite spreadsheets using webhooks.
+- [AN011 Publish to Google Sheets](/integrations/community-integrations/publish-to-google-sheets/) shows how you can publish directly to Google G Suite spreadsheets using webhooks.
 - [AN017 Tracker CAN](/hardware/tracker/projects/tracker-can/) shows how to use the CAN bus for OBD-II to retrieve engine RPM and other useful techniques you may want to use in your own projects.
 - [AN023 Watchdog Timers](/hardware/best-practices/watchdog-timers/) has information about watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 - [AN032 Calling API from web page](/reference/cloud-apis/calling-api-from-web-page/) shows how to use the Particle cloud API from a web page.
@@ -108,7 +108,7 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN008 Using a Xenon with the Nordic SDK](/reference/discontinued/hardware/xenon-nordic-sdk/)
 - [AN009 Firmware Examples](/archives/an009-firmware-examples/) provides some annotated code examples, including how to effective use sleep modes.
 - [AN010 Finite State Machines](/firmware/software-design/finite-state-machines/) shows some of the ways to effectively structure your code using finite state machines.
-- [AN011 Publish to Google Sheets](/getting-started/integrations/community-integrations/publish-to-google-sheets/) shows how you can publish directly to Google G Suite spreadsheets using webhooks.
+- [AN011 Publish to Google Sheets](/integrations/community-integrations/publish-to-google-sheets/) shows how you can publish directly to Google G Suite spreadsheets using webhooks.
 - [AN012 Tracker 1-Wire](/hardware/tracker/projects/tracker-1wire/) shows how you can add DS18B20 temperature sensors to your Tracker One and interface with 5V I2C devices.
 - [AN013 Tracker GPIO](/hardware/tracker/projects/tracker-gpio/) shows how you can add additional GPIO to your Tracker One using the external M8 connector. It includes both 3.3V and 5V design options, as well.
 - [AN014 Tracker I2C Scanner](/hardware/tracker/projects/tracker-i2c-scanner/) is a version of the I2C scanner application for scanning the I2C bus looking for devices designed to work with the Tracker One M8 connector I2C.

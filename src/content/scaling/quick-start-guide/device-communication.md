@@ -47,4 +47,4 @@ When sent from a device to the cloud, Publish can be used to send things like se
 
 ![PublishFlow.png](/assets/images/support/PublishFlow.png)
 
-[Learn More About Integrations](/getting-started/integrations/integrations/)
+[Learn More About Integrations](/integrations/integrations/)
