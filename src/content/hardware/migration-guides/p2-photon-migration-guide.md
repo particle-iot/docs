@@ -1197,6 +1197,11 @@ Most third-party libraries are believed to be compatible. The exceptions include
 - OneWire library requires high-speed GPIO support
 - Can use [DS2482](https://github.com/rickkas7/DS2482-RK) I2C to OneWire bridge instead
 
+#### DHT22 and DHT11 (temperature and humidity sensor)
+
+- Not compatible, requires high-speed GPIO support
+- Using an I2C temperature and humidity sensor like the SHT3x is recommended instead
+
 #### SHT1x (temperature and humidity sensor)
 
 - Not compatible, requires high-speed GPIO support
