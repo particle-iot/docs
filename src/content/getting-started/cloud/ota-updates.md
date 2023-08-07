@@ -91,7 +91,7 @@ assetOtaDir=assets
 - You will need to include code in your application firmware to process the additional assets, such as sending them to a coprocessor or saving them to the file system.
 - Creating bundled assets will not be not possible in the Web IDE. Particle Workbench is recommended.
 
-The application can register a callback using `System.onAssetsOta(handler)` that will be called by Device OS when the device has received all the bundled assets. For more information, see the [Asset OTA Device OS API](/reference/device-os/api/asset-ota/asset-ota/).
+The application can register a callback using `System.onAssetOta(handler)` that will be called by Device OS when the device has received all the bundled assets. For more information, see the [Asset OTA Device OS API](/reference/device-os/api/asset-ota/asset-ota/).
 
 Full examples of using Asset OTA can be found on [the GitHub repository asset-ota-examples](https://github.com/particle-iot/asset-ota-examples).
 
