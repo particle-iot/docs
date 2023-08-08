@@ -571,6 +571,7 @@
   "/cards/firmware/system-calls/entersafemode": "/reference/device-os/api/system-calls/entersafemode",
   "/cards/firmware/system-calls/feature_disable_listening_mode": "/reference/device-os/api/system-calls/feature_disable_listening_mode",
   "/cards/firmware/system-calls/freememory": "/reference/device-os/api/system-calls/freememory",
+  "/cards/firmware/system-calls/onassetota-system": "/reference/device-os/api/system-calls/onassetota-system",
   "/cards/firmware/system-calls/onassetsota": "/reference/device-os/api/system-calls/onassetsota",
   "/cards/firmware/system-calls/onassetsota-system": "/reference/device-os/api/system-calls/onassetsota-system",
   "/cards/firmware/system-calls/powersource": "/reference/device-os/api/system-calls/powersource",

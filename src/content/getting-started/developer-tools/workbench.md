@@ -608,6 +608,11 @@ The device type and Device OS version are selected with **Particle: Configure Wo
 
 The filename will be of the form <i>platform</i>\_firmware\_<i>number</i>.bin. For example: boron_firmware_1598526579205.bin in the top level of your project directory.
 
+While compiling source code using the cloud compiler, or flashing a device with source code, there are limits:
+
+- Maximum time to compile: {{maximumCompileTime}}
+- Maximum source code size: {{maximumCompilePayload}}
+
 ### Particle: Cloud Flash
 
 This option compiles in the cloud and flashes the code to the device OTA.
@@ -623,6 +628,8 @@ When you first install a new compiler version, you should use the **Particle: Fl
 The device type and Device OS version are selected using **Particle: Install Local Compiler**.
 
 The resulting binary will be in the target directory. For example, if you are building the project **MyProject** for boron version 1.5.2, the resulting binary will be **target/1.5.2/boron/MyProject.bin**.
+
+There is no time or size limit for local compiles.
 
 ### Particle: Compile application & DeviceOS (local)
 

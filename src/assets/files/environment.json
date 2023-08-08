@@ -11,5 +11,7 @@
     "growthTierDataOperationsCellularData": "540 MB",
     "growthBlockCellularPrice": "US$ 299.00",
     "growthBlockWiFiPrice": "US$ 99.00",
-    "growthBlockTrackerPrice": "US$ 599.00"
+    "growthBlockTrackerPrice": "US$ 599.00",
+    "maximumCompileTime": "120 seconds",
+    "maximumCompilePayload": "50 MB"
 }

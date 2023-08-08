@@ -918,6 +918,21 @@ The full JSON schema for the location point can be downloaded [here](/assets/fil
 
 ## Firmware
 {{> api group=apiGroups.Firmware}}
+
+### Firmware API limits
+
+While compiling source code using the cloud compiler, or flashing a device with source code, there are limits:
+
+- Maximum time to compile: {{maximumCompileTime}}
+- Maximum source code size: {{maximumCompilePayload}}
+
+This affects the following endpoints:
+
+```
+POST /v1/binaries
+PUT /v1/devices/:deviceId
+```
+
 ## Product firmware
 {{> api group=apiGroups.ProductFirmware}}
 

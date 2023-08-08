@@ -340,6 +340,11 @@ should always manually target 5.3.1 or later, for example, `--target 5.3.1`, ins
 $ particle compile boron myapp.ino
 ```
 
+While compiling source code using the cloud compiler there are limits:
+
+- Maximum time to compile: {{maximumCompileTime}}
+- Maximum source code size: {{maximumCompilePayload}}
+
 ---
 
 The cloud compiles `.ino` and `.cpp` files differently.  For `.ino` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an `#include "Particle.h"` line at the top of your files if it is missing. See [the pre-processor documentation for details](/reference/device-os/api/preprocessor/preprocessor/).
@@ -358,6 +363,7 @@ If you want to build a library that can be used for both Arduino and Particle, h
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
 should always manually target 5.3.1 or later, for example, `--target 5.3.1`, instead.
 {{note op="end"}}
+
 
 ### Compiling a directory
 
@@ -384,6 +390,11 @@ You can also target a specific version of Device OS in the `particle flash` comm
 ```sh
 $ particle flash 0123456789ABCDEFGHI . --target 5.3.1
 ```
+
+While compiling source code using the cloud compiler there are limits:
+
+- Maximum time to compile: {{maximumCompileTime}}
+- Maximum source code size: {{maximumCompilePayload}}
 
 
 {{note op="start" type="P2"}}
