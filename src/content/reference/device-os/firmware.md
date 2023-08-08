@@ -9962,7 +9962,7 @@ See [`BleAdvertisingParameters`](#bleadvertisingparams) for more information.
 
 {{since when="3.1.0"}}
 
-Sets the advertising phy mode to allow for Coded Phy (long range mode). Supported in Device OS 3.1 and later only.
+Sets the advertising phy mode to allow for coded Phy (long range mode). Supported in Device OS 3.1 and later only. The P2 and Photon 2 do not support coded PHY mode.
 
 ```cpp
 // PROTOTYPE
@@ -11046,7 +11046,7 @@ LESC pairing is supported in Device OS 3.1 and later only.
 
 Numeric comparison mode is being used to pair devices in LESC pairing mode. You should display the passkey in the same was as `BlePairingEventType::PASSKEY_DISPLAY`.
 
-LESC pairing is supported in Device OS 3.1 and later only.
+LESC pairing is supported in Device OS 3.1 and later only. The P2 and Photon 2 do not support LESC pairing.
 
 ##### BLEPairingEvent
 

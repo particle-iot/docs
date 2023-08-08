@@ -440,6 +440,7 @@ BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and
 - Device OS 3.0.0 and later: Support for "Legacy Pairing" passkey display or input modes (both central and peripheral).
 - Prior to Device OS 3.0.0: No support for secure pairing.
 - Out-of-band authentication (such as by NFC) is not built-in.
+- The P2 and Photon 2 do not support secure pairing (legacy or LESC) at this time.
 
 When pairing, there are two different things going on:
 
@@ -653,7 +654,7 @@ The measuring device is the BLE central, and it looks for the peripheral every 5
 
 ### RSSI meter (long range)
 
-This is the previous RSSI Meter example with BLE long-range (coded phy) enabled. This requires Device OS 3.1 or later.
+This is the previous RSSI Meter example with BLE long-range (coded phy) enabled. This requires Device OS 3.1 or later. The P2 and Photon 2 do not support long-range (coded PHY).
 
 {{> project-browser project="ble-rssi-coded-central" default-file="src/ble-rssi-coded-central.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
 
@@ -661,7 +662,7 @@ This is the previous RSSI Meter example with BLE long-range (coded phy) enabled.
 
 ### LESC pairing - simple
 
-This example shows how to do encrypted BLE communication using LESC Pairing in "just works" mode. This encrypts the data between the two devices, but does not authenticate, which requires some combination of displays and keypads or buttons. This requires Device OS 3.1 or later.
+This example shows how to do encrypted BLE communication using LESC Pairing in "just works" mode. This encrypts the data between the two devices, but does not authenticate, which requires some combination of displays and keypads or buttons. This requires Device OS 3.1 or later. The P2 and Photon 2 do not support LESC pairing at this time.
 
 {{> project-browser project="ble-lesc1-central" default-file="src/ble-lesc1-central.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
 
@@ -675,7 +676,7 @@ The P2 and Photon 2 do not currently support LESC pairing mode.
 
 ### Legacy pairing - numeric yes-no
 
-This example shows how to do authenticated and encrypted BLE communication using Legacy Pairing with the Numeric Yes-No mode. This requires a display on one side, and a display and Yes-No buttons on the other.
+This example shows how to do authenticated and encrypted BLE communication using Legacy Pairing with the Numeric Yes-No mode. This requires a display on one side, and a display and Yes-No buttons on the other. The P2 and Photon 2 do not support legacy pairing.
 
 The actual display devices and buttons are not that important, and you can easily substitute other displays such as plain SSD1306 OLED displays, but the example code was tested on these displays:
 
