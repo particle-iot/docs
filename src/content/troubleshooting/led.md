@@ -783,7 +783,8 @@ Things you should not do from an ISR:
 - Log.info, Log.error, etc.
 - sprintf, Serial.printlnf, etc. with a `%f` (float) value.
 - attachInterrupt and detachInterrupt cannot be called within the ISR.
-- Mutex locks. This includes SPI transactions and I2C lock.
+- Mutex locks. This includes SPI transactions and I2C lock and unlock.
+- Start an SPI.transaction with DMA.
 {{!-- END shared-blurb --}}
 
 ### Solid colors

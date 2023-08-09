@@ -8625,6 +8625,10 @@ For transferring a large number of bytes, this form of transfer() uses DMA to sp
 **Note**: The SPI protocol is based on a one byte OUT / one byte IN interface. For every byte expected to be received, one (dummy, typically 0x00 or 0xFF) byte must be sent.
 
 ```cpp
+// PROTOTYPE
+void transfer(const void* tx_buffer, void* rx_buffer, size_t length, wiring_spi_dma_transfercomplete_callback_t user_callback);
+typedef void (*wiring_spi_dma_transfercomplete_callback_t)(void);
+
 // SYNTAX
 SPI.transfer(tx_buffer, rx_buffer, length, myFunction);
 ```
@@ -8634,13 +8638,29 @@ Parameters:
 - `tx_buffer`: array of Tx bytes that is filled by the user before starting the SPI transfer. If `NULL`, default dummy 0xFF bytes will be clocked out.
 - `rx_buffer`: array of Rx bytes that will be filled by the slave during the SPI transfer. If `NULL`, the received data will be discarded.
 - `length`: number of data bytes that are to be transferred
-- `myFunction`: user specified function callback to be called after completion of the SPI DMA transfer. It takes no argument and returns nothing, e.g.: `void myHandler()`
+- `myFunction`: user specified function callback to be called after completion of the SPI DMA transfer. It takes no argument and returns nothing, e.g.: `void myHandler()`. Can be NULL if not using a callback.
 
 NOTE: `tx_buffer` and `rx_buffer` sizes MUST be identical (of size `length`)
 
 _Since 0.5.0_ When SPI peripheral is configured in slave mode, the transfer will be canceled when the master deselects this slave device. The user application can check the actual number of bytes received/transmitted by calling `available()`.
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.transfer()`.
+
+If you are using the callback, it is called as an interrupt service routine (ISR) and there are many restrictions when calling from an interrupt context. Specifically for SPI, you cannot `SPI.endTransaction()` or start another DMA transaction using `SPI.transfer()`. Thus in practice it's often better to perform your SPI operations from a worker thread instead of chained interrupts if you want asynchronous execution.
+
+{{!-- BEGIN shared-blurb 7a43657c-a231-439b-b1bd-f1d4a189dc0c --}}
+Things you should not do from an ISR:
+
+- Any memory allocation or free: new, delete, malloc, free, strdup, etc.
+- Any Particle class function like Particle.publish, Particle.subscribe, etc.
+- Most API functions, with the exception of pinSetFast, pinResetFast, and analogRead.
+- delay or other functions that block.
+- Log.info, Log.error, etc.
+- sprintf, Serial.printlnf, etc. with a `%f` (float) value.
+- attachInterrupt and detachInterrupt cannot be called within the ISR.
+- Mutex locks. This includes SPI transactions and I2C lock and unlock.
+- Start an SPI.transaction with DMA.
+{{!-- END shared-blurb --}}
 
 {{since when="3.0.0"}}
 
@@ -15746,7 +15766,8 @@ Things you should not do from an ISR:
 - Log.info, Log.error, etc.
 - sprintf, Serial.printlnf, etc. with a `%f` (float) value.
 - attachInterrupt and detachInterrupt cannot be called within the ISR.
-- Mutex locks. This includes SPI transactions and I2C lock.
+- Mutex locks. This includes SPI transactions and I2C lock and unlock.
+- Start an SPI.transaction with DMA.
 {{!-- END shared-blurb --}}
 
 ### detachInterrupt()
