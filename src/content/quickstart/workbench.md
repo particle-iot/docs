@@ -16,7 +16,7 @@ description: Getting started with Particle Workbench, desktop IDE for Windows, M
 - Continue with the instructions for all operating systems, below.
 - Windows 7, 8, or 10 is required.
 
-_NOTE: due to limitations with the local compiler's build system, usernames (or paths) with spaces cannot be supported at this time_
+_NOTE: due to limitations with the local compiler's build system, usernames (or paths) with spaces will be converted to short paths like `C:\Users\EXAMPL~1`_
 
 ### Mac
 
@@ -27,6 +27,8 @@ _NOTE: due to limitations with the local compiler's build system, usernames (or 
 - Mac OS 10.12.0 (Sierra) or newer is required
 
 _NOTE: If you are running Mac OS 10.15 (Catalina), please use Safari to download and unpack the installer `.zip` file ([settings](/assets/images/workbench-install-with-safari-settings.png)) - unpacking with the default Archive utility will not work_
+
+_NOTE: due to limitations with the local compiler's build system, paths with spaces cannot be supported at on Mac this time_
 
 ### Linux
 
@@ -43,6 +45,8 @@ _NOTE: If you are running Mac OS 10.15 (Catalina), please use Safari to download
 
 - Ubuntu Linux (or other Debian-style distribution) is required to use the installer.
 - If you are having difficulties, there are [additional tips in the FAQ](/getting-started/developer-tools/workbench-faq/#linux-tips).
+
+_NOTE: due to limitations with the local compiler's build system, paths with spaces cannot be supported at on Linux this time_
 
 ### All operating systems
 

@@ -200,7 +200,7 @@ When switching from a debug build back to a non-debug build, be sure to use the 
 
 To increase the verbosity of the local compiler, set **Enable Verbose Local Compiler Logging** in the [Settings](#settings).
 
-_NOTE: due to limitations with the local compiler's build system, usernames (or paths) with spaces cannot be supported at this time_
+_NOTE: due to limitations with the local compiler's build system, usernames (or paths) with spaces will be converted to short paths like `C:\Users\EXAMPL~1` on Windows, and cannot be supported on Mac and Linux at this time_
 
 The first local compile after switching the target Device OS version, platform, or Clean application & Device OS will take many minutes. Subsequent builds are generally faster. Builds on Mac and Linux are also significantly faster than Windows.
 
