@@ -19415,7 +19415,7 @@
     {
       "name": "B402MTY",
       "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "B404XMTY",
       "modem": "R410",
       "multiple": true,
@@ -19483,7 +19483,7 @@
     {
       "name": "B404MTY",
       "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "B404XMTY",
       "modem": "R410",
       "multiple": true,
