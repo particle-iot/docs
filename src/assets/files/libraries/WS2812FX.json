@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WS2812FX",
     "version": "0.0.1",
-    "installs": 5720,
+    "installs": 5761,
     "license": "MIT",
     "author": "Justin Kolberg",
     "sentence": "A port of the WS2812FX library (by Harm Aldick, https://github.com/kitesurfer1404/WS2812FX) for the Particle platform.",

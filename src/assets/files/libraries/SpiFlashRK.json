@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SpiFlashRK",
     "version": "0.0.9",
-    "installs": 14971,
+    "installs": 15064,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle library for SPI NOR flash chips",

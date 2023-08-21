@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LiquidCrystal_I2C_Spark",
     "version": "1.1.0",
-    "installs": 226796,
+    "installs": 229082,
     "license": "GNU",
     "author": "Jim Brower <bulldoglowell@gmail.com>",
     "sentence": "LiquidCrystal_I2C ported for Spark Core",

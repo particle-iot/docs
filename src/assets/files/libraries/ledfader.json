@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ledfader",
     "version": "1.0.10",
-    "installs": 712,
+    "installs": 720,
     "license": "MIT",
     "author": "fred>",
     "sentence": "A simple library that illustrates coding conventions of a Spark Library",

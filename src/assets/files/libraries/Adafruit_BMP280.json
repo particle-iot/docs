@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BMP280",
     "version": "1.0.3",
-    "installs": 78620,
+    "installs": 82093,
     "license": "MIT",
     "author": "Nathan Heskew <heskew@gmail.com>",
     "sentence": "Adafruit BMP280 driver for Particle devices",

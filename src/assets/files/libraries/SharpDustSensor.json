@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SharpDustSensor",
     "version": "1.0.0",
-    "installs": 1041,
+    "installs": 1061,
     "license": "MIT",
     "author": "Aron Rubin <aronrubin@gmail.com>",
     "sentence": "Library for the Sharp Dust Sensor GP2Y10.",

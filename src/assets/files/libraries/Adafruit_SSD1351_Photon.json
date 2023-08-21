@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SSD1351_Photon",
     "version": "0.0.7",
-    "installs": 12646,
+    "installs": 12668,
     "license": "BSD",
     "author": "Nathan Friedly <nathan@nfriedly.com>",
     "sentence": "Fork of Adafruit's SSD1351 Color OLED driver library",

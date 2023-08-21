@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Loop",
     "version": "1.0.0",
-    "installs": 721,
+    "installs": 729,
     "license": "MIT",
     "author": "Kevron Rees",
     "sentence": "Advanced Looping library with timeouts and stuff",

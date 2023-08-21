@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FirebaseArduino",
     "version": "0.0.1",
-    "installs": 1146,
+    "installs": 1195,
     "author": "Firebase",
     "maintainer": "Firebase",
     "sentence": "Library for communicating with Firebase.",

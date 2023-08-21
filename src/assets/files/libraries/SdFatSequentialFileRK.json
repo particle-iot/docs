@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SdFatSequentialFileRK",
     "version": "0.0.2",
-    "installs": 133,
+    "installs": 180,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Class for making sequentially numbered files on SdFat SD cards on Particle",

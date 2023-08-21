@@ -7,7 +7,7 @@
   "attributes": {
     "name": "24LC01-RK",
     "version": "0.0.1",
-    "installs": 105,
+    "installs": 122,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for 24LC01 I2C EEPROM",

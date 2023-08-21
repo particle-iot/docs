@@ -7,7 +7,7 @@
   "attributes": {
     "name": "GxEPD2_PP",
     "version": "1.1.9",
-    "installs": 1880,
+    "installs": 2270,
     "author": "Jean-Marc Zingg",
     "maintainer": "Jean-Marc Zingg",
     "sentence": "Particle Display Library for SPI E-Paper displays from Dalian Good Display and Waveshare. ",

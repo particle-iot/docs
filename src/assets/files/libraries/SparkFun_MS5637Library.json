@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_MS5637Library",
     "version": "1.3.0",
-    "installs": 237,
+    "installs": 256,
     "author": "TE Connectivity and SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Library for the SparkFun Qwiic Pressure Sensor - MS5637",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LIS3DH",
     "version": "1.0.3",
-    "installs": 62662,
+    "installs": 62787,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for the Adafruit LIS3DH Accelerometer.",

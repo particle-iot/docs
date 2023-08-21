@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_TSL2561_Photon",
     "version": "3.1.9",
-    "installs": 963,
+    "installs": 984,
     "license": "BSD",
     "author": "Aaron Jimenez",
     "sentence": "Unified sensor driver for Adafruit's TSL2561 breakouts",

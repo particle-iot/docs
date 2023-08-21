@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TFMini-Public",
     "version": "0.1.0",
-    "installs": 1862,
+    "installs": 1873,
     "author": "Luke Pritchard<luke.pritchard@pm.me>",
     "maintainer": "Luke Pritchard<luke.pritchard@pm.me>",
     "sentence": "An Arduino driver for the Benewake TFMini time-of-flight distance sensor.",

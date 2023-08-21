@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SerialCommandParserRK",
     "version": "0.0.8",
-    "installs": 1100,
+    "installs": 1127,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Code for presenting a simple command line from a Particle device over USB or UART serial.",

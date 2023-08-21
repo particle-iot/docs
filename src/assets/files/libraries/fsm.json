@@ -7,7 +7,7 @@
   "attributes": {
     "name": "fsm",
     "version": "2.2.1",
-    "installs": 1076,
+    "installs": 1082,
     "author": "Jon Black <jon@humblecoder.com>",
     "maintainer": "Mike Machado <mike@machadolab.com>",
     "sentence": "A library for implementing a finite state machine",

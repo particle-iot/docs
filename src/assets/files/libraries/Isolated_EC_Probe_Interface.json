@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Isolated_EC_Probe_Interface",
     "version": "1.0.0",
-    "installs": 412,
+    "installs": 418,
     "author": "uFire",
     "maintainer": "contact@ufire.co",
     "sentence": "Measure Electrical Conductivity, Total Dissolved Solids, and Salinity",

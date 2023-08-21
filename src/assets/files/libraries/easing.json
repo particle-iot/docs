@@ -7,7 +7,7 @@
   "attributes": {
     "name": "easing",
     "version": "0.0.2",
-    "installs": 340,
+    "installs": 346,
     "license": "CC BY-SA 4.0",
     "author": "Chuan Khoo",
     "sentence": "Easing library port of the Arduino Easing Library by Anthony Brown.",

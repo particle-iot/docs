@@ -7,7 +7,7 @@
   "attributes": {
     "name": "i2c_anything",
     "version": "1.0.1",
-    "installs": 733,
+    "installs": 756,
     "author": "Nick Gammon",
     "architectures": [],
     "visibility": "public",

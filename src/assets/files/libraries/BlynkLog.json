@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BlynkLog",
     "version": "0.1.0",
-    "installs": 1177,
+    "installs": 1196,
     "license": "MIT",
     "author": "Georges Auberger",
     "sentence": "Particle logger output to Blynk Terminal Widget",

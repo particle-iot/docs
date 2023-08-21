@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_APDS9960_Particle",
     "version": "0.0.3",
-    "installs": 3072,
+    "installs": 3094,
     "author": "adafruit",
     "architectures": [],
     "visibility": "public",

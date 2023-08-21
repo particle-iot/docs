@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AS3935",
     "version": "0.2.1",
-    "installs": 1701,
+    "installs": 1726,
     "license": "Apache-2.0",
     "author": "Phil Fenstermacher <phillip.fenstermacher@gmail.com>",
     "sentence": "A library to communicate with and control an AS3935 lightning sensor over I2C.",

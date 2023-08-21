@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Current_Monitor",
     "version": "0.0.5",
-    "installs": 1651,
+    "installs": 1673,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of ControlEverything Current Monitoring products compatible with Particle Interface modules.",

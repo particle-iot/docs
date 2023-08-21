@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CarrierLookupRK",
     "version": "0.0.1",
-    "installs": 1679,
+    "installs": 1690,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle library to look up carrier names and countries from MCC/MNC",

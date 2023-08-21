@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_L3GD20_U",
     "version": "1.1.3",
-    "installs": 914,
+    "installs": 932,
     "license": "BSD",
     "author": "Adafruit <info@adafruit.com>>",
     "sentence": "Unified sensor driver for the L3GD20 Gyroscope",

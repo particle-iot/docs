@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SoftAPLib",
     "version": "1.0.1",
-    "installs": 3490,
+    "installs": 3700,
     "license": "GNU Lesser GPL v3",
     "author": "Juvenal Guzman",
     "sentence": "Helps to integrates SoftAP to WiFi settings.",

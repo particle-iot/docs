@@ -7,7 +7,7 @@
   "attributes": {
     "name": "vcnl4000",
     "version": "0.0.1",
-    "installs": 61,
+    "installs": 63,
     "license": "BSD",
     "author": "Ladyada <contact@adafruit.com>",
     "sentence": "Spark library for VCNL4000 all-in-one proximity/light sensor",

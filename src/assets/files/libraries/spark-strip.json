@@ -7,7 +7,7 @@
   "attributes": {
     "name": "spark-strip",
     "version": "1.1.0",
-    "installs": 120,
+    "installs": 139,
     "license": "GNU LGPLv3",
     "author": "DonGar, Adafruit, Technobly",
     "sentence": "Control several RGB LED Strip types (Digital RGB, NeoPixel, DotStart.",

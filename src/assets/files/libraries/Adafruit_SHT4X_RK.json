@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SHT4X_RK",
     "version": "1.0.2",
-    "installs": 218,
+    "installs": 415,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for SHT4x temperature & humidity sensor.",

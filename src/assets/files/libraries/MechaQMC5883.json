@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MechaQMC5883",
     "version": "0.0.1",
-    "installs": 482,
+    "installs": 517,
     "author": "keepworking",
     "sentence": "Alternative version of HMC5883L",
     "paragraph": "If the HMC5883L library isn't working, you may actually have a QMC5883L",

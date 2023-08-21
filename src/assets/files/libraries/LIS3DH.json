@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LIS3DH",
     "version": "0.2.8",
-    "installs": 88199,
+    "installs": 89205,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "LIS3DH accelerometer driver",

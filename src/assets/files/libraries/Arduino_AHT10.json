@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Arduino_AHT10",
     "version": "0.1.0",
-    "installs": 142,
+    "installs": 162,
     "author": "Adafruit",
     "architectures": [],
     "visibility": "public",

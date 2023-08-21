@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Particle_Adafruit_VC0706",
     "version": "1.1.2",
-    "installs": 145,
+    "installs": 159,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for VC0706-based Serial JPEG Cameras",

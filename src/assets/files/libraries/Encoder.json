@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Encoder",
     "version": "2.1.0",
-    "installs": 17872,
+    "installs": 18050,
     "author": "Paul Stoffregen",
     "maintainer": "Paul Stoffregen, Julien Vanier <jvanier@gmail.com>",
     "sentence": "Counts quadrature pulses from rotary & linear position encoders.",

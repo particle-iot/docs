@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Sunrise",
     "version": "0.1.7",
-    "installs": 18769,
+    "installs": 18865,
     "license": "GNU",
     "author": "Jim Brower <bulldoglowell@gmail.com>",
     "sentence": "Sunrise/Sunset Time ported for Spark Core",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Sensor_Photon",
     "version": "1.0.5",
-    "installs": 684,
+    "installs": 702,
     "license": "Apache",
     "author": "Aaron Jimenez",
     "sentence": "Adafruit's common sensor library",

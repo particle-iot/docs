@@ -2624,6 +2624,259 @@
             }
           }
         }
+      },
+      "6.21.3": {
+        "added": "2023-08-20T12:08:13.792Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "bsom": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "b5som": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "tracker": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "p2": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "bsom": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "b5som": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "tracker": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "esomx": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": true,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          }
+        }
       }
     }
   },
@@ -8640,6 +8893,99 @@
       },
       "0.2.26": {
         "added": "2023-05-19T19:23:39.376Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "boron": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "bsom": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "b5som": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "tracker": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "p2": {
+              "a1-example": true,
+              "a2-example": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "boron": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "bsom": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "b5som": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "tracker": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "esomx": {
+              "a1-example": true,
+              "a2-example": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "electron": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "argon": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "boron": {
+              "a1-example": true,
+              "a2-example": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "electron": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "argon": {
+              "a1-example": true,
+              "a2-example": true
+            },
+            "boron": {
+              "a1-example": true,
+              "a2-example": true
+            }
+          }
+        }
+      },
+      "0.2.27": {
+        "added": "2023-08-20T12:25:51.366Z",
         "builds": {
           "5.0.1": {
             "argon": {
@@ -23918,6 +24264,119 @@
           }
         },
         "added": "2022-06-17T10:16:53.742Z"
+      },
+      "0.0.8": {
+        "added": "2023-08-20T12:40:56.047Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "boron": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "bsom": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "b5som": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "tracker": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "p2": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "boron": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "bsom": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "b5som": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "tracker": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "esomx": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "electron": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "argon": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "boron": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "electron": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "argon": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            },
+            "boron": {
+              "1-simple": true,
+              "2-selftest-SC16IS740RK": true,
+              "3-simple-spi-SC16IS740RK": true
+            }
+          }
+        }
       }
     }
   },
@@ -37226,6 +37685,139 @@
       },
       "0.0.6": {
         "added": "2023-05-19T19:38:21.128Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "boron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "bsom": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "b5som": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "tracker": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "p2": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "boron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "bsom": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "b5som": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "tracker": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "esomx": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "electron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "argon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "boron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "electron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "argon": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            },
+            "boron": {
+              "1-simple-ADXL362DMA": true,
+              "2-fifo-ADXL362DMA": true,
+              "3-tcp-ADXL362DMA": false,
+              "4-rollpitch-ADXL362DMA": true
+            }
+          }
+        }
+      },
+      "0.0.7": {
+        "added": "2023-08-20T12:48:11.396Z",
         "builds": {
           "5.0.1": {
             "argon": {
@@ -85009,6 +85601,46 @@
             "boron": {
               "usage": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            },
+            "bsom": {
+              "usage": false
+            },
+            "b5som": {
+              "usage": false
+            },
+            "tracker": {
+              "usage": false
+            },
+            "p2": {
+              "usage": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            },
+            "bsom": {
+              "usage": false
+            },
+            "b5som": {
+              "usage": false
+            },
+            "tracker": {
+              "usage": false
+            },
+            "esomx": {
+              "usage": false
+            }
           }
         },
         "added": "2022-06-17T10:16:54.120Z"
@@ -85952,8 +86584,63 @@
             "boron": {
               "usage": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            },
+            "bsom": {
+              "usage": false
+            },
+            "b5som": {
+              "usage": false
+            },
+            "tracker": {
+              "usage": false
+            },
+            "p2": {
+              "usage": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            },
+            "bsom": {
+              "usage": false
+            },
+            "b5som": {
+              "usage": false
+            },
+            "tracker": {
+              "usage": false
+            },
+            "esomx": {
+              "usage": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
           }
-        }
+        },
+        "added": "2023-08-20T13:18:20.906Z"
       }
     }
   },
@@ -100189,6 +100876,46 @@
             "boron": {
               "RadarIQDemo": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "RadarIQDemo": false
+            },
+            "boron": {
+              "RadarIQDemo": false
+            },
+            "bsom": {
+              "RadarIQDemo": false
+            },
+            "b5som": {
+              "RadarIQDemo": false
+            },
+            "tracker": {
+              "RadarIQDemo": false
+            },
+            "p2": {
+              "RadarIQDemo": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "RadarIQDemo": false
+            },
+            "boron": {
+              "RadarIQDemo": false
+            },
+            "bsom": {
+              "RadarIQDemo": false
+            },
+            "b5som": {
+              "RadarIQDemo": false
+            },
+            "tracker": {
+              "RadarIQDemo": false
+            },
+            "esomx": {
+              "RadarIQDemo": false
+            }
           }
         },
         "added": "2022-06-17T10:16:54.119Z"
@@ -110160,6 +110887,611 @@
             }
           }
         }
+      },
+      "0.0.3": {
+        "added": "2023-08-20T13:19:57.503Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "boron": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "bsom": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "b5som": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "tracker": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "p2": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "boron": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "bsom": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "b5som": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "tracker": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "esomx": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "electron": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "argon": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "boron": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "electron": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "argon": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            },
+            "boron": {
+              "1-audio-over-tcp": false,
+              "2-buffer": false,
+              "3-wav": false,
+              "4-buffer-tcp": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "DHT20_I2C_Particle": {
+    "versions": {
+      "1.0.3": {
+        "added": "2023-08-20T12:56:51.720Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "boron": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "bsom": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "b5som": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "tracker": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "p2": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "boron": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "bsom": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "b5som": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "tracker": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "esomx": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "electron": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "argon": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "boron": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "electron": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "argon": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            },
+            "boron": {
+              "DHT20": true,
+              "DHT20_I2C_speed": true,
+              "DHT20_async": true,
+              "DHT20_offset": true,
+              "DHT20_plotter": true,
+              "DHT20_read_status": true,
+              "DHT20_simple": true,
+              "DHT20_test_esp": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SC16IS7xxRK": {
+    "versions": {
+      "0.0.1": {
+        "added": "2023-08-20T13:25:46.329Z",
+        "builds": {
+          "5.0.1": {
+            "argon": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "boron": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "bsom": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "b5som": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "tracker": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "p2": {
+              "01-simple-i2c": false,
+              "02-simple-spi": false,
+              "04-simple-rxtx": false,
+              "05-selftest": false,
+              "06-continuous-read": false,
+              "07-buffered-read": false,
+              "08-dual-loop": false,
+              "09-hw-flow": false,
+              "10-interrupts": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "boron": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "bsom": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "b5som": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "tracker": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "esomx": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": false,
+              "08-dual-loop": true,
+              "09-hw-flow": false,
+              "10-interrupts": false
+            }
+          },
+          "3.3.0": {
+            "photon": {
+              "01-simple-i2c": false,
+              "02-simple-spi": false,
+              "04-simple-rxtx": false,
+              "05-selftest": false,
+              "06-continuous-read": false,
+              "07-buffered-read": false,
+              "08-dual-loop": false,
+              "09-hw-flow": false,
+              "10-interrupts": false
+            },
+            "electron": {
+              "01-simple-i2c": false,
+              "02-simple-spi": false,
+              "04-simple-rxtx": false,
+              "05-selftest": false,
+              "06-continuous-read": false,
+              "07-buffered-read": false,
+              "08-dual-loop": false,
+              "09-hw-flow": false,
+              "10-interrupts": false
+            },
+            "argon": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "boron": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            }
+          },
+          "2.3.0": {
+            "photon": {
+              "01-simple-i2c": false,
+              "02-simple-spi": false,
+              "04-simple-rxtx": false,
+              "05-selftest": false,
+              "06-continuous-read": false,
+              "07-buffered-read": false,
+              "08-dual-loop": false,
+              "09-hw-flow": false,
+              "10-interrupts": false
+            },
+            "electron": {
+              "01-simple-i2c": false,
+              "02-simple-spi": false,
+              "04-simple-rxtx": false,
+              "05-selftest": false,
+              "06-continuous-read": false,
+              "07-buffered-read": false,
+              "08-dual-loop": false,
+              "09-hw-flow": false,
+              "10-interrupts": false
+            },
+            "argon": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            },
+            "boron": {
+              "01-simple-i2c": true,
+              "02-simple-spi": true,
+              "04-simple-rxtx": true,
+              "05-selftest": true,
+              "06-continuous-read": true,
+              "07-buffered-read": true,
+              "08-dual-loop": true,
+              "09-hw-flow": true,
+              "10-interrupts": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "EdgeEventQueue": {
+    "versions": {
+      "0.0.1": {
+        "added": "2023-08-20T13:45:31.262Z",
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "EdgeEventQueueRK": {
+    "versions": {
+      "0.0.1": {
+        "added": "2023-08-20T13:45:31.262Z",
+        "builds": {},
+        "noExamples": true
       }
     }
   }

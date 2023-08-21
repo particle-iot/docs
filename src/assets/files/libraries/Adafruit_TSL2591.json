@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_TSL2591",
     "version": "1.1.0",
-    "installs": 20100,
+    "installs": 20228,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for the TSL2591 digital luminosity (light) sensors.",
