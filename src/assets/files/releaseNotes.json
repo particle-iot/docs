@@ -26852,6 +26852,221 @@
                 2664,
                 2665
             ]
+        },
+        "v5.5.0-rc.1": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.5.0-rc.1",
+            "tag_name": "v5.5.0-rc.1",
+            "name": "v5.5.0-rc.1 (Argon/Boron/B SoM/B5 SoM/Tracker/Tracker M/E SoM X/M SoM/P2)",
+            "prerelease": true,
+            "created_at": "2023-08-15T21:24:31Z",
+            "published_at": "2023-08-16T22:11:18Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2668
+                    ],
+                    "section": "FEATURES",
+                    "text": "Asset OTA"
+                },
+                {
+                    "tags": [
+                        "M SoM"
+                    ],
+                    "prs": [
+                        2681
+                    ],
+                    "section": "FEATURES",
+                    "text": "Platform support"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2673
+                    ],
+                    "section": "FEATURES",
+                    "text": "Experimental WPA3 support"
+                },
+                {
+                    "tags": [
+                        "WiFi"
+                    ],
+                    "prs": [
+                        2673
+                    ],
+                    "section": "FEATURES",
+                    "text": "Hidden SSID support"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2680
+                    ],
+                    "section": "FEATURES",
+                    "text": "GPIO drive strength configuration support"
+                },
+                {
+                    "tags": [
+                        "WiFi"
+                    ],
+                    "prs": [
+                        2669
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "WiFI interface power state notifications"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2677
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Improve `SPI1` (P2 / Tracker M) and `SPI` (M SoM) behavior at 50MHz by changing RXD sample delay"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2672
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Improve USB Serial TX performance"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2674
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Enables UPSV=1 low power mode for R510 when idle for >=9.2s"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2680
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Fix logic level overshoot on SPI, I2C, PWM pins"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2684
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Revert the QSPI flash speed to 80MHz"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2671
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix incorrect I2C read timeout"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2667
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Do not initialize RTC after waking up from HIBERNATE sleep"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2666
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Disable pull resistors when pin is configure as `OUTPUT`"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2666
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Disable SWDIO/SWDCLK pins when going into sleep"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2679
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Disable brown-out detector"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2682
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Avoid glitch on I2C pins when reconfiguring I2C peripheral"
+                },
+                {
+                    "tags": [
+                        "WiFi"
+                    ],
+                    "prs": [
+                        2669
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Resolve `wiring/sleep20` test failures"
+                },
+                {
+                    "tags": [
+                        "nrf52840"
+                    ],
+                    "prs": [
+                        2662
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Add factory reset test (`ota/factory_reset`)"
+                }
+            ],
+            "prs": [
+                2662,
+                2666,
+                2667,
+                2668,
+                2669,
+                2671,
+                2672,
+                2673,
+                2674,
+                2677,
+                2679,
+                2680,
+                2681,
+                2682,
+                2684
+            ]
         }
     },
     "pulls": {
@@ -39431,6 +39646,123 @@
             "state": "open",
             "created_at": "2023-07-19T13:46:54Z",
             "detail": "Support for WPA3 and hidden SSIDs (note that correct channel plan e.g. US needs to be set for 5GHz hidden SSID support to work, otherwise 5GHz scans are passive)."
+        },
+        "2674": {
+            "url": "https://github.com/particle-iot/device-os/pull/2674",
+            "number": 2674,
+            "title": "Enables UPSV=1 low power mode for R510 when idle for >=9.2s",
+            "state": "closed",
+            "created_at": "2023-07-21T16:24:41Z",
+            "detail": "- R510 modem consumes more power than R410 modem by design.  This is unexpected behavior for some customers migrating from R410 to R510."
+        },
+        "2675": {
+            "url": "https://github.com/particle-iot/device-os/pull/2675",
+            "number": 2675,
+            "title": "Ledger synchronization",
+            "state": "open",
+            "created_at": "2023-07-25T16:03:45Z"
+        },
+        "2676": {
+            "url": "https://github.com/particle-iot/device-os/pull/2676",
+            "number": 2676,
+            "title": "Fixes for MSOM ",
+            "state": "closed",
+            "created_at": "2023-07-27T23:37:57Z"
+        },
+        "2677": {
+            "url": "https://github.com/particle-iot/device-os/pull/2677",
+            "number": 2677,
+            "title": "rtl872x: set RXD sample delay for SPI0@50MHz",
+            "state": "closed",
+            "created_at": "2023-08-01T06:23:52Z",
+            "detail": "For the external flash read/write test, SPI0 and SPI1 passed test at 25MHz. SPI0 failed to communicate with the flash at the highest speed 50MHz.\n\nWritting the regular data `0x55 0x55 0x55 ...` to the flash, which is 01010101 waveform on the oscilloscope, we read back the data `0xaa 0xaa ... 0xaa 0x1a 0xaa...`, this anomaly seems to have a pattern, the data appears to have shifted by one bit."
+        },
+        "2678": {
+            "url": "https://github.com/particle-iot/device-os/pull/2678",
+            "number": 2678,
+            "title": "Combine PA[20] and VBAT_MEAS pins. Update names with orson v0.3 pinmap",
+            "state": "closed",
+            "created_at": "2023-08-02T22:56:57Z",
+            "detail": "MSoM EVT `A7`/`VBAT_MEAS` is only usable as ADC, not as digital IO"
+        },
+        "2679": {
+            "url": "https://github.com/particle-iot/device-os/pull/2679",
+            "number": 2679,
+            "title": "[rtl872x] Revert BOD reset",
+            "state": "closed",
+            "created_at": "2023-08-03T18:25:22Z",
+            "detail": "We enabled brown out detection on all p2 platforms in device os `5.2.0`. This may be causing problems with P2 platform specifically since it does not have an external reset IC like photon 2 / msom"
+        },
+        "2680": {
+            "url": "https://github.com/particle-iot/device-os/pull/2680",
+            "number": 2680,
+            "title": "rtl872x: overshoot issue",
+            "state": "closed",
+            "created_at": "2023-08-04T08:13:53Z",
+            "detail": "During the EVT test, we observed significant overshoot. This issue occurs on every high-speed bus, including SPI, I2C, PWM, I2S, and DMIC."
+        },
+        "2681": {
+            "url": "https://github.com/particle-iot/device-os/pull/2681",
+            "number": 2681,
+            "title": "[rtl872x] Add MSoM platform support",
+            "state": "closed",
+            "created_at": "2023-08-07T22:27:23Z",
+            "detail": "Support for MSoM hardware platform"
+        },
+        "2682": {
+            "url": "https://github.com/particle-iot/device-os/pull/2682",
+            "number": 2682,
+            "title": "[rtl872x] Change GPIO pin config order to avoid glitch",
+            "state": "closed",
+            "created_at": "2023-08-10T21:00:00Z",
+            "detail": "When testing MSoM platform I2C no_fixture tests, we discovered `I2C_07_bus_reset_is_not_destructive` test failure.\nThis is due to changing the SDA/SCL pinconfigs between the software i2c implementation (ie GPIO pinmux) and the hardware i2c implementation ie (I2C pinmux).\n\nThe current GPIO hal introduces an edge when changing between the modes. Specifically between\n```\nPinmux config\nWrite Bit\n```"
+        },
+        "2683": {
+            "url": "https://github.com/particle-iot/device-os/pull/2683",
+            "number": 2683,
+            "title": "[msom][ci] Build prebootloader, fix macos builds",
+            "state": "closed",
+            "created_at": "2023-08-14T23:23:44Z",
+            "detail": "1. MSoM platform builds were not building `prebootloader-mbr` and `prebootloader-part1` binaries\n2. Macos builds were failing due to deprecation warnings for intel based macos versions"
+        },
+        "2684": {
+            "url": "https://github.com/particle-iot/device-os/pull/2684",
+            "number": 2684,
+            "title": "rtl872x: revert the flash speed to 80MHz",
+            "state": "closed",
+            "created_at": "2023-08-15T07:13:12Z",
+            "detail": "This is a mistake I made in [PR2470](https://github.com/particle-iot/device-os/pull/2470)\n\nThe older datasheet indicates support for QSPI speeds of up to 60MHz, whereas the newer one indicates support for speeds of up to 80MHz.\n\n<img width=\"1455\" alt=\"Screenshot 2023-08-15 at 14 59 02\" src=\"https://github.com/particle-iot/device-os/assets/7424522/ac668de4-613c-4bff-acf7-5c3981a859ef\">\n\nRealtek also tested MX25R32 with 80MHz speed:\n![Screenshot 2023-08-15 at 15 08 44](https://github.com/particle-iot/device-os/assets/7424522/05951e30-fa86-4bea-8e69-b13381e00496)\n\n\n[UM0404 Ameba Flash AVL-EN_20210621(45695).pdf](https://github.com/particle-iot/device-os/files/12341967/UM0404.Ameba.Flash.AVL-EN_20210621.45695.pdf)\n[MX25R6435F v0.03.pdf](https://github.com/particle-iot/device-os/files/12341972/MX25R6435F.v0.03.pdf)\n[MX25R6435F v1.6.pdf](https://github.com/particle-iot/device-os/files/12341974/MX25R6435F.v1.6.pdf)"
+        },
+        "2685": {
+            "url": "https://github.com/particle-iot/device-os/pull/2685",
+            "number": 2685,
+            "title": "Gen3: fix uart rx data corruption",
+            "state": "open",
+            "created_at": "2023-08-15T10:12:07Z",
+            "detail": "The current mechanism for UART data receiving is depending on the `NRF_UARTE_EVENT_ENDRX` event and a timer counter that is connected with the `NRF_UARTE_EVENT_RXDRDY` event through PPI. When the `NRF_UARTE_EVENT_ENDRX` is asserted, the receiver is stopped automatically by hardware. Everytime we service the `NRF_UARTE_EVENT_ENDRX` we restart the UART receiver. Only if the receiver is started, the data we received can be moved into the RAM buffer. If we query the data when UART is receiving data, the timer can tell us how many bytes are received. But note that when `NRF_UARTE_EVENT_RXDRDY` is generated, it doesn't mean that the received byte has been moved to the RAM buffer.\n\n<img width=\"819\" alt=\"Screenshot 2023-08-15 at 15 40 53\" src=\"https://github.com/particle-iot/device-os/assets/8130559/de24ce04-25ea-4358-a91d-36c7995b46a2\">\n\nThe problem of the current mechanism is if the `NRF_UARTE_EVENT_ENDRX` event is postponed to deal with by, for example, other interrupts with higher priority, while UART is receiving data, then the `NRF_UARTE_EVENT_RXDRDY` is asserted, but the receiver has stopped and the received byte cannot be moved to the RAM buffer, and we lost the byte. The longer the `NRF_UARTE_EVENT_ENDRX` being postponed, the more data will lose. This happens at the middle of a data receiving frame when the `NRF_UARTE_EVENT_ENDRX` is asserted, so using a larger buffer doesn't fix the issue.\n\n-> incoming data stream:  00 01 02 03 04 05 06 07 08 09 ...\n-> 1. rx buffer  [ (free spaces) | (acquired length = 5) 00 01 02 03 04 ] <- NRF_UARTE_EVENT_ENDRX, 05 06 07 ... may be lost\n-> 2. rx buffer  [ (free spaces) | (acquired length = 10000,  commited = 9995) 00 01 02 03 04 ] <- NRF_UARTE_EVENT_ENDRX, 05 06 07 ... may be lost\n\nThe above is the typical circumstance how data is lost. Sometimes we don't lose data, but we may break a data frame. For example, Normally the `NRF_UARTE_EVENT_ENDRX` is generated before the `NRF_UARTE_EVENT_RXDRDY` of the byte `N` as shown in the attached screenshot. If the `NRF_UARTE_EVENT_ENDRX` is not services in time, the `NRF_UARTE_EVENT_RXDRDY` will increase the timer counter by 1, followed by servicing the `NRF_UARTE_EVENT_ENDRX` event, in which case the timer counter is cleared. In this case, we did received the byte N and the byte `N` can be moved to the RAM buffer once we restart the receiver in ISR, but since the timer counter is cleared, we will start counting the received data with byte `N+1`.\n\n1. Assume we are going to receive contiguous 43 bytes\n2. When the 42th byte is received, the `NRF_UARTE_EVENT_ENDRX` is serviced and timer counter is cleared, but the 43th byte is ready to be moved to the RAM buffer. Since user keep querying and read the received data, `available()` is now `0`.\n3. Assume the 2nd transaction will acquire `10` bytes from the RX ring buffer.\n4. Receiver restarted and the 43th byte is moved to the RAM buffer, but `available()` is still `0`. The first 43-bytes transaction timeout\n5. 2nd 43-bytes is receiving. When the next `NRF_UARTE_EVENT_ENDRX` is asserted, there is `10` bytes in the ring buffer, but the timer counter is `9`, since the timer start counting when the first byte of the 2nd transaction is received. Now the `available()` is `10`, since we `rxBuffer_.acquireCommit(rxBuffer_.acquirePending());`(pending is 1) when we handle the `NRF_UARTE_EVENT_ENDRX` event.\n6. Assume we will acquire `40` bytes from the RX ring buffer. Now there is still 34 bytes to be received for the 2nd transaction.\n7. The timer counter increases by 34. The total `available()` since step5 is 44.\n8. So the 1st transaction we received 42 bytes and the 2nd transaction we receved 44 bytes."
+        },
+        "2686": {
+            "url": "https://github.com/particle-iot/device-os/pull/2686",
+            "number": 2686,
+            "title": "[rtl872x] remove the delay in UART flush().",
+            "state": "open",
+            "created_at": "2023-08-16T10:07:14Z",
+            "detail": "The delay in UART `flush()` may cause user app fail to synchronize with the peer UART device.\n\nThe delay actinng as a hacky workaround was introduced in this PR2586: https://github.com/particle-iot/device-os/pull/2586 and may be potentially fixed by another PR2581: https://github.com/particle-iot/device-os/pull/2581"
+        },
+        "2687": {
+            "url": "https://github.com/particle-iot/device-os/pull/2687",
+            "number": 2687,
+            "title": "[tracker] get some flash space back",
+            "state": "open",
+            "created_at": "2023-08-17T18:07:53Z",
+            "detail": "Gets rid of a couple of things on Tracker to get some flash space back:\n1. CC310 CryptoCell SHA512\n2. Full LwIP IPv6 support (partial is left so sockaddr6_in and the rest are still available)\n3. system_error messages\n\nThere are still some other things to throw away but for now this should be good enough for #2660 and #2675.\n\n```\n   text\t   data\t    bss\t    dec\t    hex\tfilename\n 513960\t   3038\t  60814\t 577812\t  8d114\t../../../build/target/system-part1/platform-26-m/system-part1.elf\n```\n\nSo, we are at around 23.5K after the changes.\n\n---"
+        },
+        "2688": {
+            "url": "https://github.com/particle-iot/device-os/pull/2688",
+            "number": 2688,
+            "title": "Update the key used for validating the ServerMoved signature",
+            "state": "closed",
+            "created_at": "2023-08-18T13:51:53Z"
         }
     }
 }
