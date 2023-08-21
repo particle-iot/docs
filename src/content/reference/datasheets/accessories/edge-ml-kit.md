@@ -179,29 +179,6 @@ There are also other members of the MQ sensor family (not included in this kit):
 - MQ9 Carbon monoxide
 
 
-### Soil moisture sensor (resistance-type)
-
-The YL-69 soil moisture sensor provides a digital or analog output based on soil moisture. It is not a high-precision sensor.
-
-{{imageOverlay src="/assets/images/edge-kit/soil-1.jpeg" alt="Soil moisture sensor" }}
-
-The fork-shaped probe connects to the adapter board by the two-pin female-to-female jumper wires. The sensor connects to the two-pin side of the adapter board. There is no polarity on this connection.
-
-{{imageOverlay src="/assets/images/edge-kit/soil-2.jpeg" alt="Soil moisture sensor" }}
-
-The other side has the following pins:
-
-| Name | Purpose |
-| VCC | 3.3V power supply, connect to 3V3 |
-| GND | Ground, connect to GND |
-| D0 | Digital output, LOW = wet, HIGH = dry |
-| A0 | Analog output, closer to 0 = wet, closer to 4095 = dry |
-
-You don't need to connect both D0 and A0, you can use just one of them. The potentiometer controls the moisture level that switches D0 on and off.
-
-- D0 can be connected to any digital (`D`) or analog (`A`) input on your Particle device.
-- A0 can be connected to any analog (`A`) input  on your Particle device.
-
 ### HC-SR501 PIR motion sensor
 
 This sensor detects heat using a passive infrared (PIR) sensor. It's typically used to sense humans (and other warm-blooded animals). It requires 5V so you cannot use it when powered by a LiPo battery but it will work when connected to USB. The output is only 3.3V so it's safe to connect to any available GPIO.

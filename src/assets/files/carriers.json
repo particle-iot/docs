@@ -19415,7 +19415,7 @@
     {
       "name": "B402MTY",
       "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "B404XMTY",
       "modem": "R410",
       "multiple": true,
@@ -19483,7 +19483,7 @@
     {
       "name": "B404MTY",
       "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "B404XMTY",
       "modem": "R410",
       "multiple": true,
@@ -19812,7 +19812,7 @@
     {
       "name": "BRN314KIT",
       "desc": "Boron 2G/3G (Global) Starter Kit, [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "sim": 4,
       "simPlans": [
@@ -20900,7 +20900,7 @@
     {
       "name": "FWNG-OLED",
       "desc": "Adafruit OLED FeatherWing, [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
       "enterprise": false,
@@ -20913,7 +20913,7 @@
     {
       "name": "FWNG-PWRLY",
       "desc": "Adafruit Power Relay FeatherWing, [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
       "enterprise": false,

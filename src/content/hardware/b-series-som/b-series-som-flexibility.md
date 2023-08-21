@@ -76,7 +76,7 @@ The B5xx models (B524, B523) when running in 2G/3G mode require more current: 2A
 
 Since the models are used in different regions you would likely have to even if there was a single SoM. 
 
-For example, if you use the standard Particle antenna you can often get by with only FCC unintentional radiator certification (Part 15 Subpart B). This is the least expensive of the certifications, and often can be SDoC (supplier's declaration of conformity), which is the least complicated of the filings. This is considerably less expensive than intentional radiator (Part 15 Subpart A) or other certifications like PTCRB.
+For example, if you use the standard Particle antenna you can often get by with only FCC unintentional radiator certification (Part 15 Subpart B). This is the least expensive of the certifications, and often can be SDoC (supplier's declaration of conformity), which is the least complicated of the filings. This is considerably less expensive than intentional radiator (Part 15 Subpart C) or other certifications like PTCRB.
 
 Unintentional radiator testing makes sure that the completed assembly, including any components you have on your base board, do not emit spurious electromagnetic radiation.
 
