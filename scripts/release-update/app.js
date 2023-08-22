@@ -8,6 +8,7 @@ const exec = util.promisify(require('child_process').exec);
 
 const fetch = require("node-fetch"); // node-fetch@2 required for CommonJS
 
+const Handlebars = require("handlebars");
 
 const argv = require('yargs').argv;
 
@@ -23,6 +24,8 @@ const deviceRestoreJson = JSON.parse(fs.readFileSync(path.join(filesDir, 'device
 
 // deviceRestoreDir has a directory for each version name (semver) with no 'v'
 const deviceRestoreDir = path.join(filesDir, 'device-restore');
+
+const trackerDir = path.join(filesDir, 'tracker');
 
 // This contains an abundance of information, including
 // deviceConstants - The JSON data from device constants
@@ -514,13 +517,13 @@ async function runDeviceOs() {
 }
 
 async function runEdgeVersion(options) {
-    // options.repository, .kind
+    // options.repository, .kind, .zipName
 
     if (!releasesJson.edge) {
         releasesJson.edge = {};
     }
     if (!releasesJson.edge[options.kind]) {
-        releasesJson.edge[options.kind] = [];
+        releasesJson.edge[options.kind] = {};
     }
     if (!releasesJson.edge[options.kind].releases) {
         releasesJson.edge[options.kind].releases = [];
@@ -539,9 +542,73 @@ async function runEdgeVersion(options) {
         
         releasesJson.edge[options.kind].releases = newReleases.concat(releasesJson.edge[options.kind].releases);
 
+        // Each release in the .releases array:
+        // tag_name, name, draft, prerelease, published_at
+        // assets is an array of objects
+        //   .name, .browser_download_url
+
         // Save releases file
         fs.writeFileSync(releasesJsonPath, JSON.stringify(releasesJson, null, 4));
     }
+    // Check downloads
+    for(const rel of releasesJson.edge[options.kind].releases) {
+        for(const relAsset of rel.assets) {
+            if (relAsset.name.endsWith('.bin')) {
+                // This is the user firmware binary
+                const binaryFile = path.join(trackerDir, relAsset.name);
+
+                if (!fs.existsSync(binaryFile)) {
+                    console.log('no binary for ' + relAsset.name + ', downloading');
+
+                    const binary = await new Promise(function(resolve, reject) {
+                        const fetchRes = fetch(relAsset.browser_download_url)
+                        .then(response => response.arrayBuffer())
+                        .then(function(response) {
+                            resolve(Buffer.from(response));
+                        });
+                    });
+    
+                    // console.log('binary', binary);
+                    fs.writeFileSync(binaryFile, binary);   
+                }
+            }
+        }
+
+        let templateParam = {
+            version: rel.tag_name, // begins with v
+            // versionNumber is just the number, as a number
+        };
+
+        if (rel.tag_name.startsWith('v')) {
+            templateParam.versionNumber = parseInt(rel.tag_name.substring(1));
+        }
+        else {
+            console.log('unknown tag format ' + rel.tag_name);
+        }
+
+        // Project source zip
+        const zipFilename = Handlebars.compile(options.zipName)(templateParam);
+
+        const binaryFile = path.join(trackerDir, zipFilename);
+
+        if (!fs.existsSync(binaryFile)) {
+            console.log('no binary for ' + zipFilename + ', downloading');
+
+            const binary = await new Promise(function(resolve, reject) {
+                const fetchRes = fetch(rel.zipball_url)
+                .then(response => response.arrayBuffer())
+                .then(function(response) {
+                    resolve(Buffer.from(response));
+                });
+            });
+
+            // console.log('binary', binary);
+            fs.writeFileSync(binaryFile, binary);   
+        }
+
+
+    }    
+
 
 }
 
@@ -593,11 +660,20 @@ async function run() {
         }    
     }
 
-    // Process Tracker Edge versions. Disable with --no-tracker-edge
-    if (argv.trackerEdge !== false) {
+    // Process Tracker Edge versions. Disable with --no-tracker-edge or --no-edge
+    if (argv.trackerEdge !== false || argv.edge !== false) {
         await runEdgeVersion({
             kind: 'tracker-edge',
             repository: 'particle-iot/tracker-edge',
+            zipName: 'v{{versionNumber}}.zip'
+        });
+    }
+    // Process Monitor Edge versions. Disable with --no-monitor-edge or --no-edge
+    if (argv.trackerEdge !== false || argv.edge !== false) {
+        await runEdgeVersion({
+            kind: 'monitor-edge',
+            repository: 'particle-iot/monitor-edge',
+            zipName: 'monitor-edge-{{versionNumber}}.zip'
         });
     }
     
