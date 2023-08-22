@@ -71,6 +71,9 @@ In `handleAssets()` the code iterates through all of the assets. This is typical
 
 ```cpp
 for (auto &asset : assets)
+{
+    // Put code here to handle asset
+}
 ```
 
 For each asset, the example creates a file on the flash file system with the same name. It then reads the data out of the asset and writes it to the file.
@@ -78,7 +81,7 @@ For each asset, the example creates a file on the flash file system with the sam
 
 #### project.properties
 
-You must specify the `assetOtaDir` in your project.properties file for assets to be generated. The name matches the directory name.
+You must specify the `assetOtaDir` in your project.properties file for assets to be generated.
 
 ```
 name=FileAssetExample
