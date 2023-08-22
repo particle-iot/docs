@@ -10,6 +10,8 @@ const fetch = require("node-fetch"); // node-fetch@2 required for CommonJS
 
 const Handlebars = require("handlebars");
 
+const { HalModuleParser, ModuleInfo } = require('binary-version-reader');
+
 const argv = require('yargs').argv;
 
 const topDir = path.normalize(path.join('..', '..'));
@@ -26,6 +28,25 @@ const deviceRestoreJson = JSON.parse(fs.readFileSync(path.join(filesDir, 'device
 const deviceRestoreDir = path.join(filesDir, 'device-restore');
 
 const trackerDir = path.join(filesDir, 'tracker');
+
+/*
+  "versions": [
+    {
+      "boot": 7,
+      "sys": 11,
+      "semVer": "0.4.9"
+    },
+*/
+const versionInfoJson = JSON.parse(fs.readFileSync(path.join(filesDir, 'versionInfo.json'), 'utf8'));
+
+function systemVersionToSemver(sysver) {
+    for(const v of versionInfoJson.versions) {
+        if (v.sys == sysver) {
+            return v.semVer;
+        }
+    }
+    return null;
+}
 
 // This contains an abundance of information, including
 // deviceConstants - The JSON data from device constants
@@ -550,12 +571,33 @@ async function runEdgeVersion(options) {
         // Save releases file
         fs.writeFileSync(releasesJsonPath, JSON.stringify(releasesJson, null, 4));
     }
+
+    // indexJson is the file like trackerEdgeVersions, and is only an array (no top level object!)
+    const indexJsonFile = path.join(trackerDir, options.indexJson);
+    let indexJson = {
+        versions: [],
+    };
+    try {
+        indexJson = JSON.parse(fs.readFileSync(indexJsonFile, 'utf8'));
+    }
+    catch(e) {
+    }
+
     // Check downloads
     for(const rel of releasesJson.edge[options.kind].releases) {
+        let templateParam = {
+            v: rel.tag_name, // begins with v
+            title: rel.name,
+            // version is just the number, as a number
+        };
+
+        let binaryFile;
+
         for(const relAsset of rel.assets) {
             if (relAsset.name.endsWith('.bin')) {
                 // This is the user firmware binary
-                const binaryFile = path.join(trackerDir, relAsset.name);
+                binaryFile = path.join(trackerDir, relAsset.name);
+                templateParam.bin = relAsset.name;
 
                 if (!fs.existsSync(binaryFile)) {
                     console.log('no binary for ' + relAsset.name + ', downloading');
@@ -574,24 +616,19 @@ async function runEdgeVersion(options) {
             }
         }
 
-        let templateParam = {
-            version: rel.tag_name, // begins with v
-            // versionNumber is just the number, as a number
-        };
-
         if (rel.tag_name.startsWith('v')) {
-            templateParam.versionNumber = parseInt(rel.tag_name.substring(1));
+            templateParam.version = parseInt(rel.tag_name.substring(1));
         }
         else {
             console.log('unknown tag format ' + rel.tag_name);
         }
 
         // Project source zip
-        const zipFilename = Handlebars.compile(options.zipName)(templateParam);
+        const zipFilename = templateParam.zip = Handlebars.compile(options.zipName)(templateParam);
 
-        const binaryFile = path.join(trackerDir, zipFilename);
+        const zipFile = path.join(trackerDir, zipFilename);
 
-        if (!fs.existsSync(binaryFile)) {
+        if (!fs.existsSync(zipFile)) {
             console.log('no binary for ' + zipFilename + ', downloading');
 
             const binary = await new Promise(function(resolve, reject) {
@@ -603,11 +640,32 @@ async function runEdgeVersion(options) {
             });
 
             // console.log('binary', binary);
-            fs.writeFileSync(binaryFile, binary);   
+            fs.writeFileSync(zipFile, binary);   
         }
 
+        const reader = new HalModuleParser();
+        const fileInfo = await reader.parseFile(binaryFile);
+        // console.log('fileInfo', fileInfo);
 
-    }    
+        //console.log('fileInfo.prefixInfo.depModuleVersion', fileInfo.prefixInfo.depModuleVersion);
+        templateParam.target = systemVersionToSemver(fileInfo.prefixInfo.depModuleVersion);
+
+        /*
+          {
+                "version": 18,
+                "bin": "tracker-edge-18@3.3.0.bin",
+                "target": "3.3.0",
+                "zip": "v18.zip",
+                "v": "v18",
+                "title": "Tracker Edge v18 (Device OS 3.3.0)"
+            },
+        */
+
+        indexJson.versions.push(templateParam);
+
+    }   
+    
+    fs.writeFileSync(indexJsonFile, JSON.stringify(indexJson, null, 4));
 
 
 }
@@ -665,7 +723,8 @@ async function run() {
         await runEdgeVersion({
             kind: 'tracker-edge',
             repository: 'particle-iot/tracker-edge',
-            zipName: 'v{{versionNumber}}.zip'
+            zipName: 'v{{version}}.zip',
+            indexJson: 'trackerEdgeVersions.json',
         });
     }
     // Process Monitor Edge versions. Disable with --no-monitor-edge or --no-edge
@@ -673,7 +732,8 @@ async function run() {
         await runEdgeVersion({
             kind: 'monitor-edge',
             repository: 'particle-iot/monitor-edge',
-            zipName: 'monitor-edge-{{versionNumber}}.zip'
+            zipName: 'monitor-edge-{{version}}.zip',
+            indexJson: 'monitorEdgeVersions.json',
         });
     }
     

@@ -1,66 +1,484 @@
-[
-  {
-    "version": 18,
-    "bin": "tracker-edge-18@3.3.0.bin",
-    "target": "3.3.0",
-    "zip": "v18.zip",
-    "v": "v18",
-    "title": "Tracker Edge v18 (Device OS 3.3.0)"
-  },
-  {
-    "version": 17,
-    "bin": "tracker-edge-17@3.2.0.bin",
-    "target": "3.2.0",
-    "zip": "v17.zip",
-    "v": "v17",
-    "title": "Tracker Edge v17 (Device OS 3.2.0)"
-  },
-  {
-    "version": 16,
-    "bin": "tracker-edge-16@3.1.0.bin",
-    "target": "3.1.0",
-    "zip": "v16.zip",
-    "v": "v16",
-    "title": "Tracker Edge v16 (Device OS 3.1.0)"
-  },
-  {
-    "version": 15,
-    "bin": "tracker-edge-15@3.1.0.bin",
-    "target": "3.1.0",
-    "zip": "v15.zip",
-    "v": "v15",
-    "title": "Tracker Edge v15 (Device OS 3.1.0)"
-  },
-  {
-    "version": 14,
-    "bin": "tracker-edge-14@3.0.0.bin",
-    "target": "3.0.0",
-    "zip": "v14.zip",
-    "v": "v14",
-    "title": "Tracker Edge v14 (Device OS 3.0.0)"
-  },
-  {
-    "version": 13,
-    "bin": "tracker-edge-13@3.0.0.bin",
-    "target": "3.0.0",
-    "zip": "v13.zip",
-    "v": "v13",
-    "title": "Tracker Edge v13 (Device OS 3.0.0)"
-  },
-  {
-    "version": 12,
-    "bin": "tracker-edge-12@3.0.0-rc.2.bin",
-    "target": "3.0.0-rc.2",
-    "zip": "v12.zip",
-    "v": "v12",
-    "title": "Tracker Edge v12 (Device OS 3.0.0-rc.2)"
-  },
-  {
-    "version": 11,
-    "bin": "tracker-edge-11@2.0.0-rc.4.bin",
-    "target": "2.0.0-rc.4",
-    "zip": "v11.zip",
-    "v": "v11",
-    "title": "Tracker Edge v11 (Device OS 2.0.0-rc.4)"
-  }
-]
+{
+    "versions": [
+        {
+            "v": "v18",
+            "title": "Tracker Edge Firmware v18",
+            "bin": "tracker-edge-18@3.3.0.bin",
+            "version": 18,
+            "zip": "v18.zip",
+            "target": null
+        },
+        {
+            "v": "v17",
+            "title": "Tracker Edge Firmware v17",
+            "bin": "tracker-edge-17@3.2.0.bin",
+            "version": 17,
+            "zip": "v17.zip",
+            "target": null
+        },
+        {
+            "v": "v16",
+            "title": "Tracker Edge Firmware v16",
+            "bin": "tracker-edge-16@3.1.0.bin",
+            "version": 16,
+            "zip": "v16.zip",
+            "target": null
+        },
+        {
+            "v": "v15",
+            "title": "Tracker Edge Firmware v15",
+            "bin": "tracker-edge-15@3.1.0.bin",
+            "version": 15,
+            "zip": "v15.zip",
+            "target": null
+        },
+        {
+            "v": "v14",
+            "title": "Tracker Edge Firmware v14",
+            "bin": "tracker-edge-14@3.0.0.bin",
+            "version": 14,
+            "zip": "v14.zip",
+            "target": null
+        },
+        {
+            "v": "v13",
+            "title": "Tracker Edge Firmware v13",
+            "bin": "tracker-edge-13@3.0.0.bin",
+            "version": 13,
+            "zip": "v13.zip",
+            "target": null
+        },
+        {
+            "v": "v12",
+            "title": "Tracker Edge Firmware v12",
+            "bin": "tracker-edge-12@3.0.0-rc.2.bin",
+            "version": 12,
+            "zip": "v12.zip",
+            "target": null
+        },
+        {
+            "v": "v11",
+            "title": "Tracker Edge Firmware v11",
+            "bin": "tracker-edge-11@2.0.0-rc.4.bin",
+            "version": 11,
+            "zip": "v11.zip",
+            "target": null
+        },
+        {
+            "v": "v10",
+            "title": "Tracker Edge Firmware v10",
+            "bin": "tracker-edge-10@2.0.0-rc.3.bin",
+            "version": 10,
+            "zip": "v10.zip",
+            "target": null
+        },
+        {
+            "v": "v9",
+            "title": "Tracker Edge Firmware v9",
+            "bin": "tracker-edge-9@1.5.4-rc.2.bin",
+            "version": 9,
+            "zip": "v9.zip",
+            "target": null
+        },
+        {
+            "v": "v8",
+            "title": "Tracker Edge Firmware v8",
+            "bin": "tracker-edge-8@1.5.4-rc.1.bin",
+            "version": 8,
+            "zip": "v8.zip",
+            "target": null
+        },
+        {
+            "v": "v7",
+            "title": "Tracker Edge Firmware v7",
+            "bin": "tracker-edge-7@1.5.4-rc.1.bin",
+            "version": 7,
+            "zip": "v7.zip",
+            "target": null
+        },
+        {
+            "v": "v18",
+            "title": "Tracker Edge Firmware v18",
+            "bin": "tracker-edge-18@3.3.0.bin",
+            "version": 18,
+            "zip": "v18.zip",
+            "target": "3.3.0"
+        },
+        {
+            "v": "v17",
+            "title": "Tracker Edge Firmware v17",
+            "bin": "tracker-edge-17@3.2.0.bin",
+            "version": 17,
+            "zip": "v17.zip",
+            "target": "3.2.0"
+        },
+        {
+            "v": "v16",
+            "title": "Tracker Edge Firmware v16",
+            "bin": "tracker-edge-16@3.1.0.bin",
+            "version": 16,
+            "zip": "v16.zip",
+            "target": "3.1.0"
+        },
+        {
+            "v": "v15",
+            "title": "Tracker Edge Firmware v15",
+            "bin": "tracker-edge-15@3.1.0.bin",
+            "version": 15,
+            "zip": "v15.zip",
+            "target": "3.1.0"
+        },
+        {
+            "v": "v14",
+            "title": "Tracker Edge Firmware v14",
+            "bin": "tracker-edge-14@3.0.0.bin",
+            "version": 14,
+            "zip": "v14.zip",
+            "target": "3.0.0"
+        },
+        {
+            "v": "v13",
+            "title": "Tracker Edge Firmware v13",
+            "bin": "tracker-edge-13@3.0.0.bin",
+            "version": 13,
+            "zip": "v13.zip",
+            "target": "3.0.0"
+        },
+        {
+            "v": "v12",
+            "title": "Tracker Edge Firmware v12",
+            "bin": "tracker-edge-12@3.0.0-rc.2.bin",
+            "version": 12,
+            "zip": "v12.zip",
+            "target": "3.0.0-rc.2"
+        },
+        {
+            "v": "v11",
+            "title": "Tracker Edge Firmware v11",
+            "bin": "tracker-edge-11@2.0.0-rc.4.bin",
+            "version": 11,
+            "zip": "v11.zip",
+            "target": "2.0.0-rc.4"
+        },
+        {
+            "v": "v10",
+            "title": "Tracker Edge Firmware v10",
+            "bin": "tracker-edge-10@2.0.0-rc.3.bin",
+            "version": 10,
+            "zip": "v10.zip",
+            "target": "2.0.0-rc.3"
+        },
+        {
+            "v": "v9",
+            "title": "Tracker Edge Firmware v9",
+            "bin": "tracker-edge-9@1.5.4-rc.2.bin",
+            "version": 9,
+            "zip": "v9.zip",
+            "target": "1.5.4-rc.2"
+        },
+        {
+            "v": "v8",
+            "title": "Tracker Edge Firmware v8",
+            "bin": "tracker-edge-8@1.5.4-rc.1.bin",
+            "version": 8,
+            "zip": "v8.zip",
+            "target": "1.5.4-rc.1"
+        },
+        {
+            "v": "v7",
+            "title": "Tracker Edge Firmware v7",
+            "bin": "tracker-edge-7@1.5.4-rc.1.bin",
+            "version": 7,
+            "zip": "v7.zip",
+            "target": "1.5.4-rc.1"
+        },
+        {
+            "v": "v18",
+            "title": "Tracker Edge Firmware v18",
+            "bin": "tracker-edge-18@3.3.0.bin",
+            "version": 18,
+            "zip": "v18.zip",
+            "target": "3.3.0"
+        },
+        {
+            "v": "v17",
+            "title": "Tracker Edge Firmware v17",
+            "bin": "tracker-edge-17@3.2.0.bin",
+            "version": 17,
+            "zip": "v17.zip",
+            "target": "3.2.0"
+        },
+        {
+            "v": "v16",
+            "title": "Tracker Edge Firmware v16",
+            "bin": "tracker-edge-16@3.1.0.bin",
+            "version": 16,
+            "zip": "v16.zip",
+            "target": "3.1.0"
+        },
+        {
+            "v": "v15",
+            "title": "Tracker Edge Firmware v15",
+            "bin": "tracker-edge-15@3.1.0.bin",
+            "version": 15,
+            "zip": "v15.zip",
+            "target": "3.1.0"
+        },
+        {
+            "v": "v14",
+            "title": "Tracker Edge Firmware v14",
+            "bin": "tracker-edge-14@3.0.0.bin",
+            "version": 14,
+            "zip": "v14.zip",
+            "target": "3.0.0"
+        },
+        {
+            "v": "v13",
+            "title": "Tracker Edge Firmware v13",
+            "bin": "tracker-edge-13@3.0.0.bin",
+            "version": 13,
+            "zip": "v13.zip",
+            "target": "3.0.0"
+        },
+        {
+            "v": "v12",
+            "title": "Tracker Edge Firmware v12",
+            "bin": "tracker-edge-12@3.0.0-rc.2.bin",
+            "version": 12,
+            "zip": "v12.zip",
+            "target": "3.0.0-rc.2"
+        },
+        {
+            "v": "v11",
+            "title": "Tracker Edge Firmware v11",
+            "bin": "tracker-edge-11@2.0.0-rc.4.bin",
+            "version": 11,
+            "zip": "v11.zip",
+            "target": "2.0.0-rc.4"
+        },
+        {
+            "v": "v10",
+            "title": "Tracker Edge Firmware v10",
+            "bin": "tracker-edge-10@2.0.0-rc.3.bin",
+            "version": 10,
+            "zip": "v10.zip",
+            "target": "2.0.0-rc.3"
+        },
+        {
+            "v": "v9",
+            "title": "Tracker Edge Firmware v9",
+            "bin": "tracker-edge-9@1.5.4-rc.2.bin",
+            "version": 9,
+            "zip": "v9.zip",
+            "target": "1.5.4-rc.2"
+        },
+        {
+            "v": "v8",
+            "title": "Tracker Edge Firmware v8",
+            "bin": "tracker-edge-8@1.5.4-rc.1.bin",
+            "version": 8,
+            "zip": "v8.zip",
+            "target": "1.5.4-rc.1"
+        },
+        {
+            "v": "v7",
+            "title": "Tracker Edge Firmware v7",
+            "bin": "tracker-edge-7@1.5.4-rc.1.bin",
+            "version": 7,
+            "zip": "v7.zip",
+            "target": "1.5.4-rc.1"
+        },
+        {
+            "v": "v18",
+            "title": "Tracker Edge Firmware v18",
+            "bin": "tracker-edge-18@3.3.0.bin",
+            "version": 18,
+            "zip": "v18.zip",
+            "target": "3.3.0"
+        },
+        {
+            "v": "v17",
+            "title": "Tracker Edge Firmware v17",
+            "bin": "tracker-edge-17@3.2.0.bin",
+            "version": 17,
+            "zip": "v17.zip",
+            "target": "3.2.0"
+        },
+        {
+            "v": "v16",
+            "title": "Tracker Edge Firmware v16",
+            "bin": "tracker-edge-16@3.1.0.bin",
+            "version": 16,
+            "zip": "v16.zip",
+            "target": "3.1.0"
+        },
+        {
+            "v": "v15",
+            "title": "Tracker Edge Firmware v15",
+            "bin": "tracker-edge-15@3.1.0.bin",
+            "version": 15,
+            "zip": "v15.zip",
+            "target": "3.1.0"
+        },
+        {
+            "v": "v14",
+            "title": "Tracker Edge Firmware v14",
+            "bin": "tracker-edge-14@3.0.0.bin",
+            "version": 14,
+            "zip": "v14.zip",
+            "target": "3.0.0"
+        },
+        {
+            "v": "v13",
+            "title": "Tracker Edge Firmware v13",
+            "bin": "tracker-edge-13@3.0.0.bin",
+            "version": 13,
+            "zip": "v13.zip",
+            "target": "3.0.0"
+        },
+        {
+            "v": "v12",
+            "title": "Tracker Edge Firmware v12",
+            "bin": "tracker-edge-12@3.0.0-rc.2.bin",
+            "version": 12,
+            "zip": "v12.zip",
+            "target": "3.0.0-rc.2"
+        },
+        {
+            "v": "v11",
+            "title": "Tracker Edge Firmware v11",
+            "bin": "tracker-edge-11@2.0.0-rc.4.bin",
+            "version": 11,
+            "zip": "v11.zip",
+            "target": "2.0.0-rc.4"
+        },
+        {
+            "v": "v10",
+            "title": "Tracker Edge Firmware v10",
+            "bin": "tracker-edge-10@2.0.0-rc.3.bin",
+            "version": 10,
+            "zip": "v10.zip",
+            "target": "2.0.0-rc.3"
+        },
+        {
+            "v": "v9",
+            "title": "Tracker Edge Firmware v9",
+            "bin": "tracker-edge-9@1.5.4-rc.2.bin",
+            "version": 9,
+            "zip": "v9.zip",
+            "target": "1.5.4-rc.2"
+        },
+        {
+            "v": "v8",
+            "title": "Tracker Edge Firmware v8",
+            "bin": "tracker-edge-8@1.5.4-rc.1.bin",
+            "version": 8,
+            "zip": "v8.zip",
+            "target": "1.5.4-rc.1"
+        },
+        {
+            "v": "v7",
+            "title": "Tracker Edge Firmware v7",
+            "bin": "tracker-edge-7@1.5.4-rc.1.bin",
+            "version": 7,
+            "zip": "v7.zip",
+            "target": "1.5.4-rc.1"
+        },
+        {
+            "v": "v18",
+            "title": "Tracker Edge Firmware v18",
+            "bin": "tracker-edge-18@3.3.0.bin",
+            "version": 18,
+            "zip": "v18.zip",
+            "target": "3.3.0"
+        },
+        {
+            "v": "v17",
+            "title": "Tracker Edge Firmware v17",
+            "bin": "tracker-edge-17@3.2.0.bin",
+            "version": 17,
+            "zip": "v17.zip",
+            "target": "3.2.0"
+        },
+        {
+            "v": "v16",
+            "title": "Tracker Edge Firmware v16",
+            "bin": "tracker-edge-16@3.1.0.bin",
+            "version": 16,
+            "zip": "v16.zip",
+            "target": "3.1.0"
+        },
+        {
+            "v": "v15",
+            "title": "Tracker Edge Firmware v15",
+            "bin": "tracker-edge-15@3.1.0.bin",
+            "version": 15,
+            "zip": "v15.zip",
+            "target": "3.1.0"
+        },
+        {
+            "v": "v14",
+            "title": "Tracker Edge Firmware v14",
+            "bin": "tracker-edge-14@3.0.0.bin",
+            "version": 14,
+            "zip": "v14.zip",
+            "target": "3.0.0"
+        },
+        {
+            "v": "v13",
+            "title": "Tracker Edge Firmware v13",
+            "bin": "tracker-edge-13@3.0.0.bin",
+            "version": 13,
+            "zip": "v13.zip",
+            "target": "3.0.0"
+        },
+        {
+            "v": "v12",
+            "title": "Tracker Edge Firmware v12",
+            "bin": "tracker-edge-12@3.0.0-rc.2.bin",
+            "version": 12,
+            "zip": "v12.zip",
+            "target": "3.0.0-rc.2"
+        },
+        {
+            "v": "v11",
+            "title": "Tracker Edge Firmware v11",
+            "bin": "tracker-edge-11@2.0.0-rc.4.bin",
+            "version": 11,
+            "zip": "v11.zip",
+            "target": "2.0.0-rc.4"
+        },
+        {
+            "v": "v10",
+            "title": "Tracker Edge Firmware v10",
+            "bin": "tracker-edge-10@2.0.0-rc.3.bin",
+            "version": 10,
+            "zip": "v10.zip",
+            "target": "2.0.0-rc.3"
+        },
+        {
+            "v": "v9",
+            "title": "Tracker Edge Firmware v9",
+            "bin": "tracker-edge-9@1.5.4-rc.2.bin",
+            "version": 9,
+            "zip": "v9.zip",
+            "target": "1.5.4-rc.2"
+        },
+        {
+            "v": "v8",
+            "title": "Tracker Edge Firmware v8",
+            "bin": "tracker-edge-8@1.5.4-rc.1.bin",
+            "version": 8,
+            "zip": "v8.zip",
+            "target": "1.5.4-rc.1"
+        },
+        {
+            "v": "v7",
+            "title": "Tracker Edge Firmware v7",
+            "bin": "tracker-edge-7@1.5.4-rc.1.bin",
+            "version": 7,
+            "zip": "v7.zip",
+            "target": "1.5.4-rc.1"
+        }
+    ]
+}

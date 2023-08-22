@@ -1,0 +1,44 @@
+{
+    "versions": [
+        {
+            "v": "v1",
+            "title": "Monitor Edge Firmware v1",
+            "bin": "monitor-edge-1@4.0.2.bin",
+            "version": 1,
+            "zip": "monitor-edge-1.zip",
+            "target": null
+        },
+        {
+            "v": "v1",
+            "title": "Monitor Edge Firmware v1",
+            "bin": "monitor-edge-1@4.0.2.bin",
+            "version": 1,
+            "zip": "monitor-edge-1.zip",
+            "target": "4.0.2"
+        },
+        {
+            "v": "v1",
+            "title": "Monitor Edge Firmware v1",
+            "bin": "monitor-edge-1@4.0.2.bin",
+            "version": 1,
+            "zip": "monitor-edge-1.zip",
+            "target": "4.0.2"
+        },
+        {
+            "v": "v1",
+            "title": "Monitor Edge Firmware v1",
+            "bin": "monitor-edge-1@4.0.2.bin",
+            "version": 1,
+            "zip": "monitor-edge-1.zip",
+            "target": "4.0.2"
+        },
+        {
+            "v": "v1",
+            "title": "Monitor Edge Firmware v1",
+            "bin": "monitor-edge-1@4.0.2.bin",
+            "version": 1,
+            "zip": "monitor-edge-1.zip",
+            "target": "4.0.2"
+        }
+    ]
+}

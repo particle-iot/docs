@@ -12,6 +12,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "binary-version-reader": "^2.2.0",
     "handlebars": "^4.7.8",
     "node-fetch": "^2.6.13",
     "yargs": "^17.6.0"
