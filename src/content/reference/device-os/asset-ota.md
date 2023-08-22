@@ -33,7 +33,7 @@ assetOtaDir=assets
 - You will need to include code in your application firmware to process the additional assets, such as sending them to a coprocessor or saving them to the file system.
 - Creating bundled assets will not be not possible in the Web IDE. Particle Workbench is recommended.
 
-The application can register a callback using `System.onAssetOta(handler)` that will be called by Device OS when the device has received all the bundled assets. For more information, see the [Asset OTA Device OS API](/reference/device-os/api/asset-ota/asset-ota/).
+The application can register a callback using [`System.onAssetOta()`](/reference/device-os/api/system-calls/onassetota-system/) that will be called by Device OS when the device has received all the bundled assets. For more information, see the [Asset OTA Device OS API](/reference/device-os/api/asset-ota/asset-ota/).
 
 
 ## Asset OTA Example
@@ -45,7 +45,8 @@ Instead of saving the assets to the flash file system, you could:
 - Directly flash an external coprocessor, such as by UART serial.
 - Directly write to an external display connected by SPI.
 
-If you call `System.assetsHandled(false);` the assets will be presented on every boot, which is often more space-efficient than storing a separate copy in the file system. You still may want to store it in a file if you need random access to the asset, or need it later, after boot. For example, if you have multiple sound file assets and you want to be able to choose one to play, the file system would be a good choice.
+If you call [`System.assetsHandled(false)`](/reference/device-os/api/system-calls/onassetota-system/) the assets will be presented on every boot, which is often more space-efficient than storing a separate copy in the file system. You still may want to store it in a file if you need random access to the asset, or need it later, after boot. For example, if you have multiple sound file assets and you want to be able to choose one to play, the file system would be a good choice.
+
 
 ### Example firmware
 
@@ -53,13 +54,13 @@ If you call `System.assetsHandled(false);` the assets will be presented on every
 
 #### onAssetOTA or assetsAvailable
 
-There are two ways to handle assets. A common way is to use:
+There are two ways to handle assets. A common way is to use [`System.onAssetOta()`](/reference/device-os/api/system-calls/onassetota-system/):
 
 ```cpp
 STARTUP(System.onAssetOta(handleAssets));
 ```
 
-This example uses a call from `setup()` instead, otherwise the debug log messages may occur so early at boot that you don't see them.
+This example uses a call from `setup()` and [`System.assetsAvailable()`](/reference/device-os/api/system-calls/assetshandled-system/) instead, otherwise the debug log messages may occur so early at boot that you don't see them.
 
 ```cpp
 handleAssets(System.assetsAvailable());
