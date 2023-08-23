@@ -1,0 +1,9 @@
+{
+    "versions":[
+        {
+            "platforms": [26],
+            "versionMin": "3.0.0",
+            "file": "tracker-esp32-ncp@0.0.7.bin"
+        }
+    ]
+}

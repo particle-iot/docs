@@ -11,6 +11,7 @@ const fetch = require("node-fetch"); // node-fetch@2 required for CommonJS
 const Handlebars = require("handlebars");
 
 const { HalModuleParser, ModuleInfo } = require('binary-version-reader');
+const { platform } = require('os');
 
 const argv = require('yargs').argv;
 
@@ -28,6 +29,22 @@ const deviceRestoreJson = JSON.parse(fs.readFileSync(path.join(filesDir, 'device
 const deviceRestoreDir = path.join(filesDir, 'device-restore');
 
 const trackerDir = path.join(filesDir, 'tracker');
+
+/*
+{
+    "versions":[
+        {
+            "platforms": [26],
+            "versionMin": "3.0.0",
+            "file": "tracker-esp32-ncp@0.0.7.bin"
+        }
+    ]
+}
+*/
+const ncpDir = path.join(filesDir, 'ncp');
+
+const ncpJson = JSON.parse(fs.readFileSync(path.join(ncpDir, 'ncp.json'), 'utf8'));
+
 
 /*
   "versions": [
@@ -51,14 +68,19 @@ function systemVersionToSemver(sysver) {
 // This contains an abundance of information, including
 // deviceConstants - The JSON data from device constants
 const carriersJson = JSON.parse(fs.readFileSync(path.join(filesDir, 'carriers.json'), 'utf8'));
-let platformNameToId = {};
-let platformIdToName = {};
-for(const key in carriersJson.deviceConstants) {
-    const obj = carriersJson.deviceConstants[key];
-    
-    platformNameToId[obj.name] = obj.id;
-    platformIdToName[obj.id.toString()] = obj.name;
-}    
+
+function getPlatformInfoById(id) {
+    if (typeof id == 'string') {
+        id = parseInt(id);
+    }
+    for(const key in carriersJson.deviceConstants) {
+        const obj = carriersJson.deviceConstants[key];
+        if (obj.id == id) {
+            return obj;
+        }
+    }    
+    return null;
+}
 
 // config.json must contain an accessToken
 let config = {};
@@ -98,10 +120,116 @@ catch(e) {
     releaseNotesJson = {};
 }
 
+// Copied from api-helper.js
+let apiHelper = {};
+
+// Parses a semver (like '3.0.0-rc.1' and returns the broken out parts)
+apiHelper.parseVersionStr = function(verStr) {
+    let result = {};
+
+    // Remove any leading non-numbers
+    while(true) {
+        const c = verStr.charAt(0);
+        if (c >= '0' && c <= '9') {
+            break;
+        }
+        verStr = verStr.substr(1);
+    }
+
+    const parts = verStr.split(/[-\\.]/);
+    if (parts.length < 2) {
+        return result;
+    }
+    result.major = parseInt(parts[0]);
+    if (parts.length > 1) {
+        result.minor = parseInt(parts[1]);
+    }
+    else {
+        result.minor = 0;
+    }
+
+    if (parts.length > 2) {
+        result.patch = parseInt(parts[2]);
+    }
+    else {
+        result.patch = 0;
+    }
+
+    if (parts.length > 4) {
+        result.pre = parseInt(parts[4]);
+    }
+
+    if (parts.length > 3) {
+        switch(parts[3]) {
+            case 'rc':
+                result.rc = result.pre;
+                result.preAdj = result.pre * 400;
+                break;
+
+            case 'alpha':
+                result.alpha = result.pre;
+                result.preAdj = result.pre * 200;
+                break;
+
+            case 'beta':
+                result.beta = result.pre;
+                result.preAdj = result.pre * 300;
+                break;
+
+            case 'test':
+                result.test = result.pre;
+                result.preAdj = result.pre * 100;
+                break;
+        }
+    }
+
+    return result;
+};
+
+// Sort by version number (newest/largest first)
+apiHelper.versionSort = function(a, b) {
+    const aa = apiHelper.parseVersionStr(a);
+    const bb = apiHelper.parseVersionStr(b);
+
+    // console.log('a', aa);
+    // console.log('b', bb);
+
+    let cmp;
+
+    cmp = bb.major - aa.major;
+    if (cmp) {
+        return cmp;
+    }
+
+    cmp = bb.minor - aa.minor;
+    if (cmp) {
+        return cmp;
+    }
+
+    cmp = bb.patch - aa.patch;
+    if (cmp) {
+        return cmp;
+    }
+
+    if (!aa.pre && !bb.pre) {
+        return 0;
+    }
+
+    if (aa.pre && !bb.pre) {
+        return +1;
+    }
+    if (!aa.pre && bb.pre) {
+        return -1;
+    }
+
+    cmp = bb.preAdj - aa.preAdj;
+
+    return cmp;
+};
+
+
 
 const now = Math.floor(Date.now() / 1000);
-
-
 
 
 async function fetchReleases(options) {
@@ -424,7 +552,7 @@ async function fetchVersionDetails(options) {
     };
 
     const url = 'https://api.particle.io/v1/device-os/versions/' + options.version + '?' + querystring.stringify(queryOptions);
-    console.log('url=' + url);
+    // console.log('url=' + url);
     
     const result = await new Promise(function(resolve, reject) {
         const fetchRes = fetch(url)
@@ -489,7 +617,7 @@ async function runDeviceOs() {
             continue;
         }   
 
-        console.log('unknown version', ver);
+        console.log('processing version', ver);
 
         for(const platformId of ver.supported_platforms) {
             const details = await fetchVersionDetails({
@@ -529,7 +657,111 @@ async function runDeviceOs() {
                 fs.mkdirSync(outputDir);
             }
 
+
+            // Get information about the platform from deviceConstants
+            const platformInfo = getPlatformInfoById(platformId);
+            if (!platformInfo) {
+                console.log('no platform info for ' + platformId);
+            }
+
+            // console.log('platformInfo', platformInfo);
+
+            // This is needed so we can tell whether to insert 128K compatibility in hex file
+            const isNRF52 = platformInfo.baseMcu.startsWith('nrf52');
+
+            // Should find a better way to determine this. Is used to determine whether to include tracker-edge and monitor-edge firmware
+            const isTrackerOrMonitor = (platformId == 26); 
+
+            // This is used to handle the multiple bootloaders on the RTL872x
+            const isRTL827x = platformInfo.baseMcu == 'rtl872x';
+
             // Pass 2: Process files as done in HexTool
+            for(const module of details.modules) {
+                // Map modules 
+                // modules: .filename, .prefixInfo, .suffixInfo
+                if (module.filename.includes('prebootloader-mbr')) {
+                    // Skip P2 prebootloader-mbr as it must never be flashed to a device
+                    continue;
+                }
+
+                // console.log('module', {filename:module.filename, prefixInfo:module.prefixInfo});
+
+                // prefixInfo:
+                // .moduleFlags (string), .moduleVersion, .platformID, moduleFunction, moduleIndex, 
+
+
+                // moduleFunction: user_part, system_part, bootloader, 
+                // P2 bootloader is index 0, prebootloader-part 1 is index 2, and prebootloader-mbr is index 1
+                // system_part is typically 1, except for older Gen 2 devices where there may be more than one
+                // radio_stack has flag drop_module_info
+                let hexToolName;
+                switch(module.prefixInfo.moduleFunction) {
+                    case 'bootloader':
+                        if (isRTL827x) {
+                            switch(module.prefixInfo.moduleIndex) {
+                                case 2:
+                                    hexToolName = 'prebootloader-part1';
+                                    break;
+
+                                // 1 is prebootloader-mbr, which is filtered out above
+
+                                case 0:
+                                    hexToolName = 'bootloader';
+                                    break;
+                            }
+                        }
+                        else {
+                            hexToolName = 'bootloader';
+                        }
+                        break;
+
+                    case 'system_part':
+                        hexToolName = "system-part" + module.prefixInfo.moduleIndex;
+                        break;
+
+                    case 'user_part':
+                        if (isTrackerOrMonitor) {
+                            hexToolName = 'tracker-edge';
+                        }
+                        else {
+                            hexToolName = 'tinker';
+                        }
+                        break;
+
+                    case 'radio_stack':
+                        hexToolName = 'softdevice';
+                        break;
+                }
+                if (!hexToolName) {
+                    console.log('unknown module', module);
+                }
+            }
+
+            if (isNRF52 && !isTrackerOrMonitor) {
+                // Add UICR bytes, except on tracker because TrackerOne and MonitorOne have different UICR bytes
+                // but the same platformId
+                switch(platformId) {
+                    case 15:
+                        // E404X ('esomx')
+                        break;
+
+                    default:
+                        break;
+                }
+
+                
+            }
+            // Check for UICR, but skip on tracker
+
+
+            // Check for NCP 
+            // Not included in hex file. I think it's included in the zip?
+
+            // Check for gen3-128k-compatibility
+            // let b = Buffer.alloc(1024, 0xff);
+            // hex += fileBufferToHex(b, 0xd4000);
+
+
         }
     }
 
@@ -564,7 +796,7 @@ async function runEdgeVersion(options) {
         releasesJson.edge[options.kind].releases = newReleases.concat(releasesJson.edge[options.kind].releases);
 
         // Each release in the .releases array:
-        // tag_name, name, draft, prerelease, published_at
+        // tag_name, name, body, draft, prerelease, published_at
         // assets is an array of objects
         //   .name, .browser_download_url
 
@@ -574,20 +806,27 @@ async function runEdgeVersion(options) {
 
     // indexJson is the file like trackerEdgeVersions, and is only an array (no top level object!)
     const indexJsonFile = path.join(trackerDir, options.indexJson);
-    let indexJson = {
-        versions: [],
-    };
+    let indexJson = {};
     try {
         indexJson = JSON.parse(fs.readFileSync(indexJsonFile, 'utf8'));
     }
     catch(e) {
     }
 
-    // Check downloads
+    // Check downloads - this does all releases so start with an empty versions array
+    indexJson.versions = [];
+
     for(const rel of releasesJson.edge[options.kind].releases) {
+
+        if (rel.draft || rel.prerelease) {
+            // Skip draft releases (possibly allow prerelease in the future)
+            continue;
+        }
+
         let templateParam = {
             v: rel.tag_name, // begins with v
             title: rel.name,
+            releaseNotes: rel.body,
             // version is just the number, as a number
         };
 
@@ -719,7 +958,7 @@ async function run() {
     }
 
     // Process Tracker Edge versions. Disable with --no-tracker-edge or --no-edge
-    if (argv.trackerEdge !== false || argv.edge !== false) {
+    if (argv.trackerEdge !== false && argv.edge !== false) {
         await runEdgeVersion({
             kind: 'tracker-edge',
             repository: 'particle-iot/tracker-edge',
@@ -728,7 +967,7 @@ async function run() {
         });
     }
     // Process Monitor Edge versions. Disable with --no-monitor-edge or --no-edge
-    if (argv.trackerEdge !== false || argv.edge !== false) {
+    if (argv.trackerEdge !== false && argv.edge !== false) {
         await runEdgeVersion({
             kind: 'monitor-edge',
             repository: 'particle-iot/monitor-edge',
@@ -736,6 +975,9 @@ async function run() {
             indexJson: 'monitorEdgeVersions.json',
         });
     }
+
+    // Tracker and Monitor Edge must be done before Device OS
+
     
 
     // Process Device OS versions. Disable with --no-device-os
