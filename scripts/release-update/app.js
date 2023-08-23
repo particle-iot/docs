@@ -10,6 +10,8 @@ const fetch = require("node-fetch"); // node-fetch@2 required for CommonJS
 
 const Handlebars = require("handlebars");
 
+var JSZip = require("jszip");
+
 const { HalModuleParser, ModuleInfo } = require('binary-version-reader');
 const { platform } = require('os');
 
@@ -626,37 +628,14 @@ async function runDeviceOs() {
             });
             // console.log('details', details);
 
-            // Pass 1: Download binaries
-            for(const module of details.modules) {
-                const url = details.base_url + '/' + module.filename;
+            let modules = [];
+            let userPart;
 
-                const binaryFile = path.join(tempDir, module.filename);
+            var zip = new JSZip();
 
-                if (module.filename.includes('prebootloader-mbr')) {
-                    // Skip P2 prebootloader-mbr as it must never be flashed to a device
-                    continue;
-                }
+            let moduleInfo = {};
 
-                if (!fs.existsSync(binaryFile)) {
-                    console.log('downloading ' + module.filename);
-                    const binary = await new Promise(function(resolve, reject) {
-                        const fetchRes = fetch(url)
-                        .then(response => response.arrayBuffer())
-                        .then(function(response) {
-                            resolve(Buffer.from(response));
-                        });
-                    });
-    
-                    // console.log('binary', binary);
-                    fs.writeFileSync(binaryFile, binary);    
-                }    
-            }
-            
-            const outputDir = path.join(deviceRestoreDir, ver.version);
-            if (!fs.existsSync(outputDir)) {
-                fs.mkdirSync(outputDir);
-            }
-
+            let hex = '';
 
             // Get information about the platform from deviceConstants
             const platformInfo = getPlatformInfoById(platformId);
@@ -675,14 +654,57 @@ async function runDeviceOs() {
             // This is used to handle the multiple bootloaders on the RTL872x
             const isRTL827x = platformInfo.baseMcu == 'rtl872x';
 
-            // Pass 2: Process files as done in HexTool
+            // Pass 1: Download binaries
             for(const module of details.modules) {
-                // Map modules 
-                // modules: .filename, .prefixInfo, .suffixInfo
+                const url = details.base_url + '/' + module.filename;
+
+                module.binaryFile = path.join(tempDir, module.filename);
+
                 if (module.filename.includes('prebootloader-mbr')) {
                     // Skip P2 prebootloader-mbr as it must never be flashed to a device
                     continue;
                 }
+
+                if (module.prefixInfo.moduleFunction == 'user_part') {
+                    userPart = module;
+                }
+                else {
+                    modules.push(module);
+                }
+
+                if (!fs.existsSync(module.binaryFile)) {
+                    console.log('downloading ' + module.filename);
+                    const binary = await new Promise(function(resolve, reject) {
+                        const fetchRes = fetch(url)
+                        .then(response => response.arrayBuffer())
+                        .then(function(response) {
+                            resolve(Buffer.from(response));
+                        });
+                    });
+    
+                    // console.log('binary', binary);
+                    fs.writeFileSync(module.binaryFile, binary);    
+                }    
+            }
+            if (userPart) {
+                if (isNRF52) {
+                    // TODO: Only do this for Device OS 3.1.0 and later (256K binaries)
+                    // Add 128K binary clear to hex file
+                }
+                modules.push(userPart);
+            }
+            
+            const outputDir = path.join(deviceRestoreDir, ver.version);
+            if (!fs.existsSync(outputDir)) {
+                fs.mkdirSync(outputDir);
+            }
+
+
+            // Pass 2: Process files as done in HexTool
+            // modules is like details.modules except it is already filtered to remove prebootloader-mbr and put user-part last
+            for(let module of modules) {
+                // Map modules 
+                // modules: .filename, .prefixInfo, .suffixInfo
 
                 // console.log('module', {filename:module.filename, prefixInfo:module.prefixInfo});
 
@@ -694,48 +716,84 @@ async function runDeviceOs() {
                 // P2 bootloader is index 0, prebootloader-part 1 is index 2, and prebootloader-mbr is index 1
                 // system_part is typically 1, except for older Gen 2 devices where there may be more than one
                 // radio_stack has flag drop_module_info
-                let hexToolName;
                 switch(module.prefixInfo.moduleFunction) {
                     case 'bootloader':
                         if (isRTL827x) {
                             switch(module.prefixInfo.moduleIndex) {
                                 case 2:
-                                    hexToolName = 'prebootloader-part1';
+                                    module.hexToolName = 'prebootloader-part1';
                                     break;
 
                                 // 1 is prebootloader-mbr, which is filtered out above
 
                                 case 0:
-                                    hexToolName = 'bootloader';
+                                    module.hexToolName = 'bootloader';
                                     break;
                             }
                         }
                         else {
-                            hexToolName = 'bootloader';
+                            module.hexToolName = 'bootloader';
                         }
                         break;
 
                     case 'system_part':
-                        hexToolName = "system-part" + module.prefixInfo.moduleIndex;
+                        module.hexToolName = "system-part" + module.prefixInfo.moduleIndex;
                         break;
 
                     case 'user_part':
                         if (isTrackerOrMonitor) {
-                            hexToolName = 'tracker-edge';
+                            module.hexToolName = 'tracker-edge';
                         }
                         else {
-                            hexToolName = 'tinker';
+                            module.hexToolName = 'tinker';
                         }
                         break;
 
                     case 'radio_stack':
-                        hexToolName = 'softdevice';
+                        module.hexToolName = 'softdevice';
+                        break;
+
+                    default:
+                        console.logg('unknown moduleFunction ' + module.prefixInfo.moduleFunction);
                         break;
                 }
-                if (!hexToolName) {
+                if (!module.hexToolName) {
                     console.log('unknown module', module);
                 }
+
+                // Generate module info JSON
+                await new Promise(function(resolve, reject) {
+                    const reader = new HalModuleParser();
+                    reader.parseFile(module.binaryFile, function(fileInfo, err) {
+                        if (err) {
+                            console.log("error processing file " + path.join(inputDir, part.path), err);
+                            reject(err);
+                        }
+                        
+                        moduleInfo[module.hexToolName] = {
+                            prefixInfo: fileInfo.prefixInfo,
+                            suffixInfo: fileInfo.suffixInfo
+                        };
+                        resolve();
+                    });
+                });
             }
+
+            // Generate module info 
+            fs.writeFileSync(path.join(outputDir, platformInfo.name + '.json'), JSON.stringify(moduleInfo, null, 2));
+
+            // Generate zip
+            await new Promise(function(resolve, reject) {
+                zip.generateNodeStream({type:'nodebuffer', streamFiles:true})
+                .pipe(fs.createWriteStream(path.join(outputDir, platformInfo.name + '.zip')))
+                .on('finish', function () {
+                    resolve();
+                });
+            });
+
+            // Generate hex
+            fs.writeFileSync(path.join(outputDir, platformInfo.name + '.hex'), hex);
+
 
             if (isNRF52 && !isTrackerOrMonitor) {
                 // Add UICR bytes, except on tracker because TrackerOne and MonitorOne have different UICR bytes
@@ -751,7 +809,6 @@ async function runDeviceOs() {
 
                 
             }
-            // Check for UICR, but skip on tracker
 
 
             // Check for NCP 
@@ -763,6 +820,8 @@ async function runDeviceOs() {
 
 
         }
+
+
     }
 
     // Clean up tempDir
