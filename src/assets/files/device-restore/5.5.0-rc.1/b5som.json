@@ -1,4 +1,32 @@
 {
+  "bootloader": {
+    "prefixInfo": {
+      "moduleStartAddy": "f4000",
+      "moduleEndAddy": "ff3c2",
+      "reserved": 0,
+      "moduleFlags": 0,
+      "moduleVersion": 2300,
+      "platformID": 25,
+      "moduleFunction": 2,
+      "moduleIndex": 0,
+      "depModuleFunction": 0,
+      "depModuleIndex": 0,
+      "depModuleVersion": 0,
+      "dep2ModuleFunction": 0,
+      "dep2ModuleIndex": 0,
+      "dep2ModuleVersion": 0,
+      "prefixSize": 24,
+      "prefixOffset": 512
+    },
+    "suffixInfo": {
+      "productId": 0,
+      "productVersion": 0,
+      "fwUniqueId": "3342e15b08880075ff02292f971ff82b41b04bb3157fdb1b9733cc89d80bf125",
+      "reserved": 0,
+      "suffixSize": 40,
+      "crcBlock": "592119aa"
+    }
+  },
   "softdevice": {
     "prefixInfo": {
       "moduleStartAddy": "1000",
@@ -15,6 +43,7 @@
       "dep2ModuleFunction": 4,
       "dep2ModuleIndex": 1,
       "dep2ModuleVersion": 1321,
+      "prefixSize": 24,
       "prefixOffset": 0
     },
     "suffixInfo": {
@@ -42,6 +71,7 @@
       "dep2ModuleFunction": 8,
       "dep2ModuleIndex": 0,
       "dep2ModuleVersion": 202,
+      "prefixSize": 24,
       "prefixOffset": 512
     },
     "suffixInfo": {
@@ -51,33 +81,6 @@
       "reserved": 0,
       "suffixSize": 40,
       "crcBlock": "ecf2bcbe"
-    }
-  },
-  "bootloader": {
-    "prefixInfo": {
-      "moduleStartAddy": "f4000",
-      "moduleEndAddy": "ff3c2",
-      "reserved": 0,
-      "moduleFlags": 0,
-      "moduleVersion": 2300,
-      "platformID": 25,
-      "moduleFunction": 2,
-      "moduleIndex": 0,
-      "depModuleFunction": 0,
-      "depModuleIndex": 0,
-      "depModuleVersion": 0,
-      "dep2ModuleFunction": 0,
-      "dep2ModuleIndex": 0,
-      "dep2ModuleVersion": 0,
-      "prefixOffset": 512
-    },
-    "suffixInfo": {
-      "productId": 0,
-      "productVersion": 0,
-      "fwUniqueId": "3342e15b08880075ff02292f971ff82b41b04bb3157fdb1b9733cc89d80bf125",
-      "reserved": 0,
-      "suffixSize": 40,
-      "crcBlock": "592119aa"
     }
   },
   "tinker": {
@@ -96,6 +99,7 @@
       "dep2ModuleFunction": 0,
       "dep2ModuleIndex": 0,
       "dep2ModuleVersion": 0,
+      "prefixSize": 24,
       "prefixOffset": 0
     },
     "suffixInfo": {

@@ -32,6 +32,10 @@ const deviceRestoreDir = path.join(filesDir, 'device-restore');
 
 const trackerDir = path.join(filesDir, 'tracker');
 
+let trackerEdgeVersionsJson; // Loaded after file is updated
+let monitorEdgeVersionsJson; // Loaded after file is updated
+
+
 /*
 {
     "versions":[
@@ -935,6 +939,7 @@ async function runDeviceOs() {
             });
             // console.log('details', details);
 
+
             let modules = [];
             let userPart;
 
@@ -950,6 +955,7 @@ async function runDeviceOs() {
                 console.log('no platform info for ' + platformId);
             }
 
+            console.log('processing platform=' + platformInfo.name + ' (' + platformId + ')');
             // console.log('platformInfo', platformInfo);
 
             // This is needed so we can tell whether to insert 128K compatibility in hex file
@@ -1013,6 +1019,8 @@ async function runDeviceOs() {
             for(let module of modules) {
                 // Map modules 
                 // modules: .filename, .prefixInfo, .suffixInfo
+
+                console.log('processing module filename=' + module.filename);
 
                 // console.log('module', {filename:module.filename, prefixInfo:module.prefixInfo});
 
@@ -1096,7 +1104,16 @@ async function runDeviceOs() {
                     hex += hexFileText(hexFiles['radio_stack_prefix.hex']);
                 }
 
-                // TODO: On Tracker, swap tracker edge for tinker here!
+                if (module.prefixInfo.moduleFunction == 'user_part' && isTrackerOrMonitor) {
+                    for(let v of trackerEdgeVersionsJson.versions) {
+                        // versionSort sorts descending, so this test looks backwards
+                        if (apiHelper.versionSort(ver.version, v.target) <= 0) {
+                            //console.log('using tracker', v);
+                            module.binaryFile = path.join(trackerDir, v.bin);
+                            break;
+                        }
+                    }               
+                }
 
                 // Generate module info JSON
                 await new Promise(function(resolve, reject) {
@@ -1122,20 +1139,48 @@ async function runDeviceOs() {
                 const content = fs.readFileSync(module.binaryFile);
                 zip.file(module.hexToolName + '.bin', content);
 
+                if (module.prefixInfo.moduleFunction == 'user_part' && isTrackerOrMonitor) {
+                    // Add monitor edge to zip
+                    for(let v of monitorEdgeVersionsJson.versions) {
+                        // versionSort sorts descending, so this test looks backwards
+                        if (apiHelper.versionSort(ver.version, v.target) <= 0) {
+                            //console.log('using monitor edge', v);
+                            const content = fs.readFileSync(path.join(trackerDir, v.bin));
+                            zip.file(v.bin, content);
+                            break;
+                        }
+                    }
+                }
             }
 
-
-            // TODO: Add NCP here
             for(const obj of ncpJson.versions) {
                 // obj.platforms array of platform IDs
                 // .versionMin Minimum semver inclusive
                 // .versionMax Maximum semver exclusive
                 // .file filename (in /assets/files/ncp)
                 if (obj.platforms.includes(platformId)) {
-                    const content = fs.readFileSync(path.join(ncpDir, obj.file));
+                    //console.log('adding ncp', obj);
+                    const ncpFile = path.join(ncpDir, obj.file);
+                    const content = fs.readFileSync(ncpFile);
                     zip.file(obj.file, content);
-                }
-                
+
+                    await new Promise(function(resolve, reject) {
+                        const reader = new HalModuleParser();
+                        reader.parseFile(ncpFile, function(fileInfo, err) {
+                            if (err) {
+                                console.log("error processing file " + path.join(inputDir, part.path), err);
+                                reject(err);
+                            }
+                            
+                            moduleInfo['ncp'] = {
+                                prefixInfo: fileInfo.prefixInfo,
+                                suffixInfo: fileInfo.suffixInfo
+                            };
+                            resolve();
+                        });
+                    });
+    
+                }                
             }
 
 
@@ -1159,6 +1204,7 @@ async function runDeviceOs() {
             // await analyzeHexFile(outputHexFile);
 
             // For comparison testing of orig and new
+            /*
             {
                 const origDir = path.join(deviceRestoreDir, ver.version + '-orig');
 
@@ -1212,7 +1258,13 @@ async function runDeviceOs() {
                             }
                             for(const key in b) {
                                 if (typeof a[key] == 'undefined') {
-                                    console.log('in b not a key=' + key + ' in ' + nest.join('.'));
+                                    const prefix = '';
+                                    if (key == 'prefixSize' || key == 'extensions') {
+                                        // Ignore these as they always occur with older versions
+                                    } 
+                                    else {
+                                        console.log('in b not a key=' + key + ' in ' + nest.join('.'));
+                                    }
                                 }
                             }    
                         }
@@ -1237,6 +1289,7 @@ async function runDeviceOs() {
                 // Compare zip
 
             }
+            */
 
         }
 
@@ -1455,8 +1508,8 @@ async function run() {
     }
 
     // Tracker and Monitor Edge must be done before Device OS
-
-    
+    trackerEdgeVersionsJson = JSON.parse(fs.readFileSync(path.join(trackerDir, 'trackerEdgeVersions.json'), 'utf8'));
+    monitorEdgeVersionsJson = JSON.parse(fs.readFileSync(path.join(trackerDir, 'monitorEdgeVersions.json'), 'utf8'));
 
     // Process Device OS versions. Disable with --no-device-os
     if (argv.deviceOs !== false) {

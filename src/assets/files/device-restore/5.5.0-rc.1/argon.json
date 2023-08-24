@@ -1,4 +1,32 @@
 {
+  "bootloader": {
+    "prefixInfo": {
+      "moduleStartAddy": "f4000",
+      "moduleEndAddy": "ff3c2",
+      "reserved": 0,
+      "moduleFlags": 0,
+      "moduleVersion": 2300,
+      "platformID": 12,
+      "moduleFunction": 2,
+      "moduleIndex": 0,
+      "depModuleFunction": 0,
+      "depModuleIndex": 0,
+      "depModuleVersion": 0,
+      "dep2ModuleFunction": 0,
+      "dep2ModuleIndex": 0,
+      "dep2ModuleVersion": 0,
+      "prefixSize": 24,
+      "prefixOffset": 512
+    },
+    "suffixInfo": {
+      "productId": 0,
+      "productVersion": 0,
+      "fwUniqueId": "f915ac94fb72eeef61bda0f43741d65a7c04d1c081470bcc64b8d72c2b2702a0",
+      "reserved": 0,
+      "suffixSize": 40,
+      "crcBlock": "f585a50d"
+    }
+  },
   "softdevice": {
     "prefixInfo": {
       "moduleStartAddy": "1000",
@@ -15,6 +43,7 @@
       "dep2ModuleFunction": 4,
       "dep2ModuleIndex": 1,
       "dep2ModuleVersion": 1321,
+      "prefixSize": 24,
       "prefixOffset": 0
     },
     "suffixInfo": {
@@ -42,6 +71,7 @@
       "dep2ModuleFunction": 2,
       "dep2ModuleIndex": 0,
       "dep2ModuleVersion": 2300,
+      "prefixSize": 24,
       "prefixOffset": 512
     },
     "suffixInfo": {
@@ -51,33 +81,6 @@
       "reserved": 0,
       "suffixSize": 40,
       "crcBlock": "429a7594"
-    }
-  },
-  "bootloader": {
-    "prefixInfo": {
-      "moduleStartAddy": "f4000",
-      "moduleEndAddy": "ff3c2",
-      "reserved": 0,
-      "moduleFlags": 0,
-      "moduleVersion": 2300,
-      "platformID": 12,
-      "moduleFunction": 2,
-      "moduleIndex": 0,
-      "depModuleFunction": 0,
-      "depModuleIndex": 0,
-      "depModuleVersion": 0,
-      "dep2ModuleFunction": 0,
-      "dep2ModuleIndex": 0,
-      "dep2ModuleVersion": 0,
-      "prefixOffset": 512
-    },
-    "suffixInfo": {
-      "productId": 0,
-      "productVersion": 0,
-      "fwUniqueId": "f915ac94fb72eeef61bda0f43741d65a7c04d1c081470bcc64b8d72c2b2702a0",
-      "reserved": 0,
-      "suffixSize": 40,
-      "crcBlock": "f585a50d"
     }
   },
   "tinker": {
@@ -96,6 +99,7 @@
       "dep2ModuleFunction": 0,
       "dep2ModuleIndex": 0,
       "dep2ModuleVersion": 0,
+      "prefixSize": 24,
       "prefixOffset": 0
     },
     "suffixInfo": {
