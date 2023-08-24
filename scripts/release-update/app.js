@@ -662,13 +662,13 @@ async function imageFromHexFile(f) {
 
     let baseAddr = 0;
 
-    hexData.split(/[\r\n]/).some(function(lineData) {
+    for(let lineData of hexData.split(/[\r\n]/)) {
         lineData = lineData.trim();
         if (lineData.length == 0) {
-            return false;
+            break;
         }
         if (lineData.charAt(0) != ':') {
-            return;
+            continue;
         }
         //console.log('line: ' + lineData);
 
@@ -687,12 +687,12 @@ async function imageFromHexFile(f) {
             if (recType == 4 && len == 2) {
                 // Extended linear address
                 baseAddr = buf.readUInt16BE(4) << 16;
-                console.log('baseAddr=0x' + baseAddr.toString(16) + ' (' + baseAddr + ')');
+                // console.log('baseAddr=0x' + baseAddr.toString(16) + ' (' + baseAddr + ')');
             }
 
             const endOfSector = Math.ceil((baseAddr + addr + len) / 4096) * 4096;
             if (result.length < endOfSector) {
-                result = Buffer.concat(result, Buffer.alloc(endOfSector - result.length, 255));
+                result = Buffer.concat([result, Buffer.alloc(endOfSector - result.length, 255)]);
             }
             for(let ii = 0; ii < len; ii++) {
                 result.writeUInt8(buf.readUInt8(4 + ii), baseAddr + addr + ii);
@@ -703,7 +703,8 @@ async function imageFromHexFile(f) {
         else {
             console.log('CHECKSUM ERROR! len=' + len + ' addr=' + addr + ' recType=' + recType + ' checksum=' + checksum + ' calcChecksum=' + calcChecksum);
         }
-    });
+    }
+    return result;
 }
 
 
@@ -1156,6 +1157,86 @@ async function runDeviceOs() {
             fs.writeFileSync(outputHexFile, hex);
 
             // await analyzeHexFile(outputHexFile);
+
+            // For comparison testing of orig and new
+            {
+                const origDir = path.join(deviceRestoreDir, ver.version + '-orig');
+
+                let skip = false;
+
+                // Compare hex
+                const origFile = path.join(origDir, platformInfo.name + '.hex');
+                if (fs.existsSync(origFile)) {
+                    const imgOld = await imageFromHexFile(origFile);
+                    const imgNew = await imageFromHexFile(outputHexFile);
+                    if (imgOld.length != imgNew.length) {
+                        console.log('hex image size differs old=' + imgOld.length + ' new=' + imgNew.length);
+                        for(let ii = 0; ii < imgOld.length && ii < imgNew.length; ii++) {
+                            if (imgOld.readUInt8(ii) != imgNew.readUInt8(ii)) {
+                                console.log('image differs at offset=' + ii + ' old=' + imgOld.readUInt8(ii) + ' new=' + imgNew.readUInt8(ii))
+                            }
+                        }
+                    }
+    
+                }
+                else {
+                    console.log('orig file does not exist ' + origFile);
+                    skip = true;
+                }
+
+                if (!skip) {
+                    // Compare JSON
+                    const oldJson = JSON.parse(fs.readFileSync(path.join(origDir, platformInfo.name + '.json'), 'utf8'));
+                    const newJson = JSON.parse(fs.readFileSync(path.join(outputDir, platformInfo.name + '.json'), 'utf8'));
+                    
+                    const compareJson = function(a, b, nest) {
+                        if (Array.isArray(a) && Array.isArray(b)) {
+                            if (a.length == b.length) {
+                                for(let ii = 0; ii < a.length; ii++) {
+                                    compareJson(a[ii], b[ii], nest.concat('[' + ii + ']'));
+                                }
+                            }
+                            else {
+                                console.log('length differs a=' + a.length + ' b=' + b.length);
+                            }
+                        }
+                        else
+                        if (typeof a == 'object' && typeof b == 'object') {
+                            for(const key in a) {
+                                if (typeof b[key] != undefined) {
+                                    compareJson(a[key], b[key], nest.concat(key));                                
+                                }
+                                else {
+                                    console.log('in a not b key=' + key + ' in ' + nest.join('.'));
+                                }
+                            }
+                            for(const key in b) {
+                                if (typeof a[key] == 'undefined') {
+                                    console.log('in b not a key=' + key + ' in ' + nest.join('.'));
+                                }
+                            }    
+                        }
+                        else
+                        if (typeof a == 'undefined') {
+                            console.log('missing a in ' + nest.join('.'));
+                        }
+                        else
+                        if (typeof b == 'undefined') {
+                            console.log('missing b in ' + nest.join('.'));
+                        }
+                        else {
+                            if (a != b) {
+                                console.log('value mismatch a=' + a + ' b=' + b + ' in ' + nest.join('.'))
+                            }
+                        }
+                    }
+                    compareJson(oldJson, newJson, []);
+                }
+
+
+                // Compare zip
+
+            }
 
         }
 
