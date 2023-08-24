@@ -14,7 +14,7 @@ This page is no longer maintained and is provided for historical reference only
 | **Project Goal**            | Start programming your Argon, read sensor data, and leverage the device cloud.                         |
 | --------------------------- | --------------------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to interact with sensors, using Particle variables, cloud functions and publish/subscribe.                               |
-| **Tools you’ll need**       | Access to the internet for build.particle.io and console.particle.io. Plus the Particle CLI, Particle Workbench, a [Particle Argon](https://store.particle.io/products/argon-kit), and Grove Starter Kit for Particle Mesh |
+| **Tools you’ll need**       | Access to the internet for build.particle.io and console.particle.io. Plus the Particle CLI, Particle Workbench, a Particle Argon, and Grove Starter Kit for Particle Mesh |
 | **Time needed to complete** | 60 minutes                                                                                                |
 In this session, you'll explore the Particle ecosystem via an Argon-powered Grove Starter Kit for Particle Mesh with several sensors!
 
@@ -73,7 +73,7 @@ The Grove Starter Kit for Particle Mesh comes with seven different components th
 
 For this lab, you'll need the following items from the kit:
 
-- [Argon](https://store.particle.io/products/argon-kit)
+- Argon
 - Grove Starter Kit for Particle Mesh
   - Grove FeatherWing
   - Temperature and Humidity Sensor
