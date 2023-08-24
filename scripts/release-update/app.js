@@ -47,6 +47,14 @@ const ncpDir = path.join(filesDir, 'ncp');
 
 const ncpJson = JSON.parse(fs.readFileSync(path.join(ncpDir, 'ncp.json'), 'utf8'));
 
+let hexFiles = {};
+const hexDir = path.join(filesDir, 'hex');
+for(const de of fs.readdirSync(hexDir, {withFileTypes:true})) {
+    if (de.isFile()) {
+        hexFiles[de.name] = fs.readFileSync(path.join(hexDir, de.name), 'utf8');
+    }
+}
+// console.log('hexFiles', hexFiles);
 
 /*
   "versions": [
@@ -686,6 +694,8 @@ async function runDeviceOs() {
                     fs.writeFileSync(module.binaryFile, binary);    
                 }    
             }
+
+
             if (userPart) {
                 if (isNRF52) {
                     // TODO: Only do this for Device OS 3.1.0 and later (256K binaries)
@@ -698,7 +708,6 @@ async function runDeviceOs() {
             if (!fs.existsSync(outputDir)) {
                 fs.mkdirSync(outputDir);
             }
-
 
             // Pass 2: Process files as done in HexTool
             // modules is like details.modules except it is already filtered to remove prebootloader-mbr and put user-part last
@@ -761,6 +770,27 @@ async function runDeviceOs() {
                     console.log('unknown module', module);
                 }
 
+
+                if (isNRF52 && !isTrackerOrMonitor) {
+                    // Add UICR bytes, except on tracker because TrackerOne and MonitorOne have different UICR bytes
+                    // but the same platformId
+                    const uicrFilename = 'uicr_no_eof.hex';
+                    const platformUicrFilename = platformInfo.name + '_' + uicrFilename;
+
+                    if (hexFiles[platformUicrFilename]) {
+                        hex += hexFiles[platformUicrFilename];
+                    }
+                    else {
+                        hex += hexFiles[uicrFilename];
+                    }   
+                }
+
+                if (module.prefixInfo.moduleFunction == 'radio_stack') {
+                    hex += hexFiles['radio_stack_prefix.hex'];
+                }
+
+                // TODO Add the file contents here
+
                 // Generate module info JSON
                 await new Promise(function(resolve, reject) {
                     const reader = new HalModuleParser();
@@ -777,6 +807,8 @@ async function runDeviceOs() {
                         resolve();
                     });
                 });
+
+                // Generate hex
             }
 
             // Generate module info 
@@ -795,20 +827,6 @@ async function runDeviceOs() {
             fs.writeFileSync(path.join(outputDir, platformInfo.name + '.hex'), hex);
 
 
-            if (isNRF52 && !isTrackerOrMonitor) {
-                // Add UICR bytes, except on tracker because TrackerOne and MonitorOne have different UICR bytes
-                // but the same platformId
-                switch(platformId) {
-                    case 15:
-                        // E404X ('esomx')
-                        break;
-
-                    default:
-                        break;
-                }
-
-                
-            }
 
 
             // Check for NCP 
