@@ -1128,11 +1128,11 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 - If you are using `SYSTEM_MODE(MANUAL)` you must call `Particle.process()` frequently, preferably on any call to `loop()` as well as any locations where you are blocking within `loop()`.
 
-`Particle.process()` checks the for incoming messages from the Cloud,
+`Particle.process()` checks for the incoming messages from the Cloud,
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
-- It will also update the [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/) timer using `ApplicationWatchdog::checkin()`.
+It will also update the [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/) timer using `ApplicationWatchdog::checkin()`.
 
 ### Particle.syncTime()
 

@@ -41,7 +41,7 @@ Now, continue onto the next step. When you flash a debug build to your device, y
 To complete this portion of the lab, you'll need the following:
 
 - [Particle Workbench](https://www.particle.io/workbench)
-- The trusty [Argon](https://store.particle.io/products/argon-kit) you've been using for other parts of this lab
+- The trusty Argon you've been using for other parts of this lab
 - One Particle Debugger
 - A free USB port on your laptop
 

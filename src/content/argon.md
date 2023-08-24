@@ -69,11 +69,5 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 - FCC, CE and IC certified
 - RoHS compliant (lead-free)
 
-<div align="center">
-<br />
-
-<a href="https://store.particle.io/products/argon" target="_blank" class="button">BUY AN ARGON</a>
-
-</div>
 
 {{box op="end"}}
