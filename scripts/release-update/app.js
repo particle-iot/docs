@@ -606,6 +606,107 @@ async function fetchVersionDetails(options) {
 
 const hexFileEol = '\n';
 
+async function analyzeHexFile(f) {
+    const hexData = fs.readFileSync(f, 'utf8');
+    if (hexData.length == 0 || hexData.charAt(0) != ':') {
+        console.log('input file ' + f + ' does not appear to be a hex file');
+        return;
+    }
+
+    let baseAddr = 0;
+
+    hexData.split(/[\r\n]/).some(function(lineData) {
+        lineData = lineData.trim();
+        if (lineData.length == 0) {
+            return false;
+        }
+        if (lineData.charAt(0) != ':') {
+            return;
+        }
+        //console.log('line: ' + lineData);
+
+        const buf = Buffer.from(lineData.substring(1), 'hex');
+       
+        const len = buf.readUInt8(0);
+        const addr = buf.readUInt16BE(1);
+        const recType = buf.readUInt8(3);
+        // data begins at 4
+        // checksum is last byte
+        const checksum = buf.readUInt8(4 + len);
+
+        const calcChecksum = calculateBufferChecksum(buf);
+
+        if (calcChecksum == checksum) {
+            if (recType == 4 && len == 2) {
+                // Extended linear address
+                baseAddr = buf.readUInt16BE(4) << 16;
+                console.log('baseAddr=0x' + baseAddr.toString(16) + ' (' + baseAddr + ')');
+            }
+
+            //console.log('len=0x' + padHex(len, 2) + ' addr=0x' + padHex(addr, 4) + ' recType=' + recType + ' checksum=0x' + padHex(checksum, 2) + ' ' + lineData);
+        }
+        else {
+            console.log('CHECKSUM ERROR! len=' + len + ' addr=' + addr + ' recType=' + recType + ' checksum=' + checksum + ' calcChecksum=' + calcChecksum);
+        }
+    });
+}
+
+async function imageFromHexFile(f) {
+    let result = Buffer.alloc(0);
+
+    const hexData = fs.readFileSync(f, 'utf8');
+    if (hexData.length == 0 || hexData.charAt(0) != ':') {
+        console.log('input file ' + f + ' does not appear to be a hex file');
+        return;
+    }
+
+    let baseAddr = 0;
+
+    hexData.split(/[\r\n]/).some(function(lineData) {
+        lineData = lineData.trim();
+        if (lineData.length == 0) {
+            return false;
+        }
+        if (lineData.charAt(0) != ':') {
+            return;
+        }
+        //console.log('line: ' + lineData);
+
+        const buf = Buffer.from(lineData.substring(1), 'hex');
+       
+        const len = buf.readUInt8(0);
+        const addr = buf.readUInt16BE(1);
+        const recType = buf.readUInt8(3);
+        // data begins at 4
+        // checksum is last byte
+        const checksum = buf.readUInt8(4 + len);
+
+        const calcChecksum = calculateBufferChecksum(buf);
+
+        if (calcChecksum == checksum) {
+            if (recType == 4 && len == 2) {
+                // Extended linear address
+                baseAddr = buf.readUInt16BE(4) << 16;
+                console.log('baseAddr=0x' + baseAddr.toString(16) + ' (' + baseAddr + ')');
+            }
+
+            const endOfSector = Math.ceil((baseAddr + addr + len) / 4096) * 4096;
+            if (result.length < endOfSector) {
+                result = Buffer.concat(result, Buffer.alloc(endOfSector - result.length, 255));
+            }
+            for(let ii = 0; ii < len; ii++) {
+                result.writeUInt8(buf.readUInt8(4 + ii), baseAddr + addr + ii);
+            }
+
+            //console.log('len=0x' + padHex(len, 2) + ' addr=0x' + padHex(addr, 4) + ' recType=' + recType + ' checksum=0x' + padHex(checksum, 2) + ' ' + lineData);
+        }
+        else {
+            console.log('CHECKSUM ERROR! len=' + len + ' addr=' + addr + ' recType=' + recType + ' checksum=' + checksum + ' calcChecksum=' + calcChecksum);
+        }
+    });
+}
+
+
 // Reads a file from disk and returns the contents, possibly with the end-of-line updated
 // to use hexFileEol
 function hexFile(f) {
@@ -895,12 +996,9 @@ async function runDeviceOs() {
                 }    
             }
 
-
+            // The hex generator requires the user part be the last thing in the file so it can be replaced
+            // by a custom binary easily. This code handles that.
             if (userPart) {
-                if (isNRF52) {
-                    // TODO: Only do this for Device OS 3.1.0 and later (256K binaries)
-                    // Add 128K binary clear to hex file
-                }
                 modules.push(userPart);
             }
             
@@ -1053,13 +1151,11 @@ async function runDeviceOs() {
             });
 
             // Generate hex
+            const outputHexFile = path.join(outputDir, platformInfo.name + '.hex');
             hex += endOfFileHex();
-            fs.writeFileSync(path.join(outputDir, platformInfo.name + '.hex'), hex);
+            fs.writeFileSync(outputHexFile, hex);
 
-
-
-
-
+            // await analyzeHexFile(outputHexFile);
 
         }
 
