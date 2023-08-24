@@ -1,0 +1,21 @@
+{
+  "name": "release-update",
+  "description": "Tool to update docs for new Device OS releases. Updates release notes and device restore binaries",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "author": "rick@particle.io",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "binary-version-reader": "^2.2.0",
+    "handlebars": "^4.7.8",
+    "jszip": "^3.10.1",
+    "node-fetch": "^2.6.13",
+    "yargs": "^17.6.0"
+  }
+}

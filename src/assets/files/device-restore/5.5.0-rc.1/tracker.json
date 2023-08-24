@@ -1,4 +1,32 @@
 {
+  "bootloader": {
+    "prefixInfo": {
+      "moduleStartAddy": "f4000",
+      "moduleEndAddy": "ff4e2",
+      "reserved": 0,
+      "moduleFlags": 0,
+      "moduleVersion": 2300,
+      "platformID": 26,
+      "moduleFunction": 2,
+      "moduleIndex": 0,
+      "depModuleFunction": 0,
+      "depModuleIndex": 0,
+      "depModuleVersion": 0,
+      "dep2ModuleFunction": 0,
+      "dep2ModuleIndex": 0,
+      "dep2ModuleVersion": 0,
+      "prefixSize": 24,
+      "prefixOffset": 512
+    },
+    "suffixInfo": {
+      "productId": 0,
+      "productVersion": 0,
+      "fwUniqueId": "73688b115a7cf5d5559ebef282c8c82f1c4041ffaa84afc93f779b28531f2d36",
+      "reserved": 0,
+      "suffixSize": 40,
+      "crcBlock": "5169ffee"
+    }
+  },
   "softdevice": {
     "prefixInfo": {
       "moduleStartAddy": "1000",
@@ -15,6 +43,7 @@
       "dep2ModuleFunction": 4,
       "dep2ModuleIndex": 1,
       "dep2ModuleVersion": 1321,
+      "prefixSize": 24,
       "prefixOffset": 0
     },
     "suffixInfo": {
@@ -42,6 +71,7 @@
       "dep2ModuleFunction": 7,
       "dep2ModuleIndex": 0,
       "dep2ModuleVersion": 7,
+      "prefixSize": 24,
       "prefixOffset": 512
     },
     "suffixInfo": {
@@ -51,33 +81,6 @@
       "reserved": 0,
       "suffixSize": 40,
       "crcBlock": "8923df57"
-    }
-  },
-  "bootloader": {
-    "prefixInfo": {
-      "moduleStartAddy": "f4000",
-      "moduleEndAddy": "ff4e2",
-      "reserved": 0,
-      "moduleFlags": 0,
-      "moduleVersion": 2300,
-      "platformID": 26,
-      "moduleFunction": 2,
-      "moduleIndex": 0,
-      "depModuleFunction": 0,
-      "depModuleIndex": 0,
-      "depModuleVersion": 0,
-      "dep2ModuleFunction": 0,
-      "dep2ModuleIndex": 0,
-      "dep2ModuleVersion": 0,
-      "prefixOffset": 512
-    },
-    "suffixInfo": {
-      "productId": 0,
-      "productVersion": 0,
-      "fwUniqueId": "73688b115a7cf5d5559ebef282c8c82f1c4041ffaa84afc93f779b28531f2d36",
-      "reserved": 0,
-      "suffixSize": 40,
-      "crcBlock": "5169ffee"
     }
   },
   "tracker-edge": {
@@ -96,6 +99,7 @@
       "dep2ModuleFunction": 0,
       "dep2ModuleIndex": 0,
       "dep2ModuleVersion": 0,
+      "prefixSize": 24,
       "prefixOffset": 0
     },
     "suffixInfo": {
@@ -123,6 +127,7 @@
       "dep2ModuleFunction": 0,
       "dep2ModuleIndex": 0,
       "dep2ModuleVersion": 0,
+      "prefixSize": 24,
       "prefixOffset": 0
     },
     "suffixInfo": {

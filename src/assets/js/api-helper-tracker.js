@@ -15,7 +15,8 @@ $(document).ready(function() {
         fetch('/assets/files/tracker/trackerEdgeVersions.json')
             .then(response => response.json())
             .then(function(res) {
-                for(const obj of res) {
+                let versions = Array.isArray(res) ? res : res.versions; // Older file was a top level array
+                for(const obj of versions) {
                     const optionElem = document.createElement('option');
 
                     $(optionElem).attr('value', obj.v);

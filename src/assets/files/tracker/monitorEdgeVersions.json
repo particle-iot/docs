@@ -1,0 +1,13 @@
+{
+    "versions": [
+        {
+            "v": "v1",
+            "title": "Monitor Edge Firmware v1",
+            "releaseNotes": "# Monitor Edge v1 Release\r\nBuilt against device OS 4.0.2\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v4.0.2 or greater.\r\n\r\n### FEATURES\r\n\r\n- Basic support for 4-20mA, 0-10V, high voltage input, and relay features of IO expansion card.\r\n\r\n### ENHANCEMENTS\r\n\r\n\r\n### BUGFIXES\r\n",
+            "bin": "monitor-edge-1@4.0.2.bin",
+            "version": 1,
+            "zip": "monitor-edge-1.zip",
+            "target": "4.0.2"
+        }
+    ]
+}
