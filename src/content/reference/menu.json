@@ -124,6 +124,12 @@
         "dir": "wifi-setup-options",
         "title": "Wi-Fi setup options",
         "href": "/reference/device-os/wifi-setup-options/"
+      },
+      {
+        "dir": "asset-ota",
+        "title": "Asset OTA",
+        "href": "/reference/device-os/asset-ota/",
+        "internal": true
       }
     ],
     {

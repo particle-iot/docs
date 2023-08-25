@@ -430,8 +430,10 @@ $(document).ready(function() {
             }
 
             if (options.includeVsCodeSettings) {
-                const zipFsVsCodeDir = zipFsTopDir.addDirectory('.vscode');
-                await zipFsVsCodeDir.importHttpContent(vsCodeSettingsUrl);    
+                if (!zipFs.find(topDirName  + '/.vscode')) {
+                    const zipFsVsCodeDir = zipFsTopDir.addDirectory('.vscode');
+                    await zipFsVsCodeDir.importHttpContent(vsCodeSettingsUrl);        
+                }
             }
         
             const blob = await zipFs.exportBlob({
