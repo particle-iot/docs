@@ -65,6 +65,26 @@
         "ver": 11,
         "file": "tracker-edge-11@2.0.0-rc.4.bin",
         "target": "2.0.0-rc.4"
+      },
+      {
+        "ver": 10,
+        "file": "tracker-edge-10@2.0.0-rc.3.bin",
+        "target": "2.0.0-rc.3"
+      },
+      {
+        "ver": 9,
+        "file": "tracker-edge-9@1.5.4-rc.2.bin",
+        "target": "1.5.4-rc.2"
+      },
+      {
+        "ver": 8,
+        "file": "tracker-edge-8@1.5.4-rc.1.bin",
+        "target": "1.5.4-rc.1"
+      },
+      {
+        "ver": 7,
+        "file": "tracker-edge-7@1.5.4-rc.1.bin",
+        "target": "1.5.4-rc.1"
       }
     ]
   },
@@ -107,6 +127,22 @@
       {
         "ver": 11,
         "file": "v11.zip"
+      },
+      {
+        "ver": 10,
+        "file": "v10.zip"
+      },
+      {
+        "ver": 9,
+        "file": "v9.zip"
+      },
+      {
+        "ver": 8,
+        "file": "v8.zip"
+      },
+      {
+        "ver": 7,
+        "file": "v7.zip"
       }
     ]
   }
