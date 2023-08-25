@@ -128,7 +128,8 @@
       {
         "dir": "asset-ota",
         "title": "Asset OTA",
-        "href": "/reference/device-os/asset-ota/"
+        "href": "/reference/device-os/asset-ota/",
+        "internal": true
       }
     ],
     {
