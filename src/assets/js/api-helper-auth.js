@@ -250,7 +250,9 @@ $(document).ready(function() {
             if (!orgInfo) {
                 orgInfo = {};
             }
-    
+            apiHelper.orgInfo = orgInfo;
+            apiHelper.canSubmitTickets = false;
+
             const saveOrgInfo = function() {
                 localStorage.setItem('apiHelperOrg', JSON.stringify(orgInfo));
                 $('.apiHelper').trigger('selectedOrgUpdated');
@@ -284,6 +286,7 @@ $(document).ready(function() {
                                         const agreementType = obj.attributes.agreement_type;
                                         if (agreementType == 'enterprise') {
                                             orgInfo.isEnterprise = true;
+                                            apiHelper.canSubmitTickets = true;
                                         }
                                     }
                                     resolve();

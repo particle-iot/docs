@@ -3824,7 +3824,7 @@ $(document).ready(function() {
                         setupOptions.noClaim = true;    
                     }
                     // In doctor, if there is an org, enable the ticket button
-                    if (apiHelper.selectedOrg) {
+                    if (apiHelper.canSubmitTickets) {
                         $('.ticketButtonDiv').show();
                     }
                 }
