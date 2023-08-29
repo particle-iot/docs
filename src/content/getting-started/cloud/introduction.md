@@ -212,9 +212,9 @@ The IP addresses used by the Particle cloud are subject to change without notice
 
 ### Gen 3 and Gen 2 cellular
 
-Gen 3 devices (Argon, Boron, B Series, Tracker SoM) and Gen 2 cellular devices (Electron, E Series) all use UDP port 5684, outbound. 
+Gen 3 devices (Argon, Boron, B Series, Tracker SoM, P2, and Photon 2) and Gen 2 cellular devices (Electron, E Series) all use UDP port 5684, outbound. 
 
-While you rarely need to worry about this for cellular devices, for the Argon (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/reference/device-os/api/cloud-functions/particle-keepalive/) to keep the cloud connection active.
+While you rarely need to worry about this for cellular devices, for the Argon, P2, and Photon 2 (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/reference/device-os/api/cloud-functions/particle-keepalive/) to keep the cloud connection active. The default keep-alive for Gen 3 Wi-Fi devices is 25 seconds.
 
 ### Gen 2 and gen 1 Wi-Fi
 
@@ -243,6 +243,6 @@ Other common services includes:
 - **console.particle.io** (device management)
 - **docs.particle.io** (documentation)
 - **build.particle.io** (Web IDE)
-- **support.particle.io** (support and knowledge base)
+- **binaries.particle.io** (installation binary downloads)
 
 If you are using network with restrictive outbound access policies, you may need to allow-list those DNS names for port 443 (TLS/SSL) outbound.
