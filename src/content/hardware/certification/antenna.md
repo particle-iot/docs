@@ -17,6 +17,10 @@ This page includes information on antennas for:
 
 ## Cellular
 
+{{box op="start" cssClass="boxed warningBox"}}
+Particle devices are certified for use only with the designated antennas specified below. The use of alternative antennas with our modules could necessitate a recertification process. To fully understand the potential consequences of using a non-certified antenna, Particle strongly advises seeking consultation with a qualified RF expert.
+{{box op="end"}}
+
 The following cellular antennas are available:
 
 | Antenna | SKU | Details | Links |
@@ -36,6 +40,8 @@ The following cellular antennas are available:
 
 The PARANTC41EA, ANTCW2EA, ANT-FLXU are generally compatible across all 2G, 3G, LTE Cat 1, and LTE Cat M1 devices. However, if you use an antenna that is not the antenna that the device was certified with, the device will require recertification. In the United States, this is FCC intentional radiator certification (FCC Part 15, Subpart C), which is the more complicated and expensive of the certifications as it checks the performance in each of the cellular bands.
 
+**Particle recommends you use a Particle antenna that has already been certified for the device.**
+
 In the United States, you can generally substitute an antenna that is of the same type and equal or lesser gain, both total and in all bands.
 
 - If the device is certified with PARANTC41EA, substituting ANTCW2EA requires recertification because ANTCW2EA has higher gain in the high frequency bands
@@ -43,6 +49,7 @@ In the United States, you can generally substitute an antenna that is of the sam
 - If the device is certified with both PARANTC41EA and ANT-FLXU (including the B404X and BRN404X), then substituting ANTCW2EA still requires recertification because of the peak and average gain in the 2600 MHz band.
 
 Note that the ANT-ELEC should not be used with any LTE Cat 1 or LTE Cat M1 device because it does not support some bands used by LTE.
+
 
 | Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |

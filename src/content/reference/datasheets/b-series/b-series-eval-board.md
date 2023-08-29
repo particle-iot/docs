@@ -53,6 +53,12 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 | 25 | **Charge LED** | Indicate LiPo is charging. | 
 {{!-- END shared-blurb --}}
 
+{{box op="start" cssClass="boxed warningBox"}}
+Particle devices are certified for use only with specific cellular antennas that connect to the U.FL connector on the 
+module. Using an alternate antenna via the SMA connector (11) will likely a lengthy and expensive recertification process.
+{{box op="end"}}
+
+
 ### Jumpers J12
 
 These pins are intended to be connected across using removable two-pin jumpers to connect features on the board to standard ports.

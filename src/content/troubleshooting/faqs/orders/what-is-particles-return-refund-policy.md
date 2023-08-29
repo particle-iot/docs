@@ -58,7 +58,7 @@ In certain circumstances, we may allow returns or exchanges if the items are in 
 
 #### Items on reels or trays
 
-If your order includes items on reels such as the P1 or P0, or items in trays such as the Electron trays or Argon trays, and the vacuum-sealed bag on the reel or tray has been opened, the units are no longer in original condition. Because of the moisture sensitivity of these units, we can not guarantee their condition for other customers after they have been unsealed. Please reach out to our support team if you need assistance, and we will be happy to assess how we can help.
+If your order includes items on reels such as the P2 or P1, or items in trays such as the Boron trays or Argon trays, and the vacuum-sealed bag on the reel or tray has been opened, the units are no longer in original condition. Because of the moisture sensitivity of these units, we can not guarantee their condition for other customers after they have been unsealed. Please reach out to our support team if you need assistance, and we will be happy to assess how we can help.
 
 #### Modified or opened product return policy
 
