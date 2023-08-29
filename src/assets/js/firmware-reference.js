@@ -410,57 +410,79 @@ $(document).ready(function() {
         apiIndex.folders = {};
 
         // Populate only the top level sections here because there are so many subsections
-        for(let section of apiIndex.sections) {
+        let topLevelSections = [];
 
+        for(let section of apiIndex.sections) {
             if (section.folder != lastFolder) {
                 // New section
-                let divNavContainer = document.createElement('div');
-                $(divNavContainer).addClass('navContainer');
-                $(divNavContainer).addClass('navMenu3');
-
-                let d = document.createElement('div');
-                $(d).addClass('navIndent3');
-                $(divNavContainer).append(d);
-
-                // TODO: Skip disclosure if only a single item
-                d = document.createElement('div');
-                $(d).attr('data-folder', section.folder);
-                $(d).addClass('navDisclosure');
-                {
-                    const iElem = document.createElement('i');
-                    $(iElem).addClass('ion-arrow-right-b');
-                    $(d).append(iElem);
-                }
-                $(d).on('click', function() {
-                    const folder = $(this).attr('data-folder');
-                    if ($(this).find('i').hasClass('ion-arrow-right-b')) {
-                        populateFolder(folder);
-                    }
-                    else {
-                        console.log('close folder from click');
-                        closeFolder(folder);
-                    }  
-                });
-                $(divNavContainer).append(d);
-
-                d = document.createElement('div');
-                $(d).addClass('navContent3');
-                {
-                    const aElem = document.createElement('a');
-                    $(aElem).text(apiIndex.folderTitles[section.folder]);
-                    $(aElem).attr('href', section.href);
-                    $(aElem).addClass('navLink');
-                    $(d).append(aElem);
-                }
-                $(divNavContainer).append(d);
-
-                apiIndex.folders[section.folder] = {
-                    elem: divNavContainer
-                };
-                $(divActiveContent).append(divNavContainer);
-
+                topLevelSections.push(section);
                 lastFolder = section.folder;
             }
+        }
+
+        /*
+        topLevelSections.sort(function(a, b) {
+            if (a.folder == 'introduction') {
+                return -1;
+            }
+            else
+            if (b.folder == 'introduction') {
+                return +1;
+            }
+            else {
+                return a.folder.localeCompare(b.folder);
+            }
+        });
+        */
+
+
+        for(let section of topLevelSections) {
+            // New section
+            let divNavContainer = document.createElement('div');
+            $(divNavContainer).addClass('navContainer');
+            $(divNavContainer).addClass('navMenu3');
+
+            let d = document.createElement('div');
+            $(d).addClass('navIndent3');
+            $(divNavContainer).append(d);
+
+            // TODO: Skip disclosure if only a single item
+            d = document.createElement('div');
+            $(d).attr('data-folder', section.folder);
+            $(d).addClass('navDisclosure');
+            {
+                const iElem = document.createElement('i');
+                $(iElem).addClass('ion-arrow-right-b');
+                $(d).append(iElem);
+            }
+            $(d).on('click', function() {
+                const folder = $(this).attr('data-folder');
+                if ($(this).find('i').hasClass('ion-arrow-right-b')) {
+                    populateFolder(folder);
+                }
+                else {
+                    console.log('close folder from click');
+                    closeFolder(folder);
+                }  
+            });
+            $(divNavContainer).append(d);
+
+            d = document.createElement('div');
+            $(d).addClass('navContent3');
+            {
+                const aElem = document.createElement('a');
+                $(aElem).text(apiIndex.folderTitles[section.folder]);
+                $(aElem).attr('href', section.href);
+                $(aElem).addClass('navLink');
+                $(d).append(aElem);
+            }
+            $(divNavContainer).append(d);
+
+            apiIndex.folders[section.folder] = {
+                elem: divNavContainer
+            };
+            $(divActiveContent).append(divNavContainer);
+
 
         }
 

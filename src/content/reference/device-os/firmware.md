@@ -10871,8 +10871,8 @@ int setPairingAlgorithm(BlePairingAlgorithm algorithm) const;
 | `BlePairingAlgorithm::LEGACY_ONLY` | Legacy Pairing mode only |
 | `BlePairingAlgorithm::LESC_ONLY` | Bluetooth LE Secure Connection Pairing (LESC) only  |
 
-- LESC pairing is supported on Device OS 3.1 and later only.
-- LESC pairing is not supported on the P2 and Photon 2.
+- LESC pairing is supported in Device OS 3.1.0 and later on the Boron, B Series SoM, Argon, and Tracker SoM (nRF52840).
+- LESC pairing is supported in Device OS 5.1.0 and later on the P2 and Photon 2 (RTL872x).
 
 #### BLE.startPairing()
 
@@ -10922,8 +10922,8 @@ This is used with `BlePairingEventType::NUMERIC_COMPARISON` to confirm that two 
 
 The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
 
-- LESC pairing is supported on Device OS 3.1 and later only.
-- LESC pairing is not supported on the P2 and Photon 2.
+- LESC pairing is supported in Device OS 3.1.0 and later on the Boron, B Series SoM, Argon, and Tracker SoM (nRF52840).
+- LESC pairing is supported in Device OS 5.1.0 and later on the P2 and Photon 2 (RTL872x).
 
 
 #### BLE.setPairingPasskey()
@@ -11066,7 +11066,8 @@ LESC pairing is supported in Device OS 3.1 and later only.
 
 Numeric comparison mode is being used to pair devices in LESC pairing mode. You should display the passkey in the same was as `BlePairingEventType::PASSKEY_DISPLAY`.
 
-LESC pairing is supported in Device OS 3.1 and later only. The P2 and Photon 2 do not support LESC pairing.
+- LESC pairing is supported in Device OS 3.1.0 and later on the Boron, B Series SoM, Argon, and Tracker SoM (nRF52840).
+- LESC pairing is supported in Device OS 5.1.0 and later on the P2 and Photon 2 (RTL872x).
 
 ##### BLEPairingEvent
 

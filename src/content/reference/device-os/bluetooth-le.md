@@ -662,15 +662,11 @@ This is the previous RSSI Meter example with BLE long-range (coded phy) enabled.
 
 ### LESC pairing - simple
 
-This example shows how to do encrypted BLE communication using LESC Pairing in "just works" mode. This encrypts the data between the two devices, but does not authenticate, which requires some combination of displays and keypads or buttons. This requires Device OS 3.1 or later. The P2 and Photon 2 do not support LESC pairing at this time.
+This example shows how to do encrypted BLE communication using LESC Pairing in "just works" mode. This encrypts the data between the two devices, but does not authenticate, which requires some combination of displays and keypads or buttons. This requires Device OS 3.1 or later. The P2 and Photon 2 require Device OS 5.1 or later for LESC pairing.
 
 {{> project-browser project="ble-lesc1-central" default-file="src/ble-lesc1-central.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
 
 {{> project-browser project="ble-lesc1-peripheral" default-file="src/ble-lesc1-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
-
-{{!-- P2 BLE Central Warning --}}
-
-The P2 and Photon 2 do not currently support LESC pairing mode.
 
 {{#if not-yet-working}}
 
