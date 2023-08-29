@@ -155,6 +155,10 @@ There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular r
   - Cable length: 210 mm
   - Gain: 4.71 dBi
 
+{{box op="start" cssClass="boxed warningBox"}}
+Particle devices are certified for use only with the designated antenna specified above. The use of alternative antennas with our modules could necessitate a recertification process. To fully understand the potential consequences of using a non-certified antenna, Particle strongly advises seeking consultation with a qualified RF expert.
+{{box op="end"}}
+
 #### General antenna guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.

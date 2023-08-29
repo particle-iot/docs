@@ -177,6 +177,10 @@ The third connector is the LTE cellular receive diversity antenna. A second cell
   - Cable length: 210 mm
   - Gain: 4.71 dBi
 
+{{box op="start" cssClass="boxed warningBox"}}
+Particle devices are certified for use only with the designated antenna specified above. The use of alternative antennas with our modules could necessitate a recertification process. To fully understand the potential consequences of using a non-certified antenna, Particle strongly advises seeking consultation with a qualified RF expert.
+{{box op="end"}}
+
 
 #### General antenna guidance
 

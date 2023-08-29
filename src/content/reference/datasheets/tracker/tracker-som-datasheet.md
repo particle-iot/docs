@@ -175,7 +175,7 @@ There are a number of U.FL antenna connectors on the Tracker SoM:
 | DIV  | LTE cellular receive diversity antenna<sup>3</sup>  |
 
 
-<sup>1</sup>Not supported in initial release.
+<sup>1</sup>Not supported at this time.
 
 <sup>2</sup>There is a BLE chip antenna on the module, the external BLE antenna is optional.
 
@@ -223,6 +223,11 @@ The Tracker SoM has been certified with the following antenna:
 | Maximum power | 5W |
 | Impedance | 50&ohm; |
 | Size | 97.0 x 21.0 x 0.2 mm |
+
+{{box op="start" cssClass="boxed warningBox"}}
+Particle devices are certified for use only with the designated antenna specified above. The use of alternative antennas with our modules could necessitate a recertification process. To fully understand the potential consequences of using a non-certified antenna, Particle strongly advises seeking consultation with a qualified RF expert.
+{{box op="end"}}
+
 
 ---
 
