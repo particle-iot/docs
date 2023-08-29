@@ -94,6 +94,14 @@ Argon:
 0000017565 [app] INFO: counter=6876
 ```
 
+P2 and Photon 2:
+
+```
+0000014885 [app] INFO: counter=10039
+0000015885 [app] INFO: counter=10160
+0000016885 [app] INFO: counter=10212
+```
+
 The results are quite different when the system thread is enabled:
 
 ```cpp
@@ -151,6 +159,14 @@ Argon:
 0000016275 [app] INFO: counter=31566
 0000017275 [app] INFO: counter=31688
 0000018275 [app] INFO: counter=31658
+```
+
+P2 and Photon 2:
+
+```
+0000015000 [app] INFO: counter=77111
+0000016000 [app] INFO: counter=77353
+0000017000 [app] INFO: counter=77440
 ```
 
 The takeaways is: 
@@ -239,6 +255,16 @@ Argon:
 0000021317 [app] INFO: counter=15725377
 0000022317 [app] INFO: counter=5234981
 0000023317 [app] INFO: counter=5235241
+```
+
+P2 and Photon 2:
+
+```
+0000016000 [app] INFO: counter=38384422
+0000017000 [app] INFO: counter=19615061
+0000018000 [app] INFO: counter=19566063
+0000019000 [app] INFO: counter=19675594
+0000020000 [app] INFO: counter=39428569
 ```
 
 The reason it's bad and unpredictable is that when the thread begins execution, it does not yield until its 1 millisecond time slice is completed used up and interrupted.
