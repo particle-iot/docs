@@ -10002,6 +10002,8 @@ You can only specify a single phy mode for advertising. You cannot logically OR 
 
 Coded Phy mode employs redundancy and error-correction, trading off speed in favor of noise immunity. In theory it could double the range achievable, but in practice you can expect closer to a 50% increase in range. 
 
+BLE long-range (coded PHY) is not supported on the P2 and Photon 2.
+
 For an example of using this API, see the [RSSI Meter (Long Range)](/reference/device-os/bluetooth-le/#rssi-meter-long-range-) in the BLE tutorial.
 
 #### BLE.getScanResponseData()
@@ -10466,6 +10468,8 @@ Note: In Device OS 3.0.0 (only), a bug sets an invalid default value for the sca
 ```cpp
 BLE.setScanPhy(BlePhy::BLE_PHYS_AUTO);
 ```
+
+BLE long-range (coded PHY) is not supported on the P2 and Photon 2.
 
 For an example of using this API, see the [RSSI Meter (Long Range)](/reference/device-os/bluetooth-le/#rssi-meter-long-range-) in the BLE tutorial.
 
