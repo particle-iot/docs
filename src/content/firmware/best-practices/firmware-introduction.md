@@ -17,7 +17,7 @@ description: Tips for writing Particle device software
 
 Particle devices are programming using C/C++, specifically gcc C++11, C++14, or C++17 depending on the version of Device OS you are targeting. If it's been a while since you've programmed in C/C++, there is a [language syntax overview](/reference/device-os/api/language-syntax/language-syntax/). Of course there are countless books and tutorials on the Internet as well.
 
-The collection of calls to manage the features of the device including cloud features, hardware interfaces (serial, I2C, SPI), networking features, etc. are in the [Device OS API](/reference/device-os/api/introduction/introduction/).
+The collection of calls to manage the features of the device including cloud features, hardware interfaces (serial, I2C, SPI), networking features, etc. are in the [Device OS API](/reference/device-os/api/introduction/getting-started/).
 
 ### Device firmware
 

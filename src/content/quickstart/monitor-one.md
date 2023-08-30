@@ -199,7 +199,7 @@ The firmware on the Monitor One is Monitor Edge, which is included on the device
 It builds on the standard features of Particle device firmware and the Device OS API:
 
 - [Introduction to Particle Device Firmware](/firmware/best-practices/firmware-introduction/)
-- [Device OS API](/reference/device-os/api/introduction/introduction/)
+- [Device OS API](/reference/device-os/api/introduction/getting-started/)
 
 
 For further technical information about the Monitor One, see the Monitor One datasheet.

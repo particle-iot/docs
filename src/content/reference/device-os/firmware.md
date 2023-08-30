@@ -13,10 +13,18 @@ Device OS API
 
 ## Introduction
 
+### Getting started
+
+Using Particle primitives like [Particle.publish](#particle-publish-) is how you communicate between your Particle device, the Internet, and external services.
+
+If you haven't programmed in C++ or Arduino recently and would like a refresher, see [language syntax](#language-syntax).
+
+### Navigation
+
 {{#if singlePage}}
 You are viewing the single-page version of the Device OS API reference manual.
 
-It is also available [divided into small sections](/reference/device-os/api/introduction/introduction/) if you prefer that style. 
+It is also available [divided into small sections](/reference/device-os/api/introduction/getting-started/) if you prefer that style. 
 Small sections also work better on mobile devices and small tablets.
 {{else}}
 You are viewing the multi-page version of the Device OS API reference manual.

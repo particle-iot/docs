@@ -1,5 +1,7 @@
 {
   "/reference/device-os/firmware/#introduction": "/reference/device-os/api/introduction/introduction/",
+  "/reference/device-os/firmware/#getting-started": "/reference/device-os/api/introduction/getting-started/",
+  "/reference/device-os/firmware/#navigation": "/reference/device-os/api/introduction/navigation/",
   "/reference/device-os/firmware/#cloud-functions": "/reference/device-os/api/cloud-functions/cloud-functions/",
   "/reference/device-os/firmware/#overview-of-api-field-limits": "/reference/device-os/api/cloud-functions/overview-of-api-field-limits/",
   "/reference/device-os/firmware/#particle-variable-": "/reference/device-os/api/cloud-functions/particle-variable/",
