@@ -19741,7 +19741,6 @@
       "name": "BRN310KIT",
       "desc": "Boron 2G/3G (Global) Starter Kit, [x1]",
       "lifecycle": "NRND",
-      "replacement": "BRN314KIT",
       "modem": "U201",
       "sim": 2,
       "simPlans": [
@@ -19777,7 +19776,6 @@
       "name": "BRN310TRAY50",
       "desc": "Boron 2G/3G (Global), Tray [x50]",
       "lifecycle": "NRND",
-      "replacement": "BRN314TRAY50",
       "modem": "U201",
       "multiple": true,
       "sim": 2,

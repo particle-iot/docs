@@ -146,8 +146,8 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | NRND | BRN314KIT|
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND | BRN314TRAY50|
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | NRND | |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND | |
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | &check; | NRND | |
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404XTRAY50|
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | Deprecated | |

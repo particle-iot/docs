@@ -32,7 +32,7 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
 | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
 | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | 3 | NRND | B524MTY | &nbsp; |
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | 3 | NRND | BRN314TRAY50 | &nbsp; |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | 3 | NRND | &nbsp; | &nbsp; |
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | 3 | NRND | &nbsp; | &nbsp; |
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | 3 | NRND | BRN404XTRAY50 | &nbsp; |
 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | 2 | NRND | B524MTY | &nbsp; |
