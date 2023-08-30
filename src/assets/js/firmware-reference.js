@@ -394,8 +394,6 @@ $(document).ready(function() {
     .then(function(res) {
         apiIndex = res;
 
-        const nav = apiIndexFind(thisUrl.pathname);
-
         // Build out the rest of the navigation menu. Insert all content after this:
         // div.navContainer .deviceOsApiNavMenu        
         // Insert div #navActiveContent containing the generated menus
@@ -411,16 +409,20 @@ $(document).ready(function() {
 
         // Populate only the top level sections here because there are so many subsections
         let topLevelSections = [];
-
         for(let section of apiIndex.sections) {
             if (section.folder != lastFolder) {
                 // New section
-                topLevelSections.push(section);
+                topLevelSections.push({
+                    folder: section.folder,
+                    sections: [section],
+                });
                 lastFolder = section.folder;
+            }
+            else {
+                topLevelSections[topLevelSections.length - 1].sections.push(section);
             }
         }
 
-        /*
         topLevelSections.sort(function(a, b) {
             if (a.folder == 'introduction') {
                 return -1;
@@ -433,10 +435,19 @@ $(document).ready(function() {
                 return a.folder.localeCompare(b.folder);
             }
         });
-        */
+
+        // Re-sort apiIndex.sections so scrolling, forward, backward, next group, etc. work right
+        apiIndex.sections = [];
+        for(let obj of topLevelSections) {
+            for(let section of obj.sections) {
+                apiIndex.sections.push(section);
+            }
+        }
+        const nav = apiIndexFind(thisUrl.pathname);
 
 
-        for(let section of topLevelSections) {
+        for(const obj of topLevelSections) {
+            let section = obj.sections[0];
             // New section
             let divNavContainer = document.createElement('div');
             $(divNavContainer).addClass('navContainer');

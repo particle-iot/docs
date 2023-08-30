@@ -134,7 +134,7 @@ digitalWrite(D2, LOW);
 
 It can be used on a digital or analog port, as the analog inputs can also be used as digital outputs.
 
-An example using [tone](/reference/device-os/api/advanced-i-o/tone/) (PWM) to play a melody can be found [here](https://go.particle.io/shared_apps/5bc52086cb4e858acf001098). Not every pin is PWM compatible, so make sure you use a port that supports PWM.
+An example using [tone](/reference/device-os/api/input-output-advanced/tone/) (PWM) to play a melody can be found [here](https://go.particle.io/shared_apps/5bc52086cb4e858acf001098). Not every pin is PWM compatible, so make sure you use a port that supports PWM.
 
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-Buzzer/)
 

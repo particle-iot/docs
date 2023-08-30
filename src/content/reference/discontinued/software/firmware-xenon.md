@@ -14040,7 +14040,7 @@ waitUntil(Cellular.ready);
 ```
 {{/if}}
 
-Note: `waitUntil` does not tickle the [application watchdog](/reference/device-os/api/application-watchdog/application-watchdog/). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitUntil` does not tickle the [application watchdog](/reference/device-os/api/watchdog-application/watchdog-application/). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 
 #### waitFor()
@@ -14066,7 +14066,7 @@ if (waitFor(notConnected, 10000)) {
 }
 ```
 
-Note: `waitFor` does not tickle the [application watchdog](/reference/device-os/api/application-watchdog/application-watchdog/). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitFor` does not tickle the [application watchdog](/reference/device-os/api/watchdog-application/watchdog-application/). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 
 {{/if}} {{!-- has-threading --}}

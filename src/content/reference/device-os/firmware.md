@@ -1132,7 +1132,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
-It will also update the [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/) timer using `ApplicationWatchdog::checkin()`.
+It will also update the [ApplicationWatchdog](/reference/device-os/api/watchdog-application/watchdog-application/) timer using `ApplicationWatchdog::checkin()`.
 
 ### Particle.syncTime()
 
@@ -5758,7 +5758,7 @@ void loop()
 
 ```
 
-## Advanced I/O
+## Input/Output - Advanced
 
 ### tone()
 
@@ -15502,7 +15502,7 @@ Time.isValid();
 Used to check if current time is valid. This function will return `true` if:
 - Time has been set manually using [`Time.setTime()`](#settime-)
 - Time has been successfully synchronized with the Particle Device Cloud. The device synchronizes time with the Particle Device Cloud during the handshake. The application may also manually synchronize time with Particle Device Cloud using [`Particle.syncTime()`](#particle-synctime-)
-- Correct time has been maintained by RTC. See information on [`Backup RAM (SRAM)`](#backup-ram-sram-) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.
+- Correct time has been maintained by RTC. See information on [`Backup RAM (SRAM)`](#retained-memory) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.
 
 **NOTE:** When the device is running in `AUTOMATIC` mode and threading is disabled this function will block if current time is not valid and there is an active connection to Particle Device Cloud. Once it synchronizes the time with Particle Device Cloud or the connection to Particle Device Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
 
@@ -16035,7 +16035,7 @@ if (timer.isActive()) {
 }
 ```
 
-## Hardware watchdog
+## Watchdog - Hardware
 
 {{since when="5.3.0"}}
 
@@ -16176,15 +16176,17 @@ nRF52 platform (Boron, B Series SoM, Argon, Tracker SoM): The `onExpired()` call
 
 Due to the limitations of `onExpired()` and the difference between platforms, we recommed not using this feature.
 
-## Application watchdog
+## Watchdog - Application
 
 {{since when="0.5.0"}}
 
 A **Watchdog Timer** is designed to rescue your device should an unexpected problem prevent code from running. This could be the device locking or or freezing due to a bug in code, accessing a shared resource incorrectly, corrupting memory, and other causes.
 
-Device OS includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations. In practice, the application watchdog is rarely effective.
+Device OS includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/watchdog-application/watchdog-application/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations. In practice, the application watchdog is rarely effective.
 
-The application note [AN023 Watchdog Timers](/hardware/best-practices/watchdog-timers/) has information about hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
+Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B Series SoM, Argon, Tracker SoM, E404X) and RTL827x (P2, Photon 2) can use the [hardware watchdog](#watchdog-hardware) built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode. Using this, instead of the application watchdog, is recommended.
+
+The page on [watchdog timers](/hardware/best-practices/watchdog-timers/) has information about external hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 
 ```cpp
 // PROTOTYPES
@@ -16600,7 +16602,7 @@ each individual address. Instead, the page suffers wear when it is filled.
 
 Each write containing changed values will add more data to the page until it is full, causing a page erase.  When writing unchanged data, there is no flash wear, but there is a penalty in CPU cycles. Try not write to EEPROM every loop() iteration to avoid unnecessary CPU cycle penalties. 
 
-Backup RAM may be a better storage solution for quickly changing values, see [Backup RAM (SRAM)](#backup-ram-sram-)).
+Backup RAM may be a better storage solution for quickly changing values, see [Backup RAM (SRAM)](#retained-memory)).
 
 The EEPROM functions can be used to store small amounts of data in Flash that
 will persist even after the device resets after a deep sleep or is powered off.
@@ -16834,9 +16836,9 @@ pause any time `put()` or `write()` is called.
 
 
 
-## Backup RAM (SRAM)
+## Retained memory
 
-{{api name1="retained"}}
+{{api name1="retained" name2="Backup RAM" name3="SRAM" name4="Static RAM"}}
 
 {{note op="start" type="gen3"}}
 A 3068 bytes section of backup RAM is provided for storing values that are maintained across system reset and hibernate sleep mode. Unlike EEPROM emulation, the backup RAM can be accessed at the same speed as regular RAM and does not have any wear limitations.
@@ -19038,7 +19040,7 @@ waitUntil(Cellular.ready);
 
 To delay the application indefinitely until the condition is met.
 
-Note: `waitUntil` does not tickle the [application watchdog](#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitUntil` does not tickle the [application watchdog](#watchdog-application). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 ---
 
@@ -19061,7 +19063,7 @@ Log.info("disconnected");
 
 To delay the application indefinitely until the condition is not met (value of condition is false)
 
-Note: `waitUntilNot` does not tickle the [application watchdog](#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitUntilNot` does not tickle the [application watchdog](#watchdog-application). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 ---
 
@@ -19091,7 +19093,7 @@ if (waitFor(notConnected, 10000)) {
 
 To delay the application only for a period of time or the condition is met.
 
-Note: `waitFor` does not tickle the [application watchdog](#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitFor` does not tickle the [application watchdog](#watchdog-application). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 ---
 
@@ -19113,7 +19115,7 @@ if (waitForNot(Particle.connected, 10000)) {
 
 To delay the application only for a period of time or the condition is not met (value of condition is false)
 
-Note: `waitForNot` does not tickle the [application watchdog](#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitForNot` does not tickle the [application watchdog](#watchdog-application). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 
 ## System calls
@@ -21271,7 +21273,7 @@ It's always best to check for features, but it is possible to check for a specif
 
 You can find a complete list of platforms in [the source](https://github.com/particle-iot/device-os/blob/develop/hal/shared/platforms.h).
 
-## Arduino Compatibility
+## Language - Arduino Compatibility
 
 All versions of Particle firmware to date have supported parts of the [Arduino API](https://www.arduino.cc/reference/en), such as `digitalRead`, `Serial` and `String`.
 

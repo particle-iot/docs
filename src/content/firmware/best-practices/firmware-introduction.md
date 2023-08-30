@@ -387,7 +387,7 @@ A few of the locations that are **not** ISRs:
 - [Calculated variable handlers](/reference/device-os/api/cloud-functions/particle-variable-calculated/) are called from the loop thread.
 - [Subscription handlers](/reference/device-os/api/cloud-functions/particle-subscribe/) are called from the loop thread, however you cannot `Particle.publish` from a subscription handler.
 - [Serial events](/reference/device-os/api/serial/serialevent/) are called from the loop thread.
-- [Application watchdog callback](/reference/device-os/api/application-watchdog/application-watchdog/) but the device is probably unstable when it is called.
+- [Application watchdog callback](/reference/device-os/api/watchdog-application/watchdog-application/) but the device is probably unstable when it is called.
 
 In old versions of Device OS, allocating memory from an ISR would proceed, except randomly corrupt memory, often causing the device to crash later for completely unrelated reasons. Newer versions of Device OS will panic immediately, which makes it seem like code that previously worked no longer works on newer versions of Device OS, but really this is an improvement over randomly failing later.
 
