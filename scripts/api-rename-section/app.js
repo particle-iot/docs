@@ -55,11 +55,11 @@ function sortJson(obj) {
 async function run() {
     let options = {};
 
-    options.oldSectionName = 'Backup RAM (SRAM)'; // await helper.question('Existing section name?');            
+    options.oldSectionName = await helper.question('Existing section name?');            
     options.oldAnchor = nameToAnchor(options.oldSectionName);
     options.oldFilename = options.oldAnchor.replace(/[-]+$/g, '');
 
-    options.newSectionName = 'Retained memory'; // await helper.question('New section name?');            
+    options.newSectionName = await helper.question('New section name?');            
     options.newAnchor = nameToAnchor(options.newSectionName);
     options.newFilename = options.newAnchor.replace(/[-]+$/g, '');
 
