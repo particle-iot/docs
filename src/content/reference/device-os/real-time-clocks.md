@@ -36,7 +36,7 @@ Another important difference is that some Gen 2 devices support the VBAT input. 
 - Connect VBAT to a lithium coin cell battery to always power the RTC.
 - Connect VBAT to GND to not power the RTC at all when the MCU is not powered.
 
-It's somewhat counter-intuitive that you connect VBAT to GND on the Photon, however if you leave it floating it's possible that when you power up a Photon from a completely discharged state, [retained memory](/reference/device-os/api/backup-ram-sram/backup-ram-sram/) will not be initialized. If you connect VBAT to GND the MCU is able to detect a completely cold boot and initialize retained memory.
+It's somewhat counter-intuitive that you connect VBAT to GND on the Photon, however if you leave it floating it's possible that when you power up a Photon from a completely discharged state, [retained memory](/reference/device-os/api/retained-memory/retained-memory/) will not be initialized. If you connect VBAT to GND the MCU is able to detect a completely cold boot and initialize retained memory.
 
 The same is true for the P0 and P1.
 
