@@ -21273,7 +21273,7 @@ It's always best to check for features, but it is possible to check for a specif
 
 You can find a complete list of platforms in [the source](https://github.com/particle-iot/device-os/blob/develop/hal/shared/platforms.h).
 
-## Arduino Compatibility
+## Language - Arduino Compatibility
 
 All versions of Particle firmware to date have supported parts of the [Arduino API](https://www.arduino.cc/reference/en), such as `digitalRead`, `Serial` and `String`.
 
