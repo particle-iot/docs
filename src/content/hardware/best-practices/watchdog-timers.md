@@ -15,7 +15,7 @@ A **Watchdog Timer** is designed to rescue your device should an unexpected prob
 
 On Gen 3 devices using Device OS 5.3.0 and later, it is possible to enable the hardware watchdog timer in the nRF52840 or RTL827x MCU. This is available when running in normal operating mode, and is not used in DFU or safe mode. See [hardware watchdog](/reference/device-os/api/hardware-watchdog/hardware-watchdog/) for more information.
 
-Device OS also includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
+Device OS also includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/watchdog-application/watchdog-application/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
 
 
 This application note will discuss two different watchdog timer implementations:

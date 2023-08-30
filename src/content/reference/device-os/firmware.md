@@ -1132,7 +1132,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
-It will also update the [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/) timer using `ApplicationWatchdog::checkin()`.
+It will also update the [ApplicationWatchdog](/reference/device-os/api/watchdog-application/watchdog-application/) timer using `ApplicationWatchdog::checkin()`.
 
 ### Particle.syncTime()
 
@@ -5758,7 +5758,7 @@ void loop()
 
 ```
 
-## Advanced I/O
+## Input/Output - Advanced
 
 ### tone()
 
@@ -16035,7 +16035,7 @@ if (timer.isActive()) {
 }
 ```
 
-## Hardware watchdog
+## Watchdog - Hardware
 
 {{since when="5.3.0"}}
 
@@ -16176,15 +16176,17 @@ nRF52 platform (Boron, B Series SoM, Argon, Tracker SoM): The `onExpired()` call
 
 Due to the limitations of `onExpired()` and the difference between platforms, we recommed not using this feature.
 
-## Application watchdog
+## Watchdog - Application
 
 {{since when="0.5.0"}}
 
 A **Watchdog Timer** is designed to rescue your device should an unexpected problem prevent code from running. This could be the device locking or or freezing due to a bug in code, accessing a shared resource incorrectly, corrupting memory, and other causes.
 
-Device OS includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations. In practice, the application watchdog is rarely effective.
+Device OS includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/watchdog-application/watchdog-application/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations. In practice, the application watchdog is rarely effective.
 
-The application note [AN023 Watchdog Timers](/hardware/best-practices/watchdog-timers/) has information about hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
+Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B Series SoM, Argon, Tracker SoM, E404X) and RTL827x (P2, Photon 2) can use the [hardware watchdog](#watchdog-hardware) built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode. Using this, instead of the application watchdog, is recommended.
+
+The page on [watchdog timers](/hardware/best-practices/watchdog-timers/) has information about external hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 
 ```cpp
 // PROTOTYPES
@@ -19038,7 +19040,7 @@ waitUntil(Cellular.ready);
 
 To delay the application indefinitely until the condition is met.
 
-Note: `waitUntil` does not tickle the [application watchdog](#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitUntil` does not tickle the [application watchdog](#watchdog-application). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 ---
 
@@ -19061,7 +19063,7 @@ Log.info("disconnected");
 
 To delay the application indefinitely until the condition is not met (value of condition is false)
 
-Note: `waitUntilNot` does not tickle the [application watchdog](#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitUntilNot` does not tickle the [application watchdog](#watchdog-application). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 ---
 
@@ -19091,7 +19093,7 @@ if (waitFor(notConnected, 10000)) {
 
 To delay the application only for a period of time or the condition is met.
 
-Note: `waitFor` does not tickle the [application watchdog](#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitFor` does not tickle the [application watchdog](#watchdog-application). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 ---
 
@@ -19113,7 +19115,7 @@ if (waitForNot(Particle.connected, 10000)) {
 
 To delay the application only for a period of time or the condition is not met (value of condition is false)
 
-Note: `waitForNot` does not tickle the [application watchdog](#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitForNot` does not tickle the [application watchdog](#watchdog-application). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 
 ## System calls
