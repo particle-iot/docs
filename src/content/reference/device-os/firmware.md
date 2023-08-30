@@ -15502,7 +15502,7 @@ Time.isValid();
 Used to check if current time is valid. This function will return `true` if:
 - Time has been set manually using [`Time.setTime()`](#settime-)
 - Time has been successfully synchronized with the Particle Device Cloud. The device synchronizes time with the Particle Device Cloud during the handshake. The application may also manually synchronize time with Particle Device Cloud using [`Particle.syncTime()`](#particle-synctime-)
-- Correct time has been maintained by RTC. See information on [`Backup RAM (SRAM)`](#backup-ram-sram-) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.
+- Correct time has been maintained by RTC. See information on [`Backup RAM (SRAM)`](#retained-memory) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.
 
 **NOTE:** When the device is running in `AUTOMATIC` mode and threading is disabled this function will block if current time is not valid and there is an active connection to Particle Device Cloud. Once it synchronizes the time with Particle Device Cloud or the connection to Particle Device Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
 
@@ -16602,7 +16602,7 @@ each individual address. Instead, the page suffers wear when it is filled.
 
 Each write containing changed values will add more data to the page until it is full, causing a page erase.  When writing unchanged data, there is no flash wear, but there is a penalty in CPU cycles. Try not write to EEPROM every loop() iteration to avoid unnecessary CPU cycle penalties. 
 
-Backup RAM may be a better storage solution for quickly changing values, see [Backup RAM (SRAM)](#backup-ram-sram-)).
+Backup RAM may be a better storage solution for quickly changing values, see [Backup RAM (SRAM)](#retained-memory)).
 
 The EEPROM functions can be used to store small amounts of data in Flash that
 will persist even after the device resets after a deep sleep or is powered off.
@@ -16836,9 +16836,9 @@ pause any time `put()` or `write()` is called.
 
 
 
-## Backup RAM (SRAM)
+## Retained memory
 
-{{api name1="retained"}}
+{{api name1="retained" name2="Backup RAM" name3="SRAM" name4="Static RAM"}}
 
 {{note op="start" type="gen3"}}
 A 3068 bytes section of backup RAM is provided for storing values that are maintained across system reset and hibernate sleep mode. Unlike EEPROM emulation, the backup RAM can be accessed at the same speed as regular RAM and does not have any wear limitations.

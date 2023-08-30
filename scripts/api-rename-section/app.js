@@ -55,11 +55,11 @@ function sortJson(obj) {
 async function run() {
     let options = {};
 
-    options.oldSectionName = 'Arduino Compatibility'; // await helper.question('Existing section name?');            
+    options.oldSectionName = 'Backup RAM (SRAM)'; // await helper.question('Existing section name?');            
     options.oldAnchor = nameToAnchor(options.oldSectionName);
     options.oldFilename = options.oldAnchor.replace(/[-]+$/g, '');
 
-    options.newSectionName = 'Language - Arduino Compatibility'; // await helper.question('New section name?');            
+    options.newSectionName = 'Retained memory'; // await helper.question('New section name?');            
     options.newAnchor = nameToAnchor(options.newSectionName);
     options.newFilename = options.newAnchor.replace(/[-]+$/g, '');
 
@@ -99,6 +99,12 @@ async function run() {
         const page = cardMappingJson[key];
         if (page.startsWith(apiPathPrefix + options.oldFilename)) {
             cardMappingJson[key] = page.replaceAll(options.oldFilename, options.newFilename);
+
+            let newNoTrailingSlash = cardMappingJson[key];
+            if (newNoTrailingSlash.substring(newNoTrailingSlash.length - 1) == '/') {
+                newNoTrailingSlash = newNoTrailingSlash.substring(0, newNoTrailingSlash.length - 1);
+            }
+            redirectsJson[page] = newNoTrailingSlash;
         }
     }
     if (!dryRun) {        
