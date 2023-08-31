@@ -78,6 +78,7 @@ Including assets is as easy as including an directory in your project, specifyin
 The compression algorithm is similar to gzip, so using a gzip program on the assets folder on your computer will yield the approximate size after compression.
 {{!-- END shared-blurb --}}
 
+{{!-- BEGIN shared-blurb 1b35c174-a08c-40f8-8a02-5d25f11b95c4 --}}
 - Particle Workbench and the Particle CLI will automatically generated bundled assets when the `project.properties` file contains an `assetOtaDir` key and a value containing a valid directory.
 
 ```
@@ -90,6 +91,8 @@ assetOtaDir=assets
 - When flashing OTA, the asset bundle is transmitted using resumable OTA and compression for efficient data use.
 - You will need to include code in your application firmware to process the additional assets, such as sending them to a coprocessor or saving them to the file system.
 - Creating bundled assets will not be not possible in the Web IDE. Particle Workbench is recommended.
+
+{{!-- END shared-blurb --}}
 
 The application can register a callback using `System.onAssetOta(handler)` that will be called by Device OS when the device has received all the bundled assets. For more information, see the [Asset OTA Device OS API](/reference/device-os/api/asset-ota/asset-ota/).
 

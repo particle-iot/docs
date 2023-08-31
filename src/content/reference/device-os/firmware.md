@@ -19575,6 +19575,21 @@ STARTUP(System.onAssetOta(handleAssets));
 
 See [`ApplicationAsset`](#applicationasset) class for using the vector of application asset objects passed to your callback function and additional information on Asset OTA.
 
+{{!-- BEGIN shared-blurb 1b35c174-a08c-40f8-8a02-5d25f11b95c4 --}}
+- Particle Workbench and the Particle CLI will automatically generated bundled assets when the `project.properties` file contains an `assetOtaDir` key and a value containing a valid directory.
+
+```
+assetOtaDir=assets
+```
+
+- When using **Particle: Compile Application** or `particle compile` projects with bundled assets are built into a .zip file. This file contains both the firmware binary (.bin) as well as the assets. 
+- The asset bundle .zip can be uploaded to the console as product firmware binary.
+- When using **Particle: Flash application** or `particle flash` the same process is followed, except the device is flashed.
+- When flashing OTA, the asset bundle is transmitted using resumable OTA and compression for efficient data use.
+- You will need to include code in your application firmware to process the additional assets, such as sending them to a coprocessor or saving them to the file system.
+- Creating bundled assets will not be not possible in the Web IDE. Particle Workbench is recommended.
+
+{{!-- END shared-blurb --}}
 
 ### assetsHandled - System
 
