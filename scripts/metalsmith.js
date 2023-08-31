@@ -52,7 +52,6 @@ var sitemap = require('./sitemap.js');
 var buildZip = require('./buildZip.js');
 var carriersUpdate = require('./carriers-update/carriers-update.js');
 var pinmapDiagram = require('./pinmap-diagram/pinmap-diagram.js');
-var trackerEdge = require('./tracker-edge.js');
 var trackerSchema = require('./tracker-schema.js');
 var deviceOsApi = require('./device-os-api.js');
 var libraries = require('./libraries.js');
@@ -121,13 +120,6 @@ exports.metalsmith = function () {
           'test-schema'
         ]
     })))
-    .use(msIf(
-      environment === 'development',
-      trackerEdge({
-        sourceDir: '../src',
-        trackerDir: 'assets/files/tracker',
-        jsonFile: 'trackerEdgeVersions.json'
-      })))
     .use(msIf(
       environment === 'development',
       systemVersion({

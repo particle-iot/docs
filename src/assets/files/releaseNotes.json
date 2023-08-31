@@ -27067,6 +27067,252 @@
                 2682,
                 2684
             ]
+        },
+        "v5.5.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.5.0",
+            "tag_name": "v5.5.0",
+            "name": "v5.5.0 (Argon/Boron/B SoM/B5 SoM/Tracker/Tracker M/E SoM X/M SoM/P2)",
+            "prerelease": true,
+            "created_at": "2023-08-29T18:09:15Z",
+            "published_at": "2023-08-31T14:58:01Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2668
+                    ],
+                    "section": "FEATURES",
+                    "text": "Asset OTA"
+                },
+                {
+                    "tags": [
+                        "M SoM"
+                    ],
+                    "prs": [
+                        2681
+                    ],
+                    "section": "FEATURES",
+                    "text": "Platform support"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2673
+                    ],
+                    "section": "FEATURES",
+                    "text": "Experimental WPA3 support"
+                },
+                {
+                    "tags": [
+                        "WiFi"
+                    ],
+                    "prs": [
+                        2673
+                    ],
+                    "section": "FEATURES",
+                    "text": "Hidden SSID support"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2680
+                    ],
+                    "section": "FEATURES",
+                    "text": "GPIO drive strength configuration support"
+                },
+                {
+                    "tags": [
+                        "WiFi"
+                    ],
+                    "prs": [
+                        2669
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "WiFI interface power state notifications"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2677
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Improve `SPI1` (P2 / Tracker M) and `SPI` (M SoM) behavior at 50MHz by changing RXD sample delay"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2672
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Improve USB Serial TX performance"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2674
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Enables UPSV=1 low power mode for R510 when idle for >=9.2s"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2680
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Fix logic level overshoot on SPI, I2C, PWM pins"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2684
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Revert the QSPI flash speed to 80MHz"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2688
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Update the key used for validating the ServerMoved signature"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2686
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "remove the delay in UART flush()"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2671
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix incorrect I2C read timeout"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2667
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Do not initialize RTC after waking up from HIBERNATE sleep"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2666
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Disable pull resistors when pin is configure as `OUTPUT`"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2666
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Disable SWDIO/SWDCLK pins when going into sleep"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2679
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Disable brown-out detector"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2682
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Avoid glitch on I2C pins when reconfiguring I2C peripheral"
+                },
+                {
+                    "tags": [
+                        "msom"
+                    ],
+                    "prs": [
+                        2690
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix ethernet cs, reset, interrupt GPIO pins for M2 eval"
+                },
+                {
+                    "tags": [
+                        "WiFi"
+                    ],
+                    "prs": [
+                        2669
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Resolve `wiring/sleep20` test failures"
+                },
+                {
+                    "tags": [
+                        "nrf52840"
+                    ],
+                    "prs": [
+                        2662
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Add factory reset test (`ota/factory_reset`)"
+                }
+            ],
+            "prs": [
+                2662,
+                2666,
+                2667,
+                2668,
+                2669,
+                2671,
+                2672,
+                2673,
+                2674,
+                2677,
+                2679,
+                2680,
+                2681,
+                2682,
+                2684,
+                2686,
+                2688,
+                2690
+            ]
         }
     },
     "pulls": {
@@ -39763,6 +40009,29 @@
             "title": "Update the key used for validating the ServerMoved signature",
             "state": "closed",
             "created_at": "2023-08-18T13:51:53Z"
+        },
+        "2689": {
+            "url": "https://github.com/particle-iot/device-os/pull/2689",
+            "number": 2689,
+            "title": "Network Interface Tester First Draft",
+            "state": "open",
+            "created_at": "2023-08-24T22:50:19Z",
+            "detail": "We need to determine the quality of the various network connections available on the msom platform. We should exercise them and gather relevant metrics to inform that decision"
+        },
+        "2690": {
+            "url": "https://github.com/particle-iot/device-os/pull/2690",
+            "number": 2690,
+            "title": "[msom] Fix ethernet cs, reset, interrupt GPIO pins for M2 eval",
+            "state": "closed",
+            "created_at": "2023-08-25T18:43:08Z",
+            "detail": "GPIO pins for ethernet on msom platform were not updated to match M2 eval board pinout"
+        },
+        "2691": {
+            "url": "https://github.com/particle-iot/device-os/pull/2691",
+            "number": 2691,
+            "title": "Device OS 5.5.0 Changelog",
+            "state": "closed",
+            "created_at": "2023-08-29T18:13:47Z"
         }
     }
 }
