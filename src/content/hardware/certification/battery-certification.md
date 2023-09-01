@@ -28,3 +28,13 @@ You can find more battery information in the [battery tutorial](/hardware/power/
 **Test Reports**: 
 - [IEC62133](/assets/pdfs/tracker-one-battery.pdf)
 
+## Monitor One
+
+- Lithium-ion cylindrical rechargeable battery
+- Model: 18650-4P
+- Description: Single cell with PCM
+- Battery capacity: 12200 mAh
+- Batter voltage : 3.7 VDC (nominal)
+- Manufacturer: Guangdong Zhaoeng Technology Co., Ltd. (Guangdong, China)
+- [Datasheet](/assets/datasheets/ZN18650-4P.pdf)
+

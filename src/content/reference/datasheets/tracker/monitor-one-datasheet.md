@@ -814,6 +814,16 @@ By disconnecting the VIN power supply, it reduces the current used by the VIN an
 
 To be provided at a later date.
 
+### Battery specifications
+
+- Lithium-ion cylindrical rechargeable battery
+- Model: 18650-4P
+- Description: Single cell with PCM
+- Battery capacity: 12200 mAh
+- Batter voltage : 3.7 VDC (nominal)
+- Manufacturer: Guangdong Zhaoeng Technology Co., Ltd. (Guangdong, China)
+- [Datasheet](/assets/datasheets/ZN18650-4P.pdf)
+
 
 ## Country compatibility
 
@@ -867,3 +877,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2023-06-13 | RK | Add Prototype Card, update card names |
 | 2023-06-20 | RK | Added photos |
 | 2023-07-17 | RK | Link to quick start, screw sizes |
+| 2023-09-01 | RK | Added battery specifications |
