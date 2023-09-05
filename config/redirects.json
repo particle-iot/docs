@@ -22,6 +22,7 @@
   "/cards/firmware/asset-ota/applicationasset": "/reference/device-os/api/asset-ota/applicationasset",
   "/cards/firmware/asset-ota/asset-ota": "/reference/device-os/api/asset-ota/asset-ota",
   "/cards/firmware/asset-ota/assethash": "/reference/device-os/api/asset-ota/assethash",
+  "/cards/firmware/asset-ota/maximum-asset-sizes": "/reference/device-os/api/asset-ota/maximum-asset-sizes",
   "/cards/firmware/backup-ram-sram": "/reference/device-os/api/retained-memory/retained-memory",
   "/cards/firmware/backup-ram-sram/backup-ram-sram": "/reference/device-os/api/retained-memory/retained-memory",
   "/cards/firmware/backup-ram-sram/dynamically-allocated-objects": "/reference/device-os/api/retained-memory/dynamically-allocated-objects",
