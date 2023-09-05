@@ -4372,6 +4372,15 @@ Serial.println(sig.qual);
 
 {{since when="0.5.0"}}
 
+---
+
+{{note op="start" type="gen2"}}
+Band available and band select APIs are only available on Gen 2 (Electron and E Series), and only for 2G/3G, not LTE Cat M1.
+{{note op="end"}}
+
+---
+
+
 Gets the cellular bands currently available in the modem.  `Bands` are the carrier frequencies used to communicate with the cellular network.  Some modems have 2 bands available (U260/U270) and others have 4 bands (G350).
 
 To use the band select API, an instance of the `CellularBand` type needs to be created to read or set bands.  All band select API functions and the CellularBand object itself return `bool` - `true` indicating the last operation was successful and the CellularBand object was updated. For set and get functions, `CellularBand` is passed by reference `Cellular.getBandSelect(CellularBand&);` and updated by the function.  There is 1 array, 1 integer, 1 boolean and 1 helper function within the CellularBand object:
@@ -4426,19 +4435,20 @@ else {
 }
 ```
 
----
-
-{{note op="start" type="gen2"}}
-Band available and band select APIs are only available on Gen 2 cellular devices (Electron and E Series)
-{{note op="end"}}
-
----
 
 ### getBandSelect()
 
 {{api name1="Cellular::getBandSelect"}}
 
 {{since when="0.5.0"}}
+
+---
+
+{{note op="start" type="gen2"}}
+Band available and band select APIs are only available on Gen 2 (Electron and E Series), and only for 2G/3G, not LTE Cat M1.
+{{note op="end"}}
+
+---
 
 Gets the cellular bands currently set in the modem.  `Bands` are the carrier frequencies used to communicate with the cellular network.
 
@@ -4468,19 +4478,20 @@ else {
 }
 ```
 
----
-
-{{note op="start" type="gen2"}}
-Band available and band select APIs are only available on Gen 2 cellular devices (Electron and E Series).
-{{note op="end"}}
-
----
-
 ### setBandSelect()
 
 {{api name1="Cellular::setBandSelect"}}
 
 {{since when="0.5.0"}}
+
+---
+
+{{note op="start" type="gen2"}}
+Band available and band select APIs are only available on Gen 2 (Electron and E Series), and only for 2G/3G, not LTE Cat M1.
+{{note op="end"}}
+
+---
+
 Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequencies used to communicate with the cellular network.
 
 **Caution:** The Band Select API is an advanced feature designed to give users selective frequency control over their device. When changing location or between cell towers, you may experience connectivity issues if you have only set one specific frequency for use. Because these settings are permanently saved in non-volatile memory, it is recommended to keep the factory default value of including all frequencies with mobile applications.  Only use the selective frequency control for stationary applications, or for special use cases.
@@ -4549,14 +4560,6 @@ else {
     Serial.println("Restoring factory defaults failed!");
 }
 ```
-
----
-
-{{note op="start" type="gen2"}}
-Band available and band select APIs are only available on Gen 2 cellular devices (Electron and E Series).
-{{note op="end"}}
-
----
 
 ### resolve()
 
