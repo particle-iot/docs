@@ -58,7 +58,7 @@ $ particle list
 
 Checking with the cloud...
 Retrieving devices... (this might take a few seconds)
-my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
+my_device_name (0123456789abcdef78901234) 0 variables, and 4 functions
   Functions:
     int digitalWrite(string)
     int digitalRead(string)
@@ -74,7 +74,7 @@ my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ```sh
 # how to call a function on your device
-$ particle call 0123456789ABCDEFGHI digitalWrite "D7,HIGH"
+$ particle call 0123456789abcdef78901234 digitalWrite "D7,HIGH"
 1
 ```
 
@@ -92,7 +92,7 @@ $ particle call 0123456789abcdef01234567 brew --product 12345
 
 ```sh
 # how to get a variable value from a device
-$ particle get 0123456789ABCDEFGHI temperature
+$ particle get 0123456789abcdef78901234 temperature
 72.1
 ```
 
@@ -115,9 +115,9 @@ $ particle get 0123456789abcdef01234567 temperature --product 12345
 
 ```sh
 # how to add a new device to your account
-$ particle device add 0123456789ABCDEFGHI
-Claiming device 0123456789ABCDEFGHI
-Successfully claimed device 0123456789ABCDEFGHI
+$ particle device add 0123456789abcdef78901234
+Claiming device 0123456789abcdef78901234
+Successfully claimed device 0123456789abcdef78901234
 ```
 
 
@@ -127,7 +127,7 @@ Successfully claimed device 0123456789ABCDEFGHI
 
 ```sh
 # how to change the name of your device
-$ particle device rename 0123456789ABCDEFGHI "pirate frosting"
+$ particle device rename 0123456789abcdef78901234 "pirate frosting"
 ```
 
 
@@ -137,9 +137,9 @@ $ particle device rename 0123456789ABCDEFGHI "pirate frosting"
 
 ```sh
 # how to remove a device from your account
-$ particle device remove 0123456789ABCDEFGHI
+$ particle device remove 0123456789abcdef78901234
 Are you sure?  Please Type yes to continue: yes
-releasing device 0123456789ABCDEFGHI
+releasing device 0123456789abcdef78901234
 server said  { ok: true }
 Okay!
 ```
@@ -185,20 +185,20 @@ _NOTE: Currently, only Gen2 devices are supported_
 
 ```sh
 # how to compile and flash a directory of source code to your device
-$ particle flash 0123456789ABCDEFGHI my_project
+$ particle flash 0123456789abcdef78901234 my_project
 ```
 
 More commonly, you will be in the directory containing your `project.properties` file and instead use `.`, which is the current directory.
 
 ```sh
 $ cd my_project
-$ particle flash 0123456789ABCDEFGHI .
+$ particle flash 0123456789abcdef78901234 .
 ```
 
 You can also target a specific version of Device OS in the `particle flash` command:
 
 ```sh
-$ particle flash 0123456789ABCDEFGHI . --target 5.3.1
+$ particle flash 0123456789abcdef78901234 . --target 5.3.1
 ```
 
 #### Flashing a directory with assets
@@ -223,13 +223,29 @@ my_project/
 You can flash a binary that you have previously compiled to a .bin file:
 
 ```sh
-$ particle flash 0123456789ABCDEFGHI firmware.bin
+$ particle flash 0123456789abcdef78901234 firmware.bin
 ```
 
 You can also flash a pre-compiled binary with assets in a .zip file:
 
 ```sh
-$ particle flash 0123456789ABCDEFGHI product.zip
+$ particle flash 0123456789abcdef78901234 product.zip
+```
+
+### Flashing a pre-compiled binary over USB
+
+You can flash a binary that you have previously compiled to a .bin file over USB. The device will be put into DFU mode automatically, if necessary.
+
+```sh
+$ particle flash --local firmware.bin
+$ particle flash --local product.zip
+```
+
+If there are multiple devices connected by USB, you can specify the device for `--local` by device ID or device name:
+
+```sh
+$ particle flash --local wandering-ferret firmware.bin
+$ particle flash --local 0123456789abcdef78901234 firmware.bin
 ```
 
 ### Flashing one or more source files
@@ -238,7 +254,7 @@ You can include any number of individual source files after the device Name, and
 
 ```sh
 # how to compile and flash a list of source files to your device
-$ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
+$ particle flash 0123456789abcdef78901234 app.ino library1.cpp library1.h
 ```
 
 Note that the CLI since 1.9.0 has support for firmware libraries via the [particle library](#particle-library)
@@ -259,7 +275,7 @@ version on your device, try a release candidate version, or switch between LTS a
 
 ```sh
 # compile your application with the 5.3.1 Device OS version and flash it
-$ particle flash --target 5.3.1 0123456789ABCDEFGHI my_project
+$ particle flash --target 5.3.1 0123456789abcdef78901234 my_project
 ```
 
 A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
@@ -432,7 +448,7 @@ $ particle compile p2 . --saveTo firmware.bin
 You can also target a specific version of Device OS in the `particle flash` command:
 
 ```sh
-$ particle flash 0123456789ABCDEFGHI . --target 5.3.1
+$ particle flash 0123456789abcdef78901234 . --target 5.3.1
 ```
 
 While compiling source code using the cloud compiler there are limits:
@@ -675,7 +691,7 @@ webhook parameters, see the [REST API documentation](/reference/cloud-apis/api/#
 
 ```sh
 $ particle webhook create temperature https://mysite.com
-$ particle webhook create temperature https://mysite.com 0123456789ABCDEFGHI
+$ particle webhook create temperature https://mysite.com 0123456789abcdef78901234
 $ particle webhook create webhook.json
 ```
 
@@ -756,8 +772,8 @@ deleting 58889c1113e45f1b69be21b7
 
 ```sh
 # how to poll for a variable value from one or more devices continuously
-$ particle monitor 0123456789ABCDEFGHI temperature 5000
-$ particle monitor 0123456789ABCDEFGHI temperature 5000 --time
+$ particle monitor 0123456789abcdef78901234 temperature 5000
+$ particle monitor 0123456789abcdef78901234 temperature 5000 --time
 $ particle monitor all temperature 5000
 $ particle monitor all temperature 5000 --time
 $ particle monitor all temperature 5000 --time > my_temperatures.csv
@@ -776,7 +792,7 @@ $ particle identify --port 1
 $ particle identify --port COM3
 $ particle identify --port /dev/cu.usbmodem12345
 
-$ particle identify 0123456789ABCDEFGHI
+$ particle identify 0123456789abcdef78901234
 ```
 
 
@@ -791,7 +807,7 @@ Remember that the eventName is a prefix, so if you subscribe to "test" you'll al
 $ particle subscribe
 $ particle subscribe eventName
 $ particle subscribe eventName CoreName
-$ particle subscribe eventName 0123456789ABCDEFGHI
+$ particle subscribe eventName 0123456789abcdef78901234
 ```
 
 ---
@@ -1127,7 +1143,7 @@ Connect your device in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware
 
 ```sh
 # helps repair key issues on a device
-$ particle keys doctor 0123456789ABCDEFGHI
+$ particle keys doctor 0123456789abcdef78901234
 ```
 
 See also [`particle device doctor`](#particle-device-doctor)
@@ -1187,7 +1203,7 @@ Sends a device's public key to the cloud for use in opening an encrypted session
 
 ```sh
 # sends a new public key to the API for use for your device
-$ particle keys send 0123456789ABCDEFGHI device.pub.pem
+$ particle keys send 0123456789abcdef78901234 device.pub.pem
 submitting public key succeeded!
 ```
 

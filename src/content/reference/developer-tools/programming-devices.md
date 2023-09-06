@@ -47,6 +47,13 @@ Including assets is as easy as including an directory in your project, specifyin
 The compression algorithm is similar to gzip, so using a gzip program on the assets folder on your computer will yield the approximate size after compression.
 {{!-- END shared-blurb --}}
 
+## USB (particle flash --local)
+
+In most cases you will be using product firmware that you have built and uploaded to the console. By using the CLI, you can flash your product firmware and Device OS to the device over USB:
+
+```
+particle flash --local firmware.bin --target 4.1.0
+```
 
 ## USB (particle update)
 

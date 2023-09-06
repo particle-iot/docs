@@ -178,7 +178,7 @@ $ particle flash my_new_device_name tinker
 Including:
 /usr/local/lib/node_modules/particle-cli/binaries/particle_tinker.bin
 attempting to flash firmware to your device my_new_device_name
-flash device said  {"id":"0123456789ABCDEFGHI","status":"Update started"}
+flash device said  {"id":"0123456789abcdef78901234","status":"Update started"}
 ```
 
 Let's make sure your device is online and loaded with Tinker.  We should see the four characteristic functions exposed by Tinker, "digitalWrite", "digitalRead", "analogWrite", and "analogRead".
@@ -189,7 +189,7 @@ $ particle list
 
 Checking with the cloud...
 Retrieving devices... (this might take a few seconds)
-my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
+my_device_name (0123456789abcdef78901234) 0 variables, and 4 functions
   Functions:
     int digitalread(String args)
     int digitalwrite(String args)
