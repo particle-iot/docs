@@ -109,7 +109,6 @@ Note the ICCID returned, you will need it in the next step.
 
 - Activate the SIM by going to [Particle Setup](https://setup.particle.io) and selecting the SIM card only option. You'll need the ICCID from the previous step.
 
-- Put the SoM in DFU mode (blinking yellow) by holding down the MODE button on the Evaluation Board and tapping RESET. Continue to hold down the MODE button while the status LED blinks magenta (red and blue at the same time), until it blinks yellow, then release MODE.
 - From a Command Prompt or Terminal window, issue the command:
 
 ```

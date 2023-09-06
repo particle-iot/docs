@@ -401,7 +401,7 @@ Firmware reset is not available on the device, but not to worry! If you are expe
 The [Particle CLI](/getting-started/developer-tools/cli/) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
 
 ```
-particle flash --usb tinker
+particle flash --local tinker
 ```
 {{/if}}
 

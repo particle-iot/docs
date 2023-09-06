@@ -431,7 +431,7 @@ At this point, the device will reboot, but the user firmware binary (tinker) has
 
 ```
 particle usb dfu
-particle flash --usb p2/tinker.bin
+particle flash --local p2/tinker.bin
 ```
 
 ## Argon and Tracker NCP

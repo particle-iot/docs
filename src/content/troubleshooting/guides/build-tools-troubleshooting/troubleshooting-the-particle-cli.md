@@ -95,7 +95,7 @@ When in DFU mode, the Device Manager looks like this: (Note that it may say **Ph
 And when in normal operating mode or listening mode (blinking blue), the Device Manager looks like this:  
     
 ![COM driver](/assets/images/support/installing-dfu-util-23com.png)
-6. If your device is recognized in DFU Mode but not in any other mode, you may need to perform an update to that device in order for it to recognize Serial commands. In order to do so, as always, place the device in DFU Mode (hold down BOTH buttons, then release only the `RESET` button, while holding down the `MODE` button. Wait for the LED to start flashing yellow (it will flash magenta first) and release the `MODE` button once it's flashing yellow). Then run the CLI commands `particle update` followed by `particle flash --usb tinker`.
+6. If your device is recognized in DFU Mode but not in any other mode, you may need to perform an update to that device in order for it to recognize Serial commands. In order to do so, as always, place the device in DFU Mode (hold down BOTH buttons, then release only the `RESET` button, while holding down the `MODE` button. Wait for the LED to start flashing yellow (it will flash magenta first) and release the `MODE` button once it's flashing yellow). Then run the CLI commands `particle update` followed by `particle flash --local tinker`.
 
 ## How to report CLI issues
 

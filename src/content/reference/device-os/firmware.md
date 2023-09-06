@@ -3950,7 +3950,7 @@ You may set credentials in 3 different ways:
 
 The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/getting-started/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
-`particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
+`particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --local firmware.bin`
 
 
 ```cpp
@@ -4015,7 +4015,7 @@ On Gen 2 devices, cellular credentials are not added to the device's non-volatil
 
 The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/getting-started/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
-`particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
+`particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --local firmware.bin`
 
 **Note**: Your device only uses one set of credentials, and they
 must be correctly matched to the SIM card that's used.  If using a
@@ -26245,7 +26245,7 @@ particle update
 
 2) Optionally add Tinker as the user firmware instead of an app that you may currently have running on your device.  Have the device in DFU mode and run:
 
-particle flash --usb tinker
+particle flash --local tinker
 ```
 
 ---
@@ -26431,19 +26431,19 @@ To upgrade Device OS, make sure the device is in [DFU mode](/troubleshooting/led
 The local method over USB using Particle CLI
 
 // Photon
-particle flash --usb system-part1-@FW_VER@-photon.bin
-particle flash --usb system-part2-@FW_VER@-photon.bin
-particle flash --usb tinker (optional)
+particle flash --localal system-part1-@FW_VER@-photon.bin
+particle flash --localal system-part2-@FW_VER@-photon.bin
+particle flash --localalalalal tinker (optional)
 
 // P1
-particle flash --usb system-part1-@FW_VER@-p1.bin
-particle flash --usb system-part2-@FW_VER@-p1.bin
-particle flash --usb tinker (optional)
+particle flash --localal system-part1-@FW_VER@-p1.bin
+particle flash --localal system-part2-@FW_VER@-p1.bin
+particle flash --local tinker (optional)
 
 // Electron
-particle flash --usb system-part1-@FW_VER@-electron.bin
-particle flash --usb system-part2-@FW_VER@-electron.bin
-particle flash --usb tinker (optional)
+particle flash --local system-part1-@FW_VER@-electron.bin
+particle flash --local system-part2-@FW_VER@-electron.bin
+particle flash --local tinker (optional)
 ```
 ##### @ELECTRON_PARTS@2endif
 
@@ -26452,20 +26452,20 @@ particle flash --usb tinker (optional)
 The local method over USB using Particle CLI
 
 // Photon
-particle flash --usb system-part1-@FW_VER@-photon.bin
-particle flash --usb system-part2-@FW_VER@-photon.bin
-particle flash --usb tinker (optional)
+particle flash --local system-part1-@FW_VER@-photon.bin
+particle flash --local system-part2-@FW_VER@-photon.bin
+particle flash --local tinker (optional)
 
 // P1
-particle flash --usb system-part1-@FW_VER@-p1.bin
-particle flash --usb system-part2-@FW_VER@-p1.bin
-particle flash --usb tinker (optional)
+particle flash --local system-part1-@FW_VER@-p1.bin
+particle flash --local system-part2-@FW_VER@-p1.bin
+particle flash --local tinker (optional)
 
 // Electron
-particle flash --usb system-part1-@FW_VER@-electron.bin
-particle flash --usb system-part2-@FW_VER@-electron.bin
-particle flash --usb system-part3-@FW_VER@-electron.bin
-particle flash --usb tinker (optional)
+particle flash --local system-part1-@FW_VER@-electron.bin
+particle flash --local system-part2-@FW_VER@-electron.bin
+particle flash --local system-part3-@FW_VER@-electron.bin
+particle flash --local tinker (optional)
 ```
 ##### @ELECTRON_PARTS@3endif
 
@@ -26546,7 +26546,7 @@ Downgrading from @FW_VER@ to current default firmware
 
 1) Make sure Tinker is installed, instead of a @FW_VER@ app that you may currently have running on your device.  Have the device in DFU mode and run:
 
-particle flash --usb tinker
+particle flash --local tinker
 
 2) Make sure the device is in DFU mode and run:
 

@@ -252,15 +252,17 @@ should always manually target 5.3.1 or later, for example, `--target 5.3.1`, ins
 
 ### Target a specific firmware version for flashing
 
-You can compile and flash your application against a specific firmware version using the `--target` flag. If you don't specify `target` your code will compile against the latest released firmware.
+You can compile and flash your application against a specific firmware version using the `--target` flag. If you don't specify `target` your code will compile against the latest LTS release firmware.
 
 This is useful if you are not ready to upgrade to the latest Device OS
-version on your device or if you want to try a pre-release version.
+version on your device, try a release candidate version, or switch between LTS and developer preview release lines.
 
 ```sh
 # compile your application with the 5.3.1 Device OS version and flash it
 $ particle flash --target 5.3.1 0123456789ABCDEFGHI my_project
 ```
+
+A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
@@ -276,12 +278,30 @@ You can easily reset a device back to a previous existing app with a quick comma
 $ particle flash deviceName tinker
 ```
 
-You can also update the factory reset version using the `--factory` flag, over USB with `--usb`, or over serial using `--serial`.
+You can flash a known app over USB with `--local`. The device will be put into DFU mode, blinking yellow. 
+
+```sh
+$ particle flash --local tinker
+```
+
+Flashing tinker will leave the version of Device OS on your device unchanged. You can, however, set a specific version of Device OS (upgrade or downgrade) using the `--target` option. A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
+
+```sh
+$ particle flash --local tinker --target 5.5.0
+```
+
+In many respects, `particle flash --local tinker --target 5.5.0` and `particle update --target 5.5.0` are similar. The major difference is that `particle update` will update the NCP (network coprocessor) where `--local` will not. This will only affect Tracker devices that previously had Device OS 2.x on them and upgrade to 3.x or later. Even if you do not update the NCP over USB, it can still be updated OTA. The Argon also has an NCP, but the version has never been upgraded. No other devices have an NCP.
+
+It is also possible to flash in listening mode (blinking dark blue) using `--serial`, however DFU should be used except in rare cases as it's significantly more reliable and provides status in case of failure.
+
+```sh
+$ particle flash --serial tinker
+```
+
+You can also update the factory reset firmware using the `--factory` on devices that support factory reset user firmware. Note that factory reset does not restore the original Device OS version. Additionally, the factory reset firmware slot is empty from the factory, so user firmware won't be replaced, either, unless you manually set it first.
 
 ```sh
 $ particle flash --factory tinker
-$ particle flash --usb tinker
-$ particle flash --serial tinker
 ```
 
 ### Flashing a product device
@@ -297,7 +317,15 @@ If the specified Device ID is not marked as a development device, the firmware t
 
 ### Compiling remotely and flashing locally
 
-To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-).
+To cloud compile and flash locally over USB:
+
+```
+particle flash --local project/path
+```
+
+Prior to September 2023, a multi-step process was required.
+
+{{collapse op="start" label="Show old instructions"}}
 
 ```sh
 # how to compile a directory of source code and tell the CLI where to save the results
@@ -309,8 +337,24 @@ $ particle compile boron app.ino library1.cpp library1.h --saveTo firmware.bin
 # how to flash a pre-compiled binary over usb to your device
 # make sure your device is flashing yellow and connected via USB
 # requires dfu-util to be installed
-$ particle flash --usb firmware.bin
+$ particle flash --local firmware.bin
 ```
+
+{{collapse op="end"}}
+
+You can also specify a Device OS version. This will be used as both the target Device OS version for your firmware, as well as upgrade or downgrade the Device OS version over USB. A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
+
+```
+particle flash --local project/path --target x.y.z
+```
+
+You can also add the `--application-only` to set the Device OS target version for compiling, but to not change the Device OS version over USB. If the target version is newer than what is on the device, the device will be updated OTA if necessary.
+
+```
+particle flash --local project/path --target x.y.z --application-only
+```
+
+If you specify a directory containing a `project.properties` file that contains an `assetOtaDir`, then the device will be flashed with the bundle of the user firmware and Asset OTA assets.
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
@@ -396,6 +440,7 @@ While compiling source code using the cloud compiler there are limits:
 - Maximum time to compile: {{maximumCompileTime}}
 - Maximum source code size: {{maximumCompilePayload}}
 
+A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
@@ -425,7 +470,19 @@ $ cd my_project
 $ particle compile boron .
 ```
 
-Note that when you compile a project containing an `assets/` directory, a .zip file will created instead of a `.bin` file. This zip file contains both a compiled firmware binary and the assets in your assets folder.
+The name of the assets directory is specified in `project.properties` file contains an `assetOtaDir` key and a value containing a valid directory. It does not need to be named `assets/`.
+
+```
+assetOtaDir=assets
+```
+
+- When using **Particle: Compile Application** or `particle compile` projects with bundled assets are built into a .zip file. This file contains both the firmware binary (.bin) as well as the assets. 
+- The asset bundle .zip can be uploaded to the console as product firmware binary.
+- When using **Particle: Flash application** or `particle flash` the same process is followed, except the device is flashed.
+- When flashing OTA, the asset bundle is transmitted using resumable OTA and compression for efficient data use.
+- You will need to include code in your application firmware to process the additional assets, such as sending them to a coprocessor or saving them to the file system.
+- Creating bundled assets will not be not possible in the Web IDE. Particle Workbench is recommended.
+
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
@@ -883,7 +940,7 @@ This is a synonym for `particle flash --serial firmware.bin`.
 Note that at present only binaries can be flashed using this command.
 If you wish to flash from application sources, first use `particle compile` to compile a binary from sources.
 
-If you have Device OS firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --usb tinker`.
+If you have Device OS firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --local tinker`.
 
 In general, using `--usb` mode in DFU mode (blinking yellow) is a more reliable way to flash your device over USB.
 
@@ -936,7 +993,7 @@ _On Windows, these commands require the latest drivers. See the [CLI installatio
 
 The Particle USB commands are only available in Device OS 0.9.0 (Gen 3, including Argon and Boron), and 1.0.0 (Gen 2, including Photon, P1, Electron, and E Series). These commands are not available on the Gen 1 (Spark Core).
 
-At this time it is possible that you can receive new devices from distributors or Particle that have an older version of Device OS than required to use these command. Doing a `particle update` will upgrade the devices to support these commands.
+If you have an older Particle device you can use `particle update` will upgrade the devices to support these commands.
 
 ### particle usb list
 
@@ -1029,10 +1086,9 @@ particle usb configure
 
 ## particle update
 
-Update your device to the latest Device OS release. Follow this with `particle flash --usb tinker` to reflash the default Tinker app to make your device run known good software.
+Update your device to the latest Device OS release. Follow this with `particle flash --local tinker` to reflash the default Tinker app to make your device run known good software. This will generally be the latest LTS version, unless the device does not yet have an LTS release, in which case it will be the latest non-RC version in the developer preview release line.
 
 ```sh
-# put the device in DFU mode first, then update the Device OS
 $ particle update
 > Your device is ready for a system update.
 > This process should take about 30 seconds. Here goes!
@@ -1041,6 +1097,23 @@ $ particle update
 
 > Your device should now restart automatically.
 ```
+
+Additionally, you can upgrade to a specific version of Device OS using the `--target` option. This is handy for moving to the developer preview line of releases instead of LTS.
+
+```sh
+$ particle update --target 5.5.0
+```
+
+You can also downgrade Device OS, however:
+
+- In general we recommend that you do not downgrade Device OS on devices, except to roll back from developer preview back to the adjacent LTS version.
+- If you are downgrading, you should first downgrade user firmware or using `particle flash --local tinker` as user firmware that targets a newer version of Device OS will cause it to update back to its original version OTA after reconnecting to the cloud.
+
+{{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
+**Boron LTE BRN402 and B Series SoM B402**
+
+If you are downgrading a Boron LTE (BRN402) or B Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
+{{!-- END shared-blurb --}}
 
 
 ## particle keys

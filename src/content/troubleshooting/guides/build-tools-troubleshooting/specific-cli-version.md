@@ -9,9 +9,9 @@ description: Using a specific Particle CLI version
 
 The Particle CLI should generally be installed using the instructions [here](/getting-started/developer-tools/cli), however there are some special cases where you may want to run an older version of the Particle CLI:
 
-- The `particle update` command in the CLI installs the specific LTS version of Device OS that the CLI was built to install, not necessarily the most recent version. If you want to install a specific older version of Device OS, you may want to use an older version of the CLI to do so.
+Prior to September, 2023, the `particle update` command installed the latest LTS version at the time the CLI version was released. Thus if you wanted to install an older version of Device OS you had to downgrade the CLI. This is no longer necessary as the `--target` option can be used to install a specific version instead.
 
-- Support for discontinued platforms like the Spark Core no longer exists in the current version of the CLI, so you may want to use an older version of the CLI to do things like flash the cc3000 update.
+Support for discontinued platforms like the Spark Core no longer exists in the current version of the CLI, so you may want to use an older version of the CLI to do things like flash the cc3000 update, however.
 
 ## Installation
 

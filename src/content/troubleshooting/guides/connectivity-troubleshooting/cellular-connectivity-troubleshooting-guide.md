@@ -141,7 +141,7 @@ _Indicates a successful connection to the tower._
 
 Put your device in DFU mode (blinking yellow) by pressing RESET and SETUP. Release RESET and continue to hold down SETUP while the LED blinks magenta until it blinks yellow, then release SETUP. Then run the following command in the CLI:
 
-`particle flash --usb tinker`
+`particle flash --local tinker`
 
 ## Troubleshooting your antenna
 

@@ -419,7 +419,7 @@ To build and flash over USB, I use the following commands:
 ```
 cd ds75-electron-wire1
 particle compile electron . --saveTo firmware.bin
-particle flash --usb firmware.bin
+particle flash --local firmware.bin
 ```
 
 And here's the output from serial:

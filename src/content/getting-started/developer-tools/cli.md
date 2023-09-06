@@ -136,7 +136,7 @@ $ particle help keys
 
 ## Flashing using serial (listening mode)
 
-We recommend that you use DFU mode (blinking yellow) with `particle flash --usb` instead of listening mode (blinking dark blue).
+We recommend that you use DFU mode (blinking yellow) with `particle flash --local` instead of listening mode (blinking dark blue).
 
 In the long-ago past the CLI did not install drivers for DFU mode, so `--serial` mode was sometimes easier. However, listening mode does not communicate errors well, and also is subject to interference from user application firmware, and is no longer recommended.
 
@@ -152,11 +152,11 @@ Steps:
 - **1:** Put the Electron in to [DFU mode](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-) (blinking yellow).
 - **2:** Open a command prompt or terminal window.
 - **3:** Navigate to the folder where you've downloaded the `firmware.bin` file.
-- **4:** From the CLI issue `particle flash --usb firmware.bin`
+- **4:** From the CLI issue `particle flash --local firmware.bin`
 
 ```sh
 # How to flash an Electron over USB
-$ particle flash --usb firmware.bin
+$ particle flash --local firmware.bin
 ```
 
 *Note*: If your Electron goes into [safe
