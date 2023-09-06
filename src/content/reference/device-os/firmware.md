@@ -26431,13 +26431,13 @@ To upgrade Device OS, make sure the device is in [DFU mode](/troubleshooting/led
 The local method over USB using Particle CLI
 
 // Photon
-particle flash --localal system-part1-@FW_VER@-photon.bin
-particle flash --localal system-part2-@FW_VER@-photon.bin
-particle flash --localalalalal tinker (optional)
+particle flash --local system-part1-@FW_VER@-photon.bin
+particle flash --local system-part2-@FW_VER@-photon.bin
+particle flash --local tinker (optional)
 
 // P1
-particle flash --localal system-part1-@FW_VER@-p1.bin
-particle flash --localal system-part2-@FW_VER@-p1.bin
+particle flash --local system-part1-@FW_VER@-p1.bin
+particle flash --local system-part2-@FW_VER@-p1.bin
 particle flash --local tinker (optional)
 
 // Electron
