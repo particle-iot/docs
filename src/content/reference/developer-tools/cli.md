@@ -12,21 +12,6 @@ description: Command line interface for managing your devices for Windows, Mac O
 For information on how to install the Particle CLI, see the [CLI guide](/getting-started/developer-tools/cli/).
 
 
-## particle setup
-
-To set up a cellular device (Electron, Boron, B Series SoM), go to [setup.particle.io](https://setup.particle.io).
-
-To set up an Argon, P2, or Photon 2 (Wi-Fi), you can use [setup.particle.io](https://setup.particle.io) or to only set Wi-Fi credentials, you can use [particle serial wifi](#particle-serial-wifi).
-
-To set up a Photon or P1 only, you can use:
-
-```sh
-# Photon or P1 only!
-$ particle setup
-```
-
-
-
 ## particle login
 
   Login and save an access token for interacting with your account on the Particle Device Cloud.
@@ -146,32 +131,6 @@ Okay!
 
 Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing. If you plan on selling or giving away your device, you should both unclaim the device and release ownership of the SIM. That will allow it to be set up as if a new device later.
 
-
-### particle device doctor
-
-Brings back a Gen2 device (`photon`, `p1`, `electron`) with bad firmware, bad network settings or bad keys
-to health so it can connect to the Particle cloud.
-
-The Device Doctor will:
-* Update Device OS to the latest version
-* Update the CC3000 Wi-Fi module firmware (Core only)
-* Reset the antenna selection
-* Reset the IP configuration
-* Reset the SoftAP (listen mode) hotspot name
-* Clear the data in the EEPROM
-* Clear the Wi-Fi credentials
-* Prompt for new Wi-Fi credentials
-* Reset server and device key
-* Flash the default Particle Tinker app
-
-```sh
-# first connect your device to the USB port and disconnect all others
-$ particle device doctor
-The Device Doctor will put your device back into a healthy state
-# follow the prompts to restore your device
-```
-
-_NOTE: Currently, only Gen2 devices are supported_
 
 
 ## particle flash
@@ -1421,3 +1380,49 @@ List all devices that are part of a product
 # lists devices in product `12345`
 $ particle product device list 12345
 ```
+
+
+### particle device doctor
+
+{{note op="start" type="gen2"}}
+Only available on Gen 2 devices, Photon, P1, and Electron. For other devices, use [web device doctor](/tools/doctor/).
+{{note op="end"}}
+
+Brings back a Gen2 device (`photon`, `p1`, `electron`) with bad firmware, bad network settings or bad keys
+to health so it can connect to the Particle cloud.
+
+The Device Doctor will:
+* Update Device OS to the latest version
+* Update the CC3000 Wi-Fi module firmware (Core only)
+* Reset the antenna selection
+* Reset the IP configuration
+* Reset the SoftAP (listen mode) hotspot name
+* Clear the data in the EEPROM
+* Clear the Wi-Fi credentials
+* Prompt for new Wi-Fi credentials
+* Reset server and device key
+* Flash the default Particle Tinker app
+
+```sh
+# first connect your device to the USB port and disconnect all others
+$ particle device doctor
+The Device Doctor will put your device back into a healthy state
+# follow the prompts to restore your device
+```
+
+
+## particle setup
+
+{{note op="start" type="gen2"}}
+Only available on the Photon and P1. [setup.particle.io](https://setup.particle.io) for all devices instead.
+
+To only set Wi-Fi credentials on the Photon 2, P2, Argon, Photon, and P1, use `particle serial wifi`.
+{{note op="end"}}
+
+To set up a Photon or P1 only, you can use:
+
+```sh
+# Photon or P1 only!
+$ particle setup
+```
+
