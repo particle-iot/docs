@@ -53,7 +53,7 @@ and successfully completing the command line prompts.
     
 where is either the familiar name or device ID of the you'd like to remove from your account. Here's an example:  
     
-`particle device remove 0123456789ABCDEFGHI  
+`particle device remove 0123456789abcdef78901234  
     
 `\--or--  
 `particle device remove pinky_panda`

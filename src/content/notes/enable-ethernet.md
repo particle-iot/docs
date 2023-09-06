@@ -38,7 +38,7 @@ particle usb dfu
 - Flash the code to your device:
 
 ```
-particle flash --usb firmware.bin
+particle flash --local firmware.bin
 ```
 
 - Once the device reboots, the blue D7 LED should come on.
@@ -52,7 +52,7 @@ particle usb dfu
 - Flash Tinker back to your device:
 
 ```
-particle flash --usb tinker
+particle flash --local tinker
 ```
 
 - The FEATURE_ETHERNET_DETECTION flag only needs to be enabled once. It's stored in configuration flash and will survive reset, power down, user firmware flashing, and Device OS upgrades.

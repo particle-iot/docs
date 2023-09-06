@@ -293,9 +293,9 @@ Be sure to put the device in [DFU mode](/troubleshooting/led/#dfu-mode-device-fi
 If you'd like to use the CLI to flash a Device OS version _other than the latest_, you can use the `particle flash` command in a similar way as [outlined above](#cli-remote-). The only difference will be that you'll pass an argument to tell the CLI to flash the files over USB, and you won't have to include the device name or ID in the command:
 
 ```bash
-particle flash --usb path/to/system-part1.bin
-particle flash --usb path/to/system-part2.bin
+particle flash --local path/to/system-part1.bin
+particle flash --local path/to/system-part2.bin
 # Sometimes required
-particle flash --usb path/to/system-part3.bin
+particle flash --local path/to/system-part3.bin
 ```
 

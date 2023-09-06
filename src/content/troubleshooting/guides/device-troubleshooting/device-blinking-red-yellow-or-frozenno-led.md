@@ -42,7 +42,6 @@ _If you are unable to force this device to Blink Yellow_ there are a few avenues
 
 * attempting the CLI command `particle usb dfu`
 * opening a Serial connection with a Serial Terminal Emulator (like [CoolTerm](https://freeware.the-meiers.org/) (Mac) or PuTTY (Windows), setting the baud rate of said connection to 14400 and pressing connect. This magic baud rate kicks the device into DFU mode.
-* opening a Support Ticket to discuss further!
 
  Once your device is in DFU Mode, enter the following commands in the Command Line:
 
@@ -53,7 +52,7 @@ particle update
 followed by
 
 ```
-particle flash --usb tinker 
+particle flash --local tinker 
 ```
 
 If the device goes out of Blinking Yellow after the first command, put it back into DFU Mode for the second one.

@@ -47,37 +47,22 @@ Including assets is as easy as including an directory in your project, specifyin
 The compression algorithm is similar to gzip, so using a gzip program on the assets folder on your computer will yield the approximate size after compression.
 {{!-- END shared-blurb --}}
 
+## USB (particle flash --local)
+
+In most cases you will be using product firmware that you have built and uploaded to the console. By using the CLI, you can flash your product firmware and Device OS to the device over USB:
+
+```
+particle flash --local firmware.bin --target 4.1.0
+```
 
 ## USB (particle update)
 
-Using the `particle update` command in the Particle CLI is the most common way that end-users upgrade their devices, however there are a number of caveats:
+Using the `particle update` command in the Particle CLI is the most common way that end-users upgrade their devices.
 
-- The version that is installed by the update command is built into a specific version of the CLI. In the absence of updating the CLI, it will always install that version, even if there is a newer version available. However, for manufacturing, this is likely the behavior that you want.
-- The latest in the LTS branch (2.x, for example) is installed by the latest version of the CLI.
-- The feature branch (3.x, for example) is never installed by the CLI. Thus if you require Device OS 3.x, then you cannot use the `particle update` method.
-- The NCP (network coprocessor) is not upgraded by `particle update`. This currently only affects Tracker One/Tracker SoM devices being upgraded to Device OS 3.0.0 or later.
+You can upgrade (or downgrade) to a specific version of Device OS using the `--target` option. For example:
 
-### Installing a specific version of the CLI
-
-It's recommended that you first install the current version of the CLI using the [CLI installer](/getting-started/developer-tools/cli/). This is necessary to make sure the application dependencies such as dfu-util are installed, as well as any required device drivers for Windows and a udev rule for Linux.
-
-Then locate the version of the CLI you want in the [particle-cli GitHub releases](https://github.com/particle-iot/particle-cli/releases). For example, if you wanted Device OS 1.5.2, you'd want particle-cli v2.6.0. Expand **Assets** and download the .zip or .tar.gz for the source and extract it.
-
-From the Terminal or Command Prompt window, `cd` into the directory and install dependencies. For example:
-
-```
-cd ~/Downloads/particle-cli-2.6.0
-npm install
-```
-
-To run commands using this specific version of the Particle CLI, instead of using the `particle` command, instead use `npm start` in this directory with the same command line options. For example:
-
-```
-npm start version
-npm start help
-npm start login
-npm start list
-npm start update
+```sh
+$ particle update --target 4.1.0
 ```
 
 ## USB (Particle CLI, manually)
@@ -89,9 +74,9 @@ It is also possible to use the Particle CLI to manually program the device, whic
 - Flash the bootloader using `particle flash --serial`.
 - Flash the NCP (Tracker with 3.x only) using `particle flash --serial`.
 - Put the device in DFU mode (blinking yellow) using `particle usb dfu`.
-- Flash the SoftDevice (Gen 3 only) using `particle flash --usb`.
-- Program system-parts in numerical order using `particle flash --usb`
-- Program the user firmware using `particle flash --usb`
+- Flash the SoftDevice (Gen 3 only) using `particle flash --local`.
+- Program system-parts in numerical order using `particle flash --local`
+- Program the user firmware using `particle flash --local`
 - Mark setup done (Gen 3 running Device OS 3.x or earlier) using `particle usb setup-done`
 
 You can download the necessary files for several common Device OS releases as a zip file for several common Device OS releases here:

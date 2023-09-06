@@ -12,21 +12,6 @@ description: Command line interface for managing your devices for Windows, Mac O
 For information on how to install the Particle CLI, see the [CLI guide](/getting-started/developer-tools/cli/).
 
 
-## particle setup
-
-To set up a cellular device (Electron, Boron, B Series SoM), go to [setup.particle.io](https://setup.particle.io).
-
-To set up an Argon, P2, or Photon 2 (Wi-Fi), you can use [setup.particle.io](https://setup.particle.io) or to only set Wi-Fi credentials, you can use [particle serial wifi](#particle-serial-wifi).
-
-To set up a Photon or P1 only, you can use:
-
-```sh
-# Photon or P1 only!
-$ particle setup
-```
-
-
-
 ## particle login
 
   Login and save an access token for interacting with your account on the Particle Device Cloud.
@@ -58,7 +43,7 @@ $ particle list
 
 Checking with the cloud...
 Retrieving devices... (this might take a few seconds)
-my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
+my_device_name (0123456789abcdef78901234) 0 variables, and 4 functions
   Functions:
     int digitalWrite(string)
     int digitalRead(string)
@@ -74,7 +59,7 @@ my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ```sh
 # how to call a function on your device
-$ particle call 0123456789ABCDEFGHI digitalWrite "D7,HIGH"
+$ particle call 0123456789abcdef78901234 digitalWrite "D7,HIGH"
 1
 ```
 
@@ -92,7 +77,7 @@ $ particle call 0123456789abcdef01234567 brew --product 12345
 
 ```sh
 # how to get a variable value from a device
-$ particle get 0123456789ABCDEFGHI temperature
+$ particle get 0123456789abcdef78901234 temperature
 72.1
 ```
 
@@ -115,9 +100,9 @@ $ particle get 0123456789abcdef01234567 temperature --product 12345
 
 ```sh
 # how to add a new device to your account
-$ particle device add 0123456789ABCDEFGHI
-Claiming device 0123456789ABCDEFGHI
-Successfully claimed device 0123456789ABCDEFGHI
+$ particle device add 0123456789abcdef78901234
+Claiming device 0123456789abcdef78901234
+Successfully claimed device 0123456789abcdef78901234
 ```
 
 
@@ -127,7 +112,7 @@ Successfully claimed device 0123456789ABCDEFGHI
 
 ```sh
 # how to change the name of your device
-$ particle device rename 0123456789ABCDEFGHI "pirate frosting"
+$ particle device rename 0123456789abcdef78901234 "pirate frosting"
 ```
 
 
@@ -137,41 +122,15 @@ $ particle device rename 0123456789ABCDEFGHI "pirate frosting"
 
 ```sh
 # how to remove a device from your account
-$ particle device remove 0123456789ABCDEFGHI
+$ particle device remove 0123456789abcdef78901234
 Are you sure?  Please Type yes to continue: yes
-releasing device 0123456789ABCDEFGHI
+releasing device 0123456789abcdef78901234
 server said  { ok: true }
 Okay!
 ```
 
 Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing. If you plan on selling or giving away your device, you should both unclaim the device and release ownership of the SIM. That will allow it to be set up as if a new device later.
 
-
-### particle device doctor
-
-Brings back a Gen2 device (`photon`, `p1`, `electron`) with bad firmware, bad network settings or bad keys
-to health so it can connect to the Particle cloud.
-
-The Device Doctor will:
-* Update Device OS to the latest version
-* Update the CC3000 Wi-Fi module firmware (Core only)
-* Reset the antenna selection
-* Reset the IP configuration
-* Reset the SoftAP (listen mode) hotspot name
-* Clear the data in the EEPROM
-* Clear the Wi-Fi credentials
-* Prompt for new Wi-Fi credentials
-* Reset server and device key
-* Flash the default Particle Tinker app
-
-```sh
-# first connect your device to the USB port and disconnect all others
-$ particle device doctor
-The Device Doctor will put your device back into a healthy state
-# follow the prompts to restore your device
-```
-
-_NOTE: Currently, only Gen2 devices are supported_
 
 
 ## particle flash
@@ -185,20 +144,20 @@ _NOTE: Currently, only Gen2 devices are supported_
 
 ```sh
 # how to compile and flash a directory of source code to your device
-$ particle flash 0123456789ABCDEFGHI my_project
+$ particle flash 0123456789abcdef78901234 my_project
 ```
 
 More commonly, you will be in the directory containing your `project.properties` file and instead use `.`, which is the current directory.
 
 ```sh
 $ cd my_project
-$ particle flash 0123456789ABCDEFGHI .
+$ particle flash 0123456789abcdef78901234 .
 ```
 
 You can also target a specific version of Device OS in the `particle flash` command:
 
 ```sh
-$ particle flash 0123456789ABCDEFGHI . --target 5.3.1
+$ particle flash 0123456789abcdef78901234 . --target 5.3.1
 ```
 
 #### Flashing a directory with assets
@@ -223,13 +182,29 @@ my_project/
 You can flash a binary that you have previously compiled to a .bin file:
 
 ```sh
-$ particle flash 0123456789ABCDEFGHI firmware.bin
+$ particle flash 0123456789abcdef78901234 firmware.bin
 ```
 
 You can also flash a pre-compiled binary with assets in a .zip file:
 
 ```sh
-$ particle flash 0123456789ABCDEFGHI product.zip
+$ particle flash 0123456789abcdef78901234 product.zip
+```
+
+### Flashing a pre-compiled binary over USB
+
+You can flash a binary that you have previously compiled to a .bin file over USB. The device will be put into DFU mode automatically, if necessary.
+
+```sh
+$ particle flash --local firmware.bin
+$ particle flash --local product.zip
+```
+
+If there are multiple devices connected by USB, you can specify the device for `--local` by device ID or device name:
+
+```sh
+$ particle flash --local wandering-ferret firmware.bin
+$ particle flash --local 0123456789abcdef78901234 firmware.bin
 ```
 
 ### Flashing one or more source files
@@ -238,7 +213,7 @@ You can include any number of individual source files after the device Name, and
 
 ```sh
 # how to compile and flash a list of source files to your device
-$ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
+$ particle flash 0123456789abcdef78901234 app.ino library1.cpp library1.h
 ```
 
 Note that the CLI since 1.9.0 has support for firmware libraries via the [particle library](#particle-library)
@@ -252,15 +227,17 @@ should always manually target 5.3.1 or later, for example, `--target 5.3.1`, ins
 
 ### Target a specific firmware version for flashing
 
-You can compile and flash your application against a specific firmware version using the `--target` flag. If you don't specify `target` your code will compile against the latest released firmware.
+You can compile and flash your application against a specific firmware version using the `--target` flag. If you don't specify `target` your code will compile against the latest LTS release firmware.
 
 This is useful if you are not ready to upgrade to the latest Device OS
-version on your device or if you want to try a pre-release version.
+version on your device, try a release candidate version, or switch between LTS and developer preview release lines.
 
 ```sh
 # compile your application with the 5.3.1 Device OS version and flash it
-$ particle flash --target 5.3.1 0123456789ABCDEFGHI my_project
+$ particle flash --target 5.3.1 0123456789abcdef78901234 my_project
 ```
+
+A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
@@ -276,12 +253,30 @@ You can easily reset a device back to a previous existing app with a quick comma
 $ particle flash deviceName tinker
 ```
 
-You can also update the factory reset version using the `--factory` flag, over USB with `--usb`, or over serial using `--serial`.
+You can flash a known app over USB with `--local`. The device will be put into DFU mode, blinking yellow. 
+
+```sh
+$ particle flash --local tinker
+```
+
+Flashing tinker will leave the version of Device OS on your device unchanged. You can, however, set a specific version of Device OS (upgrade or downgrade) using the `--target` option. A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
+
+```sh
+$ particle flash --local tinker --target 5.5.0
+```
+
+In many respects, `particle flash --local tinker --target 5.5.0` and `particle update --target 5.5.0` are similar. The major difference is that `particle update` will update the NCP (network coprocessor) where `--local` will not. This will only affect Tracker devices that previously had Device OS 2.x on them and upgrade to 3.x or later. Even if you do not update the NCP over USB, it can still be updated OTA. The Argon also has an NCP, but the version has never been upgraded. No other devices have an NCP.
+
+It is also possible to flash in listening mode (blinking dark blue) using `--serial`, however DFU should be used except in rare cases as it's significantly more reliable and provides status in case of failure.
+
+```sh
+$ particle flash --serial tinker
+```
+
+You can also update the factory reset firmware using the `--factory` on devices that support factory reset user firmware. Note that factory reset does not restore the original Device OS version. Additionally, the factory reset firmware slot is empty from the factory, so user firmware won't be replaced, either, unless you manually set it first.
 
 ```sh
 $ particle flash --factory tinker
-$ particle flash --usb tinker
-$ particle flash --serial tinker
 ```
 
 ### Flashing a product device
@@ -297,7 +292,15 @@ If the specified Device ID is not marked as a development device, the firmware t
 
 ### Compiling remotely and flashing locally
 
-To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-).
+To cloud compile and flash locally over USB:
+
+```
+particle flash --local project/path
+```
+
+Prior to September 2023, a multi-step process was required.
+
+{{collapse op="start" label="Show old instructions"}}
 
 ```sh
 # how to compile a directory of source code and tell the CLI where to save the results
@@ -309,8 +312,24 @@ $ particle compile boron app.ino library1.cpp library1.h --saveTo firmware.bin
 # how to flash a pre-compiled binary over usb to your device
 # make sure your device is flashing yellow and connected via USB
 # requires dfu-util to be installed
-$ particle flash --usb firmware.bin
+$ particle flash --local firmware.bin
 ```
+
+{{collapse op="end"}}
+
+You can also specify a Device OS version. This will be used as both the target Device OS version for your firmware, as well as upgrade or downgrade the Device OS version over USB. A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
+
+```
+particle flash --local project/path --target x.y.z
+```
+
+You can also add the `--application-only` to set the Device OS target version for compiling, but to not change the Device OS version over USB. If the target version is newer than what is on the device, the device will be updated OTA if necessary.
+
+```
+particle flash --local project/path --target x.y.z --application-only
+```
+
+If you specify a directory containing a `project.properties` file that contains an `assetOtaDir`, then the device will be flashed with the bundle of the user firmware and Asset OTA assets.
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
@@ -388,7 +407,7 @@ $ particle compile p2 . --saveTo firmware.bin
 You can also target a specific version of Device OS in the `particle flash` command:
 
 ```sh
-$ particle flash 0123456789ABCDEFGHI . --target 5.3.1
+$ particle flash 0123456789abcdef78901234 . --target 5.3.1
 ```
 
 While compiling source code using the cloud compiler there are limits:
@@ -396,6 +415,7 @@ While compiling source code using the cloud compiler there are limits:
 - Maximum time to compile: {{maximumCompileTime}}
 - Maximum source code size: {{maximumCompilePayload}}
 
+A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
@@ -425,7 +445,19 @@ $ cd my_project
 $ particle compile boron .
 ```
 
-Note that when you compile a project containing an `assets/` directory, a .zip file will created instead of a `.bin` file. This zip file contains both a compiled firmware binary and the assets in your assets folder.
+The name of the assets directory is specified in `project.properties` file contains an `assetOtaDir` key and a value containing a valid directory. It does not need to be named `assets/`.
+
+```
+assetOtaDir=assets
+```
+
+- When using **Particle: Compile Application** or `particle compile` projects with bundled assets are built into a .zip file. This file contains both the firmware binary (.bin) as well as the assets. 
+- The asset bundle .zip can be uploaded to the console as product firmware binary.
+- When using **Particle: Flash application** or `particle flash` the same process is followed, except the device is flashed.
+- When flashing OTA, the asset bundle is transmitted using resumable OTA and compression for efficient data use.
+- You will need to include code in your application firmware to process the additional assets, such as sending them to a coprocessor or saving them to the file system.
+- Creating bundled assets will not be not possible in the Web IDE. Particle Workbench is recommended.
+
 
 {{note op="start" type="P2"}}
 At the time of writing, flashing a P2 or Photon 2 from the CLI targets 3.2.1-p2.2, which is not recommended. You 
@@ -618,7 +650,7 @@ webhook parameters, see the [REST API documentation](/reference/cloud-apis/api/#
 
 ```sh
 $ particle webhook create temperature https://mysite.com
-$ particle webhook create temperature https://mysite.com 0123456789ABCDEFGHI
+$ particle webhook create temperature https://mysite.com 0123456789abcdef78901234
 $ particle webhook create webhook.json
 ```
 
@@ -699,8 +731,8 @@ deleting 58889c1113e45f1b69be21b7
 
 ```sh
 # how to poll for a variable value from one or more devices continuously
-$ particle monitor 0123456789ABCDEFGHI temperature 5000
-$ particle monitor 0123456789ABCDEFGHI temperature 5000 --time
+$ particle monitor 0123456789abcdef78901234 temperature 5000
+$ particle monitor 0123456789abcdef78901234 temperature 5000 --time
 $ particle monitor all temperature 5000
 $ particle monitor all temperature 5000 --time
 $ particle monitor all temperature 5000 --time > my_temperatures.csv
@@ -719,7 +751,7 @@ $ particle identify --port 1
 $ particle identify --port COM3
 $ particle identify --port /dev/cu.usbmodem12345
 
-$ particle identify 0123456789ABCDEFGHI
+$ particle identify 0123456789abcdef78901234
 ```
 
 
@@ -734,7 +766,7 @@ Remember that the eventName is a prefix, so if you subscribe to "test" you'll al
 $ particle subscribe
 $ particle subscribe eventName
 $ particle subscribe eventName CoreName
-$ particle subscribe eventName 0123456789ABCDEFGHI
+$ particle subscribe eventName 0123456789abcdef78901234
 ```
 
 ---
@@ -883,7 +915,7 @@ This is a synonym for `particle flash --serial firmware.bin`.
 Note that at present only binaries can be flashed using this command.
 If you wish to flash from application sources, first use `particle compile` to compile a binary from sources.
 
-If you have Device OS firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --usb tinker`.
+If you have Device OS firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --local tinker`.
 
 In general, using `--usb` mode in DFU mode (blinking yellow) is a more reliable way to flash your device over USB.
 
@@ -936,7 +968,7 @@ _On Windows, these commands require the latest drivers. See the [CLI installatio
 
 The Particle USB commands are only available in Device OS 0.9.0 (Gen 3, including Argon and Boron), and 1.0.0 (Gen 2, including Photon, P1, Electron, and E Series). These commands are not available on the Gen 1 (Spark Core).
 
-At this time it is possible that you can receive new devices from distributors or Particle that have an older version of Device OS than required to use these command. Doing a `particle update` will upgrade the devices to support these commands.
+If you have an older Particle device you can use `particle update` will upgrade the devices to support these commands.
 
 ### particle usb list
 
@@ -1029,10 +1061,9 @@ particle usb configure
 
 ## particle update
 
-Update your device to the latest Device OS release. Follow this with `particle flash --usb tinker` to reflash the default Tinker app to make your device run known good software.
+Update your device to the latest Device OS release. Follow this with `particle flash --local tinker` to reflash the default Tinker app to make your device run known good software. This will generally be the latest LTS version, unless the device does not yet have an LTS release, in which case it will be the latest non-RC version in the developer preview release line.
 
 ```sh
-# put the device in DFU mode first, then update the Device OS
 $ particle update
 > Your device is ready for a system update.
 > This process should take about 30 seconds. Here goes!
@@ -1041,6 +1072,23 @@ $ particle update
 
 > Your device should now restart automatically.
 ```
+
+Additionally, you can upgrade to a specific version of Device OS using the `--target` option. This is handy for moving to the developer preview line of releases instead of LTS.
+
+```sh
+$ particle update --target 5.5.0
+```
+
+You can also downgrade Device OS, however:
+
+- In general we recommend that you do not downgrade Device OS on devices, except to roll back from developer preview back to the adjacent LTS version.
+- If you are downgrading, you should first downgrade user firmware or using `particle flash --local tinker` as user firmware that targets a newer version of Device OS will cause it to update back to its original version OTA after reconnecting to the cloud.
+
+{{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
+**Boron LTE BRN402 and B Series SoM B402**
+
+If you are downgrading a Boron LTE (BRN402) or B Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
+{{!-- END shared-blurb --}}
 
 
 ## particle keys
@@ -1054,7 +1102,7 @@ Connect your device in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware
 
 ```sh
 # helps repair key issues on a device
-$ particle keys doctor 0123456789ABCDEFGHI
+$ particle keys doctor 0123456789abcdef78901234
 ```
 
 See also [`particle device doctor`](#particle-device-doctor)
@@ -1114,7 +1162,7 @@ Sends a device's public key to the cloud for use in opening an encrypted session
 
 ```sh
 # sends a new public key to the API for use for your device
-$ particle keys send 0123456789ABCDEFGHI device.pub.pem
+$ particle keys send 0123456789abcdef78901234 device.pub.pem
 submitting public key succeeded!
 ```
 
@@ -1332,3 +1380,49 @@ List all devices that are part of a product
 # lists devices in product `12345`
 $ particle product device list 12345
 ```
+
+
+### particle device doctor
+
+{{note op="start" type="gen2"}}
+Only available on Gen 2 devices, Photon, P1, and Electron. For other devices, use [web device doctor](/tools/doctor/).
+{{note op="end"}}
+
+Brings back a Gen2 device (`photon`, `p1`, `electron`) with bad firmware, bad network settings or bad keys
+to health so it can connect to the Particle cloud.
+
+The Device Doctor will:
+* Update Device OS to the latest version
+* Update the CC3000 Wi-Fi module firmware (Core only)
+* Reset the antenna selection
+* Reset the IP configuration
+* Reset the SoftAP (listen mode) hotspot name
+* Clear the data in the EEPROM
+* Clear the Wi-Fi credentials
+* Prompt for new Wi-Fi credentials
+* Reset server and device key
+* Flash the default Particle Tinker app
+
+```sh
+# first connect your device to the USB port and disconnect all others
+$ particle device doctor
+The Device Doctor will put your device back into a healthy state
+# follow the prompts to restore your device
+```
+
+
+## particle setup
+
+{{note op="start" type="gen2"}}
+Only available on the Photon and P1. [setup.particle.io](https://setup.particle.io) for all devices instead.
+
+To only set Wi-Fi credentials on the Photon 2, P2, Argon, Photon, and P1, use `particle serial wifi`.
+{{note op="end"}}
+
+To set up a Photon or P1 only, you can use:
+
+```sh
+# Photon or P1 only!
+$ particle setup
+```
+

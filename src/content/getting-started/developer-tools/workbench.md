@@ -154,11 +154,11 @@ Some potential pitfalls with changing the Device OS version through **Flash appl
 **256K binary edge case**
 
 {{!-- BEGIN shared-blurb c44d9da5-6a99-46cc-a6e9-c9405c8fc578 --}}
-On Gen 3 devices including the Argon, Boron, B Series SoM, and Tracker, when upgrading from 3.0 or earlier to 3.1 or later, there is an edge case that can cause your old code to run. This will only occur when flashing over USB from Workbench, or using `particle flash --usb` or `particle flash --serial` from the Particle CLI. This problem does not occur with OTA flashing or Device Restore.
+On Gen 3 devices including the Argon, Boron, B Series SoM, and Tracker, when upgrading from 3.0 or earlier to 3.1 or later, there is an edge case that can cause your old code to run. This will only occur when flashing over USB from Workbench, or using `particle flash --local` or `particle flash --serial` from the Particle CLI. This problem does not occur with OTA flashing or Device Restore.
 
-When binaries were expanded from 128K to 256K maximum, this was accomplished by moving the start address 128K earlier in flash memory. The logic in the Device OS 3.1.0 and later bootloader is to check the 128K slot first, if there is a valid binary it will be used. This is necessary to make sure you can successfully using `particle flash <device> tinker`, `particle flash --usb tinker`.
+When binaries were expanded from 128K to 256K maximum, this was accomplished by moving the start address 128K earlier in flash memory. The logic in the Device OS 3.1.0 and later bootloader is to check the 128K slot first, if there is a valid binary it will be used. This is necessary to make sure you can successfully using `particle flash <device> tinker`, `particle flash --local tinker`.
 
-The problem is that if your 256K binary is less than 128K in size, the `particle flash --usb` command and Workbench **Particle: Flash application** commands do not invalidate the old 128K binary slot, which causes the old 128K binary to continue to run.
+The problem is that if your 256K binary is less than 128K in size, the `particle flash --local` command and Workbench **Particle: Flash application** commands do not invalidate the old 128K binary slot, which causes the old 128K binary to continue to run.
 
 The best workaround is to upgrade the device using [Device Restore USB](/tools/device-restore/device-restore-usb/) first, as it will clear the 128K binary slot during upgrade. This is only necessary once, when upgrading from before 3.1.0, to 3.1.0 or later.
 {{!-- END shared-blurb --}}
@@ -245,7 +245,7 @@ The device must be connected by USB and in DFU mode (blinking yellow). Hold down
 Then type in a command like:
 
 ```
-particle flash --usb electron_firmware_1548790892661.bin
+particle flash --local electron_firmware_1548790892661.bin
 ```
 
 You can just type the first few letters of the filename then hit Tab to auto-complete the rest.

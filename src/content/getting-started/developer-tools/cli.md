@@ -136,7 +136,7 @@ $ particle help keys
 
 ## Flashing using serial (listening mode)
 
-We recommend that you use DFU mode (blinking yellow) with `particle flash --usb` instead of listening mode (blinking dark blue).
+We recommend that you use DFU mode (blinking yellow) with `particle flash --local` instead of listening mode (blinking dark blue).
 
 In the long-ago past the CLI did not install drivers for DFU mode, so `--serial` mode was sometimes easier. However, listening mode does not communicate errors well, and also is subject to interference from user application firmware, and is no longer recommended.
 
@@ -152,11 +152,11 @@ Steps:
 - **1:** Put the Electron in to [DFU mode](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-) (blinking yellow).
 - **2:** Open a command prompt or terminal window.
 - **3:** Navigate to the folder where you've downloaded the `firmware.bin` file.
-- **4:** From the CLI issue `particle flash --usb firmware.bin`
+- **4:** From the CLI issue `particle flash --local firmware.bin`
 
 ```sh
 # How to flash an Electron over USB
-$ particle flash --usb firmware.bin
+$ particle flash --local firmware.bin
 ```
 
 *Note*: If your Electron goes into [safe
@@ -178,7 +178,7 @@ $ particle flash my_new_device_name tinker
 Including:
 /usr/local/lib/node_modules/particle-cli/binaries/particle_tinker.bin
 attempting to flash firmware to your device my_new_device_name
-flash device said  {"id":"0123456789ABCDEFGHI","status":"Update started"}
+flash device said  {"id":"0123456789abcdef78901234","status":"Update started"}
 ```
 
 Let's make sure your device is online and loaded with Tinker.  We should see the four characteristic functions exposed by Tinker, "digitalWrite", "digitalRead", "analogWrite", and "analogRead".
@@ -189,7 +189,7 @@ $ particle list
 
 Checking with the cloud...
 Retrieving devices... (this might take a few seconds)
-my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
+my_device_name (0123456789abcdef78901234) 0 variables, and 4 functions
   Functions:
     int digitalread(String args)
     int digitalwrite(String args)

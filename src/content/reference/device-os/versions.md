@@ -27,6 +27,8 @@ Device OS releases follow semantic versioning ("semver") guidelines with MAJOR.M
 
 There are also occasionally beta releases (2.0.0-beta.1) and more commonly release candidate ("rc") releases (2.0.0-rc.1). There may be multiple release candidates (for example, 2.0.0-rc.4) before a final release is made (2.0.0).
 
+A list of valid version numbers can be found in the [release notes](/reference/device-os/release-notes/).
+
 ## LTS Versions
 
 Particle is constantly improving Device OS with new releases that add new features, increase performance, and improve the standard behavior of Particle devices to better meet the needs of our customers. However, for some customers, constant ongoing development and changes in behavior can create undesired risk to the stability and reliability of existing applications.
@@ -94,19 +96,31 @@ In general, flashing a version of your user firmware will automatically update t
 
 Using the [Particle CLI](/getting-started/developer-tools/cli/) allows upgrading to the current default release over USB. This is a common option because it's generally faster than OTA, and does not use your cellular data allowance.
 
-- Put the device in DFU mode (blinking yellow) by holding down the MODE button and tapping RESET. Continue to hold down MODE while the device blinks magenta (red and blue at the same time) until it blinks yellow, then release. Or use the CLI:
-
-```
-particle usb dfu
-```
-
 - Issue the update command from a Command Prompt or Terminal window:
 
 ```
 particle update
 ```
 
-Note that particle update actually updates Device OS to the version that was the default when the CLI version was created, and the binaries are stored in the CLI itself (not downloaded). Thus you may need to use `particle update-cli` to have it update itself. 
+This will update the the latest LTS supported by the device, except in the case that the device does not yet an LTS version yet, in which case it will be the latest developer preview release.
+
+Additionally, you can upgrade to a specific version of Device OS using the `--target` option. This is handy for moving to the developer preview line of releases instead of LTS.
+
+```sh
+$ particle update --target 5.5.0
+```
+
+You can also downgrade Device OS, however:
+
+- In general we recommend that you do not downgrade Device OS on devices, except to roll back from developer preview back to the adjacent LTS version.
+- If you are downgrading, you should first downgrade user firmware or using `particle flash --local tinker` as user firmware that targets a newer version of Device OS will cause it to update back to its original version OTA after reconnecting to the cloud.
+
+{{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
+**Boron LTE BRN402 and B Series SoM B402**
+
+If you are downgrading a Boron LTE (BRN402) or B Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
+{{!-- END shared-blurb --}}
+
 
 ### Browser DFU
 
@@ -119,7 +133,9 @@ Certain browsers can do a DFU upgrade or downgrade right from the browser page w
 
 ### Manually over USB
 
-It is also possible to update manually over USB. This allows for upgrades as well as downgrades, and operation while offline. 
+It is also possible to update manually over USB. This allows for upgrades as well as downgrades, and operation while offline. This is rarely needed as `particle update --target x.y.z` is far easier.
+
+{{collapse op="start" label="Show manual steps"}}
 
 You can download binaries for any release from the GitHub releases for Device OS page:
 
@@ -157,7 +173,7 @@ Some components require DFU mode (`--usb`), blinking yellow. Some require listen
 
 <sup>1</sup>In the initial batch of Gen 3 devices with 0.8.0-rc, you can only upgrade Device OS in DFU mode. After you've updated to 0.9.0 or later, both DFU and listening mode are supported. 
 
-#### Example: Upgrading a Boron to 2.0.0 by USB
+**Example: Upgrading a Boron to 2.0.0 by USB**
 
 - Download the binaries from the [Device OS Release Page](https://github.com/particle-iot/device-os/releases/tag/v2.0.0).
 
@@ -170,7 +186,7 @@ particle usb dfu
 - Flash system part 1:
 
 ```
-particle flash --usb boron-system-part1@2.0.0.bin
+particle flash --local boron-system-part1@2.0.0.bin
 ```
 
 - Tap the reset button, then put the device in listening mode (blinking dark blue) by holding down the MODE button.
@@ -188,6 +204,9 @@ particle flash --serial boron-bootloader@2.0.0.bin
 ```
 particle flash --serial boron-softdevice@2.0.0.bin
 ```
+
+{{collapse op="end"}}
+
 
 ### Manually over SWD/JTAG
 
@@ -252,7 +271,7 @@ Use `particle flash --serial` for locally connected devices.
 These software components may be updated in any order:
 
 - You may update Device OS to 2.0.0 directly first, flash the system firmware parts in order 1,2(,3) to the device using 
-	`particle flash --usb <system-part.bin>`. See the notes below about the bootloader if you are offline!
+	`particle flash --local <system-part.bin>`. See the notes below about the bootloader if you are offline!
 
 
 >**Note:** P1/Photon Bootloader
@@ -289,7 +308,7 @@ This only works for SoftDevice, not for bootloader:
 1. Upgrade Device OS to 2.0.0
 2. Update the bootloader to 2.0.0 with the OTA or Serial (YModem) process above
 3. Put the device into DFU mode (blinking yellow) 
-4. Flash the SoftDevice: `particle flash --usb boron-softdevice@2.0.0.bin`
+4. Flash the SoftDevice: `particle flash --local boron-softdevice@2.0.0.bin`
 
 
 {{collapse op="end"}}
@@ -317,7 +336,11 @@ You can downgrade USB in DFU mode (blinking yellow). This can generally be done 
 If you are downgrading a Boron LTE (BRN402) or B Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
 {{!-- END shared-blurb --}}
 
-The process to downgrade by USB is:
+Use the `particle update --target x.y.z` option to specify the version to downgrade to.
+
+{{collapse op="start" label="Show manual steps"}}
+
+The process to downgrade by USB manually, not using the `particle update --target` command, are:
 
 - Downgrade the user firmware, if necessary. Make sure your user firmware targets the version you are intended to downgrade to, or an earlier version
 
@@ -350,7 +373,7 @@ particle usb dfu
 
 ```
 # Downgrade user firmware
-particle flash --usb tinker
+particle flash --local tinker
 ```
 
 - Go back into DFU mode (blinking yellow) if necessary.
@@ -358,7 +381,7 @@ particle flash --usb tinker
 - Flash system part 1:
 
 ```
-particle flash --usb boron-system-part1@1.4.4.bin
+particle flash --local boron-system-part1@1.4.4.bin
 ```
 
 - For the Electron and E Series, also flash system-part2 and system-part3. For the Photon and P1, also flash system-part2.
@@ -415,6 +438,8 @@ Modules
     Platform: PASS
     Dependencies: PASS
 ```
+{{collapse op="end"}}
+
 
 ### OTA - Downgrade
 

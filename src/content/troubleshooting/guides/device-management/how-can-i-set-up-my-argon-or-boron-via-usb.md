@@ -20,7 +20,7 @@ The easiest way to set up and Argon or Boron is by [setup.particle.io](https://s
 particle usb dfu
 8. Update the device by running the following two commands. If the device goes out of blinking yellow after the first command, put it back into DFU mode.  
 particle update  
-particle flash --usb tinker
+particle flash --local tinker
 9. When the command reports **Flash success!**, reset the Argon. It should go back into listening mode (blinking dark blue).
 10. Flash NCP firmware to the device. Note that this must be done in listening mode (blinking dark blue). It cannot be done in DFU mode:  
 particle flash --serial argon-ncp-firmware-0.0.5-ota.bin
@@ -52,7 +52,7 @@ particle usb setup-done
 particle usb dfu
 7. Update the device. If the device goes out of blinking yellow after the first command, put it back into DFU mode.  
 particle update  
-particle flash --usb tinker
+particle flash --local tinker
 8. When the command reports **Flash success!**, reset the Boron. It should go back into listening mode (blinking dark blue).
 9. Verify that the update worked by running the following command:  
 particle serial identify  

@@ -80,8 +80,6 @@ Press and hold MODE (or SETUP), tap RESET, and continue holding down MODE until 
 
 Another option is to use the [Particle CLI](/getting-started/developer-tools/cli/).
 
-- Press and hold MODE (or SETUP), tap RESET, and continue holding down MODE until the status LED blinks yellow, then release to put the device in DFU mode.
-
 - Use the CLI command:
 
 ```
@@ -100,6 +98,8 @@ there are a few possible causes:
 - You are flashing a binary for the wrong platform and using the `--force` option. Use the correct image instead, you should never need to use `--force`.
 - The hardware is defective. This particular failure happens more often with Gen 2 devices (STM32F205) and can't be repaired because the failure is in the flash inside the MCU.
 - See the less common scenarios below, as well.
+
+In rare cases, the `particle update` may not be able to switch the device into DFU mode (blinking yellow automatically). If this occurs, press and hold MODE (or SETUP), tap RESET, and continue holding down MODE until the status LED blinks yellow, then release to put the device in DFU mode.
 
 ## Device restore JTAG (SWD/JTAG)
 

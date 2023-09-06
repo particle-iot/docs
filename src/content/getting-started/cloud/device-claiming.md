@@ -111,7 +111,7 @@ particle usb setup-done
 
 - The `particle usb dfu` command puts the device in DFU (blinking yellow) mode. If you have a very old device, this may fail and you will need to use the buttons. Hold down MODE (or SETUP) and tap RESET. Continue to hold down MODE while the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then release.
 
-- The `particle update` command updates Device OS on the device. 
+- The `particle update` command updates Device OS on the device. This can be used to upgrade or downgrade to a specific version by using the `--target option`.
 
 - The `particle serial wifi` command sets the Wi-Fi credentials. This is only necessary for the Photon, P1, and Argon.
 

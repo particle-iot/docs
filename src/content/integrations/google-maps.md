@@ -303,7 +303,7 @@ For an Electron, you'll probably want to do:
 ```bash
 cd oled-locator
 particle compile electron . --saveTo firmware.bin
-particle flash --usb firmware.bin
+particle flash --local firmware.bin
 ```
 
 This will flash the firmware to your electron locally (over USB) to

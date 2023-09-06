@@ -7,7 +7,7 @@ includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-
 
 # Device restore over USB
 
-This tool works like [`particle update`](/reference/developer-tools/cli/#particle-update) in the Particle CLI, except it works from your browser (no software install required) and it can upgrade or downgrade to different versions of Device OS. It works with both Gen 2 and Gen 3 devices. 
+This tool works like [`particle update`](/reference/developer-tools/cli/#particle-update) in the Particle CLI, except it works from your browser (no software install required). It works with both Gen 2 and Gen 3 devices. 
 
 {{> device-setup-usb mode="restore"}}
 

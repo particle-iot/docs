@@ -112,7 +112,7 @@ If you're ready to set up your Boron, follow these steps:
 
 ```html
 particle update
-particle flash --usb tinker
+particle flash --local tinker
 
 ```
 
@@ -149,7 +149,7 @@ void loop() {
 
 ```html
 particle compile boron 3rdPartySIM.cpp --saveTo firmware.bin 
-particle flash --usb firmware.bin
+particle flash --local firmware.bin
 
 ```
 
@@ -157,7 +157,7 @@ particle flash --usb firmware.bin
 * Flash Tinker back to the Boron:
 
 ```
-particle flash --usb tinker
+particle flash --local tinker
 
 ```
 
@@ -494,7 +494,7 @@ Put the Electron in DFU mode ([blinking yellow](/tutorials/device-os/led/electro
 ```
 particle update
 particle compile electron --target 2.3.0 tinker.ino --saveTo firmware.bin
-particle flash --usb firmware.bin
+particle flash --local firmware.bin
 
 ```
 
