@@ -35,6 +35,16 @@ assetOtaDir=assets
 
 The application can register a callback using [`System.onAssetOta()`](/reference/device-os/api/system-calls/onassetota-system/) that will be called by Device OS when the device has received all the bundled assets. For more information, see the [Asset OTA Device OS API](/reference/device-os/api/asset-ota/asset-ota/).
 
+### Maximum asset sizes
+
+{{!-- BEGIN shared-blurb 3c7973be-f602-477f-bc14-bd510c13fdbd --}}
+| Platforms | Total asset storage | Maximum single asset size |
+| :--- | :--- | :--- |
+| tracker, b5som, esomx | 2 MB | 1.5 MB |
+| boron, bsom, argon | 1.125 MB | 592 KB |
+| p2 (and Photon 2) | 1.125 MB | 1.09 MB |
+{{!-- END shared-blurb --}}
+
 ## Asset OTA Example
 
 The rest of this document shows how to add OTA assets to your project. This example just saves the files to the flash file system so you can run it without any additional hardware beyond a compatible Particle cellular or Wi-Fi device. Additional examples of using Asset OTA can be found on [the GitHub repository asset-ota-examples](https://github.com/particle-iot/asset-ota-examples).
