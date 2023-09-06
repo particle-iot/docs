@@ -50,12 +50,13 @@ The compression algorithm is similar to gzip, so using a gzip program on the ass
 
 ## USB (particle update)
 
-Using the `particle update` command in the Particle CLI is the most common way that end-users upgrade their devices, however there are a number of caveats:
+Using the `particle update` command in the Particle CLI is the most common way that end-users upgrade their devices.
 
-- The version that is installed by the update command is built into a specific version of the CLI. In the absence of updating the CLI, it will always install that version, even if there is a newer version available. However, for manufacturing, this is likely the behavior that you want.
-- The latest in the LTS branch (2.x, for example) is installed by the latest version of the CLI.
-- The feature branch (3.x, for example) is never installed by the CLI. Thus if you require Device OS 3.x, then you cannot use the `particle update` method.
-- The NCP (network coprocessor) is not upgraded by `particle update`. This currently only affects Tracker One/Tracker SoM devices being upgraded to Device OS 3.0.0 or later.
+You can upgrade (or downgrade) to a specific version of Device OS using the `--target` option. For example:
+
+```sh
+$ particle update --target 4.1.0
+```
 
 ### Installing a specific version of the CLI
 
