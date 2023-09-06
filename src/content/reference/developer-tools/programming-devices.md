@@ -69,15 +69,15 @@ $ particle update --target 4.1.0
 
 It is also possible to use the Particle CLI to manually program the device, which provides the most flexibility at the expense of a more complicated script. The recommended flow is:
 
+In some cases, you may want to capture the Device ID at this point. If so:
+
 - The device should be in listening mode (blinking dark blue). If not, use `particle usb start-listening`.
 - You may want to capture the Device ID and ICCID using `particle identify`.
-- Flash the bootloader using `particle flash --serial`.
-- Flash the NCP (Tracker with 3.x only) using `particle flash --serial`.
-- Put the device in DFU mode (blinking yellow) using `particle usb dfu`.
-- Flash the SoftDevice (Gen 3 only) using `particle flash --local`.
-- Program system-parts in numerical order using `particle flash --local`
-- Program the user firmware using `particle flash --local`
-- Mark setup done (Gen 3 running Device OS 3.x or earlier) using `particle usb setup-done`
+
+Place the binaries you want to flash in a directory, then:
+
+- Flash them using `particle flash --local <directory>`
+- Mark setup done (Gen 3 running Device OS 3.x or earlier) using `particle usb setup-done`. This is not required with Device OS 4.0 and later.
 
 You can download the necessary files for several common Device OS releases as a zip file for several common Device OS releases here:
 
