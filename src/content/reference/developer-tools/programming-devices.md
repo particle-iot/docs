@@ -65,29 +65,6 @@ You can upgrade (or downgrade) to a specific version of Device OS using the `--t
 $ particle update --target 4.1.0
 ```
 
-### Installing a specific version of the CLI
-
-It's recommended that you first install the current version of the CLI using the [CLI installer](/getting-started/developer-tools/cli/). This is necessary to make sure the application dependencies such as dfu-util are installed, as well as any required device drivers for Windows and a udev rule for Linux.
-
-Then locate the version of the CLI you want in the [particle-cli GitHub releases](https://github.com/particle-iot/particle-cli/releases). For example, if you wanted Device OS 1.5.2, you'd want particle-cli v2.6.0. Expand **Assets** and download the .zip or .tar.gz for the source and extract it.
-
-From the Terminal or Command Prompt window, `cd` into the directory and install dependencies. For example:
-
-```
-cd ~/Downloads/particle-cli-2.6.0
-npm install
-```
-
-To run commands using this specific version of the Particle CLI, instead of using the `particle` command, instead use `npm start` in this directory with the same command line options. For example:
-
-```
-npm start version
-npm start help
-npm start login
-npm start list
-npm start update
-```
-
 ## USB (Particle CLI, manually)
 
 It is also possible to use the Particle CLI to manually program the device, which provides the most flexibility at the expense of a more complicated script. The recommended flow is:
