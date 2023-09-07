@@ -114,10 +114,10 @@ One common option for creating a binary is to use the Particle CLI. The main dif
 
 ```sh
 % cd FileAssetExample
-% particle compile p2 . --saveTo firmware.zip --target 5.5.0-rc.1
+% particle compile p2 . --saveTo firmware.zip --target 5.5.0
 
 Compiling code for p2
-Targeting version: 5.5.0-rc.1
+Targeting version: 5.5.0
 
 Including:
     project.properties
@@ -147,6 +147,11 @@ You can then flash the zip file to the device using the Particle CLI or upload i
 ```sh
 % particle flash test-photon2 firmware.zip
 ```
+
+### From Workbench
+
+You can also use the local and cloud compile options in Particle Workbench to create an asset binary, directly flash the device OTA, or flash the device over USB:
+
 
 ### Observing the debug output
 

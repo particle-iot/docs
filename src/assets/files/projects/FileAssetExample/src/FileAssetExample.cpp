@@ -4,7 +4,7 @@
 #include <sys/stat.h>
 
 #ifndef SYSTEM_VERSION_v550RC1
-#error "Device OS 5.5.0-rc.1 or later is required to use Asset OTA"
+#error "Device OS 5.5.0 or later is required to use Asset OTA"
 #endif
 
 SYSTEM_THREAD(ENABLED);
