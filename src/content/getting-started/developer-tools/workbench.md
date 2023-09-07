@@ -124,6 +124,7 @@ It's also possible to compile in the cloud and flash over USB, as described in t
 
 Local build does all of the compiling locally on your computer, and, once installed, can be used even without an Internet connection.
 
+{{!-- 
 In order to target a specific version of Device OS you must install the appropriate toolchain first. From the Command Palette select **Particle: Install Local Compiler**.
 
 ![Install Local Compiler](/assets/images/workbench/local-1.png)
@@ -131,25 +132,25 @@ In order to target a specific version of Device OS you must install the appropri
 Then select the version you want to install.
 
 ![Install Local Compiler Version](/assets/images/workbench/local-2.png)
+--}}
 
 To compile and flash locally, use the Command Palette and select one of the local flash options:
 
 - Particle: Flash application (local)
-- Particle: Flash application for debug (local)
 - Particle: Flash application & Device OS (local)
+- Particle: Flash application for debug (local)
 
-If you want to change the version of Device OS on the device, you should use [Device Restore USB](/tools/device-restore/device-restore-usb/) to update the device first, then **Flash application (local)** from Workbench. The reason is that **Flash application & Device OS** does not flash required dependencies, such as the bootloader and SoftDevice. While these can be updated OTA, there are caveats.
+As of September 2023, these commands behave slightly differently:
 
-{{collapse op="start" label="More about changing the Device OS version"}}
-Some potential pitfalls with changing the Device OS version through **Flash application & Device OS (local)** include:
+**Particle: Flash application (local)** is the command you will want to use most of the time with local compilation and a USB connection. It will now put your device in DFU mode only after successful compilation, and it will flash device OS only if an upgrade is necessary. It will not build Device OS. And it will correctly flash required parts like the bootloader and SoftDevice.
 
-- If the device is uses Wi-Fi and Wi-Fi is not configured, the device will not be able to update the missing components. The device will always boot into listening mode (blinking dark blue) even if you are using manual, semi-automatic, or threaded modes, and your firmware will not run.
+**Particle: Flash application & Device OS (local)** will always flash the targeted version of Device OS. It will not build Device OS. This is the best option if you don't know what version of Device OS is on the device and you want it in a known state.
 
-- If the device uses cellular and is out-of-area, the device will not be able to update the missing components. The device will go into connecting to cellular mode (blinking green) even if you are using manual, semi-automatic, or threaded modes, and your firmware will not run.
+**Particle: Flash application for debug (local)** still needs to build Device OS in order to generate debug symbols.
 
-- If the device is a Tracker and it has a Device OS version less than 3.0.0 and you are updating to a version 3.0.0 or later, in addition to the bootloader and SoftDevice device upgrades, the NCP (network coprocessor) needs to be updated. This can be done OTA, however the upgrade takes a while as the NCP update requires an intermediate update of Device OS, and the NCP itself is large. Device Restore DFU can update it over USB quickly and without using cellular data.
+It is now safe to upgrade or downgrade Device OS using these commands.
 
-- If you are downgrading Device OS, dependencies like the bootloader and SoftDevice are not downgraded OTA. This could result in unpredictable behavior, but if done for testing purposes, will result in an inaccurate test.
+These commands will also flash Asset OTA bundles if the `assetOtaDir` is specified in project.properties.
 
 **256K binary edge case**
 
@@ -162,8 +163,6 @@ The problem is that if your 256K binary is less than 128K in size, the `particle
 
 The best workaround is to upgrade the device using [Device Restore USB](/tools/device-restore/device-restore-usb/) first, as it will clear the 128K binary slot during upgrade. This is only necessary once, when upgrading from before 3.1.0, to 3.1.0 or later.
 {{!-- END shared-blurb --}}
-
-{{collapse op="end"}}
 
 
 ![Flash Local](/assets/images/workbench/local-3.png)
