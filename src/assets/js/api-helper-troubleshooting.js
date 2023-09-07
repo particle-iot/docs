@@ -116,6 +116,9 @@ $(document).ready(function () {
                     pageObj.ticketForm = pageOptions.page;
                 }
             }
+            if (pageObj.doNotRestore) {
+                return false;
+            }
             if (!pageObj) {
                 gtag('event', 'invalidPage', {'event_category':gaCategory, 'event_label':pageOptions.page});
                 return false;

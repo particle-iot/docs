@@ -113,12 +113,14 @@
         {
             "page": 105,
             "title": "Ticket submitted!",
-            "note": "ticket-submitted.md"
+            "note": "ticket-submitted.md",
+            "doNotRestore": true
         },
         {
             "page": 106,
             "title": "Error submitting ticket",
-            "description": "An error occurred submitting your support ticket request."
+            "description": "An error occurred submitting your support ticket request.",
+            "doNotRestore": true
         },
         {
             "page": 107,
