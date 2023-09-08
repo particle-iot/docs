@@ -2638,6 +2638,12 @@ const generatorConfig = require('./generator-config');
 
             let pins = [];
             for(const pin of platformInfoNew.pins) {
+                if (options.is5VTolerant) {
+                    if (pin.is5VTolerant) {
+                        pins.push(pin);
+                    }
+                }
+                else
                 if (pin[options.interface]) {
                     pins.push(pin);
                 }    

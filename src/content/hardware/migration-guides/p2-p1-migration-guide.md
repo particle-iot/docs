@@ -554,6 +554,7 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | NC | VBAT_MEAS |
 | Description | No connection. Do not connect anything to this pin. | Battery voltage measurement (optional). |
+| Input is 5V Tolerant | n/a | Yes |
 #### Module Pin 13 (GND)
 | | Unchanged between P1 and P2 |
 | :--- | :--- |

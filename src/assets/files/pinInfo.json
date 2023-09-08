@@ -8694,6 +8694,7 @@
           "desc": "Battery voltage measurement (optional).",
           "isPower": true,
           "showInTable": false,
+          "is5VTolerant": true,
           "mcuPin": 48
         },
         {
@@ -9259,7 +9260,8 @@
           "desc": "Battery voltage measurement (optional).",
           "isPower": true,
           "showInTable": false,
-          "mcuPin": 48
+          "mcuPin": 48,
+          "is5VTolerant": true
         },
         {
           "num": 5,

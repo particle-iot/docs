@@ -429,7 +429,6 @@ float voltage = analogRead(A6) / 819.2;
 
 The constant is from the ADC range (0 - 4095) mapped to the voltage from 0 - 5 VDC (the maximum supported on VBAT_MEAS). 
 
-
 ### SETUP and RESET button
 
 It is highly recommended that you add MODE (SETUP) and RESET buttons to your base board using momentary switches that connect to GND. These are necessary to change the operating mode of the device, for example to enter listening or DFU mode.
@@ -447,6 +446,22 @@ It is highly recommended that you add MODE (SETUP) and RESET buttons to your bas
 The MODE button does not have a hardware pull-up on it, so you must add an external pull-up (2.2K to 10K) to 3V3, or connect it to 3V3 if not using a button. 
 
 The RST pin does have an internal weak pull-up, but you may want to add external pull-up on that as well, especially if you use an off-board reset button connected by long wires.
+
+### 5V Tolerance
+
+GPIO and all ports such as I2C, SPI, UART serial, etc. are **not** 5V tolerant. The only pins that are 5V tolerant are:
+
+{{!-- BEGIN do not edit content below, it is automatically generated c70374f7-3ef1-45b0-a5ee-cd7e09032ca7 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 12 | VBAT_MEAS | Battery voltage measurement (optional). | &nbsp; |
+| 61 | USBDATA+ | USB Data+ | PA[26] |
+| 62 | USBDATA- | USB Data- | PA[25] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 
 ### BLE (Bluetooth LE)
 
@@ -896,6 +911,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 008 | 2023-05-11 | RK | Add link to reference design |
 | 009 | 2023-06-07 | RK | Add module height (3mm) |
 | 010 | 2023-07-07 | RK | Add supervisory reset IC recommendation |
+| 011 | 2023-09-08 | RK | Add 5V tolerance section |
 
 ## Known errata
 

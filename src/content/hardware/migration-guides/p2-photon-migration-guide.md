@@ -1089,6 +1089,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 12|
 | Pin Name | VBAT_MEAS|
 | Description | Battery voltage measurement (optional).|
+| Input is 5V Tolerant | Yes|
 #### VIN
 | | Removed from Photon |
 | :--- | :--- |

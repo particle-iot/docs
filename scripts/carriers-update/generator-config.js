@@ -1289,6 +1289,17 @@ const path = require('path');
             } 
         },
         {
+            guid:'c70374f7-3ef1-45b0-a5ee-cd7e09032ca7',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'P2',
+                    interface: 'is5VTolerant',
+                    noInterface: true,
+                }); 
+            } 
+        },
+        {
             guid:'3b7b8712-9617-11ec-b909-0242ac120002',
             generatorFn:function(updater){
                 return updater.generatePinInfo({

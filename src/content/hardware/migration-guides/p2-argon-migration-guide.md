@@ -1079,6 +1079,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 12|
 | Pin Name | VBAT_MEAS|
 | Description | Battery voltage measurement (optional).|
+| Input is 5V Tolerant | Yes|
 #### VUSB
 | | Removed from Argon |
 | :--- | :--- |
