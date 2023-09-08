@@ -90,7 +90,8 @@
     ],
     {
       "dir": "tracker-edge",
-      "isSection": true
+      "isSection": true,
+      "title": "Gateway firmware"
     },
     [
       {

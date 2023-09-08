@@ -24,6 +24,11 @@ The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-ap
 | MCU | Tracker SoM | Tracker SoM | Tracker SoM | Tracker SoM |
 | Platform | tracker (26) | tracker (26) | tracker (26) | tracker (26) |
 
+{{note op="start" type="note"}}
+This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/).
+{{note op="end"}}
+
+
 ## Using off-the-shelf releases
 
 Your Monitor One device is pre-configured with Monitor Edge firmware that you can use out of the box with no flashing of firmware necessary.
@@ -80,6 +85,10 @@ particle device add <device-id>
 Replace &lt;device-id> with the 24-character hex device ID.
 
 ## Getting the Monitor Edge firmware
+
+{{note op="start" type="note"}}
+This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/).
+{{note op="end"}}
 
 The Monitor Edge firmware can be downloaded from GitHub:
 
