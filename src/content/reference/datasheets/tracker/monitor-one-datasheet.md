@@ -153,6 +153,9 @@ When mounting using a strap, the strap will hold the mounting bracket against a 
 
 {{imageOverlay src="/assets/images/monitor-one/strap-dim.png" alt="Strap mounting dimensions" class="full-width"}}
 
+If you wish to fabricate your own compatible mounting bracket, the STEP file can found in the [Monitor One Github repository](https://github.com/particle-iot/monitor-one).
+
+
 ## Internal features
 
 {{imageOverlay src="/assets/images/monitor-one/base-board-labeled.png" alt="Base board features" class="full-width"}}
@@ -286,6 +289,8 @@ If you need signals from the expansion card interface, they are available in the
 
 If you wish to disable an interface that you are not using and re-use the pins on the M12 8-pin connector, there is a small trace jumper between the rows of pins in area (14). Cutting this trace isolates the expansion card signal from the signal to the connector (16). Then you can solder a small jumper wire to replace the signal on the M12 8-pin.
 
+The Eagle CAD schematic and board layout files for the I/O card can be found in the [Monitor One Github repository](https://github.com/particle-iot/monitor-one).
+
 ### Block diagram - I/O Card
 
 {{imageOverlay src="/assets/images/monitor-one/io-card-block.png" alt="Block diagram" class="full-width"}}
@@ -391,6 +396,8 @@ The left connector (7) attaches to the M12 8-pin connector with a short adapter 
 {{imageOverlay src="/assets/images/monitor-one/prototype-card-2.png" alt="Prototype Card Schematics" class="full-width"}}
 {{imageOverlay src="/assets/images/monitor-one/prototype-card-3.png" alt="Prototype Card Schematics" class="full-width"}}
 
+The Eagle CAD schematic and board layout files for the prototype can be found in the [Monitor One Github repository](https://github.com/particle-iot/monitor-one).
+
 
 ## Expansion card interface
 
@@ -401,8 +408,7 @@ The left connector (7) attaches to the M12 8-pin connector with a short adapter 
 
 Pre-built expansion cards will be available, including the Prototype Card. You can also design and fabricate your own.
 
-
-
+If you are building your own card, you can start with the design for the I/O card or prototype card. The Eagle CAD schematic and board layout files can be found in [Monitor One Github repository](https://github.com/particle-iot/monitor-one).
 
 ### Expansion card pinout
 
@@ -786,6 +792,21 @@ By disconnecting the VIN power supply, it reduces the current used by the VIN an
 
 {{!-- END shared-blurb --}}
 
+## Schematics
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-1.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-2.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-3.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-4.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-5.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-6.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-7.png" alt="Schematic" class="full-width"}}
 
 
 ## Mechanical specifications
@@ -809,6 +830,12 @@ By disconnecting the VIN power supply, it reduces the current used by the VIN an
 {{imageOverlay src="/assets/images/monitor-one/front-dim.png" alt="Dimensions" class="full-width"}}
 
 {{imageOverlay src="/assets/images/monitor-one/side-dim.png" alt="Dimensions" class="full-width"}}
+
+
+### Dimensions for top cover artwork
+
+{{imageOverlay src="/assets/images/monitor-one/artwork-dimensions.png" alt="Artwork dimensions" class="full-width"}}
+
 
 ### Power consumption
 
@@ -878,3 +905,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2023-06-20 | RK | Added photos |
 | 2023-07-17 | RK | Link to quick start, screw sizes |
 | 2023-09-01 | RK | Added battery specifications |
+| 2023-09-08 | RK | Added schematics |
