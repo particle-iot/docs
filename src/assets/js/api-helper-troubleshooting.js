@@ -116,7 +116,7 @@ $(document).ready(function () {
                     pageObj.ticketForm = pageOptions.page;
                 }
             }
-            if (pageObj.doNotRestore) {
+            if (pageObj.doNotRestore && pageOptions.loadPath) {
                 return false;
             }
             if (!pageObj) {
