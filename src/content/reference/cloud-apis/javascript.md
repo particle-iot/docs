@@ -38,7 +38,7 @@ $ bower install particle-api-js
 Alternately, you can pull in Particle API JS from the JSDelivr and simply include the script in your HTML.
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/particle-api-js@8/dist/particle.min.js">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/particle-api-js@10/dist/particle.min.js">
 </script>
 ```
 
