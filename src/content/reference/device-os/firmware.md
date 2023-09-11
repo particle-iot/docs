@@ -17741,22 +17741,8 @@ Wake on BLE is not supported on the P2, Photon 2, or Tracker M.
 
 ---
 
-### Sleep and GPIO outputs
 
-In most sleep modes, GPIO outputs retain their HIGH or LOW GPIO output states. The exception is HIBERNATE on Gen 2 devices, where outputs go into a high-impedance state during sleep.
-
-This can result in unexpected current usage, depending on your design. You should `pinMode(INPUT)` to disconnect the GPIO if you do not want the OUTPUT driven during sleep mode to get the lower. While this is not necessary if you are using Gen 2 HIBERNATE mode, it does not hurt to do so, allowing the same code to be used for both Gen 2 and Gen 3.
-
-Make sure the external device can handle the pin being disconnected. This may require an external pull-up or pull-down, or you can just drive the pin always at the expense of slightly increased power usage.
-
-| Sleep mode | Gen 2 | Gen 3 | P2/Photon 2 |
-| :--- | :---: | :---: | :---: |
-| STOP | Preserved | Preserved | Preserved |
-| ULTRA_LOW_POWER | Preserved | Preserved | Preserved |
-| HIBERNATE  | High-Z | Preserved | Preserved |
-
-
-## Sleep - SystemSleepResult class
+### SystemSleepResult class
 
 {{api name1="SystemSleepResult"}}
 
@@ -17764,7 +17750,7 @@ Make sure the external device can handle the pin being disconnected. This may re
 
 The `SystemSleepResult` class is a superset of the older [`SleepResult`](#sleepresult-) class and contains additional information when using `System.sleep()` with the newer API. 
 
-### wakeupReason() (SystemSleepResult)
+#### wakeupReason() (SystemSleepResult)
 
 ```cpp
 // PROTOTYPE
@@ -17796,7 +17782,7 @@ Returns the reason for wake. Constants include:
 | `SystemSleepWakeupReason::BY_NETWORK` | Network (cellular or Wi-Fi) |
 
 
-### wakeupPin() (SystemSleepResult)
+#### wakeupPin() (SystemSleepResult)
 
 {{api name1="SystemSleepResult::wakeupPin"}}
 
@@ -17807,7 +17793,7 @@ pin_t wakeupPin() const;
 
 If `wakeupReason()` is `SystemSleepWakeupReason::BY_GPIO` returns which pin caused the wake. See example under `wakeupReason()`, above.
 
-### error() (SystemSleepResult)
+#### error() (SystemSleepResult)
 
 {{api name1="SystemSleepResult::error"}}
 
@@ -17818,7 +17804,7 @@ system_error_t error() const;
 
 If there was an error, returns the system error code. 0 is no error.
 
-### toSleepResult() (SystemSleepResult)
+#### toSleepResult() (SystemSleepResult)
 
 {{api name1="SystemSleepResult::toSleepResult"}}
 
@@ -17829,6 +17815,24 @@ operator SleepResult();
 ```
 
 Returns the previous style of [`SleepResult`](#sleepresult-). There is also an operator to automatically convert to a `SleepResult`.
+
+
+
+---
+
+### Sleep and GPIO outputs
+
+In most sleep modes, GPIO outputs retain their HIGH or LOW GPIO output states. The exception is HIBERNATE on Gen 2 devices, where outputs go into a high-impedance state during sleep.
+
+This can result in unexpected current usage, depending on your design. You should `pinMode(INPUT)` to disconnect the GPIO if you do not want the OUTPUT driven during sleep mode to get the lower. While this is not necessary if you are using Gen 2 HIBERNATE mode, it does not hurt to do so, allowing the same code to be used for both Gen 2 and Gen 3.
+
+Make sure the external device can handle the pin being disconnected. This may require an external pull-up or pull-down, or you can just drive the pin always at the expense of slightly increased power usage.
+
+| Sleep mode | Gen 2 | Gen 3 | P2/Photon 2 |
+| :--- | :---: | :---: | :---: |
+| STOP | Preserved | Preserved | Preserved |
+| ULTRA_LOW_POWER | Preserved | Preserved | Preserved |
+| HIBERNATE  | High-Z | Preserved | Preserved |
 
 
 ## sleep() [ Classic API ]
