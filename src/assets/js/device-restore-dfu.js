@@ -617,7 +617,7 @@ async function dfuDeviceRestore(usbDevice, options) {
             { name: 'system-part3', title: 'Device OS System Part 3' },
             { name: 'softdevice', title: 'nRF52 Soft Device' },
             { name: 'tinker', reset:true, title: 'User Firmware' },
-            { name: 'tracker-edge', reset:true, title: 'Tracker Edge Firmware' },
+            { name: 'tracker-edge', reset:true, title: 'Edge Firmware' },
             { name: 'bootloader', title: 'Device OS Bootloader' },
         ];
         // Note that other parts that don't necessarily have binaries are added below
