@@ -1832,6 +1832,7 @@
   "/firmware": "/firmware/firmware",
   "/firmware/best-practices": "/firmware/best-practices/firmware-introduction",
   "/firmware/low-power": "/firmware/low-power/wake-publish-sleep-cellular",
+  "/firmware/monitor-edge": "/firmware/tracker-edge/monitor-edge-firmware",
   "/firmware/software-design": "/firmware/software-design/finite-state-machines",
   "/firmware/tracker-edge": "/firmware/tracker-edge/tracker-edge-firmware",
   "/getting-started": "/getting-started/getting-started",
