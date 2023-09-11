@@ -17756,7 +17756,7 @@ Make sure the external device can handle the pin being disconnected. This may re
 | HIBERNATE  | High-Z | Preserved | Preserved |
 
 
-## SystemSleepResult class
+## Sleep - SystemSleepResult class
 
 {{api name1="SystemSleepResult"}}
 
