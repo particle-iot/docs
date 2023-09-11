@@ -2592,6 +2592,44 @@ $(document).ready(function() {
                 $(this).data('updateProductList')();    
             });
 
+
+            const showHideSetupBitSelection = function() {
+                let show = false;
+
+                if (deviceInfo.platformVersionInfo.gen == 3) {
+                    let versionElemForMode;
+                    switch(mode) {
+                        case 'doctor':
+                        case 'cloud':
+                        case 'product':
+                            versionElemForMode = doctorDeviceOsVersionElem;
+                            break;
+
+                        case 'restore':
+                            versionElemForMode = versionElem;
+                            break;
+
+                        case 'setup':
+                            versionElemForMode = setupDeviceOsVersionElem;
+                            break;
+                    }
+                    if (versionElemForMode) {
+                        const verObj = apiHelper.parseVersionStr($(versionElemForMode).val());
+                        if (verObj && verObj.major < 4) {
+                            show = true;
+                        }
+                    }
+                }
+
+                if (show && mode != 'cloud') {
+                    $(setupBitTrElem).show();
+                }
+                else {
+                    $(setupBitSelectElem).val('unchanged');
+                    $(setupBitTrElem).hide();
+                }    
+            };
+            
             const updateTrackerMonitorDeviceOsVersions = function() {
                 const isTrackerOne = $(trackerMonitorTrackerElem).prop('checked');
             
@@ -2615,6 +2653,7 @@ $(document).ready(function() {
 
                     versionElem.append(optionElem);
                 }
+                showHideSetupBitSelection();
             }
 
             $(edgeVersionElem).on('change', updateTrackerMonitorDeviceOsVersions);
@@ -2754,43 +2793,6 @@ $(document).ready(function() {
                 $(hasEthernetRowElem).hide();
             }
 
-            const showHideSetupBitSelection = function() {
-                let show = false;
-
-                if (deviceInfo.platformVersionInfo.gen == 3) {
-                    let versionElemForMode;
-                    switch(mode) {
-                        case 'doctor':
-                        case 'cloud':
-                        case 'product':
-                            versionElemForMode = doctorDeviceOsVersionElem;
-                            break;
-
-                        case 'restore':
-                            versionElemForMode = versionElem;
-                            break;
-
-                        case 'setup':
-                            versionElemForMode = setupDeviceOsVersionElem;
-                            break;
-                    }
-                    if (versionElemForMode) {
-                        const verObj = apiHelper.parseVersionStr($(versionElemForMode).val());
-                        if (verObj && verObj.major < 4) {
-                            show = true;
-                        }
-                    }
-                }
-
-                if (show && mode != 'cloud') {
-                    $(setupBitTrElem).show();
-                }
-                else {
-                    $(setupBitSelectElem).val('unchanged');
-                    $(setupBitTrElem).hide();
-                }    
-            };
-            
 
             if (mode == 'doctor' || mode == 'cloud' || mode == 'product') {
                 $(doctorDeviceOsVersionElem).on('change', showHideSetupBitSelection);    
