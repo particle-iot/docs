@@ -154,6 +154,13 @@
                 </div>
                 <div class="restoreMode">
                     <table>
+                        <tr class="trackerMonitorSelectorRow" style="display:none;">
+                            <td class="apiHelperProductSelectorLabel">Device Type</td>
+                            <td>
+                                <label><input type="radio" class="trackerMonitorRadio trackerMonitorTracker" checked>Tracker One</label> &nbsp;&nbsp;
+                                <label><input type="radio" class="trackerMonitorRadio trackerMonitorMonitor">Monitor One</label>
+                            </td>
+                        </tr>
                         <tr>
                             <td class="apiHelperProductSelectorLabel">Restore Type</td>
                             <td>
@@ -165,8 +172,13 @@
                             </td>
                             <td>&nbsp;</td>
                         </tr>
+                        <tr class="edgeVersionSelectorRow">
+                            <td class="apiHelperProductSelectorLabel">Edge Version</td>
+                            <td><select class="apiHelperUsbRestoreEdgeVersion apiHelperSelect"></select></td>
+                            <td>&nbsp;</td>
+                        </tr>
                         <tr class="apiHelperUsbRestoreDeviceVersionTr">
-                            <td class="apiHelperProductSelectorLabel">Version</td>
+                            <td class="apiHelperProductSelectorLabel">Device OS Version</td>
                             <td><select class="apiHelperUsbRestoreDeviceVersion apiHelperSelect"><option>Select Device OS Version</option></select></td>
                             <td>&nbsp;</td>
                         </tr>
