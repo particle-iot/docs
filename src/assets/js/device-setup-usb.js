@@ -2562,6 +2562,12 @@ $(document).ready(function() {
             const updateNcpCheckboxTrElem = $(thisElem).find('.updateNcpCheckboxTr');
             const updateNcpCheckboxElem = $(thisElem).find('.updateNcpCheckbox');
             const forceUpdateElem = $(thisElem).find('.forceUpdate');
+            const trackerMonitorSelectorRowElem = $(thisElem).find('.trackerMonitorSelectorRow');
+            const trackerMonitorRadioElem = $(thisElem).find('.trackerMonitorRadio');
+            const trackerMonitorTrackerElem = $(thisElem).find('.trackerMonitorTracker');
+            const trackerMonitorMonitorElem = $(thisElem).find('.trackerMonitorMonitor');
+            const edgeVersionElem = $(thisElem).find('.apiHelperUsbRestoreEdgeVersion');
+            const edgeVersionSelectorRowElem = $(thisElem).find('.edgeVersionSelectorRow');
             
             // Doctor mode and cloud mode
             const doctorModeSettingsElem = $(thisElem).find('.doctorModeSettings');
@@ -2574,11 +2580,72 @@ $(document).ready(function() {
             // Product mode
             const productModeTableBodyElem = $(thisElem).find('.productModeTableBody');
 
+            const trackerEdgeVersionsResp = await fetch('/assets/files/tracker/trackerEdgeVersions.json');
+            const trackerEdgeVersions = JSON.parse(await trackerEdgeVersionsResp.text()); 
+
+            const monitorEdgeVersionsResp = await fetch('/assets/files/tracker/monitorEdgeVersions.json');
+            const monitorEdgeVersions = JSON.parse(await monitorEdgeVersionsResp.text()); 
+
 
             $('.apiHelperProductDestination').each(function() {
                 $(this).data('filterPlatformId', deviceInfo.platformId);
                 $(this).data('updateProductList')();    
             });
+
+            const updateTrackerMonitorDeviceOsVersions = function() {
+                const isTrackerOne = $(trackerMonitorTrackerElem).prop('checked');
+            
+                const edgeVersions = isTrackerOne ? trackerEdgeVersions : monitorEdgeVersions;
+
+                const versionName = $(edgeVersionElem).val();
+                const edgeVersionObj = edgeVersions.versions.find(e => e.v == versionName);
+
+                $(versionElem).empty();
+                for(let ver of deviceInfo.platformVersionInfo.versionArray) {
+                    const cmp = apiHelper.versionSort(edgeVersionObj.target, ver);
+                    if (cmp < 0) {
+                        break;
+                    }
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('name', ver);
+                    $(optionElem).text(ver);
+                    if (cmp == 0) {
+                        $(optionElem).attr('selected', 'selected');
+                    }
+
+                    versionElem.append(optionElem);
+                }
+            }
+
+            $(edgeVersionElem).on('change', updateTrackerMonitorDeviceOsVersions);
+
+            const updateTrackerMonitorVersions = function() {
+                const isTrackerOne = $(trackerMonitorTrackerElem).prop('checked');
+            
+                const edgeVersions = isTrackerOne ? trackerEdgeVersions : monitorEdgeVersions;
+                $(edgeVersionElem).empty();
+                for(const v of edgeVersions.versions) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).text(v.title + ' (targets Device OS ' + v.target + ')');
+                    $(optionElem).attr('value', v.v);
+                    $(edgeVersionElem).append(optionElem);
+                }
+
+                updateTrackerMonitorDeviceOsVersions();
+            }
+
+
+            $(trackerMonitorRadioElem).each(function() {
+                // Used in Device Restore mode
+                const thisElem = $(this);
+                $(thisElem).on('click', function() {
+                    $(trackerMonitorRadioElem).prop('checked', false);
+                    $(thisElem).prop('checked', true);
+
+                    updateTrackerMonitorVersions();
+                });
+            });
+    
 
             const checkButtonEnable = function() {
                 let enableButton = true;
@@ -2587,16 +2654,24 @@ $(document).ready(function() {
                     switch($(modeSelectElem).val()) {
                         case 'upload':
                             $(restoreDeviceVersionTrElem).hide();
+                            $(edgeVersionSelectorRowElem).hide();
                             enableButton = !!restoreFirmwareBinary;
                             break;
 
                         case 'url':
                             $(restoreDeviceVersionTrElem).hide();
+                            $(edgeVersionSelectorRowElem).hide();
                             enableButton = $(userFirmwareUrlElem).val().trim() != '';
                             break;
 
                         default:
                             $(restoreDeviceVersionTrElem).show();
+                            if (deviceInfo.platformVersionInfo.isTracker) {
+                                $(edgeVersionSelectorRowElem).show();
+                            }
+                            else {
+                                $(edgeVersionSelectorRowElem).hide();
+                            }
                             break;
                     }
 
@@ -2722,32 +2797,39 @@ $(document).ready(function() {
             }
             else
             if (mode == 'restore') {                
-                const lastVersion = $(versionElem).val();
-                $(versionElem).empty();
-                let firstRelease;
-                for(let ver of deviceInfo.platformVersionInfo.versionArray) {
-                    versionElem.append('<option name="' + ver + '">' + ver + '</option>');
-                    if (!firstRelease && !ver.includes('alpha') && !ver.includes('beta') && !ver.includes('rc')) {
-                        firstRelease = ver;
-                    }
-                }
-                if (lastVersion && !lastVersion.startsWith('Select')) {
-                    $(versionElem).val(lastVersion);
-                }
-                else if (firstRelease) {
-                    $(versionElem).val(firstRelease);
-                }
-                $(versionElem).on('change', showHideSetupBitSelection);
-
 
                 if (deviceInfo.platformVersionInfo.isTracker) {
-                    $(modeSelectElem).find('option[value="tinker"]').text('Tracker Edge (Factory Default)');
+                    $(trackerMonitorSelectorRowElem).show();
+
+                    $(modeSelectElem).find('option[value="tinker"]').text('Edge (Factory Default)');
                     $(trackerTrElem).show();
+
+                    updateTrackerMonitorVersions();
                 }
                 else {
+                    $(trackerMonitorSelectorRowElem).hide();
+                    $(edgeVersionSelectorRowElem).hide();
+
                     $(modeSelectElem).find('option[value="tinker"]').text('Tinker (Factory Default)');
                     $(trackerTrElem).hide();
+
+                    const lastVersion = $(versionElem).val();
+                    $(versionElem).empty();
+                    let firstRelease;
+                    for(let ver of deviceInfo.platformVersionInfo.versionArray) {
+                        versionElem.append('<option name="' + ver + '">' + ver + '</option>');
+                        if (!firstRelease && !ver.includes('alpha') && !ver.includes('beta') && !ver.includes('rc')) {
+                            firstRelease = ver;
+                        }
+                    }
+                    if (lastVersion && !lastVersion.startsWith('Select')) {
+                        $(versionElem).val(lastVersion);
+                    }
+                    else if (firstRelease) {
+                        $(versionElem).val(firstRelease);
+                    }    
                 }                
+                $(versionElem).on('change', showHideSetupBitSelection);
 
                 $(selectUserBinaryButtonElem).on('click', function() {
                     $(userBinaryFileSelectorElem).trigger('click');
@@ -2928,6 +3010,37 @@ $(document).ready(function() {
                 
 
                 if (mode == 'restore') {
+                    if (deviceInfo.platformVersionInfo.isTracker) {
+                        // restoreFirmwareBinary
+                        const isTrackerOne = $(trackerMonitorTrackerElem).prop('checked');
+            
+                        let standardEdge = false;
+                        switch($(modeSelectElem).val()) {
+                            case 'upload':
+                            case 'url':
+                                break;
+    
+                            default:
+                                standardEdge = true;
+                                break;
+                        }
+
+                        if (standardEdge) {
+                            const edgeVersions = isTrackerOne ? trackerEdgeVersions : monitorEdgeVersions;
+        
+                            const versionName = $(edgeVersionElem).val();
+                            const edgeVersionObj = edgeVersions.versions.find(e => e.v == versionName);
+                            
+                            const resp = await fetch('/assets/files/tracker/' + edgeVersionObj.bin);
+                            userFirmwareBinary = await resp.arrayBuffer();        
+
+                            console.log('using standardEdge', {
+                                edgeVersionObj,
+                                userFirmwareBinary,
+                            });
+                        }
+                    }
+
                     deviceInfo.targetVersion = $(versionElem).val();
                     flashDeviceOptions.setupBit = $(setupBitSelectElem).val();
                     flashDeviceOptions.shippingMode = $(shippingModeCheckboxElem).prop('checked');
