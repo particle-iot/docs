@@ -230,8 +230,8 @@ Each product can have only one device platform in it. For example, the Argon and
 - The B4xx (bsom) and B5xx (b5som) are different platforms and must be in different products.
 - The Photon and P1 are different platforms and must be in different products.
 - All Tracker SoM devices (Tracker One and Tracker SoM, both T4xx and T5xx) can be in the same product.
+- Tracker One and Monitor One devices can be in the same product, however because they use [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/) and  [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/) firmware, respectively, it's usually not practical to do so.
 
-Products are typically identified by their **Product ID** which is an integer that is unique across all products.
 
 ### Product firmware
 

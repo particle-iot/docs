@@ -115,7 +115,7 @@ The available models include:
 
 
 
-### Tracker SoM
+### Tracker SoM and Tracker One
 
 {{!-- BEGIN shared-blurb 875eaa26-9bab-11ec-b909-0242ac120002 --}}
 ![SoM](/assets/images/at-som/at-som-bg96.png)
@@ -159,6 +159,21 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 
 
 {{!-- END do not edit content above, it is automatically generated d833e557-5289-450c-92cf-a6eedec30bd8 --}}
+
+
+### Monitor One
+
+![Monitor One](/assets/images/monitor-one/monitor-one-closed.jpg)
+
+The Monitor One is based on the Tracker SoM but includes a rugged enclosure with multiple mounting options and room for expansion cards within the enclosure.
+
+- **Ready to go** with rugged IP67-rated enclosure with room inside for an expansion card.
+- **Flexible power supply** to easily add asset tracking to most devices with a 6 - 30 VDC power input and a large 18650 LiPo battery pack.
+- **Internal or external antennas** for cellular and GNSS.
+- **Temperature sensors** on the carrier board, and also a battery pack temperature sensor.
+- **Expansion card connector** to allow for custom application specific hardware.
+- **RGB LED** for system status, and two user RGB LEDs for your own use, visible from outside the enclosure.
+- **User button**, waterproof and accessible from outside the enclosure.
 
 
 ### E Series (SMD)

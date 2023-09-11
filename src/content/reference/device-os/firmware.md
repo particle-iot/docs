@@ -17203,7 +17203,8 @@ The `SystemSleepConfiguration` class configures all of the sleep parameters and 
 
 For earlier versions of Device OS you can use the [classic API](#sleep-classic-api-).
 
-The Tracker One and Tracker SoM have an additional layer of sleep functionality. You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker-sleep/) and [TrackerSleep API Reference](/firmware/tracker-edge/tracker-edge-api-reference/#trackersleep). You generally should avoid directly using this sleep API on the Tracker as it will not put the tracker-specific peripherals like the GNSS, IMU, CAN, and RTC to sleep properly, as these functions are implemented in the Tracker Edge sleep functionality, not Device OS.
+The Tracker One, Tracker SoM, and Monitor One have an additional layer of sleep functionality. You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker-sleep/) and [TrackerSleep API Reference](/firmware/tracker-edge/tracker-edge-api-reference/#trackersleep). You generally should avoid directly using this sleep API on the Tracker as it will not put the tracker-specific peripherals like the GNSS, IMU, CAN, and RTC to sleep properly, as these functions are implemented in the [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/) or [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/) sleep functionality, not Device OS.
+
 
 ### mode() (SystemSleepConfiguration)
 

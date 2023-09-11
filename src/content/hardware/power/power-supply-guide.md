@@ -33,6 +33,7 @@ This guide is a brief guide to power supplies for Particle devices.
 
 - Some tablet chargers support 2 A power without using DPDM; these can also be used.
 
+- Monitor One devices can only be powered by the M12 8-pin connector.
 
 ### VIN (external supplies)
 
