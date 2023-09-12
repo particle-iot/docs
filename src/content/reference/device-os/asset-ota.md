@@ -188,3 +188,26 @@ In the [Particle console](https://console.particle.io/), if you view a device, y
 
 ![Console device view](/assets/images/fileassetexample.png)
 
+## Community examples
+
+### Arduino Uno example
+
+The [Arduino Uno Asset OTA example](https://github.com/jalbersrp/UnoAssetOta/) shows how to interface to a 5V Arduino device, including necessary level shifting hardware, and flash the device firmware using Asset OTA.
+
+![Arduino Uno](/assets/images/asset-ota/arduino-uno.jpg)
+
+### Asset OTA sound example
+
+The [Asset OTA sound example](https://github.com/morduno-particle/aota-sounds-example/) shows how you can upgrade sound assets stored on an external SD card using Asset OTA.
+
+![Sound example](/assets/images/asset-ota/sounds-example.jpg)
+
+
+### STM32 example
+
+The [STM32 Asset OTA example](https://github.com/particle-iot/asset-ota-examples/tree/main/stm32_ota) shows how to upgrade the firmware running on an external MCU using Asset OTA, in this case a STM32 MCU. This was shown during Spectra 2023.
+
+
+### LCD image
+
+The [LCD image Asset OTA example](https://github.com/particle-iot/asset-ota-examples/tree/main/lcd_image) shows how you can include image assets that can be shown on a LCD display connected to the Particle device. This was shown during Spectra 2023.
