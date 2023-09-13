@@ -146,7 +146,7 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Electron 2G/3G (EMEA), Tray [x50] | E270TRAY50 | &nbsp; | ANTELEC | &nbsp; | NRND|
 | Electron 2G/3G (Global - U201) , Tray [x50] | ELC314TY | &nbsp; | ANT-FLXU | &nbsp; | NRND|
 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | SNSRKIT3G260 | &check; | ANT-ELEC | &nbsp; | Deprecated|
-| Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | SNSRKIT3G270 | &check; | ANT-ELEC | &nbsp; | NRND|
+| Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | SNSRKIT3G270 | &check; | ANT-ELEC | &nbsp; | Deprecated|
 | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ELC404TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
 | Electron LTE CAT-M1 (NorAm), [x1] | ELC402EA | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
 | Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
@@ -269,7 +269,7 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 | P1 Wi-Fi Module, Reel [x500] | P1REEL | trace | 3 | &nbsp; | NRND|
 | P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | trace | 4 | &nbsp; | GA|
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | trace | 4 | &nbsp; | GA|
-| Photon 2 [x1] | PHN2MEA | trace | 4 | &nbsp; | Beta|
+| Photon 2 [x1] | PHN2MEA | trace | 4 | &nbsp; | GA|
 | Photon 2, Kit [x1] | PHN2KIT | trace | 4 | &nbsp; | GA|
 | Photon 2, Tray [x50] | PHN2MTY | trace | 4 | &nbsp; | Beta|
 | Photon with Headers Starter Kit, [x1] | PHOTONKIT | chip | 3 | &nbsp; | Deprecated|
@@ -391,7 +391,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Edge ML Kit for Photon 2 (Photon 2 included) | PHN2EDGEKIT | &check; | 4 | &nbsp; | GA|
 | P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | &check; | 4 | &nbsp; | GA|
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | &check; | 4 | &nbsp; | GA|
-| Photon 2 [x1] | PHN2MEA | &check; | 4 | &nbsp; | Beta|
+| Photon 2 [x1] | PHN2MEA | &check; | 4 | &nbsp; | GA|
 | Photon 2, Kit [x1] | PHN2KIT | &check; | 4 | &nbsp; | GA|
 | Photon 2, Tray [x50] | PHN2MTY | &check; | 4 | &nbsp; | Beta|
 | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | &nbsp; | &nbsp; | GA|

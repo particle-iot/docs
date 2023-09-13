@@ -499,9 +499,9 @@ The BRN404X are not certified for use in Europe at this time.
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | B524MTY|
-| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | NRND | |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | U270 |  | Deprecated | |
 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 |  | Deprecated | B524MEA|
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -1065,7 +1065,7 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 | :--- | :--- | :--- | :--- | :--- |
 | PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | GA | |
 | PHN2KIT | Photon 2, Kit [x1] | Global | GA | |
-| PHN2MEA | Photon 2 [x1] | Global | Beta | |
+| PHN2MEA | Photon 2 [x1] | Global | GA | |
 | PHN2MTY | Photon 2, Tray [x50] | Global | Beta | |
 
 

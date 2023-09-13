@@ -245,7 +245,6 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | B524MTY|
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | NRND | |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404XTRAY50|
-| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | NRND | |
 | ASSET2GV2 | Asset Tracker 2G | Global | G350 |  | Deprecated | |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | U260 |  | Deprecated | |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | U270 |  | Deprecated | |
@@ -257,6 +256,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404XKIT|
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | U260 |  | Deprecated | |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated 7a6e03da-072c-4955-922a-288e9609292a --}}
@@ -284,7 +284,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | EMEAA | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EG91-EX | &nbsp; | 3 | NRND | ONE524MTY |
 | EMEAA | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EG91-EX | &check; | 3 | GA | &nbsp; |
 | EMEAA | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EG91-EX | &check; | 3 | GA | &nbsp; |
-| EMEAA | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | U270 | &nbsp; | 2 | NRND | &nbsp; |
+| EMEAA | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | U270 | &nbsp; | 2 | Deprecated | &nbsp; |
 | EMEAA | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EG91-EX | &nbsp; | 3 | Deprecated | T524MEA |
 | EMEAA | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EG91-EX | &nbsp; | 3 | NRND | T524MKIT |
 | EMEAA | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EG91-EX | &nbsp; | 3 | Deprecated | T524MTY |
@@ -432,7 +432,7 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | U270 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | &nbsp; | 2 | Deprecated | &nbsp; |
 | U270 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | &nbsp; | 2 | Deprecated | B524MEA |
 | U270 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | 2 | NRND | B524MTY |
-| U270 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | 2 | NRND | &nbsp; |
+| U270 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | 2 | Deprecated | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated a85479cf-355b-45c8-9062-db69f037bfea --}}
@@ -524,7 +524,7 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | Type T | E350KIT | Electron 2G Kit (Global) | Global | G350 | 2 | Deprecated | B524MEA |
 | Type T | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 | 2 | Deprecated | B524MTY |
 | Type T | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | U260 | 2 | Deprecated | &nbsp; |
-| Type T | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 | 2 | NRND | &nbsp; |
+| Type T | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 | 2 | Deprecated | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 8747e7eb-420e-425e-882c-e10117b77620 --}}
@@ -633,7 +633,6 @@ Some Particle devices are compatible with [3rd-party SIM cards](/troubleshooting
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 3 | NRND | BRN404XTRAY50 |
 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | U270 | 2 | NRND | B524MTY |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | U201 | 2 | NRND | &nbsp; |
-| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | NRND | &nbsp; |
 | ASSET2GV2 | Asset Tracker 2G | Global | &nbsp; | G350 | 2 | Deprecated | &nbsp; |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
@@ -650,6 +649,7 @@ Some Particle devices are compatible with [3rd-party SIM cards](/troubleshooting
 | E350KIT | Electron 2G Kit (Global) | Global | &nbsp; | G350 | 2 | Deprecated | B524MEA |
 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | &nbsp; | G350 | 2 | Deprecated | B524MTY |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -707,7 +707,6 @@ The following SKUs are 2G/3G only and should not be deployed in the United State
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | &check; | U201 | 2 | NRND | &nbsp; |
 | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | &check; | U201 | 2 | NRND | &nbsp; |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | U201 | 2 | NRND | &nbsp; |
-| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | NRND | &nbsp; |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | U201 | 3 | Deprecated | &nbsp; |
@@ -719,6 +718,7 @@ The following SKUs are 2G/3G only and should not be deployed in the United State
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | &nbsp; | U201 | 2 | Deprecated | &nbsp; |
 | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | &check; | U201 | 2 | Deprecated | &nbsp; |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
 | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | &nbsp; | U201 | 2 | End of life | &nbsp; |
 
 

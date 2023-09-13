@@ -21571,7 +21571,7 @@
     {
       "name": "PHN2MEA",
       "desc": "Photon 2 [x1]",
-      "lifecycle": "Beta",
+      "lifecycle": "GA",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -21850,7 +21850,7 @@
     {
       "name": "SNSRKIT3G270",
       "desc": "Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "modem": "U270",
       "sim": 1,
       "simPlans": [

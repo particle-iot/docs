@@ -124,6 +124,7 @@ If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &nbsp; | GA |
 | PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | &nbsp; | GA |
 | PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | GA |
+| PHN2MEA | Photon 2 [x1] | Global | &nbsp; | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
@@ -693,6 +694,7 @@ The P1 is intended for production use. It is an older Gen 2 models as is depreca
 | P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | GA |
 | PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | GA |
 | PHN2KIT | Photon 2, Kit [x1] | Global | GA |
+| PHN2MEA | Photon 2 [x1] | Global | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b--}}
@@ -718,6 +720,7 @@ These modules are pin-compatible in the Feather form-factor, so you can make two
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | GA |
 | PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | &nbsp; | GA |
 | PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | GA |
+| PHN2MEA | Photon 2 [x1] | Global | &nbsp; | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated a4c0c80f-3745-4b3c-b6dd-e774c4c71ad5 --}}
@@ -769,6 +772,7 @@ The following pins are used by Ethernet. In Device OS 5.3.0 and later these can 
 | P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | &nbsp; | &nbsp; | GA |
 | PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | &nbsp; | &nbsp; | GA |
 | PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | &nbsp; | GA |
+| PHN2MEA | Photon 2 [x1] | Global | &nbsp; | &nbsp; | GA |
 | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &nbsp; | &check; | GA |
 | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
 | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |

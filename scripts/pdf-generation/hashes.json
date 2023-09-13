@@ -37,7 +37,7 @@
   "e-series/e-series-system-integration-manual.md": "acb512be39f1859397cb34b0841f54f8",
   "e-series/e404x-certification.md": "bf4f6e2399a94405284bf46d27a8664d",
   "e-series/e404x-datasheet.md": "65a8a790c96638d3059734c2d4a7e25d",
-  "e-series/electron-datasheet.md": "5a06dd482e2308595f28b9dea69477b8",
+  "e-series/electron-datasheet.md": "38eb030ade18cb7a2bea9d9e13930341",
   "electron/e-series-datasheet.md": "d2bbdd542975030474da198de7789508",
   "electron/e-series-eval-board.md": "529cf93eae5b65c40b2880ca10bae9c6",
   "electron/e-series-system-integration-manual.md": "1de90e8ea5620235ec79acf431d28e85",
@@ -74,7 +74,7 @@
   "wi-fi/p2-p1-migration-guide.md": "96bffb1323209b76664a00a71d2ff1d8",
   "wi-fi/p2-photon-migration-guide.md": "3c8d3fb39583eae4e2c774fdcc8fd912",
   "wi-fi/photon-2-argon-migration-guide.md": "d8066bcbff652f8049740c3903999301",
-  "wi-fi/photon-2-datasheet.md": "b5556b6e8c2072cb8bbb1532f7e009e0",
+  "wi-fi/photon-2-datasheet.md": "cc8479730376a0afc787c00a355ebf4f",
   "wi-fi/photon-2-photon-migration-guide.md": "97f56bbc70806aef69d9f0ea7f1d08ee",
   "wi-fi/photon-datasheet.md": "533b08ca6118a538dab023c25b4abb21"
 }
