@@ -51,7 +51,7 @@ when you enable the InfluxData Platform integration.
 ### Deploy a Telegraf agent
 
 If you don't already have one, you'll need to have a running Telegraf Collection Agent. You can follow
-the <a href="https://docs.influxdata.com/telegraf/v1.5/introduction/getting_started/">Getting Started</a>
+the <a href="https://docs.influxdata.com/telegraf/v1/get-started/">Getting Started</a>
 Document for setting up your own hosted Telegraf instance on any server or cloud platform you choose.
 
 ### Deploy an InfluxDB instance
