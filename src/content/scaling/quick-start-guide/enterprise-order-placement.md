@@ -18,7 +18,7 @@ Particle uses the information from your Blanket PO to forecast accurately, reduc
 
 Enterprise customers are required to issue committed (binding) purchase orders throughout the year and Particle must accept these POs in writing, which will initiate the hardware shipments. These confirmed PO’s draw from the total quantity noted on the original Blanket PO. PO’s should be submitted to support@particle.io.
 
-Changes to the original Blanket PO can be made throughout the year by sending a revised version to your CSM. Please review your contract on file with Particle for more information on rescheduling or canceling committed orders.
+Changes to the original Blanket PO can be made throughout the year by sending a revised through the [purchase order submission page](/troubleshooting/troubleshooting/?p=101,107,227,). Please review your contract on file with Particle for more information on rescheduling or canceling committed orders.
 
 ## Annually
 
@@ -30,7 +30,7 @@ A new Blanket PO must be provided by the customer within 30 days of the start da
 
 Sample purchase order:
 
-![Screen_Shot_2022-01-24_at_11.09.03_AM.png](/assets/images/support/Screen_Shot_2022-01-24_at_11.09.03_AM.png)
+{{imageOverlay src="/assets/images/support/purchase-order-example.png" alt="Example purchase order" }}
 
 You can also download an [Excel Purchase Order Template](/assets/files/enterprise-order-template.xlsx).
 

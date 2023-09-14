@@ -48,6 +48,8 @@ If you placed your original order through one of our [distributors](https://www.
 
 If we determine that something is wrong with your product due to a manufacturing defect or error, we will be happy to replace your item(s) as needed or offer you a discount/credit for our store depending on availability. Please visit our [support portal](https://support.particle.io/) and let us know the product you’re having issues with along with a detailed description of the problems you’re seeing. Be sure to let us know which distributor you ordered your item(s) from as well. For physically broken products that were damaged in transit, please contact the original distributor.
 
+If you purchase devices from a third party or unapproved distributor, all Particle return policies and warranties will be void. Please see our [Terms of Service](https://www.particle.io/legal/terms-of-service/) for more information.
+
 ## Wholesale store returns policy
 
 #### Original condition return policy
