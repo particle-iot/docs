@@ -2773,6 +2773,9 @@ $(document).ready(function () {
         const copyModeElem = $(thisElem).find('.copyMode');
         const outputElem = $(thisElem).find('.apiHelperCloudApiOutput');
 
+        const productOrSandboxSelectorElem = $(thisElem).find('.apiHelperProductOrSandboxSelector');
+        let productSelectorObj;
+
         let integrationList;
         let integrationListElems;
         let integrationListDest;
@@ -2818,8 +2821,10 @@ $(document).ready(function () {
         };
 
         const updateIntegrationList = function() {
+            let sourceProduct = {};
+            productSelectorObj.getOptions(sourceProduct);
 
-            apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token }).then(
+            apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token, product: sourceProduct.productId }).then(
                 function(data) {
                     integrationList = data.body;
 
@@ -2863,7 +2868,7 @@ $(document).ready(function () {
                         });   
                     }
                     if (integrationList.length == 0) {
-                        setStatus('No integrations in developer sandbox');
+                        setStatus('No integrations in source');
                         $(integrationTableAndButtonsElem).hide();
                     }
                     else {
@@ -2896,6 +2901,14 @@ $(document).ready(function () {
             );   
         };
 
+        // This is triggered by the product selector when the product list changes
+        $(thisElem).on('updateProductList', async function(event, options) {
+            productSelectorObj = $(productOrSandboxSelectorElem).data('productSelector');
+            console.log('productSelectorObj', productSelectorObj);
+
+            updateIntegrationList();
+        });
+
         $(productDestinationElem).data('onChange', requestDestIntegrationList);
 
         $(actionButtonElem).on('click', async function () {
@@ -2908,6 +2921,15 @@ $(document).ready(function () {
             if (!integrationList) {
                 return;
             }
+
+            let sourceProduct = {};
+            productSelectorObj.getOptions(sourceProduct);
+
+            if (sourceProduct.productId == destinationProduct) {
+                alert('Source and destination products cannot be the same');
+                return;
+            }
+
 
             const keysToSkip = [
                 'created_at',
@@ -2987,6 +3009,15 @@ $(document).ready(function () {
                     });
 
                     appendOutput('Copied ' + integrationList[ii].event + '\n');
+                    
+                    let sourceUrlBase;
+                    if (sourceProduct.productId) {
+                        sourceUrlBase = 'https://api.particle.io/v1/products/' + sourceProduct.productId + '/integrations/' + integrationId
+                    }
+                    else {
+                        sourceUrlBase = 'https://api.particle.io/v1/integrations/' + integrationId;
+                    }
+
 
                     // Disable in destination (this does not work if you set it during creation)
                     if (copyMode == 'disableDest') {
@@ -3037,7 +3068,7 @@ $(document).ready(function () {
                                 success: function (resp, textStatus, jqXHR) {
                                     resolve();
                                 },
-                                url: 'https://api.particle.io/v1/integrations/' + integrationId
+                                url: sourceUrlBase
                             }
                 
                             $.ajax(request);
@@ -3061,7 +3092,7 @@ $(document).ready(function () {
                                 success: function (resp, textStatus, jqXHR) {
                                     resolve();
                                 },
-                                url: 'https://api.particle.io/v1/integrations/' + integrationId
+                                url: sourceUrlBase
                             }
                 
                             $.ajax(request);
@@ -3082,7 +3113,7 @@ $(document).ready(function () {
             requestDestIntegrationList();
         });
 
-        updateIntegrationList();
+        // updateIntegrationList();
 
     });
 

@@ -1,18 +1,25 @@
 <div class="apiHelperCloudIntegrationMove">
     <div class="apiHelper">
         <div class="apiHelperBox">
-            <table class="apiHelperTableNoMargin">
-                <tbody class="apiHelperOrgProductSelector apiHelperProductDestination">
-                    <tr><td colspan="3" class="apiHelperLargeTitle">Move integrations to product:</td></tr>
-                    <tr class="sandboxOrgRow" style="display:none">
-                        <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
-                        <label><input type="radio" class="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
-                        <label><input type="radio" class="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
-                        </td><td>&nbsp;</td></tr>
-                    <tr class="orgSelectorRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization &nbsp;<select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
-                    <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
-                </tbody>
-            </table>
+            <div>
+                <p>Copy from (source):</p>
+                {{> product-or-sandbox-selector}}
+            </div>
+            <div>
+                <p>To (destination):</p>
+                <table class="apiHelperTableNoMargin">
+                    <tbody class="apiHelperOrgProductSelector apiHelperProductDestination">
+                        <tr><td colspan="3" class="apiHelperLargeTitle">Move integrations to product:</td></tr>
+                        <tr class="sandboxOrgRow" style="display:none">
+                            <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
+                            <label><input type="radio" class="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
+                            <label><input type="radio" class="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
+                            </td><td>&nbsp;</td></tr>
+                        <tr class="orgSelectorRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization &nbsp;<select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+                        <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
+                    </tbody>
+                </table>
+            </div>
             <div class="integrationTableAndButtons" style="display:none">
                 <table class="integrationSelector apiHelperTableNoMargin">
                     <thead>
@@ -33,10 +40,10 @@
                     <tbody>
                         <tr>
                             <td><select class="apiHelperSelect copyMode">
-                                <option value="disableSource" select>Copy and disable in source developer account</option>
+                                <option value="disableSource" select>Copy and disable in source</option>
                                 <option value="disableDest">Copy and disable in destination product (prepare for later use)</option>
                                 <option value="both">Copy and leave both enabled (may cause duplicate integration calls)</option>
-                                <option value="deleteSource">Delete source integration in developer account after copying</option>
+                                <option value="deleteSource">Delete source integration after copying (not recommended)</option>
                                 </select></td>
                         </tr>
                         <tr>

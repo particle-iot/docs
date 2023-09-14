@@ -3,7 +3,7 @@ title: Copy integrations into a product
 columns: two
 layout: commonTwo.hbs
 description: Copy integrations into a product
-includeDefinitions: [api-helper, api-helper-cloud, api-helper-extras]
+includeDefinitions: [api-helper, api-helper-cloud, api-helper-extras, api-helper-tools]
 ---
 
 # {{title}}

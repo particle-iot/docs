@@ -2046,6 +2046,8 @@ $(document).ready(function() {
         $(orgSelectElem).on('change', updateProductList);
 
         $(productSelectElem).on('change', function() {
+            let options = {};
+            productSelector.getOptions(options);
             $(thisPartial).trigger('updateProductList', [options]);
         });
 
