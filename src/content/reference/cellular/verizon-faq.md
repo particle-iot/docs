@@ -60,13 +60,11 @@ You cannot override the priority list set by the mobile provider.
 
 At this time, an upgrade of Device OS is not generally required.
 
-| Models | Device OS Version |
-| :--- | :--- |
-| B404X, BRN404X, E404X | 4.x LTS |
-| B404, BRN404, ONE404, T404 | 4.x LTS recommended, 2.x LTS supported |
-| ELC404 | 2.x LTS |
-
-Note, however, that if issues are found during beta testing, a later version could be required to implement changes to improve performance or fix bugs.
+| Models | Device OS Version | Current recommendation |
+| :--- | :--- | :--- |
+| B404X, BRN404X, E404X | 4.x LTS | {{version mode="latestRelease" line="4"}} |
+| B404, BRN404, ONE404, T404 | 4.x LTS recommended, 2.x LTS supported | {{version mode="latestRelease" line="4"}} |
+| ELC404 | 2.x LTS | {{version mode="latestRelease" line="2"}} |
 
 See [Recommended Device OS versions](/reference/device-os/versions/) for the current recommended versions for specific devices.
 
