@@ -200,7 +200,6 @@ LTE Cat M1 devices can connect without a battery.
 {{/if}}
 
 
-
 ### Connecting to the cloud
 
 {{device-animation device "blink" "cyan" }}
@@ -505,6 +504,16 @@ This will:
 ## Troubleshooting modes
 
 These modes let you know about more atypical issues your device might be exhibiting. Use this section to troubleshoot strange colors you might see from your device.
+
+### Connecting to internet (power issue)
+
+{{device-animation device "pattern"
+  "on white 500ms"
+  "blink lime 10 times"
+}}
+
+Blinking green is connecting to Wi-Fi or cellular. A white blink indicates reboot. This typically indicates insufficient power causing the device to brown out while connecting to the network. This is more common with cellular, and in particular 2G/3G devices.
+
 
 {{#if electron}}
 ### Cellular module not connected
