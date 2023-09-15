@@ -152,6 +152,18 @@
                     "page": 1260809279669
                 },
                 {
+                    "title": "Return & Refund Policy",
+                    "url": "/troubleshooting/faqs/orders/what-is-particles-return-refund-policy/"
+                },
+                {
+                    "title": "Payment methods",
+                    "url": "/troubleshooting/faqs/orders/what-payment-methods-can-i-use-at-checkout/"
+                },
+                {
+                    "title": "Shipping Options",
+                    "url": "/troubleshooting/faqs/shipping/what-shipping-options-does-particle-offer/"
+                },
+                {
                     "title": "I have another non-technical issue",
                     "page": 220
                 }
