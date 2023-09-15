@@ -925,7 +925,7 @@ async function runDeviceOs() {
             continue;
         }
 
-        if (deviceRestoreJson.versionNames.includes(ver.version) && ver.version != '5.5.0-rc.1') { //TEMPORARY
+        if (deviceRestoreJson.versionNames.includes(ver.version)) { // && !ver.version.startsWith('5.5.0')
             // Already in deviceRestore.json
             continue;
         }   
@@ -1077,22 +1077,6 @@ async function runDeviceOs() {
                     console.log('unknown module', module);
                 }
 
-
-                if (isNRF52 && !isTrackerOrMonitor) {
-                    // Add UICR bytes, except on tracker because TrackerOne and MonitorOne have different UICR bytes
-                    // but the same platformId
-                    const uicrFilename = 'uicr_no_eof.hex';
-                    const platformUicrFilename = platformInfo.name + '_' + uicrFilename;
-
-                    if (hexFiles[platformUicrFilename]) {
-                        hex += hexFileText(hexFiles[platformUicrFilename]);
-                    }
-                    else {
-                        hex += hexFileText(hexFiles[uicrFilename]);
-                    }   
-                }
-
-
                 if (module.prefixInfo.moduleFunction == 'user_part' && add128Kcompatibility) {
                     // Add 128K binary clearing here if Gen 3 and 3.1.0 or later
                     let b = Buffer.alloc(1024, 0xff);
@@ -1151,6 +1135,21 @@ async function runDeviceOs() {
                         }
                     }
                 }
+            }
+
+
+            if (isNRF52 && !isTrackerOrMonitor) {
+                // Add UICR bytes, except on tracker because TrackerOne and MonitorOne have different UICR bytes
+                // but the same platformId
+                const uicrFilename = 'uicr_no_eof.hex';
+                const platformUicrFilename = platformInfo.name + '_' + uicrFilename;
+
+                if (hexFiles[platformUicrFilename]) {
+                    hex += hexFileText(hexFiles[platformUicrFilename]);
+                }
+                else {
+                    hex += hexFileText(hexFiles[uicrFilename]);
+                }   
             }
 
             for(const obj of ncpJson.versions) {
