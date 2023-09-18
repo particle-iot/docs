@@ -842,9 +842,11 @@ async function binFilePathToHex(binFilePath) {
                 let buf = Buffer.alloc(bufSize);
                 fileInfo.fileBuffer.copy(buf, 0, ModuleInfo.MODULE_PREFIX_SIZE, fileInfo.fileBuffer.length - fileInfo.suffixInfo.suffixSize);
                 // The load address in the file is 0x1000. I'm not positive this is correct, may need to hardcode 0x0
+                // console.log('loadAddress=0x' + loadAddress.toString(16) + ' (softdevice)');
                 hex = fileBufferToHex(buf, loadAddress);     
             }
             else {
+                // console.log('loadAddress=0x' + loadAddress.toString(16));
                 hex = fileBufferToHex(fileInfo.fileBuffer, loadAddress);       
             }
     
@@ -925,7 +927,7 @@ async function runDeviceOs() {
             continue;
         }
 
-        if (deviceRestoreJson.versionNames.includes(ver.version)) { // && !ver.version.startsWith('5.5.0')
+        if (deviceRestoreJson.versionNames.includes(ver.version)) { //  && !ver.version.startsWith('5.5.0')
             // Already in deviceRestore.json
             continue;
         }   
@@ -1014,6 +1016,22 @@ async function runDeviceOs() {
                 fs.mkdirSync(outputDir);
             }
 
+            if (isNRF52 && !isTrackerOrMonitor) {
+                // Add UICR bytes, except on tracker because TrackerOne and MonitorOne have different UICR bytes
+                // but the same platformId
+                const uicrFilename = 'uicr_no_eof.hex';
+                const platformUicrFilename = platformInfo.name + '_' + uicrFilename;
+
+                if (hexFiles[platformUicrFilename]) {
+                    hex += hexFileText(hexFiles[platformUicrFilename]);
+                }
+                else {
+                    hex += hexFileText(hexFiles[uicrFilename]);
+                }   
+            }
+
+            // console.log('modules', modules);
+
             // Pass 2: Process files as done in HexTool
             // modules is like details.modules except it is already filtered to remove prebootloader-mbr and put user-part last
             for(let module of modules) {
@@ -1079,8 +1097,10 @@ async function runDeviceOs() {
 
                 if (module.prefixInfo.moduleFunction == 'user_part' && add128Kcompatibility) {
                     // Add 128K binary clearing here if Gen 3 and 3.1.0 or later
+                    
                     let b = Buffer.alloc(1024, 0xff);
-                    hex += fileBufferToHex(b, 0xd4000);
+                    // console.log('inserting 1K at 0xd4000');
+                    hex += fileBufferToHex(b, 0xd4000);                    
                 }
 
 
@@ -1137,20 +1157,6 @@ async function runDeviceOs() {
                 }
             }
 
-
-            if (isNRF52 && !isTrackerOrMonitor) {
-                // Add UICR bytes, except on tracker because TrackerOne and MonitorOne have different UICR bytes
-                // but the same platformId
-                const uicrFilename = 'uicr_no_eof.hex';
-                const platformUicrFilename = platformInfo.name + '_' + uicrFilename;
-
-                if (hexFiles[platformUicrFilename]) {
-                    hex += hexFileText(hexFiles[platformUicrFilename]);
-                }
-                else {
-                    hex += hexFileText(hexFiles[uicrFilename]);
-                }   
-            }
 
             for(const obj of ncpJson.versions) {
                 // obj.platforms array of platform IDs
