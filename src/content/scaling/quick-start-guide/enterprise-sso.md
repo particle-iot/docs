@@ -14,13 +14,13 @@ This documentation will guide you through the process of setting up and configur
 
 ## Prerequisites
 
-Before proceeding with the setup of SSO and user provisioning on the Particle Cloud, ensure you have the following:
+Before proceeding with the setup of SSO and user provisioning on the Particle Cloud, ensure you meet the following criteria:
 
-* Particle Cloud account: Your account must be on a plan that gives access to the SSO feature.
-* Identity Provider (IdP): Select an Identity Provider that supports SAML 2.0 for SSO configuration, like Okta, Azure AD, or Google Workspace.
+* Particle Cloud account: SSO is available as an added feature to your new or existing Particle Professional or Enterprise [plans](https://www.particle.io/pricing/).
+* Identity Provider (IdP): The selected Identity Provider must support SAML 2.0 for SSO configuration.
 * SCIM-enabled user management system (optional): If your user management system supports SCIM 2.0, you'll be able to automate user provisioning.
 
-To check if your Particle Cloud account has access to SSO, reach out to your Account Executive.
+For more information on enabling this feature, please contact our [Sales Team](https://www.particle.io/sales/).
 
 ## Using SSO
 
