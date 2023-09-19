@@ -24,10 +24,11 @@ $(document).ready(function() {
     const handleLogout = function() {
         localStorage.removeItem('particleAuth'); // No longer used, but if present, remove
         localStorage.removeItem('apiHelperOrg')
+        localStorage.removeItem('apiHelperLocalLogin');
+        localStorage.removeItem('apiHelperTestLogin');
 
         if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {
             gtag('event', 'Logged Out Local', {'event_category':eventCategory});
-            localStorage.removeItem('apiHelperLocalLogin');
 
             if (!apiHelper.localLogin.tokenLogin) {
                 // Invalidate the token on the cloud side
@@ -50,7 +51,6 @@ $(document).ready(function() {
         }
         else {
             gtag('event', 'Logged Out SSO', {'event_category':eventCategory});
-            localStorage.removeItem('apiHelperTestLogin');
             const origUrl = window.location.href;
             window.location.href = 'https://login.particle.io/logout?redirect=' + encodeURI(origUrl);     
         }
