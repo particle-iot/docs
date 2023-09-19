@@ -804,6 +804,9 @@ You can click the **Resume** button (3) to continue executing code on the Photon
 
 To set a breakpoint in the code, double-click in the blue bar to the left of the line number. A small icon with a check mark and a tiny blue circle will appear.
 
+- The P2 and Photon 2 (RTL872x) support up to 2 hardware breakpoints
+- Gen 3 devices (nrf52840) support up to 4 hardware breakpoints
+
 In this example, I set a breakpoint on line 51.
 
 ![Setting breakpoint](/assets/images/support/eclipse-debug-debug-11.png)
