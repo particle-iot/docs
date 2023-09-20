@@ -188,6 +188,37 @@ In the [Particle console](https://console.particle.io/), if you view a device, y
 
 ![Console device view](/assets/images/fileassetexample.png)
 
+### Cleaning up
+
+This will leave the files on the flash file system, which will be preserved even when you flash new firmware. To clean up these 
+files, change the `checkAssets()` function to this and flash the firmware to your device to clean up the files in the `assetsDir`.
+
+```cpp
+void checkAssets()
+{
+    // This is just for demonstration purposes for reading assets
+    DIR *dirp = opendir(assetsDir);
+    if (dirp)
+    {
+        while (true)
+        {
+            struct dirent *de = readdir(dirp);
+            if (!de)
+            {
+                break;
+            }
+            if (de->d_type != DT_REG)
+            {
+                // Not a file
+                continue;
+            }
+            String path = String::format("%s/%s", assetsDir, de->d_name);
+            unlink(path);
+        }
+    }
+}
+```
+
 ## Community examples
 
 ### Arduino Uno example
