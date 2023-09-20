@@ -1,13 +1,25 @@
 
 var fs = require('fs');
 var path = require('path');
+const crypto = require('crypto');
+
+const doBackfillLastMod = true;
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+
 
 module.exports = function plugin(options) {
 
-    const sitemapConfig = JSON.parse(fs.readFileSync(path.join(__dirname, options.config)));
+    const sitemapConfigPath = path.join(__dirname, options.config);
+
+    let sitemapConfig = JSON.parse(fs.readFileSync(sitemapConfigPath));
     // console.log("sitemapConfig", sitemapConfig);
 
-	return function(files, metalsmith, done) {
+    if (!sitemapConfig.pages) {
+        sitemapConfig.pages = {};
+    }
+
+    async function run(files, metalsmith, done) {
         // Find menu.json files
         const contentDir = metalsmith.path(options.contentDir);
 
@@ -78,10 +90,10 @@ module.exports = function plugin(options) {
         ];
 
 
-        Object.keys(files).forEach(function (fileName) {
+        for(const fileName in files) {
             if (!fileName.match(/md$/)) {
                 // Ignore non-md files in sitemap
-                return;
+                continue;
             }
             // 
             let ignoreFile = false;
@@ -93,11 +105,11 @@ module.exports = function plugin(options) {
             });
             
             if (ignoreFile) {
-                return;
+                continue;
             }
 
             if (hiddenPages[fileName]) {
-                return;
+                continue;
             }
 
             let doPageInMenuCheck = true;
@@ -112,10 +124,10 @@ module.exports = function plugin(options) {
                 // Ignore pages that are not in menu.json if they are not in the list to include anyway
                 if (!visiblePages[fileName]) {
                     // console.log('not visible ' + fileName);
-                    return;
+                    continue;
                 }    
             }
-            
+                        
             let priority = 0.5;
 
             for(const str in sitemapConfig.priority) {
@@ -124,12 +136,60 @@ module.exports = function plugin(options) {
                 }
             }
         
+            if (!sitemapConfig.pages[fileName]) {
+                sitemapConfig.pages[fileName] = {};
+            }
+            sitemapConfig.pages[fileName].seen = true;
+
+            const lastModDate = function(d) {
+                const s = d.toISOString();
+                const offset = s.indexOf('T');
+                return s.substring(0, offset);
+            }
+
+            const hash = crypto.createHash('sha256').update(files[fileName].contents).digest('hex');
+
+            if (!sitemapConfig.pages[fileName].date && doBackfillLastMod) {     
+                if (fs.existsSync(path.join(contentDir, fileName))) {
+                    const cmd = 'cd ' + contentDir + ' && git log -n 1 ' + fileName;
+                    const { stdout, stderr } = await exec(cmd);     
+    
+                    // console.log('git log', stdout);
+                    
+                    // Date:   Wed Jul 12 11:29:20 2023 -0400
+                    const m = stdout.match(/Date:[ ]+(.*)\n/);
+                    if (m) {
+                        const d = new Date(m[1]);
+                        sitemapConfig.pages[fileName].date = lastModDate(d);
+                        console.log('backfill date', {
+                            fileName,
+                            date: sitemapConfig.pages[fileName].date,
+                        })
+                    }    
+                }    
+                else {
+                    // Generated Device OS API files like reference/device-os/api/introduction/getting-started.md
+                    // don't exist on the file system so just set those to today
+                    console.log('generated file ' + fileName);
+                    sitemapConfig.pages[fileName].date = lastModDate(new Date());
+                }       
+                sitemapConfig.pages[fileName].hash = hash;
+            }
+            else {
+                if (hash != sitemapConfig.pages[fileName].hash) {
+                    console.log('page changed ' + fileName);
+    
+                    sitemapConfig.pages[fileName].hash = hash;
+                    sitemapConfig.pages[fileName].date = lastModDate(new Date());
+                }        
+            }
+
+
             let url = options.baseUrl;
             if (fileName !== 'index.md') {
                 url += fileName.replace('.md', '/');
             }
             url = encodeURI(url);
-
 
             // console.log('sitemap ' + url + ' priority=' + priority);
 
@@ -138,8 +198,12 @@ module.exports = function plugin(options) {
             sitemap += '    <loc>' + url + '</loc>\n';
             sitemap += '    <priority>' + priority + '</priority>\n';
 
+            if (sitemapConfig.pages[fileName].date) {
+                sitemap += '    <lastmod>' + sitemapConfig.pages[fileName].date + '</lastmod>\n';
+            }
+            
             sitemap += '  </url>\n'
-        });
+        }
 
         for(const p of troubleshootingJson.pages) {
             if (!p.paths) {
@@ -169,7 +233,26 @@ module.exports = function plugin(options) {
         
         fs.writeFileSync(sitemapPath, sitemap);
 
+        for(const pagePath in sitemapConfig.pages) {
+            if (sitemapConfig.pages[pagePath].seen) {
+                delete sitemapConfig.pages[pagePath].seen;
+            }
+            else {
+                // Can't currently do this because live update causes a run with only
+                // the changed pages and this would cause them to be deleted and 
+                // recreated with the wrong dates the next time
+                // console.log('page removed ' + pagePath);
+                // delete sitemapConfig.pages[pagePath];
+            }
+        }
+    
+        fs.writeFileSync(sitemapConfigPath, JSON.stringify(sitemapConfig, null, 4));
+
         done();
+    }
+
+	return function(files, metalsmith, done) {
+        run(files, metalsmith, done);
     };
 };
 
