@@ -238,7 +238,10 @@ module.exports = function plugin(options) {
                 delete sitemapConfig.pages[pagePath].seen;
             }
             else {
-                console.log('page removed ' + pagePath);
+                // Can't currently do this because live update causes a run with only
+                // the changed pages and this would cause them to be deleted and 
+                // recreated with the wrong dates the next time
+                // console.log('page removed ' + pagePath);
                 // delete sitemapConfig.pages[pagePath];
             }
         }
