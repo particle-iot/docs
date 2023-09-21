@@ -3,7 +3,7 @@ var fs = require('fs');
 var path = require('path');
 const crypto = require('crypto');
 
-const doBackfillLastMod = true;
+const doBackfillLastMod = false;
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
