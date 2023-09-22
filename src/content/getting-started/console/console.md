@@ -15,7 +15,9 @@ interacting with and managing Particle devices easy. This guide is
 divided into two main sections, [tools for developers](#developer-tools)
 and [tools to manage product fleets](#product-tools).
 
-**Note:** The Console does not yet work in Microsoft Internet Explorer including Edge. Please use another browser, such as Chrome or Firefox, to access the Console. If you're experiencing rendering issues, turn off any ad blocking extensions you may be using.
+**Note:** The Console does not work in Microsoft Internet Explorer including Edge. Please use another browser, such as Chrome or Firefox, to access the Console. If you're experiencing rendering issues, turn off any ad blocking extensions you may be using.
+
+{{> sso}}
 
 ## Developer tools
 

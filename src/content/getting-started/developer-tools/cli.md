@@ -12,6 +12,8 @@ description: Command line interface for managing your Particle devices for Windo
 The Particle CLI is a powerful tool for interacting with your devices
 and the Particle Device Cloud.  The CLI uses [Node.js](https://nodejs.org/) and can easily run on Windows, Mac OS (OS X), and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
 
+{{!-- BEGIN shared-blurb 5c2a6fdf-e4c6-4dad-b4dd-ea7eed0ced53 --}}
+
 ## Installing
 
 ### Using Mac OS or Linux
@@ -33,6 +35,8 @@ The installer also works on the Raspberry Pi!
 Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/archives/installing-dfu-util/).
 
 The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
+
+{{!-- END shared-blurb --}}
 
 ### Advanced install
 

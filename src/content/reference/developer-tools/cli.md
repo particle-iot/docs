@@ -9,7 +9,33 @@ description: Command line interface for managing your devices for Windows, Mac O
 
 # CLI command reference
 
-For information on how to install the Particle CLI, see the [CLI guide](/getting-started/developer-tools/cli/).
+{{!-- BEGIN shared-blurb 5c2a6fdf-e4c6-4dad-b4dd-ea7eed0ced53 --}}
+
+## Installing
+
+### Using Mac OS or Linux
+
+The easiest way to install the CLI is to open a Terminal and type:
+
+```sh
+bash <( curl -sL https://particle.io/install-cli )
+```
+
+This command downloads the `particle` command to your home directory at `~/bin`, installs a version of Node.js to `~/.particle` and installs the `particle-cli` Node.js module that contain the code of the CLI.
+
+It will also try to install [DFU-util](/archives/installing-dfu-util/), a utility program for programming devices over USB. See the [instructions for installing DFU-util](/archives/installing-dfu-util/) if the installer is not able to automatically install dfu-util.
+
+The installer also works on the Raspberry Pi!
+
+### Using Windows
+
+Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/archives/installing-dfu-util/).
+
+The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
+
+{{!-- END shared-blurb --}}
+
+For other ways to install the Particle CLI, see the [CLI guide](/getting-started/developer-tools/cli/).
 
 
 ## particle login

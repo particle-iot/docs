@@ -595,8 +595,8 @@
             "hash": "7ce9dce10f7c84a6dba8c026746fc4561f7bce3835a40d57a5921f47e9a80fbe"
         },
         "getting-started/console/console.md": {
-            "date": "2023-08-03",
-            "hash": "a5d8944ffefe3da7c1e6e22a4a46e16b77b100e9ce62127438a7c40447ae38ac"
+            "date": "2023-09-22",
+            "hash": "a6fc268d9f01c8126eb872f54070fb6c756bdcb6f5e91cadf3a788032bc81b4c"
         },
         "getting-started/console/development-devices.md": {
             "date": "2022-05-18",
@@ -631,8 +631,8 @@
             "hash": "fe43b5964e44450e56103e97f747c646664ea83569e1ae612ef85c9a4d264f1f"
         },
         "getting-started/developer-tools/cli.md": {
-            "date": "2023-09-06",
-            "hash": "ad442eafcd85bda4c76587243850512327fef0ca483ee8322b2005b7f30da690"
+            "date": "2023-09-22",
+            "hash": "a61e2097112e4d4a01a5428925a376a7b0a301453c501b1ba8a9fe11303a0000"
         },
         "getting-started/developer-tools/workbench-faq.md": {
             "date": "2022-06-29",
@@ -1171,8 +1171,8 @@
             "hash": "0c263490d13fd03851737f6841f19765f2702c1ebd3377dc2f87284b8860865b"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2023-09-06",
-            "hash": "fe70e4dce83df80e7bac781a3dd955c87ad1681c13cb3dcb6e7fdb3723801ac1"
+            "date": "2023-09-22",
+            "hash": "a1229f9b6ef149354c6f16337c6d5c69f5bfbc7865813f01fc678669ab78f541"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2023-09-06",

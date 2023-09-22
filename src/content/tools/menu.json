@@ -19,6 +19,21 @@
           "title": "Device restore",
           "detail": "Restore your device firmware to a known good state",
           "href": "/tools/device-restore/device-restore-usb/"
+        },
+        {
+          "title": "Workbench",
+          "detail": "Development environment for Particle devices",
+          "href": "/getting-started/developer-tools/workbench/"
+        },
+        {
+          "title": "Particle CLI",
+          "detail": "Command line interfface",
+          "href": "/reference/developer-tools/cli/"
+        },
+        {
+          "title": "Console",
+          "detail": "Manage devices from the Particle console",
+          "href": "/getting-started/console/console/"
         }
       ]
     },
