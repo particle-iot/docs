@@ -7,6 +7,8 @@ description: Github actions (CI/CD)
 
 # {{title}} (Beta)
 
+{{youtube "https://www.youtube.com/embed/Q5hCtQsqkzk"}}
+
 ## Background
 
 ### What can you do?
