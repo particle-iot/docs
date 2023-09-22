@@ -132,6 +132,23 @@
     },
     [
       {
+        "dir": "developer-tools",
+        "title": "Developer tools",
+        "href": "/getting-started/developer-tools/developer-tools/",
+        "tiles": [
+          {
+            "title": "Workbench",
+            "detail": "Development environment for Particle devices",
+            "href": "/getting-started/developer-tools/workbench/"
+          },
+          {
+            "title": "Particle CLI",
+            "detail": "Command line interfface",
+            "href": "/reference/developer-tools/cli/"
+          }
+        ]
+      },
+      {
         "dir": "workbench",
         "title": "Workbench",
         "href": "/getting-started/developer-tools/workbench/"

@@ -652,7 +652,7 @@
         },
         "getting-started/hardware/cellular-overview.md": {
             "date": "2023-09-22",
-            "hash": "c088d5ec6194927b223895309db171d6467d00227704ff78f426b18850111153"
+            "hash": "219349a54bc3b696670c3f43ade4f21d77db454c72da778145ee6f7250fbf9b8"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2023-09-13",
@@ -936,7 +936,7 @@
         },
         "hardware/certification/antenna.md": {
             "date": "2023-09-22",
-            "hash": "81cbd885dbea79b1e77eb0b02adb9f708023f16972aa293a310e6da171d67e56"
+            "hash": "acb4f86139bf3d6b0ae6546cc4349562364d5f8423a92e9b029225e93391d38d"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -944,7 +944,7 @@
         },
         "hardware/certification/certification-documents.md": {
             "date": "2023-09-22",
-            "hash": "6c5464e6db255d458af98c48a879a55b5ff9702bfd6506301fd7d554e2af69bb"
+            "hash": "56b508b9ea028a7c897f4d3afada3d74c164b49a9a2d9c0d0ee407ba861ce8be"
         },
         "hardware/certification/certification.md": {
             "date": "2023-07-26",
@@ -1016,7 +1016,7 @@
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
             "date": "2023-09-22",
-            "hash": "98df4e956e409307b10c43db698f951bb05c9e3d93495544a866edabcf10ca1f"
+            "hash": "f7486b58522e8e848191be1bf8432c2d8d9745e9cb5ef001d2d8ae02fb9c5ba3"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2023-09-08",
@@ -1356,7 +1356,7 @@
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2023-09-22",
-            "hash": "c20ec6ddc57a2579362cb6b58b19247554fb3e2746f3246cb781b093c18bb7a2"
+            "hash": "059bcc6eb5fac4693cb9b790cb2f0a43c418b9807fd50524a89a085b7a9536ba"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
             "date": "2023-08-29",
@@ -8165,6 +8165,10 @@
         "troubleshooting/led/tracker-som.md": {
             "date": "2023-09-20",
             "hash": "e77393143ff26eaca44b7b288c50055940409357ef199d5b1e8a0c9c7ea79059"
+        },
+        "getting-started/developer-tools/developer-tools.md": {
+            "hash": "ec6dc8ce26b04fc5f72521d8cccd72f5ce2c350b6656fcf27bf6e6ac7cdb7f12",
+            "date": "2023-09-22"
         }
     }
 }
