@@ -22,6 +22,12 @@ Before proceeding with the setup of SSO and user provisioning on the Particle Cl
 
 For more information on enabling this feature, please contact our [Sales Team](https://www.particle.io/sales/).
 
+<div  align="center">
+<br />
+<a href="https://www.particle.io/sales/" class="button">CONTACT SALES</a>
+</div>
+
+
 ## Using SSO
 
 Once SSO is configured for your organization, your users will be able to login in either by clicking the Enterprise SSO button on https://login.particle.io (Service Provider-initiated flow) or by clicking on the Particle Cloud link in your Identity Provider dashboard (Service Provider-initiated flow).
