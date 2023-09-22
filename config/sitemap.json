@@ -651,8 +651,8 @@
             "hash": "09fe09cf7d2670d8b814c109837f47e1f85c18c163cb166505ea117825bb5d57"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2023-09-13",
-            "hash": "e5016e5373f8540a5c8a66e7869cd14d0b58dadca18682bb934cd15f40604202"
+            "date": "2023-09-22",
+            "hash": "c088d5ec6194927b223895309db171d6467d00227704ff78f426b18850111153"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2023-09-13",
@@ -935,16 +935,16 @@
             "hash": "8baf0643d059dc8eeb4a12eb5abbfd005c7ef69469b32ee4fde0674c076c7c96"
         },
         "hardware/certification/antenna.md": {
-            "date": "2023-09-13",
-            "hash": "d4b043aa5e79bb8bca7c4bc7fccd93a3c92a6aa4802f7c338fe1d425cd678a72"
+            "date": "2023-09-22",
+            "hash": "81cbd885dbea79b1e77eb0b02adb9f708023f16972aa293a310e6da171d67e56"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2023-09-13",
-            "hash": "dd116e13a675ec62232c67e209754396fa47266964678bed7ac250dc25fe7d0d"
+            "date": "2023-09-22",
+            "hash": "6c5464e6db255d458af98c48a879a55b5ff9702bfd6506301fd7d554e2af69bb"
         },
         "hardware/certification/certification.md": {
             "date": "2023-07-26",
@@ -1015,8 +1015,8 @@
             "hash": "28a64efb685037d9f2951cd69bd36ee4389ed78118e367422209db21ccd45247"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2023-09-13",
-            "hash": "6c2c5ed658b3e56636cda683762eb59842cccdfe552c56ea59aa63bc144405f6"
+            "date": "2023-09-22",
+            "hash": "98df4e956e409307b10c43db698f951bb05c9e3d93495544a866edabcf10ca1f"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2023-09-08",
@@ -1355,8 +1355,8 @@
             "hash": "bb31d4a6d4170c83ae2da370df98d300cfd1c950c99a6a52f135d3da7242eba7"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
-            "date": "2023-08-30",
-            "hash": "5742b04b5115f2c6a04b75d944f91c089c5944eb094a469ce0eabd098a3149ca"
+            "date": "2023-09-22",
+            "hash": "c20ec6ddc57a2579362cb6b58b19247554fb3e2746f3246cb781b093c18bb7a2"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
             "date": "2023-08-29",
