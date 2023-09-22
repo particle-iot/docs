@@ -86,6 +86,12 @@
         "dir": "firmware-build-options",
         "title": "Firmware build options",
         "href": "/firmware/best-practices/firmware-build-options/"
+      },
+      {
+        "dir": "firmware-template",
+        "title": "Firmware template",
+        "href": "/firmware/best-practices/firmware-template/",
+        "internal": true
       }
     ],
     {

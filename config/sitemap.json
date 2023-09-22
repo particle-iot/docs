@@ -8169,6 +8169,10 @@
         "getting-started/developer-tools/developer-tools.md": {
             "hash": "ec6dc8ce26b04fc5f72521d8cccd72f5ce2c350b6656fcf27bf6e6ac7cdb7f12",
             "date": "2023-09-22"
+        },
+        "firmware/best-practices/firmware-template.md": {
+            "hash": "f28c76aa2635cf9f14e7b88064208c3f200b708648e741829313feae88ff7dea",
+            "date": "2023-09-22"
         }
     }
 }
