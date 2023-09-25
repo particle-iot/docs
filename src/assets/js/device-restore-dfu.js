@@ -227,7 +227,7 @@ async function dfuDeviceRestore(usbDevice, options) {
     }
 
 
-    gtag('event', 'DFU Restore Started', {'event_category':options.eventCategory, 'event_label':options.version + '/' + options.platformVersionInfo.name});
+    analytics.track('DFU Restore Started', {category:options.eventCategory, label:options.version + '/' + options.platformVersionInfo.name});
 
     if (options.flashBackup) {
 
@@ -1093,7 +1093,7 @@ async function dfuDeviceRestore(usbDevice, options) {
     }
 
     if (dfuErrors.length) {
-        gtag('event', 'DFU Flashing Error', {'event_category':options.eventCategory});
+        analytics.track('DFU Flashing Error', {category:options.eventCategory});
 
         return {
             ok: false,
@@ -1103,7 +1103,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
     }
 
-    gtag('event', 'DFU Restore Success', {'event_category':options.eventCategory, 'event_label':options.version + '/' + options.platformVersionInfo.name});
+    analytics.track('DFU Restore Success', {category:options.eventCategory, label:options.version + '/' + options.platformVersionInfo.name});
 
     return {
         ok: true,

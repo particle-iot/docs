@@ -457,7 +457,7 @@ $(document).ready(function() {
                     // toFile/toClipboard is ignored; cannot create 
                     XLSX.writeFile(xlsxData.workbook, options.fileName);
                     if (tableObj.tableConfig.gaCategory) {
-                        gtag('event', 'Download', {'event_category':tableObj.tableConfig.gaCategory, 'event_label':JSON.stringify(stats)});
+                        analytics.track('Download', {category:tableObj.tableConfig.gaCategory, label:JSON.stringify(stats)});
                     }
                     break;
 
@@ -481,14 +481,14 @@ $(document).ready(function() {
                     document.body.removeChild(t);
 
                     if (tableObj.tableConfig.gaCategory) {
-                        gtag('event', 'Clipboard', {'event_category':tableObj.tableConfig.gaCategory, 'event_label':JSON.stringify(stats)});
+                        analytics.track('Clipboard', {category:tableObj.tableConfig.gaCategory, label:JSON.stringify(stats)});
                     }
                 }
                 if (options.toFile) {
                     let blob = new Blob([xlsxData.textOut], {type:'text/' + xlsxData.options.format});
                     saveAs(blob, options.fileName);	        
                     if (tableObj.tableConfig.gaCategory) {
-                        gtag('event', 'Download', {'event_category':tableObj.tableConfig.gaCategory, 'event_label':JSON.stringify(stats)});
+                        analytics.track('Download', {category:tableObj.tableConfig.gaCategory, label:JSON.stringify(stats)});
                     }
                 }
             }

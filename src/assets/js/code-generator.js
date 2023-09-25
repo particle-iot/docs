@@ -57,7 +57,7 @@ $(document).ready(function () {
             setStatus('Saving ' + outputFile + ' to Downloads...');
             saveAs(blob, outputFile);
         
-            gtag('event', 'Success', {'event_category':'Singleton Download'});
+            analytics.track('Success', {category:'Singleton Download'});
         
         });
 
