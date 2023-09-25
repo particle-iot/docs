@@ -1031,7 +1031,7 @@ apiHelper.monitorUsage = function(options) {
         if (resultObj.timer) {
             clearInterval(resultObj.timer);
             resultObj.timer = null;
-            gtag('event', 'Finished', {'event_category':options.eventCategory});
+            analytics.track('Finished', {category:options.eventCategory});
         }
     };
 
@@ -1042,10 +1042,10 @@ apiHelper.monitorUsage = function(options) {
             durationMinutesStr = '000000'.substr(0, 6 - durationMinutesStr.length) + durationMinutesStr;
         }
 
-        gtag('event', options.actionPrefix + durationMinutesStr, {'event_category':options.eventCategory});
+        analytics.track(options.actionPrefix + durationMinutesStr, {category:options.eventCategory});
     }, periodMinutes * 60000);
 
-    gtag('event', 'Started', {'event_category':options.eventCategory});
+    analytics.track('Started', {category:options.eventCategory});
 
     return resultObj;
 };

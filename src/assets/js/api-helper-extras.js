@@ -47,14 +47,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId, name: 'led', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    gtag('event', 'Success', {'event_category':'LED Function Test'});
+                    analytics.track('Success', {category:'LED Function Test'});
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    gtag('event', 'Error', {'event_category':'LED Function Test', 'event_label':err});
+                    analytics.track('Error', {category:'LED Function Test', label:err});
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -96,14 +96,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId, name: 'setColor', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    gtag('event', 'Success', {'event_category':'LED Color Test'});
+                    analytics.track('Success', {category:'LED Color Test'});
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    gtag('event', 'Error', {'event_category':'LED Color Test', 'event_label':err});
+                    analytics.track('Error', {category:'LED Color Test', label:err});
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -3061,7 +3061,7 @@ $(document).ready(function() {
                 data: JSON.stringify(requestDataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    // gtag('event', 'Error', {'event_category':simpleGetConfig.gaAction, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
+                    // analytics.track('Error', {category:simpleGetConfig.gaAction, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                     console.log('error', jqXHR);
                     setStatus('Product creation failed');
                 },
@@ -3071,7 +3071,7 @@ $(document).ready(function() {
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
-                    // gtag('event', 'Success', {'event_category':simpleGetConfig.gaAction});
+                    // analytics.track('Success', {category:simpleGetConfig.gaAction});
                     console.log('success', resp);
                     // ok: boolean
                     // product: object

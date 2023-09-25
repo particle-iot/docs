@@ -38,7 +38,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			gtag('event', 'Codebox Download', {'event_category':'Codebox', 'event_label':contentUrl});
+			analytics.track('Codebox Download', {category:'Codebox', label:contentUrl});
 		});
 
 		$(codeboxElem).find('.codeboxCopyButton').on('click', function() {
@@ -51,7 +51,7 @@ $(document).ready(function() {
 			document.execCommand("copy");
 			document.body.removeChild(t);
 
-			gtag('event', 'Codebox Copy', {'event_category':'Codebox', 'event_label':$(codeboxElem).attr('data-content')});
+			analytics.track('Codebox Copy', {category:'Codebox', label:$(codeboxElem).attr('data-content')});
 		});
 
 		$(codeboxElem).find('.codeboxWebIdeButton').on('click', function() {
@@ -62,7 +62,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			gtag('event', 'Codebox Open WebIDE', {'event_category':'Codebox', 'event_label':$(codeboxElem).attr('data-content')});
+			analytics.track('Codebox Open WebIDE', {category:'Codebox', label:$(codeboxElem).attr('data-content')});
 		});
 		
 		$(codeboxElem).find('.codeboxTryItButton').on('click', function() {
@@ -73,7 +73,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			gtag('event', 'Codebox Try It', {'event_category':'Codebox', 'event_label':$(codeboxElem).attr('data-project')});
+			analytics.track('Codebox Try It', {category:'Codebox', label:$(codeboxElem).attr('data-project')});
 		});
 
 
@@ -91,7 +91,7 @@ $(document).ready(function() {
 							
 			apiHelper.flashDevice(device, $(thisCodeElem).text(), codeboxElem);		
 
-			gtag('event', 'Codebox Flash', {'event_category':'Codebox', 'event_label':$(codeboxElem).attr('data-content')});
+			analytics.track('Codebox Flash', {category:'Codebox', label:$(codeboxElem).attr('data-content')});
 		});
 
 		$(codeboxElem).find('.codeboxUploadSchemaButton').on('click', function() {
@@ -111,7 +111,7 @@ $(document).ready(function() {
 				
 			});
 
-			gtag('event', 'Codebox Upload Schema', {'event_category':'Codebox'});
+			analytics.track('Codebox Upload Schema', {category:'Codebox'});
 		});
 		
 	});

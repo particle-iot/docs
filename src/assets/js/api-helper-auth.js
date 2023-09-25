@@ -8,14 +8,14 @@ $(document).ready(function() {
     let orgInfo;
 
     const handleLogin = function() {
-        gtag('event', 'Login Started', {'event_category':eventCategory});
+        analytics.track('Login Started', {category:eventCategory});
 
         const origUrl = window.location.href;
 		window.location.href = 'https://login.particle.io/login?redirect=' + encodeURI(origUrl); 
     };
 
     const handleEditAccount = function() {
-        gtag('event', 'Edit Account', {'event_category':eventCategory});
+        analytics.track('Edit Account', {category:eventCategory});
 
         const origUrl = window.location.href;
 		window.location.href = 'https://login.particle.io/account-info?redirect=' + encodeURI(origUrl); 
@@ -28,7 +28,7 @@ $(document).ready(function() {
         localStorage.removeItem('apiHelperTestLogin');
 
         if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {
-            gtag('event', 'Logged Out Local', {'event_category':eventCategory});
+            analytics.track('Logged Out Local', {category:eventCategory});
 
             if (!apiHelper.localLogin.tokenLogin) {
                 // Invalidate the token on the cloud side
@@ -50,7 +50,7 @@ $(document).ready(function() {
             location.reload();   
         }
         else {
-            gtag('event', 'Logged Out SSO', {'event_category':eventCategory});
+            analytics.track('Logged Out SSO', {category:eventCategory});
             const origUrl = window.location.href;
             window.location.href = 'https://login.particle.io/logout?redirect=' + encodeURI(origUrl);     
         }

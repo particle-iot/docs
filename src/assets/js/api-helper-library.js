@@ -132,10 +132,10 @@ $(document).ready(function() {
             searchResults = lunrIndex.search(searchFor);
             if (searchResults.length == 0) {
                 $(searchOutputElem).text('No matching libraries found');
-                gtag('event', 'No Results', {'event_category':'Library Search', 'event_label':searchFor});
+                analytics.track('No Results', {category:'Library Search', label:searchFor});
             }
             else {
-                gtag('event', 'Success', {'event_category':'Library Search', 'event_label':searchFor});
+                analytics.track('Success', {category:'Library Search', label:searchFor});
                 fetchQueue = [];
                 fetchMore();
             }
@@ -296,7 +296,7 @@ $(document).ready(function() {
             }
 
             const name = extractedFiles[index].name;
-            gtag('event', 'View', {'event_category':'Library View', 'event_label':libInfo.id + ' ' + name});
+            analytics.track('View', {category:'Library View', label:libInfo.id + ' ' + name});
 
             if (name.endsWith('.txt') || name.endsWith('.properties') || name.toUpperCase().startsWith('LICENSE')) {
                 $(outputPreElem).find('pre').text(extractedFiles[index].readAsString());
@@ -351,7 +351,7 @@ $(document).ready(function() {
                 // 
                 libInfo = data;
 
-                gtag('event', 'Download', {'event_category':'Library View', 'event_label':libInfo.id});
+                analytics.track('Download', {category:'Library View', label:libInfo.id});
 
                 fetch(libInfo.links.download)
                     .then(response => response.arrayBuffer())

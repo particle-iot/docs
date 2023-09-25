@@ -56,7 +56,7 @@ $(document).ready(function() {
 
     webhookDemo.settings.username = apiHelper.auth.username;
     
-    gtag('event', 'opened ' + webhookDemo.mode, {'event_category':gaCategory});
+    analytics.track('opened ' + webhookDemo.mode, {category:gaCategory});
 
     webhookDemo.runningProductFirmware = new Promise(function(resolve, reject) {
         webhookDemo.runningProductFirmwareResolve = resolve;
@@ -504,7 +504,7 @@ $(document).ready(function() {
                 auth: apiHelper.auth.access_token});
             // console.log('edit resp', resp);    
 
-            gtag('event', 'editIntegration', {'event_category':gaCategory,'value':(resp.ok ? 1 : 0)});
+            analytics.track('editIntegration', {category:gaCategory,'value':(resp.ok ? 1 : 0)});
         }
         else 
         if (!options.updateOnly) {
@@ -514,7 +514,7 @@ $(document).ready(function() {
                 product: webhookDemo.settings.productId,
                 auth: apiHelper.auth.access_token});
 
-            gtag('event', 'createIntegration', {'event_category':gaCategory,'value':(resp.ok ? 1 : 0)});
+            analytics.track('createIntegration', {category:gaCategory,'value':(resp.ok ? 1 : 0)});
 
             // console.log('create resp', resp);    
             webhookDemo.settings.integrationId = resp.body.id;
@@ -1647,7 +1647,7 @@ $(document).ready(function() {
                                 updateSettings();
     
                                 setStatusText('API user ' + webhookDemo.settings.tokenUsername + ' created, using token ' + webhookDemo.settings.token);
-                                gtag('event', 'apiUserCreated', {'event_category':gaCategory});
+                                analytics.track('apiUserCreated', {category:gaCategory});
                             }
                             catch(e) {
                                 console.log('apiUser exception', e);
@@ -1694,7 +1694,7 @@ $(document).ready(function() {
                 
                             // console.log('create resp', resp);    
                             webhookDemo.settings.integrationId = resp.body.id;
-                            gtag('event', 'functionPublishWebhookSuccess', {'event_category':gaCategory});
+                            analytics.track('functionPublishWebhookSuccess', {category:gaCategory});
                             updateSettings();                                
                         }
                         break;
@@ -1739,7 +1739,7 @@ $(document).ready(function() {
                                 }
 
                                 setStatusText('Created ' + groups.length + ' device groups for testing purposes.');
-                                gtag('event', 'deviceGroupsCreated', {'event_category':gaCategory});
+                                analytics.track('deviceGroupsCreated', {category:gaCategory});
 
                                 await updateDeviceGroups();
                                 updateFleet();
@@ -1763,7 +1763,7 @@ $(document).ready(function() {
                                             .then(response => response.arrayBuffer())
                                             .then(buffer => resolve(buffer));
                                     });
-                                    gtag('event', 'productFirmwareBinaryDownloaded', {'event_category':gaCategory});
+                                    analytics.track('productFirmwareBinaryDownloaded', {category:gaCategory});
 
                                     // console.log('downloaded binary', binary);
                                     webhookDemo.firmwareBinary = binary; // ArrayBuffer
@@ -1776,7 +1776,7 @@ $(document).ready(function() {
 
                                     const getFormData = $('.apiHelperProjectBrowser').data('getFormData');
 
-                                    gtag('event', 'productFirmwareSourceDownloaded', {'event_category':gaCategory});
+                                    analytics.track('productFirmwareSourceDownloaded', {category:gaCategory});
 
                                     const formData = await getFormData({
                                         product_id: webhookDemo.settings.productId,
@@ -1807,7 +1807,7 @@ $(document).ready(function() {
                                         $.ajax(request);
                                     });
     
-                                    gtag('event', 'productFirmwareSourceCompiled', {'event_category':gaCategory});
+                                    analytics.track('productFirmwareSourceCompiled', {category:gaCategory});
 
                                     // console.log('compileRes', compileRes);
                                     webhookDemo.firmwareChecklist.setIndicatorOK('compile');
@@ -1819,7 +1819,7 @@ $(document).ready(function() {
                                             .then(buffer => resolve(buffer));
                                     });
                        
-                                    gtag('event', 'productFirmwareBinaryDownloaded', {'event_category':gaCategory});
+                                    analytics.track('productFirmwareBinaryDownloaded', {category:gaCategory});
 
                                     // console.log('binary', binary);
                                     webhookDemo.firmwareBinary = binary; // ArrayBuffer
@@ -1854,7 +1854,7 @@ $(document).ready(function() {
                             
                                         $.ajax(request);
                                     });                        
-                                    gtag('event', 'productFirmwareUploaded', {'event_category':gaCategory});
+                                    analytics.track('productFirmwareUploaded', {category:gaCategory});
         
                                     // console.log('uploadRes', uploadRes);
                                     webhookDemo.firmwareChecklist.setIndicatorOK('upload');
@@ -1870,7 +1870,7 @@ $(document).ready(function() {
                                 await webhookDemo.runningProductFirmware;
                                 webhookDemo.firmwareChecklist.setIndicatorOK('wait');
 
-                                gtag('event', 'productFirmwareOnDevice', {'event_category':gaCategory});
+                                analytics.track('productFirmwareOnDevice', {category:gaCategory});
 
                                 let releaseReqObj = {
                                     version: webhookDemo.firmwareVersion,
@@ -1904,7 +1904,7 @@ $(document).ready(function() {
                                 });    
                                 // console.log('releaseRes', releaseRes);
                                 webhookDemo.firmwareChecklist.setIndicatorOK('release');
-                                gtag('event', 'productFirmwareRelased', {'event_category':gaCategory});
+                                analytics.track('productFirmwareRelased', {category:gaCategory});
 
                             }
                             catch(e) {
@@ -1972,16 +1972,16 @@ $(document).ready(function() {
                 // console.log('resp', resp);
                 if (resp.connected && resp.return_value == 0) {
                     setStatus('Function called successfully');
-                    gtag('event', 'functionPublishFunctionSuccess', {'event_category':gaCategory});
+                    analytics.track('functionPublishFunctionSuccess', {category:gaCategory});
                 }
                 else 
                 if (!resp.connected) {
                     setStatus('Error calling function, device is offline');
-                    gtag('event', 'functionPublishFunctionError', {'event_category':gaCategory});
+                    analytics.track('functionPublishFunctionError', {category:gaCategory});
                 }
                 else {
                     setStatus('Error calling function');
-                    gtag('event', 'functionPublishFunctionError', {'event_category':gaCategory});
+                    analytics.track('functionPublishFunctionError', {category:gaCategory});
                 }
                 if (clearTimer) {
                     clearTimeout(clearTimer);
@@ -2053,7 +2053,7 @@ $(document).ready(function() {
                 });
 
                 // console.log('resp', resp);
-                gtag('event', 'functionPublishPublishSuccess', {'event_category':gaCategory});
+                analytics.track('functionPublishPublishSuccess', {category:gaCategory});
 
                 if (clearTimer) {
                     clearTimeout(clearTimer);
@@ -2075,7 +2075,7 @@ $(document).ready(function() {
             return;
         }
 
-        gtag('event', 'startDemo ' + webhookDemo.mode, {'event_category':gaCategory});
+        analytics.track('startDemo ' + webhookDemo.mode, {category:gaCategory});
 
         $('#startDemo').prop('disabled', true);
         $('.showWhenStarted').show();
@@ -2143,7 +2143,7 @@ $(document).ready(function() {
         if (!webhookDemo.started) {
             return;
         }
-        gtag('event', 'stopDemo ' + webhookDemo.mode, {'event_category':gaCategory});
+        analytics.track('stopDemo ' + webhookDemo.mode, {category:gaCategory});
 
         $('#startDemo').prop('disabled', true);
         $('.showWhenStarted').hide();
@@ -2294,7 +2294,7 @@ $(document).ready(function() {
         updateSettings();
         updateProductSelector();
 
-        gtag('event', 'platformSelected', {'event_category':gaCategory});
+        analytics.track('platformSelected', {category:gaCategory});
 
         $('.platformSelected').show();
     });
@@ -2347,7 +2347,7 @@ $(document).ready(function() {
             data: JSON.stringify(requestDataObj),
             dataType: 'json',
             error: function (jqXHR) {
-                gtag('event', 'Error', {'event_category':gaCategory, 'event_label':(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
+                analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                 console.log('error', jqXHR);
                 //setStatus('Product creation failed');
             },
@@ -2357,7 +2357,7 @@ $(document).ready(function() {
             },
             method: 'POST',
             success: function (resp, textStatus, jqXHR) {
-                gtag('event', 'createNewProduct', {'event_category':gaCategory});
+                analytics.track('createNewProduct', {category:gaCategory});
 
                 // ok: boolean
                 // product: object
@@ -2409,13 +2409,13 @@ $(document).ready(function() {
         // console.log('resp', resp);
 
         if (resp.statusCode == 200 && resp.body.updated == 1) {
-            gtag('event', 'addDeviceSuccess', {'event_category':gaCategory});
+            analytics.track('addDeviceSuccess', {category:gaCategory});
             updateDevice();
             updateProductDevice(webhookDemo.settings.deviceId);
         }
         else {
             // TODO: Error handling
-            gtag('event', 'addDeviceFailed', {'event_category':gaCategory});
+            analytics.track('addDeviceFailed', {category:gaCategory});
         }
     });
 
@@ -2438,10 +2438,10 @@ $(document).ready(function() {
             $('#testEventDataDiv').show();
             $('#testEventData').text(JSON.stringify(eventDataObj, null, 4));
 
-            gtag('event', 'testWebhookSuccess', {'event_category':gaCategory});
+            analytics.track('testWebhookSuccess', {category:gaCategory});
         }
         catch(e) {
-            gtag('event', 'testWebhookFailed', {'event_category':gaCategory});            
+            analytics.track('testWebhookFailed', {category:gaCategory});            
         }
 
     });
@@ -2513,7 +2513,7 @@ $(document).ready(function() {
         });
         $('#cleanupProgressDiv').show();
 
-        gtag('event', 'cleanupStarted', {'event_category':gaCategory});
+        analytics.track('cleanupStarted', {category:gaCategory});
 
         await stopDemo();
     
@@ -2532,7 +2532,7 @@ $(document).ready(function() {
                     // console.log('delete webhook resp', resp);            
                 }
 
-                gtag('event', 'cleanupDeleteWebhook', {'event_category':gaCategory});
+                analytics.track('cleanupDeleteWebhook', {category:gaCategory});
                 cleanupChecklist.setIndicatorOK('webhook');
             }
             catch(e) {
@@ -2614,7 +2614,7 @@ $(document).ready(function() {
                 }
             }     
             cleanupChecklist.setIndicatorOK('tinker');
-            gtag('event', 'cleanupTinker', {'event_category':gaCategory});
+            analytics.track('cleanupTinker', {category:gaCategory});
         }
 
 
@@ -2635,7 +2635,7 @@ $(document).ready(function() {
                 }
             }                
             cleanupChecklist.setIndicatorOK('devices');
-            gtag('event', 'cleanupRemoveDevices', {'event_category':gaCategory});
+            analytics.track('cleanupRemoveDevices', {category:gaCategory});
             webhookDemo.productDevices = null
         }
         if (cleanupProduct) {
@@ -2648,7 +2648,7 @@ $(document).ready(function() {
                         contentType: 'application/json',
                         dataType: 'json',
                         error: function (jqXHR) {
-                            gtag('event', 'cleanupDeleteProductFailed', {'event_category':gaCategory});
+                            analytics.track('cleanupDeleteProductFailed', {category:gaCategory});
                             console.log('product delete error', jqXHR);
                             //setStatus('Product creation failed');
                             reject();
@@ -2659,7 +2659,7 @@ $(document).ready(function() {
                         },
                         method: 'DELETE',
                         success: function (resp, textStatus, jqXHR) {
-                            gtag('event', 'cleanupDeleteProductSuccess', {'event_category':gaCategory});
+                            analytics.track('cleanupDeleteProductSuccess', {category:gaCategory});
                             resolve();                        
                         },
                         method: 'DELETE',

@@ -5,7 +5,7 @@ $(document).ready(function() {
     const doneUrl = '/assets/images/device-setup/ok-48.png';
 
     if (!navigator.usb) {
-        gtag('event', 'No WebUSB', {'event_category':gaCategory, 'event_label':navigator.userAgent});
+        analytics.track('No WebUSB', {category:gaCategory, label:navigator.userAgent});
         $('.setupBrowserError').show();
         $('.setupStepOtherIssues').show();
         return;
@@ -59,7 +59,7 @@ $(document).ready(function() {
             $(thisElem).find('.setupWiFiInstructions').show();
         }
 
-        gtag('event', 'Opened Page', {'event_category':gaCategory, 'event_label':mode});
+        analytics.track('Opened Page', {category:gaCategory, label:mode});
 
         const setupSelectDeviceButtonElem = $(thisElem).find('.setupSelectDeviceButton');
         const setupStepElem = $(thisElem).find('.setupStep');
@@ -1079,7 +1079,7 @@ $(document).ready(function() {
                 deviceInfo.firmwareVersion = usbDevice.firmwareVersion;
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
 
-                gtag('event', 'Selected', {'event_category':gaCategory, 'event_label':deviceInfo.platformId});
+                analytics.track('Selected', {category:gaCategory, label:deviceInfo.platformId});
 
                 if (!deviceInfo.targetVersion) {
                     deviceInfo.targetVersion = minimumDeviceOsVersion;
@@ -1255,7 +1255,7 @@ $(document).ready(function() {
                     }
                 }
                 else {
-                    gtag('event', 'Already DFU', {'event_category':gaCategory, 'event_label':deviceInfo.platformId});
+                    analytics.track('Already DFU', {category:gaCategory, label:deviceInfo.platformId});
                 }
 
                 if (usbDevice.isCellularDevice) {                    
@@ -1280,19 +1280,19 @@ $(document).ready(function() {
 
                 if (mode == 'wifi') {
                     if (!deviceInfo.wifi) {
-                        gtag('event', 'Not allowed Is Cellular', {'event_category':gaCategory});
+                        analytics.track('Not allowed Is Cellular', {category:gaCategory});
                         setSetupStep('setupStepWiFiIsCellular');
                         return;
                     }
 
                     if (deviceInfo.platformVersionInfo.gen == 2) {
-                        gtag('event', 'Not allowed Is Gen 2', {'event_category':gaCategory});
+                        analytics.track('Not allowed Is Gen 2', {category:gaCategory});
                         setSetupStep('setupStepWifiGen2');
                         return;
                     }
 
                     if (usbDevice.isInDfuMode) {
-                        gtag('event', 'Not allowed Is DFU', {'event_category':gaCategory});
+                        analytics.track('Not allowed Is DFU', {category:gaCategory});
                         setSetupStep('setupStepWifiInDFU');
                         return;
                     }
@@ -1308,7 +1308,7 @@ $(document).ready(function() {
                                 const storObj = JSON.parse(stor);
                                 // TODO: Check date here
                                 if (stor.deviceId == deviceInfo.deviceId) {
-                                    gtag('event', 'Reopened during Activate SIM', {'event_category':gaCategory});
+                                    analytics.track('Reopened during Activate SIM', {category:gaCategory});
                                     // TODO: Maybe ask user here?
                                     activateSim();
                                     return;
@@ -1320,7 +1320,7 @@ $(document).ready(function() {
                         }
 
                         if (hasUserFirmwareBackup()) {
-                            gtag('event', 'Firmware Backup Available', {'event_category':gaCategory});
+                            analytics.track('Firmware Backup Available', {category:gaCategory});
 
                             $('.restoreDeviceId').text(deviceInfo.deviceId);
                             $('.restoreFirmwareDiv').show();
@@ -1339,7 +1339,7 @@ $(document).ready(function() {
             }
             catch(e) {
                 console.log('exception', e);
-                gtag('event', 'Exception', {'event_category':gaCategory, 'event_label':'checkDevice'});
+                analytics.track('Exception', {category:gaCategory, label:'checkDevice'});
                 // TODO: Handle errors like UsbError here
                 // UsbError {jse_shortmsg: 'IN control transfer failed', jse_cause: DOMException: The device was disconnected., jse_info: {…}, message: 'IN control transfer failed: The device was disconnected.', stack: 'VError: IN control transfer failed: The device was…://ParticleUsb/./src/usb-device-webusb.js?:81:10)'}
                 
@@ -1735,7 +1735,7 @@ $(document).ready(function() {
                         product: deviceLookup.deviceProductId,
                         auth: apiHelper.auth.access_token 
                     });                
-                    gtag('event', 'Mark as Development Device prior to flashing', {'event_category':gaCategory});
+                    analytics.track('Mark as Development Device prior to flashing', {category:gaCategory});
                 }
             }
 
@@ -1901,7 +1901,7 @@ $(document).ready(function() {
                                 return;                                
                             });
                         }
-                        gtag('event', 'TowerScanAvailable', {'event_category':gaCategory, 'event_label':canTowerScan});
+                        analytics.track('TowerScanAvailable', {category:gaCategory, label:canTowerScan});
 
 
                         setInfoTableItemObj(respObj);    
@@ -1914,7 +1914,7 @@ $(document).ready(function() {
                             else {
                                 // Non-LTE model 
                                 if (respObj.soc <= 0) {
-                                    gtag('event', 'BatteryWarning', {'event_category':gaCategory});
+                                    analytics.track('BatteryWarning', {category:gaCategory});
                                     $(thisElem).find('.batteryWarning').show();   
                                 }
                             }
@@ -2002,7 +2002,7 @@ $(document).ready(function() {
                 if (needToActivate) {
                     try {
                         setStatus('Activating SIM...');
-                        gtag('event', 'Activating SIM', {'event_category':gaCategory});
+                        analytics.track('Activating SIM', {category:gaCategory});
 
                         if (!clockStart) {
                             clockStart = new Date();
@@ -2108,7 +2108,7 @@ $(document).ready(function() {
                 }         
                 catch(e) {
                     console.log('exception getting USB devices', e);
-                    gtag('event', 'Exception', {'event_category':gaCategory, 'event_label':'reconnectToDevice'});
+                    analytics.track('Exception', {category:gaCategory, label:'reconnectToDevice'});
                 }
 
             }
@@ -2341,7 +2341,7 @@ $(document).ready(function() {
                 console.log('exception', e);
                 setSetupStep('setupStepDfuFailed');
                 $('.dfuFailedReason').text(e.text);
-                gtag('event', 'Exception', {'event_category':gaCategory, 'event_label':'setupStepDfuFailed'});
+                analytics.track('Exception', {category:gaCategory, label:'setupStepDfuFailed'});
             }
 
             // Wait a little extra before trying to reconnect
@@ -2373,7 +2373,7 @@ $(document).ready(function() {
             }
             catch(e) {
                 console.log('exception downloading restore json', e);
-                gtag('event', 'Exception', {'event_category':gaCategory, 'event_label':'get restore json'});
+                analytics.track('Exception', {category:gaCategory, label:'get restore json'});
                 // TODO: Do something here
             }
                 
@@ -2386,7 +2386,7 @@ $(document).ready(function() {
             }
             catch(e) {
                 console.log('exception downloading restore json', e);
-                gtag('event', 'Exception', {'event_category':gaCategory, 'event_label':'get restore zip'});
+                analytics.track('Exception', {category:gaCategory, label:'get restore zip'});
                 // TODO: Do something here
             }    
 
@@ -2425,16 +2425,16 @@ $(document).ready(function() {
 
             if (flashPrebootloaderFirst) {
                 await flashPrebootloader();
-                gtag('event', 'Flash Prebootloader First', {'event_category':gaCategory});
+                analytics.track('Flash Prebootloader First', {category:gaCategory});
             }
         
             // Flash Device OS
             await flashDeviceInternal();
-            gtag('event', 'Flash Device', {'event_category':gaCategory});
+            analytics.track('Flash Device', {category:gaCategory});
             
             if (flashPrebootloaderLast) {
                 await flashPrebootloader();
-                gtag('event', 'Flash Prebootloade rLast', {'event_category':gaCategory});
+                analytics.track('Flash Prebootloade rLast', {category:gaCategory});
             }
 
             if (deviceInfo.platformVersionInfo.hasNCP) {
@@ -2465,7 +2465,7 @@ $(document).ready(function() {
                 if (updateNcp) {
                     flashDeviceOptions.ncpUpdate = true;
                     await flashDeviceInternal();
-                    gtag('event', 'Flash NCP', {'event_category':gaCategory});
+                    analytics.track('Flash NCP', {category:gaCategory});
                 }
             }
 
@@ -2490,11 +2490,11 @@ $(document).ready(function() {
                 auth: apiHelper.auth.access_token 
             });
             if (res.statusCode >= 200 && res.statusCode < 300) {
-                gtag('event', 'Add To Product', {'event_category':gaCategory, 'event_label':'Success'});
+                analytics.track('Add To Product', {category:gaCategory, label:'Success'});
             }
             else {
                 console.log('failed to add to product, do something here');
-                gtag('event', 'Add To Product', {'event_category':gaCategory, 'event_label':'Failure ' + res.statusCode});
+                analytics.track('Add To Product', {category:gaCategory, label:'Failure ' + res.statusCode});
             }
 
             if (setupOptions.developmentDevice) {
@@ -2505,7 +2505,7 @@ $(document).ready(function() {
                     product: setupOptions.productId,
                     auth: apiHelper.auth.access_token 
                 });                
-                gtag('event', 'Mark as Development Device', {'event_category':gaCategory});
+                analytics.track('Mark as Development Device', {category:gaCategory});
             }
         
         };
@@ -2994,7 +2994,7 @@ $(document).ready(function() {
 
 
             $(setupDeviceButtonElem).on('click', async function() {
-                gtag('event', 'Confirmed Flash', {'event_category':gaCategory});
+                analytics.track('Confirmed Flash', {category:gaCategory});
                 
                 const userFirmwareMode = $(modeSelectElem).val();
                 if (userFirmwareMode == 'url' || userFirmwareMode == 'customUrl') {
@@ -3002,7 +3002,7 @@ $(document).ready(function() {
                     const msg = 'This restore will use a custom binary downloaded from an external server. ' + 
                         'Make sure that it is from a reputable author and stored on a secure server. '
                     if (!confirm(msg)) {
-                        gtag('event', 'Rejected using custom binary', {'event_category':gaCategory});
+                        analytics.track('Rejected using custom binary', {category:gaCategory});
                         setStatus('Restore canceled');
                         setSetupStep('setupStepStartOver');
                         return;
@@ -3054,10 +3054,10 @@ $(document).ready(function() {
                         }
                     }
                     if (flashDeviceOptions.forceUpdate) {
-                        gtag('event', 'Restore Force Update', {'event_category':gaCategory});
+                        analytics.track('Restore Force Update', {category:gaCategory});
                     }
                     if (flashDeviceOptions.shippingMode) {
-                        gtag('event', 'Restore Shipping Mode', {'event_category':gaCategory});
+                        analytics.track('Restore Shipping Mode', {category:gaCategory});
                     }
 
                 }
@@ -3100,11 +3100,11 @@ $(document).ready(function() {
                             });
 
                             if (result.ok) {
-                                gtag('event', 'Create Product', {'event_category':gaCategory, 'event_label':'Success'});    
+                                analytics.track('Create Product', {category:gaCategory, label:'Success'});    
                             }
                             else {
                                 // TODO: Handle error here
-                                gtag('event', 'Create Product', {'event_category':gaCategory, 'event_label':'Failed'});
+                                analytics.track('Create Product', {category:gaCategory, label:'Failed'});
                             }
         
 
@@ -3114,7 +3114,7 @@ $(document).ready(function() {
                         }
                         else {
                             setupOptions.productId = $(trackerProductSelectElem).val();
-                            gtag('event', 'Add Tracker To Existing Product', {'event_category':gaCategory});    
+                            analytics.track('Add Tracker To Existing Product', {category:gaCategory});    
                         }
                         setupOptions.addToProduct = true;
                         setupOptions.noClaim = $(trackerSetupNoClaimElem).prop('checked');
@@ -3164,7 +3164,7 @@ $(document).ready(function() {
 
                     if ($(setupForceVersionElem).prop('checked')) {
                         deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
-                        gtag('event', 'Setup using set version', {'event_category':gaCategory, 'event_label':deviceInfo.targetVersion});    
+                        analytics.track('Setup using set version', {category:gaCategory, label:deviceInfo.targetVersion});    
                     }
 
                     setupOptions.ethernet = $(setupUseEthernetElem).prop('checked');
@@ -3179,11 +3179,11 @@ $(document).ready(function() {
 
                     if ($(doctorForceVersionElem).prop('checked')) {
                         deviceInfo.targetVersion = $(doctorDeviceOsVersionElem).val();
-                        gtag('event', 'Doctor using set version', {'event_category':gaCategory, 'event_label':deviceInfo.targetVersion});    
+                        analytics.track('Doctor using set version', {category:gaCategory, label:deviceInfo.targetVersion});    
                     }
 
                     if (setupOptions.ethernet) {
-                        gtag('event', 'Doctor using Ethernet', {'event_category':gaCategory});    
+                        analytics.track('Doctor using Ethernet', {category:gaCategory});    
                     }
 
                     if ($(doctorSetKeepAliveCheckboxElem).prop('checked')) {
@@ -3220,12 +3220,12 @@ $(document).ready(function() {
 
                 if (mode == 'product') {
                     setSetupStep('setupStepProductDone');
-                    gtag('event', 'Product flash complete', {'event_category':gaCategory});    
+                    analytics.track('Product flash complete', {category:gaCategory});    
                 }
                 else
                 if (mode == 'cloud') {
                     setSetupStep('setupStepCloudDone');
-                    gtag('event', 'Cloud Debug flash complete', {'event_category':gaCategory});    
+                    analytics.track('Cloud Debug flash complete', {category:gaCategory});    
                 }
                 else
                 if (mode == 'doctor' || mode == 'setup') {
@@ -3297,7 +3297,7 @@ $(document).ready(function() {
 
                 waitDeviceOnline();
             });
-            gtag('event', 'Started Wi-Fi Scan', {'event_category':gaCategory});    
+            analytics.track('Started Wi-Fi Scan', {category:gaCategory});    
 
 
 
@@ -3484,7 +3484,7 @@ $(document).ready(function() {
 
                 $(thisElem).find('.scanAgain').prop('disabled', false);
 
-                gtag('event', 'Wi-Fi Scan Done', {'event_category':gaCategory, 'event_label':sortedNetworks.length});
+                analytics.track('Wi-Fi Scan Done', {category:gaCategory, label:sortedNetworks.length});
 
                 if (sortedNetworks.length == 0) {
                     setSetupStep('setupStepNoWiFi');
@@ -3582,7 +3582,7 @@ $(document).ready(function() {
 
 
                         if (knownNetworks.length > 0) {
-                            gtag('event', 'Wi-Fi Existing', {'event_category':gaCategory, 'event_label':knownNetworks.length});
+                            analytics.track('Wi-Fi Existing', {category:gaCategory, label:knownNetworks.length});
 
                             $(wifiExistingRemoveSelectedElem).prop('disabled', true);
                             $(wifiExistingElem).show();
@@ -3629,7 +3629,7 @@ $(document).ready(function() {
                                 const res = await usbDevice.sendControlRequest(503, enc.toUint8Array()); // CTRL_REQUEST_WIFI_REMOVE_KNOWN_NETWORK
                                 console.log('res', res);
 
-                                gtag('event', 'Wi-Fi Remove Existing', {'event_category':gaCategory});
+                                analytics.track('Wi-Fi Remove Existing', {category:gaCategory});
 
                                 updateWiFiOnDevice();
                             });
@@ -3643,7 +3643,7 @@ $(document).ready(function() {
                                 // console.log('res', res);
                                 // res.result == 0 on success
 
-                                gtag('event', 'Wi-Fi Remove All', {'event_category':gaCategory});
+                                analytics.track('Wi-Fi Remove All', {category:gaCategory});
 
                                 updateWiFiOnDevice();
                             });
@@ -3812,7 +3812,7 @@ $(document).ready(function() {
                             reqObj.outer_identity = outerIdentity;
                         }
 
-                        gtag('event', 'Wi-Fi Credentials Set', {'event_category':gaCategory});    
+                        analytics.track('Wi-Fi Credentials Set', {category:gaCategory});    
 
                     }
                     console.log('sending request', reqObj);
@@ -3831,7 +3831,7 @@ $(document).ready(function() {
                     hideDeviceFirmwareInfo();
 
                     setSetupStep('setupStepWifiStart');
-                    gtag('event', 'Wi-Fi Configure Start', {'event_category':gaCategory});
+                    analytics.track('Wi-Fi Configure Start', {category:gaCategory});
 
                     
                     const reqObj = {
@@ -3844,7 +3844,7 @@ $(document).ready(function() {
                         const res = await usbDevice.joinNewWifiNetwork(reqObj);
 
                         setSetupStep('setupStepWifiComplete');
-                        gtag('event', 'Wi-Fi Configure Success', {'event_category':gaCategory});
+                        analytics.track('Wi-Fi Configure Success', {category:gaCategory});
 
                         await usbDevice.reset();
 
@@ -3853,7 +3853,7 @@ $(document).ready(function() {
                     }
                     catch(e) {
                         setSetupStep('setupStepWifiFailed');
-                        gtag('event', 'Wi-Fi Configure Failed', {'event_category':gaCategory});
+                        analytics.track('Wi-Fi Configure Failed', {category:gaCategory});
                     }
 
                 }
@@ -3928,7 +3928,7 @@ $(document).ready(function() {
     
                 $(userInfoElem).show();
 
-                gtag('event', 'waitDeviceOnline', {'event_category':gaCategory});    
+                analytics.track('waitDeviceOnline', {category:gaCategory});    
 
 
                 if (mode == 'doctor') {
@@ -3971,7 +3971,7 @@ $(document).ready(function() {
                             if (deviceInfo.platformId == 10) {
                                 $('.deviceLogWarning').hide();
                             }
-                            gtag('event', 'networkReady', {'event_category':gaCategory});    
+                            analytics.track('networkReady', {category:gaCategory});    
                             $(thisElem).find('.waitOnlineStepNetwork > td > img').attr('src', doneUrl);
                             $(thisElem).find('.waitOnlineStepCloud > td > img').css('visibility', 'visible');
                         }
@@ -3988,7 +3988,7 @@ $(document).ready(function() {
                 cloudConnectedResolve = null;
                 checkStatus = null;
 
-                gtag('event', 'online', {'event_category':gaCategory});    
+                analytics.track('online', {category:gaCategory});    
 
                 if (!setupOptions.noClaim && !setupOptions.claimCode) {
                     // Claim device
@@ -4023,7 +4023,7 @@ $(document).ready(function() {
 
 
                     if (result.ok) {
-                        gtag('event', 'claimed device', {'event_category':gaCategory});    
+                        analytics.track('claimed device', {category:gaCategory});    
                         $(thisElem).find('.waitOnlineStepClaim > td > img').attr('src', doneUrl);
                         
                         // Re-run device lookup to update information
@@ -4049,7 +4049,7 @@ $(document).ready(function() {
                 if (mode == 'doctor') {                    
                     // TODO: Check if device is claimed to my account and 
                     setSetupStep('setupStepTroubleshootingSuccess');
-                    gtag('event', 'doctor success', {'event_category':gaCategory});    
+                    analytics.track('doctor success', {category:gaCategory});    
                     return;
                 }
 
@@ -4060,7 +4060,7 @@ $(document).ready(function() {
             catch(e) {
                 setSetupStep('setupStepClaimFailed');
                 console.log('exception', e);
-                gtag('event', 'Exception', {'event_category':gaCategory, 'event_label':'claim failed'});
+                analytics.track('Exception', {category:gaCategory, label:'claim failed'});
             }
 
             
@@ -4121,14 +4121,14 @@ $(document).ready(function() {
         
                     $.ajax(request);            
                 });
-                gtag('event', 'set name', {'event_category':gaCategory});    
+                analytics.track('set name', {category:gaCategory});    
 
                 setupDone();
             });
 
             
             $(thisElem).find('.skipNaming').on('click', function() {
-                gtag('event', 'skip naming', {'event_category':gaCategory});    
+                analytics.track('skip naming', {category:gaCategory});    
                 setupDone();
             });
 
@@ -4309,14 +4309,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId: deviceInfo.deviceId, name: 'setColor', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    gtag('event', 'Success', {'event_category':'LED Color Test'});
+                    analytics.track('Success', {category:'LED Color Test'});
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    gtag('event', 'Error', {'event_category':'LED Color Test', 'event_label':err});
+                    analytics.track('Error', {category:'LED Color Test', label:err});
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -4328,7 +4328,7 @@ $(document).ready(function() {
         const setupDone = async function() {
             setSetupStep('setupStepDone');
 
-            gtag('event', 'setupDone', {'event_category':gaCategory});    
+            analytics.track('setupDone', {category:gaCategory});    
 
             if (setupOptions.addToProduct) {
                 $(thisElem).find('.setupStepDoneNonProduct').hide();
