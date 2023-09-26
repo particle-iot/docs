@@ -11275,6 +11275,13 @@
             "optional": false,
             "field": "current_password",
             "description": "<p>The current password. Required to change username or password</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "invalidate_tokens",
+            "description": "<p>Invalidate all access tokens for user</p>"
           }
         ]
       }

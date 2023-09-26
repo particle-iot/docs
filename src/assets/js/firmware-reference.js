@@ -114,12 +114,12 @@ $(document).ready(function() {
             href = linkOptional;
         }
         else {
-            // If the 0 <= offset.top <= 100 then the referencePage is at the top of the screen and is definitely the
+            // If the 0 <= offset.top <= 10 then the referencePage is at the top of the screen and is definitely the
             // one to display.
             // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
             // because it's been scrolled up.
             for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
-                if (pageOffsets[ii].top < 100) {
+                if (pageOffsets[ii].top < 10) {
                     href = pageOffsets[ii].href;
                     break;
                 }
@@ -368,9 +368,10 @@ $(document).ready(function() {
 
                 apiIndex.sections[nav.index].contentElem = divElem;
 
+                ignoreScroll = Date.now() + 1000;
+
                 if (options.scrollIntoView) {
                     $(divElem)[0].scrollIntoView({block: "start", behavior: "smooth"}); // align to top 
-                    ignoreScroll = Date.now() + 1000;
                 }
 
                 if (options.syncNavigation) {

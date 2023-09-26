@@ -60,7 +60,13 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                     title: origTitle,
                     url: '/' + options.outputDir + '/' + curFolder + '/' + curFolder + '/'
                 };
-                allL2.push(curL2);
+                if (origTitle == 'Device OS versions') {
+                    curL2.omitSection = true;
+                }
+
+                if (!curL2.omitSection) {
+                    allL2.push(curL2);
+                }
             }
             if (line.startsWith('### ')) {
                 // New L3 header denotes a new file
@@ -102,8 +108,11 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
 
                 curL2.l3.push(obj);
-                sections.push(obj);    
-                
+
+                if (!curL2.omitSection) {
+                    sections.push(obj);    
+                }
+
                 if (line.startsWith('## ')) {
                     obj.level = 2;
                     curL3 = null;
@@ -181,7 +190,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             ii--;
         }
     }
-
+    
     // Generate redirects for all directories to the first page in that group
     const origFile = fs.readFileSync(redirectsPath, 'utf8');
 
@@ -197,14 +206,6 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         apiIndexJson.folderTitles[curL2.folder] = curL2.origTitle;
     }
 
-    // Remove Device OS Versions so we don't need to load the Javascript
-    for(let ii = 0; ii < allL2.length; ii++) {
-        if (allL2[ii].title == 'Device OS Versions') {
-            allL2.splice(ii, 1);
-            ii--;
-        }
-    }
-    
     // Generate data now
     for(let section of sections) {
 
@@ -291,7 +292,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         files[newPath] = newFile;
 
         // Only do this once to map the old cards/firmware URLs.
-        redirects['/cards/firmware/' + section.folder + '/' + section.file] = '/' + newPath.replace('.md', '');
+        // redirects['/cards/firmware/' + section.folder + '/' + section.file] = '/' + newPath.replace('.md', '');
 
     }
 
