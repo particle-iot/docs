@@ -3,6 +3,16 @@ $(document).ready(function() {
     const searchApiKey = 'AIzaSyBYJjm7PyDU1S42_JMkI7kvCAm43tgvZtw';
     const searchUrlBase = 'https://www.googleapis.com/customsearch/v1';
 
+    const savedSearchKey = 'savedSearch';
+
+    let savedSearchObj;
+
+    const saveSearch = function() {
+        if (savedSearchObj) {
+            localStorage.setItem(savedSearchKey, JSON.stringify(savedSearchObj));
+        }
+    }
+
     const filterUrl = function(url) {
         const defaultDocsUrl = 'https://docs.particle.io/';
         if (url.startsWith(defaultDocsUrl)) {
@@ -35,19 +45,27 @@ $(document).ready(function() {
         return fetchJson;
     }
 
-    const appendSearchResult = function(item) {
+    const appendSearchResult = function(options) {
         // title, link, formattedUrl, htmlFormattedUrl, snippet, htmlSnippet, 
         const resultElem = document.createElement('div');
         $(resultElem).addClass('searchOverlayResult');
         $(resultElem).on('click', function() {
-            location.href = filterUrl(item.link);
+            let targetParams = {
+                search: 1,
+                q: options.query,
+            };
+            
+            savedSearchObj.lastLink = options.link;
+            saveSearch();
+            history.pushState(null, '', '#' + new URLSearchParams(targetParams).toString());
+            location.href = filterUrl(options.link);
         });
 
         const titleElem = document.createElement('div');
         $(titleElem).addClass('searchOverlayTitle');
         const aElem = document.createElement('a');
         $(aElem).addClass('searchOverlayTitleAnchor');
-        $(aElem).text(item.title);
+        $(aElem).text(options.title);
         $(titleElem).append(aElem);
         $(resultElem).append(titleElem);
 
@@ -56,21 +74,23 @@ $(document).ready(function() {
         // were not included with Swiftype either, but this is how to add them:
         const linkElem = document.createElement('div');
         $(linkElem).addClass('searchOverlayLink');
-        $(linkElem).text(item.formattedUrl);
+        $(linkElem).text(options.formattedUrl);
         $(resultElem).append(linkElem);
         */
 
         const snippetElem = document.createElement('div');
         $(snippetElem).addClass('searchOverlaySnippet');
-        $(snippetElem).html(item.htmlSnippet);
+        $(snippetElem).html(options.htmlSnippet);
         $(resultElem).append(snippetElem);
 
         $('.searchOverlayResults').append(resultElem);   
+
     }
 
     let fetchPage;
 
     fetchPage = async function(options) {
+        console.log('fetchPage', options);
         try {
             // Parameters described here: https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list
             // linkSite - restrict to this URL (not currently needed because only docs in this engine)
@@ -92,9 +112,27 @@ $(document).ready(function() {
 
             $('.searchOverlayLoadMore').remove();
 
+            if (!savedSearchObj.items) {
+                savedSearchObj.items = [];
+            }
+
             // items is an array of objects with the results
             for(const item of resultObj.items) {
-                appendSearchResult(item);
+                appendSearchResult({
+                    query: options.query,
+                    link: item.link,
+                    formattedUrl: item.formattedUrl,
+                    title: item.title,
+                    htmlSnippet: item.htmlSnippet,
+                });
+
+                savedSearchObj.items.push({
+                    link: item.link,
+                    formattedUrl: item.formattedUrl,
+                    title: item.title,
+                    htmlSnippet: item.htmlSnippet,
+                });
+        
             }
 
             // queries.nextPage (array of objects): count, startIndex, totalResults (string!)
@@ -127,27 +165,8 @@ $(document).ready(function() {
 
     }
 
-    const doSearch = async function() {
-        $('.searchOverlaySearchButton').prop('disabled', true);
-        $('.searchOverlayResults').empty();
-        
-        const query = $('.searchOverlayQueryInput').val();
-        console.log('doSearch query=' + query);
-
-        await fetchPage({
-            query,
-            start: 1,
-        })
-
-        $('.searchOverlaySearchButton').prop('disabled', false);
-    }
-
-    $('.searchOverlaySearchButton').on('click', doSearch);
-
-    $('.searchOverlayCloseIcon').on('click', closeSearchOverlay);
-
-    $('.searchIcon').on('click', function() {
-
+    const openSearch = function(options) {
+        console.log('openSearch');
         $('body').on('keydown', function(ev) {
             switch(ev.key) {
                 case 'Esc':
@@ -166,6 +185,37 @@ $(document).ready(function() {
 
         $('#searchOverlay').show();
         $('.searchOverlayQueryInput').focus();
+
+        if (savedSearchObj && savedSearchObj.q) {
+            $('.searchOverlayQueryInput').val(savedSearchObj.q);
+        }
+    }
+
+    const doSearch = async function() {
+        console.log('doSearch');
+        $('.searchOverlaySearchButton').prop('disabled', true);
+        $('.searchOverlayResults').empty();
+        
+        const query = $('.searchOverlayQueryInput').val();
+        console.log('doSearch query=' + query);
+
+        savedSearchObj.q = query;
+
+        await fetchPage({
+            query,
+            start: 1,
+        })
+
+        $('.searchOverlaySearchButton').prop('disabled', false);
+    }
+
+    $('.searchOverlaySearchButton').on('click', doSearch);
+
+    $('.searchOverlayCloseIcon').on('click', closeSearchOverlay);
+
+    $('.searchIcon').on('click', function() {
+
+        openSearch({});
     });
 
     $('.searchOverlayQueryInput').on('keydown', function(ev) {
@@ -182,6 +232,55 @@ $(document).ready(function() {
         checkButtonEnable();
     });
 
+    try {
+        const str = localStorage.getItem(savedSearchKey);
+        if (str) {
+            savedSearchObj = JSON.parse(str);
+        }
+    }
+    catch(e) {
+        console.log('exception loading saved search', e);
+    }
+    if (!savedSearchObj) {
+        savedSearchObj = {};
+    }
+
+
+    if (window.location.hash && window.location.hash.startsWith("#search=1&")) {
+        const searchParam = new URLSearchParams(window.location.hash.substring(1));
+
+        const query = searchParam.get('q');
+        if (query) {
+            console.log('loadQuery query=' + query, savedSearchObj);
+
+            if (savedSearchObj && savedSearchObj.q) {
+                if (savedSearchObj.q == query && Array.isArray(savedSearchObj.items)) {
+                    // Same as previous
+                    console.log('loadQuery query=' + query + ' reloading');
+
+                    for(const item of savedSearchObj.items) {
+                        appendSearchResult({
+                            query,
+                            link: item.link,
+                            formattedUrl: item.formattedUrl,
+                            title: item.title,
+                            htmlSnippet: item.htmlSnippet,
+                        });
+                    }        
+                }
+                else {
+                    // Going back farther in history, probably. Load again.
+                    console.log('loadQuery query=' + query + ' need to search again');
+                    savedSearchObj.q = query;
+                    delete savedSearchObj.items;
+                    saveSearch();
+                }      
+
+                openSearch({});
+            }            
+        }
+    }
+    checkButtonEnable();
 });
 
 /*
