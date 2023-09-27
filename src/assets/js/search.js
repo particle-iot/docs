@@ -16,6 +16,7 @@ $(document).ready(function() {
         $('body').off('keydown');
         $('#searchOverlay').hide();
     }
+
     const checkButtonEnable = function() {
         const query = $('.searchOverlayQueryInput').val();
 
