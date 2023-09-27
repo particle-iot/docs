@@ -1,4 +1,145 @@
 $(document).ready(function() {
+    const searchEngineId = '03d3813fed2c848ab';
+    const searchApiKey = 'AIzaSyBYJjm7PyDU1S42_JMkI7kvCAm43tgvZtw';
+    const searchUrlBase = 'https://www.googleapis.com/customsearch/v1';
+
+    const filterUrl = function(url) {
+        const defaultDocsUrl = 'https://docs.particle.io/';
+        if (url.startsWith(defaultDocsUrl)) {
+            // Leave the leading slash
+            url = url.substring(defaultDocsUrl.length - 1);
+        }   
+        return url;
+    }
+
+    const closeSearchOverlay = function() {
+        $('body').off('keydown');
+        $('#searchOverlay').hide();
+    }
+    const checkButtonEnable = function() {
+        const query = $('.searchOverlayQueryInput').val();
+
+        $('.searchOverlaySearchButton').prop('disabled', (query.length == 0));
+    }
+    checkButtonEnable();
+
+    const searchApiQuery = async function(paramsObj) {
+        // https://www.googleapis.com/customsearch/v1?[parameters]
+
+        const searchParams = new URLSearchParams(paramsObj);
+
+        const fetchRes = await fetch(searchUrlBase + '?' + searchParams.toString());
+        const fetchJson = await fetchRes.json();
+
+        return fetchJson;
+    }
+
+    const appendSearchResult = function(item) {
+        // title, link, formattedUrl, htmlFormattedUrl, snippet, htmlSnippet, 
+        const resultElem = document.createElement('div');
+        $(resultElem).addClass('searchOverlayResult');
+        $(resultElem).on('click', function() {
+            location.href = filterUrl(item.link);
+        });
+
+        const titleElem = document.createElement('div');
+        $(titleElem).addClass('searchOverlayTitle');
+        const aElem = document.createElement('a');
+        $(aElem).addClass('searchOverlayTitleAnchor');
+        $(aElem).text(item.title);
+        $(titleElem).append(aElem);
+        $(resultElem).append(titleElem);
+
+        /*
+        // Since all links are from docs.particle.io now, skip the visible links as they
+        // were not included with Swiftype either, but this is how to add them:
+        const linkElem = document.createElement('div');
+        $(linkElem).addClass('searchOverlayLink');
+        $(linkElem).text(item.formattedUrl);
+        $(resultElem).append(linkElem);
+        */
+
+        const snippetElem = document.createElement('div');
+        $(snippetElem).addClass('searchOverlaySnippet');
+        $(snippetElem).html(item.htmlSnippet);
+        $(resultElem).append(snippetElem);
+
+        $('.searchOverlayResults').append(resultElem);   
+    }
+
+    const doSearch = async function() {
+        $('.searchOverlaySearchButton').prop('disabled', true);
+        $('.searchOverlayResults').empty();
+        
+        const query = $('.searchOverlayQueryInput').val();
+        console.log('doSearch query=' + query);
+
+        try {
+            let paramsObj = {
+                cx: searchEngineId,
+                key: searchApiKey,
+                q: query,
+            };
+
+            const resultObj = await searchApiQuery(paramsObj);
+            console.log('resultObj', resultObj);
+
+            // items is an array of objects with the results
+            for(const item of resultObj.items) {
+                appendSearchResult(item);
+            }
+
+        }
+        catch(e) {
+            console.log('search exception', e);
+        }
+        $('.searchOverlaySearchButton').prop('disabled', false);
+    }
+
+    $('.searchOverlaySearchButton').on('click', doSearch);
+
+    $('.searchOverlayCloseIcon').on('click', closeSearchOverlay);
+
+    $('.searchIcon').on('click', function() {
+
+        $('body').on('keydown', function(ev) {
+            switch(ev.key) {
+                case 'Esc':
+                case 'Escape':
+                    closeSearchOverlay();
+                    ev.preventDefault();
+                    break;
+                    
+                case 'Enter':
+                    if (!$('.searchOverlaySearchButton').prop('disabled')) {
+                        doSearch();
+                    }
+                    break;
+            }
+        });
+
+        $('#searchOverlay').show();
+        $('.searchOverlayQueryInput').focus();
+    });
+
+    $('.searchOverlayQueryInput').on('keydown', function(ev) {
+        switch(ev.key) {
+            case 'Esc':
+            case 'Escape':
+                closeSearchOverlay();
+                ev.preventDefault();
+                break;    
+        }
+    });
+
+    $('.searchOverlayQueryInput').on('input', function() {
+        checkButtonEnable();
+    });
+
+});
+
+/*
+$(document).ready(function() {
     const engineKey = 'xqs6ySrzs42txxzuWP_A';
 
     const resultTemplate = Handlebars.compile('<div class="st-result"><h3 class="title"><a href="{{url}}" class="st-search-result-link">{{title}}</a></h3><div class="st-metadata"><span class="st-snippet">{{{body}}}</span></div></div>');
@@ -69,3 +210,4 @@ $(document).ready(function() {
         }
     }
 });    
+*/
