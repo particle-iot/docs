@@ -67,6 +67,65 @@ $(document).ready(function() {
         $('.searchOverlayResults').append(resultElem);   
     }
 
+    let fetchPage;
+
+    fetchPage = async function(options) {
+        try {
+            // Parameters described here: https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list
+            // linkSite - restrict to this URL (not currently needed because only docs in this engine)
+            // start - Index to get more pages of results
+            let paramsObj = {
+                cx: searchEngineId,
+                key: searchApiKey,
+                q: options.query,
+                start: options.start,
+            };
+
+            const resultObj = await searchApiQuery(paramsObj);
+            console.log('resultObj', resultObj);
+
+            // On error: has error object with code and message
+            if (resultObj.error) {
+
+            }
+
+            $('.searchOverlayLoadMore').remove();
+
+            // items is an array of objects with the results
+            for(const item of resultObj.items) {
+                appendSearchResult(item);
+            }
+
+            // queries.nextPage (array of objects): count, startIndex, totalResults (string!)
+            if (resultObj.queries.nextPage && resultObj.queries.nextPage.length == 1) {
+                const next = resultObj.queries.nextPage[0];
+
+                const loadMoreDivElem = document.createElement('div');
+                $(loadMoreDivElem).addClass('searchOverlayLoadMore');
+
+                const aElem = document.createElement('a');
+                $(aElem).append('Load more results');
+                $(aElem).on('click', function() {
+                    $(aElem).prop('disabled', true);
+                    fetchPage({
+                        query: options.query,
+                        start: next.startIndex,
+                    })
+                });
+                
+                $(loadMoreDivElem).append(aElem);
+
+                $('.searchOverlayResults').append(loadMoreDivElem);
+            }
+
+            
+        }
+        catch(e) {
+            console.log('search exception', e);
+        }
+
+    }
+
     const doSearch = async function() {
         $('.searchOverlaySearchButton').prop('disabled', true);
         $('.searchOverlayResults').empty();
@@ -74,25 +133,11 @@ $(document).ready(function() {
         const query = $('.searchOverlayQueryInput').val();
         console.log('doSearch query=' + query);
 
-        try {
-            let paramsObj = {
-                cx: searchEngineId,
-                key: searchApiKey,
-                q: query,
-            };
+        await fetchPage({
+            query,
+            start: 1,
+        })
 
-            const resultObj = await searchApiQuery(paramsObj);
-            console.log('resultObj', resultObj);
-
-            // items is an array of objects with the results
-            for(const item of resultObj.items) {
-                appendSearchResult(item);
-            }
-
-        }
-        catch(e) {
-            console.log('search exception', e);
-        }
         $('.searchOverlaySearchButton').prop('disabled', false);
     }
 

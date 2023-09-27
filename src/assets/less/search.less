@@ -55,7 +55,7 @@
 .searchOverlayTitle {
   padding-top: 2px;
   padding-bottom: 2px;
-  font-weight: 800;
+  font-size: 18px;
 }
 
 .searchOverlayLink {
@@ -73,9 +73,12 @@
   .searchOverlayQuery {
       background-color: @COLOR_Midnight_500;
   }
+  /*
+  // This does not work
   a.searchOverlayLink:visited {
     color: @COLOR_Gray_400;
   }
+  */
 }
 
 @media (prefers-color-scheme: light) {
@@ -83,10 +86,13 @@
   .searchOverlayQuery {
       background-color: @NC_MORNING_MIST;
   }
+  /*
+  // This does not work
   a.searchOverlayLink:visited {
     color: @COLOR_Midnight_300;
     
   }
+  */
 }
 
 /* I don't think this is used anymore 
