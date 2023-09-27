@@ -4,6 +4,8 @@ $(document).ready(function() {
     const searchUrlBase = 'https://www.googleapis.com/customsearch/v1';
 
     const savedSearchKey = 'savedSearch';
+    const searchHistorySize = 10;
+    const autocompleteDelay = 750; // milliseconds
 
     let savedSearchObj;
 
@@ -45,6 +47,30 @@ $(document).ready(function() {
         return fetchJson;
     }
 
+    const appendLoadMore = function() {
+        if (!savedSearchObj.nextStartIndex) {
+            return;
+        }
+
+        const loadMoreDivElem = document.createElement('div');
+        $(loadMoreDivElem).addClass('searchOverlayLoadMore');
+
+        const aElem = document.createElement('a');
+        $(aElem).append('Load more results');
+        $(aElem).on('click', function() {
+            $(aElem).prop('disabled', true);
+            fetchPage({
+                query: savedSearchObj.q,
+                start: savedSearchObj.nextStartIndex,
+            })
+        });
+        
+        $(loadMoreDivElem).append(aElem);
+
+        $('.searchOverlayResults').append(loadMoreDivElem);
+    
+    }
+
     const appendSearchResult = function(options) {
         // title, link, formattedUrl, htmlFormattedUrl, snippet, htmlSnippet, 
         const resultElem = document.createElement('div');
@@ -55,6 +81,7 @@ $(document).ready(function() {
                 q: options.query,
             };
             
+            savedSearchObj.items.find(e => e.link == options.link).visited = true;
             savedSearchObj.lastLink = options.link;
             saveSearch();
             history.pushState(null, '', '#' + new URLSearchParams(targetParams).toString());
@@ -67,6 +94,11 @@ $(document).ready(function() {
         $(aElem).addClass('searchOverlayTitleAnchor');
         $(aElem).text(options.title);
         $(titleElem).append(aElem);
+        if (options.visited) {
+            const spanElem = document.createElement('span');
+            $(spanElem).html(' &check;');
+            $(titleElem).append(spanElem); 
+        }
         $(resultElem).append(titleElem);
 
         /*
@@ -107,7 +139,7 @@ $(document).ready(function() {
 
             // On error: has error object with code and message
             if (resultObj.error) {
-
+ 
             }
 
             $('.searchOverlayLoadMore').remove();
@@ -118,44 +150,18 @@ $(document).ready(function() {
 
             // items is an array of objects with the results
             for(const item of resultObj.items) {
-                appendSearchResult({
-                    query: options.query,
-                    link: item.link,
-                    formattedUrl: item.formattedUrl,
-                    title: item.title,
-                    htmlSnippet: item.htmlSnippet,
-                });
-
-                savedSearchObj.items.push({
-                    link: item.link,
-                    formattedUrl: item.formattedUrl,
-                    title: item.title,
-                    htmlSnippet: item.htmlSnippet,
-                });
-        
+                appendSearchResult(Object.assign({query: savedSearchObj.q}, item));
+                savedSearchObj.items.push(item);        
             }
 
-            // queries.nextPage (array of objects): count, startIndex, totalResults (string!)
             if (resultObj.queries.nextPage && resultObj.queries.nextPage.length == 1) {
                 const next = resultObj.queries.nextPage[0];
-
-                const loadMoreDivElem = document.createElement('div');
-                $(loadMoreDivElem).addClass('searchOverlayLoadMore');
-
-                const aElem = document.createElement('a');
-                $(aElem).append('Load more results');
-                $(aElem).on('click', function() {
-                    $(aElem).prop('disabled', true);
-                    fetchPage({
-                        query: options.query,
-                        start: next.startIndex,
-                    })
-                });
-                
-                $(loadMoreDivElem).append(aElem);
-
-                $('.searchOverlayResults').append(loadMoreDivElem);
+                savedSearchObj.nextStartIndex = next.startIndex;
             }
+
+            saveSearch();
+
+            appendLoadMore();
 
             
         }
@@ -173,13 +179,7 @@ $(document).ready(function() {
                 case 'Escape':
                     closeSearchOverlay();
                     ev.preventDefault();
-                    break;
-                    
-                case 'Enter':
-                    if (!$('.searchOverlaySearchButton').prop('disabled')) {
-                        doSearch();
-                    }
-                    break;
+                    break;                    
             }
         });
 
@@ -189,17 +189,74 @@ $(document).ready(function() {
         if (savedSearchObj && savedSearchObj.q) {
             $('.searchOverlayQueryInput').val(savedSearchObj.q);
         }
+        checkButtonEnable();
+    }
+
+    const restoreSearchItems = function(options) {
+        if (savedSearchObj && savedSearchObj.q && Array.isArray(savedSearchObj.items)) {
+
+            $('.searchOverlayQueryInput').val(savedSearchObj.q);
+            $('.searchOverlayQueryInput')[0].setSelectionRange(0, savedSearchObj.q.length);
+
+            for(const item of savedSearchObj.items) {
+                appendSearchResult(Object.assign({query: savedSearchObj.q}, item));
+            }        
+            appendLoadMore();
+        }
+    }
+
+
+    let keyTimer;
+
+    const checkAutoComplete = async function() {
+        if (keyTimer) {
+            clearTimeout(keyTimer);
+            keyTimer = null;
+        }
+        const query = $('.searchOverlayQueryInput').val();
+        if (query.length < 4) {
+            return;
+        }
+
+        console.log('checkAutoComplete query=' + query);
+
+        let paramsObj = {
+            cx: searchEngineId,
+            key: searchApiKey,
+            q: query,
+            fields: 'items(title)',
+        };
+
+        const resultObj = await searchApiQuery(paramsObj);
+        console.log('autocomplete resultObj', resultObj);
+
+        if (resultObj.items) {
+            // items is an array of objects, which only have a title 
+
+        }
     }
 
     const doSearch = async function() {
-        console.log('doSearch');
+        if (keyTimer) {
+            clearTimeout(keyTimer);
+            keyTimer = null;
+        }
+
         $('.searchOverlaySearchButton').prop('disabled', true);
         $('.searchOverlayResults').empty();
-        
-        const query = $('.searchOverlayQueryInput').val();
-        console.log('doSearch query=' + query);
 
+
+        const query = $('.searchOverlayQueryInput').val();
+    
         savedSearchObj.q = query;
+
+        if (!savedSearchObj.searchHistory) {
+            savedSearchObj.searchHistory = [];
+        }
+        savedSearchObj.searchHistory.append(query);
+        if (savedSearchObj.searchHistory.length > searchHistorySize) {
+            savedSearchObj.searchHistory.splice(0, searchHistorySize - savedSearchObj.searchHistory.length);
+        }
 
         await fetchPage({
             query,
@@ -214,9 +271,11 @@ $(document).ready(function() {
     $('.searchOverlayCloseIcon').on('click', closeSearchOverlay);
 
     $('.searchIcon').on('click', function() {
-
         openSearch({});
+        restoreSearchItems();    
     });
+
+    $('.searchOverlayQueryInput').on('blur', checkAutoComplete);
 
     $('.searchOverlayQueryInput').on('keydown', function(ev) {
         switch(ev.key) {
@@ -224,7 +283,21 @@ $(document).ready(function() {
             case 'Escape':
                 closeSearchOverlay();
                 ev.preventDefault();
-                break;    
+                break;   
+
+            case 'Enter':
+                if (!$('.searchOverlaySearchButton').prop('disabled')) {
+                    doSearch();
+                }
+                break;
+            
+            default:
+                if (keyTimer) {
+                    clearTimeout(keyTimer);
+                    keyTimer = null;
+                }
+                keyTimer = setTimeout(checkAutoComplete, autocompleteDelay);
+                break;
         }
     });
 
@@ -258,15 +331,8 @@ $(document).ready(function() {
                     // Same as previous
                     console.log('loadQuery query=' + query + ' reloading');
 
-                    for(const item of savedSearchObj.items) {
-                        appendSearchResult({
-                            query,
-                            link: item.link,
-                            formattedUrl: item.formattedUrl,
-                            title: item.title,
-                            htmlSnippet: item.htmlSnippet,
-                        });
-                    }        
+                    openSearch({});
+                    restoreSearchItems();    
                 }
                 else {
                     // Going back farther in history, probably. Load again.
