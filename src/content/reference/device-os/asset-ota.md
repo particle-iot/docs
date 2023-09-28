@@ -61,6 +61,8 @@ If you call [`System.assetsHandled(false)`](/reference/device-os/api/system-call
 
 {{> project-browser project="FileAssetExample" default-file="src/FileAssetExample.cpp" height="400" flash="true" options="gen3" target=">=5.5.0"}}
 
+This example stores assets in the user portion of flash file system, but this done for illustration only because it does not require external hardware and the example is easy to follow. Because assets are stored by the system even after you mark them as handled, you can always start reading the assets again using `System.assetsAvailable()` and reading the assets again. This is often more efficient.
+
 #### onAssetOTA or assetsAvailable
 
 There are two ways to handle assets. A common way is to use [`System.onAssetOta()`](/reference/device-os/api/system-calls/onassetota-system/):

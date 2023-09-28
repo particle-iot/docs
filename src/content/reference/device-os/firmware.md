@@ -21144,7 +21144,20 @@ Read data into a buffer without consuming it, so the next read will re-read the 
 virtual int skip(size_t size);
 ```
 
-Skip the specified number of bytes so the next `read()`, `readBuffer()`, etc. will read from that point. Streams are not seekable or rewindable.
+Skip the specified number of bytes so the next `read()`, `readBuffer()`, etc. will read from that point. Streams are not backward seekable, however you can `reset()` the stream to rewind it back to the beginning.
+
+#### reset() - ApplicationAsset
+
+{{api name1="ApplicationAsset::reset"}}
+
+```cpp
+// PROTOTYPE
+virtual void reset();
+```
+
+Resets the internal state of the `ApplicationAsset`. You can use this to rewind the stream back to the beginning and process it over again from the first byte.
+
+A common use case is when your external peripheral did not complete the update successfully and you want to try again immediately.
 
 ### AssetHash
 

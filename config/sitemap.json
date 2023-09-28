@@ -1271,8 +1271,8 @@
             "hash": "8bd4059a669177454b302175e53c7cb425d564a32e826eed09fdd9899d0aeb77"
         },
         "reference/device-os/asset-ota.md": {
-            "date": "2023-09-20",
-            "hash": "630b04b95f84ca5d2fe0f1793f9cf8d512aa038d35708adc8292405a24110b45"
+            "date": "2023-09-28",
+            "hash": "bc470424b7cadc54634778a5a21c90113caa99a47a4ae52404deab4cc4d0aefd"
         },
         "reference/device-os/bluetooth-le.md": {
             "date": "2023-08-29",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-09-26",
-            "hash": "08c22fcdf23edacd7e069b4c54195bad7dc6ab582380f56b51882140df01993e"
+            "date": "2023-09-28",
+            "hash": "17cf16abef58a21044fc5fa76257735284c81036268e377eacb47d25cf3cc38d"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -4031,8 +4031,8 @@
             "hash": "b41cc5054e389430084c516e7de17265a4c635b376f6676144917125da403ab6"
         },
         "reference/device-os/api/asset-ota/applicationasset.md": {
-            "date": "2023-09-20",
-            "hash": "fe16c12e2868088702d278c18b149614e20ed89489dab9f4e5a4edff5fa6518b"
+            "date": "2023-09-28",
+            "hash": "cf107f748fe7391927d60df407dc1e653fec600cf18f3f07127942720ae29eb2"
         },
         "reference/device-os/api/asset-ota/assethash.md": {
             "date": "2023-09-20",
@@ -4411,8 +4411,8 @@
             "hash": "01732d6a7369be9a60ad1b1036c1f417b6b9f1df3a31bf80070a383b1f78ad83"
         },
         "reference/device-os/api/memory/stack.md": {
-            "date": "2023-09-26",
-            "hash": "31f7e8931e72357d0e5de8e49b57197ce45a13451027c762da5e763ced181321"
+            "date": "2023-09-28",
+            "hash": "e7d305b1ede639d42bcf7ea3a7d8cbc80af06fbff1808de6e932528c4c10e28c"
         },
         "reference/device-os/api/device-os-versions/device-os-versions.md": {
             "date": "2023-09-20",
