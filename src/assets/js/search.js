@@ -8,6 +8,19 @@ $(document).ready(function() {
     const autocompleteDelay = 750; // milliseconds
 
     let savedSearchObj;
+    try {
+        const str = localStorage.getItem(savedSearchKey);
+        if (str) {
+            savedSearchObj = JSON.parse(str);
+        }
+    }
+    catch(e) {
+        console.log('exception loading saved search', e);
+    }
+    if (!savedSearchObj) {
+        savedSearchObj = {};
+    }
+
 
     const saveSearch = function() {
         if (savedSearchObj) {
@@ -24,7 +37,36 @@ $(document).ready(function() {
         return url;
     }
 
+    const includeUrl = function(url) {
+        const filteredUrl = filterUrl(url);
+
+        if (filteredUrl.startsWith('/reference/device-os/firmware/')) {
+            // Don't include single-page firmware API references
+            return false;
+        }
+        if (filteredUrl.startsWith('/troubleshooting/led/')) {
+            // This is the only page that forks per platform. Only include the boron result.
+            if (!filteredUrl.includes('boron')) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     const closeSearchOverlay = function() {
+        if (savedSearchObj) {
+            if (savedSearchObj.q == $('.searchOverlayQueryInput').val()) {
+                savedSearchObj.lastScroll = $('#searchOverlay').scrollTop();
+            }
+            else {
+                savedSearchObj.q = $('.searchOverlayQueryInput').val();
+                delete savedSearchObj.items;
+
+                savedSearchObj.lastScroll = 0;
+            }
+            saveSearch();
+        }
         $('body').off('keydown');
         $('#searchOverlay').hide();
     }
@@ -72,7 +114,8 @@ $(document).ready(function() {
     }
 
     const appendSearchResult = function(options) {
-        // title, link, formattedUrl, htmlFormattedUrl, snippet, htmlSnippet, 
+        // Available fields are configured in fetchPage
+        // title, link, formattedUrl, htmlSnippet, 
         const resultElem = document.createElement('div');
         $(resultElem).addClass('searchOverlayResult');
         $(resultElem).on('click', function() {
@@ -83,6 +126,7 @@ $(document).ready(function() {
             
             savedSearchObj.items.find(e => e.link == options.link).visited = true;
             savedSearchObj.lastLink = options.link;
+            savedSearchObj.lastScroll = $('#searchOverlay').scrollTop();
             saveSearch();
             history.pushState(null, '', '#' + new URLSearchParams(targetParams).toString());
             location.href = filterUrl(options.link);
@@ -119,10 +163,7 @@ $(document).ready(function() {
 
     }
 
-    let fetchPage;
-
-    fetchPage = async function(options) {
-        console.log('fetchPage', options);
+    const fetchPage = async function(options) {
         try {
             // Parameters described here: https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list
             // linkSite - restrict to this URL (not currently needed because only docs in this engine)
@@ -132,6 +173,7 @@ $(document).ready(function() {
                 key: searchApiKey,
                 q: options.query,
                 start: options.start,
+                fields: 'items(title,link,formattedUrl,htmlSnippet),queries(nextPage)',
             };
 
             const resultObj = await searchApiQuery(paramsObj);
@@ -150,13 +192,18 @@ $(document).ready(function() {
 
             // items is an array of objects with the results
             for(const item of resultObj.items) {
-                appendSearchResult(Object.assign({query: savedSearchObj.q}, item));
-                savedSearchObj.items.push(item);        
+                if (includeUrl(item.link)) {
+                    appendSearchResult(Object.assign({query: savedSearchObj.q}, item));
+                    savedSearchObj.items.push(item);            
+                }
             }
 
-            if (resultObj.queries.nextPage && resultObj.queries.nextPage.length == 1) {
+            if (resultObj.queries && resultObj.queries.nextPage && resultObj.queries.nextPage.length == 1) {
                 const next = resultObj.queries.nextPage[0];
                 savedSearchObj.nextStartIndex = next.startIndex;
+            }
+            else {
+                savedSearchObj.nextStartIndex = 0;
             }
 
             saveSearch();
@@ -193,6 +240,8 @@ $(document).ready(function() {
     }
 
     const restoreSearchItems = function(options) {
+        $('.searchOverlayResults').empty();
+
         if (savedSearchObj && savedSearchObj.q && Array.isArray(savedSearchObj.items)) {
 
             $('.searchOverlayQueryInput').val(savedSearchObj.q);
@@ -202,6 +251,15 @@ $(document).ready(function() {
                 appendSearchResult(Object.assign({query: savedSearchObj.q}, item));
             }        
             appendLoadMore();
+
+            if (savedSearchObj.lastScroll) {
+                $('#searchOverlay').scrollTop(savedSearchObj.lastScroll);
+            }
+        }
+        else {
+            if (savedSearchObj) {
+                delete savedSearchObj.items;
+            }
         }
     }
 
@@ -218,22 +276,7 @@ $(document).ready(function() {
             return;
         }
 
-        console.log('checkAutoComplete query=' + query);
-
-        let paramsObj = {
-            cx: searchEngineId,
-            key: searchApiKey,
-            q: query,
-            fields: 'items(title)',
-        };
-
-        const resultObj = await searchApiQuery(paramsObj);
-        console.log('autocomplete resultObj', resultObj);
-
-        if (resultObj.items) {
-            // items is an array of objects, which only have a title 
-
-        }
+        // Not currently supported by the programmable search API
     }
 
     const doSearch = async function() {
@@ -249,14 +292,18 @@ $(document).ready(function() {
         const query = $('.searchOverlayQueryInput').val();
     
         savedSearchObj.q = query;
+        savedSearchObj.items = [];
 
+        /*
+        // Not currently using search history popup, but here's where to add it
         if (!savedSearchObj.searchHistory) {
             savedSearchObj.searchHistory = [];
         }
-        savedSearchObj.searchHistory.append(query);
+        savedSearchObj.searchHistory.push(query);
         if (savedSearchObj.searchHistory.length > searchHistorySize) {
             savedSearchObj.searchHistory.splice(0, searchHistorySize - savedSearchObj.searchHistory.length);
         }
+        */
 
         await fetchPage({
             query,
@@ -305,19 +352,6 @@ $(document).ready(function() {
         checkButtonEnable();
     });
 
-    try {
-        const str = localStorage.getItem(savedSearchKey);
-        if (str) {
-            savedSearchObj = JSON.parse(str);
-        }
-    }
-    catch(e) {
-        console.log('exception loading saved search', e);
-    }
-    if (!savedSearchObj) {
-        savedSearchObj = {};
-    }
-
 
     if (window.location.hash && window.location.hash.startsWith("#search=1&")) {
         const searchParam = new URLSearchParams(window.location.hash.substring(1));
@@ -329,96 +363,18 @@ $(document).ready(function() {
             if (savedSearchObj && savedSearchObj.q) {
                 if (savedSearchObj.q == query && Array.isArray(savedSearchObj.items)) {
                     // Same as previous
-                    console.log('loadQuery query=' + query + ' reloading');
-
                     openSearch({});
                     restoreSearchItems();    
                 }
                 else {
                     // Going back farther in history, probably. Load again.
-                    console.log('loadQuery query=' + query + ' need to search again');
                     savedSearchObj.q = query;
                     delete savedSearchObj.items;
                     saveSearch();
-                }      
-
-                openSearch({});
+                    openSearch({});
+                }
             }            
         }
     }
     checkButtonEnable();
 });
-
-/*
-$(document).ready(function() {
-    const engineKey = 'xqs6ySrzs42txxzuWP_A';
-
-    const resultTemplate = Handlebars.compile('<div class="st-result"><h3 class="title"><a href="{{url}}" class="st-search-result-link">{{title}}</a></h3><div class="st-metadata"><span class="st-snippet">{{{body}}}</span></div></div>');
-        
-    const filterUrl = function(url) {
-        const defaultDocsUrl = 'https://docs.particle.io/';
-        if (url.startsWith(defaultDocsUrl)) {
-            // Leave the leading slash
-            url = url.substring(defaultDocsUrl.length - 1);
-        }   
-        return url;
-    }
-
-    const customRenderer = function(documentType, item) {
-        var data = {
-          title: item['title'],
-          url: filterUrl(item['url']),
-          body: item.highlight['body'] || item.body.substring(0, 300),
-        };
-        return resultTemplate(data);
-    };
-
-    $('#st-search-input').on('keydown', function(ev) {
-        if (ev.key != 'Enter') {
-            return;
-        }
-
-        const searchText = $('#st-search-input').val();
-        if (searchText) {
-            ev.preventDefault();
-            const searchTextEnc = encodeURI(searchText);
-            location.href = '/search?#stq=' + searchTextEnc + '&stp=1';    
-        }
-    });
-
-    var autocompleteRenderFunction = function(document_type, item) {
-        const url = filterUrl(item['url']);
-        
-        var out = '<p class="title"><a href="' + Swiftype.htmlEscape(url) + '" class="st-search-result-link">' + Swiftype.htmlEscape(item['title']) + '</a></p>';
-        return out;
-    };
-
-    $('#st-search-input').swiftype({
-        // Autocomplete
-        renderFunction: autocompleteRenderFunction,
-        engineKey
-    });
-    $('#st-search-input-page').swiftypeSearch({
-        // Form-based
-        resultContainingElement: '#st-results-container',
-        renderFunction: customRenderer,
-        engineKey
-    });
-
-    if (window.location.hash && window.location.hash.startsWith('#stq=')) {
-        // Search parameters in URL
-        let searchTerm = window.location.hash.substring(5); // Skip over #stq=
-        const sepIndex = searchTerm.indexOf('&');
-        if (sepIndex >= 0) {
-            searchTerm = searchTerm.substring(0, sepIndex);
-        }
-        try {
-            searchTerm = decodeURI(searchTerm);
-            $('#st-search-input-page').val(searchTerm);    
-        }
-        catch(e) {
-
-        }
-    }
-});    
-*/
