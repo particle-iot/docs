@@ -28,8 +28,6 @@ This command downloads the `particle` command to your home directory at `~/bin`,
 
 It will also try to install [DFU-util](/archives/installing-dfu-util/), a utility program for programming devices over USB. See the [instructions for installing DFU-util](/archives/installing-dfu-util/) if the installer is not able to automatically install dfu-util.
 
-The installer also works on the Raspberry Pi!
-
 ### Using Windows
 
 Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/archives/installing-dfu-util/).
