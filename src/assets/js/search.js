@@ -145,14 +145,23 @@ $(document).ready(function() {
         }
         $(resultElem).append(titleElem);
 
-        /*
-        // Since all links are from docs.particle.io now, skip the visible links as they
-        // were not included with Swiftype either, but this is how to add them:
-        const linkElem = document.createElement('div');
-        $(linkElem).addClass('searchOverlayLink');
-        $(linkElem).text(options.formattedUrl);
-        $(resultElem).append(linkElem);
-        */
+        let showLink = false;
+        const lastDot = options.formattedUrl.lastIndexOf('.');
+        if (lastDot > 0) {
+            const ext = options.formattedUrl.substring(lastDot + 1).toLowerCase().trim();
+            switch(ext) {
+                case 'pdf':
+                    showLink = true;
+                    break;
+            }
+        }
+        if (showLink) {
+            const linkElem = document.createElement('div');
+            $(linkElem).addClass('searchOverlayLink');
+            $(linkElem).text(options.formattedUrl);
+            $(resultElem).append(linkElem);    
+        }
+
 
         const snippetElem = document.createElement('div');
         $(snippetElem).addClass('searchOverlaySnippet');
@@ -279,6 +288,17 @@ $(document).ready(function() {
         // Not currently supported by the programmable search API
     }
 
+    const clearSearch = function() {
+        $('.searchOverlayQueryInput').val('');
+        $('.searchOverlayResults').empty();
+        if (savedSearchObj) {
+            savedSearchObj.q = '';
+            savedSearchObj.items = [];
+            saveSearch();
+        }
+        $('.searchOverlayQueryInput').focus();
+    }
+
     const doSearch = async function() {
         if (keyTimer) {
             clearTimeout(keyTimer);
@@ -337,7 +357,11 @@ $(document).ready(function() {
                     doSearch();
                 }
                 break;
-            
+
+            case 'Clear':
+                clearSearch();
+                break;
+
             default:
                 if (keyTimer) {
                     clearTimeout(keyTimer);
@@ -351,6 +375,10 @@ $(document).ready(function() {
     $('.searchOverlayQueryInput').on('input', function() {
         checkButtonEnable();
     });
+
+    $('.searchOverlayClearButton').on('click', function() {
+        clearSearch();
+    })
 
 
     if (window.location.hash && window.location.hash.startsWith("#search=1&")) {
