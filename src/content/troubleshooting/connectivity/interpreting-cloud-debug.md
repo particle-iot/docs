@@ -652,7 +652,7 @@ If the server public key is corrupted you might see a message like: `WARN: unabl
 0000024251 [system] INFO: Cloud: disconnecting
 ```
 
-This is corrected by putting the device in DFU mode (blinking yellow) and using:
+This is corrected by using:
 
 ```
 particle keys server
