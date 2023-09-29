@@ -1122,12 +1122,15 @@ If you are downgrading a Boron LTE (BRN402) or B Series SoM B402 from Device OS 
 
 ### particle keys doctor
 
-Helps you update your keys, or recover your device when the keys on the server are out of sync with the keys on your device.  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
+Helps you update your keys, or recover your device when the keys on the server are out of sync with the keys on your device.  The ```particle keys``` tools requires openssl to be installed.
 
-Connect your device in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-), and run this command to replace the unique cryptographic keys on your device.  Automatically attempts to send the new public key to the cloud as well.
+Connect your device, and run this command to replace the unique cryptographic keys on your device.  Automatically sends the new public key to the cloud as well.
 
 ```sh
-# helps repair key issues on a device
+# helps repair key issues on the connected device
+$ particle keys doctor
+
+# repair key issues on a specific connected device
 $ particle keys doctor 0123456789abcdef78901234
 ```
 
@@ -1136,82 +1139,89 @@ See also [`particle device doctor`](#particle-device-doctor)
 
 ### particle keys new
 
-Generates a new public / private key pair that can be used on a device.
+Generates a new public / private key pair that can be used on the connected device. The ```particle keys``` tools requires openssl to be installed.
 
 ```sh
 # generates a new public/private keypair
 $ particle keys new
-running openssl genrsa -out device.pem 1024
-running openssl rsa -in device.pem -pubout -out device.pub.pem
-running openssl rsa -in device.pem -outform DER -out device.der
-New Key Created!
+New key 0123456789abcdef78901234.der created for device 0123456789abcdef78901234
 
 # generates a new public/private keypair with the filename mykey
 $ particle keys new mykey
-running openssl genrsa -out mykey.pem 1024
-running openssl rsa -in mykey.pem -pubout -out mykey.pub.pem
-running openssl rsa -in mykey.pem -outform DER -out mykey.der
-New Key Created!
+New key mykey.der created for device 0123456789abcdef78901234
 ```
 
 
 ### particle keys load
 
-Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
+Copies a ```.der``` formatted private key onto your device's external flash. It defaults to using the file ```<deviceID>.der``` or you can specify a key file on the command line. The ```particle keys``` tools requires openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
 
 ```sh
+# loads a key named after your device
+$ particle keys load
+Saved existing key to backup_ec_0123456789abcdef78901234.der
+Key 0123456789abcdef78901234.der written to device
+
 # loads a key to your device via USB
-# make sure your device is connected and blinking yellow
-# requires dfu-util
-$ particle keys load device.der
-...
-Saved!
+$ particle keys load mykey.der
+Saved existing key to backup_ec_0123456789abcdef78901234.der
+Key mykey.der written to device
 ```
 
 
 ### particle keys save
 
-Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
+Copies a ```.der``` formatted private key from your device's external flash to your computer.  It defaults to saving the key to a file named ```<deviceID>.der``` or you can specify a filename on the command line. The ```particle keys``` tools requires openssl to be installed.
 
 ```sh
-# creates a backup of the private key from your device to a file
-# requires dfu-util
-$ particle keys save device.der
-...
-Saved!
+# creates a backup of the private key from your device
+$ particle keys save
+Saved existing key to 0123456789abcdef78901234.der
+
+# creates a backup of the private key from your device to named file
+$ particle keys save backup.der
+Saved existing key to backup.der
 ```
 
 
 ### particle keys send
 
-Sends a device's public key to the cloud for use in opening an encrypted session with your device.  Please make sure your device has the corresponding private key loaded using the ```particle keys load``` command.
+Sends a device's public key to the cloud for use in opening an encrypted session with your device.  Please make sure your device has the corresponding private key loaded using the ```particle keys load``` command. The ```particle keys``` tools requires openssl to be installed.
 
 ```sh
-# sends a new public key to the API for use for your device
-$ particle keys send 0123456789abcdef78901234 device.pub.pem
+# sends a new public key to the API for the connected device
+$ particle keys send
+attempting to add a new public key for device 0123456789abcdef78901234
+submitting public key succeeded!
+
+# sends a new public key to the API for use for another device
+$ particle keys send 0123456789abcdef78901234 device.der
+attempting to add a new public key for device 0123456789abcdef78901234
 submitting public key succeeded!
 ```
 
 
 ### particle keys server
 
-Switches the server public key stored on the device's external flash. This command is important when changing which server your device is connecting to, and the server public key helps protect your connection. Your device will stay in DFU mode after this command, so that you can load new firmware to connect to your server. By default this will only change the server key associated with the default protocol for a device. If you wish to change a specific protocol, add `--protocol tcp` or `--protocol udp` to the end of your command.
+Switches the server public key stored on the device's external flash. This command is important when changing which server your device is connecting to, and the server public key helps protect your connection. Your device will stay in DFU mode after this command, so that you can load new firmware to connect to your server. By default this will only change the server key associated with the default protocol for a device.
 
 
 ```sh
+# change the server key
 $ particle keys server my_server.der
-$ particle keys server my_server.der --protocol udp
+
+# restore the default server key
+$ particle keys server
 ```
 
 
 #### Encoding a server address and port
 
-When using the local cloud you can ask the CLI to encode the IP or dns address into your key to control where your device will connect. You may also specify a port number to be included.
+When using the local cloud you can ask the CLI to encode the IP or DNS address into your key to control where your device will connect. You may also specify a port number to be included.
 
 ```sh
-$ particle keys server my_server.pub.pem 192.168.1.10
-$ particle keys server my_server.der 192.168.1.10 9000
-$ particle keys server my_server.der 192.168.1.10 9000 --protocol udp
+$ particle keys server my_server.der --host 192.168.1.10
+$ particle keys server my_server.der --host 192.168.1.10 --port 9000
 ```
 
 
@@ -1221,22 +1231,7 @@ Reads and displays the server address, port, and protocol from a device.
 
 ```sh
 $ particle keys address
-
-tcp://device.spark.io:5683
-```
-
-
-### particle keys protocol
-
-Views or changes the transport protocol used to communicate with the cloud. Available options are `tcp` and `udp` for Electrons (if you are running at least firmware version 0.4.8).
-
-```sh
-# determine the current protocol
-$ particle keys protocol
-
-# set the protocol to tcp or udp
-$ particle keys protocol tcp
-$ particle keys protocol udp
+udp://$id.udp.particle.io:5684
 ```
 
 
