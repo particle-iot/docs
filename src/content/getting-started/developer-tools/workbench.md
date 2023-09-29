@@ -456,7 +456,7 @@ particle call argon2 div 10
 - The P2 and Photon 2 (RTL872x) support up to 2 hardware breakpoints
 - Gen 3 devices (nrf52840) support up to 4 hardware breakpoints
 
-#### Disabling mesh networking and bluetooth
+#### Disabling Bluetooth
 
 In some cases you may need to disable Bluetooth on your device in order to safely pause at break-points and step. If your device signals SOS red blinks while debugging, try adding `BLE.off();` to the top of the `setup()` function in the TinkerBreak.cpp source file like this:
 
