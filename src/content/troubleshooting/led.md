@@ -663,7 +663,7 @@ Then put the device in DFU mode by holding down both the {{reset-button}} and {{
 
 ```
 particle keys server
-particle keys doctor YOUR_DEVICE_ID
+particle keys doctor
 ```
 
 If you get this error under Windows:
@@ -676,7 +676,7 @@ it may work if you do:
 
 ```html
 cd c:\OpenSSL-Win32\bin
-particle keys doctor YOUR_DEVICE_ID
+particle keys doctor
 ```
 
 There are additional tips for a [missing openssl error on this page](https://github.com/rickkas7/particle_notes/tree/master/installing-openssl), including tips for Mac OS (OS X) and Linux.

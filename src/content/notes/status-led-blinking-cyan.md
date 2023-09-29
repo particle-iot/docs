@@ -23,5 +23,5 @@ Then put the device in DFU mode by holding down both the {{reset-button}} and {{
 
 ```
 particle keys server
-particle keys doctor YOUR_DEVICE_ID
+particle keys doctor
 ```

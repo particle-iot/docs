@@ -38,13 +38,11 @@ The device \*will\* generate a new private and public device key. (They have to 
 
 ## How to backup/save your key
 
-1. Place your into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
-2. Run the `particle keys save mykey.der` command. This will backup the key on your to the Home folder on your computer. You can substitute your own naming convention for the \*.der file if you wish.
+Run the `particle keys save mykey.der` command. This will backup the key on your to the Home folder on your computer. You can substitute your own naming convention for the \*.der file if you wish.
 
 ## How to restore/load your key
 
-1. Place your into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
-2. Run the `particle keys load mykey.der` command. This will restore the key you saved previously to your Home directory to your . The file may not necessarily be named mykey.der, substitute whatever you backed it up as previously with the `particle keys save` command.
+Run the `particle keys load mykey.der` command. This will restore the key you saved previously to your Home directory to your . The file may not necessarily be named mykey.der, substitute whatever you backed it up as previously with the `particle keys save` command.
 
 ## How to change your key
 
@@ -52,9 +50,6 @@ If you have physical access to the in question, here's how to change the Key on 
 
 1. Before we can start, you're going to want to install the Particle CLI tool to make life easier: [Particle CLI.](/getting-started/developer-tools/cli/)
 2. Once the CLI tool is installed, the first thing you should do is log in to your Particle account. To login on the Particle CLI, run the command `particle login` and follow the prompts for email and password.
-3. Next we need to get the Device ID of your device. Start by putting the device into Listening Mode by holding the Mode button for about 3 seconds until it starts blinking BLUE.
-4. Next run the following CLI command to get the ID of your device: `particle identify`. It should reply "Your device id is: xxxxxxxxxxxxxxxxxx". Copy the number down or to your clipboard for later.
-5. View the key commands and example output here for the next steps: [particle keys doctor.](/reference/developer-tools/cli/#particle-keys-doctor)
-6. Place your into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
-7. It's a good idea to run the `particle keys server` command in case your server keys or address are corrupted.
-8. Run the `particle keys doctor xxxxx` command, where xxxxx is the device ID you copied just earlier. This will generate a new public/private key pair and automatically download it to your device, and also send the public key up to the Cloud.
+3. View the key commands and example output here for the next steps: [particle keys doctor.](/reference/developer-tools/cli/#particle-keys-doctor)
+4. It's a good idea to run the `particle keys server` command in case your server keys or address are corrupted.
+5. Run the `particle keys doctor` command. This will generate a new public/private key pair and automatically download it to your device, and also send the public key up to the Cloud.
