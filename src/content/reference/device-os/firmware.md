@@ -23991,6 +23991,8 @@ Parameters:
 
 ## Device identifiers
 
+{{!-- BEGIN shared-blurb 081deb40-1be8-4f4a-b8c8-ad363590befe --}}
+
 ### Device ID
 
 Every Particle device has a unique 24-character hexadecimal identifier known as the Device ID. This never changes for each device, and is the recommended method of uniquely identifying a device.
@@ -24036,6 +24038,9 @@ The serial number sticker contains a data matrix code (like a QR code). This enc
 For devices without BLE capabilities (Gen 2 devices), the data matrix only contains the serial number.
 
 Note that older Photon, P1, Electron, and E Series modules do not have a serial number sticker. Older Electron an E Series with a "u-blox" sticker have the IMEI encoded in a 2D barcode. P0 modules (including the Photon) have an USI manufacturing code which is not easily mapped to any Particle identifier.
+
+{{!-- END shared-blurb --}}
+
 
 ### ICCID
 

@@ -494,6 +494,103 @@ const generatorConfig = require('./generator-config');
         return updater.generateTable(tableOptions, tableData);        
     }
 
+    updater.generateSkuToPrefix = function(options = {}) {
+        let skus = [];
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'sku',
+                    title: 'SKU',
+                },
+                {
+                    key: 'desc',
+                    title: 'Description',
+                },
+                {
+                    key: 'lifecycle',
+                    title: 'Lifecycle',
+                },
+                {
+                    key: 'prefix',
+                    title: 'Prefix',
+                },
+            ],
+        };
+
+        let tableData = [];
+
+        for(const skuObj of updater.datastore.data.skus) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.accessory) {
+                continue;
+            }
+            if (!skuObj.prefix) {
+                continue;
+            }
+            tableData.push({
+                sku: skuObj.name,
+                desc: skuObj.desc,
+                prefix: skuObj.prefix,
+                lifecycle: skuObj.lifecycle,
+            });
+        }
+
+        tableData.sort(function(a, b) {
+            return a.sku.localeCompare(b.sku);
+        });
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);        
+    }
+
+    updater.generatePrefixToSku = function(options = {}) {
+        let skus = [];
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'prefix',
+                    title: 'Prefix',
+                },
+                {
+                    key: 'sku',
+                    title: 'SKU',
+                },
+                {
+                    key: 'desc',
+                    title: 'Description',
+                },
+                {
+                    key: 'lifecycle',
+                    title: 'Lifecycle',
+                },
+            ],
+        };
+
+        let tableData = [];
+
+        for(const skuObj of updater.datastore.data.skus) {
+            if (skuObj.lifecycle == 'Hidden' || skuObj.accessory) {
+                continue;
+            }
+            if (!skuObj.prefix) {
+                continue;
+            }
+            tableData.push({
+                sku: skuObj.name,
+                desc: skuObj.desc,
+                prefix: skuObj.prefix,
+                lifecycle: skuObj.lifecycle,
+            });
+        }
+
+        tableData.sort(function(a, b) {
+            return a.prefix.localeCompare(b.prefix);
+        });
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);   
+    }
 
     updater.generateFamilySkus = function(skuFamily, options) {
         let skus = [];

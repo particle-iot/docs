@@ -357,6 +357,11 @@
         "dir": "watchdog-timers",
         "title": "Watchdog timers",
         "href": "/hardware/best-practices/watchdog-timers/"
+      },
+      {
+        "dir": "serial-number",
+        "title": "Serial number management",
+        "href": "/hardware/best-practices/serial-number/"
       }
     ]
   ]

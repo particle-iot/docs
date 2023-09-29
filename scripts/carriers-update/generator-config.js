@@ -28,6 +28,20 @@ const path = require('path');
                 }); 
             } 
         },
+        // serial-number
+        {            
+            guid: 'b0fce313-6098-47bc-b2f7-c700210b1cc6', 
+            generatorFn:function(updater) {
+                return updater.generateSkuToPrefix(); 
+            }             
+        },
+        {            
+            guid: '682e93c3-adcd-4d72-b183-813ee5164dc4', 
+            generatorFn:function(updater) {
+                return updater.generatePrefixToSku(); 
+            }             
+        },
+
         // product-lifecycle-policy-status
         {            
             guid: 'ac230403-4883-4c71-8781-601d6ca5a0fa', 

@@ -259,8 +259,8 @@
             "hash": "cdc57ba0a5600f024b48c28209820c496688fca60f10102993c2f11378745052"
         },
         "notes/status-led-blinking-cyan.md": {
-            "date": "2022-07-22",
-            "hash": "41597fdf5e21407a6e85a77018df6a76c37b3b81433d8299d6bb0433c6ee0417"
+            "date": "2023-09-29",
+            "hash": "3fc4f7a3f41aad810fce023014b6f39da0b0a7b590498ca05e113caef1de22f3"
         },
         "notes/status-led-blinking-dark-blue.md": {
             "date": "2022-07-22",
@@ -631,16 +631,16 @@
             "hash": "fe43b5964e44450e56103e97f747c646664ea83569e1ae612ef85c9a4d264f1f"
         },
         "getting-started/developer-tools/cli.md": {
-            "date": "2023-09-22",
-            "hash": "a61e2097112e4d4a01a5428925a376a7b0a301453c501b1ba8a9fe11303a0000"
+            "date": "2023-09-29",
+            "hash": "d1101d3748b48a14fb4ce158078a6dedfdf3d026392c9145881a97600731d994"
         },
         "getting-started/developer-tools/workbench-faq.md": {
             "date": "2022-06-29",
             "hash": "1db812777cd5b5f3f507da209d19a15412939a074b4bc7ee6c43bb9181455d53"
         },
         "getting-started/developer-tools/workbench.md": {
-            "date": "2023-09-19",
-            "hash": "708c296928f31ee7f3ee6937fa9e64a08d092985c171c54e19bf1073550aad0b"
+            "date": "2023-09-29",
+            "hash": "16dfcb87de539867de4e86f193a004e0e0048cacc0f82075ff8e697f2ce538bb"
         },
         "getting-started/device-os/introduction-to-device-os.md": {
             "date": "2023-09-06",
@@ -1171,8 +1171,8 @@
             "hash": "0c263490d13fd03851737f6841f19765f2702c1ebd3377dc2f87284b8860865b"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2023-09-22",
-            "hash": "a1229f9b6ef149354c6f16337c6d5c69f5bfbc7865813f01fc678669ab78f541"
+            "date": "2023-09-29",
+            "hash": "1b5df47d1bfeef5b2e29ef07a758060149b1dab67007cd2c6a1a2b0dedbbe97e"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2023-09-06",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-09-28",
-            "hash": "17cf16abef58a21044fc5fa76257735284c81036268e377eacb47d25cf3cc38d"
+            "date": "2023-09-29",
+            "hash": "3ce41c7b70c84238d60a6da96ebbaff71b1ec477c4cd544c05ab43633ca715ae"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1515,8 +1515,8 @@
             "hash": "645f93b08ea93221d01ba46d4d97274bef8b605adef60443c3148628d3c7b946"
         },
         "troubleshooting/connectivity/interpreting-cloud-debug.md": {
-            "date": "2023-03-17",
-            "hash": "50c71c1b423af500fc7cdffa0d87c5d369f796534f021468e8bfd04b257bd67f"
+            "date": "2023-09-29",
+            "hash": "ae63a307f5998ed44b014884e66dffac724f6a743b13f69633147ce24767d73e"
         },
         "troubleshooting/firmware/remote-logging.md": {
             "date": "2023-06-20",
@@ -1563,8 +1563,8 @@
             "hash": "d21b95e072f73f6522adf30fe01030e01c3e8128627847e7f105475bd969ee39"
         },
         "troubleshooting/guides/device-management/repairing-product-device-keys.md": {
-            "date": "2022-07-07",
-            "hash": "0c6c180a51fd34392216b5b2c2ed2df7757be58bf5bdcb29dd83e2e1e811ea54"
+            "date": "2023-09-29",
+            "hash": "928607f8042763f43fc0ed16f46e443cf5f1d832a0b043459b99bc023b0bcf7d"
         },
         "troubleshooting/guides/device-management/how-do-i-manage-my-user-access-token.md": {
             "date": "2022-06-29",
@@ -1611,8 +1611,8 @@
             "hash": "f0310313ceafc2507876ce1c18a476917de492fc7cf9240b783734ca5c619127"
         },
         "troubleshooting/guides/device-troubleshooting/device-blinking-cyan.md": {
-            "date": "2023-04-20",
-            "hash": "617e9e2ea504bc0f600b27c5758938a0911cdafa1e88df33506c4b8552baa198"
+            "date": "2023-09-29",
+            "hash": "e9128192e8a6dea5627c5ad950519dcaa14c49064361ed1c50b0f59ff6c78853"
         },
         "troubleshooting/guides/device-troubleshooting/device-blinking-dark-blue.md": {
             "date": "2023-03-17",
@@ -4031,8 +4031,8 @@
             "hash": "b41cc5054e389430084c516e7de17265a4c635b376f6676144917125da403ab6"
         },
         "reference/device-os/api/asset-ota/applicationasset.md": {
-            "date": "2023-09-28",
-            "hash": "cf107f748fe7391927d60df407dc1e653fec600cf18f3f07127942720ae29eb2"
+            "date": "2023-09-29",
+            "hash": "96c3addeb8004f196ce266455c20e392a637f31f4882d48b0e672af5fe9783cd"
         },
         "reference/device-os/api/asset-ota/assethash.md": {
             "date": "2023-09-20",
@@ -4315,8 +4315,8 @@
             "hash": "24bd018f85734b5f724232e11c860a21b737d3095d1e75ecf7640f8011750991"
         },
         "reference/device-os/api/device-identifiers/data-matrix-sticker.md": {
-            "date": "2023-09-20",
-            "hash": "7e353727d65b1c52b479a329bba20bdb6cc68b19cc553fe5f2f0610c6465f35d"
+            "date": "2023-09-29",
+            "hash": "6d5560784507f8749e07ae5867863fd4e84b9756e543e58b1dccd1988dcb5a39"
         },
         "reference/device-os/api/device-identifiers/iccid.md": {
             "date": "2023-09-20",
@@ -8143,28 +8143,28 @@
             "hash": "3ebab9ebdc993d4e50eb5139d4fd48dd591bcdf9bf594a0458718ceb74a4b268"
         },
         "troubleshooting/led/boron.md": {
-            "date": "2023-09-20",
-            "hash": "e77393143ff26eaca44b7b288c50055940409357ef199d5b1e8a0c9c7ea79059"
+            "date": "2023-09-29",
+            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
         },
         "troubleshooting/led/photon.md": {
-            "date": "2023-09-20",
-            "hash": "e77393143ff26eaca44b7b288c50055940409357ef199d5b1e8a0c9c7ea79059"
+            "date": "2023-09-29",
+            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
         },
         "troubleshooting/led/electron.md": {
-            "date": "2023-09-20",
-            "hash": "e77393143ff26eaca44b7b288c50055940409357ef199d5b1e8a0c9c7ea79059"
+            "date": "2023-09-29",
+            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
         },
         "troubleshooting/led/argon.md": {
-            "date": "2023-09-20",
-            "hash": "e77393143ff26eaca44b7b288c50055940409357ef199d5b1e8a0c9c7ea79059"
+            "date": "2023-09-29",
+            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
         },
         "troubleshooting/led/xenon.md": {
-            "date": "2023-09-20",
-            "hash": "e77393143ff26eaca44b7b288c50055940409357ef199d5b1e8a0c9c7ea79059"
+            "date": "2023-09-29",
+            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
         },
         "troubleshooting/led/tracker-som.md": {
-            "date": "2023-09-20",
-            "hash": "e77393143ff26eaca44b7b288c50055940409357ef199d5b1e8a0c9c7ea79059"
+            "date": "2023-09-29",
+            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
         },
         "getting-started/developer-tools/developer-tools.md": {
             "hash": "ec6dc8ce26b04fc5f72521d8cccd72f5ce2c350b6656fcf27bf6e6ac7cdb7f12",
@@ -8173,6 +8173,14 @@
         "firmware/best-practices/firmware-template.md": {
             "hash": "f28c76aa2635cf9f14e7b88064208c3f200b708648e741829313feae88ff7dea",
             "date": "2023-09-22"
+        },
+        "hardware/best-practices/serial-number.md": {
+            "hash": "dcf527330e1aa4cc866ead4049768efaa0f5cf4f01c2fb83f635d00fb89e55b5",
+            "date": "2023-09-29"
+        },
+        "reference/device-os/api/device-identifiers/device-identifiers.md": {
+            "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
+            "date": "2023-09-29"
         }
     }
 }
