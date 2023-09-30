@@ -20,6 +20,11 @@
   "firmwareBinaries": {
     "monitor": [
       {
+        "ver": 2,
+        "file": "monitor-edge-2@4.2.0.bin",
+        "target": "4.2.0"
+      },
+      {
         "ver": 1,
         "file": "monitor-edge-1@4.0.2.bin",
         "target": "4.0.2"
@@ -90,6 +95,10 @@
   },
   "firmwareSource": {
     "monitor": [
+      {
+        "ver": 2,
+        "file": "monitor-edge-2.zip"
+      },
       {
         "ver": 1,
         "file": "monitor-edge-1.zip"

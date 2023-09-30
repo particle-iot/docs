@@ -381,7 +381,7 @@ For Gen 2 devices, E Series (except E404X), Electron, P1, and Photon, debugging 
 
 {{!-- END shared-blurb --}}
 
-_Note: There are a handful of limitations around debugging 3rd-generation hardware. Please [see below](#disabling-mesh-networking-and-bluetooth) for details._
+_Note: There are a handful of limitations around debugging 3rd-generation hardware. Please [see below](#disabling-bluetooth) for details._
 
 For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp).
 

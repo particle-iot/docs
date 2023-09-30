@@ -40234,6 +40234,21 @@
             "state": "open",
             "created_at": "2023-09-22T20:07:25Z",
             "detail": "- After the UART fixes of #2698, the UART is a bit faster now and that has surfaced some lurking issues.  The Quectel NCP Client was not waiting for the modem to be ready on cold boot, causing a boot loop from CFUN=1,0 failing in initReady()"
+        },
+        "2701": {
+            "url": "https://github.com/particle-iot/device-os/pull/2701",
+            "number": 2701,
+            "title": "[msom] support 16MB GD flash.",
+            "state": "open",
+            "created_at": "2023-09-28T04:42:05Z"
+        },
+        "2702": {
+            "url": "https://github.com/particle-iot/device-os/pull/2702",
+            "number": 2702,
+            "title": "[system] still pump system loop when SPARK_WLAN_SLEEP=1; Try to drain ISR task queue quicker",
+            "state": "open",
+            "created_at": "2023-09-29T10:41:19Z",
+            "detail": "System loop does not run within `delay()` with threading disabled and `SPARK_WLAN_SLEEP=1`."
         }
     }
 }
