@@ -2940,7 +2940,8 @@ const path = require('path');
                     style: 'portPins',
                     platformNew: 'M SoM',
                     port: 'digitalRead',
-                    label: 'GPIO'
+                    label: 'GPIO',
+                    newMCU: 'MCU'
                 }); 
             } 
         },

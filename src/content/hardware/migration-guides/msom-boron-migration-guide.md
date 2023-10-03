@@ -69,7 +69,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT | SWCLK | PB[7] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | SWCLK | PB[3] |
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | SWCLK | PB[3] |
 | 55 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | SWDIO | PA[27] |
 
@@ -173,6 +173,8 @@ The Argon/Boron land pattern is:
 | Boron Pin Name | Boron Serial | M SoM Pin | M SoM Pin Name | M SoM Serial |
 | :--- | :--- | :---: | :--- | :--- |
 | D2 | Serial1 RTS | 42 | D2 | Serial1 (RTS)  |
+| &nbsp; | &nbsp; | 58 | D24 | Serial2 (TX)  |
+| &nbsp; | &nbsp; | 60 | D25 | Serial2 (RX)  |
 | D3 | Serial1 CTS | 40 | D3 | Serial1 (CTS)  |
 | RX / D10 | Serial1 RX | 38 | RX / D10 | Serial1 (RX)  |
 | TX / D09 | Serial1 TX | 36 | TX / D9 | Serial1 (TX) |
@@ -354,7 +356,7 @@ The Argon/Boron land pattern is:
 | :--- | :--- |
 | Pin Name | A6|
 | Pin Alternate Name | D29|
-| Description | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT|
+| Description | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
@@ -363,6 +365,7 @@ The Argon/Boron land pattern is:
 | Supports attachInterrupt | Yes|
 | Internal pull-up or pull-down resistance | ???|
 | SWD interface | SWCLK. 40K pull-down at boot.|
+| Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### AGND
 | | Added to M SoM |
 | :--- | :--- |
@@ -386,10 +389,10 @@ The Argon/Boron land pattern is:
 | Pin Name | CELL VBUS|
 | Description | USB detect pin for cellular modem. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
-#### CELL_RI`
+#### CELL_RI
 | | Added to M SoM |
 | :--- | :--- |
-| Pin Name | CELL_RI`|
+| Pin Name | CELL_RI|
 | Description | CELL_RI, ring indicator output, leave unconnected.|
 #### D0
 |   | Boron | M SoM |
@@ -455,9 +458,10 @@ The Argon/Boron land pattern is:
 | | Added to M SoM |
 | :--- | :--- |
 | Pin Name | D24|
-| Description | D24 GPIO, do not pull down at boot|
+| Description | D24 GPIO, Serial2 TX, do not pull down at boot|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
+| UART serial | TX. Use Serial2 object.|
 | Supports attachInterrupt | Yes|
 | Internal pull-up or pull-down resistance | 42K|
 | Signal used at boot | Low at boot triggers ISP flash download|
@@ -465,9 +469,10 @@ The Argon/Boron land pattern is:
 | | Added to M SoM |
 | :--- | :--- |
 | Pin Name | D25|
-| Description | GPIO25|
+| Description | GPIO25, Serial2 TX|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
+| UART serial | RX. Use Serial2 object.|
 | Supports attachInterrupt | Yes|
 | Internal pull-up or pull-down resistance | 42K|
 #### D26
@@ -815,5 +820,3 @@ Most third-party libraries are believed to be compatible. The exceptions include
 - Requires hardware timer support from user firmware
 
 {{!-- END shared-blurb --}}
-
-

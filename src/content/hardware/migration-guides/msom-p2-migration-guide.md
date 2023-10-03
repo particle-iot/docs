@@ -99,6 +99,8 @@ The P2 land pattern is:
 | D10 / WKP | Serial3 (CTS) | 38 | RX / D10 | Serial1 (RX)  |
 | S2 / D17 | Serial3 (RTS) | 35 | A2 / D17 | &nbsp; |
 | D2 | Serial2 (RTS) | 42 | D2 | Serial1 (RTS)  |
+| &nbsp; | &nbsp; | 58 | D24 | Serial2 (TX)  |
+| &nbsp; | &nbsp; | 60 | D25 | Serial2 (RX)  |
 | D3 | Serial2 (CTS) | 40 | D3 | Serial1 (CTS)  |
 | D4 | Serial2 (TX) | 66 | D4 | &nbsp; |
 | D5 | Serial2 (RX) | 68 | D5 | &nbsp; |
@@ -297,7 +299,7 @@ The P2 land pattern is:
 | :--- | :--- |
 | Pin Name | A6|
 | Pin Alternate Name | D29|
-| Description | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT|
+| Description | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
@@ -306,6 +308,7 @@ The P2 land pattern is:
 | Supports attachInterrupt | Yes|
 | Internal pull-up or pull-down resistance | ???|
 | SWD interface | SWCLK. 40K pull-down at boot.|
+| Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### A7
 | | Added to M SoM |
 | :--- | :--- |
@@ -340,10 +343,10 @@ The P2 land pattern is:
 | Pin Name | CELL VBUS|
 | Description | USB detect pin for cellular modem. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
-#### CELL_RI`
+#### CELL_RI
 | | Added to M SoM |
 | :--- | :--- |
-| Pin Name | CELL_RI`|
+| Pin Name | CELL_RI|
 | Description | CELL_RI, ring indicator output, leave unconnected.|
 #### D0
 |   | P2 | M SoM |
@@ -495,9 +498,10 @@ The P2 land pattern is:
 | | Added to M SoM |
 | :--- | :--- |
 | Pin Name | D24|
-| Description | D24 GPIO, do not pull down at boot|
+| Description | D24 GPIO, Serial2 TX, do not pull down at boot|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
+| UART serial | TX. Use Serial2 object.|
 | Supports attachInterrupt | Yes|
 | Internal pull-up or pull-down resistance | 42K|
 | Signal used at boot | Low at boot triggers ISP flash download|
@@ -505,9 +509,10 @@ The P2 land pattern is:
 | | Added to M SoM |
 | :--- | :--- |
 | Pin Name | D25|
-| Description | GPIO25|
+| Description | GPIO25, Serial2 TX|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
+| UART serial | RX. Use Serial2 object.|
 | Supports attachInterrupt | Yes|
 | Internal pull-up or pull-down resistance | 42K|
 #### D26
@@ -791,5 +796,3 @@ If you have a product based on the P2, you will need to create a separate produc
 Most third-party libraries are believed to be compatible between the P2 and M SoM as they share a similar MCU. The exceptions include:
 
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
-
-

@@ -764,7 +764,13 @@ RESERVED    </text>
     </rect>
     <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D24    </text>
-    <line x1="-158" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-158" y1="0" x2="-255" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-310" y="-8" width="55" height="16" stroke="black" fill="#AFE4EE" >
+    </rect>
+    <text x="-282.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+Serial2 (TX)     </text>
+    <line x1="-310" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
@@ -790,7 +796,13 @@ RESERVED    </text>
     </rect>
     <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D25    </text>
-    <line x1="-158" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-158" y1="0" x2="-255" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-310" y="-8" width="55" height="16" stroke="black" fill="#AFE4EE" >
+    </rect>
+    <text x="-282.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+Serial2 (RX)     </text>
+    <line x1="-310" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
@@ -1591,7 +1603,7 @@ PWM    </text>
     <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PB[7]    </text>
+PB[3]    </text>
   </g>
   <g transform="translate(530,382) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1981,6 +1993,6 @@ SOM9    </text>
     <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-CELL_RI`    </text>
+CELL_RI    </text>
   </g>
 </svg>

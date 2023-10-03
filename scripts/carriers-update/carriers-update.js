@@ -2163,7 +2163,7 @@ const generatorConfig = require('./generator-config');
             let tableOptions = {
                 columns: [],
             };
-
+            
             tableOptions.columns.push({
                 key: 'pinName',
                 title: 'Pin Name',
@@ -2175,6 +2175,12 @@ const generatorConfig = require('./generator-config');
                     align: 'center',
                 });    
             }
+            if (options.sortByNum) {
+                // Put module pin first
+                tableOptions.columns.reverse();
+            }
+
+
             for(let ii = 0; ii < functionCols.length; ii++) {
                 tableOptions.columns.push({
                     key: 'col' + ii,
@@ -2207,6 +2213,12 @@ const generatorConfig = require('./generator-config');
                 }
                 
                 tableData.push(rowData);
+            }
+
+            if (options.sortByNum) {
+                tableData.sort(function(a, b) {
+                    return a.num - b.num;
+                });
             }
 
             md += updater.generateTable(tableOptions, tableData);
@@ -2702,6 +2714,12 @@ const generatorConfig = require('./generator-config');
                 title: options.platformNew + ' ' + options.label,
                 checkmark: !!options.checkmark,
             });
+            if (options.newMCU) {
+                tableOptions.columns.push({
+                    key: 'newHardwarePin',
+                    title: options.newMCU,
+                });    
+            }
 
             
             let tableData = [];
@@ -2715,10 +2733,12 @@ const generatorConfig = require('./generator-config');
                     if (m.old) {
                         rowData.oldPinName = getPinNameWithAlt(m.old);
                         rowData.oldPort = portColumnValue(m.old[options.port]);
+                        rowData.oldHardwarePin = m.old.hardwarePin;
                     }
                     if (m.new) {
                         rowData.newPinName = getPinNameWithAlt(m.new);
                         rowData.newPort = portColumnValue(m.new[options.port]);
+                        rowData.newHardwarePin = m.new.hardwarePin;
                     }
                     tableData.push(rowData);
                 }

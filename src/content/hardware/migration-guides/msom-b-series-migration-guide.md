@@ -94,7 +94,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | 42 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
 | 43 | A5 / D14 | A5 Analog in, GPIO | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 |
 | 44 | CELL USBD+ | Cellular Modem USB Data+ | CELL USBD+ | Cellular Modem USB Data+ |
-| 45 | A6 | A6 Analog in, PWM, GPIO | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT |
+| 45 | A6 | A6 Analog in, PWM, GPIO | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 |
 | 46 | CELL USBD- | Cellular Modem USB Data- | CELL USBD- | Cellular Modem USB Data- |
 | 47 | A7 | A7 Analog in, GPIO, Ethernet Reset | A7 / WKP | A7 Analog In, WKP, GPIO D28 |
 | 48 | D8 | GPIO, SPI SS, Ethernet CS | D8 | D8 GPIO, SPI SS |
@@ -107,9 +107,9 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | 55 | NC | &nbsp; | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot |
 | 56 | GND | Ground. | GND | Ground. |
 | 57 | NC | &nbsp; | NC | &nbsp; |
-| 58 | NC | &nbsp; | D24 | D24 GPIO, do not pull down at boot |
+| 58 | NC | &nbsp; | D24 | D24 GPIO, Serial2 TX, do not pull down at boot |
 | 59 | NC | &nbsp; | D26 | D26 GPIO |
-| 60 | NC | &nbsp; | D25 | GPIO25 |
+| 60 | NC | &nbsp; | D25 | GPIO25, Serial2 TX |
 | 61 | RGBR | RGB LED Red | RGBR | RGB LED Red |
 | 62 | D22 | GPIO, Ethernet INT | D22 | D22 GPIO |
 | 63 | RGBG | RGB LED Green | RGBG | RGB LED Green |
@@ -164,6 +164,8 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | 38 | RX / D10 | Serial1 RX | RX / D10 | Serial1 (RX)  |
 | 40 | D3 | Serial1 CTS | D3 | Serial1 (CTS)  |
 | 42 | D2 | Serial1 RTS | D2 | Serial1 (RTS)  |
+| 58 | NC | &nbsp; | D24 | Serial2 (TX)  |
+| 60 | NC | &nbsp; | D25 | Serial2 (RX)  |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -246,7 +248,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT | SWCLK | PB[7] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | SWCLK | PB[3] |
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | SWCLK | PB[3] |
 | 55 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | SWDIO | PA[27] |
 
@@ -581,7 +583,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | Pin Number | 45 | 45 |
 | Pin Name | A6 | A6 |
 | Pin Alternate Name | n/a | D29 |
-| Description | A6 Analog in, PWM, GPIO | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT |
+| Description | A6 Analog in, PWM, GPIO | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -590,6 +592,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | Internal pull-up or pull-down resistance | 13K | ??? |
 | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
+| Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### Module Pin 46 (CELL USBD-)
 | | Unchanged between B4xx SoM and M SoM |
 | :--- | :--- |
@@ -717,9 +720,10 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | :--- | :--- | :--- |
 | Pin Number | 58 | 58 |
 | Pin Name | NC | D24 |
-| Description | n/a | D24 GPIO, do not pull down at boot |
+| Description | n/a | D24 GPIO, Serial2 TX, do not pull down at boot |
 | Supports digitalRead | n/a | Yes |
 | Supports digitalWrite | n/a | Yes |
+| UART serial | n/a | TX. Use Serial2 object. |
 | Supports attachInterrupt | n/a | Yes |
 | Internal pull-up or pull-down resistance | n/a | 42K |
 | Signal used at boot | n/a | Low at boot triggers ISP flash download |
@@ -738,9 +742,10 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | :--- | :--- | :--- |
 | Pin Number | 60 | 60 |
 | Pin Name | NC | D25 |
-| Description | n/a | GPIO25 |
+| Description | n/a | GPIO25, Serial2 TX |
 | Supports digitalRead | n/a | Yes |
 | Supports digitalWrite | n/a | Yes |
+| UART serial | n/a | RX. Use Serial2 object. |
 | Supports attachInterrupt | n/a | Yes |
 | Internal pull-up or pull-down resistance | n/a | 42K |
 #### Module Pin 61 (RGBR)
@@ -922,4 +927,3 @@ Most third-party libraries are believed to be compatible. The exceptions include
 - Requires hardware timer support from user firmware
 
 {{!-- END shared-blurb --}}
-

@@ -9615,7 +9615,7 @@
           "num": 45,
           "name": "A6",
           "altName": "D29",
-          "desc": "A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT",
+          "desc": "A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -9625,10 +9625,11 @@
           "analogWritePWM": true,
           "tone": true,
           "attachInterrupt": true,
-          "hardwarePin": "PB[7]",
+          "hardwarePin": "PB[3]",
           "hardwareADC": "ADC_3",
           "internalPull": "???",
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
+          "boot": "SWCLK. 40K pull-down at boot.",
           "somPin": "RESERVED",
           "pwmChannel": "1.17"
         },
@@ -9778,7 +9779,7 @@
         {
           "num": 58,
           "name": "D24",
-          "desc": "D24 GPIO, do not pull down at boot",
+          "desc": "D24 GPIO, Serial2 TX, do not pull down at boot",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -9789,6 +9790,7 @@
           "tone": false,
           "attachInterrupt": true,
           "hardwarePin": "PA[7]",
+          "serial": "Serial2 (TX) |TX. Use Serial2 object.",
           "boot": "Low at boot triggers ISP flash download",
           "internalPull": "42K",
           "somPin": "RESERVED"
@@ -9813,7 +9815,7 @@
         {
           "num": 60,
           "name": "D25",
-          "desc": "GPIO25",
+          "desc": "GPIO25, Serial2 TX",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -9823,6 +9825,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": true,
+          "serial": "Serial2 (RX) |RX. Use Serial2 object.",
           "hardwarePin": "PA[8]",
           "internalPull": "42K",
           "somPin": "RESERVED"
@@ -10008,7 +10011,7 @@
         },
         {
           "num": 75,
-          "name": "CELL_RI`",
+          "name": "CELL_RI",
           "desc": "CELL_RI, ring indicator output, leave unconnected.",
           "isNC": true,
           "somPin": "SOM9"

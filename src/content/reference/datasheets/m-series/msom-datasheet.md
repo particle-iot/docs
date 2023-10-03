@@ -82,7 +82,6 @@ To be provided at a later date.
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
-- For the BLE antenna, it is recommended to use a 2.4 GHz single-frequency antenna and not a 2.4 GHz + 5 GHz antenna, so as to avoid large gain at the frequency twice of 2.4 GHz which can cause the second harmonic radiation of 2.4 GHz to exceed standards.
  
 
 ### Peripherals and GPIO
@@ -111,7 +110,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT | SWCLK | PB[7] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | SWCLK | PB[3] |
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | SWCLK | PB[3] |
 | 55 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | SWDIO | PA[27] |
 
@@ -120,6 +119,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 - SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is no longer available. This is the same as Gen 2 (STM32) but different than Gen 3 (nRF52840).
 - SWO (Serial Wire Output) is not supported on the RTL8722DM.
+- Pins 45 and 53 are shared 
 
 ## Pin information
 
@@ -141,12 +141,12 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | A4 | 41 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
 | A5 / D14 | 43 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
 | A5 / D14 | 53 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| A6 / D29 | 45 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[7] |
+| A6 / D29 | 45 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[3] |
 | A7 / WKP | 47 | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
 | CELL USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | CELL USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | CELL VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| CELL_RI` | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL_RI | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | PB[0] |
 | D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | PA[31] |
 | D11 / MISO | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
@@ -157,8 +157,8 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | D21 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
 | D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[9] |
 | D23 | 64 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[10] |
-| D24 | 58 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[7] |
-| D25 | 60 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[8] |
+| D24 | 58 | &nbsp; | &nbsp; | &nbsp; | Serial2 (TX)  | PA[7] |
+| D25 | 60 | &nbsp; | &nbsp; | &nbsp; | Serial2 (RX)  | PA[8] |
 | D26 | 59 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
 | D27 | 55 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
 | D3 | 40 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | PA[15] |
@@ -188,54 +188,54 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5feb3f9e-2bf4-4e73-a2c8-b6584b125391 --}}
 
-| Pin Name | Module Pin |   |   |   |   | MCU |
-| :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| A0 / D19 | 23 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
-| A1 / D18 | 33 | ADC_1 | &nbsp; | &nbsp; | &nbsp; | PB[5] |
-| A2 / D17 | 35 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | PB[6] |
-| A3 | 37 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
-| A4 | 41 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
-| A5 / D14 | 43 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
-| A5 / D14 | 53 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| A6 / D29 | 45 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[7] |
-| A7 / WKP | 47 | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
-| CELL USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| CELL USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| CELL VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| CELL_RI` | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | PB[0] |
-| D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | PA[31] |
-| D11 / MISO | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
-| D12 / MOSI | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
-| D13 / SCK | 54 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[18] |
-| D2 | 42 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
-| D20 | 19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] |
-| D21 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
-| D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[9] |
-| D23 | 64 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[10] |
-| D24 | 58 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[7] |
-| D25 | 60 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[8] |
-| D26 | 59 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
-| D27 | 55 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
-| D3 | 40 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | PA[15] |
-| D4 | 66 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[18] |
-| D5 | 68 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[19] |
-| D6 | 70 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[20] |
-| D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[21] |
-| D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
-| GNSS_TX | 18 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| NC | 14 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| RGBB | 65 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
-| RGBG | 63 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
-| RGBR | 61 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
-| RX / D10 | 38 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | PA[13] |
-| SIM_CLK | 71 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| SIM_DATA | 73 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| SIM_RST | 69 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| SIM_VCC | 67 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| TX / D9 | 36 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | PA[12] |
-| USBDATA- | 13 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[25] |
-| USBDATA+ | 11 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[26] |
+| Module Pin | Pin Name |   |   |   |   | MCU |
+| :---: | :--- | :--- | :--- | :--- | :--- | :--- |
+| 11 | USBDATA+ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[26] |
+| 13 | USBDATA- | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[25] |
+| 14 | NC | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 17 | D21 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
+| 18 | GNSS_TX | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 19 | D20 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] |
+| 20 | D1 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | PA[31] |
+| 22 | D0 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | PB[0] |
+| 23 | A0 / D19 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
+| 33 | A1 / D18 | ADC_1 | &nbsp; | &nbsp; | &nbsp; | PB[5] |
+| 35 | A2 / D17 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | PB[6] |
+| 36 | TX / D9 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | PA[12] |
+| 37 | A3 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
+| 38 | RX / D10 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | PA[13] |
+| 40 | D3 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | PA[15] |
+| 41 | A4 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
+| 42 | D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
+| 43 | A5 / D14 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
+| 44 | CELL USBD+ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 45 | A6 / D29 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[3] |
+| 46 | CELL USBD- | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 47 | A7 / WKP | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
+| 48 | D8 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
+| 50 | D11 / MISO | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
+| 52 | D12 / MOSI | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
+| 53 | A5 / D14 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
+| 54 | D13 / SCK | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[18] |
+| 55 | D27 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
+| 58 | D24 | &nbsp; | &nbsp; | &nbsp; | Serial2 (TX)  | PA[7] |
+| 59 | D26 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
+| 60 | D25 | &nbsp; | &nbsp; | &nbsp; | Serial2 (RX)  | PA[8] |
+| 61 | RGBR | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
+| 62 | D22 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[9] |
+| 63 | RGBG | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
+| 64 | D23 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[10] |
+| 65 | RGBB | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
+| 66 | D4 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[18] |
+| 67 | SIM_VCC | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 68 | D5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[19] |
+| 69 | SIM_RST | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 70 | D6 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[20] |
+| 71 | SIM_CLK | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 72 | D7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[21] |
+| 73 | SIM_DATA | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 74 | CELL VBUS | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 75 | CELL_RI | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -246,39 +246,39 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 315abea5-56c1-45ce-af72-bf0d9d8e8482 --}}
 
-| Pin | M SoM Pin Name | M SoM GPIO |
-| :---: | :--- | :--- |
-| 17 | D21 | &check; |
-| 19 | D20 | &check; |
-| 20 | D1 | &check; |
-| 22 | D0 | &check; |
-| 23 | A0 / D19 | &check; |
-| 33 | A1 / D18 | &check; |
-| 35 | A2 / D17 | &check; |
-| 36 | TX / D9 | &check; |
-| 37 | A3 | &check; |
-| 38 | RX / D10 | &check; |
-| 40 | D3 | &check; |
-| 41 | A4 | &check; |
-| 42 | D2 | &check; |
-| 43 | A5 / D14 | &check; |
-| 45 | A6 / D29 | &check; |
-| 47 | A7 / WKP | &check; |
-| 48 | D8 | &check; |
-| 50 | D11 / MISO | &check; |
-| 52 | D12 / MOSI | &check; |
-| 53 | A5 / D14 | &check; |
-| 54 | D13 / SCK | &check; |
-| 55 | D27 | &check; |
-| 58 | D24 | &check; |
-| 59 | D26 | &check; |
-| 60 | D25 | &check; |
-| 62 | D22 | &check; |
-| 64 | D23 | &check; |
-| 66 | D4 | &check; |
-| 68 | D5 | &check; |
-| 70 | D6 | &check; |
-| 72 | D7 | &check; |
+| Pin | M SoM Pin Name | M SoM GPIO | MCU |
+| :---: | :--- | :--- | :--- |
+| 17 | D21 | &check; | PA[0] |
+| 19 | D20 | &check; | PA[1] |
+| 20 | D1 | &check; | PA[31] |
+| 22 | D0 | &check; | PB[0] |
+| 23 | A0 / D19 | &check; | PB[4] |
+| 33 | A1 / D18 | &check; | PB[5] |
+| 35 | A2 / D17 | &check; | PB[6] |
+| 36 | TX / D9 | &check; | PA[12] |
+| 37 | A3 | &check; | PB[1] |
+| 38 | RX / D10 | &check; | PA[13] |
+| 40 | D3 | &check; | PA[15] |
+| 41 | A4 | &check; | PB[2] |
+| 42 | D2 | &check; | PA[14] |
+| 43 | A5 / D14 | &check; | PB[3] |
+| 45 | A6 / D29 | &check; | PB[3] |
+| 47 | A7 / WKP | &check; | PA[20] |
+| 48 | D8 | &check; | PA[19] |
+| 50 | D11 / MISO | &check; | PA[17] |
+| 52 | D12 / MOSI | &check; | PA[16] |
+| 53 | A5 / D14 | &check; | PB[3] |
+| 54 | D13 / SCK | &check; | PA[18] |
+| 55 | D27 | &check; | PA[27] |
+| 58 | D24 | &check; | PA[7] |
+| 59 | D26 | &check; | PA[4] |
+| 60 | D25 | &check; | PA[8] |
+| 62 | D22 | &check; | PA[9] |
+| 64 | D23 | &check; | PA[10] |
+| 66 | D4 | &check; | PB[18] |
+| 68 | D5 | &check; | PB[19] |
+| 70 | D6 | &check; | PB[20] |
+| 72 | D7 | &check; | PB[21] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -298,7 +298,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 37 | A3 | A3 Analog in | ADC_4 | PB[1] |
 | 41 | A4 | A4 Analog in | ADC_5 | PB[2] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | ADC_6 | PB[3] |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT | ADC_3 | PB[7] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | ADC_3 | PB[3] |
 | 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | ADC_7 | PA[20] |
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | ADC_6 | PB[3] |
 
@@ -319,6 +319,8 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Serial1 (RX)  | PA[13] |
 | 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Serial1 (CTS)  | PA[15] |
 | 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Serial1 (RTS)  | PA[14] |
+| 58 | D24 | D24 GPIO, Serial2 TX, do not pull down at boot | Serial2 (TX)  | PA[7] |
+| 60 | D25 | GPIO25, Serial2 TX | Serial2 (RX)  | PA[8] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -356,6 +358,26 @@ Additionally, SWD is supported on pins on the M.2 connector:
 - SPI uses the RTL872x SPI1 peripheral (25 MHz maximum speed)
 - SPI1 uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
 
+Even though the B SoM and M SoM both have two SPI interfaces, note that the M SoM SPI1 is on different pins.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 89fcdf38-5b12-43fa-b306-72a4262c913e --}}
+
+| Pin | B4xx SoM Pin Name | B4xx SoM SPI | M SoM Pin Name | M SoM SPI |
+| :---: | :--- | :--- | :--- | :--- |
+| 36 | TX / D9 | &nbsp; | TX / D9 | SPI1 (MOSI) |
+| 38 | RX / D10 | &nbsp; | RX / D10 | SPI1 (MISO) |
+| 40 | D3 | SPI1 (MOSI) | D3 | SPI1 (SS) |
+| 42 | D2 | SPI1 (SCK) | D2 | SPI1 (SCK) |
+| 48 | D8 | SPI (SS) | D8 | SPI (SS) |
+| 50 | MISO / D11 | SPI (MISO) | D11 / MISO | SPI (MISO) |
+| 52 | MOSI / D12 | SPI (MOSI) | D12 / MOSI | SPI (MOSI) |
+| 54 | SCK / D13 | SPI (SCK) | D13 / SCK | SPI (SCK) |
+| 66 | D4 | SPI1 (MISO) | D4 | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+
 
 ### I2C
 
@@ -385,7 +407,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | PA[12] |
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | PA[13] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | PB[3] |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT | PB[7] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | PB[3] |
 | 50 | D11 / MISO | D11 GPIO, PWM, SPI MISO | PA[17] |
 | 52 | D12 / MOSI | D12 GPIO, PWM, SPI MOSI | PA[16] |
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | PB[3] |
@@ -453,6 +475,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
+| 45 | A6 / D29 | SWCLK. 40K pull-down at boot. | PB[3] |
 | 53 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
 | 55 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
 | 58 | D24 | Low at boot triggers ISP flash download | PA[7] |
@@ -482,9 +505,13 @@ The RST pin does have an internal weak pull-up, but you may want to add external
 
 ### BLE (Bluetooth LE)
 
+If you wish to use Wi-Fi on the M SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
+
 BLE 5.3 BLE Central Mode and BLE Peripheral Mode are supported. 
 
 Full-speed BLE modes such as A2DP used for BLE audio are not supported.
+
+Wi-Fi and BLE share the same antenna so you do not need to include a separate antenna to use both.
 
 ### Sleep
 
