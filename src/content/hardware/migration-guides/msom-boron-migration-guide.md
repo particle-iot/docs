@@ -236,8 +236,8 @@ The Argon/Boron land pattern is:
 | D5 | &check; | 68 | D5 | &check; |
 | D6 | &check; | 70 | D6 | &check; |
 | D7 | &check; | 72 | D7 | &check; |
-| MISO / D11 | &nbsp; | 50 | D11 / MISO | &check; |
-| MOSI / D12 | &nbsp; | 52 | D12 / MOSI | &check; |
+| MISO / D11 | &nbsp; | 50 | MISO / D11 | &check; |
+| MOSI / D12 | &nbsp; | 52 | MOSI / D12 | &check; |
 | RX / D10 | &nbsp; | 38 | RX / D10 | &check; |
 | TX / D09 | &nbsp; | 36 | TX / D9 | &check; |
 | D8 / WKP | &check; | 47 | A7 / WKP | &nbsp; |
@@ -245,7 +245,11 @@ The Argon/Boron land pattern is:
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
+### NFC vs. B SoM
 
+The M SoM does not support NFC. 
+
+The Boron and Argon support NFC Tag mode.
 
 ### Full comparison
 
@@ -314,7 +318,7 @@ The Argon/Boron land pattern is:
 | :--- | :--- | :--- |
 | Pin Name | A4 | A4 |
 | Pin Alternate Name | D15 | n/a |
-| Description | A4 Analog in, GPIO, PWM | A4 Analog in |
+| Description | A4 Analog in, GPIO, PWM | A4 Analog in, GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -586,8 +590,8 @@ The Argon/Boron land pattern is:
 #### MISO
 |   | Boron | M SoM |
 | :--- | :--- | :--- |
-| Pin Name | MISO | D11 |
-| Pin Alternate Name | D11 | MISO |
+| Pin Name | MISO | MISO |
+| Pin Alternate Name | D11 | D11 |
 | Description | SPI MISO, GPIO | D11 GPIO, PWM, SPI MISO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -615,8 +619,8 @@ The Argon/Boron land pattern is:
 #### MOSI
 |   | Boron | M SoM |
 | :--- | :--- | :--- |
-| Pin Name | MOSI | D12 |
-| Pin Alternate Name | D12 | MOSI |
+| Pin Name | MOSI | MOSI |
+| Pin Alternate Name | D12 | D12 |
 | Description | SPI MOSI, GPIO | D12 GPIO, PWM, SPI MOSI |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -668,8 +672,8 @@ The Argon/Boron land pattern is:
 #### SCK
 |   | Boron | M SoM |
 | :--- | :--- | :--- |
-| Pin Name | SCK | D13 |
-| Pin Alternate Name | D13 | SCK |
+| Pin Name | SCK | SCK |
+| Pin Alternate Name | D13 | D13 |
 | Description | SPI SCK, GPIO | D13 GPIO, SPI SCK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |

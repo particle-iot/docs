@@ -9482,7 +9482,7 @@
         {
           "num": 37,
           "name": "A3",
-          "desc": "A3 Analog in",
+          "desc": "A3 Analog in, GPIO",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -9550,7 +9550,7 @@
         {
           "num": 41,
           "name": "A4",
-          "desc": "A4 Analog in",
+          "desc": "A4 Analog in, GPIO",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -9681,8 +9681,8 @@
         },
         {
           "num": 50,
-          "name": "D11",
-          "altName": "MISO",
+          "name": "MISO",
+          "altName": "D11",
           "desc": "D11 GPIO, PWM, SPI MISO",
           "isIO": true,
           "is5VTolerant": false,
@@ -9700,8 +9700,8 @@
         },
         {
           "num": 52,
-          "name": "D12",
-          "altName": "MOSI",
+          "name": "MOSI",
+          "altName": "D12",
           "desc": "D12 GPIO, PWM, SPI MOSI",
           "isIO": true,
           "is5VTolerant": false,
@@ -9741,8 +9741,8 @@
         },
         {
           "num": 54,
-          "name": "D13",
-          "altName": "SCK",
+          "name": "SCK",
+          "altName": "D13",
           "desc": "D13 GPIO, SPI SCK",
           "is5VTolerant": false,
           "digitalRead": true,

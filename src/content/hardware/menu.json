@@ -181,17 +181,20 @@
       {
         "dir": "msom-b-series-migration-guide",
         "title": "M SoM from B Series migration guide",
-        "href": "/hardware/migration-guides/msom-b-series-migration-guide/"
+        "href": "/hardware/migration-guides/msom-b-series-migration-guide/",
+        "internal": true
       },
       {
         "dir": "msom-p2-migration-guide",
         "title": "M SoM from P2 migration guide",
-        "href": "/hardware/migration-guides/msom-p2-migration-guide/"
+        "href": "/hardware/migration-guides/msom-p2-migration-guide/",
+        "internal": true
       },
       {
         "dir": "msom-boron-migration-guide",
         "title": "M SoM from Boron or Argon migration guide",
-        "href": "/hardware/migration-guides/msom-boron-migration-guide/"
+        "href": "/hardware/migration-guides/msom-boron-migration-guide/",
+        "internal": true
       },      
       {
         "dir": "b-series-boron-migration-guide",

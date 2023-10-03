@@ -90,7 +90,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | 38 | RX / D10 | Serial RX, GPIO | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO |
 | 39 | AGND | Analog Ground. | AGND | Analog Ground. |
 | 40 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
-| 41 | A4 / D15 | A4 Analog in, GPIO | A4 | A4 Analog in |
+| 41 | A4 / D15 | A4 Analog in, GPIO | A4 | A4 Analog in, GPIO |
 | 42 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
 | 43 | A5 / D14 | A5 Analog in, GPIO | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 |
 | 44 | CELL USBD+ | Cellular Modem USB Data+ | CELL USBD+ | Cellular Modem USB Data+ |
@@ -99,11 +99,11 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | 47 | A7 | A7 Analog in, GPIO, Ethernet Reset | A7 / WKP | A7 Analog In, WKP, GPIO D28 |
 | 48 | D8 | GPIO, SPI SS, Ethernet CS | D8 | D8 GPIO, SPI SS |
 | 49 | AGND | Analog Ground. | AGND | Analog Ground. |
-| 50 | MISO / D11 | SPI MISO, GPIO | D11 / MISO | D11 GPIO, PWM, SPI MISO |
+| 50 | MISO / D11 | SPI MISO, GPIO | MISO / D11 | D11 GPIO, PWM, SPI MISO |
 | 51 | NC | &nbsp; | NC | &nbsp; |
-| 52 | MOSI / D12 | SPI MOSI, GPIO | D12 / MOSI | D12 GPIO, PWM, SPI MOSI |
+| 52 | MOSI / D12 | SPI MOSI, GPIO | MOSI / D12 | D12 GPIO, PWM, SPI MOSI |
 | 53 | NC | &nbsp; | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 |
-| 54 | SCK / D13 | SPI SCK, GPIO | D13 / SCK | D13 GPIO, SPI SCK |
+| 54 | SCK / D13 | SPI SCK, GPIO | SCK / D13 | D13 GPIO, SPI SCK |
 | 55 | NC | &nbsp; | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot |
 | 56 | GND | Ground. | GND | Ground. |
 | 57 | NC | &nbsp; | NC | &nbsp; |
@@ -183,9 +183,9 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | 40 | D3 | SPI1 (MOSI) | D3 | SPI1 (SS) |
 | 42 | D2 | SPI1 (SCK) | D2 | SPI1 (SCK) |
 | 48 | D8 | SPI (SS) | D8 | SPI (SS) |
-| 50 | MISO / D11 | SPI (MISO) | D11 / MISO | SPI (MISO) |
-| 52 | MOSI / D12 | SPI (MOSI) | D12 / MOSI | SPI (MOSI) |
-| 54 | SCK / D13 | SPI (SCK) | D13 / SCK | SPI (SCK) |
+| 50 | MISO / D11 | SPI (MISO) | MISO / D11 | SPI (MISO) |
+| 52 | MOSI / D12 | SPI (MOSI) | MOSI / D12 | SPI (MOSI) |
+| 54 | SCK / D13 | SPI (SCK) | SCK / D13 | SPI (SCK) |
 | 66 | D4 | SPI1 (MISO) | D4 | &nbsp; |
 
 
@@ -223,8 +223,8 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | 43 | A5 / D14 | &nbsp; | A5 / D14 | &check; |
 | 45 | A6 | &check; | A6 / D29 | &check; |
 | 47 | A7 | &check; | A7 / WKP | &nbsp; |
-| 50 | MISO / D11 | &nbsp; | D11 / MISO | &check; |
-| 52 | MOSI / D12 | &nbsp; | D12 / MOSI | &check; |
+| 50 | MISO / D11 | &nbsp; | MISO / D11 | &check; |
+| 52 | MOSI / D12 | &nbsp; | MOSI / D12 | &check; |
 | 53 | NC | &nbsp; | A5 / D14 | &check; |
 | 66 | D4 | &check; | D4 | &check; |
 | 68 | D5 | &check; | D5 | &check; |
@@ -258,7 +258,17 @@ Additionally, SWD is supported on pins on the M.2 connector:
 - SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is no longer available. This is the same as Gen 2 (STM32) but different than Gen 3 (nRF52840).
 - SWO (Serial Wire Output) is not supported on the RTL8722DM.
 
+### USB vs. B SoM
 
+The nRF52 MCU requires the 5V line from the USB interface on pin 16 (VUSB).
+
+The M SoM does not require this pin, however you can supply VUSB on M SoM pin 16 so you can use the same base board for both SKUs.
+
+### NFC vs. B SoM
+
+The M SoM does not support NFC.
+
+On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20 on the M SoM. Pin D20 can only be used as GPIO.
 
 ### Full pin comparison
 
@@ -537,7 +547,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | Pin Number | 41 | 41 |
 | Pin Name | A4 | A4 |
 | Pin Alternate Name | D15 | n/a |
-| Description | A4 Analog in, GPIO | A4 Analog in |
+| Description | A4 Analog in, GPIO | A4 Analog in, GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -631,12 +641,12 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | Pin Number | 49|
 | Pin Name | AGND|
 | Description | Analog Ground.|
-#### Module Pin 50 (MISO / D11)
+#### Module Pin 50 (MISO)
 |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- |
 | Pin Number | 50 | 50 |
-| Pin Name | MISO | D11 |
-| Pin Alternate Name | D11 | MISO |
+| Pin Name | MISO | MISO |
+| Pin Alternate Name | D11 | D11 |
 | Description | SPI MISO, GPIO | D11 GPIO, PWM, SPI MISO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -650,12 +660,12 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | :--- | :--- |
 | Pin Number | 51|
 | Pin Name | NC|
-#### Module Pin 52 (MOSI / D12)
+#### Module Pin 52 (MOSI)
 |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- |
 | Pin Number | 52 | 52 |
-| Pin Name | MOSI | D12 |
-| Pin Alternate Name | D12 | MOSI |
+| Pin Name | MOSI | MOSI |
+| Pin Alternate Name | D12 | D12 |
 | Description | SPI MOSI, GPIO | D12 GPIO, PWM, SPI MOSI |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -680,12 +690,12 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | Internal pull-up or pull-down resistance | n/a | 42K |
 | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
-#### Module Pin 54 (SCK / D13)
+#### Module Pin 54 (SCK)
 |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- |
 | Pin Number | 54 | 54 |
-| Pin Name | SCK | D13 |
-| Pin Alternate Name | D13 | SCK |
+| Pin Name | SCK | SCK |
+| Pin Alternate Name | D13 | D13 |
 | Description | SPI SCK, GPIO | D13 GPIO, SPI SCK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |

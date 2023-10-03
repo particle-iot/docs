@@ -611,13 +611,13 @@ MISO    </text>
     <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D11    </text>
+MISO    </text>
     <line x1="-158" y1="0" x2="-162" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
     <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-MISO    </text>
+D11    </text>
     <line x1="-192" y1="0" x2="-314" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
@@ -655,13 +655,13 @@ MOSI    </text>
     <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D12    </text>
+MOSI    </text>
     <line x1="-158" y1="0" x2="-162" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
     <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-MOSI    </text>
+D12    </text>
     <line x1="-192" y1="0" x2="-314" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
@@ -699,13 +699,13 @@ SCK    </text>
     <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-D13    </text>
+SCK    </text>
     <line x1="-158" y1="0" x2="-162" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
     <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-SCK    </text>
+D13    </text>
     <line x1="-192" y1="0" x2="-314" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >

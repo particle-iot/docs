@@ -121,9 +121,6 @@ The P2 land pattern is:
 | P2 Pin Name | P2 SPI | M SoM Pin | M SoM Pin Name | M SoM SPI |
 | :--- | :--- | :---: | :--- | :--- |
 | D10 / WKP | &nbsp; | 38 | RX / D10 | SPI1 (MISO) |
-| &nbsp; | &nbsp; | 50 | D11 / MISO | SPI (MISO) |
-| &nbsp; | &nbsp; | 52 | D12 / MOSI | SPI (MOSI) |
-| &nbsp; | &nbsp; | 54 | D13 / SCK | SPI (SCK) |
 | S2 / D17 | SPI (SCK) | 35 | A2 / D17 | &nbsp; |
 | S3 / D18 | SPI (SS) | 33 | A1 / D18 | &nbsp; |
 | D2 | SPI1 (MOSI) | 42 | D2 | SPI1 (SCK) |
@@ -132,8 +129,11 @@ The P2 land pattern is:
 | D5 | SPI1 (SS) | 68 | D5 | &nbsp; |
 | &nbsp; | &nbsp; | 48 | D8 | SPI (SS) |
 | RX / D9 | &nbsp; | 36 | TX / D9 | SPI1 (MOSI) |
+| &nbsp; | &nbsp; | 50 | MISO / D11 | SPI (MISO) |
+| &nbsp; | &nbsp; | 52 | MOSI / D12 | SPI (MOSI) |
 | S0 / D15 | SPI (MOSI) | &nbsp; | &nbsp; | &nbsp; |
 | S1 / D16 | SPI (MISO) | &nbsp; | &nbsp; | &nbsp; |
+| &nbsp; | &nbsp; | 54 | SCK / D13 | SPI (SCK) |
 | TX / D8 | &nbsp; | 36 | TX / D9 | SPI1 (MOSI) |
 
 
@@ -169,8 +169,6 @@ The P2 land pattern is:
 | &nbsp; | &nbsp; | 45 | A6 / D29 | &check; |
 | D1 / A4 | &check; | 20 | D1 | &nbsp; |
 | D10 / WKP | &nbsp; | 38 | RX / D10 | &check; |
-| &nbsp; | &nbsp; | 50 | D11 / MISO | &check; |
-| &nbsp; | &nbsp; | 52 | D12 / MOSI | &check; |
 | S3 / D18 | &nbsp; | 33 | A1 / D18 | &check; |
 | S4 / D19 | &nbsp; | 23 | A0 / D19 | &check; |
 | D4 | &nbsp; | 66 | D4 | &check; |
@@ -178,6 +176,8 @@ The P2 land pattern is:
 | D6 | &nbsp; | 70 | D6 | &check; |
 | D7 | &nbsp; | 72 | D7 | &check; |
 | RX / D9 | &nbsp; | 36 | TX / D9 | &check; |
+| &nbsp; | &nbsp; | 50 | MISO / D11 | &check; |
+| &nbsp; | &nbsp; | 52 | MOSI / D12 | &check; |
 | S0 / D15 | &check; | &nbsp; | &nbsp; | &nbsp; |
 | S1 / D16 | &check; | &nbsp; | &nbsp; | &nbsp; |
 | TX / D8 | &nbsp; | 36 | TX / D9 | &check; |
@@ -260,7 +260,7 @@ The P2 land pattern is:
 | | Added to M SoM |
 | :--- | :--- |
 | Pin Name | A4|
-| Description | A4 Analog in|
+| Description | A4 Analog in, GPIO|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
@@ -388,43 +388,6 @@ The P2 land pattern is:
 | SPI interface | n/a | MISO. Use SPI1 object. |
 | Supports attachInterrupt | Yes | Yes |
 | Internal pull-up or pull-down resistance | 2.1K | 2.1K |
-#### D11
-| | Added to M SoM |
-| :--- | :--- |
-| Pin Name | D11|
-| Pin Alternate Name | MISO|
-| Description | D11 GPIO, PWM, SPI MISO|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| Supports analogWrite (PWM) | Yes|
-| Supports tone | Yes|
-| SPI interface | MISO. Use SPI object.|
-| Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
-#### D12
-| | Added to M SoM |
-| :--- | :--- |
-| Pin Name | D12|
-| Pin Alternate Name | MOSI|
-| Description | D12 GPIO, PWM, SPI MOSI|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| Supports analogWrite (PWM) | Yes|
-| Supports tone | Yes|
-| SPI interface | MOSI. Use SPI object.|
-| Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
-#### D13
-| | Added to M SoM |
-| :--- | :--- |
-| Pin Name | D13|
-| Pin Alternate Name | SCK|
-| Description | D13 GPIO, SPI SCK|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| SPI interface | SCK. Use SPI object.|
-| Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
 #### D17
 |   | P2 | M SoM |
 | :--- | :--- | :--- |
@@ -632,12 +595,38 @@ The P2 land pattern is:
 | :--- | :--- |
 | Pin Name | GNSS_TX|
 | Description | Cellular modem GNSS UART TX|
+#### MISO
+| | Added to M SoM |
+| :--- | :--- |
+| Pin Name | MISO|
+| Pin Alternate Name | D11|
+| Description | D11 GPIO, PWM, SPI MISO|
+| Supports digitalRead | Yes|
+| Supports digitalWrite | Yes|
+| Supports analogWrite (PWM) | Yes|
+| Supports tone | Yes|
+| SPI interface | MISO. Use SPI object.|
+| Supports attachInterrupt | Yes|
+| Internal pull-up or pull-down resistance | 2.1K|
 #### MODE
 | | Unchanged between P2 and M SoM |
 | :--- | :--- |
 | Pin Name | MODE|
 | Description | MODE button. Pin number constant is BTN. External pull-up required!|
 | Supports attachInterrupt | Yes|
+#### MOSI
+| | Added to M SoM |
+| :--- | :--- |
+| Pin Name | MOSI|
+| Pin Alternate Name | D12|
+| Description | D12 GPIO, PWM, SPI MOSI|
+| Supports digitalRead | Yes|
+| Supports digitalWrite | Yes|
+| Supports analogWrite (PWM) | Yes|
+| Supports tone | Yes|
+| SPI interface | MOSI. Use SPI object.|
+| Supports attachInterrupt | Yes|
+| Internal pull-up or pull-down resistance | 2.1K|
 #### NC
 |   | P2 | M SoM |
 | :--- | :--- | :--- |
@@ -715,6 +704,17 @@ The P2 land pattern is:
 | Supports digitalWrite | Yes | Yes |
 | Supports attachInterrupt | Yes | Yes |
 | Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
+#### SCK
+| | Added to M SoM |
+| :--- | :--- |
+| Pin Name | SCK|
+| Pin Alternate Name | D13|
+| Description | D13 GPIO, SPI SCK|
+| Supports digitalRead | Yes|
+| Supports digitalWrite | Yes|
+| SPI interface | SCK. Use SPI object.|
+| Supports attachInterrupt | Yes|
+| Internal pull-up or pull-down resistance | 2.1K|
 #### SIM_CLK
 | | Added to M SoM |
 | :--- | :--- |

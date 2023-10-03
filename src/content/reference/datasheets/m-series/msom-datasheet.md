@@ -149,9 +149,6 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | CELL_RI | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | PB[0] |
 | D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | PA[31] |
-| D11 / MISO | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
-| D12 / MOSI | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
-| D13 / SCK | 54 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[18] |
 | D2 | 42 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
 | D20 | 19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] |
 | D21 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
@@ -168,11 +165,14 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[21] |
 | D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
 | GNSS_TX | 18 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| MISO / D11 | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
+| MOSI / D12 | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
 | NC | 14 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | RGBB | 65 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
 | RGBG | 63 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
 | RGBR | 61 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
 | RX / D10 | 38 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | PA[13] |
+| SCK / D13 | 54 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[18] |
 | SIM_CLK | 71 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | SIM_DATA | 73 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | SIM_RST | 69 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
@@ -213,10 +213,10 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 46 | CELL USBD- | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 47 | A7 / WKP | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
 | 48 | D8 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
-| 50 | D11 / MISO | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
-| 52 | D12 / MOSI | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
+| 50 | MISO / D11 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
+| 52 | MOSI / D12 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
 | 53 | A5 / D14 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| 54 | D13 / SCK | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[18] |
+| 54 | SCK / D13 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[18] |
 | 55 | D27 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
 | 58 | D24 | &nbsp; | &nbsp; | &nbsp; | Serial2 (TX)  | PA[7] |
 | 59 | D26 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
@@ -265,10 +265,10 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 45 | A6 / D29 | &check; | PB[3] |
 | 47 | A7 / WKP | &check; | PA[20] |
 | 48 | D8 | &check; | PA[19] |
-| 50 | D11 / MISO | &check; | PA[17] |
-| 52 | D12 / MOSI | &check; | PA[16] |
+| 50 | MISO / D11 | &check; | PA[17] |
+| 52 | MOSI / D12 | &check; | PA[16] |
 | 53 | A5 / D14 | &check; | PB[3] |
-| 54 | D13 / SCK | &check; | PA[18] |
+| 54 | SCK / D13 | &check; | PA[18] |
 | 55 | D27 | &check; | PA[27] |
 | 58 | D24 | &check; | PA[7] |
 | 59 | D26 | &check; | PA[4] |
@@ -296,7 +296,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 33 | A1 / D18 | A1 Analog in, GPIO, PWM | ADC_1 | PB[5] |
 | 35 | A2 / D17 | A2 Analog in, GPIO | ADC_2 | PB[6] |
 | 37 | A3 | A3 Analog in | ADC_4 | PB[1] |
-| 41 | A4 | A4 Analog in | ADC_5 | PB[2] |
+| 41 | A4 | A4 Analog in, GPIO | ADC_5 | PB[2] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | ADC_6 | PB[3] |
 | 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | ADC_3 | PB[3] |
 | 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | ADC_7 | PA[20] |
@@ -344,9 +344,9 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | SPI1 (SS) | PA[15] |
 | 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | SPI1 (SCK) | PA[14] |
 | 48 | D8 | D8 GPIO, SPI SS | SPI (SS) | PA[19] |
-| 50 | D11 / MISO | D11 GPIO, PWM, SPI MISO | SPI (MISO) | PA[17] |
-| 52 | D12 / MOSI | D12 GPIO, PWM, SPI MOSI | SPI (MOSI) | PA[16] |
-| 54 | D13 / SCK | D13 GPIO, SPI SCK | SPI (SCK) | PA[18] |
+| 50 | MISO / D11 | D11 GPIO, PWM, SPI MISO | SPI (MISO) | PA[17] |
+| 52 | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | SPI (MOSI) | PA[16] |
+| 54 | SCK / D13 | D13 GPIO, SPI SCK | SPI (SCK) | PA[18] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -369,9 +369,9 @@ Even though the B SoM and M SoM both have two SPI interfaces, note that the M So
 | 40 | D3 | SPI1 (MOSI) | D3 | SPI1 (SS) |
 | 42 | D2 | SPI1 (SCK) | D2 | SPI1 (SCK) |
 | 48 | D8 | SPI (SS) | D8 | SPI (SS) |
-| 50 | MISO / D11 | SPI (MISO) | D11 / MISO | SPI (MISO) |
-| 52 | MOSI / D12 | SPI (MOSI) | D12 / MOSI | SPI (MOSI) |
-| 54 | SCK / D13 | SPI (SCK) | D13 / SCK | SPI (SCK) |
+| 50 | MISO / D11 | SPI (MISO) | MISO / D11 | SPI (MISO) |
+| 52 | MOSI / D12 | SPI (MOSI) | MOSI / D12 | SPI (MOSI) |
+| 54 | SCK / D13 | SPI (SCK) | SCK / D13 | SPI (SCK) |
 | 66 | D4 | SPI1 (MISO) | D4 | &nbsp; |
 
 
@@ -408,8 +408,8 @@ Even though the B SoM and M SoM both have two SPI interfaces, note that the M So
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | PA[13] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | PB[3] |
 | 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | PB[3] |
-| 50 | D11 / MISO | D11 GPIO, PWM, SPI MISO | PA[17] |
-| 52 | D12 / MOSI | D12 GPIO, PWM, SPI MOSI | PA[16] |
+| 50 | MISO / D11 | D11 GPIO, PWM, SPI MISO | PA[17] |
+| 52 | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | PA[16] |
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | PB[3] |
 | 66 | D4 | D4 GPIO, PWM | PB[18] |
 | 68 | D5 | D5 GPIO, PWM | PB[19] |
