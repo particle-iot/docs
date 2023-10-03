@@ -45,6 +45,10 @@ The application can register a callback using [`System.onAssetOta()`](/reference
 | p2 (and Photon 2) | 1.125 MB | 1.09 MB |
 {{!-- END shared-blurb --}}
 
+There isn't a strict limit on the number of assets in your bundle, however each asset file is stored as a separate file in a flash file system, and each file takes a minimum of 4K bytes, even if the file is smaller than that. Thus if you have a large number of very small assets, you may want to consider concatenating them into a single larger asset.
+
+Note that the asset storage file system is separate from the user file system and does not count against the 2 MB (4 MB on Tracker) available for your use.
+
 ## Asset OTA Example
 
 The rest of this document shows how to add OTA assets to your project. This example just saves the files to the flash file system so you can run it without any additional hardware beyond a compatible Particle cellular or Wi-Fi device. Additional examples of using Asset OTA can be found on [the GitHub repository asset-ota-examples](https://github.com/particle-iot/asset-ota-examples).
@@ -55,7 +59,6 @@ Instead of saving the assets to the flash file system, you could:
 - Directly write to an external display connected by SPI.
 
 If you call [`System.assetsHandled(false)`](/reference/device-os/api/system-calls/onassetota-system/) the assets will be presented on every boot, which is often more space-efficient than storing a separate copy in the file system. You still may want to store it in a file if you need random access to the asset, or need it later, after boot. For example, if you have multiple sound file assets and you want to be able to choose one to play, the file system would be a good choice.
-
 
 ### Example firmware
 
@@ -150,9 +153,25 @@ You can then flash the zip file to the device using the Particle CLI or upload i
 % particle flash test-photon2 firmware.zip
 ```
 
+When you flash a device with assets, the process is as follows:
+
+- The .zip file is uploaded to the cloud.
+- The cloud extracts the zip file, verifies the contents, and makes sure the bundle will fit on the target device.
+- The firmware .bin is flashed to the device OTA.
+- Normal checks are done to make sure system dependencies are met. If the device needs a Device OS upgrade, it goes into safe mode (breathing magenta) and these updates are flashed and the device rebooted.
+- If the firmware has assets, the local asset storage on the device is checked to see if the file and hash match an existing assets. If not, the device will go into safe mode and the assets(s) downloaded. Only new or changed assets are downloaded.
+- The device will now run the user firmware.
+- The `onAssetOta` handler function will be called (if used), and all assets will be available to the user firmware via the `System.assetsAvailable()` function.
+
+If you want to flash by USB, you can use:
+
+```sh
+% particle flash --local firmware.zip
+```
+
 ### From Workbench
 
-You can also use the local and cloud compile options in Particle Workbench to create an asset binary, directly flash the device OTA, or flash the device over USB:
+You can also use the local and cloud compile options in Particle Workbench to create an asset binary, directly flash the device OTA, or flash the device over USB.
 
 
 ### Observing the debug output
@@ -192,7 +211,7 @@ In the [Particle console](https://console.particle.io/), if you view a device, y
 
 ### Cleaning up
 
-This will leave the files on the flash file system, which will be preserved even when you flash new firmware. To clean up these 
+This example will leave the files on the flash file system, which will be preserved even when you flash new firmware. To clean up these 
 files, change the `checkAssets()` function to this and flash the firmware to your device to clean up the files in the `assetsDir`.
 
 ```cpp
@@ -221,6 +240,47 @@ void checkAssets()
 }
 ```
 
+## FAQ
+
+### Should I include all assets in every firmware build?
+
+Yes, you should include your assets in every firmware build.
+
+### Doesn't that use a lot of data?
+
+No. Even though your asset bundle is uploaded to the cloud as a .zip file, it's unzipped and verified in the cloud. Each asset it mapped by its name and hash. If the contents of an asset binary do not change, the assets will not be downloaded to the device again, even if bundled with a different version of the firmware.
+
+### My external MCU doesn't have flash memory and I need to program it on every boot. Is this supported?
+
+Yes. Instead of using the `System.onAssetOta()` hook, you may prefer to use `System.assetsAvailable()`. The assets are stored on device even if you call `System.assetsHandled()` so you can always use them again.
+
+### I need my assets later on, not at boot. Can I access them later?
+
+Yes. `System.assetsAvailable()` is available at runtime. You can call this any time you want to access your assets.
+
+For example, if you want to store a specific bitmap to a display, or play a sound asset, you can call `System.assetsAvailable()`, iterate the results until you find the one you want, then stream the contents. 
+
+### What if I accidentally flash a firmware version that did not contain assets?
+
+You can flash a new version of firmware that contains the same assets (same name, same hash) and the assets will be available again without having to download them to the device again.
+
+### If I add a new asset, do the older ones need to be downloaded again?
+
+No. Assets download is determined on a per-file basis based on name and hash, so if those do not change the file will not be downloaded to the device again.
+
+### Is there a cloud API to create a bundle?
+
+No, the bundle creation is done entirely within the Particle CLI, not in the cloud. Particle Workbench uses the CLI as well.
+
+### Can I modify the zip file without the CLI?
+
+This is not recommended. When a bundle is created, information about each asset file is inserted into the firmware .bin file, including its name and hash.
+
+If the hash in the .bin file does not match the hash of the asset file, it will be rejected, both by the CLI if you attempt to flash it from the CLI, but also via the cloud API.
+
+If you want to create a bundle from an existing .bin file, use the `particle bundle` CLI command.
+
+
 ## Community examples
 
 ### Arduino Uno example
@@ -244,3 +304,5 @@ The [STM32 Asset OTA example](https://github.com/particle-iot/asset-ota-examples
 ### LCD image
 
 The [LCD image Asset OTA example](https://github.com/particle-iot/asset-ota-examples/tree/main/lcd_image) shows how you can include image assets that can be shown on a LCD display connected to the Particle device. This was shown during Spectra 2023.
+
+

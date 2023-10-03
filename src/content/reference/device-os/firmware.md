@@ -20980,24 +20980,9 @@ device OTA updates.
 
 {{since when="5.5.0"}}
 
-{{!-- BEGIN shared-blurb e724be96-469f-4bf2-bead-c8c962accad8 --}}
-Asset OTA (available in Device OS 5.5.0 and later), makes it easy to include bundled assets that can be delivered to other processors and components in your system, such as:
-
-- Coprocessors
-- Graphics and fonts for external displays
-- Sound samples for device with audio output capabilities
-
-Including assets is as easy as including an directory in your project, specifying it in the `project.properties` and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB to 1.5 MB in size, after compression, depending on the platform, and do not use additional data operations.
-
-The compression algorithm is similar to gzip, so using a gzip program on the assets folder on your computer will yield the approximate size after compression.
-{{!-- END shared-blurb --}}
+For an introduction to Asset OTA including its use cases, creating an asset bundle, and example projects, see [Asset OTA](/reference/device-os/asset-ota/).
 
 In addition to the methods in the `System` class, including [`System.onAssetOta()`](#onassetota-system) and [`System.assetsHandled()`](#assetshandled-system), the functions is this section are used to process the asset bundles.
-
-For complete code examples, see [asset-ota-examples](https://github.com/particle-iot/asset-ota-examples) in the Particle Github repository.
-
-For information on building a binary with assets using the Particle CLI, see [Compiling a directory with assets](/reference/developer-tools/cli/#compiling-a-directory-with-assets). This method also works for the **Particle: Cloud Compile** and **Particle: Cloud Flash** options in Particle Workbench.
-
 
 ```cpp
 // EXAMPLE
@@ -21010,16 +20995,6 @@ void handleAssets(spark::Vector<ApplicationAsset> assets)
   System.assetsHandled(true);
 }
 ```
-
-### Maximum asset sizes
-
-{{!-- BEGIN shared-blurb 3c7973be-f602-477f-bc14-bd510c13fdbd --}}
-| Platforms | Total asset storage | Maximum single asset size |
-| :--- | :--- | :--- |
-| tracker, b5som, esomx | 2 MB | 1.5 MB |
-| boron, bsom, argon | 1.125 MB | 592 KB |
-| p2 (and Photon 2) | 1.125 MB | 1.09 MB |
-{{!-- END shared-blurb --}}
 
 
 ### ApplicationAsset

@@ -1271,8 +1271,8 @@
             "hash": "8bd4059a669177454b302175e53c7cb425d564a32e826eed09fdd9899d0aeb77"
         },
         "reference/device-os/asset-ota.md": {
-            "date": "2023-09-28",
-            "hash": "bc470424b7cadc54634778a5a21c90113caa99a47a4ae52404deab4cc4d0aefd"
+            "date": "2023-10-03",
+            "hash": "674193bc7e074c36d62a7b5d91b887dce1988ec7a98a5cd6c54826952eef3962"
         },
         "reference/device-os/bluetooth-le.md": {
             "date": "2023-08-29",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-09-29",
-            "hash": "3ce41c7b70c84238d60a6da96ebbaff71b1ec477c4cd544c05ab43633ca715ae"
+            "date": "2023-10-03",
+            "hash": "146726b3146cb9c6e783473fb5fafd17de79e708b602847d71f1bc8d0e4aeb30"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -4023,8 +4023,8 @@
             "hash": "c20d4e0d26217a8fc946164e8f5a78b45b509c038da899f5324790224de202fc"
         },
         "reference/device-os/api/asset-ota/asset-ota.md": {
-            "date": "2023-09-20",
-            "hash": "0ad9c6f62de7d2ac576e6ec4a81ab266c14160a05491fe5d20209bdcaacea015"
+            "date": "2023-10-03",
+            "hash": "5eda89387f07a13566afd8515cbdf1b29bfc2c1cd54dfe78eb49f9eacb360d96"
         },
         "reference/device-os/api/asset-ota/maximum-asset-sizes.md": {
             "date": "2023-09-20",

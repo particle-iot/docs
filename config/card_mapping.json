@@ -847,7 +847,6 @@
   "/reference/device-os/firmware/#system-updatespending-": "/reference/device-os/api/ota-updates/system-updatespending/",
   "/reference/device-os/firmware/#system-updatesforced-": "/reference/device-os/api/ota-updates/system-updatesforced/",
   "/reference/device-os/firmware/#asset-ota": "/reference/device-os/api/asset-ota/asset-ota/",
-  "/reference/device-os/firmware/#maximum-asset-sizes": "/reference/device-os/api/asset-ota/maximum-asset-sizes/",
   "/reference/device-os/firmware/#applicationasset": "/reference/device-os/api/asset-ota/applicationasset/",
   "/reference/device-os/firmware/#name-applicationasset": "/reference/device-os/api/asset-ota/applicationasset/#name-applicationasset",
   "/reference/device-os/firmware/#hash-applicationasset": "/reference/device-os/api/asset-ota/applicationasset/#hash-applicationasset",
