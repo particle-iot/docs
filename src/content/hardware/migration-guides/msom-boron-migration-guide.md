@@ -305,7 +305,7 @@ The Boron and Argon support NFC Tag mode.
 | :--- | :--- | :--- |
 | Pin Name | A3 | A3 |
 | Pin Alternate Name | D16 | n/a |
-| Description | A3 Analog in, GPIO, PWM | A3 Analog in |
+| Description | A3 Analog in, GPIO, PWM | A3 Analog in, GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |

@@ -295,7 +295,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 23 | A0 / D19 | A0 Analog in, GPIO, PWM | ADC_0 | PB[4] |
 | 33 | A1 / D18 | A1 Analog in, GPIO, PWM | ADC_1 | PB[5] |
 | 35 | A2 / D17 | A2 Analog in, GPIO | ADC_2 | PB[6] |
-| 37 | A3 | A3 Analog in | ADC_4 | PB[1] |
+| 37 | A3 | A3 Analog in, GPIO | ADC_4 | PB[1] |
 | 41 | A4 | A4 Analog in, GPIO | ADC_5 | PB[2] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | ADC_6 | PB[3] |
 | 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | ADC_3 | PB[3] |

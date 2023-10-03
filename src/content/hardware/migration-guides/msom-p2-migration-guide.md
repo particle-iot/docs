@@ -250,7 +250,7 @@ The P2 land pattern is:
 | | Added to M SoM |
 | :--- | :--- |
 | Pin Name | A3|
-| Description | A3 Analog in|
+| Description | A3 Analog in, GPIO|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|

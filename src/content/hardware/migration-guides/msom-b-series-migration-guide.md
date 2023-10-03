@@ -86,7 +86,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | 34 | RST | Hardware reset, active low. External pull-up required. | RST | Hardware reset, active low. External pull-up required. |
 | 35 | A2 / D17 | A2 Analog in, GPIO | A2 / D17 | A2 Analog in, GPIO |
 | 36 | TX / D9 | Serial TX, GPIO | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI |
-| 37 | A3 / D16 | A3 Analog in, GPIO | A3 | A3 Analog in |
+| 37 | A3 / D16 | A3 Analog in, GPIO | A3 | A3 Analog in, GPIO |
 | 38 | RX / D10 | Serial RX, GPIO | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO |
 | 39 | AGND | Analog Ground. | AGND | Analog Ground. |
 | 40 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
@@ -501,7 +501,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | Pin Number | 37 | 37 |
 | Pin Name | A3 | A3 |
 | Pin Alternate Name | D16 | n/a |
-| Description | A3 Analog in, GPIO | A3 Analog in |
+| Description | A3 Analog in, GPIO | A3 Analog in, GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
