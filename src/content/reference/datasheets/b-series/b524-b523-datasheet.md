@@ -103,7 +103,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 
 #### VCC
 
-VCC is used to supply power to the Quectel EG91-E cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery.
+VCC is used to supply power to the Quectel EG91-E cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery. Make sure that the supply can handle currents of at least 2 A.
 
 If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V at 2A. You may want to add additional bulk capacitors to handle the short, high current peak usage when the cellular modem is transmitting.
 
@@ -125,20 +125,6 @@ Power supply requirements:
 We do not recommend using a single 3.6V supply for both VCC and 3V3 as the cellular modem performance may be lower below 3.7V. Use two separate regulators for best results.
 
 ---
-
-
-#### VCC
-
-VCC is used to supply power to the Quectel EG91-E cellular module. The recommended input voltage range on this pin is between 3.6V to 4.3V DC. Make sure that the supply can handle currents of at least 2 A.
-
-Note: The limit on the B402 (u-blox LTE Cat M1) is 4.2V, so you should limit VCC to 4.2V to preserve compatibility with both modules.
-
-#### 3V3
-
-3V3 is used to supply power to nRF52840, logic ICs, memory, etc.. The 3V3 input voltage range is between 3V to 3.6V DC, but 3.3V is recommended. Make sure that the supply can handle at least 150 mA, however it may need to be larger than that if you have additional 3.3V peripherals on your base board.
-
-We do not recommend using a single 3.6V supply for both VCC and 3V3 as the cellular modem performance may be lower below 3.7V. Use two separate regulators for best results.
-
 
 #### VBus
 

@@ -1,0 +1,681 @@
+---
+title: M SoM datasheet
+columns: two
+layout: commonTwo.hbs
+description: M SoM datasheet
+---
+
+# M SoM datasheet
+
+**Pre-release draft 2023-10-03 for review only. Do not distribute or share this URL!**
+
+{{box op="start" cssClass="boxed warningBox"}}
+For internal use only. This document is based on preliminary engineering documents. Changes are likely!
+{{box op="end"}}
+
+
+The M SoM module contains the following functional units:
+ 
+- M.2 SoM form-factor, like the B Series SoM
+- Realtek RTL8722DM MCU (BLE and Wi-Fi)
+- Cellular modem 
+  - Quectel BG95-M5 LTE Cat M1 (North America)
+  - Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
+  - Integrated GNSS (GPS) 
+
+## MCU
+
+The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8721DM), but has additional GPIO.
+
+- 802.11a/b/g/n Wi-Fi, 2.4 GHz and 5 GHz
+  - U.FL connector for external antenna
+- BLE 5 using same antenna as Wi-Fi
+- Realtek RTL8722DM MCU
+  - ARM Cortex M33 CPU, 200 MHz
+- 2048 KB (2 MB) user application maximum size
+- 3072 KB (3 MB) of RAM available to user applications
+- 2 MB flash file system
+- FCC, IC, and CE certified
+
+## Block diagram
+
+{{imageOverlay src="/assets/images/m-series/msom-block-diagram.png" alt="Block diagram" class="full-width"}}
+
+### Power
+
+#### VCC
+
+VCC is used to supply power to the cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery. Make sure that the supply can handle currents of at least 2 A.
+
+If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V at 2A. You may want to add additional bulk capacitors to handle the short, high current peak usage when the cellular modem is transmitting.
+
+#### 3V3
+
+3V3 is used to supply power to RTL8722 MCU, logic ICs, memory, etc.. Make sure that the supply can handle a minimum of 500 mA.
+
+These limits do not include any 3.3V peripherals on your base board, so that may increase the current requirements.
+
+{{!-- BEGIN shared-blurb b7c36aca-bdfe-463c-b901-53a3aeec8ab0 --}}
+Power supply requirements:
+- 3.3V output
+- Maximum 5% voltage drop
+- 100 mV peak-to-peak ripple maximum
+- 500 mA minimum output current at 3.3V recommended for future compatibility
+- Maintain these values at no-load as well as maximum load
+{{!-- END shared-blurb --}}
+
+
+### RF
+
+- The M SoM includes three U.FL connectors for external antennas:
+  - Cellular 
+  - Wi-Fi (2.4 GHz and 5 GHz) and BLE
+  - GNSS (GPS)
+- Wi-Fi operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
+
+
+### Approved Antennas
+
+To be provided at a later date.
+
+#### General Antenna Guidance
+
+- The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
+- Needs tuning with actual product enclosure and all components.
+- For the BLE antenna, it is recommended to use a 2.4 GHz single-frequency antenna and not a 2.4 GHz + 5 GHz antenna, so as to avoid large gain at the frequency twice of 2.4 GHz which can cause the second harmonic radiation of 2.4 GHz to exceed standards.
+ 
+
+### Peripherals and GPIO
+
+| Peripheral Type | Qty | Input(I) / Output(O) |
+| :---:|:---:|:---:|
+| Digital | 30 (max) | I/O |
+| Analog (ADC) | 8 (max) | I |
+| UART | 2 | I/O |
+| SPI  | 2 | I/O |
+| I2C  | 1 | I/O |
+| USB  | 1 | I/O |
+| PWM  | 11 (max) | O |
+
+**Note:** All GPIOs are only rated at 3.3VDC max.
+
+### JTAG and SWD 
+
+The M SoM has 4 pads at the bottom exposing the SWD interface of the MCU. This interface can be used to debug your code or reprogram your SoM bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
+
+{{imageOverlay src="/assets/images/b-series/pogo-pins.png" alt="Pogo Pins"}}
+
+Additionally, SWD is supported on pins on the M.2 connector:
+
+{{!-- BEGIN do not edit content below, it is automatically generated 64e4bc46-68b8-4974-a61e-ddeae080fd44 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT | SWCLK | PB[7] |
+| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | SWCLK | PB[3] |
+| 55 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | SWDIO | PA[27] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+- SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is no longer available. This is the same as Gen 2 (STM32) but different than Gen 3 (nRF52840).
+- SWO (Serial Wire Output) is not supported on the RTL8722DM.
+
+## Pin information
+
+### Pinout diagram
+
+{{imageOverlay src="/assets/images/msom.svg" alt="Pinout" class="full-width"}}
+
+
+### Pin function by pin name
+
+{{!-- BEGIN do not edit content below, it is automatically generated 1ef65384-3694-4999-a6d8-4ee9432ca08d --}}
+
+| Pin Name | Module Pin |   |   |   |   | MCU |
+| :--- | :---: | :--- | :--- | :--- | :--- | :--- |
+| A0 / D19 | 23 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
+| A1 / D18 | 33 | ADC_1 | &nbsp; | &nbsp; | &nbsp; | PB[5] |
+| A2 / D17 | 35 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | PB[6] |
+| A3 | 37 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
+| A4 | 41 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
+| A5 / D14 | 43 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
+| A5 / D14 | 53 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
+| A6 / D29 | 45 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[7] |
+| A7 / WKP | 47 | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
+| CELL USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL_RI` | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | PB[0] |
+| D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | PA[31] |
+| D11 / MISO | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
+| D12 / MOSI | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
+| D13 / SCK | 54 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[18] |
+| D2 | 42 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
+| D20 | 19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] |
+| D21 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
+| D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[9] |
+| D23 | 64 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[10] |
+| D24 | 58 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[7] |
+| D25 | 60 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[8] |
+| D26 | 59 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
+| D27 | 55 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
+| D3 | 40 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | PA[15] |
+| D4 | 66 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[18] |
+| D5 | 68 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[19] |
+| D6 | 70 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[20] |
+| D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[21] |
+| D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
+| GNSS_TX | 18 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| NC | 14 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| RGBB | 65 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
+| RGBG | 63 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
+| RGBR | 61 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
+| RX / D10 | 38 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | PA[13] |
+| SIM_CLK | 71 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_DATA | 73 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_RST | 69 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_VCC | 67 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| TX / D9 | 36 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | PA[12] |
+| USBDATA- | 13 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[25] |
+| USBDATA+ | 11 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[26] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+### Pin fuction by M.2 pin
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5feb3f9e-2bf4-4e73-a2c8-b6584b125391 --}}
+
+| Pin Name | Module Pin |   |   |   |   | MCU |
+| :--- | :---: | :--- | :--- | :--- | :--- | :--- |
+| A0 / D19 | 23 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
+| A1 / D18 | 33 | ADC_1 | &nbsp; | &nbsp; | &nbsp; | PB[5] |
+| A2 / D17 | 35 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | PB[6] |
+| A3 | 37 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
+| A4 | 41 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
+| A5 / D14 | 43 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
+| A5 / D14 | 53 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
+| A6 / D29 | 45 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[7] |
+| A7 / WKP | 47 | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
+| CELL USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL_RI` | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | PB[0] |
+| D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | PA[31] |
+| D11 / MISO | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
+| D12 / MOSI | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
+| D13 / SCK | 54 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[18] |
+| D2 | 42 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
+| D20 | 19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] |
+| D21 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
+| D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[9] |
+| D23 | 64 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[10] |
+| D24 | 58 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[7] |
+| D25 | 60 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[8] |
+| D26 | 59 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
+| D27 | 55 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
+| D3 | 40 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | PA[15] |
+| D4 | 66 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[18] |
+| D5 | 68 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[19] |
+| D6 | 70 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[20] |
+| D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[21] |
+| D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
+| GNSS_TX | 18 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| NC | 14 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| RGBB | 65 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
+| RGBG | 63 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
+| RGBR | 61 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
+| RX / D10 | 38 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | PA[13] |
+| SIM_CLK | 71 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_DATA | 73 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_RST | 69 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_VCC | 67 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| TX / D9 | 36 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | PA[12] |
+| USBDATA- | 13 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[25] |
+| USBDATA+ | 11 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[26] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+
+
+### GPIO (Digital I/O)
+
+{{!-- BEGIN do not edit content below, it is automatically generated 315abea5-56c1-45ce-af72-bf0d9d8e8482 --}}
+
+| Pin | M SoM Pin Name | M SoM GPIO |
+| :---: | :--- | :--- |
+| 17 | D21 | &check; |
+| 19 | D20 | &check; |
+| 20 | D1 | &check; |
+| 22 | D0 | &check; |
+| 23 | A0 / D19 | &check; |
+| 33 | A1 / D18 | &check; |
+| 35 | A2 / D17 | &check; |
+| 36 | TX / D9 | &check; |
+| 37 | A3 | &check; |
+| 38 | RX / D10 | &check; |
+| 40 | D3 | &check; |
+| 41 | A4 | &check; |
+| 42 | D2 | &check; |
+| 43 | A5 / D14 | &check; |
+| 45 | A6 / D29 | &check; |
+| 47 | A7 / WKP | &check; |
+| 48 | D8 | &check; |
+| 50 | D11 / MISO | &check; |
+| 52 | D12 / MOSI | &check; |
+| 53 | A5 / D14 | &check; |
+| 54 | D13 / SCK | &check; |
+| 55 | D27 | &check; |
+| 58 | D24 | &check; |
+| 59 | D26 | &check; |
+| 60 | D25 | &check; |
+| 62 | D22 | &check; |
+| 64 | D23 | &check; |
+| 66 | D4 | &check; |
+| 68 | D5 | &check; |
+| 70 | D6 | &check; |
+| 72 | D7 | &check; |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+- All GPIO are 3.3V only and are not 5V tolerant
+
+
+### ADC (Analog to Digital Converter)
+
+{{!-- BEGIN do not edit content below, it is automatically generated 8f52432b-ccd8-4be0-a2e2-1718b6771c4f --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | ADC_0 | PB[4] |
+| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | ADC_1 | PB[5] |
+| 35 | A2 / D17 | A2 Analog in, GPIO | ADC_2 | PB[6] |
+| 37 | A3 | A3 Analog in | ADC_4 | PB[1] |
+| 41 | A4 | A4 Analog in | ADC_5 | PB[2] |
+| 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | ADC_6 | PB[3] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT | ADC_3 | PB[7] |
+| 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | ADC_7 | PA[20] |
+| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | ADC_6 | PB[3] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+- ADC inputs are single-ended and limited to 0 to 3.3V
+- Resolution is 12 bits
+- SoM pin 45 (A6) on the M SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
+
+### UART serial
+
+{{!-- BEGIN do not edit content below, it is automatically generated d3ffb099-2b14-45d6-b006-71efef7af3ff --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | Serial1 (TX) | PA[12] |
+| 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Serial1 (RX)  | PA[13] |
+| 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Serial1 (CTS)  | PA[15] |
+| 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Serial1 (RTS)  | PA[14] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+- The UART pins are 3.3V and must not be connected directly to a RS-232C port or to a 5V TTL serial port
+- Hardware flow control is optional; if not used then the RTS and CTS pins can be used as regular GPIO
+- Serial1 uses the RTL872x UART_LOG peripheral
+- Serial2 uses the RTL872x HS_UART0 peripheral
+- Supported baud rates: 110, 300, 600, 1200, 9600, 14400, 19200, 28800, 38400, 57600, 76800, 115200, 128000, 153600, 230400, 500000, 921600, 1000000, 1382400, 1444400, 1500000, 1843200, 2000000, 2100000, 2764800, 3000000, 3250000, 3692300, 3750000, 4000000, 6000000
+
+
+
+### SPI
+
+{{!-- BEGIN do not edit content below, it is automatically generated fd3eed60-17cc-4294-9a39-7f3d01bf7487 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | SPI1 (MOSI) | PA[12] |
+| 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | SPI1 (MISO) | PA[13] |
+| 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | SPI1 (SS) | PA[15] |
+| 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | SPI1 (SCK) | PA[14] |
+| 48 | D8 | D8 GPIO, SPI SS | SPI (SS) | PA[19] |
+| 50 | D11 / MISO | D11 GPIO, PWM, SPI MISO | SPI (MISO) | PA[17] |
+| 52 | D12 / MOSI | D12 GPIO, PWM, SPI MOSI | SPI (MOSI) | PA[16] |
+| 54 | D13 / SCK | D13 GPIO, SPI SCK | SPI (SCK) | PA[18] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+- The SPI port is 3.3V and must not be connected directly to devices that drive MISO at 5V
+- If not using a SPI port, its pins can be used as GPIO
+- Any pins can be used as the SPI chip select
+- Multiple devices can generally share a single SPI port
+- SPI uses the RTL872x SPI1 peripheral (25 MHz maximum speed)
+- SPI1 uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
+
+
+### I2C
+
+{{!-- BEGIN do not edit content below, it is automatically generated e673700c-e099-4705-b7be-768efe895a08 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 20 | D1 | D1 GPIO, I2C SCL | Wire (SCL) | PA[31] |
+| 22 | D0 | D0 GPIO, I2C SDA | Wire (SDA) | PB[0] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+- The I2C port is 3.3V and must not be connected directly a 5V I2C bus
+- Maximum bus speed is 400 kHz
+- External pull-up resistors are required for I2C
+
+
+### PWM
+
+{{!-- BEGIN do not edit content below, it is automatically generated ce50aa3a-b76c-4140-bf85-100dded18864 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | PB[4] |
+| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | PB[5] |
+| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | PA[12] |
+| 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | PA[13] |
+| 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | PB[3] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT | PB[7] |
+| 50 | D11 / MISO | D11 GPIO, PWM, SPI MISO | PA[17] |
+| 52 | D12 / MOSI | D12 GPIO, PWM, SPI MOSI | PA[16] |
+| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | PB[3] |
+| 66 | D4 | D4 GPIO, PWM | PB[18] |
+| 68 | D5 | D5 GPIO, PWM | PB[19] |
+| 70 | D6 | D6 GPIO, PWM | PB[20] |
+| 72 | D7 | D7 GPIO, PWM | PB[21] |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+- All available PWM pins on the M SoM share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
+
+
+### USB
+
+The M SoM supports a USB interface for programming the device and for USB serial (CDC) communications. The module itself does not contain a USB connector; you typically add a micro USB or USB C connector on your base board. It is optional but recommended.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 15c79387-e8a2-418b-886f-a9439e41663b --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 11 | USBDATA+ | USB Data+ | PA[26] |
+| 13 | USBDATA- | USB Data- | PA[25] |
+| 44 | CELL USBD+ | Cellular Modem USB Data+ | &nbsp; |
+| 46 | CELL USBD- | Cellular Modem USB Data- | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- The CELL USB connector does not need to be populated on your board. It is used for reprogramming the cellular modem firmware, which is rarely done as it often requires recertification of the device.
+
+### RGB LED
+
+The M SoM supports an external common anode RGB LED. 
+
+One common LED that meets the requirements is the 
+[Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/) 
+which is inexpensive and easily procured. You need to add three current limiting resistors. With this LED, we typically use 1K ohm current limiting resistors. 
+These are much larger than necessary. They make the LED less blinding but still provide sufficient current to light the LEDs. 
+If you want maximum brightness you should use the calculated values - 33 ohm on red, and 66 ohm on green and blue.
+
+A detailed explanation of different color codes of the RGB system LED can be found [here](/troubleshooting/led/).
+
+The use of the RGB LED is optional, however it is highly recommended as troubleshooting the device without the LED is very difficult.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 79cc6da1-8165-49c1-914d-e39064a9ed06 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 61 | RGBR | RGB LED Red | PA[30] |
+| 63 | RGBG | RGB LED Green | PB[23] |
+| 65 | RGBB | RGB LED Blue | PB[22] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+- On the M SoM, Pin RGBR (PA[30]) has a 10K hardware pull-up in the module because it's a trap pin that controls the behavior of the internal 1.1V regulator. This does not affect the RGB LED but could affect your design if you are repurposing this pin as GPIO. You must not hold this pin low at boot.
+
+### Boot mode pins
+
+These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
+
+{{!-- BEGIN do not edit content below, it is automatically generated e39d39e4-5349-44b3-9aaa-989469037cd45 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 53 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
+| 55 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
+| 58 | D24 | Low at boot triggers ISP flash download | PA[7] |
+| 61 | RGBR | Low at boot triggers trap mode | PA[30] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+### SETUP and RESET button
+
+It is highly recommended that you add MODE (SETUP) and RESET buttons to your base board using momentary switches that connect to GND. These are necessary to change the operating mode of the device, for example to enter listening or DFU mode.
+
+{{!-- BEGIN do not edit content below, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
+| 46 | MODE | MODE button. Pin number constant is BTN. External pull-up required! | PA[4] |
+
+
+{{!-- END do not edit content above, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
+
+The MODE button does not have a hardware pull-up on it, so you must add an external pull-up (2.2K to 10K) to 3V3, or connect it to 3V3 if not using a button. 
+
+The RST pin does have an internal weak pull-up, but you may want to add external pull-up on that as well, especially if you use an off-board reset button connected by long wires.
+
+### BLE (Bluetooth LE)
+
+BLE 5.3 BLE Central Mode and BLE Peripheral Mode are supported. 
+
+Full-speed BLE modes such as A2DP used for BLE audio are not supported.
+
+### Sleep
+
+The M SoM can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
+
+The M SoM can only wake from `HIBERNATE` sleep mode on pin D10 (WKP), `RISING`, `FALLING`, or `CHANGE`.
+
+### PMIC Notes
+
+{{!-- BEGIN shared-blurb b3247dfa-acbd-4e81-a50d-a5ab68220636 --}}
+When using the M SoM with a bq24195 PMIC, note the following:
+
+By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the M SoM in normal operation.
+
+If your device has the default firmware (Tinker), it will attempt to connect to the cloud, brown out due to insufficient current, then the device will reset. This may result in what appears to be the status LED blinking white, but is actually rolling reboot caused by brownout.
+
+A factory new M SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the M SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
+
+Because the input current limit does not affect the battery input (Li+), for troubleshooting purposes it can be helpful to attach a battery to help rule out input current limit issues. It's also possible to supply 3.7V via a bench power supply to the battery input, instead of VIN. 
+
+The input current limit can result in a situation where you can't bring up a M SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
+
+- Attach a battery or supply by Li+ when bringing up a board.
+- Use SWD/JTAG and reset halt the MCU. This will prevent it from connecting to the cloud, so you can flash Device OS and firmware to it by SWD.
+
+The input current limit is actually controlled by three factors:
+
+- The [power source max current setting](/reference/device-os/api/power-manager/powersourcemaxcurrent/) in the PMIC. The default is 900 mA. It can be set to 100, 150, 500, 900, 1200, 1500, 2000, or 3000 mA.
+- It is also limited by the hardware ILIM resistor. On Particle devices with a built-in PMIC, this is set to 1590 mA, but if you are implementing your own PMIC hardware, you can adjust this higher.
+- When connected by USB, it will use DPDM, current negotiation via the USB DP (D+) and DM (D-) lines. 
+
+Note that some 2A tablet chargers and multi-port USB power supplies supply 2A but do not implement DPDM; these will be treated as if VIN was used, and you must set the power source current, otherwise the input current will be limited to 900 mA, which is not enough to power a 2G/3G cellular modem without an attached battery.
+
+{{!-- END shared-blurb --}}
+
+### SIM Pins
+
+- The SIM pins should be left unconnected
+- You cannot use these pins for an external SIM card, despite their names
+
+{{!-- BEGIN do not edit content below, it is automatically generated dd39756a-80c9-4fc0-8665-7533da96152d --}}
+
+| Pin | Pin Name | Description |
+| :---: | :--- | :--- |
+| 69 | SIM_RST | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
+| 71 | SIM_CLK | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem. |
+| 73 | SIM_DATA | Leave unconnected, 1.8V/3V SIM Data I/O of cellular modem with internal 4.7 k pull-up. |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+## Mechanical specifications
+
+### Dimensions and Weight
+
+To be provided at a later date.
+
+
+### Mechanical drawing
+
+{{imageOverlay src="/assets/images/b-series/b-series-mechanical.png" alt="Mechanical Drawing"}}
+
+Dimensions are in millimeters.
+
+---
+
+### Mating connector and land pattern
+
+The mating connector is a an M.2 (NGFF) type 4. Note that there are several different key configurations for the M.2, and type 4 is different than is commonly used on SSDs.
+
+One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product-2199230-4.html). It is widely available including at suppliers such as [DigiKey](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/2199230-4/A115904CT-ND/4208916).
+
+{{imageOverlay src="/assets/images/b-series/b-series-connector.png" alt="M.2 Connector" class="full-width"}}
+
+---
+
+### Screw Assembly
+
+The M.2 SoM requires a screw to hold the SoM in place because the M.2 connector does not have integrated locks and the SoM will pop up if not attached to the base board. The screw also provides better vibration resistance than locking clips.
+
+- This is one style of standoff.
+
+![Screw Assembly](/assets/images/b-series/new-standoff.png)
+
+- An [alternative design](/hardware/b-series-som/som-first-board/#hold-down-screw) uses a [JAE SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) standoff. It's reflow soldered to your base board and has a threaded hole for a M2*3 screw to hold down the SoM. This may be easier to obtain.
+
+
+### Design Considerations
+
+We strongly recommend against placing components under the SOM board because there is not enough height.
+
+{{imageOverlay src="/assets/images/b-series/b-series-keep-out.png" alt="Keep-Out Area"}}
+
+## Product Handling
+
+### ESD Precautions
+The M SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an M SoM without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the M SoM module. ESD precautions should be implemented on the application board where the M SoM is mounted. Failure to observe these precautions can result in severe damage to the M SoM!
+
+### Connectors
+
+The U.FL antenna connector is not designed to be constantly plugged and unplugged. The antenna pin is static sensitive and you can destroy the radio with improper handling. A tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector can be used securely hold the plug in place.
+
+The M.2 edge connector is static sensitive and should be handled carefully. The M.2 connector is not designed for repeated removal and insertion of the module.
+
+
+
+---
+
+## Default settings
+
+The M SoM comes pre-programmed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
+
+The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
+
+---
+
+## FCC IC CE Warnings and End Product Labeling Requirements
+
+**Federal Communication Commission Interference Statement**
+This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
+
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
+**FCC Caution:**
+Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment.
+This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions:
+
+1. This device may not cause harmful interference, and
+2. This device must accept any interference received, including interference that may cause undesired operation.
+
+**FCC Radiation Exposure Statement:**
+This equipment complies with FCC radiation exposure limits set forth for an uncontrolled environment. This transmitter module must not be co-located or operating in conjunction with any other antenna or transmitter. This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
+
+**IMPORTANT NOTE:**
+In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.
+
+**End Product Labeling**
+The final end product must be labeled in a visible area with the following:
+
+* Contains FCC ID: xxx
+
+**Manual Information to the End User**
+The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
+
+---
+
+**Canada Statement**
+This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
+
+1. This device may not cause interference; and
+2. This device must accept any interference, including interference that may cause undesired operation of the device.
+
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence.
+
+**L’exploitation est autorisée aux deux conditions suivantes:**
+
+1. l’appareil ne doit pas produire de brouillage;
+2. l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+
+**Caution Exposure:**
+This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance.
+Le dispositif répond à l'exemption des limites d'évaluation de routine dans la section 2.5 de RSS102 et les utilisateurs peuvent obtenir des renseignements canadiens sur l'exposition aux RF et le respect.
+
+**The final end product must be labelled in a visible area with the following:**
+The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
+
+ * Contains transmitter module IC: xxx
+ 
+This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
+Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
+
+> The end user manual shall include all required regulatory information/warning as shown in this manual.
+
+
+---
+
+
+## Country compatibility
+
+
+
+---
+## Ordering information
+
+
+## Revision history
+
+| Revision | Date | Author | Comments |
+|:---------|:-----|:-------|:---------|
+| pre      | 2023-10-03 | RK | Initial version |

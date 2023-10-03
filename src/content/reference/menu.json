@@ -386,6 +386,12 @@
           "dir": "boron-datasheet",
           "title": "Boron datasheet",
           "href": "/reference/datasheets/b-series/boron-datasheet/"
+        },
+        {
+          "dir": "msom-datasheet",
+          "title": "M SoM datasheet",
+          "href": "/reference/datasheets/m-series/msom-datasheet/",
+          "internal": true
         }
       ],
       {
