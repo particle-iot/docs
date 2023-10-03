@@ -633,6 +633,14 @@ The final end product must be labeled in a visible area with the following:
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
 
+
+**Outdoor Use (US)**
+
+To be compliant to FCC §15.407(a) the EIRP is not allowed to exceed 125 mW
+(21 dBm) at any elevation angle above 30° (measured from the horizon) when operated as an
+outdoor access point in U-NII-1 band, 5.150-5.250 GHz. 
+
+
 ---
 
 **Canada Statement**
@@ -662,6 +670,52 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
 
+
+**Outdoor use (CA)**
+
+- Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful
+interference to co-channel mobile satellite systems;
+- Operation in the 5600-5650 MHz band is not allowed in Canada. High-power radars are allocated
+as primary users (i.e., priority users) of the bands 5250-5350 MHz and 5650-5850 MHz and that
+these radars could cause interference and/or damage to LE-LAN devices.
+
+---
+
+- Le dispositif de fonctionnement dans la bande 5150-5250 MHz est réservé à une utilisation en
+intérieur pour réduire le risque d'interférences nuisibles à la co-canal systèmes mobiles par
+satellite
+- Opération dans la bande 5600-5650 MHz n'est pas autorisée au Canada. Haute puissance radars
+sont désignés comme utilisateurs principaux (c.-àutilisateurs prioritaires) des bandes 5250-5350
+MHz et 5650-5850 MHz et que ces radars pourraient causer des interférences et / ou des
+dommages à dispositifs LAN-EL.
+
+
+### European Union (CE)
+
+We, Particle Industries,Inc, declare under our sole responsibility that the product, P2, to which this declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
+
+The full text of the EU declaration of conformity is available at the followingInternet address: 
+[https://www.particle.io/](https://www.particle.io/)
+
+Radiation Exposure Statement: This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
+
+The operating frequency bands and the maximum transmitted power limit are listed below:
+- BLE 2402-2480MHz 10dBm
+- Wi-Fi 2.4GHz band 2412-2484MHz 20dBm
+- Wi-Fi 5GHz band 5180-5825MHz 23dBm
+
+### United Kingdom
+
+UKCA Conformity:
+
+Radio Equipment Regulations 2017 (S.I. 2017/1206)
+
+### Outdoor use (world)
+
+This device is restricted to indoor use when operating in the 5150 to 5350
+MHz frequency range. This restriction applies in: AT, BE, BG, CH, CY, CZ, DE,
+DK, EE, EL, ES, FI, FR, HR, HU, IE, IS, IT, LI, LT, LU, LV, MT, NL, NO, PL, PT, RO,
+SE, SI, SK, TR, UA, UK(NI).
 
 ---
 

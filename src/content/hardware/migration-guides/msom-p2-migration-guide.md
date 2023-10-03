@@ -8,7 +8,7 @@ description: M SoM from P2 migration guide
 # {{title}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-For internal use only. This document is based on preliminary engineering documents. Changes are highly likely!
+For internal use only. This document is based on preliminary engineering documents. Changes are likely!
 {{box op="end"}}
 
 
@@ -771,3 +771,25 @@ The P2 land pattern is:
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
+
+
+## Software
+
+### Wi-Fi configuration
+
+Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
+
+
+### Platform ID
+
+The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the P2 (32) because of the different hardware. 
+
+If you have a product based on the P2, you will need to create a separate product for devices using the M SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+
+### Third-party libraries
+
+Most third-party libraries are believed to be compatible between the P2 and M SoM as they share a similar MCU. The exceptions include:
+
+- Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
+
+
