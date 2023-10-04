@@ -187,6 +187,8 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 | Publish/Subscribe Event Name | 64 | 64 |
 | Publish/Subscribe Event Data | 864 | 1024 |
 
+- These comparisons are between the STM32F205-based E Series models, other than the E404X. The API field limits for the E404X (nRF52840) are the same as as the M SoM.
+
 
 ## Hardware differences
 
@@ -194,11 +196,11 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 | Measure | E Series | M SoM |
 | :--- | :---: | :---: |
-| MCU | STM32F205 | RTL8722 |
+| MCU | STM32F205 | RTL8722DM |
 | Manufacturer | ST Microelectronics | Realtek |
 | Processor | ARM Cortex M3 | ARM Cortex M33 |
 | Speed | 120 MHz | 200 MHz |
-| Available RAM | 50 KB | 3500 KB | 
+| Available RAM | 55 KB | 3500 KB | 
 | User firmware size | 128 KB | 2048 KB |
 | Flash file system | &nbsp; | 2 MB|
 | Hardware floating point | &nbsp; | &check; |
