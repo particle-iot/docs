@@ -1004,19 +1004,19 @@
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
             "date": "2023-10-04",
-            "hash": "5b7262856752f70b1f25078ebf37610b3bafd53ddb3fddb218fcd273a4c7403c"
+            "hash": "78f16b23b8e4a2aba70983cab7f1792385656e5721f56a6638469c34707d819f"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
             "date": "2023-10-04",
-            "hash": "b25693e5d27e7c36834382cbcc1fa29ee9321c8631925c90013e50819523b03a"
+            "hash": "d7f1349df5f14c2c1d144b940e1c9cf80368ce581dcbe9fd8f733884949704bc"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2023-10-04",
             "hash": "3626ad058cf3946cb89317aadc81e3ceb7837d41a6521e6c9adb2d6c955d9995"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2023-09-22",
-            "hash": "f7486b58522e8e848191be1bf8432c2d8d9745e9cb5ef001d2d8ae02fb9c5ba3"
+            "date": "2023-10-04",
+            "hash": "eae4665dd04d91377a14c0c3d73a48c8d1ad43eed1e93c538e301ed8cdbc8a46"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2023-10-04",

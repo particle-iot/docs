@@ -486,10 +486,9 @@ On both the Boron and B Series SoM, retained memory is 3068 bytes, same as the E
 
 The flash file system on Gen 3 devices can also be used for data storage, however care must be taken to avoid excessive wear of the flash for frequently changing data.
 
+### Interrupts
 
 {{!-- BEGIN shared-blurb 0ad42255-7fdf-47d2-af7a-0e4dcff59790 --}}
-
-### Interrupts
 
 #### Interrupts - Gen 2
 
@@ -517,12 +516,12 @@ Shared on the Electron/E Series (only one pin for each bullet item can be used a
   - C3, TX
   - C4, RX
 
+{{!-- END shared-blurb --}}
 
 #### Interrupts - Gen 3
 
 There is a limit of 8 pins with interrupt handlers, however the selection of pins is not restricted.
 
-{{!-- END shared-blurb --}}
 
 
 ### DAC

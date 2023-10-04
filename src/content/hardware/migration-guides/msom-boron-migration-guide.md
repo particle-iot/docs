@@ -22,6 +22,16 @@ The primary difference is that the Argon and Boron are pin-based modules that ca
 
 The M SoM is a M.2 SoM that fits in a SMD mounted M.2 NGFF connector. It requires a base board and cannot be used on its own. The M.2 socket is not the same as the M.2 sockets used for flash memory in computers.
 
+## Software differences
+
+### User firmware binary size
+
+One major advantage is that user firmware binaries can be up to 2048 Kbytes, instead of 256 Kbytes on Gen 3 devices using Device OS 3.1.0 or later.
+
+### Flash file system
+
+There is a 2 MB flash file system for storing user data. This is the same size as the Boron, B SoM, and Argon. The Tracker has a 4 MB flash file system.
+
 
 ### Status LED
 

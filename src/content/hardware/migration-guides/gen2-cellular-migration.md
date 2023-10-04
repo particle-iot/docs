@@ -477,10 +477,9 @@ On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are
 It is also possible to add an external PWM driver such as the PCA9685 which adds 16 outputs via I2C. You can add 62 of these to a single I2C bus for 992 PWM outputs! The [Adafruit_PWMServoDriver](/reference/device-os/libraries/a/Adafruit_PWMServoDriver/) library supports this chip on all Particle devices.
 
 
+### Interrupts
 
 {{!-- BEGIN shared-blurb 0ad42255-7fdf-47d2-af7a-0e4dcff59790 --}}
-
-### Interrupts
 
 #### Interrupts - Gen 2
 
@@ -508,12 +507,12 @@ Shared on the Electron/E Series (only one pin for each bullet item can be used a
   - C3, TX
   - C4, RX
 
+{{!-- END shared-blurb --}}
 
 #### Interrupts - Gen 3
 
 There is a limit of 8 pins with interrupt handlers, however the selection of pins is not restricted.
 
-{{!-- END shared-blurb --}}
 
 
 ### DAC

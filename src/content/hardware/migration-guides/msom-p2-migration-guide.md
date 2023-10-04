@@ -20,6 +20,11 @@ However, since the P2 has a Realtek RTL8721DM processor and the M SoM has a Real
 
 ## Hardware
 
+### Antenna
+
+The P2 has a choice between an internal trace antenna on the module or an external antenna for Wi-Fi and BLE (shared) connected by a U.FL connector.
+
+The M SoM requires an external antenna for cellular. It also requires a separate external antenna for Wi-Fi and BLE (shared). All antennas are connected by U.FL connectors.
 
 ### Voltage regulators
 

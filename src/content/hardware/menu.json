@@ -197,6 +197,12 @@
         "internal": true
       },      
       {
+        "dir": "msom-e-series-migration-guide",
+        "title": "M SoM from E Series migration guide",
+        "href": "/hardware/migration-guides/msom-e-series-migration-guide/",
+        "internal": true
+      },      
+      {
         "dir": "b-series-boron-migration-guide",
         "title": "B Series from Boron Migration Guide",
         "href": "/hardware/migration-guides/b-series-boron-migration-guide/"

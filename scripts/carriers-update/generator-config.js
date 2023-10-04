@@ -1082,6 +1082,175 @@ const path = require('path');
             }
         },
         
+        // datasheets/boron/msom-e-series-migration-guide.md
+        {
+            guid:'159eb8da-b56b-40d7-8df0-b54b7889555d',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    mapBy: 'name',
+                    showPinNum: true,
+                    platformNewTitle: 'M SoM',
+                }); 
+            }
+        },   
+        {
+            guid:'369dffc5-2607-422c-8d2f-049b8bac8b5d',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'digitalWrite',
+                    label: 'GPIO',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'M SoM',
+                    checkmark: true,
+                }); 
+            }
+        },
+        {
+            guid:'4757df20-600f-4beb-b781-59ff36cbb3d5',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'M SoM',
+                }); 
+            }
+        },
+        {
+            guid:'8c9a7dac-af5b-4a4d-9e40-7deb06ed921f', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'M SoM',
+                }); 
+            }
+        },
+        {
+            guid:'eeeca022-6ba8-4f96-b0e2-5b00362fed6d', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'M SoM',
+                }); 
+            }
+        },
+        {
+            guid:'4f18e140-7466-4fad-bc1f-55e8fcdf9561', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: '< SoM',
+                    includeHardwareTimer: true,
+                }); 
+            } 
+        },             
+        {
+            guid:'c17ecfe5-34b1-473b-86f2-d8c7e48ca167', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'can',
+                    label: 'CAN',
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    checkmark: false,
+                    platformNewTitle: 'M SoM',
+                }); 
+            } 
+        }, 
+
+        {
+            guid:'3e05bb14-1927-42cb-8f15-8ebe473bc99c', 
+            generatorFn:function(updater){
+                return updater.generateCountryComparison({
+                    models: [
+                        {
+                            title: 'E310',
+                            modem: 'U201',
+                            sim: 1,
+                        },
+                        {
+                            title: 'E313',
+                            modem: 'U201',
+                            sim: 2,
+                        },
+                        {
+                            title: 'B404X',
+                            modem: 'R510',
+                            sim: 4,
+                        },
+                        {
+                            title: 'B524',
+                            modem: 'EG91-E',
+                            sim: 4,
+                        },
+                    ],
+                });            
+            },     
+        },
+        {
+            guid:'a36f228d-5374-4bae-9557-4ec215613f66', 
+            generatorFn:function(updater) {
+                return updater.generateAntCell({
+                    filterFn: function(skuObj) {
+                        if (skuObj.family == 'e series' || skuObj.family == 'b series') { // TODO: Fix this!
+                            // Leave in list
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+                    },
+                });
+            }
+        },
+        
         // datasheets/boron/b-series-boron-migration-guide.md
         {
             guid:'b28329f3-7067-4ae1-aafa-c48b75d77674',

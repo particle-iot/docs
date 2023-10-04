@@ -24,6 +24,18 @@ Migrating from the B Series SoM to the M SoM is straightforward, however there a
 
 As the M SoM is a different platform ID and requires different firmware binaries it will require a separate product from bsom and b5som products.
 
+
+## Software differences
+
+### User firmware binary size
+
+One major advantage is that user firmware binaries can be up to 2048 Kbytes, instead of 256 Kbytes on Gen 3 devices using Device OS 3.1.0 or later.
+
+### Flash file system
+
+There is a 2 MB flash file system for storing user data. This is the same size as the Boron, B SoM, and Argon. The Tracker has a 4 MB flash file system.
+
+
 ### Voltage regulators
 
 #### VCC
