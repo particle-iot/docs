@@ -153,7 +153,7 @@ The Argon/Boron land pattern is:
 
 
 
-### ADC vs. Boron or Argon
+### ADC
 
 {{!-- BEGIN do not edit content below, it is automatically generated 0ad610ce-7eb9-463a-a214-3abf217f2e80 --}}
 
@@ -176,7 +176,7 @@ The Argon/Boron land pattern is:
 - ADC inputs are single-ended and limited to 0 to 3.3V on both
 - Resolution is 12 bits on both
 
-### Serial vs. Boron or Argon
+### Serial
 
 {{!-- BEGIN do not edit content below, it is automatically generated 53ee9c68-d92a-4a07-b56a-7c1cfab44f60 --}}
 
@@ -195,7 +195,7 @@ The Argon/Boron land pattern is:
 - One additional UART serial port on the M SoM
 
 
-### SPI vs. Boron or Argon
+### SPI
 
 {{!-- BEGIN do not edit content below, it is automatically generated 1b2c8715-6448-4bb6-aebf-8a507c16a87d --}}
 
@@ -210,7 +210,7 @@ The Argon/Boron land pattern is:
 - There are two SPI interfaces on both, however SPI1 is on different pins on M SoM.
 
 
-### I2C vs. Boron or Argon
+### I2C
 
 {{!-- BEGIN do not edit content below, it is automatically generated d72da918-d38e-46f0-b651-0c4ddee8cad7 --}}
 
@@ -226,7 +226,7 @@ The Argon/Boron land pattern is:
 
 - 1 I2C on M SoM vs. 2 on the B Series SoM
 
-### PWM vs. Boron or Argon
+### PWM
 
 {{!-- BEGIN do not edit content below, it is automatically generated f8d3a842-6457-4404-ad7b-d1c47a53e638 --}}
 
@@ -255,17 +255,34 @@ The Argon/Boron land pattern is:
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-### NFC vs. Boron or Argon
+### NFC
 
 The M SoM does not support NFC. 
 
 The Boron and Argon support NFC Tag mode.
 
-### Wake from hibernate vs. Boron or Argon
+### Sleep
 
-The Boron and Argon can wake from `HIBERNATE` sleep on any pin.
+- In `HIBERNATE` sleep mode, the M SoM can only be wakened via the `WKP` pin, but the Boron and Argon can be wakened by any pin.
 
-The M SoM can only wake from `HIBERNATE` on the `WKP` pin. Additionally, on the Boron and Argon, `WKP` is D8, but on the M SoM (and B SoM), it is pin A7.
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, the M SoM, Boron, and Argon can be wakened by any pin.
+
+- In `HIBERNATE` sleep mode, the M SoM puts `OUTPUT` pins into high-impedance state. The Boron and Argon preserve the digital level.
+
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, the M SoM, Boron, and Argon preserve the digital output
+
+- In `HIBERNATE` sleep mode, on the M SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 17 | D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
 
 ### Full comparison
 

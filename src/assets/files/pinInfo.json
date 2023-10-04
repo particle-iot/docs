@@ -553,7 +553,8 @@
           "hardwarePin": "PA[0]",
           "mcuPin": 2,
           "p2Pin": 47,
-          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode."
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode.",
+          "hibernate": "No internal pull up or pull down in HIBERNATE sleep mode."
         },
         {
           "num": 10,
@@ -881,6 +882,7 @@
           "tone": false,
           "attachInterrupt": true,
           "serial": "Serial3 (CTS)|CTS. Use Serial3 object. Flow control optional.",
+          "hibernate": "Only this pin can wake from HIBERNATE sleep mode.",
           "hardwarePin": "PA[15]",
           "mcuPin": 28,
           "p2Pin": 30,
@@ -1863,6 +1865,7 @@
           "hardwarePin": "PA0",
           "hardwareADC": "ADC0",
           "hardwareTimer": "TIM5_CH1",
+          "hibernate": "Only this pin can wake from HIBERNATE sleep mode.",
           "modulePinNumber": 27,
           "modulePinName": "MICRO_WKUP",
           "internalPull": "40K"
@@ -2578,6 +2581,7 @@
           "hardwarePin": "PA0",
           "hardwareADC": "ADC0",
           "hardwareTimer": "TIM5_CH1",
+          "hibernate": "Only this pin can wake from HIBERNATE sleep mode.",
           "modulePinName": "MICRO_UART2_CTS",
           "internalPull": "40K"
         },
@@ -3241,6 +3245,7 @@
           "analogWritePWM": true,
           "tone": true,
           "attachInterrupt": "Yes. A7 (WKP), B2, and B4 share the same interrupt handler.",
+          "hibernate": "Only this pin can wake from HIBERNATE sleep mode.",
           "hardwarePin": "PA0",
           "hardwareADC": "ADC0",
           "hardwareTimer": "TIM5_CH1",
@@ -3894,6 +3899,7 @@
           "analogWritePWM": true,
           "tone": true,
           "attachInterrupt": "Yes. A7 (WKP), B2, and B4 share the same interrupt handler.",
+          "hibernate": "Only this pin can wake from HIBERNATE sleep mode.",
           "hardwarePin": "PA0",
           "hardwareADC": "ADC0",
           "hardwareTimer": "TIM5_CH1",
@@ -8752,6 +8758,7 @@
           "tone": false,
           "attachInterrupt": true,
           "serial": "Serial3 (CTS)|CTS. Use Serial3 object. Flow control optional.",
+          "hibernate": "Only this pin can wake from HIBERNATE sleep mode.",
           "hardwarePin": "PA[15]",
           "mcuPin": 28,
           "internalPull": "2.1K"
@@ -8792,6 +8799,7 @@
           "tone": false,
           "attachInterrupt": true,
           "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode.",
+          "hibernate": "No internal pull up or pull down in HIBERNATE sleep mode.",
           "hardwarePin": "PB[31]",
           "mcuPin": 65
         },
@@ -8992,6 +9000,7 @@
           "tone": false,
           "attachInterrupt": true,
           "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode.",
+          "hibernate": "No internal pull up or pull down in HIBERNATE sleep mode.",
           "hardwarePin": "PA[0]",
           "mcuPin": 2
         },
@@ -9011,6 +9020,7 @@
           "tone": false,
           "attachInterrupt": true,
           "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode",
+          "hibernate": "No internal pull up or pull down in HIBERNATE sleep mode.",
           "hardwarePin": "PB[29]",
           "mcuPin": 64
         },
@@ -9316,6 +9326,7 @@
           "tone": false,
           "attachInterrupt": true,
           "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode.",
+          "hibernate": "No internal pull up or pull down in HIBERNATE sleep mode.",
           "hardwarePin": "PA[0]",
           "somPin": "RESERVED"
         },
@@ -9659,6 +9670,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": true,
+          "hibernate": "Only this pin can wake from HIBERNATE sleep mode.",
           "hardwarePin": "PA[20]",
           "hardwareADC": "ADC_7",
           "internalPull": "???"
@@ -10134,6 +10146,7 @@
           "attachInterrupt": true,
           "serial": "Serial3 (CTS)|CTS. Use Serial3 object. Flow control optional.",
           "hardwarePin": "PA[15]",
+          "hibernate": "Only this pin can wake from HIBERNATE sleep mode.",
           "mcuPin": 28,
           "internalPull": "2.1K"
         },
@@ -10177,7 +10190,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PB[31]",
           "mcuPin": 65,
-          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode."
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode.",
+          "hibernate": "No internal pull up or pull down in HIBERNATE sleep mode."
         },
         {
           "num": 12,
@@ -10400,7 +10414,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PA[0]",
           "mcuPin": 2,
-          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode."
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode.",
+          "hibernate": "No internal pull up or pull down in HIBERNATE sleep mode."
         },
         {
           "num": 25,
@@ -10420,7 +10435,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PB[29]",
           "mcuPin": 64,
-          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode"
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode",
+          "hibernate": "No internal pull up or pull down in HIBERNATE sleep mode."
         },
         {
           "num": 26,

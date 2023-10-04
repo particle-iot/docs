@@ -1204,7 +1204,16 @@ const path = require('path');
                 }); 
             } 
         }, 
-
+        {
+            guid:'55771164-b2c5-4c32-b389-ad5b9d6f378e', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'E Series',
+                    interface: 'hibernate'
+                }); 
+            } 
+        }, 
         {
             guid:'3e05bb14-1927-42cb-8f15-8ebe473bc99c', 
             generatorFn:function(updater){
@@ -1483,6 +1492,16 @@ const path = require('path');
             } 
         },
         {
+            guid:'6e6f887d-3df4-4cb3-b8e4-67f2aa26ad72',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'P2',
+                    interface: 'hibernate'
+                }); 
+            } 
+        },
+        {
             guid:'3b7b8712-9617-11ec-b909-0242ac120002',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
@@ -1561,6 +1580,17 @@ const path = require('path');
                     style: 'interfacePins',
                     platformNew: 'Photon 2',
                     interface: 'i2c',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'2bb13ba8-9f9c-44d6-8734-df6e85bb09042',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Photon 2',
+                    interface: 'hibernate',
                     noPinNumbers: true,
                 }); 
             } 
@@ -3188,6 +3218,16 @@ const path = require('path');
                 }); 
             }                     
         },        
+        {
+            guid:'58475011-6c17-488b-a042-a363c1312d02',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'hibernate'
+                }); 
+            }                     
+        },       
         {
             guid:'6d82afd2-3dd4-4a30-a75b-7d9b0b780986', 
             generatorFn:function(updater){

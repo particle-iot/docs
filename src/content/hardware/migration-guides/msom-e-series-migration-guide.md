@@ -424,7 +424,7 @@ The M SoM does not have an many ADC ports as the E Series. You can add additiona
 
 These are differences in pins that support PWM between the E Series and M SoM.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 4f18e140-7466-4fad-bc1f-55e8fcdf9561' --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 4f18e140-7466-4fad-bc1f-55e8fcdf9561 --}}
 
 | E Series Pin | E Series Pin Name | E Series PWM | < SoM Pin | < SoM Pin Name | < SoM PWM | < SoM Hardware Timer |
 | :---: | :--- | :--- | :---: | :--- | :--- | :--- |
@@ -560,9 +560,45 @@ There are no restrictions on interrupt pins on the M SoM.
 --}}
 
 
+### Sleep
+
+- In `HIBERNATE` sleep mode, both the M SoM and E Series can only be wakened via the `WKP` pin.
+
+- In `HIBERNATE` sleep mode, both the M SoM and E Series put pin in `OUTPUT` mode into high-impedance state.
+
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, the M SoM preserves the digital output, but the E Series puts the pins in `OUTPUT` mode into high-impedance state.
+
+- In `HIBERNATE` sleep mode, on the M SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
+
+M SoM pins related to `HIBERNATE` sleep mode:
+
+{{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 17 | D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+E Series pins related to `HIBERNATE` sleep mode:
+
+{{!-- BEGIN do not edit content below, it is automatically generated 55771164-b2c5-4c32-b389-ad5b9d6f378e --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 19 | WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | Only this pin can wake from HIBERNATE sleep mode. | PA0 |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+
+
+
+
 {{!-- 
 See also 28cd19b2-4f01-444b-8189-ba6191e6ebdd
-### Sleep modes
 ### RTC (Real-time clock)
 ### SWD/JTAG
 

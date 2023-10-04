@@ -17,6 +17,7 @@ For internal use only. This document is based on preliminary engineering documen
 The M SoM module contains the following functional units:
  
 - M.2 SoM form-factor, like the B Series SoM
+- Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
 - Cellular modem 
   - Quectel BG95-M5 LTE Cat M1 (North America)
@@ -517,7 +518,23 @@ Wi-Fi and BLE share the same antenna so you do not need to include a separate an
 
 The M SoM can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
 
-The M SoM can only wake from `HIBERNATE` sleep mode on pin D10 (WKP), `RISING`, `FALLING`, or `CHANGE`.
+The M SoM can only wake from `HIBERNATE` sleep mode on pin A7 (WKP), `RISING`, `FALLING`, or `CHANGE`.
+
+The M SoM preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
+
+Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin D21 can only use an external hardware pull-up or pull down.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 17 | D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
 
 ### PMIC Notes
 

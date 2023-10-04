@@ -65,7 +65,7 @@ The P2 land pattern is:
 
 
 
-### ADC vs. P2
+### ADC
 
 {{!-- BEGIN do not edit content below, it is automatically generated 198f100b-a9d2-40c0-bfad-c835be7dcf6c --}}
 
@@ -95,7 +95,7 @@ The P2 land pattern is:
 - Resolution is 12 bits on both
 - SoM pin 45 (A6) on the M SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
 
-### Serial vs. P2
+### Serial
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8b15c299-ec3c-4638-94e0-70c287b3b480 --}}
 
@@ -119,7 +119,7 @@ The P2 land pattern is:
 
 - The P2 has a third UART serial port; this does not exist on M SoM
 
-### SPI vs. P2
+### SPI
 
 {{!-- BEGIN do not edit content below, it is automatically generated e825d0f8-1762-4ea4-9da8-22f393747616 --}}
 
@@ -146,7 +146,7 @@ The P2 land pattern is:
 
 - Two SPI interfaces on both
 
-### I2C vs. P2
+### I2C
 
 {{!-- BEGIN do not edit content below, it is automatically generated d4f5a73f-20a3-4e45-9cbb-f55a68e1c8a5 --}}
 
@@ -160,7 +160,7 @@ The P2 land pattern is:
 
 - 1 I2C on both
 
-### PWM vs. P2
+### PWM
 
 {{!-- BEGIN do not edit content below, it is automatically generated be7ef0ce-b932-4cfd-840f-d8f7bf716a6d --}}
 
@@ -192,9 +192,39 @@ The P2 land pattern is:
 
 - PWM pins vary between the P2 and M SoM
 
-### Wake from hibernate vs. Boron or Argon
+### Sleep
 
-The M SoM can only wake from `HIBERNATE` on the `WKP` pin. `WKP` is pin D10 on the P2, but on the M SoM (and B SoM), it is pin A7.
+- In `HIBERNATE` sleep mode, the M SoM and P2 can only be wakened via the `WKP` pin, however `WKP` is pin A7 the M SoM (and B SoM) but is pin D10 on the P2.
+
+- In `HIBERNATE` sleep mode, certain pins on the M SoM and P2 do not preserve `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep. See details below.
+
+M SoM pins related to `HIBERNATE` sleep mode:
+
+{{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 17 | D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+P2 pins related to `HIBERNATE` sleep mode:
+
+{{!-- BEGIN do not edit content below, it is automatically generated 6e6f887d-3df4-4cb3-b8e4-67f2aa26ad72 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 30 | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | Only this pin can wake from HIBERNATE sleep mode. | PA[15] |
+| 33 | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PB[31] |
+| 47 | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 48 | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PB[29] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
 
 ### Full comparison
 

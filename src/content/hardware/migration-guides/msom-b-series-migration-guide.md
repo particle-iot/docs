@@ -143,7 +143,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 
 
 
-### ADC vs. B SoM
+### ADC
 
 {{!-- BEGIN do not edit content below, it is automatically generated ed9de0f9-7941-4090-9fb2-d6bb398fd860 --}}
 
@@ -166,7 +166,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 - Resolution is 12 bits on both.
 - SoM pin 45 (A6) on the M SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
 
-### Serial vs. B SoM
+### Serial
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5458f22f-840f-4892-97cc-57e6ebd5c1bb --}}
 
@@ -184,7 +184,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 
 - The M SoM has two available UART serial ports vs. 1 on the B SoM.
 
-### SPI vs. B SoM
+### SPI
 
 {{!-- BEGIN do not edit content below, it is automatically generated 89fcdf38-5b12-43fa-b306-72a4262c913e --}}
 
@@ -206,7 +206,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 - There are two SPI interfaces on both, however SPI1 is on different pins on M SoM.
 
 
-### I2C vs. B SoM
+### I2C
 
 {{!-- BEGIN do not edit content below, it is automatically generated d72da918-d38e-46f0-b651-0c4ddee8cad7 --}}
 
@@ -222,7 +222,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 
 - 1 I2C on M SoM vs. 2 on the B Series SoM
 
-### PWM vs. B SoM
+### PWM
 
 {{!-- BEGIN do not edit content below, it is automatically generated d6253ac9-1074-48cd-a7b9-05315e4a5850 --}}
 
@@ -248,7 +248,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 
 On the B SoM, multiple timers are using allowing different PWM frequencies on certain pins. On the M SoM, all PWM pins share a single time and thus must share the same frequency, but can have different duty cycles.
 
-### SWD vs. B SoM
+### SWD
 
 The M SoM has 4 pads at the bottom exposing the SWD interface of the MCU. This interface can be used to debug your code or reprogram your SoM bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
 
@@ -270,23 +270,40 @@ Additionally, SWD is supported on pins on the M.2 connector:
 - SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is no longer available. This is the same as Gen 2 (STM32) but different than Gen 3 (nRF52840).
 - SWO (Serial Wire Output) is not supported on the RTL8722DM.
 
-### USB vs. B SoM
+### USB
 
 The nRF52 MCU requires the 5V line from the USB interface on pin 16 (VUSB).
 
 The M SoM does not require this pin, however you can supply VUSB on M SoM pin 16 so you can use the same base board for both SKUs.
 
-### NFC vs. B SoM
+### NFC
 
 The M SoM does not support NFC.
 
 On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20 on the M SoM. Pin D20 can only be used as GPIO.
 
-### Wake from hibernate vs. B SoM
+### Sleep
 
-The B SoM can wake from `HIBERNATE` sleep on any pin.
+- In `HIBERNATE` sleep mode, the M SoM can only be wakened via the `WKP` pin, but the B SoM can be wakened by any pin.
 
-The M SoM can only wake from `HIBERNATE` on the `WKP` pin. O the M SoM (and B SoM), WKP is pin A7.
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, both the M SoM and B SoM can be wakened by any pin.
+
+- In `HIBERNATE` sleep mode, the M SoM puts `OUTPUT` pins into high-impedance state. The B SoM preserves the digital level.
+
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, both the M SoM and B SoM preserve the digital output
+
+- In `HIBERNATE` sleep mode, on the M SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 17 | D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
 
 ### Full pin comparison
 

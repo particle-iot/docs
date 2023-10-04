@@ -1407,12 +1407,12 @@
             "hash": "a4d0e30bfe7c4a3695a9d4da1a5271590b1cc88d03b7cb0b87fe2d06056bdbdf"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
-            "date": "2023-09-08",
-            "hash": "28e5b369495cfe44aaf5dee706751698aad10d25ec652610bf5e519a3178c3a6"
+            "date": "2023-10-04",
+            "hash": "f857ec235dbe2180c6fe6c449dd69be9df890f5dba11dfffc86652a37688dd7a"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2023-09-13",
-            "hash": "7cef68e250d87deeadaae0b288d593939f18fe61dfce9cb88180663ea385d81b"
+            "date": "2023-10-04",
+            "hash": "70309515fae64a2fc4300a8851a4f8016a46ea9616fa9bc25ce1f9e2613447a0"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2023-06-20",
