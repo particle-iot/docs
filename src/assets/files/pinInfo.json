@@ -9482,6 +9482,7 @@
         {
           "num": 37,
           "name": "A3",
+          "altName": "D16",
           "desc": "A3 Analog in, GPIO",
           "isIO": true,
           "is5VTolerant": false,
@@ -9550,6 +9551,7 @@
         {
           "num": 41,
           "name": "A4",
+          "altName": "D15",
           "desc": "A4 Analog in, GPIO",
           "isIO": true,
           "is5VTolerant": false,
