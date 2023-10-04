@@ -22,6 +22,6 @@ Device OS only uses the presence of Ethernet link and the ability to obtain a DH
 
 This has two consequences:
 
-- It is not possible to use Ethernet to communicate with devices on an isolated LAN, then backhaul the data over cellular. One common use-case of this is Modbus TCP to sensors on Ethernet.
+- In Device OS 5.3.0 and later it is possible to communicate with devices on an isolated LAN, then backhaul the data over cellular. One common use-case of this is Modbus TCP to sensors on Ethernet. In this scenario, set the IP address statically or using DHCP, but [set the gateway address to 0.0.0.0](/reference/device-os/api/network/networkinterfaceconfig/#networkinterfaceconfig-gateway). The gateway address of 0.0.0.0 signifies that this is not a connection to the Internet and cannot be used for cloud communication.
 
 - If the Ethernet LAN is normally connected to the Internet, it's not possible to fall back to cellular if this Internet connection goes down. This is possible to implement using a 3rd-party library in your application, see the [ethernet reference guide](/hardware/ethernet/ethernet/) for more information.
