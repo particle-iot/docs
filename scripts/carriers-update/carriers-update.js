@@ -2548,7 +2548,12 @@ const generatorConfig = require('./generator-config');
                         columns: [],
                     };
                     let tableData = [];
-    
+
+                    tableOptions.columns.push({
+                        key: 'change',
+                        title: ' ',
+                    });
+
                     tableOptions.columns.push({
                         key: 'label',
                         title: ' ',
@@ -2568,13 +2573,20 @@ const generatorConfig = require('./generator-config');
                         if (!oldPin[tag] && !newPin[tag]) {
                             continue;
                         }
+
+                        let change = '';
+                        if (getPinUsage(oldPin[tag]) != getPinUsage(newPin[tag])) {
+                            change = '∆';
+                        }
+
                         tableData.push({
                             tag,
                             label: detailsForTag[tag].label,
                             oldFunction: getPinUsage(oldPin[tag]),
                             newFunction: getPinUsage(newPin[tag]),
+                            change,
                         });
-        
+
                     }    
 
                     md += updater.generateTable(tableOptions, tableData);

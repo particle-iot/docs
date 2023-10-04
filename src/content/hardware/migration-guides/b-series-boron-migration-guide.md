@@ -472,96 +472,96 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 {{!-- BEGIN do not edit content below, it is automatically generated 09a7da10-a5d0-11ec-b909-0242ac120002 --}}
 
 #### 3V3
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 2 | 10 |
-| Pin Name | 3V3 | 3V3 |
-| Description | Regulated 3.3V DC output, maximum load 1000 mA | System power in, supply a fixed 3.0-3.6v power. |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 2 | 10 |
+| &nbsp; | Pin Name | 3V3 | 3V3 |
+| ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | System power in, supply a fixed 3.0-3.6v power. |
 #### A0
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 5 | 23 |
-| Pin Name | A0 | A0 |
-| Pin Alternate Name | D19 | D19 |
-| Description | A0 Analog in, GPIO, PWM | A0 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | A0, A1, A6, and A7 must have the same frequency. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 5 | 23 |
+| &nbsp; | Pin Name | A0 | A0 |
+| &nbsp; | Pin Alternate Name | D19 | D19 |
+| &nbsp; | Description | A0 Analog in, GPIO, PWM | A0 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | A0, A1, A6, and A7 must have the same frequency. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### A1
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 6 | 33 |
-| Pin Name | A1 | A1 |
-| Pin Alternate Name | D18 | D18 |
-| Description | A1 Analog in, GPIO, PWM | A1 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | A0, A1, A6, and A7 must have the same frequency. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 6 | 33 |
+| &nbsp; | Pin Name | A1 | A1 |
+| &nbsp; | Pin Alternate Name | D18 | D18 |
+| &nbsp; | Description | A1 Analog in, GPIO, PWM | A1 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | A0, A1, A6, and A7 must have the same frequency. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### A2
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 7 | 35 |
-| Pin Name | A2 | A2 |
-| Pin Alternate Name | D17 | D17 |
-| Description | A2 Analog in, GPIO, PWM | A2 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 7 | 35 |
+| &nbsp; | Pin Name | A2 | A2 |
+| &nbsp; | Pin Alternate Name | D17 | D17 |
+| ∆ | Description | A2 Analog in, GPIO, PWM | A2 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### A3
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 8 | 37 |
-| Pin Name | A3 | A3 |
-| Pin Alternate Name | D16 | D16 |
-| Description | A3 Analog in, GPIO, PWM | A3 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 8 | 37 |
+| &nbsp; | Pin Name | A3 | A3 |
+| &nbsp; | Pin Alternate Name | D16 | D16 |
+| ∆ | Description | A3 Analog in, GPIO, PWM | A3 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### A4
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 9 | 41 |
-| Pin Name | A4 | A4 |
-| Pin Alternate Name | D15 | D15 |
-| Description | A4 Analog in, GPIO, PWM | A4 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 9 | 41 |
+| &nbsp; | Pin Name | A4 | A4 |
+| &nbsp; | Pin Alternate Name | D15 | D15 |
+| ∆ | Description | A4 Analog in, GPIO, PWM | A4 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### A5
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 10 | 43 |
-| Pin Name | A5 | A5 |
-| Pin Alternate Name | D14 | D14 |
-| Description | A5 Analog in, GPIO, PWM, SPI SS | A5 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
-| SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 10 | 43 |
+| &nbsp; | Pin Name | A5 | A5 |
+| &nbsp; | Pin Alternate Name | D14 | D14 |
+| ∆ | Description | A5 Analog in, GPIO, PWM, SPI SS | A5 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### A6
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -616,42 +616,42 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Description | USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### D0
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 16 | 22 |
-| Pin Name | D0 | D0 |
-| Description | I2C SDA, GPIO | I2C SDA, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| I2C interface | SDA. Use Wire object. | SDA. Use Wire object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 16 | 22 |
+| &nbsp; | Pin Name | D0 | D0 |
+| &nbsp; | Description | I2C SDA, GPIO | I2C SDA, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### D1
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 17 | 20 |
-| Pin Name | D1 | D1 |
-| Description | I2C SCL, GPIO | I2C SCL, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| I2C interface | SCL. Use Wire object. | SCL. Use Wire object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 17 | 20 |
+| &nbsp; | Pin Name | D1 | D1 |
+| &nbsp; | Description | I2C SCL, GPIO | I2C SCL, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### D2
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 18 | 42 |
-| Pin Name | D2 | D2 |
-| Description | SPI1 SCK, Serial1 RTS, GPIO, PWM | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
-| UART serial | Optional RTS hardware flow control for Serial1 | Optional RTS hardware flow control for Serial1 |
-| SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
-| I2C interface | n/a | SDA. Use Wire1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 18 | 42 |
+| &nbsp; | Pin Name | D2 | D2 |
+| ∆ | Description | SPI1 SCK, Serial1 RTS, GPIO, PWM | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| &nbsp; | UART serial | RTS. Use Serial1 object. | RTS. Use Serial1 object. |
+| &nbsp; | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
+| ∆ | I2C interface | n/a | SDA. Use Wire1 object. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### D22
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -673,82 +673,82 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull-up or pull-down resistance | 13K|
 #### D3
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 19 | 40 |
-| Pin Name | D3 | D3 |
-| Description | SPI1 MOSI, Serial1 CTS, PWM, GPIO | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
-| UART serial | Optional CTS hardware flow control for Serial1 | Optional CTS hardware flow control for Serial1 |
-| SPI interface | MOSI. Use SPI1 object. | MOSI. Use SPI1 object. |
-| I2C interface | n/a | SCL. Use Wire1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 19 | 40 |
+| &nbsp; | Pin Name | D3 | D3 |
+| ∆ | Description | SPI1 MOSI, Serial1 CTS, PWM, GPIO | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| &nbsp; | UART serial | CTS. Use Serial1 object. | CTS. Use Serial1 object. |
+| &nbsp; | SPI interface | MOSI. Use SPI1 object. | MOSI. Use SPI1 object. |
+| ∆ | I2C interface | n/a | SCL. Use Wire1 object. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### D4
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 20 | 66 |
-| Pin Name | D4 | D4 |
-| Description | SPI1 MISO, PWM, GPIO | SPI1 MISO, PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | D4, D5, and D6 must have the same frequency. |
-| SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 20 | 66 |
+| &nbsp; | Pin Name | D4 | D4 |
+| &nbsp; | Description | SPI1 MISO, PWM, GPIO | SPI1 MISO, PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | D4, D5, and D6 must have the same frequency. |
+| &nbsp; | SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### D5
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 21 | 68 |
-| Pin Name | D5 | D5 |
-| Description | PWM, GPIO | PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | D4, D5, and D6 must have the same frequency. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 21 | 68 |
+| &nbsp; | Pin Name | D5 | D5 |
+| &nbsp; | Description | PWM, GPIO | PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | D4, D5, and D6 must have the same frequency. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### D6
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 22 | 70 |
-| Pin Name | D6 | D6 |
-| Description | PWM, GPIO | PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | D4, D5, and D6 must have the same frequency. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 22 | 70 |
+| &nbsp; | Pin Name | D6 | D6 |
+| &nbsp; | Description | PWM, GPIO | PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | D4, D5, and D6 must have the same frequency. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### D7
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 23 | 72 |
-| Pin Name | D7 | D7 |
-| Description | PWM, GPIO | PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 23 | 72 |
+| &nbsp; | Pin Name | D7 | D7 |
+| &nbsp; | Description | PWM, GPIO | PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### D8
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 24 | 48 |
-| Pin Name | D8 | D8 |
-| Pin Alternate Name | WKP | n/a |
-| Description | GPIO, PWM | GPIO, SPI SS, Ethernet CS |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
-| SPI interface | n/a | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 24 | 48 |
+| &nbsp; | Pin Name | D8 | D8 |
+| ∆ | Pin Alternate Name | WKP | n/a |
+| ∆ | Description | GPIO, PWM | GPIO, SPI SS, Ethernet CS |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| ∆ | SPI interface | n/a | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### EN
 | | Removed from Boron |
 | :--- | :--- |
@@ -756,11 +756,11 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### GND
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 4 | 1 |
-| Pin Name | GND | GND |
-| Description | Ground. | Ground. |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 4 | 1 |
+| &nbsp; | Pin Name | GND | GND |
+| &nbsp; | Description | Ground. | Ground. |
 #### LI+
 | | Removed from Boron |
 | :--- | :--- |
@@ -768,36 +768,36 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 #### MISO
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 13 | 50 |
-| Pin Name | MISO | MISO |
-| Pin Alternate Name | D11 | D11 |
-| Description | SPI MISO, GPIO | SPI MISO, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 13 | 50 |
+| &nbsp; | Pin Name | MISO | MISO |
+| &nbsp; | Pin Alternate Name | D11 | D11 |
+| &nbsp; | Description | SPI MISO, GPIO | SPI MISO, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### MODE
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 3 | 32 |
-| Pin Name | MODE | MODE |
-| Pin Alternate Name | D20 | D20 |
-| Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 3 | 32 |
+| &nbsp; | Pin Name | MODE | MODE |
+| &nbsp; | Pin Alternate Name | D20 | D20 |
+| &nbsp; | Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
 #### MOSI
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 12 | 52 |
-| Pin Name | MOSI | MOSI |
-| Pin Alternate Name | D12 | D12 |
-| Description | SPI MOSI, GPIO | SPI MOSI, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 12 | 52 |
+| &nbsp; | Pin Name | MOSI | MOSI |
+| &nbsp; | Pin Alternate Name | D12 | D12 |
+| &nbsp; | Description | SPI MOSI, GPIO | SPI MOSI, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### NC
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -841,35 +841,35 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Pin Name | RGBR|
 | Description | RGB LED Red|
 #### RST
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 1 | 34 |
-| Pin Name | RST | RST |
-| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 1 | 34 |
+| &nbsp; | Pin Name | RST | RST |
+| ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### RX
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 14 | 38 |
-| Pin Name | RX | RX |
-| Pin Alternate Name | D10 | D10 |
-| Description | Serial RX, GPIO | Serial RX, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | RX Use Serial1 object. | RX Use Serial1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 14 | 38 |
+| &nbsp; | Pin Name | RX | RX |
+| &nbsp; | Pin Alternate Name | D10 | D10 |
+| &nbsp; | Description | Serial RX, GPIO | Serial RX, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### SCK
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 11 | 54 |
-| Pin Name | SCK | SCK |
-| Pin Alternate Name | D13 | D13 |
-| Description | SPI SCK, GPIO | SPI SCK, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 11 | 54 |
+| &nbsp; | Pin Name | SCK | SCK |
+| &nbsp; | Pin Alternate Name | D13 | D13 |
+| &nbsp; | Description | SPI SCK, GPIO | SPI SCK, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### SIM_CLK
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -895,17 +895,17 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### TX
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 15 | 36 |
-| Pin Name | TX | TX |
-| Pin Alternate Name | D09 | D9 |
-| Description | Serial TX, GPIO | Serial TX, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | TX Use Serial1 object. | TX Use Serial1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 13K | 13K |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 15 | 36 |
+| &nbsp; | Pin Name | TX | TX |
+| ∆ | Pin Alternate Name | D09 | D9 |
+| &nbsp; | Description | Serial TX, GPIO | Serial TX, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
+| &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| &nbsp; | Internal pull-up or pull-down resistance | 13K | 13K |
 #### USBDATA-
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -927,12 +927,12 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Pin Name | VCC|
 | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power.|
 #### VUSB
-|   | Boron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 25 | 16 |
-| Pin Name | VUSB | VUSB |
-| Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | USB VUSB power pin |
-| Input is 5V Tolerant | Yes | Yes |
+|   |   | Boron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 25 | 16 |
+| &nbsp; | Pin Name | VUSB | VUSB |
+| ∆ | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | USB VUSB power pin |
+| &nbsp; | Input is 5V Tolerant | Yes | Yes |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

@@ -137,8 +137,8 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | A0 / D19 | 23 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
 | A1 / D18 | 33 | ADC_1 | &nbsp; | &nbsp; | &nbsp; | PB[5] |
 | A2 / D17 | 35 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | PB[6] |
-| A3 | 37 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
-| A4 | 41 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
+| A3 / D16 | 37 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
+| A4 / D15 | 41 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
 | A5 / D14 | 43 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
 | A5 / D14 | 53 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
 | A6 / D29 | 45 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[3] |
@@ -202,10 +202,10 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 33 | A1 / D18 | ADC_1 | &nbsp; | &nbsp; | &nbsp; | PB[5] |
 | 35 | A2 / D17 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | PB[6] |
 | 36 | TX / D9 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | PA[12] |
-| 37 | A3 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
+| 37 | A3 / D16 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
 | 38 | RX / D10 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | PA[13] |
 | 40 | D3 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | PA[15] |
-| 41 | A4 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
+| 41 | A4 / D15 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
 | 42 | D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
 | 43 | A5 / D14 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
 | 44 | CELL USBD+ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
@@ -256,10 +256,10 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 33 | A1 / D18 | &check; | PB[5] |
 | 35 | A2 / D17 | &check; | PB[6] |
 | 36 | TX / D9 | &check; | PA[12] |
-| 37 | A3 | &check; | PB[1] |
+| 37 | A3 / D16 | &check; | PB[1] |
 | 38 | RX / D10 | &check; | PA[13] |
 | 40 | D3 | &check; | PA[15] |
-| 41 | A4 | &check; | PB[2] |
+| 41 | A4 / D15 | &check; | PB[2] |
 | 42 | D2 | &check; | PA[14] |
 | 43 | A5 / D14 | &check; | PB[3] |
 | 45 | A6 / D29 | &check; | PB[3] |
@@ -295,8 +295,8 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 23 | A0 / D19 | A0 Analog in, GPIO, PWM | ADC_0 | PB[4] |
 | 33 | A1 / D18 | A1 Analog in, GPIO, PWM | ADC_1 | PB[5] |
 | 35 | A2 / D17 | A2 Analog in, GPIO | ADC_2 | PB[6] |
-| 37 | A3 | A3 Analog in, GPIO | ADC_4 | PB[1] |
-| 41 | A4 | A4 Analog in, GPIO | ADC_5 | PB[2] |
+| 37 | A3 / D16 | A3 Analog in, GPIO | ADC_4 | PB[1] |
+| 41 | A4 / D15 | A4 Analog in, GPIO | ADC_5 | PB[2] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | ADC_6 | PB[3] |
 | 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | ADC_3 | PB[3] |
 | 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | ADC_7 | PA[20] |

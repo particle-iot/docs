@@ -718,101 +718,101 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 {{!-- BEGIN do not edit content below, it is automatically generated 4ca93c19-3cd8-4edf-ae24-d5a3ab433844 --}}
 
 #### 3V3
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 36 | 10 |
-| Pin Name | 3V3 | 3V3 |
-| Description | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | System power in, supply a fixed 3.0-3.6v power. |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 36 | 10 |
+| &nbsp; | Pin Name | 3V3 | 3V3 |
+| ∆ | Description | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | System power in, supply a fixed 3.0-3.6v power. |
 #### A0
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 12 | 23 |
-| Pin Name | A0 | A0 |
-| Pin Alternate Name | n/a | D19 |
-| Description | A0 Analog in, GPIO | A0 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 12 | 23 |
+| &nbsp; | Pin Name | A0 | A0 |
+| ∆ | Pin Alternate Name | n/a | D19 |
+| ∆ | Description | A0 Analog in, GPIO | A0 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A1
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 11 | 33 |
-| Pin Name | A1 | A1 |
-| Pin Alternate Name | n/a | D18 |
-| Description | A1 Analog in, GPIO | A1 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
-| Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 11 | 33 |
+| &nbsp; | Pin Name | A1 | A1 |
+| ∆ | Pin Alternate Name | n/a | D18 |
+| ∆ | Description | A1 Analog in, GPIO | A1 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A2
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 10 | 35 |
-| Pin Name | A2 | A2 |
-| Pin Alternate Name | n/a | D17 |
-| Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
-| Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 10 | 35 |
+| &nbsp; | Pin Name | A2 | A2 |
+| ∆ | Pin Alternate Name | n/a | D17 |
+| ∆ | Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
+| ∆ | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A3
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 9 | 37 |
-| Pin Name | A3 | A3 |
-| Pin Alternate Name | n/a | D16 |
-| Description | A3 True analog out, analog in, GPIO. | A3 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (DAC) | Yes | No |
-| SPI interface | SCK. Use SPI object. | n/a |
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 9 | 37 |
+| &nbsp; | Pin Name | A3 | A3 |
+| ∆ | Pin Alternate Name | n/a | D16 |
+| ∆ | Description | A3 True analog out, analog in, GPIO. | A3 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (DAC) | Yes | No |
+| ∆ | SPI interface | SCK. Use SPI object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
 #### A4
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 8 | 41 |
-| Pin Name | A4 | A4 |
-| Pin Alternate Name | n/a | D15 |
-| Description | A4 Analog in, GPIO, SPI MISO. | A4 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
-| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
-| SPI interface | MISO. Use SPI object. | n/a |
-| Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 8 | 41 |
+| &nbsp; | Pin Name | A4 | A4 |
+| ∆ | Pin Alternate Name | n/a | D15 |
+| ∆ | Description | A4 Analog in, GPIO, SPI MISO. | A4 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
+| ∆ | Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
+| ∆ | SPI interface | MISO. Use SPI object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 7 | 43 |
-| Pin Name | A5 | A5 |
-| Pin Alternate Name | n/a | D14 |
-| Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
-| Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
-| SPI interface | MOSI. Use SPI object. | n/a |
-| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 7 | 43 |
+| &nbsp; | Pin Name | A5 | A5 |
+| ∆ | Pin Alternate Name | n/a | D14 |
+| ∆ | Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
+| ∆ | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
+| ∆ | SPI interface | MOSI. Use SPI object. | n/a |
+| ∆ | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### AGND
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1000,52 +1000,52 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Description | USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### D0
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 25 | 22 |
-| Pin Name | D0 | D0 |
-| Description | D0 GPIO, I2C SDA | I2C SDA, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. |
-| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 25 | 22 |
+| &nbsp; | Pin Name | D0 | D0 |
+| ∆ | Description | D0 GPIO, I2C SDA | I2C SDA, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| ∆ | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. |
+| ∆ | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### D1
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 26 | 20 |
-| Pin Name | D1 | D1 |
-| Description | D0 GPIO, I2C SCL, CAN TX | I2C SCL, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. |
-| Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| CAN interface | CAN2_TX | n/a |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 26 | 20 |
+| &nbsp; | Pin Name | D1 | D1 |
+| ∆ | Description | D0 GPIO, I2C SCL, CAN TX | I2C SCL, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| ∆ | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. |
+| ∆ | Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | CAN interface | CAN2_TX | n/a |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### D2
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 27 | 42 |
-| Pin Name | D2 | D2 |
-| Description | D2 GPIO, SPI1 MOSI, CAN RX | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
-| Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
-| UART serial | n/a | Optional RTS hardware flow control for Serial1 |
-| SPI interface | MOSI. Use SPI1 object. | SCK. Use SPI1 object. |
-| I2C interface | n/a | SDA. Use Wire1 object. |
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| CAN interface | CAN2_RX | n/a |
-| I2S interface | I2S3_SD | n/a |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 27 | 42 |
+| &nbsp; | Pin Name | D2 | D2 |
+| ∆ | Description | D2 GPIO, SPI1 MOSI, CAN RX | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
+| ∆ | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
+| ∆ | UART serial | n/a | RTS. Use Serial1 object. |
+| ∆ | SPI interface | MOSI. Use SPI1 object. | SCK. Use SPI1 object. |
+| ∆ | I2C interface | n/a | SDA. Use Wire1 object. |
+| ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | CAN interface | CAN2_RX | n/a |
+| ∆ | I2S interface | I2S3_SD | n/a |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### D22
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1067,87 +1067,87 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull-up or pull-down resistance | 13K|
 #### D3
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 28 | 40 |
-| Pin Name | D3 | D3 |
-| Description | D3 GPIO, SPI1 MISO | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
-| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
-| UART serial | n/a | Optional CTS hardware flow control for Serial1 |
-| SPI interface | MISO. Use SPI1 object. | MOSI. Use SPI1 object. |
-| I2C interface | n/a | SCL. Use Wire1 object. |
-| Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
-| Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 28 | 40 |
+| &nbsp; | Pin Name | D3 | D3 |
+| ∆ | Description | D3 GPIO, SPI1 MISO | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
+| ∆ | Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
+| ∆ | UART serial | n/a | CTS. Use Serial1 object. |
+| ∆ | SPI interface | MISO. Use SPI1 object. | MOSI. Use SPI1 object. |
+| ∆ | I2C interface | n/a | SCL. Use Wire1 object. |
+| ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
+| ∆ | Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
 #### D4
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 29 | 66 |
-| Pin Name | D4 | D4 |
-| Description | D4 GPIO, SPI1 SCK | SPI1 MISO, PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | D4, D5, and D6 must have the same frequency. |
-| SPI interface | SCK. Use SPI1 object. | MISO. Use SPI1 object. |
-| Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| I2S interface | I2S3_SCK | n/a |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG TDO. Floating at boot. | n/a |
-| Signal used at boot | JTAG TDO. Floating at boot. | n/a |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 29 | 66 |
+| &nbsp; | Pin Name | D4 | D4 |
+| ∆ | Description | D4 GPIO, SPI1 SCK | SPI1 MISO, PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | D4, D5, and D6 must have the same frequency. |
+| ∆ | SPI interface | SCK. Use SPI1 object. | MISO. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | I2S interface | I2S3_SCK | n/a |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG TDO. Floating at boot. | n/a |
+| ∆ | Signal used at boot | JTAG TDO. Floating at boot. | n/a |
 #### D5
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 30 | 68 |
-| Pin Name | D5 | D5 |
-| Description | D5 GPIO, SPI1 SS | PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | D4, D5, and D6 must have the same frequency. |
-| SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
-| Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
-| I2S interface | I2S3_WS | n/a |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
-| Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 30 | 68 |
+| &nbsp; | Pin Name | D5 | D5 |
+| ∆ | Description | D5 GPIO, SPI1 SS | PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | D4, D5, and D6 must have the same frequency. |
+| ∆ | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | I2S interface | I2S3_WS | n/a |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
+| ∆ | Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
 #### D6
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 31 | 70 |
-| Pin Name | D6 | D6 |
-| Description | D6 GPIO, SWCLK | PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | D4, D5, and D6 must have the same frequency. |
-| Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
-| SWD interface | SWCLK. 40K pull-down at boot. | n/a |
-| Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | n/a |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 31 | 70 |
+| &nbsp; | Pin Name | D6 | D6 |
+| ∆ | Description | D6 GPIO, SWCLK | PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | D4, D5, and D6 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
+| ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
+| ∆ | Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | n/a |
 #### D7
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 32 | 72 |
-| Pin Name | D7 | D7 |
-| Description | D7 GPIO, Blue LED, SWDIO | PWM, GPIO |
-| Supports digitalRead | Yes. But the on-board LED will light when 3.3V is supplied on this pin as well. | Yes |
-| Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes |
-| Supports analogWrite (PWM) | No | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. |
-| Supports attachInterrupt | No. Shared with BAT_INT_PC13. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
-| JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
-| SWD interface | SWDIO. 40K pull-up at boot. | n/a |
-| Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | n/a |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 32 | 72 |
+| &nbsp; | Pin Name | D7 | D7 |
+| ∆ | Description | D7 GPIO, Blue LED, SWDIO | PWM, GPIO |
+| ∆ | Supports digitalRead | Yes. But the on-board LED will light when 3.3V is supplied on this pin as well. | Yes |
+| ∆ | Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes |
+| ∆ | Supports analogWrite (PWM) | No | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. |
+| ∆ | Supports attachInterrupt | No. Shared with BAT_INT_PC13. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
+| ∆ | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
+| ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
+| ∆ | Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | n/a |
 #### D8
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1160,26 +1160,26 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull-up or pull-down resistance | 13K|
 #### DAC
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 6 | 45 |
-| Pin Name | DAC | A6 |
-| Pin Alternate Name | A6 | n/a |
-| Description | DAC/A6 True analog out, analog in, GPIO. | A6 Analog in, PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (DAC) | Yes | No |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
-| Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 6 | 45 |
+| ∆ | Pin Name | DAC | A6 |
+| ∆ | Pin Alternate Name | A6 | n/a |
+| ∆ | Description | DAC/A6 True analog out, analog in, GPIO. | A6 Analog in, PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (DAC) | Yes | No |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
 #### GND
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 2 | 1 |
-| Pin Name | GND | GND |
-| Description | Ground. You only need to use one of the Photon ground pins. | Ground. |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 2 | 1 |
+| &nbsp; | Pin Name | GND | GND |
+| ∆ | Description | Ground. You only need to use one of the Photon ground pins. | Ground. |
 #### MISO
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1254,26 +1254,26 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Pin Name | RGBR|
 | Description | RGB LED Red|
 #### RST
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 35 | 34 |
-| Pin Name | RST | RST |
-| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 35 | 34 |
+| &nbsp; | Pin Name | RST | RST |
+| ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### RX
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 4 | 38 |
-| Pin Name | RX | RX |
-| Pin Alternate Name | n/a | D10 |
-| Description | Serial1 RX (received data), GPIO, PWM. | Serial RX, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| UART serial | RX. Use Serial1 object. | RX Use Serial1 object. |
-| Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 4 | 38 |
+| &nbsp; | Pin Name | RX | RX |
+| ∆ | Pin Alternate Name | n/a | D10 |
+| ∆ | Description | Serial1 RX (received data), GPIO, PWM. | Serial RX, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
+| ∆ | Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### SCK
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1311,20 +1311,20 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### TX
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 3 | 36 |
-| Pin Name | TX | TX |
-| Pin Alternate Name | n/a | D9 |
-| Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial TX, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| UART serial | TX. Use Serial1 object. | TX Use Serial1 object. |
-| Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 3 | 36 |
+| &nbsp; | Pin Name | TX | TX |
+| ∆ | Pin Alternate Name | n/a | D9 |
+| ∆ | Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial TX, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
+| ∆ | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### USBDATA-
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1365,20 +1365,20 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Description | USB VUSB power pin|
 | Input is 5V Tolerant | Yes|
 #### WKP
-|   | Electron | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 5 | 47 |
-| Pin Name | WKP | A7 |
-| Pin Alternate Name | A7 | n/a |
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | A7 Analog in, GPIO, Ethernet Reset |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | Yes | A0, A1, A6, and A7 must have the same frequency. |
-| Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Electron | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 5 | 47 |
+| ∆ | Pin Name | WKP | A7 |
+| ∆ | Pin Alternate Name | A7 | n/a |
+| ∆ | Description | WKP/A7 Wakeup (active high), analog in, GPIO. | A7 Analog in, GPIO, Ethernet Reset |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | Yes | A0, A1, A6, and A7 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

@@ -1440,7 +1440,13 @@ ADC3    </text>
     </rect>
     <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A3    </text>
-    <line x1="158" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
+    <line x1="158" y1="0" x2="162" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    </rect>
+    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+D16    </text>
+    <line x1="192" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>
@@ -1498,7 +1504,13 @@ RESERVED    </text>
     </rect>
     <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A4    </text>
-    <line x1="158" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
+    <line x1="158" y1="0" x2="162" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
+    </rect>
+    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+D15    </text>
+    <line x1="192" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>

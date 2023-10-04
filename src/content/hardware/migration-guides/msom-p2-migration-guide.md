@@ -69,14 +69,14 @@ The P2 land pattern is:
 | A0 / D11 | &check; | 23 | A0 / D19 | &check; |
 | A1 / D12 | &check; | 33 | A1 / D18 | &check; |
 | A2 / D13 | &check; | 35 | A2 / D17 | &check; |
-| &nbsp; | &nbsp; | 37 | A3 | &check; |
-| &nbsp; | &nbsp; | 41 | A4 | &check; |
 | A5 / D14 | &check; | 43 | A5 / D14 | &check; |
 | &nbsp; | &nbsp; | 53 | A5 / D14 | &check; |
 | &nbsp; | &nbsp; | 45 | A6 / D29 | &check; |
 | &nbsp; | &nbsp; | 47 | A7 / WKP | &check; |
 | D0 / A3 | &check; | 22 | D0 | &nbsp; |
 | D1 / A4 | &check; | 20 | D1 | &nbsp; |
+| S0 / D15 | &nbsp; | 41 | A4 / D15 | &check; |
+| S1 / D16 | &nbsp; | 37 | A3 / D16 | &check; |
 | S2 / D17 | &nbsp; | 35 | A2 / D17 | &check; |
 | S3 / D18 | &nbsp; | 33 | A1 / D18 | &check; |
 | S4 / D19 | &nbsp; | 23 | A0 / D19 | &check; |
@@ -97,6 +97,8 @@ The P2 land pattern is:
 | P2 Pin Name | P2 Serial | M SoM Pin | M SoM Pin Name | M SoM Serial |
 | :--- | :--- | :---: | :--- | :--- |
 | D10 / WKP | Serial3 (CTS) | 38 | RX / D10 | Serial1 (RX)  |
+| S0 / D15 | Serial3 (TX) | 41 | A4 / D15 | &nbsp; |
+| S1 / D16 | Serial3 (RX) | 37 | A3 / D16 | &nbsp; |
 | S2 / D17 | Serial3 (RTS) | 35 | A2 / D17 | &nbsp; |
 | D2 | Serial2 (RTS) | 42 | D2 | Serial1 (RTS)  |
 | &nbsp; | &nbsp; | 58 | D24 | Serial2 (TX)  |
@@ -105,8 +107,6 @@ The P2 land pattern is:
 | D4 | Serial2 (TX) | 66 | D4 | &nbsp; |
 | D5 | Serial2 (RX) | 68 | D5 | &nbsp; |
 | RX / D9 | Serial1 (RX)  | 36 | TX / D9 | Serial1 (TX) |
-| S0 / D15 | Serial3 (TX) | &nbsp; | &nbsp; | &nbsp; |
-| S1 / D16 | Serial3 (RX) | &nbsp; | &nbsp; | &nbsp; |
 | TX / D8 | Serial1 (TX) | 36 | TX / D9 | Serial1 (TX) |
 
 
@@ -121,6 +121,8 @@ The P2 land pattern is:
 | P2 Pin Name | P2 SPI | M SoM Pin | M SoM Pin Name | M SoM SPI |
 | :--- | :--- | :---: | :--- | :--- |
 | D10 / WKP | &nbsp; | 38 | RX / D10 | SPI1 (MISO) |
+| S0 / D15 | SPI (MOSI) | 41 | A4 / D15 | &nbsp; |
+| S1 / D16 | SPI (MISO) | 37 | A3 / D16 | &nbsp; |
 | S2 / D17 | SPI (SCK) | 35 | A2 / D17 | &nbsp; |
 | S3 / D18 | SPI (SS) | 33 | A1 / D18 | &nbsp; |
 | D2 | SPI1 (MOSI) | 42 | D2 | SPI1 (SCK) |
@@ -131,8 +133,6 @@ The P2 land pattern is:
 | RX / D9 | &nbsp; | 36 | TX / D9 | SPI1 (MOSI) |
 | &nbsp; | &nbsp; | 50 | MISO / D11 | SPI (MISO) |
 | &nbsp; | &nbsp; | 52 | MOSI / D12 | SPI (MOSI) |
-| S0 / D15 | SPI (MOSI) | &nbsp; | &nbsp; | &nbsp; |
-| S1 / D16 | SPI (MISO) | &nbsp; | &nbsp; | &nbsp; |
 | &nbsp; | &nbsp; | 54 | SCK / D13 | SPI (SCK) |
 | TX / D8 | &nbsp; | 36 | TX / D9 | SPI1 (MOSI) |
 
@@ -169,6 +169,8 @@ The P2 land pattern is:
 | &nbsp; | &nbsp; | 45 | A6 / D29 | &check; |
 | D1 / A4 | &check; | 20 | D1 | &nbsp; |
 | D10 / WKP | &nbsp; | 38 | RX / D10 | &check; |
+| S0 / D15 | &check; | 41 | A4 / D15 | &nbsp; |
+| S1 / D16 | &check; | 37 | A3 / D16 | &nbsp; |
 | S3 / D18 | &nbsp; | 33 | A1 / D18 | &check; |
 | S4 / D19 | &nbsp; | 23 | A0 / D19 | &check; |
 | D4 | &nbsp; | 66 | D4 | &check; |
@@ -178,8 +180,6 @@ The P2 land pattern is:
 | RX / D9 | &nbsp; | 36 | TX / D9 | &check; |
 | &nbsp; | &nbsp; | 50 | MISO / D11 | &check; |
 | &nbsp; | &nbsp; | 52 | MOSI / D12 | &check; |
-| S0 / D15 | &check; | &nbsp; | &nbsp; | &nbsp; |
-| S1 / D16 | &check; | &nbsp; | &nbsp; | &nbsp; |
 | TX / D8 | &nbsp; | 36 | TX / D9 | &check; |
 
 
@@ -187,16 +187,20 @@ The P2 land pattern is:
 
 - PWM pins vary between the P2 and M SoM
 
+### Wake from hibernate vs. Boron or Argon
+
+The M SoM can only wake from `HIBERNATE` on the `WKP` pin. `WKP` is pin D10 on the P2, but on the M SoM (and B SoM), it is pin A7.
+
 ### Full comparison
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated f892e697-679e-4e73-99f6-c396698f3b87 --}}
 
 #### 3V3
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | 3V3 | 3V3 |
-| Description | 3.3V power to MCU | System power in, supply a fixed 3.3V power, 500 mA minimum |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | 3V3 | 3V3 |
+| ∆ | Description | 3.3V power to MCU | System power in, supply a fixed 3.3V power, 500 mA minimum |
 #### 3V3_IO
 | | Removed from P2 |
 | :--- | :--- |
@@ -208,77 +212,57 @@ The P2 land pattern is:
 | Pin Name | 3V3_RF|
 | Description | 3.3V power to RF module|
 #### A0
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | A0 | A0 |
-| Pin Alternate Name | D11 | D19 |
-| Description | A0 Analog in, GPIO | A0 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 2.1K | 42K |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A0 | A0 |
+| ∆ | Pin Alternate Name | D11 | D19 |
+| ∆ | Description | A0 Analog in, GPIO | A0 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 2.1K | 42K |
 #### A1
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | A1 | A1 |
-| Pin Alternate Name | D12 | D18 |
-| Description | A1 Analog in, GPIO | A1 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 2.1K | ??? |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A1 | A1 |
+| ∆ | Pin Alternate Name | D12 | D18 |
+| ∆ | Description | A1 Analog in, GPIO | A1 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 2.1K | ??? |
 #### A2
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | A2 | A2 |
-| Pin Alternate Name | D13 | D17 |
-| Description | A2 Analog in, PWM, GPIO | A2 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 42K | 22K |
-#### A3
-| | Added to M SoM |
-| :--- | :--- |
-| Pin Name | A3|
-| Description | A3 Analog in, GPIO|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| Supports analogRead | Yes|
-| Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
-#### A4
-| | Added to M SoM |
-| :--- | :--- |
-| Pin Name | A4|
-| Description | A4 Analog in, GPIO|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| Supports analogRead | Yes|
-| Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A2 | A2 |
+| ∆ | Pin Alternate Name | D13 | D17 |
+| ∆ | Description | A2 Analog in, PWM, GPIO | A2 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 42K | 22K |
 #### A5
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | A5 | A5 |
-| Pin Alternate Name | D14 | D14 |
-| Description | A5 Analog in, GPIO, PWM. | A5 Analog in, PWM, GPIO, shared with pin 53 |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | Yes | Yes |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 42K | ??? |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A5 | A5 |
+| &nbsp; | Pin Alternate Name | D14 | D14 |
+| ∆ | Description | A5 Analog in, GPIO, PWM. | A5 Analog in, PWM, GPIO, shared with pin 53 |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| &nbsp; | Supports tone | Yes | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 42K | ??? |
 #### A5
 | | Added to M SoM |
 | :--- | :--- |
@@ -349,96 +333,126 @@ The P2 land pattern is:
 | Pin Name | CELL_RI|
 | Description | CELL_RI, ring indicator output, leave unconnected.|
 #### D0
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D0 | D0 |
-| Pin Alternate Name | A3 | n/a |
-| Description | D0 GPIO, I2C SDA, A3 Analog In | D0 GPIO, I2C SDA |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | No |
-| I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 22K | ??? |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D0 | D0 |
+| ∆ | Pin Alternate Name | A3 | n/a |
+| ∆ | Description | D0 GPIO, I2C SDA, A3 Analog In | D0 GPIO, I2C SDA |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | Yes | No |
+| &nbsp; | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 22K | ??? |
 #### D1
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D1 | D1 |
-| Pin Alternate Name | A4 | n/a |
-| Description | D1 GPIO, PWM, I2C SCL, A4 Analog In | D1 GPIO, I2C SCL |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | No |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 22K | ??? |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D1 | D1 |
+| ∆ | Pin Alternate Name | A4 | n/a |
+| ∆ | Description | D1 GPIO, PWM, I2C SCL, A4 Analog In | D1 GPIO, I2C SCL |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | Yes | No |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 22K | ??? |
 #### D10
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D10 | RX |
-| Pin Alternate Name | WKP | D10 |
-| Description | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | Serial RX, PWM, GPIO, SPI1 MISO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| UART serial | CTS. Use Serial3 object. Flow control optional. | RX. Use Serial1 object. |
-| SPI interface | n/a | MISO. Use SPI1 object. |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 2.1K | 2.1K |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | D10 | RX |
+| ∆ | Pin Alternate Name | WKP | D10 |
+| ∆ | Description | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | Serial RX, PWM, GPIO, SPI1 MISO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | UART serial | CTS. Use Serial3 object. Flow control optional. | RX. Use Serial1 object. |
+| ∆ | SPI interface | n/a | MISO. Use SPI1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| &nbsp; | Internal pull-up or pull-down resistance | 2.1K | 2.1K |
+#### D15
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | S0 | A4 |
+| &nbsp; | Pin Alternate Name | D15 | D15 |
+| ∆ | Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | A4 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| ∆ | UART serial | TX. Use Serial3 object. | n/a |
+| ∆ | SPI interface | MOSI. Use SPI object. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| &nbsp; | Internal pull-up or pull-down resistance | 2.1K | 2.1K |
+#### D16
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | S1 | A3 |
+| &nbsp; | Pin Alternate Name | D16 | D16 |
+| ∆ | Description | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | A3 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| ∆ | UART serial | RX. Use Serial3 object. | n/a |
+| ∆ | SPI interface | MISO. Use SPI object. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| &nbsp; | Internal pull-up or pull-down resistance | 2.1K | 2.1K |
 #### D17
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | S2 | A2 |
-| Pin Alternate Name | D17 | D17 |
-| Description | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | A2 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | No | Yes |
-| UART serial | RTS. Use Serial3 object. Flow control optional. | n/a |
-| SPI interface | SCK. Use SPI object. | n/a |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 2.1K | 22K |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | S2 | A2 |
+| &nbsp; | Pin Alternate Name | D17 | D17 |
+| ∆ | Description | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | A2 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | UART serial | RTS. Use Serial3 object. Flow control optional. | n/a |
+| ∆ | SPI interface | SCK. Use SPI object. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 2.1K | 22K |
 #### D18
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | S3 | A1 |
-| Pin Alternate Name | D18 | D18 |
-| Description | S3 GPIO. (Was P1S3 on P1.), SPI SS | A1 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| SPI interface | Default SS for SPI. | n/a |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 2.1K | ??? |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | S3 | A1 |
+| &nbsp; | Pin Alternate Name | D18 | D18 |
+| ∆ | Description | S3 GPIO. (Was P1S3 on P1.), SPI SS | A1 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | SPI interface | Default SS for SPI. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 2.1K | ??? |
 #### D19
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | S4 | A0 |
-| Pin Alternate Name | D19 | D19 |
-| Description | S4 GPIO. (Was P1S4 on P1.) | A0 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | 42K |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | S4 | A0 |
+| &nbsp; | Pin Alternate Name | D19 | D19 |
+| ∆ | Description | S4 GPIO. (Was P1S4 on P1.) | A0 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | 42K |
 #### D2
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D2 | D2 |
-| Description | D2 GPIO, Serial2 RTS, SPI1 MOSI | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | RTS. Use Serial2 object. Flow control optional. | RTS. Use Serial1 object. |
-| SPI interface | MOSI. Use SPI1 object. | SCK. Use SPI1 object. |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 2.1K | ??? |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D2 | D2 |
+| ∆ | Description | D2 GPIO, Serial2 RTS, SPI1 MOSI | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | UART serial | RTS. Use Serial2 object. Flow control optional. | RTS. Use Serial1 object. |
+| ∆ | SPI interface | MOSI. Use SPI1 object. | SCK. Use SPI1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 2.1K | ??? |
 #### D22
 | | Added to M SoM |
 | :--- | :--- |
@@ -499,68 +513,68 @@ The P2 land pattern is:
 | SWD interface | SWDIO. 40K pull-up at boot.|
 | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.|
 #### D3
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D3 | D3 |
-| Description | D3 GPIO, Serial2 CTS, SPI1 MISO | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | CTS. Use Serial2 object. Flow control optional. | CTS. Use Serial1 object. |
-| SPI interface | MISO. Use SPI1 object. | SS. Use SPI1 object. |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 2.1K | ??? |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D3 | D3 |
+| ∆ | Description | D3 GPIO, Serial2 CTS, SPI1 MISO | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | UART serial | CTS. Use Serial2 object. Flow control optional. | CTS. Use Serial1 object. |
+| ∆ | SPI interface | MISO. Use SPI1 object. | SS. Use SPI1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 2.1K | ??? |
 #### D4
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D4 | D4 |
-| Description | D4 GPIO, Serial2 TX, SPI1 SCK | D4 GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| UART serial | TX. Use Serial2 object. | n/a |
-| SPI interface | SCK. Use SPI1 object. | n/a |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 2.1K | ??? |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D4 | D4 |
+| ∆ | Description | D4 GPIO, Serial2 TX, SPI1 SCK | D4 GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | UART serial | TX. Use Serial2 object. | n/a |
+| ∆ | SPI interface | SCK. Use SPI1 object. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 2.1K | ??? |
 #### D5
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D5 | D5 |
-| Description | D5 GPIO, Serial2 RX, SPI1 SS | D5 GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| UART serial | RX. Use Serial2 object. | n/a |
-| SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 2.1K | ??? |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D5 | D5 |
+| ∆ | Description | D5 GPIO, Serial2 RX, SPI1 SS | D5 GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | UART serial | RX. Use Serial2 object. | n/a |
+| ∆ | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 2.1K | ??? |
 #### D6
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D6 | D6 |
-| Description | D6 GPIO, SWCLK | D6 GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 42K | ??? |
-| SWD interface | SWCLK. 40K pull-down at boot. | n/a |
-| Signal used at boot | SWCLK. 40K pull-down at boot. | n/a |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D6 | D6 |
+| ∆ | Description | D6 GPIO, SWCLK | D6 GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 42K | ??? |
+| ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
+| ∆ | Signal used at boot | SWCLK. 40K pull-down at boot. | n/a |
 #### D7
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D7 | D7 |
-| Description | D7 GPIO, SWDIO | D7 GPIO, PWM |
-| Supports digitalRead | Yes. | Yes |
-| Supports digitalWrite | Yes. On the Photon this is the blue D7 LED. | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 42K | ??? |
-| SWD interface | SWDIO. 40K pull-up at boot. | n/a |
-| Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | n/a |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D7 | D7 |
+| ∆ | Description | D7 GPIO, SWDIO | D7 GPIO, PWM |
+| ∆ | Supports digitalRead | Yes. | Yes |
+| ∆ | Supports digitalWrite | Yes. On the Photon this is the blue D7 LED. | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 42K | ??? |
+| ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
+| ∆ | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | n/a |
 #### D8
 | | Added to M SoM |
 | :--- | :--- |
@@ -572,24 +586,24 @@ The P2 land pattern is:
 | Supports attachInterrupt | Yes|
 | Internal pull-up or pull-down resistance | 2.1K|
 #### D9
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | RX | TX |
-| Pin Alternate Name | D9 | D9 |
-| Description | Serial1 RX (received data), GPIO | Serial TX, PWM, GPIO, SPI1 MOSI |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| UART serial | RX. Use Serial1 object. | TX. Use Serial1 object. |
-| SPI interface | n/a | MOSI. Use SPI1 object. |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 42K | 2.1K |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | RX | TX |
+| &nbsp; | Pin Alternate Name | D9 | D9 |
+| ∆ | Description | Serial1 RX (received data), GPIO | Serial TX, PWM, GPIO, SPI1 MOSI |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | UART serial | RX. Use Serial1 object. | TX. Use Serial1 object. |
+| ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 42K | 2.1K |
 #### GND
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | GND | GND |
-| Description | Ground. Be sure you connect all P1 ground pins. | Ground. |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | GND | GND |
+| ∆ | Description | Ground. Be sure you connect all P1 ground pins. | Ground. |
 #### GNSS_TX
 | | Added to M SoM |
 | :--- | :--- |
@@ -628,82 +642,54 @@ The P2 land pattern is:
 | Supports attachInterrupt | Yes|
 | Internal pull-up or pull-down resistance | 2.1K|
 #### NC
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | NC | NC |
-| Description | No connection. Do not connect anything to this pin. | n/a |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | NC | NC |
+| ∆ | Description | No connection. Do not connect anything to this pin. | n/a |
 #### RGBB
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | RGBB | RGBB |
-| Description | RGB LED Blue | RGB LED Blue |
-| Supports attachInterrupt | Yes | No |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | RGBB | RGBB |
+| &nbsp; | Description | RGB LED Blue | RGB LED Blue |
+| ∆ | Supports attachInterrupt | Yes | No |
 #### RGBG
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | RGBG | RGBG |
-| Description | RGB LED Green | RGB LED Green |
-| Supports attachInterrupt | Yes | No |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | RGBG | RGBG |
+| &nbsp; | Description | RGB LED Green | RGB LED Green |
+| ∆ | Supports attachInterrupt | Yes | No |
 #### RGBR
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | RGBR | RGBR |
-| Description | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot. | RGB LED Red |
-| Supports attachInterrupt | Yes | No |
-| Signal used at boot | n/a | Low at boot triggers trap mode |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | RGBR | RGBR |
+| ∆ | Description | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot. | RGB LED Red |
+| ∆ | Supports attachInterrupt | Yes | No |
+| ∆ | Signal used at boot | n/a | Low at boot triggers trap mode |
 #### RST
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | RST | RST |
-| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
-#### S0
-| | Removed from P2 |
-| :--- | :--- |
-| Pin Name | S0|
-| Pin Alternate Name | D15|
-| Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.)|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| Supports analogWrite (PWM) | Yes|
-| Supports tone | Yes|
-| UART serial | TX. Use Serial3 object.|
-| SPI interface | MOSI. Use SPI object.|
-| Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
-#### S1
-| | Removed from P2 |
-| :--- | :--- |
-| Pin Name | S1|
-| Pin Alternate Name | D16|
-| Description | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.)|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| Supports analogWrite (PWM) | Yes|
-| Supports tone | Yes|
-| UART serial | RX. Use Serial3 object.|
-| SPI interface | MISO. Use SPI object.|
-| Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | RST | RST |
+| ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### S5
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | S5 | D20 |
-| Pin Alternate Name | D20 | n/a |
-| Description | S5 GPIO. (Was P1S5 on P1.) | D20 GPIO |
-| Supports digitalRead | No | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode | ??? |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | S5 | D20 |
+| ∆ | Pin Alternate Name | D20 | n/a |
+| ∆ | Description | S5 GPIO. (Was P1S5 on P1.) | D20 GPIO |
+| ∆ | Supports digitalRead | No | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode | ??? |
 #### S6
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | S6 | D21 |
-| Pin Alternate Name | D21 | n/a |
-| Description | S6 GPIO. (Was P1S6/TESTMODE on P1.) | D21 GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | S6 | D21 |
+| ∆ | Pin Alternate Name | D21 | n/a |
+| ∆ | Description | S6 GPIO. (Was P1S6/TESTMODE on P1.) | D21 GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| &nbsp; | Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### SCK
 | | Added to M SoM |
 | :--- | :--- |
@@ -736,20 +722,20 @@ The P2 land pattern is:
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### TX
-|   | P2 | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | TX | TX |
-| Pin Alternate Name | D8 | D9 |
-| Description | Serial1 TX (transmitted data), GPIO | Serial TX, PWM, GPIO, SPI1 MOSI |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
-| SPI interface | n/a | MOSI. Use SPI1 object. |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 42K | 2.1K |
-| Signal used at boot | Low at boot triggers ISP flash download | n/a |
+|   |   | P2 | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | TX | TX |
+| ∆ | Pin Alternate Name | D8 | D9 |
+| ∆ | Description | Serial1 TX (transmitted data), GPIO | Serial TX, PWM, GPIO, SPI1 MOSI |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
+| ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 42K | 2.1K |
+| ∆ | Signal used at boot | Low at boot triggers ISP flash download | n/a |
 #### USBDATA-
 | | Unchanged between P2 and M SoM |
 | :--- | :--- |

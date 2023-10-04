@@ -49,25 +49,25 @@ The B5xx models (B524, B523) when running in 2G/3G mode require more current: 2A
 {{!-- BEGIN do not edit content below, it is automatically generated 28581230-6d89-4e9c-a7f7-7dcef556fb2b --}}
 
 #### Module Pin 2 (VCC)
-|   | B4xx SoM | B5xx SoM |
-| :--- | :--- | :--- |
-| Pin Name | VCC | VCC |
-| Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+|   |   | B4xx SoM | B5xx SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | VCC | VCC |
+| ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
 #### Module Pin 4 (VCC)
-|   | B4xx SoM | B5xx SoM |
-| :--- | :--- | :--- |
-| Pin Name | VCC | VCC |
-| Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+|   |   | B4xx SoM | B5xx SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | VCC | VCC |
+| ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
 #### Module Pin 6 (VCC)
-|   | B4xx SoM | B5xx SoM |
-| :--- | :--- | :--- |
-| Pin Name | VCC | VCC |
-| Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+|   |   | B4xx SoM | B5xx SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | VCC | VCC |
+| ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
 #### Module Pin 8 (VCC)
-|   | B4xx SoM | B5xx SoM |
-| :--- | :--- | :--- |
-| Pin Name | VCC | VCC |
-| Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+|   |   | B4xx SoM | B5xx SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | VCC | VCC |
+| ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

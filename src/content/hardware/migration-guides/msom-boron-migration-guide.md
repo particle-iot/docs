@@ -143,7 +143,7 @@ The Argon/Boron land pattern is:
 
 
 
-### ADC vs. Boron
+### ADC vs. Boron or Argon
 
 {{!-- BEGIN do not edit content below, it is automatically generated 0ad610ce-7eb9-463a-a214-3abf217f2e80 --}}
 
@@ -152,8 +152,8 @@ The Argon/Boron land pattern is:
 | A0 / D19 | &check; | 23 | A0 / D19 | &check; |
 | A1 / D18 | &check; | 33 | A1 / D18 | &check; |
 | A2 / D17 | &check; | 35 | A2 / D17 | &check; |
-| A3 / D16 | &check; | 37 | A3 | &check; |
-| A4 / D15 | &check; | 41 | A4 | &check; |
+| A3 / D16 | &check; | 37 | A3 / D16 | &check; |
+| A4 / D15 | &check; | 41 | A4 / D15 | &check; |
 | A5 / D14 | &check; | 43 | A5 / D14 | &check; |
 | &nbsp; | &nbsp; | 53 | A5 / D14 | &check; |
 | &nbsp; | &nbsp; | 45 | A6 / D29 | &check; |
@@ -166,7 +166,7 @@ The Argon/Boron land pattern is:
 - ADC inputs are single-ended and limited to 0 to 3.3V on both
 - Resolution is 12 bits on both
 
-### Serial vs. Boron
+### Serial vs. Boron or Argon
 
 {{!-- BEGIN do not edit content below, it is automatically generated 53ee9c68-d92a-4a07-b56a-7c1cfab44f60 --}}
 
@@ -185,7 +185,7 @@ The Argon/Boron land pattern is:
 - One additional UART serial port on the M SoM
 
 
-### SPI vs. Boron
+### SPI vs. Boron or Argon
 
 {{!-- BEGIN do not edit content below, it is automatically generated 1b2c8715-6448-4bb6-aebf-8a507c16a87d --}}
 
@@ -200,7 +200,7 @@ The Argon/Boron land pattern is:
 - There are two SPI interfaces on both, however SPI1 is on different pins on M SoM.
 
 
-### I2C vs. Boron
+### I2C vs. Boron or Argon
 
 {{!-- BEGIN do not edit content below, it is automatically generated d72da918-d38e-46f0-b651-0c4ddee8cad7 --}}
 
@@ -216,7 +216,7 @@ The Argon/Boron land pattern is:
 
 - 1 I2C on M SoM vs. 2 on the B Series SoM
 
-### PWM vs. Boron
+### PWM vs. Boron or Argon
 
 {{!-- BEGIN do not edit content below, it is automatically generated f8d3a842-6457-4404-ad7b-d1c47a53e638 --}}
 
@@ -225,8 +225,8 @@ The Argon/Boron land pattern is:
 | A0 / D19 | &check; | 23 | A0 / D19 | &check; |
 | A1 / D18 | &check; | 33 | A1 / D18 | &check; |
 | A2 / D17 | &check; | 35 | A2 / D17 | &nbsp; |
-| A3 / D16 | &check; | 37 | A3 | &nbsp; |
-| A4 / D15 | &check; | 41 | A4 | &nbsp; |
+| A3 / D16 | &check; | 37 | A3 / D16 | &nbsp; |
+| A4 / D15 | &check; | 41 | A4 / D15 | &nbsp; |
 | A5 / D14 | &check; | 43 | A5 / D14 | &check; |
 | &nbsp; | &nbsp; | 53 | A5 / D14 | &check; |
 | &nbsp; | &nbsp; | 45 | A6 / D29 | &check; |
@@ -245,11 +245,17 @@ The Argon/Boron land pattern is:
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-### NFC vs. B SoM
+### NFC vs. Boron or Argon
 
 The M SoM does not support NFC. 
 
 The Boron and Argon support NFC Tag mode.
+
+### Wake from hibernate vs. Boron or Argon
+
+The Boron and Argon can wake from `HIBERNATE` sleep on any pin.
+
+The M SoM can only wake from `HIBERNATE` on the `WKP` pin. Additionally, on the Boron and Argon, `WKP` is D8, but on the M SoM (and B SoM), it is pin A7.
 
 ### Full comparison
 
@@ -257,89 +263,89 @@ The Boron and Argon support NFC Tag mode.
 {{!-- BEGIN do not edit content below, it is automatically generated 92c0afb8-3e86-47bf-adc2-34873410a475 --}}
 
 #### 3V3
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | 3V3 | 3V3 |
-| Description | Regulated 3.3V DC output, maximum load 1000 mA | System power in, supply a fixed 3.3V power, 500 mA minimum |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | 3V3 | 3V3 |
+| ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | System power in, supply a fixed 3.3V power, 500 mA minimum |
 #### A0
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | A0 | A0 |
-| Pin Alternate Name | D19 | D19 |
-| Description | A0 Analog in, GPIO, PWM | A0 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 42K |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A0 | A0 |
+| &nbsp; | Pin Alternate Name | D19 | D19 |
+| &nbsp; | Description | A0 Analog in, GPIO, PWM | A0 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | 42K |
 #### A1
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | A1 | A1 |
-| Pin Alternate Name | D18 | D18 |
-| Description | A1 Analog in, GPIO, PWM | A1 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A1 | A1 |
+| &nbsp; | Pin Alternate Name | D18 | D18 |
+| &nbsp; | Description | A1 Analog in, GPIO, PWM | A1 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
 #### A2
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | A2 | A2 |
-| Pin Alternate Name | D17 | D17 |
-| Description | A2 Analog in, GPIO, PWM | A2 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 22K |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A2 | A2 |
+| &nbsp; | Pin Alternate Name | D17 | D17 |
+| ∆ | Description | A2 Analog in, GPIO, PWM | A2 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | 22K |
 #### A3
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | A3 | A3 |
-| Pin Alternate Name | D16 | n/a |
-| Description | A3 Analog in, GPIO, PWM | A3 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A3 | A3 |
+| &nbsp; | Pin Alternate Name | D16 | D16 |
+| ∆ | Description | A3 Analog in, GPIO, PWM | A3 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
 #### A4
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | A4 | A4 |
-| Pin Alternate Name | D15 | n/a |
-| Description | A4 Analog in, GPIO, PWM | A4 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A4 | A4 |
+| &nbsp; | Pin Alternate Name | D15 | D15 |
+| ∆ | Description | A4 Analog in, GPIO, PWM | A4 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
 #### A5
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | A5 | A5 |
-| Pin Alternate Name | D14 | D14 |
-| Description | A5 Analog in, GPIO, PWM, SPI SS | A5 Analog in, PWM, GPIO, shared with pin 53 |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes |
-| SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A5 | A5 |
+| &nbsp; | Pin Alternate Name | D14 | D14 |
+| ∆ | Description | A5 Analog in, GPIO, PWM, SPI SS | A5 Analog in, PWM, GPIO, shared with pin 53 |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes |
+| ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
 #### A5
 | | Added to M SoM |
 | :--- | :--- |
@@ -399,38 +405,38 @@ The Boron and Argon support NFC Tag mode.
 | Pin Name | CELL_RI|
 | Description | CELL_RI, ring indicator output, leave unconnected.|
 #### D0
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D0 | D0 |
-| Description | I2C SDA, GPIO | D0 GPIO, I2C SDA |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D0 | D0 |
+| ∆ | Description | I2C SDA, GPIO | D0 GPIO, I2C SDA |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
 #### D1
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D1 | D1 |
-| Description | I2C SCL, GPIO | D1 GPIO, I2C SCL |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D1 | D1 |
+| ∆ | Description | I2C SCL, GPIO | D1 GPIO, I2C SCL |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
 #### D2
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D2 | D2 |
-| Description | SPI1 SCK, Serial1 RTS, GPIO, PWM | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
-| UART serial | Optional RTS hardware flow control for Serial1 | RTS. Use Serial1 object. |
-| SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D2 | D2 |
+| ∆ | Description | SPI1 SCK, Serial1 RTS, GPIO, PWM | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| &nbsp; | UART serial | RTS. Use Serial1 object. | RTS. Use Serial1 object. |
+| &nbsp; | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
 #### D21
 | | Added to M SoM |
 | :--- | :--- |
@@ -500,63 +506,63 @@ The Boron and Argon support NFC Tag mode.
 | SWD interface | SWDIO. 40K pull-up at boot.|
 | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.|
 #### D3
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D3 | D3 |
-| Description | SPI1 MOSI, Serial1 CTS, PWM, GPIO | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
-| UART serial | Optional CTS hardware flow control for Serial1 | CTS. Use Serial1 object. |
-| SPI interface | MOSI. Use SPI1 object. | SS. Use SPI1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D3 | D3 |
+| ∆ | Description | SPI1 MOSI, Serial1 CTS, PWM, GPIO | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| &nbsp; | UART serial | CTS. Use Serial1 object. | CTS. Use Serial1 object. |
+| ∆ | SPI interface | MOSI. Use SPI1 object. | SS. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
 #### D4
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D4 | D4 |
-| Description | SPI1 MISO, PWM, GPIO | D4 GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
-| SPI interface | MISO. Use SPI1 object. | n/a |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D4 | D4 |
+| ∆ | Description | SPI1 MISO, PWM, GPIO | D4 GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
+| ∆ | SPI interface | MISO. Use SPI1 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
 #### D5
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D5 | D5 |
-| Description | PWM, GPIO | D5 GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D5 | D5 |
+| ∆ | Description | PWM, GPIO | D5 GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
 #### D6
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D6 | D6 |
-| Description | PWM, GPIO | D6 GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D6 | D6 |
+| ∆ | Description | PWM, GPIO | D6 GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
 #### D7
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D7 | D7 |
-| Description | PWM, GPIO | D7 GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | Yes |
-| Supports tone | No | Yes |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D7 | D7 |
+| ∆ | Description | PWM, GPIO | D7 GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
 #### D8
 | | Added to M SoM |
 | :--- | :--- |
@@ -588,28 +594,28 @@ The Boron and Argon support NFC Tag mode.
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 #### MISO
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | MISO | MISO |
-| Pin Alternate Name | D11 | D11 |
-| Description | SPI MISO, GPIO | D11 GPIO, PWM, SPI MISO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | MISO | MISO |
+| &nbsp; | Pin Alternate Name | D11 | D11 |
+| ∆ | Description | SPI MISO, GPIO | D11 GPIO, PWM, SPI MISO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
 #### MODE
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | MODE | D20 |
-| Pin Alternate Name | D20 | n/a |
-| Description | MODE button, has internal pull-up | D20 GPIO |
-| Supports digitalRead | n/a | Yes |
-| Supports digitalWrite | n/a | Yes |
-| Supports attachInterrupt | n/a | Yes |
-| Internal pull-up or pull-down resistance | n/a | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | MODE | D20 |
+| ∆ | Pin Alternate Name | D20 | n/a |
+| ∆ | Description | MODE button, has internal pull-up | D20 GPIO |
+| ∆ | Supports digitalRead | n/a | Yes |
+| ∆ | Supports digitalWrite | n/a | Yes |
+| ∆ | Supports attachInterrupt | n/a | Yes |
+| ∆ | Internal pull-up or pull-down resistance | n/a | ??? |
 #### MODE
 | | Added to M SoM |
 | :--- | :--- |
@@ -617,18 +623,18 @@ The Boron and Argon support NFC Tag mode.
 | Description | MODE button. Pin number constant is BTN. External pull-up required!|
 | Supports attachInterrupt | Yes|
 #### MOSI
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | MOSI | MOSI |
-| Pin Alternate Name | D12 | D12 |
-| Description | SPI MOSI, GPIO | D12 GPIO, PWM, SPI MOSI |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | MOSI | MOSI |
+| &nbsp; | Pin Alternate Name | D12 | D12 |
+| ∆ | Description | SPI MOSI, GPIO | D12 GPIO, PWM, SPI MOSI |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
 #### NC
 | | Added to M SoM |
 | :--- | :--- |
@@ -651,35 +657,35 @@ The Boron and Argon support NFC Tag mode.
 | Description | RGB LED Red|
 | Signal used at boot | Low at boot triggers trap mode|
 #### RST
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | RST | RST |
-| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | RST | RST |
+| ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### RX
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | RX | RX |
-| Pin Alternate Name | D10 | D10 |
-| Description | Serial RX, GPIO | Serial RX, PWM, GPIO, SPI1 MISO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| UART serial | RX Use Serial1 object. | RX. Use Serial1 object. |
-| SPI interface | n/a | MISO. Use SPI1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | RX | RX |
+| &nbsp; | Pin Alternate Name | D10 | D10 |
+| ∆ | Description | Serial RX, GPIO | Serial RX, PWM, GPIO, SPI1 MISO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
+| ∆ | SPI interface | n/a | MISO. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
 #### SCK
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | SCK | SCK |
-| Pin Alternate Name | D13 | D13 |
-| Description | SPI SCK, GPIO | D13 GPIO, SPI SCK |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | SCK | SCK |
+| &nbsp; | Pin Alternate Name | D13 | D13 |
+| ∆ | Description | SPI SCK, GPIO | D13 GPIO, SPI SCK |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
 #### SIM_CLK
 | | Added to M SoM |
 | :--- | :--- |
@@ -701,19 +707,19 @@ The Boron and Argon support NFC Tag mode.
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### TX
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | TX | TX |
-| Pin Alternate Name | D09 | D9 |
-| Description | Serial TX, GPIO | Serial TX, PWM, GPIO, SPI1 MOSI |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| UART serial | TX Use Serial1 object. | TX. Use Serial1 object. |
-| SPI interface | n/a | MOSI. Use SPI1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | TX | TX |
+| ∆ | Pin Alternate Name | D09 | D9 |
+| ∆ | Description | Serial TX, GPIO | Serial TX, PWM, GPIO, SPI1 MOSI |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
+| ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
 #### USBDATA-
 | | Added to M SoM |
 | :--- | :--- |
@@ -738,18 +744,18 @@ The Boron and Argon support NFC Tag mode.
 | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
 | Input is 5V Tolerant | Yes|
 #### WKP
-|   | Boron | M SoM |
-| :--- | :--- | :--- |
-| Pin Name | D8 | A7 |
-| Pin Alternate Name | WKP | WKP |
-| Description | GPIO, PWM | A7 Analog In, WKP, GPIO D28 |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | ??? |
+|   |   | Boron | M SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | D8 | A7 |
+| &nbsp; | Pin Alternate Name | WKP | WKP |
+| ∆ | Description | GPIO, PWM | A7 Analog In, WKP, GPIO D28 |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
