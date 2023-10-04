@@ -187,8 +187,8 @@
             "hash": "310ebf74a4c7e32a4d805b2c55c7f4adcfaa453d6513eb6254b90f69e6749bd8"
         },
         "notes/ethernet-intro.md": {
-            "date": "2022-08-09",
-            "hash": "f0685eb0a9b69730a1ca9736278d71e80e84f883a650d88a8bcdaaa7c22bd057"
+            "date": "2023-10-04",
+            "hash": "cdd0813499c1f2663dcc838d446bb43144d8d0603a5a102dc3a4ffbfa198c2d4"
         },
         "notes/flash-permission-error.md": {
             "date": "2022-08-24",
@@ -603,8 +603,8 @@
             "hash": "1e6063dd5390a328f24367fe727df6c3b83af2ddf8ea5bef8315ca765338e3d2"
         },
         "getting-started/console/device-vitals.md": {
-            "date": "2023-08-03",
-            "hash": "e9af8c136e11085c76479674fa8850c08592ef7f6f5fded79596725a31a1c5f9"
+            "date": "2023-10-04",
+            "hash": "2d29af9fb465f836bdf27b28cb23388b4892647571e469a58cc482752b5cdd74"
         },
         "getting-started/console/device-groups.md": {
             "date": "2023-03-17",
@@ -959,8 +959,8 @@
             "hash": "cb6ffee72fadd318093fd10e2c513ababa11bcb734e31dae3634ed6fae658c02"
         },
         "hardware/ethernet/ethernet.md": {
-            "date": "2023-03-22",
-            "hash": "8816aed2787945d740f887908b7c75c36b1172c04e8686309f527b27f989ace5"
+            "date": "2023-10-04",
+            "hash": "4b76008fe20889f8b48dd8f2c5babc2de6b10f23df35ecb7de5685288a530f45"
         },
         "hardware/expansion/about-i2c.md": {
             "date": "2023-09-06",

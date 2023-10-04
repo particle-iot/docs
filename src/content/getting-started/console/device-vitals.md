@@ -135,9 +135,6 @@ for your device:
 <img src="/assets/images/remote-diagnostics/device-vitals-cellular.png"
 class="small"/>
 
-Each vital will be analyzed and marked as either _healthy_ or _warning_
-depending on what values are returned by the device. Learn more about
-diagnostic analysis in the section on [test results](#test-results).
 
 You can click on the **Download History** link to download a CSV file
 containing the full list of vitals collected by the device over the last
@@ -146,9 +143,6 @@ in the Console UI. For a comprehensive list of available vitals, check
 out the [reference
 docs](/reference/cloud-apis/api/#device-vitals-event).
 
-You can also click on the **Health Check** link to execute a real-time diagnostics
-test for the device. For more info on this, check out the [Health
-Check](#health-check) section.
 
 #### Error codes
 
@@ -264,9 +258,6 @@ last recorded vitals reading will instruct the device to re-send its
 device vitals to the Device Cloud. If your device is online and
 responsive, device vitals will be refreshed.
 
-**Clicking on the _Run diagnostics_ link** will trigger running the [health check](#health-check), which includes
-refreshing device vitals.
-
 #### Refresh using the API
 
 If you'd like to programmatically instruct the device to re-send its
@@ -281,27 +272,6 @@ stream](/reference/cloud-apis/api/#product-event-streamh) or by
 [setting up a webhook](/integrations/webhooks/) that
 triggers off of the `spark/device/diagnostics/update` event.
 
-
-## Health check
-
-In addition to device vitals, there is also the option to run a health
-check. Think of this as a way to run a real-time diagnostics test of the
-device. Note that the relevant connectivity layers vary based on the type of device (i.e.
-Wi-Fi vs. Cellular).
-
-For your device, these connectivity layers can be:
-
-For Cellular:
-
-  <img class="full-width" alt="Device Vitals, SIM Card, Cellular Network, and
-  Particle Device Cloud"
-  src="/assets/images/remote-diagnostics/connectivity-layers-cellular.png"/>
-
-For Wi-Fi:
-
-  <img alt="Device Vitals and
-  Device Particle Device Cloud"
-  src="/assets/images/remote-diagnostics/connectivity-layers-wifi.png"/>
 
 ### Device vitals
 
@@ -353,10 +323,6 @@ Cellular Network layer to be displayed in the Console.
 The health of the Particle Device Cloud is critical to devices having the ability to
 successfully connect and communicate.
 
-When running the test suite, the Particle Device Cloud services most relevant
-to device connectivity are automatically checked to ensure they are fully operational.
-Any open incident involving the services above will be reflected in the test results.
-
 #### Device service
 
 The Device Service brokers the connection between an IoT device and
@@ -377,134 +343,4 @@ that devices subscribe to.
 The Webhooks service allows for device data to be sent to other
 apps and services. Webhooks also allows devices to ingest
 information *from* these Internet services.
-
-
-### Running a health check
-
-To run the full test suite, you can click on the **Run diagnostics**
-link from the Device Vitals UI, or click on the **Health Check** when viewing a
-device on the Console:
-
-<img src="/assets/images/remote-diagnostics/device-vitals-run-fullsuite.jpg"/>
-
-Click the **Run Tests** button to run the test suite, if the tests have
-not already begun to run:
-
-For Cellular:
-
-<img class="full-width"
-src="/assets/images/remote-diagnostics/default-diagnostics-state-cellular.png"/>
-
-For Wi-Fi:
-
-<img class="full-width"
-src="/assets/images/remote-diagnostics/default-diagnostics-state-wifi.png"/>
-
-Running the tests will kick off diagnostics for each layer of the
-connectivity stack. Tests will be run in parallel, and the test results
-will be shown once all tests are completed.
-
-### Test results
-
-Once all of the diagnostic tests have completed, the Console will
-provide test results. Each connectivity layer will marked as
-_healthy_, _unhealthy_, or _warning_  depending on the result of the
-test.
-
-#### Healthy
-
-A _healthy_ test result means that all tests have passed
-successfully. The device is operating normally. This state looks like
-this:
-
-For Cellular:
-
-<img
-src="/assets/images/remote-diagnostics/successful-diagnostics-test.png"
-class="full-width"/>
-
-For Wi-Fi:
-
-<img
-src="/assets/images/remote-diagnostics/successful-diagnostics-test-wifi.png"
-class="full-width"/>
-
-
-<p class="caption">All diagnostic tests have passed and this device is
-healthy! Woot!</p>
-
-You can see that each connectivity layer has been marked as _healthy_,
-with a green check mark. You will also notice a top-level summary
-that confirms that all tests have passed and diagnostic vitals are in healthy
-ranges.
-
-#### Warning
-
-The diagnostic tests also can be marked in the _warning_ state. In
-this case, one or more of the diagnostic vitals has fallen outside of
-the healthy range. However, all diagnostic tests still passed. This is
-an indication that there _may be a problem_, and you should investigate
-it further:
-
-For Cellular:
-
-<img
-src="/assets/images/remote-diagnostics/warning-diagnostics-test.png"
-class="full-width" style="max-height: inherit"/>
-
-For Wi-Fi:
-
-<img
-src="/assets/images/remote-diagnostics/warning-diagnostics-test-wifi.png"
-class="full-width" style="max-height: inherit"/>
-
-In the warning state, you will receive some helpful text to explain what
-is happening as well as some recommendations on how to return the device
-to a fully healthy state.
-
-For cellular devices, the device's battery is running low (12%) but the device
-is still online and able to communicate with the Particle Device Cloud.
-For devices with low battery, the recommendation is simple
-&mdash; recharge the battery before the device turns off.
-
-For Wi-Fi devices, the device is getting rate-limited in firmware because it
-is attempting to publish events too quickly. The recommendation is to
-rework the application firmware by reducing the frequency of event
-publishes to 1 per second or less.
-
-#### Unhealthy
-
-The test run will be marked as _unhealthy_ if one or more of the Remote
-Diagnostic tests fail. Note that failure is defined as a state in which
-the device will not be able to communicate with the Particle Device Cloud:
-
-For Cellular:
-
-<img src="/assets/images/remote-diagnostics/diagnostic-failure.png"
-class="full-width" />
-<p class="caption">This Remote Diagnostic test reports a problem because the
-SIM is deactivated<br/>causing 3 tests to fail</p>
-
-For Wi-Fi:
-
-<img src="/assets/images/remote-diagnostics/diagnostic-failure-wifi.png"
-class="full-width" />
-<p class="caption">This Remote Diagnostic test reports a problem because
-the device is unresponsive</p>
-
-In this state, the test will be marked clearly as failing with a red "X"
-icon. In this case, we are not able to successfully communicate with the
-Particle device. The device layer is marked as unhealthy, and we see
-that the device is unresponsive.
-
-Anytime the Health Check tests fail, there will be a course of
-action suggested in the test results summary. These calls-to-action are
-designed to help your team quickly identify a solution to the
-connectivity issue that has arisen. 
-
-For cellular devices, the call to actionis to reactivate the SIM.
-
-Otherwise, visit
-the docs to troubleshoot device connectivity. Remote Diagnostics provides this
-call-to-action intelligently based on the test failures.
 
