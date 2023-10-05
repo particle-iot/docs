@@ -111,81 +111,12 @@ Let's get you up and running with Node-RED. You can either run it using a cloud 
 
 ## Using a cloud service
 
-There are a number of cloud services that support Node-RED, however the most convenient is the IBM Cloud. There's built-in support for deploying Node-RED, and you can do so in the free plan for simple flows. 
+There are a number of cloud services that support Node-RED. You can start from the [Node-RED Instructions](https://nodered.org/docs/getting-started/) for cloud-based services such as:
 
-- [Official Node-RED Instructions](https://nodered.org/docs/getting-started/ibmcloud) for IBM Cloud.
-- [A helpful article](https://hackernoon.com/how-to-securely-host-node-red-in-cloud-for-free-and-safely-expose-it-to-the-internet-over-https-hw5d3220) about setting up IBM Cloud.
-- Or, if you prefer, instructions for using [AWS](https://nodered.org/docs/getting-started/aws) or [Microsoft Azure](https://nodered.org/docs/getting-started/azure).
+- AWS EC2
+- Microsoft Azure
 
-### Using IBM Cloud
-
-The [Node-RED IBM Cloud Instructions](https://nodered.org/docs/getting-started/ibmcloud) are quite complete, but the basic process is:
-
-- Sign up for a free [IBM Cloud](https://cloud.ibm.com) account if you do not already have one. No credit card is required to start.
-
-- After signing in create a **Create Resource +**, the blue button in the upper-right corner of the window. 
-
-![Create Resource](/assets/images/rules-engine/create-resource.png)
-
-- Search for **node-red**:
-
-![Create Resource](/assets/images/rules-engine/search-node-red.png)
-
-- Select the **Node-RED App**:
-
-![Create Resource](/assets/images/rules-engine/node-red-app.png)
-
-- Click **Get Started**. You can usually use the default settings and just select **Create** in the next page.
-
-![Create App](/assets/images/rules-engine/create-app.png)
-
-- In the **Services** panel, the status will be **Provisioning service credentials** for a few minutes.
-
-![Provisioning service credentials](/assets/images/rules-engine/provisioning-service-credentials.png)
-
-- When complete you can proceed to the next step by clicking the blue **Deploy your app** button on the right side to being deployment. You don't need to add services to it first; the Node-RED app itself contains everything you need to run it. 
-
-![Create Progress](/assets/images/rules-engine/create-deploy-app.png)
-
-- Select **Cloud Foundry** as the Deployment target if not already selected.
-
-![Deployment Target](/assets/images/rules-engine/deployment-target.png)
-
-- Create an API Key using the **New** button. The rest of the setting defaults are usually fine. Click **Next**.
-
-![Create API Key](/assets/images/rules-engine/create-api-key.png)
- 
-- You can use the default settings for **Configure the DevOps toolchain** then click **Create**.
-
-![Create Devops Toolchain](/assets/images/rules-engine/create-devops.png)
-
-- It will take a few minutes to deploy. The progress is shown in the **Delivery Pipelines** panel. It may be **No Stages Detected** for a minute before switching to **In progress** for a few minutes. When it reaches **Success** you can proceed to the next step.
-
-![Create Pipeline](/assets/images/rules-engine/create-pipeline.png)
-
-- Click the **Open Dashboard** link in **Services**.
-
-![Open Dashboard](/assets/images/rules-engine/open-dashboard.png)
-
-- In the Dashboard, click **Connections** in the left-hand menu. Note the URL under **Route**. If you selected the default settings it should be something like `https://node-red-<something>.mybluemix.net/`. Note that you need to use this URL, not the external endpoint URL in the Overview page.
-
-![Route URL](/assets/images/rules-engine/connection-route.png)
-
-- Open the Route URL and follow the steps to configure and secure your Node-RED installation. Make sure you set a strong password as anyone can get to your cloud-hosted Node-RED installation if they know the URL.
-
-![Cloud Configuration 1](/assets/images/rules-engine/cloud-configure-1.png)
-
-![Cloud Configuration 2](/assets/images/rules-engine/cloud-configure-2.png)
-
-![Cloud Configuration 3](/assets/images/rules-engine/cloud-configure-3.png)
-
-![Cloud Configuration 4](/assets/images/rules-engine/cloud-configure-4.png)
-
-- Once you've secured your installation, you'll be at the home page. Click the **Go to your Node-RED flow editor** button to begin.
-
-![Cloud Home](/assets/images/rules-engine/cloud-home.png)
-
-- Then follow the instructions below for [Getting started with Node-RED](#getting-started-with-node-red) to add the Particle Node to your instance and begin creating workflows.
+Then follow the instructions below for [Getting started with Node-RED](#getting-started-with-node-red) to add the Particle Node to your instance and begin creating workflows.
 
 ## Running locally
 
