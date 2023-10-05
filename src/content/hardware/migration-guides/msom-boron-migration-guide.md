@@ -224,7 +224,9 @@ The Argon/Boron land pattern is:
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- 1 I2C on M SoM vs. 2 on the B Series SoM
+- 1 I2C on M SoM vs. 2 on the B Series SoM.
+- You can generally have many devices on a single I2C bus.
+- If you have I2C address conflicts you can use an I2C multiplexer like the TCA9548A.
 
 ### PWM
 

@@ -420,6 +420,27 @@ The M SoM does not have an many ADC ports as the E Series. You can add additiona
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
+### I2C
+
+{{!-- BEGIN do not edit content below, it is automatically generated b19893d3-ab63-4323-9b3f-b948d4c1c249 --}}
+
+| E Series Pin | E Series Pin Name | E Series I2C | M SoM Pin | M SoM Pin Name | M SoM I2C |
+| :---: | :--- | :--- | :---: | :--- | :--- |
+| 45 | C4 | Wire1 (SDA) | &nbsp; | &nbsp; | &nbsp; |
+| 44 | C5 | Wire1 (SCL) | &nbsp; | &nbsp; | &nbsp; |
+| 42 | D0 | Wire (SDA) | 22 | D0 | Wire (SDA) |
+| 41 | D1 | Wire (SCL) | 20 | D1 | Wire (SCL) |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+- 1 I2C on M SoM. While it appears that there are 2 on the E Series, they're just alternative pin assignments and you can really only use one at a time.
+- You can generally have many devices on a single I2C bus.
+- If you have I2C address conflicts you can use an I2C multiplexer like the TCA9548A.
+- The E Series I2C is 5V tolerant. This is not the case on the M SoM, be sure you don't have pull-ups to 5V!
+- If you need to interface to a 5V I2C bus you will need an I2C level shifter such as the PCA9306.
+
+
 ### PWM (Pulse-width modulation)
 
 These are differences in pins that support PWM between the E Series and M SoM.

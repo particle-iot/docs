@@ -1134,6 +1134,23 @@ const path = require('path');
             }
         },
         {
+            guid:'b19893d3-ab63-4323-9b3f-b948d4c1c249',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'i2c',
+                    label: 'I2C',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'M SoM',
+                }); 
+            }
+        },        {
             guid:'8c9a7dac-af5b-4a4d-9e40-7deb06ed921f', 
             generatorFn:function(updater){
                 return updater.generatePinInfo({
