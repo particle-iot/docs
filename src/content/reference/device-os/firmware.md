@@ -786,6 +786,7 @@ Log.info("eventDataSize=%d", Particle.maxEventDataSize());
 
 Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
 
+This value is only available when connected to the cloud. At other times, `SYSTEM_ERROR_INVALID_STATE` (-210) is returned.
 
 ### Particle.maxVariableValueSize()
 
@@ -806,6 +807,8 @@ Returns the maximum size of the string variable data.
 
 Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
 
+This value is only available when connected to the cloud. At other times, `SYSTEM_ERROR_INVALID_STATE` (-210) is returned.
+
 ### Particle.maxFunctionArgumentSize()
 
 
@@ -825,6 +828,7 @@ Returns the maximum size of the function argument data.
 
 Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
 
+This value is only available when connected to the cloud. At other times, `SYSTEM_ERROR_INVALID_STATE` (-210) is returned.
 
 ### Particle.publishVitals()
 
