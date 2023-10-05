@@ -28,6 +28,14 @@ The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-ap
 This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/).
 {{note op="end"}}
 
+## Configuration schema
+
+If you are using the Monitor One, you need to upload a configuration schema to change the console panels from 
+the standard Tracker One options to Monitor One options. You can do this with a couple clicks in the 
+[configuration schema tool](/tools/cloud-tools/configuration-schema/).
+
+For an explanation of the console settings, see [Monitor One settings](/getting-started/console/console/#monitor-one-settings).
+
 
 ## Using off-the-shelf releases
 

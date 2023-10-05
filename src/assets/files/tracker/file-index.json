@@ -2,6 +2,10 @@
   "schemas": {
     "monitor": [
       {
+        "ver": 2,
+        "file": "monitor-config-schema-2.json"
+      },
+      {
         "ver": 1,
         "file": "monitor-config-schema-1.json"
       }

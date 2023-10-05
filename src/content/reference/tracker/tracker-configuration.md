@@ -76,6 +76,14 @@ The configuration is hierarchical. The top level items (location, sleep, geofenc
   - zone4
     - ...
 
+## Monitor One configuration
+
+If you are using the Monitor One, you need to upload a configuration schema to change the console panels from 
+the standard Tracker One options to Monitor One options. You can do this with a couple clicks in the 
+[configuration schema tool](/tools/cloud-tools/configuration-schema/).
+
+For an explanation of the console settings, see [Monitor One settings](/getting-started/console/console/#monitor-one-settings).
+
 ## Per-device configuration
 
 Certain configuration modules are per-device only. The geofence configuration is the only built-in module set up this way. You can add your own custom modules that include the `deviceLevelOnly` flag which will make your configuration always per-device only. When a configuration module is per-device only it does not appear in the product fleet-wide settings, only per-device.

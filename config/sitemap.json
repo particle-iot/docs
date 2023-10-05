@@ -547,8 +547,8 @@
             "hash": "e4534091a7137267872d85aab3cf1eb5f36e063f9641761a315672cf1a5b7c7b"
         },
         "firmware/tracker-edge/monitor-edge-firmware.md": {
-            "date": "2023-09-08",
-            "hash": "9f9a06797d2e631901788013f4cc3b64d04d8baff7eb41729973dbf8d3136f2c"
+            "date": "2023-10-05",
+            "hash": "884016bc5e7aa83aaa3b15f9372f0e8b912a14e0ff741907c24b32cfb8f3b341"
         },
         "firmware/tracker-edge/store-and-forward.md": {
             "date": "2023-07-26",
@@ -1259,8 +1259,8 @@
             "hash": "8059715e1f053a59c3b16a1d35cc0656bfccf72908439eee88eaada33f4c06a4"
         },
         "reference/tracker/tracker-configuration.md": {
-            "date": "2023-07-28",
-            "hash": "c3886bd1beab8b11627b3e19e061e2ff5c59c3965b90f11c6e887f6a90b0ce2e"
+            "date": "2023-10-05",
+            "hash": "02e3fcf645ef0f1691e4f148d9e6981e84fd791f8096ea3627b1faa1c6fb2bed"
         },
         "reference/tracker/tracker-sleep.md": {
             "date": "2023-03-17",

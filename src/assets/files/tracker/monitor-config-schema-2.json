@@ -1,14 +1,847 @@
 {
 	"$schema": "https://particle.io/draft-07/schema#",
-	"$id": "https://github.com/particle-iot/tracker-edge/releases/tag/v17",
+	"$id": "https://github.com/particle-iot/monitor-edge/releases/tag/v2",
 	"type": "object",
-	"title": "Configuration schema for the Tracker Edge firmware from Particle",
-	"$comment": "the $id field doesn't strictly mean that this schema only works with that release of tracker-edge, rather, this means that the schema here was created for that version of tracker-edge, and will work on earlier and later versions until a new schema is required.  This means that schema v10 will work with firmware v11, as long as there's no added features in v11 not already mentioned here",
+	"title": "Configuration schema for the Monitor Edge firmware from Particle",
+	"$comment": "the $id field doesn't strictly mean that this schema only works with that release of monitor-edge, rather, this means that the schema here was created for that version of monitor-edge, and will work on earlier and later versions until a new schema is required.  This means that schema v10 will work with firmware v11, as long as there's no added features in v11 not already mentioned here",
 	"description": "",
 	"required": [
 		"location"
 	],
 	"properties": {
+		"modbus_rs485": {
+			"$id": "#/properties/modbus_rs485",
+			"type": "object",
+			"title": "Modbus RS-485",
+			"description": "Configuration for Modbus RTU with RS-485.",
+			"default": {},
+			"minimumFirmwareVersion": 2,
+			"properties": {
+				"baud": {
+					"$id": "#/properties/modbus_rs485/baud",
+					"type": "string",
+					"title": "RS-485 Baud",
+					"description": "Baud rate to operate the RS-485 bus.",
+					"default": "38400",
+					"enum": [
+						"1200",
+						"2400",
+						"4800",
+						"9600",
+						"19200",
+						"28800",
+						"38400",
+						"57600",
+						"76800",
+						"115200"
+					]
+				},
+				"parity": {
+					"$id": "#/properties/modbus_rs485/parity",
+					"type": "string",
+					"title": "RS-485 Parity Bits",
+					"description": "Specifies partiy type used for the RS-485 bus.",
+					"default": "none",
+					"enum": [
+						"none",
+						"even"
+					]
+				},
+				"imd": {
+					"$id": "#/properties/modbus_rs485/imd",
+					"type": "integer",
+					"title": "Modbus Inter Message Delay",
+					"description": "Delay between the last Modbus response and the next transmission in milliseconds.  This is used for rate limiting transactions.",
+					"default": "0",
+					"minimum": 0,
+					"maximum": 10000
+				}
+			}
+		},
+		"modbus1": {
+			"$id": "#/properties/modbus1",
+			"type": "object",
+			"title": "Modbus Polling 1",
+			"description": "Configuration for polling a Modbus server ID.",
+			"default": {},
+			"minimumFirmwareVersion": 2,
+			"properties": {
+				"enable": {
+					"$id": "#/properties/modbus1/enable",
+					"type": "boolean",
+					"title": "Modbus Server Enable",
+					"description": "If enabled, poll the given Modbus server address.",
+					"default": false,
+					"examples": [
+						true
+					]
+				},
+				"id": {
+					"$id": "#/properties/modbus1/id",
+					"type": "integer",
+					"title": "Modbus Server ID",
+					"description": "The remote device server ID (also known as slave ID). Range: 1-255.",
+					"default": 1,
+					"minimum": 1,
+					"maximum": 255
+				},
+				"timeout": {
+					"$id": "#/properties/modbus1/timeout",
+					"type": "integer",
+					"title": "Modbus Timeout",
+					"description": "Allowable time to wait for a response in milliseconds. Range: 0-10000.",
+					"default": 2000,
+					"minimum": 0,
+					"maximum": 10000
+				},
+				"poll": {
+					"$id": "#/properties/modbus1/poll",
+					"type": "integer",
+					"title": "Polling Interval",
+					"description": "Defines the frequency (in seconds) in which the register will be polled and results published.",
+					"default": 1,
+					"minimum": 1
+				},
+				"publish": {
+					"$id": "#/properties/modbus1/publish",
+					"type": "string",
+					"title": "Publish polled value",
+					"description": "Select when to publish the polled value.",
+					"default": "always",
+					"enum": [
+						"always"
+					]
+				},
+				"function": {
+					"$id": "#/properties/modbus1/function",
+					"type": "string",
+					"title": "Modbus Function",
+					"description": "Type of read function.",
+					"default": "coil",
+					"enum": [
+						"coil",
+						"discrete_input",
+						"input_register",
+						"holding_register"
+					]
+				},
+				"address": {
+					"$id": "#/properties/modbus1/address",
+					"type": "integer",
+					"title": "Register Address",
+					"description": "Address to read from, zero based. Range: 0-65535.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"type": {
+					"$id": "#/properties/modbus1/type",
+					"type": "string",
+					"title": "Modbus data type",
+					"description": "Type of data being read.",
+					"default": "uint16",
+					"enum": [
+						"int16",
+						"uint16",
+						"int32",
+						"uint32",
+						"float32_abcd",
+						"float32_badc",
+						"float32_cdab",
+						"float32_dcba",
+						"bits"
+					]
+				},
+				"mask": {
+					"$id": "#/properties/modbus1/mask",
+					"type": "integer",
+					"title": "Mask Value",
+					"description": "16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.",
+					"default": 65535,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"shift": {
+					"$id": "#/properties/modbus1/shift",
+					"type": "integer",
+					"title": "Shift Value",
+					"description": "Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 15
+				},
+				"offset": {
+					"$id": "#/properties/modbus1/offset",
+					"type": "number",
+					"title": "Offset Value",
+					"description": "Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).",
+					"default": 0.0,
+					"examples": [
+						0.5
+					]
+				},
+				"scale": {
+					"$id": "#/properties/modbus1/scale",
+					"type": "number",
+					"title": "Scaling Value",
+					"description": "Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).",
+					"default": 1.0,
+					"examples": [
+						10.0
+					]
+				}
+			}
+		},
+		"modbus2": {
+			"$id": "#/properties/modbus2",
+			"type": "object",
+			"title": "Modbus Polling 2",
+			"description": "Configuration for polling a Modbus server ID.",
+			"default": {},
+			"minimumFirmwareVersion": 2,
+			"properties": {
+				"enable": {
+					"$id": "#/properties/modbus2/enable",
+					"type": "boolean",
+					"title": "Modbus Server Enable",
+					"description": "If enabled, poll the given Modbus server address.",
+					"default": false,
+					"examples": [
+						true
+					]
+				},
+				"id": {
+					"$id": "#/properties/modbus2/id",
+					"type": "integer",
+					"title": "Modbus Server ID",
+					"description": "The remote device server ID (also known as slave ID). Range: 1-255.",
+					"default": 1,
+					"minimum": 1,
+					"maximum": 255
+				},
+				"timeout": {
+					"$id": "#/properties/modbus2/timeout",
+					"type": "integer",
+					"title": "Modbus Timeout",
+					"description": "Allowable time to wait for a response in milliseconds. Range: 0-10000.",
+					"default": 2000,
+					"minimum": 0,
+					"maximum": 10000
+				},
+				"poll": {
+					"$id": "#/properties/modbus2/poll",
+					"type": "integer",
+					"title": "Polling Interval",
+					"description": "Defines the frequency (in seconds) in which the register will be polled and results published.",
+					"default": 1,
+					"minimum": 1
+				},
+				"publish": {
+					"$id": "#/properties/modbus2/publish",
+					"type": "string",
+					"title": "Publish polled value",
+					"description": "Select when to publish the polled value.",
+					"default": "always",
+					"enum": [
+						"always"
+					]
+				},
+				"function": {
+					"$id": "#/properties/modbus2/function",
+					"type": "string",
+					"title": "Modbus Function",
+					"description": "Type of read function.",
+					"default": "coil",
+					"enum": [
+						"coil",
+						"discrete_input",
+						"input_register",
+						"holding_register"
+					]
+				},
+				"address": {
+					"$id": "#/properties/modbus2/address",
+					"type": "integer",
+					"title": "Register Address",
+					"description": "Address to read from, zero based. Range: 0-65535.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"type": {
+					"$id": "#/properties/modbus2/type",
+					"type": "string",
+					"title": "Modbus data type",
+					"description": "Type of data being read.",
+					"default": "uint16",
+					"enum": [
+						"int16",
+						"uint16",
+						"int32",
+						"uint32",
+						"float32_abcd",
+						"float32_badc",
+						"float32_cdab",
+						"float32_dcba",
+						"bits"
+					]
+				},
+				"mask": {
+					"$id": "#/properties/modbus2/mask",
+					"type": "integer",
+					"title": "Mask Value",
+					"description": "16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.",
+					"default": 65535,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"shift": {
+					"$id": "#/properties/modbus2/shift",
+					"type": "integer",
+					"title": "Shift Value",
+					"description": "Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 15
+				},
+				"offset": {
+					"$id": "#/properties/modbus2/offset",
+					"type": "number",
+					"title": "Offset Value",
+					"description": "Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).",
+					"default": 0.0,
+					"examples": [
+						0.5
+					]
+				},
+				"scale": {
+					"$id": "#/properties/modbus2/scale",
+					"type": "number",
+					"title": "Scaling Value",
+					"description": "Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).",
+					"default": 1.0,
+					"examples": [
+						10.0
+					]
+				}
+			}
+		},
+		"modbus3": {
+			"$id": "#/properties/modbus3",
+			"type": "object",
+			"title": "Modbus Polling 3",
+			"description": "Configuration for polling a Modbus server ID.",
+			"default": {},
+			"minimumFirmwareVersion": 2,
+			"properties": {
+				"enable": {
+					"$id": "#/properties/modbus3/enable",
+					"type": "boolean",
+					"title": "Modbus Server Enable",
+					"description": "If enabled, poll the given Modbus server address.",
+					"default": false,
+					"examples": [
+						true
+					]
+				},
+				"id": {
+					"$id": "#/properties/modbus3/id",
+					"type": "integer",
+					"title": "Modbus Server ID",
+					"description": "The remote device server ID (also known as slave ID). Range: 1-255.",
+					"default": 1,
+					"minimum": 1,
+					"maximum": 255
+				},
+				"timeout": {
+					"$id": "#/properties/modbus3/timeout",
+					"type": "integer",
+					"title": "Modbus Timeout",
+					"description": "Allowable time to wait for a response in milliseconds. Range: 0-10000.",
+					"default": 2000,
+					"minimum": 0,
+					"maximum": 10000
+				},
+				"poll": {
+					"$id": "#/properties/modbus3/poll",
+					"type": "integer",
+					"title": "Polling Interval",
+					"description": "Defines the frequency (in seconds) in which the register will be polled and results published.",
+					"default": 1,
+					"minimum": 1
+				},
+				"publish": {
+					"$id": "#/properties/modbus3/publish",
+					"type": "string",
+					"title": "Publish polled value",
+					"description": "Select when to publish the polled value.",
+					"default": "always",
+					"enum": [
+						"always"
+					]
+				},
+				"function": {
+					"$id": "#/properties/modbus3/function",
+					"type": "string",
+					"title": "Modbus Function",
+					"description": "Type of read function.",
+					"default": "coil",
+					"enum": [
+						"coil",
+						"discrete_input",
+						"input_register",
+						"holding_register"
+					]
+				},
+				"address": {
+					"$id": "#/properties/modbus3/address",
+					"type": "integer",
+					"title": "Register Address",
+					"description": "Address to read from, zero based. Range: 0-65535.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"type": {
+					"$id": "#/properties/modbus3/type",
+					"type": "string",
+					"title": "Modbus data type",
+					"description": "Type of data being read.",
+					"default": "uint16",
+					"enum": [
+						"int16",
+						"uint16",
+						"int32",
+						"uint32",
+						"float32_abcd",
+						"float32_badc",
+						"float32_cdab",
+						"float32_dcba",
+						"bits"
+					]
+				},
+				"mask": {
+					"$id": "#/properties/modbus3/mask",
+					"type": "integer",
+					"title": "Mask Value",
+					"description": "16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.",
+					"default": 65535,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"shift": {
+					"$id": "#/properties/modbus3/shift",
+					"type": "integer",
+					"title": "Shift Value",
+					"description": "Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 15
+				},
+				"offset": {
+					"$id": "#/properties/modbus3/offset",
+					"type": "number",
+					"title": "Offset Value",
+					"description": "Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).",
+					"default": 0.0,
+					"examples": [
+						0.5
+					]
+				},
+				"scale": {
+					"$id": "#/properties/modbus3/scale",
+					"type": "number",
+					"title": "Scaling Value",
+					"description": "Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).",
+					"default": 1.0,
+					"examples": [
+						10.0
+					]
+				}
+			}
+		},
+		"io": {
+			"$id": "#/properties/io",
+			"type": "object",
+			"title": "IO",
+			"description": "Configuration for Inputs and Outputs.",
+			"default": {},
+			"properties": {
+				"voltage": {
+					"$id": "#/properties/io/voltage",
+					"type": "object",
+					"title": "0-10V Voltage Input",
+					"description": "Configuration for 0-10V scaling.",
+					"default": {},
+					"properties": {
+						"sensorlow": {
+							"$id": "#/properties/io/voltage/sensorlow",
+							"type": "number",
+							"title": "Sensor low scaling",
+							"description": "Scaling applied to calibrated voltage inputs to scale value to sensor units in application.",
+							"default": 0.0,
+							"examples": [
+								0.0
+							]
+						},
+						"sensorhigh": {
+							"$id": "#/properties/io/voltage/sensorhigh",
+							"type": "number",
+							"title": "Sensor high scaling",
+							"description": "Scaling applied to calibrated voltage inputs to scale value to sensor units in application.",
+							"default": 10.0,
+							"examples": [
+								100.0
+							]
+						},
+						"sensorfc": {
+							"$id": "#/properties/io/voltage/sensorfc",
+							"type": "number",
+							"title": "Sensor filter cutoff frequency",
+							"description": "Frequency for 3db low pass filtering of the voltage input in Hertz.",
+							"default": 1.0,
+							"examples": [
+								12.0
+							],
+							"minimum": 0.001,
+							"maximum": 50.0
+						},
+						"threshlow": {
+							"$id": "#/properties/io/voltage/threshlow",
+							"type": "number",
+							"title": "Threshold low comparator limit",
+							"description": "Threshold value for comparator.",
+							"default": 2.0,
+							"examples": [
+								100.0
+							]
+						},
+						"hystlow": {
+							"$id": "#/properties/io/voltage/hystlow",
+							"type": "number",
+							"title": "Threshold low hysteresis",
+							"description": "Hysteresis value for comparator.",
+							"default": 1.0,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0
+						},
+						"th_low_en": {
+							"$id": "#/properties/io/voltage/th_low_en",
+							"type": "boolean",
+							"title": "Threshold low enable",
+							"description": "If enabled, publish an immediate event when the lower threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"threshhigh": {
+							"$id": "#/properties/io/voltage/threshhigh",
+							"type": "number",
+							"title": "Threshold high comparator limit",
+							"description": "Threshold value for comparator.",
+							"default": 8.0,
+							"examples": [
+								100.0
+							]
+						},
+						"hysthigh": {
+							"$id": "#/properties/io/voltage/hysthigh",
+							"type": "number",
+							"title": "Threshold high hysteresis",
+							"description": "Hysteresis value for comparator.",
+							"default": 1.0,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0
+						},
+						"th_high_en": {
+							"$id": "#/properties/io/voltage/th_high_en",
+							"type": "boolean",
+							"title": "Threshold high enable",
+							"description": "If enabled, publish an immediate event when the upper threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						}
+					}
+				},
+				"current": {
+					"$id": "#/properties/io/current",
+					"type": "object",
+					"title": "4-20mA Current Input",
+					"description": "Configuration for 4-20mA scaling.",
+					"default": {},
+					"properties": {
+						"sensorlow": {
+							"$id": "#/properties/io/current/sensorlow",
+							"type": "number",
+							"title": "Sensor low scaling",
+							"description": "Scaling applied to calibrated current inputs to scale value to sensor units in application.",
+							"default": 0.004,
+							"examples": [
+								0.0
+							]
+						},
+						"sensorhigh": {
+							"$id": "#/properties/io/current/sensorhigh",
+							"type": "number",
+							"title": "Sensor high scaling",
+							"description": "Scaling applied to calibrated current inputs to scale value to sensor units in application.",
+							"default": 0.020,
+							"examples": [
+								10.0
+							]
+						},
+						"sensorfc": {
+							"$id": "#/properties/io/current/sensorfc",
+							"type": "number",
+							"title": "Sensor filter cutoff frequency",
+							"description": "Frequency for 3db low pass filtering of the current input in Hertz.",
+							"default": 1.0,
+							"examples": [
+								12.0
+							],
+							"minimum": 0.001,
+							"maximum": 50.0
+						},
+						"threshlow": {
+							"$id": "#/properties/io/current/threshlow",
+							"type": "number",
+							"title": "Threshold low comparator limit",
+							"description": "Threshold value for comparator.",
+							"default": 0.008,
+							"examples": [
+								100.0
+							]
+						},
+						"hystlow": {
+							"$id": "#/properties/io/current/hystlow",
+							"type": "number",
+							"title": "Threshold low hysteresis",
+							"description": "Hysteresis value for comparator.",
+							"default": 0.002,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0
+						},
+						"th_low_en": {
+							"$id": "#/properties/io/current/th_low_en",
+							"type": "boolean",
+							"title": "Threshold low enable",
+							"description": "If enabled, publish an immediate event when the lower threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"threshhigh": {
+							"$id": "#/properties/io/current/threshhigh",
+							"type": "number",
+							"title": "Threshold high comparator limit",
+							"description": "Threshold value for comparator.",
+							"default": 0.016,
+							"examples": [
+								100.0
+							]
+						},
+						"hysthigh": {
+							"$id": "#/properties/io/current/hysthigh",
+							"type": "number",
+							"title": "Threshold high hysteresis",
+							"description": "Hysteresis value for comparator.",
+							"default": 0.002,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0
+						},
+						"th_high_en": {
+							"$id": "#/properties/io/current/th_high_en",
+							"type": "boolean",
+							"title": "Threshold high enable",
+							"description": "If enabled, publish an immediate event when the upper threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"th_fault_low": {
+							"$id": "#/properties/io/current/th_fault_low",
+							"type": "number",
+							"title": "Threshold low fault comparator limit",
+							"description": "Threshold value, in milliamps, for fault comparator.",
+							"default": 0.003875,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0,
+							"maximum": 0.030
+						},
+						"hyst_fault_low": {
+							"$id": "#/properties/io/current/hyst_fault_low",
+							"type": "number",
+							"title": "Threshold low fault hysteresis",
+							"description": "Hysteresis value, in milliamps, for fault comparator.",
+							"default": 0.000125,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0,
+							"maximum": 0.020
+						},
+						"th_fault_low_en": {
+							"$id": "#/properties/io/current/th_fault_low_en",
+							"type": "boolean",
+							"title": "Threshold low fault enable",
+							"description": "If enabled, publish an immediate event when the lower threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"th_fault_high": {
+							"$id": "#/properties/io/current/th_fault_high",
+							"type": "number",
+							"title": "Threshold high fault comparator limit",
+							"description": "Threshold value, in milliamps, for fault comparator.",
+							"default": 0.016,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0,
+							"maximum": 0.030
+						},
+						"hyst_fault_high": {
+							"$id": "#/properties/io/current/hyst_fault_high",
+							"type": "number",
+							"title": "Threshold high fault hysteresis",
+							"description": "Hysteresis value, in milliamps, for fault comparator.",
+							"default": 0.002,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0,
+							"maximum": 0.020
+						},
+						"th_fault_high_en": {
+							"$id": "#/properties/io/current/th_fault_high_en",
+							"type": "boolean",
+							"title": "Threshold high fault enable",
+							"description": "If enabled, publish an immediate event when the upper threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						}
+					}
+				},
+				"input": {
+					"$id": "#/properties/io/input",
+					"type": "object",
+					"title": "24V Digital Input",
+					"description": "Configuration for optoisolated digial input.",
+					"default": {},
+					"properties": {
+						"immediate": {
+							"$id": "#/properties/io/input/immediate",
+							"type": "boolean",
+							"title": "Publish immediately on input change",
+							"description": "If enabled, publish an immediate event when the digital input changes.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"edge": {
+							"$id": "#/properties/io/input/edge",
+							"type": "string",
+							"title": "Edge detection",
+							"description": "Publish on input change based on edge detected.",
+							"default": "none",
+							"enum": [
+								"none",
+								"rising",
+								"falling",
+								"both"
+							]
+						}
+					}
+				}
+			}
+		},
+		"iocal": {
+			"$id": "#/properties/iocal",
+			"type": "object",
+			"title": "IO Calibration",
+			"description": "Calibration configuration for inputs.",
+			"default": {},
+			"properties": {
+				"voltage": {
+					"$id": "#/properties/iocal/voltage",
+					"type": "object",
+					"title": "0-10V Voltage Input",
+					"description": "Configuration for 0-10V calibration.",
+					"default": {},
+					"properties": {
+						"calgain": {
+							"$id": "#/properties/iocal/voltage/calgain",
+							"type": "number",
+							"title": "Calibration gain",
+							"description": "Gain applied to raw voltage inputs to correct gain errors.",
+							"default": 1.0,
+							"examples": [
+								0.95
+							]
+						},
+						"caloffset": {
+							"$id": "#/properties/iocal/voltage/caloffset",
+							"type": "number",
+							"title": "Calibration offset",
+							"description": "Offset applied to raw voltage inputs to correct offset errors.",
+							"default": 0.0,
+							"examples": [
+								-0.01
+							]
+						}
+					}
+				},
+				"current": {
+					"$id": "#/properties/iocal/current",
+					"type": "object",
+					"title": "4-20mA Current Input",
+					"description": "Configuration for 4-20mA calibration.",
+					"default": {},
+					"properties": {
+						"calgain": {
+							"$id": "#/properties/iocal/current/calgain",
+							"type": "number",
+							"title": "Calibration gain",
+							"description": "Gain applied to raw current inputs to correct gain errors.",
+							"default": 1.0,
+							"examples": [
+								0.95
+							]
+						},
+						"caloffset": {
+							"$id": "#/properties/iocal/current/caloffset",
+							"type": "number",
+							"title": "Calibration offset",
+							"description": "Offset applied to raw current inputs to correct offset errors.",
+							"default": 0.0,
+							"examples": [
+								-0.01
+							]
+						}
+					}
+				}
+			}
+		},
 		"location": {
 			"$id": "#/properties/location",
 			"type": "object",
@@ -92,7 +925,7 @@
 					"title": "Acknowledge location publishes",
 					"description": "If enabled, the device will expect cloud acknowledgement of location publishes and retry sending if cloud is unresponsive.  If disabled, the device will publish location messages and not account for cloud acknowledgement (fire-and-forget).  See https://docs.particle.io/reference/device-cloud/api/#tracker-configuration-events for more information",
 					"default": true,
-					"minimumFirmwareVersion": 11,
+					"minimumFirmwareVersion": 1,
 					"examples": [
 						true
 					]
@@ -103,7 +936,7 @@
 					"title": "Enhanced location",
 					"description": "If enabled, the cloud will process and send enhanced geolocation events based on GNSS, WiFi access points, and cellular tower triangulation.",
 					"default": true,
-					"minimumFirmwareVersion": 12,
+					"minimumFirmwareVersion": 1,
 					"examples": [
 						true
 					]
@@ -114,7 +947,7 @@
 					"title": "Publish cellular tower data",
 					"description": "If enabled, the device will collect nearby cellular towers and publish details with location events.",
 					"default": true,
-					"minimumFirmwareVersion": 12,
+					"minimumFirmwareVersion": 1,
 					"examples": [
 						true
 					]
@@ -125,7 +958,7 @@
 					"title": "Publish GNSS data",
 					"description": "If enabled, the device will utilize the GNSS module to generate and publish geolocation coordinates with location events.",
 					"default": true,
-					"minimumFirmwareVersion": 12,
+					"minimumFirmwareVersion": 1,
 					"examples": [
 						true
 					]
@@ -136,7 +969,7 @@
 					"title": "Publish WiFi access point data",
 					"description": "If enabled, the device will collect nearby WiFi access points and publish details with location events.",
 					"default": true,
-					"minimumFirmwareVersion": 12,
+					"minimumFirmwareVersion": 1,
 					"examples": [
 						true
 					]
@@ -147,7 +980,18 @@
 					"title": "Call back to device with enhanced location data",
 					"description": "If enabled, the cloud will send an enhanced geolocation to the device based on GNSS, WiFi access points, and cellular tower triangulation.",
 					"default": false,
-					"minimumFirmwareVersion": 12,
+					"minimumFirmwareVersion": 1,
+					"examples": [
+						true
+					]
+				},
+				"satdiag": {
+					"$id": "#/properties/location/properties/diag",
+					"type": "boolean",
+					"title": "Publish extra information to assist with debugging GNSS",
+					"description": "If enabled, publish GNSS constellation counts and C/NO characteristics.",
+					"default": false,
+					"minimumFirmwareVersion": 1,
 					"examples": [
 						true
 					]
@@ -160,7 +1004,7 @@
 			"title": "Store and Forward",
 			"description": "Configuration for Store and Forward.",
 			"default": {},
-			"minimumFirmwareVersion": 18,
+			"minimumFirmwareVersion": 1,
 			"properties": {
 				"enable": {
 					"$id": "#/properties/store/properties/enable",
@@ -177,7 +1021,7 @@
 					"type": "integer",
 					"title": "Storage Size Limit",
 					"description": "Size in kilobytes to limit storage on the local filesytem for unpublished messages.",
-					"default": "64",
+					"default": 64,
 					"minimum": 0,
 					"maximum": 4000
 				},
@@ -312,42 +1156,13 @@
 				}
 			}
 		},
-		"rgb": {
-			"$id": "#/properties/rgb",
-			"type": "object",
-			"title": "RGB LED",
-			"description": "Configuration for the Particle RGB LED.",
-			"default": {},
-			"examples": [
-				{
-					"type": "tracker"
-				}
-			],
-			"required": [
-				"type"
-			],
-			"properties": {
-				"type": {
-					"$id": "#/properties/rgb/properties/type",
-					"type": "string",
-					"title": "Type",
-					"description": "Can control the LED to be off, default Particle RGB behavior or custom tracker behavior.",
-					"default": "particle",
-					"enum": [
-						"off",
-						"particle",
-						"tracker"
-					]
-				}
-			}
-		},
 		"sleep": {
 			"$id": "#/properties/sleep",
 			"type": "object",
 			"title": "Sleep",
 			"description": "Configuration for low power operation. Supported in Asset Tracker Firmware v10 and later",
 			"default": {},
-			"minimumFirmwareVersion": 10,
+			"minimumFirmwareVersion": 1,
 			"properties": {
 				"mode": {
 					"$id": "#/properties/sleep/properties/mode",
@@ -409,7 +1224,7 @@
 			"title": "Device Monitoring",
 			"description": "Configuration for device monitoring specific settings",
 			"default": {},
-			"minimumFirmwareVersion": 18,
+			"minimumFirmwareVersion": 1,
 			"properties": {
 				"device_monitor": {
 					"$id": "#/properties/monitoring/device_monitor",
@@ -429,7 +1244,7 @@
 			"title": "Geofence",
 			"description": "Configuration for geofencing settings",
 			"default": {},
-			"minimumFirmwareVersion": 17,
+			"minimumFirmwareVersion": 1,
 			"deviceLevelOnly": true,
 			"properties": {
 				"interval": {

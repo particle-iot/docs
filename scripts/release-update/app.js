@@ -115,6 +115,9 @@ const tempDir = path.join(__dirname, 'temp');
 if (!fs.existsSync(tempDir)) {
     fs.mkdirSync(tempDir);
 }
+else {
+    fs.rmSync(tempDir, {recursive:true});
+}
 
 let releasesJson;
 try {
@@ -1305,6 +1308,81 @@ async function runDeviceOs() {
     // fs.rmSync(tempDir, {recursive:true});
 }
 
+
+async function runTrackerEdgeSource(version, zipFile) { // Version without the v
+    // This used to be in the add-tracker-edge-version script
+    // This is not needed for Monitor Edge because it doesn't use submodules
+    const repo = 'https://github.com/particle-iot/tracker-edge';
+
+    const stageDir = 'temp';
+    const edgeDir = stageDir + '/tracker-edge';
+
+    const stagePath = path.join(__dirname, stageDir);
+    if (!fs.existsSync(stagePath)) {
+        fs.mkdirSync(stagePath);
+    }
+
+    var zip = new JSZip();
+
+    if (!fs.existsSync(path.join(__dirname, edgeDir))) {
+        const cmd = 'cd ' + stageDir + ' && git clone ' + repo;
+        const { stdout, stderr } = await exec(cmd);        
+    }
+    {
+        const cmd = 'cd ' + edgeDir + ' && git fetch';
+        const { stdout, stderr } = await exec(cmd);
+    }
+    {
+        const cmd = 'cd ' + edgeDir + ' && git checkout release/v' + version;
+        const { stdout, stderr } = await exec(cmd);
+    }
+    {
+        const cmd = 'cd ' + edgeDir + ' && git submodule update --init --recursive';
+        const { stdout, stderr } = await exec(cmd);
+    }
+    
+    const addDir = function(dir, parentDir) {
+        const base = path.basename(dir);
+        const zipDir = parentDir.folder(base);
+
+        for(const dirent of fs.readdirSync(dir, {withFileTypes: true})) {
+            let skip = false;
+            switch(dirent.name) {
+                case '.':
+                case '..':
+                case '.DS_Store':
+                case '.git':
+                    skip = true;
+                    break;
+            }
+            if (skip) {
+                continue;
+            }
+
+            const newPath = path.join(dir, dirent.name);
+            if (dirent.isDirectory()) {
+                addDir(newPath, zipDir);
+            }
+            else {
+                zipDir.file(dirent.name, fs.readFileSync(newPath));
+            }
+        }
+
+    };
+    addDir(edgeDir, zip);
+    
+    await new Promise(function(resolve, reject) {
+
+        zip.generateNodeStream({streamFiles:true})
+        .pipe(fs.createWriteStream(zipFile))
+        .on('finish', function () {
+            resolve();
+        });
+    });    
+
+};
+
+
 async function runEdgeVersion(options) {
     // options.repository, .kind, .zipName
 
@@ -1402,20 +1480,27 @@ async function runEdgeVersion(options) {
         const zipFilename = templateParam.zip = Handlebars.compile(options.zipName)(templateParam);
 
         const zipFile = path.join(trackerDir, zipFilename);
-
+    
         if (!fs.existsSync(zipFile)) {
             console.log('no binary for ' + zipFilename + ', downloading');
 
-            const binary = await new Promise(function(resolve, reject) {
-                const fetchRes = fetch(rel.zipball_url)
-                .then(response => response.arrayBuffer())
-                .then(function(response) {
-                    resolve(Buffer.from(response));
+            if (options.kind == 'tracker-edge') {
+                // Do this the old way because we need to populate git submodules
+                runTrackerEdgeSource(templateParam.version, zipFile);
+            }
+            else {
+                // Just get the source zip, unchanged
+                const binary = await new Promise(function(resolve, reject) {
+                    const fetchRes = fetch(rel.zipball_url)
+                    .then(response => response.arrayBuffer())
+                    .then(function(response) {
+                        resolve(Buffer.from(response));
+                    });
                 });
-            });
-
-            // console.log('binary', binary);
-            fs.writeFileSync(zipFile, binary);   
+    
+                // console.log('binary', binary);
+                fs.writeFileSync(zipFile, binary);           
+            }
         }
 
         const reader = new HalModuleParser();
@@ -1437,6 +1522,39 @@ async function runEdgeVersion(options) {
         */
 
         indexJson.versions.push(templateParam);
+
+        // TODO: Check for a schema update
+        {
+            const zipData = fs.readFileSync(zipFile); 
+
+            // zipData is Buffer
+
+            var zip = new JSZip();
+
+            await zip.loadAsync(zipData);
+
+            const matches = await zip.file(/config-schema.json$/);
+            if (matches.length == 1) {
+                const schemaData = await matches[0].async('string');
+
+                // console.log('schemaData', schemaData);
+                const schemaJson = JSON.parse(schemaData);
+
+                let templateParam = {};
+
+                templateParam.schemaId = schemaJson['$id'];
+                templateParam.schemaTag = templateParam.schemaId.match(/\/(v[0-9]+)/);
+                templateParam.schemaVersion = parseInt(templateParam.schemaTag[1].substring(1));
+
+                templateParam.filename = templateParam.zip = Handlebars.compile(options.schemaName)(templateParam);
+
+                const schemaPath = path.join(trackerDir, templateParam.filename);
+                if (!fs.existsSync()) {
+                    console.log('saving config schema ' + templateParam.filename);
+                    fs.writeFileSync(schemaPath, schemaData);                    
+                }
+            }
+        }
 
     }   
     
@@ -1499,6 +1617,7 @@ async function run() {
             kind: 'tracker-edge',
             repository: 'particle-iot/tracker-edge',
             zipName: 'v{{version}}.zip',
+            schemaName: 'tracker-config-schema-{{schemaVersion}}.json',
             indexJson: 'trackerEdgeVersions.json',
         });
     }
@@ -1508,6 +1627,7 @@ async function run() {
             kind: 'monitor-edge',
             repository: 'particle-iot/monitor-edge',
             zipName: 'monitor-edge-{{version}}.zip',
+            schemaName: 'monitor-config-schema-{{schemaVersion}}.json',
             indexJson: 'monitorEdgeVersions.json',
         });
     }
