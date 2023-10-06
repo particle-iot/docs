@@ -5,18 +5,19 @@ columns: two
 description: Blynk integration
 ---
 
-# Blynk IoT
-Particle has teamed up with Blynk to create a webhook integration with the [Blynk IoT platform](https://blynk.io/).
+# Integration with Blynk IoT
 
-Blynk is a low-code IoT software platform for connecting devices to the cloud, building mobile apps to remotely control and monitor them, and managing users and IoT devices at any scale. To visualize data and interact with devices Blynk offers native mobile apps for iOS and Android and the web dashboard, that can be built with drag-and-drop constructor, eliminating the need to write code for the front end. Blynk also includes built-in functionality for over-the-air firmware updates, device provisioning, advanced device and user management tools, alerts and notifications, automations, and data analytics.  
+Particle has teamed up with Blynk to create a webhook integration with the [Blynk IoT platform](https://blynk.io/?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs).
 
-![Particle Blynk Logo](/assets/images/blynk-integration/blynk-particle-logos.png)
+Blynk is a low-code IoT software platform for connecting devices to the cloud, building mobile apps to remotely control and monitor them, and managing users and IoT devices at any scale. To visualize data and interact with devices, Blynk offers native mobile apps for iOS and Android and a web dashboard that can be built with a drag-and-drop constructor, eliminating the need to write code for the front end. Blynk also includes built-in functionality for over-the-air firmware updates, device provisioning, advanced device and user management tools, alerts and notifications, automations, and data analytics. 
+
+![Particle Blynk Logo](/assets/images/integrations/blynk/blynk-particle-logos.png)
 
 This integration enables bi-directional communication between any Particle hardware and Blynk IoT. It allows visualization of the data and control of the Particle device remotely via the Blynk web and mobile dashboard.
 
-# Key concepts in Blynk IoT
+## Key concepts in Blynk IoT
 
-### Device template  
+### Device Template  
 
 It is a collection of configurations shared by devices of a similar type.  
 
@@ -34,23 +35,35 @@ Consider smart home switches as an example. These devices typically perform comp
 These are channels for time-stamped data transmitted between the device and the cloud. For example, sensor data should pass through a Datastream. 
 
 ### Widgets
-Pre-designed UI elements, UI elements for visualizing device data and interacting with devices accessible to users.
+Pre-designed UI elements for visualizing device data and interacting with devices accessible to users.
 
-
-# Setting up integration with Blynk IoT
 
 ## Sign up for a Blynk account
 
 If you don't already have one, you'll need to sign up for a Blynk account to use this integration.
 
-Go to [Blynk Console](https://blynk.cloud/) to sign in or to create a new account. A Free account is available for the platform exploration. To access more features for advanced personal or commercial use, check out the Blynk [pricing page](https://blynk.io/pricing) to learn more about subscription options.
+Go to the [Blynk Console](https://blynk.cloud/?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs) to sign in or to create a new account. A Free account is available for the platform exploration. To access more features for advanced personal or commercial use, check out the Blynk [pricing page](https://blynk.io/pricing?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs) to learn more about subscription options.
 
-## Configure Blynk template
 
-### Create a template
-In the Blynk Console, navigate to **Templates** > **My Templates** and click on the **New Template** button at the upper right of the page (make sure the [Developer Mode](https://docs.blynk.io/en/concepts/developer-mode) is enabled). Give the template a name such as 'ParticleDeviceIntegration', set the **Hardware** field to Particle, and choose the appropriate **Connection type** of GSM for cellular devices, or WiFi and click **Done**.
+## Activate a Blueprint
 
-### Configure datastreams
+To simplify the setup process, we've created a Blueprint for this integration. It includes a pre-configured template tailored for this project, a firmware, and a detailed guide on setting up webhooks in both the Particle Console and Blynk. 
+
+1. Go to the **Blynk Console** > **Templates** > **Blueprints** > **All Blueprints** > **[Connect a Particle Device](https://blynk.cloud/dashboard/blueprints/Library/TMPL4ej7--Xu_)**
+2. Click **Use Blueprint** in the top right and follow the guide to setup webhooks and connect your device.
+
+  
+
+{{collapse op="start" label="Configure integration without Blueprint"}}
+    
+In this section, we provide an alternative guide on setting up integration from scratch, bypassing the Blueprint. It includes steps on how to configure a Blynk Template, offering a thorough insight into building and configuring interfaces on Blynk.  
+
+## Configure Blynk Template
+
+### Create a Template
+In the Blynk.Console, navigate to **Templates** > **My Templates** and click on the **New Template** button at the upper right of the page, make sure the [Developer Mode](https://docs.blynk.io/en/concepts/developer-mode?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs) is enabled. Give the template a name such as 'ParticleDeviceIntegration', set the **Hardware** field to Particle, and choose the appropriate **Connection type** of GSM for cellular devices, or WiFi and click **Done**.
+
+### Configure Datastreams
 Go to the **Datastreams** tab in the Template you created. Click **New Datastream** > **Virtual Pin** and configure five datastreams as shown in the Datastream Settings table that follows. It is important to configure the Pin, Data Type, Is Raw, Min, Max, and Default Value as shown. Click the **Save** button at the upper right of the screen when all of the datastreams have been defined. 
 
 Blynk Datastreams are bi-directional channels assigned a data type and link to data values stored on the Blynk Cloud. You reference them as virtual pins between the range of V0 and V255. 
@@ -100,11 +113,11 @@ Blynk Datastreams are bi-directional channels assigned a data type and link to d
 
 The datastreams should appear like on the image below when properly configured (fields Pin, Data Type, Is Raw, Min, Max, and Default Value must match exactly).
 
-![Datastreams](/assets/images/blynk-integration/datastreams.png)
+![alt text](/assets/images/integrations/blynk/datastreams.png "Datastreams")
 
 
-### Create a web dashboard
-The [Web Dashboard](https://docs.blynk.io/en/blynk.console/templates/dashboard) allows you to visualize data from a device and control the device using [Widgets](https://docs.blynk.io/en/blynk.console/widgets-console) (GUI elements). 
+### Create a Web Dashboard
+The [Web Dashboard](https://docs.blynk.io/en/blynk.console/templates/dashboard?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs) allows you to visualize data from a device and control the device using [Widgets](https://docs.blynk.io/en/blynk.console/widgets-console?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs) (GUI elements). 
 
 1. In the **Web Dashboard** tab click the **Edit** button at the upper right of the page. 
 2. Drag and drop the following widgets to the dashboard (left to right, top to bottom) using the layout shown in the image that follows: Label, Chart, Label, Chart, Switch, LED, Label.  
@@ -112,34 +125,37 @@ The [Web Dashboard](https://docs.blynk.io/en/blynk.console/templates/dashboard) 
 4. After all widgets are configured, click **Save and Apply**. 
 
 **Dashboard layout**
-![Dashboard layout](/assets/images/blynk-integration/dashboard.png)
+![Dashboard layout](/assets/images/integrations/blynk/dashboard.png)
 
 **Widgets settings**
-![Widget settings](/assets/images/blynk-integration/widgets.png)
+![Widget settings](/assets/images/integrations/blynk/widgets-h.png)
 
-### Create a mobile dashboard
-The Blynk app in [Developer Mode](https://docs.blynk.io/en/blynk.apps/overview#developer-mode) enables you to interactively build a custom app by selecting widgets and then configuring them. When the app is in [End-user Mode](https://docs.blynk.io/en/blynk.apps/overview#end-user-mode) it will present the app with widgets to the user with a behavior just like any other native app.
+### Create a Mobile Dashboard
+The Blynk app in [Developer Mode](https://docs.blynk.io/en/blynk.apps/overview#developer-mode) enables you to interactively build a custom app by selecting widgets and then configuring them. When the app is in the [End-user Mode](https://docs.blynk.io/en/blynk.apps/overview#end-user-mode), it behaves like any other native app, presenting users with the widgets.
 
-Using the [Mobile Dashboard Editor](https://docs.blynk.io/en/blynk.apps/constructor) create a UI layout. The exact steps vary between iOS and Android - begin by tapping on the Particle device you activated earlier, tap on the wrench icon, and then the **+** icon to add a widget. Add the following widgets: SuperChart (datastreams V14, V15), Labeled Value (V14), Labeled Value (V15), Button (V16), LED (V17), Labeled Value (V6).
+Using the [Mobile Dashboard Editor](https://docs.blynk.io/en/blynk.apps/constructor?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs), create a UI layout. The exact steps vary between iOS and Android - start by tapping on the Particle device you activated earlier, tap on the wrench icon, and then the **+** icon to add a widget. Add the following widgets: SuperChart (datastreams V14, V15), Labeled Value (V14), Labeled Value (V15), Button (V16), LED (V17), Labeled Value (V6).
 
-Tap and hold your finger on a widget and drag it to the desired position. Use green handles to resize the widget. 
+Hold and drag a widget to place it in your desired position. Use green handles to resize the widget. 
 
 After the widgets are added to the dashboard canvas, you can tap on it to configure it. Every widget has **Settings** and **Design** options at the bottom of the screen. Configure each widget similarly to the dashboard widgets.
 
 ## Firmware 
 
-Any Particle hardware (Tracker One, Tracker SoM, Boron, B Series SoM, Photon 2, P2, Argon, Photon, Electron, E Series, Core) running the provided firmware will be sending two channels of simulated sensor data from the hardware to Blynk.  
+Any Particle hardware such as Tracker One, Tracker SoM, Boron, B Series SoM, Photon 2, P2, Argon, Photon, Electron, E Series, and Core running the provided firmware will send two channels of simulated sensor data to Blynk.
 
-One channel will be integer values, and the other will be a floating point value. The data sent will be visualized on the Blynk web dashboard and mobile app in both a chart and a value display. Additionally, a switch widget on the web dashboard and mobile app will send data to the hardware to control it. The switch data is simply an On/Off (1/0) state that will be sent back to Blynk by the firmware to control a Blynk LED widget, and it will toggle the state of the built-in LED on the Particle device if it exists. A UTC-based timestamp will also be displayed on the web dashboard and mobile app so the last time data was published from the Particle device will be known.
+One channel will send integer values, while the other will transmit a floating point value. This data will be visualized on the Blynk web dashboard and mobile app, displayed both in a chart and as a value.
+
+Additionally, a switch widget on both the web dashboard and mobile app will relay data to the hardware for control purposes. The switch data represents an On/Off (1/0) state. This state will control a Blynk LED widget through the firmware and will also toggle the state of the built-in LED on the Particle device, if present. Lastly, a UTC-based timestamp displayed on both the web dashboard and mobile app will indicate the last time data was published from the Particle device.  
 
 ```cpp
 #include "Particle.h"
-
-const char* firmware_version = "0.0.0";
+#include <math.h> // This library is only for function simulating a sensor
+const char *firmware_version = "0.0.0";
 
 double v15 = 3.14159;
+uint32_t simSensor_timer_last = 0; // This is a variable for a function that simulates a sensor
 uint8_t led_state = LOW;
-bool particle_fn_called = TRUE;	// causes device to publish data immediately after started/boot and connected to Particle cloud.
+bool particle_fn_called = TRUE; // causes the device to publish data immediately after started/boot and connected to the Particle cloud.
 
 // Register the Particle cloud function
 int blynkLED(String on_or_off);
@@ -152,22 +168,40 @@ int blynkLED(String on_or_off);
 #define BLYNK_TEMPLATE_NAME "ParticleDeviceBlueprint"
 #define BLYNK_AUTH_TOKEN "your Blynk 32 char auth token"
 
+void simSensor()    //This function simulates a sensor
+{ 
+  long sim = random(millis());
+  if (millis() - simSensor_timer_last >= 20000) {
+    simSensor_timer_last = millis();
+    float deltaSensor = cos(float(sim) / 1000) / 100;
+       if (v15 <= 0 || v15 >= 3.3)
+    {
+      v15 = v15 - deltaSensor;
+    }
+    else
+    {
+      v15 = v15 + deltaSensor;
+     }
+  }
+} // simSensor
+
 /////////////////////////////////////////////////////////////////////////
 
-
-bool deviceHasLedOnD7() {
+bool deviceHasLedOnD7()
+{
   // Returns TRUE if the device has a built-in LED on D7:
   //  Boron, Argon, Photon 2, Photon, Electron, Core
   // 8: P1
-  switch (PLATFORM_ID) {
-    case PLATFORM_BORON:
-    case PLATFORM_ARGON:
-    case 0:  // Core
-    case 6:  // Photon  (PLATFORM_PHOTON_PRODUCTION)
-    case 10: // Electron  (PLATFORM_ELECTRON_PRODUCTION)
-      return TRUE;
-    default:
-      return FALSE;
+  switch (PLATFORM_ID)
+  {
+  case PLATFORM_BORON:
+  case PLATFORM_ARGON:
+  case 0:  // Core
+  case 6:  // Photon  (PLATFORM_PHOTON_PRODUCTION)
+  case 10: // Electron  (PLATFORM_ELECTRON_PRODUCTION)
+    return TRUE;
+  default:
+    return FALSE;
   }
 } // deviceHasLedOnD7()
 
@@ -177,38 +211,47 @@ bool deviceHasLedOnD7() {
 const uint32_t TIMER_INTERVAL_MS = 300000L;
 uint32_t timer_last = 0;
 
-void pubToParticleBlynk() {
-  if (Particle.connected()) {
+void pubToParticleBlynk()
+{
+  if (Particle.connected())
+  {
+    
     char data[90]; // See serial output for the actual size in bytes and adjust accordingly.
-    // Note the escaped double quotes around the ""t"" for BLYNK_AUTH_TOKEN.  
+    // Note the escaped double quotes around the ""t"" for BLYNK_AUTH_TOKEN.
     snprintf(data, sizeof(data), "{\"t\":\"%s\",\"v14\":%u,\"v15\":%f,\"v16\":%u,\"v17\":%u}", BLYNK_AUTH_TOKEN, millis(), v15, led_state, led_state);
     Serial.printlnf("Sending to Blynk: '%s' with size of %u bytes", data, strlen(data));
     bool pub_result = Particle.publish("blynk_https_get", data, PRIVATE);
-    if (pub_result) {
+    if (pub_result)
+    {
       timer_last = millis();
-    } else {
+    }
+    else
+    {
       Serial.println("ERROR: Particle.publish()");
     }
   }
 } // pubToParticleBlynk()
 
-
-void pubTimer() {
+void pubTimer()
+{
   // A timer for publishing data to Particle Cloud, and then continuing to Blynk.
-  if (timer_last > millis())  timer_last = millis();
-  if ((millis() - timer_last) > TIMER_INTERVAL_MS && Particle.connected()) {
+  if (timer_last > millis())
+    timer_last = millis();
+  if ((millis() - timer_last) > TIMER_INTERVAL_MS && Particle.connected())
+  {
     pubToParticleBlynk();
     timer_last = millis();
   }
 } // pubTimer()
 
-
 /////////////////////////////////////////////////////////////////////////
 
+void setup()
+{
+  
 
-void setup() {
-
-  if (deviceHasLedOnD7() == TRUE) {
+  if (deviceHasLedOnD7() == TRUE)
+  {
     pinMode(D7, OUTPUT);
     digitalWrite(D7, LOW);
   }
@@ -227,47 +270,55 @@ void setup() {
 
 } // setup()
 
-
-
-void loop() {
-  
+void loop()
+{
+  simSensor(); // This is function simulates a sensor
   pubTimer();
+  
 
-  if (particle_fn_called == TRUE) {
+  if (particle_fn_called == TRUE)
+  {
     particle_fn_called = FALSE;
     // Publish data to Particle cloud..
     pubToParticleBlynk();
   }
-  
-  if (deviceHasLedOnD7() == TRUE) {
+
+  if (deviceHasLedOnD7() == TRUE)
+  {
     digitalWrite(D7, led_state);
-  } 
+  }
 
 } // loop()
 
-
-int blynkLED(String on_off) {
+int blynkLED(String on_off)
+{
   // Custom Particle cloud function that changes the state of the built-in LED
   // on D7 in response to an instruction from Blynk calling this
-  // custom cloud function. 
-  // Returns the value 1 if the LED has been turned on, and 0 if turned off, 
+  // custom cloud function.
+  // Returns the value 1 if the LED has been turned on, and 0 if turned off,
   // -1 if an unexpected on_off value is received.
   // Cloud functions must return int and take one String argument
   // curl https://api.particle.io/v1/devices/{your 25 char device id}/blynk_led
   // -d access_token={your 40 char access token}
   // -d "args=on/off"
-  
-  
-  if (on_off == "on" || on_off == "1") {
+
+  if (on_off == "on" || on_off == "1")
+  {
     particle_fn_called = TRUE;
     led_state = HIGH;
     return 1;
-  } else if (on_off == "off" || on_off == "0") {
+  }
+  else if (on_off == "off" || on_off == "0")
+  {
     particle_fn_called = TRUE;
     led_state = LOW;
     return 0;
-  } else {
-    Serial.print("Unexpected on_off value of: '"); Serial.print(on_off); Serial.println("'");
+  }
+  else
+  {
+    Serial.print("Unexpected on_off value of: '");
+    Serial.print(on_off);
+    Serial.println("'");
   }
   return -1;
 
@@ -275,21 +326,21 @@ int blynkLED(String on_off) {
 ```
 
 ### Hardware authentication on Blynk
-Static AuthToken will be used for device authentication. A unique TemplateI D, Template Name, and AuthToken should be included in the firmware.
+Static AuthToken will be used for device authentication. A unique Template ID, Template Name, and AuthToken should be included in the firmware.
 
 1. In the Blynk.Console, navigate to **Search** > **Devices** and click **+ New Device**.
 2. Choose the **From template** option.
 3. Select your template from the **Template** drop-down list, fill out the **Device name** field, and click **Create**.
 4. In the upper right the BLYNK_TEMPLATE_ID, BLYNK_TEMPLATE_NAME and BLYNK_AUTH_TOKEN will be displayed. Copy and update the firmware sketch with your parameters. Each device in Blynk will have a unique set of these 3 parameters. They are always available under the **Device Info** tab. 
 
-```cpp
+```
 // Update below with your Blynk auth token for your device (automatically populated by Blueprint)
 #define BLYNK_TEMPLATE_ID "13 char template id"
 #define BLYNK_TEMPLATE_NAME "ParticleDeviceBlueprint"
 #define BLYNK_AUTH_TOKEN "your Blynk 32 char auth token"
 ```
 
-## Webhook on the Particle cloud
+## Webhook on the Particle Cloud
 
 A Particle integration webhook running on the Particle cloud will accept the data from the Particle.publish() function executing on the device, and transform it into a HTTPs GET that will post data to the Blynk cloud, updating the corresponding Blynk datastream values. 
 1. Create an account or log in to the [Particle Console](https://console.particle.io/)
@@ -317,18 +368,17 @@ A Particle integration webhook running on the Particle cloud will accept the dat
 } 
 ```
 
-_The keys on the left (token, V6, V14, V15, V16, V17) refer to Blynk datastreams (virtual pins), and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed._
+*The keys on the left (token, V6, V14, V15, V16, V17) refer to Blynk datastreams (virtual pins), and the values on the right reference variables from the firmware that will be passed from the Particle.publish() function. The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a timestamp for when the webhook is executed.*
 
 5. Update **ny3.blynk.cloud** with your server shown in the Blynk.Console lower right. Find the list of valid server addresses [here](https://docs.blynk.io/en/blynk.cloud/troubleshooting)
 
 6. Click on **Create Webhook**
 
 #### The Webhook should look like this:
-![Particle webhook](/assets/images/blynk-integration/particle-webhook.png)
+![Particle webhook](/assets/images/integrations/blynk/particle-webhook.png)
 
 
 Particle.publish() call in the firmware:
-
 ```cpp
 char data[90]; 
 // Note the escaped double quotes around the &quot;&quot;t&quot;&quot; for BLYNK_AUTH_TOKEN.  
@@ -336,29 +386,29 @@ snprintf(data, sizeof(data), &quot;{\&quot;t\&quot;:\&quot;%s\&quot;,\&quot;v14\
 bool pub_result = Particle.publish(&quot;blynk_https_get&quot;, data, PRIVATE);
 ```
 
-Note that the firmware will pass the unique BLYNK_AUTH_TOKEN defined for each device to the Particle webhook as the variable ‘{{t}}’. This allows each device to call the same webhook, at the expense of increasing the cellular payload for each transmission by 32 bytes.  
+Note that the firmware will pass the unique BLYNK_AUTH_TOKEN defined for each device to the Particle webhook as the variable 't'. This allows each device to call the same webhook, at the expense of increasing the cellular payload for each transmission by 32 bytes.  
 
-You can learn more about Particle webhooks by visiting this [documentation link](https://docs.particle.io/reference/cloud-apis/webhooks/). 
+You can learn more about Particle webhooks by visiting this [documentation link](/reference/cloud-apis/webhooks/). 
 
-### Generate Particle access token
+### Generate Particle Access Token
 The Blynk webhook will need a Particle access token to make a Particle HTTP API call to the Particle cloud function.  
 
-1. Browse to the Particle documentation section [Create a token](https://docs.particle.io/reference/cloud-apis/access-tokens/#create-a-token-browser-based-) (browser based). 
+1. Browse to the Particle documentation section [Create a token](/reference/cloud-apis/access-tokens/#create-a-token-browser-based-) (browser based). 
 2. Enter your Particle login email and password into the form. If you have MFA (multi-factor authentication) enabled on your account, you will need your MFA code to generate the access token. 
 4. Click the **Create token** button to generate a token. Keep this token confidential. 
 
-![Particle Access Token](/assets/images/blynk-integration/particle-token.png)
+![Particle Access Token](/assets/images/integrations/blynk/particle-token.png)
 
 ## Blynk webhook setup
 Control of the Particle hardware remotely from the Blynk web dashboard or mobile app is accomplished using a Blynk webhook and the Particle HTTP API. When the state of the switch widget on the Blynk web dashboard or mobile app is changed, a Blynk webhook assigned to the same datastream is called. The webhook makes a Particle HTTP API call to a Particle cloud function with a device-unique token that sends data to the Particle hardware. 
 
-1. In the [Blynk.Console](https://blynk.cloud/), navigate to **Settings** > **Webhooks** and create a new webhook for datastream V16 based on the information shown in the next image. 
+1. In the [Blynk.Console](https://blynk.cloud/?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs), navigate to **Settings** > **Webhooks** and create a new webhook for datastream V16 based on the information shown in the next image. 
 2. After you are finished configuring the webhook, click **Test webhook** to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). 
 3. Click **Create Webhook** to save it and close the dialog. 
 
 Note that the **Blynk webhook request quota is 1 per minute*** so any datastream value changes sooner than 60 seconds will not execute the webhook.
 
-![Blynk Webhook](/assets/images/blynk-integration/blynk-webhook.png)
+![Blynk Webhook](/assets/images/integrations/blynk/blynk-webhook.png)
 
 
 **Webhook URL**
@@ -372,8 +422,9 @@ Replace your Particle [device ID](https://console.particle.io/) and the 40-chara
 
 The "blynk_led" at the end of the WEBHOOK URL is the Particle cloud function key that is referenced in the firmware as:
 
-```cpp
-void setup() {
+```cpo
+void setup()
+{
   ...
   Particle.function("blynk_led", blynkLED);
   ...
@@ -389,26 +440,24 @@ Bearer 40_character_Particle_access_token
 
 ## Testing
 1. Test the Particle cloud function running in the firmware by calling it from the Particle console. With your Particle hardware running, visit [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#firmware) for detailed instructions on how to call 'blynk_led'. Go to your [Particle console](https://console.particle.io/), select the Particle device, and then under the **Functions** section on the right side of the screen you will see the function key of ‘blynk_led’ listed. Enter **‘on’** in the **Argument** input area and click the **CALL** button. Observe the Particle device to confirm that the built-in blue LED on D7 turns on. Repeat with the **‘off’** argument to turn off the LED.   
-![](https://github.com/marynablynk/blynk-particle-integration/blob/main/images/functions.png "Particle Function")
+![alt text](/assets/images/integrations/blynk/functions.png "Particle Function")
 2. Verify that your Particle access token is correct by using the Particle API to test it. Detailed instructions on how to do this using [Postman](https://www.postman.com/) can be found [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#particle-api).
 3. Test the Blynk webhook by installing the firmware on your Particle hardware, and then click **Test webhook** to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). Then from the Blynk web dashboard or mobile app, toggle the switch assigned to datastream V16 and observe the built-in LED on the hardware if it exists, or the Blynk LED widget if no built-in LED exists. Wait 60 seconds between each toggle of the switch widget.
-4. Review the Particle device log to confirm the device is connected and to see what data has been published from the hardware to the Particle cloud. 
-5. Review the Particle integration log to see if it was triggered successfully and the data that was pushed to it from the Particle device. 
+4. Don't be concerned about the "Offline" network indicator status in the web console and app. It occurs because the Particle device is not connected to the Blynk Cloud directly, but to the Particle Cloud. However, you can always check the "Last Update" data in the web console or mobile application. If the difference between the current time and this timestamp is more than the update interval set in your sketch (for this project, it's 5 minutes), then most likely your Particle device has gone offline.
+5. Review the Particle device log to confirm the device is connected and to see what data has been published from the hardware to the Particle cloud. 
+6. Review the Particle integration log to see if it was triggered successfully and the data that was pushed to it from the Particle device. 
 
 ## Troubleshooting
-- Make sure the `BLYNK_AUTH_TOKEN` in your firmware matches what is shown in the Blynk console **Search** > **Device** > **Device Info**.
+- Make sure the BLYNK_AUTH_TOKEN in your firmware matches what is shown in the Blynk console **Search** > **Device** > **Device Info**.
 - If your Particle device has a built-in RGB then it should be breathing cyan if it is connected to the Particle cloud. 
 - Perform all of the tests under **Testing** to be sure that each communication step from the Particle hardware to Blynk and back works properly.
 
-# Example use cases
-After your device is connected to Blynk, this integration can be easily modified to include more functionality. 
+{{collapse op="end"}}
 
-- Blynk no-code [Web Dashboard](https://docs.blynk.io/en/blynk.console/templates/dashboard) and [Mobile App](https://docs.blynk.io/en/blynk.apps/constructor) builder make it easy to create custom interfaces to visualize data and interact with an IoT device.
-- Blynk [Automations](https://docs.blynk.io/en/concepts/automations) allows the end-user of your app to create scenarios where the device automatically performs one or more actions based on a condition. For example, you can trigger a phone notification or send an email when the Particle device detects a sensor condition of interest.
-- Blynk [User Management](https://docs.blynk.io/en/concepts/users) functionality allows you to share devices with other users - from a few to thousands and offers a simple and flexible way to set up and manage multi-tenant IoT applications at any scale. 
-- Blynk [Organizations](https://docs.blynk.io/en/concepts/organizations) allow you to categorize your devices and users, assigning them roles, permissions, and locations.
+## Example use cases
+After your device is connected to Blynk, this basic integration can be easily modified to include more functionality. 
 
- 
-# Related links
-- [Blynk Troubleshooting guide](https://docs.blynk.io/en/troubleshooting/general-issues)
-- [Blynk Documentation](https://docs.blynk.io/)
+- Blynk no-code [Web Dashboard](https://docs.blynk.io/en/blynk.console/templates/dashboard?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs) and [Mobile App](https://docs.blynk.io/en/blynk.apps/constructor?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs) builder make it easy to create custom interfaces to visualize data and interact with an IoT device.
+- Blynk [Automations](https://docs.blynk.io/en/concepts/automations?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs) allows the end-user of your app to create scenarios where the device automatically performs one or more actions based on a condition. For example, you can trigger a phone notification or send an email when the Particle device detects a sensor condition of interest.
+- Blynk [User Management](https://docs.blynk.io/en/concepts/users?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs) functionality allows for sharing devices with other users - from a few to thousands and offers a simple and flexible way to set up and manage multi-tenant IoT applications at any scale. 
+- Blynk [Organizations](https://docs.blynk.io/en/concepts/organizations?utm_source=particle&utm_medium=referral&utm_campaign=integr&utm_content=docs) allow for categorizing your devices and users, assigning them roles, permissions, and locations.
