@@ -137,7 +137,7 @@ If you want to see what's happening, open your serial monitor before calling the
 
 ## References
 
-- DeviceOS API reference - [Asset OTA](/reference/device-os/firmware/#asset-ota)
+- DeviceOS API reference - [Asset OTA](/reference/device-os/api/asset-ota/asset-ota/)
 - Developer tools - [Compiling a directory with assets](/reference/developer-tools/cli/#compiling-a-directory-with-assets)
 - Cloud - [OTA firmware updates](/getting-started/cloud/ota-updates/#asset-ota)
 - Github Asset OTA [STM32 and LCD image examples](https://github.com/particle-iot/asset-ota-examples)

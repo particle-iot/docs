@@ -547,8 +547,8 @@
             "hash": "e4534091a7137267872d85aab3cf1eb5f36e063f9641761a315672cf1a5b7c7b"
         },
         "firmware/tracker-edge/monitor-edge-firmware.md": {
-            "date": "2023-10-05",
-            "hash": "884016bc5e7aa83aaa3b15f9372f0e8b912a14e0ff741907c24b32cfb8f3b341"
+            "date": "2023-10-06",
+            "hash": "e066955390e42b6372c45af4a97cef6801e3154abc89964631c59cb870ba0dce"
         },
         "firmware/tracker-edge/store-and-forward.md": {
             "date": "2023-07-26",
@@ -559,8 +559,8 @@
             "hash": "d3ecc52b63da09c33169a6ae3055e5a3b7823e988f05dab6c59211dae5285c52"
         },
         "firmware/tracker-edge/tracker-edge-firmware.md": {
-            "date": "2023-09-11",
-            "hash": "0b63ef8b6c9be0a55d20ceaac2cd167500989d3406c2fc00d71a173f81c85516"
+            "date": "2023-10-06",
+            "hash": "0211dbfd31028133c57f0cad08f914b536ac583a0515ddf1917de6c42804cb4a"
         },
         "getting-started/billing/cellular-data.md": {
             "date": "2023-03-17",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-10-05",
-            "hash": "7abfff380f1598fc9cc00d1f2634c2367f67fd2cb87d4173072326738bfc498d"
+            "date": "2023-10-06",
+            "hash": "d574fc0dd8448d333af69a235947e45989849b5a0170f107c4c1126d7f765f53"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -4023,8 +4023,8 @@
             "hash": "c20d4e0d26217a8fc946164e8f5a78b45b509c038da899f5324790224de202fc"
         },
         "reference/device-os/api/asset-ota/asset-ota.md": {
-            "date": "2023-10-03",
-            "hash": "5eda89387f07a13566afd8515cbdf1b29bfc2c1cd54dfe78eb49f9eacb360d96"
+            "date": "2023-10-06",
+            "hash": "fb01f786162b105d3af636c0e2c63547be8f90683e805280ea358a293716526f"
         },
         "reference/device-os/api/asset-ota/maximum-asset-sizes.md": {
             "date": "2023-09-20",
@@ -8186,27 +8186,31 @@
             "hash": "87dd68c80606cec3187529a903d0cccfd9df07c71f5fc14d72d754b4d269791a",
             "date": "2023-10-06"
         },
-        "reference/device-os/asset-ota-community/asset-ota-community.md": {
+        "reference/asset-ota/asset-ota.md": {
+            "hash": "674193bc7e074c36d62a7b5d91b887dce1988ec7a98a5cd6c54826952eef3962",
+            "date": "2023-10-06"
+        },
+        "reference/asset-ota/asset-ota-community/arduino-uno-asset-ota.md": {
+            "hash": "a98d1cc8a62d2f738290a108e8b1040476ff26a5c888b73b9d9eb9373a19d300",
+            "date": "2023-10-06"
+        },
+        "reference/asset-ota/asset-ota-community/asset-ota-community.md": {
             "hash": "8cde126690232b33607c87f758bc5b56232d567bcbaf35333b6eecedf5ffcdb8",
             "date": "2023-10-06"
         },
-        "reference/device-os/asset-ota-community/arduino-uno-asset-ota.md": {
-            "hash": "002583982c2d3d3478f05b8e7a35d3f8175c98be73daec6944fd8851f38dbf54",
+        "reference/asset-ota/asset-ota-community/sound-asset-ota.md": {
+            "hash": "8948bb51f42ccad3d86304279f3e9b9b6ffb26249677d7d17b457746b0fc9d99",
             "date": "2023-10-06"
         },
-        "reference/device-os/asset-ota-community/lcd-image-asset-ota.md": {
+        "reference/asset-ota/asset-ota-community/rp2040-raspberry-pi-asset-ota.md": {
+            "hash": "33fc889c689738e906b9326bd5d0cdce72f519bfb33a12a93b80d4f3031e6ecd",
+            "date": "2023-10-06"
+        },
+        "reference/asset-ota/asset-ota-community/lcd-image-asset-ota.md": {
             "hash": "ab341e4d9ae1f8c1600f17382728e9c69df847d54f2519ecc4471a2dca85cab9",
             "date": "2023-10-06"
         },
-        "reference/device-os/asset-ota-community/sound-asset-ota.md": {
-            "hash": "bb8b5386932fe3793a11614437fd2666e2254779b585d1625d127063627c3788",
-            "date": "2023-10-06"
-        },
-        "reference/device-os/asset-ota-community/rp2040-raspberry-pi-asset-ota.md": {
-            "hash": "f28c76aa2635cf9f14e7b88064208c3f200b708648e741829313feae88ff7dea",
-            "date": "2023-10-06"
-        },
-        "reference/device-os/asset-ota-community/stm32-asset-ota.md": {
+        "reference/asset-ota/asset-ota-community/stm32-asset-ota.md": {
             "hash": "7b39fa04d392a3bf2b67fc40fa76ca626aec49f6909c70049e927791b10334ac",
             "date": "2023-10-06"
         }

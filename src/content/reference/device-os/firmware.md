@@ -20984,7 +20984,7 @@ device OTA updates.
 
 {{since when="5.5.0"}}
 
-For an introduction to Asset OTA including its use cases, creating an asset bundle, and example projects, see [Asset OTA](/reference/device-os/asset-ota/).
+For an introduction to Asset OTA including its use cases, creating an asset bundle, and example projects, see [Asset OTA](/reference/asset-ota/asset-ota/).
 
 In addition to the methods in the `System` class, including [`System.onAssetOta()`](#onassetota-system) and [`System.assetsHandled()`](#assetshandled-system), the functions is this section are used to process the asset bundles.
 

@@ -17,7 +17,7 @@ One difference between the Tracker One and other Particle devices is that the Tr
 The [Tracker Edge Firmware API Reference](/firmware/tracker-edge/tracker-edge-api-reference/) is also available.
 
 {{note op="start" type="note"}}
-This page is for the Tracker One. If you are using the Monitor One, see [Monitor Edge](/firmware/monitor-edge/).
+This page is for the Tracker One. If you are using the Monitor One, see [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/).
 {{note op="end"}}
 
 
@@ -84,7 +84,7 @@ Replace &lt;device-id> with the 24-character hex device ID.
 ## Getting the Tracker Edge firmware
 
 {{note op="start" type="note"}}
-This page is for the Tracker One. If you are using the Monitor One, see [Monitor Edge](/firmware/monitor-edge/).
+This page is for the Tracker One. If you are using the Monitor One, see [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/).
 {{note op="end"}}
 
 You can download a complete project for use with Particle Workbench as a zip file here:

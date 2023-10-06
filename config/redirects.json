@@ -2086,6 +2086,7 @@
   "/reference/device-os/api/watchdog-hardware": "/reference/device-os/api/watchdog-hardware/watchdog-hardware",
   "/reference/device-os/api/wifi": "/reference/device-os/api/wifi/wifi",
   "/reference/device-os/api/wire-i2c": "/reference/device-os/api/wire-i2c/wire-i2c",
+  "/reference/device-os/asset-ota": "/reference/asset-ota/asset-ota",
   "/reference/device-os/firmware/core": "/reference/discontinued/software/firmware-core",
   "/reference/device-os/firmware/raspberry-pi": "/raspberry-pi",
   "/reference/device-os/firmware/xenon": "/reference/discontinued/software/firmware-xenon",

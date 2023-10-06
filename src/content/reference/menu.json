@@ -124,11 +124,18 @@
         "dir": "wifi-setup-options",
         "title": "Wi-Fi setup options",
         "href": "/reference/device-os/wifi-setup-options/"
-      },
+      }
+    ],
+    {
+      "dir": "asset-ota",
+      "isSection": true,
+      "title": "Asset OTA"
+    },
+    [
       {
         "dir": "asset-ota",
         "title": "Asset OTA",
-        "href": "/reference/device-os/asset-ota/"
+        "href": "/reference/asset-ota/asset-ota/"
       },
       {
         "dir": "asset-ota-community",
@@ -139,32 +146,33 @@
         {
           "dir": "asset-ota-community",
           "title": "About Asset OTA community projects",
-          "href": "/reference/device-os/asset-ota-community/asset-ota-community/"
+          "href": "/reference/asset-ota/asset-ota-community/asset-ota-community/"
         },
         {
           "dir": "arduino-uno-asset-ota",
           "title": "Arduino Uno Asset OTA",
-          "href": "/reference/device-os/asset-ota-community/arduino-uno-asset-ota/"
+          "href": "/reference/asset-ota/asset-ota-community/arduino-uno-asset-ota/"
         },
         {
           "dir": "lcd-image-asset-ota",
           "title": "LCD image Asset OTA",
-          "href": "/reference/device-os/asset-ota-community/lcd-image-asset-ota/"
+          "href": "/reference/asset-ota/asset-ota-community/lcd-image-asset-ota/"
         },
         {
           "dir": "rp2040-raspberry-pi-asset-ota",
           "title": "RP2040 Raspberry Pi Asset OTA",
-          "href": "/reference/device-os/asset-ota-community/rp2040-raspberry-pi-asset-ota/"
+          "href": "/reference/asset-ota/asset-ota-community/rp2040-raspberry-pi-asset-ota/",
+          "hidden": true
         },
         {
           "dir": "sound-asset-ota",
           "title": "Sound Asset OTA",
-          "href": "/reference/device-os/asset-ota-community/sound-asset-ota/"
+          "href": "/reference/asset-ota/asset-ota-community/sound-asset-ota/"
         },
         {
           "dir": "stm32-asset-ota",
           "title": "STM32 Asset OTA",
-          "href": "/reference/device-os/asset-ota-community/stm32-asset-ota/"
+          "href": "/reference/asset-ota/asset-ota-community/stm32-asset-ota/"
         }
       ]
     ],

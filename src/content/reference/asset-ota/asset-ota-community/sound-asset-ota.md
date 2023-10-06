@@ -35,7 +35,7 @@ includeDefinitions: [api-helper, api-helper-extras,api-helper-projects,ble-seria
 
 
  ## Additional References
-* Getting Started with [Asset OTA](/reference/device-os/asset-ota/) 
+* Getting Started with [Asset OTA](/reference/asset-ota/asset-ota/) 
 * Adafruit Music Maker FeatherWing [Tutorial](https://learn.adafruit.com/adafruit-music-maker-featherwing/)
 
 
