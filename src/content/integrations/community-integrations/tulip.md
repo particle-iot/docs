@@ -34,7 +34,7 @@ Go to Shop Floor &rarr; Machines &rarr; Machine Types and create a new Machine T
 **Machine**
 Create a new machine under the newly created machine type; under configuration, map the machine attribute to the Tulip Machine API and note the `MachineId` and `AttributeId` as you will need these in the next step.
 
-{{imageOverlay src="/assets/images/integrations/tulip//machine_attribute.png" }}
+{{imageOverlay src="/assets/images/integrations/tulip/machine_attribute.png" }}
 
 
 ### Enabling the integration
@@ -69,6 +69,12 @@ You'll need to click the **Advanced Settings** area to fill out the custom JSON 
   ]
 }
 ```
+
+Finally, you'll need to authenticate to Tulip with the api key and secret using **HTTP Basic Auth**.
+
+{{imageOverlay src="/assets/images/integrations/tulip/tulip_api_auth.jpg" }}
+
+
 
 Click **Create Webhook**. You have now successfully told the Particle cloud to stream data to Tulip via its MachineAPI!
 
@@ -107,7 +113,7 @@ Be sure you turn off or restore default firmware on your device after running th
 
 To ensure that the data is successfully being published to Tulip, you can view machine updates in the Shop Floor &rarr; Machines area
 
-{{imageOverlay src="/assets/images/integrations/tulip//machine_attribute_confirm.png" }}
+{{imageOverlay src="/assets/images/integrations/tulip/machine_attribute_confirm.png" }}
 
 NOTE: The attribute may have to be in string format and then converted later.
 
