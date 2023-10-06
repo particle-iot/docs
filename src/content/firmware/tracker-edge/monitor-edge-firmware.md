@@ -25,7 +25,7 @@ The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-ap
 | Platform | tracker (26) | tracker (26) | tracker (26) | tracker (26) |
 
 {{note op="start" type="note"}}
-This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/).
+This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/).
 {{note op="end"}}
 
 ## Configuration schema
@@ -95,7 +95,7 @@ Replace &lt;device-id> with the 24-character hex device ID.
 ## Getting the Monitor Edge firmware
 
 {{note op="start" type="note"}}
-This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/).
+This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/).
 {{note op="end"}}
 
 The Monitor Edge firmware can be downloaded from GitHub:

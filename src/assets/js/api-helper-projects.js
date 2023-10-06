@@ -106,7 +106,7 @@ $(document).ready(function() {
             $(outputDivElem).hide();
 
             const langMap = {
-                'cpp': ['cpp', 'c++', 'cxx', 'c', 'h', 'hpp'],
+                'cpp': ['cpp', 'c++', 'cxx', 'c', 'h', 'hpp', 'ino'],
                 'json': ['json'],
                 'js': ['js']
             }
