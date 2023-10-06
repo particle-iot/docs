@@ -61,6 +61,11 @@
         "href": "/integrations/community-integrations/questdb/"
       },
       {
+        "dir": "tulip",
+        "title": "Tulip",
+        "href": "/integrations/community-integrations/tulip/"
+      },
+      {
         "dir": "ifttt",
         "title": "IFTTT",
         "href": "/integrations/community-integrations/ifttt/"
@@ -85,11 +90,10 @@
         "title": "Memfault",
         "href": "/integrations/community-integrations/memfault/"
       }
-    ]
-    ,
+    ],
     {
-        "title": "Machine Learning",
-        "href": "/getting-started/machine-learning/machine-learning/"
+      "title": "Machine Learning",
+      "href": "/getting-started/machine-learning/machine-learning/"
     }
   ]
 }
