@@ -10,6 +10,22 @@ description: About Asset OTA community projects
 The projects in this section are provided by members of the Particle community to show how 
 to interact with specific devices using Asset OTA.
 
+## Highlighted projects
+
+### Arduino Uno Asset OTA
+
+The [Arduino Uno project](/reference/asset-ota/asset-ota-community/arduino-uno-asset-ota/) shows how to interface to a 5V Arduino device, including necessary level shifting hardware, and flash the device firmware using Asset OTA.
+
+![Arduino Uno](/assets/images/asset-ota/arduino-uno.jpg)
+
+### Sound Asset OTA
+
+The [sound project](/reference/asset-ota/asset-ota-community/sound-asset-ota/) shows how you can upgrade sound assets stored on an external SD card using Asset OTA.
+
+![Sound example](/assets/images/asset-ota/sounds-example.jpg)
+
+
+
 ## Contributing
 
 If you'd like to contribute an Asset OTA community project: 
