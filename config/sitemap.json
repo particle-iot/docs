@@ -8185,6 +8185,30 @@
         "integrations/community-integrations/tulip.md": {
             "hash": "87dd68c80606cec3187529a903d0cccfd9df07c71f5fc14d72d754b4d269791a",
             "date": "2023-10-06"
+        },
+        "reference/device-os/asset-ota-community/asset-ota-community.md": {
+            "hash": "8cde126690232b33607c87f758bc5b56232d567bcbaf35333b6eecedf5ffcdb8",
+            "date": "2023-10-06"
+        },
+        "reference/device-os/asset-ota-community/arduino-uno-asset-ota.md": {
+            "hash": "002583982c2d3d3478f05b8e7a35d3f8175c98be73daec6944fd8851f38dbf54",
+            "date": "2023-10-06"
+        },
+        "reference/device-os/asset-ota-community/lcd-image-asset-ota.md": {
+            "hash": "ab341e4d9ae1f8c1600f17382728e9c69df847d54f2519ecc4471a2dca85cab9",
+            "date": "2023-10-06"
+        },
+        "reference/device-os/asset-ota-community/sound-asset-ota.md": {
+            "hash": "bb8b5386932fe3793a11614437fd2666e2254779b585d1625d127063627c3788",
+            "date": "2023-10-06"
+        },
+        "reference/device-os/asset-ota-community/rp2040-raspberry-pi-asset-ota.md": {
+            "hash": "f28c76aa2635cf9f14e7b88064208c3f200b708648e741829313feae88ff7dea",
+            "date": "2023-10-06"
+        },
+        "reference/device-os/asset-ota-community/stm32-asset-ota.md": {
+            "hash": "7b39fa04d392a3bf2b67fc40fa76ca626aec49f6909c70049e927791b10334ac",
+            "date": "2023-10-06"
         }
     }
 }
