@@ -11,6 +11,8 @@ description: M SoM from Boron or Argon migration guide
 For internal use only. This document is based on preliminary engineering documents and has not been fully reviewed. Changes are likely!
 {{box op="end"}}
 
+{{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/m-series/msom-top.png"}}
+
 
 ## Hardware
 
@@ -22,11 +24,18 @@ The primary difference is that the Argon and Boron are pin-based modules that ca
 
 The M SoM is a M.2 SoM that fits in a SMD mounted M.2 NGFF connector. It requires a base board and cannot be used on its own. The M.2 socket is not the same as the M.2 sockets used for flash memory in computers.
 
+You can find additional information about the B SoM in the [B SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
+
+
 ## Software differences
 
 ### User firmware binary size
 
 One major advantage is that user firmware binaries can be up to 2048 Kbytes, instead of 256 Kbytes on Gen 3 devices using Device OS 3.1.0 or later.
+
+### Available RAM
+
+The Boron and Argon have around 80K of RAM available to user applications. The M SoM has 3500K of available RAM.
 
 ### Flash file system
 

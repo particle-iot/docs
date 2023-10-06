@@ -11,6 +11,9 @@ description: M SoM datasheet
 For internal use only. This document is based on preliminary engineering documents and has not been fully reviewed. Changes are likely!
 {{box op="end"}}
 
+![M SoM](/assets/images/m-series/msom-top.png)
+
+## Overview
 
 The M SoM module contains the following functional units:
  
@@ -20,9 +23,8 @@ The M SoM module contains the following functional units:
 - Cellular modem 
   - Quectel BG95-M5 LTE Cat M1 (North America)
   - Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
-  - Integrated GNSS (GPS) 
 
-## MCU
+### MCU
 
 The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8721DM), but has additional GPIO.
 
@@ -36,9 +38,26 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 - 2 MB flash file system
 - FCC, IC, and CE certified
 
-## Block diagram
+### Block diagram
 
 {{imageOverlay src="/assets/images/m-series/msom-block-diagram.png" alt="Block diagram" class="full-width"}}
+
+### Device families
+
+| | Cellular Only | Cellular & Wi-Fi | Wi-Fi Only |
+| :--- | :---: | :---: | :---: |
+| Developer devices | Boron | &nbsp; | Photon 2 |
+| Production module | B SoM | M SoM | P2 |
+
+### Migration guides
+
+If you are migrating to the M SoM from another Particle device, see also the following migration guides:
+
+- [M SoM from B SoM](/hardware/migration-guides/msom-b-series-migration-guide/)
+- [M SoM from Boron or Argon](/hardware/migration-guides/msom-boron-migration-guide/)
+- [M SoM from E Series](/hardware/migration-guides/msom-e-series-migration-guide/)
+- [M SoM from P2](/hardware/migration-guides/msom-p2-migration-guide/)
+
 
 ### Power
 
@@ -71,7 +90,7 @@ Power supply requirements:
   - Wi-Fi (2.4 GHz and 5 GHz) and BLE
   - GNSS (GPS)
 - Wi-Fi operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
-
+- GNSS features are limited M404 as the cellular modem cannot do cellular communication and GNSS at the same time.
 
 ### Approved Antennas
 
@@ -769,6 +788,12 @@ SE, SI, SK, TR, UA, UK(NI).
 ---
 ## Ordering information
 
+| Model | Quantity | Region |
+| :--- | :--- | :--- |
+| M404MEA | 1 | United States, Canada, and Mexico |
+| M404MTY | 50 | United States, Canada, and Mexico |
+| M524MEA | 1 | EMEAA (Europe, and parts of the Middle East, Africa, and Asia) |
+| M524MTY | 50 | EMEAA (Europe, and parts of the Middle East, Africa, and Asia) |
 
 ## Revision history
 

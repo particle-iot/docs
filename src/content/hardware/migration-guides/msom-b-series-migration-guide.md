@@ -14,22 +14,29 @@ For internal use only. This document is based on preliminary engineering documen
 
 {{migration-guide leftImg="/assets/images/b-series/b-series-top.png" rightImg="/assets/images/m-series/msom-top.png"}}
 
+<p class="attribution">The modules are actually the same size - the graphic is incorrect and will be fixed in the future.</p>
+
 Migrating from the B Series SoM to the M SoM is straightforward, however there are some things to keep in mind:
 
-- Makes sure your 3V3 and VCC (3V7) power supplies are sufficient
+- Make sure your 3V3 and VCC (3V7) power supplies are sufficient
 - SPI1 (secondary SPI) is on different pins
 - Wire1 (secondary I2C) is not available on the M SoM
 - PWM pins are different
-- It has a different MCU which may have different compatibility with 3rd-party libraries.
+- It has a different MCU which may have different compatibility with 3rd-party libraries
 
 As the M SoM is a different platform ID and requires different firmware binaries it will require a separate product from bsom and b5som products.
 
+You can find additional information about the B SoM in the [B SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
 
 ## Software differences
 
 ### User firmware binary size
 
 One major advantage is that user firmware binaries can be up to 2048 Kbytes, instead of 256 Kbytes on Gen 3 devices using Device OS 3.1.0 or later.
+
+### Available RAM
+
+The B SoM has around 80K of RAM available to user applications. The M SoM has 3500K of available RAM.
 
 ### Flash file system
 

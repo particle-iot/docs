@@ -18,6 +18,8 @@ The P2 module is a Wi-Fi SMD module that is mounted directly to your custom base
 
 However, since the P2 has a Realtek RTL8721DM processor and the M SoM has a Realtek RTL8722DM which is substantially similar, only having more GPIO, the migration should be relatively straightforward.
 
+You can find additional information about the B SoM in the [B SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
+
 ## Hardware
 
 ### Antenna
