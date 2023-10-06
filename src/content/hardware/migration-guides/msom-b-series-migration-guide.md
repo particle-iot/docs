@@ -8,7 +8,7 @@ description: M SoM from B Series migration guide
 # {{title}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-For internal use only. This document is based on preliminary engineering documents. Changes are likely!
+For internal use only. This document is based on preliminary engineering documents and has not been fully reviewed. Changes are likely!
 {{box op="end"}}
 
 
@@ -974,3 +974,10 @@ Most third-party libraries are believed to be compatible. The exceptions include
 - Requires hardware timer support from user firmware
 
 {{!-- END shared-blurb --}}
+
+
+## Revision history
+
+| Revision | Date | Author | Comments |
+|:---------|:-----|:-------|:---------|
+| pre      | 2023-10-03 | RK | Initial version |

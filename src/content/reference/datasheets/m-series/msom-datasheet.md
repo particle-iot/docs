@@ -7,10 +7,8 @@ description: M SoM datasheet
 
 # M SoM datasheet
 
-**Pre-release draft 2023-10-03 for review only. Do not distribute or share this URL!**
-
 {{box op="start" cssClass="boxed warningBox"}}
-For internal use only. This document is based on preliminary engineering documents. Changes are likely!
+For internal use only. This document is based on preliminary engineering documents and has not been fully reviewed. Changes are likely!
 {{box op="end"}}
 
 

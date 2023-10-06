@@ -8,7 +8,7 @@ description: M SoM from P2 migration guide
 # {{title}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-For internal use only. This document is based on preliminary engineering documents. Changes are likely!
+For internal use only. This document is based on preliminary engineering documents and has not been fully reviewed. Changes are likely!
 {{box op="end"}}
 
 
@@ -817,3 +817,10 @@ If you have a product based on the P2, you will need to create a separate produc
 Most third-party libraries are believed to be compatible between the P2 and M SoM as they share a similar MCU. The exceptions include:
 
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
+
+
+## Revision history
+
+| Revision | Date | Author | Comments |
+|:---------|:-----|:-------|:---------|
+| pre      | 2023-10-03 | RK | Initial version |

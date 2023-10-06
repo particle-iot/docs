@@ -8,7 +8,7 @@ description: M SoM from E Series Migration Guide
 # {{title}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-For internal use only. This document is based on preliminary engineering documents. Changes are likely!
+For internal use only. This document is based on preliminary engineering documents and has not been fully reviewed. Changes are likely!
 {{box op="end"}}
 
 
@@ -1551,8 +1551,9 @@ To be provided at a later date
 {{!-- b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
 
 
-## Version history
+
+## Revision history
 
 | Revision | Date | Author | Comments |
-|:---:|:---:|:---:|:----|
-| pre | 2023-10-04 | RK | Initial version |
+|:---------|:-----|:-------|:---------|
+| pre      | 2023-10-03 | RK | Initial version |
