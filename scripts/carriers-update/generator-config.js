@@ -3254,6 +3254,7 @@ const path = require('path');
                     platformOld: 'B4xx SoM',
                     pinNumberOld: true,
                     newHardwarePin: true,
+                    changeIndicator: true,
                 }); 
             }
         },

@@ -2394,6 +2394,14 @@ const generatorConfig = require('./generator-config');
                 columns: [],
             };
 
+            if (options.changeIndicator) {
+                tableOptions.columns.push({
+                    key: 'change',
+                    title: '&nbsp;',
+                    align: 'center',
+                });    
+            }
+
             if (options.pinNumberOld) {
                 tableOptions.columns.push({
                     key: 'oldPinNum',
@@ -2443,6 +2451,14 @@ const generatorConfig = require('./generator-config');
                 rowData.newPinName = getPinNameWithAlt(newPin);                
                 rowData.newDesc = newPin.desc;
                 rowData.newPinNum = newPin.num;
+
+                if (rowData.oldPinName != rowData.newPinName || rowData.oldDesc != rowData.newDesc) {
+                    rowData.change = '∆'; // delta
+                }
+                else {
+                    rowData.change = '';
+                }
+
                 tableData.push(rowData);
             }
 

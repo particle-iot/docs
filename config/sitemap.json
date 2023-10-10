@@ -1019,7 +1019,7 @@
             "hash": "eae4665dd04d91377a14c0c3d73a48c8d1ad43eed1e93c538e301ed8cdbc8a46"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
-            "date": "2023-10-04",
+            "date": "2023-10-10",
             "hash": "30fdfcd1e627d0c4a08f5109c865a0470f44383b5094bd45628fcfad6d8911d2"
         },
         "hardware/migration-guides/p2-p1-migration-guide.md": {
@@ -1027,7 +1027,7 @@
             "hash": "863905cbb423e32679ed01183014749eca4b8857ef98e7c139469a92d70a57dc"
         },
         "hardware/migration-guides/p2-photon-migration-guide.md": {
-            "date": "2023-10-04",
+            "date": "2023-10-10",
             "hash": "cdb9cae6dcbd2cfaf9517c66aa7ba09e4a9e7657b6be7eba331899df17711f01"
         },
         "hardware/migration-guides/photon-2-argon-migration-guide.md": {
@@ -1411,7 +1411,7 @@
             "hash": "f857ec235dbe2180c6fe6c449dd69be9df890f5dba11dfffc86652a37688dd7a"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2023-10-04",
+            "date": "2023-10-10",
             "hash": "70309515fae64a2fc4300a8851a4f8016a46ea9616fa9bc25ce1f9e2613447a0"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {

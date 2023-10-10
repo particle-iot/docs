@@ -14,6 +14,8 @@ For internal use only. This document is based on preliminary engineering documen
 
 {{migration-guide leftImg="/assets/images/e-series/illustrations/e0-top.png" rightImg="/assets/images/m-series/msom-top.png"}}
 
+<p class="attribution">Pictures are not the same scale</p>
+
 The M SoM (system-on-a-module) is a 4th-generation cellular and Wi-Fi device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
 Like the E Series module, it requires your own custom base board. One difference is that the M SoM does not contain the PMIC and fuel gauge chips that the E Series does.
@@ -40,7 +42,7 @@ All E Series models (except for the E404X) have been deprecated. It is recommend
 
 - [M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
 - [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
-
+- [E Series datasheet](/reference/datasheets/e-series/e-series-datasheet/)
 
 ## Prototyping
 
@@ -518,10 +520,10 @@ The M SoM has 2 MB flash file system using the same [POSIX API](/reference/devic
 
 ### EEPROM
 
-The [EEPROM emulation API](/reference/device-os/api/eeprom/eeprom/) is the same across the Photon and M SoM.
+The [EEPROM emulation API](/reference/device-os/api/eeprom/eeprom/) is the same across the E Series and M SoM.
 
-The E Series had 2047 bytes of emulated EEPROM.
-The M SoM has 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
+- The E Series had 2047 bytes of emulated EEPROM.
+- The M SoM has 4096 bytes of emulated EEPROM. On the M SoM, P2, Photon 2, and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
 
 
 ### Interrupts
@@ -614,22 +616,17 @@ E Series pins related to `HIBERNATE` sleep mode:
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
+### RTC (Real-time clock)
 
+The E Series module has support for an external lithium coin cell battery or supercap to power the STM32 internal RTC via the `VBAT` pin.
 
-
+The M SoM MCU does not have a dedicated RTC module that can be externally powered. This is also the case with the P2, Photon 2, and Gen 3 devices. If you need an externally powered RTC, one option is the AM1805/AB1805 real-time clock and hardware watchdog module, which is used on the Tracker SoM.
 
 {{!-- 
 See also 28cd19b2-4f01-444b-8189-ba6191e6ebdd
-### RTC (Real-time clock)
 ### SWD/JTAG
 
 --}}
-
-### PMIC and Fuel gauge
-
-The E Series, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
-
-On the M SoM, the PMIC and fuel gauge are optional. For example, if you are powering by an external power supply and not using a battery, you can omit the components entirely.
 
 
 ### USB
@@ -644,6 +641,13 @@ On the M SoM, the PMIC and fuel gauge are optional. For example, if you are powe
 | Secondary USB serial emulation `USBSerial1` | &check; | &nbsp; | &nbsp; |
 | USB keyboard emulation | &check; | &check; | &nbsp; |
 | USB mouse emulation | &check; | &check; | &nbsp; |
+
+### PMIC and Fuel gauge
+
+The E Series, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
+
+On the M SoM, the PMIC and fuel gauge are optional. For example, if you are powering by an external power supply and not using a battery, you can omit the components entirely.
+
 
 ## PMIC Notes
 

@@ -14,11 +14,17 @@ For internal use only. This document is based on preliminary engineering documen
 
 {{migration-guide leftImg="/assets/images/p2-rendering.png" rightImg="/assets/images/m-series/msom-top.png"}}
 
+<p class="attribution">Pictures are not the same scale</p>
+
 The P2 module is a Wi-Fi SMD module that is mounted directly to your custom base board, while the M SoM is a M.2 SoM that fits in a M.2 socket on your base board and has both cellular and Wi-Fi capabilities. The M SoM module is larger and will not fit in the same footprint as the P2.
 
 However, since the P2 has a Realtek RTL8721DM processor and the M SoM has a Realtek RTL8722DM which is substantially similar, only having more GPIO, the migration should be relatively straightforward.
 
-You can find additional information about the B SoM in the [B SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
+### Datasheets
+
+- [M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
+- [P2 datasheet](/reference/datasheets/wi-fi/p2-datasheet/)
+- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
 ## Hardware
 
@@ -96,6 +102,7 @@ The P2 land pattern is:
 - ADC inputs are single-ended and limited to 0 to 3.3V on both
 - Resolution is 12 bits on both
 - SoM pin 45 (A6) on the M SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
+- On the P2, `VBAT_MEAS` is a 5V tolerant ADC for measuring battery voltage. This is not present on the M SoM as typically you will use a fuel gauge chip instead of the less accurate voltage measurement to measure battery SoC.
 
 ### Serial
 

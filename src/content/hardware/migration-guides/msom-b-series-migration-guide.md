@@ -14,7 +14,7 @@ For internal use only. This document is based on preliminary engineering documen
 
 {{migration-guide leftImg="/assets/images/b-series/b-series-top.png" rightImg="/assets/images/m-series/msom-top.png"}}
 
-<p class="attribution">The modules are actually the same size - the graphic is incorrect and will be fixed in the future.</p>
+<p class="attribution">The modules are the same size, but the different cellular module size makes them look different.</p>
 
 Migrating from the B Series SoM to the M SoM is straightforward, however there are some things to keep in mind:
 
@@ -26,7 +26,12 @@ Migrating from the B Series SoM to the M SoM is straightforward, however there a
 
 As the M SoM is a different platform ID and requires different firmware binaries it will require a separate product from bsom and b5som products.
 
-You can find additional information about the B SoM in the [B SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
+### Datasheets
+
+- [M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
+- [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
+- [B523/B524 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
+- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
 ## Software differences
 
@@ -75,72 +80,72 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6d82afd2-3dd4-4a30-a75b-7d9b0b780986 --}}
 
-| B4xx SoM Pin Number | B4xx SoM Pin Name | B4xx SoM Description | M SoM Pin Name | M SoM Description |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | GND | Ground. | GND | Ground. |
-| 2 | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
-| 3 | GND | Ground. | GND | Ground. |
-| 4 | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
-| 5 | GND | Ground. | GND | Ground. |
-| 6 | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
-| 7 | GND | Ground. | GND | Ground. |
-| 8 | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
-| 9 | GND | Ground. | GND | Ground. |
-| 10 | 3V3 | System power in, supply a fixed 3.0-3.6v power. | 3V3 | System power in, supply a fixed 3.3V power, 500 mA minimum |
-| 11 | USBDATA+ | USB Data+ | USBDATA+ | USB Data+ |
-| 12 | 3V3 | System power in, supply a fixed 3.0-3.6v power. | 3V3 | System power in, supply a fixed 3.3V power, 500 mA minimum |
-| 13 | USBDATA- | USB Data- | USBDATA- | USB Data- |
-| 14 | NC | &nbsp; | NC | &nbsp; |
-| 15 | GND | Ground. | GND | Ground. |
-| 16 | VUSB | USB VUSB power pin | NC | &nbsp; |
-| 17 | NFC1 | NFC Antenna 1 | D21 | D21 GPIO |
-| 18 | NC | &nbsp; | GNSS_TX | Cellular modem GNSS UART TX |
-| 19 | NFC2 | NFC Antenna 2 | D20 | D20 GPIO |
-| 20 | D1 | I2C SCL, GPIO | D1 | D1 GPIO, I2C SCL |
-| 21 | GND | Ground. | GND | Ground. |
-| 22 | D0 | I2C SDA, GPIO | D0 | D0 GPIO, I2C SDA |
-| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | A0 / D19 | A0 Analog in, GPIO, PWM |
-| 32 | MODE / D20 | MODE button, has internal pull-up | MODE | MODE button. Pin number constant is BTN. External pull-up required! |
-| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | A1 / D18 | A1 Analog in, GPIO, PWM |
-| 34 | RST | Hardware reset, active low. External pull-up required. | RST | Hardware reset, active low. External pull-up required. |
-| 35 | A2 / D17 | A2 Analog in, GPIO | A2 / D17 | A2 Analog in, GPIO |
-| 36 | TX / D9 | Serial TX, GPIO | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI |
-| 37 | A3 / D16 | A3 Analog in, GPIO | A3 / D16 | A3 Analog in, GPIO |
-| 38 | RX / D10 | Serial RX, GPIO | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO |
-| 39 | AGND | Analog Ground. | AGND | Analog Ground. |
-| 40 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
-| 41 | A4 / D15 | A4 Analog in, GPIO | A4 / D15 | A4 Analog in, GPIO |
-| 42 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
-| 43 | A5 / D14 | A5 Analog in, GPIO | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 |
-| 44 | CELL USBD+ | Cellular Modem USB Data+ | CELL USBD+ | Cellular Modem USB Data+ |
-| 45 | A6 | A6 Analog in, PWM, GPIO | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 |
-| 46 | CELL USBD- | Cellular Modem USB Data- | CELL USBD- | Cellular Modem USB Data- |
-| 47 | A7 | A7 Analog in, GPIO, Ethernet Reset | A7 / WKP | A7 Analog In, WKP, GPIO D28 |
-| 48 | D8 | GPIO, SPI SS, Ethernet CS | D8 | D8 GPIO, SPI SS |
-| 49 | AGND | Analog Ground. | AGND | Analog Ground. |
-| 50 | MISO / D11 | SPI MISO, GPIO | MISO / D11 | D11 GPIO, PWM, SPI MISO |
-| 51 | NC | &nbsp; | NC | &nbsp; |
-| 52 | MOSI / D12 | SPI MOSI, GPIO | MOSI / D12 | D12 GPIO, PWM, SPI MOSI |
-| 53 | NC | &nbsp; | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 |
-| 54 | SCK / D13 | SPI SCK, GPIO | SCK / D13 | D13 GPIO, SPI SCK |
-| 55 | NC | &nbsp; | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot |
-| 56 | GND | Ground. | GND | Ground. |
-| 57 | NC | &nbsp; | NC | &nbsp; |
-| 58 | NC | &nbsp; | D24 | D24 GPIO, Serial2 TX, do not pull down at boot |
-| 59 | NC | &nbsp; | D26 | D26 GPIO |
-| 60 | NC | &nbsp; | D25 | GPIO25, Serial2 TX |
-| 61 | RGBR | RGB LED Red | RGBR | RGB LED Red |
-| 62 | D22 | GPIO, Ethernet INT | D22 | D22 GPIO |
-| 63 | RGBG | RGB LED Green | RGBG | RGB LED Green |
-| 64 | D23 | GPIO | D23 | D23 GPIO |
-| 65 | RGBB | RGB LED Blue | RGBB | RGB LED Blue |
-| 66 | D4 | SPI1 MISO, PWM, GPIO | D4 | D4 GPIO, PWM |
-| 67 | SIM_VCC | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. | SIM_VCC | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
-| 68 | D5 | PWM, GPIO | D5 | D5 GPIO, PWM |
-| 69 | SIM_RST | Leave unconnected, 1.8V/3V SIM Reset Output from R410M. | SIM_RST | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
-| 70 | D6 | PWM, GPIO | D6 | D6 GPIO, PWM |
-| 71 | SIM_CLK | Leave unconnected, 1.8V/3V SIM Clock Output from R410M. | SIM_CLK | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem. |
-| 72 | D7 | PWM, GPIO | D7 | D7 GPIO, PWM |
+| &nbsp; | B4xx SoM Pin Number | B4xx SoM Pin Name | B4xx SoM Description | M SoM Pin Name | M SoM Description |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| &nbsp; | 1 | GND | Ground. | GND | Ground. |
+| ∆ | 2 | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
+| &nbsp; | 3 | GND | Ground. | GND | Ground. |
+| ∆ | 4 | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
+| &nbsp; | 5 | GND | Ground. | GND | Ground. |
+| ∆ | 6 | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
+| &nbsp; | 7 | GND | Ground. | GND | Ground. |
+| ∆ | 8 | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
+| &nbsp; | 9 | GND | Ground. | GND | Ground. |
+| ∆ | 10 | 3V3 | System power in, supply a fixed 3.0-3.6v power. | 3V3 | System power in, supply a fixed 3.3V power, 500 mA minimum |
+| &nbsp; | 11 | USBDATA+ | USB Data+ | USBDATA+ | USB Data+ |
+| ∆ | 12 | 3V3 | System power in, supply a fixed 3.0-3.6v power. | 3V3 | System power in, supply a fixed 3.3V power, 500 mA minimum |
+| &nbsp; | 13 | USBDATA- | USB Data- | USBDATA- | USB Data- |
+| &nbsp; | 14 | NC | &nbsp; | NC | &nbsp; |
+| &nbsp; | 15 | GND | Ground. | GND | Ground. |
+| ∆ | 16 | VUSB | USB VUSB power pin | NC | &nbsp; |
+| ∆ | 17 | NFC1 | NFC Antenna 1 | D21 | D21 GPIO |
+| ∆ | 18 | NC | &nbsp; | GNSS_TX | Cellular modem GNSS UART TX |
+| ∆ | 19 | NFC2 | NFC Antenna 2 | D20 | D20 GPIO |
+| ∆ | 20 | D1 | I2C SCL, GPIO | D1 | D1 GPIO, I2C SCL |
+| &nbsp; | 21 | GND | Ground. | GND | Ground. |
+| ∆ | 22 | D0 | I2C SDA, GPIO | D0 | D0 GPIO, I2C SDA |
+| &nbsp; | 23 | A0 / D19 | A0 Analog in, GPIO, PWM | A0 / D19 | A0 Analog in, GPIO, PWM |
+| ∆ | 32 | MODE / D20 | MODE button, has internal pull-up | MODE | MODE button. Pin number constant is BTN. External pull-up required! |
+| &nbsp; | 33 | A1 / D18 | A1 Analog in, GPIO, PWM | A1 / D18 | A1 Analog in, GPIO, PWM |
+| &nbsp; | 34 | RST | Hardware reset, active low. External pull-up required. | RST | Hardware reset, active low. External pull-up required. |
+| &nbsp; | 35 | A2 / D17 | A2 Analog in, GPIO | A2 / D17 | A2 Analog in, GPIO |
+| ∆ | 36 | TX / D9 | Serial TX, GPIO | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI |
+| &nbsp; | 37 | A3 / D16 | A3 Analog in, GPIO | A3 / D16 | A3 Analog in, GPIO |
+| ∆ | 38 | RX / D10 | Serial RX, GPIO | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO |
+| &nbsp; | 39 | AGND | Analog Ground. | AGND | Analog Ground. |
+| ∆ | 40 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
+| &nbsp; | 41 | A4 / D15 | A4 Analog in, GPIO | A4 / D15 | A4 Analog in, GPIO |
+| ∆ | 42 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
+| ∆ | 43 | A5 / D14 | A5 Analog in, GPIO | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 |
+| &nbsp; | 44 | CELL USBD+ | Cellular Modem USB Data+ | CELL USBD+ | Cellular Modem USB Data+ |
+| ∆ | 45 | A6 | A6 Analog in, PWM, GPIO | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 |
+| &nbsp; | 46 | CELL USBD- | Cellular Modem USB Data- | CELL USBD- | Cellular Modem USB Data- |
+| ∆ | 47 | A7 | A7 Analog in, GPIO, Ethernet Reset | A7 / WKP | A7 Analog In, WKP, GPIO D28 |
+| ∆ | 48 | D8 | GPIO, SPI SS, Ethernet CS | D8 | D8 GPIO, SPI SS |
+| &nbsp; | 49 | AGND | Analog Ground. | AGND | Analog Ground. |
+| ∆ | 50 | MISO / D11 | SPI MISO, GPIO | MISO / D11 | D11 GPIO, PWM, SPI MISO |
+| &nbsp; | 51 | NC | &nbsp; | NC | &nbsp; |
+| ∆ | 52 | MOSI / D12 | SPI MOSI, GPIO | MOSI / D12 | D12 GPIO, PWM, SPI MOSI |
+| ∆ | 53 | NC | &nbsp; | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 |
+| ∆ | 54 | SCK / D13 | SPI SCK, GPIO | SCK / D13 | D13 GPIO, SPI SCK |
+| ∆ | 55 | NC | &nbsp; | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot |
+| &nbsp; | 56 | GND | Ground. | GND | Ground. |
+| &nbsp; | 57 | NC | &nbsp; | NC | &nbsp; |
+| ∆ | 58 | NC | &nbsp; | D24 | D24 GPIO, Serial2 TX, do not pull down at boot |
+| ∆ | 59 | NC | &nbsp; | D26 | D26 GPIO |
+| ∆ | 60 | NC | &nbsp; | D25 | GPIO25, Serial2 TX |
+| &nbsp; | 61 | RGBR | RGB LED Red | RGBR | RGB LED Red |
+| ∆ | 62 | D22 | GPIO, Ethernet INT | D22 | D22 GPIO |
+| &nbsp; | 63 | RGBG | RGB LED Green | RGBG | RGB LED Green |
+| ∆ | 64 | D23 | GPIO | D23 | D23 GPIO |
+| &nbsp; | 65 | RGBB | RGB LED Blue | RGBB | RGB LED Blue |
+| ∆ | 66 | D4 | SPI1 MISO, PWM, GPIO | D4 | D4 GPIO, PWM |
+| &nbsp; | 67 | SIM_VCC | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. | SIM_VCC | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
+| ∆ | 68 | D5 | PWM, GPIO | D5 | D5 GPIO, PWM |
+| ∆ | 69 | SIM_RST | Leave unconnected, 1.8V/3V SIM Reset Output from R410M. | SIM_RST | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
+| ∆ | 70 | D6 | PWM, GPIO | D6 | D6 GPIO, PWM |
+| ∆ | 71 | SIM_CLK | Leave unconnected, 1.8V/3V SIM Clock Output from R410M. | SIM_CLK | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem. |
+| ∆ | 72 | D7 | PWM, GPIO | D7 | D7 GPIO, PWM |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}

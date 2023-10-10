@@ -13,6 +13,8 @@ For internal use only. This document is based on preliminary engineering documen
 
 {{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/m-series/msom-top.png"}}
 
+<p class="attribution">Pictures are not the same scale</p>
+
 
 ## Hardware
 
@@ -24,7 +26,13 @@ The primary difference is that the Argon and Boron are pin-based modules that ca
 
 The M SoM is a M.2 SoM that fits in a SMD mounted M.2 NGFF connector. It requires a base board and cannot be used on its own. The M.2 socket is not the same as the M.2 sockets used for flash memory in computers.
 
-You can find additional information about the B SoM in the [B SoM datasheet](/reference/datasheets/m-series/msom-datasheet/).
+
+### Datasheets
+
+- [M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
+- [Boron BRN404X datasheet](/reference/datasheets/b-series/brn404x-datasheet/)
+- [Boron datasheet](/reference/datasheets/b-series/boron-datasheet/)
+- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
 
 ## Software differences
