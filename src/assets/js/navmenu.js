@@ -79,7 +79,26 @@ navMenu.load = async function() {
     navMenu.menuJson = JSON.parse(menuText);
     // console.log('navMenu.menuJson', navMenu.menuJson);
 
-    const hrefPage = navMenu.pathParts.join('/');
+    navMenu.hrefPage = navMenu.pathParts.join('/');
+    // console.log('hrefPage=' + navMenu.hrefPage);
+
+    if (navMenu.hrefPage.startsWith('/reference/device-os/libraries')) {
+        const fetchRes = await fetch('/assets/files/libraryInfo.json');
+        const libraryInfoText = await fetchRes.text();
+        navMenu.libraryInfo = JSON.parse(libraryInfoText);
+
+        // navMenu.libraryInfo
+        // .letters - top level letters
+        // .libraryNames - library names
+        // .topSpecial - array
+        //      .title
+        //      .href
+        // .letterNavigation - array
+        //      .title
+        //      .href
+
+        // console.log('navMenu.libraryInfo', navMenu.libraryInfo);
+    }
 
     const processArray = function(array) {
         for(const item of array) {
@@ -87,7 +106,7 @@ navMenu.load = async function() {
                 processArray(item);
             }
             else {
-                if (item.href == hrefPage) {
+                if (item.href == navMenu.hrefPage) {
                     item.activeItem = true;
                 }        
             }
@@ -98,6 +117,7 @@ navMenu.load = async function() {
     
     $('.navMenuOuter').replaceWith(nav);
 }
+
 
 navMenu.generateNavHtml = function(menuJson) {
     // console.log('base=' + fileObj.path.base + ' topLevelName=' + topLevelName + ' sectionName=' + sectionName);

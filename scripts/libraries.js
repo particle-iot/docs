@@ -64,7 +64,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
             continue;
         }
 
-        libraryNames.push(dirent.name.substr(0, dirent.name.length - 5));
+        libraryNames.push(dirent.name.substring(0, dirent.name.length - 5));
     }
 
     libraryNames.sort(function(a, b) {
@@ -72,7 +72,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
     });
 
     for (const name of libraryNames) {
-       let letter = name.substr(0, 1).toLowerCase();
+       let letter = name.substring(0, 1).toLowerCase();
         if (letter >= 'a' && letter <= 'z') {
             if (!letters.includes(letter)) {
                 letters.push(letter);
@@ -90,6 +90,38 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
     letters.sort();
     if (hasOther) {
         letters.push('other');
+    }
+
+    {
+        let libraryInfo = {
+            letters,
+            libraryNames,
+            topSpecial: [],
+            letterNavigation: [],
+        };
+
+        for(const tempSpecial of topSpecial) {
+            let obj = {
+                href: '/' + destDir + '/' + topSpecialFilename(tempSpecial) + '/',
+                title: tempSpecial
+            };
+            libraryInfo.topSpecial.push(obj);
+        }
+
+        for (const curLetter of letters) {
+            let letterUC = curLetter.substr(0, 1).toUpperCase() + curLetter.substr(1);
+
+            let obj = {
+                title: letterUC,
+                href: '/' + destDir + '/' + curLetter + '/',
+            };
+            libraryInfo.letterNavigation.push(obj);
+        }
+
+        let newFile = {};
+        newFile.contents = Buffer.from(JSON.stringify(libraryInfo));
+        const newPath = 'assets/files/libraryInfo.json';
+        files[newPath] = newFile;
     }
 
     const generateSpecialNavigation = function(menuJson, curSpecial) {
@@ -295,6 +327,12 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         newFile.collection = [];
         newFile.description = 'Library search';
         newFile.includeDefinitions = '[api-helper, api-helper-extras, api-helper-library, lunr, showdown]';
+        newFile.path = {};
+        newFile.path.dir = destDir + '/' + curSpecial;
+        newFile.path.name = topSpecialFilename(curSpecial);
+        newFile.path.base = newFile.path.name + '.md';
+        newFile.path.href = '/' + destDir + '/' + newFile.path.base + '/';
+
         newFile.contents = Buffer.from(md);
 
         // Generate navigation
