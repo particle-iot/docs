@@ -8988,7 +8988,7 @@ Parameters:
 
 ---
 {{note op="start" type="P2"}}
-On the P2 and Photon 2 the only valid values are LOCK_SPEED_100KHZ and CLOCK_SPEED_400KHZ. Other speeds are not supported.
+On the P2 and Photon 2 the only valid values are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 {{note op="end"}}
 
 

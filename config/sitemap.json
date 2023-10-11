@@ -923,8 +923,8 @@
             "hash": "947194e65ea5f2cf04a11b6e18c431b5a5f0e070a9cacf9e77fdee2445945454"
         },
         "hardware/b-series-som/b-series-som-flexibility.md": {
-            "date": "2023-10-04",
-            "hash": "7030d6345680fe1d8c1f2815010ed6a90add9ef72483cfd882707cab7d44cc31"
+            "date": "2023-10-11",
+            "hash": "b28f8cd8929aa22b33335ee46f26774ee3acb9d12c005606062c70fa7ac02507"
         },
         "hardware/b-series-som/som-first-board.md": {
             "date": "2023-03-17",
@@ -999,44 +999,44 @@
             "hash": "bb85f77c3d5045e3b19e1a846526958e6fc412e974224516d11a4407892c1b35"
         },
         "hardware/migration-guides/b-series-boron-migration-guide.md": {
-            "date": "2023-10-04",
-            "hash": "293ea76939656a5de4113a89ca0d1cf755a0f11ed22e1e99ce1f2ff5a69fab41"
+            "date": "2023-10-11",
+            "hash": "9b10c609a2272cb8bfb3beeaa61aa79aa27fd0bc2b884c78758f426aef86b83b"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2023-10-04",
-            "hash": "78f16b23b8e4a2aba70983cab7f1792385656e5721f56a6638469c34707d819f"
+            "date": "2023-10-11",
+            "hash": "a5bb868c95dcced9bbb2cf8d7370e315b6e0de15a0b6663758141489f296802b"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2023-10-04",
-            "hash": "d7f1349df5f14c2c1d144b940e1c9cf80368ce581dcbe9fd8f733884949704bc"
+            "date": "2023-10-11",
+            "hash": "7826db954f7834c3ab92d155a50dfda97ffba2b552284521a10f878739f80603"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
-            "date": "2023-10-04",
-            "hash": "3626ad058cf3946cb89317aadc81e3ceb7837d41a6521e6c9adb2d6c955d9995"
+            "date": "2023-10-11",
+            "hash": "e19a5c8d1e3ab80d17561a7fcb23c2bb6168eae7ea74c86108454acff691732b"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2023-10-04",
+            "date": "2023-10-11",
             "hash": "eae4665dd04d91377a14c0c3d73a48c8d1ad43eed1e93c538e301ed8cdbc8a46"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
-            "date": "2023-10-10",
-            "hash": "30fdfcd1e627d0c4a08f5109c865a0470f44383b5094bd45628fcfad6d8911d2"
+            "date": "2023-10-11",
+            "hash": "c62f1441520f813edaee514814a0e4d2d1ceaa1fd04fe013f3047d425b2e9a55"
         },
         "hardware/migration-guides/p2-p1-migration-guide.md": {
-            "date": "2023-10-04",
-            "hash": "863905cbb423e32679ed01183014749eca4b8857ef98e7c139469a92d70a57dc"
+            "date": "2023-10-11",
+            "hash": "3aac9c1f1b849e5ce655634fba58cedafed69c9804412a62b19e8f79660ff892"
         },
         "hardware/migration-guides/p2-photon-migration-guide.md": {
-            "date": "2023-10-10",
-            "hash": "cdb9cae6dcbd2cfaf9517c66aa7ba09e4a9e7657b6be7eba331899df17711f01"
+            "date": "2023-10-11",
+            "hash": "126fa0bd6819db9fac3c7e1ef655f3ad09a37bab018705e5da3ae0c734960fc6"
         },
         "hardware/migration-guides/photon-2-argon-migration-guide.md": {
-            "date": "2023-10-04",
-            "hash": "ed944ff98b34144c32c86955b75ca1ce954dc910aa4429bba647f1fbcebb0e6e"
+            "date": "2023-10-11",
+            "hash": "128e454debf839a64cb24b5915d3321fb25037d94e3a0be10d1c95c01d890b32"
         },
         "hardware/migration-guides/photon-2-photon-migration-guide.md": {
-            "date": "2023-10-04",
-            "hash": "3e02700c69b3bf1b90c36e6b67e0b4246118befb7de5c76d1528535ee0d9cb23"
+            "date": "2023-10-11",
+            "hash": "be5ef8c2a147151c7b547f98268fb8d2dbc7ff1b8c93a2e96d8124572d25fe38"
         },
         "hardware/power/batteries.md": {
             "date": "2022-05-18",
@@ -1288,7 +1288,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2023-10-11",
-            "hash": "d0582e6f6e1616c9effcee9ae671e5b5621b8d061c0d9e647bf8726371bbd019"
+            "hash": "f0c89dab31f2683f1755048c3318684ad946e70180c771390b496f2a9335a201"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1351,7 +1351,7 @@
             "hash": "cde9742b7ef4e350446acc8cfbb34d5c545f66f663417f5875419413a6905bda"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2023-10-03",
+            "date": "2023-10-11",
             "hash": "c4edc338943d5e513d1b818a0b74f56b1fbc545e57a5b915109acb40426bc3cb"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
@@ -1391,7 +1391,7 @@
             "hash": "1980b35a6053b26a25ff4c4e8ca7d83ffd680107899ca09780972dbb364e3f5c"
         },
         "reference/datasheets/e-series/e404x-datasheet.md": {
-            "date": "2023-10-03",
+            "date": "2023-05-17",
             "hash": "1843c5eb64e3e6a58625ef6810c658494bbb4d438d31a49b19684a2ca3feaba9"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
@@ -1407,12 +1407,12 @@
             "hash": "a4d0e30bfe7c4a3695a9d4da1a5271590b1cc88d03b7cb0b87fe2d06056bdbdf"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
-            "date": "2023-10-04",
-            "hash": "f857ec235dbe2180c6fe6c449dd69be9df890f5dba11dfffc86652a37688dd7a"
+            "date": "2023-10-11",
+            "hash": "f22c56a28cd69f5cba4a7f7e497cc78391484bfc84d3c42f8979b43820c8378b"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2023-10-10",
-            "hash": "70309515fae64a2fc4300a8851a4f8016a46ea9616fa9bc25ce1f9e2613447a0"
+            "date": "2023-10-11",
+            "hash": "ce4e245fdac9e9fed907eedaa5a718082e827d67b5ef75a764fa4e1d2c44fe22"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2023-06-20",
@@ -2784,7 +2784,7 @@
         },
         "reference/device-os/api/wire-i2c/setspeed.md": {
             "date": "2023-10-11",
-            "hash": "d7b54e27089443ef24d98394d88e1ecb86144a670fa4f382c03773d5377930d1"
+            "hash": "2c7ca46820c96f3137698bbdc7cbbd3fc95d02519c77b15a756aa98c4d86f6ac"
         },
         "reference/device-os/api/wire-i2c/stretchclock.md": {
             "date": "2023-09-20",

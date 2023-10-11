@@ -277,6 +277,8 @@ Also, the Argon supports a secondary I2C interface on D2 and D3; this is not sup
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+- On the P2 and Photon 2, the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
+
 
 
 ### Serial (UART)

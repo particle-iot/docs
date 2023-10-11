@@ -147,6 +147,7 @@ Both the Photon and Photon 2 have a single I2C port on the same pins, D0/D1.
 - The Photon 2 I2C port is not 5V tolerant
 - The Photon 2 A3/A4 pins are physically in the same location as D0/D1.
 - The Photon pins A3/A4 are D16/D15 on the Photon 2.
+- On the P2 and Photon 2, the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 
 ### Serial (UART)

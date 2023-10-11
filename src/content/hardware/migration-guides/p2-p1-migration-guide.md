@@ -145,6 +145,7 @@ The P2 supports one I2C (two-wire serial interface) port on the same pins as the
 
 - The P2 I2C port is not 5V tolerant
 - The P1 includes internal 2.2K pull-up resistors on D0/D1, the P2 does not
+- On the P2 and Photon 2, the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 ### Serial (UART)
 

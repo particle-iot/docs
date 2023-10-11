@@ -441,6 +441,7 @@ The M SoM does not have an many ADC ports as the E Series. You can add additiona
 - If you have I2C address conflicts you can use an I2C multiplexer like the TCA9548A.
 - The E Series I2C is 5V tolerant. This is not the case on the M SoM, be sure you don't have pull-ups to 5V!
 - If you need to interface to a 5V I2C bus you will need an I2C level shifter such as the PCA9306.
+- On the M SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 
 ### PWM (Pulse-width modulation)

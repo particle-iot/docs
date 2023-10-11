@@ -244,6 +244,7 @@ The Argon/Boron land pattern is:
 - 1 I2C on M SoM vs. 2 on the B Series SoM.
 - You can generally have many devices on a single I2C bus.
 - If you have I2C address conflicts you can use an I2C multiplexer like the TCA9548A.
+- On the M SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 ### PWM
 

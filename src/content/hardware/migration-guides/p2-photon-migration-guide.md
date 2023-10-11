@@ -245,6 +245,7 @@ However on the P2, D0 is shared with A3 and D1 is shared with D4, so you cannot 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 - The P2 I2C port is not 5V tolerant
+- On the P2 and Photon 2, the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 ### Serial (UART)
 

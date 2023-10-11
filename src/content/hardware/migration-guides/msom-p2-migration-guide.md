@@ -168,6 +168,8 @@ The P2 land pattern is:
 {{!-- END do not edit content above, it is automatically generated--}}
 
 - 1 I2C on both
+- On the M SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
+
 
 ### PWM
 
