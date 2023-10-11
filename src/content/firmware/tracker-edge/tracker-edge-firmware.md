@@ -108,7 +108,12 @@ After you've downloaded the source zip file:
 Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
 It is recommended that Tracker fleets upgrade to the latest Device OS 4.x LTS (currently {{version mode="latestRelease" line="4"}}). 
-You can also use Device OS 3.3.0, or the 5.x developer preview release line with Tracker Edge v18.
+You can also use Device OS 3.3.0.
+
+{{note op="start" type="note"}}
+Tracker Edge v18 and earlier are not compatible Device OS 5.x. If you wish to target Device OS 5.0.0 or later, you must use the manual
+instructions below and use the **develop** branch of tracker-edge.
+{{note op="end"}}
 
 ### Tracker Edge v18
 
@@ -128,7 +133,9 @@ The other requirement is that the top level of your tracker-edge directory conta
 
 If you've downloaded Tracker Edge v18 using the tool above recently, it was inserted automatically for you. If you've previously downloaded and modified the Tracker Edge v18 source, you can create the file or download and save it.
 
-With those two changes you can cloud compile Tracker Edge v18.
+With those two changes you can cloud compile Tracker Edge v18 with Device OS 4.x LTS.
+
+Tracker Edge v18 is not compatible with Device OS 5.x.
 
 ### Tracker Edge v17 and Earlier
 
@@ -138,7 +145,7 @@ Tracker Edge v17 and earlier will not build on Device OS 4.x LTS without a modif
 PRODUCT_ID(TRACKER_PRODUCT_ID);
 ```
 
-Tracker Edge v17 and earlier will not build on Device OS 5.x without modification. We recommend that you use Tracker Edge v18 with Device OS 5.0.0 and later.
+Tracker Edge v17 is not compatible with Device OS 5.x.
 
 ### Manually
 
