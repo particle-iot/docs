@@ -69,7 +69,6 @@ navMenu.load = async function() {
     // pathParts[0] is empty
     // pathParts[1] is the top-level menu (empty for home page)
     // There's typically an empty entry at the end of the array as well
-    console.log('pathParts', navMenu.pathParts);
 
     navMenu.isHomePage = (navMenu.pathParts[1].length == 0); 
 
@@ -78,13 +77,26 @@ navMenu.load = async function() {
     const fetchRes = await fetch(navMenu.menuPath);
     const menuText = await fetchRes.text();
     navMenu.menuJson = JSON.parse(menuText);
+    // console.log('navMenu.menuJson', navMenu.menuJson);
 
-    console.log('navMenu', navMenu);
+    const hrefPage = navMenu.pathParts.join('/');
 
+    const processArray = function(array) {
+        for(const item of array) {
+            if (Array.isArray(item)) {
+                processArray(item);
+            }
+            else {
+                if (item.href == hrefPage) {
+                    item.activeItem = true;
+                }        
+            }
+        }
+    }
+    processArray(navMenu.menuJson.items)
     const nav = navMenu.generateNavHtml(navMenu.menuJson);
-    console.log('nav', nav);
-
-    $('.navMenuOuter').html(nav);
+    
+    $('.navMenuOuter').replaceWith(nav);
 }
 
 navMenu.generateNavHtml = function(menuJson) {
@@ -147,13 +159,6 @@ navMenu.generateNavHtml = function(menuJson) {
             $(imgElem).attr('title', 'Only visible to internal users');
             $(divElem).append(imgElem);
         }
-
-        if (item.activeItem) {
-            let innerDivElem = document.createElement('div');
-            $(innerDivElem).addClass('navActiveContent');
-            $(divElem).append(innerDivElem);
-        }
-
 
         return divElem;
     };
@@ -262,6 +267,10 @@ navMenu.generateNavHtml = function(menuJson) {
 
             if (item.activeItem) {
                 hasActiveItem = true;
+
+                let innerDivElem = document.createElement('div');
+                $(innerDivElem).attr('id', 'navActiveContent');
+                $(navElem).append(innerDivElem);        
             }
         }
         if (hasActiveItem && cardSections.length > 0) {
@@ -318,7 +327,7 @@ navMenu.scanHeaders = function () {
         }
     });
 
-    // console.log('headers', navMenu.headers);
+    // console.log('scanHeaders headers', navMenu.headers);
 
     navMenu.currentHeader = 0;
 

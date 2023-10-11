@@ -122,7 +122,8 @@ function generateNavMenu(files, fileName, contentDir) {
     if (!fileObj.navigation) {
         // The navigation data is inserted using {{{navigation}}} in all layouts to generate the
         // navigation menu. It's passed verbatim, with no additional processing in the layout template.
-        fileObj.navigation = generateNavHtml(menuJson);
+        // Used to call this  generateNavHtml(menuJson) to generate it statically, but now generates at runtime and fills in this div.
+        fileObj.navigation = '<div class="navMenuOuter"></div>';
     }
 
     // sectionTitle is used for the page titles in the HTML <head> generated from head.hbs
