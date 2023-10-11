@@ -11,15 +11,12 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
     // destDir does not begin or end with a slash
     const destDir = 'reference/device-os/libraries';
+    const searchPage = destDir + '/search';
 
     const outerMenuJson = JSON.parse(fs.readFileSync(path.join(contentDir, 'reference', 'menu.json')));
     
     let searchDocuments = [];
 
-    const topSpecial = ['Search'];
-    const topSpecialFilename = function(name) {
-        return name.replace(/[^-A-Za-z0-9_]/g, '-').toLowerCase();
-    }
 
     const transformReadme = function (mdOld) {
         let mdNew = '';
@@ -96,17 +93,8 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         let libraryInfo = {
             letters,
             libraryNames,
-            topSpecial: [],
             letterNavigation: [],
         };
-
-        for(const tempSpecial of topSpecial) {
-            let obj = {
-                href: '/' + destDir + '/' + topSpecialFilename(tempSpecial) + '/',
-                title: tempSpecial
-            };
-            libraryInfo.topSpecial.push(obj);
-        }
 
         for (const curLetter of letters) {
             let letterUC = curLetter.substr(0, 1).toUpperCase() + curLetter.substr(1);
@@ -123,21 +111,6 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         const newPath = 'assets/files/libraryInfo.json';
         files[newPath] = newFile;
     }
-
-    const generateSpecialNavigation = function(menuJson, curSpecial) {
-        for(const tempSpecial of topSpecial) {
-            let obj = {
-                href: '/' + destDir + '/' + topSpecialFilename(tempSpecial) + '/',
-                title: tempSpecial
-            };
-
-            if (curSpecial == tempSpecial) {
-                obj.activeItem == true;
-            }
-
-            menuJson.items.push(obj);
-        }    
-    };
 
     const generateLetterNavigation = function(menuJson, lib) {
         for (const curLetter of letters) {
@@ -283,21 +256,20 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
             return hdr.toLowerCase().replace(/[^-A-Za-z0-9_ ]+/g, ' ').replace(/ +/g, '-');
         }
 
-        let newFile = {};
+        let newFile = cloneDeep(files[searchPage]);
 
         newFile.title = lib.id;
-        newFile.layout = 'commonTwo.hbs';
-        newFile.columns = 'two';
-        newFile.collection = [];
         newFile.description = lib.id + ' (' + lib.kind + ')';
-        newFile.includeDefinitions = '[api-helper, api-helper-extras, api-helper-library, lunr, showdown]';
         newFile.infoFile = '/assets/files/libraries/' + lib.id + '.json';
+        newFile.noEditButton = true;
+        // newFile.path.base = section.file + '.md';
+        // newFile.path.name = section.file;
+        // newFile.path.href = section.url;
         newFile.contents = Buffer.from(md);
+        // newFile.description = 'Reference manual for the C++ API used by user firmware running on Particle IoT devices';
 
         // Generate navigation
         let menuJson = {items:[]};
-
-        generateSpecialNavigation(menuJson);
 
         generateLetterNavigation(menuJson, lib);
 
@@ -307,45 +279,6 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         const newPath = destDir + '/' + letter + '/' + lib.id + '.md';
         files[newPath] = newFile;
 
-    }
-
-    // Specials
-    for(const curSpecial of topSpecial) {
-        let newFile = {};
-
-        let md = '';
-        
-        if (curSpecial == 'Search') {
-            md += '# Library Search\n\n';
-            md += '{{> library-search}}\n';
-        }
-
-
-        newFile.title = curSpecial;
-        newFile.layout = 'commonTwo.hbs';
-        newFile.columns = 'two';
-        newFile.collection = [];
-        newFile.description = 'Library search';
-        newFile.includeDefinitions = '[api-helper, api-helper-extras, api-helper-library, lunr, showdown]';
-        newFile.path = {};
-        newFile.path.dir = destDir + '/' + curSpecial;
-        newFile.path.name = topSpecialFilename(curSpecial);
-        newFile.path.base = newFile.path.name + '.md';
-        newFile.path.href = '/' + destDir + '/' + newFile.path.base + '/';
-
-        newFile.contents = Buffer.from(md);
-
-        // Generate navigation
-        let menuJson = {items:[]};
-
-        generateSpecialNavigation(menuJson, curSpecial);
-        generateLetterNavigation(menuJson)
-
-        newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items, outerMenuJson, 'libraries'));
-
-        // Save in metalsmith files so it the generated file will be converted to html
-        const newPath = destDir + '/' + topSpecialFilename(curSpecial) + '.md';
-        files[newPath] = newFile;
     }
 
 
