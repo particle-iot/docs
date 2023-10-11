@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-10-06",
-            "hash": "d574fc0dd8448d333af69a235947e45989849b5a0170f107c4c1126d7f765f53"
+            "date": "2023-10-11",
+            "hash": "d0582e6f6e1616c9effcee9ae671e5b5621b8d061c0d9e647bf8726371bbd019"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2783,8 +2783,8 @@
             "hash": "4cb783966940fc78c2bdcc8e1f7168c08199428636993c109a4f572fa6078af0"
         },
         "reference/device-os/api/wire-i2c/setspeed.md": {
-            "date": "2023-09-20",
-            "hash": "539c1f20a7a7a985d410e055d4269172b1de5ac03de0e1195e44850e3d125bf0"
+            "date": "2023-10-11",
+            "hash": "d7b54e27089443ef24d98394d88e1ecb86144a670fa4f382c03773d5377930d1"
         },
         "reference/device-os/api/wire-i2c/stretchclock.md": {
             "date": "2023-09-20",

@@ -8986,6 +8986,12 @@ Parameters:
 
 - `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or a user specified speed in hertz (e.g. `Wire.setSpeed(20000)` for 20kHz)
 
+---
+{{note op="start" type="P2"}}
+On the P2 and Photon 2 the only valid values are LOCK_SPEED_100KHZ and CLOCK_SPEED_400KHZ. Other speeds are not supported.
+{{note op="end"}}
+
+
 ### stretchClock()
 
 {{api name1="Wire.stretchClock"}}
