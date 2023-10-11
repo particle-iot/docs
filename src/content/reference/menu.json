@@ -335,6 +335,10 @@
           "href": "/reference/datasheets/tracker/monitor-one-datasheet/"
         },
         {
+          "title": "Monitor One Developer Edition Quickstart",
+          "href": "/quickstart/monitor-one/"
+        },
+        {
           "dir": "tracker-m-datasheet",
           "title": "Tracker M Datasheet",
           "href": "/reference/datasheets/tracker/tracker-m-datasheet/",

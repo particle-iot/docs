@@ -1,10 +1,13 @@
 ---
 title: Monitor One
-layout: landing.hbs
+columns: two
+layout: self-nav.hbs
 description: Particle Monitor One Developer Edition
 ---
 
 # Monitor One Developer Edition
+
+For additional technical details, see the [Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/).
 
 ## In the box
 
@@ -55,7 +58,7 @@ if you choose to use it.
 {{imageOverlay src="/assets/images/monitor-one/prototype-card.jpeg" alt="Prototype card" class="full-width"}}
 
 
-## Monitor One External features
+## Monitor One external features
 
 {{imageOverlay src="/assets/images/monitor-one/post-corner-labeled.png" alt="External features" class="full-width"}}
 
