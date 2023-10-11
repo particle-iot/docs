@@ -83,6 +83,8 @@ navMenu.load = async function() {
 
     const nav = navMenu.generateNavHtml(navMenu.menuJson);
     console.log('nav', nav);
+
+    $('.navMenuOuter').html(nav);
 }
 
 navMenu.generateNavHtml = function(menuJson) {
@@ -158,6 +160,7 @@ navMenu.generateNavHtml = function(menuJson) {
 
     const navElem = document.createElement('div');
     $(navElem).addClass('navMenuOuter');
+    $(navElem).data('testing', 'testing replacement');
 
     let itemsFlat = [];
     let cardSections = [];
@@ -170,29 +173,69 @@ navMenu.generateNavHtml = function(menuJson) {
         for (const item of array) {
             if (item.isCardSection) {
                 const navContainerElem = document.createElement('div');
-
-
-                nav += '<div class="navContainer ' + (item.addClass ? item.addClass : '') + '">';
-                if (indent) {
-                    nav += '<div style="width:' + indent * 15 + 'px;">&nbsp;</div>'; // Replacement for navIndent2
+                $(navContainerElem).addClass('navContainer');
+                if (item.addClass) {
+                    $(navContainerElem).addClass(item.addClass);
                 }
-                nav += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div>';
-                // nav += '</div>'; // navContainer
+
+                if (indent) {
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).css('width', (indent * 15) + 'px');            
+                    $(innerDivElem).html('&nbsp;');
+                    $(navContainerElem).append(innerDivElem);
+                }
+
+                {
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).addClass('navMenu2');
+
+                    const aElem = document.createElement('a');
+                    $(aElem).attr('href', item.href );
+                    $(aElem).addClass('navLink');
+                    $(aElem).text(makeTitle(item));
+                    $(innerDivElem).append(aElem);
+                    
+                    $(navContainerElem).append(innerDivElem);
+                }
+
                 cardSections.push(item);
-                //itemsFlat.push(item);
+                $(navElem).append(navContainerElem);
             }
             else if (item.isSection) {
                 // Multi-level section title
-                nav += '<div class="navContainer ' + (item.addClass ? item.addClass : '') + '">';
-                if (indent) {
-                    nav += '<div style="width:' + indent * 15 + 'px;">&nbsp;</div>'; // Replacement for navIndent2
+                const navContainerElem = document.createElement('div');
+                $(navContainerElem).addClass('navContainer');
+                if (item.addClass) {
+                    $(navContainerElem).addClass(item.addClass);
                 }
+
+                if (indent) {
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).css('width', (indent * 15) + 'px');            
+                    $(innerDivElem).html('&nbsp;');
+                    $(navContainerElem).append(innerDivElem);
+                }
+
                 if (item.href) {
-                    nav += '<div class="navMenu1"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div></div>';
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).addClass('navMenu1');
+
+                    const aElem = document.createElement('a');
+                    $(aElem).attr('href', item.href );
+                    $(aElem).addClass('navLink');
+                    $(aElem).text(makeTitle(item));
+                    $(innerDivElem).append(aElem);
+                    
+                    $(navContainerElem).append(innerDivElem);
                 }
                 else {
-                    nav += '<div class="navMenu1">' + makeTitle(item) + '</div></div>';
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).addClass('navMenu1');
+                    $(innerDivElem).text(makeTitle(item));
+                    $(navContainerElem).append(innerDivElem);
                 }
+                $(navElem).append(navContainerElem);
+
                 if (item.noSeparator) {
                     noSeparator = true;
                 }
@@ -205,13 +248,15 @@ navMenu.generateNavHtml = function(menuJson) {
                     noSeparator = false;
                 }
                 else {
-                    nav += '<div class="navSectionSpacer"></div>';
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).addClass('navSectionSpacer');
+                    $(navElem).append(innerDivElem);
                 }
                 
             }
             else         
             if (item.activeItem || !item.hidden) {
-                nav += makeNavMenu2(item, indent);
+                $(navElem).append(makeNavMenu2(item, indent));
                 itemsFlat.push(item);
             }
 
