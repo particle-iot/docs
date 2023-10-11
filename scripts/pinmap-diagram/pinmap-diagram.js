@@ -1840,6 +1840,12 @@ const svg = require('./svg');
             outputPath: 'assets/images/b5-som.svg',
         }), files);
 
+        await diagram.generateM2SoM(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'M SoM',
+            outputPath: 'assets/images/msom.svg',
+        }), files);
+
+
         await diagram.generateP2(Object.assign({
             platformName: 'P1'
         }, generateOptions), files);

@@ -473,6 +473,24 @@ The P2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING
 
 The P2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`, or `CHANGE`. Pin D10 is the same module pin location (pin 30) as the P1 WKP (A7) pin.
 
+The P2 preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
+
+Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exceptions in `HIBERNATE` sleep mode where pins S4, S5, and S6 can only use an external hardware pull-up or pull down.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 6e6f887d-3df4-4cb3-b8e4-67f2aa26ad72 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 30 | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | Only this pin can wake from HIBERNATE sleep mode. | PA[15] |
+| 33 | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PB[31] |
+| 47 | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| 48 | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) | No internal pull up or pull down in HIBERNATE sleep mode. | PB[29] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+
 ### RAM
 
 The P2 has 512 KB of static RAM (SRAM) and 4 MB of pseudo-static RAM (PSRAM). 

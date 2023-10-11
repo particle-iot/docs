@@ -2163,7 +2163,7 @@ const generatorConfig = require('./generator-config');
             let tableOptions = {
                 columns: [],
             };
-
+            
             tableOptions.columns.push({
                 key: 'pinName',
                 title: 'Pin Name',
@@ -2175,6 +2175,12 @@ const generatorConfig = require('./generator-config');
                     align: 'center',
                 });    
             }
+            if (options.sortByNum) {
+                // Put module pin first
+                tableOptions.columns.reverse();
+            }
+
+
             for(let ii = 0; ii < functionCols.length; ii++) {
                 tableOptions.columns.push({
                     key: 'col' + ii,
@@ -2207,6 +2213,12 @@ const generatorConfig = require('./generator-config');
                 }
                 
                 tableData.push(rowData);
+            }
+
+            if (options.sortByNum) {
+                tableData.sort(function(a, b) {
+                    return a.num - b.num;
+                });
             }
 
             md += updater.generateTable(tableOptions, tableData);
@@ -2382,6 +2394,14 @@ const generatorConfig = require('./generator-config');
                 columns: [],
             };
 
+            if (options.changeIndicator) {
+                tableOptions.columns.push({
+                    key: 'change',
+                    title: '&nbsp;',
+                    align: 'center',
+                });    
+            }
+
             if (options.pinNumberOld) {
                 tableOptions.columns.push({
                     key: 'oldPinNum',
@@ -2431,6 +2451,14 @@ const generatorConfig = require('./generator-config');
                 rowData.newPinName = getPinNameWithAlt(newPin);                
                 rowData.newDesc = newPin.desc;
                 rowData.newPinNum = newPin.num;
+
+                if (rowData.oldPinName != rowData.newPinName || rowData.oldDesc != rowData.newDesc) {
+                    rowData.change = '∆'; // delta
+                }
+                else {
+                    rowData.change = '';
+                }
+
                 tableData.push(rowData);
             }
 
@@ -2536,7 +2564,12 @@ const generatorConfig = require('./generator-config');
                         columns: [],
                     };
                     let tableData = [];
-    
+
+                    tableOptions.columns.push({
+                        key: 'change',
+                        title: ' ',
+                    });
+
                     tableOptions.columns.push({
                         key: 'label',
                         title: ' ',
@@ -2556,13 +2589,20 @@ const generatorConfig = require('./generator-config');
                         if (!oldPin[tag] && !newPin[tag]) {
                             continue;
                         }
+
+                        let change = '';
+                        if (getPinUsage(oldPin[tag]) != getPinUsage(newPin[tag])) {
+                            change = '∆';
+                        }
+
                         tableData.push({
                             tag,
                             label: detailsForTag[tag].label,
                             oldFunction: getPinUsage(oldPin[tag]),
                             newFunction: getPinUsage(newPin[tag]),
+                            change,
                         });
-        
+
                     }    
 
                     md += updater.generateTable(tableOptions, tableData);
@@ -2702,6 +2742,12 @@ const generatorConfig = require('./generator-config');
                 title: options.platformNew + ' ' + options.label,
                 checkmark: !!options.checkmark,
             });
+            if (options.newMCU) {
+                tableOptions.columns.push({
+                    key: 'newHardwarePin',
+                    title: options.newMCU,
+                });    
+            }
 
             
             let tableData = [];
@@ -2715,10 +2761,12 @@ const generatorConfig = require('./generator-config');
                     if (m.old) {
                         rowData.oldPinName = getPinNameWithAlt(m.old);
                         rowData.oldPort = portColumnValue(m.old[options.port]);
+                        rowData.oldHardwarePin = m.old.hardwarePin;
                     }
                     if (m.new) {
                         rowData.newPinName = getPinNameWithAlt(m.new);
                         rowData.newPort = portColumnValue(m.new[options.port]);
+                        rowData.newHardwarePin = m.new.hardwarePin;
                     }
                     tableData.push(rowData);
                 }

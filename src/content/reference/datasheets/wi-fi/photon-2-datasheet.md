@@ -396,6 +396,21 @@ The Photon 2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `
 
 The Photon 2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`, or `CHANGE`. Pin D10 is the same module pin location as the Argon pin D8, which is also the WKP pin.
 
+The Photon 2 preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
+
+Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin S4 can only use an external hardware pull-up or pull down.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 2bb13ba8-9f9c-44d6-8734-df6e85bb09042 --}}
+
+| Pin Name | Description | Interface | MCU |
+| :--- | :--- | :--- | :--- |
+| S4 / D19 | S4 GPIO, Was A4 on Gen 3. | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
+| D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | Only this pin can wake from HIBERNATE sleep mode. | PA[15] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
 ### RAM
 
 The P2 has 512 KB of static RAM (SRAM) and 4 MB of pseudo-static RAM (PSRAM). 
