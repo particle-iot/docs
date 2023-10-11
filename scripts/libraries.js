@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { hide } = require('yargs');
 const lunr = require('lunr');
+var cloneDeep = require('lodash').cloneDeep;
 const { generateNavHtml, insertIntoMenu } = require('./nav_menu_generator.js');
 
 function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPath, contentDir) {
@@ -11,7 +12,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
     // destDir does not begin or end with a slash
     const destDir = 'reference/device-os/libraries';
-    const searchPage = destDir + '/search';
+    const searchPage = destDir + '/search.md';
 
     const outerMenuJson = JSON.parse(fs.readFileSync(path.join(contentDir, 'reference', 'menu.json')));
     
@@ -91,7 +92,6 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
     {
         let libraryInfo = {
-            letters,
             libraryNames,
             letterNavigation: [],
         };
@@ -102,6 +102,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
             let obj = {
                 title: letterUC,
                 href: '/' + destDir + '/' + curLetter + '/',
+                letter: curLetter,
             };
             libraryInfo.letterNavigation.push(obj);
         }
@@ -112,6 +113,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         files[newPath] = newFile;
     }
 
+    /*
     const generateLetterNavigation = function(menuJson, lib) {
         for (const curLetter of letters) {
             let letterUC = curLetter.substr(0, 1).toUpperCase() + curLetter.substr(1);
@@ -142,6 +144,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
             }
         }
     };
+    */
 
 
     // Build the content
@@ -257,6 +260,9 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         }
 
         let newFile = cloneDeep(files[searchPage]);
+        if (!newFile) {
+            return;
+        }
 
         newFile.title = lib.id;
         newFile.description = lib.id + ' (' + lib.kind + ')';
@@ -271,7 +277,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         // Generate navigation
         let menuJson = {items:[]};
 
-        generateLetterNavigation(menuJson, lib);
+        // generateLetterNavigation(menuJson, lib);
 
         newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items, outerMenuJson, 'libraries'));
 
@@ -291,31 +297,6 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         // Top level - will go to the introduction/search page
         // redirects['/' + destDir] = allL2[0].url;
 
-        // One time use - generate backward compatible URLs for all current pages
-        /*
-        {
-            const oldBase = '/cards/libraries';
-            const newBase = '/' + destDir;
-
-            for (const name of libraryNames) {
-                const lib = JSON.parse(fs.readFileSync(path.join(sourceDir, name + '.json')));
-        
-                let letter = lib.id.substr(0, 1).toLowerCase();
-                if (letter < 'a' || letter > 'z') {
-                    letter = 'other';
-                }
-                redirects[oldBase + '/' + letter] = newBase + '/' + letter;
-        
-                const oldUrl = oldBase + '/' + letter + '/' + lib.id;
-                const newUrl = newBase + '/' + letter + '/' + lib.id;
-
-                redirects[oldUrl] = newUrl;
-            }        
-            redirects[oldBase + '/search'] = newBase + '/search';
-            redirects[oldBase] = newBase;            
-        }
-        */
-        
 
         // All letters
         for (const letter of letters) {

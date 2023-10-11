@@ -88,14 +88,11 @@ navMenu.load = async function() {
         navMenu.libraryInfo = JSON.parse(libraryInfoText);
 
         // navMenu.libraryInfo
-        // .letters - top level letters
         // .libraryNames - library names
-        // .topSpecial - array
-        //      .title
-        //      .href
         // .letterNavigation - array
         //      .title
         //      .href
+        //      .letter
 
         // console.log('navMenu.libraryInfo', navMenu.libraryInfo);
     }
@@ -292,6 +289,95 @@ navMenu.generateNavHtml = function(menuJson) {
                 $(innerDivElem).attr('id', 'navActiveContent');
                 $(navElem).append(innerDivElem);        
             }
+
+            if (item.isLibrarySearch && navMenu.libraryInfo) {
+                // Insert letter navigation here
+                for(const obj of navMenu.libraryInfo.letterNavigation) {
+                    const navContainerElem = document.createElement('div');
+                    $(navContainerElem).addClass('navContainer');
+                    if (item.addClass) {
+                        $(navContainerElem).addClass(item.addClass);
+                    }
+    
+                    if (indent) {
+                        const innerDivElem = document.createElement('div');
+                        $(innerDivElem).css('width', (indent * 15) + 'px');            
+                        $(innerDivElem).html('&nbsp;');
+                        $(navContainerElem).append(innerDivElem);
+                    }
+    
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).addClass('navMenu1');
+
+                    // -1 is empty, -2 = library name, -3 = letter
+                    const isThisLetter = navMenu.pathParts[navMenu.pathParts.length - 3] == obj.letter;
+                    
+                    if (!isThisLetter) {
+                        const aElem = document.createElement('a');
+                        $(aElem).attr('href', obj.href );
+                        $(aElem).addClass('navLink');
+                        $(aElem).text(obj.title);
+                        $(innerDivElem).append(aElem);    
+                    }
+                    else {
+                        $(innerDivElem).text(obj.title);
+                    }
+                    
+                    $(navContainerElem).append(innerDivElem);
+                    $(navElem).append(navContainerElem);
+
+
+                    if (isThisLetter) {
+                        for(const libName of navMenu.libraryInfo.libraryNames) {
+                            if (libName.toLowerCase().startsWith(obj.letter)) {
+                                
+                                const libUrlArray = navMenu.pathParts.slice(0, navMenu.pathParts.length - 2);
+                                libUrlArray.push(libName);
+                                libUrlArray.push('');
+                                
+                                
+                                const navContainerElem = document.createElement('div');
+                                $(navContainerElem).addClass('navContainer');
+                                if (item.addClass) {
+                                    $(navContainerElem).addClass(item.addClass);
+                                }
+                
+                                {
+                                    const innerDivElem = document.createElement('div');
+                                    $(innerDivElem).css('width', ((indent + 1) * 15) + 'px');            
+                                    $(innerDivElem).html('&nbsp;');
+                                    $(navContainerElem).append(innerDivElem);    
+                                }
+                                {
+                                    const innerDivElem = document.createElement('div');
+                                    $(innerDivElem).addClass('navMenu1');    
+
+
+                                    if (navMenu.pathParts[navMenu.pathParts.length - 2] == libName) {
+                                        const currentTitleElem = document.createElement('div');
+                                        $(currentTitleElem).addClass('navMenu1');
+                                        $(currentTitleElem).text(libName));
+                                        $(innerDivElem).append(currentTitleElem);                    
+                                    }
+                                    else {
+                                        const aElem = document.createElement('a');
+                                        $(aElem).attr('href', libUrlArray.join('/'));
+                                        $(aElem).addClass('navLink');
+                                        $(aElem).text(libName);
+                                        $(innerDivElem).append(aElem);        
+                                    }
+                                    $(navContainerElem).append(innerDivElem);            
+                                }
+            
+                                $(navElem).append(navContainerElem);
+    
+                                
+                            }
+                        }
+                    }
+                }
+            }
+
         }
         if (hasActiveItem && cardSections.length > 0) {
             cardSections[cardSections.length - 1].activeSection = true;
