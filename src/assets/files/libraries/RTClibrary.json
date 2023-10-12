@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RTClibrary",
+  "cardUrl": "/reference/device-os/libraries/r/RTClibrary",
   "versions": {
     "1.2.1": {
       "builds": {

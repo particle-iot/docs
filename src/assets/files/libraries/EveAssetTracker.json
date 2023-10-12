@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/EveAssetTracker",
+  "cardUrl": "/reference/device-os/libraries/e/EveAssetTracker",
   "versions": {
     "0.0.12": {
       "added": "2023-03-21T19:32:43.198Z",

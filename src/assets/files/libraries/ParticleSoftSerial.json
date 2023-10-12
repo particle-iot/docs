@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/ParticleSoftSerial",
+  "cardUrl": "/reference/device-os/libraries/p/ParticleSoftSerial",
   "versions": {
     "0.0.15": {
       "builds": {

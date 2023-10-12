@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/I2cCharDisplay",
+  "cardUrl": "/reference/device-os/libraries/i/I2cCharDisplay",
   "versions": {
     "1.0.3": {
       "builds": {

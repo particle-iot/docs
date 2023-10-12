@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/ble-wifi-setup-manager",
+  "cardUrl": "/reference/device-os/libraries/b/ble-wifi-setup-manager",
   "versions": {
     "0.2.0": {
       "builds": {

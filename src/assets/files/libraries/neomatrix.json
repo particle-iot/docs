@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/neomatrix",
+  "cardUrl": "/reference/device-os/libraries/n/neomatrix",
   "versions": {
     "0.3.0": {
       "builds": {

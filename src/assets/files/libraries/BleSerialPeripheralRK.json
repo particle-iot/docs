@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BleSerialPeripheralRK",
+  "cardUrl": "/reference/device-os/libraries/b/BleSerialPeripheralRK",
   "versions": {
     "0.0.1": {
       "builds": {

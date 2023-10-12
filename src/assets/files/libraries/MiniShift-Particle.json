@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MiniShift-Particle",
+  "cardUrl": "/reference/device-os/libraries/m/MiniShift-Particle",
   "versions": {
     "1.0.0": {
       "builds": {

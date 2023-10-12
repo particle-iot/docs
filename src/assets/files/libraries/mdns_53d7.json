@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/mdns_53d7",
+  "cardUrl": "/reference/device-os/libraries/m/mdns_53d7",
   "versions": {
     "1.0.0": {
       "builds": {

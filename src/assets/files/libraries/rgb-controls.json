@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/rgb-controls",
+  "cardUrl": "/reference/device-os/libraries/r/rgb-controls",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LoopWaiter",
+  "cardUrl": "/reference/device-os/libraries/l/LoopWaiter",
   "versions": {
     "1.0.2": {
       "builds": {

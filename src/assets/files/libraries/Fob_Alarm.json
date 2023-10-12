@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/Fob_Alarm",
+  "cardUrl": "/reference/device-os/libraries/f/Fob_Alarm",
   "versions": {
     "1.0.0": {
       "builds": {

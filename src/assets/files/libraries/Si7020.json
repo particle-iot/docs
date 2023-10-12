@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/Si7020",
+  "cardUrl": "/reference/device-os/libraries/s/Si7020",
   "versions": {
     "0.0.3": {
       "builds": {

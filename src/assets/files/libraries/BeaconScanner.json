@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BeaconScanner",
+  "cardUrl": "/reference/device-os/libraries/b/BeaconScanner",
   "versions": {
     "0.4.0": {
       "builds": {

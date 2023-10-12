@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun-Qwiic_Capacitive_Touch_Slider-CAP1203",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun-Qwiic_Capacitive_Touch_Slider-CAP1203",
   "versions": {
     "1.0.2": {
       "builds": {

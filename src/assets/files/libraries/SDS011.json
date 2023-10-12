@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SDS011",
+  "cardUrl": "/reference/device-os/libraries/s/SDS011",
   "versions": {
     "0.0.2": {
       "builds": {

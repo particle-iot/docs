@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_AMG88xx",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_AMG88xx",
   "versions": {
     "0.0.0": {
       "builds": {

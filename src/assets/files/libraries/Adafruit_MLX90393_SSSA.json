@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_MLX90393_SSSA",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_MLX90393_SSSA",
   "versions": {
     "2.0.8": {
       "added": "2023-03-21T15:41:12.167Z",

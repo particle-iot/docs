@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/ReclaimerLabs_ADS1118",
+  "cardUrl": "/reference/device-os/libraries/r/ReclaimerLabs_ADS1118",
   "versions": {
     "0.9.6": {
       "builds": {

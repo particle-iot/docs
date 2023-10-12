@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/WatchPower",
+  "cardUrl": "/reference/device-os/libraries/w/WatchPower",
   "versions": {
     "0.1.1": {
       "builds": {

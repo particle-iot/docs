@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MQTT_a0e4",
+  "cardUrl": "/reference/device-os/libraries/m/MQTT_a0e4",
   "versions": {
     "0.3.9": {
       "builds": {

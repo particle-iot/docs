@@ -21,7 +21,7 @@
   "verification": "verified",
   "kind": "verified community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/Serial_LCD_SparkFun",
+  "cardUrl": "/reference/device-os/libraries/s/Serial_LCD_SparkFun",
   "versions": {
     "0.0.1": {
       "builds": {

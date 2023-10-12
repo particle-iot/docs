@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/Camera_Pixy2",
+  "cardUrl": "/reference/device-os/libraries/c/Camera_Pixy2",
   "versions": {
     "1.0.3": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/sds011-sh",
+  "cardUrl": "/reference/device-os/libraries/s/sds011-sh",
   "versions": {
     "1.1.2": {
       "builds": {

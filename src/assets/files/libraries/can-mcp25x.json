@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/can-mcp25x",
+  "cardUrl": "/reference/device-os/libraries/c/can-mcp25x",
   "versions": {
     "1.0.0": {
       "builds": {},

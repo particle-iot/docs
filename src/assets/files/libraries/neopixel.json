@@ -21,7 +21,7 @@
   "verification": "verified",
   "kind": "verified community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/neopixel",
+  "cardUrl": "/reference/device-os/libraries/n/neopixel",
   "versions": {
     "1.0.0": {
       "builds": {

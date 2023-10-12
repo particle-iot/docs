@@ -25,7 +25,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PatriotNCD8Relay",
+  "cardUrl": "/reference/device-os/libraries/p/PatriotNCD8Relay",
   "versions": {
     "5.1.0": {
       "builds": {

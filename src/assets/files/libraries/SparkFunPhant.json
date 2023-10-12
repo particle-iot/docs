@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFunPhant",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFunPhant",
   "versions": {
     "1.2.0": {
       "builds": {

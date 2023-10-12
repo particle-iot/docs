@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PublishQueuePosixRK",
+  "cardUrl": "/reference/device-os/libraries/p/PublishQueuePosixRK",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/idDHT22",
+  "cardUrl": "/reference/device-os/libraries/i/idDHT22",
   "versions": {
     "0.0.4": {
       "builds": {

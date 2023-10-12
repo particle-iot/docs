@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/apis-master_mk2",
+  "cardUrl": "/reference/device-os/libraries/a/apis-master_mk2",
   "versions": {
     "1.0.7": {
       "builds": {

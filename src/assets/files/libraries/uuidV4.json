@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "u",
-  "cardUrl": "/cards/libraries/u/uuidV4",
+  "cardUrl": "/reference/device-os/libraries/u/uuidV4",
   "versions": {
     "1.0.1": {
       "builds": {

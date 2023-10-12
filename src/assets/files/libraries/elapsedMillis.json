@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/elapsedMillis",
+  "cardUrl": "/reference/device-os/libraries/e/elapsedMillis",
   "versions": {
     "0.0.2": {
       "builds": {

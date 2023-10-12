@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/WS2812FX",
+  "cardUrl": "/reference/device-os/libraries/w/WS2812FX",
   "versions": {
     "0.0.1": {
       "builds": {

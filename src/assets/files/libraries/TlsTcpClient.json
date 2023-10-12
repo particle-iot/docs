@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TlsTcpClient",
+  "cardUrl": "/reference/device-os/libraries/t/TlsTcpClient",
   "versions": {
     "0.2.16": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "k",
-  "cardUrl": "/cards/libraries/k/Keypad",
+  "cardUrl": "/reference/device-os/libraries/k/Keypad",
   "versions": {
     "3.2.0": {
       "builds": {

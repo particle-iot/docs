@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/Grove_4Digit_Display",
+  "cardUrl": "/reference/device-os/libraries/g/Grove_4Digit_Display",
   "versions": {
     "1.0.2": {
       "builds": {

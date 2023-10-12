@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LSM9DS1_FIFO",
+  "cardUrl": "/reference/device-os/libraries/l/LSM9DS1_FIFO",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -27,7 +27,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/Digital_Infrared_Temperature_Sensor_MLX90615",
+  "cardUrl": "/reference/device-os/libraries/d/Digital_Infrared_Temperature_Sensor_MLX90615",
   "versions": {
     "0.0.1": {
       "builds": {

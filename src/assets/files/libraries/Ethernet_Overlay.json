@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/Ethernet_Overlay",
+  "cardUrl": "/reference/device-os/libraries/e/Ethernet_Overlay",
   "versions": {
     "1.0.0": {
       "builds": {

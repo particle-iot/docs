@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SdFatAsync",
+  "cardUrl": "/reference/device-os/libraries/s/SdFatAsync",
   "versions": {
     "1.1.4": {
       "builds": {

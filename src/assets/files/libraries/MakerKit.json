@@ -21,7 +21,7 @@
   "verification": "official",
   "kind": "official library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MakerKit",
+  "cardUrl": "/reference/device-os/libraries/m/MakerKit",
   "versions": {
     "1.2.0": {
       "builds": {

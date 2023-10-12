@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_L3GD20_U",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_L3GD20_U",
   "versions": {
     "1.1.3": {
       "builds": {

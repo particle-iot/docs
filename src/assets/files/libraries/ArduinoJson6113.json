@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ArduinoJson6113",
+  "cardUrl": "/reference/device-os/libraries/a/ArduinoJson6113",
   "versions": {
     "6.11.3": {
       "added": "2023-05-19T19:49:08.697Z",

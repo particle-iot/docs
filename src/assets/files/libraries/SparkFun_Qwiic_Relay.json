@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Qwiic_Relay",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Qwiic_Relay",
   "versions": {
     "1.1.2": {
       "builds": {

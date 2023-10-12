@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/wolfssl_particle",
+  "cardUrl": "/reference/device-os/libraries/w/wolfssl_particle",
   "versions": {
     "0.0.3": {
       "builds": {

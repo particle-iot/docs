@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_APDS-9960_Sensor_Arduino_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_APDS-9960_Sensor_Arduino_Library",
   "versions": {
     "1.4.2": {
       "added": "2023-03-21T22:40:18.590Z",

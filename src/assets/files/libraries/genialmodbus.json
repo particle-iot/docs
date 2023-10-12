@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/genialmodbus",
+  "cardUrl": "/reference/device-os/libraries/g/genialmodbus",
   "versions": {
     "1.0.0": {
       "builds": {

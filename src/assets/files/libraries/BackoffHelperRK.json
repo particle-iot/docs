@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BackoffHelperRK",
+  "cardUrl": "/reference/device-os/libraries/b/BackoffHelperRK",
   "versions": {
     "0.0.1": {
       "added": "2023-03-21T23:18:26.686Z",

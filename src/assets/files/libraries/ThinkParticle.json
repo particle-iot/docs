@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/ThinkParticle",
+  "cardUrl": "/reference/device-os/libraries/t/ThinkParticle",
   "versions": {
     "0.2.6": {
       "builds": {

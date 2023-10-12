@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SoftAPLib",
+  "cardUrl": "/reference/device-os/libraries/s/SoftAPLib",
   "versions": {
     "1.0.1": {
       "builds": {

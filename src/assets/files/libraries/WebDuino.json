@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/WebDuino",
+  "cardUrl": "/reference/device-os/libraries/w/WebDuino",
   "versions": {
     "1.9.1": {
       "builds": {

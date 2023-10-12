@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/ParticleWebLog",
+  "cardUrl": "/reference/device-os/libraries/p/ParticleWebLog",
   "versions": {
     "1.0.4": {
       "builds": {

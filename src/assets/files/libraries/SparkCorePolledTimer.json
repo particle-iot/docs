@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkCorePolledTimer",
+  "cardUrl": "/reference/device-os/libraries/s/SparkCorePolledTimer",
   "versions": {
     "1.0.0": {
       "builds": {

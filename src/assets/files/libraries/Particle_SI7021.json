@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Particle_SI7021",
+  "cardUrl": "/reference/device-os/libraries/p/Particle_SI7021",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/Lixie-Particle",
+  "cardUrl": "/reference/device-os/libraries/l/Lixie-Particle",
   "versions": {
     "1.4.1": {
       "builds": {

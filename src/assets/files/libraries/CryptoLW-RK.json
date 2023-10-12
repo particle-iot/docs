@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CryptoLW-RK",
+  "cardUrl": "/reference/device-os/libraries/c/CryptoLW-RK",
   "versions": {
     "0.2.0": {
       "builds": {

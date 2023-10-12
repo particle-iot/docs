@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/I2CSlaveRK",
+  "cardUrl": "/reference/device-os/libraries/i/I2CSlaveRK",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/httpsclient-particle",
+  "cardUrl": "/reference/device-os/libraries/h/httpsclient-particle",
   "versions": {
     "0.0.7": {
       "builds": {

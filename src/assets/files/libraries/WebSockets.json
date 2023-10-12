@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/WebSockets",
+  "cardUrl": "/reference/device-os/libraries/w/WebSockets",
   "versions": {
     "0.1.0": {
       "builds": {},

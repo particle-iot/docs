@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFunAS726X",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFunAS726X",
   "versions": {
     "1.0.0": {
       "builds": {

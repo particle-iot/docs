@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/barometer",
+  "cardUrl": "/reference/device-os/libraries/b/barometer",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SI7020-A20_CE",
+  "cardUrl": "/reference/device-os/libraries/s/SI7020-A20_CE",
   "versions": {
     "1.0.0": {
       "builds": {

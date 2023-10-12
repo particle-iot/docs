@@ -27,7 +27,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SHT31",
+  "cardUrl": "/reference/device-os/libraries/s/SHT31",
   "versions": {
     "1.0.1": {
       "builds": {

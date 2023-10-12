@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "x",
-  "cardUrl": "/cards/libraries/x/XivelyLib",
+  "cardUrl": "/reference/device-os/libraries/x/XivelyLib",
   "versions": {
     "0.0.2": {
       "builds": {

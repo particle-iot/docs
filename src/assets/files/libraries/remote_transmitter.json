@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/remote_transmitter",
+  "cardUrl": "/reference/device-os/libraries/r/remote_transmitter",
   "versions": {
     "2.3.1": {
       "builds": {},

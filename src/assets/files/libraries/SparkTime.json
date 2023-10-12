@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkTime",
+  "cardUrl": "/reference/device-os/libraries/s/SparkTime",
   "versions": {
     "0.0.6": {
       "builds": {

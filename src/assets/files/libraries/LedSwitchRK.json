@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LedSwitchRK",
+  "cardUrl": "/reference/device-os/libraries/l/LedSwitchRK",
   "versions": {
     "0.0.2": {
       "builds": {

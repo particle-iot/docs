@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/psyslog",
+  "cardUrl": "/reference/device-os/libraries/p/psyslog",
   "versions": {
     "0.1.0": {
       "builds": {

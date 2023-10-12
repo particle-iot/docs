@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SpiffsParticleRK",
+  "cardUrl": "/reference/device-os/libraries/s/SpiffsParticleRK",
   "versions": {
     "0.0.8": {
       "builds": {

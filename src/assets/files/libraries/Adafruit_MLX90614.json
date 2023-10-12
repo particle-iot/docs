@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_MLX90614",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_MLX90614",
   "versions": {
     "1.0.1": {
       "builds": {

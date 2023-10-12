@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/lightshow",
+  "cardUrl": "/reference/device-os/libraries/l/lightshow",
   "versions": {
     "0.0.5": {
       "builds": {

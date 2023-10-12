@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_PCD8544_mfGFX",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_PCD8544_mfGFX",
   "versions": {
     "1.1.1": {
       "builds": {

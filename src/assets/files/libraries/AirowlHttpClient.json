@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AirowlHttpClient",
+  "cardUrl": "/reference/device-os/libraries/a/AirowlHttpClient",
   "versions": {
     "1.0.0": {
       "builds": {

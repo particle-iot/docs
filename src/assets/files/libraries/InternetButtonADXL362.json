@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/InternetButtonADXL362",
+  "cardUrl": "/reference/device-os/libraries/i/InternetButtonADXL362",
   "versions": {
     "0.0.1": {
       "builds": {

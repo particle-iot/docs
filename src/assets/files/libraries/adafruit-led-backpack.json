@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/adafruit-led-backpack",
+  "cardUrl": "/reference/device-os/libraries/a/adafruit-led-backpack",
   "versions": {
     "1.0.0": {
       "builds": {

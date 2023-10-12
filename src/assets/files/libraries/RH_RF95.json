@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RH_RF95",
+  "cardUrl": "/reference/device-os/libraries/r/RH_RF95",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MLX90621",
+  "cardUrl": "/reference/device-os/libraries/m/MLX90621",
   "versions": {
     "0.0.13": {
       "builds": {

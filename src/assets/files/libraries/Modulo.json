@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/Modulo",
+  "cardUrl": "/reference/device-os/libraries/m/Modulo",
   "versions": {
     "1.2.0": {
       "builds": {

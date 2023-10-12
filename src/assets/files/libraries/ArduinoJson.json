@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ArduinoJson",
+  "cardUrl": "/reference/device-os/libraries/a/ArduinoJson",
   "versions": {
     "6.17.3": {
       "builds": {

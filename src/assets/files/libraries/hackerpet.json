@@ -27,7 +27,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/hackerpet",
+  "cardUrl": "/reference/device-os/libraries/h/hackerpet",
   "versions": {
     "0.2.3": {
       "builds": {

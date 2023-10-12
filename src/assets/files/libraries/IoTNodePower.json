@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/IoTNodePower",
+  "cardUrl": "/reference/device-os/libraries/i/IoTNodePower",
   "versions": {
     "0.0.4": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PatriotRelay",
+  "cardUrl": "/reference/device-os/libraries/p/PatriotRelay",
   "versions": {
     "3.0.0": {
       "builds": {

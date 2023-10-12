@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/mcp23s17",
+  "cardUrl": "/reference/device-os/libraries/m/mcp23s17",
   "versions": {
     "0.2.0": {
       "builds": {

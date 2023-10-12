@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/neopixel-pi",
+  "cardUrl": "/reference/device-os/libraries/n/neopixel-pi",
   "versions": {
     "0.0.15": {
       "builds": {

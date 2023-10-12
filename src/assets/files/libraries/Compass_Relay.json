@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/Compass_Relay",
+  "cardUrl": "/reference/device-os/libraries/c/Compass_Relay",
   "versions": {
     "1.0.0": {
       "builds": {

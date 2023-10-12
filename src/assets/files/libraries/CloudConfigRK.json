@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CloudConfigRK",
+  "cardUrl": "/reference/device-os/libraries/c/CloudConfigRK",
   "versions": {
     "0.0.2": {
       "builds": {

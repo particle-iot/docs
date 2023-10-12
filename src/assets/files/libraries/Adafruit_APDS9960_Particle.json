@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_APDS9960_Particle",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_APDS9960_Particle",
   "versions": {
     "0.0.3": {
       "builds": {

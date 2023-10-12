@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AM2321",
+  "cardUrl": "/reference/device-os/libraries/a/AM2321",
   "versions": {
     "0.9.0": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NCD16Relay",
+  "cardUrl": "/reference/device-os/libraries/n/NCD16Relay",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/ComparatorGen3_RK",
+  "cardUrl": "/reference/device-os/libraries/c/ComparatorGen3_RK",
   "versions": {
     "0.0.1": {
       "added": "2023-03-21T23:14:16.690Z",

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_BNO055_RK",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BNO055_RK",
   "versions": {
     "1.1.8": {
       "builds": {

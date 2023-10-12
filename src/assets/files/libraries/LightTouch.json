@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LightTouch",
+  "cardUrl": "/reference/device-os/libraries/l/LightTouch",
   "versions": {
     "0.0.2": {
       "builds": {

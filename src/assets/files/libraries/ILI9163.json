@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/ILI9163",
+  "cardUrl": "/reference/device-os/libraries/i/ILI9163",
   "versions": {
     "0.0.2": {
       "builds": {},

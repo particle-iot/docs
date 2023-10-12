@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/Touch_4Wire",
+  "cardUrl": "/reference/device-os/libraries/t/Touch_4Wire",
   "versions": {
     "0.9.5": {
       "builds": {

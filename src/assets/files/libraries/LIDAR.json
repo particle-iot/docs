@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LIDAR",
+  "cardUrl": "/reference/device-os/libraries/l/LIDAR",
   "versions": {
     "1.0.0": {
       "builds": {

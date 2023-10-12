@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/twilio",
+  "cardUrl": "/reference/device-os/libraries/t/twilio",
   "versions": {
     "0.0.1": {
       "builds": {

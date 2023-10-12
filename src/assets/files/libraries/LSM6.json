@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LSM6",
+  "cardUrl": "/reference/device-os/libraries/l/LSM6",
   "versions": {
     "1.0.0": {
       "builds": {

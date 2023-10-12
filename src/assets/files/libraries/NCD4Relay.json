@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NCD4Relay",
+  "cardUrl": "/reference/device-os/libraries/n/NCD4Relay",
   "versions": {
     "0.0.2": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/WatchDog_WCL",
+  "cardUrl": "/reference/device-os/libraries/w/WatchDog_WCL",
   "versions": {
     "1.0.2": {
       "builds": {

@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_VL53L5CX_Arduino_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_VL53L5CX_Arduino_Library",
   "versions": {
     "1.0.0": {
       "builds": {

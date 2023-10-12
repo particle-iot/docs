@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_MPL3115A2",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_MPL3115A2",
   "versions": {
     "1.1.2": {
       "builds": {

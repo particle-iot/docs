@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/i2c_anything",
+  "cardUrl": "/reference/device-os/libraries/i/i2c_anything",
   "versions": {
     "1.0.1": {
       "builds": {

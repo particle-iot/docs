@@ -28,7 +28,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NimbleParticleHeatblanketLibrary",
+  "cardUrl": "/reference/device-os/libraries/n/NimbleParticleHeatblanketLibrary",
   "versions": {
     "0.12.1": {
       "added": "2022-10-26T18:52:55.074Z",

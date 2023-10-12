@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/EdgeEventQueueRK",
+  "cardUrl": "/reference/device-os/libraries/e/EdgeEventQueueRK",
   "versions": {
     "0.0.1": {
       "added": "2023-08-20T13:45:31.262Z",

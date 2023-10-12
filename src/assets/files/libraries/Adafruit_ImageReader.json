@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_ImageReader",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_ImageReader",
   "versions": {
     "1.0.9": {
       "builds": {

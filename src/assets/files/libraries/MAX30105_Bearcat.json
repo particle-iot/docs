@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MAX30105_Bearcat",
+  "cardUrl": "/reference/device-os/libraries/m/MAX30105_Bearcat",
   "versions": {
     "1.0.0": {
       "builds": {

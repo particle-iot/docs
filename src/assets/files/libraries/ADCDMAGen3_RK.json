@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ADCDMAGen3_RK",
+  "cardUrl": "/reference/device-os/libraries/a/ADCDMAGen3_RK",
   "versions": {
     "0.0.1": {
       "builds": {

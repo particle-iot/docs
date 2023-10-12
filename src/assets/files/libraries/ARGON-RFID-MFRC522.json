@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ARGON-RFID-MFRC522",
+  "cardUrl": "/reference/device-os/libraries/a/ARGON-RFID-MFRC522",
   "versions": {
     "1.3.7": {
       "builds": {

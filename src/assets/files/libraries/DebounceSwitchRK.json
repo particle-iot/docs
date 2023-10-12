@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DebounceSwitchRK",
+  "cardUrl": "/reference/device-os/libraries/d/DebounceSwitchRK",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/neopixelmatrix",
+  "cardUrl": "/reference/device-os/libraries/n/neopixelmatrix",
   "versions": {
     "0.0.1": {
       "builds": {

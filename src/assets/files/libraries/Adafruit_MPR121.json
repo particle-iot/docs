@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_MPR121",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_MPR121",
   "versions": {
     "0.0.2": {
       "builds": {

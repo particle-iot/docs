@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SensirionSGP30",
+  "cardUrl": "/reference/device-os/libraries/s/SensirionSGP30",
   "versions": {
     "1.0.4": {
       "builds": {

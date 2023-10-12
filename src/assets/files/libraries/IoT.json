@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/IoT",
+  "cardUrl": "/reference/device-os/libraries/i/IoT",
   "versions": {
     "5.1.0": {
       "builds": {

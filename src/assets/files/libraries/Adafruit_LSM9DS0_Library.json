@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_LSM9DS0_Library",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_LSM9DS0_Library",
   "versions": {
     "1.0.2": {
       "added": "2023-03-21T20:55:47.787Z",

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NexaCtrl",
+  "cardUrl": "/reference/device-os/libraries/n/NexaCtrl",
   "versions": {
     "0.2.0": {
       "builds": {

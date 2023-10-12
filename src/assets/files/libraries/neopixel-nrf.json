@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/neopixel-nrf",
+  "cardUrl": "/reference/device-os/libraries/n/neopixel-nrf",
   "versions": {
     "0.0.16": {
       "builds": {

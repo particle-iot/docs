@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/simple-OSC",
+  "cardUrl": "/reference/device-os/libraries/s/simple-OSC",
   "versions": {
     "0.0.3": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/adafruit-sht31",
+  "cardUrl": "/reference/device-os/libraries/a/adafruit-sht31",
   "versions": {
     "0.0.7": {
       "builds": {

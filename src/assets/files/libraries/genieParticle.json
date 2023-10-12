@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/genieParticle",
+  "cardUrl": "/reference/device-os/libraries/g/genieParticle",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/pid",
+  "cardUrl": "/reference/device-os/libraries/p/pid",
   "versions": {
     "2.0.1": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/HPMA115S0-Library",
+  "cardUrl": "/reference/device-os/libraries/h/HPMA115S0-Library",
   "versions": {
     "1.0.0": {
       "builds": {

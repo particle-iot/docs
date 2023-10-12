@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "j",
-  "cardUrl": "/cards/libraries/j/JSN-SR04_Gen3_RK",
+  "cardUrl": "/reference/device-os/libraries/j/JSN-SR04_Gen3_RK",
   "versions": {
     "0.0.2": {
       "added": "2023-03-21T18:26:55.818Z",

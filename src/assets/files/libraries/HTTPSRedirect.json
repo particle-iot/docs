@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/HTTPSRedirect",
+  "cardUrl": "/reference/device-os/libraries/h/HTTPSRedirect",
   "versions": {
     "1.0.0": {
       "builds": {

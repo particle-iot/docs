@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CameraHelperRK",
+  "cardUrl": "/reference/device-os/libraries/c/CameraHelperRK",
   "versions": {
     "0.0.1": {
       "added": "2023-03-21T22:01:41.135Z",

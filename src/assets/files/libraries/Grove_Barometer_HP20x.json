@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/Grove_Barometer_HP20x",
+  "cardUrl": "/reference/device-os/libraries/g/Grove_Barometer_HP20x",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/Wasm3",
+  "cardUrl": "/reference/device-os/libraries/w/Wasm3",
   "versions": {
     "0.4.9": {
       "builds": {

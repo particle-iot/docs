@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/adxl362",
+  "cardUrl": "/reference/device-os/libraries/a/adxl362",
   "versions": {
     "0.0.0": {
       "builds": {

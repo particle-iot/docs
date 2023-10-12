@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/ParticleGeographicLib",
+  "cardUrl": "/reference/device-os/libraries/p/ParticleGeographicLib",
   "versions": {
     "1.0.0": {
       "builds": {

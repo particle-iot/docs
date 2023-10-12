@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particle-timezone",
+  "cardUrl": "/reference/device-os/libraries/p/particle-timezone",
   "versions": {
     "0.0.4": {
       "builds": {

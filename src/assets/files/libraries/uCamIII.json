@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "u",
-  "cardUrl": "/cards/libraries/u/uCamIII",
+  "cardUrl": "/reference/device-os/libraries/u/uCamIII",
   "versions": {
     "0.0.5": {
       "builds": {

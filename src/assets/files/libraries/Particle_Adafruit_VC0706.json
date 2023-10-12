@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Particle_Adafruit_VC0706",
+  "cardUrl": "/reference/device-os/libraries/p/Particle_Adafruit_VC0706",
   "versions": {
     "1.1.2": {
       "added": "2023-03-21T19:58:35.810Z",

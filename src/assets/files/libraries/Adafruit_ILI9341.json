@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_ILI9341",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_ILI9341",
   "versions": {
     "1.0.3": {
       "builds": {

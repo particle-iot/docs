@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/testa",
+  "cardUrl": "/reference/device-os/libraries/t/testa",
   "versions": {
     "0.1.15": {
       "added": "2023-03-21T23:16:04.735Z",

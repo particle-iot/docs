@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PhoBot",
+  "cardUrl": "/reference/device-os/libraries/p/PhoBot",
   "versions": {
     "0.0.11": {
       "builds": {

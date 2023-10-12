@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Qwiic_Keypad_Arduino_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Qwiic_Keypad_Arduino_Library",
   "versions": {
     "1.2.0": {
       "added": "2023-03-21T21:07:21.691Z",

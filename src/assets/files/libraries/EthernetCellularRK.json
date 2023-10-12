@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/EthernetCellularRK",
+  "cardUrl": "/reference/device-os/libraries/e/EthernetCellularRK",
   "versions": {
     "0.0.2": {
       "builds": {

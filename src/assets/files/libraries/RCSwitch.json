@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RCSwitch",
+  "cardUrl": "/reference/device-os/libraries/r/RCSwitch",
   "versions": {
     "2.5.2": {
       "builds": {

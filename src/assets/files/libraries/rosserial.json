@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/rosserial",
+  "cardUrl": "/reference/device-os/libraries/r/rosserial",
   "versions": {
     "1.0.1": {
       "builds": {},

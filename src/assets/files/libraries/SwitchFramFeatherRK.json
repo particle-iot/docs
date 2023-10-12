@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SwitchFramFeatherRK",
+  "cardUrl": "/reference/device-os/libraries/s/SwitchFramFeatherRK",
   "versions": {
     "0.0.1": {
       "added": "2023-03-21T21:59:07.011Z",

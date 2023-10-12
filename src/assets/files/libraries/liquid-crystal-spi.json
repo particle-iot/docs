@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/liquid-crystal-spi",
+  "cardUrl": "/reference/device-os/libraries/l/liquid-crystal-spi",
   "versions": {
     "0.0.1": {
       "builds": {

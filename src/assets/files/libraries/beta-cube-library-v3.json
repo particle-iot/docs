@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/beta-cube-library-v3",
+  "cardUrl": "/reference/device-os/libraries/b/beta-cube-library-v3",
   "versions": {
     "0.3.0": {
       "builds": {

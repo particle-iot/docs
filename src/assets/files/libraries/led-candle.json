@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/led-candle",
+  "cardUrl": "/reference/device-os/libraries/l/led-candle",
   "versions": {
     "1.0.1": {
       "builds": {

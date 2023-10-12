@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_Bus_IO",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_Bus_IO",
   "versions": {
     "1.7.3": {
       "builds": {

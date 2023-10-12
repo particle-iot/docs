@@ -25,7 +25,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particle-strip",
+  "cardUrl": "/reference/device-os/libraries/p/particle-strip",
   "versions": {
     "2.3.3": {
       "builds": {

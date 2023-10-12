@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MelodySpeaker",
+  "cardUrl": "/reference/device-os/libraries/m/MelodySpeaker",
   "versions": {
     "1.0.0": {
       "builds": {

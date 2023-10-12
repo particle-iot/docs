@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/ParticleAppleMIDI",
+  "cardUrl": "/reference/device-os/libraries/p/ParticleAppleMIDI",
   "versions": {
     "1.0.0": {
       "builds": {

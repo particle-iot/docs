@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BLE_Group",
+  "cardUrl": "/reference/device-os/libraries/b/BLE_Group",
   "versions": {
     "0.3.0": {
       "builds": {

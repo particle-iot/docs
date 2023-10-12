@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AirQualityWing",
+  "cardUrl": "/reference/device-os/libraries/a/AirQualityWing",
   "versions": {
     "1.0.2": {
       "builds": {

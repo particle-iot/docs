@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DFRobot_PH",
+  "cardUrl": "/reference/device-os/libraries/d/DFRobot_PH",
   "versions": {
     "1.0.4": {
       "builds": {

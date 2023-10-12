@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/APDS_Trigger",
+  "cardUrl": "/reference/device-os/libraries/a/APDS_Trigger",
   "versions": {
     "1.0.9": {
       "builds": {

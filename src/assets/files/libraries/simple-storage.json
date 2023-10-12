@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/simple-storage",
+  "cardUrl": "/reference/device-os/libraries/s/simple-storage",
   "versions": {
     "1.0.0": {
       "builds": {

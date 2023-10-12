@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "v",
-  "cardUrl": "/cards/libraries/v/vcs3i2c",
+  "cardUrl": "/reference/device-os/libraries/v/vcs3i2c",
   "versions": {
     "0.1.0": {
       "builds": {

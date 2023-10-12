@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/arduino-CAN",
+  "cardUrl": "/reference/device-os/libraries/a/arduino-CAN",
   "versions": {
     "0.0.1": {
       "builds": {

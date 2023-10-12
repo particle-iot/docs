@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DeviceKeyHelperRK",
+  "cardUrl": "/reference/device-os/libraries/d/DeviceKeyHelperRK",
   "versions": {
     "0.0.4": {
       "builds": {

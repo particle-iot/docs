@@ -19,7 +19,7 @@
   "verification": "official",
   "kind": "official library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RelayShield",
+  "cardUrl": "/reference/device-os/libraries/r/RelayShield",
   "versions": {
     "0.0.6": {
       "builds": {

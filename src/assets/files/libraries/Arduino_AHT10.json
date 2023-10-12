@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Arduino_AHT10",
+  "cardUrl": "/reference/device-os/libraries/a/Arduino_AHT10",
   "versions": {
     "0.1.0": {
       "added": "2023-03-21T19:38:20.332Z",

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Serial_Graphic_LCD",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Serial_Graphic_LCD",
   "versions": {
     "1.1.1": {
       "builds": {

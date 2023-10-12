@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/ExponentiallySmoothedValue",
+  "cardUrl": "/reference/device-os/libraries/e/ExponentiallySmoothedValue",
   "versions": {
     "1.0.0": {
       "builds": {

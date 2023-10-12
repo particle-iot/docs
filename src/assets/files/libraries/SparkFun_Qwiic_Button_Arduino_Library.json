@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Qwiic_Button_Arduino_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Qwiic_Button_Arduino_Library",
   "versions": {
     "2.0.4": {
       "added": "2022-10-31T16:09:11.414Z",

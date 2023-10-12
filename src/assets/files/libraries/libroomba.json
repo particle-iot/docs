@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/libroomba",
+  "cardUrl": "/reference/device-os/libraries/l/libroomba",
   "versions": {
     "1.0.0": {
       "builds": {

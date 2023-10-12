@@ -46,7 +46,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DS2482_OneWire",
+  "cardUrl": "/reference/device-os/libraries/d/DS2482_OneWire",
   "versions": {
     "0.0.16": {
       "added": "2023-03-21T18:30:11.690Z",

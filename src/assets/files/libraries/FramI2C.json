@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/FramI2C",
+  "cardUrl": "/reference/device-os/libraries/f/FramI2C",
   "versions": {
     "0.1.3": {
       "builds": {

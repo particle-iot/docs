@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BackgroundPublishRK",
+  "cardUrl": "/reference/device-os/libraries/b/BackgroundPublishRK",
   "versions": {
     "0.0.1": {
       "builds": {

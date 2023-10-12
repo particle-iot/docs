@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AzureIotHubClient",
+  "cardUrl": "/reference/device-os/libraries/a/AzureIotHubClient",
   "versions": {
     "2.1.0": {
       "builds": {

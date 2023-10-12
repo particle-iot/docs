@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/Commander",
+  "cardUrl": "/reference/device-os/libraries/c/Commander",
   "versions": {
     "4.2.7": {
       "builds": {

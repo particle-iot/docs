@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Print64",
+  "cardUrl": "/reference/device-os/libraries/p/Print64",
   "versions": {
     "0.0.1": {
       "builds": {

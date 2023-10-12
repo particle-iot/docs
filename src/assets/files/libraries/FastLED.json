@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/FastLED",
+  "cardUrl": "/reference/device-os/libraries/f/FastLED",
   "versions": {
     "3.1.5": {
       "builds": {

@@ -26,7 +26,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit-MotorShield-V2",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit-MotorShield-V2",
   "versions": {
     "1.0.0": {
       "builds": {

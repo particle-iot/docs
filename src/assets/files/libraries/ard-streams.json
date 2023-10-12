@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ard-streams",
+  "cardUrl": "/reference/device-os/libraries/a/ard-streams",
   "versions": {
     "1.0.2": {
       "builds": {

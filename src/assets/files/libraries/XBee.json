@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "x",
-  "cardUrl": "/cards/libraries/x/XBee",
+  "cardUrl": "/reference/device-os/libraries/x/XBee",
   "versions": {
     "0.0.10": {
       "builds": {

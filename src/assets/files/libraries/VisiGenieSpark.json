@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "v",
-  "cardUrl": "/cards/libraries/v/VisiGenieSpark",
+  "cardUrl": "/reference/device-os/libraries/v/VisiGenieSpark",
   "versions": {
     "1.0.0": {
       "builds": {

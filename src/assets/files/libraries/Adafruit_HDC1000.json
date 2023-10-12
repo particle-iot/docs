@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_HDC1000",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_HDC1000",
   "versions": {
     "1.0.6": {
       "builds": {

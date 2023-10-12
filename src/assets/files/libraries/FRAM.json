@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/FRAM",
+  "cardUrl": "/reference/device-os/libraries/f/FRAM",
   "versions": {
     "1.0.1": {
       "builds": {

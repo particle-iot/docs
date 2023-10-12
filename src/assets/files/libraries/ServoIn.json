@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/ServoIn",
+  "cardUrl": "/reference/device-os/libraries/s/ServoIn",
   "versions": {
     "1.0.2": {
       "builds": {

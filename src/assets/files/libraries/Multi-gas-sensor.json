@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/Multi-gas-sensor",
+  "cardUrl": "/reference/device-os/libraries/m/Multi-gas-sensor",
   "versions": {
     "0.0.1": {
       "builds": {

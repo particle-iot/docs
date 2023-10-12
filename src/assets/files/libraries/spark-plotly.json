@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/spark-plotly",
+  "cardUrl": "/reference/device-os/libraries/s/spark-plotly",
   "versions": {
     "0.0.11": {
       "builds": {

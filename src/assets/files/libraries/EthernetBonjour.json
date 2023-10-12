@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/EthernetBonjour",
+  "cardUrl": "/reference/device-os/libraries/e/EthernetBonjour",
   "versions": {
     "1.0.1": {
       "builds": {

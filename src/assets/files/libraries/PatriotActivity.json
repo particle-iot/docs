@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PatriotActivity",
+  "cardUrl": "/reference/device-os/libraries/p/PatriotActivity",
   "versions": {
     "5.0.0": {
       "builds": {

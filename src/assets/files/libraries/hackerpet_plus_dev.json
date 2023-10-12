@@ -26,7 +26,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/hackerpet_plus_dev",
+  "cardUrl": "/reference/device-os/libraries/h/hackerpet_plus_dev",
   "versions": {
     "0.1.112": {
       "added": "2022-10-31T20:06:10.095Z",

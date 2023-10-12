@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "u",
-  "cardUrl": "/cards/libraries/u/UIPEthernet",
+  "cardUrl": "/reference/device-os/libraries/u/UIPEthernet",
   "versions": {
     "2.0.5": {
       "builds": {

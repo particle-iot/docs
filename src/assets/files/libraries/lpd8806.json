@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/lpd8806",
+  "cardUrl": "/reference/device-os/libraries/l/lpd8806",
   "versions": {
     "1.0.0": {
       "builds": {

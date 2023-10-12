@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particleflux-Si7021",
+  "cardUrl": "/reference/device-os/libraries/p/particleflux-Si7021",
   "versions": {
     "1.2.1": {
       "builds": {

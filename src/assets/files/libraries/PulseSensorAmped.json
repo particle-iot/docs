@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PulseSensorAmped",
+  "cardUrl": "/reference/device-os/libraries/p/PulseSensorAmped",
   "versions": {
     "0.0.2": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particle-rf24",
+  "cardUrl": "/reference/device-os/libraries/p/particle-rf24",
   "versions": {
     "0.0.2": {
       "builds": {

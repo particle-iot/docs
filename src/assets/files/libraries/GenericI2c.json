@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/GenericI2c",
+  "cardUrl": "/reference/device-os/libraries/g/GenericI2c",
   "versions": {
     "0.0.2": {
       "builds": {

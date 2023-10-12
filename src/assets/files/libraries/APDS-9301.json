@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/APDS-9301",
+  "cardUrl": "/reference/device-os/libraries/a/APDS-9301",
   "versions": {
     "1.0.2": {
       "builds": {

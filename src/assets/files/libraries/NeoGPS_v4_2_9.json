@@ -27,7 +27,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NeoGPS_v4_2_9",
+  "cardUrl": "/reference/device-os/libraries/n/NeoGPS_v4_2_9",
   "versions": {
     "4.2.9": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/libfixmath",
+  "cardUrl": "/reference/device-os/libraries/l/libfixmath",
   "versions": {
     "0.0.2": {
       "builds": {

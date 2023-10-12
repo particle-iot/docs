@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SerialCommandParserRK",
+  "cardUrl": "/reference/device-os/libraries/s/SerialCommandParserRK",
   "versions": {
     "0.0.8": {
       "builds": {

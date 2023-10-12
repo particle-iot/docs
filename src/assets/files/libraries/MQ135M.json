@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MQ135M",
+  "cardUrl": "/reference/device-os/libraries/m/MQ135M",
   "versions": {
     "1.9.9": {
       "builds": {

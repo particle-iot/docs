@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/azure_iothub_client",
+  "cardUrl": "/reference/device-os/libraries/a/azure_iothub_client",
   "versions": {
     "0.0.3": {
       "builds": {

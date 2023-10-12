@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/Radar",
+  "cardUrl": "/reference/device-os/libraries/r/Radar",
   "versions": {
     "1.0.0": {
       "builds": {

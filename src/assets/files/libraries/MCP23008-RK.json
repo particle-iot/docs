@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MCP23008-RK",
+  "cardUrl": "/reference/device-os/libraries/m/MCP23008-RK",
   "versions": {
     "0.0.4": {
       "builds": {

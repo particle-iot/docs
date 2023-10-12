@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/HT16K33-LED",
+  "cardUrl": "/reference/device-os/libraries/h/HT16K33-LED",
   "versions": {
     "1.0.2": {
       "builds": {

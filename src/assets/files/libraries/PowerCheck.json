@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PowerCheck",
+  "cardUrl": "/reference/device-os/libraries/p/PowerCheck",
   "versions": {
     "1.0.2": {
       "builds": {},

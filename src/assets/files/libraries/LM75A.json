@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LM75A",
+  "cardUrl": "/reference/device-os/libraries/l/LM75A",
   "versions": {
     "1.1.0": {
       "builds": {

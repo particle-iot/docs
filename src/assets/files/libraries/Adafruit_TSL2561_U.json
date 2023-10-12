@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_TSL2561_U",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_TSL2561_U",
   "versions": {
     "2.0.10": {
       "builds": {

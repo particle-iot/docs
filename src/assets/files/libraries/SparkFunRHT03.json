@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFunRHT03",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFunRHT03",
   "versions": {
     "1.0.4": {
       "builds": {

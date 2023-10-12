@@ -16,7 +16,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/Fingerprint_FPS_GT511C3",
+  "cardUrl": "/reference/device-os/libraries/f/Fingerprint_FPS_GT511C3",
   "versions": {
     "1.0.6": {
       "builds": {

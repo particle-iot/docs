@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LiquidCrystal",
+  "cardUrl": "/reference/device-os/libraries/l/LiquidCrystal",
   "versions": {
     "0.0.3": {
       "builds": {

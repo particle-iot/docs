@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "j",
-  "cardUrl": "/cards/libraries/j/JSMNSpark",
+  "cardUrl": "/reference/device-os/libraries/j/JSMNSpark",
   "versions": {
     "0.0.1": {
       "builds": {

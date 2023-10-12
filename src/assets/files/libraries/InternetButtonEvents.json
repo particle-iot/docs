@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/InternetButtonEvents",
+  "cardUrl": "/reference/device-os/libraries/i/InternetButtonEvents",
   "versions": {
     "1.0.1": {
       "builds": {

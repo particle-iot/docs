@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/GoBLE",
+  "cardUrl": "/reference/device-os/libraries/g/GoBLE",
   "versions": {
     "0.0.1": {
       "builds": {

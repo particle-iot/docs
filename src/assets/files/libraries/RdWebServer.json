@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RdWebServer",
+  "cardUrl": "/reference/device-os/libraries/r/RdWebServer",
   "versions": {
     "1.0.17": {
       "builds": {

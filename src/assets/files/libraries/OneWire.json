@@ -23,7 +23,7 @@
   "verification": "verified",
   "kind": "verified community library",
   "letter": "o",
-  "cardUrl": "/cards/libraries/o/OneWire",
+  "cardUrl": "/reference/device-os/libraries/o/OneWire",
   "versions": {
     "2.0.4": {
       "builds": {

@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "u",
-  "cardUrl": "/cards/libraries/u/U8glib",
+  "cardUrl": "/reference/device-os/libraries/u/U8glib",
   "versions": {
     "1.0.0": {
       "builds": {

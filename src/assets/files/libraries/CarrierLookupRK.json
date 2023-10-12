@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CarrierLookupRK",
+  "cardUrl": "/reference/device-os/libraries/c/CarrierLookupRK",
   "versions": {
     "0.0.1": {
       "builds": {

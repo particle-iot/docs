@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PololuHighPowerStepperDriver",
+  "cardUrl": "/reference/device-os/libraries/p/PololuHighPowerStepperDriver",
   "versions": {
     "1.0.0": {
       "builds": {

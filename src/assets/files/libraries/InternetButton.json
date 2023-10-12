@@ -21,7 +21,7 @@
   "verification": "official",
   "kind": "official library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/InternetButton",
+  "cardUrl": "/reference/device-os/libraries/i/InternetButton",
   "versions": {
     "0.1.15": {
       "builds": {

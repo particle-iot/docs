@@ -26,7 +26,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PDMGen3_RK",
+  "cardUrl": "/reference/device-os/libraries/p/PDMGen3_RK",
   "versions": {
     "0.0.1": {
       "builds": {

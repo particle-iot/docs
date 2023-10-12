@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LittleFS-RK",
+  "cardUrl": "/reference/device-os/libraries/l/LittleFS-RK",
   "versions": {
     "0.0.1": {
       "added": "2023-03-21T20:11:47.266Z",

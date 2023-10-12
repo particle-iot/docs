@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NimbleSensor",
+  "cardUrl": "/reference/device-os/libraries/n/NimbleSensor",
   "versions": {
     "0.0.10": {
       "builds": {

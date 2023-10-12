@@ -25,7 +25,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Particle_Adafruit_IS31FL3731",
+  "cardUrl": "/reference/device-os/libraries/p/Particle_Adafruit_IS31FL3731",
   "versions": {
     "1.0.3": {
       "builds": {},

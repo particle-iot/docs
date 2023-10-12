@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BlynkLog",
+  "cardUrl": "/reference/device-os/libraries/b/BlynkLog",
   "versions": {
     "0.1.0": {
       "builds": {

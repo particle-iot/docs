@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/adafruit-serial-rgb-lcd",
+  "cardUrl": "/reference/device-os/libraries/a/adafruit-serial-rgb-lcd",
   "versions": {
     "0.0.1": {
       "builds": {},

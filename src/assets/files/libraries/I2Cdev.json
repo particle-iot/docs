@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/I2Cdev",
+  "cardUrl": "/reference/device-os/libraries/i/I2Cdev",
   "versions": {
     "0.0.3": {
       "builds": {

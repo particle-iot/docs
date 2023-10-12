@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ADXL345_d591",
+  "cardUrl": "/reference/device-os/libraries/a/ADXL345_d591",
   "versions": {
     "0.1.1": {
       "builds": {

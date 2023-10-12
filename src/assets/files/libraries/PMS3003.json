@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PMS3003",
+  "cardUrl": "/reference/device-os/libraries/p/PMS3003",
   "versions": {
     "0.1.2": {
       "builds": {},

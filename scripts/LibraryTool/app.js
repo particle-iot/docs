@@ -408,7 +408,7 @@ async function generate() {
         if (libInfo.letter < 'a' || libInfo.letter > 'z') {
             libInfo.letter = 'other';
         }
-        libInfo.cardUrl = '/cards/libraries/' + libInfo.letter + '/' + lib.id;
+        libInfo.cardUrl = '/reference/device-os/libraries/' + libInfo.letter + '/' + lib.id;
 
         // Build history
         if (libraryData[lib.id]) {

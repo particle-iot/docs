@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DFRobotDFPlayerMini",
+  "cardUrl": "/reference/device-os/libraries/d/DFRobotDFPlayerMini",
   "versions": {
     "1.0.1": {
       "builds": {

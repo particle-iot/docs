@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AssetTracker2",
+  "cardUrl": "/reference/device-os/libraries/a/AssetTracker2",
   "versions": {
     "0.3.1": {
       "builds": {

@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BMP180",
+  "cardUrl": "/reference/device-os/libraries/b/BMP180",
   "versions": {
     "1.1.0": {
       "builds": {

@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/EEPROMStorage",
+  "cardUrl": "/reference/device-os/libraries/e/EEPROMStorage",
   "versions": {
     "0.0.4": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/EasyTransferSerial",
+  "cardUrl": "/reference/device-os/libraries/e/EasyTransferSerial",
   "versions": {
     "2.1.3": {
       "builds": {

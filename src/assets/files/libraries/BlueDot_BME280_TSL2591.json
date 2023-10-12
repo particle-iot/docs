@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BlueDot_BME280_TSL2591",
+  "cardUrl": "/reference/device-os/libraries/b/BlueDot_BME280_TSL2591",
   "versions": {
     "1.0.3": {
       "builds": {

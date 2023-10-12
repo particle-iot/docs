@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MMA8452-Accelerometer-Library-Spark-Core",
+  "cardUrl": "/reference/device-os/libraries/m/MMA8452-Accelerometer-Library-Spark-Core",
   "versions": {
     "0.0.3": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PatriotSwitch",
+  "cardUrl": "/reference/device-os/libraries/p/PatriotSwitch",
   "versions": {
     "5.1.0": {
       "builds": {

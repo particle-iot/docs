@@ -28,7 +28,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NDEF-MFRC522",
+  "cardUrl": "/reference/device-os/libraries/n/NDEF-MFRC522",
   "versions": {
     "2.1.2": {
       "builds": {

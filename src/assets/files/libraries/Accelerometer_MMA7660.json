@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Accelerometer_MMA7660",
+  "cardUrl": "/reference/device-os/libraries/a/Accelerometer_MMA7660",
   "versions": {
     "0.0.1": {
       "builds": {

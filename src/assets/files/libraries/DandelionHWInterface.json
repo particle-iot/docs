@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DandelionHWInterface",
+  "cardUrl": "/reference/device-os/libraries/d/DandelionHWInterface",
   "versions": {
     "0.9.9": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particle-osc",
+  "cardUrl": "/reference/device-os/libraries/p/particle-osc",
   "versions": {
     "0.0.3": {
       "builds": {

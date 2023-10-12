@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_GPS",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_GPS",
   "versions": {
     "1.0.3": {
       "builds": {

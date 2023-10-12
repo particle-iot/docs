@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/Temboo",
+  "cardUrl": "/reference/device-os/libraries/t/Temboo",
   "versions": {
     "1.2.8": {
       "builds": {

@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/coap",
+  "cardUrl": "/reference/device-os/libraries/c/coap",
   "versions": {
     "0.2.4": {
       "builds": {

@@ -16,7 +16,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/chrismayu_am2320",
+  "cardUrl": "/reference/device-os/libraries/c/chrismayu_am2320",
   "versions": {
     "1.0.1": {
       "builds": {
