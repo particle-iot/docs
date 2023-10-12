@@ -92,7 +92,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
     {
         let libraryInfo = {
-            libraryNames,
+            // libraryNames,
             letterNavigation: [],
         };
 
@@ -103,6 +103,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
                 title: letterUC,
                 href: '/' + destDir + '/' + curLetter + '/',
                 letter: curLetter,
+                libraries: letterLibraries[curLetter],
             };
             libraryInfo.letterNavigation.push(obj);
         }
