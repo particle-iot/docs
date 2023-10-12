@@ -193,37 +193,7 @@ navMenu.generateNavHtml = function(menuJson) {
         // console.log('processArray indent=' + indent, array);
 
         for (const item of array) {
-            if (item.isCardSection) {
-                const navContainerElem = document.createElement('div');
-                $(navContainerElem).addClass('navContainer');
-                if (item.addClass) {
-                    $(navContainerElem).addClass(item.addClass);
-                }
-
-                if (indent) {
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).css('width', (indent * 15) + 'px');            
-                    $(innerDivElem).html('&nbsp;');
-                    $(navContainerElem).append(innerDivElem);
-                }
-
-                {
-                    const innerDivElem = document.createElement('div');
-                    $(innerDivElem).addClass('navMenu2');
-
-                    const aElem = document.createElement('a');
-                    $(aElem).attr('href', item.href );
-                    $(aElem).addClass('navLink');
-                    $(aElem).text(makeTitle(item));
-                    $(innerDivElem).append(aElem);
-                    
-                    $(navContainerElem).append(innerDivElem);
-                }
-
-                cardSections.push(item);
-                $(navElem).append(navContainerElem);
-            }
-            else if (item.isSection) {
+            if (item.isSection) {
                 // Multi-level section title
                 const navContainerElem = document.createElement('div');
                 $(navContainerElem).addClass('navContainer');

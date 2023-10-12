@@ -13,10 +13,10 @@
         "tutorials/device-cloud/data-report-tutorial.md"
     ],
     "priority": {
-        "cards/firmware": 0.7,
-        "cards/libraries": 0.2,
         "discontinued": 0.1,
         "reference/device-os/firmware.md": 0.1,
+        "reference/device-os/api": 0.7,
+        "reference/device-os/libraries": 0.2,
         "support/": 0.1,
         "xenon": 0.2,
         "archives/": 0.1
