@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LIS3MDL_magnetometer",
+  "cardUrl": "/reference/device-os/libraries/l/LIS3MDL_magnetometer",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/neopixel-dma",
+  "cardUrl": "/reference/device-os/libraries/n/neopixel-dma",
   "versions": {
     "0.0.1": {
       "builds": {

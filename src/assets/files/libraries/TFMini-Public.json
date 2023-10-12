@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TFMini-Public",
+  "cardUrl": "/reference/device-os/libraries/t/TFMini-Public",
   "versions": {
     "0.1.0": {
       "builds": {

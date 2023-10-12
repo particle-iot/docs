@@ -26,7 +26,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DS18B20Minimal",
+  "cardUrl": "/reference/device-os/libraries/d/DS18B20Minimal",
   "versions": {
     "0.0.1": {
       "builds": {

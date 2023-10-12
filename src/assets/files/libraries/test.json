@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/test",
+  "cardUrl": "/reference/device-os/libraries/t/test",
   "versions": {
     "1.1.1": {
       "builds": {

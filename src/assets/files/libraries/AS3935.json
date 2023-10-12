@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AS3935",
+  "cardUrl": "/reference/device-os/libraries/a/AS3935",
   "versions": {
     "0.2.1": {
       "builds": {

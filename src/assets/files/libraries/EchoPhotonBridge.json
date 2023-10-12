@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/EchoPhotonBridge",
+  "cardUrl": "/reference/device-os/libraries/e/EchoPhotonBridge",
   "versions": {
     "0.7.5": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/swd",
+  "cardUrl": "/reference/device-os/libraries/s/swd",
   "versions": {
     "0.1.4": {
       "builds": {

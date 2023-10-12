@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_Pixie",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_Pixie",
   "versions": {
     "1.1.0": {
       "builds": {

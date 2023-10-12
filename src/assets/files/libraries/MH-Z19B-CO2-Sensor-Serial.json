@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MH-Z19B-CO2-Sensor-Serial",
+  "cardUrl": "/reference/device-os/libraries/m/MH-Z19B-CO2-Sensor-Serial",
   "versions": {
     "1.0.2": {
       "builds": {

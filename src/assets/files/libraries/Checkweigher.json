@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/Checkweigher",
+  "cardUrl": "/reference/device-os/libraries/c/Checkweigher",
   "versions": {
     "1.0.0": {
       "builds": {

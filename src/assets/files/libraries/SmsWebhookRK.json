@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SmsWebhookRK",
+  "cardUrl": "/reference/device-os/libraries/s/SmsWebhookRK",
   "versions": {
     "0.0.2": {
       "builds": {

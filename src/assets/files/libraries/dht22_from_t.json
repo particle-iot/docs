@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/dht22_from_t",
+  "cardUrl": "/reference/device-os/libraries/d/dht22_from_t",
   "versions": {
     "1.0.2": {
       "builds": {

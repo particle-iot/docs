@@ -16,7 +16,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/Custom_SSD1306",
+  "cardUrl": "/reference/device-os/libraries/c/Custom_SSD1306",
   "versions": {
     "1.0.3": {
       "builds": {

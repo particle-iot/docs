@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_PN532",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_PN532",
   "versions": {
     "0.0.1": {
       "builds": {

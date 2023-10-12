@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_IO_Particle",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_IO_Particle",
   "versions": {
     "1.0.1": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/thermistor-library",
+  "cardUrl": "/reference/device-os/libraries/t/thermistor-library",
   "versions": {
     "0.0.5": {
       "builds": {

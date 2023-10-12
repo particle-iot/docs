@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_HMC5883",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_HMC5883",
   "versions": {
     "1.0.8": {
       "builds": {

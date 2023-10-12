@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RGBmatrixPanel",
+  "cardUrl": "/reference/device-os/libraries/r/RGBmatrixPanel",
   "versions": {
     "1.2.1": {
       "builds": {

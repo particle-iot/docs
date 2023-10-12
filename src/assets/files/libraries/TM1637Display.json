@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TM1637Display",
+  "cardUrl": "/reference/device-os/libraries/t/TM1637Display",
   "versions": {
     "0.0.1": {
       "builds": {

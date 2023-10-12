@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/ds18x20",
+  "cardUrl": "/reference/device-os/libraries/d/ds18x20",
   "versions": {
     "0.0.4": {
       "builds": {

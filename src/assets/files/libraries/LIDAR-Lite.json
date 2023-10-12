@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LIDAR-Lite",
+  "cardUrl": "/reference/device-os/libraries/l/LIDAR-Lite",
   "versions": {
     "3.0.1": {
       "builds": {

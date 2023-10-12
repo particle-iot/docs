@@ -13,10 +13,10 @@
         "tutorials/device-cloud/data-report-tutorial.md"
     ],
     "priority": {
-        "cards/firmware": 0.7,
-        "cards/libraries": 0.2,
         "discontinued": 0.1,
         "reference/device-os/firmware.md": 0.1,
+        "reference/device-os/api": 0.7,
+        "reference/device-os/libraries": 0.2,
         "support/": 0.1,
         "xenon": 0.2,
         "archives/": 0.1
@@ -8119,8 +8119,8 @@
             "hash": "17a18ec95218431c9d18bfc38cc7092069131dbc3764271fa969028d32a08536"
         },
         "reference/device-os/libraries/search.md": {
-            "date": "2023-09-20",
-            "hash": "f6b7a36458b798714cf8375324363f33718cc49ba923e10b8d7d71bc77ce3de6"
+            "date": "2023-10-11",
+            "hash": "98b72f5ec12a709adb70276315dce8f33ff262cc920cbafc9ad20784c1b695b5"
         },
         "archives/tinker/photon.md": {
             "date": "2023-09-20",

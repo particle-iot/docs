@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_BusIO_RK",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BusIO_RK",
   "versions": {
     "1.14.1": {
       "added": "2023-03-21T21:26:14.397Z",

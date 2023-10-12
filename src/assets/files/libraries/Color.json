@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/Color",
+  "cardUrl": "/reference/device-os/libraries/c/Color",
   "versions": {
     "1.2.1": {
       "builds": {

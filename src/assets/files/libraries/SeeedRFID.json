@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SeeedRFID",
+  "cardUrl": "/reference/device-os/libraries/s/SeeedRFID",
   "versions": {
     "1.0.5": {
       "builds": {

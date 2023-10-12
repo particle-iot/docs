@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "k",
-  "cardUrl": "/cards/libraries/k/Keypad_I2C",
+  "cardUrl": "/reference/device-os/libraries/k/Keypad_I2C",
   "versions": {
     "0.2.11": {
       "builds": {

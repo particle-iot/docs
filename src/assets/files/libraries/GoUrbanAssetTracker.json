@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/GoUrbanAssetTracker",
+  "cardUrl": "/reference/device-os/libraries/g/GoUrbanAssetTracker",
   "versions": {
     "0.0.10": {
       "added": "2023-03-21T19:39:55.666Z",

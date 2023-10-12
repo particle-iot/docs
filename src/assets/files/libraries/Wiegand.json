@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/Wiegand",
+  "cardUrl": "/reference/device-os/libraries/w/Wiegand",
   "versions": {
     "1.0.2": {
       "builds": {

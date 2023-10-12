@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "o",
-  "cardUrl": "/cards/libraries/o/OB_LED_Flasher_IV",
+  "cardUrl": "/reference/device-os/libraries/o/OB_LED_Flasher_IV",
   "versions": {
     "6.3.25": {
       "builds": {},

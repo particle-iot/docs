@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/thingspeak_5f86",
+  "cardUrl": "/reference/device-os/libraries/t/thingspeak_5f86",
   "versions": {
     "0.0.2": {
       "builds": {

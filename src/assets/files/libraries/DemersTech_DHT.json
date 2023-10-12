@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DemersTech_DHT",
+  "cardUrl": "/reference/device-os/libraries/d/DemersTech_DHT",
   "versions": {
     "0.0.5": {
       "builds": {

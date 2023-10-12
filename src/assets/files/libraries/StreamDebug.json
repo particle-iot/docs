@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/StreamDebug",
+  "cardUrl": "/reference/device-os/libraries/s/StreamDebug",
   "versions": {
     "0.0.2": {
       "builds": {},

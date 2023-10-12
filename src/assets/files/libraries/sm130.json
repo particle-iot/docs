@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/sm130",
+  "cardUrl": "/reference/device-os/libraries/s/sm130",
   "versions": {
     "2.0.0": {
       "builds": {

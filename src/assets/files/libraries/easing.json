@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/easing",
+  "cardUrl": "/reference/device-os/libraries/e/easing",
   "versions": {
     "0.0.2": {
       "builds": {

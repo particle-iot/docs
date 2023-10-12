@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/StepMotorController",
+  "cardUrl": "/reference/device-os/libraries/s/StepMotorController",
   "versions": {
     "0.0.32": {
       "builds": {

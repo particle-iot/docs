@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SevSeg",
+  "cardUrl": "/reference/device-os/libraries/s/SevSeg",
   "versions": {
     "3.3.0": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_TSL2561_Photon",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_TSL2561_Photon",
   "versions": {
     "3.1.9": {
       "builds": {

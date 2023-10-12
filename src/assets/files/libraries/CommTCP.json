@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CommTCP",
+  "cardUrl": "/reference/device-os/libraries/c/CommTCP",
   "versions": {
     "1.0.0": {
       "builds": {

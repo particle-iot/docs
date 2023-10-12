@@ -87,7 +87,8 @@
       [
         {
           "title": "Search",
-          "href": "/reference/device-os/libraries/search/"
+          "href": "/reference/device-os/libraries/search/",
+          "isLibrarySearch": true
         }
       ],
       {

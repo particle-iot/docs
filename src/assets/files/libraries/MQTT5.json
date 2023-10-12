@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MQTT5",
+  "cardUrl": "/reference/device-os/libraries/m/MQTT5",
   "versions": {
     "1.0.1": {
       "builds": {

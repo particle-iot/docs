@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Ublox_Arduino_Library_183",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Ublox_Arduino_Library_183",
   "versions": {
     "1.8.3": {
       "builds": {

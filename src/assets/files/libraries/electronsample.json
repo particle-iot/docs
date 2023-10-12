@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/electronsample",
+  "cardUrl": "/reference/device-os/libraries/e/electronsample",
   "versions": {
     "0.2.3": {
       "builds": {

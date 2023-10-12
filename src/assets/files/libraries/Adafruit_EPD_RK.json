@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_EPD_RK",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_EPD_RK",
   "versions": {
     "2.3.1": {
       "builds": {

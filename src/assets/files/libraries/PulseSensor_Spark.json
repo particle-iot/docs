@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PulseSensor_Spark",
+  "cardUrl": "/reference/device-os/libraries/p/PulseSensor_Spark",
   "versions": {
     "1.5.4": {
       "builds": {

@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SequentialFileRK",
+  "cardUrl": "/reference/device-os/libraries/s/SequentialFileRK",
   "versions": {
     "0.0.2": {
       "builds": {

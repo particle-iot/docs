@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/Microphone_PDM",
+  "cardUrl": "/reference/device-os/libraries/m/Microphone_PDM",
   "versions": {
     "0.0.1": {
       "added": "2023-05-19T20:50:43.953Z",

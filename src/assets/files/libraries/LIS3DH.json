@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LIS3DH",
+  "cardUrl": "/reference/device-os/libraries/l/LIS3DH",
   "versions": {
     "0.2.8": {
       "builds": {

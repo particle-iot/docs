@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BMP085",
+  "cardUrl": "/reference/device-os/libraries/b/BMP085",
   "versions": {
     "2.0.0": {
       "builds": {

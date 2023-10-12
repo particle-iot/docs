@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MB85RC256V-FRAM-RK",
+  "cardUrl": "/reference/device-os/libraries/m/MB85RC256V-FRAM-RK",
   "versions": {
     "0.0.5": {
       "builds": {

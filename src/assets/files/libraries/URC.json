@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "u",
-  "cardUrl": "/cards/libraries/u/URC",
+  "cardUrl": "/reference/device-os/libraries/u/URC",
   "versions": {
     "0.5.2": {
       "builds": {

@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AnalogMeasure",
+  "cardUrl": "/reference/device-os/libraries/a/AnalogMeasure",
   "versions": {
     "0.0.1": {
       "builds": {

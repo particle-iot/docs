@@ -16,7 +16,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/debugging",
+  "cardUrl": "/reference/device-os/libraries/d/debugging",
   "versions": {
     "0.0.3": {
       "builds": {

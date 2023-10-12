@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/Grove_OLED_128x64",
+  "cardUrl": "/reference/device-os/libraries/g/Grove_OLED_128x64",
   "versions": {
     "1.0.7": {
       "builds": {

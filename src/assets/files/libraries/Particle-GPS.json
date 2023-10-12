@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Particle-GPS",
+  "cardUrl": "/reference/device-os/libraries/p/Particle-GPS",
   "versions": {
     "1.0.4": {
       "builds": {

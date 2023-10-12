@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TrackerWiFiLocatorTestRK",
+  "cardUrl": "/reference/device-os/libraries/t/TrackerWiFiLocatorTestRK",
   "versions": {
     "0.0.1": {
       "added": "2023-03-21T19:57:05.784Z",

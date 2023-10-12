@@ -25,7 +25,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DGS",
+  "cardUrl": "/reference/device-os/libraries/d/DGS",
   "versions": {
     "2.0.1": {
       "builds": {},

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AzureMobileApp",
+  "cardUrl": "/reference/device-os/libraries/a/AzureMobileApp",
   "versions": {
     "0.1.0": {
       "builds": {

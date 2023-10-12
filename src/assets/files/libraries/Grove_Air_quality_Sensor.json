@@ -29,7 +29,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/Grove_Air_quality_Sensor",
+  "cardUrl": "/reference/device-os/libraries/g/Grove_Air_quality_Sensor",
   "versions": {
     "1.0.1": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "v",
-  "cardUrl": "/cards/libraries/v/vl6180x",
+  "cardUrl": "/reference/device-os/libraries/v/vl6180x",
   "versions": {
     "1.1.2": {
       "added": "2023-03-21T20:02:44.602Z",

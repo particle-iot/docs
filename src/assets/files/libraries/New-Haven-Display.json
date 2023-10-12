@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/New-Haven-Display",
+  "cardUrl": "/reference/device-os/libraries/n/New-Haven-Display",
   "versions": {
     "1.1.4": {
       "builds": {

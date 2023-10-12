@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit-CAP1188",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit-CAP1188",
   "versions": {
     "0.1.0": {
       "builds": {

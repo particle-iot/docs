@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LMP91000",
+  "cardUrl": "/reference/device-os/libraries/l/LMP91000",
   "versions": {
     "0.0.1": {
       "builds": {

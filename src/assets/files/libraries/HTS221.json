@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/HTS221",
+  "cardUrl": "/reference/device-os/libraries/h/HTS221",
   "versions": {
     "1.0.0": {
       "builds": {

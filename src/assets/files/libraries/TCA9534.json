@@ -28,7 +28,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TCA9534",
+  "cardUrl": "/reference/device-os/libraries/t/TCA9534",
   "versions": {
     "0.2.1": {
       "builds": {

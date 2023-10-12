@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AES_128_CBC_RK",
+  "cardUrl": "/reference/device-os/libraries/a/AES_128_CBC_RK",
   "versions": {
     "0.0.1": {
       "builds": {

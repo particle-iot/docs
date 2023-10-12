@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Qwiic_Keypad",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Qwiic_Keypad",
   "versions": {
     "1.2.0": {
       "builds": {

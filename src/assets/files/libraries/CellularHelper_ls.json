@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CellularHelper_ls",
+  "cardUrl": "/reference/device-os/libraries/c/CellularHelper_ls",
   "versions": {
     "0.0.5": {
       "builds": {

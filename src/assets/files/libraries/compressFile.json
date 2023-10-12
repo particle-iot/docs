@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/compressFile",
+  "cardUrl": "/reference/device-os/libraries/c/compressFile",
   "versions": {
     "0.0.1": {
       "builds": {

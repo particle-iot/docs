@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/FatFs",
+  "cardUrl": "/reference/device-os/libraries/f/FatFs",
   "versions": {
     "0.2.13": {
       "builds": {

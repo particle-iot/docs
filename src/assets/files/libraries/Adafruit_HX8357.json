@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_HX8357",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_HX8357",
   "versions": {
     "0.9.8": {
       "builds": {

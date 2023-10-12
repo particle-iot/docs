@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/Base64RK",
+  "cardUrl": "/reference/device-os/libraries/b/Base64RK",
   "versions": {
     "0.0.1": {
       "builds": {

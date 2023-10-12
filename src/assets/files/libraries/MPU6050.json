@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MPU6050",
+  "cardUrl": "/reference/device-os/libraries/m/MPU6050",
   "versions": {
     "1.0.3": {
       "builds": {

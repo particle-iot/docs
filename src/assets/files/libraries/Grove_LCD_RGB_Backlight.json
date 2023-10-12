@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/Grove_LCD_RGB_Backlight",
+  "cardUrl": "/reference/device-os/libraries/g/Grove_LCD_RGB_Backlight",
   "versions": {
     "1.0.1": {
       "builds": {

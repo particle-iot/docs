@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/freertos4core",
+  "cardUrl": "/reference/device-os/libraries/f/freertos4core",
   "versions": {
     "0.2.0": {
       "builds": {

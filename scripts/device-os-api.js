@@ -3,7 +3,6 @@
 const fs = require('fs');
 const path = require('path');
 var cloneDeep = require('lodash').cloneDeep;
-const { generateNavHtml, insertIntoMenu } = require('./nav_menu_generator.js');
 
 
 function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath, redirectsPath, contentDir) {
@@ -257,7 +256,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         let menuJson = {items:[]};
 
         for(const tempL2 of allL2) {
-            menuJson.items.push({title:tempL2.origTitle,href:tempL2.url,isCardSection:true});
+            menuJson.items.push({title:tempL2.origTitle,href:tempL2.url});
 
             if (tempL2.url == section.curL2.url) {
                 let a = [];
@@ -273,9 +272,6 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             }
         }
 
-
-        // Don't generate nav for multi-page Device OS API - we generate it using Javascript
-        newFile.navigation = generateNavHtml(outerMenuJson);
 
         let sectionObj = {
             folder: section.folder,

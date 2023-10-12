@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/firebase-arduino",
+  "cardUrl": "/reference/device-os/libraries/f/firebase-arduino",
   "versions": {
     "1.0.0": {
       "builds": {

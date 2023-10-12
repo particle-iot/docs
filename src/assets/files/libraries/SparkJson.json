@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkJson",
+  "cardUrl": "/reference/device-os/libraries/s/SparkJson",
   "versions": {
     "0.0.2": {
       "builds": {

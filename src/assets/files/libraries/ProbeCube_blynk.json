@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/ProbeCube_blynk",
+  "cardUrl": "/reference/device-os/libraries/p/ProbeCube_blynk",
   "versions": {
     "0.3.8": {
       "builds": {

@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SHA1_RK",
+  "cardUrl": "/reference/device-os/libraries/s/SHA1_RK",
   "versions": {
     "0.0.1": {
       "added": "2023-03-21T15:38:45.664Z",

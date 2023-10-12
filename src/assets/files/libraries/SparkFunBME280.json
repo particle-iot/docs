@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFunBME280",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFunBME280",
   "versions": {
     "1.1.2": {
       "builds": {

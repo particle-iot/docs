@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/Tinker",
+  "cardUrl": "/reference/device-os/libraries/t/Tinker",
   "versions": {
     "1.0.1": {
       "builds": {

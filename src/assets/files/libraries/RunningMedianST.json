@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RunningMedianST",
+  "cardUrl": "/reference/device-os/libraries/r/RunningMedianST",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/locator",
+  "cardUrl": "/reference/device-os/libraries/l/locator",
   "versions": {
     "0.0.1": {
       "builds": {

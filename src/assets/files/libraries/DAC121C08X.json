@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DAC121C08X",
+  "cardUrl": "/reference/device-os/libraries/d/DAC121C08X",
   "versions": {
     "0.1.2": {
       "builds": {

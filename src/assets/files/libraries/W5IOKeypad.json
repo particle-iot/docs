@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/W5IOKeypad",
+  "cardUrl": "/reference/device-os/libraries/w/W5IOKeypad",
   "versions": {
     "0.0.1": {
       "builds": {

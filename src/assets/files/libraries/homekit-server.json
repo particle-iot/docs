@@ -14,7 +14,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/homekit-server",
+  "cardUrl": "/reference/device-os/libraries/h/homekit-server",
   "versions": {
     "0.0.1": {
       "builds": {

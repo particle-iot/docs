@@ -16,7 +16,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/rgb-values",
+  "cardUrl": "/reference/device-os/libraries/r/rgb-values",
   "versions": {
     "0.0.1": {
       "builds": {},

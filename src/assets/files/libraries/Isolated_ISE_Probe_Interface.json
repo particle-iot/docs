@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/Isolated_ISE_Probe_Interface",
+  "cardUrl": "/reference/device-os/libraries/i/Isolated_ISE_Probe_Interface",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "x",
-  "cardUrl": "/cards/libraries/x/XBee_804b",
+  "cardUrl": "/reference/device-os/libraries/x/XBee_804b",
   "versions": {
     "0.0.11": {
       "builds": {},

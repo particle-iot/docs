@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SdCardLogHandlerRK",
+  "cardUrl": "/reference/device-os/libraries/s/SdCardLogHandlerRK",
   "versions": {
     "0.1.0": {
       "builds": {

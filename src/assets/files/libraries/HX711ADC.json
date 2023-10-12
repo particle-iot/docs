@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/HX711ADC",
+  "cardUrl": "/reference/device-os/libraries/h/HX711ADC",
   "versions": {
     "0.0.3": {
       "builds": {

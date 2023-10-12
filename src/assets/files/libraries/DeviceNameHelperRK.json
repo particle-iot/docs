@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DeviceNameHelperRK",
+  "cardUrl": "/reference/device-os/libraries/d/DeviceNameHelperRK",
   "versions": {
     "0.0.1": {
       "builds": {

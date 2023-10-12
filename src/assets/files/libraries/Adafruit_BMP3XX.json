@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_BMP3XX",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BMP3XX",
   "versions": {
     "1.0.0": {
       "builds": {

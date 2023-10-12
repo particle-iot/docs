@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/IoTNodeWeatherLevelGlobals",
+  "cardUrl": "/reference/device-os/libraries/i/IoTNodeWeatherLevelGlobals",
   "versions": {
     "0.0.13": {
       "builds": {},

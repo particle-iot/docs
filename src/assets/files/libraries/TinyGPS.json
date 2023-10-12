@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TinyGPS",
+  "cardUrl": "/reference/device-os/libraries/t/TinyGPS",
   "versions": {
     "1.0.0": {
       "builds": {

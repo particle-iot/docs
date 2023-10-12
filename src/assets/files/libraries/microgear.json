@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/microgear",
+  "cardUrl": "/reference/device-os/libraries/m/microgear",
   "versions": {
     "1.2.2": {
       "builds": {

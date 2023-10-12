@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MAX30100",
+  "cardUrl": "/reference/device-os/libraries/m/MAX30100",
   "versions": {
     "0.0.1": {
       "builds": {

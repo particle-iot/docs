@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "q",
-  "cardUrl": "/cards/libraries/q/qMenuSystem",
+  "cardUrl": "/reference/device-os/libraries/q/qMenuSystem",
   "versions": {
     "0.0.4": {
       "builds": {

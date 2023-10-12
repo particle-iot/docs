@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/rht03-humidity-temperature-sensor",
+  "cardUrl": "/reference/device-os/libraries/r/rht03-humidity-temperature-sensor",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun-TMP102",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun-TMP102",
   "versions": {
     "1.0.0": {
       "builds": {

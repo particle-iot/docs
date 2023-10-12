@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFunOpenLog",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFunOpenLog",
   "versions": {
     "1.0.4": {
       "builds": {

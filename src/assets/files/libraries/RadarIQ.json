@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RadarIQ",
+  "cardUrl": "/reference/device-os/libraries/r/RadarIQ",
   "versions": {
     "1.0.5": {
       "builds": {

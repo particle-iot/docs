@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LPS331",
+  "cardUrl": "/reference/device-os/libraries/l/LPS331",
   "versions": {
     "0.0.1": {
       "builds": {

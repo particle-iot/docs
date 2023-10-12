@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/ProbeCube_DHT",
+  "cardUrl": "/reference/device-os/libraries/p/ProbeCube_DHT",
   "versions": {
     "1.0.2": {
       "builds": {

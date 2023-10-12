@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_BNO055_Library_SSSA",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BNO055_Library_SSSA",
   "versions": {
     "1.0.2": {
       "added": "2023-03-21T15:45:54.890Z",

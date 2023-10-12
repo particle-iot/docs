@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/libmodbus",
+  "cardUrl": "/reference/device-os/libraries/l/libmodbus",
   "versions": {
     "0.0.1": {
       "builds": {

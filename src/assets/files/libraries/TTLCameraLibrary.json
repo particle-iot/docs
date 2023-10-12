@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TTLCameraLibrary",
+  "cardUrl": "/reference/device-os/libraries/t/TTLCameraLibrary",
   "versions": {
     "1.0.0": {
       "builds": {},

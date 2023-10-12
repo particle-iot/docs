@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PietteTech_Phant",
+  "cardUrl": "/reference/device-os/libraries/p/PietteTech_Phant",
   "versions": {
     "0.0.3": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/HttpClient",
+  "cardUrl": "/reference/device-os/libraries/h/HttpClient",
   "versions": {
     "0.0.5": {
       "builds": {

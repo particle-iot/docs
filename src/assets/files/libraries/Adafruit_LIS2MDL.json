@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_LIS2MDL",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_LIS2MDL",
   "versions": {
     "2.1.3": {
       "added": "2023-03-21T19:45:33.424Z",

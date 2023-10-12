@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RunningAverage",
+  "cardUrl": "/reference/device-os/libraries/r/RunningAverage",
   "versions": {
     "0.0.1": {
       "builds": {

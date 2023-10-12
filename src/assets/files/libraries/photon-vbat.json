@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/photon-vbat",
+  "cardUrl": "/reference/device-os/libraries/p/photon-vbat",
   "versions": {
     "0.0.3": {
       "builds": {

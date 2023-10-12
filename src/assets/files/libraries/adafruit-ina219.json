@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/adafruit-ina219",
+  "cardUrl": "/reference/device-os/libraries/a/adafruit-ina219",
   "versions": {
     "0.0.1": {
       "builds": {

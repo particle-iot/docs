@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "other",
-  "cardUrl": "/cards/libraries/other/5x5Cube",
+  "cardUrl": "/reference/device-os/libraries/other/5x5Cube",
   "versions": {
     "0.0.11": {
       "builds": {

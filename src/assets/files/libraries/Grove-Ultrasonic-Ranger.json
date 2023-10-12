@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/Grove-Ultrasonic-Ranger",
+  "cardUrl": "/reference/device-os/libraries/g/Grove-Ultrasonic-Ranger",
   "versions": {
     "1.0.2": {
       "builds": {

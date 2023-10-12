@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/L9110Driver",
+  "cardUrl": "/reference/device-os/libraries/l/L9110Driver",
   "versions": {
     "0.0.10": {
       "builds": {

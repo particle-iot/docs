@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/ros",
+  "cardUrl": "/reference/device-os/libraries/r/ros",
   "versions": {
     "1.1.0": {
       "builds": {

@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/String",
+  "cardUrl": "/reference/device-os/libraries/s/String",
   "versions": {
     "1.1.1": {
       "added": "2023-03-21T15:40:18.723Z",

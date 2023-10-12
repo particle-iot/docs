@@ -16,7 +16,7 @@
   },
   "kind": "community library",
   "letter": "k",
-  "cardUrl": "/cards/libraries/k/Keypad_Particle",
+  "cardUrl": "/reference/device-os/libraries/k/Keypad_Particle",
   "versions": {
     "1.0.0": {
       "builds": {

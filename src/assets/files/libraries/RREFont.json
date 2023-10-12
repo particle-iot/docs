@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RREFont",
+  "cardUrl": "/reference/device-os/libraries/r/RREFont",
   "versions": {
     "1.1.0": {
       "builds": {

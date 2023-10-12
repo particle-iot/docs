@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFunMAX17043",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFunMAX17043",
   "versions": {
     "1.1.2": {
       "builds": {

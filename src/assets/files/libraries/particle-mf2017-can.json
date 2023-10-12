@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particle-mf2017-can",
+  "cardUrl": "/reference/device-os/libraries/p/particle-mf2017-can",
   "versions": {
     "1.3.2": {
       "builds": {

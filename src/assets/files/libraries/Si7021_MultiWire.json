@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/Si7021_MultiWire",
+  "cardUrl": "/reference/device-os/libraries/s/Si7021_MultiWire",
   "versions": {
     "0.0.2": {
       "builds": {

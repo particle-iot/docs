@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DFPlay",
+  "cardUrl": "/reference/device-os/libraries/d/DFPlay",
   "versions": {
     "0.0.9": {
       "builds": {},

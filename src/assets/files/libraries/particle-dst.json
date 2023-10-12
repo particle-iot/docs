@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particle-dst",
+  "cardUrl": "/reference/device-os/libraries/p/particle-dst",
   "versions": {
     "0.1.0": {
       "builds": {

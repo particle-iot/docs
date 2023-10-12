@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AnalogSmoother",
+  "cardUrl": "/reference/device-os/libraries/a/AnalogSmoother",
   "versions": {
     "1.0.0": {
       "builds": {

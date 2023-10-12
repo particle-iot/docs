@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LMIC-Arduino",
+  "cardUrl": "/reference/device-os/libraries/l/LMIC-Arduino",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -23,7 +23,7 @@
   "verification": "official",
   "kind": "official library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AssetTracker",
+  "cardUrl": "/reference/device-os/libraries/a/AssetTracker",
   "versions": {
     "0.0.10": {
       "builds": {

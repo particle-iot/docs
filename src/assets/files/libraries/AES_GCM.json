@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AES_GCM",
+  "cardUrl": "/reference/device-os/libraries/a/AES_GCM",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CS_gasads1115",
+  "cardUrl": "/reference/device-os/libraries/c/CS_gasads1115",
   "versions": {
     "1.0.1": {
       "builds": {

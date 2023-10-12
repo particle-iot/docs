@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_Thermal",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_Thermal",
   "versions": {
     "0.0.1": {
       "builds": {

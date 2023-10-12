@@ -14,7 +14,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/homekit-relay-switch",
+  "cardUrl": "/reference/device-os/libraries/h/homekit-relay-switch",
   "versions": {
     "0.0.1": {
       "builds": {},

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/ds1307",
+  "cardUrl": "/reference/device-os/libraries/d/ds1307",
   "versions": {
     "0.0.1": {
       "builds": {

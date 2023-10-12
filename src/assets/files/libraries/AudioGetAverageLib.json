@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AudioGetAverageLib",
+  "cardUrl": "/reference/device-os/libraries/a/AudioGetAverageLib",
   "versions": {
     "0.0.1": {
       "builds": {

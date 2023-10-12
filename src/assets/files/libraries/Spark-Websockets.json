@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/Spark-Websockets",
+  "cardUrl": "/reference/device-os/libraries/s/Spark-Websockets",
   "versions": {
     "0.0.7": {
       "builds": {

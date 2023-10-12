@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/glowfish-particle",
+  "cardUrl": "/reference/device-os/libraries/g/glowfish-particle",
   "versions": {
     "0.0.12": {
       "builds": {},

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_DS1307_RTC",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_DS1307_RTC",
   "versions": {
     "1.0.1": {
       "builds": {

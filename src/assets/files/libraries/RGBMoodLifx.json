@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RGBMoodLifx",
+  "cardUrl": "/reference/device-os/libraries/r/RGBMoodLifx",
   "versions": {
     "0.0.5": {
       "builds": {

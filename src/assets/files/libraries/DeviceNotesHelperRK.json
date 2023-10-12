@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DeviceNotesHelperRK",
+  "cardUrl": "/reference/device-os/libraries/d/DeviceNotesHelperRK",
   "versions": {
     "0.0.2": {
       "added": "2023-03-21T22:22:35.667Z",

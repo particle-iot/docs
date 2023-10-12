@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/relay-lib",
+  "cardUrl": "/reference/device-os/libraries/r/relay-lib",
   "versions": {
     "3.0.0": {
       "builds": {

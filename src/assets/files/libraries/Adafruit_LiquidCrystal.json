@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_LiquidCrystal",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_LiquidCrystal",
   "versions": {
     "1.0.2": {
       "builds": {

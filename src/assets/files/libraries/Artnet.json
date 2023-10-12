@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Artnet",
+  "cardUrl": "/reference/device-os/libraries/a/Artnet",
   "versions": {
     "0.0.4": {
       "builds": {

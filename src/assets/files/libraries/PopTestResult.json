@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PopTestResult",
+  "cardUrl": "/reference/device-os/libraries/p/PopTestResult",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "j",
-  "cardUrl": "/cards/libraries/j/jsmn",
+  "cardUrl": "/reference/device-os/libraries/j/jsmn",
   "versions": {
     "1.0.1": {
       "builds": {},

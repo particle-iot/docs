@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/HttpsClient",
+  "cardUrl": "/reference/device-os/libraries/h/HttpsClient",
   "versions": {
     "1.0.0": {
       "builds": {

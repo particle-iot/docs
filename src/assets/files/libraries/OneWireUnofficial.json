@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "o",
-  "cardUrl": "/cards/libraries/o/OneWireUnofficial",
+  "cardUrl": "/reference/device-os/libraries/o/OneWireUnofficial",
   "versions": {
     "1.4.0": {
       "builds": {

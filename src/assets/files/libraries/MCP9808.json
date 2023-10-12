@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MCP9808",
+  "cardUrl": "/reference/device-os/libraries/m/MCP9808",
   "versions": {
     "0.1.2": {
       "builds": {

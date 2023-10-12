@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/phant",
+  "cardUrl": "/reference/device-os/libraries/p/phant",
   "versions": {
     "0.0.4": {
       "builds": {

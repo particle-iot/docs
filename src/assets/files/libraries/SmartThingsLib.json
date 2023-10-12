@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SmartThingsLib",
+  "cardUrl": "/reference/device-os/libraries/s/SmartThingsLib",
   "versions": {
     "1.0.12": {
       "builds": {

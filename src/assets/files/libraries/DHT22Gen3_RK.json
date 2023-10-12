@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DHT22Gen3_RK",
+  "cardUrl": "/reference/device-os/libraries/d/DHT22Gen3_RK",
   "versions": {
     "0.0.2": {
       "builds": {

@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AsyncPulseIn",
+  "cardUrl": "/reference/device-os/libraries/a/AsyncPulseIn",
   "versions": {
     "0.0.2": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/FirebaseArduino",
+  "cardUrl": "/reference/device-os/libraries/f/FirebaseArduino",
   "versions": {
     "0.0.1": {
       "builds": {

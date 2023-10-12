@@ -25,7 +25,7 @@
   },
   "kind": "community library",
   "letter": "o",
-  "cardUrl": "/cards/libraries/o/oled-wing-adafruit",
+  "cardUrl": "/reference/device-os/libraries/o/oled-wing-adafruit",
   "versions": {
     "0.0.8": {
       "builds": {

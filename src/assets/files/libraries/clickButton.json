@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/clickButton",
+  "cardUrl": "/reference/device-os/libraries/c/clickButton",
   "versions": {
     "1.0.9": {
       "builds": {

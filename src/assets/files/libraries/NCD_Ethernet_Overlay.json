@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NCD_Ethernet_Overlay",
+  "cardUrl": "/reference/device-os/libraries/n/NCD_Ethernet_Overlay",
   "versions": {
     "1.0.1": {
       "builds": {

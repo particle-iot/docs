@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/I2c7SegmentLed",
+  "cardUrl": "/reference/device-os/libraries/i/I2c7SegmentLed",
   "versions": {
     "1.0.1": {
       "builds": {

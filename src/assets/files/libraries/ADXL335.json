@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ADXL335",
+  "cardUrl": "/reference/device-os/libraries/a/ADXL335",
   "versions": {
     "1.0.1": {
       "builds": {

@@ -30,7 +30,7 @@
   "verification": "verified",
   "kind": "verified community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PL_microEPD",
+  "cardUrl": "/reference/device-os/libraries/p/PL_microEPD",
   "versions": {
     "1.0.12": {
       "builds": {

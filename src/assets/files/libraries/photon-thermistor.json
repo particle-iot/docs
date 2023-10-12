@@ -24,7 +24,7 @@
   "verification": "verified",
   "kind": "verified community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/photon-thermistor",
+  "cardUrl": "/reference/device-os/libraries/p/photon-thermistor",
   "versions": {
     "3.1.3": {
       "builds": {

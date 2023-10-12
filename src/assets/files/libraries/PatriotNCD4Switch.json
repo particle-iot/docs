@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PatriotNCD4Switch",
+  "cardUrl": "/reference/device-os/libraries/p/PatriotNCD4Switch",
   "versions": {
     "5.1.0": {
       "added": "2022-10-31T20:48:36.573Z",

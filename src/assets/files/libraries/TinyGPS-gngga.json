@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TinyGPS-gngga",
+  "cardUrl": "/reference/device-os/libraries/t/TinyGPS-gngga",
   "versions": {
     "1.0.3": {
       "builds": {

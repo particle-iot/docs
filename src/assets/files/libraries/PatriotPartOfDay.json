@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PatriotPartOfDay",
+  "cardUrl": "/reference/device-os/libraries/p/PatriotPartOfDay",
   "versions": {
     "5.1.0": {
       "builds": {},

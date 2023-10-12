@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ADXL362DMAAccel",
+  "cardUrl": "/reference/device-os/libraries/a/ADXL362DMAAccel",
   "versions": {
     "0.0.6": {
       "added": "2023-03-21T21:25:06.878Z",

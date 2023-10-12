@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/papertrail",
+  "cardUrl": "/reference/device-os/libraries/p/papertrail",
   "versions": {
     "0.0.5": {
       "builds": {

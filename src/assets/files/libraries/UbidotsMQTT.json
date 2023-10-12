@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "u",
-  "cardUrl": "/cards/libraries/u/UbidotsMQTT",
+  "cardUrl": "/reference/device-os/libraries/u/UbidotsMQTT",
   "versions": {
     "1.1.3": {
       "builds": {

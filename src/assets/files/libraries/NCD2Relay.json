@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NCD2Relay",
+  "cardUrl": "/reference/device-os/libraries/n/NCD2Relay",
   "versions": {
     "1.0.8": {
       "builds": {

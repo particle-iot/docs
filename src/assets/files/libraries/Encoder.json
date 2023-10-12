@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/Encoder",
+  "cardUrl": "/reference/device-os/libraries/e/Encoder",
   "versions": {
     "2.0.0": {
       "builds": {

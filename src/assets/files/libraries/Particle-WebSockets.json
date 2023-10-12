@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Particle-WebSockets",
+  "cardUrl": "/reference/device-os/libraries/p/Particle-WebSockets",
   "versions": {
     "2.0.8": {
       "builds": {

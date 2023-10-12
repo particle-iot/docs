@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/adafruit-drv2605-photon",
+  "cardUrl": "/reference/device-os/libraries/a/adafruit-drv2605-photon",
   "versions": {
     "1.1.0": {
       "builds": {

@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/InfluxDB_RJL",
+  "cardUrl": "/reference/device-os/libraries/i/InfluxDB_RJL",
   "versions": {
     "0.1.0": {
       "builds": {

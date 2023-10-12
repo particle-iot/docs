@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BetterPhotonButton",
+  "cardUrl": "/reference/device-os/libraries/b/BetterPhotonButton",
   "versions": {
     "0.1.6": {
       "builds": {

@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LocalTimeRK",
+  "cardUrl": "/reference/device-os/libraries/l/LocalTimeRK",
   "versions": {
     "0.0.4": {
       "builds": {

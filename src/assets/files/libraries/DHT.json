@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DHT",
+  "cardUrl": "/reference/device-os/libraries/d/DHT",
   "versions": {
     "1.3.0": {
       "builds": {

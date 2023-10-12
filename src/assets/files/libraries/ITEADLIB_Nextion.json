@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/ITEADLIB_Nextion",
+  "cardUrl": "/reference/device-os/libraries/i/ITEADLIB_Nextion",
   "versions": {
     "0.0.18": {
       "builds": {

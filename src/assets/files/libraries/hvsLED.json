@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/hvsLED",
+  "cardUrl": "/reference/device-os/libraries/h/hvsLED",
   "versions": {
     "1.0.2": {
       "added": "2023-05-19T19:45:18.599Z",

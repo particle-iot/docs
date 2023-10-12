@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SC16IS740RK",
+  "cardUrl": "/reference/device-os/libraries/s/SC16IS740RK",
   "versions": {
     "0.0.7": {
       "builds": {

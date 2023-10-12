@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LedControl-MAX7219-MAX7221",
+  "cardUrl": "/reference/device-os/libraries/l/LedControl-MAX7219-MAX7221",
   "versions": {
     "0.0.10": {
       "builds": {

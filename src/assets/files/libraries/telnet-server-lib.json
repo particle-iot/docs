@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/telnet-server-lib",
+  "cardUrl": "/reference/device-os/libraries/t/telnet-server-lib",
   "versions": {
     "0.1.0": {
       "builds": {

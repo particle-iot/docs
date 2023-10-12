@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RTClibraryDS3231_DL",
+  "cardUrl": "/reference/device-os/libraries/r/RTClibraryDS3231_DL",
   "versions": {
     "1.14.2": {
       "builds": {

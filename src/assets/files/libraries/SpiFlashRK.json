@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SpiFlashRK",
+  "cardUrl": "/reference/device-os/libraries/s/SpiFlashRK",
   "versions": {
     "0.0.9": {
       "builds": {

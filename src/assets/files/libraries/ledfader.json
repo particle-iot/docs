@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/ledfader",
+  "cardUrl": "/reference/device-os/libraries/l/ledfader",
   "versions": {
     "1.0.10": {
       "builds": {

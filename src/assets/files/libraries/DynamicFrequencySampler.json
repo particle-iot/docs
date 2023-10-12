@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DynamicFrequencySampler",
+  "cardUrl": "/reference/device-os/libraries/d/DynamicFrequencySampler",
   "versions": {
     "0.0.8": {
       "builds": {

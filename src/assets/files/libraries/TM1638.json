@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TM1638",
+  "cardUrl": "/reference/device-os/libraries/t/TM1638",
   "versions": {
     "1.0.0": {
       "builds": {

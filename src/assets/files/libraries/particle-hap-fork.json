@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particle-hap-fork",
+  "cardUrl": "/reference/device-os/libraries/p/particle-hap-fork",
   "versions": {
     "1.0.25": {
       "builds": {

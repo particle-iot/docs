@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/FlowMeter",
+  "cardUrl": "/reference/device-os/libraries/f/FlowMeter",
   "versions": {
     "1.0.1": {
       "builds": {

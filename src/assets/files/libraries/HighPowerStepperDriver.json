@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/HighPowerStepperDriver",
+  "cardUrl": "/reference/device-os/libraries/h/HighPowerStepperDriver",
   "versions": {
     "1.0.0": {
       "builds": {

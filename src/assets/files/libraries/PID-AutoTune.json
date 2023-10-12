@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PID-AutoTune",
+  "cardUrl": "/reference/device-os/libraries/p/PID-AutoTune",
   "versions": {
     "0.0.3": {
       "builds": {

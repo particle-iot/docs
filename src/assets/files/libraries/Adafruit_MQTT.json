@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_MQTT",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_MQTT",
   "versions": {
     "1.6.1": {
       "builds": {

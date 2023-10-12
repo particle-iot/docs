@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/FTPFileSender",
+  "cardUrl": "/reference/device-os/libraries/f/FTPFileSender",
   "versions": {
     "0.1.6": {
       "builds": {},

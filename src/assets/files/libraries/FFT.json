@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/FFT",
+  "cardUrl": "/reference/device-os/libraries/f/FFT",
   "versions": {
     "1.0.4": {
       "builds": {

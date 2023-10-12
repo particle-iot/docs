@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/EEPROM_Class",
+  "cardUrl": "/reference/device-os/libraries/e/EEPROM_Class",
   "versions": {
     "1.1.0": {
       "builds": {

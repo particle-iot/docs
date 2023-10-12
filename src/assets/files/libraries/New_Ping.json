@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/New_Ping",
+  "cardUrl": "/reference/device-os/libraries/n/New_Ping",
   "versions": {
     "1.8.1": {
       "builds": {

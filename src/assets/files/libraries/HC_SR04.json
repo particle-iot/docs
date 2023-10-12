@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/HC_SR04",
+  "cardUrl": "/reference/device-os/libraries/h/HC_SR04",
   "versions": {
     "0.0.12": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/ProbeCube_ThingSpeak",
+  "cardUrl": "/reference/device-os/libraries/p/ProbeCube_ThingSpeak",
   "versions": {
     "1.1.1": {
       "builds": {

@@ -28,7 +28,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/dotstar",
+  "cardUrl": "/reference/device-os/libraries/d/dotstar",
   "versions": {
     "0.0.5": {
       "builds": {

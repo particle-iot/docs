@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/do_DogLcd",
+  "cardUrl": "/reference/device-os/libraries/d/do_DogLcd",
   "versions": {
     "0.1.7": {
       "builds": {},

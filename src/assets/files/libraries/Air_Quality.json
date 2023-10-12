@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Air_Quality",
+  "cardUrl": "/reference/device-os/libraries/a/Air_Quality",
   "versions": {
     "0.0.1": {
       "builds": {

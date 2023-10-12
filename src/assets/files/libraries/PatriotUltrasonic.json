@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PatriotUltrasonic",
+  "cardUrl": "/reference/device-os/libraries/p/PatriotUltrasonic",
   "versions": {
     "2.0.0": {
       "builds": {

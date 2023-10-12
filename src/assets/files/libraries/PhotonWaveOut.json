@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PhotonWaveOut",
+  "cardUrl": "/reference/device-os/libraries/p/PhotonWaveOut",
   "versions": {
     "0.0.1": {
       "builds": {

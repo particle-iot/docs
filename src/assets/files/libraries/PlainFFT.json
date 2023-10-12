@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PlainFFT",
+  "cardUrl": "/reference/device-os/libraries/p/PlainFFT",
   "versions": {
     "0.4.5": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PublishQueue",
+  "cardUrl": "/reference/device-os/libraries/p/PublishQueue",
   "versions": {
     "0.0.11": {
       "builds": {

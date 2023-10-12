@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AzureMobileService",
+  "cardUrl": "/reference/device-os/libraries/a/AzureMobileService",
   "versions": {
     "0.0.3": {
       "builds": {

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RFM69",
+  "cardUrl": "/reference/device-os/libraries/r/RFM69",
   "versions": {
     "0.0.9": {
       "builds": {},

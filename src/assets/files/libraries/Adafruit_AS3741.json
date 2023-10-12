@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_AS3741",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_AS3741",
   "versions": {
     "1.0.1": {
       "added": "2023-03-21T21:48:27.076Z",

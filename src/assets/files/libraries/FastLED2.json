@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/FastLED2",
+  "cardUrl": "/reference/device-os/libraries/f/FastLED2",
   "versions": {
     "3.1.8": {
       "builds": {

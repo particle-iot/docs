@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NtpTime",
+  "cardUrl": "/reference/device-os/libraries/n/NtpTime",
   "versions": {
     "0.0.3": {
       "builds": {

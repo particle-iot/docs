@@ -24,7 +24,7 @@
   "verification": "verified",
   "kind": "verified community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CellularHelper",
+  "cardUrl": "/reference/device-os/libraries/c/CellularHelper",
   "versions": {
     "0.2.5": {
       "builds": {

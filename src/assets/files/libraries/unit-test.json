@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "u",
-  "cardUrl": "/cards/libraries/u/unit-test",
+  "cardUrl": "/reference/device-os/libraries/u/unit-test",
   "versions": {
     "0.1.3": {
       "builds": {

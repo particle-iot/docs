@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ADAFRUIT_ST7565",
+  "cardUrl": "/reference/device-os/libraries/a/ADAFRUIT_ST7565",
   "versions": {
     "0.0.3": {
       "builds": {

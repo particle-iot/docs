@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/tinyxml2",
+  "cardUrl": "/reference/device-os/libraries/t/tinyxml2",
   "versions": {
     "0.0.1": {
       "added": "2022-10-31T19:22:17.811Z",

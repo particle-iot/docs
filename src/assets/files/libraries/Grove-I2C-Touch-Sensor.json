@@ -16,7 +16,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/Grove-I2C-Touch-Sensor",
+  "cardUrl": "/reference/device-os/libraries/g/Grove-I2C-Touch-Sensor",
   "versions": {
     "1.0.0": {
       "builds": {

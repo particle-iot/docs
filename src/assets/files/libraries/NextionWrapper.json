@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NextionWrapper",
+  "cardUrl": "/reference/device-os/libraries/n/NextionWrapper",
   "versions": {
     "0.0.6": {
       "added": "2022-10-31T11:09:13.643Z",

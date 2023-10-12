@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "q",
-  "cardUrl": "/cards/libraries/q/QRCode",
+  "cardUrl": "/reference/device-os/libraries/q/QRCode",
   "versions": {
     "1.0.0": {
       "builds": {

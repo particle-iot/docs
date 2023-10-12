@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LedDisplay",
+  "cardUrl": "/reference/device-os/libraries/l/LedDisplay",
   "versions": {
     "0.4.11": {
       "builds": {

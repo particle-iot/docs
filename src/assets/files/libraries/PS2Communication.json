@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PS2Communication",
+  "cardUrl": "/reference/device-os/libraries/p/PS2Communication",
   "versions": {
     "0.0.8": {
       "builds": {

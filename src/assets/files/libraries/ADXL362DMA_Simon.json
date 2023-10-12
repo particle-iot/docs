@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ADXL362DMA_Simon",
+  "cardUrl": "/reference/device-os/libraries/a/ADXL362DMA_Simon",
   "versions": {
     "0.0.8": {
       "added": "2023-03-21T20:19:12.562Z",

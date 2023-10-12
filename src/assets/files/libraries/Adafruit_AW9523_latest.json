@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_AW9523_latest",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_AW9523_latest",
   "versions": {
     "1.0.1": {
       "builds": {

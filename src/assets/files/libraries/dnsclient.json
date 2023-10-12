@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/dnsclient",
+  "cardUrl": "/reference/device-os/libraries/d/dnsclient",
   "versions": {
     "0.0.13": {
       "builds": {

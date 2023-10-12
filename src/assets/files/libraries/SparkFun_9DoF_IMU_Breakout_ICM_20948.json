@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_9DoF_IMU_Breakout_ICM_20948",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_9DoF_IMU_Breakout_ICM_20948",
   "versions": {
     "1.0.5": {
       "builds": {},

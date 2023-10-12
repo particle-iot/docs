@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_RFD77402_Distance_Sensor-VCSEL_Time_of_Flight",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_RFD77402_Distance_Sensor-VCSEL_Time_of_Flight",
   "versions": {
     "1.0.0": {
       "builds": {

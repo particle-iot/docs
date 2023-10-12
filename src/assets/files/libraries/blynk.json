@@ -25,7 +25,7 @@
   "verification": "verified",
   "kind": "verified community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/blynk",
+  "cardUrl": "/reference/device-os/libraries/b/blynk",
   "versions": {
     "0.6.4": {
       "builds": {

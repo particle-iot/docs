@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "o",
-  "cardUrl": "/cards/libraries/o/OpenWeatherMap",
+  "cardUrl": "/reference/device-os/libraries/o/OpenWeatherMap",
   "versions": {
     "1.1.0": {
       "builds": {

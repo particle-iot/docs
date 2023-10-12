@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/ModbusMaster",
+  "cardUrl": "/reference/device-os/libraries/m/ModbusMaster",
   "versions": {
     "1.2.0": {
       "builds": {

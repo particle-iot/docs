@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SHT1x",
+  "cardUrl": "/reference/device-os/libraries/s/SHT1x",
   "versions": {
     "1.0.4": {
       "builds": {

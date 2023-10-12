@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/md5",
+  "cardUrl": "/reference/device-os/libraries/m/md5",
   "versions": {
     "0.0.1": {
       "builds": {

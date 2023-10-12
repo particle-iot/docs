@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/azure_c_shared_utility",
+  "cardUrl": "/reference/device-os/libraries/a/azure_c_shared_utility",
   "versions": {
     "0.0.3": {
       "builds": {

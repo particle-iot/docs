@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/Manchester",
+  "cardUrl": "/reference/device-os/libraries/m/Manchester",
   "versions": {
     "1.0.2": {
       "builds": {

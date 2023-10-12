@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DustSensor",
+  "cardUrl": "/reference/device-os/libraries/d/DustSensor",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "u",
-  "cardUrl": "/cards/libraries/u/uFire_PAR_Sensor",
+  "cardUrl": "/reference/device-os/libraries/u/uFire_PAR_Sensor",
   "versions": {
     "1.0.0": {
       "builds": {

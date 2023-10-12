@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SdFat",
+  "cardUrl": "/reference/device-os/libraries/s/SdFat",
   "versions": {
     "1.0.16": {
       "builds": {

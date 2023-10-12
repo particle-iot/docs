@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun-BH1749NUC",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun-BH1749NUC",
   "versions": {
     "1.0.0": {
       "builds": {

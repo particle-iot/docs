@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/I2cMaster",
+  "cardUrl": "/reference/device-os/libraries/i/I2cMaster",
   "versions": {
     "0.0.4": {
       "builds": {

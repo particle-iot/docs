@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/photon_book",
+  "cardUrl": "/reference/device-os/libraries/p/photon_book",
   "versions": {
     "0.0.10": {
       "builds": {

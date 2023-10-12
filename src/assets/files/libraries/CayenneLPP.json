@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CayenneLPP",
+  "cardUrl": "/reference/device-os/libraries/c/CayenneLPP",
   "versions": {
     "1.0.2": {
       "builds": {

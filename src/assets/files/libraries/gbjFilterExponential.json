@@ -27,7 +27,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/gbjFilterExponential",
+  "cardUrl": "/reference/device-os/libraries/g/gbjFilterExponential",
   "versions": {
     "1.1.0": {
       "builds": {

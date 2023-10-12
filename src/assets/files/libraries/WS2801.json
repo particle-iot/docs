@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/WS2801",
+  "cardUrl": "/reference/device-os/libraries/w/WS2801",
   "versions": {
     "1.0.0": {
       "builds": {

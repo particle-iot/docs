@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LiquidCrystal_SSD1306",
+  "cardUrl": "/reference/device-os/libraries/l/LiquidCrystal_SSD1306",
   "versions": {
     "1.6.0": {
       "added": "2023-03-21T15:53:01.239Z",

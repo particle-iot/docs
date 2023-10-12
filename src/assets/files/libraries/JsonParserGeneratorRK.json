@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "j",
-  "cardUrl": "/cards/libraries/j/JsonParserGeneratorRK",
+  "cardUrl": "/reference/device-os/libraries/j/JsonParserGeneratorRK",
   "versions": {
     "0.1.4": {
       "builds": {

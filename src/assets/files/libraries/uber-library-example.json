@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "u",
-  "cardUrl": "/cards/libraries/u/uber-library-example",
+  "cardUrl": "/reference/device-os/libraries/u/uber-library-example",
   "versions": {
     "0.0.7": {
       "builds": {

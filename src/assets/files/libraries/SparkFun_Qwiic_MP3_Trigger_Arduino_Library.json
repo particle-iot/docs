@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Qwiic_MP3_Trigger_Arduino_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Qwiic_MP3_Trigger_Arduino_Library",
   "versions": {
     "1.0.2": {
       "builds": {

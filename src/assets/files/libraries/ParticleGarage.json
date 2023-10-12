@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/ParticleGarage",
+  "cardUrl": "/reference/device-os/libraries/p/ParticleGarage",
   "versions": {
     "1.1.0": {
       "builds": {

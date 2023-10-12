@@ -16,7 +16,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/Grove_LED_Bar",
+  "cardUrl": "/reference/device-os/libraries/g/Grove_LED_Bar",
   "versions": {
     "1.0.1": {
       "builds": {

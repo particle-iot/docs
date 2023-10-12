@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/ClosedCube_SHT31D",
+  "cardUrl": "/reference/device-os/libraries/c/ClosedCube_SHT31D",
   "versions": {
     "0.1.1": {
       "builds": {

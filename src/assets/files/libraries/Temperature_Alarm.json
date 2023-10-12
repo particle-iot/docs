@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/Temperature_Alarm",
+  "cardUrl": "/reference/device-os/libraries/t/Temperature_Alarm",
   "versions": {
     "1.0.0": {
       "builds": {

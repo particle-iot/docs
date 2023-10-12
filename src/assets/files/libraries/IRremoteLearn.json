@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/IRremoteLearn",
+  "cardUrl": "/reference/device-os/libraries/i/IRremoteLearn",
   "versions": {
     "0.0.1": {
       "builds": {

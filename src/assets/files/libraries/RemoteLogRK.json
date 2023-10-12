@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RemoteLogRK",
+  "cardUrl": "/reference/device-os/libraries/r/RemoteLogRK",
   "versions": {
     "0.0.3": {
       "builds": {

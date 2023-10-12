@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/hsv",
+  "cardUrl": "/reference/device-os/libraries/h/hsv",
   "versions": {
     "1.0.3": {
       "builds": {

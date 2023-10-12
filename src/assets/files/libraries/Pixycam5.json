@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Pixycam5",
+  "cardUrl": "/reference/device-os/libraries/p/Pixycam5",
   "versions": {
     "0.0.5": {
       "builds": {

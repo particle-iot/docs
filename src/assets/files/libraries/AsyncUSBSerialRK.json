@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AsyncUSBSerialRK",
+  "cardUrl": "/reference/device-os/libraries/a/AsyncUSBSerialRK",
   "versions": {
     "0.0.1": {
       "added": "2023-03-21T23:15:43.992Z",

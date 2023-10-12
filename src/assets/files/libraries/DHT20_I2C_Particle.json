@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DHT20_I2C_Particle",
+  "cardUrl": "/reference/device-os/libraries/d/DHT20_I2C_Particle",
   "versions": {
     "1.0.3": {
       "added": "2023-08-20T12:56:51.720Z",

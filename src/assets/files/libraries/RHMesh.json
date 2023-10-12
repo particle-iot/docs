@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RHMesh",
+  "cardUrl": "/reference/device-os/libraries/r/RHMesh",
   "versions": {
     "1.0.0": {
       "builds": {

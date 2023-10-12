@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/Metro",
+  "cardUrl": "/reference/device-os/libraries/m/Metro",
   "versions": {
     "1.0.1": {
       "builds": {

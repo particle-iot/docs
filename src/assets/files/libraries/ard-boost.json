@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ard-boost",
+  "cardUrl": "/reference/device-os/libraries/a/ard-boost",
   "versions": {
     "0.0.3": {
       "builds": {},

@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Protocentral_ADS1220",
+  "cardUrl": "/reference/device-os/libraries/p/Protocentral_ADS1220",
   "versions": {
     "0.0.2": {
       "builds": {

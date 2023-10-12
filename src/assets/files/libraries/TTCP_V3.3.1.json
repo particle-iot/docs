@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TTCP_V3.3.1",
+  "cardUrl": "/reference/device-os/libraries/t/TTCP_V3.3.1",
   "versions": {
     "0.1.0": {
       "builds": {

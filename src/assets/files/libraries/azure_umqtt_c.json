@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/azure_umqtt_c",
+  "cardUrl": "/reference/device-os/libraries/a/azure_umqtt_c",
   "versions": {
     "0.0.2": {
       "builds": {

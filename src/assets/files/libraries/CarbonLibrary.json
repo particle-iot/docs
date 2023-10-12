@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CarbonLibrary",
+  "cardUrl": "/reference/device-os/libraries/c/CarbonLibrary",
   "versions": {
     "0.0.6": {
       "builds": {

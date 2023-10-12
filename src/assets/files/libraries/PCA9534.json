@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PCA9534",
+  "cardUrl": "/reference/device-os/libraries/p/PCA9534",
   "versions": {
     "0.1.4": {
       "builds": {

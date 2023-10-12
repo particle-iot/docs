@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/Monitor",
+  "cardUrl": "/reference/device-os/libraries/m/Monitor",
   "versions": {
     "0.0.2": {
       "builds": {

@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NCD24Relay",
+  "cardUrl": "/reference/device-os/libraries/n/NCD24Relay",
   "versions": {
     "0.0.4": {
       "builds": {

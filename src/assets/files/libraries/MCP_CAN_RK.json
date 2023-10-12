@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MCP_CAN_RK",
+  "cardUrl": "/reference/device-os/libraries/m/MCP_CAN_RK",
   "versions": {
     "1.5.1": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LightProtocol",
+  "cardUrl": "/reference/device-os/libraries/l/LightProtocol",
   "versions": {
     "1.0.3": {
       "builds": {},

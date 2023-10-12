@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/sh1106",
+  "cardUrl": "/reference/device-os/libraries/s/sh1106",
   "versions": {
     "0.0.2": {
       "builds": {

@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/WaveshareEPaper29b",
+  "cardUrl": "/reference/device-os/libraries/w/WaveshareEPaper29b",
   "versions": {
     "0.0.1": {
       "builds": {

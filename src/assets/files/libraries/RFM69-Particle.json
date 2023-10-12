@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RFM69-Particle",
+  "cardUrl": "/reference/device-os/libraries/r/RFM69-Particle",
   "versions": {
     "0.0.5": {
       "builds": {

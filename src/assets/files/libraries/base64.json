@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/base64",
+  "cardUrl": "/reference/device-os/libraries/b/base64",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SFE_MicroOLED",
+  "cardUrl": "/reference/device-os/libraries/s/SFE_MicroOLED",
   "versions": {
     "1.2.7": {
       "builds": {

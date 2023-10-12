@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkCore-RF24",
+  "cardUrl": "/reference/device-os/libraries/s/SparkCore-RF24",
   "versions": {
     "0.0.20": {
       "builds": {

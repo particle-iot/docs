@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/neopixel-bluz",
+  "cardUrl": "/reference/device-os/libraries/n/neopixel-bluz",
   "versions": {
     "1.0.0": {
       "builds": {

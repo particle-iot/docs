@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/WebServer",
+  "cardUrl": "/reference/device-os/libraries/w/WebServer",
   "versions": {
     "0.0.2": {
       "builds": {

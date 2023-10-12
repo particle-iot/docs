@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Particle_BaroSensor",
+  "cardUrl": "/reference/device-os/libraries/p/Particle_BaroSensor",
   "versions": {
     "0.0.5": {
       "builds": {

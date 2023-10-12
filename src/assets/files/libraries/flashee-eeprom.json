@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/flashee-eeprom",
+  "cardUrl": "/reference/device-os/libraries/f/flashee-eeprom",
   "versions": {
     "0.1.8": {
       "builds": {

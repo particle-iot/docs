@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/photon-wdgs",
+  "cardUrl": "/reference/device-os/libraries/p/photon-wdgs",
   "versions": {
     "1.0.1": {
       "builds": {

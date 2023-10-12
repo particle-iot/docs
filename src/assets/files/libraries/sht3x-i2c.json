@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/sht3x-i2c",
+  "cardUrl": "/reference/device-os/libraries/s/sht3x-i2c",
   "versions": {
     "1.0.0": {
       "builds": {

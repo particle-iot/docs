@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AB1805_RK",
+  "cardUrl": "/reference/device-os/libraries/a/AB1805_RK",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/FIDOTMRpcm",
+  "cardUrl": "/reference/device-os/libraries/f/FIDOTMRpcm",
   "versions": {
     "1.0.0": {
       "builds": {

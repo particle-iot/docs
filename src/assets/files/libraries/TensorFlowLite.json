@@ -27,7 +27,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TensorFlowLite",
+  "cardUrl": "/reference/device-os/libraries/t/TensorFlowLite",
   "versions": {
     "0.1.1": {
       "builds": {},

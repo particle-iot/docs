@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/apis-analog",
+  "cardUrl": "/reference/device-os/libraries/a/apis-analog",
   "versions": {
     "1.0.6": {
       "builds": {

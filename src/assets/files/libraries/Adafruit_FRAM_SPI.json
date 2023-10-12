@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_FRAM_SPI",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_FRAM_SPI",
   "versions": {
     "1.1.1": {
       "builds": {

@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/nunchuk",
+  "cardUrl": "/reference/device-os/libraries/n/nunchuk",
   "versions": {
     "1.0.0": {
       "builds": {

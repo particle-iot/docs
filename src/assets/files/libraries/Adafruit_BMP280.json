@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_BMP280",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BMP280",
   "versions": {
     "1.0.3": {
       "builds": {

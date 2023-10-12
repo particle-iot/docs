@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particle_ADXL362",
+  "cardUrl": "/reference/device-os/libraries/p/particle_ADXL362",
   "versions": {
     "0.0.1": {
       "builds": {

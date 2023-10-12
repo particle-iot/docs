@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PubSubClient",
+  "cardUrl": "/reference/device-os/libraries/p/PubSubClient",
   "versions": {
     "2.6.0": {
       "builds": {

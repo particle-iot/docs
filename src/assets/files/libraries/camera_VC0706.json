@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/camera_VC0706",
+  "cardUrl": "/reference/device-os/libraries/c/camera_VC0706",
   "versions": {
     "1.0.0": {
       "builds": {

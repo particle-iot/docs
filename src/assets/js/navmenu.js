@@ -1,13 +1,379 @@
 // Navigation Menu
 let navMenu = {};
 
+// This is copied from templates/helpers/titleize.js - try to keep in sync
+navMenu.titleize = function(string) {
+    var stringNoDashes = string.replace(/-/g, ' ');
+    var stringToTitleCase = stringNoDashes.replace(/\w\S*/g, function(txt){
+      txt = txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  
+      switch(txt) {
+      case 'Faq':
+          txt = 'FAQ';
+          break;
+      
+      case 'Iot':
+          txt = 'IoT';
+          break;
+          
+      case 'Os':
+          txt = 'OS';
+          break;
+          
+      case 'Apis':
+          txt = 'APIs';
+          break;
+  
+      case 'Sdks':
+          txt = 'SDKs';
+          break;
+          
+      case 'Som':
+          txt = 'SoM';
+          break;
+  
+      case 'Usb':
+          txt = 'USB';
+          break;
+  
+      case 'Jtag':
+          txt = 'JTAG';
+          break;
+          
+      case 'And':
+          txt = 'and';
+          break;
+          
+      case 'Le':
+          txt = 'LE'; // As in Bluetooth LE
+          break;
+  
+      case 'Ml':
+          txt = 'ML'; // Machine Learning
+          break;
+      
+      default:
+          break;
+      }
+  
+      return txt;
+    });
+    return stringToTitleCase;
+}
+  
+
+navMenu.load = async function() {
+    navMenu.thisUrl = new URL(location.href);
+    navMenu.pathParts = navMenu.thisUrl.pathname.split('/');
+
+    // pathParts[0] is empty
+    // pathParts[1] is the top-level menu (empty for home page)
+    // There's typically an empty entry at the end of the array as well
+
+    navMenu.isHomePage = (navMenu.pathParts[1].length == 0); 
+
+    navMenu.menuPath = '/' + (!navMenu.isHomePage ? navMenu.pathParts[1] + '/' : '') + 'menu.json';
+
+    const fetchRes = await fetch(navMenu.menuPath);
+    const menuText = await fetchRes.text();
+    navMenu.menuJson = JSON.parse(menuText);
+    // console.log('navMenu.menuJson', navMenu.menuJson);
+
+    navMenu.hrefPage = navMenu.pathParts.join('/');
+    // console.log('hrefPage=' + navMenu.hrefPage);
+
+    if (navMenu.hrefPage.startsWith('/reference/device-os/libraries')) {
+        const fetchRes = await fetch('/assets/files/libraryInfo.json');
+        const libraryInfoText = await fetchRes.text();
+        navMenu.libraryInfo = JSON.parse(libraryInfoText);
+
+        // navMenu.libraryInfo
+        // .letterNavigation - array
+        //      .title (generally uppercase)
+        //      .href
+        //      .letter (may be 'other' or a lowercase letter)
+        //      .letterLibraries - array of libraries for this letter
+
+        // console.log('navMenu.libraryInfo', navMenu.libraryInfo);
+    }
+
+    const processArray = function(array) {
+        for(const item of array) {
+            if (Array.isArray(item)) {
+                processArray(item);
+            }
+            else {
+                if (item.href == navMenu.hrefPage) {
+                    item.activeItem = true;
+                }        
+            }
+        }
+    }
+    processArray(navMenu.menuJson.items)
+    const nav = navMenu.generateNavHtml(navMenu.menuJson);
+    
+    $('.navMenuOuter').replaceWith(nav);
+}
+
+
+navMenu.generateNavHtml = function(menuJson) {
+    // console.log('base=' + fileObj.path.base + ' topLevelName=' + topLevelName + ' sectionName=' + sectionName);
+
+    const makeTitle = function (item) {
+        let title = item.title || navMenu.titleize(item.dir);
+
+        // title = title.replace('&', '&amp;');
+
+        return title;
+    };
+
+    const makeNavMenu2 = function (item, indent) {
+        const divElem = document.createElement('div');
+        $(divElem).addClass('navContainer');
+        if (item.addClass) {
+            $(divElem).addClass(item.addClass);
+        }
+        if (!item.activeItem && item.internal) {
+            $(divElem).addClass('internalMenuItem');
+            $(divElem).css('display', 'none');            
+        }
+
+        if (indent) {
+            const innerDivElem = document.createElement('div');
+            $(innerDivElem).css('width', (indent * 15) + 'px');            
+            $(innerDivElem).html('&nbsp;');
+            $(divElem).append(innerDivElem);
+        }
+
+        if (item.activeItem) {
+            let innerDivElem = document.createElement('div');
+            $(innerDivElem).addClass('navActive2');
+            $(innerDivElem).text(makeTitle(item));
+            $(divElem).append(innerDivElem);
+            
+            innerDivElem = document.createElement('div');
+            $(innerDivElem).addClass('navPlusMinus');
+            const iElem = document.createElement('i');
+            $(iElem).addClass('minus');
+            $(innerDivElem).append(iElem);
+            $(divElem).append(innerDivElem);
+        }
+        else {
+            let innerDivElem = document.createElement('div');
+            $(innerDivElem).addClass('navMenu2');
+            const aElem = document.createElement('a');
+            $(aElem).attr('href', item.href );
+            $(aElem).addClass('navLink');
+            $(aElem).text(makeTitle(item));
+            $(innerDivElem).append(aElem);
+            $(divElem).append(innerDivElem);
+        }
+        if (item.internal) {
+            let imgElem = document.createElement('img');
+            $(imgElem).attr('src', '/assets/images/logo.png');
+            $(imgElem).attr('width', '16');
+            $(imgElem).attr('height', '16');
+            $(imgElem).attr('title', 'Only visible to internal users');
+            $(divElem).append(imgElem);
+        }
+
+        return divElem;
+    };
+
+    const navElem = document.createElement('div');
+    $(navElem).addClass('navMenuOuter');
+    $(navElem).data('testing', 'testing replacement');
+
+    let itemsFlat = [];
+    let cardSections = [];
+    let noSeparator = false;
+
+    const processArray = function(array, indent) {
+        let hasActiveItem = false;
+        // console.log('processArray indent=' + indent, array);
+
+        for (const item of array) {
+            if (item.isSection) {
+                // Multi-level section title
+                const navContainerElem = document.createElement('div');
+                $(navContainerElem).addClass('navContainer');
+                if (item.addClass) {
+                    $(navContainerElem).addClass(item.addClass);
+                }
+
+                if (indent) {
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).css('width', (indent * 15) + 'px');            
+                    $(innerDivElem).html('&nbsp;');
+                    $(navContainerElem).append(innerDivElem);
+                }
+
+                if (item.href) {
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).addClass('navMenu1');
+
+                    const aElem = document.createElement('a');
+                    $(aElem).attr('href', item.href );
+                    $(aElem).addClass('navLink');
+                    $(aElem).text(makeTitle(item));
+                    $(innerDivElem).append(aElem);
+                    
+                    $(navContainerElem).append(innerDivElem);
+                }
+                else {
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).addClass('navMenu1');
+                    $(innerDivElem).text(makeTitle(item));
+                    $(navContainerElem).append(innerDivElem);
+                }
+                $(navElem).append(navContainerElem);
+
+                if (item.noSeparator) {
+                    noSeparator = true;
+                }
+            }
+            else if (Array.isArray(item)) {
+                // Multi-level (like tutorials, reference, datasheets)
+                processArray(item, indent + 1);
+
+                if (noSeparator) {
+                    noSeparator = false;
+                }
+                else {
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).addClass('navSectionSpacer');
+                    $(navElem).append(innerDivElem);
+                }
+                
+            }
+            else         
+            if (item.activeItem || !item.hidden) {
+                $(navElem).append(makeNavMenu2(item, indent));
+                itemsFlat.push(item);
+            }
+
+            if (item.activeItem) {
+                hasActiveItem = true;
+
+                let innerDivElem = document.createElement('div');
+                $(innerDivElem).attr('id', 'navActiveContent');
+                $(navElem).append(innerDivElem);        
+            }
+
+            if (item.isLibrarySearch && navMenu.libraryInfo) {
+                // Insert letter navigation here
+                for(const obj of navMenu.libraryInfo.letterNavigation) {
+                    const navContainerElem = document.createElement('div');
+                    $(navContainerElem).addClass('navContainer');
+                    if (item.addClass) {
+                        $(navContainerElem).addClass(item.addClass);
+                    }
+    
+                    if (indent) {
+                        const innerDivElem = document.createElement('div');
+                        $(innerDivElem).css('width', (indent * 15) + 'px');            
+                        $(innerDivElem).html('&nbsp;');
+                        $(navContainerElem).append(innerDivElem);
+                    }
+    
+                    const innerDivElem = document.createElement('div');
+                    $(innerDivElem).addClass('navMenu1');
+
+                    // -1 is empty, -2 = library name, -3 = letter
+                    const isThisLetter = navMenu.pathParts[navMenu.pathParts.length - 3] == obj.letter;
+                    
+                    if (!isThisLetter) {
+                        const aElem = document.createElement('a');
+                        $(aElem).attr('href', obj.href );
+                        $(aElem).addClass('navLink');
+                        $(aElem).text(obj.title);
+                        $(innerDivElem).append(aElem);    
+                    }
+                    else {
+                        $(innerDivElem).text(obj.title);
+                    }
+                    
+                    $(navContainerElem).append(innerDivElem);
+                    $(navElem).append(navContainerElem);
+
+
+                    if (isThisLetter) {
+                        for(const libName of obj.libraries) {
+                            let isActiveItem = false;
+                                
+                            const libUrlArray = navMenu.pathParts.slice(0, navMenu.pathParts.length - 2);
+                            libUrlArray.push(libName);
+                            libUrlArray.push('');
+                            
+                            
+                            const navContainerElem = document.createElement('div');
+                            $(navContainerElem).addClass('navContainer');
+                            if (item.addClass) {
+                                $(navContainerElem).addClass(item.addClass);
+                            }
+            
+                            {
+                                const innerDivElem = document.createElement('div');
+                                $(innerDivElem).css('width', ((indent + 1) * 15) + 'px');            
+                                $(innerDivElem).html('&nbsp;');
+                                $(navContainerElem).append(innerDivElem);    
+                            }
+                            {
+                                const innerDivElem = document.createElement('div');
+                                $(innerDivElem).addClass('navMenu1');    
+
+
+                                if (navMenu.pathParts[navMenu.pathParts.length - 2] == libName) {
+                                    const currentTitleElem = document.createElement('div');
+                                    $(currentTitleElem).addClass('navMenu1');
+                                    $(currentTitleElem).text(libName);
+                                    $(innerDivElem).append(currentTitleElem);                    
+                                    isActiveItem = true;
+                                }
+                                else {
+                                    const aElem = document.createElement('a');
+                                    $(aElem).attr('href', libUrlArray.join('/'));
+                                    $(aElem).addClass('navLink');
+                                    $(aElem).text(libName);
+                                    $(innerDivElem).append(aElem);        
+                                }
+                                $(navContainerElem).append(innerDivElem);            
+                            }
+        
+                            $(navElem).append(navContainerElem);
+
+                            if (isActiveItem) {
+                                const innerDivElem = document.createElement('div');
+                                $(innerDivElem).attr('id', 'navActiveContent');
+                                $(innerDivElem).data('level', '4');                                
+                                $(navElem).append(innerDivElem);                        
+                            }
+
+                            
+                        
+                        }
+                    }
+                }
+            }
+
+        }
+        if (hasActiveItem && cardSections.length > 0) {
+            cardSections[cardSections.length - 1].activeSection = true;
+        }
+
+    };
+    processArray(menuJson.items, 0);
+
+
+    return navElem;
+}
+
 navMenu.scanHeaders = function () {
-    const thisUrl = new URL(location.href);
-    if (thisUrl.pathname.startsWith('/reference/device-os/api')) {
+    if (navMenu.thisUrl.pathname.startsWith('/reference/device-os/api')) {
         return;
     }
 
-    let navLevel = 3;
+    let navLevel = $('#navActiveContent').data('level') || 3;
 
     navMenu.headers = [];
 
@@ -45,7 +411,7 @@ navMenu.scanHeaders = function () {
         }
     });
 
-    // console.log('headers', navMenu.headers);
+    // console.log('scanHeaders headers', navMenu.headers);
 
     navMenu.currentHeader = 0;
 
@@ -123,6 +489,7 @@ navMenu.scanHeaders = function () {
         return e1;
     }
 
+    $('#navActiveContent').empty();
     for (let hdr of navMenu.headers) {
         if (hdr.level == 2) {
             let e1, e2, e3, e4;
@@ -255,7 +622,9 @@ navMenu.scrollToActive = function () {
 };
 
 
-navMenu.ready = function () {
+navMenu.ready = async function () {
+    await navMenu.load();
+
     navMenu.scanHeaders();
     navMenu.scrollToActive();
 

@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_BME280",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BME280",
   "versions": {
     "1.1.5": {
       "builds": {
