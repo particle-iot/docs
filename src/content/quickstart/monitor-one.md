@@ -31,11 +31,9 @@ There is also an M12 4-pin connector for expansion. The I/O card uses this conne
 
 ### Power supply
 
-The small rectangular box contains an international power supply with plug adapters. 
+The small rectangular box contains a power supply. 
 
 The DC output is 24 V DC at 1A (24W). The connector is a 5.5x2.1mm barrel plug, center positive.
-
-{{imageOverlay src="/assets/images/monitor-one/power-supply.jpeg" alt="Power supply" class="full-width"}}
 
 ### USB and wrenches
 
@@ -132,25 +130,22 @@ The Monitor One includes a M12 4-pin male to flying leads cable, 1500&plusmn;20m
 
 ## Powering the Monitor One
 
-The Monitor One Developer Edition includes an international 24V 1A (24W) power adapter (1).
+The Monitor One Developer Edition includes a 24V 1A (24W) power adapter (1). Your power adapter may be slightly different.
 
-Attach the appropriate adapter for your location to the adapter (2). The US/Canada adapter is shown in the picture.
+Locate the M12 8-pin cable (2). There are two cables, a 4-pin and an 8-pin, and the 8-pin is used for power.
 
-Locate the M12 8-pin cable (3). There are two cables, a 4-pin and an 8-pin, and the 8-pin is used for power.
+The cable includes a barrel connector adapter (3). Connect the 5.5x2.1mm barrel jack on the power adapter to the barrel connector adapter.
 
-The cable includes a barrel connector adapter (4). Connect the 5.5x2.1mm barrel jack on the power adapter to the barrel connector adapter.
-
-Connect the M12 8-pin connector to the Monitor One. The 8-pin connector is on the left with the label facing up, closest to the cellular SMA connector. Some threads may be exposed even when the connector is fully seated; this is normal and does not affect the IP67 waterproof rating.
+Connect the M12 8-pin connector to the Monitor One (4). The 8-pin connector is on the left with the label facing up, closest to the cellular SMA connector. Some threads may be exposed even when the connector is fully seated; this is normal and does not affect the IP67 waterproof rating.
 
 {{imageOverlay src="/assets/images/monitor-one/with-power-labeled.png" alt="Powering" class="full-width"}}
 
 | Label | Feature |
 | :---: | :--- |
-|  1 | International power supply |
-|  2 | Plug-in adapter |
-|  3 | M12 8-pin to flying leads cable |
-|  4 | Barrel connector adapter |
-|  5 | M12 8-pin connection to Monitor One |
+|  1 | Power supply |
+|  2 | M12 8-pin to flying leads cable |
+|  3 | Barrel connector adapter |
+|  4 | M12 8-pin connection to Monitor One |
 
 If you disconnect and reconnect the barrel connector adapter, make sure the + screw terminal is connected to red and the - screw terminal is connected to black. The power supply barrel connector is center positive.
 
