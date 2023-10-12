@@ -275,7 +275,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
 
         // Don't generate nav for multi-page Device OS API - we generate it using Javascript
-        newFile.navigation = generateNavHtml(outerMenuJson);
+        // newFile.navigation = generateNavHtml(outerMenuJson);
 
         let sectionObj = {
             folder: section.folder,

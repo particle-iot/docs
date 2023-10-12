@@ -5,7 +5,6 @@ const path = require('path');
 const { hide } = require('yargs');
 const lunr = require('lunr');
 var cloneDeep = require('lodash').cloneDeep;
-const { generateNavHtml, insertIntoMenu } = require('./nav_menu_generator.js');
 
 function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPath, contentDir) {
     // console.log('processing libraries');    
@@ -113,40 +112,6 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         const newPath = 'assets/files/libraryInfo.json';
         files[newPath] = newFile;
     }
-
-    /*
-    const generateLetterNavigation = function(menuJson, lib) {
-        for (const curLetter of letters) {
-            let letterUC = curLetter.substr(0, 1).toUpperCase() + curLetter.substr(1);
-
-            let obj = {
-                title:letterUC,
-                href: '/' + destDir + '/' + curLetter + '/',
-                isCardSection: true
-            };
-            menuJson.items.push(obj);
-
-            if (lib && lib.letter == curLetter) {
-                let a = [];
-
-                for (let tempName of letterLibraries[lib.letter]) {
-                    let obj2 = {
-                        title: tempName,
-                        href: '/' + destDir + '/' + curLetter + '/' + tempName + '/'    
-                    };
-
-                    if (tempName == lib.id) {
-                        obj2.activeItem = true;
-                    }
-                    a.push(obj2);
-                }
-
-                menuJson.items.push(a);
-            }
-        }
-    };
-    */
-
 
     // Build the content
     for (const name of libraryNames) {
@@ -269,23 +234,15 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         newFile.description = lib.id + ' (' + lib.kind + ')';
         newFile.infoFile = '/assets/files/libraries/' + lib.id + '.json';
         newFile.noEditButton = true;
-        // newFile.path.base = section.file + '.md';
-        // newFile.path.name = section.file;
-        // newFile.path.href = section.url;
         newFile.contents = Buffer.from(md);
         // newFile.description = 'Reference manual for the C++ API used by user firmware running on Particle IoT devices';
 
         // Generate navigation
         let menuJson = {items:[]};
 
-        // generateLetterNavigation(menuJson, lib);
-
-        newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items, outerMenuJson, 'libraries'));
-
         // Save in metalsmith files so it the generated file will be converted to html
         const newPath = destDir + '/' + letter + '/' + lib.id + '.md';
         files[newPath] = newFile;
-
     }
 
 
