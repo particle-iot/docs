@@ -18,13 +18,16 @@ globalOptions.apis = [
     {
         name: 'api-service',
         dirs: [
-            'src/views',
+            // 'src/views',
         ],
+        requireApiTag: true,
     },
     {
         name: 'particle-api-js',
         dirs: [
+            'src',
         ],
+        requireApiTag: false,        
     },
 ];
 
@@ -58,11 +61,6 @@ async function run() {
                     continue;
                 }
 
-                if (dirEntry.name != 'api.js') {
-                    continue; // TEMPORARY
-                }
-
-
                 const curFile = path.join(curDir, dirEntry.name);
 
                 const fileContents = fs.readFileSync(curFile, 'utf8');
@@ -73,13 +71,20 @@ async function run() {
                 
                 for(let ii = 0; ii < parsed.length; ii++) {
                     let isApi = false;
+                    let skipApi = false;
                     for(const tag of parsed[ii].tags) {
                         if (tag.tag == 'api') {
                             isApi = true;
                         }
+                        if (tag.tag == 'private' || tag.tag == 'apiPrivate') {
+                            skipApi = true;
+                        }
                     }
 
-                    if (!isApi) {
+                    if (api.requireApiTag && !isApi) {
+                        continue;
+                    }
+                    if (skipApi) {
                         continue;
                     }
 
@@ -116,6 +121,8 @@ async function run() {
 
                             apiDef.functionPrototype += fileLines[line].trim() + ' ';
                         }
+
+                        apiDef.functionPrototype = apiDef.functionPrototype.replace(/[{ \t]+$/, '');
                     }
 
                     console.log('apiDef', apiDef);
