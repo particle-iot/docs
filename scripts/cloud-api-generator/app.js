@@ -27,7 +27,7 @@ globalOptions.apis = [
         dirs: [
             'src',
         ],
-        requireApiTag: false,        
+        requireApiTag: false,
     },
 ];
 
@@ -70,23 +70,6 @@ async function run() {
                 let parsed = commentParser.parse(fileContents);
                 
                 for(let ii = 0; ii < parsed.length; ii++) {
-                    let isApi = false;
-                    let skipApi = false;
-                    for(const tag of parsed[ii].tags) {
-                        if (tag.tag == 'api') {
-                            isApi = true;
-                        }
-                        if (tag.tag == 'private' || tag.tag == 'apiPrivate') {
-                            skipApi = true;
-                        }
-                    }
-
-                    if (api.requireApiTag && !isApi) {
-                        continue;
-                    }
-                    if (skipApi) {
-                        continue;
-                    }
 
                     let apiDef = {
                         description: parsed[ii].description,
@@ -99,6 +82,27 @@ async function run() {
                         file: path.join(dirName, dirEntry.name), 
                     };
 
+
+                    let isApi = false;
+                    let skipApi = false;
+                    for(const tag of parsed[ii].tags) {
+                        if (tag.tag == 'api') {
+                            isApi = true;
+                        }
+                        if (tag.tag == 'private' || tag.tag == 'apiPrivate') {
+                            skipApi = true;
+                        }
+                        if (tag.tag == 'apiName') {
+                            apiDef.apiName = tag.name;
+                        }
+                    }
+
+                    if (api.requireApiTag && !isApi) {
+                        continue;
+                    }
+                    if (skipApi) {
+                        continue;
+                    }
 
                     if (parsed[ii].source.length > 0) {
                         apiDef.line = parsed[ii].source[0].number;
@@ -123,6 +127,16 @@ async function run() {
                         }
 
                         apiDef.functionPrototype = apiDef.functionPrototype.replace(/[{ \t]+$/, '');
+
+                        if (!apiDef.apiName && apiDef.functionPrototype.length) {
+                            const m = apiDef.functionPrototype.match(/([A-Za-z0-9_]+)[ ]*\(/);
+                            if (m) {
+                                apiDef.apiName = m[1];
+                            }
+                            else {
+                                console.log('did not parse functionName ' + apiDef.functionPrototype);
+                            }        
+                        }
                     }
 
                     console.log('apiDef', apiDef);
