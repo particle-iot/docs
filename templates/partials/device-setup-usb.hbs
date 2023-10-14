@@ -327,7 +327,7 @@
                     <p>If the status LED is solid white, not blinking, tap the reset button on the device, then Reconnect</p>
                 </div>
             </div>
-            <div class="setupStepNoWiFi" style="display:none">
+            <div class="setupStepNoWiFi" style="display:none;">
                 <p>No Wi-Fi networks were found.</p>
                 <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
                 
@@ -359,11 +359,26 @@
                     <tbody>
                     </tbody>
                 </table>
+                <div class="wifiHiddenSsidDiv" style="display:none; padding-top: 15px; padding-bottom: 15px;">
+                    <label><input type="checkbox" class="wifiHiddenSsidCheckbox">Use network with hidden SSID: </label><input type="text" class="wifiHiddenSsidText" />
+                </div>
                 <table class="wifiSettingsTable apiHelperTableNoMargin" style="display:none">
                     <tbody>
-                        <tr>
+                        <tr class="wifiSecurityTypeNormalRow">
                            <td>Security Type</td> 
-                           <td class="wifiSecurityType"></td> 
+                           <td class="wifiSecurityType">
+                           </td> 
+                        </tr>
+                        <tr class="wifiSecurityTypeHiddenSsidRow" style="display: none;">
+                           <td>Security Type</td> 
+                           <td>
+                                <select class="wifiSecurityTypeSelect">
+                                    <option value="0">Unsecured</option>
+                                    <option value="1">WEP</option>
+                                    <option value="2">WPA</option>
+                                    <option value="3">WPA2</option>
+                                </select>
+                           </td> 
                         </tr>
                         <tr class="eapTypeRow" style="display:none">
                            <td>EAP Type</td> 
