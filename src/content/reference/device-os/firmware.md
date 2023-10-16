@@ -1643,8 +1643,8 @@ int setConfig(const particle::NetworkInterfaceConfig& conf);
 Ethernet.setConfig(NetworkInterfaceConfig()
   .source(NetworkInterfaceConfigSource::STATIC);
   .address({192,168,1,20}, {255,255,255,0})
-  .gateway({192,168,1,1})
-  .dns({192,168,1,1});
+  .gateway(SockAddr({192,168,1,1}))
+  .dns(SockAddr({192,168,1,1})));
 ```
 
 ### getConfig() [Ethernet]
@@ -3336,8 +3336,8 @@ int setConfig(const particle::NetworkInterfaceConfig& conf);
 Network.setConfig(NetworkInterfaceConfig()
   .source(NetworkInterfaceConfigSource::STATIC);
   .address({192,168,1,20}, {255,255,255,0})
-  .gateway({192,168,1,1})
-  .dns({192,168,1,1});
+  .gateway(SockAddr({192,168,1,1}))
+  .dns(SockAddr({192,168,1,1})));
 ```
 
 ### getConfig() [Network]
@@ -3513,18 +3513,18 @@ SockAddr gateway(int family = AF_INET) const;
 Ethernet.setConfig(NetworkInterfaceConfig()
   .source(NetworkInterfaceConfigSource::STATIC);
   .address({192,168,1,20}, {255,255,255,0})
-  .gateway({192,168,1,1});
+  .gateway(SockAddr({192,168,1,1})));
 
 // EXAMPLE - Ethernet is isolated, do not use for Internet or cloud access
 Ethernet.setConfig(NetworkInterfaceConfig()
   .source(NetworkInterfaceConfigSource::STATIC);
   .address({192,168,1,20}, {255,255,255,0})
-  .gateway({0,0,0,0});
+  .gateway(SockAddr({0,0,0,0})));
 
 // EXAMPLE - Ethernet is isolated, do not use for Internet or cloud access but does have a DHCP server
 Ethernet.setConfig(NetworkInterfaceConfig()
   .source(NetworkInterfaceConfigSource::DHCP)
-  .gateway({0,0,0,0});
+  .gateway(SockAddr({0,0,0,0})));
 ```
 
 #### NetworkInterfaceConfig::dns
@@ -3543,9 +3543,9 @@ NetworkInterfaceConfig& dns(SockAddr dns);
 Ethernet.setConfig(NetworkInterfaceConfig()
   .source(NetworkInterfaceConfigSource::STATIC);
   .address({192,168,1,20}, {255,255,255,0})
-  .gateway({192,168,1,1})
-  .dns({192,168,1,1})
-  .dns({8,8,8,8});
+  .gateway(SockAddr({192,168,1,1}))
+  .dns(SockAddr({192,168,1,1}))
+  .dns(SockAddr({8,8,8,8})));
 ```
 
 ## SoftAP HTTP pages
