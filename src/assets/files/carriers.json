@@ -5655,7 +5655,8 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreOneNet": {
         "allow2G": true,
@@ -5664,10 +5665,8 @@
       },
       "bands": [
         "2G-1900",
-        "3G-5"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-5",
+        "LTE-12"
       ]
     },
     {
@@ -5677,14 +5676,14 @@
       "sunset3G": "NA",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-1900",
-        "3G-5"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-2",
+        "3G-5",
+        "LTE-13"
       ]
     },
     {
