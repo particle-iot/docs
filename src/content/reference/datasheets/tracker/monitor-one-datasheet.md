@@ -8,7 +8,7 @@ description: Monitor One Datasheet
 # Monitor One datasheet
 
 {{#unless pdf-generation}}
-{{!-- downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf" --}}
+{{downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 {{imageOverlay src="/assets/images/monitor-one/monitor-one-closed.jpg" alt="Front view" class="full-width no-darken"}}
