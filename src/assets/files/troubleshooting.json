@@ -2796,11 +2796,13 @@
                 },
                 {
                     "id": 360026688693,
-                    "comment": "Account ID"
+                    "comment": "Account ID",
+                    "hidden": true
                 },
                 {
                     "id": 360026958653,
-                    "comment": "Community Post Link"
+                    "comment": "Community Post Link",
+                    "hidden": true
                 }
             ]
         },
@@ -2816,11 +2818,13 @@
                 },
                 {
                     "id": 360026688693,
-                    "comment": "Account ID"
+                    "comment": "Account ID",
+                    "hidden": true
                 },
                 {
                     "id": 360026958653,
-                    "comment": "Community Post Link"
+                    "comment": "Community Post Link",
+                    "hidden": true
                 }
             ]
         },
@@ -2836,15 +2840,19 @@
                 },
                 {
                     "id": 360026688693,
-                    "comment": "Account ID"
+                    "value": "",
+                    "comment": "Account ID",
+                    "hidden": true
                 },
                 {
                     "id": 360026688713,
-                    "comment": "Device ID(s)"
+                    "comment": "Device ID(s)",
+                    "hidden": true
                 },
                 {
                     "id": 360026958653,
-                    "comment": "Community Post Link"
+                    "comment": "Community Post Link",
+                    "hidden": true
                 }
             ]
         },
@@ -2860,11 +2868,13 @@
                 },
                 {
                     "id": 360026688693,
-                    "comment": "Account ID"
+                    "comment": "Account ID",
+                    "hidden": true
                 },
                 {
                     "id": 360026958653,
-                    "comment": "Community Post Link"
+                    "comment": "Community Post Link",
+                    "hidden": true
                 }
             ]
         },
