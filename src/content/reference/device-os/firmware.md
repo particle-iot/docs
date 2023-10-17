@@ -3489,7 +3489,7 @@ NetworkInterfaceConfig& address(IPAddress addr, IPAddress mask);
 // EXAMPLE
 Ethernet.setConfig(NetworkInterfaceConfig()
   .source(NetworkInterfaceConfigSource::STATIC)
-  .address({192,168,1,20}, {255,255,255,0});
+  .address({192,168,1,20}, {255,255,255,0}));
 ```
 
 #### NetworkInterfaceConfig::gateway
