@@ -582,6 +582,7 @@
   "/troubleshooting/device-restore/device-restore-jtag": "/tools/device-restore/device-restore-jtag",
   "/troubleshooting/device-restore/device-restore-usb": "/tools/device-restore/device-restore-usb",
   "/troubleshooting/faqs/general-knowledge/pricing-faq": "/getting-started/billing/migrating-to-growth",
+  "/troubleshooting/faqs/orders/wholesale-store-user-compliance-survey": "https://www.particle.io/legal/terms-of-service/",
   "/troubleshooting/guides/device-management/sim-activationdeactivationdata-limit-troubleshooting": "/troubleshooting/guides/device-management/sim-activation-troubleshooting",
   "/troubleshooting/troubleshooting2": "/troubleshooting/troubleshooting",
   "/tutorials": "/getting-started/hardware/hardware-overview",

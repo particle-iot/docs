@@ -285,11 +285,6 @@
           "href": "/troubleshooting/faqs/orders/how-do-i-sign-up-for-or-log-into-the-wholesale-store/"
         },
         {
-          "dir": "wholesale-store-user-compliance-survey",
-          "title": "Wholesale store user compliance survey",
-          "href": "/troubleshooting/faqs/orders/wholesale-store-user-compliance-survey/"
-        },
-        {
           "dir": "how-do-i-make-a-tax-exempt-purchase",
           "title": "Making a tax-exempt purchase",
           "href": "/troubleshooting/faqs/orders/how-do-i-make-a-tax-exempt-purchase/"
@@ -335,6 +330,10 @@
         "isSection": true
       },
       [
+        {
+          "title": "Terms of service",
+          "href": "https://www.particle.io/legal/terms-of-service/"
+        },
         {
           "dir": "particle-mvp-program",
           "title": "Particle MVP program",
