@@ -856,21 +856,215 @@ To be provided at a later date.
 
 To be provided at a later date.
 
+{{!-- BEGIN do not edit content below, it is automatically generated 6cd2470c-9c54-45d5-877a-64290cf8f7b6 --}}
+
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Albania | MON524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Algeria | MON524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
+| Aruba | MON524 | 2G, 3G, Cat1 | Setar |
+| Australia | MON524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Austria | MON524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
+| Bahrain | MON524 | 2G, 3G, Cat1 | Zain |
+| Bangladesh | MON524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
+| Belarus | MON524 | 2G, 3G, Cat1 | A1 |
+| Belgium | MON524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
+| Bosnia and Herzegovina | MON524 | 2G, 3G | BH Telecom, HT Eronet |
+| Botswana | MON524 | 2G, 3G, Cat1 | BeMobile |
+| Brunei | MON524 | 2G, 3G, Cat1 | DST |
+| Bulgaria | MON524 | 2G, 3G | A1, Telenor, Vivacom |
+| Burkina Faso | MON524 | 2G, 3G, Cat1 | Orange |
+| Cabo Verde | MON524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
+| Cambodia | MON524 | 2G, 3G | Metfone |
+| Canada | MON404 | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Chad | MON524 | 2G, 3G, Cat1 | Airtel |
+| Chile | MON524 | 2G, 3G, Cat1 | Claro, Entel, Movistar |
+| Congo (Brazzaville) | MON524 | 2G, 3G, Cat1 | Airtel |
+| Congo (Kinshasa) | MON524 | 2G, 3G, Cat1 | Airtel |
+| Côte d'Ivoire | MON524 | 2G, 3G, Cat1 | MTN |
+| Croatia | MON524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
+| Cyprus | MON524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
+| Czechia | MON524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
+| Denmark | MON524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
+| Egypt | MON524 | 2G, 3G, Cat1 | Etisalat, Orange |
+| Estonia | MON524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
+| eSwatini | MON524 | 2G, 3G, Cat1 | MTN |
+| Ethiopia | MON524 | 2G, 3G, Cat1 | Ethio Telecom |
+| Faroe Islands | MON524 | 2G, 3G | Faroese Telecom, Vodafone |
+| Finland | MON524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| France | MON524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| French Guiana | MON524 | 2G, 3G | Digicel |
+| Gabon | MON524 | 2G, 3G, Cat1 | Airtel |
+| Germany | MON524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Ghana | MON524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
+| Gibraltar | MON524 | 2G, 3G, Cat1 | Gibtel |
+| Greece | MON524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
+| Guinea | MON524 | 2G, 3G, Cat1 | MTN |
+| Guinea-Bissau | MON524 | 2G, 3G, Cat1 | MTN |
+| Guyana | MON524 | 2G | Digicel |
+| Hong Kong | MON524 | 2G, 3G, Cat1 | CMHK, CSL, SmarTone |
+| Hungary | MON524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
+| Iceland | MON524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
+| Indonesia | MON524 | 2G, 3G, Cat1 | Indosat, Telkomsel, XL Axiata |
+| Ireland | MON524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
+| Israel | MON524 | 2G, 3G, Cat1 | Hot Mobile, Orange, Pelephone |
+| Italy | MON524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
+| Jordan | MON524 | 2G, 3G, Cat1 | Zain |
+| Kazakhstan | MON524 | 2G, 3G, Cat1 | Beeline, K-Cell |
+| Kenya | MON524 | 2G, 3G, Cat1 | Airtel |
+| Kuwait | MON524 | 2G, 3G, Cat1 | Viva, Zain |
+| Latvia | MON524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
+| Liechtenstein | MON524 | 2G, 3G, Cat1 | Mobilkom, Orange |
+| Lithuania | MON524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
+| Luxembourg | MON524 | 2G, 3G, Cat1 | Orange, POST, Tango |
+| Macao | MON524 | 2G, 3G, Cat1 | CTM |
+| Madagascar | MON524 | 2G, 3G, Cat1 | Airtel |
+| Malawi | MON524 | 2G, 3G, Cat1 | Airtel |
+| Malaysia | MON524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
+| Malta | MON524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
+| Mexico | MON404 | M1 | AT&T, Telcel |
+| Moldova | MON524 | 2G, 3G, Cat1 | Moldcell, Orange |
+| Mongolia | MON524 | 2G, 3G | Mobicom, Unitel |
+| Montenegro | MON524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
+| Morocco | MON524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
+| Mozambique | MON524 | 2G, 3G, Cat1 | Vodacom |
+| Myanmar | MON524 | 2G, 3G, Cat1 | MPT, Telenor |
+| Namibia | MON524 | 2G, 3G, Cat1 | Telecom Namibia |
+| Netherlands | MON524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
+| New Zealand | MON524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
+| Nigeria | MON524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
+| Norway | MON524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
+| Oman | MON524 | 2G, 3G, Cat1 | Ooredoo |
+| Pakistan | MON524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
+| Palestine | MON524 | 2G, 3G | Jawwal |
+| Papua New Guinea | MON524 | 2G, 3G | bmobile |
+| Poland | MON524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
+| Portugal | MON524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
+| Qatar | MON524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
+| Romania | MON524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
+| Rwanda | MON524 | 2G, 3G, Cat1 | Airtel, MTN |
+| Serbia | MON524 | 2G, 3G, Cat1 | Telenor, VIP |
+| Seychelles | MON524 | 2G, 3G, Cat1 | Airtel |
+| Sint Maarten | MON524 | 2G, 3G, Cat1 | TelCell |
+| Slovakia | MON524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovenia | MON524 | 2G, 3G, Cat1 | A1, Mobitel |
+| South Africa | MON524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
+| South Korea | MON524 | 3G, Cat1 | KT, LG U+, SK Telecom |
+| South Sudan | MON524 | 2G, 3G, Cat1 | MTN |
+| Spain | MON524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
+| Sri Lanka | MON524 | 2G, 3G, Cat1 | Dialog, Mobitel |
+| Suriname | MON524 | 2G, 3G | Telesur |
+| Sweden | MON524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | MON524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Taiwan | MON524 | 3G, Cat1 | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tanzania | MON524 | 2G, 3G, Cat1 | Airtel |
+| Thailand | MON524 | 2G, 3G, Cat1 | AIS, DTAC, True Move |
+| Tunisia | MON524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
+| Uganda | MON524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
+| United Kingdom | MON524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
+| United States | MON404 | M1 | AT&T, T-Mobile (USA)<sup>5</sup>, Verizon<sup>7</sup> |
+| Vietnam | MON524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
+| Zambia | MON524 | 2G, 3G, Cat1 | Airtel |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+<sup>5</sup>T-Mobile in the United States only officially supports LTE Cat NB1, which is not supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas, and where enabled, this device can connect to it.
+
+<sup>7</sup>Verizon in the United States is only supported on enterprise plans.
+
 
 ---
 
 ## Ordering information
 
-To be provided at a later date.
+
+{{!-- BEGIN do not edit content below, it is automatically generated df800960-c749-4b1d-9c69-ae4372e86ab7 --}}
+
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | In development | |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | In development | |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | &check; | In development | |
 
 
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+&dagger;EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 ---
 
 ## Certification
 
-To be provided at a later date.
 
+### FCC interference statement
+
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) This device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
+
+This device complies with Part 15, Part 15.247 of the FCC Rules. The FCC ID for this device is 2AEMI-MONEHDK.
+
+This device must not be co-located or operating in conjunction with any other antenna or transmitter. This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. 
+
+This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
+To comply with FCC’s RF radiation exposure limits for general population/uncontrolled exposure, this device must be installed to provide a separation distance of at least 20cm from all persons.
+
+WARNING: Any changes or modifications to this unit not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
+
+This device must not be collocated or operating in conjunction with any other antenna or transmitter.
+
+### IC interference statement
+
+IC: 20127-MONEHDK
+
+This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
+
+- this device may not cause interference.
+- this device must accept any interference, including interference that may cause undesired operation of the device.
+
+Le présent appareil est conforme aux CNR d'Industrie Canada applicables aux appareils radio exempts de licence. L'exploitation est autorisée aux deux conditions suivantes:
+
+- l'appareil ne doit pas produire de brouillage, et
+- l'utilisateur de l'appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d'en compromettre le fonctionnement.
+
+This Class B digital apparatus complies with Canadian ICES-003.
+
+Cet appareil numérique de la classe B est conforme à la norme NMB-003 du Canada.
+
+This device and its antenna(s) must not be co-located or operating in conjunction with any other antenna or transmitter, except tested built-in radios.
+
+Cet appareil et son antenne ne doivent pas être situés ou fonctionner en conjonction avec une autre antenne ou un autre émetteur, exception faites des radios intégrées qui ont été testées.
+ 
+This equipment complies with IC radiation exposure limits set forth for an uncontrolled environment. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
+
+Cet équipement est conforme aux limites d'exposition aux rayonnements IC établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps.
+
+### EU declaration of conformity
+
+We, Particle Industries, Inc., declare under our sole responsibility that the product, MON524E01C01KIT, to which this
+declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
+
+The full text of the EU declaration of conformity is available at the following Internet address [https://www.particle.io/](https://www.particle.io/).
+
+**Radiation Exposure Statement:** This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
+
+The operating frequency bands and the maximum transmitted power limit are listed below:
+
+- BLE 2402-2480MHz, 10dBm
+- Wi-Fi 2.4GHz band 2412-2484MHz, 21.5dBm
+- LTE B1 B3 B7 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
+- WCDMA 882.4-957.6 MHz 1922.6-2167.4 MHz, 25dBm
+
+### United Kingdom
+
+UKCA Conformity:
+
+Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
 ## Product handling
 
@@ -906,3 +1100,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2023-07-17 | RK | Link to quick start, screw sizes |
 | 2023-09-01 | RK | Added battery specifications |
 | 2023-09-08 | RK | Added schematics |
+| 2023-10-18 | RK | Added FCC and IC |

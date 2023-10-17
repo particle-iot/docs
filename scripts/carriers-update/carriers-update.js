@@ -324,7 +324,9 @@ const generatorConfig = require('./generator-config');
                     models.push(model);
                 });
 
-                shortModelForModem[groupObj.modem] = models.join(', ');
+                if (models.length) {
+                    shortModelForModem[groupObj.modem] = models.join(', ');
+                }
             });
         });
 

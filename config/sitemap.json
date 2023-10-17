@@ -651,12 +651,12 @@
             "hash": "09fe09cf7d2670d8b814c109837f47e1f85c18c163cb166505ea117825bb5d57"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2023-09-22",
-            "hash": "219349a54bc3b696670c3f43ade4f21d77db454c72da778145ee6f7250fbf9b8"
+            "date": "2023-10-17",
+            "hash": "f06789e6fae83c71d7afbc7332b847a5bdd38ba7282db972bc5f8dcdafc9ecc5"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2023-09-13",
-            "hash": "e88fce8d63e0268ef931ae5965638c05536c762564560b7bf66e132bf4116865"
+            "date": "2023-10-17",
+            "hash": "dc1fd29cd10835c8e267027a0f0a5d41b38686d4d0626ee8dfdbe31384a22918"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -699,8 +699,8 @@
             "hash": "26da47333626255984b53884e59cfc010cc068b2fd94e833a13404eefb4989f0"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2023-08-02",
-            "hash": "a97ae2dfe4e0a4975a6e46106f3a803d90480b1a8da89bd4057ea5f3c5c4bf01"
+            "date": "2023-10-17",
+            "hash": "65475613131f36c6aecfbc367852a4cc7d56d884bc315744fc79f18dbb5f44ac"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -935,8 +935,8 @@
             "hash": "8baf0643d059dc8eeb4a12eb5abbfd005c7ef69469b32ee4fde0674c076c7c96"
         },
         "hardware/certification/antenna.md": {
-            "date": "2023-09-22",
-            "hash": "acb4f86139bf3d6b0ae6546cc4349562364d5f8423a92e9b029225e93391d38d"
+            "date": "2023-10-17",
+            "hash": "7b50e3f91f892b2dce8f20202e6725e6ca8e7f6b39c80106e7dda63eb3291a0b"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -1015,8 +1015,8 @@
             "hash": "3626ad058cf3946cb89317aadc81e3ceb7837d41a6521e6c9adb2d6c955d9995"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2023-10-11",
-            "hash": "eae4665dd04d91377a14c0c3d73a48c8d1ad43eed1e93c538e301ed8cdbc8a46"
+            "date": "2023-10-17",
+            "hash": "833546ece9b5eac9a019f1fb6e763fb8e26d9b144a090fbc8969db1609cc50d9"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2023-10-11",
@@ -1127,8 +1127,8 @@
             "hash": "75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070"
         },
         "reference/cellular/lte-cat-1-expansion.md": {
-            "date": "2023-05-30",
-            "hash": "c0806ba1f57fc4743f6d0d30e4cb4b57c3cd9061c4f8fedb7c3551700c23ebcc"
+            "date": "2023-10-17",
+            "hash": "6888052835f304e500a5f67e07acfa376d5cc9c261c537042db21fb087a60e8f"
         },
         "reference/cellular/sim-cards.md": {
             "date": "2022-06-14",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-10-11",
-            "hash": "ac39086203ec8ca327f86e12db4951f14b980cd9712851a239f3e0183efbdedb"
+            "date": "2023-10-17",
+            "hash": "743e776a233dcf687cbed548bcbbcc7d0f0d19e322389344b890e8fd55067b80"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1423,8 +1423,8 @@
             "hash": "bfedda06f1a45b6c8df5e3fee1ea3bbe720bead343af38077a52feae9c362534"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2023-09-08",
-            "hash": "915c936b8a8f5c214402a6802a75d765a8158228157215405cabf94f1f9f865b"
+            "date": "2023-10-17",
+            "hash": "abfed3e393c8ade100d5a94b4478b0725c7c577be2169dcf06e9e54388698a9c"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2023-07-26",
@@ -1579,8 +1579,8 @@
             "hash": "90d594c79e084ce1ffc335c9f873546fe0c26a2cd5d329668fc01c8f50677e38"
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
-            "date": "2023-09-06",
-            "hash": "322b532c3b13a07c1ac14b5f7ec8352b05cdc8238838ee3e95e2cd312354544d"
+            "date": "2023-10-17",
+            "hash": "373ce0cadbd401235f7fdf1bcf4f0f4947e598a8b7d3077af79a6de265e6d675"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2022-06-29",
@@ -1859,8 +1859,8 @@
             "hash": "81d8300f390da86d63d495971c9e51d9c5ea677958430b16d946ccee15daa1b2"
         },
         "reference/device-os/api/ethernet/setconfig-ethernet.md": {
-            "date": "2023-09-20",
-            "hash": "8e4396cc0ce0a286a84e3bbee175a317ebfcad29e72eb46339f3ad8f505aa698"
+            "date": "2023-10-17",
+            "hash": "cd590bfbbc996b82831b0dd717f530d8d0ed4df9738db5407362b77874519e59"
         },
         "reference/device-os/api/ethernet/getconfig-ethernet.md": {
             "date": "2023-09-20",
@@ -2103,8 +2103,8 @@
             "hash": "f8da89cbffd039851da150ce85faad519e3bce0777bbd27a89760627bafe8254"
         },
         "reference/device-os/api/network/setconfig-network.md": {
-            "date": "2023-09-20",
-            "hash": "686b22ce573e32928515f52abde51b4076ce0bffd36c93b9b6a40af2c6f3ab53"
+            "date": "2023-10-17",
+            "hash": "6e8b53846674f4049b1f6ca5dbc773cfe9ec5556fb7eed602d668ceedeae4941"
         },
         "reference/device-os/api/network/getconfig-network.md": {
             "date": "2023-09-20",
@@ -2127,8 +2127,8 @@
             "hash": "7b4a1240d1419a981e22ab2f74462256da5e90bc470e5eaad6b70b17e76e25bf"
         },
         "reference/device-os/api/network/networkinterfaceconfig.md": {
-            "date": "2023-09-20",
-            "hash": "23e56023ee2da80c4a231f70d1a491583779a962a8b1f34c4cebfdcf6b51119d"
+            "date": "2023-10-17",
+            "hash": "8ee1b194e36a09ad9d4943809a672527aca6efc2f0ed54081839f1a4a025b8f7"
         },
         "reference/device-os/api/softap-http-pages/softap-http-pages.md": {
             "date": "2023-09-20",
@@ -8175,8 +8175,8 @@
             "date": "2023-09-22"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "dcf527330e1aa4cc866ead4049768efaa0f5cf4f01c2fb83f635d00fb89e55b5",
-            "date": "2023-09-29"
+            "hash": "b1f4cf9a6de27014a5a1010ea887fa6b7cce0fcfc488d16136507259e1221f97",
+            "date": "2023-10-17"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",

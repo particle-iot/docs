@@ -98,6 +98,9 @@ If you are using a different antenna, and had previously undergone intentional r
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | PARANTC41EA | ANT-FLXU |
 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | PARANTC41EA |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ANT-FLXU | ANTCW2EA |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | 1 | &nbsp; |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | 1 | &nbsp; |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | 1 | &nbsp; |
 | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | ANTCW2EA | &nbsp; |

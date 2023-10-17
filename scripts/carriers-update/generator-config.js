@@ -1743,6 +1743,26 @@ const path = require('path');
                 }); 
             } 
         },
+        {
+            guid:'df800960-c749-4b1d-9c69-ae4372e86ab7', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('MON');
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'6cd2470c-9c54-45d5-877a-64290cf8f7b6',
+            generatorFn:function(updater) {
+                return updater.generateCountryList('tracker', {
+                    modelFilterFn:function(model) {
+                        return !model.startsWith('MON');
+                    }
+                }); 
+            } 
+        },
 
 
         // datasheets/tracker/tracker-m-datasheet.md
