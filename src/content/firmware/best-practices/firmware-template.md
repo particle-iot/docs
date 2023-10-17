@@ -96,8 +96,9 @@ SerialLogHandler logHandler(LOG_LEVEL_INFO);
 
 The `setup()` function is called once when your device boots, and also when waking from `HIBERNATE` sleep mode. You can put initialization code in this function.
 
-```
+```cpp
 void setup() {
+  // Put initialization like pinMode and begin functions here
 }
 ```
 
@@ -107,55 +108,29 @@ The `loop()` function is called continuously in most cases. You will typically y
 
 - If you do not enable system threading and do not specify a system mode other than AUTOMATIC, `loop()` will only run when cloud connected! This is often not desirable, and is one of the reasons threading is recommended.
 
-- Avoid length call to `delay()` within loop.
+- Avoid lengthy calls to `delay()` within loop.
 
 {{collapse op="end"}}
 
 ```cpp
 void loop() {
-```
+  // The core of your code will likely live here.
 
-This bit of code is commented out in the template, but deserves its own deep dive.
-
-```cpp
-static system_tick_t start = millis();
-if (millis() - start > 10000) {
-    Log.info("Publishing event to cloud...");
-    Particle.publish("Hello world!");
-    start = millis();
+  // Example: Publish event to cloud every 10 seconds. Uncomment the next 3 lines to try it!
+  // Logging.info("Sending Hello World to the cloud!");
+  // Particle.publish("Hello world!");
+  // delay( 10 * 1000 ); // milliseconds and blocking - see docs for more info!
 }
 ```
 
-This code uses `millis()` as a way to set up timing on intervals. In C/C++, declaring the variable as `static` means the value is preserved even when the function returns.
+This bit of code is commented out in the template, but you can uncomment it to test publishing to the Particle cloud using [`Particle.publish()`](/reference/device-os/api/cloud-functions/particle-publish/).
 
 ```cpp
-static system_tick_t start = millis();
+// Example: Publish event to cloud every 10 seconds. Uncomment the next 3 lines to try it!
+// Logging.info("Sending Hello World to the cloud!");
+// Particle.publish("Hello world!");
+// delay( 10 * 1000 ); // milliseconds and blocking - see docs for more info!
 ```
-
-This makes the code in the block run every 10 seconds. The `10000` value is because `millis()` is in milliseconds and 10 seconds = 10000 milliseconds. It's important that you always structure this test like this (millis - variable > interval time) to assure it works properly when the millis() counter rolls over to 0 again, which happens every 49 days.
-
-```cpp
-if (millis() - start > 10000) {
-```
-
-`Log.info` prints a message to the USB serial debug console.
-
-```cpp
-Log.info("Publishing event to cloud...");
-```
-
-[`Particle.publish()`](/reference/device-os/api/cloud-functions/particle-publish/) sends events to the Particle cloud. You can view these events in [the Particle console](/getting-started/console/console/#event-logs) Events tab, or you can use events to trigger [webhooks](/integrations/webhooks/) to integrate with external services.
-
-```cpp
-Particle.publish("Hello world!");
-```
-
-Don't forget to update `start` otherwise the publish will occur continuously!
-
-```cpp
-start = millis();
-```
-
 
 ## Compiling your project
 

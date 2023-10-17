@@ -90,8 +90,7 @@
       {
         "dir": "firmware-template",
         "title": "Firmware template",
-        "href": "/firmware/best-practices/firmware-template/",
-        "internal": true
+        "href": "/firmware/best-practices/firmware-template/"
       }
     ],
     {
