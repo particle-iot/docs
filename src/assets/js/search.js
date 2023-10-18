@@ -228,7 +228,6 @@ $(document).ready(function() {
     }
 
     const openSearch = function(options) {
-        console.log('openSearch');
         $('body').on('keydown', function(ev) {
             switch(ev.key) {
                 case 'Esc':
