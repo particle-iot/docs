@@ -41,7 +41,6 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | 2 | NRND | BRN404XTRAY50 | &nbsp; |
 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | 3 | NRND | ONE524MTY | &nbsp; |
-| P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | 2 | NRND | &nbsp; | &nbsp; |
 | P1REEL | P1 Wi-Fi Module, Reel [x500] | 2 | NRND | &nbsp; | &nbsp; |
 | PHNTRAYH | Photon with Headers, Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
 | PHNTRAYNOH | Photon without Headers, Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
@@ -55,6 +54,7 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | 3 | Deprecated | ONE404MTY | &nbsp; |
 | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | 2 | Deprecated | &nbsp; | &nbsp; |
 | P0REEL | P0 Wi-Fi Module, Reel [x2000] | 2 | Deprecated | &nbsp; | &nbsp; |
+| P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | 2 | Deprecated | &nbsp; | &nbsp; |
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | 3 | Deprecated | T524MTY | &nbsp; |
 | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | 2 | End of life | &nbsp; | &nbsp; |
 | XENNTRAY50 | Xenon [x50] | 3 | End of life | &nbsp; | 2020-12-31 |

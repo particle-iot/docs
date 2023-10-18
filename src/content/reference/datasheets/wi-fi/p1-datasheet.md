@@ -549,8 +549,8 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
-| P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Global | NRND | |
 | P1REEL | P1 Wi-Fi Module, Reel [x500] | Global | NRND | |
+| P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Global | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated 797577ac-7751-11eb-9439-0242ac130002 --}}

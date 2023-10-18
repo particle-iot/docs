@@ -21536,7 +21536,7 @@
     {
       "name": "P1MOD10",
       "desc": "P1 Wi-Fi Module, Cut tape [x10]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "2",

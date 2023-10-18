@@ -147,7 +147,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA | P032 |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | GA | P032 |
 | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | Deprecated | P0MD |
-| P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | NRND | P1MD |
+| P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Deprecated | P1MD |
 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | GA | P046 |
 | P2REEL | P2 Wi-Fi Module, Reel [x600] | GA | P046 |
 | PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | GA | P051 |
@@ -273,7 +273,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P051 | PHN2MTY | Photon 2, Tray [x50] | Beta |
 | P052 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA |
 | P0MD | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | Deprecated |
-| P1MD | P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | NRND |
+| P1MD | P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Deprecated |
 | PHHK | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Deprecated |
 | PHHM | PHOTONH | Photon with Headers, [x1] | Deprecated |
 | PHHT | PHNTRAYH | Photon with Headers, Tray [x50] | NRND |

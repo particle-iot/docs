@@ -935,16 +935,16 @@
             "hash": "8baf0643d059dc8eeb4a12eb5abbfd005c7ef69469b32ee4fde0674c076c7c96"
         },
         "hardware/certification/antenna.md": {
-            "date": "2023-10-17",
-            "hash": "7b50e3f91f892b2dce8f20202e6725e6ca8e7f6b39c80106e7dda63eb3291a0b"
+            "date": "2023-10-18",
+            "hash": "c57af37b5ed9b5b3a91a98a5135797f5567cad5a32d4aca203fb153009b8c02e"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2023-09-22",
-            "hash": "56b508b9ea028a7c897f4d3afada3d74c164b49a9a2d9c0d0ee407ba861ce8be"
+            "date": "2023-10-18",
+            "hash": "495bdb3f5b7cfc03ac1ccd5123dae649b6427ec8df71d460288d65c2f5e80f43"
         },
         "hardware/certification/certification.md": {
             "date": "2023-07-26",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-10-17",
-            "hash": "743e776a233dcf687cbed548bcbbcc7d0f0d19e322389344b890e8fd55067b80"
+            "date": "2023-10-18",
+            "hash": "4e37eec5d1f9bf66dc859b7ea5499a9183148d5ca8db178d9a3473cca79965c3"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1323,8 +1323,8 @@
             "hash": "341e5565fbfa1a2547b6d8301ebc58d323852c7da3f8576eda3de3f44449dc28"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
-            "date": "2023-08-30",
-            "hash": "23c4a13ce20172f07fe47a18da656d86ffd908da23d6a45684ba812c24c84968"
+            "date": "2023-10-18",
+            "hash": "c5a3843f9a1aa6cbce9869fadba727c71351d8c45fbbdd304a1679a86e8a96a8"
         },
         "reference/product-lifecycle/product-lifecycle-stages.md": {
             "date": "2023-03-17",
@@ -1403,8 +1403,8 @@
             "hash": "86cb4b74157f8fe3df8c3b64fefb682083820dcc24ec1050410e6ac974355c54"
         },
         "reference/datasheets/wi-fi/p1-datasheet.md": {
-            "date": "2023-05-30",
-            "hash": "a4d0e30bfe7c4a3695a9d4da1a5271590b1cc88d03b7cb0b87fe2d06056bdbdf"
+            "date": "2023-10-18",
+            "hash": "77a13a100d5ac3ab4954f7fd7adc3922be44ee75cefdc7a9f42ace222258bd0a"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
             "date": "2023-10-11",
@@ -2127,8 +2127,8 @@
             "hash": "7b4a1240d1419a981e22ab2f74462256da5e90bc470e5eaad6b70b17e76e25bf"
         },
         "reference/device-os/api/network/networkinterfaceconfig.md": {
-            "date": "2023-10-17",
-            "hash": "8ee1b194e36a09ad9d4943809a672527aca6efc2f0ed54081839f1a4a025b8f7"
+            "date": "2023-10-18",
+            "hash": "16ad0e2272347822a0c39e8b992e8b6d0a58bb6d1e7f8e47013b15ed13e32856"
         },
         "reference/device-os/api/softap-http-pages/softap-http-pages.md": {
             "date": "2023-09-20",
@@ -8175,8 +8175,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "b1f4cf9a6de27014a5a1010ea887fa6b7cce0fcfc488d16136507259e1221f97",
-            "date": "2023-10-17"
+            "hash": "990180f8742739f209100a433512533c86227d43e2b9f58123a7af5d8feed001",
+            "date": "2023-10-18"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
