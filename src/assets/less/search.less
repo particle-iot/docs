@@ -34,14 +34,7 @@
 
 .searchContent {
   margin: auto;
-  width: 700px;  
-}
-
-@media (max-width: 768px) {
-  .searchContent {
-    margin: auto;
-    width: 100%;
-  }  
+  width: 600px;  
 }
 
 .searchOverlayQuery {
@@ -52,6 +45,13 @@
   flex-direction: row;
 }
 
+.searchOverlayQueryFlex {
+  min-width: 300px;
+}
+
+.searchOverlayQueryInput {
+  width: 400px;
+}
 
 .searchOverlaySearchButton {
   margin-left: 10px;
@@ -62,9 +62,18 @@
 
 
 @media (max-width: 768px) {
+  .searchContent {
+    margin: auto;
+    width: 100%;
+  }  
+
   .searchOverlayQuery {
     flex-direction: column;
   }
+  .searchOverlayQueryInput {
+    width: 90%;
+  }
+
   .searchOverlayQueryFlex {
     margin-top: 10px;
     margin-bottom: 10px;
