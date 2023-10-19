@@ -323,6 +323,11 @@
           "dir": "if-my-order-is-shipping-to-a-country-outside-of-the-united-states-what-do-i-need-to-know",
           "title": "Shipping outside the United States",
           "href": "/troubleshooting/faqs/shipping/if-my-order-is-shipping-to-a-country-outside-of-the-united-states-what-do-i-need-to-know/"
+        },
+        {
+          "dir": "route-package-protection",
+          "title": "Route package protection",
+          "href": "/troubleshooting/faqs/shipping/route-package-protection/"
         }
       ],
       {
