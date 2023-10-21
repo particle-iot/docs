@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-10-18",
-            "hash": "4e37eec5d1f9bf66dc859b7ea5499a9183148d5ca8db178d9a3473cca79965c3"
+            "date": "2023-10-21",
+            "hash": "e95df05e09b1b04b2949dad277148b59a13ffb3a9102c2e193c432f7d4b4a867"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1587,8 +1587,8 @@
             "hash": "5eb86510d02810037678d5f563a36d3f7ea78e4e1019c83525fe77587c6cf057"
         },
         "troubleshooting/guides/build-tools-troubleshooting/specific-cli-version.md": {
-            "date": "2023-09-06",
-            "hash": "66358aa30ddf90f405ccf4ee6855820f57c2e59939dfeda2fdb06505e4172657"
+            "date": "2023-10-21",
+            "hash": "24501bde1968b74b268d36bd717513199eb3a9f9c175e518e5394ebee23b863d"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-flashing-code.md": {
             "date": "2022-08-24",
@@ -2279,8 +2279,8 @@
             "hash": "f7ec692f347895ea420dd589741a8d823570eef6641364262b9f226fc8cec9ae"
         },
         "reference/device-os/api/battery-voltage/battery-voltage-photon-2.md": {
-            "date": "2023-09-20",
-            "hash": "f0324639ae8abe2829b1e1d07d6b36c4c35904df1aefe9c97f69e4521bdb5fd7"
+            "date": "2023-10-21",
+            "hash": "bd28c0c17739d5ce395ebe67d0c7c61e14c436f34093a2816246c7038f666936"
         },
         "reference/device-os/api/battery-voltage/battery-voltage-argon.md": {
             "date": "2023-09-20",
@@ -3843,8 +3843,8 @@
             "hash": "30a0ea5aed90da92b19d707fcace366d4bf782180cd63c42aa63d807f400ea1f"
         },
         "reference/device-os/api/system-calls/reset-reason.md": {
-            "date": "2023-09-20",
-            "hash": "1ca3b97c668b24749f0dff2df97ae22840361370bd99954dae0f7c69ada727c5"
+            "date": "2023-10-21",
+            "hash": "3fea340bdd84684076d16f3e748f051a1f492ddeee80b6d50c4450193525433e"
         },
         "reference/device-os/api/system-calls/backupramsync.md": {
             "date": "2023-09-20",

@@ -21,11 +21,7 @@ The current source for the Particle CLI can be found [in Github](https://github.
 
 Some versions of interest:
 
-- CLI v3.5.0 switched to Device OS 4.0.0 LTS. 
-- If you need to use Device OS 2.3.0 LTS, you can use CLI v3.2.0.
 - If you need to use older platforms such as Redbear Duo and Core, use v2 (v2.16.0, currently).
-- The release notes indicate which Device OS version is installed by that version of the CLI if you want to install a specific version
-- There is no way to install the developer preview releases of Device OS (3.x, 5.x) using `particle update`.
 
 
 To replace the existing `particle` command you can use:

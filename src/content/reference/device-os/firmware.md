@@ -4745,6 +4745,14 @@ float voltage = analogRead(A6) / 819.2;
 
 The constant is from the ADC range (0 - 4095) mapped to the voltage from 0 - 5 VDC (the maximum supported on VBAT_MEAS). 
 
+There is a `CHG` pin defined on the P2, however it does not work properly.
+
+{{collapse op="start" label="Show older information about CHG"}}
+
+The current Photon 2 hardware is unable to reliably read the `CHG` pin. In particular, if you have a Photon 2 powered by both 
+USB and battery and is charging, then unplug the USB power, the charge LED will turn off, but the `CHG` pin will not change 
+state. This is a hardware issue and cannot be fixed in software.
+
 The charge indicator on the Photon 2 can be read using:
 
 ```cpp
@@ -4753,6 +4761,8 @@ bool charging = digitalRead(CHG);
 ```
 
 On the Photon 2, the `CHG` digital input is `HIGH` (1) when charging and `LOW` (0) when not charging, however you must set `pinMode(CHG, INPUT_PULLUP)`. You only have to set `pinMode` once, such as in setup.
+
+{{collapse op="end"}}
 
 
 ### Battery Voltage - Argon
@@ -19735,20 +19745,21 @@ void setup() {
 
 Returns a code describing reason of the last device reset. The following codes are defined:
 
-- `RESET_REASON_PIN_RESET`: Reset button or reset pin
-- `RESET_REASON_POWER_MANAGEMENT`: Low-power management reset
-- `RESET_REASON_POWER_DOWN`: Power-down reset
-- `RESET_REASON_POWER_BROWNOUT`: Brownout reset
-- `RESET_REASON_WATCHDOG`: Hardware watchdog reset
-- `RESET_REASON_UPDATE`: Successful firmware update
-- `RESET_REASON_UPDATE_TIMEOUT`: Firmware update timeout
-- `RESET_REASON_FACTORY_RESET`: Factory reset requested
-- `RESET_REASON_SAFE_MODE`: Safe mode requested
-- `RESET_REASON_DFU_MODE`: DFU mode requested
-- `RESET_REASON_PANIC`: System panic
-- `RESET_REASON_USER`: User-requested reset
-- `RESET_REASON_UNKNOWN`: Unspecified reset reason
-- `RESET_REASON_NONE`: Information is not available
+- `RESET_REASON_NONE`: Information is not available (0)
+- `RESET_REASON_UNKNOWN`: Unspecified reset reason (10)
+- `RESET_REASON_PIN_RESET`: Reset button or reset pin (20)
+- `RESET_REASON_POWER_MANAGEMENT`: Low-power management reset (30)
+- `RESET_REASON_POWER_DOWN`: Power-down reset (40)
+- `RESET_REASON_POWER_BROWNOUT`: Brownout reset (50)
+- `RESET_REASON_WATCHDOG`: Hardware watchdog reset (60)
+- `RESET_REASON_UPDATE`: Successful firmware update (70)
+- `RESET_REASON_UPDATE_ERROR`: Firmware update error, deprecated (80)
+- `RESET_REASON_UPDATE_TIMEOUT`: Firmware update timeout (90)
+- `RESET_REASON_FACTORY_RESET`: Factory reset requested (100)
+- `RESET_REASON_SAFE_MODE`: Safe mode requested (110)
+- `RESET_REASON_DFU_MODE`: DFU mode requested (120)
+- `RESET_REASON_PANIC`: System panic (130)
+- `RESET_REASON_USER`: User-requested reset (140)
 
 `resetReasonData()`
 
