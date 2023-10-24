@@ -2054,6 +2054,7 @@
           "hardwarePin"
         ]
       },
+      "ignorePins": true,
       "mcu": "RTL8721D"
     },
     {
@@ -2572,6 +2573,9 @@
           "modulePinName"
         ]
       },
+      "ignorePins": [
+        25
+      ],
       "layout": {
         "columns": [
           {
@@ -2945,13 +2949,6 @@
           "name": "VBAT",
           "desc": "Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA..",
           "hardwarePin": "A9",
-          "isPower": true,
-          "modulePinName": "VBAT"
-        },
-        {
-          "num": 38,
-          "name": "VBAT_MICRO",
-          "desc": "Battery for internal real-time clock.",
           "isPower": true,
           "modulePinName": "VBAT_MICRO"
         },
@@ -7607,6 +7604,16 @@
           "hardwarePin"
         ]
       },
+      "ignorePins": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
       "mcu": "nRF52840"
     },
     {
@@ -8303,6 +8310,16 @@
           "hardwarePin"
         ]
       },
+      "ignorePins": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
       "mcu": "nRF52840"
     },
     {
@@ -8321,6 +8338,7 @@
             31,
             42,
             43,
+            48,
             52,
             54,
             63,
@@ -8328,6 +8346,7 @@
             70,
             75,
             86,
+            88,
             89,
             93,
             95
@@ -10325,6 +10344,16 @@
           "hardwarePin"
         ]
       },
+      "ignorePins": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
       "mcu": "RTL8722DM"
     },
     {

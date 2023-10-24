@@ -792,5 +792,6 @@
             "hardwarePin"
         ]
     },
+    "ignorePins": true,
     "mcu": "RTL8721D"
 }

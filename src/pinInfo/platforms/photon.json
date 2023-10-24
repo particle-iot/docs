@@ -514,6 +514,9 @@
             "modulePinName"
         ]
     },
+    "ignorePins": [
+        25
+    ],
     "layout": {
         "columns": [
             {

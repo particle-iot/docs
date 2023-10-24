@@ -320,13 +320,6 @@
             "desc": "Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA..",
             "hardwarePin": "A9",
             "isPower": true,
-            "modulePinName": "VBAT"
-        },
-        {
-            "num": 38,
-            "name": "VBAT_MICRO",
-            "desc": "Battery for internal real-time clock.",
-            "isPower": true,
             "modulePinName": "VBAT_MICRO"
         },
         {

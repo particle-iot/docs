@@ -37,14 +37,20 @@ function verifyPinInfo(dir) {
 
                     const pinTopKeys = ['num', 'name', 'altName', 'desc' ];
 
-                    let hasPinNumbers = false;
+                    const lastDotIndex2 = dirEntry2.name.lastIndexOf('.');
+
+                    let info = {
+                        baseName: (lastDotIndex2 > 0) ? dirEntry2.name.substring(0, lastDotIndex2) : dirEntry2.name,
+                        hasPinNumbers: false,
+                        pinsSeen: [],
+                    };
 
                     for(const topKey of topKeys) {
                         if (topKey == 'pins') {
                             newObj.pins = [];
 
                             if (obj.pins.length > 0) {
-                                hasPinNumbers = typeof obj.pins[0].num != 'undefined';
+                                info.hasPinNumbers = typeof obj.pins[0].num != 'undefined';
 
                                 for(const innerObj of obj.pins) {
                                     // Clean up inner object
@@ -66,10 +72,19 @@ function verifyPinInfo(dir) {
                                         newInnerObj[key] = innerObj[key];
                                     }
 
+                                    if (info.hasPinNumbers) {
+                                        info.pinsSeen.push(innerObj.num);
+                                        if (innerObj.morePins) {
+                                            for(const p of innerObj.morePins) {
+                                                info.pinsSeen.push(p);
+                                            }
+                                        }
+                                    }
+
                                     newObj.pins.push(newInnerObj);
                                 }
 
-                                if (hasPinNumbers) {
+                                if (info.hasPinNumbers) {
                                     newObj.pins.sort(function(a, b) {
                                         return a.num - b.num;
                                     });
@@ -82,7 +97,7 @@ function verifyPinInfo(dir) {
 
                             }
                             else {
-                                console.log('pins is empty');
+                                console.log('pins is empty ' + info.baseName);
                             }
                         }
                         else {
@@ -103,8 +118,34 @@ function verifyPinInfo(dir) {
                     }
 
                     // TODO: Add validation code here
-                    // Make sure all pins are defined
-                    // Check for duplicate pins
+                    if (info.pinsSeen.length) {
+                        info.pinsSeen.sort(function(a, b) {
+                            return a - b;
+                        });              
+                        
+                        info.minPin = info.pinsSeen[0];
+                        info.maxPin = info.pinsSeen[info.pinsSeen.length - 1];
+
+                        if (obj.ignorePins !== true) {
+                            for(let ii = 1; ii < info.pinsSeen.length; ii++) {
+                                if (info.pinsSeen[ii - 1] == info.pinsSeen[ii]) {
+                                    console.log('duplicate pin ' + info.pinsSeen[ii] + ' in ' + info.baseName);
+                                }
+                            }
+                            let missing = [];
+                            for(let pin = info.minPin; pin <= info.maxPin; pin++) {
+                                if (!info.pinsSeen.includes(pin)) {
+                                    if (!Array.isArray(obj.ignorePins) || !obj.ignorePins.includes(pin)) {
+                                        missing.push(pin);
+                                    }
+                                }
+                            }
+                            if (missing.length) {
+                                console.log('missing pins ' + missing.join(', ') + ' in ' + info.baseName);
+                            }
+                        }
+                    }
+                    // console.log(info.baseName, info);
                     // Check for required keys in pins like either num or name, plus desc?
 
                     // console.log(dirEntry.name, newObj);
