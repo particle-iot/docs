@@ -55,6 +55,7 @@ $(document).ready(function() {
 
     if ($('.apiHelperEdgeFirmware').each(function() {
         const thisPartial = $(this);
+        const gaCategory = 'Edge Firmware Tool';
 
         const setStatus = function(status) {
             $(thisPartial).find('.apiHelperEdgeFirmwareStatus').text(status);
@@ -68,8 +69,8 @@ $(document).ready(function() {
         const productFirmwareTableElem = $(thisPartial).find('.productFirmwareTable');
         const noProductFirmwareElem = $(thisPartial).find('.noProductFirmware');
         const uploadedToProductElem = $(thisPartial).find('.uploadedToProduct');
-        const apiHelperUploadFirmwareElem = $(thisPartial).find('.apiHelperUploadFirmware');
-        const apiHelperConfigSchemaSetElem = $(thisPartial).find('.apiHelperConfigSchemaSet');
+        const uploadFirmwareButtonElem = $(thisPartial).find('.uploadFirmwareButton');
+        const setConfigSchemaButtonElem = $(thisPartial).find('.setConfigSchemaButton');
 
         // const Elem = $(thisPartial).find('.');
 
@@ -77,58 +78,66 @@ $(document).ready(function() {
 
         settings.options = $(thisPartial).data('options').split(',');
 
-        settings.versionsFile = '/assets/files/tracker/';
+        settings.trackerDirPath = '/assets/files/tracker/';
+
         if (settings.options.includes('monitor')) {
-            settings.versionsFile += 'monitorEdgeVersions.json';
+            settings.kind = 'monitor';
         }
         else
         if (settings.options.includes('tracker')) {
-            settings.versionsFile += 'trackerEdgeVersions.json';            
+            settings.kind = 'tracker';
         }
         else {
             console.log('options do not specify edge kind');
             return;
         }
+        settings.versionsFile = settings.trackerDirPath + settings.kind + 'EdgeVersions.json';            
 
         const updateUploadedProduct = function() {
             settings.uploadedToProduct = false;
+            settings.tooManyVersions = false;
 
-            const version = parseInt($(apiHelperEdgeVersionSelectElem).val());
-            const versionObj = settings.versionsJson.versions.find(e => e.version == version);
-
-            if (versionObj && settings.productFirmware) {
+            if (settings.versionObj && settings.productFirmware) {
                 for(const v of settings.productFirmware) {
-                    if (v.title == versionObj.title) {
+                    if (v.title == settings.versionObj.title) {
                         settings.uploadedToProduct = true;
                     }
                 }    
+                if (settings.versionObj.version < settings.maximumVersion) {
+                    settings.tooManyVersions = true;
+                    setStatus('This product already has a version ' + settings.versionObj.version + ' uploaded');
+                }
+
             }
 
-            $(uploadedToProductElem).html(settings.uploadedToProduct ? '&check;' : '&nbsp;');
+            $(uploadedToProductElem).text(settings.uploadedToProduct ? 'Yes' : 'No');
 
-            $(apiHelperUploadFirmwareElem).prop('disabled', settings.uploadedToProduct);
+            $(uploadFirmwareButtonElem).prop('disabled', settings.uploadedToProduct || settings.tooManyVersions);
+
         };
 
         const loadVersionInfo = function() {
-            const version = parseInt($(apiHelperEdgeVersionSelectElem).val());
-            const versionObj = settings.versionsJson.versions.find(e => e.version == version);
+            settings.version = parseInt($(apiHelperEdgeVersionSelectElem).val());
+            settings.versionObj = settings.versionsJson.versions.find(e => e.version == settings.version);
 
-            $(edgeTargetVersionElem).text(versionObj.target);
-            if (versionObj.schemaVersion) {
-                $(edgeSchemaVersionElem).text(versionObj.schemaVersion.toString());
-                $(apiHelperConfigSchemaSetElem).prop('disabled', false);
+            // console.log('settings.versionObj', settings.versionObj);
+
+            $(edgeTargetVersionElem).text(settings.versionObj.target);
+            if (settings.versionObj.schemaVersion) {
+                $(edgeSchemaVersionElem).text(settings.versionObj.schemaVersion.toString());
+                $(setConfigSchemaButtonElem).prop('disabled', false);
             }
             else {
                 $(edgeSchemaVersionElem).text('Not available');
-                $(apiHelperConfigSchemaSetElem).prop('disabled', true);
+                $(setConfigSchemaButtonElem).prop('disabled', true);
             }
 
-            if (versionObj.releaseNotes) {
+            if (settings.versionObj.releaseNotes) {
                 var converter = new showdown.Converter();
                 
                 converter.setFlavor('github');
 
-                let notes = versionObj.releaseNotes;
+                let notes = settings.versionObj.releaseNotes;
                 notes = notes.replace(/(#+) /g, '###$1 ');
 
                 $(edgeReleaseNotesElem).html(converter.makeHtml(notes));
@@ -136,14 +145,15 @@ $(document).ready(function() {
             else {
                 $(edgeReleaseNotesElem).html('');
             }
+            analytics.track('View ' + settings.kind + ' ' + settings.version, {category:gaCategory});
 
             updateUploadedProduct();
         }
         $(apiHelperEdgeVersionSelectElem).on('change', loadVersionInfo);
 
         $('.apiHelperTrackerProductSelect').on('change', async function() {
-            let productId = $(thisPartial).find('.apiHelperTrackerProductSelect').val();
-            if (!productId) {
+            settings.productId = $(thisPartial).find('.apiHelperTrackerProductSelect').val();
+            if (!settings.productId) {
                 return;
             }
 
@@ -152,7 +162,7 @@ $(document).ready(function() {
 
 
             const firmwareRes = await apiHelper.particle.listProductFirmware({ 
-                product: productId,
+                product: settings.productId,
                 auth: apiHelper.auth.access_token 
             });
 
@@ -161,14 +171,17 @@ $(document).ready(function() {
             $(productFirmwareVersionsElem).empty();
 
             settings.productFirmware = firmwareRes.body;
+            settings.maximumVersion = 0;
 
-            console.log('firmwareRes', firmwareRes);
             if (firmwareRes.body.length == 0) {
                 $(noProductFirmwareElem).show();
             }
             else {
                 $(productFirmwareTableElem).show();
                 for(const v of firmwareRes.body) {
+                    if (v.version > settings.maximumVersion) {
+                        settings.maximumVersion = v.version;
+                    }
                     const trElem = document.createElement('tr');
     
                     {
@@ -188,7 +201,9 @@ $(document).ready(function() {
                     }
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).text(v.description.replace(/#+/, ' ').replace('\n', ' ').substring(0, 50));
+                        const desc = v.description || '';
+
+                        $(tdElem).text(desc.replace(/#+/, ' ').replace('\n', ' ').substring(0, 50));                        
                         $(trElem).append(tdElem);
                     }
                     {
@@ -202,15 +217,123 @@ $(document).ready(function() {
             }
 
             updateUploadedProduct();
+        });
 
+        $(uploadFirmwareButtonElem).on('click', async function() {
+            if (settings.uploadedToProduct || settings.tooManyVersions) {
+                return;
+            }
 
+            $(uploadFirmwareButtonElem).prop('disabled', true);
 
+            const msg = 'Are you sure you want to upload firmware to the product?';
+            if (confirm(msg)) {
+
+                setStatus('Downloading Edge firmware...');
+
+                const firmwareBinary = await new Promise(function(resolve, reject) {
+                    fetch(settings.trackerDirPath + settings.versionObj.bin)
+                        .then(response => response.arrayBuffer())
+                        .then(function(data) {
+                            resolve(data);
+                        });
+                });
+
+                let productFormData = new FormData();
+    
+                productFormData.append('version', settings.versionObj.version.toString());
+                productFormData.append('title', settings.versionObj.title);
+                productFormData.append('binary', new Blob([firmwareBinary]), 'firmware.bin');
+
+                const uploadRes = await new Promise(function(resolve, reject) {
+                    const request = {
+                        contentType: false,
+                        data: productFormData,
+                        dataType: 'json',
+                        error: function (jqXHR) {
+                            reject(jqXHR);
+                        },
+                        headers: {
+                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                            'Accept': 'application/json'
+                        },
+                        method: 'POST',
+                        processData: false,
+                        success: function (resp, textStatus, jqXHR) {
+                            resolve(resp);    
+                        },
+                        url: 'https://api.particle.io/v1/products/' + settings.productId + '/firmware',
+                    };
+        
+                    $.ajax(request);
+                });              
+
+                analytics.track('Firmware upload success', {category:gaCategory});
+                setStatus('Firmware upload complete');
+
+            }
+            else {
+                analytics.track('Firmware upload cancel', {category:gaCategory});
+                setStatus('Firmware upload canceled');
+                setTimeout(function() {
+                    setStatus('');
+                }, 5000);
+            }
+
+            $(uploadFirmwareButtonElem).prop('disabled', false);
+        })
+
+        $(setConfigSchemaButtonElem).on('click', async function() {
+            if (!settings.versionObj || !settings.versionObj.filename) {
+                return;
+            }
+
+            $(setConfigSchemaButtonElem).prop('disabled', true);
+
+            const msg = 'Updating the schema will change the fleet configuration options in the console for all users. Are you sure you want to update the schema?';
+            if (confirm(msg)) {
+                await new Promise(function(resolve, reject) {
+                    apiHelper.downloadSchema('backup-schema.json', settings.productId, 'default', function(err) {
+                        if (err) {
+                            reject(err);
+                        }
+                        else {
+                            resolve();
+                        }
+                    });
+                });    
+    
+                setStatus('Downloading schema...');
+                const schemaData = await new Promise(function(resolve, reject) {
+                    fetch('/assets/files/tracker/' + settings.versionObj.filename)
+                        .then(response => response.arrayBuffer())
+                        .then(function(data) {
+                            resolve(data);
+                        });
+                });
+                
+                setStatus('Setting schema...');
+                await new Promise(function(resolve, reject) {
+                    apiHelper.uploadSchema(schemaData, settings.productId, 'default', resolve);
+                });
+    
+                analytics.track('Schema upload success', {category:gaCategory});
+                setStatus('Schema updated!');
+            }
+            else {
+                analytics.track('Schema upload cancel', {category:gaCategory});
+                setStatus('Schema updated canceled');
+                setTimeout(function() {
+                    setStatus('');
+                }, 5000);
+            }
+
+            $(setConfigSchemaButtonElem).prop('disabled', false);
         });
 
         fetch(settings.versionsFile)
             .then(response => response.json())
             .then(function(res) {
-                console.log(settings.versionsFile, res);
                 settings.versionsJson = res;
 
 
