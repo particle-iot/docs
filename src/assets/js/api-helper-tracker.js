@@ -65,6 +65,9 @@ $(document).ready(function() {
         const edgeSchemaVersionElem = $(thisPartial).find('.edgeSchemaVersion');
         const edgeReleaseNotesElem = $(thisPartial).find('.edgeReleaseNotes');
         const productFirmwareVersionsElem = $(thisPartial).find('.productFirmwareVersions');
+        const productFirmwareTableElem = $(thisPartial).find('.productFirmwareTable');
+        const noProductFirmwareElem = $(thisPartial).find('.noProductFirmware');
+
 
         // const Elem = $(thisPartial).find('.');
 
@@ -105,48 +108,61 @@ $(document).ready(function() {
 
         $('.apiHelperTrackerProductSelect').on('change', async function() {
             let productId = $(thisPartial).find('.apiHelperTrackerProductSelect').val();
-            console.log('productId=' + productId);
+            if (!productId) {
+                return;
+            }
+            $(thisPartial).find('.hasProduct').show();
+
 
             const firmwareRes = await apiHelper.particle.listProductFirmware({ 
                 product: productId,
                 auth: apiHelper.auth.access_token 
             });
 
-            console.log('firmwareRes', firmwareRes);
-
-
+            $(productFirmwareTableElem).hide();
+            $(noProductFirmwareElem).hide();
             $(productFirmwareVersionsElem).empty();
-            for(const v of firmwareRes.body) {
-                const trElem = document.createElement('tr');
 
-                {
-                    const tdElem = document.createElement('td');
-                    $(tdElem).text(v.version.toString());
-                    $(trElem).append(tdElem);
-                }
-                {
-                    const tdElem = document.createElement('td');
-                    $(tdElem).html(v.product_default ? '&check;' : '&nbsp;');
-                    $(trElem).append(tdElem);
-                }
-                {
-                    const tdElem = document.createElement('td');
-                    $(tdElem).text(v.title);
-                    $(trElem).append(tdElem);
-                }
-                {
-                    const tdElem = document.createElement('td');
-                    $(tdElem).text(v.description.replace(/#+/, ' ').replace('\n', ' ').substring(0, 50));
-                    $(trElem).append(tdElem);
-                }
-                {
-                    const tdElem = document.createElement('td');
-                    $(tdElem).text(v.uploaded_on.substring(0, 10));
-                    $(trElem).append(tdElem);
-                }
-
-                $(productFirmwareVersionsElem).append(trElem);
+            console.log('firmwareRes', firmwareRes);
+            if (firmwareRes.body.length == 0) {
+                $(noProductFirmwareElem).show();
             }
+            else {
+                $(productFirmwareTableElem).show();
+                for(const v of firmwareRes.body) {
+                    const trElem = document.createElement('tr');
+    
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(v.version.toString());
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).html(v.product_default ? '&check;' : '&nbsp;');
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(v.title);
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(v.description.replace(/#+/, ' ').replace('\n', ' ').substring(0, 50));
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).text(v.uploaded_on.substring(0, 10));
+                        $(trElem).append(tdElem);
+                    }
+    
+                    $(productFirmwareVersionsElem).append(trElem);
+                }
+            }
+
+            
 
         });
 
