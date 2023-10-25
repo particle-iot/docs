@@ -3,6 +3,7 @@ title: Monitor Edge firmware
 columns: two
 layout: commonTwo.hbs
 description: Monitor Edge firmware
+includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, zip]
 ---
 
 # {{title}}
@@ -28,6 +29,8 @@ The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-ap
 This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/).
 {{note op="end"}}
 
+{{> sso}}
+
 ## Configuration schema
 
 If you are using the Monitor One, you need to upload a configuration schema to change the console panels from 
@@ -44,6 +47,7 @@ Your Monitor One device is pre-configured with Monitor Edge firmware that you ca
 Configuration can be done online, through the Particle [console](https://console.particle.io/). 
 To learn about the console, see [Tracker settings](/getting-started/console/console/#asset-tracker-features).
 
+{{> edge-firmware options="monitor"}}
 
 
 ## Development device setup

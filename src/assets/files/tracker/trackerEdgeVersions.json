@@ -7,7 +7,9 @@
             "bin": "tracker-edge-18@3.3.0.bin",
             "version": 18,
             "zip": "v18.zip",
-            "target": "3.3.0"
+            "target": "3.3.0",
+            "schemaVersion": 17,
+            "filename": "tracker-config-schema-17.json"
         },
         {
             "v": "v17",

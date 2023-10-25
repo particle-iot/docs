@@ -40249,6 +40249,30 @@
             "state": "open",
             "created_at": "2023-09-29T10:41:19Z",
             "detail": "System loop does not run within `delay()` with threading disabled and `SPARK_WLAN_SLEEP=1`."
+        },
+        "2703": {
+            "url": "https://github.com/particle-iot/device-os/pull/2703",
+            "number": 2703,
+            "title": "[rtl872x] Fix unintentional pin changes for Serial1 RTS/CTS",
+            "state": "closed",
+            "created_at": "2023-10-03T18:21:13Z",
+            "detail": "Starting Serial1 causes the RTS and CTS lines to be assigned as hardware handshake signals without regard to whether they are previously set for GPIO."
+        },
+        "2704": {
+            "url": "https://github.com/particle-iot/device-os/pull/2704",
+            "number": 2704,
+            "title": "[msom] Support burnin tests",
+            "state": "open",
+            "created_at": "2023-10-20T19:28:17Z",
+            "detail": "Factory burn in needs to support MSoM hardware, specifically the GPIO pinout"
+        },
+        "2705": {
+            "url": "https://github.com/particle-iot/device-os/pull/2705",
+            "number": 2705,
+            "title": "[gen3] reduce flash usage",
+            "state": "open",
+            "created_at": "2023-10-23T11:06:56Z",
+            "detail": "1. Disables IPv6 support (can be turned back on), keeping things like `AF_INET6`, `sockaddr_in6` and others available.\n2. Disables CHAP for cellular devices (removes MD5 dependency) ([this](https://github.com/particle-iot/device-os/compare/feature/reduce-gen3-flash-usage?expand=1#diff-a8e99f7ec884e049b049347a881b289b8edd5641af45e8d407cb97a78fdf7550R2002) change needs to be verified cc @technobly, pretty sure we might just need to leave `CHAP:<apn>` and PAP will still work)\n3. Disables IP reassembly/fragmentation on Tracker\n4. Disables ESP32 NCP updates on Tracker\n5. Disables text error messages\n6. Disables TLS server support in MbedTLS (not used anywhere)\n7. Disables float support in wiring `Print` in system. It's brought in only for setup console (over Serial), ideally the whole `Print` usage should be removed, but the changeset is big\n\nWith Ledger (#2660 and #2675) merged in, the state of affairs is the following (also lists some other potential future reductions):\n\n| Platform | Post Ledger merge free space | + Serial setup console removed | + Ethernet support disabled |\n|----------|-----------------------------:|--------------------------------:|-----------------------------:|\n| Argon    |                        45.8K |                            52K |                           - |\n| Boron    |                        16.4K |                          20.7K |                           - |\n| B SoM    |                        16.1K |                          20.4K |                           - |\n| E SoM X  |                        16.8K |                          21.2K |                           - |\n| B5 SoM   |                        21.6K |                          26.6K |                           - |\n| Tracker  |                         9.5K |                          13.8K |                         19K |"
         }
     }
 }

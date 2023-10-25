@@ -1,0 +1,53 @@
+<div class="apiHelper apiHelperLoggedIn apiHelperEdgeFirmware" style="display:none;" data-options="{{options}}">
+    <div class="apiHelperBox">
+        <div style="padding-top: 5px">
+            <table class="apiHelperProductSelectorTable">
+                <tr class="apiHelperTrackerOrgRow" style="display:none">
+                    <td class="apiHelperProductSelectorLabel">Organization</td>
+                    <td><select class="apiHelperTrackerOrgSelect apiHelperSelect"></select></td>
+                </tr>
+                <tr class="apiHelperTrackerProductRow">
+                    <td class="apiHelperProductSelectorLabel">Product</td>
+                    <td><select class="apiHelperTrackerProductSelect apiHelperSelect"></select></td>
+                </tr>
+            </table>
+        </div>
+        <div style="padding-top: 10px">
+            <div class="apiHelperLargeTitle" style="padding-left: 5px;">Edge version</div>
+            <table class="apiHelperProductSelectorTable" style="padding-top: 5px">
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Edge version</td>
+                    <td><select class="apiHelperEdgeVersionSelect apiHelperSelect"></select></td>
+                </tr>
+                <tr>
+                    <td>Device OS target version</td>
+                    <td class="edgeTargetVersion"></td>
+                </tr>
+                <tr>
+                    <td>Schema version</td>
+                    <td class="edgeSchemaVersion"></td>
+                </tr>
+            </table>
+            <div><pre class="edgeReleaseNotes apiHelperMonoSmall" style="padding-left: 5px;"></pre></div>
+        </div>
+        <div style="padding-top: 10px">
+            <div class="apiHelperLargeTitle" style="padding-left: 5px;">Existing product firmware</div>
+            <table class="apiHelperProductSelectorTable" style="padding-top: 5px">
+                <thead>
+                    <tr>
+                        <th>Version</th>
+                        <th>Default</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Uploaded</th>
+                    </tr>
+                </thead>
+                <tbody class="productFirmwareVersions"></tbody>
+            </table>
+        </div>
+        <div style="padding-top: 5px">
+            <button class="apiHelperConfigSchemaSet apiHelperButton">Set Schema</button>
+        </div>
+        <div class="apiHelperEdgeFirmwareStatus"></div>
+    </div>
+</div>

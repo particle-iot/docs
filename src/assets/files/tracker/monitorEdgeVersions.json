@@ -7,7 +7,9 @@
             "bin": "monitor-edge-2@4.2.0.bin",
             "version": 2,
             "zip": "monitor-edge-2.zip",
-            "target": "4.2.0"
+            "target": "4.2.0",
+            "schemaVersion": 2,
+            "filename": "monitor-config-schema-2.json"
         },
         {
             "v": "v1",
@@ -16,7 +18,9 @@
             "bin": "monitor-edge-1@4.0.2.bin",
             "version": 1,
             "zip": "monitor-edge-1.zip",
-            "target": "4.0.2"
+            "target": "4.0.2",
+            "schemaVersion": 1,
+            "filename": "monitor-config-schema-1.json"
         }
     ]
 }

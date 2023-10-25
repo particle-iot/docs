@@ -1,7 +1,7 @@
 
 
 $(document).ready(function() {
-    // auth not required
+    // auth not required for apiHelperTrackerEdge
 
     if ($('.apiHelperTrackerEdge').each(function() {
         const thisPartial = $(this);
@@ -46,6 +46,140 @@ $(document).ready(function() {
 
             buildTrackerDownload(options);
         });
+    }));
+
+    // The following items require auth
+    if (!apiHelper || !apiHelper.auth) {
+        return;
+    }
+
+    if ($('.apiHelperEdgeFirmware').each(function() {
+        const thisPartial = $(this);
+
+        const setStatus = function(status) {
+            $(thisPartial).find('.apiHelperEdgeFirmwareStatus').text(status);
+        };
+
+        const apiHelperEdgeVersionSelectElem = $(thisPartial).find('.apiHelperEdgeVersionSelect');
+        const edgeTargetVersionElem = $(thisPartial).find('.edgeTargetVersion');
+        const edgeSchemaVersionElem = $(thisPartial).find('.edgeSchemaVersion');
+        const edgeReleaseNotesElem = $(thisPartial).find('.edgeReleaseNotes');
+        const productFirmwareVersionsElem = $(thisPartial).find('.productFirmwareVersions');
+
+        // const Elem = $(thisPartial).find('.');
+
+        let settings = {};
+
+        settings.options = $(thisPartial).data('options').split(',');
+
+        settings.versionsFile = '/assets/files/tracker/';
+        if (settings.options.includes('monitor')) {
+            settings.versionsFile += 'monitorEdgeVersions.json';
+        }
+        else
+        if (settings.options.includes('tracker')) {
+            settings.versionsFile += 'trackerEdgeVersions.json';            
+        }
+        else {
+            console.log('options do not specify edge kind');
+            return;
+        }
+
+        const loadVersionInfo = function() {
+            const version = parseInt($(apiHelperEdgeVersionSelectElem).val());
+            const obj = settings.versionsJson.versions.find(e => e.version == version);
+            console.log('obj', obj);
+
+            $(edgeTargetVersionElem).text(obj.target);
+            if (obj.schemaVersion) {
+                $(edgeSchemaVersionElem).text(obj.schemaVersion.toString());
+            }
+            else {
+                $(edgeSchemaVersionElem).text('Not available');
+            }
+            if (obj.releaseNotes) {
+                $(edgeReleaseNotesElem).text(obj.releaseNotes);
+            }
+        }
+        $(apiHelperEdgeVersionSelectElem).on('change', loadVersionInfo);
+
+        $('.apiHelperTrackerProductSelect').on('change', async function() {
+            let productId = $(thisPartial).find('.apiHelperTrackerProductSelect').val();
+            console.log('productId=' + productId);
+
+            const firmwareRes = await apiHelper.particle.listProductFirmware({ 
+                product: productId,
+                auth: apiHelper.auth.access_token 
+            });
+
+            console.log('firmwareRes', firmwareRes);
+
+
+            $(productFirmwareVersionsElem).empty();
+            for(const v of firmwareRes.body) {
+                const trElem = document.createElement('tr');
+
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(v.version.toString());
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).html(v.product_default ? '&check;' : '&nbsp;');
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(v.title);
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(v.description.replace(/#+/, ' ').replace('\n', ' ').substring(0, 50));
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(v.uploaded_on.substring(0, 10));
+                    $(trElem).append(tdElem);
+                }
+
+                $(productFirmwareVersionsElem).append(trElem);
+            }
+
+        });
+
+        fetch(settings.versionsFile)
+            .then(response => response.json())
+            .then(function(res) {
+                console.log(settings.versionsFile, res);
+                settings.versionsJson = res;
+
+
+                for(const v of settings.versionsJson.versions) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).text(v.title);
+                    $(optionElem).attr('value', v.version.toString());
+                    $(apiHelperEdgeVersionSelectElem).append(optionElem);
+                }
+
+                loadVersionInfo();
+
+                /*
+                "v": "v2",
+                "title": "Monitor Edge Firmware v2",
+                "releaseNotes": "# Monitor Edge v2 Release\r\nBuilt against device OS 4.2.0\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v4.0.2 or greater.\r\n\r\n### FEATURES\r\n\r\n- Added Modbus RTU client library\r\n- Added configurable Modbus polling for three devices\r\n\r\n### ENHANCEMENTS\r\n\r\n- Updated compile actions to build with the latest device OS releases for 4.x and 5.x\r\n- Included *.def file patterns for cloud compiles to pick up Memfault includes\r\n\r\n### BUGFIXES\r\n\r\n- Fixed an outdated reset pin assignment to an interrupt pin\r\n",
+                "bin": "monitor-edge-2@4.2.0.bin",
+                "version": 2,
+                "zip": "monitor-edge-2.zip",
+                "target": "4.2.0",
+                "schemaVersion": 2,
+                "filename": "monitor-config-schema-2.json"
+                */
+            });
+
+                
     }));
 });
 
