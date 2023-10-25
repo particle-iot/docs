@@ -3,7 +3,7 @@ title: Monitor Edge firmware
 columns: two
 layout: commonTwo.hbs
 description: Monitor Edge firmware
-includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, zip]
+includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, showdown, zip]
 ---
 
 # {{title}}

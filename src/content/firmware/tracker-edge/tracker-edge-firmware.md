@@ -3,7 +3,7 @@ title: Tracker Edge firmware
 columns: two
 layout: commonTwo.hbs
 description: Particle Tracker Edge Firmware
-includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, zip]
+includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, showdown, zip]
 ---
 
 # {{title}}

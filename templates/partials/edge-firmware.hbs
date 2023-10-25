@@ -27,10 +27,14 @@
                     <td>Schema version</td>
                     <td class="edgeSchemaVersion"></td>
                 </tr>
+                <tr>
+                    <td>Uploaded to product?</td>
+                    <td class="uploadedToProduct"></td>
+                </tr>
             </table>
-            <div><pre class="edgeReleaseNotes apiHelperMonoSmall" style="padding-left: 5px;"></pre></div>
+            <div class="edgeReleaseNotes" style="padding-left: 15px;"></div>
         </div>
-        <div style="padding-top: 10px; display:none;" class="hasProduct">
+        <div style="padding-top: 15px; display:none;" class="hasProduct">
             <div class="apiHelperLargeTitle" style="padding-left: 5px;">Existing product firmware</div>
             <table class="apiHelperProductSelectorTable productFirmwareTable" style="padding-top: 5px; display:none;">
                 <thead>
@@ -46,10 +50,13 @@
             </table>
             <div class="noProductFirmware" style="padding: 5px 0px 5px 5px; display:none;">No product firmware has been uploaded to this product</div>
         </div>
-        <div style="padding-top: 10px; display: none;" class="hasProduct">
+        <div style="padding-top: 15px; display: none;" class="hasProduct">
             <div class="apiHelperLargeTitle" style="padding-left: 5px;">Actions</div>
-            <div style="padding-left: 5px">
-                <button class="apiHelperConfigSchemaSet apiHelperButton">Set Schema</button>
+            <div style="padding: 5px 0px 5px 5px;">
+                <button class="apiHelperUploadFirmware apiHelperButton">Upload Edge firmware to product</button>
+            </div>
+            <div style="padding: 5px 0px 5px 5px;">
+                <button class="apiHelperConfigSchemaSet apiHelperButton">Set Configuration Schema</button>
             </div>
         </div>
         <div class="apiHelperEdgeFirmwareStatus"></div>

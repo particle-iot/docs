@@ -67,7 +67,9 @@ $(document).ready(function() {
         const productFirmwareVersionsElem = $(thisPartial).find('.productFirmwareVersions');
         const productFirmwareTableElem = $(thisPartial).find('.productFirmwareTable');
         const noProductFirmwareElem = $(thisPartial).find('.noProductFirmware');
-
+        const uploadedToProductElem = $(thisPartial).find('.uploadedToProduct');
+        const apiHelperUploadFirmwareElem = $(thisPartial).find('.apiHelperUploadFirmware');
+        const apiHelperConfigSchemaSetElem = $(thisPartial).find('.apiHelperConfigSchemaSet');
 
         // const Elem = $(thisPartial).find('.');
 
@@ -88,21 +90,54 @@ $(document).ready(function() {
             return;
         }
 
+        const updateUploadedProduct = function() {
+            settings.uploadedToProduct = false;
+
+            const version = parseInt($(apiHelperEdgeVersionSelectElem).val());
+            const versionObj = settings.versionsJson.versions.find(e => e.version == version);
+
+            if (versionObj && settings.productFirmware) {
+                for(const v of settings.productFirmware) {
+                    if (v.title == versionObj.title) {
+                        settings.uploadedToProduct = true;
+                    }
+                }    
+            }
+
+            $(uploadedToProductElem).html(settings.uploadedToProduct ? '&check;' : '&nbsp;');
+
+            $(apiHelperUploadFirmwareElem).prop('disabled', settings.uploadedToProduct);
+        };
+
         const loadVersionInfo = function() {
             const version = parseInt($(apiHelperEdgeVersionSelectElem).val());
-            const obj = settings.versionsJson.versions.find(e => e.version == version);
-            console.log('obj', obj);
+            const versionObj = settings.versionsJson.versions.find(e => e.version == version);
 
-            $(edgeTargetVersionElem).text(obj.target);
-            if (obj.schemaVersion) {
-                $(edgeSchemaVersionElem).text(obj.schemaVersion.toString());
+            $(edgeTargetVersionElem).text(versionObj.target);
+            if (versionObj.schemaVersion) {
+                $(edgeSchemaVersionElem).text(versionObj.schemaVersion.toString());
+                $(apiHelperConfigSchemaSetElem).prop('disabled', false);
             }
             else {
                 $(edgeSchemaVersionElem).text('Not available');
+                $(apiHelperConfigSchemaSetElem).prop('disabled', true);
             }
-            if (obj.releaseNotes) {
-                $(edgeReleaseNotesElem).text(obj.releaseNotes);
+
+            if (versionObj.releaseNotes) {
+                var converter = new showdown.Converter();
+                
+                converter.setFlavor('github');
+
+                let notes = versionObj.releaseNotes;
+                notes = notes.replace(/(#+) /g, '###$1 ');
+
+                $(edgeReleaseNotesElem).html(converter.makeHtml(notes));
             }
+            else {
+                $(edgeReleaseNotesElem).html('');
+            }
+
+            updateUploadedProduct();
         }
         $(apiHelperEdgeVersionSelectElem).on('change', loadVersionInfo);
 
@@ -111,6 +146,8 @@ $(document).ready(function() {
             if (!productId) {
                 return;
             }
+
+
             $(thisPartial).find('.hasProduct').show();
 
 
@@ -122,6 +159,8 @@ $(document).ready(function() {
             $(productFirmwareTableElem).hide();
             $(noProductFirmwareElem).hide();
             $(productFirmwareVersionsElem).empty();
+
+            settings.productFirmware = firmwareRes.body;
 
             console.log('firmwareRes', firmwareRes);
             if (firmwareRes.body.length == 0) {
@@ -162,7 +201,9 @@ $(document).ready(function() {
                 }
             }
 
-            
+            updateUploadedProduct();
+
+
 
         });
 
