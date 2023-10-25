@@ -3,6 +3,7 @@ title: Monitor Edge firmware
 columns: two
 layout: commonTwo.hbs
 description: Monitor Edge firmware
+includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, showdown, zip]
 ---
 
 # {{title}}
@@ -28,11 +29,13 @@ The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-ap
 This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/).
 {{note op="end"}}
 
+{{> sso}}
+
 ## Configuration schema
 
 If you are using the Monitor One, you need to upload a configuration schema to change the console panels from 
 the standard Tracker One options to Monitor One options. You can do this with a couple clicks in the 
-[configuration schema tool](/tools/cloud-tools/configuration-schema/).
+[configuration schema tool](/tools/cloud-tools/configuration-schema/) or the off-the-shelf release tool, below.
 
 For an explanation of the console settings, see [Monitor One settings](/getting-started/console/console/#monitor-one-settings).
 
@@ -41,8 +44,15 @@ For an explanation of the console settings, see [Monitor One settings](/getting-
 
 Your Monitor One device is pre-configured with Monitor Edge firmware that you can use out of the box with no flashing of firmware necessary.
 
-Configuration can be done online, through the Particle [console](https://console.particle.io/). 
-To learn about the console, see [Tracker settings](/getting-started/console/console/#asset-tracker-features).
+When new versions are released, you generally go through several steps that can be accomplished with the tool below:
+
+- Select the product you want to work with. Make sure you select a Monitor One product, not an existing Tracker One product.
+- Select the Edge version from the **Edge version** popup menu. The default is the newest version, which is recommended.
+- Download the Edge version you wish to upgrade to and upload this to your product using the **Upload Edge firmware to product** button.
+- Update the configuration schema using the **Set Configuration Schema** button.
+- The upload tool only adds the firmware to the product; you will still need to release the firmware to one or more devices from the console.
+
+{{> edge-firmware options="monitor"}}
 
 
 

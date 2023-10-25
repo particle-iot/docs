@@ -3,7 +3,7 @@ title: Tracker Edge firmware
 columns: two
 layout: commonTwo.hbs
 description: Particle Tracker Edge Firmware
-includeDefinitions: [api-helper, api-helper-tracker, zip]
+includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, showdown, zip]
 ---
 
 # {{title}}
@@ -20,10 +20,24 @@ The [Tracker Edge Firmware API Reference](/firmware/tracker-edge/tracker-edge-ap
 This page is for the Tracker One. If you are using the Monitor One, see [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/).
 {{note op="end"}}
 
+{{> sso}}
 
 ## Using off-the-shelf releases
 
 Your Tracker device is pre-configured with Tracker Edge firmware that you can use out of the box with no flashing of firmware necessary.
+
+When new versions are released, you generally go through several steps that can be accomplished with the tool below:
+
+- Select the product you want to work with. Make sure you select a Tracker One product, not a Monitor One product.
+- Select the Edge version from the **Edge version** popup menu. The default is the newest version, which is recommended.
+- Download the Edge version you wish to upgrade to and upload this to your product using the **Upload Edge firmware to product** button.
+- Update the configuration schema using the **Set Configuration Schema** button.
+- The upload tool only adds the firmware to the product; you will still need to release the firmware to one or more devices from the console.
+
+{{> edge-firmware options="tracker"}}
+
+- To learn about the console settings, see [Tracker settings](/getting-started/console/console/#asset-tracker-features).
+
 
 {{collapse op="start" label="Show prior behavior"}}
 Before April 2023, when you created a new product for the Tracker (platform 26), the default Tracker Edge firmware was automatically

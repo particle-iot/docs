@@ -1521,9 +1521,8 @@ async function runEdgeVersion(options) {
             },
         */
 
-        indexJson.versions.push(templateParam);
 
-        // TODO: Check for a schema update
+        // Check for a schema update
         {
             const zipData = fs.readFileSync(zipFile); 
 
@@ -1540,22 +1539,23 @@ async function runEdgeVersion(options) {
                 // console.log('schemaData', schemaData);
                 const schemaJson = JSON.parse(schemaData);
 
-                let templateParam = {};
+                let templateParam2 = {};
 
-                templateParam.schemaId = schemaJson['$id'];
-                templateParam.schemaTag = templateParam.schemaId.match(/\/(v[0-9]+)/);
-                templateParam.schemaVersion = parseInt(templateParam.schemaTag[1].substring(1));
+                templateParam2.schemaId = schemaJson['$id'];
+                templateParam2.schemaTag = templateParam2.schemaId.match(/\/(v[0-9]+)/);
+                templateParam2.schemaVersion = templateParam.schemaVersion = parseInt(templateParam2.schemaTag[1].substring(1));
 
-                templateParam.filename = templateParam.zip = Handlebars.compile(options.schemaName)(templateParam);
+                templateParam2.filename = templateParam.filename = templateParam2.zip = Handlebars.compile(options.schemaName)(templateParam2);
 
-                const schemaPath = path.join(trackerDir, templateParam.filename);
+                const schemaPath = path.join(trackerDir, templateParam2.filename);
                 if (!fs.existsSync()) {
-                    console.log('saving config schema ' + templateParam.filename);
+                    console.log('saving config schema ' + templateParam2.filename);
                     fs.writeFileSync(schemaPath, schemaData);                    
                 }
             }
         }
 
+        indexJson.versions.push(templateParam);
     }   
     
     fs.writeFileSync(indexJsonFile, JSON.stringify(indexJson, null, 4));
