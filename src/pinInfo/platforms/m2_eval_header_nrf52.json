@@ -1,6 +1,6 @@
 {
-    "id": 25,
-    "name": "B5xx SoM",
+    "id": 0,
+    "name": "M.2 SoM eval board header, nRF52 SoM",
     "pins": [
         {
             "num": 1,
@@ -8,100 +8,75 @@
             "desc": "Ground.",
             "isPower": true,
             "morePins": [
-                3,
-                5,
-                7,
-                9,
-                15,
-                21,
-                56
+                3, 5, 7, 9, 23, 33, 42, 59
             ],
-            "somPin": "GND"
+            "somPin": "GND",
+            "M2Pin": 1
         },
         {
             "num": 2,
             "name": "VCC",
-            "desc": "System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power.",
+            "desc": "System power, 3.6V - 4.3V for cellular modem",
             "isPower": true,
             "morePins": [
                 4,
-                6,
-                8
+                6
             ],
-            "somPin": "VCC"
+            "somPin": "VCC",
+            "M2Pin": 2
         },
         {
-            "num": 10,
+            "num": 8,
             "name": "3V3",
-            "desc": "System power in, supply a fixed 3.0-3.6v power.",
+            "desc": "System power, 3.3V at 500 mA for MCU",
             "isPower": true,
             "morePins": [
                 12
             ],
-            "somPin": "3V3"
+            "somPin": "3V3",
+            "M2Pin": 8
+        },
+        {
+            "num": 10,
+            "name": "SOM10",
+            "desc": "Not currently used, leave unconnected.",
+            "somPin": "SOM10",
+            "M2Pin": 14
         },
         {
             "num": 11,
-            "name": "USBDATA+",
-            "desc": "USB Data+",
-            "is5VTolerant": true,
-            "isUSB": true,
-            "somPin": "USB D+"
-        },
-        {
-            "num": 13,
-            "name": "USBDATA-",
-            "desc": "USB Data-",
-            "is5VTolerant": true,
-            "isUSB": true,
-            "somPin": "USB D-"
-        },
-        {
-            "num": 14,
-            "name": "NC",
-            "isNC": true,
-            "morePins": [
-                18,
-                51,
-                53,
-                55,
-                57,
-                58,
-                59,
-                60
-            ],
-            "somPin": "RESERVED"
-        },
-        {
-            "num": 16,
-            "name": "VUSB",
-            "desc": "USB VUSB power pin",
-            "is5VTolerant": true,
-            "isUSB": true,
-            "somPin": "VUSB"
-        },
-        {
-            "num": 17,
-            "name": "NFC1",
-            "desc": "NFC Antenna 1",
+            "name": "SOM6",
+            "altName": "NFC1",
+            "desc": "NFC Antenna 1. This connection is in parallel to the U.FL connector on the eval board.",
             "hardwarePin": "P0.09",
             "is5VTolerant": false,
             "isNFC": true,
-            "somPin": "SOM3"
+            "somPin": "SOM3",
+            "M2Pin": 17
         },
         {
-            "num": 19,
-            "name": "NFC2",
-            "desc": "NFC Antenna 2",
+            "num": 12,
+            "name": "SOM11",
+            "desc": "Not currently used, leave unconnected.",
+            "somPin": "SOM11",
+            "M2Pin": 18
+        },
+        {
+            "num": 13,
+            "name": "SOM7",
+            "altName": "NFC2",
+            "desc": "NFC Antenna 2. This connection is in parallel to the U.FL connector on the eval board. NFC2 is the center pin.",
             "hardwarePin": "P0.10",
             "is5VTolerant": false,
             "isNFC": true,
-            "somPin": "SOM4"
+            "somPin": "SOM4",
+            "M2Pin": 19
         },
         {
-            "num": 20,
-            "name": "D1",
-            "desc": "I2C SCL, GPIO",
+            "num": 14,
+            "name": "SCL",
+            "altName": "D1",
+            "desc": "I2C SCL, GPIO, PMIC and fuel fauge via jumper on J13",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -114,28 +89,11 @@
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "SCL",
-            "tone": false
+            "tone": false,
+            "M2Pin": 20
         },
         {
-            "num": 22,
-            "name": "D0",
-            "desc": "I2C SDA, GPIO",
-            "analogRead": false,
-            "analogWriteDAC": false,
-            "analogWritePWM": false,
-            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-            "digitalRead": true,
-            "digitalWrite": true,
-            "hardwarePin": "P0.26",
-            "i2c": "Wire (SDA)|SDA. Use Wire object.",
-            "internalPull": "13K",
-            "is5VTolerant": false,
-            "isIO": true,
-            "somPin": "SDA",
-            "tone": false
-        },
-        {
-            "num": 23,
+            "num": 15,
             "name": "A0",
             "altName": "D19",
             "desc": "A0 Analog in, GPIO, PWM",
@@ -152,20 +110,31 @@
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "ADC0",
-            "tone": "A0, A1, A6, and A7 must have the same frequency."
+            "tone": "A0, A1, A6, and A7 must have the same frequency.",
+            "M2Pin": 23
         },
         {
-            "num": 32,
-            "name": "MODE",
-            "altName": "D20",
-            "desc": "MODE button, has internal pull-up",
-            "hardwarePin": "P0.25",
+            "num": 16,
+            "name": "SDA",
+            "altName": "D0",
+            "desc": "I2C SDA, GPIO, PMIC and fuel fauge via jumper on J13",
+            "analogRead": false,
+            "analogWriteDAC": false,
+            "analogWritePWM": false,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwarePin": "P0.26",
+            "i2c": "Wire (SDA)|SDA. Use Wire object.",
+            "internalPull": "13K",
             "is5VTolerant": false,
-            "isControl": true,
-            "somPin": "MODE"
-        },
+            "isIO": true,
+            "somPin": "SDA",
+            "tone": false,
+            "M2Pin": 22
+        },        
         {
-            "num": 33,
+            "num": 17,
             "name": "A1",
             "altName": "D18",
             "desc": "A1 Analog in, GPIO, PWM",
@@ -182,18 +151,22 @@
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "ADC1",
-            "tone": "A0, A1, A6, and A7 must have the same frequency."
+            "tone": "A0, A1, A6, and A7 must have the same frequency.",
+            "M2Pin": 33
         },
         {
-            "num": 34,
-            "name": "RST",
-            "desc": "Hardware reset, active low. External pull-up required.",
+            "num": 18,
+            "name": "MODE",
+            "altName": "D20",
+            "desc": "MODE button, has internal pull-up",
+            "hardwarePin": "P0.11",
             "is5VTolerant": false,
             "isControl": true,
-            "somPin": "RESET"
+            "somPin": "MODE",
+            "M2Pin": 32
         },
         {
-            "num": 35,
+            "num": 19,
             "name": "A2",
             "altName": "D17",
             "desc": "A2 Analog in, GPIO",
@@ -209,29 +182,21 @@
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "ADC2",
-            "tone": false
+            "tone": false,
+            "M2Pin": 35
         },
         {
-            "num": 36,
-            "name": "TX",
-            "altName": "D9",
-            "desc": "Serial TX, GPIO",
-            "analogRead": false,
-            "analogWriteDAC": false,
-            "analogWritePWM": false,
-            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-            "digitalRead": true,
-            "digitalWrite": true,
-            "hardwarePin": "P0.06",
-            "internalPull": "13K",
+            "num": 20,
+            "name": "/RESET",
+            "altName": "RST",
+            "desc": "Hardware reset, active low.",
             "is5VTolerant": false,
-            "isIO": true,
-            "serial": "Serial1 TX|TX. Use Serial1 object.",
-            "somPin": "TX",
-            "tone": false
+            "isControl": true,
+            "somPin": "RESET",
+            "M2Pin": 34
         },
         {
-            "num": 37,
+            "num": 21,
             "name": "A3",
             "altName": "D16",
             "desc": "A3 Analog in, GPIO",
@@ -247,10 +212,31 @@
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "ADC3",
-            "tone": false
+            "tone": false,
+            "M2Pin": 37
         },
         {
-            "num": 38,
+            "num": 22,
+            "name": "TX",
+            "altName": "D9",
+            "desc": "Serial TX, GPIO",
+            "analogRead": false,
+            "analogWriteDAC": false,
+            "analogWritePWM": false,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwarePin": "P0.06",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "serial": "Serial1 TX|TX. Use Serial1 object.",
+            "somPin": "TX",
+            "tone": false,
+            "M2Pin": 36
+        },
+        {
+            "num": 24,
             "name": "RX",
             "altName": "D10",
             "desc": "Serial RX, GPIO",
@@ -266,43 +252,14 @@
             "isIO": true,
             "serial": "Serial1 RX|RX. Use Serial1 object.",
             "somPin": "RX",
-            "tone": false
+            "tone": false,
+            "M2Pin": 38
         },
         {
-            "num": 39,
-            "name": "AGND",
-            "desc": "Analog Ground.",
-            "isPower": true,
-            "morePins": [
-                49
-            ],
-            "somPin": "AGND"
-        },
-        {
-            "num": 40,
-            "name": "D3",
-            "desc": "SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL",
-            "analogRead": false,
-            "analogWriteDAC": false,
-            "analogWritePWM": false,
-            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-            "digitalRead": true,
-            "digitalWrite": true,
-            "hardwarePin": "P1.10",
-            "i2c": "Wire1 (SCL)|SCL. Use Wire1 object.",
-            "internalPull": "13K",
-            "is5VTolerant": false,
-            "isIO": true,
-            "serial": "Serial1 CTS|CTS. Use Serial1 object.",
-            "somPin": "RESERVED",
-            "spi": "SPI1 (MOSI)|MOSI. Use SPI1 object.",
-            "tone": false
-        },
-        {
-            "num": 41,
+            "num": 25,
             "name": "A4",
             "altName": "D15",
-            "desc": "A4 Analog in, GPIO",
+            "desc": "A4 Analog in, GPIO, PMIC and fuel gauge interrupt via jumper on J13",
             "analogRead": true,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -315,30 +272,33 @@
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "RESERVED",
-            "tone": false
+            "tone": false,
+            "M2Pin": 41
         },
         {
-            "num": 42,
-            "name": "D2",
-            "desc": "SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA",
+            "num": 26,
+            "name": "CTS",
+            "altName": "D3",
+            "desc": "SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL, SD card SPI SD_MO via jumper J12",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": false,
             "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
             "digitalRead": true,
             "digitalWrite": true,
-            "hardwarePin": "P1.02",
-            "i2c": "Wire1 (SDA)|SDA. Use Wire1 object.",
+            "hardwarePin": "P1.01",
+            "i2c": "Wire1 (SCL)|SCL. Use Wire1 object.",
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
-            "serial": "Serial1 RTS|RTS. Use Serial1 object.",
+            "serial": "Serial1 CTS|CTS. Use Serial1 object.",
             "somPin": "RESERVED",
-            "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
-            "tone": false
+            "spi": "SPI1 (MOSI)|MOSI. Use SPI1 object.",
+            "tone": false,
+            "M2Pin": 40
         },
         {
-            "num": 43,
+            "num": 27,
             "name": "A5",
             "altName": "D14",
             "desc": "A5 Analog in, GPIO",
@@ -354,18 +314,33 @@
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "RESERVED",
-            "tone": false
+            "tone": false,
+            "M2Pin": 43
         },
         {
-            "num": 44,
-            "name": "CELL USBD+",
-            "desc": "Cellular Modem USB Data+",
-            "is5VTolerant": true,
-            "isUSB": true,
-            "somPin": "SOM0"
+            "num": 28,
+            "name": "RTS",
+            "altName": "D2",
+            "desc": "SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA, SD card SPI SD_CK via jumper J12",
+            "analogRead": false,
+            "analogWriteDAC": false,
+            "analogWritePWM": false,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwarePin": "P1.02",
+            "i2c": "Wire1 (SDA)|SDA. Use Wire1 object.",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "serial": "Serial1 RTS|RTS. Use Serial1 object.",
+            "somPin": "RESERVED",
+            "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
+            "tone": false,
+            "M2Pin": 42
         },
         {
-            "num": 45,
+            "num": 29,
             "name": "A6",
             "desc": "A6 Analog in, PWM, GPIO",
             "analogRead": true,
@@ -381,18 +356,21 @@
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "RESERVED",
-            "tone": "A0, A1, A6, and A7 must have the same frequency."
+            "tone": "A0, A1, A6, and A7 must have the same frequency.",
+            "M2Pin": 45
         },
         {
-            "num": 46,
-            "name": "CELL USBD-",
-            "desc": "Cellular Modem USB Data-",
+            "num": 30,
+            "name": "SOM0",
+            "altName": "CELL USBD+",
+            "desc": "Cellular Modem USB Data+. Also connected to CELLULAR_USB micro B connector with jumper on J13.",
             "is5VTolerant": true,
             "isUSB": true,
-            "somPin": "SOM1"
+            "somPin": "SOM0",
+            "M2Pin": 44
         },
         {
-            "num": 47,
+            "num": 31,
             "name": "A7",
             "desc": "A7 Analog in, GPIO, Ethernet Reset",
             "analogRead": true,
@@ -408,124 +386,24 @@
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "RESERVED",
-            "tone": "A0, A1, A6, and A7 must have the same frequency."
+            "tone": "A0, A1, A6, and A7 must have the same frequency.",
+            "M2Pin": 47
         },
         {
-            "num": 48,
-            "name": "D8",
-            "desc": "GPIO, SPI SS, Ethernet CS",
-            "analogRead": false,
-            "analogWriteDAC": false,
-            "analogWritePWM": false,
-            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-            "digitalRead": true,
-            "digitalWrite": true,
-            "hardwarePin": "P0.07",
-            "internalPull": "13K",
-            "is5VTolerant": false,
-            "isIO": true,
-            "somPin": "CS",
-            "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
-            "tone": false
+            "num": 32,
+            "name": "SOM1",
+            "altName": "CELL USBD-",
+            "desc": "Cellular Modem USB Data-. Also connected to CELLULAR_USB micro B connector with jumper on J13.",
+            "is5VTolerant": true,
+            "isUSB": true,
+            "somPin": "SOM1",
+            "M2Pin": 46
         },
         {
-            "num": 50,
-            "name": "MISO",
-            "altName": "D11",
-            "desc": "SPI MISO, GPIO",
-            "analogRead": false,
-            "analogWriteDAC": false,
-            "analogWritePWM": false,
-            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-            "digitalRead": true,
-            "digitalWrite": true,
-            "hardwarePin": "P1.08",
-            "internalPull": "13K",
-            "is5VTolerant": false,
-            "isIO": true,
-            "somPin": "MISO",
-            "spi": "SPI (MISO)|MISO. Use SPI object.",
-            "tone": false
-        },
-        {
-            "num": 52,
-            "name": "MOSI",
-            "altName": "D12",
-            "desc": "SPI MOSI, GPIO",
-            "analogRead": false,
-            "analogWriteDAC": false,
-            "analogWritePWM": false,
-            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-            "digitalRead": true,
-            "digitalWrite": true,
-            "hardwarePin": "P1.09",
-            "internalPull": "13K",
-            "is5VTolerant": false,
-            "isIO": true,
-            "somPin": "MOSI",
-            "spi": "SPI (MOSI)|MOSI. Use SPI object.",
-            "tone": false
-        },
-        {
-            "num": 54,
-            "name": "SCK",
-            "altName": "D13",
-            "desc": "SPI SCK, GPIO",
-            "analogRead": false,
-            "analogWriteDAC": false,
-            "analogWritePWM": false,
-            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-            "digitalRead": true,
-            "digitalWrite": true,
-            "hardwarePin": "P0.11",
-            "internalPull": "13K",
-            "is5VTolerant": false,
-            "isIO": true,
-            "somPin": "SCK",
-            "spi": "SPI (SCK)|SCK. Use SPI object.",
-            "tone": false
-        },
-        {
-            "num": 61,
-            "name": "RGBR",
-            "desc": "RGB LED Red",
-            "hardwarePin": "P0.16",
-            "hardwareTimer": "PWM0",
-            "is5VTolerant": false,
-            "isLED": true,
-            "somPin": "RED"
-        },
-        {
-            "num": 62,
-            "name": "D22",
-            "desc": "GPIO, Ethernet INT",
-            "analogRead": false,
-            "analogWriteDAC": false,
-            "analogWritePWM": false,
-            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-            "digitalRead": true,
-            "digitalWrite": true,
-            "hardwarePin": "P1.01",
-            "internalPull": "13K",
-            "is5VTolerant": false,
-            "isIO": true,
-            "somPin": "GPIO0",
-            "tone": false
-        },
-        {
-            "num": 63,
-            "name": "RGBG",
-            "desc": "RGB LED Green",
-            "hardwarePin": "P0.15",
-            "hardwareTimer": "PWM0",
-            "is5VTolerant": false,
-            "isLED": true,
-            "somPin": "GREEN"
-        },
-        {
-            "num": 64,
-            "name": "D23",
-            "desc": "GPIO",
+            "num": 34,
+            "name": "CS",
+            "altName": "D8",
+            "desc": "GPIO, SPI SS, Ethernet CS via jumper on J13",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": false,
@@ -536,144 +414,327 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
-            "somPin": "GPIO1",
-            "tone": false
+            "somPin": "CS",
+            "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
+            "tone": false,
+            "M2Pin": 48
         },
         {
-            "num": 65,
-            "name": "RGBB",
-            "desc": "RGB LED Blue",
+            "num": 35,
+            "name": "SOM14",
+            "desc": "M.2 pin 51. Not currently used, leave unconnected.",
+            "somPin": "SOM14",
+            "M2Pin": 51
+        },
+        {
+            "num": 36,
+            "name": "MISO",
+            "altName": "D11",
+            "desc": "SPI MISO, GPIO, Ethernet via jumper on J13",
+            "analogRead": false,
+            "analogWriteDAC": false,
+            "analogWritePWM": false,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwarePin": "P1.14",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "somPin": "MISO",
+            "spi": "SPI (MISO)|MISO. Use SPI object.",
+            "tone": false,
+            "M2Pin": 50
+        },
+        {
+            "num": 37,
+            "name": "SOM15",
+            "desc": "M.2 pin 53. Not currently used, leave unconnected.",
+            "somPin": "SOM15",
+            "M2Pin": 53
+        },
+        {
+            "num": 38,
+            "name": "MOSI",
+            "altName": "D12",
+            "desc": "SPI MOSI, GPIO, Ethernet via jumper on J13",
+            "analogRead": false,
+            "analogWriteDAC": false,
+            "analogWritePWM": false,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwarePin": "P1.13",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "somPin": "MOSI",
+            "spi": "SPI (MOSI)|MOSI. Use SPI object.",
+            "tone": false,
+            "M2Pin": 52
+        },
+        {
+            "num": 39,
+            "name": "SOM16",
+            "desc": "M.2 pin 55. Not currently used, leave unconnected.",
+            "somPin": "SOM16",
+            "M2Pin": 55
+        },
+        {
+            "num": 40,
+            "name": "SCK",
+            "altName": "D13",
+            "desc": "SPI SCK, GPIO, Ethernet via jumper on J13",
+            "analogRead": false,
+            "analogWriteDAC": false,
+            "analogWritePWM": false,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwarePin": "P1.15",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "somPin": "SCK",
+            "spi": "SPI (SCK)|SCK. Use SPI object.",
+            "tone": false,
+            "M2Pin": 54
+        },
+        {
+            "num": 41,
+            "name": "SOM17",
+            "desc": "M.2 pin 57. Not currently used, leave unconnected.",
+            "somPin": "SOM17",
+            "M2Pin": 57
+        },
+        {
+            "num": 43,
+            "name": "SOM18",
+            "desc": "M.2 pin 59. Not currently used, leave unconnected.",
+            "somPin": "SOM18",
+            "M2Pin": 59
+        },
+        {
+            "num": 44,
+            "name": "SOM12",
+            "desc": "M.2 pin 58. Not currently used, leave unconnected.",
+            "somPin": "SOM12",
+            "M2Pin": 58
+        },
+        {
+            "num": 45,
+            "name": "R",
+            "altName": "RGBR",
+            "desc": "RGB LED Red",
+            "hardwarePin": "P0.13",
+            "hardwareTimer": "PWM0",
+            "is5VTolerant": false,
+            "isLED": true,
+            "somPin": "RED",
+            "M2Pin": 61
+        },
+        {
+            "num": 46,
+            "name": "SOM13",
+            "desc": "M.2 pin 60. Not currently used, leave unconnected.",
+            "somPin": "SOM13",
+            "M2Pin": 60
+        },
+        {
+            "num": 47,
+            "name": "G",
+            "altName": "RGBG",
+            "desc": "RGB LED Green",
             "hardwarePin": "P0.14",
             "hardwareTimer": "PWM0",
             "is5VTolerant": false,
             "isLED": true,
-            "somPin": "BLUE"
+            "somPin": "GREEN",
+            "M2Pin": 63
         },
         {
-            "num": 66,
-            "name": "D4",
-            "desc": "SPI1 MISO, PWM, GPIO",
+            "num": 48,
+            "name": "GPIO0",
+            "altName": "D22",
+            "desc": "GPIO, Ethernet INT via jumper on J13",
+            "analogRead": false,
+            "analogWriteDAC": false,
+            "analogWritePWM": false,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwarePin": "P0.24",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "somPin": "GPIO0",
+            "tone": false,
+            "M2Pin": 62
+        },
+        {
+            "num": 49,
+            "name": "B",
+            "altName": "RGBB",
+            "desc": "RGB LED Blue",
+            "hardwarePin": "P0.15",
+            "hardwareTimer": "PWM0",
+            "is5VTolerant": false,
+            "isLED": true,
+            "somPin": "BLUE",
+            "M2Pin": 65
+        },
+        {
+            "num": 50,
+            "name": "GPIO1",
+            "altName": "D23",
+            "desc": "GPIO",
+            "analogRead": false,
+            "analogWriteDAC": false,
+            "analogWritePWM": false,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwarePin": "P1.09",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "somPin": "GPIO1",
+            "tone": false,
+            "M2Pin": 64
+        },
+        {
+            "num": 51,
+            "name": "SOM5",
+            "altName": "SIM_VCC",
+            "desc": "Leave unconnected. External SIM support is not available on B SoM.",
+            "is5VTolerant": false,
+            "somPin": "SOM5",
+            "M2Pin": 67
+        },
+        {
+            "num": 52,
+            "name": "PWM0",
+            "altName": "D4",
+            "desc": "SPI1 MISO, PWM, GPIO, SD card SPI SD_MI via jumper J12",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": true,
             "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
             "digitalRead": true,
             "digitalWrite": true,
-            "hardwarePin": "P0.12",
+            "hardwarePin": "P1.08",
             "hardwareTimer": "PWM1",
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "PWM0",
             "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
-            "tone": "D4, D5, and D6 must have the same frequency."
+            "tone": "D4, D5, and D6 must have the same frequency.",
+            "M2Pin": 66
         },
         {
-            "num": 67,
-            "name": "SIM_VCC",
-            "desc": "Leave unconnected, 1.8V/3V SIM Supply Output from R410M.",
+            "num": 53,
+            "name": "SOM6",
+            "altName": "SIM_RST",
+            "desc": "Leave unconnected. External SIM support is not available on B SoM.",
             "is5VTolerant": false,
-            "somPin": "SOM5"
+            "somPin": "SOM6",
+            "M2Pin": 69
         },
         {
-            "num": 68,
-            "name": "D5",
-            "desc": "PWM, GPIO",
+            "num": 54,
+            "name": "PWM1",
+            "altName": "D5",
+            "desc": "PWM, GPIO, SD card SPI SD_CS via jumper J12",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": true,
             "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
             "digitalRead": true,
             "digitalWrite": true,
-            "hardwarePin": "P0.24",
+            "hardwarePin": "P1.10",
             "hardwareTimer": "PWM1",
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "PWM1",
-            "tone": "D4, D5, and D6 must have the same frequency."
+            "tone": "D4, D5, and D6 must have the same frequency.",
+            "M2Pin": 68
         },
         {
-            "num": 69,
-            "name": "SIM_RST",
-            "desc": "Leave unconnected, 1.8V/3V SIM Reset Output from R410M.",
+            "num": 55,
+            "name": "SOM7",
+            "altName": "SIM_CLK",
+            "desc": "Leave unconnected, 1.8V/3V SIM Clock Output from R410M.",
             "is5VTolerant": false,
-            "somPin": "SOM6"
+            "somPin": "SOM7",
+            "M2Pin": 71
         },
         {
-            "num": 70,
-            "name": "D6",
-            "desc": "PWM, GPIO",
+            "num": 56,
+            "name": "PWM2",
+            "altName": "D6",
+            "desc": "PWM, GPIO, SD card SPI SD_DET via jumper J12",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": true,
             "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
             "digitalRead": true,
             "digitalWrite": true,
-            "hardwarePin": "P1.04",
+            "hardwarePin": "P1.11",
             "hardwareTimer": "PWM1",
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "PWM2",
-            "tone": "D4, D5, and D6 must have the same frequency."
+            "tone": "D4, D5, and D6 must have the same frequency.",
+            "M2Pin": 70
         },
         {
-            "num": 71,
-            "name": "SIM_CLK",
-            "desc": "Leave unconnected, 1.8V/3V SIM Clock Output from R410M.",
+            "num": 57,
+            "name": "SOM8",
+            "altName": "SIM_DATA",
+            "desc": "Leave unconnected. External SIM support is not available on B SoM.",
             "is5VTolerant": false,
-            "somPin": "SOM7"
+            "somPin": "SOM8",
+            "M2Pin": 73
         },
         {
-            "num": 72,
-            "name": "D7",
-            "desc": "PWM, GPIO",
+            "num": 58,
+            "name": "PWM3",
+            "altName": "D7",
+            "desc": "PWM, GPIO, Blue LED via USER_D7 jumper J12",
             "analogRead": false,
             "analogWriteDAC": false,
             "analogWritePWM": "PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency.",
             "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
             "digitalRead": true,
             "digitalWrite": true,
-            "hardwarePin": "P0.13",
+            "hardwarePin": "P1.12",
             "hardwareTimer": "PWM0",
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
             "somPin": "PWM3",
-            "tone": false
+            "tone": false,
+            "M2Pin": 72
         },
         {
-            "num": 73,
-            "name": "SIM_DATA",
-            "desc": "Leave unconnected, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up.",
-            "is5VTolerant": false,
-            "somPin": "SOM8"
-        },
-        {
-            "num": 74,
-            "name": "CELL VBUS",
-            "desc": "USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.",
-            "is5VTolerant": true,
-            "somPin": "SOM2"
-        },
-        {
-            "num": 75,
-            "name": "RI",
-            "desc": "Ring Indicator for cellular modem",
-            "is5VTolerant": false,
-            "somPin": "SOM9"
+            "num": 59,
+            "name": "SOM9",
+            "desc": "M.2 pin 75. Not currently used, leave unconnected.",
+            "somPin": "SOM10",
+            "M2Pin": 75
         }
+
     ],
     "diagram": {
         "columns": [
             "num",
             "name",
-            "somPin",
             [
                 "isPower",
                 "hardwareADC",
-                "jtag",
                 "i2c"
             ],
             [
@@ -685,22 +746,10 @@
                 "hardwareTimer"
             ],
             [
-                "dac",
-                "serial",
-                "i2s"
+                "serial"
             ],
             "hardwarePin"
         ]
     },
-    "ignorePins": [
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31
-    ],
     "mcu": "nRF52840"
 }

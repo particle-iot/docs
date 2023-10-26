@@ -58,7 +58,6 @@
             "num": 12,
             "name": "TSOM_RESET",
             "desc": "RESET button (active low)",
-            "hardwarePin": "P0.08",
             "is5VTolerant": false,
             "isControl": true,
             "somPin": 33
@@ -137,7 +136,7 @@
             "digitalRead": true,
             "digitalWrite": true,
             "hardwareADC": "ADC7",
-            "hardwarePin": "P0.29",
+            "hardwarePin": "P0.31",
             "hardwareTimer": "PWM1",
             "internalPull": "13K",
             "is5VTolerant": false,

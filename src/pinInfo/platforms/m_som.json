@@ -394,7 +394,7 @@
             "digitalRead": true,
             "digitalWrite": true,
             "hardwareADC": "ADC_3",
-            "hardwarePin": "PB[3]",
+            "hardwarePin": "PB[7]",
             "internalPull": "???",
             "is5VTolerant": false,
             "isIO": true,
@@ -815,6 +815,9 @@
             "hardwarePin"
         ]
     },
+    "ignoreHardwarePin": [
+        "PB[3]"
+    ],
     "ignorePins": [
         24,
         25,

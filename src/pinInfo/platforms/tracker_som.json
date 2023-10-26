@@ -216,7 +216,6 @@
             "num": 33,
             "name": "RESET",
             "desc": "RESET button, does not require pull-up, GND resets.",
-            "hardwarePin": "P0.08",
             "is5VTolerant": false,
             "isControl": true
         },
@@ -291,7 +290,7 @@
             "digitalRead": true,
             "digitalWrite": true,
             "hardwareADC": "ADC7",
-            "hardwarePin": "P0.29",
+            "hardwarePin": "P0.31",
             "hardwareTimer": "PWM1",
             "internalPull": "13K",
             "is5VTolerant": false,

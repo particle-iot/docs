@@ -327,7 +327,6 @@
           "num": 12,
           "name": "TSOM_RESET",
           "desc": "RESET button (active low)",
-          "hardwarePin": "P0.08",
           "is5VTolerant": false,
           "isControl": true,
           "somPin": 33
@@ -406,7 +405,7 @@
           "digitalRead": true,
           "digitalWrite": true,
           "hardwareADC": "ADC7",
-          "hardwarePin": "P0.29",
+          "hardwarePin": "P0.31",
           "hardwareTimer": "PWM1",
           "internalPull": "13K",
           "is5VTolerant": false,
@@ -7906,7 +7905,7 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "digitalRead": true,
           "digitalWrite": true,
-          "hardwarePin": "P1.01",
+          "hardwarePin": "P1.10",
           "i2c": "Wire1 (SCL)|SCL. Use Wire1 object.",
           "internalPull": "13K",
           "is5VTolerant": false,
@@ -8540,7 +8539,6 @@
           "num": 33,
           "name": "RESET",
           "desc": "RESET button, does not require pull-up, GND resets.",
-          "hardwarePin": "P0.08",
           "is5VTolerant": false,
           "isControl": true
         },
@@ -8615,7 +8613,7 @@
           "digitalRead": true,
           "digitalWrite": true,
           "hardwareADC": "ADC7",
-          "hardwarePin": "P0.29",
+          "hardwarePin": "P0.31",
           "hardwareTimer": "PWM1",
           "internalPull": "13K",
           "is5VTolerant": false,
@@ -9923,7 +9921,7 @@
           "digitalRead": true,
           "digitalWrite": true,
           "hardwareADC": "ADC_3",
-          "hardwarePin": "PB[3]",
+          "hardwarePin": "PB[7]",
           "internalPull": "???",
           "is5VTolerant": false,
           "isIO": true,
@@ -10344,6 +10342,9 @@
           "hardwarePin"
         ]
       },
+      "ignoreHardwarePin": [
+        "PB[3]"
+      ],
       "ignorePins": [
         24,
         25,

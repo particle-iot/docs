@@ -43,6 +43,7 @@ function verifyPinInfo(dir) {
                         baseName: (lastDotIndex2 > 0) ? dirEntry2.name.substring(0, lastDotIndex2) : dirEntry2.name,
                         hasPinNumbers: false,
                         pinsSeen: [],
+                        hardwarePins: [],
                     };
 
                     for(const topKey of topKeys) {
@@ -53,6 +54,9 @@ function verifyPinInfo(dir) {
                                 info.hasPinNumbers = typeof obj.pins[0].num != 'undefined';
 
                                 for(const innerObj of obj.pins) {
+                                    if (innerObj.hardwarePin) {
+                                        info.hardwarePins.push(innerObj.hardwarePin);
+                                    }
                                     // Clean up inner object
                                     let newInnerObj = {};
 
@@ -117,7 +121,7 @@ function verifyPinInfo(dir) {
                         newObj[key] = obj[key];
                     }
 
-                    // TODO: Add validation code here
+                    // Check for duplicate or missed pin numbers
                     if (info.pinsSeen.length) {
                         info.pinsSeen.sort(function(a, b) {
                             return a - b;
@@ -147,6 +151,17 @@ function verifyPinInfo(dir) {
                     }
                     // console.log(info.baseName, info);
                     // Check for required keys in pins like either num or name, plus desc?
+
+                    // Check for duplicate hardware pins
+                    info.hardwarePins.sort();
+                    for(let ii = 1; ii < info.hardwarePins.length; ii++) {
+                        if (info.hardwarePins[ii - 1] == info.hardwarePins[ii]) {
+                            if (!obj.ignoreHardwarePin || !obj.ignoreHardwarePin.includes(info.hardwarePins[ii])) {
+                                console.log('duplicate hardware pin ' + info.hardwarePins[ii] + ' in ' + info.baseName);
+                            }
+                        }
+                    }
+
 
                     // console.log(dirEntry.name, newObj);
 
