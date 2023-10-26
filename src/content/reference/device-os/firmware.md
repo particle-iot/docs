@@ -82,7 +82,18 @@ Additionally, some older Boron and B Series SoM with a SARA-R410M-02B modem (LTE
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 Returns a success value - `true` when the variable was registered.
 
-Particle.variable registers a variable, so its value can be retrieved from the cloud in the future. You only call Particle.variable once per variable, typically passing in a global variable. You can change the value of the underlying global variable as often as you want; the value is only retrieved when requested, so simply changing the global variable does not use any data. You do not call Particle.variable when you change the value.
+Particle.variable registers a variable, so its value can be retrieved from the cloud in the future. You only call Particle.variable once per variable, and the variable is typically a global variable. You can change the value of the underlying global variable as often as you want; the value is only retrieved when requested, so simply changing the global variable does not use any data operations. Each request of the value from the cloud is one data operation. You do not call Particle.variable when you change the value.
+
+The variable must be one of:
+
+- A global variable
+- A `static` local variable within a function
+- A class member (with the class allocated as a global or using `new`, not stack allocated)
+- A static class member (global, heap, or stack allocated)
+- Heap allocated storage (`new`, `malloc`, etc.)
+
+The underlying variable must not be a local variable allocated on the stack within a function, such as setup(), as the storage for it will go away after the function exits and the variable will not work properly.
+
 
 ```cpp
 // EXAMPLE USAGE

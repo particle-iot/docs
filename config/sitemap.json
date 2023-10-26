@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-10-21",
-            "hash": "e95df05e09b1b04b2949dad277148b59a13ffb3a9102c2e193c432f7d4b4a867"
+            "date": "2023-10-26",
+            "hash": "a1abf8f166b1fefc6f35cba7c28979d688ee66539e23512d3394ca653164a788"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1727,8 +1727,8 @@
             "hash": "880c7db91865e759e2c1ca14d2995ba73ce99a13cb5618b8c8191c74d5cb9b09"
         },
         "reference/device-os/api/cloud-functions/particle-variable.md": {
-            "date": "2023-09-20",
-            "hash": "1fc395f999424a04955a88af60df42ed289938b3a68709ca3f8f795b2fe98fd0"
+            "date": "2023-10-26",
+            "hash": "1a77e1d91a4dbaf05b7332fc1109d07b9b1e13b233e9376e74c05bed4dd5ef9a"
         },
         "reference/device-os/api/cloud-functions/particle-variable-calculated.md": {
             "date": "2023-09-20",
