@@ -189,19 +189,38 @@ function collapseDrag(ev, id) {
 }
 
 function showOverlay(imgPath) {
-	var html = '<img src="' + imgPath + '" onclick="hideOverlay()" class="imageOverlay no-darken" style="cursor:zoom-out"/>';
+	var html = '<img src="' + imgPath + '" class="imageOverlay no-darken" />';
 
-	$('body').keydown(function(ev) {
+
+	$('.imageOverlayCloseIcon').on('click', function() {
 		hideOverlay();
 	});
 
+	$('#imageOverlayContainer').on('click', function() {
+		hideOverlay();
+	});
+
+	$('body').keydown(function(ev) {
+		switch (ev.key) {
+            case 'Esc':
+            case 'Escape':
+				hideOverlay();
+				break;
+
+			default:
+				break;
+		}
+	});
+
 	$('#imageOverlay').html(html);
-	$('#imageOverlay').show();
+	$('#imageOverlayContainer').show();
 }
 
 function hideOverlay() {
+	$('.imageOverlayCloseIcon').off('click');
+	$('#imageOverlayContainer').off('click');
 	$('body').off('keydown');
-	$('#imageOverlay').hide();
+	$('#imageOverlayContainer').hide();
 }
 
 
