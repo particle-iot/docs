@@ -746,6 +746,94 @@ const generatorConfig = require('./generator-config');
         return md;
     };
 
+    // https://stackoverflow.com/questions/6234773/can-i-escape-html-special-chars-in-javascript
+    updater.escapeHtml = function(s) {
+        return s
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    updater.generateHtmlTable = function(options, data) {
+        // options includes options, table headers, etc.
+        // data contains the data as an array of objects. The elements of the array are rows in the table.
+
+        // options.columns is an array of objects that specify columns of the table left to right
+        //   .title 
+        //   .align left(default), center, right
+
+        let md = '<table class="' + (options.tableCssClass || '') + '">\n';
+
+        // Table headers
+        md += '<thead>\n';
+        let line = '';
+        for(const c of options.columns) {
+            let title = c.title;
+            if (!title) {
+                title = c.key.substr(0, 1).toUpperCase() + c.key.substr(1);
+            }            
+            md += '<th>' + updater.escapeHtml(title) + '</th>';
+        }
+        md += '</thead>\n';
+
+    
+
+        // Table data
+        md += '<tbody>\n';
+        for(const d of data) {
+            line = '<tr>';
+            for(const c of options.columns) {
+                let align;
+                switch(c.align || 'left') {
+                    case 'center':
+                        align = 'text-align: center; '
+                        break;
+
+                    case 'right':
+                        align = 'text-align: right; '
+                        break;
+                    
+                    // 'left'
+                    default: 
+                        align = 'text-align: left; '
+                        break;
+                }
+
+                line += '<td class="' + (c.cssClass || '') + '" style="' + align + '">';
+                if (c.checkmark && d[c.key] === true ) {
+                    line += '&check;';
+                }
+                else
+                if (d[c.key]) {
+                    if (c.map && c.map[d[c.key]]) {
+                        line += updater.escapeHtml(c.map[d[c.key]]);
+                        continue;
+                    }
+
+                    if (c.capitalizeValue) {
+                        line += updater.escapeHtml(d[c.key].substr(0, 1).toUpperCase() + d[c.key].substr(1));
+                    }
+                    else {
+                        line += updater.escapeHtml(d[c.key]);
+                    }
+                }
+                else {
+                    line += '&nbsp;';
+                }
+                line += '</td>';
+            }
+            md += line + '</tr>\n';             
+        }
+        md += '</tbody>\n';
+
+        md += '</table>\n';
+
+
+        return md;
+    };
+
     updater.generateVerizonSku = function(options = {}) {
         let tableData = [];
 
@@ -2496,6 +2584,8 @@ const generatorConfig = require('./generator-config');
                 comparisonTags.splice(0, 0, 'num');
             }
 
+            comparisonTags.push('hardwarePin', 'm2Pin');
+
             const pinsExpanded = expandMorePins(platformInfoNew.pins);
             pinsExpanded.sort(function(a, b) {
                 return a.num - b.num;
@@ -2503,17 +2593,19 @@ const generatorConfig = require('./generator-config');
 
             for(const pin of pinsExpanded) {
             
-                md += '#### ' + pin.num + ' ' + pin.name + '\n';
+                md += '\n#### ' + pin.num + ' ' + pin.name + '\n\n';
 
 
                 let tableOptions = {
                     columns: [],
+                    tableCssClass: 'pinDetailTable',
                 };
                 let tableData = [];
 
                 tableOptions.columns.push({
                     key: 'label',
                     title: ' ',
+                    cssClass: 'pinDetailTableLabel',
                 });
                 tableOptions.columns.push({
                     key: 'function',
@@ -2533,7 +2625,7 @@ const generatorConfig = require('./generator-config');
 
                 }    
 
-                md += updater.generateTable(tableOptions, tableData);
+                md += updater.generateHtmlTable(tableOptions, tableData);
                 
             }
         }

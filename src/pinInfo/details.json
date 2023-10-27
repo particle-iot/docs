@@ -227,8 +227,24 @@
         "showInSearch": true
     },
     {
+        "tag": "hardwarePin",
+        "label": "MCU Pin",
+        "columnLabel": "MCU Pin",
+        "searchable": true,
+        "sortable": true,
+        "showInSearch": true
+    },
+    {
+        "tag": "m2Pin",
+        "label": "M.2 connector pin number",
+        "columnLabel": "M.2 Pin",
+        "searchable": true,
+        "sortable": true,
+        "showInSearch": false
+    },
+    {
         "tag": "internalPull",
-        "label": "Internal pull-up or pull-down resistance",
+        "label": "Internal pull resistance",
         "searchable": false,
         "showInSearch": false,
         "ifFalse": "None"

@@ -326,7 +326,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 42K |
+| ∆ | Internal pull resistance | 13K | 42K |
 #### A1
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -339,7 +339,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### A2
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -352,7 +352,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports analogWrite (PWM) | Yes | No |
 | ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 22K |
+| ∆ | Internal pull resistance | 13K | 22K |
 #### A3
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -365,7 +365,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports analogWrite (PWM) | Yes | No |
 | ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### A4
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -378,7 +378,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports analogWrite (PWM) | Yes | No |
 | ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### A5
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -392,7 +392,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes |
 | ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### A5
 | | Added to M SoM |
 | :--- | :--- |
@@ -405,7 +405,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 42K|
+| Internal pull resistance | 42K|
 | SWD interface | SWCLK. 40K pull-down at boot.|
 | Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### A6
@@ -420,7 +420,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | ???|
+| Internal pull resistance | ???|
 | SWD interface | SWCLK. 40K pull-down at boot.|
 | Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### AGND
@@ -460,7 +460,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### D1
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -470,7 +470,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### D2
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -483,7 +483,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | UART serial | RTS. Use Serial1 object. | RTS. Use Serial1 object. |
 | &nbsp; | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### D21
 | | Added to M SoM |
 | :--- | :--- |
@@ -492,7 +492,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
+| Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### D22
 | | Added to M SoM |
 | :--- | :--- |
@@ -501,7 +501,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | ???|
+| Internal pull resistance | ???|
 #### D23
 | | Added to M SoM |
 | :--- | :--- |
@@ -510,7 +510,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | ???|
+| Internal pull resistance | ???|
 #### D24
 | | Added to M SoM |
 | :--- | :--- |
@@ -520,7 +520,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports digitalWrite | Yes|
 | UART serial | TX. Use Serial2 object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 42K|
+| Internal pull resistance | 42K|
 | Signal used at boot | Low at boot triggers ISP flash download|
 #### D25
 | | Added to M SoM |
@@ -531,7 +531,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports digitalWrite | Yes|
 | UART serial | RX. Use Serial2 object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 42K|
+| Internal pull resistance | 42K|
 #### D26
 | | Added to M SoM |
 | :--- | :--- |
@@ -540,7 +540,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | ???|
+| Internal pull resistance | ???|
 #### D27
 | | Added to M SoM |
 | :--- | :--- |
@@ -549,7 +549,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 42K|
+| Internal pull resistance | 42K|
 | SWD interface | SWDIO. 40K pull-up at boot.|
 | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.|
 #### D3
@@ -564,7 +564,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | UART serial | CTS. Use Serial1 object. | CTS. Use Serial1 object. |
 | ∆ | SPI interface | MOSI. Use SPI1 object. | SS. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### D4
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -576,7 +576,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
 | ∆ | SPI interface | MISO. Use SPI1 object. | n/a |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### D5
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -587,7 +587,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### D6
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -598,7 +598,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### D7
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -609,7 +609,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### D8
 | | Added to M SoM |
 | :--- | :--- |
@@ -619,7 +619,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports digitalWrite | Yes|
 | SPI interface | Default SS for SPI.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### EN
 | | Removed from Boron |
 | :--- | :--- |
@@ -652,7 +652,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### MODE
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -662,7 +662,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull-up or pull-down resistance | n/a | ??? |
+| ∆ | Internal pull resistance | n/a | ??? |
 #### MODE
 | | Added to M SoM |
 | :--- | :--- |
@@ -681,7 +681,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### NC
 | | Added to M SoM |
 | :--- | :--- |
@@ -721,7 +721,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MISO. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### SCK
 |   |   | Boron | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -732,7 +732,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### SIM_CLK
 | | Added to M SoM |
 | :--- | :--- |
@@ -766,7 +766,7 @@ The Boron and Argon support NFC Tag mode.
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### USBDATA-
 | | Added to M SoM |
 | :--- | :--- |
@@ -802,7 +802,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports analogWrite (PWM) | Yes | No |
 | ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}

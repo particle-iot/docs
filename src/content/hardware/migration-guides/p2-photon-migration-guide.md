@@ -670,7 +670,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A1
 |   |   | Photon | P2 |
@@ -683,7 +683,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A2
 |   |   | Photon | P2 |
@@ -699,7 +699,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | Supports tone | No | Yes |
 | ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 42K |
+| ∆ | Internal pull resistance | 40K | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A3
 |   |   | Photon | P2 |
@@ -715,7 +715,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | SPI interface | SCK. Use SPI object. | n/a |
 | ∆ | I2C interface | n/a | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 22K |
+| ∆ | Internal pull resistance | 40K | 22K |
 #### A4
 |   |   | Photon | P2 |
 | :--- | :--- | :--- | :--- |
@@ -731,7 +731,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | SPI interface | MISO. Use SPI object. | n/a |
 | ∆ | I2C interface | n/a | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 22K |
+| ∆ | Internal pull resistance | 40K | 22K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
 |   |   | Photon | P2 |
@@ -747,7 +747,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
 | ∆ | SPI interface | MOSI. Use SPI object. | n/a |
 | ∆ | Supports attachInterrupt | No | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 42K |
+| ∆ | Internal pull resistance | 40K | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D0
 |   |   | Photon | P2 |
@@ -763,7 +763,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | Supports tone | Yes | No |
 | ∆ | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | No | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 22K |
+| ∆ | Internal pull resistance | 40K | 22K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D1
 |   |   | Photon | P2 |
@@ -780,7 +780,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
 | ∆ | CAN interface | CAN2_TX | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 22K |
+| ∆ | Internal pull resistance | 40K | 22K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D2
 |   |   | Photon | P2 |
@@ -797,7 +797,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
 | ∆ | CAN interface | CAN2_RX | n/a |
 | ∆ | I2S interface | I2S3_SD | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D3
 |   |   | Photon | P2 |
@@ -812,7 +812,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | UART serial | n/a | CTS. Use Serial2 object. Flow control optional. |
 | &nbsp; | SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
@@ -828,7 +828,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | &nbsp; | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
 | ∆ | I2S interface | I2S3_SCK | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDO. Floating at boot. | n/a |
@@ -844,7 +844,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | &nbsp; | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | I2S interface | I2S3_WS | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
@@ -857,7 +857,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | &nbsp; | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
@@ -871,7 +871,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | Supports digitalRead | Yes. But the on-board LED will light when 3.3V is supplied on this pin as well. | Yes. |
 | ∆ | Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes. On the Photon this is the blue D7 LED. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
 | ∆ | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | &nbsp; | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. |
 | ∆ | Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
@@ -887,7 +887,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports analogRead | Yes|
 | Supports analogWrite (DAC) | Yes|
 | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 #### GND
 |   |   | Photon | P2 |
 | :--- | :--- | :--- | :--- |
@@ -952,7 +952,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | Supports tone | Yes | No |
 | &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 42K |
+| ∆ | Internal pull resistance | 40K | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### S0
 | | Added to P2 |
@@ -968,7 +968,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | UART serial | TX. Use Serial3 object.|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### S1
 | | Added to P2 |
 | :--- | :--- |
@@ -983,7 +983,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | UART serial | RX. Use Serial3 object.|
 | SPI interface | MISO. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### S2
 | | Added to P2 |
 | :--- | :--- |
@@ -996,7 +996,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | UART serial | RTS. Use Serial3 object. Flow control optional.|
 | SPI interface | SCK. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### S3
 | | Added to P2 |
 | :--- | :--- |
@@ -1008,7 +1008,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalWrite | Yes|
 | SPI interface | Default SS for SPI.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### S4
 | | Added to P2 |
 | :--- | :--- |
@@ -1019,7 +1019,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
+| Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### S5
 | | Added to P2 |
 | :--- | :--- |
@@ -1029,7 +1029,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Description | S5 GPIO. (Was P1S5 on P1.)|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode|
+| Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode|
 #### S6
 | | Added to P2 |
 | :--- | :--- |
@@ -1040,7 +1040,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
+| Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### SETUP
 | | Removed from Photon |
 | :--- | :--- |
@@ -1061,7 +1061,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | Supports tone | Yes | No |
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 42K |
+| ∆ | Internal pull resistance | 40K | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | Signal used at boot | n/a | Low at boot triggers ISP flash download |
 #### USBDATA-
@@ -1111,7 +1111,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | ∆ | Supports tone | Yes | No |
 | ∆ | UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 
 

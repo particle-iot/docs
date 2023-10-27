@@ -608,7 +608,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | n/a |
 | ∆ | SPI interface | MISO. Use SPI object. | n/a |
 | ∆ | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | n/a |
+| ∆ | Internal pull resistance | 40K | n/a |
 | ∆ | Input is 5V Tolerant | Yes | n/a |
 #### Module Pin 22 (A3 / NC)
 |   |   | P1 | P2 |
@@ -621,7 +621,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports analogWrite (DAC) | Yes | n/a |
 | ∆ | SPI interface | SCK. Use SPI object. | n/a |
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | n/a |
+| ∆ | Internal pull resistance | 40K | n/a |
 #### Module Pin 23 (A5)
 |   |   | P1 | P2 |
 | :--- | :--- | :--- | :--- |
@@ -635,7 +635,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
 | ∆ | SPI interface | MOSI. Use SPI object. | n/a |
 | ∆ | Supports attachInterrupt | No | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 42K |
+| ∆ | Internal pull resistance | 40K | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 24 (DAC / NC)
 |   |   | P1 | P2 |
@@ -648,7 +648,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports analogRead | Yes | n/a |
 | ∆ | Supports analogWrite (DAC) | Yes | n/a |
 | ∆ | Supports attachInterrupt | Yes. D3, DAC/A6, and P1S3 share the same interrupt handler. | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | n/a |
+| ∆ | Internal pull resistance | 40K | n/a |
 #### Module Pin 25 (GND)
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
@@ -689,7 +689,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports tone | Yes | No |
 | ∆ | UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
 | ∆ | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 31 (RGBB)
 |   |   | P1 | P2 |
@@ -718,7 +718,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports analogWrite (PWM) | Yes | No |
 | ∆ | Supports tone | Yes | No |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
+| ∆ | Internal pull resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### Module Pin 34 (RST)
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
@@ -738,7 +738,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | I2C interface | SCL. Use Wire object. There is a 2.1K hardware pull-up on the P1 module. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
 | ∆ | CAN interface | CAN2_TX | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 22K |
+| ∆ | Internal pull resistance | 40K | 22K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 36 (D0)
 |   |   | P1 | P2 |
@@ -753,7 +753,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports tone | Yes | No |
 | ∆ | I2C interface | SDA. Use Wire object. There is a 2.1K hardware pull-up on the P1 module. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | No | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 22K |
+| ∆ | Internal pull resistance | 40K | 22K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 37 (GND)
 | | Unchanged between P1 and P2 |
@@ -784,7 +784,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | UART serial | n/a | TX. Use Serial3 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 41 (P1S1 / S1)
 |   |   | P1 | P2 |
@@ -800,7 +800,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | UART serial | n/a | RX. Use Serial3 object. |
 | ∆ | SPI interface | n/a | MISO. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. P1S1 and P1S5 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 42 (P1S2 / S2)
 |   |   | P1 | P2 |
@@ -814,7 +814,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | UART serial | n/a | RTS. Use Serial3 object. Flow control optional. |
 | ∆ | SPI interface | n/a | SCK. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 43 (A1)
 |   |   | P1 | P2 |
@@ -826,7 +826,7 @@ The following pins were NC on the P1 but are used on the P2.
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 44 (P1S3 / S3)
 |   |   | P1 | P2 |
@@ -839,7 +839,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports analogRead | Yes | No |
 | ∆ | SPI interface | n/a | Default SS for SPI. |
 | ∆ | Supports attachInterrupt | Yes. D3, DAC/A6, and P1S3 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 45 (D2)
 |   |   | P1 | P2 |
@@ -855,7 +855,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
 | ∆ | CAN interface | CAN2_RX | n/a |
 | ∆ | I2S interface | I2S3_SD | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 46 (MODE)
 |   |   | P1 | P2 |
@@ -873,7 +873,7 @@ The following pins were NC on the P1 but are used on the P2.
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. D7 and P1S4 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
+| ∆ | Internal pull resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 48 (P1S5 / S5)
 |   |   | P1 | P2 |
@@ -885,7 +885,7 @@ The following pins were NC on the P1 but are used on the P2.
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports analogRead | Yes | No |
 | ∆ | Supports attachInterrupt | Yes. P1S1 and P1S5 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode |
+| ∆ | Internal pull resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 49 (A2)
 |   |   | P1 | P2 |
@@ -900,7 +900,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports tone | No | Yes |
 | ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 42K |
+| ∆ | Internal pull resistance | 40K | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 50 (A0)
 |   |   | P1 | P2 |
@@ -912,7 +912,7 @@ The following pins were NC on the P1 but are used on the P2.
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 51 (D3)
 |   |   | P1 | P2 |
@@ -926,7 +926,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | UART serial | n/a | CTS. Use Serial2 object. Flow control optional. |
 | &nbsp; | SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. D3, DAC/A6, and P1S3 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
@@ -941,7 +941,7 @@ The following pins were NC on the P1 but are used on the P2.
 | &nbsp; | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
 | ∆ | I2S interface | I2S3_SCK | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDO. Floating at boot. | n/a |
@@ -956,7 +956,7 @@ The following pins were NC on the P1 but are used on the P2.
 | &nbsp; | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | I2S interface | I2S3_WS | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
@@ -968,7 +968,7 @@ The following pins were NC on the P1 but are used on the P2.
 | &nbsp; | Supports digitalRead | Yes. | Yes. |
 | &nbsp; | Supports digitalWrite | Yes. On the Photon this is the blue D7 LED. | Yes. On the Photon this is the blue D7 LED. |
 | ∆ | Supports attachInterrupt | Yes. D7 and P1S4 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
 | ∆ | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | &nbsp; | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. |
 | ∆ | Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
@@ -980,7 +980,7 @@ The following pins were NC on the P1 but are used on the P2.
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | &nbsp; | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
@@ -1034,7 +1034,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports tone | Yes | No |
 | &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 42K |
+| ∆ | Internal pull resistance | 40K | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 64 (TX)
 |   |   | P1 | P2 |
@@ -1048,7 +1048,7 @@ The following pins were NC on the P1 but are used on the P2.
 | ∆ | Supports tone | Yes | No |
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 42K |
+| ∆ | Internal pull resistance | 40K | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | Signal used at boot | n/a | Low at boot triggers ISP flash download |
 #### Module Pin 65 (GND)
