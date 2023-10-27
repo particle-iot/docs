@@ -102,40 +102,6 @@ For more information about Ethernet, see the application note [AN037 Ethernet](/
 | J5 | SOM_VCC | 
 | J31 | SOM\_3V3 | 
 
-### Expansion connector
-
-| B Series Pin | SoM Pin | | SoM Pin | B Series Pin |
-| :---: | :---: | --- | :---: | :---: |
-|  | SOM9 | | NC |  |
-| SIM_DATA | SOM8 | | PWM3 | D7 |
-| SIM_CLK | SOM7 | | PWM2 | D6 |
-| SIM_RST | SOM6 | | PWM1 | D5 |
-| SIM_VCC | SOM5 | | PWM0 | D4 |
-| | BLUE | | GPIO1 | D23 |
-| | GREEN | | GPIO0 | D22 |
-| | RED | | NC | | 
-| | NC | | NC | | 
-| | NC | | GND | | 
-| | NC | | SCK | D13 | 
-| | NC | | MOSI | D12 | 
-| | NC | | MISO | D11| 
-| | GND | | CS | D8 | 
-| A7/D20 | ADC7 | | NC | | 
-| A6/D21 | ADC6 | | NC | |
-| A5/D14 | ADC5 | | RTS | D2 | 
-| A4/D15 | ADC4 | | CTS | D3 |
-| | GND | | RX | RX/D10 |
-| A3/D16 | ADC3 | | TX | TX/D9 | 
-| A2/D17 | ADC2 | | RESET | |
-| A1/D18 | ADC1 | | MODE | |
-| A0/D19 | ADC0 | | SDA | D0 |
-| | GND | | SCL | D1 |
-| | GND | | NC | | 
-| | GND | | NC | | 
-| | GND | | VCC | | 
-| | GND | | VCC | | 
-| | GND | | VCC | | 
-
 ---
 
 ### PWM Differences
@@ -185,6 +151,8 @@ It requires these jumpers, which should be installed at the factory:
 - SDA to PM\_SDA
 - SCL to PM\_SCL
 
+If you are not using the PMIC be sure to remove the jumper if you need use pin A6 as an analog input or GPIO.
+
 ### Power consumption
 
 We do not recommend using the B Series eval board for power consumption measurements. It's impossible to completely disconnect the Wiznet W5500 Ethernet interface without removing the chip from the board. This will result in significantly higher power consumption measurements than you would have in most applications.
@@ -204,6 +172,8 @@ With the jumpers installed, it will use the secondary SPI (SPI1) and pin D5 as t
 | SD\_MOSI | P1.01 | D3 / CTS / SPI1 MOSI | 40 |
 | SD\_CS | P1.10 | D5 / PWM1 | 68 |
 | SD\_DET | P1.11 | D6 / PWM2 | 70 |
+
+Note that SD\_DET (D6 / PWM2) is an output. It's pulled high with a 47K resistor and driven low by a mechanical switch when a SD card is inserted. Be sure to remove the jumper if you are using D6 as regular GPIO.
 
 ---
 
@@ -246,6 +216,547 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | SCL | P1.15 | D1 | 20 |
 
 
+## Expansion header
+
+{{imageOverlay src="/assets/images/m2eval_nRF52.svg" alt="Expansion header" }}
+
+{{!-- BEGIN do not edit content below, it is automatically generated 3c7bdf46-c2a2-4b04-aeb1-222b761e036b --}}
+
+#### 1 GND
+|   | Details |
+| :--- | :--- |
+| Pin Number | 1 |
+| Pin Name | GND |
+| Description | Ground. |
+#### 2 VCC
+|   | Details |
+| :--- | :--- |
+| Pin Number | 2 |
+| Pin Name | VCC |
+| Description | System power, 3.6V - 4.3V for cellular modem |
+#### 3 GND
+|   | Details |
+| :--- | :--- |
+| Pin Number | 3 |
+| Pin Name | GND |
+| Description | Ground. |
+#### 4 VCC
+|   | Details |
+| :--- | :--- |
+| Pin Number | 4 |
+| Pin Name | VCC |
+| Description | System power, 3.6V - 4.3V for cellular modem |
+#### 5 GND
+|   | Details |
+| :--- | :--- |
+| Pin Number | 5 |
+| Pin Name | GND |
+| Description | Ground. |
+#### 6 VCC
+|   | Details |
+| :--- | :--- |
+| Pin Number | 6 |
+| Pin Name | VCC |
+| Description | System power, 3.6V - 4.3V for cellular modem |
+#### 7 GND
+|   | Details |
+| :--- | :--- |
+| Pin Number | 7 |
+| Pin Name | GND |
+| Description | Ground. |
+#### 8 3V3
+|   | Details |
+| :--- | :--- |
+| Pin Number | 8 |
+| Pin Name | 3V3 |
+| Description | System power, 3.3V at 500 mA for MCU |
+#### 9 GND
+|   | Details |
+| :--- | :--- |
+| Pin Number | 9 |
+| Pin Name | GND |
+| Description | Ground. |
+#### 10 SOM10
+|   | Details |
+| :--- | :--- |
+| Pin Number | 10 |
+| Pin Name | SOM10 |
+| Description | Not currently used, leave unconnected. |
+#### 11 SOM6
+|   | Details |
+| :--- | :--- |
+| Pin Number | 11 |
+| Pin Name | SOM6 |
+| Pin Alternate Name | NFC1 |
+| Description | NFC Antenna 1. This connection is in parallel to the U.FL connector on the eval board. |
+#### 12 SOM11
+|   | Details |
+| :--- | :--- |
+| Pin Number | 12 |
+| Pin Name | SOM11 |
+| Description | Not currently used, leave unconnected. |
+#### 13 SOM7
+|   | Details |
+| :--- | :--- |
+| Pin Number | 13 |
+| Pin Name | SOM7 |
+| Pin Alternate Name | NFC2 |
+| Description | NFC Antenna 2. This connection is in parallel to the U.FL connector on the eval board. NFC2 is the center pin. |
+#### 14 SCL
+|   | Details |
+| :--- | :--- |
+| Pin Number | 14 |
+| Pin Name | SCL |
+| Pin Alternate Name | D1 |
+| Description | I2C SCL, GPIO, PMIC and fuel fauge via jumper on J13 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| I2C interface | SCL. Use Wire object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 15 A0
+|   | Details |
+| :--- | :--- |
+| Pin Number | 15 |
+| Pin Name | A0 |
+| Pin Alternate Name | D19 |
+| Description | A0 Analog in, GPIO, PWM |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogRead | Yes |
+| Supports analogWrite (PWM) | Yes |
+| Supports tone | A0, A1, A6, and A7 must have the same frequency. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 16 SDA
+|   | Details |
+| :--- | :--- |
+| Pin Number | 16 |
+| Pin Name | SDA |
+| Pin Alternate Name | D0 |
+| Description | I2C SDA, GPIO, PMIC and fuel fauge via jumper on J13 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| I2C interface | SDA. Use Wire object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 17 A1
+|   | Details |
+| :--- | :--- |
+| Pin Number | 17 |
+| Pin Name | A1 |
+| Pin Alternate Name | D18 |
+| Description | A1 Analog in, GPIO, PWM |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogRead | Yes |
+| Supports analogWrite (PWM) | Yes |
+| Supports tone | A0, A1, A6, and A7 must have the same frequency. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 18 MODE
+|   | Details |
+| :--- | :--- |
+| Pin Number | 18 |
+| Pin Name | MODE |
+| Pin Alternate Name | D20 |
+| Description | MODE button, has internal pull-up |
+#### 19 A2
+|   | Details |
+| :--- | :--- |
+| Pin Number | 19 |
+| Pin Name | A2 |
+| Pin Alternate Name | D17 |
+| Description | A2 Analog in, GPIO |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogRead | Yes |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 20 /RESET
+|   | Details |
+| :--- | :--- |
+| Pin Number | 20 |
+| Pin Name | /RESET |
+| Pin Alternate Name | RST |
+| Description | Hardware reset, active low. |
+#### 21 A3
+|   | Details |
+| :--- | :--- |
+| Pin Number | 21 |
+| Pin Name | A3 |
+| Pin Alternate Name | D16 |
+| Description | A3 Analog in, GPIO |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogRead | Yes |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 22 TX
+|   | Details |
+| :--- | :--- |
+| Pin Number | 22 |
+| Pin Name | TX |
+| Pin Alternate Name | D9 |
+| Description | Serial TX, GPIO |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| UART serial | TX. Use Serial1 object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 23 GND
+|   | Details |
+| :--- | :--- |
+| Pin Number | 23 |
+| Pin Name | GND |
+| Description | Ground. |
+#### 24 RX
+|   | Details |
+| :--- | :--- |
+| Pin Number | 24 |
+| Pin Name | RX |
+| Pin Alternate Name | D10 |
+| Description | Serial RX, GPIO |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| UART serial | RX. Use Serial1 object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 25 A4
+|   | Details |
+| :--- | :--- |
+| Pin Number | 25 |
+| Pin Name | A4 |
+| Pin Alternate Name | D15 |
+| Description | A4 Analog in, GPIO, PMIC and fuel gauge interrupt via jumper on J13 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogRead | Yes |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 26 CTS
+|   | Details |
+| :--- | :--- |
+| Pin Number | 26 |
+| Pin Name | CTS |
+| Pin Alternate Name | D3 |
+| Description | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL, SD card SPI SD_MO via jumper J12 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| UART serial | CTS. Use Serial1 object. |
+| SPI interface | MOSI. Use SPI1 object. |
+| I2C interface | SCL. Use Wire1 object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 27 A5
+|   | Details |
+| :--- | :--- |
+| Pin Number | 27 |
+| Pin Name | A5 |
+| Pin Alternate Name | D14 |
+| Description | A5 Analog in, GPIO |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogRead | Yes |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 28 RTS
+|   | Details |
+| :--- | :--- |
+| Pin Number | 28 |
+| Pin Name | RTS |
+| Pin Alternate Name | D2 |
+| Description | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA, SD card SPI SD_CK via jumper J12 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| UART serial | RTS. Use Serial1 object. |
+| SPI interface | SCK. Use SPI1 object. |
+| I2C interface | SDA. Use Wire1 object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 29 A6
+|   | Details |
+| :--- | :--- |
+| Pin Number | 29 |
+| Pin Name | A6 |
+| Description | A6 Analog in, PWM, GPIO |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogRead | Yes |
+| Supports analogWrite (PWM) | Yes |
+| Supports tone | A0, A1, A6, and A7 must have the same frequency. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 30 SOM0
+|   | Details |
+| :--- | :--- |
+| Pin Number | 30 |
+| Pin Name | SOM0 |
+| Pin Alternate Name | CELL USBD+ |
+| Description | Cellular Modem USB Data+. Also connected to CELLULAR_USB micro B connector with jumper on J13. |
+| Input is 5V Tolerant | Yes |
+#### 31 A7
+|   | Details |
+| :--- | :--- |
+| Pin Number | 31 |
+| Pin Name | A7 |
+| Description | A7 Analog in, GPIO, Ethernet Reset |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogRead | Yes |
+| Supports analogWrite (PWM) | Yes |
+| Supports tone | A0, A1, A6, and A7 must have the same frequency. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 32 SOM1
+|   | Details |
+| :--- | :--- |
+| Pin Number | 32 |
+| Pin Name | SOM1 |
+| Pin Alternate Name | CELL USBD- |
+| Description | Cellular Modem USB Data-. Also connected to CELLULAR_USB micro B connector with jumper on J13. |
+| Input is 5V Tolerant | Yes |
+#### 33 GND
+|   | Details |
+| :--- | :--- |
+| Pin Number | 33 |
+| Pin Name | GND |
+| Description | Ground. |
+#### 34 CS
+|   | Details |
+| :--- | :--- |
+| Pin Number | 34 |
+| Pin Name | CS |
+| Pin Alternate Name | D8 |
+| Description | GPIO, SPI SS, Ethernet CS via jumper on J13 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 35 SOM14
+|   | Details |
+| :--- | :--- |
+| Pin Number | 35 |
+| Pin Name | SOM14 |
+| Description | M.2 pin 51. Not currently used, leave unconnected. |
+#### 36 MISO
+|   | Details |
+| :--- | :--- |
+| Pin Number | 36 |
+| Pin Name | MISO |
+| Pin Alternate Name | D11 |
+| Description | SPI MISO, GPIO, Ethernet via jumper on J13 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| SPI interface | MISO. Use SPI object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 37 SOM15
+|   | Details |
+| :--- | :--- |
+| Pin Number | 37 |
+| Pin Name | SOM15 |
+| Description | M.2 pin 53. Not currently used, leave unconnected. |
+#### 38 MOSI
+|   | Details |
+| :--- | :--- |
+| Pin Number | 38 |
+| Pin Name | MOSI |
+| Pin Alternate Name | D12 |
+| Description | SPI MOSI, GPIO, Ethernet via jumper on J13 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| SPI interface | MOSI. Use SPI object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 39 SOM16
+|   | Details |
+| :--- | :--- |
+| Pin Number | 39 |
+| Pin Name | SOM16 |
+| Description | M.2 pin 55. Not currently used, leave unconnected. |
+#### 40 SCK
+|   | Details |
+| :--- | :--- |
+| Pin Number | 40 |
+| Pin Name | SCK |
+| Pin Alternate Name | D13 |
+| Description | SPI SCK, GPIO, Ethernet via jumper on J13 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| SPI interface | SCK. Use SPI object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 41 SOM17
+|   | Details |
+| :--- | :--- |
+| Pin Number | 41 |
+| Pin Name | SOM17 |
+| Description | M.2 pin 57. Not currently used, leave unconnected. |
+#### 42 GND
+|   | Details |
+| :--- | :--- |
+| Pin Number | 42 |
+| Pin Name | GND |
+| Description | Ground. |
+#### 43 SOM18
+|   | Details |
+| :--- | :--- |
+| Pin Number | 43 |
+| Pin Name | SOM18 |
+| Description | M.2 pin 59. Not currently used, leave unconnected. |
+#### 44 SOM12
+|   | Details |
+| :--- | :--- |
+| Pin Number | 44 |
+| Pin Name | SOM12 |
+| Description | M.2 pin 58. Not currently used, leave unconnected. |
+#### 45 R
+|   | Details |
+| :--- | :--- |
+| Pin Number | 45 |
+| Pin Name | R |
+| Pin Alternate Name | RGBR |
+| Description | RGB LED Red |
+#### 46 SOM13
+|   | Details |
+| :--- | :--- |
+| Pin Number | 46 |
+| Pin Name | SOM13 |
+| Description | M.2 pin 60. Not currently used, leave unconnected. |
+#### 47 G
+|   | Details |
+| :--- | :--- |
+| Pin Number | 47 |
+| Pin Name | G |
+| Pin Alternate Name | RGBG |
+| Description | RGB LED Green |
+#### 48 GPIO0
+|   | Details |
+| :--- | :--- |
+| Pin Number | 48 |
+| Pin Name | GPIO0 |
+| Pin Alternate Name | D22 |
+| Description | GPIO, Ethernet INT via jumper on J13 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 49 B
+|   | Details |
+| :--- | :--- |
+| Pin Number | 49 |
+| Pin Name | B |
+| Pin Alternate Name | RGBB |
+| Description | RGB LED Blue |
+#### 50 GPIO1
+|   | Details |
+| :--- | :--- |
+| Pin Number | 50 |
+| Pin Name | GPIO1 |
+| Pin Alternate Name | D23 |
+| Description | GPIO |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 51 SOM5
+|   | Details |
+| :--- | :--- |
+| Pin Number | 51 |
+| Pin Name | SOM5 |
+| Pin Alternate Name | SIM_VCC |
+| Description | Leave unconnected. External SIM support is not available on B SoM. |
+#### 52 PWM0
+|   | Details |
+| :--- | :--- |
+| Pin Number | 52 |
+| Pin Name | PWM0 |
+| Pin Alternate Name | D4 |
+| Description | SPI1 MISO, PWM, GPIO, SD card SPI SD_MI via jumper J12 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogWrite (PWM) | Yes |
+| Supports tone | D4, D5, and D6 must have the same frequency. |
+| SPI interface | MISO. Use SPI1 object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 53 SOM6
+|   | Details |
+| :--- | :--- |
+| Pin Number | 53 |
+| Pin Name | SOM6 |
+| Pin Alternate Name | SIM_RST |
+| Description | Leave unconnected. External SIM support is not available on B SoM. |
+#### 54 PWM1
+|   | Details |
+| :--- | :--- |
+| Pin Number | 54 |
+| Pin Name | PWM1 |
+| Pin Alternate Name | D5 |
+| Description | PWM, GPIO, SD card SPI SD_CS via jumper J12 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogWrite (PWM) | Yes |
+| Supports tone | D4, D5, and D6 must have the same frequency. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 55 SOM7
+|   | Details |
+| :--- | :--- |
+| Pin Number | 55 |
+| Pin Name | SOM7 |
+| Pin Alternate Name | SIM_CLK |
+| Description | Leave unconnected, 1.8V/3V SIM Clock Output from R410M. |
+#### 56 PWM2
+|   | Details |
+| :--- | :--- |
+| Pin Number | 56 |
+| Pin Name | PWM2 |
+| Pin Alternate Name | D6 |
+| Description | PWM, GPIO, SD card SPI SD_DET via jumper J12 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogWrite (PWM) | Yes |
+| Supports tone | D4, D5, and D6 must have the same frequency. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 57 SOM8
+|   | Details |
+| :--- | :--- |
+| Pin Number | 57 |
+| Pin Name | SOM8 |
+| Pin Alternate Name | SIM_DATA |
+| Description | Leave unconnected. External SIM support is not available on B SoM. |
+#### 58 PWM3
+|   | Details |
+| :--- | :--- |
+| Pin Number | 58 |
+| Pin Name | PWM3 |
+| Pin Alternate Name | D7 |
+| Description | PWM, GPIO, Blue LED via USER_D7 jumper J12 |
+| Supports digitalRead | Yes |
+| Supports digitalWrite | Yes |
+| Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K |
+#### 59 GND
+|   | Details |
+| :--- | :--- |
+| Pin Number | 59 |
+| Pin Name | GND |
+| Description | Ground. |
+#### 60 SOM9
+|   | Details |
+| :--- | :--- |
+| Pin Number | 60 |
+| Pin Name | SOM9 |
+| Description | M.2 pin 75. Not currently used, leave unconnected. |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
 
 ## Evaluation board schematics
 
@@ -285,3 +796,4 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | 004      | 20 Jul 2022 | RK | Correct pins for SD and Ethernet SPI, which are SPI not SPI1 |
 | 005      |  9 Sep 2022 | RK | Correct length |
 | 006      | 19 Jan 2023 | RK | Correct pins for SD card for version 1.2 board |
+| 007      | 26 Oct 2023 | RK | Updated pin diagrams |

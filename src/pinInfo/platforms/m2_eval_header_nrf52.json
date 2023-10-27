@@ -7,41 +7,45 @@
             "name": "GND",
             "desc": "Ground.",
             "isPower": true,
+            "m2Pin": 1,
             "morePins": [
-                3, 5, 7, 9, 23, 33, 42, 59
+                3,
+                5,
+                7,
+                9,
+                23,
+                33,
+                42,
+                59
             ],
-            "somPin": "GND",
-            "M2Pin": 1
+            "somPin": "GND"
         },
         {
             "num": 2,
             "name": "VCC",
             "desc": "System power, 3.6V - 4.3V for cellular modem",
             "isPower": true,
+            "m2Pin": 2,
             "morePins": [
                 4,
                 6
             ],
-            "somPin": "VCC",
-            "M2Pin": 2
+            "somPin": "VCC"
         },
         {
             "num": 8,
             "name": "3V3",
             "desc": "System power, 3.3V at 500 mA for MCU",
             "isPower": true,
-            "morePins": [
-                12
-            ],
-            "somPin": "3V3",
-            "M2Pin": 8
+            "m2Pin": 8,
+            "somPin": "3V3"
         },
         {
             "num": 10,
             "name": "SOM10",
             "desc": "Not currently used, leave unconnected.",
-            "somPin": "SOM10",
-            "M2Pin": 14
+            "m2Pin": 14,
+            "somPin": "SOM10"
         },
         {
             "num": 11,
@@ -51,15 +55,15 @@
             "hardwarePin": "P0.09",
             "is5VTolerant": false,
             "isNFC": true,
-            "somPin": "SOM3",
-            "M2Pin": 17
+            "m2Pin": 17,
+            "somPin": "SOM3"
         },
         {
             "num": 12,
             "name": "SOM11",
             "desc": "Not currently used, leave unconnected.",
-            "somPin": "SOM11",
-            "M2Pin": 18
+            "m2Pin": 18,
+            "somPin": "SOM11"
         },
         {
             "num": 13,
@@ -69,8 +73,8 @@
             "hardwarePin": "P0.10",
             "is5VTolerant": false,
             "isNFC": true,
-            "somPin": "SOM4",
-            "M2Pin": 19
+            "m2Pin": 19,
+            "somPin": "SOM4"
         },
         {
             "num": 14,
@@ -88,9 +92,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 20,
             "somPin": "SCL",
-            "tone": false,
-            "M2Pin": 20
+            "tone": false
         },
         {
             "num": 15,
@@ -109,9 +113,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 23,
             "somPin": "ADC0",
-            "tone": "A0, A1, A6, and A7 must have the same frequency.",
-            "M2Pin": 23
+            "tone": "A0, A1, A6, and A7 must have the same frequency."
         },
         {
             "num": 16,
@@ -129,10 +133,10 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 22,
             "somPin": "SDA",
-            "tone": false,
-            "M2Pin": 22
-        },        
+            "tone": false
+        },
         {
             "num": 17,
             "name": "A1",
@@ -150,9 +154,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 33,
             "somPin": "ADC1",
-            "tone": "A0, A1, A6, and A7 must have the same frequency.",
-            "M2Pin": 33
+            "tone": "A0, A1, A6, and A7 must have the same frequency."
         },
         {
             "num": 18,
@@ -162,8 +166,8 @@
             "hardwarePin": "P0.11",
             "is5VTolerant": false,
             "isControl": true,
-            "somPin": "MODE",
-            "M2Pin": 32
+            "m2Pin": 32,
+            "somPin": "MODE"
         },
         {
             "num": 19,
@@ -181,9 +185,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 35,
             "somPin": "ADC2",
-            "tone": false,
-            "M2Pin": 35
+            "tone": false
         },
         {
             "num": 20,
@@ -192,8 +196,8 @@
             "desc": "Hardware reset, active low.",
             "is5VTolerant": false,
             "isControl": true,
-            "somPin": "RESET",
-            "M2Pin": 34
+            "m2Pin": 34,
+            "somPin": "RESET"
         },
         {
             "num": 21,
@@ -211,9 +215,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 37,
             "somPin": "ADC3",
-            "tone": false,
-            "M2Pin": 37
+            "tone": false
         },
         {
             "num": 22,
@@ -230,10 +234,10 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 36,
             "serial": "Serial1 TX|TX. Use Serial1 object.",
             "somPin": "TX",
-            "tone": false,
-            "M2Pin": 36
+            "tone": false
         },
         {
             "num": 24,
@@ -250,10 +254,10 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 38,
             "serial": "Serial1 RX|RX. Use Serial1 object.",
             "somPin": "RX",
-            "tone": false,
-            "M2Pin": 38
+            "tone": false
         },
         {
             "num": 25,
@@ -271,9 +275,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 41,
             "somPin": "RESERVED",
-            "tone": false,
-            "M2Pin": 41
+            "tone": false
         },
         {
             "num": 26,
@@ -291,11 +295,11 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 40,
             "serial": "Serial1 CTS|CTS. Use Serial1 object.",
             "somPin": "RESERVED",
             "spi": "SPI1 (MOSI)|MOSI. Use SPI1 object.",
-            "tone": false,
-            "M2Pin": 40
+            "tone": false
         },
         {
             "num": 27,
@@ -313,9 +317,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 43,
             "somPin": "RESERVED",
-            "tone": false,
-            "M2Pin": 43
+            "tone": false
         },
         {
             "num": 28,
@@ -333,11 +337,11 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 42,
             "serial": "Serial1 RTS|RTS. Use Serial1 object.",
             "somPin": "RESERVED",
             "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
-            "tone": false,
-            "M2Pin": 42
+            "tone": false
         },
         {
             "num": 29,
@@ -355,9 +359,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 45,
             "somPin": "RESERVED",
-            "tone": "A0, A1, A6, and A7 must have the same frequency.",
-            "M2Pin": 45
+            "tone": "A0, A1, A6, and A7 must have the same frequency."
         },
         {
             "num": 30,
@@ -366,8 +370,8 @@
             "desc": "Cellular Modem USB Data+. Also connected to CELLULAR_USB micro B connector with jumper on J13.",
             "is5VTolerant": true,
             "isUSB": true,
-            "somPin": "SOM0",
-            "M2Pin": 44
+            "m2Pin": 44,
+            "somPin": "SOM0"
         },
         {
             "num": 31,
@@ -385,9 +389,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 47,
             "somPin": "RESERVED",
-            "tone": "A0, A1, A6, and A7 must have the same frequency.",
-            "M2Pin": 47
+            "tone": "A0, A1, A6, and A7 must have the same frequency."
         },
         {
             "num": 32,
@@ -396,8 +400,8 @@
             "desc": "Cellular Modem USB Data-. Also connected to CELLULAR_USB micro B connector with jumper on J13.",
             "is5VTolerant": true,
             "isUSB": true,
-            "somPin": "SOM1",
-            "M2Pin": 46
+            "m2Pin": 46,
+            "somPin": "SOM1"
         },
         {
             "num": 34,
@@ -414,17 +418,17 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 48,
             "somPin": "CS",
             "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
-            "tone": false,
-            "M2Pin": 48
+            "tone": false
         },
         {
             "num": 35,
             "name": "SOM14",
             "desc": "M.2 pin 51. Not currently used, leave unconnected.",
-            "somPin": "SOM14",
-            "M2Pin": 51
+            "m2Pin": 51,
+            "somPin": "SOM14"
         },
         {
             "num": 36,
@@ -441,17 +445,17 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 50,
             "somPin": "MISO",
             "spi": "SPI (MISO)|MISO. Use SPI object.",
-            "tone": false,
-            "M2Pin": 50
+            "tone": false
         },
         {
             "num": 37,
             "name": "SOM15",
             "desc": "M.2 pin 53. Not currently used, leave unconnected.",
-            "somPin": "SOM15",
-            "M2Pin": 53
+            "m2Pin": 53,
+            "somPin": "SOM15"
         },
         {
             "num": 38,
@@ -468,17 +472,17 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 52,
             "somPin": "MOSI",
             "spi": "SPI (MOSI)|MOSI. Use SPI object.",
-            "tone": false,
-            "M2Pin": 52
+            "tone": false
         },
         {
             "num": 39,
             "name": "SOM16",
             "desc": "M.2 pin 55. Not currently used, leave unconnected.",
-            "somPin": "SOM16",
-            "M2Pin": 55
+            "m2Pin": 55,
+            "somPin": "SOM16"
         },
         {
             "num": 40,
@@ -495,31 +499,31 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 54,
             "somPin": "SCK",
             "spi": "SPI (SCK)|SCK. Use SPI object.",
-            "tone": false,
-            "M2Pin": 54
+            "tone": false
         },
         {
             "num": 41,
             "name": "SOM17",
             "desc": "M.2 pin 57. Not currently used, leave unconnected.",
-            "somPin": "SOM17",
-            "M2Pin": 57
+            "m2Pin": 57,
+            "somPin": "SOM17"
         },
         {
             "num": 43,
             "name": "SOM18",
             "desc": "M.2 pin 59. Not currently used, leave unconnected.",
-            "somPin": "SOM18",
-            "M2Pin": 59
+            "m2Pin": 59,
+            "somPin": "SOM18"
         },
         {
             "num": 44,
             "name": "SOM12",
             "desc": "M.2 pin 58. Not currently used, leave unconnected.",
-            "somPin": "SOM12",
-            "M2Pin": 58
+            "m2Pin": 58,
+            "somPin": "SOM12"
         },
         {
             "num": 45,
@@ -530,15 +534,15 @@
             "hardwareTimer": "PWM0",
             "is5VTolerant": false,
             "isLED": true,
-            "somPin": "RED",
-            "M2Pin": 61
+            "m2Pin": 61,
+            "somPin": "RED"
         },
         {
             "num": 46,
             "name": "SOM13",
             "desc": "M.2 pin 60. Not currently used, leave unconnected.",
-            "somPin": "SOM13",
-            "M2Pin": 60
+            "m2Pin": 60,
+            "somPin": "SOM13"
         },
         {
             "num": 47,
@@ -549,8 +553,8 @@
             "hardwareTimer": "PWM0",
             "is5VTolerant": false,
             "isLED": true,
-            "somPin": "GREEN",
-            "M2Pin": 63
+            "m2Pin": 63,
+            "somPin": "GREEN"
         },
         {
             "num": 48,
@@ -567,9 +571,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 62,
             "somPin": "GPIO0",
-            "tone": false,
-            "M2Pin": 62
+            "tone": false
         },
         {
             "num": 49,
@@ -580,8 +584,8 @@
             "hardwareTimer": "PWM0",
             "is5VTolerant": false,
             "isLED": true,
-            "somPin": "BLUE",
-            "M2Pin": 65
+            "m2Pin": 65,
+            "somPin": "BLUE"
         },
         {
             "num": 50,
@@ -598,9 +602,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 64,
             "somPin": "GPIO1",
-            "tone": false,
-            "M2Pin": 64
+            "tone": false
         },
         {
             "num": 51,
@@ -608,8 +612,8 @@
             "altName": "SIM_VCC",
             "desc": "Leave unconnected. External SIM support is not available on B SoM.",
             "is5VTolerant": false,
-            "somPin": "SOM5",
-            "M2Pin": 67
+            "m2Pin": 67,
+            "somPin": "SOM5"
         },
         {
             "num": 52,
@@ -627,10 +631,10 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 66,
             "somPin": "PWM0",
             "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
-            "tone": "D4, D5, and D6 must have the same frequency.",
-            "M2Pin": 66
+            "tone": "D4, D5, and D6 must have the same frequency."
         },
         {
             "num": 53,
@@ -638,8 +642,8 @@
             "altName": "SIM_RST",
             "desc": "Leave unconnected. External SIM support is not available on B SoM.",
             "is5VTolerant": false,
-            "somPin": "SOM6",
-            "M2Pin": 69
+            "m2Pin": 69,
+            "somPin": "SOM6"
         },
         {
             "num": 54,
@@ -657,9 +661,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 68,
             "somPin": "PWM1",
-            "tone": "D4, D5, and D6 must have the same frequency.",
-            "M2Pin": 68
+            "tone": "D4, D5, and D6 must have the same frequency."
         },
         {
             "num": 55,
@@ -667,8 +671,8 @@
             "altName": "SIM_CLK",
             "desc": "Leave unconnected, 1.8V/3V SIM Clock Output from R410M.",
             "is5VTolerant": false,
-            "somPin": "SOM7",
-            "M2Pin": 71
+            "m2Pin": 71,
+            "somPin": "SOM7"
         },
         {
             "num": 56,
@@ -686,9 +690,9 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 70,
             "somPin": "PWM2",
-            "tone": "D4, D5, and D6 must have the same frequency.",
-            "M2Pin": 70
+            "tone": "D4, D5, and D6 must have the same frequency."
         },
         {
             "num": 57,
@@ -696,8 +700,8 @@
             "altName": "SIM_DATA",
             "desc": "Leave unconnected. External SIM support is not available on B SoM.",
             "is5VTolerant": false,
-            "somPin": "SOM8",
-            "M2Pin": 73
+            "m2Pin": 73,
+            "somPin": "SOM8"
         },
         {
             "num": 58,
@@ -715,18 +719,17 @@
             "internalPull": "13K",
             "is5VTolerant": false,
             "isIO": true,
+            "m2Pin": 72,
             "somPin": "PWM3",
-            "tone": false,
-            "M2Pin": 72
+            "tone": false
         },
         {
-            "num": 59,
+            "num": 60,
             "name": "SOM9",
             "desc": "M.2 pin 75. Not currently used, leave unconnected.",
-            "somPin": "SOM10",
-            "M2Pin": 75
+            "m2Pin": 75,
+            "somPin": "SOM10"
         }
-
     ],
     "diagram": {
         "columns": [

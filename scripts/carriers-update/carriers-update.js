@@ -2467,32 +2467,78 @@ const generatorConfig = require('./generator-config');
             md += updater.generateTable(tableOptions, tableData);
 
         }
-        
+
+        let comparisonTags = [
+            'name',
+            'altName',
+            'desc',
+            'digitalRead',
+            'digitalWrite',
+            'analogRead',
+            'analogWriteDAC',
+            'analogWritePWM',
+            'tone',
+            'serial',
+            'spi',
+            'i2c',
+            'attachInterrupt',
+            'can',
+            'i2s',
+            'internalPull',
+            'is5VTolerant',
+            'jtag',
+            'swd',
+            'boot',
+        ];
+
+        if (options.style == 'full-details') {
+            if (options.showPinNum) {
+                comparisonTags.splice(0, 0, 'num');
+            }
+
+            const pinsExpanded = expandMorePins(platformInfoNew.pins);
+            pinsExpanded.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            for(const pin of pinsExpanded) {
+            
+                md += '#### ' + pin.num + ' ' + pin.name + '\n';
+
+
+                let tableOptions = {
+                    columns: [],
+                };
+                let tableData = [];
+
+                tableOptions.columns.push({
+                    key: 'label',
+                    title: ' ',
+                });
+                tableOptions.columns.push({
+                    key: 'function',
+                    title: 'Details',
+                });
+
+                for(const tag of comparisonTags) {
+                    if (!pin[tag]) {
+                        continue;
+                    }
+
+                    tableData.push({
+                        tag,
+                        label: detailsForTag[tag].label,
+                        function: getPinUsage(pin[tag]),
+                    });
+
+                }    
+
+                md += updater.generateTable(tableOptions, tableData);
+                
+            }
+        }
+
         if (options.style == 'full-comparison') {
-
-            let comparisonTags = [
-                'name',
-                'altName',
-                'desc',
-                'digitalRead',
-                'digitalWrite',
-                'analogRead',
-                'analogWriteDAC',
-                'analogWritePWM',
-                'tone',
-                'serial',
-                'spi',
-                'i2c',
-                'attachInterrupt',
-                'can',
-                'i2s',
-                'internalPull',
-                'is5VTolerant',
-                'jtag',
-                'swd',
-                'boot'
-            ];
-
             if (options.showPinNum) {
                 comparisonTags.splice(0, 0, 'num');
             }

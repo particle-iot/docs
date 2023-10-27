@@ -328,7 +328,7 @@ const svg = require('./svg');
 
         if (saveFile) {
             fs.writeFileSync(outputPath, newContents);
-            if (files) {
+            if (files && files[options.outputPath]) {
                 files[options.outputPath].contents = Buffer.from(newContents, 'utf8');
             }
         }
@@ -360,6 +360,7 @@ const svg = require('./svg');
             isPower: '#B80023', // Watermelon_900 old: red (except for GND, see isGND)
             isControl: '#FFE949', // State_Yellow_500 (old: yellow mode, reset, etc.)
             jtag: '#858A9B', // Gray_400 (old: blueish-gray same as swd)
+            m2Pin: '#F5F6FA', // COLOR_Gray_100
             name: '#00E1FF', // ParticleBlue_500 (old: dark gray)
             num: '#E6AB00', // (old: gold color)
             p2pin: '#E6AB00', // (old: gold)
@@ -1018,6 +1019,107 @@ const svg = require('./svg');
                         },
                         {
                             keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+            ],
+            incrementFn: function(num) {
+                return num != 25;
+            },
+        });
+
+        await diagram.generate(options, files);
+    };
+
+
+    diagram.generateM2Eval = async function(generateOptions, files) {        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: generateOptions.platformName,
+            // deviceImage: 
+            outputPath: generateOptions.outputPath,
+            width: 1030,
+            height: 650,
+            background: 'white',
+            pins: [
+                {   // Left side
+                    num: 2,
+                    x: 500,
+                    y: 30,
+                    numDelta: 2,
+                    xDelta: 0,
+                    yDelta: 16,
+                    count: 60,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['num'],
+                        },
+                        {
+                            width: 60,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 60,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isControl', 'i2c', 'swd'],
+                        },
+                        {
+                            keys: ['serial'],
+                        },
+                        {
+                            keys: ['spi', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['m2Pin'],
+                        },
+                    ],
+                },
+                {   // Right side
+                    num: 1,
+                    x: 504,
+                    y: 30,
+                    numDelta: 2,
+                    xDelta: 0,
+                    yDelta: 16,
+                    count: 60,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['num'],
+                        },
+                        {
+                            width: 60,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 60,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['spi', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['m2Pin'],
                         },
                     ],
                 },
@@ -1845,7 +1947,12 @@ const svg = require('./svg');
             outputPath: 'assets/images/msom.svg',
         }), files);
 
+        await diagram.generateM2Eval(Object.assign(Object.assign({}, generateOptions), {
+            platformName: 'M.2 SoM eval board header, nRF52 SoM',
+            outputPath: 'assets/images/m2eval_nRF52.svg',
+        }), files);
 
+        
         await diagram.generateP2(Object.assign({
             platformName: 'P1'
         }, generateOptions), files);
