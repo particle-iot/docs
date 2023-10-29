@@ -248,6 +248,23 @@ imageOverlay.setupOverlay = function() {
 	$('#imageOverlay').on('resize', function(ev) {
 		imageOverlay.resize();
 	});
+
+	window.addEventListener('beforeprint', function() {
+		if ($('#imageOverlayContainer').is(':visible')) {
+			$('.content-root').hide();
+			$('#imageToolsContainer').hide();
+			imageOverlay.resize({isPrint: true});
+		}
+	});
+	window.addEventListener('afterprint', function() {
+		if ($('#imageOverlayContainer').is(':visible')) {
+			$('.content-root').show();
+			$('#imageToolsContainer').show();
+			imageOverlay.resize();
+		}
+	});
+
+
 }
 
 
@@ -326,7 +343,7 @@ imageOverlay.draw = function() {
 	ctx.drawImage(imageOverlay.image, 0, 0, imageOverlay.imageWidth, imageOverlay.imageHeight, info.dx, info.dy, info.dWidth, info.dHeight);
 }
 
-imageOverlay.resize = function() {
+imageOverlay.resize = function(resizeOptions = {}) {
 	$('#imageOverlayContainer').css('top', '0px');
 	$('#imageOverlayContainer').css('height', '100%');
 	
@@ -336,11 +353,18 @@ imageOverlay.resize = function() {
 	$('#imageOverlayContainer').css('top', imageOverlay.toolsHeight + 'px');
 	$('#imageOverlayContainer').css('height', imageOverlay.canvasHeight + 'px');
 
-	// $(imageOverlay.canvas).width(imageOverlay.canvasWidth);
-	// $(imageOverlay.canvas).height(imageOverlay.canvasHeight);
-
 	$(imageOverlay.canvas).prop('width', imageOverlay.canvasWidth);
 	$(imageOverlay.canvas).prop('height', imageOverlay.canvasHeight);
+
+	// imageOverlay.bodyWidth = $('body').width();
+	// imageOverlay.bodyHeight = $('body').height();
+	imageOverlay.isPrint = resizeOptions.isPrint || false;
+	if (imageOverlay.isPrint) {
+		imageOverlay.canvasWidth = 750;
+		imageOverlay.canvasHeight = 750;
+	}
+	
+	console.log('resize', imageOverlay);
 
 	imageOverlay.draw();	 
 }
