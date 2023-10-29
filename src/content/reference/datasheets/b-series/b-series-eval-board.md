@@ -249,30 +249,17 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 
 ## Evaluation board schematics
 
-### PMIC
+### Page 1
 
-<div align=center><img src="/assets/images/b-series/b-series-eval-schematic-pmic.png"></div>
+{{imageOverlay src="/assets/images/m2-eval/1.2/p1.png" large="/assets/images/m2-eval/1.2/p1.svg" alt="Schematic Page 1"}}
 
+### Page 2
 
-### Fuel gauge
+{{imageOverlay src="/assets/images/m2-eval/1.2/p2.png" large="/assets/images/m2-eval/1.2/p2.svg" alt="Schematic Page 2"}}
 
-<div align=center><img src="/assets/images/b-series/b-series-eval-schematic-fuel.png" class="small"></div>
+### Page 3
 
----
-
-### 3.3V Regulator
-
-<div align=center><img src="/assets/images/b-series/b-series-eval-schematic-3v3-reg.png" class="small"></div>
-
-
-### Ethernet
-
-<div align=center><img src="/assets/images/b-series/b-series-eval-schematic-ethernet.png"></div>
-
-
-### SD Card
-
-<div align=center><img src="/assets/images/b-series/b-series-eval-schematic-sdcard.png" class="small"></div>
+{{imageOverlay src="/assets/images/m2-eval/1.2/p3.png" large="/assets/images/m2-eval/1.2/p3.svg" alt="Schematic Page 3"}}
 
 ---
 

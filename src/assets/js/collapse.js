@@ -192,7 +192,7 @@ function collapseDrag(ev, id) {
 }
 
 imageOverlay.setupOverlay = function() {
-	imageOverlay.backgroundColor = '#000000';
+	imageOverlay.backgroundColor = '#ffffff';
 	imageOverlay.toolsHeight = $('#imageToolsContainer ').height();
 
 	$('.imageOverlayCloseIcon').on('click', function() {
