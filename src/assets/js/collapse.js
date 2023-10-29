@@ -216,7 +216,6 @@ imageOverlay.setupOverlay = function() {
         // ev.originalEvent is the MouseEvent
         //   .offsetX, .offsetY coordinates relative to the DOM element
 
-		$('#imageOverlay').css('cursor', 'move');
 		imageOverlay.showMove = {
 			startX: ev.originalEvent.offsetX,
 			startY: ev.originalEvent.offsetY,
@@ -246,7 +245,9 @@ imageOverlay.setupOverlay = function() {
 		imageOverlay.showMove = null;   
 	});
 
-	// TODO: Handle resize event
+	$('#imageOverlay').on('resize', function(ev) {
+		imageOverlay.resize();
+	});
 }
 
 
@@ -264,12 +265,12 @@ imageOverlay.zoomOut = function() {
 imageOverlay.draw = function() {
 	const ctx = $(imageOverlay.canvas)[0].getContext("2d");
     ctx.fillStyle = imageOverlay.backgroundColor;
-    ctx.fillRect(0, imageOverlay.toolsHeight, imageOverlay.canvasWidth, imageOverlay.canvasHeight);
+    ctx.fillRect(0, 0, imageOverlay.canvasWidth, imageOverlay.canvasHeight);
 
 	let info = {
 		scale: 1,
 		dx: 0,
-		dy: imageOverlay.toolsHeight,
+		dy: 0,
 	};
 
 	// scaleX, scaleY are 
@@ -277,7 +278,7 @@ imageOverlay.draw = function() {
 	// < 1 if the image is larger than the canvas
 	// > 1 if the canvas is larger than the image
 	info.scaleX = imageOverlay.canvasWidth / imageOverlay.imageWidth;
-	info.scaleY = (imageOverlay.canvasHeight - imageOverlay.toolsHeight) / imageOverlay.imageHeight;
+	info.scaleY = imageOverlay.canvasHeight / imageOverlay.imageHeight;
 
 	if (info.scaleX < 1 && info.scaleY < 1) {
 		// Image is larger than the canvas in both dimensions (scale down)
@@ -314,7 +315,7 @@ imageOverlay.draw = function() {
 		info.dx = Math.floor((imageOverlay.canvasWidth - info.dWidth) / 2);
 	}
 	if (info.dHeight < imageOverlay.canvasHeight) {
-		info.dy = Math.floor(imageOverlay.toolsHeight + (imageOverlay.canvasHeight - info.dHeight) / 2);
+		info.dy = Math.floor((imageOverlay.canvasHeight - info.dHeight) / 2);
 	}
 	info.dx += Math.floor(imageOverlay.panX  * imageOverlay.zoom);
 	info.dy += Math.floor(imageOverlay.panY  * imageOverlay.zoom);
@@ -326,8 +327,14 @@ imageOverlay.draw = function() {
 }
 
 imageOverlay.resize = function() {
+	$('#imageOverlayContainer').css('top', '0px');
+	$('#imageOverlayContainer').css('height', '100%');
+	
 	imageOverlay.canvasWidth = Math.floor($('#imageOverlayContainer').width());
-	imageOverlay.canvasHeight = Math.floor($('#imageOverlayContainer').height());
+	imageOverlay.canvasHeight = Math.floor($('#imageOverlayContainer').height() - imageOverlay.toolsHeight);
+
+	$('#imageOverlayContainer').css('top', imageOverlay.toolsHeight + 'px');
+	$('#imageOverlayContainer').css('height', imageOverlay.canvasHeight + 'px');
 
 	// $(imageOverlay.canvas).width(imageOverlay.canvasWidth);
 	// $(imageOverlay.canvas).height(imageOverlay.canvasHeight);
