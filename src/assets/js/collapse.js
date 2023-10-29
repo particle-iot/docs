@@ -205,19 +205,60 @@ imageOverlay.setupOverlay = function() {
 		imageOverlay.zoomIn();
 	});
 
+	/*
 	$('#imageOverlayContainer').on('click', function() {
 		imageOverlay.hideOverlay();
+	});
+	*/
+
+
+    $('#imageOverlay').on('mousedown', function(ev) {
+        // ev.originalEvent is the MouseEvent
+        //   .offsetX, .offsetY coordinates relative to the DOM element
+
+		$('#imageOverlay').css('cursor', 'move');
+		imageOverlay.showMove = {
+			startX: ev.originalEvent.offsetX,
+			startY: ev.originalEvent.offsetY,
+			elemStartX: imageOverlay.panX,
+			elemStartY: imageOverlay.panY,
+		};
+	});
+
+	$('#imageOverlay').on('mousemove', function(ev) {
+        // ev.originalEvent is the MouseEvent
+        //   .offsetX, .offsetY coordinates relative to the DOM element
+        if (ev.originalEvent.buttons) {
+			if (imageOverlay.showMove) {
+				imageOverlay.panX = Math.round(imageOverlay.showMove.elemStartX + (ev.originalEvent.offsetX - imageOverlay.showMove.startX) / imageOverlay.zoom);
+				imageOverlay.panY = Math.round(imageOverlay.showMove.elemStartY + (ev.originalEvent.offsetY - imageOverlay.showMove.startY) / imageOverlay.zoom);
+				imageOverlay.draw();
+			}
+
+            // console.log('mousemove', ev);
+        }
+    });
+
+	$('#imageOverlay').on('mouseup', function(ev) {
+        // ev.originalEvent is the MouseEvent
+        //   .offsetX, .offsetY coordinates relative to the DOM element
+        // Note: click occurs after releasing the mouse button!
+		imageOverlay.showMove = null;   
 	});
 
 	// TODO: Handle resize event
 }
 
+
+
 imageOverlay.zoomIn = function() {
-	console.log('imageOverlay.zoomIn');
+	imageOverlay.zoom *= 2;
+	imageOverlay.draw();
 }
 
 imageOverlay.zoomOut = function() {
-	console.log('imageOverlay.zoomOut');
+	imageOverlay.zoom /= 2;
+	imageOverlay.draw();
 }
 
 imageOverlay.draw = function() {
@@ -266,8 +307,8 @@ imageOverlay.draw = function() {
 		// (info.scale stays at 1)
 	}
 
-	info.dWidth = imageOverlay.imageWidth * info.scale;
-	info.dHeight = imageOverlay.imageHeight * info.scale;
+	info.dWidth = imageOverlay.imageWidth * info.scale * imageOverlay.zoom;
+	info.dHeight = imageOverlay.imageHeight * info.scale * imageOverlay.zoom;
 
 	if (info.dWidth < imageOverlay.canvasWidth) {
 		info.dx = Math.floor((imageOverlay.canvasWidth - info.dWidth) / 2);
@@ -275,6 +316,8 @@ imageOverlay.draw = function() {
 	if (info.dHeight < imageOverlay.canvasHeight) {
 		info.dy = Math.floor(imageOverlay.toolsHeight + (imageOverlay.canvasHeight - info.dHeight) / 2);
 	}
+	info.dx += Math.floor(imageOverlay.panX  * imageOverlay.zoom);
+	info.dy += Math.floor(imageOverlay.panY  * imageOverlay.zoom);
 
 	console.log('info', info);
 
@@ -311,6 +354,7 @@ imageOverlay.showOverlay = function(imgPath) {
 	imageOverlay.image.src = imgPath;
 	
 	imageOverlay.zoom = 1;
+	imageOverlay.panX = imageOverlay.panY = 0;
 
 	$('body').keydown(function(ev) {
 		switch (ev.key) {
