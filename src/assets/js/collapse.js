@@ -251,13 +251,47 @@ imageOverlay.setupOverlay = function() {
 
 	window.addEventListener('beforeprint', function() {
 		if ($('#imageOverlayContainer').is(':visible')) {
-			$('.content-root').hide();
-			$('#imageToolsContainer').hide();
+			$('#docs').hide();
+			//$('.content-root').hide();
+			//$('#imageToolsContainer').hide();
 			imageOverlay.resize({isPrint: true});
+
+			imageOverlay.printDivElem = document.createElement('div');
+			$(imageOverlay.printDivElem).css('width', '100%');
+			$(imageOverlay.printDivElem).css('height', '100%');
+
+			const imgElem = document.createElement('img');
+			$(imgElem).css('width', '100%');
+			$(imgElem).css('height', '100%');
+
+			if (imageOverlay.imageWidth > imageOverlay.imageHeight) {
+				// Rotate image for print
+				const deltaY = Math.floor((imageOverlay.imageWidth - imageOverlay.imageHeight) /2);
+				const trans = 'rotate(90deg) translateX(' + deltaY + 'px)';
+				console.log('trans=' + trans);		
+				$(imgElem).css('transform', trans);
+			}
+
+			$(imgElem).attr('src', imageOverlay.imgPath);
+			$(imageOverlay.printDivElem).append(imgElem);
+
+			$('body').append(imageOverlay.printDivElem);
+			
+
+			console.log('print', {
+				width: $(imageOverlay.printDivElem).width(),
+				height: $(imageOverlay.printDivElem).height(),
+			});
 		}
 	});
 	window.addEventListener('afterprint', function() {
+		if (imageOverlay.printDivElem) {
+			$('#docs').show();
+			$(imageOverlay.printDivElem).remove();
+			imageOverlay.printDivElem = null;
+		}
 		if ($('#imageOverlayContainer').is(':visible')) {
+			//$('body').css('width', '');
 			$('.content-root').show();
 			$('#imageToolsContainer').show();
 			imageOverlay.resize();
@@ -375,6 +409,7 @@ imageOverlay.showOverlay = function(imgPath) {
 
 	imageOverlay.canvas = $('#imageOverlay > canvas');
 
+	imageOverlay.imgPath = imgPath;
 	imageOverlay.image = new Image();
 	imageOverlay.image.onload = function() {
 		imageOverlay.imageWidth = imageOverlay.image.width;
