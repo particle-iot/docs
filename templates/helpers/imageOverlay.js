@@ -13,7 +13,7 @@ module.exports = function(context) {
 	var html = '';
 
     
-    html += '<div align="center"><img src="' + src + '" onclick="showOverlay(\'' + large + '\')" style="cursor:zoom-in" ';
+    html += '<div align="center"><img src="' + src + '" onclick="imageOverlay.showOverlay(\'' + large + '\')" style="cursor:zoom-in" ';
     if (alt) {
         html += ' alt="' + alt +'" ';
     }

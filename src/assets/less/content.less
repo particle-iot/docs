@@ -1122,18 +1122,53 @@ hr {
   overflow-x: auto;
 }
 
-#imageOverlay {
+#imageToolsContainer {
   position: fixed;
   display: none;
   width: 100%;
-  height: 100%;
+  height: 40px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.9);
+  z-index: 301; 
+}
+
+#imageOverlayContainer {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9);
   z-index: 300; 
-  cursor: pointer;
+}
+
+#imageOverlay > canvas {
+  cursor: move;
+}
+
+.imageToolsBox {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  justify-content: flex-end;
+}
+
+.imageToolsButton {
+  width: 30px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 24px;
+  cursor: default;
+}
+
+.imageToolsSpacer {
+  width: 15px;
 }
 
 img.imageOverlay {
@@ -1396,3 +1431,4 @@ div[data-consent-manager-dialog] {
     background-color: transparent;
   }
 }
+
