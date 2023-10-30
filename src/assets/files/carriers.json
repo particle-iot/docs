@@ -8113,6 +8113,12 @@
     {
       "country": "Ethiopia",
       "carrier": "Ethio Telecom",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.1
+      },
       "bands": [
         "2G-900",
         "3G-1",
@@ -8828,6 +8834,11 @@
       "carrier": "AirtelTigo",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.35
+      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -8872,7 +8883,12 @@
         "3G-8",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
+      }
     },
     {
       "country": "Ghana",
@@ -8882,6 +8898,12 @@
       ],
       "sunset2G": "2025",
       "sunset3G": "2020",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.1
+      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -29447,9 +29469,8 @@
       "country": "Ethiopia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "expansion": "2022-05-18",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ethiopia",
@@ -29462,9 +29483,8 @@
       "country": "Ethiopia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "expansion": "2022-05-18",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ethiopia",
@@ -29512,8 +29532,7 @@
       "country": "Ethiopia",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES"
     },
     {
       "country": "Ethiopia",
@@ -30453,9 +30472,8 @@
       "country": "Ghana",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "expansion": "2022-05-18",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ghana",
@@ -30467,9 +30485,8 @@
       "country": "Ghana",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "expansion": "2022-05-18",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ghana",
@@ -30515,8 +30532,7 @@
       "country": "Ghana",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES"
     },
     {
       "country": "Ghana",

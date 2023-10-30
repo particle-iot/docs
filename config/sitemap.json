@@ -999,24 +999,24 @@
             "hash": "bb85f77c3d5045e3b19e1a846526958e6fc412e974224516d11a4407892c1b35"
         },
         "hardware/migration-guides/b-series-boron-migration-guide.md": {
-            "date": "2023-10-30",
-            "hash": "2705aea8328f2ac310a4f2a1fd626f302d7e206b0b660c900cc98e7433797bf7"
+            "date": "2023-10-27",
+            "hash": "d82e985a7b2902f9b72f0fa27808e257ba5c9338792d12f4ecf4754645e8cd25"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2023-10-30",
-            "hash": "76fef02ba0551de7d489710237870a466c62cb0852e009b3256f9c8c458f2fee"
+            "date": "2023-10-27",
+            "hash": "fcfa07adc2a88266687869460d9bb43b1fcfacf4e276c6d7da1a4adaabc740af"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2023-10-30",
-            "hash": "515e12153aa381fdb41e23d531b08a15106798bd37e9327e6eeff0a88019b678"
+            "date": "2023-10-27",
+            "hash": "ebcd56f4dea19cdd24eba5d31689acff895a4504d90a7e7e57a3ec0df26af29b"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2023-10-27",
             "hash": "2f7683ea581a1bf970cced6dff5cf7df224807c2e7ca8ab6e4ca6925d7a0e5a3"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2023-10-30",
-            "hash": "e91e4ddcf9eeed31a3df54765ba0cf684356669c9e297c173350c8bc93caa935"
+            "date": "2023-10-17",
+            "hash": "833546ece9b5eac9a019f1fb6e763fb8e26d9b144a090fbc8969db1609cc50d9"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2023-10-27",
@@ -1127,8 +1127,8 @@
             "hash": "75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070"
         },
         "reference/cellular/lte-cat-1-expansion.md": {
-            "date": "2023-10-30",
-            "hash": "e46308b56e433e7d9c36ce0ff4578d6354dfff47afff284f1b63ab9883d2a0d3"
+            "date": "2023-10-17",
+            "hash": "6888052835f304e500a5f67e07acfa376d5cc9c261c537042db21fb087a60e8f"
         },
         "reference/cellular/sim-cards.md": {
             "date": "2022-06-14",
@@ -1351,12 +1351,12 @@
             "hash": "cde9742b7ef4e350446acc8cfbb34d5c545f66f663417f5875419413a6905bda"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2023-10-30",
-            "hash": "e93ffb687a8d4c40a7071cf2e00336e44e9cbcdf556d287a497fb7b695d64f7f"
+            "date": "2023-10-11",
+            "hash": "c4edc338943d5e513d1b818a0b74f56b1fbc545e57a5b915109acb40426bc3cb"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
-            "date": "2023-10-30",
-            "hash": "29c2f4901ca3551691a8a43637176e409f7c215558169226b377b1003c4bb878"
+            "date": "2023-09-22",
+            "hash": "059bcc6eb5fac4693cb9b790cb2f0a43c418b9807fd50524a89a085b7a9536ba"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
             "date": "2023-08-29",
@@ -1379,8 +1379,8 @@
             "hash": "35cf2dcf7d047f09b13fc031ed2b9bd22057245833d53744a71c6154a0cb6294"
         },
         "reference/datasheets/e-series/e-series-datasheet.md": {
-            "date": "2023-10-30",
-            "hash": "513f6d451eacf561d8bee71070ecfff0a295cd2b15a5150c03d927718723eb04"
+            "date": "2023-07-26",
+            "hash": "cd8ff9ed87806148d860e5846efd07086633075a0f62b22451093beaecdb3bed"
         },
         "reference/datasheets/e-series/e-series-eval-board.md": {
             "date": "2023-03-30",
@@ -1395,8 +1395,8 @@
             "hash": "1843c5eb64e3e6a58625ef6810c658494bbb4d438d31a49b19684a2ca3feaba9"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
-            "date": "2023-10-30",
-            "hash": "06dbc5a2f4e1f5e32da601c6a3b0670b4219f5c64df04191e0813471eb577664"
+            "date": "2023-09-13",
+            "hash": "1e2fb5a6a82491f2c6fc30f463ea92caeeb52bc16aa566676d8373dcaccd285f"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
             "date": "2023-06-20",
@@ -1423,20 +1423,20 @@
             "hash": "bfedda06f1a45b6c8df5e3fee1ea3bbe720bead343af38077a52feae9c362534"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2023-10-30",
-            "hash": "d729d2eec79cf721804410b84e86fa02d488c6bd2328e8a41f090bb23a9e537c"
+            "date": "2023-10-26",
+            "hash": "474e76aff2a7a656340a2787bcd4441ec5339c33ddb14e8c0d8748a2d468444a"
         },
         "reference/datasheets/tracker/tracker-one.md": {
-            "date": "2023-10-30",
-            "hash": "6e1a6a9dc6082dfba759046a5c6fa579ac5d29adc8ef6b28fa41f153786b4c21"
+            "date": "2023-07-26",
+            "hash": "133268a312914ffc30d22a57432814a5d65efd72ab159498e253a5f15bd69ccf"
         },
         "reference/datasheets/tracker/tracker-m8-accessories.md": {
             "date": "2023-08-02",
             "hash": "f2e75f5229b4625cbd15c3082ed36c031ca5c17c6d4fd2ebdf727386518b4d1a"
         },
         "reference/datasheets/tracker/tracker-som-datasheet.md": {
-            "date": "2023-10-30",
-            "hash": "aea9e2e9339569be189be6e5d2023e041dcad425c8a1cdac77138a47dc56397c"
+            "date": "2023-08-29",
+            "hash": "1192536d2879a2745ea451bcf264577043f0062eb0520caf3fe8751bff7d780c"
         },
         "reference/datasheets/tracker/tracker-som-eval-board.md": {
             "date": "2023-03-30",

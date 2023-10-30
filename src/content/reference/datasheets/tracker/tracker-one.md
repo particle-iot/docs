@@ -451,12 +451,14 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Egypt | ONE524 | 2G, 3G, Cat1 | Etisalat, Orange |
 | Estonia | ONE524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
 | eSwatini | ONE524 | 2G, 3G, Cat1 | MTN |
+| Ethiopia | ONE524 | 2G, 3G, Cat1 | Ethio Telecom |
 | Faroe Islands | ONE524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | ONE524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | ONE524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | ONE524 | 2G, 3G | Digicel |
 | Gabon | ONE524 | 2G, 3G, Cat1 | Airtel |
 | Germany | ONE524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Ghana | ONE524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | ONE524 | 2G, 3G, Cat1 | Gibtel |
 | Greece | ONE524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
 | Guinea | ONE524 | 2G, 3G, Cat1 | MTN |

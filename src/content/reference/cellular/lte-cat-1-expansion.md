@@ -93,6 +93,7 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Estonia | Tele2 | &nbsp; |
 | Estonia | Telia | &nbsp; |
 | eSwatini | MTN | &check; |
+| Ethiopia | Ethio Telecom | &check; |
 | Faroe Islands | Faroese Telecom | &nbsp; |
 | Faroe Islands | Vodafone | &nbsp; |
 | Finland | DNA | &nbsp; |
@@ -107,6 +108,9 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Germany | O2 | &nbsp; |
 | Germany | Telekom | &nbsp; |
 | Germany | Vodafone | &nbsp; |
+| Ghana | AirtelTigo | &check; |
+| Ghana | MTN | &check; |
+| Ghana | Vodafone | &check; |
 | Gibraltar | Gibtel | &nbsp; |
 | Greece | Cosmote | &nbsp; |
 | Greece | Vodafone | &nbsp; |

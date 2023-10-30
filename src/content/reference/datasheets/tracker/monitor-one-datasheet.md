@@ -889,12 +889,14 @@ To be provided at a later date.
 | Egypt | MON524 | 2G, 3G, Cat1 | Etisalat, Orange |
 | Estonia | MON524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
 | eSwatini | MON524 | 2G, 3G, Cat1 | MTN |
+| Ethiopia | MON524 | 2G, 3G, Cat1 | Ethio Telecom |
 | Faroe Islands | MON524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | MON524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | MON524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | MON524 | 2G, 3G | Digicel |
 | Gabon | MON524 | 2G, 3G, Cat1 | Airtel |
 | Germany | MON524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Ghana | MON524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | MON524 | 2G, 3G, Cat1 | Gibtel |
 | Greece | MON524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
 | Guinea | MON524 | 2G, 3G, Cat1 | MTN |

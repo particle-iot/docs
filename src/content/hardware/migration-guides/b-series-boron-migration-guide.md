@@ -106,12 +106,14 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | Egypt | B524 | 2G, 3G, Cat1 | Etisalat, Orange |
 | Estonia | B524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
 | eSwatini | B524 | 2G, 3G, Cat1 | MTN |
+| Ethiopia | B524 | 2G, 3G, Cat1 | Ethio Telecom |
 | Faroe Islands | B524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | B524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | B524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | B524 | 2G, 3G | Digicel |
 | Gabon | B524 | 2G, 3G, Cat1 | Airtel |
 | Germany | B524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Ghana | B524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | B524 | 2G, 3G, Cat1 | Gibtel |
 | Greece | B524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
 | Guadeloupe | B524 | 2G, 3G | Orange |

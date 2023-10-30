@@ -705,6 +705,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Estonia | Tele2 | &check; | &check; | &check; | &nbsp; |
 | Estonia | Telia | &check; | &check; | &check; | &nbsp; |
 | eSwatini | MTN | &check; | &check; | &check; | &nbsp; |
+| Ethiopia | Ethio Telecom | &nbsp; | &check; | &check; | &nbsp; |
 | Faroe Islands | Faroese Telecom | &nbsp; | &check; | &check; | &nbsp; |
 | Faroe Islands | Vodafone | &nbsp; | &check; | &check; | &nbsp; |
 | Finland | DNA | &check; | &check; | &check; | &nbsp; |
@@ -721,7 +722,9 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Germany | O2 | &check; | &check; | &check; | &nbsp; |
 | Germany | Telekom | &check; | &check; | &check; | &nbsp; |
 | Germany | Vodafone | &check; | &check; | &check; | &nbsp; |
-| Ghana | Vodafone | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Ghana | AirtelTigo | &nbsp; | &check; | &check; | &nbsp; |
+| Ghana | MTN | &nbsp; | &check; | &check; | &nbsp; |
+| Ghana | Vodafone | &check; | &check; | &check; | &nbsp; |
 | Gibraltar | Gibtel | &check; | &check; | &check; | &nbsp; |
 | Greece | Cosmote | &check; | &check; | &check; | &nbsp; |
 | Greece | Vodafone | &check; | &check; | &check; | &nbsp; |

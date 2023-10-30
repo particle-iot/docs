@@ -1224,12 +1224,14 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Egypt | T524 | 2G, 3G, Cat1 | Etisalat, Orange |
 | Estonia | T524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
 | eSwatini | T524 | 2G, 3G, Cat1 | MTN |
+| Ethiopia | T524 | 2G, 3G, Cat1 | Ethio Telecom |
 | Faroe Islands | T524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | T524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | T524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | T524 | 2G, 3G | Digicel |
 | Gabon | T524 | 2G, 3G, Cat1 | Airtel |
 | Germany | T524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Ghana | T524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | T524 | 2G, 3G, Cat1 | Gibtel |
 | Greece | T524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
 | Guinea | T524 | 2G, 3G, Cat1 | MTN |
