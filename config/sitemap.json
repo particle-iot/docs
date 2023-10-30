@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-10-26",
-            "hash": "a1abf8f166b1fefc6f35cba7c28979d688ee66539e23512d3394ca653164a788"
+            "date": "2023-10-30",
+            "hash": "d869e554040857d0ae2ef50bf99707f3221100ec1a49f595f0a919b8ed1aacd5"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1859,12 +1859,12 @@
             "hash": "81d8300f390da86d63d495971c9e51d9c5ea677958430b16d946ccee15daa1b2"
         },
         "reference/device-os/api/ethernet/setconfig-ethernet.md": {
-            "date": "2023-10-17",
-            "hash": "cd590bfbbc996b82831b0dd717f530d8d0ed4df9738db5407362b77874519e59"
+            "date": "2023-10-30",
+            "hash": "7f81145b21e9a6299b0cb75bb2d927460a12c43599b9dbefe56ac6211304c7f6"
         },
         "reference/device-os/api/ethernet/getconfig-ethernet.md": {
-            "date": "2023-09-20",
-            "hash": "fea5d49ed44f9f9660765a151b37cca634bf0ac0606945cec5dd5c904411656e"
+            "date": "2023-10-30",
+            "hash": "36f2f3a611c135070348fb9d73e0c66a7894cc0c5ec89d110ba868970257eddf"
         },
         "reference/device-os/api/ethernet/listen.md": {
             "date": "2023-09-20",
