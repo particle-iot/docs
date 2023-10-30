@@ -205,6 +205,45 @@ imageOverlay.setupOverlay = function() {
 		imageOverlay.zoomIn();
 	});
 
+	$('.imageOverlayDownloadIcon').on('click', async function() {
+		if (!imageOverlay.imgPath) {
+			return;
+		}
+
+		const lastDotIndex = imageOverlay.imgPath.lastIndexOf('.');
+		const ext = (lastDotIndex > 0) ? imageOverlay.imgPath.substring(lastDotIndex + 1).toLowerCase() : '';
+
+		const lastSlashIndex = imageOverlay.imgPath.lastIndexOf('/');
+		const filename = (lastSlashIndex >= 0) ? imageOverlay.imgPath.substring(lastSlashIndex + 1) : imageOverlay.imgPath;
+
+		let contentType;
+		switch(ext) {
+			case 'jpg':
+			case 'jpeg':
+				contentType = 'image/jpeg';
+				break;
+
+			case 'png':
+				contentType = 'image/png';
+				break;
+
+			case 'svg':
+				contentType = 'image/svg+xml';
+				break;
+
+			default:
+				contentType = 'application/octet-stream';
+				break;
+		}
+
+		const fetchRes = await fetch(imageOverlay.imgPath);
+		const data = await fetchRes.arrayBuffer();
+
+		var blob = new Blob([data], {type: contentType});
+        saveAs(blob, filename);
+                        
+	});
+	
 	/*
 	$('#imageOverlayContainer').on('click', function() {
 		imageOverlay.hideOverlay();
@@ -252,10 +291,6 @@ imageOverlay.setupOverlay = function() {
 	window.addEventListener('beforeprint', function() {
 		if ($('#imageOverlayContainer').is(':visible')) {
 			$('#docs').hide();
-			//$('.content-root').hide();
-			//$('#imageToolsContainer').hide();
-			imageOverlay.resize({isPrint: true});
-
 			imageOverlay.printDivElem = document.createElement('div');
 			$(imageOverlay.printDivElem).css('width', '100%');
 			$(imageOverlay.printDivElem).css('height', '100%');
@@ -268,7 +303,6 @@ imageOverlay.setupOverlay = function() {
 				// Rotate image for print
 				const deltaY = Math.floor((imageOverlay.imageWidth - imageOverlay.imageHeight) /2);
 				const trans = 'rotate(90deg) translateX(' + deltaY + 'px)';
-				console.log('trans=' + trans);		
 				$(imgElem).css('transform', trans);
 			}
 
@@ -276,12 +310,6 @@ imageOverlay.setupOverlay = function() {
 			$(imageOverlay.printDivElem).append(imgElem);
 
 			$('body').append(imageOverlay.printDivElem);
-			
-
-			console.log('print', {
-				width: $(imageOverlay.printDivElem).width(),
-				height: $(imageOverlay.printDivElem).height(),
-			});
 		}
 	});
 	window.addEventListener('afterprint', function() {
@@ -294,7 +322,6 @@ imageOverlay.setupOverlay = function() {
 			//$('body').css('width', '');
 			$('.content-root').show();
 			$('#imageToolsContainer').show();
-			imageOverlay.resize();
 		}
 	});
 
@@ -371,7 +398,7 @@ imageOverlay.draw = function() {
 	info.dx += Math.floor(imageOverlay.panX  * imageOverlay.zoom);
 	info.dy += Math.floor(imageOverlay.panY  * imageOverlay.zoom);
 
-	console.log('info', info);
+	// console.log('info', info);
 
 	// drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
 	ctx.drawImage(imageOverlay.image, 0, 0, imageOverlay.imageWidth, imageOverlay.imageHeight, info.dx, info.dy, info.dWidth, info.dHeight);
@@ -390,15 +417,7 @@ imageOverlay.resize = function(resizeOptions = {}) {
 	$(imageOverlay.canvas).prop('width', imageOverlay.canvasWidth);
 	$(imageOverlay.canvas).prop('height', imageOverlay.canvasHeight);
 
-	// imageOverlay.bodyWidth = $('body').width();
-	// imageOverlay.bodyHeight = $('body').height();
-	imageOverlay.isPrint = resizeOptions.isPrint || false;
-	if (imageOverlay.isPrint) {
-		imageOverlay.canvasWidth = 750;
-		imageOverlay.canvasHeight = 750;
-	}
-	
-	console.log('resize', imageOverlay);
+	// console.log('resize', imageOverlay);
 
 	imageOverlay.draw();	 
 }
@@ -410,11 +429,11 @@ imageOverlay.showOverlay = function(imgPath) {
 	imageOverlay.canvas = $('#imageOverlay > canvas');
 
 	imageOverlay.imgPath = imgPath;
+
 	imageOverlay.image = new Image();
 	imageOverlay.image.onload = function() {
 		imageOverlay.imageWidth = imageOverlay.image.width;
 		imageOverlay.imageHeight = imageOverlay.image.height;	
-		console.log('loaded', imageOverlay);
 		imageOverlay.resize();
 	}
 	imageOverlay.image.src = imgPath;
