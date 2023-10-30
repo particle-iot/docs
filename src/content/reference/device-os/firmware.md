@@ -1644,7 +1644,7 @@ Ethernet.ready();
 
 {{since when="5.3.0"}}
 
-Set a [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Ethernet interface on the Argon, P2, and Photon 2 running Device OS 5.3.0 or later. This is used to set a static IP address or restore DHCP addressing (the default).
+Set a [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Ethernet interface running Device OS 5.3.0 or later. This is used to set a static IP address or restore DHCP addressing (the default).
 
 ```cpp
 // PROTOTYPE
@@ -1664,7 +1664,7 @@ Ethernet.setConfig(NetworkInterfaceConfig()
 
 {{since when="5.3.0"}}
 
-Get the current [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Ethernet interface on the Argon, P2, and Photon 2 running Device OS 5.3.0 or later.
+Get the current [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Ethernet interface running Device OS 5.3.0 or later.
 
 ```cpp
 // PROTOTYPE
