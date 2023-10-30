@@ -16,7 +16,7 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 
 ## Block diagram
 
-![Block Diagram](/assets/images/b-series/b-series-eval-block.png)
+{{imageOverlay src="/assets/images/b-series/b-series-eval-block.png" alt="Block Diagram" class="full-width"}}
 
 
 ## Description
