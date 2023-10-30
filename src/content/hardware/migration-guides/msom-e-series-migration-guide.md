@@ -713,7 +713,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 42K |
+| ∆ | Internal pull resistance | 40K | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A1
 |   |   | E Series | M SoM |
@@ -728,7 +728,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | ??? |
+| ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A2
 |   |   | E Series | M SoM |
@@ -742,7 +742,7 @@ The M SoM has U.FL antenna connectors:
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | ∆ | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 22K |
+| ∆ | Internal pull resistance | 40K | 22K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A3
 |   |   | E Series | M SoM |
@@ -757,7 +757,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports analogWrite (DAC) | Yes | No |
 | ∆ | SPI interface | SCK. Use SPI object. | n/a |
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 #### A4
 |   |   | E Series | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -772,7 +772,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
 | ∆ | SPI interface | MISO. Use SPI object. | n/a |
 | ∆ | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
 |   |   | E Series | M SoM |
@@ -788,7 +788,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
 | ∆ | SPI interface | MOSI. Use SPI object. | n/a |
 | ∆ | Supports attachInterrupt | No | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | ??? |
+| ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
 | | Added to M SoM |
@@ -803,7 +803,7 @@ The M SoM has U.FL antenna connectors:
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 42K|
+| Internal pull resistance | 42K|
 | SWD interface | SWCLK. 40K pull-down at boot.|
 | Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### AGND
@@ -823,7 +823,7 @@ The M SoM has U.FL antenna connectors:
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B1
 | | Removed from E Series |
@@ -836,7 +836,7 @@ The M SoM has U.FL antenna connectors:
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B2
 | | Removed from E Series |
@@ -850,7 +850,7 @@ The M SoM has U.FL antenna connectors:
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B3
 | | Removed from E Series |
@@ -864,7 +864,7 @@ The M SoM has U.FL antenna connectors:
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B4
 | | Removed from E Series |
@@ -876,7 +876,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B5
 | | Removed from E Series |
@@ -888,7 +888,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
 | Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C0
 | | Removed from E Series |
@@ -900,7 +900,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalWrite | Yes|
 | UART serial | RX. Use Serial5 object.|
 | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C1
 | | Removed from E Series |
@@ -912,7 +912,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalWrite | Yes|
 | UART serial | TX. Use Serial5 object.|
 | SPI interface | MOSI. Use SPI2 object.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C2
 | | Removed from E Series |
@@ -924,7 +924,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalWrite | Yes|
 | UART serial | RX. Use Serial4 object.|
 | SPI interface | MISO. Use SPI2 object.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C3
 | | Removed from E Series |
@@ -937,7 +937,7 @@ The M SoM has U.FL antenna connectors:
 | UART serial | TX. Use Serial4 object.|
 | SPI interface | SCK. Use SPI2 object.|
 | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C4
 | | Removed from E Series |
@@ -952,7 +952,7 @@ The M SoM has U.FL antenna connectors:
 | I2C interface | SDA. Use Wire1 object. You can only use Wire or Wire1, not both!|
 | Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler.|
 | CAN interface | CAN1_TX|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C5
 | | Removed from E Series |
@@ -967,7 +967,7 @@ The M SoM has U.FL antenna connectors:
 | I2C interface | SCL. Use Wire1 object. You can only use Wire or Wire1, not both!|
 | Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler.|
 | CAN interface | CAN1_RX|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD-
 | | Added to M SoM |
@@ -1008,7 +1008,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports tone | Yes | No |
 | ∆ | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | No | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | ??? |
+| ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D1
 |   |   | E Series | M SoM |
@@ -1023,7 +1023,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes |
 | ∆ | CAN interface | CAN2_TX | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | ??? |
+| ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D2
 |   |   | E Series | M SoM |
@@ -1040,7 +1040,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
 | ∆ | CAN interface | CAN2_RX | n/a |
 | ∆ | I2S interface | I2S3_SD | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | ??? |
+| ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D20
 | | Added to M SoM |
@@ -1051,7 +1051,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | ???|
+| Internal pull resistance | ???|
 #### D21
 | | Added to M SoM |
 | :--- | :--- |
@@ -1061,7 +1061,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
+| Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### D22
 | | Added to M SoM |
 | :--- | :--- |
@@ -1071,7 +1071,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | ???|
+| Internal pull resistance | ???|
 #### D23
 | | Added to M SoM |
 | :--- | :--- |
@@ -1081,7 +1081,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | ???|
+| Internal pull resistance | ???|
 #### D24
 | | Added to M SoM |
 | :--- | :--- |
@@ -1092,7 +1092,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalWrite | Yes|
 | UART serial | TX. Use Serial2 object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 42K|
+| Internal pull resistance | 42K|
 | Signal used at boot | Low at boot triggers ISP flash download|
 #### D25
 | | Added to M SoM |
@@ -1104,7 +1104,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalWrite | Yes|
 | UART serial | RX. Use Serial2 object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 42K|
+| Internal pull resistance | 42K|
 #### D26
 | | Added to M SoM |
 | :--- | :--- |
@@ -1114,7 +1114,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | ???|
+| Internal pull resistance | ???|
 #### D27
 | | Added to M SoM |
 | :--- | :--- |
@@ -1124,7 +1124,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 42K|
+| Internal pull resistance | 42K|
 | SWD interface | SWDIO. 40K pull-up at boot.|
 | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.|
 #### D3
@@ -1140,7 +1140,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | UART serial | n/a | CTS. Use Serial1 object. |
 | ∆ | SPI interface | MISO. Use SPI1 object. | SS. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | ??? |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
@@ -1157,7 +1157,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | SPI interface | SCK. Use SPI1 object. | n/a |
 | ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
 | ∆ | I2S interface | I2S3_SD | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | ??? |
+| ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDO. Floating at boot. | n/a |
@@ -1174,7 +1174,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | I2S interface | I2S3_WS | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | ??? |
+| ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
@@ -1189,7 +1189,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | ??? |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
@@ -1205,7 +1205,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | No. Shared with BAT_INT_PC13 | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | ??? |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
@@ -1220,7 +1220,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalWrite | Yes|
 | SPI interface | Default SS for SPI.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### DAC
 |   |   | E Series | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -1235,7 +1235,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | ??? |
+| ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### GND
@@ -1269,7 +1269,7 @@ The M SoM has U.FL antenna connectors:
 | Supports tone | Yes|
 | SPI interface | MISO. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### MODE
 |   |   | E Series | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -1291,7 +1291,7 @@ The M SoM has U.FL antenna connectors:
 | Supports tone | Yes|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### NC
 |   |   | E Series | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -1346,7 +1346,7 @@ The M SoM has U.FL antenna connectors:
 | &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MISO. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### SCK
 | | Added to M SoM |
@@ -1359,7 +1359,7 @@ The M SoM has U.FL antenna connectors:
 | Supports digitalWrite | Yes|
 | SPI interface | SCK. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### SIM_CLK
 | | Added to M SoM |
 | :--- | :--- |
@@ -1404,7 +1404,7 @@ The M SoM has U.FL antenna connectors:
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 2.1K |
+| ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### USBDATA-
 |   |   | E Series | M SoM |
@@ -1463,7 +1463,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports analogWrite (PWM) | Yes | No |
 | ∆ | Supports tone | Yes | No |
 | ∆ | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 40K | ??? |
+| ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 
 

@@ -57,6 +57,7 @@ var deviceOsApi = require('./device-os-api.js');
 var libraries = require('./libraries.js');
 var deviceRestoreInfo = require('./device-restore-info.js');
 const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
+const pinInfoGenerator = require('./pininfo-generator.js').metalsmith;
 const systemVersion = require('./system-version.js');
 const sharedBlurb = require('./shared-blurb.js');
 const setupFirmware = require('./setup-firmware.js');
@@ -124,6 +125,10 @@ exports.metalsmith = function () {
       environment === 'development',
       systemVersion({
       })))
+    .use(msIf(
+      environment === 'development',
+      pinInfoGenerator(          
+      )))
     .use(msIf(
         environment === 'development',
         function(files, metalsmith, done) {

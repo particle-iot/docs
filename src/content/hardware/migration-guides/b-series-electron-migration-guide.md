@@ -735,7 +735,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A1
 |   |   | Electron | B Series SoM |
@@ -750,7 +750,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
 | ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A2
 |   |   | Electron | B Series SoM |
@@ -764,7 +764,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | ∆ | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A3
 |   |   | Electron | B Series SoM |
@@ -779,7 +779,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports analogWrite (DAC) | Yes | No |
 | ∆ | SPI interface | SCK. Use SPI object. | n/a |
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 #### A4
 |   |   | Electron | B Series SoM |
 | :--- | :--- | :--- | :--- |
@@ -794,7 +794,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
 | ∆ | SPI interface | MISO. Use SPI object. | n/a |
 | ∆ | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
 |   |   | Electron | B Series SoM |
@@ -810,7 +810,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
 | ∆ | SPI interface | MOSI. Use SPI object. | n/a |
 | ∆ | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### AGND
 | | Added to B Series SoM |
@@ -829,7 +829,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B1
 | | Removed from Electron |
@@ -842,7 +842,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B2
 | | Removed from Electron |
@@ -856,7 +856,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B3
 | | Removed from Electron |
@@ -870,7 +870,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B4
 | | Removed from Electron |
@@ -882,7 +882,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B5
 | | Removed from Electron |
@@ -894,7 +894,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
 | Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C0
 | | Removed from Electron |
@@ -906,7 +906,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports digitalWrite | Yes|
 | UART serial | RX. Use Serial5 object.|
 | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C1
 | | Removed from Electron |
@@ -919,7 +919,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | UART serial | TX. Use Serial5 object.|
 | SPI interface | MOSI. Use SPI2 object.|
 | Supports attachInterrupt | No. Shared with RXD_UC.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C2
 | | Removed from Electron |
@@ -932,7 +932,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | UART serial | RX. Use Serial4 object.|
 | SPI interface | MISO. Use SPI2 object.|
 | Supports attachInterrupt | No. Shared with RI_UC.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C3
 | | Removed from Electron |
@@ -945,7 +945,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | UART serial | TX. Use Serial4 object.|
 | SPI interface | SCK. Use SPI2 object.|
 | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C4
 | | Removed from Electron |
@@ -960,7 +960,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | I2C interface | SDA. Use Wire1 object. You can only use Wire or Wire1, not both!|
 | Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler.|
 | CAN interface | CAN1_TX|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C5
 | | Removed from Electron |
@@ -975,7 +975,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | I2C interface | SCL. Use Wire1 object. You can only use Wire or Wire1, not both!|
 | Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler.|
 | CAN interface | CAN1_RX|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD-
 | | Added to B Series SoM |
@@ -1010,7 +1010,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports tone | Yes | No |
 | ∆ | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. |
 | ∆ | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D1
 |   |   | Electron | B Series SoM |
@@ -1025,7 +1025,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. |
 | ∆ | Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | ∆ | CAN interface | CAN2_TX | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D2
 |   |   | Electron | B Series SoM |
@@ -1043,7 +1043,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | ∆ | CAN interface | CAN2_RX | n/a |
 | ∆ | I2S interface | I2S3_SD | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D22
 | | Added to B Series SoM |
@@ -1054,7 +1054,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### D23
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1064,7 +1064,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### D3
 |   |   | Electron | B Series SoM |
 | :--- | :--- | :--- | :--- |
@@ -1079,7 +1079,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | SPI interface | MISO. Use SPI1 object. | MOSI. Use SPI1 object. |
 | ∆ | I2C interface | n/a | SCL. Use Wire1 object. |
 | ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
@@ -1096,7 +1096,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | SPI interface | SCK. Use SPI1 object. | MISO. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | ∆ | I2S interface | I2S3_SCK | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDO. Floating at boot. | n/a |
@@ -1113,7 +1113,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
 | ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
 | ∆ | I2S interface | I2S3_WS | n/a |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
@@ -1128,7 +1128,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | D4, D5, and D6 must have the same frequency. |
 | ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 | ∆ | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
@@ -1143,7 +1143,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes |
 | ∆ | Supports analogWrite (PWM) | No | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. |
 | ∆ | Supports attachInterrupt | No. Shared with BAT_INT_PC13. | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
 | ∆ | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | n/a |
@@ -1157,7 +1157,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports digitalWrite | Yes|
 | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### DAC
 |   |   | Electron | B Series SoM |
 | :--- | :--- | :--- | :--- |
@@ -1172,7 +1172,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
 | ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 #### GND
 |   |   | Electron | B Series SoM |
 | :--- | :--- | :--- | :--- |
@@ -1190,7 +1190,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports digitalWrite | Yes|
 | SPI interface | MISO. Use SPI object.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### MODE
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1209,7 +1209,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports digitalWrite | Yes|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### NC
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1271,7 +1271,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports tone | Yes | No |
 | &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
 | ∆ | Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### SCK
 | | Added to B Series SoM |
@@ -1284,7 +1284,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Supports digitalWrite | Yes|
 | SPI interface | SCK. Use SPI object.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### SIM_CLK
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1322,7 +1322,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | ∆ | Supports tone | Yes | No |
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### USBDATA-
 | | Added to B Series SoM |
@@ -1376,7 +1376,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | Yes | A0, A1, A6, and A7 must have the same frequency. |
 | ∆ | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| ∆ | Internal pull-up or pull-down resistance | 40K | 13K |
+| ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 
 
