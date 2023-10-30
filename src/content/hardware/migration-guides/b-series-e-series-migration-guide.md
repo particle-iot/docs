@@ -1475,7 +1475,6 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | El Salvador | &check; | &check; | &nbsp; | &nbsp; |
 | Estonia | &check; | &check; | &nbsp; | &check; |
 | eSwatini | &check; | &nbsp; | &nbsp; | &check; |
-| Ethiopia | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Faroe Islands | &nbsp; | &check; | &nbsp; | &check; |
 | Fiji | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Finland | &check; | &check; | &nbsp; | &check; |
@@ -1484,7 +1483,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Gabon | &check; | &check; | &nbsp; | &check; |
 | Georgia | &check; | &check; | &nbsp; | &nbsp; |
 | Germany | &check; | &check; | &nbsp; | &check; |
-| Ghana | &check; | &check; | &nbsp; | &check; |
+| Ghana | &check; | &check; | &nbsp; | &nbsp; |
 | Gibraltar | &check; | &check; | &nbsp; | &check; |
 | Greece | &check; | &check; | &nbsp; | &check; |
 | Greenland | &check; | &nbsp; | &nbsp; | &nbsp; |

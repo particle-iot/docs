@@ -685,7 +685,6 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | El Salvador | ELC314 | 2G, 3G | Claro, Telefonica |
 | Estonia | ELC314 | 2G, 3G | Elisa, Tele2, Telia |
 | eSwatini | ELC314 | 2G, 3G | MTN |
-| Ethiopia | ELC314 | 2G, 3G | Ethio Telecom |
 | Faroe Islands | ELC314 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | ELC314 | 2G, 3G | DNA, Elisa, Telia |
 | France | ELC314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
@@ -693,7 +692,6 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Gabon | ELC314 | 2G, 3G | Airtel |
 | Georgia | ELC314 | 2G, 3G | Beeline, Geocell |
 | Germany | ELC314 | 2G, 3G | O2, Telekom, Vodafone |
-| Ghana | ELC314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | ELC314 | 2G, 3G | Gibtel |
 | Greece | ELC314 | 2G, 3G | Cosmote, Vodafone, Wind |
 | Grenada | ELC314 | 2G | Flow |

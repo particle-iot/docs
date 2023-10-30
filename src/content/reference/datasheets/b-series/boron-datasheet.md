@@ -574,7 +574,6 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | El Salvador | BRN314 | 2G, 3G | Claro, Telefonica |
 | Estonia | BRN314 | 2G, 3G | Elisa, Tele2, Telia |
 | eSwatini | BRN314 | 2G, 3G | MTN |
-| Ethiopia | BRN314 | 2G, 3G | Ethio Telecom |
 | Faroe Islands | BRN314 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | BRN314 | 2G, 3G | DNA, Elisa, Telia |
 | France | BRN314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
@@ -582,7 +581,6 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Gabon | BRN314 | 2G, 3G | Airtel |
 | Georgia | BRN314 | 2G, 3G | Beeline, Geocell |
 | Germany | BRN314 | 2G, 3G | O2, Telekom, Vodafone |
-| Ghana | BRN314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | BRN314 | 2G, 3G | Gibtel |
 | Greece | BRN314 | 2G, 3G | Cosmote, Vodafone, Wind |
 | Grenada | BRN314 | 2G | Flow |
