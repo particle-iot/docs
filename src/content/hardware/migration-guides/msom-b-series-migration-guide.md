@@ -275,7 +275,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | SWCLK | PB[3] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | SWCLK | PB[7] |
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | SWCLK | PB[3] |
 | 55 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | SWDIO | PA[27] |
 
@@ -431,7 +431,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull-up or pull-down resistance | n/a | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
+| ∆ | Internal pull resistance | n/a | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### Module Pin 18 (NC / GNSS_TX)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -447,7 +447,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull-up or pull-down resistance | n/a | ??? |
+| ∆ | Internal pull resistance | n/a | ??? |
 #### Module Pin 20 (D1)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -458,7 +458,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 21 (GND)
 | | Unchanged between B4xx SoM and M SoM |
 | :--- | :--- |
@@ -475,7 +475,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 23 (A0)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -489,7 +489,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | A0, A1, A6, and A7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 42K |
+| ∆ | Internal pull resistance | 13K | 42K |
 #### Module Pin 32 (MODE)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -511,7 +511,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | A0, A1, A6, and A7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 34 (RST)
 | | Unchanged between B4xx SoM and M SoM |
 | :--- | :--- |
@@ -529,7 +529,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 22K |
+| ∆ | Internal pull resistance | 13K | 22K |
 #### Module Pin 36 (TX)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -544,7 +544,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MOSI. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 37 (A3)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -556,7 +556,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 38 (RX)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -571,7 +571,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
 | ∆ | SPI interface | n/a | MISO. Use SPI1 object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 39 (AGND)
 | | Unchanged between B4xx SoM and M SoM |
 | :--- | :--- |
@@ -590,7 +590,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | SPI interface | MOSI. Use SPI1 object. | SS. Use SPI1 object. |
 | ∆ | I2C interface | SCL. Use Wire1 object. | n/a |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 41 (A4)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -602,7 +602,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 42 (D2)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -615,7 +615,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
 | ∆ | I2C interface | SDA. Use Wire1 object. | n/a |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 43 (A5)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -629,7 +629,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports analogWrite (PWM) | No | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 44 (CELL USBD+)
 | | Unchanged between B4xx SoM and M SoM |
 | :--- | :--- |
@@ -650,7 +650,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | A0, A1, A6, and A7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### Module Pin 46 (CELL USBD-)
@@ -673,7 +673,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports analogWrite (PWM) | Yes | No |
 | ∆ | Supports tone | A0, A1, A6, and A7 must have the same frequency. | No |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 48 (D8)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -684,7 +684,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | Default SS for SPI. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 49 (AGND)
 | | Unchanged between B4xx SoM and M SoM |
 | :--- | :--- |
@@ -704,7 +704,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 51 (NC)
 | | Unchanged between B4xx SoM and M SoM |
 | :--- | :--- |
@@ -723,7 +723,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports tone | No | Yes |
 | &nbsp; | SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 53 (NC / A5)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -737,7 +737,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports analogWrite (PWM) | n/a | Yes |
 | ∆ | Supports tone | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull-up or pull-down resistance | n/a | 42K |
+| ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### Module Pin 54 (SCK)
@@ -751,7 +751,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | 2.1K |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 55 (NC / D27)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -761,7 +761,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull-up or pull-down resistance | n/a | 42K |
+| ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | SWD interface | n/a | SWDIO. 40K pull-up at boot. |
 | ∆ | Signal used at boot | n/a | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
 #### Module Pin 56 (GND)
@@ -785,7 +785,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | UART serial | n/a | TX. Use Serial2 object. |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull-up or pull-down resistance | n/a | 42K |
+| ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | Signal used at boot | n/a | Low at boot triggers ISP flash download |
 #### Module Pin 59 (NC / D26)
 |   |   | B4xx SoM | M SoM |
@@ -796,7 +796,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull-up or pull-down resistance | n/a | ??? |
+| ∆ | Internal pull resistance | n/a | ??? |
 #### Module Pin 60 (NC / D25)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -807,7 +807,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | UART serial | n/a | RX. Use Serial2 object. |
 | ∆ | Supports attachInterrupt | n/a | Yes |
-| ∆ | Internal pull-up or pull-down resistance | n/a | 42K |
+| ∆ | Internal pull resistance | n/a | 42K |
 #### Module Pin 61 (RGBR)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -824,7 +824,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 63 (RGBG)
 | | Unchanged between B4xx SoM and M SoM |
 | :--- | :--- |
@@ -840,7 +840,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 65 (RGBB)
 | | Unchanged between B4xx SoM and M SoM |
 | :--- | :--- |
@@ -859,7 +859,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports tone | D4, D5, and D6 must have the same frequency. | Yes |
 | ∆ | SPI interface | MISO. Use SPI1 object. | n/a |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 67 (SIM_VCC)
 | | Unchanged between B4xx SoM and M SoM |
 | :--- | :--- |
@@ -877,7 +877,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, and D6 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 69 (SIM_RST)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -895,7 +895,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
 | ∆ | Supports tone | D4, D5, and D6 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 71 (SIM_CLK)
 |   |   | B4xx SoM | M SoM |
 | :--- | :--- | :--- | :--- |
@@ -913,7 +913,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | Yes |
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| ∆ | Internal pull-up or pull-down resistance | 13K | ??? |
+| ∆ | Internal pull resistance | 13K | ??? |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}

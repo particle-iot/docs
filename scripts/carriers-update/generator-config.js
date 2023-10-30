@@ -96,6 +96,17 @@ const path = require('path');
                 return updater.generateCountryList('e series', {noVerizon: true}); 
             } 
         },
+        // datasheets/electron/b-series-eval-board.md
+        {
+            guid:'3c7bdf46-c2a2-4b04-aeb1-222b761e036b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'M.2 SoM eval board header, nRF52 SoM'
+                }); 
+            } 
+        },                
         // datasheets/electron/e-series-eval-board.md
         {
             guid:'89806642-76cb-11eb-9439-0242ac130002',

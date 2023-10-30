@@ -1,0 +1,282 @@
+[
+    {
+        "tag": "name",
+        "label": "Pin Name",
+        "searchable": false,
+        "sortable": true,
+        "showInSearch": true
+    },
+    {
+        "tag": "altName",
+        "label": "Pin Alternate Name",
+        "searchable": false,
+        "showInSearch": true
+    },
+    {
+        "tag": "desc",
+        "label": "Description",
+        "searchable": false,
+        "sortable": false,
+        "showInSearch": true
+    },
+    {
+        "tag": "digitalRead",
+        "label": "Supports digitalRead",
+        "searchable": true,
+        "ifTrue": "Yes. Supports INPUT, INPUT_PULLUP, and INPUT_PULLDOWN.",
+        "ifFalse": "No.",
+        "showInSearch": [
+            "all",
+            "digitalRead"
+        ]
+    },
+    {
+        "tag": "digitalWrite",
+        "label": "Supports digitalWrite",
+        "searchable": true,
+        "ifTrue": "Yes. Use values LOW and HIGH.",
+        "ifFalse": "No.",
+        "showInSearch": [
+            "all",
+            "digitalWrite"
+        ]
+    },
+    {
+        "tag": "analogRead",
+        "label": "Supports analogRead",
+        "searchable": true,
+        "ifTrue": "Yes. Values 0 - 4095 correspond to 0 to 3.3V input. Not 5V tolerant!",
+        "ifFalse": "No.",
+        "showInSearch": [
+            "all",
+            "analogRead"
+        ]
+    },
+    {
+        "tag": "analogWritePWM",
+        "label": "Supports analogWrite (PWM)",
+        "searchable": true,
+        "ifTrue": "Yes. Values 0 - 255 correspond to a duty cycle of 0 to 100 % on with a 500 Hz square wave.",
+        "ifFalse": "No.",
+        "showInSearch": [
+            "all",
+            "analogWritePWM",
+            "tone"
+        ]
+    },
+    {
+        "tag": "analogWriteDAC",
+        "label": "Supports analogWrite (DAC)",
+        "searchable": true,
+        "ifTrue": "Yes. Values 0 - 4095 correspond to an analog value of 0 to 3.3V.",
+        "ifFalse": "No.",
+        "showInSearch": [
+            "all",
+            "analogWriteDAC"
+        ]
+    },
+    {
+        "tag": "tone",
+        "label": "Supports tone",
+        "searchable": true,
+        "ifTrue": "Yes. Supports PWM square wave output with the specified frequency and a 50 % duty cycle.",
+        "ifFalse": "No.",
+        "showInSearch": [
+            "all",
+            "analogWritePWM",
+            "tone"
+        ]
+    },
+    {
+        "tag": "attachInterrupt",
+        "label": "Supports attachInterrupt",
+        "searchable": true,
+        "ifTrue": "Yes.",
+        "ifFalse": "No.",
+        "showInSearch": [
+            "all",
+            "attachInterrupt"
+        ]
+    },
+    {
+        "tag": "serial",
+        "label": "UART serial",
+        "searchable": true,
+        "ifTrue": "Yes.",
+        "ifFalse": "No."
+    },
+    {
+        "tag": "spi",
+        "label": "SPI interface",
+        "searchable": true,
+        "ifTrue": "Yes.",
+        "ifFalse": "No."
+    },
+    {
+        "tag": "i2c",
+        "label": "I2C interface",
+        "searchable": true,
+        "ifTrue": "Yes.",
+        "ifFalse": "No."
+    },
+    {
+        "tag": "i2s",
+        "label": "I2S interface",
+        "searchable": true,
+        "ifTrue": "Yes.",
+        "ifFalse": "No."
+    },
+    {
+        "tag": "can",
+        "label": "CAN interface",
+        "searchable": true,
+        "ifTrue": "Yes.",
+        "ifFalse": "No."
+    },
+    {
+        "tag": "jtag",
+        "label": "JTAG interface",
+        "searchable": true
+    },
+    {
+        "tag": "swd",
+        "label": "SWD interface",
+        "searchable": true
+    },
+    {
+        "tag": "boot",
+        "label": "Signal used at boot",
+        "searchable": true
+    },
+    {
+        "tag": "is5VTolerant",
+        "label": "Input is 5V Tolerant",
+        "searchable": true,
+        "ifTrue": "Yes, as pinMode(INPUT), digital only, no pull-up or pull-down.",
+        "ifFalse": "No."
+    },
+    {
+        "tag": "num",
+        "label": "Pin Number",
+        "columnLabel": "Pin",
+        "searchable": false,
+        "sortable": true,
+        "showInSearch": true
+    },
+    {
+        "tag": "hardwarePin",
+        "label": "Hardware Pin",
+        "columnLabel": "HW Pin",
+        "searchable": true,
+        "sortable": true,
+        "showInSearch": true
+    },
+    {
+        "tag": "hardwareTimer",
+        "label": "Hardware timer",
+        "searchable": true,
+        "sortable": true,
+        "showInSearch": [
+            "all",
+            "analogWritePWM",
+            "tone",
+            "hardwareTimer"
+        ]
+    },
+    {
+        "tag": "hardwareADC",
+        "label": "Hardware ADC",
+        "searchable": true,
+        "sortable": true,
+        "showInSearch": [
+            "all",
+            "analogRead",
+            "hardwareADC"
+        ]
+    },
+    {
+        "tag": "modulePinNumber",
+        "label": "Module pin number",
+        "columnLabel": "Mod Pin",
+        "searchable": false,
+        "sortable": true,
+        "showInSearch": true
+    },
+    {
+        "tag": "modulePinName",
+        "label": "Module pin name",
+        "columnLabel": "Mod Pin Name",
+        "searchable": false,
+        "sortable": true,
+        "showInSearch": true
+    },
+    {
+        "tag": "morePins",
+        "label": "Additional Pins",
+        "columnLabel": "Pins",
+        "searchable": false,
+        "sortable": false,
+        "showInSearch": true
+    },
+    {
+        "tag": "somPin",
+        "label": "SoM Common Pin Name",
+        "columnLabel": "SoM",
+        "searchable": true,
+        "sortable": true,
+        "showInSearch": true
+    },
+    {
+        "tag": "hardwarePin",
+        "label": "MCU Pin",
+        "columnLabel": "MCU Pin",
+        "searchable": true,
+        "sortable": true,
+        "showInSearch": true
+    },
+    {
+        "tag": "m2Pin",
+        "label": "M.2 connector pin number",
+        "columnLabel": "M.2 Pin",
+        "searchable": true,
+        "sortable": true,
+        "showInSearch": false
+    },
+    {
+        "tag": "internalPull",
+        "label": "Internal pull resistance",
+        "searchable": false,
+        "showInSearch": false,
+        "ifFalse": "None"
+    },
+    {
+        "tag": "isPower",
+        "label": "Power Pins",
+        "searchable": true,
+        "showInSearch": false
+    },
+    {
+        "tag": "isIO",
+        "label": "IO Pins",
+        "searchable": true,
+        "showInSearch": false
+    },
+    {
+        "tag": "isControl",
+        "label": "Control Pins",
+        "searchable": true,
+        "showInSearch": false
+    },
+    {
+        "tag": "isUSB",
+        "label": "USB Pins",
+        "searchable": true,
+        "showInSearch": false
+    },
+    {
+        "tag": "isLED",
+        "label": "LED Pins",
+        "searchable": true,
+        "showInSearch": false
+    }
+]

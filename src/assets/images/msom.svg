@@ -1615,7 +1615,7 @@ PWM    </text>
     <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PB[3]    </text>
+PB[7]    </text>
   </g>
   <g transform="translate(530,382) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >

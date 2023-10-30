@@ -128,7 +128,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | SWCLK | PB[3] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | SWCLK | PB[7] |
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | SWCLK | PB[3] |
 | 55 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | SWDIO | PA[27] |
 
@@ -159,7 +159,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | A4 / D15 | 41 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
 | A5 / D14 | 43 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
 | A5 / D14 | 53 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| A6 / D29 | 45 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[3] |
+| A6 / D29 | 45 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[7] |
 | A7 / WKP | 47 | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
 | CELL USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | CELL USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
@@ -227,7 +227,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 42 | D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
 | 43 | A5 / D14 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
 | 44 | CELL USBD+ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 45 | A6 / D29 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[3] |
+| 45 | A6 / D29 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[7] |
 | 46 | CELL USBD- | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 47 | A7 / WKP | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
 | 48 | D8 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
@@ -280,7 +280,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 41 | A4 / D15 | &check; | PB[2] |
 | 42 | D2 | &check; | PA[14] |
 | 43 | A5 / D14 | &check; | PB[3] |
-| 45 | A6 / D29 | &check; | PB[3] |
+| 45 | A6 / D29 | &check; | PB[7] |
 | 47 | A7 / WKP | &check; | PA[20] |
 | 48 | D8 | &check; | PA[19] |
 | 50 | MISO / D11 | &check; | PA[17] |
@@ -316,7 +316,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 37 | A3 / D16 | A3 Analog in, GPIO | ADC_4 | PB[1] |
 | 41 | A4 / D15 | A4 Analog in, GPIO | ADC_5 | PB[2] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | ADC_6 | PB[3] |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | ADC_3 | PB[3] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | ADC_3 | PB[7] |
 | 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | ADC_7 | PA[20] |
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | ADC_6 | PB[3] |
 
@@ -425,7 +425,7 @@ Even though the B SoM and M SoM both have two SPI interfaces, note that the M So
 | 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | PA[12] |
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | PA[13] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | PB[3] |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | PB[3] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | PB[7] |
 | 50 | MISO / D11 | D11 GPIO, PWM, SPI MISO | PA[17] |
 | 52 | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | PA[16] |
 | 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | PB[3] |
@@ -493,7 +493,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
-| 45 | A6 / D29 | SWCLK. 40K pull-down at boot. | PB[3] |
+| 45 | A6 / D29 | SWCLK. 40K pull-down at boot. | PB[7] |
 | 53 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
 | 55 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
 | 58 | D24 | Low at boot triggers ISP flash download | PA[7] |
