@@ -33,7 +33,7 @@ This page is for the Monitor One. If you are using the Tracker One, see [Tracker
 
 {{> sso}}
 
-## Configuration schema
+## Configuration
 
 The configuration schema specifies all of the elements that can be cloud-configured via the [Particle console](https://console.particle.io/). The panels vary depending on whether the product is a Tracker One or Monitor One product. You can also customize the panels with options specific to your product.
 
@@ -42,7 +42,6 @@ the standard Tracker One options to Monitor One options. You can do this with a 
 [configuration schema tool](/tools/cloud-tools/configuration-schema/) or the off-the-shelf release tool, below.
 
 For more information about the console settings, see [Monitor One settings](/getting-started/console/console/#monitor-one-settings).
-
 
 
 ## Using off-the-shelf releases

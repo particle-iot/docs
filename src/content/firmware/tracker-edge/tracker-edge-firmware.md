@@ -22,6 +22,13 @@ This page is for the Tracker One. If you are using the Monitor One, see [Monitor
 
 {{> sso}}
 
+## Configuration
+
+The configuration schema specifies all of the elements that can be cloud-configured via the [Particle console](https://console.particle.io/). The panels vary depending on whether the product is a Tracker One or Monitor One product. You can also customize the panels with options specific to your product.
+
+For more information about the console settings, see [device fleet settings](/getting-started/console/console/#device-fleet-settings).
+
+
 ## Using off-the-shelf releases
 
 Your Tracker device is pre-configured with Tracker Edge firmware that you can use out of the box with no flashing of firmware necessary.
@@ -47,7 +54,6 @@ When a new version of Tracker Edge was released, if you had not uploaded your ow
 
 This behavior was removed because it was confusing and would not work properly with the Monitor One.
 {{collapse op="end"}}
-
 
 
 ## Development device setup
