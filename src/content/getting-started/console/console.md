@@ -864,7 +864,165 @@ In some cases, you will want to set the maximum and minimum to the same value. T
 
 - **Callback to device with enhanced location data**. If checked, the Particle cloud will send back enhanced geolocation data obtained from Wi-Fi or cellular tower information back to the device. This is useful if your device firmware wants to process this information on device. If you're only tracking location from the cloud, it's not necessary to enable this option.
 
-### Store and forward
+{{!-- BEGIN do not edit content below, it is automatically generated 38cf5c3c-cd20-45a4-b87f-a541b9bbef70 --}}
+
+
+##### Radius Trigger (meters) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/radius</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Radius Trigger (meters)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Publish location if it has moved this many meters from the last publish. 0 for unused.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">5</td></tr>
+</tbody>
+</table>
+
+##### Maximum location update frequency (every n seconds) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/interval_min</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Maximum location update frequency (every n seconds)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Never publish location information more often than this setting.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">900</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">1000</td></tr>
+</tbody>
+</table>
+
+##### Minimum location update frequency (every n seconds) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/interval_max</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Minimum location update frequency (every n seconds)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Always publish location, when possible, this often</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">3600</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">7200</td></tr>
+</tbody>
+</table>
+
+##### Minimize Data configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/min_publish</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Minimize Data</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish minimal location with only latitude and longitude. If disabled, publish additional information including speed, heading, etc.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Publish on GPS lock configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/lock_trigger</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish on GPS lock</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, a change in GPS lock status will trigger a location publish, which will happen after the Minimum Interval has passed.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">true</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; "></td></tr>
+</tbody>
+</table>
+
+##### Acknowledge location publishes configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/loc_ack</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Acknowledge location publishes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, the device will expect cloud acknowledgement of location publishes and retry sending if cloud is unresponsive.  If disabled, the device will publish location messages and not account for cloud acknowledgement (fire-and-forget).  See https://docs.particle.io/reference/device-cloud/api/#tracker-configuration-events for more information</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">true</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Enhanced location configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/enhance_loc</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Enhanced location</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, the cloud will process and send enhanced geolocation events based on GNSS, WiFi access points, and cellular tower triangulation.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">true</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Publish cellular tower data configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/tower</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish cellular tower data</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, the device will collect nearby cellular towers and publish details with location events.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">true</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Publish GNSS data configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/gnss</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish GNSS data</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, the device will utilize the GNSS module to generate and publish geolocation coordinates with location events.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">true</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Publish WiFi access point data configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/wps</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish WiFi access point data</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, the device will collect nearby WiFi access points and publish details with location events.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">true</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Call back to device with enhanced location data configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/location/properties/loc_cb</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Call back to device with enhanced location data</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, the cloud will send an enhanced geolocation to the device based on GNSS, WiFi access points, and cellular tower triangulation.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+#### Store and forward
 
 ![Store and Forward](/assets/images/tracker/store-and-forward.png)
 
@@ -877,6 +1035,53 @@ When disabled, location publishes that occur when the device does not have cellu
 - **Storage Size Limit** in kilobytes. Default: 64K. While the flash file system is 4 MB, you should not use the entire file system for store and forward. Also, since publishes occur one per second when reconnecting, sending large amount of historical location data will use a lot of data operations and time.
 
 - **Discard Policy** is **drop_old** or **drop_new** which determines whether to discard the oldest or newest location data when the storage size reaches the limit.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 192e9889-fb5c-4082-af99-19d65beadc02 --}}
+
+
+##### Store and Forward configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/store/properties/enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Store and Forward</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, the device will store unpublished location publishes to the local filesystem when offline and publish them when back online.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">true</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Storage Size Limit configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/store/properties/quota</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Storage Size Limit</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Size in kilobytes to limit storage on the local filesytem for unpublished messages.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">64</td></tr>
+</tbody>
+</table>
+
+##### Discard Policy configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/store/properties/policy</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Discard Policy</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">When storage size limit is exceeded drop_old deletes the oldest logged publish to retry, drop_new deletes the newest</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">drop_old</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">drop_old,<br>drop_new</td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 #### Motion settings
 
@@ -896,8 +1101,41 @@ The motion settings determine how the IMU (inertial measurement unit, the accele
   - **Disable**: High-G events are not generated (the default).
   - **Enable**: High-G events are generated.
 
+{{!-- BEGIN do not edit content below, it is automatically generated 36859bbf-9198-4f15-bf70-cd7471c84827 --}}
 
-#### RGB LED Settings
+
+##### Movement Sensitivity configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/imu_trig/properties/motion</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Movement Sensitivity</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If not disabled, device will publish location if it detects movement. Low sensitivity requires a large motion to publish.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">disable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">disable,<br>low,<br>medium,<br>high</td></tr>
+</tbody>
+</table>
+
+##### High-G configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/imu_trig/properties/accel</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">High-G</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, device will publish location if it detects a High-G acceleration event.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">disable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">disable,<br>enable</td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+### RGB LED Settings
 
 ![RGB LED Settings](/assets/images/tracker/settings-4.png)
 
@@ -908,6 +1146,26 @@ The **Type** popup menu has the following options:
 - **off**: The RGB LED is turned off (dark).
 - **tracker**: Color indicates signal strength (yellow = lower signal strength, green = higher signal strength). Fast breathing red while connecting to cellular.
 - **particle**: Use standard Particle colors like breathing cyan instead of tracker-style colors. Default for Tracker SoM Evaluation Board.
+
+{{!-- BEGIN do not edit content below, it is automatically generated da5553f8-b134-484e-9b04-64aa241b66dd --}}
+
+
+##### Type configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/rgb/properties/type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Can control the LED to be off, default Particle RGB behavior or custom tracker behavior.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">particle</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">off,<br>particle,<br>tracker</td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 #### Sleep settings
 
@@ -923,14 +1181,218 @@ Sleep mode allows the device to enter a low-power state when idle, conserving ba
 
 You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker-sleep/).
 
+{{!-- BEGIN do not edit content below, it is automatically generated b7d34d6c-e7e3-4125-85bb-6965346098ed --}}
 
-### Device monitoring
+
+##### Sleep Mode configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/sleep/properties/mode</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Sleep Mode</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, device will operate with low power states during inactive periods.  The device will be inaccessible while in low power states</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">disable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">disable,<br>enable</td></tr>
+</tbody>
+</table>
+
+##### Post Publish Execution Time configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/sleep/properties/exe_min</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Post Publish Execution Time</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Minimum duration, in seconds, of guaranteed execution time after publishing and before entering sleep.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">10</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">10</td></tr>
+</tbody>
+</table>
+
+##### Maximum Connecting Time configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/sleep/properties/conn_max</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Maximum Connecting Time</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Maximum duration, in seconds, to wait for a cellular connected state and GNSS lock before publish.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">90</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">120</td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+
+
+
+#### Device monitoring
 
 ![Device Monitoring](/assets/images/tracker/device-monitoring.png)
 
 Device Monitoring publishes additional metrics and also fault (crash log) information. This can help troubleshoot problems, however it will use additional data operations.
 
 See the [Memfault Integration](/integrations/community-integrations/memfault/) for more information.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 77fd453b-6ad4-4a69-adae-a7f31118c4ca --}}
+
+
+##### Device Monitoring configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/monitoring/device_monitor</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Device Monitoring</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, device will publish metrics and fault details.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; "></td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+#### Temperature trigger
+{{!-- BEGIN do not edit content below, it is automatically generated 62c6ee9b-ac47-4a85-aeae-075c62511901 --}}
+
+
+##### High temperature threshold (Celsius) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/temp_trig/high</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">High temperature threshold (Celsius)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Publish location once if temperature is greater than or equal to threshold. The temperature will be required to be less than the high threshold minus hysteresis to clear event, when latching, or publish again when latching disabled.  Hysteresis must be valid.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">150</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">65</td></tr>
+</tbody>
+</table>
+
+##### High temperature monitoring configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/temp_trig/high_en</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">High temperature monitoring</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, compare current temperature against high threshold.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### High temperature event latching. configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/temp_trig/high_latch</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">High temperature event latching.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Enable latching of high temperature trigger event until temperature has fallen below hysteresis level; otherwise, generate one high temperature event.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Low temperature threshold (Celsius) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/temp_trig/low</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Low temperature threshold (Celsius)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Publish location once if temperature is less than or equal to threshold. The temperature will be required to be more than the low threshold plus hysteresis to clear event, when latching, or publish again when latching disabled. Hysteresis must be valid.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">-40</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; "></td></tr>
+</tbody>
+</table>
+
+##### Low temperature monitoring. configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/temp_trig/low_en</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Low temperature monitoring.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, compare current temperature against low threshold.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Low temperature event latching. configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/temp_trig/low_latch</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Low temperature event latching.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Enable latching of low temperature trigger event until temperature has risen above hysteresis level; otherwise, generate one low temperature event.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Hysteresis temperature threshold (Celsius) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/temp_trig/hyst</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Hysteresis temperature threshold (Celsius)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Hysteresis threshold applied to high and low thresholds to allow further temperature publishes. 0.0 for unused.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">10</td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+### Tracker settings
+
+{{!-- BEGIN do not edit content below, it is automatically generated 77fd453b-6ad4-4a69-adae-a7f31118c4ca --}}
+
+
+##### Device Monitoring configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/monitoring/device_monitor</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Device Monitoring</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, device will publish metrics and fault details.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; "></td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+{{!-- The following catches any new schema elements --}}
+
+{{!-- BEGIN do not edit content below, it is automatically generated 'a0a2120c-78c7-4d51-84af-062f116d70be' --}}
+
+ 
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
 
 ### Device settings
 
@@ -978,6 +1440,566 @@ The publish on inside, outside, enter, and exit affect the `trig` array in the l
 - `exit1` The device has exited geofence zone 1 (and exit trigger is enabled)
 - `outside2`, `inside2`, `enter2`, and `exit2`
 - `outside3`, `inside3`, `enter3`, and `exit3`
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated b1bb1d44-9b07-4237-ad3c-1050a7125619 --}}
+
+
+##### Wake interval (every n seconds) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/interval</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Wake interval (every n seconds)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If device is configured for sleep, periodic interval to wake in order to evaluate geofences.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">900</td></tr>
+</tbody>
+</table>
+
+##### Zone 1 configuration
+
+Configuration for Zone 1 settings.
+
+###### Enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone1/enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, the zone will be evaluated by the device.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Shape configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone1/shape_type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Shape</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Shape of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">circular</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">circular</td></tr>
+</tbody>
+</table>
+
+###### Latitude (Degrees) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone1/lat</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Latitude (Degrees)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Latitudinal coordinate for the center point of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">34</td></tr>
+</tbody>
+</table>
+
+###### Longitude (Degrees) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone1/lon</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Longitude (Degrees)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Longitudinal coordinate for the center point of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">121</td></tr>
+</tbody>
+</table>
+
+###### Radius (Meters) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone1/radius</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Radius (Meters)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Defines circular area covered by the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">1000</td></tr>
+</tbody>
+</table>
+
+###### Publish inside zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone1/inside</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish inside zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device is inside the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish outside zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone1/outside</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish outside zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device is outside the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish on enter zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone1/enter</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish on enter zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device has entered the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish on exit zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone1/exit</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish on exit zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device has exited the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Time Before Trigger (Seconds) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone1/verif</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Time Before Trigger (Seconds)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Amount of time the device is inside or outside the zone before triggering an event.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">1</td></tr>
+</tbody>
+</table>
+
+##### Zone 2 configuration
+
+Configuration for Zone 2 settings.
+
+###### Enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone2/enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, the zone will be evaluated by the device.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Shape configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone2/shape_type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Shape</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Shape of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">circular</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">circular</td></tr>
+</tbody>
+</table>
+
+###### Latitude (Degrees) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone2/lat</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Latitude (Degrees)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Latitudinal coordinate for the center point of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">34</td></tr>
+</tbody>
+</table>
+
+###### Longitude (Degrees) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone2/lon</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Longitude (Degrees)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Longitudinal coordinate for the center point of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">121</td></tr>
+</tbody>
+</table>
+
+###### Radius (Meters) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone2/radius</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Radius (Meters)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Defines circular area covered by the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">1000</td></tr>
+</tbody>
+</table>
+
+###### Publish inside zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone2/inside</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish inside zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device is inside the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish outside zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone2/outside</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish outside zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device is outside the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish on enter zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone2/enter</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish on enter zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device has entered the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish on exit zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone2/exit</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish on exit zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device has exited the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Time Before Trigger (Seconds) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone2/verif</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Time Before Trigger (Seconds)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Amount of time the device is inside or outside the zone before triggering an event.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">1</td></tr>
+</tbody>
+</table>
+
+##### Zone 3 configuration
+
+Configuration for Zone 3 settings.
+
+###### Enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone3/enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, the zone will be evaluated by the device.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Shape configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone3/shape_type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Shape</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Shape of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">circular</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">circular</td></tr>
+</tbody>
+</table>
+
+###### Latitude (Degrees) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone3/lat</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Latitude (Degrees)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Latitudinal coordinate for the center point of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">34</td></tr>
+</tbody>
+</table>
+
+###### Longitude (Degrees) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone3/lon</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Longitude (Degrees)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Longitudinal coordinate for the center point of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">121</td></tr>
+</tbody>
+</table>
+
+###### Radius (Meters) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone3/radius</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Radius (Meters)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Defines circular area covered by the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">1000</td></tr>
+</tbody>
+</table>
+
+###### Publish inside zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone3/inside</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish inside zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device is inside the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish outside zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone3/outside</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish outside zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device is outside the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish on enter zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone3/enter</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish on enter zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device has entered the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish on exit zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone3/exit</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish on exit zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device has exited the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Time Before Trigger (Seconds) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone3/verif</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Time Before Trigger (Seconds)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Amount of time the device is inside or outside the zone before triggering an event.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">1</td></tr>
+</tbody>
+</table>
+
+##### Zone 4 configuration
+
+Configuration for Zone 1 settings.
+
+###### Enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone4/enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, the zone will be evaluated by the device.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Shape configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone4/shape_type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Shape</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Shape of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">circular</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">circular</td></tr>
+</tbody>
+</table>
+
+###### Latitude (Degrees) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone4/lat</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Latitude (Degrees)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Latitudinal coordinate for the center point of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">34</td></tr>
+</tbody>
+</table>
+
+###### Longitude (Degrees) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone4/lon</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Longitude (Degrees)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Longitudinal coordinate for the center point of the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">121</td></tr>
+</tbody>
+</table>
+
+###### Radius (Meters) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone4/radius</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Radius (Meters)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Defines circular area covered by the geofence.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">1000</td></tr>
+</tbody>
+</table>
+
+###### Publish inside zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone4/inside</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish inside zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device is inside the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish outside zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone4/outside</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish outside zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device is outside the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish on enter zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone4/enter</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish on enter zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device has entered the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Publish on exit zone configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone4/exit</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish on exit zone</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish event when the device has exited the zone.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Time Before Trigger (Seconds) configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/geofence/zone4/verif</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Time Before Trigger (Seconds)</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Amount of time the device is inside or outside the zone before triggering an event.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">1</td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 
@@ -1112,19 +2134,1005 @@ To enable the Monitor One features, use this control to change the product schem
 
 {{> config-schema options="monitor" }}
 
+### Settings shared with the tracker
+
+The following settings, shown above, are the same for the Tracker One and Monitor One:
+
+- [Location settings](#location-settings)
+- [Store and forward settings](#store-and-forward)
+- [Motion settings](#motion-settings)
+- [RGB LED settings](#rgb-led-settings)
+- [Sleep settings](#sleep-settings)
+- [Device monitoring settings](/#device-monitoring)
+- [Geofence settings](/#geofence-settings)
+                      
 
 ### I/O card config
 
 These settings are for the I/O Card configuration. 
 
 {{imageOverlay src="/assets/images/tracker/io-config-1.png" alt="I/O card settings" }}
-{{imageOverlay src="/assets/images/tracker/io-config-2.png" alt="I/O card settings" }}
-{{imageOverlay src="/assets/images/tracker/io-config-3.png" alt="I/O card settings" }}
+
+{{!-- BEGIN do not edit content below, it is automatically generated 'cef0011b-49a1-4992-ab61-ee8eea74abc2' --}}
+
+
+##### 0-10V Voltage Input configuration
+
+Configuration for 0-10V scaling.
+
+###### Sensor low scaling configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/voltage/sensorlow</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Sensor low scaling</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Scaling applied to calibrated voltage inputs to scale value to sensor units in application.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; "></td></tr>
+</tbody>
+</table>
+
+###### Sensor high scaling configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/voltage/sensorhigh</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Sensor high scaling</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Scaling applied to calibrated voltage inputs to scale value to sensor units in application.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">10</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Sensor filter cutoff frequency configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/voltage/sensorfc</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Sensor filter cutoff frequency</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Frequency for 3db low pass filtering of the voltage input in Hertz.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">12</td></tr>
+</tbody>
+</table>
+
+###### Threshold low comparator limit configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/voltage/threshlow</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold low comparator limit</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Threshold value for comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">2</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold low hysteresis configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/voltage/hystlow</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold low hysteresis</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Hysteresis value for comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold low enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/voltage/th_low_en</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold low enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish an immediate event when the lower threshold is crossed.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Threshold high comparator limit configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/voltage/threshhigh</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold high comparator limit</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Threshold value for comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">8</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold high hysteresis configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/voltage/hysthigh</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold high hysteresis</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Hysteresis value for comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold high enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/voltage/th_high_en</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold high enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish an immediate event when the upper threshold is crossed.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### 4-20mA Current Input configuration
+
+Configuration for 4-20mA scaling.
+
+###### Sensor low scaling configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/sensorlow</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Sensor low scaling</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Scaling applied to calibrated current inputs to scale value to sensor units in application.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0.004</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; "></td></tr>
+</tbody>
+</table>
+
+###### Sensor high scaling configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/sensorhigh</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Sensor high scaling</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Scaling applied to calibrated current inputs to scale value to sensor units in application.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0.02</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">10</td></tr>
+</tbody>
+</table>
+
+###### Sensor filter cutoff frequency configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/sensorfc</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Sensor filter cutoff frequency</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Frequency for 3db low pass filtering of the current input in Hertz.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">12</td></tr>
+</tbody>
+</table>
+
+###### Threshold low comparator limit configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/threshlow</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold low comparator limit</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Threshold value for comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0.008</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold low hysteresis configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/hystlow</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold low hysteresis</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Hysteresis value for comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0.002</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold low enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/th_low_en</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold low enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish an immediate event when the lower threshold is crossed.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Threshold high comparator limit configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/threshhigh</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold high comparator limit</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Threshold value for comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0.016</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold high hysteresis configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/hysthigh</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold high hysteresis</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Hysteresis value for comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0.002</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold high enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/th_high_en</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold high enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish an immediate event when the upper threshold is crossed.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Threshold low fault comparator limit configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/th_fault_low</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold low fault comparator limit</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Threshold value, in milliamps, for fault comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0.003875</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold low fault hysteresis configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/hyst_fault_low</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold low fault hysteresis</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Hysteresis value, in milliamps, for fault comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0.000125</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold low fault enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/th_fault_low_en</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold low fault enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish an immediate event when the lower threshold is crossed.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Threshold high fault comparator limit configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/th_fault_high</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold high fault comparator limit</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Threshold value, in milliamps, for fault comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0.016</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold high fault hysteresis configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/hyst_fault_high</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold high fault hysteresis</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Hysteresis value, in milliamps, for fault comparator.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0.002</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">100</td></tr>
+</tbody>
+</table>
+
+###### Threshold high fault enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/current/th_fault_high_en</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Threshold high fault enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish an immediate event when the upper threshold is crossed.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### 24V Digital Input configuration
+
+Configuration for optoisolated digial input.
+
+###### Publish immediately on input change configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/input/immediate</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish immediately on input change</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, publish an immediate event when the digital input changes.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+###### Edge detection configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/io/input/edge</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Edge detection</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Publish on input change based on edge detected.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">none</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">none,<br>rising,<br>falling,<br>both</td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ### I/O card calibration
 
 {{imageOverlay src="/assets/images/tracker/io-calibration-config.png" alt="I/O card calibration settings" }}
+
+{{!-- BEGIN do not edit content below, it is automatically generated '23d4ca8b-c845-4939-bf6b-e259dc45af27' --}}
+
+
+##### 0-10V Voltage Input configuration
+
+Configuration for 0-10V calibration.
+
+###### Calibration gain configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/iocal/voltage/calgain</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Calibration gain</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Gain applied to raw voltage inputs to correct gain errors.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">0.95</td></tr>
+</tbody>
+</table>
+
+###### Calibration offset configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/iocal/voltage/caloffset</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Calibration offset</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Offset applied to raw voltage inputs to correct offset errors.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">-0.01</td></tr>
+</tbody>
+</table>
+
+##### 4-20mA Current Input configuration
+
+Configuration for 4-20mA calibration.
+
+###### Calibration gain configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/iocal/current/calgain</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Calibration gain</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Gain applied to raw current inputs to correct gain errors.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">0.95</td></tr>
+</tbody>
+</table>
+
+###### Calibration offset configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/iocal/current/caloffset</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Calibration offset</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Offset applied to raw current inputs to correct offset errors.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">-0.01</td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+### Modbus
+
+The following settings, available in Monitor Edge v2, are for the Modbus (RS485) support on the Monitor One I/O card.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 'c7548071-4421-40b6-b229-bf8e51e625cc' --}}
+
+
+##### RS-485 Baud configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus_rs485/baud</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">RS-485 Baud</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Baud rate to operate the RS-485 bus.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">38400</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">1200,<br>2400,<br>4800,<br>9600,<br>19200,<br>28800,<br>38400,<br>57600,<br>76800,<br>115200</td></tr>
+</tbody>
+</table>
+
+##### RS-485 Parity Bits configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus_rs485/parity</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">RS-485 Parity Bits</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Specifies partiy type used for the RS-485 bus.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">none</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">none,<br>even</td></tr>
+</tbody>
+</table>
+
+##### Modbus Inter Message Delay configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus_rs485/imd</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Inter Message Delay</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Delay between the last Modbus response and the next transmission in milliseconds.  This is used for rate limiting transactions.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">0</td></tr>
+</tbody>
+</table>
+
+##### Modbus Server Enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Server Enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, poll the given Modbus server address.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Modbus Server ID configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/id</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Server ID</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">The remote device server ID (also known as slave ID). Range: 1-255.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+</tbody>
+</table>
+
+##### Modbus Timeout configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/timeout</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Timeout</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Allowable time to wait for a response in milliseconds. Range: 0-10000.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">2000</td></tr>
+</tbody>
+</table>
+
+##### Polling Interval configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/poll</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Polling Interval</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Defines the frequency (in seconds) in which the register will be polled and results published.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+</tbody>
+</table>
+
+##### Publish polled value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/publish</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish polled value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Select when to publish the polled value.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">always</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">always</td></tr>
+</tbody>
+</table>
+
+##### Modbus Function configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/function</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Function</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Type of read function.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">coil</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">coil,<br>discrete_input,<br>input_register,<br>holding_register</td></tr>
+</tbody>
+</table>
+
+##### Register Address configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/address</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Register Address</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Address to read from, zero based. Range: 0-65535.</td></tr>
+</tbody>
+</table>
+
+##### Modbus data type configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus data type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Type of data being read.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">uint16</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">int16,<br>uint16,<br>int32,<br>uint32,<br>float32_abcd,<br>float32_badc,<br>float32_cdab,<br>float32_dcba,<br>bits</td></tr>
+</tbody>
+</table>
+
+##### Mask Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/mask</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Mask Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">65535</td></tr>
+</tbody>
+</table>
+
+##### Shift Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/shift</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Shift Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.</td></tr>
+</tbody>
+</table>
+
+##### Offset Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/offset</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Offset Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">0.5</td></tr>
+</tbody>
+</table>
+
+##### Scaling Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus1/scale</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Scaling Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">10</td></tr>
+</tbody>
+</table>
+
+##### Modbus Server Enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Server Enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, poll the given Modbus server address.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Modbus Server ID configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/id</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Server ID</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">The remote device server ID (also known as slave ID). Range: 1-255.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+</tbody>
+</table>
+
+##### Modbus Timeout configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/timeout</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Timeout</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Allowable time to wait for a response in milliseconds. Range: 0-10000.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">2000</td></tr>
+</tbody>
+</table>
+
+##### Polling Interval configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/poll</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Polling Interval</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Defines the frequency (in seconds) in which the register will be polled and results published.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+</tbody>
+</table>
+
+##### Publish polled value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/publish</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish polled value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Select when to publish the polled value.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">always</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">always</td></tr>
+</tbody>
+</table>
+
+##### Modbus Function configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/function</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Function</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Type of read function.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">coil</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">coil,<br>discrete_input,<br>input_register,<br>holding_register</td></tr>
+</tbody>
+</table>
+
+##### Register Address configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/address</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Register Address</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Address to read from, zero based. Range: 0-65535.</td></tr>
+</tbody>
+</table>
+
+##### Modbus data type configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus data type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Type of data being read.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">uint16</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">int16,<br>uint16,<br>int32,<br>uint32,<br>float32_abcd,<br>float32_badc,<br>float32_cdab,<br>float32_dcba,<br>bits</td></tr>
+</tbody>
+</table>
+
+##### Mask Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/mask</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Mask Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">65535</td></tr>
+</tbody>
+</table>
+
+##### Shift Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/shift</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Shift Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.</td></tr>
+</tbody>
+</table>
+
+##### Offset Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/offset</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Offset Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">0.5</td></tr>
+</tbody>
+</table>
+
+##### Scaling Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus2/scale</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Scaling Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">10</td></tr>
+</tbody>
+</table>
+
+##### Modbus Server Enable configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Server Enable</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">If enabled, poll the given Modbus server address.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">true</td></tr>
+</tbody>
+</table>
+
+##### Modbus Server ID configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/id</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Server ID</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">The remote device server ID (also known as slave ID). Range: 1-255.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+</tbody>
+</table>
+
+##### Modbus Timeout configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/timeout</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Timeout</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Allowable time to wait for a response in milliseconds. Range: 0-10000.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">2000</td></tr>
+</tbody>
+</table>
+
+##### Polling Interval configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/poll</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Polling Interval</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Defines the frequency (in seconds) in which the register will be polled and results published.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+</tbody>
+</table>
+
+##### Publish polled value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/publish</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Publish polled value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Select when to publish the polled value.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">always</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">always</td></tr>
+</tbody>
+</table>
+
+##### Modbus Function configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/function</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus Function</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Type of read function.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">coil</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">coil,<br>discrete_input,<br>input_register,<br>holding_register</td></tr>
+</tbody>
+</table>
+
+##### Register Address configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/address</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Register Address</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Address to read from, zero based. Range: 0-65535.</td></tr>
+</tbody>
+</table>
+
+##### Modbus data type configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Modbus data type</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Type of data being read.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">uint16</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Enumeration values</td><td class="" style="text-align: left; ">int16,<br>uint16,<br>int32,<br>uint32,<br>float32_abcd,<br>float32_badc,<br>float32_cdab,<br>float32_dcba,<br>bits</td></tr>
+</tbody>
+</table>
+
+##### Mask Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/mask</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Mask Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">65535</td></tr>
+</tbody>
+</table>
+
+##### Shift Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/shift</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Shift Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.</td></tr>
+</tbody>
+</table>
+
+##### Offset Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/offset</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Offset Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">0.5</td></tr>
+</tbody>
+</table>
+
+##### Scaling Value configuration
+
+<table class="schemaParameterTable">
+<thead>
+<th>Field</th><th>Value</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Schema ID</td><td class="" style="text-align: left; ">#/properties/modbus3/scale</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Title</td><td class="" style="text-align: left; ">Scaling Value</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Default Value</td><td class="" style="text-align: left; ">1</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Example values</td><td class="" style="text-align: left; ">10</td></tr>
+</tbody>
+</table>
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+{{!-- New settings from the schema go here --}}
+{{!-- BEGIN do not edit content below, it is automatically generated '40b06c67-b4eb-4be9-b9c2-539ac2f68dbd' --}}
+
+ 
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ## Devices and SIM cards
@@ -1251,6 +3259,3 @@ In the growth plan, for each class of class device (cellular or tracker), there 
 - An organization is selected in the upper left (1). 
 - The **Products** icon is selected, then a product. The current product is shown at the top (2).
 - The **SIM cards** icon is selected in the left navigation bar (3). Make sure you select the SIM cards icon inside the product, not the one at the top level of the console!
-
-
-

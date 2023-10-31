@@ -22,6 +22,13 @@ This page is for the Tracker One. If you are using the Monitor One, see [Monitor
 
 {{> sso}}
 
+## Configuration
+
+The configuration schema specifies all of the elements that can be cloud-configured via the [Particle console](https://console.particle.io/). The panels vary depending on whether the product is a Tracker One or Monitor One product. You can also customize the panels with options specific to your product.
+
+For more information about the console settings, see [device fleet settings](/getting-started/console/console/#device-fleet-settings).
+
+
 ## Using off-the-shelf releases
 
 Your Tracker device is pre-configured with Tracker Edge firmware that you can use out of the box with no flashing of firmware necessary.
@@ -543,4 +550,3 @@ On a successful cmd request, the result is 0. A result of -22 indicates the JSON
 
 - The [Tracker Edge Firmware API Reference](/firmware/tracker-edge/tracker-edge-api-reference/) has more information on the available APIs.
 - The [Tracker Eval Board I2C Example](/getting-started/tracker/tracker-eval-tutorials/#i2c-sensor-example) shows how to add I2C sensor data to your location publishes.
-

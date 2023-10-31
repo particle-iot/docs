@@ -29,15 +29,19 @@ The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-ap
 This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/).
 {{note op="end"}}
 
+
+
 {{> sso}}
 
-## Configuration schema
+## Configuration
+
+The configuration schema specifies all of the elements that can be cloud-configured via the [Particle console](https://console.particle.io/). The panels vary depending on whether the product is a Tracker One or Monitor One product. You can also customize the panels with options specific to your product.
 
 If you are using the Monitor One, you need to upload a configuration schema to change the console panels from 
 the standard Tracker One options to Monitor One options. You can do this with a couple clicks in the 
 [configuration schema tool](/tools/cloud-tools/configuration-schema/) or the off-the-shelf release tool, below.
 
-For an explanation of the console settings, see [Monitor One settings](/getting-started/console/console/#monitor-one-settings).
+For more information about the console settings, see [Monitor One settings](/getting-started/console/console/#monitor-one-settings).
 
 
 ## Using off-the-shelf releases
@@ -380,4 +384,3 @@ To summarize:
 ## Learn more 
 
 - The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-api-reference/) has more information on the available APIs.
-

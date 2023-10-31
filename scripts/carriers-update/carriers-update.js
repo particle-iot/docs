@@ -748,6 +748,22 @@ const generatorConfig = require('./generator-config');
 
     // https://stackoverflow.com/questions/6234773/can-i-escape-html-special-chars-in-javascript
     updater.escapeHtml = function(s) {
+        if (Array.isArray(s)) {
+            let s2 = [];
+            for(const s1 of s) {
+                s2.push(updater.escapeHtml(s1));
+            }
+            return s2.join(',<br>');
+        }
+
+        if (!s) {
+            return '';
+        }
+
+        if (typeof s != 'string') {
+            return s.toString();
+        }
+
         return s
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
@@ -3164,7 +3180,7 @@ const generatorConfig = require('./generator-config');
         // file.stats: file stat information
 
         // {{!-- BEGIN do not edit content below, it is automatically generated 323fb696-76c4-11eb-9439-0242ac130002 --}}
-        // {{!-- END do not edit content above, it is automatically generated 323fb696-76c4-11eb-9439-0242ac130002 --}}
+        // {{!-- END do not edit content above, it is automatically generated --}}
         const replacePrefixBegin = '{{!-- BEGIN do not edit content below, it is automatically generated ';
         const replacePrefixEnd = '{{!-- END do not edit content above, it is automatically generated';
 
@@ -3189,6 +3205,11 @@ const generatorConfig = require('./generator-config');
                     const m = line.substring(replacePrefixBegin.length).match(guidRE);
                     if (m) {
                         guid = m[1];
+                        updater.curOptions = line.substring(replacePrefixBegin.length + m.index + guid.length + 1).trim();
+                        const endIndex = updater.curOptions.lastIndexOf('--');
+                        if (endIndex >= 0) {
+                            updater.curOptions = updater.curOptions.substring(0, endIndex).trim();
+                        }
                         // console.log('file=' + name + ' guid=' + guid);
                         inGuid = true;
                         if (currentBlock.length) {
