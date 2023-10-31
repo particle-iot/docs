@@ -1,10 +1,29 @@
 const fs = require('fs');
 const path = require('path');
 
+const schemaDocs = require('./schema-docs');
+
 
 (function(generatorConfig) {
     
     generatorConfig.updates = [
+        // schema docs
+        {
+            guid: '40b06c67-b4eb-4be9-b9c2-539ac2f68dbd',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'monitor',
+                });
+            },
+        },
+        {
+            guid: 'a0a2120c-78c7-4d51-84af-062f116d70be',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                });
+            },
+        },
         // firmware.md
         {
             guid:'4d3ada5a-494c-469b-b6ee-6b4ec53bc3d3', 

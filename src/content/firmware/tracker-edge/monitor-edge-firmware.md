@@ -29,15 +29,684 @@ The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-ap
 This page is for the Monitor One. If you are using the Tracker One, see [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/).
 {{note op="end"}}
 
+
+
 {{> sso}}
 
 ## Configuration schema
+
+The configuration schema specifies all of the elements that can be cloud-configured via the [Particle console](https://console.particle.io/). The panels vary depending on whether the product is a Tracker One or Monitor One product. You can also customize the panels with options specific to your product.
 
 If you are using the Monitor One, you need to upload a configuration schema to change the console panels from 
 the standard Tracker One options to Monitor One options. You can do this with a couple clicks in the 
 [configuration schema tool](/tools/cloud-tools/configuration-schema/) or the off-the-shelf release tool, below.
 
-For an explanation of the console settings, see [Monitor One settings](/getting-started/console/console/#monitor-one-settings).
+For more information about the console settings, see [Monitor One settings](/getting-started/console/console/#monitor-one-settings).
+
+{{!-- BEGIN do not edit content below, it is automatically generated 40b06c67-b4eb-4be9-b9c2-539ac2f68dbd --}}
+
+
+### Modbus RS-485 tab
+
+Configuration for Modbus RTU with RS-485.
+*Added in version 2*
+
+#### RS-485 Baud configuration
+
+Baud rate to operate the RS-485 bus.
+
+#### RS-485 Parity Bits configuration
+
+Specifies partiy type used for the RS-485 bus.
+
+#### Modbus Inter Message Delay configuration
+
+Delay between the last Modbus response and the next transmission in milliseconds.  This is used for rate limiting transactions.
+
+### Modbus Polling 1 tab
+
+Configuration for polling a Modbus server ID.
+*Added in version 2*
+
+#### Modbus Server Enable configuration
+
+If enabled, poll the given Modbus server address.
+
+#### Modbus Server ID configuration
+
+The remote device server ID (also known as slave ID). Range: 1-255.
+
+#### Modbus Timeout configuration
+
+Allowable time to wait for a response in milliseconds. Range: 0-10000.
+
+#### Polling Interval configuration
+
+Defines the frequency (in seconds) in which the register will be polled and results published.
+
+#### Publish polled value configuration
+
+Select when to publish the polled value.
+
+#### Modbus Function configuration
+
+Type of read function.
+
+#### Register Address configuration
+
+Address to read from, zero based. Range: 0-65535.
+
+#### Modbus data type configuration
+
+Type of data being read.
+
+#### Mask Value configuration
+
+16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.
+
+#### Shift Value configuration
+
+Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.
+
+#### Offset Value configuration
+
+Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).
+
+#### Scaling Value configuration
+
+Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).
+
+### Modbus Polling 2 tab
+
+Configuration for polling a Modbus server ID.
+*Added in version 2*
+
+#### Modbus Server Enable configuration
+
+If enabled, poll the given Modbus server address.
+
+#### Modbus Server ID configuration
+
+The remote device server ID (also known as slave ID). Range: 1-255.
+
+#### Modbus Timeout configuration
+
+Allowable time to wait for a response in milliseconds. Range: 0-10000.
+
+#### Polling Interval configuration
+
+Defines the frequency (in seconds) in which the register will be polled and results published.
+
+#### Publish polled value configuration
+
+Select when to publish the polled value.
+
+#### Modbus Function configuration
+
+Type of read function.
+
+#### Register Address configuration
+
+Address to read from, zero based. Range: 0-65535.
+
+#### Modbus data type configuration
+
+Type of data being read.
+
+#### Mask Value configuration
+
+16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.
+
+#### Shift Value configuration
+
+Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.
+
+#### Offset Value configuration
+
+Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).
+
+#### Scaling Value configuration
+
+Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).
+
+### Modbus Polling 3 tab
+
+Configuration for polling a Modbus server ID.
+*Added in version 2*
+
+#### Modbus Server Enable configuration
+
+If enabled, poll the given Modbus server address.
+
+#### Modbus Server ID configuration
+
+The remote device server ID (also known as slave ID). Range: 1-255.
+
+#### Modbus Timeout configuration
+
+Allowable time to wait for a response in milliseconds. Range: 0-10000.
+
+#### Polling Interval configuration
+
+Defines the frequency (in seconds) in which the register will be polled and results published.
+
+#### Publish polled value configuration
+
+Select when to publish the polled value.
+
+#### Modbus Function configuration
+
+Type of read function.
+
+#### Register Address configuration
+
+Address to read from, zero based. Range: 0-65535.
+
+#### Modbus data type configuration
+
+Type of data being read.
+
+#### Mask Value configuration
+
+16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.
+
+#### Shift Value configuration
+
+Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.
+
+#### Offset Value configuration
+
+Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).
+
+#### Scaling Value configuration
+
+Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).
+
+### IO tab
+
+Configuration for Inputs and Outputs.
+
+#### 0-10V Voltage Input configuration
+
+Configuration for 0-10V scaling.
+
+##### Sensor low scaling configuration
+
+Scaling applied to calibrated voltage inputs to scale value to sensor units in application.
+
+##### Sensor high scaling configuration
+
+Scaling applied to calibrated voltage inputs to scale value to sensor units in application.
+
+##### Sensor filter cutoff frequency configuration
+
+Frequency for 3db low pass filtering of the voltage input in Hertz.
+
+##### Threshold low comparator limit configuration
+
+Threshold value for comparator.
+
+##### Threshold low hysteresis configuration
+
+Hysteresis value for comparator.
+
+##### Threshold low enable configuration
+
+If enabled, publish an immediate event when the lower threshold is crossed.
+
+##### Threshold high comparator limit configuration
+
+Threshold value for comparator.
+
+##### Threshold high hysteresis configuration
+
+Hysteresis value for comparator.
+
+##### Threshold high enable configuration
+
+If enabled, publish an immediate event when the upper threshold is crossed.
+
+#### 4-20mA Current Input configuration
+
+Configuration for 4-20mA scaling.
+
+##### Sensor low scaling configuration
+
+Scaling applied to calibrated current inputs to scale value to sensor units in application.
+
+##### Sensor high scaling configuration
+
+Scaling applied to calibrated current inputs to scale value to sensor units in application.
+
+##### Sensor filter cutoff frequency configuration
+
+Frequency for 3db low pass filtering of the current input in Hertz.
+
+##### Threshold low comparator limit configuration
+
+Threshold value for comparator.
+
+##### Threshold low hysteresis configuration
+
+Hysteresis value for comparator.
+
+##### Threshold low enable configuration
+
+If enabled, publish an immediate event when the lower threshold is crossed.
+
+##### Threshold high comparator limit configuration
+
+Threshold value for comparator.
+
+##### Threshold high hysteresis configuration
+
+Hysteresis value for comparator.
+
+##### Threshold high enable configuration
+
+If enabled, publish an immediate event when the upper threshold is crossed.
+
+##### Threshold low fault comparator limit configuration
+
+Threshold value, in milliamps, for fault comparator.
+
+##### Threshold low fault hysteresis configuration
+
+Hysteresis value, in milliamps, for fault comparator.
+
+##### Threshold low fault enable configuration
+
+If enabled, publish an immediate event when the lower threshold is crossed.
+
+##### Threshold high fault comparator limit configuration
+
+Threshold value, in milliamps, for fault comparator.
+
+##### Threshold high fault hysteresis configuration
+
+Hysteresis value, in milliamps, for fault comparator.
+
+##### Threshold high fault enable configuration
+
+If enabled, publish an immediate event when the upper threshold is crossed.
+
+#### 24V Digital Input configuration
+
+Configuration for optoisolated digial input.
+
+##### Publish immediately on input change configuration
+
+If enabled, publish an immediate event when the digital input changes.
+
+##### Edge detection configuration
+
+Publish on input change based on edge detected.
+
+### IO Calibration tab
+
+Calibration configuration for inputs.
+
+#### 0-10V Voltage Input configuration
+
+Configuration for 0-10V calibration.
+
+##### Calibration gain configuration
+
+Gain applied to raw voltage inputs to correct gain errors.
+
+##### Calibration offset configuration
+
+Offset applied to raw voltage inputs to correct offset errors.
+
+#### 4-20mA Current Input configuration
+
+Configuration for 4-20mA calibration.
+
+##### Calibration gain configuration
+
+Gain applied to raw current inputs to correct gain errors.
+
+##### Calibration offset configuration
+
+Offset applied to raw current inputs to correct offset errors.
+
+### Location tab
+
+Configuration for published locations.
+
+#### Radius Trigger (meters) configuration
+
+Publish location if it has moved this many meters from the last publish. 0 for unused.
+
+#### Maximum location update frequency (every n seconds) configuration
+
+Never publish location information more often than this setting.
+
+#### Minimum location update frequency (every n seconds) configuration
+
+Always publish location, when possible, this often
+
+#### Minimize Data configuration
+
+If enabled, publish minimal location with only latitude and longitude. If disabled, publish additional information including speed, heading, etc.
+
+#### Publish on GPS lock configuration
+
+If enabled, a change in GPS lock status will trigger a location publish, which will happen after the Minimum Interval has passed.
+
+#### Acknowledge location publishes configuration
+
+If enabled, the device will expect cloud acknowledgement of location publishes and retry sending if cloud is unresponsive.  If disabled, the device will publish location messages and not account for cloud acknowledgement (fire-and-forget).  See https://docs.particle.io/reference/device-cloud/api/#tracker-configuration-events for more information
+
+#### Enhanced location configuration
+
+If enabled, the cloud will process and send enhanced geolocation events based on GNSS, WiFi access points, and cellular tower triangulation.
+
+#### Publish cellular tower data configuration
+
+If enabled, the device will collect nearby cellular towers and publish details with location events.
+
+#### Publish GNSS data configuration
+
+If enabled, the device will utilize the GNSS module to generate and publish geolocation coordinates with location events.
+
+#### Publish WiFi access point data configuration
+
+If enabled, the device will collect nearby WiFi access points and publish details with location events.
+
+#### Call back to device with enhanced location data configuration
+
+If enabled, the cloud will send an enhanced geolocation to the device based on GNSS, WiFi access points, and cellular tower triangulation.
+
+#### Publish extra information to assist with debugging GNSS configuration
+
+If enabled, publish GNSS constellation counts and C/NO characteristics.
+
+### Store and Forward tab
+
+Configuration for Store and Forward.
+*Added in version 1*
+
+#### Store and Forward configuration
+
+If enabled, the device will store unpublished location publishes to the local filesystem when offline and publish them when back online.
+
+#### Storage Size Limit configuration
+
+Size in kilobytes to limit storage on the local filesytem for unpublished messages.
+
+#### Discard Policy configuration
+
+When storage size limit is exceeded drop_old deletes the oldest logged publish to retry, drop_new deletes the newest
+
+### Motion tab
+
+Configuration for motion detection.
+
+#### Movement Sensitivity configuration
+
+If not disabled, device will publish location if it detects movement. Low sensitivity requires a large motion to publish.
+
+#### High-G configuration
+
+If enabled, device will publish location if it detects a High-G acceleration event.
+
+### Temperature tab
+
+Configuration for temperature thresholding.
+
+#### High temperature threshold (Celsius) configuration
+
+Publish location once if temperature is greater than or equal to threshold. The temperature will be required to be less than the high threshold minus hysteresis to clear event, when latching, or publish again when latching disabled.  Hysteresis must be valid.
+
+#### High temperature monitoring configuration
+
+If enabled, compare current temperature against high threshold.
+
+#### High temperature event latching. configuration
+
+Enable latching of high temperature trigger event until temperature has fallen below hysteresis level; otherwise, generate one high temperature event.
+
+#### Low temperature threshold (Celsius) configuration
+
+Publish location once if temperature is less than or equal to threshold. The temperature will be required to be more than the low threshold plus hysteresis to clear event, when latching, or publish again when latching disabled. Hysteresis must be valid.
+
+#### Low temperature monitoring. configuration
+
+If enabled, compare current temperature against low threshold.
+
+#### Low temperature event latching. configuration
+
+Enable latching of low temperature trigger event until temperature has risen above hysteresis level; otherwise, generate one low temperature event.
+
+#### Hysteresis temperature threshold (Celsius) configuration
+
+Hysteresis threshold applied to high and low thresholds to allow further temperature publishes. 0.0 for unused.
+
+### Sleep tab
+
+Configuration for low power operation. Supported in Asset Tracker Firmware v10 and later
+*Added in version 1*
+
+#### Sleep Mode configuration
+
+If enabled, device will operate with low power states during inactive periods.  The device will be inaccessible while in low power states
+
+#### Post Publish Execution Time configuration
+
+Minimum duration, in seconds, of guaranteed execution time after publishing and before entering sleep.
+
+#### Maximum Connecting Time configuration
+
+Maximum duration, in seconds, to wait for a cellular connected state and GNSS lock before publish.
+
+### Tracker tab
+
+Configuration for Tracker specific settings
+
+#### USB Command configuration
+
+If enabled, device will parse incoming commands on USB.
+
+### Device Monitoring tab
+
+Configuration for device monitoring specific settings
+*Added in version 1*
+
+#### Device Monitoring configuration
+
+If enabled, device will publish metrics and fault details.
+
+### Geofence tab
+
+Configuration for geofencing settings
+*Added in version 1*
+
+#### Wake interval (every n seconds) configuration
+
+If device is configured for sleep, periodic interval to wake in order to evaluate geofences.
+
+#### Zone 1 configuration
+
+Configuration for Zone 1 settings.
+
+##### Enable configuration
+
+If enabled, the zone will be evaluated by the device.
+
+##### Shape configuration
+
+Shape of the geofence.
+
+##### Latitude (Degrees) configuration
+
+Latitudinal coordinate for the center point of the geofence.
+
+##### Longitude (Degrees) configuration
+
+Longitudinal coordinate for the center point of the geofence.
+
+##### Radius (Meters) configuration
+
+Defines circular area covered by the geofence.
+
+##### Publish inside zone configuration
+
+If enabled, publish event when the device is inside the zone.
+
+##### Publish outside zone configuration
+
+If enabled, publish event when the device is outside the zone.
+
+##### Publish on enter zone configuration
+
+If enabled, publish event when the device has entered the zone.
+
+##### Publish on exit zone configuration
+
+If enabled, publish event when the device has exited the zone.
+
+##### Time Before Trigger (Seconds) configuration
+
+Amount of time the device is inside or outside the zone before triggering an event.
+
+#### Zone 2 configuration
+
+Configuration for Zone 2 settings.
+
+##### Enable configuration
+
+If enabled, the zone will be evaluated by the device.
+
+##### Shape configuration
+
+Shape of the geofence.
+
+##### Latitude (Degrees) configuration
+
+Latitudinal coordinate for the center point of the geofence.
+
+##### Longitude (Degrees) configuration
+
+Longitudinal coordinate for the center point of the geofence.
+
+##### Radius (Meters) configuration
+
+Defines circular area covered by the geofence.
+
+##### Publish inside zone configuration
+
+If enabled, publish event when the device is inside the zone.
+
+##### Publish outside zone configuration
+
+If enabled, publish event when the device is outside the zone.
+
+##### Publish on enter zone configuration
+
+If enabled, publish event when the device has entered the zone.
+
+##### Publish on exit zone configuration
+
+If enabled, publish event when the device has exited the zone.
+
+##### Time Before Trigger (Seconds) configuration
+
+Amount of time the device is inside or outside the zone before triggering an event.
+
+#### Zone 3 configuration
+
+Configuration for Zone 3 settings.
+
+##### Enable configuration
+
+If enabled, the zone will be evaluated by the device.
+
+##### Shape configuration
+
+Shape of the geofence.
+
+##### Latitude (Degrees) configuration
+
+Latitudinal coordinate for the center point of the geofence.
+
+##### Longitude (Degrees) configuration
+
+Longitudinal coordinate for the center point of the geofence.
+
+##### Radius (Meters) configuration
+
+Defines circular area covered by the geofence.
+
+##### Publish inside zone configuration
+
+If enabled, publish event when the device is inside the zone.
+
+##### Publish outside zone configuration
+
+If enabled, publish event when the device is outside the zone.
+
+##### Publish on enter zone configuration
+
+If enabled, publish event when the device has entered the zone.
+
+##### Publish on exit zone configuration
+
+If enabled, publish event when the device has exited the zone.
+
+##### Time Before Trigger (Seconds) configuration
+
+Amount of time the device is inside or outside the zone before triggering an event.
+
+#### Zone 4 configuration
+
+Configuration for Zone 1 settings.
+
+##### Enable configuration
+
+If enabled, the zone will be evaluated by the device.
+
+##### Shape configuration
+
+Shape of the geofence.
+
+##### Latitude (Degrees) configuration
+
+Latitudinal coordinate for the center point of the geofence.
+
+##### Longitude (Degrees) configuration
+
+Longitudinal coordinate for the center point of the geofence.
+
+##### Radius (Meters) configuration
+
+Defines circular area covered by the geofence.
+
+##### Publish inside zone configuration
+
+If enabled, publish event when the device is inside the zone.
+
+##### Publish outside zone configuration
+
+If enabled, publish event when the device is outside the zone.
+
+##### Publish on enter zone configuration
+
+If enabled, publish event when the device has entered the zone.
+
+##### Publish on exit zone configuration
+
+If enabled, publish event when the device has exited the zone.
+
+##### Time Before Trigger (Seconds) configuration
+
+Amount of time the device is inside or outside the zone before triggering an event.
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+
 
 
 ## Using off-the-shelf releases
@@ -380,4 +1049,3 @@ To summarize:
 ## Learn more 
 
 - The [Monitor Edge Firmware API Reference](/firmware/tracker-edge/monitor-edge-api-reference/) has more information on the available APIs.
-

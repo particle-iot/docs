@@ -49,6 +49,353 @@ This behavior was removed because it was confusing and would not work properly w
 {{collapse op="end"}}
 
 
+## Configuration schema
+
+The configuration schema specifies all of the elements that can be cloud-configured via the [Particle console](https://console.particle.io/). The panels vary depending on whether the product is a Tracker One or Monitor One product. You can also customize the panels with options specific to your product.
+
+{{!-- BEGIN do not edit content below, it is automatically generated a0a2120c-78c7-4d51-84af-062f116d70be --}}
+
+
+### Location tab
+
+Configuration for published locations.
+
+#### Radius Trigger (meters) configuration
+
+Publish location if it has moved this many meters from the last publish. 0 for unused.
+
+#### Maximum location update frequency (every n seconds) configuration
+
+Never publish location information more often than this setting.
+
+#### Minimum location update frequency (every n seconds) configuration
+
+Always publish location, when possible, this often
+
+#### Minimize Data configuration
+
+If enabled, publish minimal location with only latitude and longitude. If disabled, publish additional information including speed, heading, etc.
+
+#### Publish on GPS lock configuration
+
+If enabled, a change in GPS lock status will trigger a location publish, which will happen after the Minimum Interval has passed.
+
+#### Acknowledge location publishes configuration
+
+If enabled, the device will expect cloud acknowledgement of location publishes and retry sending if cloud is unresponsive.  If disabled, the device will publish location messages and not account for cloud acknowledgement (fire-and-forget).  See https://docs.particle.io/reference/device-cloud/api/#tracker-configuration-events for more information
+
+#### Enhanced location configuration
+
+If enabled, the cloud will process and send enhanced geolocation events based on GNSS, WiFi access points, and cellular tower triangulation.
+
+#### Publish cellular tower data configuration
+
+If enabled, the device will collect nearby cellular towers and publish details with location events.
+
+#### Publish GNSS data configuration
+
+If enabled, the device will utilize the GNSS module to generate and publish geolocation coordinates with location events.
+
+#### Publish WiFi access point data configuration
+
+If enabled, the device will collect nearby WiFi access points and publish details with location events.
+
+#### Call back to device with enhanced location data configuration
+
+If enabled, the cloud will send an enhanced geolocation to the device based on GNSS, WiFi access points, and cellular tower triangulation.
+
+### Store and Forward tab
+
+Configuration for Store and Forward.
+*Added in version 18*
+
+#### Store and Forward configuration
+
+If enabled, the device will store unpublished location publishes to the local filesystem when offline and publish them when back online.
+
+#### Storage Size Limit configuration
+
+Size in kilobytes to limit storage on the local filesytem for unpublished messages.
+
+#### Discard Policy configuration
+
+When storage size limit is exceeded drop_old deletes the oldest logged publish to retry, drop_new deletes the newest
+
+### Motion tab
+
+Configuration for motion detection.
+
+#### Movement Sensitivity configuration
+
+If not disabled, device will publish location if it detects movement. Low sensitivity requires a large motion to publish.
+
+#### High-G configuration
+
+If enabled, device will publish location if it detects a High-G acceleration event.
+
+### Temperature tab
+
+Configuration for temperature thresholding.
+
+#### High temperature threshold (Celsius) configuration
+
+Publish location once if temperature is greater than or equal to threshold. The temperature will be required to be less than the high threshold minus hysteresis to clear event, when latching, or publish again when latching disabled.  Hysteresis must be valid.
+
+#### High temperature monitoring configuration
+
+If enabled, compare current temperature against high threshold.
+
+#### High temperature event latching. configuration
+
+Enable latching of high temperature trigger event until temperature has fallen below hysteresis level; otherwise, generate one high temperature event.
+
+#### Low temperature threshold (Celsius) configuration
+
+Publish location once if temperature is less than or equal to threshold. The temperature will be required to be more than the low threshold plus hysteresis to clear event, when latching, or publish again when latching disabled. Hysteresis must be valid.
+
+#### Low temperature monitoring. configuration
+
+If enabled, compare current temperature against low threshold.
+
+#### Low temperature event latching. configuration
+
+Enable latching of low temperature trigger event until temperature has risen above hysteresis level; otherwise, generate one low temperature event.
+
+#### Hysteresis temperature threshold (Celsius) configuration
+
+Hysteresis threshold applied to high and low thresholds to allow further temperature publishes. 0.0 for unused.
+
+### RGB LED tab
+
+Configuration for the Particle RGB LED.
+
+#### Type configuration
+
+Can control the LED to be off, default Particle RGB behavior or custom tracker behavior.
+
+### Sleep tab
+
+Configuration for low power operation. Supported in Asset Tracker Firmware v10 and later
+*Added in version 10*
+
+#### Sleep Mode configuration
+
+If enabled, device will operate with low power states during inactive periods.  The device will be inaccessible while in low power states
+
+#### Post Publish Execution Time configuration
+
+Minimum duration, in seconds, of guaranteed execution time after publishing and before entering sleep.
+
+#### Maximum Connecting Time configuration
+
+Maximum duration, in seconds, to wait for a cellular connected state and GNSS lock before publish.
+
+### Tracker tab
+
+Configuration for Tracker specific settings
+
+#### USB Command configuration
+
+If enabled, device will parse incoming commands on USB.
+
+### Device Monitoring tab
+
+Configuration for device monitoring specific settings
+*Added in version 18*
+
+#### Device Monitoring configuration
+
+If enabled, device will publish metrics and fault details.
+
+### Geofence tab
+
+Configuration for geofencing settings
+*Added in version 17*
+
+#### Wake interval (every n seconds) configuration
+
+If device is configured for sleep, periodic interval to wake in order to evaluate geofences.
+
+#### Zone 1 configuration
+
+Configuration for Zone 1 settings.
+
+##### Enable configuration
+
+If enabled, the zone will be evaluated by the device.
+
+##### Shape configuration
+
+Shape of the geofence.
+
+##### Latitude (Degrees) configuration
+
+Latitudinal coordinate for the center point of the geofence.
+
+##### Longitude (Degrees) configuration
+
+Longitudinal coordinate for the center point of the geofence.
+
+##### Radius (Meters) configuration
+
+Defines circular area covered by the geofence.
+
+##### Publish inside zone configuration
+
+If enabled, publish event when the device is inside the zone.
+
+##### Publish outside zone configuration
+
+If enabled, publish event when the device is outside the zone.
+
+##### Publish on enter zone configuration
+
+If enabled, publish event when the device has entered the zone.
+
+##### Publish on exit zone configuration
+
+If enabled, publish event when the device has exited the zone.
+
+##### Time Before Trigger (Seconds) configuration
+
+Amount of time the device is inside or outside the zone before triggering an event.
+
+#### Zone 2 configuration
+
+Configuration for Zone 2 settings.
+
+##### Enable configuration
+
+If enabled, the zone will be evaluated by the device.
+
+##### Shape configuration
+
+Shape of the geofence.
+
+##### Latitude (Degrees) configuration
+
+Latitudinal coordinate for the center point of the geofence.
+
+##### Longitude (Degrees) configuration
+
+Longitudinal coordinate for the center point of the geofence.
+
+##### Radius (Meters) configuration
+
+Defines circular area covered by the geofence.
+
+##### Publish inside zone configuration
+
+If enabled, publish event when the device is inside the zone.
+
+##### Publish outside zone configuration
+
+If enabled, publish event when the device is outside the zone.
+
+##### Publish on enter zone configuration
+
+If enabled, publish event when the device has entered the zone.
+
+##### Publish on exit zone configuration
+
+If enabled, publish event when the device has exited the zone.
+
+##### Time Before Trigger (Seconds) configuration
+
+Amount of time the device is inside or outside the zone before triggering an event.
+
+#### Zone 3 configuration
+
+Configuration for Zone 3 settings.
+
+##### Enable configuration
+
+If enabled, the zone will be evaluated by the device.
+
+##### Shape configuration
+
+Shape of the geofence.
+
+##### Latitude (Degrees) configuration
+
+Latitudinal coordinate for the center point of the geofence.
+
+##### Longitude (Degrees) configuration
+
+Longitudinal coordinate for the center point of the geofence.
+
+##### Radius (Meters) configuration
+
+Defines circular area covered by the geofence.
+
+##### Publish inside zone configuration
+
+If enabled, publish event when the device is inside the zone.
+
+##### Publish outside zone configuration
+
+If enabled, publish event when the device is outside the zone.
+
+##### Publish on enter zone configuration
+
+If enabled, publish event when the device has entered the zone.
+
+##### Publish on exit zone configuration
+
+If enabled, publish event when the device has exited the zone.
+
+##### Time Before Trigger (Seconds) configuration
+
+Amount of time the device is inside or outside the zone before triggering an event.
+
+#### Zone 4 configuration
+
+Configuration for Zone 1 settings.
+
+##### Enable configuration
+
+If enabled, the zone will be evaluated by the device.
+
+##### Shape configuration
+
+Shape of the geofence.
+
+##### Latitude (Degrees) configuration
+
+Latitudinal coordinate for the center point of the geofence.
+
+##### Longitude (Degrees) configuration
+
+Longitudinal coordinate for the center point of the geofence.
+
+##### Radius (Meters) configuration
+
+Defines circular area covered by the geofence.
+
+##### Publish inside zone configuration
+
+If enabled, publish event when the device is inside the zone.
+
+##### Publish outside zone configuration
+
+If enabled, publish event when the device is outside the zone.
+
+##### Publish on enter zone configuration
+
+If enabled, publish event when the device has entered the zone.
+
+##### Publish on exit zone configuration
+
+If enabled, publish event when the device has exited the zone.
+
+##### Time Before Trigger (Seconds) configuration
+
+Amount of time the device is inside or outside the zone before triggering an event.
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
 ## Development device setup
 
 If you are going to develop firmware for the Tracker One or Tracker SoM, you have to perform a few additional steps.
@@ -543,4 +890,3 @@ On a successful cmd request, the result is 0. A result of -22 indicates the JSON
 
 - The [Tracker Edge Firmware API Reference](/firmware/tracker-edge/tracker-edge-api-reference/) has more information on the available APIs.
 - The [Tracker Eval Board I2C Example](/getting-started/tracker/tracker-eval-tutorials/#i2c-sensor-example) shows how to add I2C sensor data to your location publishes.
-
