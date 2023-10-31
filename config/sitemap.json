@@ -548,7 +548,7 @@
         },
         "firmware/tracker-edge/monitor-edge-firmware.md": {
             "date": "2023-10-31",
-            "hash": "d9c7321c03a56d4aa4dece8af6a031acfdacbaeb89eb622c3a0b487e03e05181"
+            "hash": "2b28a91abf0a9ca572088883c312f71be83a0ef9aa457340431e54d9e8168adc"
         },
         "firmware/tracker-edge/store-and-forward.md": {
             "date": "2023-07-26",
@@ -560,7 +560,7 @@
         },
         "firmware/tracker-edge/tracker-edge-firmware.md": {
             "date": "2023-10-31",
-            "hash": "0286e7ac32835f992bc3720c7cd626be76bfd82946f75e6f70f8920dae45a995"
+            "hash": "d7ba4222cfe416d44e92535fd539a5d6fca42deacd699f7951be8e32f0c30259"
         },
         "getting-started/billing/cellular-data.md": {
             "date": "2023-03-17",
@@ -595,8 +595,8 @@
             "hash": "7ce9dce10f7c84a6dba8c026746fc4561f7bce3835a40d57a5921f47e9a80fbe"
         },
         "getting-started/console/console.md": {
-            "date": "2023-09-22",
-            "hash": "a6fc268d9f01c8126eb872f54070fb6c756bdcb6f5e91cadf3a788032bc81b4c"
+            "date": "2023-10-31",
+            "hash": "2d91ffc0676b52b0274ae7c632a72727e3cbb33f8634da8bd99adc06663c1f63"
         },
         "getting-started/console/development-devices.md": {
             "date": "2022-05-18",

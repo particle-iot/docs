@@ -5,10 +5,10 @@ const path = require('path');
 (function(schemaDocs) {
     schemaDocs.generateMd = function(options = {}) {
         // options.kind = 'monitor' or 'tracker'
+        const updater = options.updater;
 
         // __dirname is docs/scripts/carriers-update, the directory the script is in
         const trackerDir = path.resolve(__dirname, '..', '..', 'src', 'assets', 'files', 'tracker');
-        console.log('trackerDir=' + trackerDir);
 
         let schemas = {};
         let schemaVersions = [];
@@ -69,22 +69,36 @@ const path = require('path');
         };
 
         let md = '';
-        const baseHeading = 2;
+        const baseHeading = options.indent || 2;
 
         const mdHeading = function(level, s) {
             return '\n' + '######'.substring(0, baseHeading + level) + ' ' + s + '\n\n';
+        }
+
+        const idMatch = function(match, id) {
+            if (match == id) {
+                return true;
+            }
+            if (typeof id != 'string') {
+                console.log('id not string', { id, match});
+            }
+            if (id.startsWith(match) && id.substring(match.length, match.length + 1) == '/') {
+                return true;
+            }
+
+            return false;
         }
 
         const processObject = function(indent, object) {
             for(const itemKey in object.properties) {
                 const item = object.properties[itemKey];
                 // item
-                //  .type, .title, .description, .default,.enum
+                //  .type, .title, .description, .default, .enum
 
                 md += mdHeading(indent + 1, item.title + ' configuration');
-                md += item.description + '\n';
     
                 if (item.type == 'object') {
+                    md += item.description + '\n';
                     processObject(indent + 1, item);
                 }
                 else {
@@ -94,6 +108,58 @@ const path = require('path');
                             item: itemKey,
                             id: object.id,
                         });
+                    }
+                    else {
+                        let tableOptions = {
+                            columns: [
+                                {
+                                    key: 'label',
+                                    title: 'Field',
+                                    cssClass: 'pinDetailTableLabel',
+                                },
+                                {
+                                    key: 'value',
+                                    title: 'Value',
+                                }
+                            ],
+                            tableCssClass: 'schemaParameterTable',
+                        };
+                        let tableData = [];
+
+                        tableData.push({
+                            label: 'Schema ID',
+                            value: item['$id'],
+                        });    
+                        tableData.push({
+                            label: 'Title',
+                            value: item.title,
+                        });
+                        if (item.description) {
+                            tableData.push({
+                                label: 'Description',
+                                value: item.description,
+                            });    
+                        }
+                        if (item.default) {
+                            tableData.push({
+                                label: 'Default Value',
+                                value: item.default,
+                            });    
+                        }
+                        if (item.enum) {
+                            tableData.push({
+                                label: 'Enumeration values',
+                                value: item.enum,
+                            });    
+                        }
+                        if (item.examples) {
+                            tableData.push({
+                                label: 'Example values',
+                                value: item.examples,
+                            });    
+                        }
+
+                        md += updater.generateHtmlTable(tableOptions, tableData);
                     }    
                 }
             }
@@ -105,17 +171,56 @@ const path = require('path');
             //  .title, .description, .minimumFirmwareVersion
             //  .properties
 
-            md += mdHeading(1, panel.title + ' tab');
-            md += panel.description + '\n';
+            if (options.id) {
+                if (Array.isArray(options.id)) {
+                    let include = false;
+                    for(const s of options.id) {
+                        if (idMatch(s, panel['$id'])) {
+                            include = true;
+                            break;
+                        }    
+                    }
+                    if (!include) {
+                        continue;
+                    }
+                }
+                else {
+                    if (!idMatch(options.id, panel['$id'])) {
+                        continue;
+                    }
+                }
+            }
 
-            if (panel.minimumFirmwareVersion) {
-                md += '*Added in version ' + panel.minimumFirmwareVersion + '*\n';
+            if (options.idOmit) {
+                let omit = false;
+
+                for(const s of options.idOmit) {
+                    if (idMatch(s, panel['$id'])) {
+                        omit = true;
+                        break;
+                    }
+                }
+                if (omit) {
+                    continue;
+                }
+            }
+
+            if (!options.headingOmit) {
+                md += mdHeading(1, panel.title + ' tab');
+                md += panel.description + '\n';
+    
+                if (panel.minimumFirmwareVersion) {
+                    md += '*Added in version ' + panel.minimumFirmwareVersion + '*\n';
+                }    
             }
 
             processObject(1, panel);
 
         }
         
+        if (md == '') {
+            md = ' ';
+        }
     
         return md;
     }

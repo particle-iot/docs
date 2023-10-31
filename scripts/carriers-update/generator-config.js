@@ -7,23 +7,210 @@ const schemaDocs = require('./schema-docs');
 (function(generatorConfig) {
     
     generatorConfig.updates = [
-        // schema docs
+        // Monitor One schema
         {
             guid: '40b06c67-b4eb-4be9-b9c2-539ac2f68dbd',
             generatorFn: function(updater) {
                 return schemaDocs.generateMd({
                     kind: 'monitor',
+                    idOmit: [                        
+                        '#/properties/location',
+                        '#/properties/store',
+                        '#/properties/imu_trig',
+                        '#/properties/rgb',
+                        '#/properties/sleep',
+                        '#/properties/monitoring',
+                        '#/properties/geofence',
+                        '#/properties/temp_trig',
+                        '#/properties/tracker',
+                        '#/properties/modbus_rs485',
+                        '#/properties/modbus1',
+                        '#/properties/modbus2',
+                        '#/properties/modbus3',
+                        '#/properties/io',
+                        '#/properties/iocal',
+                    ],
+                    indent: 3,
+                    updater,
                 });
             },
         },
+        {
+            guid: 'c7548071-4421-40b6-b229-bf8e51e625cc',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'monitor',
+                    id: [
+                        '#/properties/modbus_rs485',
+                        '#/properties/modbus1',
+                        '#/properties/modbus2',
+                        '#/properties/modbus3',
+                    ],
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: 'cef0011b-49a1-4992-ab61-ee8eea74abc2',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'monitor',
+                    id: '#/properties/io',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: '23d4ca8b-c845-4939-bf6b-e259dc45af27',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'monitor',
+                    id: '#/properties/iocal',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+
+        // Tracker schema
         {
             guid: 'a0a2120c-78c7-4d51-84af-062f116d70be',
             generatorFn: function(updater) {
                 return schemaDocs.generateMd({
                     kind: 'tracker',
+                    idOmit: [
+                        '#/properties/location',
+                        '#/properties/store',
+                        '#/properties/imu_trig',
+                        '#/properties/rgb',
+                        '#/properties/sleep',
+                        '#/properties/monitoring',
+                        '#/properties/geofence',
+                        '#/properties/temp_trig',
+                        '#/properties/tracker'
+                    ],
+                    indent: 3,
+                    updater,
                 });
             },
         },
+        {
+            guid: '38cf5c3c-cd20-45a4-b87f-a541b9bbef70',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/location',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: '192e9889-fb5c-4082-af99-19d65beadc02',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/store',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: '36859bbf-9198-4f15-bf70-cd7471c84827',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/imu_trig',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: 'da5553f8-b134-484e-9b04-64aa241b66dd',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/rgb',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: 'b7d34d6c-e7e3-4125-85bb-6965346098ed',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/sleep',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },        
+        {
+            guid: '77fd453b-6ad4-4a69-adae-a7f31118c4ca',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/monitoring',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },        
+        {
+            guid: 'b1bb1d44-9b07-4237-ad3c-1050a7125619',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/geofence',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },        
+        {
+            guid: '62c6ee9b-ac47-4a85-aeae-075c62511901',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/temp_trig',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },        
+        {
+            guid: '77fd453b-6ad4-4a69-adae-a7f31118c4ca',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/tracker',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },        
+
+
+        
+
         // firmware.md
         {
             guid:'4d3ada5a-494c-469b-b6ee-6b4ec53bc3d3', 
