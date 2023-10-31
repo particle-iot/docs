@@ -4755,7 +4755,7 @@
       "country": "Australia",
       "carrier": "Optus",
       "sunset2G": "2017-01-04",
-      "sunset3G": "?",
+      "sunset3G": "2024-09",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -4827,7 +4827,7 @@
       "country": "Australia",
       "carrier": "Vodafone",
       "sunset2G": "2017-09-30",
-      "sunset3G": "?",
+      "sunset3G": "2023-12-31",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -12921,6 +12921,7 @@
       "country": "New Zealand",
       "carrier": "2degrees",
       "sunset2G": "2018-03-31",
+      "sunset3G": "2025-09",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -12950,7 +12951,7 @@
       "country": "New Zealand",
       "carrier": "Spark",
       "sunset2G": "2012-07-31",
-      "sunset3G": "No Plan",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -12988,7 +12989,7 @@
       "country": "New Zealand",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2020",
+      "sunset3G": "2024-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,

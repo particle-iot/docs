@@ -937,24 +937,32 @@ Some countries, such as Switzerland, have shut down their 2G networks first leav
 
 In Australia, there is no longer 2G service on any carrier and the Electron 2G cannot be used.
 
-While Telstra is planning to shut down 3G in June 2024, Optus plans to continue 3G on 900 MHz (but not 2100 MHz), and Vodafone has not announced a shutdown date. 
+| Date | Description |
+| :--- | :--- |
+| End of 2016 | End of all 2G service in Australia |
+| 2019-04 | Vodafone ending 3G service on 2100 MHz (900 MHz still available) |
+| 2023-12 | Vodafone ending 3G service |
+| 2024-06 | Telstra ending 3G service |
+| 2024-09 | Optus ending 3G service |
 
-If you have an Electron U260 (Americas), it will be unable to connect because it previously only connected to Telstra on 3G B5 (850 MHz). The EtherSIM won't help as it's a band issue, not a SIM issue.
-
-If you have an Electron U270 (EMEAA), it will continue to work on Optus 3G B8 (900 MHz).
-
-If you have a Boron BRN310, it will continue to connect to Vodafone on 3G B8 (900 MHz). 
-
-The BRN314 can connect to Optus, Vodafone, and Telstra and will continue to connect to Optus and Vodafone after the Telstra 3G shutdown.
+**Starting in December 2023 there will be dwinding 3G service in Australia. By September 2024 there will be no 2G or 3G service.**
 
 The recommended models for Australia are the B Series SoM B524, Tracker SoM T524, and Tracker One ONE524, which support LTE Cat 1 with 2G/3G fallback and will continue to work in Australia on all three carriers.
 
+### New Zealand
 
-| After       | Event                            | Electron G350 | Electron U260 | Electron U270 | E Series 2G/3G | Boron 2G/3G |
-| ----------- | -------------------------------- | :-----------: | :-----------: | :-----------: | :------------: | :---------: |
-| End of 2016 | Telstra ended 2G service         | &nbsp;        | &check;       | &check;       | &check;        | &check;     |
-| April 2019  | Telstra ends 2100 MHz 3G service | &nbsp;        | &check;       | &check;       | &check;        | &check;     |
-| Mid 2024    | Telstra ends 850 MHz 3G service  | &nbsp;        | &nbsp;        | &check;       | &check;        | &check;     | 
+| Date | Description |
+| :--- | :--- |
+| 2012-07-31 | Spark ends 2G service |
+| 2018-03-31 | 2degrees ends 2G service |
+| End of 2024 | Vodafone will end 3G service |
+| During 2025 | Vodafone ending 2G service |
+| Late 2025 | 2Degrees will end 3G service |
+| End of 2025 | Spark ending 3G service |
+
+**Starting at the end of 2024 there will be dwinding 3G service in New Zealand. By the end of 2025 there will be no 2G or 3G service.**
+
+The recommended models for New Zealand are the B Series SoM B524, Tracker SoM T524, and Tracker One ONE524, which support LTE Cat 1 with 2G/3G fallback and will continue to work in New Zealand on all three carriers.
 
 
 ### Canada
