@@ -103,10 +103,7 @@ $(document).ready(function() {
                     }
                 }
             }
-            
-
-            console.log('sunsetTool', sunsetTool);
-    
+                
     
             sunsetTool.drawTimeline = function() {
                 let draw = {
@@ -213,8 +210,6 @@ $(document).ready(function() {
                     top = rat.bottom + draw.betweenRatMargin;
                 }
 
-                console.log('drawTimeline', draw);
-
 
                 // Bars are per-carrier and 15px high. Leave room for 4.
                 // Two sets, one for 2G, one for 3G
@@ -295,14 +290,6 @@ $(document).ready(function() {
                                 ctx.restore();
                             }
 
-                            console.log('item', {
-                                key: rat.key,
-                                date,
-                                endDate,
-                                item,
-                                graph,
-                            });
-
 
                             date = endDate;
                         }
@@ -312,6 +299,86 @@ $(document).ready(function() {
             };
             sunsetTool.drawTimeline();
     
+
+            // Device list
+            let showItems = [];
+
+            for(const familyObj of datastore.data.skuFamily) {
+                if (!familyObj.group) {
+                    continue;
+                }
+
+                for(const groupItem of familyObj.group) {
+                    const modemObj = datastore.findModemByModel(groupItem.modem);
+
+                    let includeInList = true;
+                    for(const tech of modemObj.technologies) {
+                        if (tech != '2G' && tech != '3G') {
+                            // Is M1 or Cat1
+                            includeInList = false;
+                        }
+                    }
+                    if (includeInList) {
+                        let obj = Object.assign({}, groupItem);                        
+                        obj.familyObj = familyObj;
+                        obj.modemObj = modemObj;
+                        obj.simPlanObj = datastore.findSimPlanById(groupItem.simPlan);
+                        obj.countryCarrierKey = obj.simPlanObj.countryCarrierKey;
+
+                        /*
+                        obj.carriers = [];
+                        for(const ccObj of sunsetTool.countryCarrier) {
+                            if (ccObj[obj.countryCarrierKey]) {
+                                obj.carriers.push(ccObj);
+                            }
+                        }
+                        */
+                        showItems.push(obj);                                            
+                    }
+                }
+            }
+
+            for(const ccObj of sunsetTool.countryCarrier) {
+                const thElem = document.createElement('th');
+                $(thElem).text(ccObj.carrier);
+                $(thisPartial).find('.sunsetDeviceDiv > table > thead > tr').append(thElem);
+            }
+
+            console.log('showItems', showItems);
+            for(const obj of showItems) {
+                const trElem = document.createElement('tr');
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(obj.name);
+                    $(trElem).append(tdElem);
+                }
+                for(const ccObj of sunsetTool.countryCarrier) {
+                    const tdElem = document.createElement('td');
+
+                    if (ccObj[obj.countryCarrierKey]) {
+                        // This carrier is supported on this device
+                        let bands = [];
+
+                        for(const b of ccObj.bands) {
+                            if (!obj.modemObj.bands.includes(b)) {
+                                continue;
+                            }
+                            const tech = b.split('-', 1)[0];
+                            if (!ccObj[obj.countryCarrierKey]['allow' + tech]) {
+                                continue;
+                            }
+                            bands.push(b);
+                        }
+                        $(tdElem).text(bands.join(', '));
+                    }
+
+                    $(trElem).append(tdElem);
+                }
+
+                $(thisPartial).find('.sunsetDeviceDiv > table > tbody').append(trElem);
+            }
+            
+
         });
     });
 
