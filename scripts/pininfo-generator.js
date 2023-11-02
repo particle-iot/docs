@@ -229,6 +229,11 @@ function oneTimeConvert(metalsmith, pinInfoDir) {
 
 function metalsmith(options) {
     return function (files, metalsmith, done) {
+        if (!files['assets/files/pinInfo.json']) {
+            done();
+            return;
+        }
+
         const pinInfoJsonPath = metalsmith.path('../src/assets/files/pinInfo.json');
         const pinInfoDir = metalsmith.path('../src/pinInfo');
 
@@ -242,9 +247,14 @@ function metalsmith(options) {
 
         generatePinInfo(pinInfoDir, output);
 
-        files['assets/files/pinInfo.json'].contents = Buffer.from(JSON.stringify(output), 'utf8');
+        const origFile = fs.readFileSync(pinInfoJsonPath, 'utf8');
+        const newFile = JSON.stringify(output, null, 4);
 
-        fs.writeFileSync(pinInfoJsonPath, JSON.stringify(output, null, 4));
+        if (origFile != newFile) {
+            files['assets/files/pinInfo.json'].contents = Buffer.from(newFile, 'utf8');
+    
+            fs.writeFileSync(pinInfoJsonPath, newFile);    
+        }
 
         done();
     };

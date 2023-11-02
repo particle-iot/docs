@@ -587,7 +587,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Argentina | E314 | 2G, 3G | Claro, Movistar, Personal |
 | Armenia | E314 | 2G, 3G | Beeline, Ucom |
 | Aruba | E314 | 2G, 3G | Setar |
-| Australia | E314 | 3G | Optus, Telstra, Vodafone |
 | Austria | E314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | E314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
 | Bahamas | E314 | 2G, 3G | Aliv, BTC Bahamas |
@@ -670,7 +669,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Myanmar | E314 | 2G, 3G | MPT, Telenor |
 | Namibia | E314 | 2G, 3G | Telecom Namibia |
 | Netherlands | E314 | 2G, 3G | KPN, T-Mobile, Vodafone |
-| New Zealand | E314 | 2G, 3G | 2degrees, Spark, Vodafone |
 | Nicaragua | E314 | 2G, 3G | Movistar |
 | Nigeria | E314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | E314 | 2G, 3G | TDC, Telenor, Telia |

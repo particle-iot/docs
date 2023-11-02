@@ -538,7 +538,6 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Argentina | BRN314 | 2G, 3G | Claro, Movistar, Personal |
 | Armenia | BRN314 | 2G, 3G | Beeline, Ucom |
 | Aruba | BRN314 | 2G, 3G | Setar |
-| Australia | BRN314 | 3G | Optus, Telstra, Vodafone |
 | Austria | BRN314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | BRN314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
 | Bahamas | BRN314 | 2G, 3G | Aliv, BTC Bahamas |
@@ -623,7 +622,6 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Myanmar | BRN314 | 2G, 3G | MPT, Telenor |
 | Namibia | BRN314 | 2G, 3G | Telecom Namibia |
 | Netherlands | BRN314 | 2G, 3G | KPN, T-Mobile, Vodafone |
-| New Zealand | BRN314 | 2G, 3G | 2degrees, Spark, Vodafone |
 | Nicaragua | BRN314 | 2G, 3G | Movistar |
 | Nigeria | BRN314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | BRN314 | 2G, 3G | TDC, Telenor, Telia |
