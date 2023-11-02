@@ -26,6 +26,8 @@ In Australia, 2G services have already shut down, and 3G shutdown is approaching
 
 ## New Zealand
 
+In New Zealand, 2G/3G devices will continue to operate until late 2025.
+
 - 2degrees: Expected 3G shutdown in late 2025. 2G is already shut down.
 - Spark: Expected 3G shutdown in late 2025. 2G is already shut down.
 - Vodafone: Expected 3G shutdown starting August 2024. 2G shutdown by end of 2025.

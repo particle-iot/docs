@@ -3,7 +3,6 @@ $(document).ready(function() {
 
 
     datastore.init({path:'/assets/files/carriers.json'}, function() {
-        console.log('datastore initialized');
 
         $('.sunsetTool').each(function() {
             const thisPartial = $(this);
@@ -84,10 +83,9 @@ $(document).ready(function() {
             }  
         
             sunsetTool.timelineStart = sunsetTool.dateParse('2016-06');
-            sunsetTool.timelineEnd = sunsetTool.dateParse('2025-12');
+            sunsetTool.timelineEnd = sunsetTool.dateParse('2026-06');
 
             sunsetTool.sunsetTimelineDivElem = $(thisPartial).find('.sunsetTimelineDiv');
-            sunsetTool.sunsetDeviceDivElem = $(thisPartial).find('.sunsetDeviceDiv');
             sunsetTool.canvasElem = $(thisPartial).find('.sunsetTimelineDiv > canvas');
             //sunsetTool.Elem = $(thisPartial).find('.');
     
@@ -232,7 +230,7 @@ $(document).ready(function() {
 
                         ctx.save();
 
-                        ctx.translate(labelX + 8, draw.labelTop);
+                        ctx.translate(labelX - 4, draw.labelTop);
                         ctx.rotate(Math.PI/2);
                         ctx.textAlign = 'left';
                         ctx.fillText(labelDate.toString(), 0, 0);
@@ -341,10 +339,9 @@ $(document).ready(function() {
             for(const ccObj of sunsetTool.countryCarrier) {
                 const thElem = document.createElement('th');
                 $(thElem).text(ccObj.carrier);
-                $(thisPartial).find('.sunsetDeviceDiv > table > thead > tr').append(thElem);
+                $(thisPartial).find('.sunsetDeviceSupportTable > thead > tr').append(thElem);
             }
 
-            console.log('showItems', showItems);
             for(const obj of showItems) {
                 const trElem = document.createElement('tr');
                 {
@@ -358,6 +355,7 @@ $(document).ready(function() {
                     if (ccObj[obj.countryCarrierKey]) {
                         // This carrier is supported on this device
                         let bands = [];
+                        let techList = [];
 
                         for(const b of ccObj.bands) {
                             if (!obj.modemObj.bands.includes(b)) {
@@ -368,16 +366,67 @@ $(document).ready(function() {
                                 continue;
                             }
                             bands.push(b);
+                            if (!techList.includes(tech)) {
+                                techList.push(tech);
+                            }
                         }
-                        $(tdElem).text(bands.join(', '));
+                        $(tdElem).attr('title', bands.join(', '));
+                        $(tdElem).text(techList.join(', '));
                     }
 
                     $(trElem).append(tdElem);
                 }
 
-                $(thisPartial).find('.sunsetDeviceDiv > table > tbody').append(trElem);
+                $(thisPartial).find('.sunsetDeviceSupportTable > tbody').append(trElem);
             }
             
+            let excludeModems = [];
+            for(const modemObj of datastore.data.modems) {
+                if (!modemObj.technologies.includes('Cat1')) {
+                    excludeModems.push(modemObj.model);
+                }
+            }
+
+            // 
+            for(const skuObj of datastore.data.skus) {
+                if (!skuObj.modem) {
+                    continue;
+                }
+                if (excludeModems.includes(skuObj.modem)) {
+                    continue;
+                }
+                if (skuObj.lifecycle == 'Hidden' || skuObj.lifecycle == 'Deprecated' || skuObj.lifecycle == 'End of life') {
+                    continue;
+                }
+
+                const trElem = document.createElement('tr');
+
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(skuObj.name);
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).css('max-width', '380px');
+                    $(tdElem).text(skuObj.desc);
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(skuObj.lifecycle);
+                    $(trElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    if (skuObj.replacement) {
+                        $(tdElem).text(skuObj.replacement);
+                    }
+                    $(trElem).append(tdElem);
+                }
+
+                $(thisPartial).find('.sunsetDeviceSkuTable > tbody').append(trElem);                
+            }            
 
         });
     });
