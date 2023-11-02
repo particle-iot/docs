@@ -4787,7 +4787,23 @@
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "timeline": {
+        "2G": [
+          {
+            "state": "active",
+            "end": "2017-01-04",
+            "note": "2G service ended of 2016"
+          }
+        ],
+        "3G": [
+          {
+            "state": "active",
+            "end": "2024-09",
+            "note": "3G service ending late 2024"
+          }
+        ]
+      }
     },
     {
       "country": "Australia",
@@ -4821,13 +4837,29 @@
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "timeline": {
+        "2G": [
+          {
+            "state": "active",
+            "end": "2016-12-31",
+            "note": "2G service ended end of 2016"
+          }
+        ],
+        "3G": [
+          {
+            "state": "active",
+            "end": "2024-06-30",
+            "note": "3G service ending June 2024"
+          }
+        ]
+      }
     },
     {
       "country": "Australia",
       "carrier": "Vodafone",
       "sunset2G": "2017-09-30",
-      "sunset3G": "2023-12-31",
+      "sunset3G": "2023-12-15",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -4843,7 +4875,6 @@
         "allowCat1": true
       },
       "bands": [
-        "3G-1",
         "3G-8",
         "LTE-1",
         "LTE-3",
@@ -4851,7 +4882,28 @@
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "timeline": {
+        "2G": [
+          {
+            "state": "active",
+            "end": "2017-09-30",
+            "note": "2G service ended September 2017"
+          }
+        ],
+        "3G": [
+          {
+            "state": "active",
+            "end": "2019-04",
+            "note": "3G service on B1 (2100 MHz) ended April 2019"
+          },
+          {
+            "state": "diminished",
+            "end": "2023-12-15",
+            "note": "3G service ending December 15, 2023"
+          }
+        ]
+      }
     },
     {
       "country": "Austria",
@@ -12945,7 +12997,23 @@
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "timeline": {
+        "2G": [
+          {
+            "state": "active",
+            "end": "2018-03-31",
+            "note": "2G service ended end of March 2018"
+          }
+        ],
+        "3G": [
+          {
+            "state": "active",
+            "end": "2025-09",
+            "note": "3G service ending late 2025"
+          }
+        ]
+      }
     },
     {
       "country": "New Zealand",
@@ -12983,7 +13051,23 @@
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "timeline": {
+        "2G": [
+          {
+            "state": "active",
+            "end": "2012-07-31",
+            "note": "2G service ended end of July 2012"
+          }
+        ],
+        "3G": [
+          {
+            "state": "active",
+            "end": "2025-12-31",
+            "note": "3G service ending end of 2025"
+          }
+        ]
+      }
     },
     {
       "country": "New Zealand",
@@ -13022,7 +13106,23 @@
         "3G-8",
         "LTE-3",
         "LTE-28"
-      ]
+      ],
+      "timeline": {
+        "2G": [
+          {
+            "state": "active",
+            "end": "2025-12-31",
+            "note": "2G service ending at end of 2025"
+          }
+        ],
+        "3G": [
+          {
+            "state": "active",
+            "end": "2024-12-31",
+            "note": "3G service ending end of 2024"
+          }
+        ]
+      }
     },
     {
       "country": "Nicaragua",
@@ -17932,7 +18032,23 @@
       "noBands": [
         "2G",
         "3G"
-      ]
+      ],
+      "timeline": {
+        "2G": [
+          {
+            "state": "active",
+            "end": "2016-12-31",
+            "note": "2G service ended in 2016"
+          }
+        ],
+        "3G": [
+          {
+            "state": "active",
+            "end": "2022-06-30",
+            "note": "3G service ended June 2022"
+          }
+        ]
+      }
     },
     {
       "country": "United States",
@@ -18066,7 +18182,23 @@
         "LTE-12",
         "LTE-66",
         "LTE-71"
-      ]
+      ],
+      "timeline": {
+        "2G": [
+          {
+            "state": "active",
+            "end": "2024-04-02",
+            "note": "2G service ends in April 2024"
+          }
+        ],
+        "3G": [
+          {
+            "state": "active",
+            "end": "2022-06-30",
+            "note": "3G service ended June 2022"
+          }
+        ]
+      }
     },
     {
       "country": "United States",
@@ -24560,31 +24692,36 @@
       "country": "Australia",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NRND",
+      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
     },
     {
       "country": "Australia",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "YES"
+      "recommendation": "NRND",
+      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
     },
     {
       "country": "Australia",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NRND",
+      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
     },
     {
       "country": "Australia",
       "modem": "U260",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NRND",
+      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
     },
     {
       "country": "Australia",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NRND",
+      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
     },
     {
       "country": "Austria",
@@ -37380,7 +37517,7 @@
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "reason": "2G-only model discontinued, upcoming 2G/3G shutdown"
     },
     {
       "country": "New Zealand",
@@ -37407,31 +37544,36 @@
       "country": "New Zealand",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NRND",
+      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
     },
     {
       "country": "New Zealand",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "YES"
+      "recommendation": "NRND",
+      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
     },
     {
       "country": "New Zealand",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NRND",
+      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
     },
     {
       "country": "New Zealand",
       "modem": "U260",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NRND",
+      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
     },
     {
       "country": "New Zealand",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NRND",
+      "reason": "Not recommended for new designs due to upcoming 2G/3G shutdown"
     },
     {
       "country": "Nicaragua",

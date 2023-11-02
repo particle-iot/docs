@@ -617,9 +617,9 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Armenia | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Armenia | Ucom | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Aruba | Setar | &check; | &check; | &check; | &nbsp; |
-| Australia | Optus | &check; | &check; | &check; | &nbsp; |
-| Australia | Telstra | &check; | &check; | &check; | &nbsp; |
-| Australia | Vodafone | &nbsp; | &check; | &check; | &nbsp; |
+| Australia | Optus | &check; | <sup>NRND</sup> | &check; | &nbsp; |
+| Australia | Telstra | &check; | <sup>NRND</sup> | &check; | &nbsp; |
+| Australia | Vodafone | &nbsp; | <sup>NRND</sup> | &check; | &nbsp; |
 | Austria | 3 (Drei) | &check; | &check; | &check; | &nbsp; |
 | Austria | A1 | &check; | &check; | &check; | &nbsp; |
 | Austria | T-Mobile | &check; | &check; | &check; | &nbsp; |
@@ -817,9 +817,9 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Netherlands | KPN | &check; | &check; | &check; | &nbsp; |
 | Netherlands | T-Mobile | &check; | &check; | &check; | &nbsp; |
 | Netherlands | Vodafone | &check; | &check; | &check; | &nbsp; |
-| New Zealand | 2degrees | &check; | &check; | &check; | &nbsp; |
-| New Zealand | Spark | &check; | &check; | &check; | &nbsp; |
-| New Zealand | Vodafone | &check; | &check; | &check; | &nbsp; |
+| New Zealand | 2degrees | &check; | <sup>NRND</sup> | &check; | &nbsp; |
+| New Zealand | Spark | &check; | <sup>NRND</sup> | &check; | &nbsp; |
+| New Zealand | Vodafone | &check; | <sup>NRND</sup> | &check; | &nbsp; |
 | Nicaragua | Movistar | &check; | &check; | &nbsp; | &nbsp; |
 | Niger | Celtel | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Nigeria | 9mobile | &nbsp; | &check; | &check; | &nbsp; |
