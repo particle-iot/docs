@@ -308,7 +308,7 @@ $(document).ready(function() {
                         }
                     }
                 }
-
+                sunsetTool.draw = draw;
             };
             sunsetTool.drawTimeline();
     
