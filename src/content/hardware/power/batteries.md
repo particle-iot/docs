@@ -8,6 +8,8 @@ description: Learn more about the Li-Po (lithium ion polymer) battery on some Pa
 
 # Batteries
 
+{{youtube "https://www.youtube.com/embed/gyUrgB_wSu0"}}
+
 A number of Particle devices can use a [Lithium Ion Polymer battery](https://en.wikipedia.org/wiki/Lithium_polymer_battery) (LiPo):
 
 - Argon (Gen 3 Wi-Fi)

@@ -7,6 +7,7 @@ description: Adding features to the Tracker One
 
 # Tracker One expansion
 
+{{youtube "https://www.youtube.com/embed/FTLgQ_voKyc"}}
 
 ## Tracker One M8 connector
 
