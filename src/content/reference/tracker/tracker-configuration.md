@@ -199,6 +199,7 @@ To remove the Engine panel and restore the default schema use the **Restore Defa
 
 {{> config-schema options="" }}
 
+You will probably also need to [reset on-device configuration to factory defaults](/getting-started/tracker/tracker-setup/#resetting-configuration) to remove the engine configuration from your local configuration.
 
 ### Viewing in the console
 

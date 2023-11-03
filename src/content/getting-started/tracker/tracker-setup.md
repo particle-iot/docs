@@ -122,6 +122,14 @@ In the future, it will also be possible to enter shipping mode by USB, but this 
 
 **Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
+#### Resetting configuration
+
+To reset all of the settings stored locally on device, use the same techique as above to call the `cmd` function handler, but instead pass:
+
+```
+{"cmd":"reset_to_factory"}
+```
+
 #### Other functions
 
 Other functions that would normally be performed by button presses can be done using the [Particle CLI](/reference/developer-tools/cli/#particle-usb-safe-mode) when connected by USB. For example:
