@@ -234,7 +234,8 @@
           "lon": 168.2249543
         }
       },
-      "iso3": "AUS"
+      "iso3": "AUS",
+      "sunsetWarning": "/reference/discontinued/cellular/au-nz-sunset/"
     },
     {
       "name": "Austria",
@@ -2681,7 +2682,8 @@
           "lon": 179.3643594
         }
       },
-      "iso3": "NZL"
+      "iso3": "NZL",
+      "sunsetWarning": "/reference/discontinued/cellular/au-nz-sunset/"
     },
     {
       "name": "Nicaragua",
@@ -3933,7 +3935,8 @@
         }
       },
       "iso3": "USA",
-      "m1recommended": true
+      "m1recommended": true,
+      "sunsetWarning": "/reference/discontinued/cellular/us-2g-3g-sunset/"
     },
     {
       "name": "Uruguay",
@@ -13118,8 +13121,8 @@
         "3G": [
           {
             "state": "active",
-            "end": "2024-12-31",
-            "note": "3G service ending end of 2024"
+            "end": "2024-08-31",
+            "note": "3G service ending August 2024"
           }
         ]
       }

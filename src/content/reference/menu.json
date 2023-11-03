@@ -660,8 +660,7 @@
         {
           "dir": "au-nz-sunset",
           "title": "Australia and New Zealand 2G/3G Sunset",
-          "href": "/reference/discontinued/cellular/au-nz-sunset/",
-          "internal": true
+          "href": "/reference/discontinued/cellular/au-nz-sunset/"
         },
         {
           "dir": "gen2-cellular-deprecation",

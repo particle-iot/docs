@@ -723,6 +723,9 @@ const familyMapCreate = function() {
                     mapColor = skuFamilyObj.mapColor;
                 }
                 const style = 'background-color:#' + options.colorAxis.colors[mapColor];
+                if (!options.colorAxis.colors[mapColor]) {
+                    return;
+                }
 
                 datastore.data.skus.forEach(function(skuObj) {
                     if (skuObj.sim != skuFamilyObj.sim || skuObj.modem != skuFamilyObj.modem || skuObj.family != family) {
@@ -965,6 +968,19 @@ countryDetails.generateTable = function(options) {
         }
         html += dataui.generateSkuTable(skusArray, {});
     }
+    else
+    if (options.showSkuFamily) {
+        let skusArray = [];
+        for(let skuObj of datastore.data.skus) {
+            for(const prefix of options.showSkuFamily.short) {
+                if (skuObj.name.startsWith(prefix) && !skuObj.name.startsWith(prefix + 'X')) {
+                    skusArray.push(skuObj);
+                    break;
+                }
+            }
+        }
+        html += dataui.generateSkuTable(skusArray, {});
+    }
 
     // Recommendation
     html += '<span style="font-size: large;">' + recommendationObj.desc + '</span>\n';
@@ -977,6 +993,34 @@ countryDetails.generateTable = function(options) {
         }
     }
 
+    $(options.resultDiv).append(html);
+    html = '';
+
+    // Sunset warnings
+    // Check for 2G/3G only
+    let isOnly2G3G = true;
+    for(const tech of modemObj.technologies) {
+        if (tech != '2G' && tech != '3G') {
+            isOnly2G3G = false;
+        }
+    }
+    if (isOnly2G3G) {
+        const divElem = document.createElement('div');
+        $(divElem).attr('style', 'padding-top: 10px; padding-bottom: 10px;');
+
+        if (countryObj.sunsetWarning) {        
+            const aElem = document.createElement('a');
+            $(aElem).attr('href', countryObj.sunsetWarning);
+            $(aElem).text('See the 2G/3G sunset page for specific recommendations for this country');
+            $(divElem).append(aElem);    
+        }
+        else {
+            $(divElem).text('In some locations, 2G and/or 3G services are being shut down. Check with your local carrier to find when this device will no longer be able to be used in your area.');
+        }
+            
+        $(options.resultDiv).append(divElem);
+    }
+    
     // Carrier band table
     const footnotesDivId = options.tableId + 'FootnotesDiv';
 
@@ -1025,7 +1069,8 @@ countryDetails.onCountrySelected = function(country) {
             sim: skuFamilyDevice.sim,
             simPlan: skuFamilyDevice.simPlan,
             tableId: 'carrierDetailTable',
-            resultDiv
+            resultDiv,
+            showSkuFamily: skuFamilyDevice,
         });
         
     
