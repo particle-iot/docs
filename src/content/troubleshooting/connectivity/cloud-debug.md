@@ -43,7 +43,7 @@ Note that the Device OS version is the minimum device OS version that must be in
 | Platform | Required Device OS |
 | :--- | :--- |
 | [Argon](/assets/files/docs-usb-setup-firmware/argon.bin) | 4.0.1 |
-| [Asset Tracker](/assets/files/docs-usb-setup-firmware/tracker.bin) | 4.0.0 |
+| [Asset Tracker / Monitor One](/assets/files/docs-usb-setup-firmware/tracker.bin) | 4.0.0 |
 | [B SoM](/assets/files/docs-usb-setup-firmware/bsom.bin) | 4.0.1 |
 | [B5 SoM](/assets/files/docs-usb-setup-firmware/b5som.bin) | 4.0.1 |
 | [Boron](/assets/files/docs-usb-setup-firmware/boron.bin) | 4.0.1 |

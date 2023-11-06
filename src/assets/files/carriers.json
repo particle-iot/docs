@@ -45159,7 +45159,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 131072
         }
       ],
       "usb": {
@@ -45213,7 +45214,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 131072
         }
       ],
       "usb": {
@@ -45275,7 +45277,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 131072
         }
       ],
       "usb": {
@@ -45356,7 +45359,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 262144
         },
         {
           "type": "radioStack",
@@ -45388,8 +45392,21 @@
           "factoryReset": {
             "address": "0x00200000",
             "alt": 2
+          },
+          "formerUserPart": {
+            "address": "0xd4000",
+            "alt": 0,
+            "size": 4096
           }
         }
+      },
+      "assets": {
+        "blockSize": 4096,
+        "storageTotalBlocks": 288,
+        "maxSingleAssetSize": 606208,
+        "assetPerBlockOverhead": 8,
+        "assetOverhead": 0,
+        "reservedBlocks": 10
       }
     },
     "boron": {
@@ -45421,7 +45438,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 262144
         },
         {
           "type": "radioStack",
@@ -45449,8 +45467,21 @@
           "factoryReset": {
             "address": "0x00200000",
             "alt": 2
+          },
+          "formerUserPart": {
+            "address": "0xd4000",
+            "alt": 0,
+            "size": 4096
           }
         }
+      },
+      "assets": {
+        "blockSize": 4096,
+        "storageTotalBlocks": 288,
+        "maxSingleAssetSize": 606208,
+        "assetPerBlockOverhead": 8,
+        "assetOverhead": 0,
+        "reservedBlocks": 10
       }
     },
     "xenon": {
@@ -45480,7 +45511,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 131072
         },
         {
           "type": "radioStack",
@@ -45508,6 +45540,11 @@
           "factoryReset": {
             "address": "0x00200000",
             "alt": 2
+          },
+          "formerUserPart": {
+            "address": "0xd4000",
+            "alt": 0,
+            "size": 4096
           }
         }
       }
@@ -45538,7 +45575,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 262144
         },
         {
           "type": "radioStack",
@@ -45566,8 +45604,21 @@
           "factoryReset": {
             "address": "0x00200000",
             "alt": 2
+          },
+          "formerUserPart": {
+            "address": "0xd4000",
+            "alt": 0,
+            "size": 4096
           }
         }
+      },
+      "assets": {
+        "blockSize": 4096,
+        "storageTotalBlocks": 512,
+        "maxSingleAssetSize": 1572864,
+        "assetPerBlockOverhead": 8,
+        "assetOverhead": 0,
+        "reservedBlocks": 10
       }
     },
     "asom": {
@@ -45597,7 +45648,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 131072
         },
         {
           "type": "radioStack",
@@ -45629,6 +45681,11 @@
           "factoryReset": {
             "address": "0x00200000",
             "alt": 2
+          },
+          "formerUserPart": {
+            "address": "0xd4000",
+            "alt": 0,
+            "size": 4096
           }
         }
       }
@@ -45660,7 +45717,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 262144
         },
         {
           "type": "radioStack",
@@ -45688,8 +45746,21 @@
           "factoryReset": {
             "address": "0x00200000",
             "alt": 2
+          },
+          "formerUserPart": {
+            "address": "0xd4000",
+            "alt": 0,
+            "size": 4096
           }
         }
+      },
+      "assets": {
+        "blockSize": 4096,
+        "storageTotalBlocks": 288,
+        "maxSingleAssetSize": 606208,
+        "assetPerBlockOverhead": 8,
+        "assetOverhead": 0,
+        "reservedBlocks": 10
       }
     },
     "xsom": {
@@ -45716,7 +45787,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 131072
         },
         {
           "type": "radioStack",
@@ -45744,6 +45816,11 @@
           "factoryReset": {
             "address": "0x00200000",
             "alt": 2
+          },
+          "formerUserPart": {
+            "address": "0xd4000",
+            "alt": 0,
+            "size": 4096
           }
         }
       }
@@ -45775,7 +45852,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 262144
         },
         {
           "type": "radioStack",
@@ -45803,14 +45881,27 @@
           "factoryReset": {
             "address": "0x00600000",
             "alt": 2
+          },
+          "formerUserPart": {
+            "address": "0xd4000",
+            "alt": 0,
+            "size": 4096
           }
         }
+      },
+      "assets": {
+        "blockSize": 4096,
+        "storageTotalBlocks": 512,
+        "maxSingleAssetSize": 1572864,
+        "assetPerBlockOverhead": 8,
+        "assetOverhead": 0,
+        "reservedBlocks": 10
       }
     },
     "tracker": {
       "id": 26,
       "name": "tracker",
-      "displayName": "Asset Tracker",
+      "displayName": "Asset Tracker / Monitor One",
       "generation": 3,
       "baseMcu": "nrf52840",
       "features": [
@@ -45838,7 +45929,8 @@
         },
         {
           "type": "userPart",
-          "storage": "internalFlash"
+          "storage": "internalFlash",
+          "maxSize": 262144
         },
         {
           "type": "radioStack",
@@ -45870,8 +45962,21 @@
           "factoryReset": {
             "address": "0x00600000",
             "alt": 2
+          },
+          "formerUserPart": {
+            "address": "0xd4000",
+            "alt": 0,
+            "size": 4096
           }
         }
+      },
+      "assets": {
+        "blockSize": 4096,
+        "storageTotalBlocks": 512,
+        "maxSingleAssetSize": 1572864,
+        "assetPerBlockOverhead": 8,
+        "assetOverhead": 0,
+        "reservedBlocks": 10
       }
     },
     "trackerm": {
@@ -45915,7 +46020,8 @@
         {
           "type": "userPart",
           "storage": "internalFlash",
-          "growsLeft": true
+          "growsLeft": true,
+          "maxSize": 1572864
         }
       ],
       "usb": {
@@ -45934,6 +46040,14 @@
             "alt": 0
           }
         ]
+      },
+      "assets": {
+        "blockSize": 4096,
+        "storageTotalBlocks": 288,
+        "maxSingleAssetSize": 1179648,
+        "assetPerBlockOverhead": 8,
+        "assetOverhead": 0,
+        "reservedBlocks": 10
       }
     },
     "raspi": {
@@ -45999,7 +46113,8 @@
         {
           "type": "userPart",
           "storage": "internalFlash",
-          "growsLeft": true
+          "growsLeft": true,
+          "maxSize": 1572864
         }
       ],
       "usb": {
@@ -46018,6 +46133,14 @@
             "alt": 0
           }
         ]
+      },
+      "assets": {
+        "blockSize": 4096,
+        "storageTotalBlocks": 288,
+        "maxSingleAssetSize": 1179648,
+        "assetPerBlockOverhead": 8,
+        "assetOverhead": 0,
+        "reservedBlocks": 10
       }
     },
     "msom": {
@@ -46064,7 +46187,8 @@
         {
           "type": "userPart",
           "storage": "internalFlash",
-          "growsLeft": true
+          "growsLeft": true,
+          "maxSize": 1572864
         }
       ],
       "usb": {
@@ -46083,6 +46207,14 @@
             "alt": 0
           }
         ]
+      },
+      "assets": {
+        "blockSize": 4096,
+        "storageTotalBlocks": 288,
+        "maxSingleAssetSize": 1179648,
+        "assetPerBlockOverhead": 8,
+        "assetOverhead": 0,
+        "reservedBlocks": 10
       }
     },
     "oak": {
