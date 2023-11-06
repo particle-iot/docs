@@ -48,7 +48,7 @@ New designs should use the B404X (B Series SoM) instead of the E404X.
  * Reset and Mode pins for buttons
  * On-module MFF2 Particle SIM 
  * Two on-module U.FL connectors for external antennas
- * FCC and IC certified
+ * FCC (United States) and ISED (Canada) certified
  * RoHS compliant (lead-free)
  * Requires Device OS 4.0.0 LTS (or later)
 
@@ -680,7 +680,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 |uC  | Microcontroller |
 
 
-## FCC IC warnings and end product labeling requirements
+## FCC ISED warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -733,7 +733,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC: 20127-E404X
+> Contains transmitter module ISED: 20127-E404X
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -750,11 +750,11 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-05-06 | RK | Wire1 is not exposed on C4/C5 |
 |     | 2022-07-28 | RK | Update PWM assignments |
-|     | 2022-09-08 | RK | Update antenna, FCC, and IC |
+|     | 2022-09-08 | RK | Update antenna, FCC, and ISED |
 |     | 2022-09-16 | RK | Add minimum Device OS version, is 4.0.0 |
 |     | 2022-10-12 | RK | Removed power consumption section, was for B404 not E404X |
 |     | 2023-01-06 | RK | Update ADC information |
-|     | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
+|     | 2023-01-11 | RK | Updated certifications, added ISED, removed PTCRB |
 |     | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
 |     | 2023-01-31 | RK | Add Device OS versions |
 | 1   | 2023-02-07 | RK | GA (remove preliminary banner) |

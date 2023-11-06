@@ -665,6 +665,17 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {
+            guid:'6d0451d8-43b0-498e-8a13-9a4099a0067e',
+            generatorFn:function(updater) {
+                return updater.generateCountryList('b series', {
+                    groupFn:function(groupObj) {
+                        return groupObj.modem != 'R410';
+                    },
+                    noModel: true,
+                }); 
+            } 
+        },
         // BRN404X
         {
             guid: 'ac335968-6a40-4e3a-9493-46510917cf20',

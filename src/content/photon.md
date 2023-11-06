@@ -45,7 +45,7 @@ The Photon is a $19 tiny Wi-Fi IoT device for creating connected projects and pr
 * Open source design
 * Real-time operating system (FreeRTOS)
 * Soft AP setup
-* FCC, CE and IC certified
+* FCC (United States), CE (European Union), and ISED (Canada) certified
 
 
 

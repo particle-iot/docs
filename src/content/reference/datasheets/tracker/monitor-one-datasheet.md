@@ -1018,9 +1018,9 @@ WARNING: Any changes or modifications to this unit not expressly approved by the
 
 This device must not be collocated or operating in conjunction with any other antenna or transmitter.
 
-### IC interference statement
+### ISED interference statement
 
-IC: 20127-MONEHDK
+ISED: 20127-MONEHDK
 
 This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -1100,4 +1100,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2023-07-17 | RK | Link to quick start, screw sizes |
 | 2023-09-01 | RK | Added battery specifications |
 | 2023-09-08 | RK | Added schematics |
-| 2023-10-18 | RK | Added FCC and IC |
+| 2023-10-18 | RK | Added FCC and ISED |

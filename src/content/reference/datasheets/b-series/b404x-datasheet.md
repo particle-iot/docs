@@ -54,7 +54,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * On-module MFF2 Particle SIM 
  * Two on-module U.FL connectors for external antennas
  * M.2 interface
- * FCC and IC certified
+ * FCC (United States) and ISED (Canada) certified
  * RoHS compliant (lead-free)
 
 ### Model comparison
@@ -1039,7 +1039,7 @@ The bootloader allows you to easily update the user application via several diff
 
 ---
 
-## FCC IC CE warnings and end product labeling requirements
+## FCC ISED CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -1092,7 +1092,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
 
- * Contains transmitter module IC: 20127-B404X
+ * Contains transmitter module ISED: 20127-B404X
  
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -1105,16 +1105,16 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 ## Country compatibility
 
-{{!-- BEGIN do not edit content below, it is automatically generated c9241a2c-76e0-11eb-9439-0242ac130002 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 6d0451d8-43b0-498e-8a13-9a4099a0067e --}}
 
-| Country | Model | Technologies | Carriers |
-| :--- | :--- | :--- | :--- |
-| Canada | B404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Mexico | B404 | M1 | AT&T, Telcel |
-| United States | B404 | M1 | AT&T, T-Mobile (USA)<sup>5</sup>, Verizon<sup>7</sup> |
+| Country | Technologies | Carriers |
+| :--- | :--- | :--- |
+| Canada | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Mexico | M1 | AT&T, Telcel |
+| United States | M1 | AT&T, T-Mobile (USA)<sup>5</sup>, Verizon<sup>7</sup> |
 
 
-{{!-- END do not edit content above, it is automatically generated c9241a2c-76e0-11eb-9439-0242ac130002 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ---
@@ -1138,13 +1138,13 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 018      | 2022-08-29 | RK | Split out from B404 and B402 |
 | 019      | 2022-09-06 | RK | Update certified cellular antenna |
 | 020      | 2022-09-07 | RK | Add additional port and pin information |
-| 021      | 2022-09-16 | RK | Added FCC and IC ID |
+| 021      | 2022-09-16 | RK | Added FCC and ISED |
 | 022      | 2022-09-16 | RK | Fix minimum Device OS version, is 4.0.0 |
-| 023      | 2022-09-26 | RK | Added FCC and IC labeling requirements |
+| 023      | 2022-09-26 | RK | Added FCC and ISED labeling requirements |
 | 024      | 2022-12-10 | RK | Added PMIC notes |
 | 025      | 2022-12-13 | RK | Update block diagram and antenna information |
 | 026      | 2023-01-06 | RK | Clarify power supply notes for VCC and 3V3, ADC |
-| 027      | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
+| 027      | 2023-01-11 | RK | Updated certifications, added ISED, removed PTCRB |
 | 028      | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
 | 029      | 2023-01-31 | RK | Add Device OS versions |
 | 030      | 2023-03-07 | RK | Update BLE antenna text |

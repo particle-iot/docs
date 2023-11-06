@@ -34,7 +34,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 - 2048 KB (2 MB) user application maximum size
 - 3072 KB (3 MB) of RAM available to user applications
 - 2 MB flash file system
-- FCC, IC, and CE certified
+- FCC (United States), ISED (Canada), and CE (European Union) certified
 
 ### Device OS Support
 
@@ -625,7 +625,7 @@ Photon 2 modules are available from [store.particle.io](https://store.particle.i
 -	RoHS
 -	CE
 -	FCC ID: 2AEMI-P2
--	IC: 20127-P2
+-	ISED: 20127-P2
 
 ## Product handling
 
@@ -670,7 +670,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 <dd>Over The Air; describing how firmware is transferred to the device.</dd>
 </div>
 
-## FCC IC CE warnings and end product labeling requirements
+## FCC ISED CE warnings and end product labeling requirements
 
 ### Federal Communication Commission Interference Statement
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -728,7 +728,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC: 20127-P2
+> Contains transmitter module ISED: 20127-P2
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -796,8 +796,8 @@ SE, SI, SK, TR, UA, UK(NI).
 |     | 2023-02-14 | RK | Updated Photon 2 graphic to fix pin labels |
 |     | 2023-03-06 | RK | SWDIO is D7 not D8 |
 |     | 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |
-|     | 2023-03-24 | RK | Added FCC and IC IDs |
-|     | 2023-04-03 | RK | Fixed typo in FCC ID in one location, IC restrictions |
+|     | 2023-03-24 | RK | Added FCC and ISED IDs |
+|     | 2023-04-03 | RK | Fixed typo in FCC ID in one location, ISED restrictions |
 |     | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
 |     | 2023-04-10 | RK | Outdoor use restrictions |
 |     | 2023-04-24 | RK | Document VBAT_MEAS and CHG |

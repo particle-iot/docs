@@ -33,7 +33,7 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
 - 2048 KB (2 MB) user application maximum size
 - 3072 KB (3 MB) of RAM available to user applications
 - 2 MB flash file system
-- FCC, IC, and CE certified
+- FCC (United States), ISED (Canada), and CE (European Union) certified
 
 ### Device OS support
 
@@ -708,7 +708,7 @@ P2 modules are available from [store.particle.io](https://store.particle.io/) as
 -	RoHS
 -	CE
 -	FCC ID: 2AEMI-P2
--	IC: 20127-P2
+-	ISED: 20127-P2
 
 ## Product handling
 
@@ -776,9 +776,9 @@ The P2 is not certified for use as a wearable device.
 <dd>Over The Air; describing how firmware is transferred to the device.</dd>
 </div>
 
-## FCC IC CE warnings and end product labeling requirements
+## FCC ISED CE warnings and end product labeling requirements
 
-The FCC, IC, and CE certifications are radio module certifications only. Additional certification will be required for your completed system.
+The FCC, ISED, and CE certifications are radio module certifications only. Additional certification will be required for your completed system.
 
 ### United States (FCC)
 
@@ -818,7 +818,7 @@ outdoor access point in U-NII-1 band, 5.150-5.250 GHz.
 
 ---
 
-### Canada (IC)
+### Canada (ISED)
 
 **Canada Statement**
 This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
@@ -839,7 +839,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC: 20127-P2
+> Contains transmitter module ISED: 20127-P2
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -900,7 +900,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |     | 2022-02-08 | RK | Corrected D pin aliases for A5 and S0-S6 |
 |     | 2022-02-25 | RK | Changed D pin aliases for D9 - D22, A5 is not SPI MOSI, Serial2 TX and RX were reversed |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
-|     | 2022-03-23 | RK | Added FCC and IC IDs, operating temperature range |
+|     | 2022-03-23 | RK | Added FCC and ISED IDs, operating temperature range |
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-04-16 | RK | Added Serial3 |
 |     | 2022-05-07 | RK | Temperature range is -20°C to +70°C |

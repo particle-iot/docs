@@ -2,7 +2,7 @@
 title: Certification
 layout: commonTwo.hbs
 columns: two
-description: Information about certifications (FCC, IC, CE, UL, etc.) for Particle devices.
+description: Information about certifications (FCC, ISED, CE, UL, etc.) for Particle devices.
 ---
 
 # {{title}}
@@ -56,7 +56,7 @@ This is often referred to as a sDoC, self-declaration of conformity. You don't g
 
 Unintentional radiator testing can be as low as US$ 1000 and can take as little as a few weeks, though the cost and time can vary.
 
-This operates similarly in Canada (ISED). 
+This operates similarly in Canada (ISED, formerly known as IC). 
 
 ### CE (European Union) - Unintentional radiator certification
 

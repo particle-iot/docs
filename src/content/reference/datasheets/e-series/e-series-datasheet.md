@@ -37,7 +37,7 @@ It also comes with Particle's development tools and cloud platform for managing 
  * 30 mixed-signal GPIO and advanced peripherals
  * Open source software design
  * Real-time operation system (RTOS)
- * FCC, CE and IC certified
+ * FCC (United States), CE (European Union), and ISED (Canada) certified
  * Embedded Particle EtherSIM (E314, E404, E404X)
  * Embedded Particle SIM (E310, E402)
 
@@ -794,7 +794,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 |uC  | Microcontroller |
 
 
-## FCC IC CE warnings and end product labeling requirements
+## FCC ISED CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -848,7 +848,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC:
+> Contains transmitter module ISED:
 
  * 8595A-SARAU201 (For 3G E series using the U201 module)
  * 8595A-2AGQN4NNN (For LTE E series module using the R410 module)

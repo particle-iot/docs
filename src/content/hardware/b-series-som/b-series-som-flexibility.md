@@ -83,5 +83,5 @@ Unintentional radiator testing makes sure that the completed assembly, including
 | Region | Certification Required |
 | :--- | :--- |
 | United States, Mexico | FCC |
-| Canada | IC |
+| Canada | ISED |
 | Europe, Australia, New Zealand | CE |

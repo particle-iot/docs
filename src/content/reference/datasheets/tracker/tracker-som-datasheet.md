@@ -60,7 +60,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
   * NFC-A tag
  * Wi-Fi location: on-board ESP32 offers SSID scanning for using third-party Wi-Fi location services
- * PMIC (Power Management IC) and Fuel Gauge
+ * PMIC (Power Management ISED) and Fuel Gauge
  * On-module additional 8MB SPI flash
  * CAN Bus: on-board, integrated CAN Bus controller and transceiver making it ideal for fleet and micromobility
  * Boost Converter to power 5V CAN devices from a 3.6V battery
@@ -75,7 +75,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
  * Bluetooth chip antenna on module, switchable to use U.FL connector in software.
  * Five on-module U.FL connectors for cellular, GNSS, BLE, Wi-Fi, and alternative GNSS.
  * Castellated module designed to be reflow soldered to your own custom base board, or pre-populated on a Particle Evaluation Board or Carrier Board.
- * FCC, IC, and CE certified 
+ * FCC (United States), ISED (Canada), and CE (European Union) certified 
  * RoHS compliant (lead-free)
 
 ### Model comparison
@@ -1134,9 +1134,9 @@ Contains Transmitter module FCC ID: 2AEMI-T40X or contains FCC ID: 2AEMI-T40X Th
 
 The end user manual shall include all required regulatory information / warning as shown in this manual, include: This product must be installed and operated with a minimum distance of 20 cm between the radiator and user body.
 
-### Industry Canada (IC)
+### Innovation, Science and Economic Development Canada (ISED)
 
-IC ID: 20127-T40X
+ISED: 20127-T40X
 
 - This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
   - this device may not cause interference.
@@ -1368,8 +1368,8 @@ The bootloader allows you to easily update the user application via several diff
 | 003      | 2020 Jul 17 | RK | Updated absolute maximum ratings |
 | 004      | 2020 Jul 30 | RK | Added explanation of DIV connector |
 | 005      | 2020 Aug 06 | RK | Added crystal to block diagram, added FCC information |
-| 006      | 2020 Aug 18 | RK | Added IC (Canada) information |
-| 007      | 2020 Sep 08 | RK | Added IC (Canada) information |
+| 006      | 2020 Aug 18 | RK | Added ISED (Canada) information |
+| 007      | 2020 Sep 08 | RK | Added ISED (Canada) information |
 | 008      | 2020 Sep 09 | RK | Remove 3GPP E-UTRA from T402 |
 | 009      | 2020 Sep 16 | RK | Added power consumption information |
 | 010      | 2002 Sep 25 | RK | Fixed typo in Istop_usart maximum current |
