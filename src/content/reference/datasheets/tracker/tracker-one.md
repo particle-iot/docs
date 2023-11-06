@@ -581,7 +581,7 @@ WARNING: Any changes or modifications to this unit not expressly approved by the
 
 This device must not be collocated or operating in conjunction with any other antenna or transmitter.
 
-### IC interference statement
+### ISED interference statement
 
 This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -670,7 +670,7 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 013      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |
 | 014      | 2021 Feb 17 | RK | Tracker One v1.1 GPIO note, update schematics |
 | 015      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
-| 016      | 2021 Mar 23 | RK | Added FCC and IC interference statements |
+| 016      | 2021 Mar 23 | RK | Added FCC and ISED interference statements |
 | 017      | 2021 Mar 29 | RK | D8 and D9 were reversed in some tables |
 | 018      | 2021 Sep 10 | RK | Changed wording of peak vs. max current |
 | 019      | 2022 Aug 29 | RK | Added EU declaration of conformity |

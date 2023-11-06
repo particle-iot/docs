@@ -50,7 +50,7 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 * Open source design
 * Real-time operating system (FreeRTOS)
 * Soft AP setup
-* FCC, CE and IC certified
+* FCC (United States), CE (European Union), and ISED (Canada) certified
 
 ### Device OS Support
 
@@ -581,14 +581,14 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 -	RoHS
 -	CE
 -	FCC ID: 2AEMI-PHOTON
--	IC: 20127-PHOTON
+-	ISED: 20127-PHOTON
 
 **Photon without Headers**
 - Model Number: PHOTONNOH
 - RoHS
 - CE
 -	FCC ID: 2AEMI-PHOTON
--	IC: 20127-PHOTON
+-	ISED: 20127-PHOTON
 
 
 ## Product handling
@@ -650,7 +650,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 <dd>Over The Air; describing how firmware is transferred to the device.</dd>
 </div>
 
-## FCC IC CE warnings and end product labeling requirements
+## FCC ISED CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -701,7 +701,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC: 20127-PHOTON
+> Contains transmitter module ISED: 20127-PHOTON
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -721,7 +721,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v008 | 11-May-2015 | BW | Updated BT CO-EX, PWM info, Qualifications |
 | v009 | 31-May-2015 | BW | Updated Pinouts, DAC info, Height dimensions, Solder mask info, Recommended operating conditions |
 | v010 | 1-June-2015 | BW | Updated VBAT info |
-| v011 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Added pin numbers to PCB Land Pattern for Photon without headers. |
+| v011 | 24-July-2015 | BW | Added FCC ISED CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Added pin numbers to PCB Land Pattern for Photon without headers. |
 | v012 | 15-January-2016 | WH | Added TELEC Certification information and expanded explanation of Photons with and without headers.
 | v013 | 7-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, more descriptive info about bottom side pads, known errata URL. Updated: BT COEX info, pin diagram, block diagram, operating conditions, pin descriptions, land-pattern image signal keepout note.
 | v014 | 13-September-2016 | BW | Updated Mating connectors section. |

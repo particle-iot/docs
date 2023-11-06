@@ -348,16 +348,39 @@ const generatorConfig = require('./generator-config');
         // Render
         let md = '';
 
-        // Country 2G 3G Cat1 M1 Model Carriers?
-        md += '| Country | Model | Technologies | Carriers |\n';
-        md += '| :--- | :--- | :--- | :--- |\n';
+        let tableOptions = {
+            columns: [
+            ],
+        };
+
+        tableOptions.columns.push({
+            key: 'country',
+            title: 'Country',
+        });
+        if (!options.noModel) {
+            tableOptions.columns.push({
+                key: 'model',
+                title: 'Model',
+            });
+    
+        }
+        tableOptions.columns.push({
+            key: 'technologies',
+            title: 'Technologies',
+        });
+        tableOptions.columns.push({
+            key: 'carriers',
+            title: 'Carriers',
+        });
+
+        let tableData = [];
 
         technologies = ['2G', '3G', 'Cat1', 'M1'];
 
         countryModemSimFiltered.forEach(function(cmsObj) {
             let showTechnologies = [];
             let carriers = [];
-
+            
             const modemObj = updater.datastore.findModemByModel(cmsObj.modem);
 
             updater.datastore.data.countryCarrier.forEach(function(ccObj) {
@@ -409,13 +432,16 @@ const generatorConfig = require('./generator-config');
 
             showTechnologies.sort();
 
-
-            md += '| ' + cmsObj.country + ' | ' + shortModelForModem[cmsObj.modem] + ' | ' + showTechnologies.join(', ');
-            md += ' | ' + carriers.join(', ') + ' |\n';
+            tableData.push({
+                country: cmsObj.country,
+                model: shortModelForModem[cmsObj.modem],
+                technologies: showTechnologies.join(', '),
+                carriers: carriers.join(', '),
+            });
 
         });
 
-        return md;
+        return updater.generateTable(tableOptions, tableData); 
 
     };
 

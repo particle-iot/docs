@@ -36,7 +36,7 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 - 2048 KB (2 MB) user application maximum size
 - 3072 KB (3 MB) of RAM available to user applications
 - 2 MB flash file system
-- FCC, IC, and CE certified
+- FCC (United States), ISED (Canada), and CE (European Union) certified
 
 ### Block diagram
 
@@ -663,7 +663,7 @@ The bootloader allows you to easily update the user application via several diff
 
 ---
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC ISED CE Warnings and End Product Labeling Requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -724,7 +724,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
 
- * Contains transmitter module IC: xxx
+ * Contains transmitter module ISED: xxx
  
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.

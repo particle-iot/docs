@@ -27,7 +27,7 @@ The Particle Photon 2 is a powerful Wi-Fi development kit.
 - 2048 KB (2 MB) user application maximum size
 - 3072 KB (3 MB) of RAM available to user applications
 - 2 MB flash file system
-- FCC, IC, and CE certified
+- FCC (United States), ISED (Canada), and CE (European Union) certified
 
 ## Resources
 

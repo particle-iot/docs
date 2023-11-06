@@ -54,7 +54,7 @@ flash and an antenna and U.FL connector on board.
 - Open source design
 - Real-time operating system (FreeRTOS)
 - Soft AP setup
-- FCC, CE and IC certified
+- FCC (United States), CE (European Union), and ISED (Canada) certified
 
 ### Device OS support
 
@@ -562,7 +562,7 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 -	RoHS
 -	CE
 -	FCC ID: COFWMNBM11
--	IC: 10293A-WMNBM11
+-	ISED: 10293A-WMNBM11
 
 ## Product handling
 
@@ -610,7 +610,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 <dd>Over The Air; describing how firmware is transferred to the device.</dd>
 </div>
 
-## FCC IC CE warnings and end product labeling requirements
+## FCC ISED CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -661,7 +661,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC: 20127-PHOTON
+> Contains transmitter module ISED: 20127-PHOTON
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -675,7 +675,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v001 | 4-May-2015 | BW | Initial release |
 | v002 | 31-May-2015 | BW | Update assets |
 | v003 | 1-June-2015 | BW | Updated VBAT_MICRO info |
-| v004 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Corrected A0 as pin 50, Corrected External Coexistence Interface pin numbers, Added RGB LED, SETUP and RESET button section. |
+| v004 | 24-July-2015 | BW | Added FCC ISED CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Corrected A0 as pin 50, Corrected External Coexistence Interface pin numbers, Added RGB LED, SETUP and RESET button section. |
 | v005 | 11-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, known errata URL and tape-and-reel dimensions. Updated: BT COEX info, pinout diagrams (fixed RESET pin number error), operating conditions, pin descriptions (P1S0~P1S5 pins), land-pattern image signal keepout note.
 | v006 | 14-July-2016 | BW | Updated P1 pin listing: TESTMODE pin 33 (PA8), connected to MCO1 by default, outputs 32kHz clock for WICED powersave mode - currently unsupported for user control.
 | v007 | 20-September-2016 | BW | Updated P1 pin listing: TESTMODE pin 33 (PA8), can use now as P1S6 if enabled.  Updated Pinmap and added P1S6.  Updated Pin Description and Peripherals and GPIO. |

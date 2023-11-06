@@ -57,7 +57,7 @@ It's also possible to flash both Device OS and your user firmware during your ma
 
 ### Does upgrading Device OS require recertification?
  
-Upgrading the Device OS version does not require recertification for FCC, IC, CE, etc..
+Upgrading the Device OS version does not require recertification for FCC, ISED, CE, etc..
 
 ### What if I'm currently targeting an older version of Device OS?
 

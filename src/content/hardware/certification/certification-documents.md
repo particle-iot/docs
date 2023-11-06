@@ -2,7 +2,7 @@
 title: Certification documents
 layout: commonTwo.hbs
 columns: two
-description: Certification documents (FCC, IC, CE, etc.) for Particle devices.
+description: Certification documents (FCC, ISED, CE, etc.) for Particle devices.
 ---
 
 # {{title}}
@@ -68,7 +68,7 @@ FCC Part 15 Subpart B, Class B (sDoC):
 
 ### ISED (Canada) - Argon
 
-- IC ID: **20127-ARGN**.
+- ISED: **20127-ARGN**.
 - [Certificate of Conformity](/assets/pdfs/argon-ic.pdf)
 - [Test Report Mesh](/assets/pdfs/argon-mesh-ic-test-report.pdf)
 - [Test Report Wi-Fi](/assets/pdfs/argon-wifi-ic-test-report.pdf)
@@ -125,7 +125,7 @@ The B402, B404, and B404X are not certified for use in Europe at this time.
 
 ### ISED (Canada) - B402 and B404 B Series SoM
 
-- IC ID: **20127-B402**
+- ISED: **20127-B402**
 - [Certificate of Conformity](/assets/pdfs/b402-ic.pdf)
 - [Test Report RS-130](/assets/pdfs/b402-ic-rs130.pdf)
 - [Test Report RS-132](/assets/pdfs/b402-ic-rs132.pdf)
@@ -180,7 +180,7 @@ The B404X are not certified for use in Europe at this time. The B524 (LTE Cat M1
 
 ### ISED (Canada) - B404X B Series SoM 
 
-- IC ID: **20127-B404X**
+- ISED: **20127-B404X**
 - [Certificate of Conformity](/assets/pdfs/b404x-ic.pdf)
 - [Test Report RSS-247 Issue 2, RSS-Gen Issue 5](/assets/pdfs/b404x-ic-rss247-2.pdf)
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/b404x-ic-ices003-7.pdf)
@@ -291,7 +291,7 @@ Additional FCC Test Reports:
 
 ### ISED (Canada) - BRN310 BRN314 Boron 2G/3G
 
-- IC ID: **20127-BRN310**.
+- ISED: **20127-BRN310**.
 - [Certificate of Conformity](/assets/pdfs/boron310-ic.pdf)
 - [Test Report Mesh](/assets/pdfs/boron310-mesh-ic-test-report.pdf)
 - [Test Report NFC](/assets/pdfs/boron310-nfc-ic-test-report.pdf)
@@ -376,7 +376,7 @@ Additional FCC Test Reports:
 
 ### ISED (Canada) - BRN402 BRN404 Boron LTE Cat M1
 
-- IC ID: **20127-BRN402**
+- ISED: **20127-BRN402**
 - [Certificate of Conformity](/assets/pdfs/boron402-ic.pdf)
 - [ISED RF Exposure Report](/assets/pdfs/boron402-ic-ised-rf-exposure.pdf)
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/boron402-fcc-part15b.pdf)
@@ -436,7 +436,7 @@ The BRN404X are not certified for use in Europe at this time.
 
 ### ISED (Canada) - BRN404X Boron LTE Cat M1
 
-- IC ID: **20127-BRN404X**
+- ISED: **20127-BRN404X**
 - [Certificate of Conformity](/assets/pdfs/brn404x-ic.pdf)
 - [Test Report RSS-247 Issue 2, RSS-Gen Issue 5](/assets/pdfs/brn404x-ic-rss247-2.pdf)
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/brn404x-ic-ices003-7-test-report.pdf)
@@ -479,7 +479,7 @@ The BRN404X are not certified for use in Europe at this time.
 
 ### ISED (Canada) - E260 Electron 2G/3G Americas (U260)
 
-- IC ID: **8595A-SARAU260**.
+- ISED: **8595A-SARAU260**.
 - [Test Report - U260 v1.0](/assets/pdfs/electron/ic-u260-test-report.pdf)
 - [Test Report - U260 v1.1](/assets/pdfs/new-certs/electron/FINAL_U260_ICES_REPORT.pdf)
 
@@ -572,7 +572,7 @@ Additional FCC Test Reports:
 
 ### ISED (Canada) - E310 E314 E Series (U201)
 
-- IC ID: **8595A-1CGM5NNN**.
+- ISED: **8595A-1CGM5NNN**.
 - [Certificate of Conformity](/assets/pdfs/electron/ic-u201-certificate.pdf)
 - [Test Report](/assets/pdfs/electron/ic-u201-test-report.pdf)
 - [ICES-003 Issue 7:2020 Class B](/assets/pdfs/e310-ic-ices003-7.pdf)
@@ -630,7 +630,7 @@ Additional FCC Test Reports:
 
 ### ISED (Canada) - E402 E404 E Series LTE Cat M1 (R410M)
 
-- IC ID: **8595A-2AGQN4NNN**.
+- ISED: **8595A-2AGQN4NNN**.
 - [Certificate of Conformity](/assets/pdfs/e402-ic.pdf)
 - [ICES-003 Issue 7:2020 Class B](/assets/pdfs/e402-ic-ices003-7.pdf)
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/e402-ic-ices003-7-test-report.pdf)
@@ -681,7 +681,7 @@ Additional FCC Test Reports:
 
 ### ISED (Canada) - E404X E Series LTE Cat M1 (R510)
 
-- IC ID: **20127-E404X**
+- ISED: **20127-E404X**
 - [Certificate of conformity](/assets/pdfs/e404x-ic.pdf)
 - [ICES-003 Issue 7:2020 Class B](/assets/pdfs/e402-ic-ices003-7.pdf)
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/e404x-ic-ices003-7-test-report.pdf)
@@ -795,7 +795,7 @@ Additional FCC Test Reports:
 
 ### ISED (Canada) - G350 Electron 2G
 
-- IC ID: **8595A-SARAG350**.
+- ISED: **8595A-SARAG350**.
 - [Test Report](/assets/pdfs/electron/ic-g350-test-report.pdf)
 
 ### RoHS - G350 Electron 2G
@@ -835,7 +835,7 @@ Additional FCC Test Reports:
 
 ### ISED (Canada) - ONE402 ONE404 Tracker One NorAm
 
-- IC ID: **20127-ONE40X**.
+- ISED: **20127-ONE40X**.
 - [Certificate of Conformity](/assets/pdfs/one402-ic-certificate.pdf)
 - [Test Report RS-130](/assets/pdfs/one402-ic-rs130.pdf)
 - [Test Report RS-132](/assets/pdfs/one402-ic-rs132.pdf)
@@ -937,7 +937,7 @@ The P1 module is deprecated. All designs should use the P2 module instead.
 
 ### ISED (Canada) - P1
 
-- IC ID: **10293A-WMNB11**.
+- ISED: **10293A-WMNB11**.
 - [Certificate of Conformity](/assets/pdfs/p1-ic-certificate.pdf)
 
 ### RoHS - P1
@@ -992,13 +992,13 @@ The P1 module is deprecated. All designs should use the P2 module instead.
 
 ### ISED (Canada) - P2
 
-- IC ID: **20127-P2**
+- ISED: **20127-P2**
 - [Certificate of Conformity](/assets/pdfs/p2-ic-certificate.pdf)
-- [IC RSS-247 BTLE Test Report](/assets/pdfs/p2-ic-rss247-btle.pdf)
-- [IC RSS-247 Wi-Fi 2.4 GHz Test Report](/assets/pdfs/p2-ic-rss247-wifi.pdf)
-- [IC RSS-247 Wi-Fi 5 GHz Test Report](/assets/pdfs/p2-ic-rss247-wifi5.pdf)
-- [IC RSS-247 DFS Test Report](/assets/pdfs/p2-ic-rss247-dfs.pdf);
-- [IC RSS-102 RF Exposure Report](/assets/pdfs/p2-ic-rf-exposure.pdf)
+- [ISED RSS-247 BTLE Test Report](/assets/pdfs/p2-ic-rss247-btle.pdf)
+- [ISED RSS-247 Wi-Fi 2.4 GHz Test Report](/assets/pdfs/p2-ic-rss247-wifi.pdf)
+- [ISED RSS-247 Wi-Fi 5 GHz Test Report](/assets/pdfs/p2-ic-rss247-wifi5.pdf)
+- [ISED RSS-247 DFS Test Report](/assets/pdfs/p2-ic-rss247-dfs.pdf);
+- [ISED RSS-102 RF Exposure Report](/assets/pdfs/p2-ic-rf-exposure.pdf)
 
 
 ### RoHS - P2
@@ -1043,7 +1043,7 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 
 ### ISED (Canada) - Photon/PØ
 
-- IC ID: **20127-PHOTON**.
+- ISED: **20127-PHOTON**.
 - [Certificate of Conformity](/assets/pdfs/new-certs/ic/photon-ic-certificate2017.pdf)
 - [Test Report](/assets/pdfs/new-certs/ic/photon-test-reports.zip)
 
@@ -1099,13 +1099,13 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 
 ### ISED (Canada) - Photon 2
 
-- IC ID: **20127-P2** (this is the same as the P2 because the Photon 2 includes the P2 module)
+- ISED: **20127-P2** (this is the same as the P2 because the Photon 2 includes the P2 module)
 - [Certificate of Conformity](/assets/pdfs/phn2-ic-certificate.pdf)
-- [IC RSS-247 BTLE Test Report](/assets/pdfs/phn2-ic-rss247-btle.pdf)
-- [IC RSS-247 Wi-Fi 2.4 GHz Test Report](/assets/pdfs/phn2-ic-rss247-wifi.pdf)
-- [IC RSS-247 Wi-Fi 5 GHz Test Report](/assets/pdfs/phn2-ic-rss247-wifi5.pdf)
-{{!-- - [IC RSS-247 DFS Test Report](/assets/pdfs/phn2-ic-rss247-dfs.pdf)
-  - [IC RSS-102 RF Exposure Report](/assets/pdfs/phn2-ic-rf-exposure.pdf) --}}
+- [ISED RSS-247 BTLE Test Report](/assets/pdfs/phn2-ic-rss247-btle.pdf)
+- [ISED RSS-247 Wi-Fi 2.4 GHz Test Report](/assets/pdfs/phn2-ic-rss247-wifi.pdf)
+- [ISED RSS-247 Wi-Fi 5 GHz Test Report](/assets/pdfs/phn2-ic-rss247-wifi5.pdf)
+{{!-- - [ISED RSS-247 DFS Test Report](/assets/pdfs/phn2-ic-rss247-dfs.pdf)
+  - [ISED RSS-102 RF Exposure Report](/assets/pdfs/phn2-ic-rf-exposure.pdf) --}}
 
 ### RoHS - Photon 2
 
@@ -1160,7 +1160,7 @@ The T402 and T404 are not certified for use in Europe.
 
 ### ISED (Canada) - T402 T404 Tracker SoM NorAm
 
-- IC ID: **20127-T40X**.
+- ISED: **20127-T40X**.
 - [Certificate of Conformity](/assets/pdfs/t402-ic-certificate.pdf)
 - [Test Report BLE](/assets/pdfs/t402-ic-ble-test-report.pdf)
 - [Test Report Wi-Fi](/assets/pdfs/t402-ic-wifi-test-report.pdf)
@@ -1270,7 +1270,7 @@ NFC certification:
 
 
 ### ISED (Canada) - Xenon
-- IC ID: **20127-XENN**.
+- ISED: **20127-XENN**.
 - [Certificate of Conformity](/assets/pdfs/xenon-ic.pdf)
 - [Test Report Mesh](/assets/pdfs/xenon-mesh-ic-test-report.pdf)
 - [Test Report NFC](/assets/pdfs/xenon-nfc-ic-test-report.pdf)
