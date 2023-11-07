@@ -158,7 +158,7 @@ Click the **Publish** button and you should see both the `sensor-test` event and
 ![](/assets/images/subspace/logic-complete.png)
 
 
-### Testing from CLI
+### Testing from the Particle CLI
 
 You can publish events using the Particle CLI for testing, but remember to pass the product number, since logic functions only work with product devices.
 
@@ -167,7 +167,6 @@ You can publish events using the Particle CLI for testing, but remember to pass 
 Published private event: sensor-test to product: 1234
 ```
 
-
 ### Testing from a device
 
 Of course the real application for this is having a device publish the data. 
@@ -175,6 +174,21 @@ Of course the real application for this is having a device publish the data.
 - The [JSON documentation](/firmware/best-practices/json/) is a good place for a background in JSON.
 - The [JSONWriter](/reference/device-os/api/json/json/) is a good way to generate JSON on device.
 - Of course you're use [Particle.publish](/reference/device-os/api/cloud-functions/particle-publish/) from device firmware to publish an event.
+
+For example:
+
+```cpp
+char buf[particle::protocol::MAX_EVENT_DATA_LENGTH + 1];
+memset(buf, 0, sizeof(buf));
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+writer.beginObject();
+    writer.name("d").value(sensorData);
+    writer.name("i").value(sensorId);
+writer.endObject();
+
+Particle.publish("sensor-test", buf);
+```
 
 Remember that logic functions only work with product devices. The devices can be product developer devices (or not) and can be claimed or unclaimed.
 
@@ -232,63 +246,47 @@ You cannot use features such as:
 - long running operations
 - asynchronous features like async/await, promises, etc.
 
-### Particle Logic Core API
+## Particle Logic Core API
 
-#### Particle.getTrigger()
-
-Returns an object containing the raw trigger and its details. Depending on the details.type which specifies what
-triggered this runtime, you'll have access to different sets of data.
+To use the Particle Logic Core API this line is added automatically when using a template:
 
 ```js
-// EXAMPLE
-const trigger = Particle.getTrigger();
-const data = JSON.parse(trigger.details.event_data);
-console.log('JSON data', data);
+import Particle from 'particle:core';
 ```
 
-The `trigger` object has the following Typescript definition:
+### Particle.publish
 
-```js
-interface PubSubDetails {
-    type: 'PubSub',
-    event_name: string,
-    event_data?: string,
-    device_id: string,
-    product_id?: number,
-    user_id?: string,
-}
-
-interface ChronDetails {
-    type: 'Chron',
-    id: number,
-    version: number,
-    start_at: string,
-    end_at: string
-}
-
-interface Trigger {
-    trigger_id?: string,
-    organization_id: string,
-    published_at: string,
-    details: PubSubDetails | ChronDetails
-}
-```
-
-#### Particle.publish
-
-Synchronously publishes an event to the Particle cloud. This event can be subscribed to on-device or be used to trigger a webhook.
+Publishes an event to the Particle cloud. This event can be subscribed to on-device or be used to trigger a webhook.
 
 ```
 // PROTOTYPE
-publish(name: string, data?: any, tags?: { productId: number, userId: number }): boolean,
+export function publish(name: string, data: any | undefined, options: { productId: number, asDeviceId: string }): null;
 ```
 
 - `name` The name of the event
 - `data` The particle publish data. This can be a string or an object. If an object, it will be serialized to JSON using `JSON.stringify`.
-- `tags` Allows specifying a `productId` or `userId` which you would like the data to be published to
+- `options` The product or device to that the event should be sent from
 
-### Particle encloding API
+When triggering from an event, you will typically publish the event to the same product:
+
+```js
+Particle.publish("data-reformatted", reformatted, { productId: event.productId });
+```
+
+When using a schedule (cron) event, you need to specify which product to send the cron event to.
+
+A logic function can publish more than one event if desired, and is not limited to the one-per second publish that devices are. However if you are publishing 
+events that devices are subscribed to, you should limit the size and number of events published to devices, as the device can drop events that it is unable to process.
 
 
-### Vendor packages
+## Particle encoding API
+
+```js
+import Particle from 'particle:core';
+import { base85Decode } from 'particle:encoding';
+```
+
+
+## Vendor packages
+
 
