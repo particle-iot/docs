@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: Logic cloud functions
 ---
 
-# {{title}} Beta
+# {{title}} (Beta)
 
 {{box op="start" cssClass="boxed warningBox"}}
 Logic is in beta and is not recommended for production applications. There may be breaking changes to the behavior 
@@ -142,6 +142,11 @@ For an event triggered logic function, this is where you enter the **Trigger eve
 
 You must specify a product to associate the logic function with! Logic functions only work with product devices, not sandbox devices. For the beta, only personal sandbox products can be used (not organization products).
 
+When you've succeesfully deployed the logic function:
+
+![](/assets/images/subspace/logic-deployed.png)
+
+
 ### Testing from console
 
 Since logic functions only work with products:
@@ -161,7 +166,7 @@ Since logic functions only work with products:
 
 Click the **Publish** button and you should see both the `sensor-test` event and the `data-reformatted` event!
 
-![](/assets/images/subspace/logic-complete.png)
+![](/assets/images/subspace/logic-publish-completelogic-deployed.png)
 
 
 ### Testing from the Particle CLI
@@ -298,7 +303,7 @@ using a try/catch block, the exception would still be caught and displayed in th
   }
 ```
 
-Here's where a new object is created based on the original event JSON. In addition to simply changing the "shape" of the object (key names, embedded objects, etc.), you can also perform calculations.
+Here's where a new object is created based on the original event JSON. 
 
 ```js
   const reformatted = {
@@ -310,13 +315,25 @@ Here's where a new object is created based on the original event JSON. In additi
   };
 ```
 
+In addition to simply changing the "shape" of the object (key names, embedded objects, etc.), you can also perform calculations. For example, this makes the reformatted 
+`data.d` value the square of the original value using the Javascript `Math.pow()` (power) method.
+
+```js
+  const reformatted = {
+    id: data.i,
+    data: {
+      value: Math.pow(data.d, 2),
+      type: 'Sensor'
+    }
+  };
+```
+ 
 And, finally, the reformatted object is published. The options (last parameter) specify that the event goes out to the same product that the event came from.
 
 ```js
   Particle.publish("data-reformatted", reformatted, { productId: event.productId });
 }
 ```
-
 
 ### Particle Logic Core API
 
@@ -350,6 +367,8 @@ When using a schedule (cron) event, you need to specify which product to send th
 A logic function can publish more than one event if desired, and is not limited to the once per second average that devices are. However if you are publishing 
 events that devices are subscribed to, you should limit the size and number of events published to devices, as the device will drop events that it is unable to process.
 
+When publishing to a webhook, the data can exceed the normal 1024 bytes event size limit. When sending to a device, however, you must still limit the size
+of the event data. Events published by logic do not currently count against your data operations usage.
 
 ### Particle encoding API
 
