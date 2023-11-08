@@ -183,6 +183,10 @@ In some cases, you can configure your Monitor One settings entirely from the clo
 
 ![Location Settings](/assets/images/tracker/settings-1.png)
 
+Monitor Edge allows cloud-based configuration of many parameters, and you can add custom tabs and items 
+that display in the [Particle console](https://console.particle.io/) in your Monitor One product. See 
+[Tracker Configuration](/reference/tracker/tracker-configuration/) for more information.
+
 ### Particle Workbench
 
 [Particle Workbench](/getting-started/developer-tools/workbench/) is the development environment for the Monitor One. From that link you 
@@ -191,6 +195,7 @@ can download Workbench, based on Visual Studio Code, for Windows, Linux, and Mac
 ### Monitor Edge
 
 The firmware on the Monitor One is Monitor Edge, which is included on the device but is open source and can be customized for your specific application.
+From this page you can also view the release notes for Monitor Edge releases.
 
 - [Monitor Edge firmware](/firmware/tracker-edge/monitor-edge-firmware/)
 
@@ -198,7 +203,6 @@ It builds on the standard features of Particle device firmware and the Device OS
 
 - [Introduction to Particle Device Firmware](/firmware/best-practices/firmware-introduction/)
 - [Device OS API](/reference/device-os/api/introduction/getting-started/)
-
 
 For further technical information about the Monitor One, see the Monitor One datasheet.
 

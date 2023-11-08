@@ -331,6 +331,14 @@ For the full example, see the [AN017 Tracker CAN](/hardware/tracker/projects/tra
 
 Here's an example of how you set up a custom schema and use it from firmware. It includes many of the available types of data.
 
+{{box op="start" cssClass="boxed warningBox"}}
+It is recommended that you experiment with custom configurations and schemas is a dedicated test 
+product. It can be difficult to successfully remove the custom configuration and schema data from all 
+devices and the cloud, which causes harmless but mildly annoying warnings when changing the configuration 
+after removing a custom schema.
+{{box op="end"}}
+
+
 ### Schema - Example
 
 {{> codebox content="/assets/files/tracker/test-schema-fragment.json" format="json" height="400"}}
