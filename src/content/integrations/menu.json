@@ -66,6 +66,11 @@
         "href": "/integrations/community-integrations/tulip/"
       },
       {
+        "dir": "ilert",
+        "title": "Ilert",
+        "href": "/integrations/community-integrations/ilert/"
+      },
+      {
         "dir": "ifttt",
         "title": "IFTTT",
         "href": "/integrations/community-integrations/ifttt/"
