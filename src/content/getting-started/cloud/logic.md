@@ -73,8 +73,8 @@ Using a template is the easiest way to get started:
 
 To create a Logic Function from scratch, select the template that matches the type of trigger you want:
 
-- Event-triggered function: Start with a clean Logic Function that triggers from an event.
-- Scheduled function: Start with a clean Logic Function that triggers on a schedule.
+- Event-triggered function: Start with a blank Logic Function that triggers from an event.
+- Scheduled function: Start with a blank Logic Function that triggers on a schedule.
 
 
 ### Creating a Logic Function from a template
