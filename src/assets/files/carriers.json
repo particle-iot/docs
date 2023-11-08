@@ -6437,11 +6437,6 @@
       "carrier": "Sasktel",
       "sunset2G": "2017-07-31",
       "sunset3G": "?",
-      "supersim": {
-        "preferredRate": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
       "koreAllNet": {
         "allow3G": true,
         "allowCat1": true

@@ -657,7 +657,6 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Cameroon | MTN | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Canada | Bell Mobility | &check; | <sup>NRND</sup> | &nbsp; | &check; |
 | Canada | Rogers Wireless | &check; | <sup>NRND</sup> | &nbsp; | &check; |
-| Canada | Sasktel | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | Canada | Telus | &check; | <sup>NRND</sup> | &nbsp; | &check; |
 | Canada | Videotron | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | Cayman Islands | Flow | &check; | &check; | &nbsp; | &nbsp; |
