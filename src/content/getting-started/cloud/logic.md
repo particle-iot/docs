@@ -65,15 +65,17 @@ In the developer sandbox in the console, select the **Logic** icon.
 
 ### Logic templates
 
-Using a template is the easiest way to get started.
-
-The current templates are:
+Using a template is the easiest way to get started:
 
 - Decode Base64: Decode an event data payload that is encoded using Base64 back into a byte array.
 - Decode Base85: Decode an event data payload that is encoded using Base85 back into a byte array.
 - Reformat JSON data: Reformat and add fields to a JSON event to make it compatible with an external service.
+
+To create a Logic Function from scratch, select the template that matches the type of trigger you want:
+
 - Event-triggered function: Start with a clean Logic Function that triggers from an event.
 - Scheduled function: Start with a clean Logic Function that triggers on a schedule.
+
 
 ### Creating a Logic Function from a template
 
@@ -85,7 +87,9 @@ Using a template is a three step process:
 
 #### Define Logic Function
 
-The name and description are just for your information.
+The name must be unique across Logic Functions in your sandbox. When organization Logic Functions are available, they must be unique in your organization.
+
+The description is for your use to help remember how you are using the Logic Function.
 
 {{imageOverlay src="/assets/images/subspace/logic-define.png" class="no-darken"}}
 
@@ -93,6 +97,9 @@ The name and description are just for your information.
 #### Execute Logic Function
 
 {{imageOverlay src="/assets/images/subspace/logic-execute.png" class="no-darken"}}
+
+Executing a Logic Function performs operations such as publishing an event. When Ledger is available, you will be able to write to
+your Ledger database from your Logic Function.
 
 This is the sample code generated in the template, it will be explained in more detail [below](#deep-dive-into-the-reformat-json-template).
 
@@ -293,7 +300,9 @@ Every template has one or more import statement to make certain features availab
 import Particle from 'particle:core';
 ```
 
-You must define a function to be called to implement the Logic Function. The JSON example uses this declaration, but you may have a comma-separated list of other parameters in some cases.
+You must define a function to be called to implement the Logic Function. The JSON example uses this declaration, but you may have a comma-separated list of other parameters in some cases. 
+
+The function does not need to be called `decode` as long as its declared with `export default function`.
 
 ```js
 export default function decode({ event }) {
