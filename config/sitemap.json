@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-10-30",
-            "hash": "d869e554040857d0ae2ef50bf99707f3221100ec1a49f595f0a919b8ed1aacd5"
+            "date": "2023-11-08",
+            "hash": "50f56d103c8b1522e77ca20fad850a650c18ea622a6c5c487716c435bc77523b"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -8224,6 +8224,14 @@
         },
         "integrations/community-integrations/ilert.md": {
             "hash": "044fcb9e450d74983e5b4636c6609bb14fe07dc83167242875ce1a06aede7887",
+            "date": "2023-11-08"
+        },
+        "reference/device-os/api/input-output/analogsetreference.md": {
+            "hash": "f924c4cf22be0bf117badfc6b519975242e16356713c9e5776d851cdfbe98b14",
+            "date": "2023-11-08"
+        },
+        "reference/device-os/api/input-output/analoggetreference.md": {
+            "hash": "3909edf504b83a1b6f424834a6a130387d3b4c73f305191fc42d9fb2bed0d553",
             "date": "2023-11-08"
         }
     }

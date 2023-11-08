@@ -5649,6 +5649,64 @@ setADCSampleTime is not supported on the P2, Photon 2, or Gen 3 devices (Argon, 
 
 ---
 
+### analogSetReference
+
+{{api name1="analogSetReference"}}
+
+{{since when="4.1.0"}}
+
+This feature is only present in 4.1.0 and later on the 4.x LTS branch, and in 5.3.0 and later in the 5.x developer prevent branch.
+
+Set the ADC input reference. This does not affect the range of the ADC, which is always 0 - 3.3V with a 12-bit range (0 - 4095).
+
+On nRF52840 devices, this call determines whether the ADC voltage reference is VCC (3V3), or the MCU internal voltage reference. On most devices, the default is `AdcReference::VCC` (3V3). The exception is the Boron 404X, which defaults to `AdcReference::INTERNAL`.
+
+On RTL872x devices (P2, Photon 2), the ADC reference is always `AdcReference::INTERNAL` and attempting to set it will return `SYSTEM_ERROR_NOT_SUPPORTED`.
+
+Returns 0 on success, or a non-zero system error code.
+
+```cpp
+// PROTOTYPE
+int analogSetReference(AdcReference reference);
+
+// EXAPLE
+analogSetReference(AdcReference::INTERNAL)
+```
+
+The valid values for analogSetReference are:
+
+- `AdcReference::DEFAULT` Use the default value for this device
+- `AdcReference::INTERNAL` Use the MCU internal voltage reference if supported by the device
+- `AdcReference::VCC` Use VCC (3V3) as the voltage reference  if supported by the device
+
+
+### analogGetReference
+
+{{api name1="analogGetReference"}}
+
+{{since when="4.1.0"}}
+
+This feature is only present in 4.1.0 and later on the 4.x LTS branch, and in 5.3.0 and later in the 5.x developer prevent branch.
+
+Gets the ADC reference voltage.
+
+Returns:
+- `AdcReference::INTERNAL`
+- `AdcReference::VCC`
+
+Note that if set to `DEFAULT`, the actual reference is returned, not `AdcReference::DEFAULT`.
+
+```cpp
+// PROTOTYPE
+AdcReference analogGetReference(void);
+
+// EXAPLE
+if (analogGetReference() == AdcReference::INTERNAL) {
+  // Do something
+}
+```
+
+
 ## Low level input/output
 
 The Input/Ouput functions include safety checks such as making sure a pin is set to OUTPUT when doing a digitalWrite() or that the pin is not being used for a timer function.  These safety measures represent good coding and system design practice.

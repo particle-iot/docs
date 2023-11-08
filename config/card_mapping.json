@@ -196,6 +196,8 @@
   "/reference/device-os/firmware/#analog-output-dac-": "/reference/device-os/api/input-output/analog-output-dac/",
   "/reference/device-os/firmware/#analogread-adc-": "/reference/device-os/api/input-output/analogread-adc/",
   "/reference/device-os/firmware/#setadcsampletime-": "/reference/device-os/api/input-output/setadcsampletime/",
+  "/reference/device-os/firmware/#analogsetreference": "/reference/device-os/api/input-output/analogsetreference/",
+  "/reference/device-os/firmware/#analoggetreference": "/reference/device-os/api/input-output/analoggetreference/",
   "/reference/device-os/firmware/#low-level-input-output": "/reference/device-os/api/low-level-input-output/low-level-input-output/",
   "/reference/device-os/firmware/#pinsetfast-": "/reference/device-os/api/low-level-input-output/pinsetfast/",
   "/reference/device-os/firmware/#pinresetfast-": "/reference/device-os/api/low-level-input-output/pinresetfast/",
