@@ -190,6 +190,12 @@
         "href": "/getting-started/cloud/ota-updates/"
       },
       {
+        "dir": "logic",
+        "title": "Logic",
+        "href": "/getting-started/cloud/logic/",
+        "internal": true
+      },
+      {
         "dir": "cloud-api",
         "title": "Cloud API",
         "href": "/getting-started/cloud/cloud-api/"
