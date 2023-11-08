@@ -106,7 +106,7 @@ This is the sample code generated in the template, it will be explained in more 
 ```js
 import Particle from 'particle:core';
 
-export default function decode({ event }) {
+export default function reformat({ event }) {
   let data;
   try {
 	  data = JSON.parse(event.eventData);
@@ -224,7 +224,7 @@ When using the scheduled event template, the following code is provided to start
 ```js
 import Particle from 'particle:core';
 
-export default function decode({ functionInfo, trigger, scheduled }) {
+export default function job({ functionInfo, trigger, scheduled }) {
   // Add your code here
 }
 ```
@@ -302,10 +302,10 @@ import Particle from 'particle:core';
 
 You must define a function to be called to implement the Logic Function. The JSON example uses this declaration, but you may have a comma-separated list of other parameters in some cases. 
 
-The function does not need to be called `decode` as long as its declared with `export default function`.
+The function can have any name as long as its declared with `export default function`.
 
 ```js
-export default function decode({ event }) {
+export default function reformat({ event }) {
 ```
 
 This bit of code transforms `event.eventData`, which is a string, into a JSON object. It includes some error checking, but even if you didn't handle the exception
@@ -372,7 +372,9 @@ export function publish(name: string, data: any | undefined, options: { productI
 
 - `name` The name of the event
 - `data` The particle publish data. This can be a string or an object. If an object, it will be serialized to JSON using `JSON.stringify`.
-- `options` The product or device to that the event should be sent from
+- `options`
+  * `productId` The event will be sent on this product event stream
+  * `asDeviceId` (optional) If provided, the event will be published as if it came from this device.
 
 When triggering from an event, you will typically publish the event to the same product:
 
@@ -380,13 +382,13 @@ When triggering from an event, you will typically publish the event to the same 
 Particle.publish("data-reformatted", reformatted, { productId: event.productId });
 ```
 
-When using a schedule (cron) event, you need to specify which product to send the cron event to.
+When triggering on a schedule, you need to specify which product to send the event to.
 
 A Logic Function can publish more than one event if desired, and is not limited to the once per second average that devices are. However if you are publishing 
 events that devices are subscribed to, you should limit the size and number of events published to devices, as the device will drop events that it is unable to process.
 
 When publishing to a webhook, the data can exceed the normal 1024 bytes event size limit. When sending to a device, however, you must still limit the size
-of the event data. Events published by logic do not currently count against your data operations usage.
+of the event data. Events published by Logic do not currently count against your data operations usage.
 
 ### Particle encoding API
 
@@ -506,10 +508,10 @@ When your Logic Function is called, it will always include required parameters:
 - `functionInfo`: information about the function that was called
 - `trigger`: information about the time the event was triggered
 
-Additionally, there are optional parameters based on the type of trigger:
+Additionally, one of the following parameters will be populated, based on the type of trigger:
 
 - `event`: information about the event that triggered the Logic Function
-- `scheduled`: information about a scheduled (cron) Logic Function call
+- `scheduled`: information about the schedule that triggered the Logic Function
 - `ledgerChange`: information about a ledger database change the triggered the Logic Function (future)
 
 ```js
@@ -528,13 +530,13 @@ export interface FunctionContext {
 To access just the event, specify it as is done in the event trigger template.
 
 ```js
-export default function decode({ event })
+export default function process({ event })
 ```
 
 You can also add other parameters in a comma-separated list if you're interested in those values.
 
 ```js
-export default function decode({ functionInfo, trigger, scheduled })
+export default function process({ functionInfo, trigger, scheduled })
 ```
 
 #### functionInfo - Logic Function context
@@ -593,7 +595,8 @@ export interface EventInfo {
 #### scheduled - Logic Function context
 
 - `scheduledAt`: When the event was scheduled at in ISO 8601 format (`2023-11-07T14:01:57.923225531Z`).
-- `startAt`: When execution started.
+- `startAt`: When the scheduler started scheduling this Logic Function.
+- `endAt`: When the scheduler will stop scheduling this Logic Function.
 
 ```js
 // PROTOTYPE
