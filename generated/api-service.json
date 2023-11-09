@@ -7049,6 +7049,471 @@
   },
   {
     "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers",
+    "title": "List ledger definitions",
+    "description": "<p>Lists all ledger definitions belonging to the specified org.</p>",
+    "group": "Ledger_1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "page",
+            "description": "<p>Page number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "perPage",
+            "description": "<p>Number of definitions per page</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "archived",
+            "description": "<p>Filter for archived definitions</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgSlugOrId/ledgers",
+          "content": "GET /v1/orgs/:orgSlugOrId/ledgers\nHTTP/1.1 200 OK\n{\n  \"ledgers\": [\n    {\n      \"scope\": \"Owner\",\n      \"name\": \"My Ledger\",\n      \"description\": \"My Ledger Description\",\n      \"direction\": \"Downstream\",\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_1",
+    "name": "GetV1OrgsOrgidorslugLedgers"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName",
+    "title": "Get ledger definition",
+    "description": "<p>Returns the specified ledger definition.</p>",
+    "group": "Ledger_2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName",
+          "content": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName\nHTTP/1.1 200 OK\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_2",
+    "name": "GetV1OrgsOrgidorslugLedgersLedgername"
+  },
+  {
+    "type": "post",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers",
+    "title": "Create a new ledger definition",
+    "description": "<p>Creates a ledger definition.</p>",
+    "group": "Ledger_3",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @definition.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "POST /v1/orgs/:orgSlugOrId/ledgers",
+          "content": "POST /v1/orgs/:orgSlugOrId/ledgers\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_3",
+    "name": "PostV1OrgsOrgidorslugLedgers"
+  },
+  {
+    "type": "put",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName",
+    "title": "Update ledger definition",
+    "description": "<p>Updates the ledger definition.</p>",
+    "group": "Ledger_4",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName\" \\",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @definition.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "PUT /v1/orgs/:orgSlugOrId/ledgers/:ledgerName",
+          "content": "PUT /v1/orgs/:orgSlugOrId/ledgers/:ledgerName\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_4",
+    "name": "PutV1OrgsOrgidorslugLedgersLedgername"
+  },
+  {
+    "type": "delete",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName",
+    "title": "Archive a ledger definition",
+    "description": "<p>Archives a ledger definition.</p>",
+    "group": "Ledger_5",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName\" \\",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "DELETE /v1/orgs/:orgSlugOrId/ledgers/:ledgerName",
+          "content": "DELETE /v1/orgs/:orgSlugOrId/ledgers/:ledgerName\nHTTP/1.1 204 No content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_5",
+    "name": "DeleteV1OrgsOrgidorslugLedgersLedgername"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances",
+    "title": "List ledger instances",
+    "description": "<p>Lists all ledger instances.</p>",
+    "group": "Ledger_6",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "page",
+            "description": "<p>Page number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "perPage",
+            "description": "<p>Number of instances per page</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances",
+          "content": "GET /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances\nHTTP/1.1 200 OK\n{\n  \"instances\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"456\",\n        \"not_owned\": true\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_6",
+    "name": "GetV1OrgsOrgidorslugLedgersLedgernameInstances"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/get?scope_value=:scopeValue",
+    "title": "Get ledger instance",
+    "description": "<p>Returns the specified ledger instance.</p>",
+    "group": "Ledger_7",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "scopeValue",
+            "description": "<p>Scope value</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/get?scope_value=:scopeValue\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/get?scope_value=:scopeValue\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/get?scope_value=:scopeValue",
+          "content": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/get?scope_value=:scopeValue\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_7",
+    "name": "GetV1OrgsOrgidorslugLedgersLedgernameInstancesGetScope_valueScopevalue"
+  },
+  {
+    "type": "put",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue",
+    "title": "Set the ledger instance data",
+    "description": "<p>Sets the data of the specified ledger instance.</p>",
+    "group": "Ledger_8",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "scopeValue",
+            "description": "<p>Scope value</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\" \\",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @data.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "PUT /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue",
+          "content": "PUT /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 201 Created\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {\n      \"foo\": \"bar\"\n    },\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_8",
+    "name": "PutV1OrgsOrgidorslugLedgersLedgernameInstancesScopevalue"
+  },
+  {
+    "type": "delete",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/scopeValue",
+    "title": "Delete ledger instance",
+    "description": "<p>Deletes the specified ledger instance.</p>",
+    "group": "Ledger_9",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "scopeValue",
+            "description": "<p>Scope value</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\" \\",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "DELETE /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue",
+          "content": "DELETE /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 204 No content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_9",
+    "name": "DeleteV1OrgsOrgidorslugLedgersLedgernameInstancesScopevalue"
+  },
+  {
+    "type": "get",
     "url": "/v1/products/:productIdOrSlug/location",
     "title": "Query location for devices within a product",
     "name": "GetLocations",
@@ -7219,6 +7684,476 @@
     "version": "0.0.0",
     "filename": "api-service/src/views/location.js",
     "groupTitle": "Location_2"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/stats",
+    "title": "Get logic function stats",
+    "description": "<p>Returns the specified logic function stats.</p>",
+    "group": "Logic_10",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/stats\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/stats\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/stats",
+          "content": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/stats\nHTTP/1.1 200 OK\n{\n   \"logic_function_stats\": [\n     {\n       \"date\": \"20231106\",\n       \"success\": 175,\n       \"failure\": 168,\n       \"timeout\": 0\n     }\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_10",
+    "name": "GetV1OrgsOrgidorslugLogicFunctionsLogicfunctionidStats"
+  },
+  {
+    "type": "post",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/execute",
+    "title": "Execute logic function",
+    "description": "<p>Executes the provided logic function.</p>",
+    "group": "Logic_1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/execute\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/execute\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @debug_function.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "POST /v1/orgs/:orgIdOrSlug/logic/execute",
+          "content": "POST /v1/orgs/:orgIdOrSlug/logic/execute\nHTTP/1.1 200 OK\n{\n  \"result\": {\n    \"status\": \"Success\",\n    \"logs\": []\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_1",
+    "name": "PostV1OrgsOrgidorslugLogicExecute"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions",
+    "title": "List logic functions",
+    "description": "<p>Lists all logic functions belonging to the specified org.</p>",
+    "group": "Logic_2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "today_stats",
+            "description": "<p>Include today's stats</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions?today_stats=true\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions?today_stats=true\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgSlugOrId/logic/functions?today_stats=true",
+          "content": "GET /v1/orgs/:orgSlugOrId/logic/functions?today_stats=true\nHTTP/1.1 200 OK\n{\n  \"logic_functions\": [\n    {\n      \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n      \"owner_id\": \"org:deadbeef\",\n      \"version\": 4,\n      \"enabled\": false,\n      \"name\": \"My Logic Function\",\n      \"description\": \"\",\n      \"template_slug\": null,\n      \"source\": {\n        \"type\": \"JavaScript\",\n        \"code\": \"export default function main() {}\"\n      },\n      \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n      \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n      \"created_by\": \"user:deadbeef\",\n      \"updated_by\": \"user:deadbeef\",\n      \"logic_triggers\": [\n        {\n          \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n          \"type\": \"Scheduled\",\n          \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n          \"enabled\": true,\n          \"version\": 4,\n          \"cron\": \"0 0 0 0 0\",\n          \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n          \"end_at\": null,\n          \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n          \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n        }\n      ],\n      \"today_stats\": {\n        \"success\": 0,\n        \"failure\": 0,\n        \"timeout\": 0\n      }\n    }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_2",
+    "name": "GetV1OrgsOrgidorslugLogicFunctions"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId",
+    "title": "Get logic function",
+    "description": "<p>Returns the specified logic function.</p>",
+    "group": "Logic_3",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId",
+          "content": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId\nHTTP/1.1 200 OK\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"org:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_3",
+    "name": "GetV1OrgsOrgidorslugLogicFunctionsLogicfunctionid"
+  },
+  {
+    "type": "post",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions",
+    "title": "Create a new logic function",
+    "description": "<p>Creates a logic function.</p>",
+    "group": "Logic_4",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @logicFunction.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "POST /v1/orgs/:orgSlugOrId/logic/functions",
+          "content": "POST /v1/orgs/:orgSlugOrId/logic/functions\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"org:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_4",
+    "name": "PostV1OrgsOrgidorslugLogicFunctions"
+  },
+  {
+    "type": "put",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId",
+    "title": "Update logic function",
+    "description": "<p>Updates the logic function.</p>",
+    "group": "Logic_5",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\" \\",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @logicFunction.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "PUT /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId",
+          "content": "PUT /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"org:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ],\n    \"today_stats\": {\n      \"success\": 0,\n      \"failure\": 0,\n      \"timeout\": 0\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_5",
+    "name": "PutV1OrgsOrgidorslugLogicFunctionsLogicfunctionid"
+  },
+  {
+    "type": "delete",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId",
+    "title": "Delete logic function",
+    "description": "<p>Deletes the specified logic function.</p>",
+    "group": "Logic_6",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\" \\",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "DELETE /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId",
+          "content": "DELETE /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\nHTTP/1.1 204 No content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_6",
+    "name": "DeleteV1OrgsOrgidorslugLogicFunctionsLogicfunctionid"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs",
+    "title": "List logic functions runs",
+    "description": "<p>Lists all runs for the specified logic function.</p>",
+    "group": "Logic_7",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId/runs\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId/runs\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId/runs",
+          "content": "GET /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId/runs\nHTTP/1.1 200 OK\n{\n  \"logic_runs\": [\n    {\n      \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n      \"owner_id\": \"org:deadbeef\",\n      \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n      \"logic_trigger_type\": \"Scheduled\",\n      \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n      \"status\": \"Success\",\n      \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n      \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n      \"log_filename\": \"org:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n    }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_7",
+    "name": "GetV1OrgsOrgidorslugLogicFunctionsLogicfunctionidRuns"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId",
+    "title": "Get logic function run",
+    "description": "<p>Returns the specified logic function run.</p>",
+    "group": "Logic_8",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicRunId",
+            "description": "<p>Logic run ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId",
+          "content": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId\nHTTP/1.1 200 OK\n{\n  \"logic_run\": {\n    \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n    \"owner_id\": \"org:deadbeef\",\n    \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n    \"logic_trigger_type\": \"Scheduled\",\n    \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n    \"status\": \"Success\",\n    \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n    \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n    \"log_filename\": \"org:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_8",
+    "name": "GetV1OrgsOrgidorslugLogicFunctionsLogicfunctionidRunsLogicrunid"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
+    "title": "Get logic function run",
+    "description": "<p>Returns the specified logic function run logs.</p>",
+    "group": "Logic_9",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicRunId",
+            "description": "<p>Logic run ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId/logs\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId/logs\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
+          "content": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId/logs\nHTTP/1.1 200 OK\n{\n  \"logic_run_logs\": {\n    \"logs\": [\n      {\n        \"level\": \"Info\",\n        \"timestamp\": \"2023-11-07T18:20:59.470Z\",\n        \"args\": [\n          \"Hello\"\n        ]\n      }\n    ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_9",
+    "name": "GetV1OrgsOrgidorslugLogicFunctionsLogicfunctionidRunsLogicrunidLogs"
   },
   {
     "type": "get",

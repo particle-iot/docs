@@ -1005,6 +1005,14 @@ please see [the guide](/getting-started/console/device-groups/).
 ### Configuration
 {{> api group=apiGroups.Configuration}}
 
+## Logic
+
+{{> api group=apiGroups.Logic}}
+
+## Ledger
+
+{{> api group=apiGroups.Ledger}}
+
 
 ## Customers
 
