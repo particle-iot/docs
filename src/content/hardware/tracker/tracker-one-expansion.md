@@ -7,6 +7,9 @@ description: Adding features to the Tracker One
 
 # Tracker One expansion
 
+[Designing on Particle](/getting-started/getting-started/#designing-on-particle-videos) is a series of video tutorials that center best practices across the Particle platform. 
+This video covers the Tracker basics including Tracker Edge, adding custom data to location publishes, and adding new settings panels for your own custom settings to the Particle console using a configuration schema.
+
 {{youtube "https://www.youtube.com/embed/FTLgQ_voKyc"}}
 
 ## Tracker One M8 connector

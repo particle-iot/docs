@@ -1039,8 +1039,8 @@
             "hash": "cb7a11aa083c83e72b873834c1430af8458b92659e7f43bf4969d003be5c024b"
         },
         "hardware/power/batteries.md": {
-            "date": "2023-11-03",
-            "hash": "a15fc9129d5c7362b793986c9ed31e5853cd842debe9c175cac66fff07180cd9"
+            "date": "2023-11-09",
+            "hash": "b80cae30c09c659496390688259fd6fd646e04e34a6178080a9e101daaea2d48"
         },
         "hardware/power/power-supply-guide.md": {
             "date": "2023-09-11",
@@ -1059,8 +1059,8 @@
             "hash": "3447cbcc5938b2c18057a0b452acc373b96f782c4beb221800f4ee5275974db7"
         },
         "hardware/tracker/tracker-one-expansion.md": {
-            "date": "2023-11-03",
-            "hash": "ba4095aa0031bbcb5f742a92e8cc25a0b7d1b05f79ea24255690872c4f35bf6f"
+            "date": "2023-11-09",
+            "hash": "28f14a455ca69525d5ff629b6271cd84a98a3c43062b7e4f410cea4dfe0ee2e6"
         },
         "hardware/tracker/tracker-som/tracker-som-first-board.md": {
             "date": "2023-03-17",
@@ -1140,7 +1140,7 @@
         },
         "reference/cloud-apis/api.md": {
             "date": "2023-11-09",
-            "hash": "ca7c98b8e5946520e11fb6de0bc496051e68eab2a10bfb48496027e4f381d74e"
+            "hash": "6394d67db833f121962ee62915e3fe44d292960db8eebf6bd9486d2248db20c7"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2023-07-12",
