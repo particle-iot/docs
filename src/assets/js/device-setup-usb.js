@@ -1257,8 +1257,8 @@ $(document).ready(function() {
                 else {
                     analytics.track('Already DFU', {category:gaCategory, label:deviceInfo.platformId});
                 }
-
-                if (usbDevice.isCellularDevice) {                    
+                // 
+                if (deviceInfo.platformVersionInfo.cellular || usbDevice.isCellularDevice) {                    
                     deviceInfo.cellular = true;
 
                     // Used to do this, but this does not work on Gen 2 cellular devices
@@ -1274,7 +1274,7 @@ $(document).ready(function() {
                         });
 
                 }
-                else {
+                if (deviceInfo.platformVersionInfo.wifi) {
                     deviceInfo.wifi = true;
                 }
 
