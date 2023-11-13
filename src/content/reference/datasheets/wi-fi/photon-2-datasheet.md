@@ -386,6 +386,11 @@ bool charging = digitalRead(CHG);
 
 On the Photon 2, the `CHG` digital input is `HIGH` (1) when charging and `LOW` (0) when not charging.
 
+### 5V tolerance
+
+GPIO and all ports such as I2C, SPI, UART serial, etc. are **not** 5V tolerant. 
+
+
 ### BLE (Bluetooth LE)
 
 BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and later. Earlier versions only supported BLE Peripheral Mode.
