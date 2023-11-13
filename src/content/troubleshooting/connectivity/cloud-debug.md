@@ -49,6 +49,7 @@ Note that the Device OS version is the minimum device OS version that must be in
 | [Boron](/assets/files/docs-usb-setup-firmware/boron.bin) | 4.0.1 |
 | [E SoM X](/assets/files/docs-usb-setup-firmware/esomx.bin) | 4.0.1 |
 | [Electron](/assets/files/docs-usb-setup-firmware/electron.bin) | 2.3.0 |
+| [M SoM](/assets/files/docs-usb-setup-firmware/msom.bin) | 5.5.0 |
 | [P1](/assets/files/docs-usb-setup-firmware/p1.bin) | 2.3.0 |
 | [Photon](/assets/files/docs-usb-setup-firmware/photon.bin) | 2.3.0 |
 | [Photon 2 / P2](/assets/files/docs-usb-setup-firmware/p2.bin) | 5.1.0 |

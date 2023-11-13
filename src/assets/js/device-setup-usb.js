@@ -1257,8 +1257,8 @@ $(document).ready(function() {
                 else {
                     analytics.track('Already DFU', {category:gaCategory, label:deviceInfo.platformId});
                 }
-
-                if (usbDevice.isCellularDevice) {                    
+                // 
+                if (deviceInfo.platformVersionInfo.cellular || usbDevice.isCellularDevice) {                    
                     deviceInfo.cellular = true;
 
                     // Used to do this, but this does not work on Gen 2 cellular devices
@@ -1274,7 +1274,7 @@ $(document).ready(function() {
                         });
 
                 }
-                else {
+                if (deviceInfo.platformVersionInfo.wifi) {
                     deviceInfo.wifi = true;
                 }
 
@@ -2059,6 +2059,13 @@ $(document).ready(function() {
                 return;
             }
 
+            if (deviceInfo.platformVersionInfo.wifi && deviceInfo.platformVersionInfo.cellular) {
+                // M SoM
+                if ($(thisElem).find('.doctorSetupWiFi')) {
+                    configureWiFi();                              
+                    return;
+                }
+            }
 
             reqObj = {
                 op: 'connect',
@@ -2637,6 +2644,7 @@ $(document).ready(function() {
             const doctorKeepAliveInputElem = $(thisElem).find('.doctorKeepAliveInput');
             const doctorForceVersionElem = $(thisElem).find('.doctorForceVersion');
             const doctorDeviceOsVersionElem = $(thisElem).find('.doctorDeviceOsVersion');
+            const hasWiFiRowElem = $(thisElem).find('.hasWiFiRow');
 
             // Product mode
             const productModeTableBodyElem = $(thisElem).find('.productModeTableBody');
@@ -2852,6 +2860,14 @@ $(document).ready(function() {
             if (deviceInfo.platformVersionInfo.gen == 2) {
                 // No Ethernet option on Gen 2
                 $(hasEthernetRowElem).hide();
+            }
+
+            if (deviceInfo.platformVersionInfo.wifi && deviceInfo.platformVersionInfo.cellular) {
+                // M SoM
+                $(hasWiFiRowElem).show();
+            }
+            else {
+                $(hasWiFiRowElem).hide();
             }
 
 
@@ -3302,7 +3318,7 @@ $(document).ready(function() {
                         waitDeviceOnline();        
                     }
                     else
-                    if (deviceInfo.wifi) {
+                    if (deviceInfo.wifi && !deviceInfo.platformVersionInfo.cellular) {
                         configureWiFi();                              
                     }
                     else {
@@ -3819,6 +3835,8 @@ $(document).ready(function() {
                 const ssid = $(checkedItems).val();
                 const wifiNetworkInfo = sortedNetworks.find(e => e.ssid == ssid);
                 const password = $(passwordInputElem).val();
+
+                // console.log('sortedNetworks', sortedNetworks);
 
                 if (mode != 'wifi') {
                     // Setting credentials can take a few seconds, so put up the next step first
