@@ -1347,20 +1347,20 @@
             "hash": "b331be83d24a89718c667ab17e1e33f793664cd58893216200b62deae131639c"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
-            "date": "2023-11-06",
-            "hash": "d614cdf47c7db79b548a8408e7474e70fa3402de6fe6e246633dfce7270e9833"
+            "date": "2023-11-13",
+            "hash": "2ed77dbf8510d570fe652530bd19b308446dc9496adeaeb1ab75882f120ae457"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2023-11-06",
-            "hash": "c4edc338943d5e513d1b818a0b74f56b1fbc545e57a5b915109acb40426bc3cb"
+            "date": "2023-11-13",
+            "hash": "7b335e2978dfccd8802e89e642370b8afc8311936f3b909a4514930f37b4a836"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2023-11-06",
             "hash": "7663ff1483b40b38f1be183f8f5890626d467eca1dc84c4affaa30677f5261ba"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
-            "date": "2023-11-06",
-            "hash": "cff3d5fdb54c6ff25a0ba256821cfbfebe20375ef0fd23e718c11f3bcd2229c2"
+            "date": "2023-11-13",
+            "hash": "61baf3b25f1e29a1d2f7203506ef1831f384b7adf8f8ac0215ff4df21f4b361b"
         },
         "reference/datasheets/accessories/debugger.md": {
             "date": "2023-03-17",
@@ -1407,12 +1407,12 @@
             "hash": "b99320b79b015da28ad0b476b7875be996fc4d83825800851ba9572d31cb1963"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
-            "date": "2023-11-06",
-            "hash": "25a6b42f4075d748dedf61884b16993d435905b523f4f32b19e2a5e2d2cdcfb7"
+            "date": "2023-11-13",
+            "hash": "3d2042aa2a32d6bd10fe87afd6007445e759c2e98b0acd73dd630b492285aa05"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2023-11-06",
-            "hash": "aaa586b99caf9f5c043f666d34bb4c80ac9c81a0087b5db7d467c47ff2069d36"
+            "date": "2023-11-13",
+            "hash": "667b6064342733830f158f2ef0247d46019f48303ac28343f7b68e8e5a19f054"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2023-11-06",

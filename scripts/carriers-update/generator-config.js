@@ -302,6 +302,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generateCountryList('e series', {noVerizon: true}); 
             } 
         },
+
         // datasheets/electron/b-series-eval-board.md
         {
             guid:'3c7bdf46-c2a2-4b04-aeb1-222b761e036b', 
@@ -678,6 +679,16 @@ const schemaDocs = require('./schema-docs');
         },
         // BRN404X
         {
+            guid:'4b3e02b9-2be9-40ff-8486-90fa48a9e518', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'Boron'
+                }); 
+            } 
+        },                
+        {
             guid: 'ac335968-6a40-4e3a-9493-46510917cf20',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
@@ -745,6 +756,16 @@ const schemaDocs = require('./schema-docs');
             } 
         },
         // B404X
+        {
+            guid:'e0eff6f3-2cc8-4ad3-92ef-8f8de063cf2b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'B4xx SoM'
+                }); 
+            } 
+        },                
         {
             guid: '50c2d429-c8a8-4dd1-9afa-5ceab1fdb714',
             generatorFn:function(updater){
@@ -849,6 +870,17 @@ const schemaDocs = require('./schema-docs');
             } 
         },
         // datasheets/boron/b524-b523-datasheet.md
+        {
+            guid:'88cf3396-ffa7-4f4c-b2ef-deead0b0315d', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'B5xx SoM'
+                }); 
+            } 
+        },                
+        // 
         {
             guid:'ea841986-76ce-11eb-9439-0242ac130002', 
             generatorFn:function(updater) {
@@ -1614,6 +1646,16 @@ const schemaDocs = require('./schema-docs');
         },
         // datasheets/wi-fi/p2-datasheet.md
         {
+            guid:'2b457422-47aa-43ed-9fe6-a47d952fcd4b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'P2'
+                }); 
+            } 
+        },                
+        {
             guid:'a201cbf3-f21d-4b34-ac10-a713ef5a857e', 
             generatorFn:function(updater){
                 return updater.generateFamilySkus('p series', {
@@ -1766,6 +1808,16 @@ const schemaDocs = require('./schema-docs');
         },
 
         // datasheets/wi-fi/photon-2-datasheet.md
+        {
+            guid:'d4d39408-f360-442f-b5ad-2b240da5d14c', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: false,
+                    platformNew: 'Photon 2'
+                }); 
+            } 
+        },                
         {
             guid:'097ba52c-0c46-4ec0-827d-3c5880d3fd3a', 
             generatorFn:function(updater){
