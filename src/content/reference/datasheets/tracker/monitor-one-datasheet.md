@@ -211,8 +211,8 @@ The Monitor One includes a M12 8-pin male to flying leads cable, 1500&plusmn;20m
 
 <p class="attribution">Looking at the pins on the end of the connector on the cable</p>
 
-| Conn P1 (M12)| Color | Function | GPIO |
-| :---: | :---: | :--- | :--- | :---: |
+| Conn P1 (M12) | Color | Function | GPIO |
+| :---: | :---: | :--- | :--- |
 | 1 | White | CAN_P | |
 | 2 | Red | VIN (6-30 VDC) | |
 | 3 | Green | 4-20mA input | A7 |
@@ -221,6 +221,7 @@ The Monitor One includes a M12 8-pin male to flying leads cable, 1500&plusmn;20m
 | 6 | Pink | RS485_A (P) | |
 | 7 | Blue | CAN_N | |
 | 8 | Black | Ground | |
+
 
 {{imageOverlay src="/assets/images/monitor-one/m12-8-flying.png" alt="M12 8-pin flying leads" class="full-width"}}
 
@@ -237,7 +238,7 @@ The Monitor One includes a M12 4-pin male to flying leads cable, 1500&plusmn;20m
 {{imageOverlay src="/assets/images/monitor-one/m12-4-flying.png" alt="M12 8-pin flying leads" class="full-width"}}
 
 | Conn P1 (M12)| Color | Function | GPIO |
-| :---: | :---: | :--- | :--- | :---: |
+| :---: | :---: | :--- | :--- |
 | 1 | Red | 12-24V slow-signal input | A5 |
 | 2 | Green | Relay COM | |
 | 3 | Black | Ground | |
@@ -274,7 +275,7 @@ The Monitor One includes a M12 4-pin male to flying leads cable, 1500&plusmn;20m
 The M12 4-pin bulkhead connector has flying leads that are connected to the screw terminals (18) as follows:
 
 | M12 Pin | Color | Card |
-| :---: | :---: | :--- | :---: |
+| :---: | :---: | :--- |
 | 1 | Red | INPUT |
 | 2 | Green | COM |
 | 3 | Black | GND |
