@@ -1,10 +1,12 @@
 $(document).ready(function() {
-    const eventCategory = 'Whats New Page';
+    const gaCategory = 'Whats New Page';
 
     let whatsNew = {
         contentElem: $('.content'),
         startHeaderId: 'updates',
         items: [],
+        searchIsInteractive: false,
+        searchKeyTimeoutMs: 500,
     };
 
 
@@ -12,7 +14,6 @@ $(document).ready(function() {
         let state = 'beforeStart';
 
         $(whatsNew.contentElem).children().each(function() {
-            console.log('content elem', this);
             switch(state) {
                 case 'beforeStart':
                     if ($(this).prop('id') == whatsNew.startHeaderId) {
@@ -29,11 +30,16 @@ $(document).ready(function() {
                             bodyText: '',
                         };              
                         const m = $(this).text().trim().match(/(.*) ([0-9]+-[0-9]+-[0-9]+)$/);
-                        curItem.title = m[1];
-                        curItem.date = m[2];
-                        curItem.id = $(this).prop('id');
-
-                        whatsNew.items.push(curItem);
+                        if (m) {
+                            curItem.title = m[1];
+                            curItem.date = m[2];
+                            curItem.id = $(this).prop('id');
+    
+                            whatsNew.items.push(curItem);    
+                        }
+                        else {
+                            console.log('unknown header ' + $(this).text());
+                        }
                     }
                     else
                     if ($(this).prop('tagName') == 'H2') {
@@ -79,6 +85,7 @@ $(document).ready(function() {
                     $(content).remove();
                 }
             }
+            navMenu.scanHeaders();
         }
 
         whatsNew.showAll = function() {
@@ -92,6 +99,7 @@ $(document).ready(function() {
                     insertElem = content;
                 }
             }            
+            navMenu.scanHeaders();
         }
 
         whatsNew.searchButtonClear = function() {
@@ -118,17 +126,19 @@ $(document).ready(function() {
             if ($(whatsNew.searchButtonElem).prop('disabled')) {
                 return;
             }
+            if (whatsNew.searchKeyTimer) {
+                clearTimeout(whatsNew.searchKeyTimer);
+                whatsNew.searchKeyTimer = null;
+            }
 
             const searchText = $(whatsNew.searchTextElem).val().trim();
-            console.log('searchButtonRun', searchText);
 
             $(whatsNew.searchButtonElem).prop('disabled', true);
             whatsNew.hideAll();
 
             const searchResults = whatsNew.lunrIndex.search(searchText);
             if (searchResults.length > 0) {
-                console.log('searchResults', searchResults);
-                // analytics.track('Success', {category:gaCategory, label:searchText});
+                analytics.track('Success', {category:gaCategory, label:searchText});
 
                 let insertElem = whatsNew.insertAfterElem;
 
@@ -146,11 +156,16 @@ $(document).ready(function() {
                 }
             }
             else {
-                // analytics.track('No Results', {category:gaCategory, label:searchFor});                            
+                analytics.track('No Results', {category:gaCategory, label:searchFor});                            
             }
-
+            navMenu.scanHeaders();
 
             $(whatsNew.searchButtonElem).prop('disabled', false);
+        }
+
+        whatsNew.searchKeyTimerHandler = function() {
+            whatsNew.searchKeyTimer = null;
+            whatsNew.searchButtonRun();
         }
 
         $('.whatsNewSearch').first().each(function() {
@@ -167,6 +182,14 @@ $(document).ready(function() {
                 if (ev.key == 'Enter') {
                     whatsNew.searchButtonRun();
                     ev.preventDefault();
+                    return;
+                }
+                if (whatsNew.searchIsInteractive) {
+                    if (whatsNew.searchKeyTimer) {
+                        clearTimeout(whatsNew.searchKeyTimer);
+                        whatsNew.searchKeyTimer = null;
+                    }
+                    whatsNew.searchKeyTimer = setTimeout(whatsNew.searchKeyTimerHandler, whatsNew.searchKeyTimeoutMs);    
                 }
             });
             whatsNew.searchButtonElem.on('click', whatsNew.searchButtonRun);
@@ -177,7 +200,6 @@ $(document).ready(function() {
             whatsNew.searchButtonEnable();
         });
 
-        console.log('whatsNew', whatsNew);
     }
 
     whatsNew.init();
