@@ -38,6 +38,11 @@
       ]
     },
     {
+      "dir": "new",
+      "title": "What's new",
+      "href": "/getting-started/new/"
+    },
+    {
       "dir": "hardware",
       "isSection": true
     },
