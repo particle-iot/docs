@@ -8233,6 +8233,18 @@
         "reference/device-os/api/input-output/analoggetreference.md": {
             "hash": "3909edf504b83a1b6f424834a6a130387d3b4c73f305191fc42d9fb2bed0d553",
             "date": "2023-11-08"
+        },
+        "getting-started/new.md": {
+            "hash": "f55230f05367b5e87ceb3a952ed2bc13c88f26c3c81c16d3aff11af669943c10",
+            "date": "2023-11-14"
+        },
+        "getting-started/cloud/logic.md": {
+            "hash": "9442c21b6e5b5dec2333671367008037657833b01f3fa44b6b80857f008fb600",
+            "date": "2023-11-14"
+        },
+        "getting-started/setup/classroom.md": {
+            "hash": "7b90323b9e7349accd38bdf0d610df55ecdca3c5b806acbfb477cffcb000d49e",
+            "date": "2023-11-14"
         }
     }
 }
