@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### RS485 pin names 2023-11-14
+
+Renamed RS485 pins A and B instead of P and N in the [Monitor One Datasheet](/reference/datasheets/tracker/monitor-one-datasheet/) and Quickstart page.
+
 ### What's new page 2023-11-14
 
 New What's new page ([this page](/getting-started/new/)) lists what's new in the Particle docs! 

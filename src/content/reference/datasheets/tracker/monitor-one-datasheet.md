@@ -217,8 +217,8 @@ The Monitor One includes a M12 8-pin male to flying leads cable, 1500&plusmn;20m
 | 2 | Red | VIN (6-30 VDC) | |
 | 3 | Green | 4-20mA input | A7 |
 | 4 | Yellow | 0-10V input | A6 |
-| 5 | Gray | RS485_N | |
-| 6 | Pink | RS485_P | |
+| 5 | Gray | RS485_B (N) | |
+| 6 | Pink | RS485_A (P) | |
 | 7 | Blue | CAN_N | |
 | 8 | Black | Ground | |
 
@@ -436,8 +436,8 @@ The functions of the pins on the M12 8-pin connector are dependent on your base 
 | :---: | :---: | :--- | :--- |
 | 2 | 1 | Red | VIN (6-30 VDC) |
 | 8 | 2 | Black | Ground |
-| 6 | 3 | Pink | RS485_P |
-| 5 | 4 | Gray | RS485_N |
+| 6 | 3 | Pink | RS485_A (P) |
+| 5 | 4 | Gray | RS485_B (N) |
 | 1 | 5 | White | CAN_P|
 | 7 | 6 | Blue | CAN_N |
 | 4 | 7 | Yellow | 0-10V input |
@@ -1101,3 +1101,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2023-09-01 | RK | Added battery specifications |
 | 2023-09-08 | RK | Added schematics |
 | 2023-10-18 | RK | Added FCC and ISED |
+| 2023-11-14 | RK | Renamed RS485 pins A and B instead of P and N |
