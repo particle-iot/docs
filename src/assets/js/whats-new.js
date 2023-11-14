@@ -17,6 +17,7 @@ $(document).ready(function() {
                 case 'beforeStart':
                     if ($(this).prop('id') == whatsNew.startHeaderId) {
                         state = 'inItems';
+                        whatsNew.insertAfterElem = this;
                     }
                     break;
 
@@ -71,10 +72,46 @@ $(document).ready(function() {
             }
         });
         
+        whatsNew.hideAll = function() {
+            for(const item of whatsNew.items) {
+                $(item.headerElem).remove();
+                for(const content of item.content) {
+                    $(content).remove();
+                }
+            }
+        }
+
+        whatsNew.showAll = function() {
+            let insertElem = whatsNew.insertAfterElem;
+
+            for(const item of whatsNew.items) {
+                $(insertElem).after(item.headerElem);
+                insertElem = item.headerElem;
+                for(const content of item.content) {
+                    $(insertElem).after(content);
+                    insertElem = content;
+                }
+            }            
+        }
+
+        whatsNew.searchButtonClear = function() {
+            $(whatsNew.searchTextElem).val('');
+            whatsNew.searchButtonEnable();    
+        }
+
         whatsNew.searchButtonEnable = function() {
             const searchText = $(whatsNew.searchTextElem).val().trim();
             
-            whatsNew.searchButtonElem.prop('disabled', (searchText.length < 3));
+            const disabled = (searchText.length < 3);
+
+            whatsNew.searchButtonElem.prop('disabled', disabled);
+
+            if (disabled) {
+                whatsNew.hideAll();
+                whatsNew.showAll();
+            }
+
+            whatsNew.searchClearButtonElem.prop('disabled', (searchText.length == 0));
         };
         
         whatsNew.searchButtonRun = function() {
@@ -86,11 +123,27 @@ $(document).ready(function() {
             console.log('searchButtonRun', searchText);
 
             $(whatsNew.searchButtonElem).prop('disabled', true);
+            whatsNew.hideAll();
 
             const searchResults = whatsNew.lunrIndex.search(searchText);
             if (searchResults.length > 0) {
                 console.log('searchResults', searchResults);
                 // analytics.track('Success', {category:gaCategory, label:searchText});
+
+                let insertElem = whatsNew.insertAfterElem;
+
+                for(const searchResult of searchResults) {
+                    for(const item of whatsNew.items) {
+                        if (item.id == searchResult.ref) {
+                            $(insertElem).after(item.headerElem);
+                            insertElem = item.headerElem;
+                            for(const content of item.content) {
+                                $(insertElem).after(content);
+                                insertElem = content;
+                            }    
+                        }
+                    }        
+                }
             }
             else {
                 // analytics.track('No Results', {category:gaCategory, label:searchFor});                            
@@ -105,6 +158,7 @@ $(document).ready(function() {
 
             whatsNew.searchTextElem = $(thisElem).find('.searchText');
             whatsNew.searchButtonElem = $(thisElem).find('.searchButton');
+            whatsNew.searchClearButtonElem = $(thisElem).find('.searchClearButton');
 
             $(whatsNew.searchTextElem).on('input', function() {
                 whatsNew.searchButtonEnable();
@@ -116,6 +170,9 @@ $(document).ready(function() {
                 }
             });
             whatsNew.searchButtonElem.on('click', whatsNew.searchButtonRun);
+
+            whatsNew.searchClearButtonElem.on('click', whatsNew.searchButtonClear);
+
 
             whatsNew.searchButtonEnable();
         });
