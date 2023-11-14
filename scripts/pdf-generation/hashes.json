@@ -60,8 +60,8 @@
   "tan013.md": "8f2d2149ed6fa147f05ec9709c3d08fe",
   "technical-advisory-notices.md": "963c904ec9462a5c99d501b5f1e85dbf",
   "tracker/m8-temperature-humidity.md": "4ba5652bc8f98a594f9c64175d911c86",
-  "tracker/monitor-one-datasheet.md": "2219979aac789da100c401f77d5573bd",
-  "tracker/monitor-one-developer-edition-manual.md": "f19a7b4e983a836d10f9f32026b58519",
+  "tracker/monitor-one-datasheet.md": "cade15dfe1574847efe4d6bb33b67d5f",
+  "tracker/monitor-one-developer-edition-manual.md": "08083ab0d019845a045794e96b9d7a9c",
   "tracker/tracker-m-datasheet.md": "b035c8c2e1739011820155cb011d142e",
   "tracker/tracker-m8-accessories.md": "adb0ebdc6c2069f79cbf5ca07f801b9a",
   "tracker/tracker-one.md": "741120bea9b7e0e2a710743fc28ed48d",
@@ -76,7 +76,7 @@
   "wi-fi/p2-p1-migration-guide.md": "96bffb1323209b76664a00a71d2ff1d8",
   "wi-fi/p2-photon-migration-guide.md": "3c8d3fb39583eae4e2c774fdcc8fd912",
   "wi-fi/photon-2-argon-migration-guide.md": "d8066bcbff652f8049740c3903999301",
-  "wi-fi/photon-2-datasheet.md": "1e652d77b41b23d7a848d18a16952e27",
+  "wi-fi/photon-2-datasheet.md": "20fd468076b58a9ee96a08a38947539c",
   "wi-fi/photon-2-photon-migration-guide.md": "97f56bbc70806aef69d9f0ea7f1d08ee",
   "wi-fi/photon-datasheet.md": "691be7a0366e9544d3db9975ea09d7f4"
 }

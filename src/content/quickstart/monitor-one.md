@@ -108,8 +108,8 @@ The Monitor One includes a M12 8-pin male to flying leads cable, 1500&plusmn;20m
 | 2 | Red | VIN (6-30 VDC) | |
 | 3 | Green | 4-20mA input | A7 |
 | 4 | Yellow | 0-10V input | A6 |
-| 5 | Gray | RS485_N | |
-| 6 | Pink | RS485_P | |
+| 5 | Gray | RS485_B (N) | |
+| 6 | Pink | RS485_A (P) | |
 | 7 | Blue | CAN_N | |
 | 8 | Black | Ground | |
 

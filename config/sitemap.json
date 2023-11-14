@@ -1423,8 +1423,8 @@
             "hash": "bfedda06f1a45b6c8df5e3fee1ea3bbe720bead343af38077a52feae9c362534"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2023-11-06",
-            "hash": "99806e46b34644764663cbf6ee9a69a2cebcae1f9ba7199a9df723d5d07c5f03"
+            "date": "2023-11-14",
+            "hash": "34294b228830e6e2556efe00561bd2bf1487cb7dd3f8cd6a511a81a70086b59f"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2023-11-06",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "f55230f05367b5e87ceb3a952ed2bc13c88f26c3c81c16d3aff11af669943c10",
+            "hash": "76ca48987277f77e970ccfabb3e347534fdd4ea270a68c815ab61ee56103fac6",
             "date": "2023-11-14"
         },
         "getting-started/cloud/logic.md": {
