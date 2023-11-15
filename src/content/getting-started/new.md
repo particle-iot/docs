@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Ethernet isolated LAN 2023-11-15
+
+There are now additional instructions and a firmware example for using Ethernet with an [Isolated LAN](/hardware/ethernet/ethernet/#isolated-lan) and using cellular for a cloud connection.
+
 ### RS485 pin names 2023-11-14
 
 Renamed RS485 pins A and B instead of P and N in the [Monitor One Datasheet](/reference/datasheets/tracker/monitor-one-datasheet/) and Quickstart page.

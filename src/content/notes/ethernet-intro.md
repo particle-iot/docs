@@ -12,7 +12,7 @@ Note that the Wiznet W5500 does not support Auto MDI-X so you may need a crossov
 
 - Device OS has limited fallback support for switching between network layers, described in detail below.
 
-- Ethernet requires a DHCP server on the network. It cannot be used with a static IP address.
+- Prior to Device OS 5.3.0, Ethernet required a DHCP server on the network; It could not be used with a static IP address. Static IP addresses are supported in Device OS 5.3.0 and later.
 
 - There is no support for Ethernet on Gen 2 devices (Photon, P1, Electron, E Series). There is not enough room for it on the Photon and P1, and the Electron/E Series TCP/IP stack is completely different and incompatible and difficult to port to, and there is not enough space for it.
 
@@ -22,6 +22,6 @@ Device OS only uses the presence of Ethernet link and the ability to obtain a DH
 
 This has two consequences:
 
-- In Device OS 5.3.0 and later it is possible to communicate with devices on an isolated LAN, then backhaul the data over cellular. One common use-case of this is Modbus TCP to sensors on Ethernet. In this scenario, set the IP address statically or using DHCP, but [set the gateway address to 0.0.0.0](/reference/device-os/api/network/networkinterfaceconfig/#networkinterfaceconfig-gateway). The gateway address of 0.0.0.0 signifies that this is not a connection to the Internet and cannot be used for cloud communication.
+- In Device OS 5.3.0 and later it is possible to communicate with devices on an isolated LAN, then backhaul the data over cellular. One common use-case of this is Modbus TCP to sensors on Ethernet. In this scenario, set the IP address statically or using DHCP, but [set the gateway address to 0.0.0.0](/reference/device-os/api/network/networkinterfaceconfig/#networkinterfaceconfig-gateway). The gateway address of 0.0.0.0 signifies that this is not a connection to the Internet and cannot be used for cloud communication. For more information, see [Isolated LAN](/hardware/ethernet/ethernet/#isolated-lan).
 
 - If the Ethernet LAN is normally connected to the Internet, it's not possible to fall back to cellular if this Internet connection goes down. This is possible to implement using a 3rd-party library in your application, see the [ethernet reference guide](/hardware/ethernet/ethernet/) for more information.

@@ -80,7 +80,7 @@ Device OS only uses the presence of Ethernet link and the ability to obtain a DH
 
 This has two consequences:
 
-- In Device OS 5.3.0 and later it is possible to communicate with devices on an isolated LAN, then backhaul the data over cellular. One common use-case of this is Modbus TCP to sensors on Ethernet. In this scenario, set the IP address statically or using DHCP, but [set the gateway address to 0.0.0.0](/reference/device-os/api/network/networkinterfaceconfig/#networkinterfaceconfig-gateway). The gateway address of 0.0.0.0 signifies that this is not a connection to the Internet and cannot be used for cloud communication.
+- In Device OS 5.3.0 and later it is possible to communicate with devices on an isolated LAN, then backhaul the data over cellular. One common use-case of this is Modbus TCP to sensors on Ethernet. In this scenario, set the IP address statically or using DHCP, but [set the gateway address to 0.0.0.0](/reference/device-os/api/network/networkinterfaceconfig/#networkinterfaceconfig-gateway). The gateway address of 0.0.0.0 signifies that this is not a connection to the Internet and cannot be used for cloud communication. See [isolated LAN](#isolated-lan) below.
 
 - If the Ethernet LAN is normally connected to the Internet, it's not possible to fall back to cellular if this Internet connection goes down. This is possible to implement using a 3rd-party library in your application in the following section, however.
 
@@ -111,3 +111,87 @@ For Ethernet, the period will dependent on the local LAN connection. If you usin
 The library above automatically handles switching this for you depending on whether you are connected by Ethernet or cellular, but if you are managing the connection yourself you will also need to do this.
 
 If, after a period of time, you are no longer able to make a request to the device from the cloud side, but are able to communicate from the device, then you likely need to make your keep-alive setting shorter.
+
+## Isolated LAN
+
+This example code uses a static IP address and an isolated Ethernet LAN. This code was tested with a Boron and the Particle Ethernet Featherwing, but should work on other cellular devices. It was tested with Device OS 5.5.0.
+
+- It sets up the device with a static IP address on Ethernet. The Ethernet network can be isolated and does not need DHCP or an Internet connection.
+- It uses cellular for the Particle cloud connection.
+
+```cpp
+#include "Particle.h"
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+SYSTEM_THREAD(ENABLED);
+
+// LOG_LEVEL_TRACE includes enough messages so you can be sure it's connecting by cellular
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+void setup() {
+    // This line is only here so you can see all of the log messages, remove for production
+    waitFor(Serial.isConnected, 10000); delay(2000);
+
+    System.enableFeature(FEATURE_ETHERNET_DETECTION);
+
+    // Configure a static IP address (192.168.2.40) and subnet mask (255.255.255.0)
+    // By setting the gateway to 0.0.0.0 Ethernet will not be used for the cloud connection
+    auto conf = NetworkInterfaceConfig()
+                .source(NetworkInterfaceConfigSource::STATIC, AF_INET)
+                .address(IPAddress(192,168,2,40), IPAddress(255,255,255,0))
+                .gateway(IPAddress(0,0,0,0));
+    Ethernet.setConfig(conf);
+
+    // Turn on Ethernet and connect (asynchronously)
+    Ethernet.on();
+    waitFor(Ethernet.isOn, 2000);
+    Ethernet.connect();
+    waitFor(Ethernet.ready, 10000);
+    Log.info("Ethernet IP address: %s", Ethernet.localIP().toString().c_str());
+
+    // Turn on cellular and connect; this is used for the cloud connection
+    Cellular.on();
+    waitFor(Cellular.isOn, 2000);
+    Cellular.connect();
+    waitFor(Cellular.ready, 30000);
+    Log.info("Cellular connected");
+
+    // Now connect to the cloud (over cellular)
+    Particle.connect();    
+}
+
+void loop() {
+}
+
+```
+
+You can tell it's working from the log messages. Here's where it updated the network configuration and brought up Ethernet:
+
+```
+0000003334 [system.nm] TRACE: Updated file: /sys/network.dat
+0000003450 [system.nm] TRACE: Request to power on the interface
+0000003450 [system.nm] INFO: State changed: DISABLED -> IFACE_DOWN
+0000003552 [system.nm] INFO: State changed: IFACE_DOWN -> IFACE_REQUEST_UP
+0000003558 [system.nm] INFO: State changed: IFACE_REQUEST_UP -> IFACE_UP
+0000003582 [system.nm] INFO: State changed: IFACE_UP -> IFACE_LINK_UP
+0000013449 [app] INFO: Ethernet IP address: 192.168.2.40
+```
+
+You can then see a lot of messages that are cellular-related, ending with:
+
+```
+0000035464 [system] INFO: Cloud connected
+```
+
+Other useful tests:
+
+- In the [Particle console](https://console.particle.io/) you can use the **Ping** feature in the device details page with Ethernet disconnected to make sure.
+- From a computer on the Ethernet LAN you should be able to use the ICMP ping command to ping the address you have configured:
+
+```
+% ping 192.168.2.40
+PING 192.168.2.40 (192.168.2.40): 56 data bytes
+64 bytes from 192.168.2.40: icmp_seq=0 ttl=255 time=9.327 ms
+64 bytes from 192.168.2.40: icmp_seq=1 ttl=255 time=3.928 ms
+^C
+```

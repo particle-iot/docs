@@ -187,8 +187,8 @@
             "hash": "310ebf74a4c7e32a4d805b2c55c7f4adcfaa453d6513eb6254b90f69e6749bd8"
         },
         "notes/ethernet-intro.md": {
-            "date": "2023-10-04",
-            "hash": "cdd0813499c1f2663dcc838d446bb43144d8d0603a5a102dc3a4ffbfa198c2d4"
+            "date": "2023-11-15",
+            "hash": "45534f633449e73dab7964ffc5e31611f59a44145a529c578ff2c31c60223e00"
         },
         "notes/flash-permission-error.md": {
             "date": "2022-08-24",
@@ -635,8 +635,8 @@
             "hash": "d1101d3748b48a14fb4ce158078a6dedfdf3d026392c9145881a97600731d994"
         },
         "getting-started/developer-tools/workbench-faq.md": {
-            "date": "2022-06-29",
-            "hash": "1db812777cd5b5f3f507da209d19a15412939a074b4bc7ee6c43bb9181455d53"
+            "date": "2023-11-15",
+            "hash": "ed28d33626fdcc277f534862716109ef0416d8bd033056d50f9b4a8d3c3a9622"
         },
         "getting-started/developer-tools/workbench.md": {
             "date": "2023-10-04",
@@ -959,8 +959,8 @@
             "hash": "cb6ffee72fadd318093fd10e2c513ababa11bcb734e31dae3634ed6fae658c02"
         },
         "hardware/ethernet/ethernet.md": {
-            "date": "2023-10-04",
-            "hash": "4b76008fe20889f8b48dd8f2c5babc2de6b10f23df35ecb7de5685288a530f45"
+            "date": "2023-11-15",
+            "hash": "1c56febdcafb279716d54a795dd502248a85e1849978119d75c202ffa66bbaf9"
         },
         "hardware/expansion/about-i2c.md": {
             "date": "2023-09-06",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-11-08",
-            "hash": "50f56d103c8b1522e77ca20fad850a650c18ea622a6c5c487716c435bc77523b"
+            "date": "2023-11-15",
+            "hash": "c626f12fcc0cd5be1e8b9738357f53141544f030107e156594f0f5fda6d27dee"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1423,8 +1423,8 @@
             "hash": "bfedda06f1a45b6c8df5e3fee1ea3bbe720bead343af38077a52feae9c362534"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2023-11-14",
-            "hash": "34294b228830e6e2556efe00561bd2bf1487cb7dd3f8cd6a511a81a70086b59f"
+            "date": "2023-11-15",
+            "hash": "eaefb2c1282d66d31ce200d9aaca363ceda164de575ddf14863eab8db82e0e8d"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2023-11-06",
@@ -1599,8 +1599,8 @@
             "hash": "731891612608a084d30c5f0af71b7c0da50643e26ff11c6ff80af859ae3f61ba"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-workbench.md": {
-            "date": "2023-09-06",
-            "hash": "b5d9e703eb281b67bffe434d519ce6e196dc717c2dc8e5cac2cc7029e083e4ea"
+            "date": "2023-11-15",
+            "hash": "adaaa93e7fc8bc80ac52eb537260c2709abef555f8bf118a7eaa418d0fd54c24"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-webhookintegration-issues.md": {
             "date": "2023-08-03",
@@ -2127,8 +2127,8 @@
             "hash": "7b4a1240d1419a981e22ab2f74462256da5e90bc470e5eaad6b70b17e76e25bf"
         },
         "reference/device-os/api/network/networkinterfaceconfig.md": {
-            "date": "2023-10-18",
-            "hash": "16ad0e2272347822a0c39e8b992e8b6d0a58bb6d1e7f8e47013b15ed13e32856"
+            "date": "2023-11-15",
+            "hash": "07b8e080feccc404f766c583a7f28dea91810f19351c3778813dbb003e67b331"
         },
         "reference/device-os/api/softap-http-pages/softap-http-pages.md": {
             "date": "2023-09-20",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "76ca48987277f77e970ccfabb3e347534fdd4ea270a68c815ab61ee56103fac6",
-            "date": "2023-11-14"
+            "hash": "7dae62faa1c50cc8b891f0533a6b66e71214020b8b9d57b6ae4abcdc3afb80cd",
+            "date": "2023-11-15"
         },
         "getting-started/cloud/logic.md": {
             "hash": "9442c21b6e5b5dec2333671367008037657833b01f3fa44b6b80857f008fb600",

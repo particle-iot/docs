@@ -3513,7 +3513,7 @@ Even though the parameter is a `SockAddr`, you can initialize the gateway addres
 
 Note that the syntax `{192,168,1,1}` uses commas, not the more typical period or dot, because this is a C++ initializer, not a string.
 
-When using Ethernet, if the link is active and the gateway is reachable, by default the Ethernet interface is the default route, including for the cloud connection, even if the Ethernet LAN is not connected to the Internet (isolated LAN). To prevent this behavior with Device OS 5.3.0 and later, set the gateway to `{0,0,0,0}` which will prevent the Ethernet interface from being used to access the Internet, including the Particle cloud. This can be done for both static and DHCP addressing. You can still access hosts on the Ethernet local LAN by TCP or UDP. You might do this for an isolated LAN that has Modbus TCP devices on it, for example.
+When using Ethernet, if the link is active and the gateway is reachable, by default the Ethernet interface is the default route, including for the cloud connection, even if the Ethernet LAN is not connected to the Internet (isolated LAN). To prevent this behavior with Device OS 5.3.0 and later, set the gateway to `{0,0,0,0}` which will prevent the Ethernet interface from being used to access the Internet, including the Particle cloud. This can be done for both static and DHCP addressing. You can still access hosts on the Ethernet local LAN by TCP or UDP. You might do this for an isolated LAN that has Modbus TCP devices on it, for example. For more information, see [Isolated LAN](/hardware/ethernet/ethernet/#isolated-lan).
 
 ```cpp
 // PROTOTYPES
