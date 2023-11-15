@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Ethernet isolated LAN 2023-11-15
 
-There are now additional instructions and a firmware example for using Ethernet with an [Isolated LAN](/hardware/ethernet/ethernet/#isolated-lan) and using cellular for a cloud connection.
+There are now additional instructions and a firmware example for using Ethernet with a static IP address and an [Isolated LAN](/hardware/ethernet/ethernet/#isolated-lan) and using cellular for the cloud connection.
 
 ### RS485 pin names 2023-11-14
 
