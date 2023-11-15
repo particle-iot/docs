@@ -29,6 +29,13 @@ from your Particle devices via the Particle Device Cloud.
   analysis of real-time data and historical data that can trigger actions on 
   devices or through other web services.
 
+{{note op="start" type="note"}}
+Changes made on the InfluxData service since this integration guide was created have 
+caused some steps and screens to vary from the guide below, but the technique still
+works.
+{{note op="end"}}
+
+
 ## Setting up InfluxData services
 
 <img src="/assets/images/Particle+Influx-architecture.png" alt="Particle + InfluxData"/>
