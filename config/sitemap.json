@@ -655,8 +655,8 @@
             "hash": "89bfbb271ca8ced83381a04d3520ba6a339ee6bf695363caf2cc116d6387a86a"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2023-10-17",
-            "hash": "dc1fd29cd10835c8e267027a0f0a5d41b38686d4d0626ee8dfdbe31384a22918"
+            "date": "2023-11-16",
+            "hash": "a24cca992e374371075c87633c751997b500b4d6821b9e2fe05aabd365db5963"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -935,16 +935,16 @@
             "hash": "8baf0643d059dc8eeb4a12eb5abbfd005c7ef69469b32ee4fde0674c076c7c96"
         },
         "hardware/certification/antenna.md": {
-            "date": "2023-11-06",
-            "hash": "8ebcbb783579c533f9664e75d31dd6aff9759e816e092af860f9a147e4cd36f2"
+            "date": "2023-11-16",
+            "hash": "b8c93e6d60270f75fbb5e807dd4b9b6a07750fdc520a30244f49f2e912c891e6"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2023-11-06",
-            "hash": "e5978c46fba42ed6ab993c425b7a01ea6b9a4cc9bae922fd29e2407e13df0950"
+            "date": "2023-11-16",
+            "hash": "482147f869ab7452727fbfd40fa56aca066d153cfef47d7f24e79272e71c5e84"
         },
         "hardware/certification/certification.md": {
             "date": "2023-11-06",
@@ -1399,8 +1399,8 @@
             "hash": "ea902e9ea93a9d3bb1555aacc43271c4d8de0fb51b6a442c550539f71155d943"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
-            "date": "2023-11-06",
-            "hash": "3ea864d9aae1d1e87fd626703bf036ebea1393dcd80b3630155f5f1ab7bd3907"
+            "date": "2023-11-16",
+            "hash": "c0291247a2d138657909d2efdde687ac7750b4062066494c6d6bdd46af610d92"
         },
         "reference/datasheets/wi-fi/p1-datasheet.md": {
             "date": "2023-11-06",
@@ -1411,8 +1411,8 @@
             "hash": "3d2042aa2a32d6bd10fe87afd6007445e759c2e98b0acd73dd630b492285aa05"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2023-11-13",
-            "hash": "930eaa38391467f5039bad0b10e3be38e2a1b3db30fd5ed5cce3a8649e09ae53"
+            "date": "2023-11-16",
+            "hash": "8bce09e16e97f74b122984763ac4076dc42b7e71b1a31c0e71bf2a8e02e38741"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2023-11-06",
@@ -8175,8 +8175,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "d3ad6697933fd4e5a6a34271599498f9c9a0cd83226429c6a5bcc26241b6ba06",
-            "date": "2023-10-19"
+            "hash": "dcfc9a0c519c7610babac6edc7935ce23c0afb9e50910764e3b40c8435327c27",
+            "date": "2023-11-16"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "bf19a4e7afc84f55b20e9e599c52b8fedc526891d0824d10a7ccd7906a34425c",
+            "hash": "74c957d55beddea3098068a12bdb61a5cd946331b179ff73c661d0f266e92eb0",
             "date": "2023-11-16"
         },
         "getting-started/cloud/logic.md": {

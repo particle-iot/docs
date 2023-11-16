@@ -21,6 +21,13 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated SKU status 2023-11-16
+
+| SKU | Description | Old | New |
+| :--- | :--- | :--- | :--- |
+| ARGN-H | Argon [x1] | NRND | Deprecated |
+| PHN2MTY | Photon 2, Tray [x50] | Beta | GA |
+
 ### Ethernet.ready behavior 2023-11-16
 
 Updated the description for [Ethernet.ready()](/reference/device-os/api/ethernet/ready/). On isolated Ethernet, it does not return true, because ready implies that the connection is ready to be used as a cloud connection, and isolated networks can't be used as the cloud connection.

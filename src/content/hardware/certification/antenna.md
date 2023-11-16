@@ -259,7 +259,7 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 
 | Device | SKU  | Built-In Antenna | External Compatible | External Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :------: | :-------: |
-| Argon [x1] | ARGN-H | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| Argon [x1] | ARGN-H | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &nbsp; | ANT-FLXV2 | &check; | NRND|
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &nbsp; | ANT-FLXV2 | &check; | NRND|
@@ -277,7 +277,7 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | trace | 4 | &nbsp; | GA|
 | Photon 2 [x1] | PHN2MEA | trace | 4 | &nbsp; | GA|
 | Photon 2, Kit [x1] | PHN2KIT | trace | 4 | &nbsp; | GA|
-| Photon 2, Tray [x50] | PHN2MTY | trace | 4 | &nbsp; | Beta|
+| Photon 2, Tray [x50] | PHN2MTY | trace | 4 | &nbsp; | GA|
 | Photon with Headers Starter Kit, [x1] | PHOTONKIT | chip | 3 | &nbsp; | Deprecated|
 | Photon with Headers, [x1] | PHOTONH | chip | 3 | &nbsp; | Deprecated|
 | Photon with Headers, Tray [x50] | PHNTRAYH | chip | 3 | &nbsp; | NRND|
@@ -364,7 +364,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 
 | Device | SKU  | Built-In Antenna | External Compatible | External Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :------: | :-------: |
-| Argon [x1] | ARGN-H | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Argon [x1] | ARGN-H | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | ANT-FLXV2 | &nbsp; | NRND|
@@ -402,7 +402,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | &check; | 4 | &nbsp; | GA|
 | Photon 2 [x1] | PHN2MEA | &check; | 4 | &nbsp; | GA|
 | Photon 2, Kit [x1] | PHN2KIT | &check; | 4 | &nbsp; | GA|
-| Photon 2, Tray [x50] | PHN2MTY | &check; | 4 | &nbsp; | Beta|
+| Photon 2, Tray [x50] | PHN2MTY | &check; | 4 | &nbsp; | GA|
 | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | &nbsp; | &nbsp; | GA|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &nbsp; | &nbsp; | NRND|
 | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | &check; | &nbsp; | &nbsp; | GA|
@@ -470,7 +470,7 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 
 | Device | SKU  | Compatible | Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :-------: |
-| Argon [x1] | ARGN-H | &check; | &nbsp; | NRND|
+| Argon [x1] | ARGN-H | &check; | &nbsp; | Deprecated|
 | Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | &nbsp; | NRND|
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | &nbsp; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | &nbsp; | NRND|

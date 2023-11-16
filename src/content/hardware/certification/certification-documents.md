@@ -19,10 +19,10 @@ The Argon is not recommended for new designs and will be deprecated with the exi
 | :--- | :--- | :--- | :--- | :--- |
 | ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Global | NRND | |
 | ARG-STRTKT | Argon Starter Kit [x1] | Global | NRND | |
-| ARGN-H | Argon [x1] | Global | NRND | |
 | ARGNKIT | Argon, Starter Kit  [x1] | Global | NRND | |
 | ARGNTRAY50 | Argon, Tray [x50] | Global | NRND | |
 | ARG-LDKT | Argon Leak Detection Kit [x1] | Global | Deprecated | |
+| ARGN-H | Argon [x1] | Global | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated 81ddccf2-774f-11eb-9439-0242ac130002 --}}
@@ -1066,7 +1066,7 @@ The Photon is deprecated. The Photon 2 or P2 should be used in all new designs.
 | PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | GA | |
 | PHN2KIT | Photon 2, Kit [x1] | Global | GA | |
 | PHN2MEA | Photon 2 [x1] | Global | GA | |
-| PHN2MTY | Photon 2, Tray [x50] | Global | Beta | |
+| PHN2MTY | Photon 2, Tray [x50] | Global | GA | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

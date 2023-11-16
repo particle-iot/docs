@@ -80,7 +80,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | ARG-AQKT | Argon Air Quality Monitor Kit [x1] | NRND | P011 |
 | ARG-LDKT | Argon Leak Detection Kit [x1] | Deprecated | P013 |
 | ARG-STRTKT | Argon Starter Kit [x1] | NRND | P010 |
-| ARGN-H | Argon [x1] | NRND | ARNH |
+| ARGN-H | Argon [x1] | Deprecated | ARNH |
 | ARGNKIT | Argon, Starter Kit  [x1] | NRND | ARNK |
 | ARGNTRAY50 | Argon, Tray [x50] | NRND | ARNT |
 | ASSET2GV2 | Asset Tracker 2G | Deprecated | A35K |
@@ -153,7 +153,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | GA | P051 |
 | PHN2KIT | Photon 2, Kit [x1] | GA | P051 |
 | PHN2MEA | Photon 2 [x1] | GA | P051 |
-| PHN2MTY | Photon 2, Tray [x50] | Beta | P051 |
+| PHN2MTY | Photon 2, Tray [x50] | GA | P051 |
 | PHNTRAYH | Photon with Headers, Tray [x50] | NRND | PHHT |
 | PHNTRAYNOH | Photon without Headers, Tray [x50] | NRND | PHNT |
 | PHOTONH | Photon with Headers, [x1] | Deprecated | PHHM |
@@ -188,7 +188,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | A26K | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Deprecated |
 | A27K | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | Deprecated |
 | A35K | ASSET2GV2 | Asset Tracker 2G | Deprecated |
-| ARNH | ARGN-H | Argon [x1] | NRND |
+| ARNH | ARGN-H | Argon [x1] | Deprecated |
 | ARNK | ARGNKIT | Argon, Starter Kit  [x1] | NRND |
 | ARNT | ARGNTRAY50 | Argon, Tray [x50] | NRND |
 | B31K | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Deprecated |
@@ -270,7 +270,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P051 | PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | GA |
 | P051 | PHN2KIT | Photon 2, Kit [x1] | GA |
 | P051 | PHN2MEA | Photon 2 [x1] | GA |
-| P051 | PHN2MTY | Photon 2, Tray [x50] | Beta |
+| P051 | PHN2MTY | Photon 2, Tray [x50] | GA |
 | P052 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA |
 | P0MD | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | Deprecated |
 | P1MD | P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Deprecated |

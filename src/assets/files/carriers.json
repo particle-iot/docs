@@ -19348,7 +19348,7 @@
     {
       "name": "ARGN-H",
       "desc": "Argon [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -21841,7 +21841,7 @@
     {
       "name": "PHN2MTY",
       "desc": "Photon 2, Tray [x50]",
-      "lifecycle": "Beta",
+      "lifecycle": "GA",
       "multiple": true,
       "wifi": true,
       "gen": "3",
