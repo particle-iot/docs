@@ -21,6 +21,25 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Ethernet.ready behavior 2023-11-16
+
+Updated the description for [Ethernet.ready()](/reference/device-os/api/ethernet/ready/). On isolated Ethernet, it does not return true, because ready implies that the connection is ready to be used as a cloud connection, and isolated networks can't be used as the cloud connection.
+
+### Windows 10 device drivers 2023-11-16
+
+There is a new guide for troubleshooting [Windows 10 device driver issues](/troubleshooting/guides/build-tools-troubleshooting/win10-device-drivers/).
+
+If you are experiencing these problems you may have a driver issue:
+
+- No serial device identified in the web-based tools despite using a current version of Chrome or Edge.
+- particle serial list returns no results.
+- dfu-util -l returns no devices.
+
+### Particle CLI and Mac with Apple silicon 2023-11-16
+
+If you have a Mac with Apple silicon (M1, M2, M3, ...) and wish to use the Particle CLI natively (not in a Rosetta terminal), see [Particle CLI and Mac with Apple silicon](/troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon/).
+
+
 ### Ethernet isolated LAN 2023-11-15
 
 There are now additional instructions and a firmware example for using Ethernet with a static IP address and an [Isolated LAN](/hardware/ethernet/ethernet/#isolated-lan) and using cellular for the cloud connection.

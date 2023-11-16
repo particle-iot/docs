@@ -1638,6 +1638,8 @@ This function will return `true` once the device is connected to the network and
 Ethernet.ready();
 ```
 
+In order for Ethernet to be considered ready the Ethernet link must be up, and IP address assigned, DNS configured, and a gateway set. Thus if you using isolated Ethernet (gateway of 0.0.0.0), you cannot use `Ethernet.ready()` to determine if it's up. This is because Ethernet.ready() implies that it's ready to be used for the cloud connection, which is not true for isolated LANs. If you want to check for isolated LAN up, you can use `!Ethernet.connecting() && Ethernet.localIP() != IPAddress()`
+
 ### setConfig() [Ethernet]
 
 {{api name1="Ethernet.setConfig"}}

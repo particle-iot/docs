@@ -146,7 +146,6 @@ void setup() {
     Ethernet.on();
     waitFor(Ethernet.isOn, 2000);
     Ethernet.connect();
-    waitFor(Ethernet.ready, 10000);
     Log.info("Ethernet IP address: %s", Ethernet.localIP().toString().c_str());
 
     // Turn on cellular and connect; this is used for the cloud connection
@@ -195,3 +194,9 @@ PING 192.168.2.40 (192.168.2.40): 56 data bytes
 64 bytes from 192.168.2.40: icmp_seq=1 ttl=255 time=3.928 ms
 ^C
 ```
+
+### Ethernet.ready
+
+Also note In order for Ethernet to be considered ready the Ethernet link must be up, and IP address assigned, DNS configured, and a gateway set. Thus if you using isolated Ethernet (gateway of 0.0.0.0), you cannot use `Ethernet.ready()` to determine if it's up. This is because Ethernet.ready() implies that it's ready to be used for the cloud connection, which is not true for isolated LANs. 
+
+If you want to check for isolated LAN up, you can use `!Ethernet.connecting() && Ethernet.localIP() != IPAddress()`.

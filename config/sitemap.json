@@ -515,8 +515,8 @@
             "hash": "fe5d5fa49b096761248f6756e5cf267a925216c8935b4e3a8286fd77775735cb"
         },
         "firmware/best-practices/usb-serial.md": {
-            "date": "2022-06-14",
-            "hash": "3de9a27121d11fd8e1a3b202f7b12eb75c28ca71bb87ab850c4836d199d8a2ab"
+            "date": "2023-11-16",
+            "hash": "fa7a7d8af9c5150943b44b13d176c14a49cce0ec5047362893cc3e356bcd4226"
         },
         "firmware/low-power/device-powerdown.md": {
             "date": "2022-05-18",
@@ -631,8 +631,8 @@
             "hash": "fe43b5964e44450e56103e97f747c646664ea83569e1ae612ef85c9a4d264f1f"
         },
         "getting-started/developer-tools/cli.md": {
-            "date": "2023-09-29",
-            "hash": "d1101d3748b48a14fb4ce158078a6dedfdf3d026392c9145881a97600731d994"
+            "date": "2023-11-16",
+            "hash": "e77e014b56068ede4f2419a8c45b7b391aeee3b57f66e8e0860ffd9475ae566e"
         },
         "getting-started/developer-tools/workbench-faq.md": {
             "date": "2023-11-15",
@@ -959,8 +959,8 @@
             "hash": "cb6ffee72fadd318093fd10e2c513ababa11bcb734e31dae3634ed6fae658c02"
         },
         "hardware/ethernet/ethernet.md": {
-            "date": "2023-11-15",
-            "hash": "1c56febdcafb279716d54a795dd502248a85e1849978119d75c202ffa66bbaf9"
+            "date": "2023-11-16",
+            "hash": "fbf54d7fb60bcc25900cc129937f9bfd420d21c61c13baf7d977dea0e75dd487"
         },
         "hardware/expansion/about-i2c.md": {
             "date": "2023-09-06",
@@ -1171,8 +1171,8 @@
             "hash": "0c263490d13fd03851737f6841f19765f2702c1ebd3377dc2f87284b8860865b"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2023-09-29",
-            "hash": "1b5df47d1bfeef5b2e29ef07a758060149b1dab67007cd2c6a1a2b0dedbbe97e"
+            "date": "2023-11-16",
+            "hash": "a93cef20a4b5fe51cd832f9ef0267c461f341aab4ed6b2dc3b7e72343d8a52c6"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2023-09-06",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-11-15",
-            "hash": "c626f12fcc0cd5be1e8b9738357f53141544f030107e156594f0f5fda6d27dee"
+            "date": "2023-11-16",
+            "hash": "ebc5708eca957fa55b954d9e41e770abca2b0e46d2a30cec6c57a3e9fb114eb5"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1607,8 +1607,8 @@
             "hash": "f5ed3e9f9544c849dc47cb237c7ddd551c1c3d4ca2c14c3233380f029164ed0f"
         },
         "troubleshooting/guides/build-tools-troubleshooting/webusb-errors.md": {
-            "date": "2022-12-16",
-            "hash": "f0310313ceafc2507876ce1c18a476917de492fc7cf9240b783734ca5c619127"
+            "date": "2023-11-16",
+            "hash": "7a642dda7540aca545e842dc42b6463eef2a8e1eb56d665951df9d0dffec519c"
         },
         "troubleshooting/guides/device-troubleshooting/device-blinking-cyan.md": {
             "date": "2023-09-29",
@@ -1855,8 +1855,8 @@
             "hash": "6e6d91eb915338b74d891faa1366b1ced56798fe8ec3bb849aa12e00526394fd"
         },
         "reference/device-os/api/ethernet/ready.md": {
-            "date": "2023-09-20",
-            "hash": "81d8300f390da86d63d495971c9e51d9c5ea677958430b16d946ccee15daa1b2"
+            "date": "2023-11-16",
+            "hash": "93e1050fa0675a2aadd8916ea5891ddc78b3da065f4c7d86770c87e78280c338"
         },
         "reference/device-os/api/ethernet/setconfig-ethernet.md": {
             "date": "2023-10-30",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ce8106e65f3598edd7289805fb744de8dcd4f44e535404bb79d811d768bb8df0",
-            "date": "2023-11-15"
+            "hash": "bf19a4e7afc84f55b20e9e599c52b8fedc526891d0824d10a7ccd7906a34425c",
+            "date": "2023-11-16"
         },
         "getting-started/cloud/logic.md": {
             "hash": "9442c21b6e5b5dec2333671367008037657833b01f3fa44b6b80857f008fb600",
@@ -8245,6 +8245,18 @@
         "getting-started/setup/classroom.md": {
             "hash": "7b90323b9e7349accd38bdf0d610df55ecdca3c5b806acbfb477cffcb000d49e",
             "date": "2023-11-14"
+        },
+        "troubleshooting/guides/build-tools-troubleshooting/win10-device-drivers.md": {
+            "hash": "4d4286ba42b861ff07404a87c0835b8c658600c1401133c0740bb7961ebf99f9",
+            "date": "2023-11-16"
+        },
+        "troubleshooting/guides/build-tools-troubleshooting/cli-mac-m.md": {
+            "hash": "21ce1ae7a8e20dd0b3e06c3d3d9b335d2b33c213ce9363f65662286d083c2e13",
+            "date": "2023-11-16"
+        },
+        "troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon.md": {
+            "hash": "21ce1ae7a8e20dd0b3e06c3d3d9b335d2b33c213ce9363f65662286d083c2e13",
+            "date": "2023-11-16"
         }
     }
 }

@@ -164,6 +164,16 @@
           "dir": "debugging-firmware-builds",
           "title": "Debugging firmware builds",
           "href": "/troubleshooting/guides/build-tools-troubleshooting/debugging-firmware-builds/"
+        },
+        {
+          "dir": "win10-device-drivers",
+          "title": "Windows 10 device drivers",
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/win10-device-drivers/"
+        },
+        {
+          "dir": "cli-mac-m",
+          "title": "Particle CLI and Mac with Apple silicon",
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon/"
         }
       ],
       {
