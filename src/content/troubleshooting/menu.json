@@ -171,7 +171,7 @@
           "href": "/troubleshooting/guides/build-tools-troubleshooting/win10-device-drivers/"
         },
         {
-          "dir": "cli-mac-m",
+          "dir": "cli-mac-apple-silicon",
           "title": "Particle CLI and Mac with Apple silicon",
           "href": "/troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon/"
         }
