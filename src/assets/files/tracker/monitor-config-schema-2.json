@@ -52,7 +52,7 @@
 					"type": "integer",
 					"title": "Modbus Inter Message Delay",
 					"description": "Delay between the last Modbus response and the next transmission in milliseconds.  This is used for rate limiting transactions.",
-					"default": "0",
+					"default": 0,
 					"minimum": 0,
 					"maximum": 10000
 				}
