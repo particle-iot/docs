@@ -8,6 +8,57 @@ columns: two
 
 The following document seeks to locate all of Particle's resources for troubleshooting setup issues in one place. Scroll to the device type in question, walk through the suggested process, and ensure that you have taken the appended troubleshooting steps before submitting a support ticket!.
 
+## Photon 2 or P2
+
+_For issues setting up a Particle Argon, it's best to use the [setup.particle.io](https://setup.particle.io/) or the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/getting-started/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
+
+- The mobile app cannot be used to setup the P2 and Photon 2.
+- On certain Windows or Linux computers with an AMD chipset, a Photon 2 or P2 running Device OS earlier than 5.3.1 may not be able to be connected to by USB. Once the device is upgraded it will operate normally.
+
+## Argon
+
+_For issues setting up a Particle Argon, it's best to use the [setup.particle.io](https://setup.particle.io/) or the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/getting-started/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
+
+**1\.** Ensure your device powers on. If the device does not power on (does not display any information via its status LED) follow the instructions here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)) to diagnose further.
+
+**2.** Follow the instructions here ([link](/troubleshooting/guides/device-management/how-can-i-set-up-my-argon-or-boron-via-usb/)) to set up your device. We **strongly recommend troubleshooting via the CLI and not the mobile app**, as it eliminates many potential variables from the diagnostic process.
+
+### Troubleshooting resources:
+
+* If CLI commands are failing with errors, follow the CLI instructions [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/).
+* If the CLI reports that it cannot find a device connected, first take care that your device is in the correct mode specified above. Then, follow the USB connectivity troubleshooting instructions [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/).
+* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - please follow our generic Wi-Fi Connectivity Guide ([link](/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/)) to ensure your Wi-Fi is compatible. Proceed further with detailed Wi-Fi troubleshooting instructions here ([link](/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-argon/)), and **ensure you've collected the logs necessary to open a support ticket**.
+* If you receive errors that the device belongs to another user, please follow the instructions here ([link](/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/)).
+* If the device is not detected under Windows 10, you could have a device driver issue, see [Windows 10 device driver issues](/troubleshooting/guides/build-tools-troubleshooting/win10-device-drivers/).
+
+## Boron/B-Series
+
+_For issues setting up a Particle Boron/B-Series, it's best to use [setup.particle.io](https://setup.particle.io/) or the the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/getting-started/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
+
+**1\.** Ensure your device powers on. If the device does not power on (does not display any information via its status LED) follow the instructions here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)) to diagnose further.
+
+**2.** Follow the instructions here ([link](/troubleshooting/guides/device-management/how-can-i-set-up-my-argon-or-boron-via-usb/)) to set up your device. We **strongly recommend troubleshooting via the CLI and not the mobile app**, as it eliminates many potential variables from the diagnostic process.
+
+### Troubleshooting resources:
+
+* If CLI commands are failing with errors, follow the CLI instructions [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/).
+* If the CLI reports that it cannot find a device connected, first take care that your device is in the correct mode specified above. Then, follow the USB connectivity troubleshooting instructions [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/).
+* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - ensure your device is in a [supported region](/reference/cellular/cellular-carriers/), and then please follow our generic Cellular Connectivity Guide ([link](/troubleshooting/guides/device-management/repairing-product-device-keys/)) to troubleshoot. **Ensure you've collected the logs necessary to open a support ticket**.
+* If you receive errors that the device belongs to another user, please follow the instructions here ([link](/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/)).
+* If the device is not detected under Windows 10, you could have a device driver issue, see [Windows 10 device driver issues](/troubleshooting/guides/build-tools-troubleshooting/win10-device-drivers/).
+
+## Tracker One/Tracker SoM
+
+**1\.** Ensure your device powers on. If the device does not power on (does not display any information via its status LED) follow the instructions here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)) to diagnose further.
+
+**2.** Follow the instructions here ([link](/getting-started/tracker/tracker-setup/#setup)) to set up your device. If the conventional setup mode is failing in some way, take note of the error you are receiving. Go through the "Manual Setup" process, take a note of successes and/or failures, and then submit a support ticket to report the setup issue.
+
+### Troubleshooting resources:
+
+* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - ensure your device is in a [supported region](/reference/cellular/cellular-carriers/), and then please follow our generic Cellular Connectivity Guide ([link](/troubleshooting/guides/device-management/repairing-product-device-keys/)) to troubleshoot. **Ensure you've collected the logs necessary to open a support ticket**.
+* If you receive errors that the device belongs to another user, please follow the instructions here ([link](/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/)).
+
+
 ## Photon/P1
 
 _For issues setting up a Particle Photon/P1, it's best to use the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/getting-started/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
@@ -57,46 +108,5 @@ _For issues setting up a Particle Electron/E-Series, it's best to use the CLI (C
 
 * If CLI commands are failing with errors, follow the CLI instructions [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/).
 * If the CLI reports that it cannot find a device connected, first take care that your device is in the correct mode specified above. Then, follow the USB connectivity troubleshooting instructions [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/).
-* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - ensure your device is in a [supported region](/reference/cellular/cellular-carriers/), and then please follow our generic Cellular Connectivity Guide ([link](/troubleshooting/guides/device-management/repairing-product-device-keys/)) to troubleshoot. **Ensure you've collected the logs necessary to open a support ticket**.
-* If you receive errors that the device belongs to another user, please follow the instructions here ([link](/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/)).
-
-## Argon
-
-_For issues setting up a Particle Argon, it's best to use the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/getting-started/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
-
-**1\.** Ensure your device powers on. If the device does not power on (does not display any information via its status LED) follow the instructions here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)) to diagnose further.
-
-**2.** Follow the instructions here ([link](/troubleshooting/guides/device-management/how-can-i-set-up-my-argon-or-boron-via-usb/)) to set up your device. We **strongly recommend troubleshooting via the CLI and not the mobile app**, as it eliminates many potential variables from the diagnostic process.
-
-### Troubleshooting resources:
-
-* If CLI commands are failing with errors, follow the CLI instructions [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/).
-* If the CLI reports that it cannot find a device connected, first take care that your device is in the correct mode specified above. Then, follow the USB connectivity troubleshooting instructions [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/).
-* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - please follow our generic Wi-Fi Connectivity Guide ([link](/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/)) to ensure your Wi-Fi is compatible. Proceed further with detailed Wi-Fi troubleshooting instructions here ([link](/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-argon/)), and **ensure you've collected the logs necessary to open a support ticket**.
-* If you receive errors that the device belongs to another user, please follow the instructions here ([link](/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/)).
-
-## Boron/B-Series
-
-_For issues setting up a Particle Boron/B-Series, it's best to use the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/getting-started/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
-
-**1\.** Ensure your device powers on. If the device does not power on (does not display any information via its status LED) follow the instructions here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)) to diagnose further.
-
-**2.** Follow the instructions here ([link](/troubleshooting/guides/device-management/how-can-i-set-up-my-argon-or-boron-via-usb/)) to set up your device. We **strongly recommend troubleshooting via the CLI and not the mobile app**, as it eliminates many potential variables from the diagnostic process.
-
-### Troubleshooting resources:
-
-* If CLI commands are failing with errors, follow the CLI instructions [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/).
-* If the CLI reports that it cannot find a device connected, first take care that your device is in the correct mode specified above. Then, follow the USB connectivity troubleshooting instructions [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/).
-* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - ensure your device is in a [supported region](/reference/cellular/cellular-carriers/), and then please follow our generic Cellular Connectivity Guide ([link](/troubleshooting/guides/device-management/repairing-product-device-keys/)) to troubleshoot. **Ensure you've collected the logs necessary to open a support ticket**.
-* If you receive errors that the device belongs to another user, please follow the instructions here ([link](/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/)).
-
-## Tracker One/Tracker SoM
-
-**1\.** Ensure your device powers on. If the device does not power on (does not display any information via its status LED) follow the instructions here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)) to diagnose further.
-
-**2.** Follow the instructions here ([link](/getting-started/tracker/tracker-setup/#setup)) to set up your device. If the conventional setup mode is failing in some way, take note of the error you are receiving. Go through the "Manual Setup" process, take a note of successes and/or failures, and then submit a support ticket to report the setup issue.
-
-### Troubleshooting resources:
-
 * If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - ensure your device is in a [supported region](/reference/cellular/cellular-carriers/), and then please follow our generic Cellular Connectivity Guide ([link](/troubleshooting/guides/device-management/repairing-product-device-keys/)) to troubleshoot. **Ensure you've collected the logs necessary to open a support ticket**.
 * If you receive errors that the device belongs to another user, please follow the instructions here ([link](/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/)).

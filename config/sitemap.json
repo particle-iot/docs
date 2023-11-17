@@ -1587,16 +1587,16 @@
             "hash": "5eb86510d02810037678d5f563a36d3f7ea78e4e1019c83525fe77587c6cf057"
         },
         "troubleshooting/guides/build-tools-troubleshooting/specific-cli-version.md": {
-            "date": "2023-10-21",
-            "hash": "24501bde1968b74b268d36bd717513199eb3a9f9c175e518e5394ebee23b863d"
+            "date": "2023-11-17",
+            "hash": "9b2711c46962df3ad4f48eaecd22d25bfe955ed00593dee11a3330c0859dce62"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-flashing-code.md": {
             "date": "2022-08-24",
             "hash": "72fab738d3f63b366b714a80870f871c96a5da1d008f2daa0e2e063a604e1b48"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli.md": {
-            "date": "2023-09-06",
-            "hash": "731891612608a084d30c5f0af71b7c0da50643e26ff11c6ff80af859ae3f61ba"
+            "date": "2023-11-17",
+            "hash": "63fac10ab32c37543ddfeab638d6e75e18a5ea07c6fb793fb23cd4478646fe41"
         },
         "troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-workbench.md": {
             "date": "2023-11-15",
@@ -1639,8 +1639,8 @@
             "hash": "36c041e62b8b528a8ba8d5a8431bb3c79e41fa73293ea34a7581fc017650cd1d"
         },
         "troubleshooting/guides/device-troubleshooting/troubleshooting-the-setup-process.md": {
-            "date": "2023-09-06",
-            "hash": "bcb901c689fe6871a939077e5d557e1603fc390d7e0998f2a3ae8fb062d27d87"
+            "date": "2023-11-17",
+            "hash": "685e2f2a4ed32e075de2d6065d0f567ef05b15c344aaff7256d47db8fe8fd7bd"
         },
         "troubleshooting/guides/device-troubleshooting/using-particle-serial-inspect.md": {
             "date": "2023-03-17",

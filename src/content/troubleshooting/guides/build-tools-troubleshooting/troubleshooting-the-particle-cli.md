@@ -32,6 +32,20 @@ Before troubleshooting further, please take the following steps to ensure the CL
 
 If you receive errors from the above, it's worth proceeding further through this guide. If these commands report as expected, it's worth taking a good look at our CLI reference page ([link](/reference/developer-tools/cli/)) to ensure that the commands you are trying to run are supported and formatted correctly.
 
+### Windows 10 no devices found
+
+If you are experiencing these problems on Windows 10 you may have a driver issue:
+
+- No serial device identified in the web-based tools despite using a current version of Chrome or Edge.
+- `particle serial list` returns no devices.
+- `dfu-util -l`` returns no devices.
+
+See [Windows 10 device driver issues](/troubleshooting/guides/build-tools-troubleshooting/win10-device-drivers/) for more information.
+
+### Mac with Apple silicon
+
+If you are using a Mac with Apple silicon (M1, M2, M3, ...) and have previously imported your settings and applications from an Intel Mac, you may run into issues. See [CLI on Mac with Apple silicon](/troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon/).
+
 ## Ensuring the CLI is properly installed on and configured for your system
 
 Issues related to build tools can be complex! After all, every computer is configured differently and is governed by unique administrative permissions schema, firewalls, networking settings, etc.... The majority of CLI issues are related to this complexity, so taking a step back and ensuring your tools are installed and configured properly is an important step to the troubleshooting process. 

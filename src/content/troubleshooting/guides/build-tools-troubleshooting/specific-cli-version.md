@@ -41,3 +41,9 @@ To restore the current version of the Particle CLI you can use:
 ```
 particle --update-cli
 ```
+
+Also note that the Particle CLI current requires node v16. It does not work with node v18 and later. Using a node version manager like nvm or fnm is recommended so you can switch between version if necessary.
+
+## Mac with Apple silicon
+
+If you are using a Mac with Apple silicon (M1, M2, M3, ...) and have previously imported your settings and applications from an Intel Mac see [CLI on Mac with Apple silicon](/troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon/) for additional information.
