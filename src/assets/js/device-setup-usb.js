@@ -3399,6 +3399,7 @@ $(document).ready(function() {
 
 
             const wifiHiddenSsidDivElem = $(thisElem).find('.wifiHiddenSsidDiv');
+            const wifiHiddenSsidWarningDivElem = $(thisElem).find('.wifiHiddenSsidWarningDiv');
             const wifiHiddenSsidCheckboxElem = $(thisElem).find('.wifiHiddenSsidCheckbox');
             const wifiHiddenSsidTextElem = $(thisElem).find('.wifiHiddenSsidText');
             const wifiSecurityTypeSelectElem =$(thisElem).find('.wifiSecurityTypeSelect');
@@ -3797,12 +3798,28 @@ $(document).ready(function() {
             }
 
 
-            // RTL872x  allow use of hidden SSIDs on Device OS 5.5.0 and later
+            // RTL872x allow use of hidden SSIDs on Device OS 5.5.0 and later BUT this does not currently work with control requests
             // Hidden SSIDs are supported on P1 and Photon 1, but not implemented here
-            // Hidden SSIDs are not supported on Argon
-            if (deviceInfo.platformVersionInfo.isRTL872x && deviceModuleInfo) {
+            // Hidden SSIDs are not supported on Argon but this techique can be used to connect to a network while offline
+            if (deviceModuleInfo) {
                 const v = deviceModuleInfo.getSystemVersion();
-                if (v >= 5500) { // 5.5.0-rc.1 or later
+                let showHiddenOptions = false;
+                /*
+                if (deviceInfo.platformVersionInfo.isRTL872x) {
+                    if (v >= 5500) { // 5.5.0-rc.1 or later
+                        showHiddenOptions = true;
+                    }
+                }
+                */
+                if (deviceInfo.platformVersionInfo.isnRF52) {
+                    showHiddenOptions = true;
+                    $(wifiHiddenSsidWarningDivElem).show();
+                }
+                else {
+                    $(wifiHiddenSsidWarningDivElem).hide();
+                }
+
+                if (showHiddenOptions) {
                     $(wifiHiddenSsidDivElem).show();
                     $(wifiHiddenSsidCheckboxElem).on('click', radioSelectionUpdate);
                     $(wifiHiddenSsidTextElem).on('input', radioSelectionUpdate);
