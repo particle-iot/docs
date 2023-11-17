@@ -8,6 +8,7 @@ includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-
 
 # {{title}}
 
+
 One difference between the Tracker One and other Particle devices is that the Tracker One firmware can be used in three different ways:
 
 - Completely off-the-shelf. With its cloud-based configuration, you can use the firmware as-is with no modifications in some cases.
@@ -21,6 +22,13 @@ This page is for the Tracker One. If you are using the Monitor One, see [Monitor
 {{note op="end"}}
 
 {{> sso}}
+
+## How to customize tracker products
+
+This video covers the Tracker basics including Tracker Edge, adding custom data to location publishes, and adding new settings panels for your own custom settings to the Particle console using a configuration schema.
+
+{{youtube "https://www.youtube.com/embed/FTLgQ_voKyc"}}
+
 
 ## Configuration
 
