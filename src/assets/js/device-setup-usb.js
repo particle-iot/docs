@@ -945,7 +945,27 @@ $(document).ready(function() {
                 // prebootloader-part1 on P2 is bootloader (1) index 2
                 return moduleInfo.getByModuleTypeIndex(1, 2);
             };
-        
+
+            moduleInfo.getSystemVersion = function() {
+                for(const m of moduleInfo.modules) {
+                    if (m.moduleType == 2) {
+                        return m.version;
+                    }
+                }
+                return 0;
+            }
+
+            moduleInfo.getSystemSemver = function() {
+                const v = moduleInfo.getSystemVersion();
+                if (v) {
+                    const semVer = apiHelper.systemVersionToSemVer(obj.version);
+                    if (semVer) {
+                        return semVer;
+                    }
+                } 
+                return 0;
+            }
+              
             /*
             tag       := (field << 3) BIT_OR wire_type, encoded as varint
             value     := (varint|zigzag) for wire_type==0 |
@@ -3378,6 +3398,13 @@ $(document).ready(function() {
 
 
 
+            const wifiHiddenSsidDivElem = $(thisElem).find('.wifiHiddenSsidDiv');
+            const wifiHiddenSsidWarningDivElem = $(thisElem).find('.wifiHiddenSsidWarningDiv');
+            const wifiHiddenSsidCheckboxElem = $(thisElem).find('.wifiHiddenSsidCheckbox');
+            const wifiHiddenSsidTextElem = $(thisElem).find('.wifiHiddenSsidText');
+            const wifiSecurityTypeSelectElem =$(thisElem).find('.wifiSecurityTypeSelect');
+            const wifiSecurityTypeNormalRowElem =$(thisElem).find('.wifiSecurityTypeNormalRow');
+            const wifiSecurityTypeHiddenSsidRowElem =$(thisElem).find('.wifiSecurityTypeHiddenSsidRow');
 
             const wifiSettingsTableElem = $(thisElem).find('.wifiSettingsTable');
             const wifiSecurityTypeElem = $(thisElem).find('.wifiSecurityType');
@@ -3396,6 +3423,8 @@ $(document).ready(function() {
             const privateKeyElem = $(thisElem).find('.privateKey');
             const clientCertRowElem = $(thisElem).find('.clientCertRow');
             const clientCertElem = $(thisElem).find('.clientCert');
+
+            // </tr>const Elem =$(thisElem).find('.');
 
             let sortedNetworks = [];
 
@@ -3417,14 +3446,42 @@ $(document).ready(function() {
                 }
             }
 
+            const getSelectedNetwork = function() {
+                let res = {};
+
+                res.isHiddenSsid = $(wifiHiddenSsidDivElem).is(':visible') && $(wifiHiddenSsidCheckboxElem).prop('checked');
+                if (res.isHiddenSsid) {
+                    res.ssid = $(wifiHiddenSsidTextElem).val().trim();
+                    res.sec = parseInt($(wifiSecurityTypeSelectElem).val());
+
+                    $(wifiSecurityTypeNormalRowElem).hide();
+                    $(wifiSecurityTypeHiddenSsidRowElem).show();
+                }
+                else {
+                    $(wifiSecurityTypeNormalRowElem).show();
+                    $(wifiSecurityTypeHiddenSsidRowElem).hide();
+                }
+
+                if (typeof sec == 'undefined') {
+                    const checkedItems = $('input[name="selectedNetwork"]:checked');
+                    if (checkedItems.length > 0) {
+                        res.ssid = $(checkedItems).val();
+                        const wifiNetworkInfo = sortedNetworks.find(e => e.ssid == res.ssid);
+                        if (wifiNetworkInfo) {
+                            res.sec = wifiNetworkInfo.sec;
+                            res.cip = wifiNetworkInfo.cip;
+                        }
+                    }    
+                }
+
+                return res;
+            }
+
             const radioSelectionUpdate = function() {
-                const checkedItems = $('input[name="selectedNetwork"]:checked');
-                if (checkedItems.length > 0) {
+                const selectedNet = getSelectedNetwork();
+                
+                if (selectedNet.ssid) {
                     $(wifiSettingsTableElem).show();
-
-                    const ssid = $(checkedItems).val();
-
-                    const wifiNetworkInfo = sortedNetworks.find(e => e.ssid == ssid);
 
                     // sec values (WLanSecurityType):
                     // WLAN_SEC_UNSEC = 0,
@@ -3434,8 +3491,7 @@ $(document).ready(function() {
                     // WLAN_SEC_WPA_ENTERPRISE = 4,
                     // WLAN_SEC_WPA2_ENTERPRISE = 5,
                     const secNames = [ 'Unsecured', 'WEP', 'WPA', 'WPA2', 'WPA Enterprise', 'WPA2 Enterprise'];
-
-                    $(wifiSecurityTypeElem).text(secNames[wifiNetworkInfo.sec]);
+                    $(wifiSecurityTypeElem).text(secNames[selectedNet.sec]);
 
                     $(eapTypeRowElem).hide();
                     $(passwordRowElem).hide();
@@ -3445,20 +3501,23 @@ $(document).ready(function() {
                     $(privateKeyRowElem).hide();
                     $(clientCertRowElem).hide();
 
-                    if (wifiNetworkInfo.sec == 0) {
+                    if (selectedNet.sec == 0) {
                         // Unsecured
                     }
                     else
-                    if (wifiNetworkInfo.sec >= 1 && wifiNetworkInfo.sec <= 3) {
+                    if (selectedNet.sec >= 1 && selectedNet.sec <= 3) {
                         // WEP, WPA, WPA2
                         setStatus('Enter Wi-Fi network password and click Select Wi-Fi Network');
                         $(passwordRowElem).show();
 
-                        $(passwordInputElem).focus();
-                        $(passwordInputElem).select();            
+                        if (!selectedNet.isHiddenSsid) {
+                            // Don't do this for hidden SSID because it makes it impossible to type the hidden SSID name
+                            $(passwordInputElem).focus();
+                            $(passwordInputElem).select();                
+                        }
                     }
                     else
-                    if (wifiNetworkInfo.sec >= 4 && wifiNetworkInfo.sec <= 5) {
+                    if (selectedNet.sec >= 4 && selectedNet.sec <= 5) {
                         // Enterprise
                         $(eapTypeRowElem).show();
                         eapSelectUpdate();
@@ -3479,6 +3538,7 @@ $(document).ready(function() {
                     $(setCredentialsElem).prop('disabled', true);
                 }
             };
+
             
             const wifiNetworksUpdate = function() {
                 $(thisElem).find('.networkTable > tbody').empty();
@@ -3737,6 +3797,37 @@ $(document).ready(function() {
                     
             }
 
+
+            // RTL872x allow use of hidden SSIDs on Device OS 5.5.0 and later BUT this does not currently work with control requests
+            // Hidden SSIDs are supported on P1 and Photon 1, but not implemented here
+            // Hidden SSIDs are not supported on Argon but this techique can be used to connect to a network while offline
+            if (deviceModuleInfo) {
+                const v = deviceModuleInfo.getSystemVersion();
+                let showHiddenOptions = false;
+                /*
+                if (deviceInfo.platformVersionInfo.isRTL872x) {
+                    if (v >= 5500) { // 5.5.0-rc.1 or later
+                        showHiddenOptions = true;
+                    }
+                }
+                */
+                if (deviceInfo.platformVersionInfo.isnRF52) {
+                    showHiddenOptions = true;
+                    $(wifiHiddenSsidWarningDivElem).show();
+                }
+                else {
+                    $(wifiHiddenSsidWarningDivElem).hide();
+                }
+
+                if (showHiddenOptions) {
+                    $(wifiHiddenSsidDivElem).show();
+                    $(wifiHiddenSsidCheckboxElem).on('click', radioSelectionUpdate);
+                    $(wifiHiddenSsidTextElem).on('input', radioSelectionUpdate);
+                    $(wifiSecurityTypeSelectElem).on('change', radioSelectionUpdate);
+                }
+            }
+
+
             // Get list of known networks. Use Device OS control requests. This only works on Gen 3
             if (deviceInfo.platformVersionInfo.gen >= 3) {
                 updateWiFiOnDevice();
@@ -3831,10 +3922,9 @@ $(document).ready(function() {
             $(setCredentialsElem).on('click', async function() {
                 $(setCredentialsElem).prop('disabled', true);
                 
-                const checkedItems = $('input[name="selectedNetwork"]:checked');
-                const ssid = $(checkedItems).val();
-                const wifiNetworkInfo = sortedNetworks.find(e => e.ssid == ssid);
+                const selectedNet = getSelectedNetwork();
                 const password = $(passwordInputElem).val();
+                console.log('setCredentials selectedNet', selectedNet);
 
                 // console.log('sortedNetworks', sortedNetworks);
 
@@ -3846,17 +3936,17 @@ $(document).ready(function() {
 
                     let reqObj = {
                         op: 'wifiSetCredentials',
-                        ssid,
-                        sec: wifiNetworkInfo.sec,
-                        cip: wifiNetworkInfo.cip,                    
+                        ssid: selectedNet.ssid,
+                        sec: selectedNet.sec,
+                        cip: selectedNet.cip,                    
                     };
 
-                    if (wifiNetworkInfo.sec >= 1 && wifiNetworkInfo.sec <= 3) {
+                    if (selectedNet.sec >= 1 && selectedNet.sec <= 3) {
                         // WEP, WPA, WPA2
                         reqObj.pass = password;
                     }
         
-                    if (wifiNetworkInfo.sec >= 4 && wifiNetworkInfo.sec <= 5) {
+                    if (selectedNet.sec >= 4 && selectedNet.sec <= 5) {
                         // Enterprise
                         const eapMode = parseInt($(eapSelectElem).val());
 
@@ -3914,10 +4004,10 @@ $(document).ready(function() {
 
                     
                     const reqObj = {
-                        ssid, 
+                        ssid: selectedNet.ssid, 
                         password
                     };
-
+                    console.log('setCredentials reqObj', reqObj);
                 
                     try {
                         const res = await usbDevice.joinNewWifiNetwork(reqObj);
