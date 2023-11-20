@@ -596,7 +596,7 @@
         },
         "getting-started/console/console.md": {
             "date": "2023-11-20",
-            "hash": "56366c800d4e84d3d5938b253ae772e1bcf52dfa4c167c80b41e4d6ca4859aee"
+            "hash": "6806a11343e021c99446030056b386687bf083be9c4f7d214b2596d661adbcfb"
         },
         "getting-started/console/development-devices.md": {
             "date": "2022-05-18",
@@ -1436,7 +1436,7 @@
         },
         "reference/datasheets/tracker/tracker-som-datasheet.md": {
             "date": "2023-11-20",
-            "hash": "34fecc15cea6b30632152751eaa742ac5bcd63920d20516d6fc1c5b589f38a0a"
+            "hash": "e13f93bc52eea4cfd6bffb75513e427008f0a708c1dc5a2bb9be6d2a7feaf404"
         },
         "reference/datasheets/tracker/tracker-som-eval-board.md": {
             "date": "2023-03-30",

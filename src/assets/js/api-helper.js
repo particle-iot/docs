@@ -1035,6 +1035,7 @@ apiHelper.monitorUsage = function(options) {
         }
     };
 
+    /*
     resultObj.timer = setInterval(function() {
 
         let durationMinutesStr = Math.floor((Date.now() - resultObj.startMs) / 60000).toString(); 
@@ -1044,7 +1045,8 @@ apiHelper.monitorUsage = function(options) {
 
         analytics.track(options.actionPrefix + durationMinutesStr, {category:options.eventCategory});
     }, periodMinutes * 60000);
-
+    */
+   
     analytics.track('Started', {category:options.eventCategory});
 
     return resultObj;
