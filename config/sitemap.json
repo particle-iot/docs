@@ -595,8 +595,8 @@
             "hash": "7ce9dce10f7c84a6dba8c026746fc4561f7bce3835a40d57a5921f47e9a80fbe"
         },
         "getting-started/console/console.md": {
-            "date": "2023-11-20",
-            "hash": "56366c800d4e84d3d5938b253ae772e1bcf52dfa4c167c80b41e4d6ca4859aee"
+            "date": "2023-10-31",
+            "hash": "fa2c7bb2d39c459485352a28731e03c300161ed9f88584c9ee1f0542f72227a3"
         },
         "getting-started/console/development-devices.md": {
             "date": "2022-05-18",
@@ -1435,8 +1435,8 @@
             "hash": "f2e75f5229b4625cbd15c3082ed36c031ca5c17c6d4fd2ebdf727386518b4d1a"
         },
         "reference/datasheets/tracker/tracker-som-datasheet.md": {
-            "date": "2023-11-20",
-            "hash": "89ee039b83a9cbcd109b799a9208180c63f4ada77b7a6dd4f0edcb392b73e011"
+            "date": "2023-11-06",
+            "hash": "23af9aa0f0548102d536fd21610f10f9b050e504562aae0f41cbda4a5566bc79"
         },
         "reference/datasheets/tracker/tracker-som-eval-board.md": {
             "date": "2023-03-30",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "2e297f4d7b41a1f706e5e8cbccfd8cf499f205f7afbb0ec52abc9340d04f45c7",
-            "date": "2023-11-20"
+            "hash": "74c957d55beddea3098068a12bdb61a5cd946331b179ff73c661d0f266e92eb0",
+            "date": "2023-11-16"
         },
         "getting-started/cloud/logic.md": {
             "hash": "9442c21b6e5b5dec2333671367008037657833b01f3fa44b6b80857f008fb600",
