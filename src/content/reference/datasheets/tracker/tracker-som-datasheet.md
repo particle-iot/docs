@@ -998,8 +998,8 @@ Dimensions are in millimeters.
 
 A footprint, symbol, and device for Eagle CAD can be found in Particle-devices.lbr in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/).
 
-You can place traces and vias under the Tracker SoM module, except in the two tRestrict area (red with dots) in the footprint.
-There are exposed manufacturing test pads on the bottom of the SoM in these two rectangles, and you should avoid traces on the top layer and visa in these two areas.
+You can place traces and vias under the Tracker SoM module, except in the tRestrict area (red with dots) in the footprint.
+There are exposed manufacturing test pads on the bottom of the SoM in this rectangles, and you should avoid traces on the top layer and visa in this area.
 
 {{imageOverlay src="/assets/images/at-som/restrict-dimensions.png" alt="Restrict Dimensons" class="full-width"}}
 
