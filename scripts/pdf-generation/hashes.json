@@ -65,9 +65,9 @@
   "tracker/tracker-m-datasheet.md": "b035c8c2e1739011820155cb011d142e",
   "tracker/tracker-m8-accessories.md": "adb0ebdc6c2069f79cbf5ca07f801b9a",
   "tracker/tracker-one.md": "741120bea9b7e0e2a710743fc28ed48d",
-  "tracker/tracker-som-datasheet.md": "42224942e05d11740e50f444208c7897",
+  "tracker/tracker-som-datasheet.md": "f0aebfed70193ac9c33dcf6d73b33fa6",
   "tracker/tracker-som-eval-board.md": "40273599f012f153f492f3fbb6afc954",
-  "wi-fi/argon-datasheet.md": "c2f6e6f907d1514ecc80f33d039a5795",
+  "wi-fi/argon-datasheet.md": "bbd8e383c6e0a7ff53f6cec26855d780",
   "wi-fi/p1-datasheet.md": "118b4bdb5ea38b3006da13b3c911e409",
   "wi-fi/p2-argon-migration-guide.md": "655478980a5c181440823a6ab05ce713",
   "wi-fi/p2-datasheet.md": "285e59314b453b09fc76cc3c7ae8235c",
@@ -76,7 +76,7 @@
   "wi-fi/p2-p1-migration-guide.md": "96bffb1323209b76664a00a71d2ff1d8",
   "wi-fi/p2-photon-migration-guide.md": "3c8d3fb39583eae4e2c774fdcc8fd912",
   "wi-fi/photon-2-argon-migration-guide.md": "d8066bcbff652f8049740c3903999301",
-  "wi-fi/photon-2-datasheet.md": "20fd468076b58a9ee96a08a38947539c",
+  "wi-fi/photon-2-datasheet.md": "40e1baff1f3b1b653844d83e6cd21804",
   "wi-fi/photon-2-photon-migration-guide.md": "97f56bbc70806aef69d9f0ea7f1d08ee",
   "wi-fi/photon-datasheet.md": "691be7a0366e9544d3db9975ea09d7f4"
 }

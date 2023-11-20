@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker datasheet update 2023-11-20
+
+Added link to footprint Eagle CAD library, and also information on the restrict areas under the SoM to the [Tracker SoM datasheet](/reference/datasheets/tracker/tracker-som-datasheet/#footprint).
+
 ### Updated SKU status 2023-11-16
 
 | SKU | Description | Old | New |

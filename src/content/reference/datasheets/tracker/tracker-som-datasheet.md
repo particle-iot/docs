@@ -993,6 +993,16 @@ Weight will be provided at a later date.
 
 Dimensions are in millimeters.
 
+### Footprint
+
+A footprint, symbol, and device for Eagle CAD can be found in Particle-devices.lbr in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/).
+
+You can place traces and vias under the Tracker SoM module, except in the two tRestrict areas (red with dots) in the footprint.
+
+There are exposed manufacturing test pads on the bottom of the SoM in these two rectangles, and you should avoid traces on the top layer and visa in these two areas.
+
+{{imageOverlay src="/assets/images/at-som/restrict-dimensions.png" alt="Restrict Dimensons" class="full-width"}}
+
 
 ### 3D models
 
@@ -1389,3 +1399,4 @@ The bootloader allows you to easily update the user application via several diff
 | 024      | 2023 Mar 17 | RK | Pin table listed wrong maximum current for CAN_5V |
 | 025      | 2023 Apr 28 | RK | Add conformal coating and flux notes |
 | 026      | 2023 Jul 19 | RK | Block diagram had incorrect RGB pins |
+| 027      | 2023 Nov 20 | RK | Added link to footprint and restrict information |
