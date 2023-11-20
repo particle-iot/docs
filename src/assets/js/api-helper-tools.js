@@ -1340,7 +1340,7 @@ $(document).ready(function() {
     
                         };
     
-                        if (!tableDeviceObj.development) {
+                        if (tableDeviceObj.development) {
                             // Mark as development
                             reqObj.development = true;
                         }
