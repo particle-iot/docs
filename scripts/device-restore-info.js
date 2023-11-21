@@ -94,7 +94,7 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
         {name:'photon', title:'Photon', id:6, gen:2, mcu:'STM32F205', wifi:true},
         {name:'p1', title:'P1', id:8, gen:2, mcu:'STM32F205', wifi:true},
         {name:'trackerm', title:'Tracker M', id:28, gen:3, mcu:'RTL8721', wifi:false},
-        {name:'p2', title:'P2', id:32, gen:3, mcu:'RTL8721', wifi:true},
+        {name:'p2', title:'P2', id:32, gen:3, mcu:'RTL8721', wifi:true, wifiSelectAntenna:true},
         {name:'msom', title:'M SoM', id:35, gen:3, mcu:'RTL8722', wifi:true, cellular:true},
         {name:'xenon', title:'Xenon', id:14, gen:3, mcu:'nRF52840', discontinued:true, mesh:true}
     ];

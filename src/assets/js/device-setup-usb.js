@@ -2665,6 +2665,8 @@ $(document).ready(function() {
             const doctorForceVersionElem = $(thisElem).find('.doctorForceVersion');
             const doctorDeviceOsVersionElem = $(thisElem).find('.doctorDeviceOsVersion');
             const hasWiFiRowElem = $(thisElem).find('.hasWiFiRow');
+            const hasAntennaRowElem = $(thisElem).find('.hasAntennaRow');
+            const doctorDeviceWiFiAntennaElem = $(thisElem).find('.doctorDeviceWiFiAntenna');
 
             // Product mode
             const productModeTableBodyElem = $(thisElem).find('.productModeTableBody');
@@ -2888,6 +2890,13 @@ $(document).ready(function() {
             }
             else {
                 $(hasWiFiRowElem).hide();
+            }
+
+            if (deviceInfo.platformVersionInfo.wifiSelectAntenna) {
+                $(hasAntennaRowElem).show();
+            }
+            else {
+                $(hasAntennaRowElem).hide();
             }
 
 
@@ -3377,6 +3386,7 @@ $(document).ready(function() {
                 return;
             }
             setSetupStep('setupStepConfigureWiFi');
+
 
             $(thisElem).find('.networkTable > tbody').html('');
 
