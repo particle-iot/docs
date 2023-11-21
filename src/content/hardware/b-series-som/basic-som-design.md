@@ -26,6 +26,11 @@ There is another design in the [SoM first board tutorial](/hardware/b-series-som
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN001.zip).
 
+{{note op="start" type="note"}}
+First board and basic design examples are intended to be easily hand-assembled on inexpensive 
+2-layer circuit boards using easily available parts. They are not intended to be reference examples of best 
+practices for electronic design.
+{{note op="end"}}
 
 
 ## Board

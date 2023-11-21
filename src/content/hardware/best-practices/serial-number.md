@@ -135,7 +135,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Deprecated | E4DK |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NRND | E4DT |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated | P036 |
-| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | In development | P031 |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA | P031 |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | In development | P031 |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | In development | P031 |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | Deprecated | P024 |
@@ -241,7 +241,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P030 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NRND |
 | P030 | E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NRND |
 | P030 | E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated |
-| P031 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | In development |
+| P031 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA |
 | P031 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | In development |
 | P031 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | In development |
 | P031 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | GA |

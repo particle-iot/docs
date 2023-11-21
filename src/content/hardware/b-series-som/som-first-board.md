@@ -39,6 +39,12 @@ Unlike the E Series module, the B Series SoM does not include the PMIC (Power Ma
 
 By moving these features off the module, you can more easily customize your design.
 
+{{note op="start" type="note"}}
+First board and basic design examples are intended to be easily hand-assembled on inexpensive 
+2-layer circuit boards using easily available parts. They are not intended to be reference examples of best 
+practices for electronic design.
+{{note op="end"}}
+
 ## Basic design
 
 The SoM base board in this tutorial is about as simple as you can build. It does not have a fuel gauge or PMIC, and is powered by USB only, with no battery support. There will be other tutorials for more complex power supply designs.

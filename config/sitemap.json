@@ -651,12 +651,12 @@
             "hash": "09fe09cf7d2670d8b814c109837f47e1f85c18c163cb166505ea117825bb5d57"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2023-10-31",
-            "hash": "89bfbb271ca8ced83381a04d3520ba6a339ee6bf695363caf2cc116d6387a86a"
+            "date": "2023-11-21",
+            "hash": "d4ce61761b49ef77284f7726ba470cea18c0b56142839d9cdf4f295b702d73f8"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2023-11-16",
-            "hash": "a24cca992e374371075c87633c751997b500b4d6821b9e2fe05aabd365db5963"
+            "date": "2023-11-21",
+            "hash": "aeed0671a8440330c9e6db6275812c0e72e893706e9a7f387bb21874bd2a7141"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -927,16 +927,16 @@
             "hash": "f63c9a9ff0cbc69cd85f636fbdae9568a67a094ed55c0eddc71f5d2dff4cac52"
         },
         "hardware/b-series-som/som-first-board.md": {
-            "date": "2023-03-17",
-            "hash": "a191d62ac7147009f357cd0055d9da2d53293c443adc4f275b54d44d61fb5053"
+            "date": "2023-11-21",
+            "hash": "65c18550892010848b207c4a9db4f24c17ebfe98cd27ecf890056bd3b92509ac"
         },
         "hardware/b-series-som/basic-som-design.md": {
-            "date": "2023-03-17",
-            "hash": "8baf0643d059dc8eeb4a12eb5abbfd005c7ef69469b32ee4fde0674c076c7c96"
+            "date": "2023-11-21",
+            "hash": "2b03f6ddec65aa030320fdb43762408d33d6eba7dc18cfc1bf2d4cfb2225fded"
         },
         "hardware/certification/antenna.md": {
-            "date": "2023-11-16",
-            "hash": "b8c93e6d60270f75fbb5e807dd4b9b6a07750fdc520a30244f49f2e912c891e6"
+            "date": "2023-11-21",
+            "hash": "31b0cca1e6516e96101037320bcd0ac2f912c5ca2afd3f689c78ebd45dd4aaef"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -1015,8 +1015,8 @@
             "hash": "2f7683ea581a1bf970cced6dff5cf7df224807c2e7ca8ab6e4ca6925d7a0e5a3"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2023-11-08",
-            "hash": "84d0f77a71faceeac48018351fa437818ef58a18530b6ccc6524b53d078f6f7c"
+            "date": "2023-11-21",
+            "hash": "be29f2323662e85952bfc03238028bb9e853658291fc34e311666589dcd30488"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2023-10-27",
@@ -1051,8 +1051,8 @@
             "hash": "1dd5d93eee9cb849ec34ea37efa2cadf9dff20281e00bfc9dc0e361d0d924a2f"
         },
         "hardware/wi-fi/p2-first-board.md": {
-            "date": "2023-05-11",
-            "hash": "77bb97f75edeabe0345b9fbbb574020b52d7c7606feb66a993e378e67cd3ac63"
+            "date": "2023-11-21",
+            "hash": "d1beeeaa885eca0d17b71d6a294e645b4792dece84ae4573c2965e690496fe97"
         },
         "hardware/tracker/m8-temperature-humidity.md": {
             "date": "2023-03-17",
@@ -1063,8 +1063,8 @@
             "hash": "28f14a455ca69525d5ff629b6271cd84a98a3c43062b7e4f410cea4dfe0ee2e6"
         },
         "hardware/tracker/tracker-som/tracker-som-first-board.md": {
-            "date": "2023-03-17",
-            "hash": "dc65056427848d94909445978e74f2f9783f7f133c658835d3817c4a1344a6b1"
+            "date": "2023-11-21",
+            "hash": "69fff45ce074820dc853f167bfb8ed999ef0561bd7be064eee9e5bce3a4f47f0"
         },
         "hardware/tracker/projects/tracker-1wire.md": {
             "date": "2023-03-17",
@@ -1423,8 +1423,8 @@
             "hash": "bfedda06f1a45b6c8df5e3fee1ea3bbe720bead343af38077a52feae9c362534"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2023-11-15",
-            "hash": "eaefb2c1282d66d31ce200d9aaca363ceda164de575ddf14863eab8db82e0e8d"
+            "date": "2023-11-21",
+            "hash": "f779e8c5427f21567bc4b95353378bfedcea4bd6259967bc800cf536f002b684"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2023-11-06",
@@ -8175,8 +8175,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "dcfc9a0c519c7610babac6edc7935ce23c0afb9e50910764e3b40c8435327c27",
-            "date": "2023-11-16"
+            "hash": "444324229dec3be1f46562ab96b3c10897dd8692acfd83f427ec8da323e5f851",
+            "date": "2023-11-21"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "7effe685fc1a5f8aa9f4f4abbfe2b5087968ddf2f88f962bc12f6fdf405005e8",
-            "date": "2023-11-20"
+            "hash": "f8feefee2205f1dae4b0cfc6d1b05264983d8f5a84a6362837da8b5ae4343e19",
+            "date": "2023-11-21"
         },
         "getting-started/cloud/logic.md": {
             "hash": "9442c21b6e5b5dec2333671367008037657833b01f3fa44b6b80857f008fb600",

@@ -21214,7 +21214,7 @@
     {
       "name": "MON404E01C01KIT",
       "desc": "Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
       "wholesale": false,

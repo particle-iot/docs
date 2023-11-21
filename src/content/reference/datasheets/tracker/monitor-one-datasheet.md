@@ -13,8 +13,6 @@ description: Monitor One Datasheet
 
 {{imageOverlay src="/assets/images/monitor-one/monitor-one-closed.jpg" alt="Front view" class="full-width no-darken"}}
 
-*The pictures in this preliminary datasheet are of a pre-release unit. The production units will be a different color, and may have other minor differences.*
-
 The Monitor One is an off-the-shelf complete gateway design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for an expansion card and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
 - **Ready to go** with rugged IP67-rated enclosure with room inside for an expansion card.
@@ -28,6 +26,8 @@ The Monitor One is an off-the-shelf complete gateway design, like the Tracker On
 Particle gateway device like the Monitor One and Tracker One are designed to be used off-the-shelf to interface to other devices and sensors using standard protocols such as CAN bus, I2C, and serial.
 
 For information on setting up a Monitor One Developer Edition, see the [Monitor One Quickstart](/quickstart/monitor-one/).
+
+*The pictures in this datasheet are of a pre-release unit.*
 
 ## Block diagram
 
@@ -984,7 +984,7 @@ To be provided at a later date.
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | In development | |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | GA | |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | In development | |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | &check; | In development | |
 

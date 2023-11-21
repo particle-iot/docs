@@ -21,6 +21,14 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Monitor One GA 2023-11-21
+
+The Monitor One (MON404E01C01KIT) is now generally available.
+
+### Import devices 2023-11-20
+
+Fixed a bug in the [Import devices tool](/tools/cloud-tools/import-devices/) where the device was marked as development if the checkbox was unchecked instead of checked.
+
 ### Tracker datasheet update 2023-11-20
 Added link to footprint Eagle CAD library, and also information on the restrict areas under the SoM to the [Tracker SoM datasheet](/reference/datasheets/tracker/tracker-som-datasheet/#footprint).
 
