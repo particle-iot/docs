@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Web device doctor antenna option 2023-11-27
+
+The [web device doctor](/tools/doctor/), when used with the P2 and Photon 2, now has an option in Advanced Options for selecting the Wi-Fi antenna 
+(internal, external, or leave unchanged).
+
 ### Monitor One GA 2023-11-21
 
 The Monitor One (MON404E01C01KIT) is now generally available.
