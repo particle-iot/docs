@@ -651,11 +651,11 @@
             "hash": "09fe09cf7d2670d8b814c109837f47e1f85c18c163cb166505ea117825bb5d57"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2023-11-21",
+            "date": "2023-11-22",
             "hash": "d2dc0cd0e7c4694fd718e32043c594d85ebacb5c6eb250709edc6c04f2de7a60"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2023-11-21",
+            "date": "2023-11-22",
             "hash": "00a1a0f3f8dcb5df0137c63e4bfbc45367bba509a2201d4b9e93029d5f500057"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
@@ -935,7 +935,7 @@
             "hash": "2b03f6ddec65aa030320fdb43762408d33d6eba7dc18cfc1bf2d4cfb2225fded"
         },
         "hardware/certification/antenna.md": {
-            "date": "2023-11-21",
+            "date": "2023-11-22",
             "hash": "a473e89c888ebe75332ff99c68a11662dd0885539e2bc45a42d41eb74d30f901"
         },
         "hardware/certification/battery-certification.md": {
@@ -1015,7 +1015,7 @@
             "hash": "2f7683ea581a1bf970cced6dff5cf7df224807c2e7ca8ab6e4ca6925d7a0e5a3"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
-            "date": "2023-11-21",
+            "date": "2023-11-22",
             "hash": "ee4735c7e2b531b9fb8c93fe40bbbbcfc1c8106618fe689d39769d68eee85ddf"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
@@ -1423,7 +1423,7 @@
             "hash": "bfedda06f1a45b6c8df5e3fee1ea3bbe720bead343af38077a52feae9c362534"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2023-11-21",
+            "date": "2023-11-22",
             "hash": "6bb4f41a230f436e5c8ef59ef7d5c67f6056452a11f90b77c9a882073e487e38"
         },
         "reference/datasheets/tracker/tracker-one.md": {
@@ -1507,8 +1507,8 @@
             "hash": "6f1839fec624aef7273a1796f976193bc448932e4e8203302727e706106dba37"
         },
         "troubleshooting/connectivity/cloud-debug.md": {
-            "date": "2023-11-13",
-            "hash": "28a01faba42f275f3d9e03ccf2d9b6efe32c1ec052976d9958de41ce8ec4efda"
+            "date": "2023-11-27",
+            "hash": "6191122c94cf465dd21ebd6dbac6d165b6594d1580e2aac155431ff8f34f8b91"
         },
         "troubleshooting/connectivity/interpreting-cloud-debug-2.md": {
             "date": "2023-03-17",
@@ -8176,7 +8176,7 @@
         },
         "hardware/best-practices/serial-number.md": {
             "hash": "b4f5428add71e1454a31f5c87650faa302337b8055bf5f503e42ba1487f6b8f3",
-            "date": "2023-11-21"
+            "date": "2023-11-22"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
