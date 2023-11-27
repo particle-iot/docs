@@ -1016,7 +1016,8 @@
       "id": 32,
       "gen": 3,
       "mcu": "RTL8721",
-      "wifi": true
+      "wifi": true,
+      "wifiSelectAntenna": true
     },
     {
       "name": "msom",

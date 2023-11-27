@@ -120,6 +120,11 @@
                         <p class="hasEthernetRow"><label><input type="checkbox" class="doctorUseEthernet"/>Use Ethernet for connectivity</label></p>
                         <p><label><input type="checkbox" class="doctorSetKeepAliveCheckbox"/>Set keep-alive to </label> <input type="text" size="6" value="120" class="doctorKeepAliveInput" /> seconds</p>
                         <p class="hasWiFiRow" style="display:none;"><label><input type="checkbox" class="doctorSetupWiFi"/>Setup Wi-Fi network credentials</label></p>
+                        <p class="hasAntennaRow" slot="display:none;">Wi-Fi Antenna <select class="doctorDeviceWiFiAntenna apiHelperSelect">
+                            <option value="255">Leave unchanged</option>
+                            <option value="0">Select Internal</option>
+                            <option value="1">Select External</option>
+                            </select></p>
                     </details>
                 </div>
                 <div class="setupMode">

@@ -2665,6 +2665,8 @@ $(document).ready(function() {
             const doctorForceVersionElem = $(thisElem).find('.doctorForceVersion');
             const doctorDeviceOsVersionElem = $(thisElem).find('.doctorDeviceOsVersion');
             const hasWiFiRowElem = $(thisElem).find('.hasWiFiRow');
+            const hasAntennaRowElem = $(thisElem).find('.hasAntennaRow');
+            const doctorDeviceWiFiAntennaElem = $(thisElem).find('.doctorDeviceWiFiAntenna');
 
             // Product mode
             const productModeTableBodyElem = $(thisElem).find('.productModeTableBody');
@@ -2888,6 +2890,13 @@ $(document).ready(function() {
             }
             else {
                 $(hasWiFiRowElem).hide();
+            }
+
+            if (deviceInfo.platformVersionInfo.wifiSelectAntenna) {
+                $(hasAntennaRowElem).show();
+            }
+            else {
+                $(hasAntennaRowElem).hide();
             }
 
 
@@ -3286,6 +3295,13 @@ $(document).ready(function() {
                     if ($(doctorSetKeepAliveCheckboxElem).prop('checked')) {
                         setupOptions.keepAlive = parseInt($(doctorKeepAliveInputElem).val());
                     }
+
+                    if (deviceInfo.platformVersionInfo.wifiSelectAntenna) {
+                        setupOptions.wifiSelectAntenna = parseInt($(doctorDeviceWiFiAntennaElem).val());
+                        if (setupOptions.wifiSelectAntenna != 255) {
+                            analytics.track('Doctor setting antenna', {category:gaCategory, label:setupOptions.wifiSelectAntenna});
+                        }
+                    }
                     
                     apiHelper.setCommonDevice(deviceInfo.deviceId);
 
@@ -3328,6 +3344,14 @@ $(document).ready(function() {
                 if (mode == 'doctor' || mode == 'setup') {
                     showInfoTable();
                     setInfoTableItem('deviceId', deviceInfo.deviceId);
+
+                    if (typeof setupOptions.wifiSelectAntenna != 'undefined' && setupOptions.wifiSelectAntenna != 255) {
+                        reqObj = {
+                            op: 'wifiSelectAntenna',
+                            ant: setupOptions.wifiSelectAntenna,
+                        };
+                        await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                    }
 
                     if (setupOptions.ethernet) {
                         reqObj = {
@@ -3377,6 +3401,7 @@ $(document).ready(function() {
                 return;
             }
             setSetupStep('setupStepConfigureWiFi');
+
 
             $(thisElem).find('.networkTable > tbody').html('');
 
