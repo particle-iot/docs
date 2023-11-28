@@ -8297,6 +8297,10 @@
         "getting-started/logic-ledger/data-transformation.md": {
             "hash": "a3320ece65eadbda045bdde6e0bbb032651fa4bbff42ffe44a3fb4e3cdc50fb5",
             "date": "2024-01-07"
+        },
+        "hardware/tracker/monitor-projects/sensor-tutorial.md": {
+            "hash": "1bce121e71478d431494c8d8770ff370acf73caa4b8395e2903c9aee34bdb16f",
+            "date": "2023-11-28"
         }
     }
 }

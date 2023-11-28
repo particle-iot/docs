@@ -130,6 +130,18 @@
         }
       ],
       {
+        "dir": "monitor-projects",
+        "title": "Monitor One Projects",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "sensor-tutorial",
+          "title": "Sensor tutorial - Monitor One",
+          "href": "/hardware/tracker/monitor-projects/sensor-tutorial/"
+        }
+      ],
+      {
         "dir": "tracker-som",
         "isSection": true
       },
