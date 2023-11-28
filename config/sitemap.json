@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-10-18",
-            "hash": "4e37eec5d1f9bf66dc859b7ea5499a9183148d5ca8db178d9a3473cca79965c3"
+            "date": "2023-11-28",
+            "hash": "ebc5708eca957fa55b954d9e41e770abca2b0e46d2a30cec6c57a3e9fb114eb5"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2127,8 +2127,8 @@
             "hash": "7b4a1240d1419a981e22ab2f74462256da5e90bc470e5eaad6b70b17e76e25bf"
         },
         "reference/device-os/api/network/networkinterfaceconfig.md": {
-            "date": "2023-10-18",
-            "hash": "16ad0e2272347822a0c39e8b992e8b6d0a58bb6d1e7f8e47013b15ed13e32856"
+            "date": "2023-11-28",
+            "hash": "07b8e080feccc404f766c583a7f28dea91810f19351c3778813dbb003e67b331"
         },
         "reference/device-os/api/softap-http-pages/softap-http-pages.md": {
             "date": "2023-09-20",
