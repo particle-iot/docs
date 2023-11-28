@@ -26,6 +26,8 @@ You can connect large numbers of sensors over fairly long wires, up to tens of m
 Unlike I2C, which has fixed 7-bit addresses, 1-Wire has a unique 64-bit address assigned at the factory. Every sensor 
 manufactured has a unique ID, and thus can be connected to a single bus and individually addressed without hardware configuration.
 
+While it's possible to implement 1-Wire in software only on the Tracker SoM, using an I2C to 1-Wire bridge chip (DS2482-100) 
+greatly simplifies the software and provides fully asynchronous operation. 
 
 ## Creating a board
 
@@ -33,6 +35,8 @@ manufactured has a unique ID, and thus can be connected to a single bus and indi
 ### Design
 
 The design files for Eagle CAD can be found in a zip file [here](/assets/files/projects/monitor-one-sensor-hardware.zip).
+
+It's based on the [Monitor One prototype card](https://github.com/particle-iot/monitor-one) design, but without the PTH prototyping area. It also has different switches for the RESET and MODE buttons (optional), and of course the circuitry for the DS2482-100.
 
 #### Schematic 
 {{imageOverlay src="/assets/files/projects/monitor-one-sensor-hardware/mon-one-exp-1wire_p1.png" large="/assets/files/projects/monitor-one-sensor-hardware/mon-one-exp-1wire_p1.svg" alt="Schematic"}}
@@ -58,11 +62,13 @@ The design files for Eagle CAD can be found in a zip file [here](/assets/files/p
 
 ### Assembly
 
-This board is simple enough to pick-and-place by hand.
+You can order a board from a service like [OshPark](https://oshpark.com). This board was ordered from [JLCPCB](https://jlcpcb.com).
+
+This board is simple enough to pick-and-place the components by hand.
 
 The example was built using solder paste applied with a stencil, but the pads are big enough that you could just use a dispenser tip instead of a stencil.
 
-The example was reflowed using an inexpensive T962 reflow oven, but could be soldered using a hot air rework gun or even a soldering iron because the smallest parts of SOIC-8 with exposed leads.
+The example was reflowed using an inexpensive T962 reflow oven, but could be soldered using a hot air rework gun or even a soldering iron because the smallest parts is SOIC-8 with exposed leads. The 0603 capacitor and qwiic I2C connector might be a little difficult to solder with a soldering iron.
 
 {{imageOverlay src="/assets/images/monitor-one-sensor/board.jpeg" alt="Assembled board"}}
 
@@ -72,9 +78,44 @@ Note: the images above show resistors next to the DS2482-100, which were acciden
 
 ### Testing
 
-
+Whenever you have a custom board, it's always useful to have test firmware specifically for making sure your hardware works.
 
 {{> project-browser project="monitor-one-sensor-test" default-file="src/MonitorOneTest1.cpp" height="400" flash="true"}}
+
+
+This test firmware implements an I2C scanner, to determine which I2C devices are on the bus. There should be four devices on the I2C bus. 
+The ADP8866 and STS31 are on the Monitor One base board, and the DS2482 and 24CW640 are located on the expansion card.
+
+```
+0002240000 [app] INFO: Starting I2C scan...
+0002240010 [app] INFO: DS2482 I2C to 1-Wire found (I2C address 0x18)
+0002240017 [app] INFO: ADP8866 User LED driver found (I2C address 0x27)
+0002240033 [app] INFO: STS31 temperature sensor found (I2C address 0x4a)
+0002240036 [app] INFO: 24CW640 EEPROM found (I2C address 0x50)
+```
+
+It tests the EEPROM contents. In this case, the chip was new and erased.
+
+```
+0002240063 [app] INFO: eeprom appears to be erased (first 64 bytes are 0xff)
+```
+
+It also implements a 1-Wire scanner, assuming the DS2482 is found.
+
+```
+0002240066 [app] INFO: DeviceReset status=1
+0002240066 [app] INFO: deviceReset=1
+0002240069 [app] INFO: 1WireReset status=1
+0002240144 [app] INFO: SearchBus status=1 deviceCount=1
+0002240144 [app] INFO: Found 1 devices
+0002240147 [app] INFO: 1WireReset status=1
+0002240903 [app] INFO: ConvertT status=1
+0002240906 [app] INFO: 1WireReset status=1
+0002240951 [app] INFO: ReadScratchpad completed status=1
+0002240951 [app] INFO: GetTemperatureForList status=1
+0002240952 [app] INFO: got temperatures!
+0002240953 [app] INFO: 970000080b049928 valid=1 C=23.187500 F=73.737503
+```
 
 
 ## Monitor Edge firmware
