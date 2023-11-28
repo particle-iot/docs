@@ -128,7 +128,6 @@ carriers2.selectMenu = function() {
     });
 
     let warnRoaming = false;
-    let warnTMobile = false;
     let warnVerizon = false;
 
     countryCarrierFiltered.forEach(function(ccObj) {
@@ -188,13 +187,6 @@ carriers2.selectMenu = function() {
         $('#' + carriers2.options.table + ' > tbody').append(html);
 
     });
-
-    if (warnTMobile) {
-        $('#byDeviceTMobileWarning').show();
-    }
-    else {
-        $('#byDeviceTMobileWarning').hide();        
-    }
 
     if (warnRoaming) {
         $('#byDeviceRoamingWarning').show();
@@ -436,10 +428,6 @@ rec2.selectMenu = function() {
             modemObj.technologies.forEach(function(tech) {
                 const allow = ccObj[etherSimObj.simPlanKey]['allow' + tech];
                 html += '<td class="technologyCell">' + (!!allow ? '\u2705' : '&nbsp;');
-                if (allow == 5) {
-                    html += '<sup>5</sup>';
-                    carrierOptions.showFootnote5 = true;
-                }
                 if (allow == 7) {
                     html += '<sup>7</sup>';
                     carrierOptions.showFootnote7 = true;
@@ -456,11 +444,6 @@ rec2.selectMenu = function() {
     };
 
     const generateFootnotes = function() {
-        if (carrierOptions.showFootnote5) {
-            html += '<p style="font-size: small;"><sup>5</sup>T-Mobile in the United States only officially supports ' +
-            'LTE Cat NB1, which is not supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas, ' +
-            'and where enabled, this device can connect to it. </p>';             
-        }
         if (carrierOptions.showFootnote7) {
             html += '<p style="font-size: small;"><sup>7</sup>Verizon in the United States is only supported on enterprise plans.</p>';             
         }
@@ -1038,7 +1021,6 @@ countryDetails.generateTable = function(options) {
             noPlan:'2',
             noBandNoPlan:'3',
             warnM1:'4',
-            warnTMobile: '5',
             warnVerizon: '7',
         },
         footnotesDiv: footnotesDivId, // countryDetails.options.footnotesDiv,

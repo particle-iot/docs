@@ -2096,7 +2096,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | :--- | :--- | :--- |
 | Canada | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Mexico | M1 | AT&T, Telcel |
-| United States | M1 | AT&T, T-Mobile (USA)<sup>5</sup>, Verizon<sup>7</sup> |
+| United States | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

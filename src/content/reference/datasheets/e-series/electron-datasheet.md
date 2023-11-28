@@ -774,7 +774,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Uganda | ELC314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | ELC314 | 2G, 3G | Kyivstar, Life, MTS |
 | United Kingdom | ELC314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
-| United States | ELC404 | M1 | AT&T, T-Mobile (USA)<sup>5</sup> |
+| United States | ELC404 | M1 | AT&T, T-Mobile (USA) |
 | Uruguay | ELC314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | ELC314 | 2G, 3G | Beeline |
 | Venezuela | ELC314 | 2G, 3G | Movistar |
@@ -784,8 +784,6 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 
 
 {{!-- END do not edit content above, it is automatically generated 0ca3e34e-76e2-11eb-9439-0242ac130002 --}}
-
-<sup>5</sup>T-Mobile in the United States only officially supports LTE Cat NB1, which is not supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas, and where enabled, this device can connect to it.
 
 ---
 ## Ordering information

@@ -1308,14 +1308,12 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Tunisia | T524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
 | Uganda | T524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | T524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
-| United States | T404 | M1 | AT&T, T-Mobile (USA)<sup>5</sup>, Verizon<sup>7</sup> |
+| United States | T404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 | Vietnam | T524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
 | Zambia | T524 | 2G, 3G, Cat1 | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated 8e7b0446-76de-11eb-9439-0242ac130002 --}}
-
-<sup>5</sup>T-Mobile in the United States only officially supports LTE Cat NB1, which is not supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas, and where enabled, this device can connect to it.
 
 <sup>7</sup>Verizon in the United States is only supported on enterprise plans.
 

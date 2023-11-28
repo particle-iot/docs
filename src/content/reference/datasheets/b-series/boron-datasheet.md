@@ -664,8 +664,8 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Uganda | BRN314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | BRN314 | 2G, 3G | Kyivstar, Life, MTS |
 | United Kingdom | BRN314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
-| United States | BRN404 | M1 | AT&T, T-Mobile (USA)<sup>5</sup>, Verizon<sup>7</sup> |
-| United States | BRN404X | M1 | AT&T, T-Mobile (USA)<sup>5</sup>, Verizon<sup>7</sup> |
+| United States | BRN404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+| United States | BRN404X | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 | Uruguay | BRN314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | BRN314 | 2G, 3G | Beeline |
 | Venezuela | BRN314 | 2G, 3G | Movistar |
@@ -675,8 +675,6 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 
 
 {{!-- END do not edit content above, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
-
-<sup>5</sup>T-Mobile in the United States only officially supports LTE Cat NB1, which is not supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas, and where enabled, this device can connect to it.
 
 <sup>7</sup>Verizon in the United States is only supported on enterprise plans.
 

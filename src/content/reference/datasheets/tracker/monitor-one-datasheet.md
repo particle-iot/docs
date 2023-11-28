@@ -963,14 +963,12 @@ To be provided at a later date.
 | Tunisia | MON524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
 | Uganda | MON524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | MON524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
-| United States | MON404 | M1 | AT&T, T-Mobile (USA)<sup>5</sup>, Verizon<sup>7</sup> |
+| United States | MON404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 | Vietnam | MON524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
 | Zambia | MON524 | 2G, 3G, Cat1 | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
-
-<sup>5</sup>T-Mobile in the United States only officially supports LTE Cat NB1, which is not supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas, and where enabled, this device can connect to it.
 
 <sup>7</sup>Verizon in the United States is only supported on enterprise plans.
 

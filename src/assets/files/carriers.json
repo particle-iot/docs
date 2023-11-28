@@ -18145,7 +18145,7 @@
         "allow2G": true,
         "allow3G": false,
         "allowCat1": true,
-        "allowM1": 5,
+        "allowM1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },

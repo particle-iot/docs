@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### T-Mobile USA LTE Cat M1 2023-11-28
+
+T-Mobile's support for LTE Cat M1 (not just LTE Cat NB IoT) in the United States is now official so the footnote has been removed.
+
 ### Web device doctor antenna option 2023-11-27
 
 The [web device doctor](/tools/doctor/), when used with the P2 and Photon 2, now has an option in Advanced Options for selecting the Wi-Fi antenna 
