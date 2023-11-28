@@ -122,6 +122,7 @@ from the product team.
 |          **Team**          |                       |               |           |         |           |
 |      View Product team     | &check;               | &check;       | &check;   | &check; | &check;   |
 | Manage Product team        | &check;               | &check;       |           |         |           |
+| Create Product API users   | &check;               | &check;       |           |         |           |
 |         **Fleet Health**   |                       |               |           |         |           |
 | View fleet health          | &check;               | &check;       | &check;   | &check; | &check;   |
 |         **Devices**        |                       |               |           |         |           |
@@ -176,6 +177,7 @@ from the product team.
 |                **Team**                    |                       |               |           |         |           |
 | View org team                              | &check;               | &check;       | &check;   | &check; | &check;   |
 | Manage org team                            | &check;               | &check;       |           |         |           |
+| Create org API users                       | &check;               | &check;       |           |         |           |
 |           **Owned Products**               |                       |               |           |         |           |
 | Create new Product                         | &check;               | &check;       | &check;   |         |           |
 | Administrator role for all Products in org | &check;               | &check;       |           |         |           |
