@@ -26,6 +26,7 @@ $(document).ready(function() {
         localStorage.removeItem('apiHelperOrg')
         localStorage.removeItem('apiHelperLocalLogin');
         localStorage.removeItem('apiHelperTestLogin');
+        localStorage.removeItem('savedSearch');
 
         if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {
             analytics.track('Logged Out Local', {category:eventCategory});

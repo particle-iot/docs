@@ -1287,7 +1287,7 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-11-16",
+            "date": "2023-11-28",
             "hash": "ebc5708eca957fa55b954d9e41e770abca2b0e46d2a30cec6c57a3e9fb114eb5"
         },
         "reference/device-os/pin-info.md": {
@@ -2127,7 +2127,7 @@
             "hash": "7b4a1240d1419a981e22ab2f74462256da5e90bc470e5eaad6b70b17e76e25bf"
         },
         "reference/device-os/api/network/networkinterfaceconfig.md": {
-            "date": "2023-11-15",
+            "date": "2023-11-28",
             "hash": "07b8e080feccc404f766c583a7f28dea91810f19351c3778813dbb003e67b331"
         },
         "reference/device-os/api/softap-http-pages/softap-http-pages.md": {
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "235a8756bf78e8091d3f47d46b0bbadd7ed69caa76da770412487333de957a97",
-            "date": "2023-11-28"
+            "hash": "c9582a8e8a5560d0ba584bdb427ffe9ef80187128705de03ad9d5fb3d4e18b33",
+            "date": "2023-11-29"
         },
         "getting-started/cloud/logic.md": {
             "hash": "9442c21b6e5b5dec2333671367008037657833b01f3fa44b6b80857f008fb600",

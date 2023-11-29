@@ -21,6 +21,14 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### New search 2023-11-28
+
+The new docs search is now available by clicking on the magnifying glass icon in the top navigation menu. 
+- Vastly improved result quality.
+- Clicking on a link then using Back brings you back to the search results. A checkmark next to the item shows which ones you've already visited in this session.
+- Closing the search overlay and opening it again brings back your last search results.
+- Search is now powered by Google but requests are anonymous, not tagged with your Particle account or Google account.
+
 ### T-Mobile USA LTE Cat M1 2023-11-28
 
 T-Mobile's support for LTE Cat M1 (not just LTE Cat NB IoT) in the United States is now official so the footnote has been removed.
