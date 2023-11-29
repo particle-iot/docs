@@ -518,7 +518,7 @@ $(document).ready(async function() {
 
             const options = ($(thisPartial).data('options') || '').split(',');
 
-            if (options.includes('noDownloadUpload')) {
+            if (options.includes('noDownloadUpload') || options.includes('selectOnly')) {
                 $(thisPartial).find('.noDownloadUpload').hide();
             }
 
@@ -546,7 +546,7 @@ $(document).ready(async function() {
             }
 
             const alwaysBackup = options.includes('backup');
-            if (alwaysBackup) {
+            if (alwaysBackup || options.includes('selectOnly')) {
                 $(thisPartial).find('.alwaysBackup').hide();
             }
 
