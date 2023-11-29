@@ -264,7 +264,7 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &nbsp; | ANT-FLXV2 | &check; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &nbsp; | ANT-FLXV2 | &check; | NRND|
-| Argon, Tray [x50] | ARGNTRAY50 | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
+| Argon, Tray [x50] | ARGNTRAY50 | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Edge ML Kit for Photon 2 (Photon 2 included) | PHN2EDGEKIT | trace | 4 | &nbsp; | GA|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | 1 | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | 1 | &nbsp; | &nbsp; | In development|
@@ -369,7 +369,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
-| Argon, Tray [x50] | ARGNTRAY50 | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Argon, Tray [x50] | ARGNTRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
 | B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &nbsp; | ANT-FLXV2 | &check; | NRND|
@@ -475,7 +475,7 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | &nbsp; | Deprecated|
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | &nbsp; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &check; | &nbsp; | NRND|
-| Argon, Tray [x50] | ARGNTRAY50 | &check; | &nbsp; | NRND|
+| Argon, Tray [x50] | ARGNTRAY50 | &check; | &nbsp; | Deprecated|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | &nbsp; | GA|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &check; | &nbsp; | GA|
 | B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | &nbsp; | NRND|

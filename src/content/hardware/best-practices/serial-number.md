@@ -82,7 +82,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | ARG-STRTKT | Argon Starter Kit [x1] | NRND | P010 |
 | ARGN-H | Argon [x1] | Deprecated | ARNH |
 | ARGNKIT | Argon, Starter Kit  [x1] | NRND | ARNK |
-| ARGNTRAY50 | Argon, Tray [x50] | NRND | ARNT |
+| ARGNTRAY50 | Argon, Tray [x50] | Deprecated | ARNT |
 | ASSET2GV2 | Asset Tracker 2G | Deprecated | A35K |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Deprecated | A26K |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | Deprecated | A27K |
@@ -190,7 +190,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | A35K | ASSET2GV2 | Asset Tracker 2G | Deprecated |
 | ARNH | ARGN-H | Argon [x1] | Deprecated |
 | ARNK | ARGNKIT | Argon, Starter Kit  [x1] | NRND |
-| ARNT | ARGNTRAY50 | Argon, Tray [x50] | NRND |
+| ARNT | ARGNTRAY50 | Argon, Tray [x50] | Deprecated |
 | B31K | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Deprecated |
 | B31T | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | NRND |
 | B40H | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | Deprecated |

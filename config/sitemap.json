@@ -935,16 +935,16 @@
             "hash": "2b03f6ddec65aa030320fdb43762408d33d6eba7dc18cfc1bf2d4cfb2225fded"
         },
         "hardware/certification/antenna.md": {
-            "date": "2023-11-22",
-            "hash": "a473e89c888ebe75332ff99c68a11662dd0885539e2bc45a42d41eb74d30f901"
+            "date": "2023-11-29",
+            "hash": "61990758f60ba2306783e4e709d4b3ddfba34eb7360028a299a99264439eb7e8"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2023-11-16",
-            "hash": "482147f869ab7452727fbfd40fa56aca066d153cfef47d7f24e79272e71c5e84"
+            "date": "2023-11-29",
+            "hash": "ea28e758a0a8c2766000293e6a503d42067c9328143cae3fac1a25171b7f0332"
         },
         "hardware/certification/certification.md": {
             "date": "2023-11-06",
@@ -1323,8 +1323,8 @@
             "hash": "341e5565fbfa1a2547b6d8301ebc58d323852c7da3f8576eda3de3f44449dc28"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
-            "date": "2023-10-19",
-            "hash": "8a8833b58519b11ff682d9d8a85c300d5661e0aa82ceea0ae273dac445073e74"
+            "date": "2023-11-29",
+            "hash": "e9bc9d610c1d46282fcbcd6d0918d0177713ae14f85eddcf2f3ba538fba1f890"
         },
         "reference/product-lifecycle/product-lifecycle-stages.md": {
             "date": "2023-03-17",
@@ -1399,8 +1399,8 @@
             "hash": "093dd691ca2bb65def83cc6a0655b4b8742bc4a7c65f1d9f2d96fbd3aa474673"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
-            "date": "2023-11-16",
-            "hash": "c0291247a2d138657909d2efdde687ac7750b4062066494c6d6bdd46af610d92"
+            "date": "2023-11-29",
+            "hash": "f1b2d7298700b8d07f5f2ab7905d9b9de2227cec344128b56b2ed01b8d2b58f6"
         },
         "reference/datasheets/wi-fi/p1-datasheet.md": {
             "date": "2023-11-06",
@@ -8175,8 +8175,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "b4f5428add71e1454a31f5c87650faa302337b8055bf5f503e42ba1487f6b8f3",
-            "date": "2023-11-22"
+            "hash": "cf1d80a07883c14f275578104c2735a2314fa2804c2014ca2cc9ba7d44ab5e7e",
+            "date": "2023-11-29"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c9582a8e8a5560d0ba584bdb427ffe9ef80187128705de03ad9d5fb3d4e18b33",
+            "hash": "dcd1104a0c012869388f2e060f720ffa0442a5fc028e2bed88a50925ac082be3",
             "date": "2023-11-29"
         },
         "getting-started/cloud/logic.md": {

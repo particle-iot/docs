@@ -19406,7 +19406,7 @@
     {
       "name": "ARGNTRAY50",
       "desc": "Argon, Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "3",
