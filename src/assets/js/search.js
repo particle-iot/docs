@@ -74,7 +74,8 @@ $(document).ready(function() {
     const checkButtonEnable = function() {
         const query = $('.searchOverlayQueryInput').val();
 
-        $('.searchOverlaySearchButton').prop('disabled', (query.length == 0));
+        $('.searchOverlaySearchButton').prop('disabled', (query.length == 0));        
+        $('.searchOverlayClearButton').prop('disabled', (query.length == 0));
     }
     checkButtonEnable();
 
