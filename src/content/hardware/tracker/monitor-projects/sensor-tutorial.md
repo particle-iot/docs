@@ -2,8 +2,9 @@
 title: Sensor tutorial - Monitor One
 layout: commonTwo.hbs
 columns: two
-includeDefinitions: [api-helper,api-helper-projects,api-helper-tracker,zip]
+includeDefinitions: [api-helper, api-helper-config, api-helper-extras, api-helper-json, api-helper-projects, api-helper-tracker, codemirror, zip]
 ---
+
 
 # {{title}}
 
@@ -16,6 +17,16 @@ This is an example of how to:
 While the specific implementation, using one or more DS18B20 1-Wire temperature sensors and a DS2482-100 I2C to 1-Wire bridge 
 may not be what you need for your project, the general concepts apply to many types of sensors and other things you may
 want to interface using a Monitor One expansion card.
+
+To use the interactive tools in this tutorial you must log into your Particle account.
+
+{{> sso}}
+
+It's highly recommended that you create a new product to run this tutorial. It can be difficult to completely remove 
+a custom configuration from both the cloud and devices, and will result in a warning every time you make a change in the 
+console after removing the custom configuration schema from a product.
+
+{{> tracker-select-product options="platform=26,monitor,name=monitor"}}
 
 ## About 1-Wire
 

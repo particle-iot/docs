@@ -2718,7 +2718,24 @@ $(document).ready(function() {
         }
         // sandboxOnly - don't show org options even if the account is in an org
         // status - show status row
+        // platform=<number> - Use platform instead of prompting the user for it
 
+        console.log('partialOptions', partialOptions);
+
+        let forcePlatform;
+        let forceName;
+
+        for(const opt of partialOptions) {
+            let m = opt.match(/^platform=([0-9]+)/);
+            if (m) {
+                forcePlatform = parseInt(m[1]);
+            }
+            m = opt.match(/^name=(.*)/);
+            if (m) {
+                forceName = m[1];
+            }
+        }
+        console.log('forceName=' + forceName);
         if (partialOptions.includes('status')) {
             $(thisPartial).show('.statusRow');
         }
@@ -2766,6 +2783,10 @@ $(document).ready(function() {
             return;
         }
 
+        if (!forcePlatform) {
+            $(thisPartial).find('.hasPlatformSelector').show();
+        }
+
         $(document).on('deviceSelected', function(event, deviceObj) {
             $(platformSelectElem).val(deviceObj.platform_id.toString());
             $(platformSelectElem).trigger('change');
@@ -2775,14 +2796,15 @@ $(document).ready(function() {
             if (!options) {
                 options = {};
             }
+
             const platformIdStr = $(platformSelectElem).val();
             if (platformIdStr == '-') {
                 // No settings selected yet
                 return options;
             }
 
-            options.platformId = parseInt(platformIdStr);
-
+            options.platformId = parseInt(platformIdStr);    
+        
             if (productSelector.orgs.length && !partialOptions.includes('sandboxOnly')) {
                 // Has organizations
 
@@ -2889,10 +2911,11 @@ $(document).ready(function() {
 
             const platformIdStr = $(platformSelectElem).val();
             if (platformIdStr == '-') {
-                // No platform selected
-                return;
+                // No settings selected yet
+                return options;
             }
-            const platformId = parseInt(platformIdStr);
+
+            const platformId = parseInt(platformIdStr);                
 
             $(orgSelectorRowElem).hide();
             $(sandboxOrgRowElem).hide();    
@@ -3016,7 +3039,6 @@ $(document).ready(function() {
             platforms.sort(function(a, b) {
                 return carriersJson.deviceConstants[a].displayName.localeCompare(carriersJson.deviceConstants[b].displayName);
             })
-
             for(const platformName of platforms) {
                 const platformObj = carriersJson.deviceConstants[platformName];
                 const optionElem = document.createElement('option');
@@ -3025,14 +3047,18 @@ $(document).ready(function() {
                 $(platformSelectElem).append(optionElem);    
             }
 
-            let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
-            if (settings.platformId) {
-                $(platformSelectElem).val(settings.platformId.toString());
+            if (!forcePlatform) {
+                let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+                if (settings.platformId) {
+                    $(platformSelectElem).val(settings.platformId.toString());
+                    $(platformSelectElem).trigger('change');
+                }
+            }
+            else {
+                $(platformSelectElem).val(forcePlatform.toString());
                 $(platformSelectElem).trigger('change');
             }
-
             setStatus('');
-
         });
 
         $(createProductButtonElem).on('click', function() {
@@ -3187,7 +3213,9 @@ $(document).ready(function() {
             for(const platformName in carriersJson.deviceConstants) {
                 const platformObj = carriersJson.deviceConstants[platformName];
                 if (platformObj.id == platformId) {
-                    $(productNameInputElem).val('test-' + platformObj.name + '-' + Math.floor(Math.random() * 99999));
+                    const name = forceName ? forceName : platformObj.name;
+
+                    $(productNameInputElem).val('test-' + name + '-' + Math.floor(Math.random() * 99999));
                 }
             }
 

@@ -361,6 +361,17 @@ $(document).ready(function() {
 
                 
     }));
+
+
+    $('.apiHelperTrackerSelectProduct').each(function() {
+        const thisPartial = $(this);
+
+        const setStatus = function(status) {
+            $(thisPartial).find('.apiHelperStatus').text(status);
+        };
+
+
+    });
 });
 
 
