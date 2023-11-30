@@ -2735,7 +2735,6 @@ $(document).ready(function() {
                 forceName = m[1];
             }
         }
-        console.log('forceName=' + forceName);
         if (partialOptions.includes('status')) {
             $(thisPartial).show('.statusRow');
         }
@@ -2953,8 +2952,10 @@ $(document).ready(function() {
                 return a.name.localeCompare(b.name);
             });
 
-            const lastSelected = $(productSelectElem).val();
+            let lastSelected = $(productSelectElem).val();
             $(productSelectElem).empty();
+
+            let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
 
             for(const product of productSelector.productsData.products) {
                 if (product.platform_id == platformId) {
@@ -2963,16 +2964,26 @@ $(document).ready(function() {
                     $(optionElem).text(product.name + ' (' + product.id + ')');
                     $(productSelectElem).append(optionElem);    
 
-                    let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
-                    if (settings.productId == product.id) {
-                        $(productSelectElem).val(product.id.toString());
+                    if (settings && settings.productId == product.id) {
                         $(newExistingRadioElem).prop('checked', false);
                         $(existingRadioElem).prop('checked', true);
                         $(createProductButtonElem).prop('disabled', true);
+                        lastSelected = product.id.toString();
                     }
-
                 }
             }
+            if (!lastSelected && forceName) {
+                for(const product of productSelector.productsData.products) {
+                    if (product.name.includes(forceName)) {
+                        $(newExistingRadioElem).prop('checked', false);
+                        $(existingRadioElem).prop('checked', true);
+                        $(createProductButtonElem).prop('disabled', true);
+                        lastSelected = product.id.toString();
+                        break;
+                    }
+                }
+            }
+
             if (lastSelected) {
                 $(productSelectElem).val(lastSelected);
             }
@@ -3213,9 +3224,9 @@ $(document).ready(function() {
             for(const platformName in carriersJson.deviceConstants) {
                 const platformObj = carriersJson.deviceConstants[platformName];
                 if (platformObj.id == platformId) {
-                    const name = forceName ? forceName : platformObj.name;
+                    const name = forceName ? forceName : ('test-' + platformObj.name);
 
-                    $(productNameInputElem).val('test-' + name + '-' + Math.floor(Math.random() * 99999));
+                    $(productNameInputElem).val(name + '-' + Math.floor(Math.random() * 99999));
                 }
             }
 
