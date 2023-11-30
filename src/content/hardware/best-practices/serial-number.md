@@ -92,7 +92,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NRND | P033 |
 | B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | GA | P042 |
 | B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA | P042 |
-| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | NRND | P019 |
+| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | Deprecated | P019 |
 | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | NRND | P020 |
 | B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | GA | P034 |
 | B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | GA | P034 |
@@ -218,7 +218,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P011 | ARG-AQKT | Argon Air Quality Monitor Kit [x1] | NRND |
 | P012 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | Deprecated |
 | P013 | ARG-LDKT | Argon Leak Detection Kit [x1] | Deprecated |
-| P019 | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | NRND |
+| P019 | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | Deprecated |
 | P020 | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | NRND |
 | P024 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | Deprecated |
 | P024 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Deprecated |

@@ -101,7 +101,7 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | ANTCW2EA | &nbsp; | GA|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | NRND|
+| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
@@ -372,7 +372,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Argon, Tray [x50] | ARGNTRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &nbsp; | ANT-FLXV2 | &check; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &nbsp; | ANT-FLXV2 | &check; | GA|
@@ -478,7 +478,7 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | Argon, Tray [x50] | ARGNTRAY50 | &check; | &nbsp; | Deprecated|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | &nbsp; | GA|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &check; | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | &nbsp; | NRND|
+| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | &nbsp; | Deprecated|
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &check; | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | &nbsp; | GA|

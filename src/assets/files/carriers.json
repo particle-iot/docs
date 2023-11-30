@@ -19718,7 +19718,7 @@
     {
       "name": "B523MEA",
       "desc": "B Series LTE CAT-1/3G/2G (Europe) [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "B524MEA",
       "modem": "EG91-E",
       "sim": 2,

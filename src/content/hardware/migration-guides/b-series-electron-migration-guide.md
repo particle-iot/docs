@@ -657,7 +657,7 @@ Both require an external cellular antenna.
 | :----- | :--- | :--------: | :------: | :--------: | :-------: |
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | ANTCW2EA | &nbsp; | GA|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | NRND|
+| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|

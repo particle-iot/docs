@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### SKU deprecation 2023-11-29
+
+The B523MEA and ARGNTRAY50 are deprecated. They were previously NRND until the stock was depleted, and that has occurred.
+
 ### New search 2023-11-28
 
 The new docs search is now available by clicking on the magnifying glass icon in the top navigation menu. 

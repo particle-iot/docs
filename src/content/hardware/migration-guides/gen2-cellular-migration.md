@@ -199,8 +199,8 @@ Even though the B Series SoM is more difficult to prototype with than the Boron,
 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404XMTY|
 | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | B404XMEA|
 | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
-| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E |  | NRND | B524MEA|
 | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E |  | NRND | B524MTY|
+| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E |  | Deprecated | B524MEA|
 
 
 {{!-- END do not edit content above, it is automatically generated 295a969b-7ffa-4f84-8234-7e4cb38d1f10 --}}
