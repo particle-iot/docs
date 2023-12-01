@@ -22,12 +22,21 @@ To use the interactive tools in this tutorial you must log into your Particle ac
 
 {{> sso}}
 
+### Create or use a product
+
 It's highly recommended that you create a new product to run this tutorial. It can be difficult to completely remove 
 a custom configuration from both the cloud and devices, and failing to do so will result in a warning every time you make a 
 change in the console after removing the custom configuration schema from a product. It's easier just to create a 
 product for this tutorial and delete it later. There is no charge for creating products.
 
 {{> tracker-select-product options="platform=26,monitor,name=test-monitor-sensor"}}
+
+
+### Add devices
+
+In order to use this tutorial, you should have at least one device in your product
+
+{{> test-product-device-list }}
 
 ## About 1-Wire
 

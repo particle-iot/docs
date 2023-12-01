@@ -3238,6 +3238,231 @@ $(document).ready(function() {
 
     });
 
+    $('.apiHelperTestProductDeviceList').each(function() {
+        const thisPartial = $(this);
+
+        const productIsSelectedElem = $(thisPartial).find('.productIsSelected');
+        const selectedProductCellElem = $(thisPartial).find('.selectedProductCell');
+        const statusMessageElem = $(thisPartial).find('.statusMessage');        
+        
+        const showSandboxSelectedElem = $(thisPartial).find('.showSandboxSelected');
+        const productDeviceTableElem = $(thisPartial).find('.productDeviceTable');
+        const sandboxDeviceTableElem = $(thisPartial).find('.sandboxDeviceTable');
+        const showSandboxDeviceCheckboxElem = $(thisPartial).find('.showSandboxDeviceCheckbox');
+        const addDevicesToProductButtonElem = $(thisPartial).find('.addDevicesToProductButton');
+
+    
+        const testProductDeviceList = {};;
+        $(thisPartial).data('testProductDeviceList', testProductDeviceList);
+
+        // const Elem = $(thisPartial).find('.');
+
+        const setStatus = function(s) {
+            $(statusMessageElem).text(s);
+        }
+
+        const productDeviceListChange = async function() {
+            let numSelected = 0;
+            for(const dev of testProductDeviceList.productDevices) {
+                if ($(dev.checkboxElem).prop('checked')) {
+                    numSelected++;
+                }
+            }
+            if (numSelected == 0) {
+                // $(addDevicesToProductButtonElem).prop('disabled', true);
+            }
+            else {
+                // $(addDevicesToProductButtonElem).prop('disabled', false);
+            }
+        }
+
+        /*
+                    const tableIsVisible = $(sandboxDeviceTableElem).is(':visible');
+            if (tableIsVisible) {
+                $(showSandboxSelectedElem).hide();
+                $(sandboxDeviceTableElem).find('tbody').empty();
+            }
+            else {
+
+        */
+        
+        const updateSandboxDevicePane = async function() {
+            const tableIsVisible = $(showSandboxDeviceCheckboxElem).prop('checked');
+            console.log('updateSandboxDevicePane ' + tableIsVisible)
+            if (!tableIsVisible) {
+                $(showSandboxSelectedElem).hide();
+                $(sandboxDeviceTableElem).find('tbody').empty();
+            }
+            else {
+                $(showSandboxSelectedElem).show();
+                const sandboxDevices = await apiHelper.getAllDevices({});
+                testProductDeviceList.sandboxDevices = [];
+
+                for(let dev of sandboxDevices) {
+                    if (dev.platform_id != testProductDeviceList.createOrSelectProduct.platformId) {
+                        // Different platform
+                        continue;
+                    }
+                    if (dev.product_id == testProductDeviceList.createOrSelectProduct.productId) {
+                        // Already in product
+                        continue;
+                    }
+                    console.log('dev', dev);
+
+                    
+                    const trElem = dev.trElem = document.createElement('tr');
+
+                    let tdElem = document.createElement('td');
+                    dev.checkboxElem = document.createElement('input');
+                    $(dev.checkboxElem).attr('type', 'checkbox');
+                    $(tdElem).append(dev.checkboxElem);
+                    $(trElem).append(tdElem);
+
+                    tdElem = document.createElement('td');
+                    $(tdElem).text(dev.id);
+                    $(trElem).append(tdElem);
+
+                    tdElem = document.createElement('td');
+                    $(tdElem).text(dev.name ? dev.name : '(none)');
+                    $(trElem).append(tdElem);
+
+                    tdElem = document.createElement('td');
+                    if (dev.product_id == dev.platform_id) {
+                        $(tdElem).text(dev.name ? dev.name : '(sandbox)');
+                    }
+                    else {
+                        $(tdElem).text(dev.product_id.toString());
+                    }
+                    $(trElem).append(tdElem);
+
+                    $(dev.trElem).on('click', function(ev) {
+                        $(dev.checkboxElem).prop('checked', !$(dev.checkboxElem).prop('checked'));
+                        sandboxDeviceListChange();
+                        ev.preventDefault();
+                    });
+
+
+                    $(sandboxDeviceTableElem).find('tbody').append(trElem);   
+                    
+                    testProductDeviceList.sandboxDevices.push(dev);
+                }
+            }
+        }
+
+        const updateProductDevices = async function() {
+            $(productDeviceTableElem).find('tbody').empty();
+            testProductDeviceList.productDevices = [];
+
+            const deviceList = await apiHelper.getAllDevices({productId:testProductDeviceList.createOrSelectProduct.productId });
+            for(const dev of deviceList) {                    
+                const trElem = dev.trElem = document.createElement('tr');
+
+                let tdElem = document.createElement('td');
+                dev.checkboxElem = document.createElement('input');
+                $(dev.checkboxElem).attr('type', 'checkbox');
+                $(tdElem).append(dev.checkboxElem);
+                $(trElem).append(tdElem);
+
+                tdElem = document.createElement('td');
+                $(tdElem).text(dev.id);
+                $(trElem).append(tdElem);
+
+                tdElem = document.createElement('td');
+                $(tdElem).text(dev.name ? dev.name : '(none)');
+                $(trElem).append(tdElem);
+
+                tdElem = document.createElement('td');
+                $(trElem).append(tdElem);
+
+                tdElem = document.createElement('td');
+                $(trElem).append(tdElem);
+
+                $(dev.trElem).on('click', function(ev) {
+                    $(dev.checkboxElem).prop('checked', !$(dev.checkboxElem).prop('checked'));
+                    productDeviceListChange();
+                    ev.preventDefault();
+                });
+
+                $(productDeviceTableElem).find('tbody').append(trElem);   
+                
+                testProductDeviceList.productDevices.push(dev);                
+            }
+            if (deviceList.length == 0) {
+                const trElem = document.createElement('tr');
+
+                let tdElem = document.createElement('td');
+                $(trElem).append(tdElem);
+
+                tdElem = document.createElement('td');
+                $(tdElem).prop('colspan', '4');
+                $(tdElem).text('Product has no devices');
+                $(trElem).append(tdElem);
+
+                $(productDeviceTableElem).find('tbody').append(trElem);   
+
+
+                $(showSandboxDeviceCheckboxElem).prop('checked', true);
+                await updateSandboxDevicePane();
+            }
+        }
+
+        const updateSettings = function(settings = apiHelper.manualSettings.get()) {
+
+            if (settings && settings.createOrSelectProduct && settings.createOrSelectProduct.productId) {
+                testProductDeviceList.createOrSelectProduct = settings.createOrSelectProduct;
+                console.log('testProductDeviceList.createOrSelectProduct', testProductDeviceList.createOrSelectProduct);
+                $(productIsSelectedElem).show();
+                $(selectedProductCellElem).text(testProductDeviceList.createOrSelectProduct.productName + ' (' + testProductDeviceList.createOrSelectProduct.productId + ')');
+                setStatus('');
+
+                updateProductDevices();
+            } 
+            else {
+                $(productIsSelectedElem).hide();
+                setStatus('Select the product to add the device to (above)');
+            }
+            if (settings && settings.deviceSelect && settings.deviceSelect.deviceId) {
+                $(deviceIdTextElem).val(settings.deviceSelect.deviceId);
+                updateButton();
+            }
+        }
+        updateSettings();
+
+        const sandboxDeviceListChange = function() {
+            let numSelected = 0;
+            for(const dev of testProductDeviceList.sandboxDevices) {
+                if ($(dev.checkboxElem).prop('checked')) {
+                    numSelected++;
+                }
+            }
+            if (numSelected == 0) {
+                $(addDevicesToProductButtonElem).prop('disabled', true);
+            }
+            else {
+                $(addDevicesToProductButtonElem).prop('disabled', false);
+            }
+        }
+
+        $(addDevicesToProductButtonElem).on('click', async function() {
+            // TODO: Add devices to product here!
+
+            await updateProductDevices();            
+        });
+
+
+        $(showSandboxDeviceCheckboxElem).on('click', async function() {
+            await updateSandboxDevicePane();            
+        });
+
+        $(document).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
+            console.log('settings update', settings);
+            updateSettings(settings);
+        });
+
+
+
+    });
+
 
 
     apiHelper.flattenObject = function(objIn) {

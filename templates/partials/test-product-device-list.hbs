@@ -1,0 +1,46 @@
+<div class="apiHelper apiHelperLoggedIn apiHelperTestProductDeviceList" data-options="{{options}}">
+    <div class="apiHelperBox">
+        <!-- api-helper, api-helper-extras, api-helper-usb -->
+        <div class="optionsDiv">
+            <table class="apiHelperTableNoMargin">
+                <tbody>            
+                    <tr class="productIsSelected" style="display:none;">
+                        <td>Selected Product</td>
+                        <td class="selectedProductCell"></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="productDeviceDiv" style="margin-top: 10px; margin-bottom: 10px;">
+            <table class="productDeviceTable apiHelperTableNoMargin productIsSelected" style="display:none;">
+                <thead>
+                    <th>&nbsp;</th>
+                    <th>Device ID</th>
+                    <th>Device Name</th>
+                    <th>Claimed?</th>                   
+                    <th>Development?</th>                   
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="sandboxDeviceDiv productIsSelected" style="margin-top: 10px; display:none;">
+            <div>
+                <label><input type="checkbox" class="showSandboxDeviceCheckbox">Show sandbox devices not in <span class="selectedProductCell"></span></label>
+            </div>
+            <table class="sandboxDeviceTable showSandboxSelected apiHelperTableNoMargin" style="display:none;">
+                <thead>
+                    <th>&nbsp;</th>
+                    <th>Device ID</th>
+                    <th>Device Name</th>
+                    <th>Product</th>
+                </thead>
+                <tbody>                    
+                </tbody>
+            </table>
+            <div class="showSandboxSelected" style="display:none;">
+                <button class="addDevicesToProductButton" disabled>Add selected devices to product</span></button>
+            </div>
+        </div>
+    </div>
+</div>
