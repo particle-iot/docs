@@ -3836,12 +3836,13 @@ $(document).ready(function() {
                     }
                 }
                 */
+                $(wifiHiddenSsidWarningDivElem).hide();
+
                 if (deviceInfo.platformVersionInfo.isnRF52) {
-                    showHiddenOptions = true;
-                    $(wifiHiddenSsidWarningDivElem).show();
-                }
-                else {
-                    $(wifiHiddenSsidWarningDivElem).hide();
+                    // Configuring a network that's offline isn't working on nRF52 either, so this is turned
+                    // off as well now. I tested it incorrectly and it looked like it was working, but it wasn't.
+                    // showHiddenOptions = true;
+                    // $(wifiHiddenSsidWarningDivElem).show();
                 }
 
                 if (showHiddenOptions) {
