@@ -3244,14 +3244,18 @@ $(document).ready(function() {
         const productIsSelectedElem = $(thisPartial).find('.productIsSelected');
         const selectedProductCellElem = $(thisPartial).find('.selectedProductCell');
         const statusMessageElem = $(thisPartial).find('.statusMessage');        
-        
-        const showSandboxSelectedElem = $(thisPartial).find('.showSandboxSelected');
+
         const productDeviceTableElem = $(thisPartial).find('.productDeviceTable');
+        const claimDeviceButtonElem = $(thisPartial).find('.claimDeviceButton');
+        const markDevelopmentButtonElem = $(thisPartial).find('.markDevelopmentButton');
+        const removeDeviceButtonElem = $(thisPartial).find('.removeDeviceButton');
+
+        const showSandboxSelectedElem = $(thisPartial).find('.showSandboxSelected');
         const sandboxDeviceTableElem = $(thisPartial).find('.sandboxDeviceTable');
         const showSandboxDeviceCheckboxElem = $(thisPartial).find('.showSandboxDeviceCheckbox');
         const addDevicesToProductButtonElem = $(thisPartial).find('.addDevicesToProductButton');
 
-    
+
         const testProductDeviceList = {};;
         $(thisPartial).data('testProductDeviceList', testProductDeviceList);
 
