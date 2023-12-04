@@ -380,7 +380,7 @@ Even though the B SoM and M SoM both have two SPI interfaces, note that the M So
 
 {{!-- BEGIN do not edit content below, it is automatically generated 89fcdf38-5b12-43fa-b306-72a4262c913e --}}
 
-| Pin | B4xx SoM Pin Name | B4xx SoM SPI | M SoM Pin Name | M SoM SPI |
+| Pin | B SoM Pin Name | B SoM SPI | M SoM Pin Name | M SoM SPI |
 | :---: | :--- | :--- | :--- | :--- |
 | 36 | TX / D9 | &nbsp; | TX / D9 | SPI1 (MOSI) |
 | 38 | RX / D10 | &nbsp; | RX / D10 | SPI1 (MISO) |

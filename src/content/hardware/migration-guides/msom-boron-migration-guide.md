@@ -35,6 +35,12 @@ The M SoM is a M.2 SoM that fits in a SMD mounted M.2 NGFF connector. It require
 - [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
 
+## Certification
+
+When migrating to a new device, recertification is typically required. If you are using the standard Particle antennas 
+you often only need to complete the less expensive unintentional radiator testing of your completed assembly, however 
+in some cases intentional radiator testing could be required.
+
 ## Software differences
 
 ### User firmware binary size
@@ -231,7 +237,7 @@ The Argon/Boron land pattern is:
 
 {{!-- BEGIN do not edit content below, it is automatically generated d72da918-d38e-46f0-b651-0c4ddee8cad7 --}}
 
-| Pin | B4xx SoM Pin Name | B4xx SoM I2C | M SoM Pin Name | M SoM I2C |
+| Pin | B SoM Pin Name | B SoM I2C | M SoM Pin Name | M SoM I2C |
 | :---: | :--- | :--- | :--- | :--- |
 | 20 | D1 | Wire (SCL) | D1 | Wire (SCL) |
 | 22 | D0 | Wire (SDA) | D0 | Wire (SDA) |

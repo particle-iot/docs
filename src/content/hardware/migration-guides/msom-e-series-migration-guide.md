@@ -44,6 +44,12 @@ All E Series models (except for the E404X) have been deprecated. It is recommend
 - [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 - [E Series datasheet](/reference/datasheets/e-series/e-series-datasheet/)
 
+## Certification
+
+When migrating to a new device, recertification is typically required. If you are using the standard Particle antennas 
+you often only need to complete the less expensive unintentional radiator testing of your completed assembly, however 
+in some cases intentional radiator testing could be required.
+
 ## Prototyping
 
 The M SoM cannot be used without a base board. Typically you will create your own board, however there are two off-the-shelf options available:
@@ -152,6 +158,29 @@ This is the basic set of features you'll probably want to include in a LiPo batt
 This board a two-layer circuit board so it can be manufactured inexpensively and edited using the free version of Eagle CAD.
 
 As this board doesn't really do much, you'll unlikely use it as-is, but you can use it as a tutorial for how to hook up the PMIC and fuel gauge.
+
+## Power requirements
+
+#### VCC
+
+VCC is used to supply power to the cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery. Make sure that the supply can handle currents of at least 2 A.
+
+If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V at 2A. You may want to add additional bulk capacitors to handle the short, high current peak usage when the cellular modem is transmitting.
+
+#### 3V3
+
+3V3 is used to supply power to RTL8722 MCU, logic ICs, memory, etc.. Make sure that the supply can handle a minimum of 500 mA.
+
+These limits do not include any 3.3V peripherals on your base board, so that may increase the current requirements.
+
+{{!-- BEGIN shared-blurb b7c36aca-bdfe-463c-b901-53a3aeec8ab0 --}}
+Power supply requirements:
+- 3.3V output
+- Maximum 5% voltage drop
+- 100 mV peak-to-peak ripple maximum
+- 500 mA minimum output current at 3.3V recommended for future compatibility
+- Maintain these values at no-load as well as maximum load
+{{!-- END shared-blurb --}}
 
 
 ## Software differences

@@ -26,6 +26,12 @@ However, since the P2 has a Realtek RTL8721DM processor and the M SoM has a Real
 - [P2 datasheet](/reference/datasheets/wi-fi/p2-datasheet/)
 - [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
+## Certification
+
+When migrating to a new device, recertification is typically required. If you are using the standard Particle antennas 
+you often only need to complete the less expensive unintentional radiator testing of your completed assembly, however 
+in some cases intentional radiator testing could be required.
+
 ## Hardware
 
 ### Antenna
@@ -70,7 +76,6 @@ The land pattern for the M.2 connector on the M SoM is:
 The P2 land pattern is:
 
 {{imageOverlay src="/assets/images/p1-land-pattern.png" alt="P2 Land Pattern" class="full-width"}}
-
 
 
 ### ADC

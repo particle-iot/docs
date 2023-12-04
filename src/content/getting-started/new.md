@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Permanent roaming Oman 2023-12-04
+
+Oman has been added the list of countries that may encounter [permanent roaming restrictions](/getting-started/hardware/cellular-overview/#permanent-roaming).
+
 ### SKU deprecation 2023-11-29
 
 The B523MEA and ARGNTRAY50 are deprecated. They were previously NRND until the stock was depleted, and that has occurred.

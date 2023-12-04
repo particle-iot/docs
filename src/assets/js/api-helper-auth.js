@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     const eventCategory = 'Docs SSO';
 
@@ -153,6 +152,7 @@ $(document).ready(function() {
         
             if (auth.username.endsWith('particle.io')) {
                 $('.internalMenuItem').show();
+                internalMenuItem = true;
             }
 
         };
@@ -187,6 +187,7 @@ $(document).ready(function() {
         }
         if (window.location.href.startsWith('http://localhost')) {
             $('.internalMenuItem').show();
+            internalMenuItem = true;
         }
 
         if (typeof apiHelper != 'undefined') {

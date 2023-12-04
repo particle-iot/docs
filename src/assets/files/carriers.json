@@ -13585,13 +13585,15 @@
         "partnerZone": 5,
         "allow3G": true,
         "allow2G": true,
-        "allowCat1": true
+        "allowCat1": true,
+        "roamingRestrictions": "warn"
       },
       "telefonicaPPU2020": {
         "partnerZone": 5,
         "allow3G": true,
         "allow2G": true,
-        "allowCat1": true
+        "allowCat1": true,
+        "roamingRestrictions": "warn"
       },
       "bands": [
         "2G-900",
@@ -13611,12 +13613,14 @@
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow3G": true,
-        "allow2G": true
+        "allow2G": true,
+        "roamingRestrictions": "warn"
       },
       "telefonicaPPU2020": {
         "partnerZone": 5,
         "allow3G": true,
-        "allow2G": true
+        "allow2G": true,
+        "roamingRestrictions": "warn"
       },
       "bands": [
         "2G-900",
@@ -13627,7 +13631,8 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true
+        "allowCat1": true,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -38079,7 +38084,8 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Oman",
@@ -38093,7 +38099,8 @@
       "modem": "EG91-E",
       "sim": 4,
       "recommendation": "YES",
-      "expansion": "2022-05-18"
+      "expansion": "2022-05-18",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Oman",
@@ -38107,14 +38114,16 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES",
-      "expansion": "2022-05-18"
+      "expansion": "2022-05-18",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Oman",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "reason": "2G-only model discontinued",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Oman",
@@ -38128,20 +38137,23 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Oman",
       "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Oman",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "YES",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Oman",
@@ -38154,20 +38166,23 @@
       "country": "Oman",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "YES",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Oman",
       "modem": "U260",
       "sim": 1,
       "recommendation": "NR",
-      "reason": "bands not supported by modem"
+      "reason": "bands not supported by modem",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Oman",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NRND",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Pakistan",

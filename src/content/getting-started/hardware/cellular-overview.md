@@ -1077,6 +1077,7 @@ The following countries are at risk for permanent roaming restrictions:
 - Brazil
 - China
 - India
+- Oman
 - Russia
 - Singapore
 - Turkey

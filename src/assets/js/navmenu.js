@@ -135,7 +135,9 @@ navMenu.generateNavHtml = function(menuJson) {
         }
         if (!item.activeItem && item.internal) {
             $(divElem).addClass('internalMenuItem');
-            $(divElem).css('display', 'none');            
+            if (typeof internalMenuItem == 'undefined') {
+                $(divElem).css('display', 'none');            
+            }
         }
 
         if (indent) {
