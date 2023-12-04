@@ -10,9 +10,33 @@ $(document).ready(function() {
             $(thisPartial).find('.apiHelperTrackerEdgeStatus').html(status);
         };
 
+        let trackerEdge = {};
+
+        trackerEdge.baseUrl = '/assets/files/tracker/';
+
+        trackerEdge.options = $(thisPartial).data('options').split(',');
+        if (trackerEdge.options.includes('monitor')) {
+            trackerEdge.isTrackerEdge = false;
+            trackerEdge.isMonitorEdge = true;
+            trackerEdge.versionJsonFile = trackerEdge.baseUrl + 'monitorEdgeVersions.json';
+            trackerEdge.getVersionZipUrl = function(ver) {
+                return trackerEdge.baseUrl + 'monitor-edge-' + ver + '.zip';
+            }
+        }
+        else {
+            trackerEdge.isTrackerEdge = true;
+            trackerEdge.isMonitorEdge = false;
+            trackerEdge.versionJsonFile = trackerEdge.baseUrl + 'trackerEdgeVersions.json';
+            trackerEdge.getVersionZipUrl = function(ver) {
+                return trackerEdge.baseUrl + 'v' + ver + '.zip';
+            }
+        }
+
+        $(thisPartial).data('trackerEdge', trackerEdge);
+
         const menuElem = $(thisPartial).find('.apiHelperTrackerEdgeVersion');
 
-        fetch('/assets/files/tracker/trackerEdgeVersions.json')
+        fetch(trackerEdge.versionJsonFile)
             .then(response => response.json())
             .then(function(res) {
                 let versions = Array.isArray(res) ? res : res.versions; // Older file was a top level array
@@ -30,7 +54,7 @@ $(document).ready(function() {
             const thisButton = $(this);
             $(thisButton).attr('disabled', 'disabled');   
 
-            let options = {
+            let options = Object.assign(trackerEdge, {
                 version: $(thisPartial).find('.apiHelperTrackerEdgeVersion').val(),
                 main: $(thisPartial).attr('data-main'),
                 project: $(thisPartial).attr('data-project'),
@@ -41,7 +65,7 @@ $(document).ready(function() {
                     $(thisButton).removeAttr('disabled');
                     setStatus('')
                 }
-            };
+            });
 
 
             buildTrackerDownload(options);
@@ -378,9 +402,8 @@ $(document).ready(function() {
 async function buildTrackerDownload(options) {
     const project = options.project || 'tracker-edge';
 
-    const trackerAssetsDir = '/assets/files/tracker/'; 
-    const trackerEdgeUrl = trackerAssetsDir + options.version + '.zip';
-    const vsCodeSettingsUrl = trackerAssetsDir + 'vscode.zip';
+    const trackerEdgeUrl = options.getVersionZipUrl(options.version);
+    const vsCodeSettingsUrl = options.baseUrl + 'vscode.zip';
 
     // https://gildas-lormeau.github.io/zip.js/fs-api.html
     const zipFs = new zip.fs.FS();
@@ -395,7 +418,7 @@ async function buildTrackerDownload(options) {
     await zipFsVsCodeDir.importHttpContent(vsCodeSettingsUrl);
 
     if (options.version == 'v18') {
-        const incResp = await fetch(trackerAssetsDir + 'particle.include');
+        const incResp = await fetch(options.baseUrl + 'particle.include');
         const incBlob = await incResp.blob();
 
         zipFsTrackerDir.addBlob('particle.include', incBlob);

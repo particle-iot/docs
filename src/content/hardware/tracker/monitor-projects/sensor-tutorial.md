@@ -34,7 +34,8 @@ product for this tutorial and delete it later. There is no charge for creating p
 
 ### Add devices
 
-In order to use this tutorial, you should have at least one device in your product
+In order to use this tutorial, you should have at least one device in your product. You can do this from the 
+[Particle console](https://console.particle.io/) or using the interactive tool below.
 
 {{> test-product-device-list }}
 
@@ -147,6 +148,8 @@ This example project is based on Monitor Edge v2. It illustrates several concept
 - Publishing data on a set interval, or in an alarm condition
 - Setting alarm values using a control panel and configuration synchronized from the cloud
 
+
+{{> tracker-edge options="monitor"}}
 
 ## Configuration schema
 
