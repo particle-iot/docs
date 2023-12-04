@@ -3266,17 +3266,44 @@ $(document).ready(function() {
         }
 
         const productDeviceListChange = async function() {
-            let numSelected = 0;
+            let values = {
+                numSelected: 0,
+                development: 0,
+                notDevelopment: 0,
+                notOwner: 0,
+            };
+
             for(const dev of testProductDeviceList.productDevices) {
                 if ($(dev.checkboxElem).prop('checked')) {
-                    numSelected++;
+                    values.numSelected++;
+
+                    console.log('dev', dev);
+
+                    if (dev.development) {
+                        values.development++;
+                    }
+                    else {
+                        values.notDevelopment++;
+                    }
+
+                    if (!dev.owner) {
+                        values.notOwner++;
+                    }
                 }
             }
-            if (numSelected == 0) {
-                // $(addDevicesToProductButtonElem).prop('disabled', true);
-            }
-            else {
-                // $(addDevicesToProductButtonElem).prop('disabled', false);
+            
+            $(claimDeviceButtonElem).prop('disabled', true);
+            $(markDevelopmentButtonElem).prop('disabled', true);
+            $(removeDeviceButtonElem).prop('disabled', true);
+
+            if (values.numSelected != 0) {
+                $(removeDeviceButtonElem).prop('disabled', false);
+                if (values.notDevelopment) {
+                    $(markDevelopmentButtonElem).prop('disabled', false);
+                }
+                if (values.notOwner) {
+                    $(claimDeviceButtonElem).prop('disabled', false);
+                }
             }
         }
 
@@ -3322,6 +3349,11 @@ $(document).ready(function() {
                     $(tdElem).append(dev.checkboxElem);
                     $(trElem).append(tdElem);
 
+                    $(dev.checkboxElem).on('click', function(ev) {
+                        sandboxDeviceListChange();
+                        ev.stopPropagation();    
+                    });
+
                     tdElem = document.createElement('td');
                     $(tdElem).text(dev.id);
                     $(trElem).append(tdElem);
@@ -3342,7 +3374,6 @@ $(document).ready(function() {
                     $(dev.trElem).on('click', function(ev) {
                         $(dev.checkboxElem).prop('checked', !$(dev.checkboxElem).prop('checked'));
                         sandboxDeviceListChange();
-                        ev.preventDefault();
                     });
 
 
@@ -3364,6 +3395,10 @@ $(document).ready(function() {
                 let tdElem = document.createElement('td');
                 dev.checkboxElem = document.createElement('input');
                 $(dev.checkboxElem).attr('type', 'checkbox');
+                $(dev.checkboxElem).on('click', function(ev) {
+                    productDeviceListChange();
+                    ev.stopPropagation();
+                });
                 $(tdElem).append(dev.checkboxElem);
                 $(trElem).append(tdElem);
 
@@ -3376,15 +3411,22 @@ $(document).ready(function() {
                 $(trElem).append(tdElem);
 
                 tdElem = document.createElement('td');
+                $(tdElem).css('text-align', 'center');
+                if (dev.owner) {
+                    $(tdElem).html('&check;');
+                }
                 $(trElem).append(tdElem);
 
                 tdElem = document.createElement('td');
+                $(tdElem).css('text-align', 'center');
+                if (dev.development) {
+                    $(tdElem).html('&check;');
+                }
                 $(trElem).append(tdElem);
 
                 $(dev.trElem).on('click', function(ev) {
                     $(dev.checkboxElem).prop('checked', !$(dev.checkboxElem).prop('checked'));
                     productDeviceListChange();
-                    ev.preventDefault();
                 });
 
                 $(productDeviceTableElem).find('tbody').append(trElem);   
@@ -3446,6 +3488,65 @@ $(document).ready(function() {
                 $(addDevicesToProductButtonElem).prop('disabled', false);
             }
         }
+
+        $(claimDeviceButtonElem).on('click', async function() {
+            for(const dev of testProductDeviceList.productDevices) {
+                if ($(dev.checkboxElem).prop('checked')) {
+                    try {
+                        const resp = await apiHelper.particle.claimDevice({ deviceId: dev.id, auth: apiHelper.auth.access_token });
+                        console.log('claim device resp', resp);      
+                    }
+                    catch(e) {
+                        console.log('claim device exception', e);
+                    }
+                }
+            }
+
+            await updateProductDevices();            
+        });
+
+        $(markDevelopmentButtonElem).on('click', async function() {
+            for(const dev of testProductDeviceList.productDevices) {
+                if ($(dev.checkboxElem).prop('checked')) {
+                    if (!dev.development) {
+                        try {
+                            const resp = await apiHelper.particle.markAsDevelopmentDevice({ 
+                                deviceId: dev.id,
+                                development: true,
+                                product: testProductDeviceList.createOrSelectProduct.productId,
+                                auth: apiHelper.auth.access_token,
+                            });        
+                            console.log('mark development device resp', resp);      
+                        }
+                        catch(e) {
+                            console.log('mark as development exception', e);
+                        }
+                    }
+                }
+            }
+
+            await updateProductDevices();            
+        });
+
+        $(removeDeviceButtonElem).on('click', async function() {
+            for(const dev of testProductDeviceList.productDevices) {
+                if ($(dev.checkboxElem).prop('checked')) {
+                    try {
+                        const resp = await apiHelper.particle.removeDevice({
+                            deviceId: dev.id,
+                            product: testProductDeviceList.createOrSelectProduct.productId,
+                            auth: apiHelper.auth.access_token});
+        
+                        console.log('remove device resp', resp);      
+                    }
+                    catch(e) {
+                        console.log('remove device exception', e);      
+                    }
+                }
+            }
+
+            await updateProductDevices();            
+        });
 
         $(addDevicesToProductButtonElem).on('click', async function() {
             // TODO: Add devices to product here!
