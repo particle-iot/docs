@@ -21,7 +21,8 @@ $(document).ready(function() {
             trackerEdge.versionJsonFile = trackerEdge.baseUrl + 'monitorEdgeVersions.json';
             trackerEdge.getVersionZipUrl = function(ver) {
                 return trackerEdge.baseUrl + 'monitor-edge-' + ver + '.zip';
-            }
+            };
+            trackerEdge.defaultProject = 'monitor-edge';
         }
         else {
             trackerEdge.isTrackerEdge = true;
@@ -29,7 +30,8 @@ $(document).ready(function() {
             trackerEdge.versionJsonFile = trackerEdge.baseUrl + 'trackerEdgeVersions.json';
             trackerEdge.getVersionZipUrl = function(ver) {
                 return trackerEdge.baseUrl + 'v' + ver + '.zip';
-            }
+            };
+            trackerEdge.defaultProject = 'tracker-edge';
         }
 
         $(thisPartial).data('trackerEdge', trackerEdge);
@@ -56,6 +58,7 @@ $(document).ready(function() {
 
             let options = Object.assign(trackerEdge, {
                 version: $(thisPartial).find('.apiHelperTrackerEdgeVersion').val(),
+                versionNumber: parseInt($(thisPartial).find('.apiHelperTrackerEdgeVersion').val().substring(1)),
                 main: $(thisPartial).attr('data-main'),
                 project: $(thisPartial).attr('data-project'),
                 libraries: $(thisPartial).attr('data-libraries'),
@@ -400,9 +403,11 @@ $(document).ready(function() {
 
 
 async function buildTrackerDownload(options) {
-    const project = options.project || 'tracker-edge';
+    const project = options.project || options.defaultProject || 'tracker-edge';
 
-    const trackerEdgeUrl = options.getVersionZipUrl(options.version);
+    console.log('buildTrackerDownload options', options);
+
+    const trackerEdgeUrl = options.getVersionZipUrl(options.versionNumber);
     const vsCodeSettingsUrl = options.baseUrl + 'vscode.zip';
 
     // https://gildas-lormeau.github.io/zip.js/fs-api.html
@@ -411,7 +416,9 @@ async function buildTrackerDownload(options) {
     options.setStatus('Getting tracker edge source...')
     await zipFs.importHttpContent(trackerEdgeUrl);
 
-    let zipFsTrackerDir = zipFs.find('tracker-edge');
+    console.log('zipFs', zipFs);
+
+    let zipFsTrackerDir = zipFs.root.children[0]; // tracker-edge or monitor-edge
     zipFsTrackerDir.name = project;
 
     const zipFsVsCodeDir = zipFsTrackerDir.addDirectory('.vscode');
