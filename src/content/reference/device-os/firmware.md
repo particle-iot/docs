@@ -15984,7 +15984,7 @@ Software timers run with a smaller stack (1024 bytes vs. 6144 bytes). This can l
 - `callback` is the callback function which gets called when the timer expires.
 - `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer.
 
-Software timers are currently implemented as a thin layer over FreeRTOS timers. The semantics of how they work is not clearly defined by FreeRTOS. For example, changing the period also resets it to zero, however this is not documented. Furthermore, future versions of Device OS could using a different timing system. If you require very precise control and semantics of how your timers behave in various edge cases, it's best to implement your own thread and handle it yourself.
+Software timers are currently implemented as a thin layer over FreeRTOS timers. The semantics of how they work is not clearly defined by FreeRTOS. For example, changing the period also resets it to zero, however this is not documented. Furthermore, future versions of Device OS could use a different timing system. If you require very precise control of how your timers behave in various edge cases, it's best to implement your own thread and handle it yourself. This will also allow you to change the stack size.
 
 ### Class member callbacks
 
