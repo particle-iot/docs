@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BLE.disconnect warning 2023-12-05
+
+Added a warning for [BLE.disconnect](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-disconnect-) that it cannot be called from a BLE callback.
+
 ### Software timer note 2023-12-05
 
 Added a note the [software timers](/reference/device-os/api/software-timers/software-timers/) reference about how certain timer 

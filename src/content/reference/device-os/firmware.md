@@ -10697,6 +10697,8 @@ int disconnect() const;
 
 Returns 0 on success or a non-zero error code.
 
+`BLE.disconnect()` cannot be called from a BLE callback function.
+
 
 #### BLE.disconnect(peripheral)
 
@@ -10710,6 +10712,8 @@ int disconnect(const BlePeerDevice& peripheral) const;
 The [`BlePeerDevice`](#blepeerdevice) is described below. You typically get it from `BLE.connect()`.
 
 Returns 0 on success or a non-zero error code.
+
+`BLE.disconnect()` cannot be called from a BLE callback function.
 
 #### BLE.on()
 
