@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Software timer note 2023-12-05
+
+Added a note the [software timers](/reference/device-os/api/software-timers/software-timers/) reference about how certain timer 
+semantics are undefined by the underlying FreeRTOS timers.
+
 ### Permanent roaming Oman 2023-12-04
 
 Oman has been added the list of countries that may encounter [permanent roaming restrictions](/getting-started/hardware/cellular-overview/#permanent-roaming).

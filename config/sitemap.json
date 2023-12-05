@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-11-28",
-            "hash": "ebc5708eca957fa55b954d9e41e770abca2b0e46d2a30cec6c57a3e9fb114eb5"
+            "date": "2023-12-05",
+            "hash": "60e3b73aff64016be9478d9fd5e7143d87a33d175df0a251ed36e9539f30c200"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3415,8 +3415,8 @@
             "hash": "30c24111e03df40d42c830800102b5b7a2167297bca3bca14f2a3e541c710d51"
         },
         "reference/device-os/api/software-timers/software-timers.md": {
-            "date": "2023-09-20",
-            "hash": "b1fe13d62aa3ebe2a5877081f5feef9fe13a71ddf39d3e8306018a0a786b93f8"
+            "date": "2023-12-05",
+            "hash": "3a8ea21de209ccc24aabb9fa38ce40d5e088f0133f8f8b942aec72676b1575a0"
         },
         "reference/device-os/api/software-timers/class-member-callbacks.md": {
             "date": "2023-09-20",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ee27aa2a2171f323d8fbe2955ff8382e9277b13172cab3fbeb492eb355b90f6e",
-            "date": "2023-12-04"
+            "hash": "dc25c68f6dd72da8bd5aa87979acf69a332e154ee1e433dbbb87c663fbba3605",
+            "date": "2023-12-05"
         },
         "getting-started/cloud/logic.md": {
             "hash": "9442c21b6e5b5dec2333671367008037657833b01f3fa44b6b80857f008fb600",
