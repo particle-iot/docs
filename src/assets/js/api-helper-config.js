@@ -754,13 +754,17 @@ $(document).ready(async function() {
         const saveBackupCheckboxElem = $(thisElem).find('.saveBackupCheckbox');
         const apiHelperStatusMsgElem = $(thisElem).find('.apiHelperStatusMsg');
 
-        let schemaPropertyTemplate;
-        let downloadedSchema;
-        let downloadedProductId;
-        let originalFieldValue;
-        let lastTabName;
-        let lastMode;
         let statusTimer;
+
+        let schemaEditor = {};
+        $(thisElem).data('schemaEditor', schemaEditor);
+
+        // schemaPropertyTemplate;
+        // downloadedSchema;
+        // downloadedProductId;
+        // originalFieldValue;
+        // lastTabName;
+        // lastMode;
 
         const setStatus = function(msg, time) { 
             if (statusTimer) {
@@ -799,20 +803,20 @@ $(document).ready(async function() {
             const tabName = $(editTabSelectElem).val();
 
             try {
-                json = downloadedSchema.properties[tabName];
+                json = schemaEditor.downloadedSchema.properties[tabName];
                 apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(json));
-                originalFieldValue = apiHelper.jsonLinterGetValue(thisElem);
+                schemaEditor.originalFieldValue = apiHelper.jsonLinterGetValue(thisElem);
             }
             catch(e) {
             }    
 
-            lastTabName = tabName;
+            schemaEditor.lastTabName = tabName;
         }
 
         $(editTabSelectElem).on('change', function() {
-            if (originalFieldValue != apiHelper.jsonLinterGetValue(thisElem)) {
+            if (schemaEditor.originalFieldValue != apiHelper.jsonLinterGetValue(thisElem)) {
                 if (!confirm('Changing the Edit existing tab will discard the changes you have made.\nContinue?')) {
-                    $(editTabSelectElem).val(lastTabName);
+                    $(editTabSelectElem).val(schemaEditor.lastTabName);
                 }
             }
 
@@ -825,11 +829,11 @@ $(document).ready(async function() {
         const updateEditMode = function() {
             const mode = $(editModeSelectElem).val();
 
-            if (mode != lastMode) {
+            if (mode != schemaEditor.lastMode) {
                 if (mode == 'edit') {
                     $(editTabRowElem).show();
                     const editTab = $(editTabSelectElem).val();
-                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(downloadedSchema.properties[editTab]));
+                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(schemaEditor.downloadedSchema.properties[editTab]));
                     updateEditExistingTab();    
                 }
                 else {
@@ -838,7 +842,7 @@ $(document).ready(async function() {
     
                 if (mode == 'add') {
                     $(addTabRowElem).show();
-                    const data = schemaPropertyTemplate;
+                    const data = schemaEditor.schemaPropertyTemplate;
                     apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(data));
                     $(addTabNameElem).trigger('input');
                 }
@@ -847,20 +851,20 @@ $(document).ready(async function() {
                 }
         
                 if (mode == 'full') {       
-                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(downloadedSchema));
+                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(schemaEditor.downloadedSchema));
                 }
     
             }
 
-            originalFieldValue = apiHelper.jsonLinterGetValue(thisElem);
-            lastMode = mode;
+            schemaEditor.originalFieldValue = apiHelper.jsonLinterGetValue(thisElem);
+            schemaEditor.lastMode = mode;
         };
 
         const updateTabList = function() {
             $(editTabSelectElem).empty();
 
-            for(const tab in downloadedSchema.properties) {
-                const title = downloadedSchema.properties[tab].title;
+            for(const tab in schemaEditor.downloadedSchema.properties) {
+                const title = schemaEditor.downloadedSchema.properties[tab].title;
                 
                 const optionElem = document.createElement('option');
                 $(optionElem).prop('value', tab);
@@ -875,7 +879,7 @@ $(document).ready(async function() {
             return await new Promise(function(resolve, reject) {
 
                 const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();
-                downloadedProductId = productId;
+                schemaEditor.downloadedProductId = productId;
 
                 $.ajax({
                     dataType: 'text',
@@ -899,9 +903,9 @@ $(document).ready(async function() {
                 const resp = await downloadSchema();
 
                 setStatus('Downloaded schema from product', 5000);
-                originalFieldValue = resp;
-                downloadedSchema = JSON.parse(resp);
-                apiHelper.jsonLinterSetValue(thisElem, originalFieldValue);
+                schemaEditor.originalFieldValue = resp;
+                schemaEditor.downloadedSchema = JSON.parse(resp);
+                apiHelper.jsonLinterSetValue(thisElem, schemaEditor.originalFieldValue);
                 updateTabList();
                 updateEditMode();
             }
@@ -971,9 +975,9 @@ $(document).ready(async function() {
         }
 
         $(editModeSelectElem).on('change', function() {
-            if (originalFieldValue != apiHelper.jsonLinterGetValue(thisElem)) {
+            if (schemaEditor.originalFieldValue != apiHelper.jsonLinterGetValue(thisElem)) {
                 if (!confirm('Changing the Edit mode will discard the changes you have made.\nContinue?')) {
-                    $(editModeSelectElem).val(lastMode);
+                    $(editModeSelectElem).val(schemaEditor.lastMode);
                 }
             }
             updateEditMode();
@@ -1006,7 +1010,7 @@ $(document).ready(async function() {
                 case 'edit':
                     {
                         const editTab = $(editTabSelectElem).val();
-                        newSchema = Object.assign({}, downloadedSchema);
+                        newSchema = Object.assign({}, schemaEditor.downloadedSchema);
                         newSchema.properties[editTab] = json;
                     }
                     break;
@@ -1014,7 +1018,7 @@ $(document).ready(async function() {
                 case 'add':
                     {
                         const editTab = $(addTabNameElem).val();
-                        newSchema = Object.assign({}, downloadedSchema);
+                        newSchema = Object.assign({}, schemaEditor.downloadedSchema);
                         newSchema.properties[editTab] = json;                        
                     }
                     break;
@@ -1026,7 +1030,7 @@ $(document).ready(async function() {
             try {
                 const resp = await uploadSchema(newSchema);
                 setStatus('Schema uploaded to product', 5000);
-                downloadedSchema = newSchema;
+                schemaEditor.downloadedSchema = newSchema;
                 analytics.track('Upload success', {category:gaCategory, label:$(editModeSelectElem).val()});
             }
             catch(e) {
@@ -1065,7 +1069,7 @@ $(document).ready(async function() {
 
         $('.apiHelperTrackerProductSelect').on('change', async function() {
             let productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();
-            if (productId != downloadedProductId) {
+            if (productId != schemaEditor.downloadedProductId) {
                 // This event fires multiple times, so checking for change prevents downloading the file 6 times.
                 await downloadSchemaAndUpdateUI();
             }    
@@ -1074,7 +1078,7 @@ $(document).ready(async function() {
         fetch('/assets/files/tracker/schema-property-template.json')
             .then(response => response.json())
             .then(function(data) {
-                schemaPropertyTemplate = data;
+                schemaEditor.schemaPropertyTemplate = data;
             });
         /*
         fetch('/assets/files/tracker/default-schema.json')
@@ -1082,8 +1086,8 @@ $(document).ready(async function() {
             .then(function(data) {
                 defaultSchema = data;
 
-                originalFieldValue = JSON.stringify(defaultSchema);
-                apiHelper.jsonLinterSetValue(thisElem, originalFieldValue);
+                schemaEditor.originalFieldValue = JSON.stringify(defaultSchema);
+                apiHelper.jsonLinterSetValue(thisElem, schemaEditor.originalFieldValue);
                 updateEditMode();
             });
         */

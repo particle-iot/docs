@@ -2804,7 +2804,7 @@ $(document).ready(function() {
 
             options.platformId = parseInt(platformIdStr);    
         
-            if (productSelector.orgs.length && !partialOptions.includes('sandboxOnly')) {
+            if (productSelector.orgs && productSelector.orgs.length && !partialOptions.includes('sandboxOnly')) {
                 // Has organizations
 
                 // sandbox or org
@@ -2829,9 +2829,11 @@ $(document).ready(function() {
             }
             else {
                 options.productId = parseInt($(productSelectElem).val());
-                const productObj = productSelector.productsData.products.find(e => e.id == options.productId);
-                if (productObj) {
-                    options.productName = productObj.name;
+                if (productSelector.productsData) {
+                    const productObj = productSelector.productsData.products.find(e => e.id == options.productId);
+                    if (productObj) {
+                        options.productName = productObj.name;
+                    }    
                 }
             }
 
@@ -2881,8 +2883,13 @@ $(document).ready(function() {
                 }
             }
 
-            console.log('triggering commonProductSelected', productId);
-            $(thisPartial).trigger('commonProductSelected', [productId]);
+            console.log('saveSetings', settings);
+
+            // I don't think this is used anywhere anymore
+            // console.log('triggering commonProductSelected', productId);
+            // $(thisPartial).trigger('commonProductSelected', [productId]);
+
+            // TODO: Notify the schema editor
         }
 
         const updateNewExistingButton = function() {
@@ -2995,6 +3002,7 @@ $(document).ready(function() {
             setStatus('');
 
             $(thisPartial).trigger('updateProductList');
+            productSelector.saveSettings();
         }
 
         $(sandboxOrgRowElem).find('input').each(function() {
