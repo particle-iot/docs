@@ -3460,7 +3460,7 @@ $(document).ready(function() {
             }
         }
 
-        const updateSettings = function(settings = apiHelper.manualSettings.get()) {
+        const updateSettings = testProductDeviceList.updateSettings = function(settings = apiHelper.manualSettings.get()) {
 
             if (settings && settings.createOrSelectProduct && settings.createOrSelectProduct.productId) {
                 testProductDeviceList.createOrSelectProduct = settings.createOrSelectProduct;
