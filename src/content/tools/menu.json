@@ -118,7 +118,8 @@
       },
       {
         "dir": "integration-copy",
-        "href": "/tools/cloud-tools/integration-copy/"
+        "href": "/tools/cloud-tools/integration-copy-old/",
+        "internal": true
       },
       {
         "title": "Cellular usage",

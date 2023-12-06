@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Copying and moving integrations 2023-12-06
+
+Added instructions for [copying and moving integrations](/integrations/webhooks/#product-vs-sandbox-integrations).
+
 ### BLE.disconnect warning 2023-12-05
 
 Added a warning for [BLE.disconnect](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-disconnect-) that it cannot be called from a BLE callback.

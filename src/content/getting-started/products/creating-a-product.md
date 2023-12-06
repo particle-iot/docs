@@ -324,7 +324,7 @@ Also all team members can access product integrations with their own login. They
 
 Beware: If you have two integrations, one in the owner account and one in the product, both can fire if they have the same event trigger!
 
-To copy or move a device owner integration into a product, you can use the [integration copy tool](/tools/cloud-tools/integration-copy/).
+To copy or move a device owner integration into a product, see [Product vs. sandbox integrations](/integrations/webhooks/#product-vs-sandbox-integrations).
 
 ### Server-Sent Events (SSE)
 

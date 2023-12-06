@@ -318,6 +318,35 @@ void myHandler(const char *event, const char *data) {
 
 At any time, you can see some sample firmware for both triggering and getting responses from webhooks on your Particle Console. To do this, simply click on one of your product webhooks and scroll down to "Example Device Firmware."
 
+## Product vs. sandbox integrations
+
+Integrations can either be in your developer sandbox or in your product. As a general rule, we recommend using product integrations, however:
+
+### Sandbox integrations
+
+- Requires devices to be claimed to a specific team member account, which adds a step to device onboarding
+- Does allow a single integration to be used across multiple products, but this advantage may not be worth the downsides
+
+### Product integrations
+
+- Works with unclaimed product devices, which is the recommended mode of operation
+- Keep things related to the product associated with the product
+- Allows developers to claim devices to their own account, which makes development easier
+
+### Moving or copying an integration
+
+If you have created an integration in your sandbox and want to move it to your product, or if you want to include an integration in multiple products:
+
+- Open the integration in the [Particle console](https://console.particle.io/).
+- Use **Edit Integration** then click **Custom Template**. Copy the JSON data to your clipboard.
+- Open or create the new integration.
+- Click **Custom Template** then paste in the JSON data you previously copied.
+
+If you copy an integration from sandbox to product, you should disable the sandbox integration, otherwise it can trigger twice, once for the sandbox and once for the product if the device is claimed.
+
+If you have a large number of integrations you should investigate why. The event trigger is a prefix, so any event beginning with that string will trigger the integration. Using a combination of the prefix filter and mustache templates in many cases you can use a single integration for multiple tasks, eliminating the need to keep them in sync.
+
+
 ## Advanced topics
 
 See [the webhook reference](/reference/cloud-apis/webhooks/) for more details on customizing webhooks with variables, examples of different webhook configurations as well as community guides on setting up webhooks with external services.

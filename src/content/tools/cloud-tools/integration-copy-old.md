@@ -8,7 +8,8 @@ includeDefinitions: [api-helper, api-helper-cloud, api-helper-extras, api-helper
 
 # {{title}}
 
-This control copies integrations (such as webhooks) into a product (sandbox or organization) from your developer sandbox.
+This control copies integrations (such as webhooks) into a product (sandbox or organization) from your developer sandbox. You can also perform this operation manually, see see [Product vs. sandbox integrations](/integrations/webhooks/#product-vs-sandbox-integrations).
+
 
 {{> sso}}
 
