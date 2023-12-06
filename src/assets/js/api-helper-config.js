@@ -764,6 +764,9 @@ $(document).ready(async function() {
 
         schemaEditor.options = ($(thisElem).data('options') || '').split(',');
 
+        schemaEditor.externalProduct = schemaEditor.options.includes('externalProduct');
+
+
         // schemaPropertyTemplate;
         // downloadedSchema;
         // downloadedProductId;
@@ -771,8 +774,9 @@ $(document).ready(async function() {
         // lastTabName;
         // lastMode;
 
-        // TODO: When using configured product mode, don't show this
-        $(trackerProductRowElem).show();
+        if (!schemaEditor.externalProduct) {
+            $(trackerProductRowElem).show();
+        }
 
         const setStatus = function(msg, time) { 
             if (statusTimer) {

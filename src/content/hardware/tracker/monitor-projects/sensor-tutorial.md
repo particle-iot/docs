@@ -161,4 +161,4 @@ The configuration schema adds an additional panel for "Sensors". It contains set
 - High temperature limit
 - Hysteresis
 
-{{> schema-editor }}
+{{> schema-editor options="externalProduct"}}
