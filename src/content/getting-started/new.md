@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Improved search result display 2023-12-06
+
+When you click on a search result and the search query is present in a header in the page, it will now be scrolled into view. This previously worked on the Device OS API reference, but now it works on all pages.
+
 ### Copying and moving integrations 2023-12-06
 
 Added instructions for [copying and moving integrations](/integrations/webhooks/#product-vs-sandbox-integrations).

@@ -66,6 +66,12 @@ navMenu.load = async function() {
     navMenu.thisUrl = new URL(location.href);
     navMenu.pathParts = navMenu.thisUrl.pathname.split('/');
 
+    if (window.location.search) {
+        const searchParam = new URLSearchParams(window.location.search);
+        if (searchParam) {
+            navMenu.searchQuery = searchParam.get('q');
+        } 
+    }
     // pathParts[0] is empty
     // pathParts[1] is the top-level menu (empty for home page)
     // There's typically an empty entry at the end of the array as well
@@ -396,7 +402,8 @@ navMenu.scanHeaders = function () {
             let obj = { 
                 elem, 
                 id, 
-                level 
+                level,
+                text: $(elem).text(),
             };
             navMenu.headers.push(obj);
 
@@ -414,6 +421,49 @@ navMenu.scanHeaders = function () {
     });
 
     // console.log('scanHeaders headers', navMenu.headers);
+    if (navMenu.searchQuery && navMenu.searchQuery.length) {
+        // Search for literal match
+        let matchHdr;
+
+        for(const hdr of navMenu.headers) {
+            if (hdr.text.toLowerCase() == navMenu.searchQuery.toLowerCase()) {
+                matchHdr = hdr;
+                break;
+            }
+        }
+        if (!matchHdr) {
+            // Search for partial match (space separated)
+            let searchParts = navMenu.searchQuery.toLowerCase().split(' ');
+            let matches = [];
+
+            for(const hdr of navMenu.headers) {
+                const parts = hdr.text.toLowerCase().split(' ');
+                let m = {
+                    matches: 0,
+                    hdr,
+                };
+                for(const p of searchParts) {
+                    if (parts.includes(p)) {
+                        m.matches++;
+                    }
+                } 
+                if (m.matches) {
+                    matches.push(m);
+                }
+            }
+            if (matches.length) {
+                matches.sort(function(a, b) {
+                    return b.matches - a.matches;
+                });
+                matchHdr = matches[0].hdr;
+            }
+        }
+
+        if (matchHdr) {
+            Docs.scrollToElement(matchHdr.elem);
+        }
+
+    }
 
     navMenu.currentHeader = 0;
 

@@ -28,11 +28,16 @@ $(document).ready(function() {
         }
     }
 
-    const filterUrl = function(url) {
+    const filterUrl = function(url, options = {}) {        
         const defaultDocsUrl = 'https://docs.particle.io/';
         if (url.startsWith(defaultDocsUrl)) {
             // Leave the leading slash
             url = url.substring(defaultDocsUrl.length - 1);
+
+            let targetParams = {
+                q: options.query,
+            };
+            url += '?' + new URLSearchParams(targetParams).toString();
         }   
         return url;
     }
@@ -130,7 +135,7 @@ $(document).ready(function() {
             savedSearchObj.lastScroll = $('#searchOverlay').scrollTop();
             saveSearch();
             history.pushState(null, '', '#' + new URLSearchParams(targetParams).toString());
-            location.href = filterUrl(options.link);
+            location.href = filterUrl(options.link, options);
         });
 
         const titleElem = document.createElement('div');
@@ -404,5 +409,6 @@ $(document).ready(function() {
             }            
         }
     }
+
     checkButtonEnable();
 });
