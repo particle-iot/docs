@@ -516,22 +516,24 @@ $(document).ready(async function() {
         $('.apiHelperConfigSchema').each(function() {
             const thisPartial = $(this);
 
-            const options = ($(thisPartial).data('options') || '').split(',');
+            let configSchema = {};
+            $(thisPartial).data('configSchema', configSchema);
 
-            if (options.includes('noDownloadUpload') || options.includes('selectOnly')) {
+            configSchema.options = ($(thisPartial).data('options') || '').split(',');
+
+            if (configSchema.options.includes('noDownloadUpload') || configSchema.options.includes('selectOnly')) {
                 $(thisPartial).find('.noDownloadUpload').hide();
             }
 
             const defaultModeOptions = ['tracker', 'monitor'];
-            let defaultMode;
             if (urlOptions.mode && defaultModeOptions.includes(urlOptions.mode)) {
-                defaultMode = urlOptions.mode;
+                configSchema.defaultMode = urlOptions.mode;
             }
 
-            if (!defaultMode) {
+            if (!configSchema.defaultMode) {
                 for(const m of defaultModeOptions) {
-                    if (options.includes(m)) {
-                        defaultMode = m;
+                    if (configSchema.options.includes(m)) {
+                        configSchema.defaultMode = m;
                         break; 
                     }
                 }    
@@ -539,14 +541,14 @@ $(document).ready(async function() {
 
             let deviceFirmware;
 
-            if (defaultMode) {
+            if (configSchema.defaultMode) {
                 $(thisPartial).find('.deviceFirmwareRadio').prop('checked', false);
-                $(thisPartial).find('.deviceFirmwareRadio[value="' + defaultMode + '"]').prop('checked', true);
+                $(thisPartial).find('.deviceFirmwareRadio[value="' + configSchema.defaultMode + '"]').prop('checked', true);
                 deviceFirmware = $(thisPartial).find('.deviceFirmwareRadio:checked').val();
             }
 
-            const alwaysBackup = options.includes('backup');
-            if (alwaysBackup || options.includes('selectOnly')) {
+            const alwaysBackup = configSchema.options.includes('backup');
+            if (alwaysBackup || configSchema.options.includes('selectOnly')) {
                 $(thisPartial).find('.alwaysBackup').hide();
             }
 
@@ -743,7 +745,8 @@ $(document).ready(async function() {
     $('.apiHelperSchemaEditor').each(async function() {
         const thisElem = $(this);
         const gaCategory = 'Schema Editor';
-
+        
+        const trackerProductRowElem = $(thisElem).find('.apiHelperTrackerProductRow');
         const editModeSelectElem = $(thisElem).find('.editModeSelect');
         const editTabRowElem = $(thisElem).find('.editTabRow');
         const editTabSelectElem = $(thisElem).find('.editTabSelect');
@@ -759,12 +762,17 @@ $(document).ready(async function() {
         let schemaEditor = {};
         $(thisElem).data('schemaEditor', schemaEditor);
 
+        schemaEditor.options = ($(thisElem).data('options') || '').split(',');
+
         // schemaPropertyTemplate;
         // downloadedSchema;
         // downloadedProductId;
         // originalFieldValue;
         // lastTabName;
         // lastMode;
+
+        // TODO: When using configured product mode, don't show this
+        $(trackerProductRowElem).show();
 
         const setStatus = function(msg, time) { 
             if (statusTimer) {
@@ -1073,6 +1081,9 @@ $(document).ready(async function() {
                 // This event fires multiple times, so checking for change prevents downloading the file 6 times.
                 await downloadSchemaAndUpdateUI();
             }    
+            if (productId) {
+                $(thisElem).find('.productIsSelected').show();
+            }
         });
 
         fetch('/assets/files/tracker/schema-property-template.json')
