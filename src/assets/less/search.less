@@ -1,6 +1,53 @@
 @width-for-search-box: @large-size;
 
 
+.document-search-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: @COLOR_Midnight_600;
+  z-index: 80; 
+}
+
+
+.document-search-results {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.documentSearchCloseIcon {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  width: 30px;
+  text-align: right;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.documentSearchRow {
+  cursor: pointer;
+}
+
+.documentSearchCell {
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.documentSearchHighlightedText {
+  font-weight: bold;
+}
+
 #searchOverlay {
   position: fixed;
   display: none;
@@ -131,6 +178,10 @@
   }
   #searchOverlay {
     background-color: rgba(255,255,255,0.96);
+  }
+
+  .document-search-container {
+    background-color: @COLOR_Gray_100;
   }
   /*
   // This does not work

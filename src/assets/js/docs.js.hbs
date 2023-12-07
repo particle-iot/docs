@@ -68,9 +68,18 @@ Created by Zach Supalla.
   };
 
   Docs.scrollToElement = function(element) {
+    let topOffset = 10;
+
+    const containerElem = $('.document-search-container');
+    if (containerElem.length) {
+      if ($(containerElem).is(':visible')) {
+        topOffset -= $(containerElem).height();
+      }
+    }
+
     var $element = $(element);
     if ($element.length === 1) {
-      var position = $element.position().top + 10;
+      var position = $element.position().top + topOffset;
       $('.content-inner').scrollTop(position);
     }
   };
