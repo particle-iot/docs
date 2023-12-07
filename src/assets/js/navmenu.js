@@ -422,8 +422,72 @@ navMenu.scanHeaders = function () {
 
     // console.log('scanHeaders headers', navMenu.headers);
     if (navMenu.searchQuery && navMenu.searchQuery.length) {
+
+        // 
+        $.getScript('/assets/js/lunr.min.js', function(data, textStatus, jqxhr) {
+            // Search using lunr
+            const lunrIndex = lunr(function() {
+                const lunrThis = this;
+                lunrThis.ref('id');
+                lunrThis.field('hdrText');
+                lunrThis.field('text');
+                lunrThis.metadataWhitelist = ['position']
+
+                let curItem = {};
+
+                const addDoc = function() {
+                    if (!curItem) {
+                        return;
+                    }
+
+
+                    let doc = {
+                        id: $(curItem.hdrElem).prop('id'),
+                        hdrText: curItem.hdrText,
+                        text: curItem.text,
+                    };
+                    lunrThis.add(doc);
+                    
+                    curItem = null;
+                };
+
+
+                $(contentInner).find('h2,h3,h4,p').each(function (index, elem) {
+                    // console.log('search elem', elem);
+                    const tagName = $(elem).prop('tagName');
+                    if (tagName.startsWith('H')) {
+                        if (curItem) {
+                            addDoc();
+                        }
+                        curItem = {
+                            hdrElem: elem,
+                            hdrText: $(elem).text(),
+                            text: '',
+                        };
+                    }
+                    else {
+                        const text = $(elem).text();
+                        if (text && text.length) {
+                            curItem.text +=  + ' ';
+                        }
+                    }
+                });
+
+                addDoc();
+            });
+            
+            console.log('lunrIndex', lunrIndex);
+
+            const searchResults = lunrIndex.search(navMenu.searchQuery);
+            console.log('searchResults', searchResults);
+            if (searchResults.length > 0) {
+                Docs.scrollToElement($('#' + searchResults[0].ref));
+            }
+        });
+
+        // Old search code, delete this
+        /*
         // Search for literal match
-        let matchHdr;
 
         for(const hdr of navMenu.headers) {
             if (hdr.text.toLowerCase() == navMenu.searchQuery.toLowerCase()) {
@@ -458,10 +522,7 @@ navMenu.scanHeaders = function () {
                 matchHdr = matches[0].hdr;
             }
         }
-
-        if (matchHdr) {
-            Docs.scrollToElement(matchHdr.elem);
-        }
+        */
 
     }
 
