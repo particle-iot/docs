@@ -502,6 +502,8 @@ $(document).ready(function() {
 
         apiIndex.sections[nav.index].contentElem = $('.originalContent');
 
+        navMenu.searchContent();
+
         populateFolder(parsePath(thisUrl.pathname).folder);
 
         syncNavigation(thisUrl.pathname);
