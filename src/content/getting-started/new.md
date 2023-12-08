@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 5.6.0 
+
+Device OS 5.6.0 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, etc.. Release notes are updated in the docs [release note viewer](/reference/device-os/release-notes/).
+
+
 ### Improved search result display 2023-12-06
 
 When you click on a search result and the search query is present in a header in the page, it will now be scrolled into view. This previously worked on the Device OS API reference, but now it works on all pages.
