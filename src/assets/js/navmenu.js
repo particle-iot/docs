@@ -376,6 +376,208 @@ navMenu.generateNavHtml = function(menuJson) {
     return navElem;
 }
 
+navMenu.searchContent = function() {
+    if (!navMenu.searchQuery || navMenu.searchQuery.length == 0) {
+        return;
+    }
+
+    const contentInner = $('div.content-inner');
+
+
+    $.getScript('/assets/js/lunr.min.js', function(data, textStatus, jqxhr) {
+        // Search using lunr
+        let indexData = {};
+
+        const lunrIndex = lunr(function() {
+            const lunrThis = this;
+            lunrThis.ref('id');
+            lunrThis.field('hdrText');
+            lunrThis.field('text');
+            lunrThis.metadataWhitelist = ['position']
+
+            let curItem = {};
+
+            const addDoc = function() {
+                if (!curItem) {
+                    return;
+                }
+
+
+                let doc = {
+                    id: $(curItem.hdrElem).prop('id'),
+                    hdrText: curItem.hdrText,
+                    text: curItem.text,
+                };
+                lunrThis.add(doc);
+                indexData[doc.id] = doc;
+
+                curItem = null;
+            };
+
+
+            $(contentInner).find('h2,h3,h4,p').each(function (index, elem) {
+                // console.log('search elem', elem);
+                const tagName = $(elem).prop('tagName');
+                if (tagName.startsWith('H')) {
+                    if (curItem) {
+                        addDoc();
+                    }
+                    curItem = {
+                        hdrElem: elem,
+                        hdrText: $(elem).text(),
+                        text: '',
+                    };
+                }
+                else {
+                    const text = $(elem).text();
+                    if (text && text.length) {
+                        curItem.text += text + ' ';
+                    }
+                }
+            });
+
+            addDoc();
+        });
+        
+        const searchResults = lunrIndex.search(navMenu.searchQuery);
+        // console.log('searchResults', searchResults);
+        if (searchResults.length > 0) {            
+            const containerElem = $('.document-search-container');
+            if (containerElem.length && searchResults.length > 1) {
+                // Only show if there is more than one match, since we also scroll to it
+                $(containerElem).show();
+
+                $(containerElem).find('.documentSearchTerm').text(navMenu.searchQuery);
+
+                $(containerElem).find('.documentSearchCloseIcon').on('click', function() {
+                    $(containerElem).hide();
+                });
+
+                // const resultsElem = $('.document-search-results');
+                // $(resultsElem).text('testing!');
+                const tbodyElem = $('.document-search-results > table > tbody');
+                for(let ii = 0; ii < 8 && ii < searchResults.length; ii++) {
+                    const res = searchResults[ii];
+
+                    // res.ref - index into indexData, also anchor id for header
+                    // res.score - number (floating point)
+                    // res.matchData - object
+                    //   .metadata - object
+                    //     .integr
+                    //         .hdrText - object
+                    //           .position - array arrays
+                    //              (inner array) start, length
+                    //         .text - object
+                    //           .position - array arrays
+                    //              (inner array) start, length
+
+                    const trElem = document.createElement('tr');
+                    $(trElem).addClass('documentSearchRow');
+
+                    doc = indexData[res.ref];
+                    
+                    const insertText = function(req) {
+                        let text = doc[req.which]
+
+                        let start = 0;
+                        let end = text.length;
+
+                        let positions = [];
+
+                        for(const key in res.matchData.metadata) {
+                            if (res.matchData.metadata[key][req.which] && res.matchData.metadata[key][req.which].position) {
+                                if (Array.isArray(res.matchData.metadata[key][req.which].position[0])) {
+                                    // Multiple matches
+                                    for(const p of res.matchData.metadata[key][req.which].position) {
+                                        positions.push(p);
+                                    }
+                                }
+                                else {
+                                    positions.push(res.matchData.metadata[key][req.which].position);
+                                }
+                            }
+                        }
+
+                        positions.sort(function(a, b) {
+                            return a[0] - b[0];
+                        });
+
+                        if (positions.length && req.which == 'text') {
+                            const p = positions[0];
+                            if (p[0] > 80) {
+                            
+                                start = p[0] - 30;
+                                end -= start;                                    
+                            }    
+                        }
+
+                        if ((end - start) > 180) {
+                            end = start + 180;
+                        }
+
+                        let textSegments = [];
+                        let curStart = start;
+
+                        // console.log('in-document search', {start, end, positions, text});
+
+                        if (positions.length) {
+                            for(const pos of positions) {
+                                if (pos[0] > curStart) {
+                                    textSegments.push({
+                                        text: text.substring(curStart, pos[0]),
+                                    });        
+                                    curStart = pos[0];
+                                }
+                                textSegments.push({
+                                    text: text.substring(curStart, curStart + pos[1]),
+                                    highlighted: true,
+                                });                                    
+                                curStart = curStart + pos[1];
+                            }
+                        }
+
+                        if (curStart < end) {
+                            textSegments.push({
+                                text: text.substring(curStart, end),
+                            });    
+                        }
+
+                        for(const seg of textSegments) {
+                            const spanElem = document.createElement('span');
+                            $(spanElem).text(seg.text);
+                            if (seg.highlighted) {
+                                $(spanElem).addClass('documentSearchHighlightedText');
+                            }
+                            $(req.tdElem).append(spanElem);
+                        }
+
+                    }
+
+
+                    let tdElem = document.createElement('td');
+                    $(tdElem).addClass('documentSearchCell');
+                    insertText({tdElem, which:'hdrText'});
+                    $(trElem).append(tdElem);
+
+                    tdElem = document.createElement('td');
+                    $(tdElem).addClass('documentSearchCell');
+                    insertText({tdElem, which:'text'});
+                    $(trElem).append(tdElem);
+
+
+                    $(trElem).on('click', function() {
+                        Docs.scrollToElement($('#' + res.ref));
+                    });
+
+                    $(tbodyElem).append(trElem);
+                }
+            }
+
+            Docs.scrollToElement($('#' + searchResults[0].ref));
+        }
+    });
+}
+
 navMenu.scanHeaders = function () {
     if (navMenu.thisUrl.pathname.startsWith('/reference/device-os/api')) {
         return;
@@ -421,49 +623,7 @@ navMenu.scanHeaders = function () {
     });
 
     // console.log('scanHeaders headers', navMenu.headers);
-    if (navMenu.searchQuery && navMenu.searchQuery.length) {
-        // Search for literal match
-        let matchHdr;
-
-        for(const hdr of navMenu.headers) {
-            if (hdr.text.toLowerCase() == navMenu.searchQuery.toLowerCase()) {
-                matchHdr = hdr;
-                break;
-            }
-        }
-        if (!matchHdr) {
-            // Search for partial match (space separated)
-            let searchParts = navMenu.searchQuery.toLowerCase().split(' ');
-            let matches = [];
-
-            for(const hdr of navMenu.headers) {
-                const parts = hdr.text.toLowerCase().split(' ');
-                let m = {
-                    matches: 0,
-                    hdr,
-                };
-                for(const p of searchParts) {
-                    if (parts.includes(p)) {
-                        m.matches++;
-                    }
-                } 
-                if (m.matches) {
-                    matches.push(m);
-                }
-            }
-            if (matches.length) {
-                matches.sort(function(a, b) {
-                    return b.matches - a.matches;
-                });
-                matchHdr = matches[0].hdr;
-            }
-        }
-
-        if (matchHdr) {
-            Docs.scrollToElement(matchHdr.elem);
-        }
-
-    }
+    navMenu.searchContent();
 
     navMenu.currentHeader = 0;
 
