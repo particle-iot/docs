@@ -521,20 +521,30 @@ navMenu.scanHeaders = function () {
                             let start = 0;
                             let end = text.length;
 
-                            let positions;
+                            let positions = [];
 
-                            if (res.matchData.metadata.integr && 
-                                res.matchData.metadata.integr[req.which]) {
-
-                                if (res.matchData.metadata.integr[req.which].position.length > 0) {
-                                    positions = res.matchData.metadata.integr[req.which].position;
-                                }                                
+                            for(const key in res.matchData.metadata) {
+                                if (res.matchData.metadata[key][req.which] && res.matchData.metadata[key][req.which].position) {
+                                    if (Array.isArray(res.matchData.metadata[key][req.which].position[0])) {
+                                        // Multiple matches
+                                        for(const p of res.matchData.metadata[key][req.which].position) {
+                                            positions.push(p);
+                                        }
+                                    }
+                                    else {
+                                        positions.push(res.matchData.metadata[key][req.which].position);
+                                    }
+                                }
                             }
-                            if (positions && req.which == 'text') {
+
+                            positions.sort(function(a, b) {
+                                return a[0] - b[0];
+                            });
+
+                            if (positions.length && req.which == 'text') {
                                 const p = positions[0];
                                 if (p[0] > 80) {
-                                    const matchEnd = p[0] + p[1];
-    
+                                
                                     start = p[0] - 30;
                                     end -= start;                                    
                                 }    
@@ -547,7 +557,9 @@ navMenu.scanHeaders = function () {
                             let textSegments = [];
                             let curStart = start;
 
-                            if (positions) {
+                            // console.log('in-document search', {start, end, positions, text});
+
+                            if (positions.length) {
                                 for(const pos of positions) {
                                     if (pos[0] > curStart) {
                                         textSegments.push({
