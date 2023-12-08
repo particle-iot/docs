@@ -152,7 +152,6 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | New Zealand | B524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
 | Nigeria | B524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
 | Norway | B524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
-| Oman | B524 | 2G, 3G, Cat1 | Ooredoo |
 | Pakistan | B524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
 | Palestine | B524 | 2G, 3G | Jawwal |
 | Papua New Guinea | B524 | 2G, 3G | bmobile |

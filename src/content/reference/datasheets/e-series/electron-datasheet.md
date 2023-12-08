@@ -735,7 +735,6 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Nicaragua | ELC314 | 2G, 3G | Movistar |
 | Nigeria | ELC314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | ELC314 | 2G, 3G | TDC, Telenor, Telia |
-| Oman | ELC314 | 2G, 3G | Ooredoo |
 | Pakistan | ELC314 | 2G, 3G | Mobilink, Telenor, Ufone, Warid |
 | Palestine | ELC314 | 2G, 3G | Jawwal |
 | Panama | ELC314 | 2G, 3G | Digicel, Movistar |

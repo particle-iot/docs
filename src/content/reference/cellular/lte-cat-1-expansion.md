@@ -193,7 +193,6 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Norway | TDC | &nbsp; |
 | Norway | Telenor | &nbsp; |
 | Norway | Telia | &nbsp; |
-| Oman | Ooredoo | &check; |
 | Pakistan | Mobilink | &check; |
 | Pakistan | Telenor | &check; |
 | Pakistan | Ufone | &check; |

@@ -935,7 +935,6 @@ To be provided at a later date.
 | New Zealand | MON524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
 | Nigeria | MON524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
 | Norway | MON524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
-| Oman | MON524 | 2G, 3G, Cat1 | Ooredoo |
 | Pakistan | MON524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
 | Palestine | MON524 | 2G, 3G | Jawwal |
 | Papua New Guinea | MON524 | 2G, 3G | bmobile |

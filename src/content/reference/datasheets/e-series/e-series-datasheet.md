@@ -672,7 +672,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Nicaragua | E314 | 2G, 3G | Movistar |
 | Nigeria | E314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | E314 | 2G, 3G | TDC, Telenor, Telia |
-| Oman | E314 | 2G, 3G | Ooredoo |
 | Pakistan | E314 | 2G, 3G | Mobilink, Telenor, Ufone, Warid |
 | Palestine | E314 | 2G, 3G | Jawwal |
 | Panama | E314 | 2G, 3G | Digicel, Movistar |

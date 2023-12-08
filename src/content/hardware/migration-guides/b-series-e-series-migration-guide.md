@@ -1543,7 +1543,6 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Nigeria | &check; | &check; | &nbsp; | &check; |
 | North Macedonia | &check; | &check; | &nbsp; | &nbsp; |
 | Norway | &check; | &check; | &nbsp; | &check; |
-| Oman | &check; | &nbsp; | &nbsp; | &check; |
 | Pakistan | &check; | &check; | &nbsp; | &check; |
 | Palestine | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Panama | &check; | &check; | &nbsp; | &nbsp; |

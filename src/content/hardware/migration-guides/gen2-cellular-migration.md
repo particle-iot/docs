@@ -833,8 +833,6 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Norway | TDC | &nbsp; | &check; | &check; | &nbsp; |
 | Norway | Telenor | &check; | &check; | &check; | &nbsp; |
 | Norway | Telia | &check; | &check; | &check; | &nbsp; |
-| Oman | Omantel | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Oman | Ooredoo | &check; | &check; | &check; | &nbsp; |
 | Pakistan | Mobilink | &check; | &check; | &check; | &nbsp; |
 | Pakistan | Telenor | &nbsp; | &check; | &check; | &nbsp; |
 | Pakistan | Ufone | &nbsp; | &check; | &check; | &nbsp; |

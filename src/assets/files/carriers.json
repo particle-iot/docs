@@ -38098,9 +38098,10 @@
       "country": "Oman",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "YES",
+      "recommendation": "NR",
       "expansion": "2022-05-18",
-      "roamingRestrictions": "warn"
+      "roamingRestrictions": "warn",
+      "reason": "Permanent roaming restrictions"
     },
     {
       "country": "Oman",
@@ -38113,9 +38114,10 @@
       "country": "Oman",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "YES",
+      "recommendation": "NR",
       "expansion": "2022-05-18",
-      "roamingRestrictions": "warn"
+      "roamingRestrictions": "warn",
+      "reason": "Permanent roaming restrictions"
     },
     {
       "country": "Oman",
@@ -38152,8 +38154,9 @@
       "country": "Oman",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES",
-      "roamingRestrictions": "warn"
+      "recommendation": "NR",
+      "roamingRestrictions": "warn",
+      "reason": "Permanent roaming restrictions"
     },
     {
       "country": "Oman",
@@ -38166,8 +38169,9 @@
       "country": "Oman",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES",
-      "roamingRestrictions": "warn"
+      "recommendation": "NR",
+      "roamingRestrictions": "warn",
+      "reason": "Permanent roaming restrictions"
     },
     {
       "country": "Oman",

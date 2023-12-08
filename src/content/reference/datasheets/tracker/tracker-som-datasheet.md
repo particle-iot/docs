@@ -1280,7 +1280,6 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | New Zealand | T524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
 | Nigeria | T524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
 | Norway | T524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
-| Oman | T524 | 2G, 3G, Cat1 | Ooredoo |
 | Pakistan | T524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
 | Palestine | T524 | 2G, 3G | Jawwal |
 | Papua New Guinea | T524 | 2G, 3G | bmobile |

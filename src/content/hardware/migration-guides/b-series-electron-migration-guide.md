@@ -1498,7 +1498,7 @@ The Electron 2G and 2G/3G models can be used with a 4FF plastic Particle SIM or 
 | Nigeria | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | North Macedonia | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Norway | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
-| Oman | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
+| Oman | &nbsp; | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Pakistan | &nbsp; | &check; | &nbsp; | &nbsp; | &check; |
 | Palestine | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Panama | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |

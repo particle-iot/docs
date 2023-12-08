@@ -496,7 +496,6 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | New Zealand | ONE524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
 | Nigeria | ONE524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
 | Norway | ONE524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
-| Oman | ONE524 | 2G, 3G, Cat1 | Ooredoo |
 | Pakistan | ONE524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
 | Palestine | ONE524 | 2G, 3G | Jawwal |
 | Papua New Guinea | ONE524 | 2G, 3G | bmobile |
