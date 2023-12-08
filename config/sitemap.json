@@ -595,8 +595,8 @@
             "hash": "7ce9dce10f7c84a6dba8c026746fc4561f7bce3835a40d57a5921f47e9a80fbe"
         },
         "getting-started/console/console.md": {
-            "date": "2023-11-20",
-            "hash": "6806a11343e021c99446030056b386687bf083be9c4f7d214b2596d661adbcfb"
+            "date": "2023-12-08",
+            "hash": "643f13695689b8afc27b9125d55d735b300ae4535c2d0465cef32c7f8ea719a2"
         },
         "getting-started/console/development-devices.md": {
             "date": "2022-05-18",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-12-05",
-            "hash": "a39e7cad56260413d14bdf211cd0f92d07fb3ffb69d824cb9bbac019acea5054"
+            "date": "2023-12-08",
+            "hash": "766ec65c58b7ffa79156e1d8b5d5828386d8e26d92dd03d11619d56654830c09"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -4411,8 +4411,8 @@
             "hash": "01732d6a7369be9a60ad1b1036c1f417b6b9f1df3a31bf80070a383b1f78ad83"
         },
         "reference/device-os/api/memory/stack.md": {
-            "date": "2023-09-28",
-            "hash": "e7d305b1ede639d42bcf7ea3a7d8cbc80af06fbff1808de6e932528c4c10e28c"
+            "date": "2023-12-08",
+            "hash": "1f98585fd062a590db36d945f8e46a252847f914863829b262637a21816df47e"
         },
         "reference/device-os/api/device-os-versions/device-os-versions.md": {
             "date": "2023-09-20",

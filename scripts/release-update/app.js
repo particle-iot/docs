@@ -112,12 +112,11 @@ if (!config.accessToken) {
 
 // Create a new empty tempDir if necessary
 const tempDir = path.join(__dirname, 'temp');
-if (!fs.existsSync(tempDir)) {
-    fs.mkdirSync(tempDir);
-}
-else {
+if (fs.existsSync(tempDir)) {
     fs.rmSync(tempDir, {recursive:true});
 }
+fs.mkdirSync(tempDir);
+
 
 let releasesJson;
 try {

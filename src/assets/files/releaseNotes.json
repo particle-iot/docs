@@ -27456,6 +27456,223 @@
                 2698,
                 2700
             ]
+        },
+        "v5.6.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.6.0",
+            "tag_name": "v5.6.0",
+            "name": "v5.6.0 (Argon/Boron/B SoM/B5 SoM/Tracker/Tracker M/E SoM X/M SoM/P2)",
+            "prerelease": false,
+            "created_at": "2023-12-01T21:20:28Z",
+            "published_at": "2023-12-07T22:46:10Z",
+            "entries": [
+                {
+                    "tags": [
+                        "msom"
+                    ],
+                    "prs": [
+                        2689
+                    ],
+                    "section": "FEATURES",
+                    "text": "ACM basic support"
+                },
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [
+                        2693
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Add 64-bit string conversions"
+                },
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [
+                        2695
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "json: 64-bit support"
+                },
+                {
+                    "tags": [
+                        "msom"
+                    ],
+                    "prs": [
+                        2706
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "increase NCP baudrate to 921600, doubling throughput"
+                },
+                {
+                    "tags": [
+                        "network"
+                    ],
+                    "prs": [
+                        2708
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Wiznet Ethernet performance improvements"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2698
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "hal: fixes the issue that UARTE RX may loss data"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2699
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "correctly handle SecureFault"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2700
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes ncp-client not waiting for modem ready on cold boot"
+                },
+                {
+                    "tags": [
+                        "system"
+                    ],
+                    "prs": [
+                        2702
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "still pump system loop when SPARK_WLAN_SLEEP=1; Try to drain ISR task queue quicker"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2703
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix unintentional pin changes for Serial1 RTS/CTS"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2710
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fix multiple BLE issues"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2711
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Asset OTA fixes"
+                },
+                {
+                    "tags": [
+                        "services"
+                    ],
+                    "prs": [
+                        2694
+                    ],
+                    "section": "INTERNAL",
+                    "text": "add long long support to printf/scanf"
+                },
+                {
+                    "tags": [],
+                    "prs": [],
+                    "section": "INTERNAL",
+                    "text": "fix printf/scanf for floating point numbers, add tests [#2696](https://github.com/particle-iot/device-os/pull/2696"
+                },
+                {
+                    "tags": [
+                        "msom"
+                    ],
+                    "prs": [
+                        2701
+                    ],
+                    "section": "INTERNAL",
+                    "text": "support 16MB GD flash"
+                },
+                {
+                    "tags": [
+                        "msom"
+                    ],
+                    "prs": [
+                        2704
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Support burnin tests"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2705
+                    ],
+                    "section": "INTERNAL",
+                    "text": "reduce flash usage"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2709
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Erase factory reset app after test runner completes"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2712
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Fix dual stack UDP bind behavior with LWIP_IPV6_DEFINES_ONLY"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2713
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Update WB makefile version"
+                }
+            ],
+            "prs": [
+                2689,
+                2693,
+                2694,
+                2695,
+                2698,
+                2699,
+                2700,
+                2701,
+                2702,
+                2703,
+                2704,
+                2705,
+                2706,
+                2708,
+                2709,
+                2710,
+                2711,
+                2712,
+                2713
+            ]
         }
     },
     "pulls": {
@@ -40273,6 +40490,78 @@
             "state": "open",
             "created_at": "2023-10-23T11:06:56Z",
             "detail": "1. Disables IPv6 support (can be turned back on), keeping things like `AF_INET6`, `sockaddr_in6` and others available.\n2. Disables CHAP for cellular devices (removes MD5 dependency) ([this](https://github.com/particle-iot/device-os/compare/feature/reduce-gen3-flash-usage?expand=1#diff-a8e99f7ec884e049b049347a881b289b8edd5641af45e8d407cb97a78fdf7550R2002) change needs to be verified cc @technobly, pretty sure we might just need to leave `CHAP:<apn>` and PAP will still work)\n3. Disables IP reassembly/fragmentation on Tracker\n4. Disables ESP32 NCP updates on Tracker\n5. Disables text error messages\n6. Disables TLS server support in MbedTLS (not used anywhere)\n7. Disables float support in wiring `Print` in system. It's brought in only for setup console (over Serial), ideally the whole `Print` usage should be removed, but the changeset is big\n\nWith Ledger (#2660 and #2675) merged in, the state of affairs is the following (also lists some other potential future reductions):\n\n| Platform | Post Ledger merge free space | + Serial setup console removed | + Ethernet support disabled |\n|----------|-----------------------------:|--------------------------------:|-----------------------------:|\n| Argon    |                        45.8K |                            52K |                           - |\n| Boron    |                        16.4K |                          20.7K |                           - |\n| B SoM    |                        16.1K |                          20.4K |                           - |\n| E SoM X  |                        16.8K |                          21.2K |                           - |\n| B5 SoM   |                        21.6K |                          26.6K |                           - |\n| Tracker  |                         9.5K |                          13.8K |                         19K |"
+        },
+        "2706": {
+            "url": "https://github.com/particle-iot/device-os/pull/2706",
+            "number": 2706,
+            "title": "[msom] increase NCP baudrate to 921600, doubling throughput",
+            "state": "closed",
+            "created_at": "2023-10-30T22:30:41Z",
+            "detail": "- The runtime baud rate of MSoM platform (only BG95-M5 modems for now) is set at 460800, and could be increased to 921600."
+        },
+        "2707": {
+            "url": "https://github.com/particle-iot/device-os/pull/2707",
+            "number": 2707,
+            "title": "Audio feature support for the Gen4 platform",
+            "state": "closed",
+            "created_at": "2023-11-08T03:05:43Z",
+            "detail": "This PR is to bring the audio feature for the Realtek platform, P2 and MSoM.\n\nThe audio feature includes \n- DMIC\n- Lineout\n- I2S bus\n\nThe audio pinmap can be found in the Google Sheet\n- [I2S and DMIC pinmap](https://docs.google.com/spreadsheets/d/10X94t77dTGfLHro6zGonZGOKlJk4XQrO/edit#gid=1077669934)\n- [Lineout pinmap](https://docs.google.com/spreadsheets/d/10X94t77dTGfLHro6zGonZGOKlJk4XQrO/edit#gid=500404665)\n\nThis audio API was designed based on my understanding during the R&D phase, so it might be somewhat tied to the Realtek platform. We need a discussion to customize a universal API interface that will facilitate our migration to new platforms in the future."
+        },
+        "2708": {
+            "url": "https://github.com/particle-iot/device-os/pull/2708",
+            "number": 2708,
+            "title": "[network] Wiznet Ethernet performance improvements",
+            "state": "closed",
+            "created_at": "2023-11-13T23:21:04Z",
+            "detail": "Ethernet performance on P2 platforms is slower and less reliable compared to gen3 implementations"
+        },
+        "2709": {
+            "url": "https://github.com/particle-iot/device-os/pull/2709",
+            "number": 2709,
+            "title": "Erase factory reset app after test runner completes",
+            "state": "closed",
+            "created_at": "2023-11-14T23:06:17Z",
+            "detail": "On device tests may fail due to interactions between asset OTA and factory reset images in flash that are left over from on device testing"
+        },
+        "2710": {
+            "url": "https://github.com/particle-iot/device-os/pull/2710",
+            "number": 2710,
+            "title": "[rtl872x] fix multiple BLE issues",
+            "state": "closed",
+            "created_at": "2023-11-15T06:54:46Z",
+            "detail": "1. BLE scanning may stall. BLE scanning API acquires the BLE lock. When error occured in BLE stack during scanning, it tries to reset the stack, which then sends a command to a queue for an internal thread to process. If the thread is trying to acquire the BLE lock to process other command in queue before handling the command to reset the stack, then deadlock occurs.\n2. Due to reset of the BLE stack, for whatever reason, all of the on-going BLE activities are stopped. This typically causes the BLE provisioning mode not functioning well.\n3. BLE states's event may be notified in messed order."
+        },
+        "2711": {
+            "url": "https://github.com/particle-iot/device-os/pull/2711",
+            "number": 2711,
+            "title": "Asset OTA fixes",
+            "state": "closed",
+            "created_at": "2023-11-17T20:40:10Z",
+            "detail": "This PR introduces a number of Asset OTA related fixes/enhancements:\n\n1. `CTRL_REQUEST_GET_ASSET_INFO` control request to fetch information about required/available assets on device over BLE/USB\n2. `CTRL_REQUEST_GET_MODULE_INFO` refactored to align with new protobuf-based System Describe and encoding for both the control request and system describe coalesced into a single implementation to save on flash space\n3. `System.assetsAvailable()` hides extra assets that might still be in storage but are not currently required, essentially this is now `available ∩ required`\n4. `seek()` forward and backwards support in wiring Asset OTA APIs\n5. [Factory application with asset dependencies is now correctly parsed](https://app.shortcut.com/particle/story/123329)\n6. Overwriting an asset in use by the application (due to OTA or local flashing) is handled safely"
+        },
+        "2712": {
+            "url": "https://github.com/particle-iot/device-os/pull/2712",
+            "number": 2712,
+            "title": "Fix dual stack UDP bind behavior with LWIP_IPV6_DEFINES_ONLY",
+            "state": "closed",
+            "created_at": "2023-11-28T13:46:46Z",
+            "detail": "UDP socket when bound to `AF_INET6` `IN6ADDR_ANY` address, should normally work in dual-stack mode. With recent optimizations for Gen 3 platforms introducing `LWIP_IPV6_DEFINES_ONLY`, this got broken."
+        },
+        "2713": {
+            "url": "https://github.com/particle-iot/device-os/pull/2713",
+            "number": 2713,
+            "title": "Update WB makefile version",
+            "state": "closed",
+            "created_at": "2023-11-30T16:36:19Z",
+            "detail": "Update makefile version to 1.15.0 which assists bundle assets\n\n---"
+        },
+        "2714": {
+            "url": "https://github.com/particle-iot/device-os/pull/2714",
+            "number": 2714,
+            "title": "Fix BLE/Wi-Fi concurrency issues",
+            "state": "open",
+            "created_at": "2023-12-07T02:03:46Z",
+            "detail": "When both BLE and Wi-Fi are working, BLE scanning may has no result returned."
         }
     }
 }
