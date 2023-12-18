@@ -267,7 +267,7 @@ event triggered functions will be called as often as necessary based on the even
 
 ## Logic Function coding
 
-The Logic Function code is Javascript (actually, Typescript). You can use built-in language features such as:
+The Logic Function code is Javascript. You can use built-in language features such as:
 
 - calculations
 - if blocks
