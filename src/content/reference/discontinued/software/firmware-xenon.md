@@ -19131,7 +19131,4 @@ This is useful for simply capturing the Electron's connection process.
 
 ---
 
-##### Instructions on using the Electron Troubleshooting app [are here](https://docs.google.com/document/d/1U_Wzy2SPRC3hZnKtw8d6QN2Tm8Q7QwtEbSUAeTkO3bk/pub)
-This is useful for interacting with the Electron's connection process.
-
 #### release-notes-wrapper

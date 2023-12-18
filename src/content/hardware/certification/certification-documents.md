@@ -803,6 +803,55 @@ Additional FCC Test Reports:
 - [RoHS Test Reports](/assets/pdfs/new-certs/rohs/electron-rohs-test-reports.pdf)
 
 
+## Monitor One 404 NorAm
+
+{{!-- BEGIN do not edit content below, it is automatically generated fa286927-e333-41ee-9c2c-585f6729873b --}}
+
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | GA | |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | In development | |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+### FCC (United States) - MON404DE Monitor One Developer Edition NorAm
+
+- FCC ID: 2AEMI-MONEDE
+- [Part 15B, 746 MHz - 894 MHz](/assets/pdfs/mon404de-fcc-CXX.pdf)
+- [Part 15C, Digital Transmission System 2.4 GHz](/assets/pdfs/mon404de-fcc-DTS.pdf)
+- [Part 15B, Part 15 Class B Computing Device Peripheral](/assets/pdfs/mon404de-fcc-JBP.pdf)
+- [Part 22H, 24E, 27, PCS Licensed Transmitter](/assets/pdfs/mon404de-fcc-PCB.pdf)
+- [Test report FCC Part 15, Subpart B, Class B](/assets/pdfs/mon404de-fcc-part15b-test.pdf)
+- [Test report FCC Part 22](/assets/pdfs/mon404de-fcc-part22-test.pdf)
+- [Test report FCC Part 24](/assets/pdfs/mon404de-fcc-part24-test.pdf)
+- [Test report FCC Part 27](/assets/pdfs/mon404de-fcc-part27-test.pdf)
+- [Test photos, FCC Part 15B](/assets/pdfs/mon404de-fcc-15b-test-photos.pdf)
+- [Test photos, FCC External](/assets/pdfs/mon404de-fcc-external-photos.pdf)
+- [Test photos, FCC Internal](/assets/pdfs/mon404de-fcc-internal-photos.pdf)
+- [Test photos, FCC RF Test Setup](/assets/pdfs/mon404de-fcc-rf-test-photos.pdf)
+
+
+### ISED (Canada) - MON404 Monitor One Developer Edition NorAm
+
+- ISED: **20127-MONEDE**
+- [Certificate of Conformity](/assets/pdfs/mon404de-ised-certificate.pdf)
+- [Test Report RS-130](/assets/pdfs/mon404de-ic-rs130.pdf)
+- [Test Report RS-132](/assets/pdfs/mon404de-ic-rs132.pdf)
+- [Test Report RS-133](/assets/pdfs/mon404de-ic-rs133.pdf)
+- [Test Report RS-139](/assets/pdfs/mon404de-ic-rs139.pdf)
+- [ICES-003 Issue 7:2020](/assets/pdfs/mon404de-ic-ices003.pdf)
+- [Test photos, ISED ICES003](/assets/pdfs/mon404de-ised-ices003-test-photos.pdf)
+- [Test photos, ISED External](/assets/pdfs/mon404de-ised-external-photos.pdf)
+- [Test photos, ISED Internal](/assets/pdfs/mon404de-ised-internal-photos.pdf)
+- [Test photos, ISED RF Test Setup](/assets/pdfs/mon404de-ised-rf-test-photos.pdf)
+
+
+### RoHS - MON404 Monitor One Developer Edition NorAm
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/mon404de-rohs.pdf)
+
+
 ## ONE402 ONE404 Tracker One NorAm
 
 

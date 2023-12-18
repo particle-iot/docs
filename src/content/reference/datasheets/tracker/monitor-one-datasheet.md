@@ -35,14 +35,6 @@ For information on setting up a Monitor One Developer Edition, see the [Monitor 
 
 Details about the Tracker SoM that is contained within the Monitor One can be found in the [Tracker SoM Datasheet](/reference/datasheets/tracker/tracker-som-datasheet/).
 
-## Certification
-
-{{box op="start" cssClass="boxed warningBox"}}
-The Monitor One Developer's Edition is currently in the engineering sample stage.
-
-Certification is not expected until September or October 2023.
-{{box op="end"}}
-
 
 ## External features
 

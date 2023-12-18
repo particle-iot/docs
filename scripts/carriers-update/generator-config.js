@@ -2024,6 +2024,16 @@ const schemaDocs = require('./schema-docs');
             } 
         },
         {
+            guid:'fa286927-e333-41ee-9c2c-585f6729873b', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('MON404');
+                    }        
+                }); 
+            } 
+        },
+        {
             guid:'df800960-c749-4b1d-9c69-ae4372e86ab7', 
             generatorFn:function(updater) {
                 return updater.generateFamilySkus('tracker', {

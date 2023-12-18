@@ -943,8 +943,8 @@
             "hash": "8c7f897324c4a4295e940ce41ff83bd1671cc8e5101f47856e34e5c21e4e31ab"
         },
         "hardware/certification/certification-documents.md": {
-            "date": "2023-11-30",
-            "hash": "b49348b83bffc4dabce986da427efc4a357121850ecb6a1978b5f657032b151d"
+            "date": "2023-12-18",
+            "hash": "d8f0f4b11011f52675d29184fd9179ab7cb65237dda9036ab5c6cc6e40c49aaa"
         },
         "hardware/certification/certification.md": {
             "date": "2023-11-06",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-12-08",
-            "hash": "766ec65c58b7ffa79156e1d8b5d5828386d8e26d92dd03d11619d56654830c09"
+            "date": "2023-12-18",
+            "hash": "7b17f21076f59748dcbfd3eebb5543dc501ccf986852f14af09dabf09a66066d"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1424,7 +1424,7 @@
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
             "date": "2023-12-18",
-            "hash": "9bade6e3580456671ae38ab26d92e008767885ca2824c0416baebc32c570351a"
+            "hash": "c649214ab9644244ab44d750e57ad6ce813ff1ce6ac7d087517d6f232191c1e6"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2023-12-18",
@@ -1471,16 +1471,16 @@
             "hash": "d938953475a26cb1dcbf81bb58e718857ce997bdffb6e513e16a3670b2b28377"
         },
         "reference/discontinued/software/firmware-core.md": {
-            "date": "2023-08-03",
-            "hash": "8847a8f7012b28bbec9840259ecab378424a94dac53f9d3ec3ef4d9ee622ef4b"
+            "date": "2023-12-18",
+            "hash": "26534e53d33509393456180362664c97b2503a4f76de412fe834b92e89ddcb22"
         },
         "reference/discontinued/software/firmware-mesh.md": {
             "date": "2022-06-14",
             "hash": "c2a21a44fa7c834e9ce7618f9b0141166434edcbd5a0dcf50b48adb5d396f88f"
         },
         "reference/discontinued/software/firmware-xenon.md": {
-            "date": "2023-08-30",
-            "hash": "8117ce2322d42e94a456f576699244d6207c6b1821fb579699d92250d549b22c"
+            "date": "2023-12-18",
+            "hash": "d5962bad6487759db8aa12c5b83f2a8f0d147b349474e204b15a7c587106e9f2"
         },
         "reference/discontinued/software/windows.md": {
             "date": "2023-03-17",
@@ -4411,8 +4411,8 @@
             "hash": "01732d6a7369be9a60ad1b1036c1f417b6b9f1df3a31bf80070a383b1f78ad83"
         },
         "reference/device-os/api/memory/stack.md": {
-            "date": "2023-12-08",
-            "hash": "1f98585fd062a590db36d945f8e46a252847f914863829b262637a21816df47e"
+            "date": "2023-12-18",
+            "hash": "17ca7984b0d1e537c47f2eb9294f7eff324099870116fecb3d297b6c41d1c47c"
         },
         "reference/device-os/api/device-os-versions/device-os-versions.md": {
             "date": "2023-09-20",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "97c2deeb3969d0a1105d3d685a397e40ba1c1a8a1df3a66a04e2ac220791b0f3",
-            "date": "2023-12-08"
+            "hash": "61c6eb394a01eb2a63c621dde570562a3f44d58b92abd8e8f94e78d3f358b2fa",
+            "date": "2023-12-18"
         },
         "getting-started/cloud/logic.md": {
             "hash": "b145f7e033e4d248eca87ee016bc790099a70ef7658383d0cd2a10678bceaaac",
