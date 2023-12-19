@@ -14,7 +14,7 @@ and APIs in future versions based on user feedback.
 Pricing and availability may change in the future.
 {{box op="end"}}
 
-Ledger allows small amounts of data to be stored in the cloud, per-device, per-product, or per owner account. 
+Ledger allows data to be stored in the cloud, per-device, per-product, or per owner account. 
 
 The Ledger can be:
 
@@ -94,6 +94,15 @@ In the **Advanced** tab, you can set arbitrary JSON data, including nested objec
 {{imageOverlay src="/assets/images/ledger/ledger-advanced.png" class="no-darken"}}
 
 When using the Cloud API you get back the entire JSON data structure for a ledger instance.
+
+## Using Ledger from Logic
+
+You can easily access owner, product, and device ledgers from Logic.
+
+- Store published events in Ledger using Logic.
+- Move business logic from device firmware to the cloud using Logic.
+
+See [Using Ledger from Logic](/getting-started/cloud/logic/#using-ledger-from-logic) in the Logic documentation for more information.
 
 
 
