@@ -36,7 +36,7 @@ For this beta version:
 - Run logs per function retained: 100
 - Maximum logic run execution time: 30 seconds
 
-A companion feature, Ledger, allows data to be stored in the cloud and synchronized with devices. That feature is not included in this beta release.
+A companion feature, [Ledger](/getting-started/cloud/ledger/), allows data to be stored in the cloud and synchronized with devices. Only the cloud side of ledger is available in beta now, and the device side will be added in January 2024.
 
 ## Common use cases
 
@@ -389,6 +389,146 @@ events that devices are subscribed to, you should limit the size and number of e
 
 When publishing to a webhook, the data can exceed the normal 1024 bytes event size limit. When sending to a device, however, you must still limit the size
 of the event data. Events published by Logic do not currently count against your data operations usage.
+
+### Using Ledger from Logic
+
+#### Particle.ledger
+
+The [Ledger](/getting-started/cloud/ledger/) is available to Logic functions in the Particle core library: 
+
+```js
+import Particle from 'particle:core';
+
+export default function myLogicFunction() {
+  const productLedger = Particle.ledger("product-settings", { productId: 1234 });
+  const deviceLedger = Particle.ledger("device-settings", { deviceId: '001122...' });
+  const ownerLedger = Particle.ledger("owner-settings");
+}
+```
+
+If you are handling an event, you don't need to specify the product ID or device ID, as this is known and available in the event (event.productId and event.deviceId).
+
+```js
+import Particle from 'particle:core';
+
+export default function myLogicFunction({ event }) {
+  const productLedger = Particle.ledger("product-settings"); 
+  const deviceLedger = Particle.ledger("device-settings");
+}
+```
+
+#### Getting a ledger value
+
+Once you have a Ledger object, call `deviceLedger.get()` on it to retrieve the current data.
+
+Ledger `get()` returns an object with `updatedAt` for when the Ledger was last updated and `data` containing the Ledger data.
+
+If the Ledger name doesn’t exist, Ledger `get()` will throw an error.
+
+If there is no data for this device, product, or owner, Ledger `get()` will return an object without `updatedAt` and an empty object in `data`.
+
+```js
+import Particle from 'particle:core';
+
+export default function myLogicFunction({ event }) {
+  const productLedger = Particle.ledger("product-settings"); 
+  const deviceLedger = Particle.ledger("device-settings");
+
+  const productDefaults = productLedger.get();
+  const deviceOverride = deviceLedger.get();
+
+  // Use data from device Ledger if available, otherwise use product value.
+  // In this example, the data field is called threshold
+  const threshold = deviceOverride.data.threshold || productDefaults.data.threshold;
+  if (!threshold) {
+    throw new Error("No threshold set for this device or product");
+  }
+  // Do something with threshold
+}
+```
+
+Another example of getting ledger data:
+
+```js
+const thresholds = Particle.ledger("thresholds", { productId: 1234 });
+const { data } = thresholds.get();
+
+// check if value is available for this product
+if (data) {
+  // do something with data.maxiumValue
+}
+```
+
+#### Setting a ledger value
+
+There are two ways to set a Ledger: either replace the entire data of the Ledger, or merge the existing data with additional data. Merging adds new fields that were not previously in the data, and replaces existing fields. The default mode is `Particle.REPLACE`.
+
+```jsx
+// Previous Ledger data
+{
+  "a": 123,
+  "b": 456
+}
+
+// Data to merge
+{
+  "b": 789,
+  "c": "ok"
+}
+
+// Merged value
+{
+  "a": 123,
+  "b": 789,
+  "c": "ok"
+}
+```
+
+```jsx
+import Particle from 'particle:core';
+
+export default function myLogicFunction() {
+  const productLedger = Particle.ledger("my-product-ledger");
+  const deviceLedger = Particle.ledger("my-device-ledger");
+  const ownerLedger = Particle.ledger("my-owner-ledger");
+
+  const newData = { b: 789 };
+
+  productLedger.set(newData); // implicit Particle.REPLACE
+  deviceLedger.set(newData, Particle.REPLACE);
+  ownerLedger.set(newData, Particle.MERGE);
+}
+```
+
+Ledger `set()` doesn’t return any value. A Logic Function can set a Cloud only Ledger and a Cloud to Device Ledger. Trying to set a Device to Cloud Ledger will throw an error.
+
+Another example of setting data:
+
+```js
+const thresholds = Particle.ledger("thresholds", { productId: 1234 });
+
+thresholds.set({ maximumValue: 9000, validation: { voltage: { largerThan: 3.0 }}});
+```
+
+
+
+#### Deleting a ledger
+
+Deleting a Ledger from a Logic Function will only clear the data for the device or product specified. The data for other devices/products will remain. Deleting an owner Ledger removes the data shared across your account.
+
+```js
+import Particle from 'particle:core';
+
+export default function myLogicFunction() {
+  const productLedger = Particle.ledger("my-product-ledger");
+  const deviceLedger = Particle.ledger("my-device-ledger");
+  const ownerLedger = Particle.ledger("my-owner-ledger");
+
+  productLedger.delete();
+  deviceLedger.delete();
+  ownerLedger.delete();
+}
+```
 
 ### Particle encoding API
 

@@ -1139,8 +1139,8 @@
             "hash": "3365c544cbe9b5f2e389145a088d91eb0881ede71a5f863ec6d49a05838fc72e"
         },
         "reference/cloud-apis/api.md": {
-            "date": "2023-11-09",
-            "hash": "6394d67db833f121962ee62915e3fe44d292960db8eebf6bd9486d2248db20c7"
+            "date": "2023-12-19",
+            "hash": "68d1ac3b823760bb03261865f42ab116efb2d628eaa88b16bb3180a2fdf9af9f"
         },
         "reference/cloud-apis/authentication.md": {
             "date": "2023-07-12",
@@ -8235,12 +8235,12 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "2757a58f7fc557b13bb9329b5eee62d8f291346481d0616181954e706c892a28",
+            "hash": "9a6362c5d15de8b191b8c69cc5c12b421dcaff53e4ac95a8f3ef61e8230de23c",
             "date": "2023-12-19"
         },
         "getting-started/cloud/logic.md": {
-            "hash": "b145f7e033e4d248eca87ee016bc790099a70ef7658383d0cd2a10678bceaaac",
-            "date": "2023-12-18"
+            "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
+            "date": "2023-12-19"
         },
         "getting-started/setup/classroom.md": {
             "hash": "7b90323b9e7349accd38bdf0d610df55ecdca3c5b806acbfb477cffcb000d49e",
@@ -8253,6 +8253,10 @@
         "troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon.md": {
             "hash": "21ce1ae7a8e20dd0b3e06c3d3d9b335d2b33c213ce9363f65662286d083c2e13",
             "date": "2023-11-16"
+        },
+        "getting-started/cloud/ledger.md": {
+            "hash": "73f03df391df72360f5ce9739918d7a1885064c7d8ed56919aca2e23f781cde9",
+            "date": "2023-12-19"
         }
     }
 }

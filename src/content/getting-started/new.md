@@ -21,9 +21,13 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Ledger documentation 2023-12-29
+
+Added preliminary documentation for [Ledger beta](/getting-started/cloud/ledger/). 
+
 ### Photon 2 schematic 2023-12-19
 
-Added Photon 2 schematic to the datasheet.
+Added Photon 2 schematic to the [datasheet](/reference/datasheets/wi-fi/photon-2-datasheet/#schematic).
 
 ### Monitor One 404 certification 2023-12-18
 
