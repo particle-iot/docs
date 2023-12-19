@@ -1155,8 +1155,8 @@
             "hash": "d9c915bfbe9898935cdfb38327c53d9ba78061f2336b19af5d8ebcf52972d00b"
         },
         "reference/cloud-apis/javascript.md": {
-            "date": "2023-11-09",
-            "hash": "0293b23938423152611b57f75866a4cf7e30f5a18130df70d09e48b9a12ec5c8"
+            "date": "2023-12-19",
+            "hash": "7e71a7c1c15ad75cb0869335ecf4717b980f2b303b32ddd8707512bd9e25c7d7"
         },
         "reference/cloud-apis/node-js.md": {
             "date": "2023-03-17",
@@ -1411,8 +1411,8 @@
             "hash": "3d2042aa2a32d6bd10fe87afd6007445e759c2e98b0acd73dd630b492285aa05"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2023-11-16",
-            "hash": "8bce09e16e97f74b122984763ac4076dc42b7e71b1a31c0e71bf2a8e02e38741"
+            "date": "2023-12-19",
+            "hash": "bfc665902747b17fad19acca27a045cb79bfefcba7bd6736b5f9b8e9b1b56752"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2023-11-06",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "61c6eb394a01eb2a63c621dde570562a3f44d58b92abd8e8f94e78d3f358b2fa",
-            "date": "2023-12-18"
+            "hash": "2757a58f7fc557b13bb9329b5eee62d8f291346481d0616181954e706c892a28",
+            "date": "2023-12-19"
         },
         "getting-started/cloud/logic.md": {
             "hash": "b145f7e033e4d248eca87ee016bc790099a70ef7658383d0cd2a10678bceaaac",

@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Photon 2 schematic 2023-12-19
+
+Added Photon 2 schematic to the datasheet.
+
 ### Monitor One 404 certification 2023-12-18
 
 Certification documents for Monitor One (404) are [now available](/hardware/certification/certification-documents/#monitor-one-404-noram).

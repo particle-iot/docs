@@ -1050,6 +1050,10 @@ The Photon 2 can be directly soldered onto the PCB or be mounted with the above 
 
 {{!-- ### Module dimensions --}}
 
+## Schematic
+
+{{imageOverlay src="/assets/images/photon2-schematic6.png" alt="Schematic" class="full-width"}}
+
 ## Assembly
 
 ### Water soluble flux
@@ -1278,6 +1282,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |   2 | 2023-06-30 | RK | Updated power consumption |
 |   3 | 2023-07-26 | RK | EN pin description listed wrong MCU |
 |   4 | 2023-11-13 | RK | Add full pin details |
+|   5 | 2023-12-19 | RK | Add schematic |
 
 ## Known errata
 
