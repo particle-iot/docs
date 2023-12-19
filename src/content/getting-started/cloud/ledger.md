@@ -16,7 +16,7 @@ Pricing and availability may change in the future.
 
 Ledger allows data to be stored in the cloud, per-device, per-product, or per owner account. 
 
-The Ledger can be:
+The three types of Ledgers are:
 
 | Scope | Description | Availability |
 | :--- | :--- | :--- |
@@ -65,7 +65,7 @@ Common Use Cases:
 | Description | Description for your use |
 | Scope | Product, Device, Owner |
 
-When scoped to a product, you don't specify the project in the options; if that project uses that ledger an instance will automatically be crated.
+When scoped to a product, you don't specify the product ID in the options; if that project uses that ledger an instance will automatically be crated.
 
 Likewise, when scoped to device, whenever that device accesses the ledger an instance will automatically be created.
 
