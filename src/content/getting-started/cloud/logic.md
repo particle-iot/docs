@@ -390,6 +390,7 @@ events that devices are subscribed to, you should limit the size and number of e
 When publishing to a webhook, the data can exceed the normal 1024 bytes event size limit. When sending to a device, however, you must still limit the size
 of the event data. Events published by Logic do not currently count against your data operations usage.
 
+### Using Ledger from Logic
 
 #### Particle.ledger
 
@@ -446,6 +447,18 @@ export default function myLogicFunction({ event }) {
 }
 ```
 
+Another example of getting ledger data:
+
+```js
+const thresholds = Particle.ledger("thresholds", { productId: 1234 });
+const { data } = thresholds.get();
+
+// check if value is available for this product
+if (data) {
+  // do something with data.maxiumValue
+}
+```
+
 #### Setting a ledger value
 
 There are two ways to set a Ledger: either replace the entire data of the Ledger, or merge the existing data with additional data. Merging adds new fields that were not previously in the data, and replaces existing fields. The default mode is `Particle.REPLACE`.
@@ -489,7 +502,19 @@ export default function myLogicFunction() {
 
 Ledger `set()` doesn’t return any value. A Logic Function can set a Cloud only Ledger and a Cloud to Device Ledger. Trying to set a Device to Cloud Ledger will throw an error.
 
+Another example of setting data:
+
+```js
+const thresholds = Particle.ledger("thresholds", { productId: 1234 });
+
+thresholds.set({ maximumValue: 9000, validation: { voltage: { largerThan: 3.0 }}});
+```
+
+
+
 #### Deleting a ledger
+
+Deleting a Ledger from a Logic Function will only clear the data for the device or product specified. The data for other devices/products will remain. Deleting an owner Ledger removes the data shared across your account.
 
 ```js
 import Particle from 'particle:core';
