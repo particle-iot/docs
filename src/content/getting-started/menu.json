@@ -205,6 +205,11 @@
         "href": "/getting-started/cloud/logic/"
       },
       {
+        "dir": "ledger",
+        "title": "Ledger",
+        "href": "/getting-started/cloud/ledger/"
+      },
+      {
         "dir": "cloud-api",
         "title": "Cloud API",
         "href": "/getting-started/cloud/cloud-api/"

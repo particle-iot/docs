@@ -7049,6 +7049,74 @@
   },
   {
     "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions",
+    "title": "List ledger instance versions",
+    "description": "<p>Lists all ledger instance versions.</p>",
+    "group": "Ledger_10",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "scopeValue",
+            "description": "<p>Scope value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "replaced_before",
+            "description": "<p>List only versions replaced before this date</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "replaced_after",
+            "description": "<p>List only versions replaced after this date</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue/versions\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue/versions\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue/versions",
+          "content": "GET /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue/versions\nHTTP/1.1 200 OK\n{\n  \"versions\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"replaced_at\": \"2023-11-28T15:02:04.799Z\"\n    }\n  ],\n  \"meta\": {\n    \"has_more\": false\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_10",
+    "name": "GetV1OrgsOrgidorslugLedgersLedgernameInstancesScopevalueVersions"
+  },
+  {
+    "type": "get",
     "url": "/v1/orgs/:orgIdOrSlug/ledgers",
     "title": "List ledger definitions",
     "description": "<p>Lists all ledger definitions belonging to the specified org.</p>",
@@ -7352,7 +7420,7 @@
   },
   {
     "type": "get",
-    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/get?scope_value=:scopeValue",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue",
     "title": "Get ledger instance",
     "description": "<p>Returns the specified ledger instance.</p>",
     "group": "Ledger_7",
@@ -7385,16 +7453,16 @@
     },
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/get?scope_value=:scopeValue\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/get?scope_value=:scopeValue\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer <access_token>\"",
         "type": "bash"
       }
     ],
     "success": {
       "examples": [
         {
-          "title": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/get?scope_value=:scopeValue",
-          "content": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/get?scope_value=:scopeValue\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
+          "title": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue",
+          "content": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
           "type": "json"
         }
       ]
@@ -7402,7 +7470,68 @@
     "version": "0.0.0",
     "filename": "api-service/src/views/subspace.js",
     "groupTitle": "Ledger_7",
-    "name": "GetV1OrgsOrgidorslugLedgersLedgernameInstancesGetScope_valueScopevalue"
+    "name": "GetV1OrgsOrgidorslugLedgersLedgernameInstancesScopevalue"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
+    "title": "Get ledger instance version",
+    "description": "<p>Returns the specified version of a ledger instance.</p>",
+    "group": "Ledger_7",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "scopeValue",
+            "description": "<p>Scope value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "version",
+            "description": "<p>Version ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
+          "content": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions/:version\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_7",
+    "name": "GetV1OrgsOrgidorslugLedgersLedgernameInstancesScopevalueVersionsVersion"
   },
   {
     "type": "put",
