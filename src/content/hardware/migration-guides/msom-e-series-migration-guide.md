@@ -8,7 +8,7 @@ description: M SoM from E Series Migration Guide
 # {{title}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-For internal use only. This document is based on preliminary engineering documents and has not been fully reviewed. Changes are likely!
+This is a preliminary datasheet and changes may occur prior to release.
 {{box op="end"}}
 
 
@@ -1134,6 +1134,7 @@ The M SoM has U.FL antenna connectors:
 | UART serial | RX. Use Serial2 object.|
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 42K|
+| Signal used at boot | Goes high at boot|
 #### D26
 | | Added to M SoM |
 | :--- | :--- |

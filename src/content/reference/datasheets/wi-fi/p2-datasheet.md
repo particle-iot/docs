@@ -197,40 +197,33 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 <div align=center><img src="/assets/images/p1-pin-numbers.png" width=600></div>
 
-### GPIO and port listing
+### GPIO (Digital I/O)
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
 
-| Pin Name | Module Pin |   |   |   |   | MCU |
-| :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| A0 / D11 | 50 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
-| A1 / D12 | 43 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
-| A2 / D13 | 49 | ADC_3 | &nbsp; | &nbsp; | &nbsp; | PB[7] |
-| A5 / D14 | 23 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
-| D0 / A3 | 36 | ADC_2 | Wire (SDA) | &nbsp; | &nbsp; | PB[6] |
-| D1 / A4 | 35 | ADC_1 | Wire (SCL) | &nbsp; | &nbsp; | PB[5] |
-| D10 / WKP | 30 | &nbsp; | &nbsp; | &nbsp; | Serial3 (CTS) | PA[15] |
-| D2 | 45 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial2 (RTS) | PA[16] |
-| D3 | 51 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial2 (CTS) | PA[17] |
-| D4 | 52 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial2 (TX) | PA[18] |
-| D5 | 53 | &nbsp; | &nbsp; | SPI1 (SS) | Serial2 (RX) | PA[19] |
-| D6 | 55 | &nbsp; | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| D7 | 54 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
-| NC | 7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| RGBB | 31 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
-| RGBG | 32 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
-| RGBR | 29 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
-| RX / D9 | 63 | &nbsp; | &nbsp; | &nbsp; | Serial1 (RX)  | PA[8] |
-| S0 / D15 | 40 | &nbsp; | &nbsp; | SPI (MOSI) | Serial3 (TX) | PA[12] |
-| S1 / D16 | 41 | &nbsp; | &nbsp; | SPI (MISO) | Serial3 (RX) | PA[13] |
-| S2 / D17 | 42 | &nbsp; | &nbsp; | SPI (SCK) | Serial3 (RTS) | PA[14] |
-| S3 / D18 | 44 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PB[26] |
-| S4 / D19 | 47 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
-| S5 / D20 | 48 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[29] |
-| S6 / D21 | 33 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[31] |
-| TX / D8 | 64 | &nbsp; | &nbsp; | &nbsp; | Serial1 (TX) | PA[7] |
-| USBDATA- | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[25] |
-| USBDATA+ | 61 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[26] |
+| Pin | P2 Pin Name | P2 GPIO | MCU | Special boot function |
+| :---: | :--- | :--- | :--- | :--- |
+| 23 | A5 / D14 | &check; | PB[4] | &nbsp; |
+| 30 | D10 / WKP | &check; | PA[15] | &nbsp; |
+| 33 | S6 / D21 | &check; | PB[31] | &nbsp; |
+| 35 | D1 / A4 | &check; | PB[5] | &nbsp; |
+| 36 | D0 / A3 | &check; | PB[6] | &nbsp; |
+| 40 | S0 / D15 | &check; | PA[12] | &nbsp; |
+| 41 | S1 / D16 | &check; | PA[13] | &nbsp; |
+| 42 | S2 / D17 | &check; | PA[14] | &nbsp; |
+| 43 | A1 / D12 | &check; | PB[2] | &nbsp; |
+| 44 | S3 / D18 | &check; | PB[26] | &nbsp; |
+| 45 | D2 | &check; | PA[16] | &nbsp; |
+| 47 | S4 / D19 | &check; | PA[0] | &nbsp; |
+| 49 | A2 / D13 | &check; | PB[7] | &nbsp; |
+| 50 | A0 / D11 | &check; | PB[1] | &nbsp; |
+| 51 | D3 | &check; | PA[17] | &nbsp; |
+| 52 | D4 | &check; | PA[18] | &nbsp; |
+| 53 | D5 | &check; | PA[19] | &nbsp; |
+| 54 | D7 | &check; | PA[27] | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
+| 55 | D6 | &check; | PB[3] | SWCLK. 40K pull-down at boot. |
+| 63 | RX / D9 | &check; | PA[8] | &nbsp; |
+| 64 | TX / D8 | &check; | PA[7] | Low at boot triggers ISP flash download |
 
 
 {{!-- END do not edit content above, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
@@ -2021,6 +2014,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 010 | 2023-07-07 | RK | Add supervisory reset IC recommendation |
 | 011 | 2023-09-08 | RK | Add 5V tolerance section |
 | 012 | 2023-11-13 | RK | Add full pin details |
+| 013 | 2023-12-20 | RK | Add boot mode pin information to GPIO pin listing |
 
 ## Known errata
 

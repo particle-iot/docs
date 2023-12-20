@@ -10892,6 +10892,7 @@
           "analogWriteDAC": false,
           "analogWritePWM": false,
           "attachInterrupt": true,
+          "boot": "Goes high at boot",
           "digitalRead": true,
           "digitalWrite": true,
           "hardwarePin": "PA[8]",

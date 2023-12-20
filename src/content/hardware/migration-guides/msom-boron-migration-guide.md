@@ -8,7 +8,7 @@ description: M SoM from Boron or Argon migration guide
 # {{title}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-For internal use only. This document is based on preliminary engineering documents and has not been fully reviewed. Changes are likely!
+This is a preliminary datasheet and changes may occur prior to release.
 {{box op="end"}}
 
 {{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/m-series/msom-top.png"}}
@@ -199,6 +199,15 @@ The Argon/Boron land pattern is:
 - ADC inputs are single-ended and limited to 0 to 3.3V on both
 - Resolution is 12 bits on both
 
+{{!-- BEGIN shared-blurb 839d8427-884c-4e59-9eee-a267cc4b0e72 --}}
+The ADCs on the M SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
+drive and this may cause issues when used with a voltage divider. This is particularly true for A7, which has an even lower impedance 
+than other ADC inputs.
+
+For signals that change slowly, such as NTC thermocouple resistance, you can add a 2.2 uF capacitor to the signal. 
+For rapidly changing signals, a voltage follower IC can be used.
+{{!-- END shared-blurb --}}
+
 ### Serial
 
 {{!-- BEGIN do not edit content below, it is automatically generated 53ee9c68-d92a-4a07-b56a-7c1cfab44f60 --}}
@@ -280,6 +289,25 @@ The Argon/Boron land pattern is:
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
+
+### Boot mode pins
+
+These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
+
+{{!-- BEGIN do not edit content below, it is automatically generated e39d39e4-5349-44b3-9aaa-989469037cd45 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 45 | A6 / D29 | SWCLK. 40K pull-down at boot. | PB[7] |
+| 53 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
+| 55 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
+| 58 | D24 | Low at boot triggers ISP flash download | PA[7] |
+| 60 | D25 | Goes high at boot | PA[8] |
+| 61 | RGBR | Low at boot triggers trap mode | PA[30] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 
 ### NFC
 
@@ -538,6 +566,7 @@ The Boron and Argon support NFC Tag mode.
 | UART serial | RX. Use Serial2 object.|
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 42K|
+| Signal used at boot | Goes high at boot|
 #### D26
 | | Added to M SoM |
 | :--- | :--- |
@@ -890,3 +919,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre      | 2023-10-03 | RK | Initial version |
+|          | 2023-12-20 | RK | Additional notes for ADCs, D24, and D25 |

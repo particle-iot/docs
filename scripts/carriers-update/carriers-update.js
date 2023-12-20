@@ -2892,6 +2892,8 @@ const generatorConfig = require('./generator-config');
             // options.port
             const newPins = expandMorePins(platformInfoNew.pins);
 
+            // Options: showBootMode include columns for special boot mode
+
             let tableOptions = {
                 columns: [],
             };
@@ -2930,6 +2932,12 @@ const generatorConfig = require('./generator-config');
                     title: options.newMCU,
                 });    
             }
+            if (options.showBootMode) {
+                tableOptions.columns.push({
+                    key: 'newBoot',
+                    title: 'Special boot function'
+                });    
+            }
 
             
             let tableData = [];
@@ -2949,6 +2957,7 @@ const generatorConfig = require('./generator-config');
                         rowData.newPinName = getPinNameWithAlt(m.new);
                         rowData.newPort = portColumnValue(m.new[options.port]);
                         rowData.newHardwarePin = m.new.hardwarePin;
+                        rowData.newBoot = m.new.boot;
                     }
                     tableData.push(rowData);
                 }

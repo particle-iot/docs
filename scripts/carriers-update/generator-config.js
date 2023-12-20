@@ -1669,8 +1669,12 @@ const schemaDocs = require('./schema-docs');
             guid: '8bd904e1-0088-488c-9fbb-e695d7643949',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
-                    style: 'pinFunction',
+                    style: 'portPins',
                     platformNew: 'P2',
+                    port: 'digitalRead',
+                    label: 'GPIO',
+                    newMCU: 'MCU',
+                    showBootMode: true,
                 }); 
             } 
         },
@@ -3467,7 +3471,8 @@ const schemaDocs = require('./schema-docs');
                     platformNew: 'M SoM',
                     port: 'digitalRead',
                     label: 'GPIO',
-                    newMCU: 'MCU'
+                    newMCU: 'MCU',
+                    showBootMode: true,
                 }); 
             } 
         },

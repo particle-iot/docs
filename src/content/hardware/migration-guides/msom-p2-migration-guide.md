@@ -8,7 +8,7 @@ description: M SoM from P2 migration guide
 # {{title}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-For internal use only. This document is based on preliminary engineering documents and has not been fully reviewed. Changes are likely!
+This is a preliminary datasheet and changes may occur prior to release.
 {{box op="end"}}
 
 
@@ -108,6 +108,7 @@ The P2 land pattern is:
 - Resolution is 12 bits on both
 - SoM pin 45 (A6) on the M SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
 - On the P2, `VBAT_MEAS` is a 5V tolerant ADC for measuring battery voltage. This is not present on the M SoM as typically you will use a fuel gauge chip instead of the less accurate voltage measurement to measure battery SoC.
+- ADC input A7 has a low impedance which may be an issue when supplied from a voltage divider. The other ADC inputs are comparable to the P2/Photon 2.
 
 ### Serial
 
@@ -207,6 +208,24 @@ The P2 land pattern is:
 {{!-- END do not edit content above, it is automatically generated--}}
 
 - PWM pins vary between the P2 and M SoM
+
+### Boot mode pins
+
+These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
+
+{{!-- BEGIN do not edit content below, it is automatically generated e39d39e4-5349-44b3-9aaa-989469037cd45 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 45 | A6 / D29 | SWCLK. 40K pull-down at boot. | PB[7] |
+| 53 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
+| 55 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
+| 58 | D24 | Low at boot triggers ISP flash download | PA[7] |
+| 60 | D25 | Goes high at boot | PA[8] |
+| 61 | RGBR | Low at boot triggers trap mode | PA[30] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Sleep
 
@@ -543,6 +562,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | UART serial | RX. Use Serial2 object.|
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 42K|
+| Signal used at boot | Goes high at boot|
 #### D26
 | | Added to M SoM |
 | :--- | :--- |
@@ -840,3 +860,4 @@ Most third-party libraries are believed to be compatible between the P2 and M So
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre      | 2023-10-03 | RK | Initial version |
+|          | 2023-12-20 | RK | Additional notes for ADCs, D24, and D25 |

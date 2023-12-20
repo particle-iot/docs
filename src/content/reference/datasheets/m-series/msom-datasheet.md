@@ -8,7 +8,7 @@ description: M SoM datasheet
 # M SoM datasheet
 
 {{box op="start" cssClass="boxed warningBox"}}
-For internal use only. This document is based on preliminary engineering documents and has not been fully reviewed. Changes are likely!
+This is a preliminary datasheet and changes may occur prior to release.
 {{box op="end"}}
 
 ![M SoM](/assets/images/m-series/msom-top.png)
@@ -264,44 +264,46 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 315abea5-56c1-45ce-af72-bf0d9d8e8482 --}}
 
-| Pin | M SoM Pin Name | M SoM GPIO | MCU |
-| :---: | :--- | :--- | :--- |
-| 17 | D21 | &check; | PA[0] |
-| 19 | D20 | &check; | PA[1] |
-| 20 | D1 | &check; | PA[31] |
-| 22 | D0 | &check; | PB[0] |
-| 23 | A0 / D19 | &check; | PB[4] |
-| 33 | A1 / D18 | &check; | PB[5] |
-| 35 | A2 / D17 | &check; | PB[6] |
-| 36 | TX / D9 | &check; | PA[12] |
-| 37 | A3 / D16 | &check; | PB[1] |
-| 38 | RX / D10 | &check; | PA[13] |
-| 40 | D3 | &check; | PA[15] |
-| 41 | A4 / D15 | &check; | PB[2] |
-| 42 | D2 | &check; | PA[14] |
-| 43 | A5 / D14 | &check; | PB[3] |
-| 45 | A6 / D29 | &check; | PB[7] |
-| 47 | A7 / WKP | &check; | PA[20] |
-| 48 | D8 | &check; | PA[19] |
-| 50 | MISO / D11 | &check; | PA[17] |
-| 52 | MOSI / D12 | &check; | PA[16] |
-| 53 | A5 / D14 | &check; | PB[3] |
-| 54 | SCK / D13 | &check; | PA[18] |
-| 55 | D27 | &check; | PA[27] |
-| 58 | D24 | &check; | PA[7] |
-| 59 | D26 | &check; | PA[4] |
-| 60 | D25 | &check; | PA[8] |
-| 62 | D22 | &check; | PA[9] |
-| 64 | D23 | &check; | PA[10] |
-| 66 | D4 | &check; | PB[18] |
-| 68 | D5 | &check; | PB[19] |
-| 70 | D6 | &check; | PB[20] |
-| 72 | D7 | &check; | PB[21] |
+| Pin | M SoM Pin Name | M SoM GPIO | MCU | Special boot function |
+| :---: | :--- | :--- | :--- | :--- |
+| 17 | D21 | &check; | PA[0] | &nbsp; |
+| 19 | D20 | &check; | PA[1] | &nbsp; |
+| 20 | D1 | &check; | PA[31] | &nbsp; |
+| 22 | D0 | &check; | PB[0] | &nbsp; |
+| 23 | A0 / D19 | &check; | PB[4] | &nbsp; |
+| 33 | A1 / D18 | &check; | PB[5] | &nbsp; |
+| 35 | A2 / D17 | &check; | PB[6] | &nbsp; |
+| 36 | TX / D9 | &check; | PA[12] | &nbsp; |
+| 37 | A3 / D16 | &check; | PB[1] | &nbsp; |
+| 38 | RX / D10 | &check; | PA[13] | &nbsp; |
+| 40 | D3 | &check; | PA[15] | &nbsp; |
+| 41 | A4 / D15 | &check; | PB[2] | &nbsp; |
+| 42 | D2 | &check; | PA[14] | &nbsp; |
+| 43 | A5 / D14 | &check; | PB[3] | &nbsp; |
+| 45 | A6 / D29 | &check; | PB[7] | SWCLK. 40K pull-down at boot. |
+| 47 | A7 / WKP | &check; | PA[20] | &nbsp; |
+| 48 | D8 | &check; | PA[19] | &nbsp; |
+| 50 | MISO / D11 | &check; | PA[17] | &nbsp; |
+| 52 | MOSI / D12 | &check; | PA[16] | &nbsp; |
+| 53 | A5 / D14 | &check; | PB[3] | SWCLK. 40K pull-down at boot. |
+| 54 | SCK / D13 | &check; | PA[18] | &nbsp; |
+| 55 | D27 | &check; | PA[27] | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
+| 58 | D24 | &check; | PA[7] | Low at boot triggers ISP flash download |
+| 59 | D26 | &check; | PA[4] | &nbsp; |
+| 60 | D25 | &check; | PA[8] | Goes high at boot |
+| 62 | D22 | &check; | PA[9] | &nbsp; |
+| 64 | D23 | &check; | PA[10] | &nbsp; |
+| 66 | D4 | &check; | PB[18] | &nbsp; |
+| 68 | D5 | &check; | PB[19] | &nbsp; |
+| 70 | D6 | &check; | PB[20] | &nbsp; |
+| 72 | D7 | &check; | PB[21] | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
 - All GPIO are 3.3V only and are not 5V tolerant
+
+Certain GPIO will change state at boot, or cause the MCU to enter a special mode. See the [boot mode pins](#boot-mode-pins) section, below, for more information.
 
 
 ### ADC (Analog to Digital Converter)
@@ -326,6 +328,15 @@ Additionally, SWD is supported on pins on the M.2 connector:
 - ADC inputs are single-ended and limited to 0 to 3.3V
 - Resolution is 12 bits
 - SoM pin 45 (A6) on the M SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
+
+{{!-- BEGIN shared-blurb 839d8427-884c-4e59-9eee-a267cc4b0e72 --}}
+The ADCs on the M SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
+drive and this may cause issues when used with a voltage divider. This is particularly true for A7, which has an even lower impedance 
+than other ADC inputs.
+
+For signals that change slowly, such as NTC thermocouple resistance, you can add a 2.2 uF capacitor to the signal. 
+For rapidly changing signals, a voltage follower IC can be used.
+{{!-- END shared-blurb --}}
 
 ### UART serial
 
@@ -497,6 +508,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 | 53 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
 | 55 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
 | 58 | D24 | Low at boot triggers ISP flash download | PA[7] |
+| 60 | D25 | Goes high at boot | PA[8] |
 | 61 | RGBR | Low at boot triggers trap mode | PA[30] |
 
 
@@ -689,7 +701,7 @@ In the event that these conditions can not be met (for example certain laptop co
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
 
-* Contains FCC ID: xxx
+* Contains FCC ID: 2AEMI-M404
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
@@ -724,7 +736,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
 
- * Contains transmitter module ISED: xxx
+ * Contains transmitter module ISED: 20127-M524
  
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -800,3 +812,4 @@ SE, SI, SK, TR, UA, UK(NI).
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre      | 2023-10-03 | RK | Initial version |
+|          | 2023-12-20 | RK | Added FCC and IC IDs. Additional notes for ADCs, D24, and D25 |
