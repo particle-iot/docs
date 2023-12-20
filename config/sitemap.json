@@ -1351,8 +1351,8 @@
             "hash": "18c3e1866d668e56bca72680180fc847bf21daaa7f0f6c7e853d93bd5fb923bd"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
-            "date": "2023-12-18",
-            "hash": "648021893a83044869b06c9c21052d81f8bc847f59868b34e77a8194758b5e54"
+            "date": "2023-12-20",
+            "hash": "dbe9012b8ec089b1d28346b33b87b83f431932acd273a2393f7dffaefc9eb3ac"
         },
         "reference/datasheets/b-series/boron-datasheet.md": {
             "date": "2023-12-18",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "9a6362c5d15de8b191b8c69cc5c12b421dcaff53e4ac95a8f3ef61e8230de23c",
-            "date": "2023-12-19"
+            "hash": "1e343d92105bf3c49def2fdafbe7c66ec54268f9fdf32b9d118d13b5687b9713",
+            "date": "2023-12-20"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

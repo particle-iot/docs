@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Updated B524 band power information 2023-12-20
+
+Clarified the band power table for the [B524](/reference/datasheets/b-series/b524-b523-datasheet/).
+
 ### Ledger documentation 2023-12-29
 
 Added preliminary documentation for [Ledger beta](/getting-started/cloud/ledger/). 
