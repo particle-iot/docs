@@ -139,7 +139,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | &nbsp; | 57 | NC | &nbsp; | NC | &nbsp; |
 | ∆ | 58 | NC | &nbsp; | D24 | D24 GPIO, Serial2 TX, do not pull down at boot |
 | ∆ | 59 | NC | &nbsp; | D26 | D26 GPIO |
-| ∆ | 60 | NC | &nbsp; | D25 | GPIO25, Serial2 TX |
+| ∆ | 60 | NC | &nbsp; | D25 | GPIO25, Serial2 RX |
 | &nbsp; | 61 | RGBR | RGB LED Red | RGBR | RGB LED Red |
 | ∆ | 62 | D22 | GPIO, Ethernet INT | D22 | D22 GPIO |
 | &nbsp; | 63 | RGBG | RGB LED Green | RGBG | RGB LED Green |
@@ -808,7 +808,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 60 | 60 |
 | ∆ | Pin Name | NC | D25 |
-| ∆ | Description | n/a | GPIO25, Serial2 TX |
+| ∆ | Description | n/a | GPIO25, Serial2 RX |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | UART serial | n/a | RX. Use Serial2 object. |

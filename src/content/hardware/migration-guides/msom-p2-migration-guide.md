@@ -537,7 +537,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | | Added to M SoM |
 | :--- | :--- |
 | Pin Name | D25|
-| Description | GPIO25, Serial2 TX|
+| Description | GPIO25, Serial2 RX|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | UART serial | RX. Use Serial2 object.|

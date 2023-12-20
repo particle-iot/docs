@@ -10887,7 +10887,7 @@
         {
           "num": 60,
           "name": "D25",
-          "desc": "GPIO25, Serial2 TX",
+          "desc": "GPIO25, Serial2 RX",
           "analogRead": false,
           "analogWriteDAC": false,
           "analogWritePWM": false,

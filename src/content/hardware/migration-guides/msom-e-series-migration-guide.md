@@ -1128,7 +1128,7 @@ The M SoM has U.FL antenna connectors:
 | :--- | :--- |
 | Pin Number | 60|
 | Pin Name | D25|
-| Description | GPIO25, Serial2 TX|
+| Description | GPIO25, Serial2 RX|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | UART serial | RX. Use Serial2 object.|

@@ -338,7 +338,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Serial1 (CTS)  | PA[15] |
 | 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Serial1 (RTS)  | PA[14] |
 | 58 | D24 | D24 GPIO, Serial2 TX, do not pull down at boot | Serial2 (TX)  | PA[7] |
-| 60 | D25 | GPIO25, Serial2 TX | Serial2 (RX)  | PA[8] |
+| 60 | D25 | GPIO25, Serial2 RX | Serial2 (RX)  | PA[8] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
