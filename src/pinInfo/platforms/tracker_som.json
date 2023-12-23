@@ -314,7 +314,7 @@
         {
             "num": 47,
             "name": "PMID",
-            "desc": "PMIC power output in OTG mode.",
+            "desc": "Connected to the PMID pin of the PMIC. Leave unconnected.",
             "isPower": true
         },
         {

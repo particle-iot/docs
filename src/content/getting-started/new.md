@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Clarify use of Tracker SoM PMID pin 2023-12-23
+
+The PMID pin on the Tracker SoM should be left unconnected in normal use.
+
 ### Updated B524 band power information 2023-12-20
 
 Clarified the band power table for the [B524](/reference/datasheets/b-series/b524-b523-datasheet/).
