@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS2482-RK",
     "version": "0.0.3",
-    "installs": 1714,
+    "installs": 1776,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for DS2482 I2C to 1-Wire interface",
@@ -124,6 +124,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          },
+          "boron": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          },
+          "bsom": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          },
+          "b5som": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          },
+          "tracker": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          },
+          "esomx": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          },
+          "boron": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          },
+          "bsom": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          },
+          "b5som": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          },
+          "tracker": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          },
+          "p2": {
+            "01-single-drop": true,
+            "02-multi-drop": true,
+            "03-simple-class": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "01-single-drop": true,
             "02-multi-drop": true,

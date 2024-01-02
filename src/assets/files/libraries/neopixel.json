@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel",
     "version": "1.0.3",
-    "installs": 2339023,
+    "installs": 2360891,
     "license": "LGPLv3",
     "author": "Adafruit, Technobly",
     "sentence": "An Implementation of Adafruit's NeoPixel Library for the Particle Core, Photon, Electron, Argon, Boron, Xenon, RedBear Duo, B SoM, B5 SoM, E SoM X, P2, Photon 2,  and Tracker",
@@ -379,6 +379,70 @@
           "boron": {
             "a-rainbow": true,
             "extra-examples": true,
+            "rgbw-strandtest": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "boron": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "bsom": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "b5som": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "tracker": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "p2": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "boron": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "bsom": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "b5som": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "tracker": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "esomx": {
+            "a-rainbow": false,
+            "extra-examples": false,
             "rgbw-strandtest": true
           }
         }

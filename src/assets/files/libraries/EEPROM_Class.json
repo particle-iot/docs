@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EEPROM_Class",
     "version": "1.1.0",
-    "installs": 466,
+    "installs": 484,
     "license": "MIT",
     "author": "Randy E. Rainwater",
     "paragraph": "Class for managing configuration data stored in EEPROM for non-volatility.",
@@ -106,6 +106,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "boron": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "bsom": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "b5som": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "tracker": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "esomx": {
+            "advancedUsage": false,
+            "basicUsage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "boron": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "bsom": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "b5som": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "tracker": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "p2": {
+            "advancedUsage": false,
+            "basicUsage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "advancedUsage": false,
             "basicUsage": false

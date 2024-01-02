@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PowerShield",
     "version": "0.0.5",
-    "installs": 95340,
+    "installs": 97197,
     "license": "LGPL",
     "author": "Mohit Bhoite <mohit@particle.io>",
     "sentence": "The Power Shield allows a Particle device to be powered from different types of power sources. This library gives firmware access to the fuel gauge IC",
@@ -125,6 +125,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "boron": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "bsom": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "b5som": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "tracker": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "esomx": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "boron": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "bsom": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "b5som": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "tracker": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "p2": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1_Read_voltage_over_serial": true,
             "2_Publish_voltage_readings": true,

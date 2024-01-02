@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SSD1306",
     "version": "0.0.2",
-    "installs": 301902,
+    "installs": 308118,
     "license": "SOME",
     "author": "Paul Kourany <pkourany@gmail.com>",
     "sentence": "A Port of the ADAFruit SSD1306 libary",
@@ -122,6 +122,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "boron": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "bsom": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "b5som": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "tracker": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "esomx": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "boron": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "bsom": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "b5som": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "tracker": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "p2": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "ssd1306_128x64_i2c": false,
             "ssd1306_128x64_spi": false,

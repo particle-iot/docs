@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkCore-RF24",
     "version": "0.0.20",
-    "installs": 1152,
+    "installs": 1172,
     "license": "MIT",
     "author": "technobly",
     "sentence": "An Implementation of ManiacBug's RF24 Library for the Spark Core",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Spark_GettingStartedRF24": true
+          },
+          "boron": {
+            "Spark_GettingStartedRF24": true
+          },
+          "bsom": {
+            "Spark_GettingStartedRF24": true
+          },
+          "b5som": {
+            "Spark_GettingStartedRF24": true
+          },
+          "tracker": {
+            "Spark_GettingStartedRF24": true
+          },
+          "esomx": {
+            "Spark_GettingStartedRF24": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Spark_GettingStartedRF24": true
+          },
+          "boron": {
+            "Spark_GettingStartedRF24": true
+          },
+          "bsom": {
+            "Spark_GettingStartedRF24": true
+          },
+          "b5som": {
+            "Spark_GettingStartedRF24": true
+          },
+          "tracker": {
+            "Spark_GettingStartedRF24": true
+          },
+          "p2": {
+            "Spark_GettingStartedRF24": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Spark_GettingStartedRF24": true
           },

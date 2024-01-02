@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AdafruitDataLoggerRK",
     "version": "0.0.1",
-    "installs": 4821,
+    "installs": 5009,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for the Adafruit SD card and RTC FeatherWing",
     "url": "https://github.com/rickkas7/AdafruitDataLoggerRK",
@@ -130,6 +130,70 @@
           "boron": {
             "1-SdFat": true,
             "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "bsom": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "b5som": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "tracker": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "esomx": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "boron": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "bsom": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "b5som": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "tracker": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "p2": {
+            "1-SdFat": false,
+            "2-SdRotatingFile": false,
+            "3-TimeSync": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "boron": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": false,
             "3-TimeSync": true
           },
           "bsom": {

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQTT5",
     "version": "1.0.1",
-    "installs": 1440,
+    "installs": 1701,
     "license": "MIT",
     "author": "Thomas Peroutka <thomas.peroutka@gmail.com>",
     "url": "https://github.com/perotom/MQTT5",
@@ -103,6 +103,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "advanced": true,
+            "basic": true
+          },
+          "boron": {
+            "advanced": true,
+            "basic": true
+          },
+          "bsom": {
+            "advanced": true,
+            "basic": true
+          },
+          "b5som": {
+            "advanced": true,
+            "basic": true
+          },
+          "tracker": {
+            "advanced": true,
+            "basic": true
+          },
+          "esomx": {
+            "advanced": true,
+            "basic": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "advanced": true,
+            "basic": true
+          },
+          "boron": {
+            "advanced": true,
+            "basic": true
+          },
+          "bsom": {
+            "advanced": true,
+            "basic": true
+          },
+          "b5som": {
+            "advanced": true,
+            "basic": true
+          },
+          "tracker": {
+            "advanced": true,
+            "basic": true
+          },
+          "p2": {
+            "advanced": true,
+            "basic": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "advanced": true,
             "basic": true

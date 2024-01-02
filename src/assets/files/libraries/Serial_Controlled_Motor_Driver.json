@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Serial_Controlled_Motor_Driver",
     "version": "1.0.3",
-    "installs": 1376,
+    "installs": 1392,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Use this to command the SCMD and connected chain.",
@@ -179,6 +179,106 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "boron": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "bsom": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "b5som": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "tracker": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "esomx": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "boron": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "bsom": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "b5som": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "tracker": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "p2": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "DriverChainWithBridging": false,
             "MotorTest": false,

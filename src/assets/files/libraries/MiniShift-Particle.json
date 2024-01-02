@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MiniShift-Particle",
     "version": "1.0.4",
-    "installs": 480,
+    "installs": 506,
     "license": "See 'LICENSE' file",
     "author": "Gregory Fenton and ArachnidLabs",
     "sentence": "ArachnidLabs MiniShift library for Particle devices",
@@ -121,6 +121,46 @@
             "serialwrite": false
           },
           "boron": {
+            "serialwrite": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "serialwrite": false
+          },
+          "boron": {
+            "serialwrite": false
+          },
+          "bsom": {
+            "serialwrite": false
+          },
+          "b5som": {
+            "serialwrite": false
+          },
+          "tracker": {
+            "serialwrite": false
+          },
+          "p2": {
+            "serialwrite": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "serialwrite": false
+          },
+          "boron": {
+            "serialwrite": false
+          },
+          "bsom": {
+            "serialwrite": false
+          },
+          "b5som": {
+            "serialwrite": false
+          },
+          "tracker": {
+            "serialwrite": false
+          },
+          "esomx": {
             "serialwrite": false
           }
         }

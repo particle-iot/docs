@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_ISL29125_Breakout_Arduino_Library",
     "version": "1.0.1",
-    "installs": 73,
+    "installs": 88,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Arduino library showing basic functionality for the ISL29125 RGB Light Sensor Breakout Board.",
@@ -131,6 +131,70 @@
             "ISL29125RGBLED": true
           },
           "boron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "boron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "bsom": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "b5som": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "tracker": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "p2": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "boron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "bsom": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "b5som": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "tracker": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "esomx": {
             "ISL29125Basics": true,
             "ISL29125Interrupts": true,
             "ISL29125RGBLED": true

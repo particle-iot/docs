@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LSM9DS1_FIFO",
     "version": "1.0.0",
-    "installs": 249,
+    "installs": 277,
     "license": "BSD",
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Brandon Satrom <brandon@particle.io>",
@@ -107,6 +107,46 @@
             "lsm9ds1": false
           },
           "boron": {
+            "lsm9ds1": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "lsm9ds1": false
+          },
+          "boron": {
+            "lsm9ds1": false
+          },
+          "bsom": {
+            "lsm9ds1": false
+          },
+          "b5som": {
+            "lsm9ds1": false
+          },
+          "tracker": {
+            "lsm9ds1": false
+          },
+          "p2": {
+            "lsm9ds1": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "lsm9ds1": false
+          },
+          "boron": {
+            "lsm9ds1": false
+          },
+          "bsom": {
+            "lsm9ds1": false
+          },
+          "b5som": {
+            "lsm9ds1": false
+          },
+          "tracker": {
+            "lsm9ds1": false
+          },
+          "esomx": {
             "lsm9ds1": false
           }
         }

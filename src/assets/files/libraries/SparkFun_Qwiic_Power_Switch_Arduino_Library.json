@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Power_Switch_Arduino_Library",
     "version": "1.0.0",
-    "installs": 71,
+    "installs": 88,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Arduino library for the Qwiic Power Switch",
@@ -93,6 +93,46 @@
             "Example1_PowerOnOff": false
           },
           "boron": {
+            "Example1_PowerOnOff": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_PowerOnOff": true
+          },
+          "boron": {
+            "Example1_PowerOnOff": true
+          },
+          "bsom": {
+            "Example1_PowerOnOff": true
+          },
+          "b5som": {
+            "Example1_PowerOnOff": true
+          },
+          "tracker": {
+            "Example1_PowerOnOff": true
+          },
+          "p2": {
+            "Example1_PowerOnOff": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_PowerOnOff": true
+          },
+          "boron": {
+            "Example1_PowerOnOff": true
+          },
+          "bsom": {
+            "Example1_PowerOnOff": true
+          },
+          "b5som": {
+            "Example1_PowerOnOff": true
+          },
+          "tracker": {
+            "Example1_PowerOnOff": true
+          },
+          "esomx": {
             "Example1_PowerOnOff": true
           }
         }

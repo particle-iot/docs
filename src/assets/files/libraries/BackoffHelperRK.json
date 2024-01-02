@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BackoffHelperRK",
     "version": "0.0.1",
-    "installs": 45,
+    "installs": 55,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library to implement connection retry back-off using retained memory",
@@ -132,6 +132,70 @@
             "1-usage": false,
             "2-self-test": false,
             "3-no-sleep": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": false
+          },
+          "boron": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "bsom": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "b5som": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "tracker": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "p2": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": false
+          },
+          "boron": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "bsom": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "b5som": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "tracker": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "esomx": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
           }
         }
       }

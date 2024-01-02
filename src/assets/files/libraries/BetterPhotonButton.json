@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BetterPhotonButton",
     "version": "0.1.6",
-    "installs": 1280,
+    "installs": 1304,
     "license": "Apache License, Version 2.0",
     "author": "Kevin R. Smith <krsjunk@netscape.net>",
     "sentence": "Classes to simplify use of Particle's InternetButton with Photon.",
@@ -212,6 +212,130 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "boron": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "bsom": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "b5som": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "tracker": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "esomx": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "boron": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "bsom": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "b5som": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "tracker": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "p2": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "AnimateAccel": false,
             "Animations": false,

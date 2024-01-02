@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SensorRK",
     "version": "1.0.3",
-    "installs": 17561,
+    "installs": 19100,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Required for all Adafruit Unified Sensor based libraries.",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true
           },

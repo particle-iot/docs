@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SleepHelper",
     "version": "0.0.4",
-    "installs": 130,
+    "installs": 159,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Library asynchronous publish with a file-based queue on Particle Gen 3 devices",
@@ -129,6 +129,70 @@
             "03-temperature": false
           },
           "boron": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          },
+          "boron": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          },
+          "bsom": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          },
+          "b5som": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          },
+          "tracker": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          },
+          "p2": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          },
+          "boron": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          },
+          "bsom": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          },
+          "b5som": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          },
+          "tracker": {
+            "01-simple": false,
+            "02-button": false,
+            "03-temperature": false
+          },
+          "esomx": {
             "01-simple": false,
             "02-button": false,
             "03-temperature": false

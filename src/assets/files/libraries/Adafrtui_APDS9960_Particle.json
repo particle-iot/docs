@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafrtui_APDS9960_Particle",
     "version": "0.0.1",
-    "installs": 134,
+    "installs": 147,
     "author": "adafruit",
     "architectures": [],
     "visibility": "public",
@@ -145,6 +145,82 @@
             "color_sensor": true,
             "gesture_sensor": true,
             "proximity_sensor": false,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false,
+            "usage": false
+          },
+          "boron": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false,
+            "usage": false
+          },
+          "bsom": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false,
+            "usage": false
+          },
+          "b5som": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false,
+            "usage": false
+          },
+          "tracker": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false,
+            "usage": false
+          },
+          "p2": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false,
+            "usage": false
+          },
+          "boron": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false,
+            "usage": false
+          },
+          "bsom": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false,
+            "usage": false
+          },
+          "b5som": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false,
+            "usage": false
+          },
+          "tracker": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false,
+            "usage": false
+          },
+          "esomx": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": true,
             "usage": false
           }
         }

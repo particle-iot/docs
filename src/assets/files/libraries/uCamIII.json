@@ -7,7 +7,7 @@
   "attributes": {
     "name": "uCamIII",
     "version": "0.0.5",
-    "installs": 2136,
+    "installs": 2163,
     "license": "MIT",
     "author": "ScruffR",
     "sentence": "Library to support 4DSystems uCam-III camera",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "uCamTestSingleFile": false
+          },
+          "boron": {
+            "uCamTestSingleFile": false
+          },
+          "bsom": {
+            "uCamTestSingleFile": false
+          },
+          "b5som": {
+            "uCamTestSingleFile": false
+          },
+          "tracker": {
+            "uCamTestSingleFile": false
+          },
+          "esomx": {
+            "uCamTestSingleFile": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "uCamTestSingleFile": false
+          },
+          "boron": {
+            "uCamTestSingleFile": false
+          },
+          "bsom": {
+            "uCamTestSingleFile": false
+          },
+          "b5som": {
+            "uCamTestSingleFile": false
+          },
+          "tracker": {
+            "uCamTestSingleFile": false
+          },
+          "p2": {
+            "uCamTestSingleFile": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "uCamTestSingleFile": false
           },

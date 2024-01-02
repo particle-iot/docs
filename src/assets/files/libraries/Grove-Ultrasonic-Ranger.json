@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove-Ultrasonic-Ranger",
     "version": "1.0.2",
-    "installs": 29230,
+    "installs": 31068,
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
     "sentence": "Particle Xenon library for controlling Grove Ultrasonic Ranger, using gennal I/O communication.",
@@ -108,6 +108,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "boron": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "bsom": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "b5som": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "tracker": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "esomx": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "boron": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "bsom": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "b5som": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "tracker": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "p2": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "UltraDisOnSeeedSerialLcd": false,
             "UltrasonicDisplayOnTerm": true

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Fob_Alarm",
     "version": "1.0.0",
-    "installs": 726,
+    "installs": 738,
     "license": "GNU",
     "author": "Travis Elliott <travis@controleverything.com>",
     "sentence": "Library serves as example for ControlEverything KeyFob interface module for Photon and I2CBZ buzzer mini module.",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "key-fob-buzzer-article": true
+          },
+          "boron": {
+            "key-fob-buzzer-article": true
+          },
+          "bsom": {
+            "key-fob-buzzer-article": true
+          },
+          "b5som": {
+            "key-fob-buzzer-article": true
+          },
+          "tracker": {
+            "key-fob-buzzer-article": true
+          },
+          "esomx": {
+            "key-fob-buzzer-article": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "key-fob-buzzer-article": true
+          },
+          "boron": {
+            "key-fob-buzzer-article": true
+          },
+          "bsom": {
+            "key-fob-buzzer-article": true
+          },
+          "b5som": {
+            "key-fob-buzzer-article": true
+          },
+          "tracker": {
+            "key-fob-buzzer-article": true
+          },
+          "p2": {
+            "key-fob-buzzer-article": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "key-fob-buzzer-article": true
           },

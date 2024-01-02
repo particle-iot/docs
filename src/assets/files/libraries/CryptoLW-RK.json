@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CryptoLW-RK",
     "version": "0.2.0",
-    "installs": 11969,
+    "installs": 12372,
     "author": "Rhys Weatherley <rhys.weatherley@gmail.com>",
     "maintainer": "Ported to Particle by rickkas7 (https://github.com/rickkas7/CryptoLW-RK)",
     "sentence": "Light-weight algorithms for the Arduino Cryptography Library",
@@ -125,6 +125,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "boron": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "bsom": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "b5som": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "tracker": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "esomx": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "boron": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "bsom": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "b5som": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "tracker": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "p2": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-TestAcorn": true,
             "2-TestAscon": true,

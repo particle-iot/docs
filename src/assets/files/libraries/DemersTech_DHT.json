@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DemersTech_DHT",
     "version": "0.0.5",
-    "installs": 388,
+    "installs": 400,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Aaron Demers Aaron_d26.com",
     "sentence": "Interrupt driven DHT11/21/22 Sensor library",
@@ -122,6 +122,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "boron": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "bsom": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "b5som": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "tracker": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "esomx": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "boron": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "bsom": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "b5som": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "tracker": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "p2": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "DHT_2sensor": false,
             "DHT_example": false,

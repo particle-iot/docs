@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Particle-GPS",
     "version": "1.0.4",
-    "installs": 64320,
+    "installs": 64603,
     "license": "GPL-3.0",
     "author": "Daniel Porrey <Daniel.Porrey@hotmail.com>",
     "sentence": "A library to communicate with serial GPS devices on the Particle Electron and Photon.",
@@ -126,6 +126,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "boron": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "bsom": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "b5som": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "tracker": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "esomx": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "boron": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "bsom": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "b5som": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "tracker": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "p2": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "all-data": true,
             "all-data-serialN": true,

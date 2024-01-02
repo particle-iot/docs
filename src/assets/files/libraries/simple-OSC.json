@@ -7,7 +7,7 @@
   "attributes": {
     "name": "simple-OSC",
     "version": "0.0.3",
-    "installs": 7936,
+    "installs": 7965,
     "license": "MIT",
     "author": "AntoineM* <ameisso@gmail.com>",
     "sentence": "simple osc (open sound control) to send and receive OSC messages to photons.",
@@ -122,6 +122,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "receive-osc": true,
+            "send-osc": true,
+            "send-receive-osc": true
+          },
+          "boron": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          },
+          "bsom": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          },
+          "b5som": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          },
+          "tracker": {
+            "receive-osc": false,
+            "send-osc": true,
+            "send-receive-osc": false
+          },
+          "esomx": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "receive-osc": true,
+            "send-osc": true,
+            "send-receive-osc": true
+          },
+          "boron": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          },
+          "bsom": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          },
+          "b5som": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          },
+          "tracker": {
+            "receive-osc": false,
+            "send-osc": true,
+            "send-receive-osc": false
+          },
+          "p2": {
+            "receive-osc": true,
+            "send-osc": true,
+            "send-receive-osc": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "receive-osc": true,
             "send-osc": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "papertrail",
     "version": "0.0.5",
-    "installs": 38537,
+    "installs": 39589,
     "license": "MIT",
     "author": "Barak Weiss <barakwei@gmail.com>",
     "sentence": "Sends logs to Papertrail",
@@ -91,6 +91,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "01_simple_papertrail": true
+          },
+          "boron": {
+            "01_simple_papertrail": true
+          },
+          "bsom": {
+            "01_simple_papertrail": true
+          },
+          "b5som": {
+            "01_simple_papertrail": true
+          },
+          "tracker": {
+            "01_simple_papertrail": true
+          },
+          "esomx": {
+            "01_simple_papertrail": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "01_simple_papertrail": true
+          },
+          "boron": {
+            "01_simple_papertrail": true
+          },
+          "bsom": {
+            "01_simple_papertrail": true
+          },
+          "b5som": {
+            "01_simple_papertrail": true
+          },
+          "tracker": {
+            "01_simple_papertrail": true
+          },
+          "p2": {
+            "01_simple_papertrail": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "01_simple_papertrail": true
           },

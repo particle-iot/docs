@@ -7,7 +7,7 @@
   "attributes": {
     "name": "benchmark",
     "version": "1.0.2",
-    "installs": 54,
+    "installs": 63,
     "author": "Julien Vanier <julien@particle.io>",
     "sentence": "A simple code execution time library",
     "url": "https://github.com/monkbroc/particle-benchmark",
@@ -88,6 +88,46 @@
             "measure": true
           },
           "boron": {
+            "measure": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "measure": true
+          },
+          "boron": {
+            "measure": true
+          },
+          "bsom": {
+            "measure": true
+          },
+          "b5som": {
+            "measure": true
+          },
+          "tracker": {
+            "measure": true
+          },
+          "p2": {
+            "measure": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "measure": true
+          },
+          "boron": {
+            "measure": true
+          },
+          "bsom": {
+            "measure": true
+          },
+          "b5som": {
+            "measure": true
+          },
+          "tracker": {
+            "measure": true
+          },
+          "esomx": {
             "measure": false
           }
         }

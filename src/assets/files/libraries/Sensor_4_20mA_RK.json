@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Sensor_4_20mA_RK",
     "version": "0.0.2",
-    "installs": 73,
+    "installs": 89,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Implementation of SHA1 hash algorithm for Particle devices",
@@ -91,6 +91,46 @@
             "1-simple": true
           },
           "boron": {
+            "1-simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
             "1-simple": true
           }
         }

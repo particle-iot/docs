@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Isolated_EC_Probe_Interface",
     "version": "1.0.0",
-    "installs": 418,
+    "installs": 429,
     "author": "uFire",
     "maintainer": "contact@ufire.co",
     "sentence": "Measure Electrical Conductivity, Total Dissolved Solids, and Salinity",
@@ -215,6 +215,130 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "boron": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "bsom": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "b5som": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "tracker": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "esomx": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "boron": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "bsom": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "b5som": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "tracker": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "p2": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "BLE": false,
             "Calibration": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RadarIQ",
     "version": "1.0.5",
-    "installs": 303,
+    "installs": 318,
     "author": "RadarIQ Ltd (support@radariq.io)",
     "maintainer": "RadarIQ Ltd (support@radariq.io)",
     "sentence": "Adds support for the RadarIQ sensors.",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "RadarIQDemo": false
+          },
+          "boron": {
+            "RadarIQDemo": false
+          },
+          "bsom": {
+            "RadarIQDemo": false
+          },
+          "b5som": {
+            "RadarIQDemo": false
+          },
+          "tracker": {
+            "RadarIQDemo": false
+          },
+          "esomx": {
+            "RadarIQDemo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "RadarIQDemo": false
+          },
+          "boron": {
+            "RadarIQDemo": false
+          },
+          "bsom": {
+            "RadarIQDemo": false
+          },
+          "b5som": {
+            "RadarIQDemo": false
+          },
+          "tracker": {
+            "RadarIQDemo": false
+          },
+          "p2": {
+            "RadarIQDemo": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "RadarIQDemo": false
           },

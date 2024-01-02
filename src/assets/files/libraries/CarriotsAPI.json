@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CarriotsAPI",
     "version": "0.1.1",
-    "installs": 895,
+    "installs": 914,
     "license": "MIT",
     "author": "Ricardo Pereira <github@ricardopereira.es>",
     "sentence": "Particle Photon library to publish data streams on Carriots API",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "RouterPowerRSSI": true
+          },
+          "boron": {
+            "RouterPowerRSSI": false
+          },
+          "bsom": {
+            "RouterPowerRSSI": false
+          },
+          "b5som": {
+            "RouterPowerRSSI": false
+          },
+          "tracker": {
+            "RouterPowerRSSI": false
+          },
+          "esomx": {
+            "RouterPowerRSSI": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "RouterPowerRSSI": true
+          },
+          "boron": {
+            "RouterPowerRSSI": false
+          },
+          "bsom": {
+            "RouterPowerRSSI": false
+          },
+          "b5som": {
+            "RouterPowerRSSI": false
+          },
+          "tracker": {
+            "RouterPowerRSSI": false
+          },
+          "p2": {
+            "RouterPowerRSSI": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "RouterPowerRSSI": true
           },

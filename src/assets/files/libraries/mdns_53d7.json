@@ -7,7 +7,7 @@
   "attributes": {
     "name": "mdns_53d7",
     "version": "1.0.0",
-    "installs": 357,
+    "installs": 376,
     "license": "MIT license",
     "author": "Krishnaraj Varma",
     "sentence": "Adafruit CC3000_MDNS Library for Spark Core",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "mdns": false
+          },
+          "boron": {
+            "mdns": false
+          },
+          "bsom": {
+            "mdns": false
+          },
+          "b5som": {
+            "mdns": false
+          },
+          "tracker": {
+            "mdns": false
+          },
+          "esomx": {
+            "mdns": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "mdns": false
+          },
+          "boron": {
+            "mdns": false
+          },
+          "bsom": {
+            "mdns": false
+          },
+          "b5som": {
+            "mdns": false
+          },
+          "tracker": {
+            "mdns": false
+          },
+          "p2": {
+            "mdns": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "mdns": false
           },

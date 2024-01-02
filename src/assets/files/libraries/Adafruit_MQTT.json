@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MQTT",
     "version": "1.6.1",
-    "installs": 27479,
+    "installs": 27957,
     "license": "MIT",
     "author": "Adafruit <info@adafruit.com>",
     "sentence": "A simple library that allows connection to Adafruit.io",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "boron": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "bsom": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "b5som": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "tracker": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "esomx": {
+            "adafruit-mqtt-spark-test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "boron": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "bsom": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "b5som": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "tracker": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "p2": {
+            "adafruit-mqtt-spark-test": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "adafruit-mqtt-spark-test": true
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adxl345",
     "version": "0.0.3",
-    "installs": 10294,
+    "installs": 10574,
     "license": "GNU",
     "author": "Kenneth Lim <kennethlimcp@gmail.com>",
     "url": "https://github.com/spark/spark-lib-adxl345",
@@ -121,6 +121,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "boron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "bsom": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "b5som": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "tracker": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "esomx": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "boron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "bsom": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "b5som": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "tracker": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "p2": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "adxl345_no_library": false,
             "adxl345_test": false,

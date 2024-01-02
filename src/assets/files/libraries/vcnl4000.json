@@ -7,7 +7,7 @@
   "attributes": {
     "name": "vcnl4000",
     "version": "0.0.1",
-    "installs": 63,
+    "installs": 75,
     "license": "BSD",
     "author": "Ladyada <contact@adafruit.com>",
     "sentence": "Spark library for VCNL4000 all-in-one proximity/light sensor",
@@ -89,6 +89,46 @@
             "VCNLtester": true
           },
           "boron": {
+            "VCNLtester": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "VCNLtester": true
+          },
+          "boron": {
+            "VCNLtester": true
+          },
+          "bsom": {
+            "VCNLtester": true
+          },
+          "b5som": {
+            "VCNLtester": true
+          },
+          "tracker": {
+            "VCNLtester": true
+          },
+          "p2": {
+            "VCNLtester": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "VCNLtester": true
+          },
+          "boron": {
+            "VCNLtester": true
+          },
+          "bsom": {
+            "VCNLtester": true
+          },
+          "b5som": {
+            "VCNLtester": true
+          },
+          "tracker": {
+            "VCNLtester": true
+          },
+          "esomx": {
             "VCNLtester": true
           }
         }

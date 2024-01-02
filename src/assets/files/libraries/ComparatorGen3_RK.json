@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ComparatorGen3_RK",
     "version": "0.0.1",
-    "installs": 47,
+    "installs": 60,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Support for the nRF52 hardware comparator for Particle user firmware",
@@ -112,6 +112,58 @@
           "boron": {
             "1-simple": false,
             "2-rising": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "p2": {
+            "1-simple": false,
+            "2-rising": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "esomx": {
+            "1-simple": false,
+            "2-rising": true
           }
         }
       }

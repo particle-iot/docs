@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PMS7003-Particle-Sensor-Serial",
     "version": "1.0.3",
-    "installs": 5468,
+    "installs": 5611,
     "license": "MIT",
     "author": "Jidesh Veeramachaneni",
     "sentence": "Read and control the Plantower PMS7003 Module.",
@@ -90,6 +90,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true
           },

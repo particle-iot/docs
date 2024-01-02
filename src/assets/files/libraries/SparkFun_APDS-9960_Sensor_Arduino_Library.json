@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_APDS-9960_Sensor_Arduino_Library",
     "version": "1.4.2",
-    "installs": 84,
+    "installs": 105,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the Avago APDS-9960 sensor",
@@ -174,6 +174,94 @@
             "GestureTest": false,
             "ProximityInterrupt": false,
             "ProximitySensor": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "boron": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "bsom": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "b5som": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "tracker": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "p2": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "boron": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "bsom": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "b5som": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "tracker": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
+          },
+          "esomx": {
+            "AmbientLightInterrupt": true,
+            "ColorSensor": true,
+            "GestureTest": true,
+            "ProximityInterrupt": true,
+            "ProximitySensor": true
           }
         }
       }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ros",
     "version": "1.1.0",
-    "installs": 610,
+    "installs": 647,
     "license": "MIT",
     "author": "Gadget",
     "maintainer": "MrGadget",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "BlinkerWithClass": false
+          },
+          "boron": {
+            "BlinkerWithClass": false
+          },
+          "bsom": {
+            "BlinkerWithClass": false
+          },
+          "b5som": {
+            "BlinkerWithClass": false
+          },
+          "tracker": {
+            "BlinkerWithClass": false
+          },
+          "esomx": {
+            "BlinkerWithClass": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BlinkerWithClass": false
+          },
+          "boron": {
+            "BlinkerWithClass": false
+          },
+          "bsom": {
+            "BlinkerWithClass": false
+          },
+          "b5som": {
+            "BlinkerWithClass": false
+          },
+          "tracker": {
+            "BlinkerWithClass": false
+          },
+          "p2": {
+            "BlinkerWithClass": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "BlinkerWithClass": false
           },

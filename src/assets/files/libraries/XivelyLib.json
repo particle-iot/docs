@@ -7,7 +7,7 @@
   "attributes": {
     "name": "XivelyLib",
     "version": "0.0.2",
-    "installs": 308,
+    "installs": 320,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Davide Gironi <davide.gironi@gmail.com>",
     "sentence": "A Spark.io to xively.com data logger library.",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "XivelyLibSample": false
+          },
+          "boron": {
+            "XivelyLibSample": false
+          },
+          "bsom": {
+            "XivelyLibSample": false
+          },
+          "b5som": {
+            "XivelyLibSample": false
+          },
+          "tracker": {
+            "XivelyLibSample": false
+          },
+          "esomx": {
+            "XivelyLibSample": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "XivelyLibSample": false
+          },
+          "boron": {
+            "XivelyLibSample": false
+          },
+          "bsom": {
+            "XivelyLibSample": false
+          },
+          "b5som": {
+            "XivelyLibSample": false
+          },
+          "tracker": {
+            "XivelyLibSample": false
+          },
+          "p2": {
+            "XivelyLibSample": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "XivelyLibSample": false
           },

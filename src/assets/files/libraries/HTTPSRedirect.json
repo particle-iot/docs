@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HTTPSRedirect",
     "version": "1.0.0",
-    "installs": 331,
+    "installs": 352,
     "author": "me",
     "architectures": [],
     "visibility": "public",
@@ -98,6 +98,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ModbusMaster-Particle",
     "version": "1.0.3",
-    "installs": 11858,
+    "installs": 13008,
     "license": "APA2",
     "author": "Philippe Hilger <phil@peergum.com>",
     "sentence": "Alternate ModbusMaster library port from Arduino",
@@ -84,6 +84,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true
           },

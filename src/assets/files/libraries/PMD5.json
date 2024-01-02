@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PMD5",
     "version": "0.0.1",
-    "installs": 322,
+    "installs": 333,
     "license": "See LICENSE",
     "author": "Magnus512 <magnus512@gmail.com>",
     "sentence": "MD5 library Photon",

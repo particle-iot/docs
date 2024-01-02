@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BH1750",
     "version": "1.0.0",
-    "installs": 12808,
+    "installs": 14250,
     "license": "GNU",
     "author": "Alik <aliktab@gmail.com>",
     "sentence": "BH1750 library for Particle",
@@ -87,6 +87,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true
           },

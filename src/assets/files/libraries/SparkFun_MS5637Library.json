@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_MS5637Library",
     "version": "1.3.0",
-    "installs": 256,
+    "installs": 272,
     "author": "TE Connectivity and SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Library for the SparkFun Qwiic Pressure Sensor - MS5637",
@@ -232,6 +232,130 @@
             "Example5_AdvancedSettings": false,
             "Example6_UnitTester": false,
             "Example9_Original_TE_Example": true,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "boron": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "bsom": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "b5som": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "tracker": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "p2": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "boron": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "bsom": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "b5som": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "tracker": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "esomx": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
             "usage": false
           }
         }

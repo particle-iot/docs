@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_PWMServoDriver",
     "version": "1.0.1",
-    "installs": 25250,
+    "installs": 25955,
     "license": "BSD License",
     "author": "Limor Fried/Ladyada/Paul Kourany",
     "sentence": "Adafruit 16-channel PWM & Servo driver library adapted for Spark",
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "boron": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "bsom": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "b5som": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "tracker": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "esomx": {
+            "pwmtest": true,
+            "servo": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "boron": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "bsom": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "b5som": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "tracker": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "p2": {
+            "pwmtest": true,
+            "servo": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "pwmtest": true,
             "servo": true

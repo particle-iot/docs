@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EEPROM-Storage",
     "version": "1.0.0",
-    "installs": 12763,
+    "installs": 13577,
     "license": "GPL-3.0",
     "author": "Daniel Porrey",
     "maintainer": "Daniel M. Porrey <Daniel.Porrey@hotmail.com>",
@@ -165,6 +165,94 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "boron": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "bsom": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "b5som": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "tracker": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "esomx": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "boron": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "bsom": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "b5som": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "tracker": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          },
+          "p2": {
+            "address": false,
+            "cloud": true,
+            "demo": true,
+            "sizeof": true,
+            "tests": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "address": false,
             "cloud": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Pixycam5",
     "version": "0.0.5",
-    "installs": 1427,
+    "installs": 1444,
     "license": "GNU General Public License 3+",
     "author": "Jeremy Ellis",
     "sentence": "Beginner startup programs to use the pixy camera with the Particle.io Photon",
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "boron": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "bsom": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "b5som": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "tracker": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "esomx": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "boron": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "bsom": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "b5som": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "tracker": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "p2": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "a01-pixy-d7": false,
             "a02-pixy-serial": false

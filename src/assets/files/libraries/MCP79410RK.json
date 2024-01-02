@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP79410RK",
     "version": "0.0.4",
-    "installs": 1767,
+    "installs": 2144,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for MCP79410 RTC",
@@ -196,6 +196,118 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "boron": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "bsom": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "b5som": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "tracker": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "esomx": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": false,
+            "8-board-id": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "boron": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "bsom": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "b5som": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "tracker": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "p2": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": false,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-wake": true,
             "3-self-test": true,

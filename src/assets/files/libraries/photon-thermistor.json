@@ -7,7 +7,7 @@
   "attributes": {
     "name": "photon-thermistor",
     "version": "3.1.3",
-    "installs": 50187,
+    "installs": 51029,
     "license": "LGPL",
     "author": "Paul Cowan <paul@monospacesoftware.com>",
     "sentence": "A thermistor library for Particle devices.",
@@ -91,6 +91,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "temperature": true
+          },
+          "boron": {
+            "temperature": true
+          },
+          "bsom": {
+            "temperature": true
+          },
+          "b5som": {
+            "temperature": true
+          },
+          "tracker": {
+            "temperature": true
+          },
+          "esomx": {
+            "temperature": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "temperature": true
+          },
+          "boron": {
+            "temperature": true
+          },
+          "bsom": {
+            "temperature": true
+          },
+          "b5som": {
+            "temperature": true
+          },
+          "tracker": {
+            "temperature": true
+          },
+          "p2": {
+            "temperature": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "temperature": true
           },

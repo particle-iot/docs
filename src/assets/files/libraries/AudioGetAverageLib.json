@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AudioGetAverageLib",
     "version": "0.0.1",
-    "installs": 1156,
+    "installs": 1227,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Davide Gironi <davide.gironi@gmail.com>",
     "sentence": "A Spark.io library to retrive RMS and Spl value from an audio input.",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "AudioGetAverageLibSample": true
+          },
+          "boron": {
+            "AudioGetAverageLibSample": true
+          },
+          "bsom": {
+            "AudioGetAverageLibSample": true
+          },
+          "b5som": {
+            "AudioGetAverageLibSample": true
+          },
+          "tracker": {
+            "AudioGetAverageLibSample": true
+          },
+          "esomx": {
+            "AudioGetAverageLibSample": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "AudioGetAverageLibSample": true
+          },
+          "boron": {
+            "AudioGetAverageLibSample": true
+          },
+          "bsom": {
+            "AudioGetAverageLibSample": true
+          },
+          "b5som": {
+            "AudioGetAverageLibSample": true
+          },
+          "tracker": {
+            "AudioGetAverageLibSample": true
+          },
+          "p2": {
+            "AudioGetAverageLibSample": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "AudioGetAverageLibSample": true
           },

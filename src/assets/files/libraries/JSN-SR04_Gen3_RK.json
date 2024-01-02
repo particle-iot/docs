@@ -7,7 +7,7 @@
   "attributes": {
     "name": "JSN-SR04_Gen3_RK",
     "version": "0.0.2",
-    "installs": 364,
+    "installs": 384,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for JSN-SR04 ultrasonic distance sensor for Particle Gen 3 devices",
@@ -112,6 +112,58 @@
           "boron": {
             "1-simple": true,
             "2-alarm": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-alarm": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-alarm": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-alarm": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-alarm": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-alarm": true
+          },
+          "p2": {
+            "1-simple": false,
+            "2-alarm": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-alarm": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-alarm": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-alarm": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-alarm": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-alarm": true
+          },
+          "esomx": {
+            "1-simple": false,
+            "2-alarm": false
           }
         }
       }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DHT",
     "version": "1.3.0",
-    "installs": 36625,
+    "installs": 39068,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for DHT11, DHT22, etc Temp & Humidity Sensors",
@@ -107,6 +107,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "boron": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "bsom": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "b5som": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "tracker": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "esomx": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "boron": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "bsom": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "b5som": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "tracker": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          },
+          "p2": {
+            "DHT_Unified_Sensor": false,
+            "DHTtester": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "DHT_Unified_Sensor": false,
             "DHTtester": false

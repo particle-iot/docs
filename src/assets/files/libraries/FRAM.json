@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FRAM",
     "version": "1.0.1",
-    "installs": 723,
+    "installs": 736,
     "license": "GPLv3",
     "author": "Paul Kourany, Kenneth Lim",
     "sentence": "FRAM library for Particle.",
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "boron": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "bsom": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "b5som": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "tracker": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "esomx": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "boron": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "bsom": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "b5som": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "tracker": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "p2": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "FRAM-Checkcounter": false,
             "FRAM-RW-validate": false

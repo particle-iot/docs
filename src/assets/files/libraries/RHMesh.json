@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RHMesh",
     "version": "1.0.0",
-    "installs": 525,
+    "installs": 539,
     "author": "William Espinoza",
     "architectures": [],
     "visibility": "public",
@@ -100,6 +100,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "raspi": false,
+            "usage": true
+          },
+          "boron": {
+            "raspi": false,
+            "usage": true
+          },
+          "bsom": {
+            "raspi": false,
+            "usage": true
+          },
+          "b5som": {
+            "raspi": false,
+            "usage": true
+          },
+          "tracker": {
+            "raspi": false,
+            "usage": true
+          },
+          "esomx": {
+            "raspi": false,
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "raspi": false,
+            "usage": true
+          },
+          "boron": {
+            "raspi": false,
+            "usage": true
+          },
+          "bsom": {
+            "raspi": false,
+            "usage": true
+          },
+          "b5som": {
+            "raspi": false,
+            "usage": true
+          },
+          "tracker": {
+            "raspi": false,
+            "usage": true
+          },
+          "p2": {
+            "raspi": false,
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "raspi": false,
             "usage": true

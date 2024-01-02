@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TCA9548A-RK",
     "version": "0.0.1",
-    "installs": 14034,
+    "installs": 14139,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver TCA9548A I2C bus multiplexer",
@@ -88,6 +88,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
+            "1-simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-simple": true
           },

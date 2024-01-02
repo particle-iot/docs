@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SeeedRFID",
     "version": "1.0.5",
-    "installs": 1669,
+    "installs": 1695,
     "license": "MIT License (MIT)",
     "author": "Ye Xiaobo / Paul Kourany",
     "sentence": "125Khz RFID library for Arduino adapted for Spark Core",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "RFID_UART": false
+          },
+          "boron": {
+            "RFID_UART": false
+          },
+          "bsom": {
+            "RFID_UART": false
+          },
+          "b5som": {
+            "RFID_UART": false
+          },
+          "tracker": {
+            "RFID_UART": false
+          },
+          "esomx": {
+            "RFID_UART": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "RFID_UART": false
+          },
+          "boron": {
+            "RFID_UART": false
+          },
+          "bsom": {
+            "RFID_UART": false
+          },
+          "b5som": {
+            "RFID_UART": false
+          },
+          "tracker": {
+            "RFID_UART": false
+          },
+          "p2": {
+            "RFID_UART": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "RFID_UART": false
           },

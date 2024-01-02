@@ -7,7 +7,7 @@
   "attributes": {
     "name": "locator",
     "version": "0.0.1",
-    "installs": 1149,
+    "installs": 1181,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for using Google geolocation API",
@@ -88,6 +88,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "simple": true
+          },
+          "boron": {
+            "simple": true
+          },
+          "bsom": {
+            "simple": true
+          },
+          "b5som": {
+            "simple": true
+          },
+          "tracker": {
+            "simple": true
+          },
+          "esomx": {
+            "simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "simple": true
+          },
+          "boron": {
+            "simple": true
+          },
+          "bsom": {
+            "simple": true
+          },
+          "b5som": {
+            "simple": true
+          },
+          "tracker": {
+            "simple": true
+          },
+          "p2": {
+            "simple": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "simple": true
           },

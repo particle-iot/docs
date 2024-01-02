@@ -7,7 +7,7 @@
   "attributes": {
     "name": "custom-pwm",
     "version": "0.0.1",
-    "installs": 3852,
+    "installs": 3870,
     "license": "MIT",
     "author": "Ken Kaiser <admin@makerken.com>",
     "sentence": "Abstracting the 6.0.0 analogWrite functions",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "digital-servo": true
+          },
+          "boron": {
+            "digital-servo": true
+          },
+          "bsom": {
+            "digital-servo": true
+          },
+          "b5som": {
+            "digital-servo": true
+          },
+          "tracker": {
+            "digital-servo": true
+          },
+          "esomx": {
+            "digital-servo": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "digital-servo": true
+          },
+          "boron": {
+            "digital-servo": true
+          },
+          "bsom": {
+            "digital-servo": true
+          },
+          "b5som": {
+            "digital-servo": true
+          },
+          "tracker": {
+            "digital-servo": true
+          },
+          "p2": {
+            "digital-servo": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "digital-servo": true
           },

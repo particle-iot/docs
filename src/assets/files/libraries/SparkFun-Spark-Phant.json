@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-Spark-Phant",
     "version": "0.1.1",
-    "installs": 599,
+    "installs": 628,
     "license": "GPL v3",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A simple library for the Spark Photon that generates Phant posts, gets, deletes and more.",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "testStream": true
+          },
+          "boron": {
+            "testStream": true
+          },
+          "bsom": {
+            "testStream": true
+          },
+          "b5som": {
+            "testStream": true
+          },
+          "tracker": {
+            "testStream": true
+          },
+          "esomx": {
+            "testStream": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "testStream": true
+          },
+          "boron": {
+            "testStream": true
+          },
+          "bsom": {
+            "testStream": true
+          },
+          "b5som": {
+            "testStream": true
+          },
+          "tracker": {
+            "testStream": true
+          },
+          "p2": {
+            "testStream": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "testStream": true
           },

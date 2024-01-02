@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ThingSpeak",
     "version": "1.5.1",
-    "installs": 206946,
+    "installs": 212215,
     "license": "See associated license file",
     "author": "MathWorks, Inc <support@thingspeak.com>",
     "sentence": "ThingSpeak Communication Library for Particle-based devices written by the ThingSpeak development team.",
@@ -180,6 +180,106 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "CheerLights": true,
+            "ReadLastTemperature": true,
+            "ReadPrivateChannel": true,
+            "ReadWeatherStation": true,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": true
+          },
+          "boron": {
+            "CheerLights": true,
+            "ReadLastTemperature": true,
+            "ReadPrivateChannel": true,
+            "ReadWeatherStation": true,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": true
+          },
+          "bsom": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          },
+          "b5som": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          },
+          "tracker": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          },
+          "esomx": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "CheerLights": true,
+            "ReadLastTemperature": true,
+            "ReadPrivateChannel": true,
+            "ReadWeatherStation": true,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": true
+          },
+          "boron": {
+            "CheerLights": true,
+            "ReadLastTemperature": true,
+            "ReadPrivateChannel": true,
+            "ReadWeatherStation": true,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": true
+          },
+          "bsom": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          },
+          "b5som": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          },
+          "tracker": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          },
+          "p2": {
+            "CheerLights": false,
+            "ReadLastTemperature": false,
+            "ReadPrivateChannel": false,
+            "ReadWeatherStation": false,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "CheerLights": true,
             "ReadLastTemperature": true,

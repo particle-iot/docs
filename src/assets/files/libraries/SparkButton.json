@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkButton",
     "version": "0.0.9",
-    "installs": 2016,
+    "installs": 2035,
     "license": "LGPL",
     "author": "Richard Whitney <richard@spark.io>",
     "sentence": "This library has been superseded by InternetButton!",
@@ -194,6 +194,118 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "boron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "bsom": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "b5som": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "tracker": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "esomx": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "boron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "bsom": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "b5som": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "tracker": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "p2": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1_Blink_An_LED": false,
             "2_Blink_ALL_the_LEDs": false,

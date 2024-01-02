@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PCA9534",
     "version": "0.1.4",
-    "installs": 2720,
+    "installs": 2768,
     "license": "MIT",
     "author": "Abdulrahman Saleh Khamis",
     "sentence": "PCA9534 I/O expander library with Particle like API calls",
@@ -141,6 +141,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "boron": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "bsom": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "b5som": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "tracker": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "esomx": {
+            "blink": true,
+            "interrupt": false,
+            "inverted": true,
+            "io": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "boron": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "bsom": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "b5som": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "tracker": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "p2": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "blink": true,
             "interrupt": true,

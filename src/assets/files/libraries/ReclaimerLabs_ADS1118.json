@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ReclaimerLabs_ADS1118",
     "version": "0.9.6",
-    "installs": 505,
+    "installs": 519,
     "license": "MIT",
     "author": "Jason Cerundolo",
     "maintainer": "Jason Cerundolo",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "thermocouple_monitor": true
+          },
+          "boron": {
+            "thermocouple_monitor": true
+          },
+          "bsom": {
+            "thermocouple_monitor": true
+          },
+          "b5som": {
+            "thermocouple_monitor": true
+          },
+          "tracker": {
+            "thermocouple_monitor": true
+          },
+          "esomx": {
+            "thermocouple_monitor": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "thermocouple_monitor": true
+          },
+          "boron": {
+            "thermocouple_monitor": true
+          },
+          "bsom": {
+            "thermocouple_monitor": true
+          },
+          "b5som": {
+            "thermocouple_monitor": true
+          },
+          "tracker": {
+            "thermocouple_monitor": true
+          },
+          "p2": {
+            "thermocouple_monitor": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "thermocouple_monitor": true
           },

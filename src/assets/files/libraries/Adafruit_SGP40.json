@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SGP40",
     "version": "1.1.1",
-    "installs": 173,
+    "installs": 473,
     "author": "adafruit",
     "architectures": [],
     "visibility": "public",
@@ -85,6 +85,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

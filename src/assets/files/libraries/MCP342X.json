@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP342X",
     "version": "0.1.1",
-    "installs": 3097,
+    "installs": 3236,
     "license": "BSD",
     "author": "C. Schnarel for arduino converted to particle A.Lont",
     "sentence": "Library for MCP342X",

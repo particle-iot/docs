@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_OLED_128x64",
     "version": "1.0.7",
-    "installs": 23093,
+    "installs": 23201,
     "license": "GPLv3",
     "author": "Evan Simkowitz <esimkowitz@wustl.edu>, Visweswara R",
     "maintainer": "Evan Simkowitz <esimkowitz@wustl.edu>",
@@ -249,6 +249,154 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "boron": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "bsom": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "b5som": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "tracker": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "esomx": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "boron": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "bsom": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "b5som": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "tracker": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "p2": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "BitmapInverseDisplay": true,
             "BrightnessControl": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "String",
     "version": "1.1.1",
-    "installs": 630,
+    "installs": 786,
     "author": "unkwonwn",
     "architectures": [],
     "visibility": "public",
@@ -85,6 +85,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

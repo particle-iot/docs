@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Base64RK",
     "version": "0.0.1",
-    "installs": 17982,
+    "installs": 19348,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Base64 encoded and decoder",
@@ -106,6 +106,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "boron": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "bsom": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "b5som": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "tracker": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "esomx": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "boron": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "bsom": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "b5som": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "tracker": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "p2": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-tester-Base64": true,
             "2-unittest-Base64": true

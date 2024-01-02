@@ -7,7 +7,7 @@
   "attributes": {
     "name": "base64",
     "version": "1.0.0",
-    "installs": 29630,
+    "installs": 30413,
     "author": "Adam Rudd",
     "maintainer": "Adam Rudd",
     "sentence": "A base64 library for the arduino platform, written in C",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "base64": true
+          },
+          "boron": {
+            "base64": true
+          },
+          "bsom": {
+            "base64": true
+          },
+          "b5som": {
+            "base64": true
+          },
+          "tracker": {
+            "base64": true
+          },
+          "esomx": {
+            "base64": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "base64": true
+          },
+          "boron": {
+            "base64": true
+          },
+          "bsom": {
+            "base64": true
+          },
+          "b5som": {
+            "base64": true
+          },
+          "tracker": {
+            "base64": true
+          },
+          "p2": {
+            "base64": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "base64": true
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SC16IS7xxRK",
     "version": "0.0.1",
-    "installs": 0,
+    "installs": 345,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "I2C and SPI UART driver for Particle devices",
@@ -252,6 +252,142 @@
             "08-dual-loop": true,
             "09-hw-flow": true,
             "10-interrupts": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "boron": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "bsom": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "b5som": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "tracker": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "p2": {
+            "01-simple-i2c": false,
+            "02-simple-spi": false,
+            "04-simple-rxtx": false,
+            "05-selftest": false,
+            "06-continuous-read": false,
+            "07-buffered-read": false,
+            "08-dual-loop": false,
+            "09-hw-flow": false,
+            "10-interrupts": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "boron": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "bsom": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "b5som": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "tracker": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "esomx": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": false,
+            "08-dual-loop": true,
+            "09-hw-flow": false,
+            "10-interrupts": false
           }
         }
       }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HTU21D",
     "version": "0.1.0",
-    "installs": 41454,
+    "installs": 42578,
     "license": "GPL v3",
     "author": "Romain MP <romain.mp@gmail.com>",
     "sentence": "Library to support HTU21D Humidity & Temperature sensor",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "HTU21D": true
+          },
+          "boron": {
+            "HTU21D": true
+          },
+          "bsom": {
+            "HTU21D": true
+          },
+          "b5som": {
+            "HTU21D": true
+          },
+          "tracker": {
+            "HTU21D": true
+          },
+          "esomx": {
+            "HTU21D": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "HTU21D": true
+          },
+          "boron": {
+            "HTU21D": true
+          },
+          "bsom": {
+            "HTU21D": true
+          },
+          "b5som": {
+            "HTU21D": true
+          },
+          "tracker": {
+            "HTU21D": true
+          },
+          "p2": {
+            "HTU21D": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "HTU21D": true
           },

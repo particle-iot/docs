@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Magnetometer-MLX90393",
     "version": "1.0.0",
-    "installs": 202,
+    "installs": 217,
     "author": "Theodore C. Yapo & SparkFun Electronics",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic Magnetometer",
@@ -111,6 +111,58 @@
             "Example2-ConfigureSensor": true
           },
           "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "p2": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "esomx": {
             "Example1-BasicReadings": true,
             "Example2-ConfigureSensor": true
           }

@@ -1,0 +1,125 @@
+{
+  "type": "libraries",
+  "id": "IsolatedEthernet",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/IsolatedEthernet/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "IsolatedEthernet",
+    "version": "0.0.1",
+    "installs": 595,
+    "license": "Apache 2.0",
+    "sentence": "Particle library for WizNet W5500 for accessing devices on isolated Ethernet LANs",
+    "url": "https://github.com/particle-iot/IsolatedEthernet",
+    "repository": "https://github.com/particle-iot/IsolatedEthernet.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/reference/device-os/libraries/i/IsolatedEthernet",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-12-31T07:58:03.454Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "p2": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-static-config": false,
+            "4-static": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-static-config": true,
+            "4-static": true
+          },
+          "esomx": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-static-config": false,
+            "4-static": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-static-config": false,
+            "4-static": false
+          },
+          "electron": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-static-config": false,
+            "4-static": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# IsolatedEthernet\n\n**Particle library for WIZnet W5500 for accessing devices on isolated Ethernet LANs**\n\n- Github: https://github.com/particle-iot/IsolatedEthernet\n- [Full browseable API documentation](https://particle-iot.github.io/IsolatedEthernet/class_isolated_ethernet.html)\n- License: Apache 2.0 (can use in open or closed source projects, including commercial projects, for free)\n\n\nFeatures:\n\n- Only implements TCPClient, TCPServer, UDP, and UDP multicast to Ethernet. Cloud connection uses native networking (cellular or Wi-Fi).\n- Static IP addressing or DHCP.\n- Can connect to an isolated Ethernet network. There is no IP routing between networks so the isolated network stays isolated.\n- Works with any available SPI interface and any available GPIO for SPI CS. INT and RESET are optional.\n- Uses separate TCPClient, TCPServer, and UDP classes over Ethernet so you can still use those classes with native networking at the same time.\n- Works with any WIZnet W5500 board, including Particle M.2 evaluation board, Ethernet FeatherWing, Mikroe ETH click, and Adafruit Ethernet FeatherWing.\n- Works on Gen 3 devices (Boron, B Series SoM, Argon, Tracker SoM).\n- Does not currently work on the P2 or Photon 2, but is expected to in the future.\n- Will not work on Gen 2 (E Series, Electron, Photon, P1) or the Tracker One (does not have SPI exposed).\n- Can store static IP information in the file system. Example code to set it using a Particle.function remotely.\n\nWhile the WIZnet W5500 works on isolated networks, and with static IP addressing, it may not completely work in situations where there is no router or gateway on the Ethernet LAN at all. The W5500 is able to send UDP and UDP multicast in this scenario, but other hosts may not be able to send data to it, thus making it impossible to receive data or use TCP connections (client or server). Note that a gateway does not have to connect to any other network, it just needs to be there as the default to route between hosts on the same LAN. This may be dependent on what the other side of the connection is, as well.\n\nIf you are setting up a point-to-point Ethernet between two hosts, also note that the WIZnet W5500 does not support Auto-MDIX so if the other side does not support it, you will need to use an Ethernet crossover cable. \n\nThis library is not intended for high speed bulk uploads of things like video files. Gen 3 devices don't generally have enough internal storage, RAM, or CPU to handle that anyway, but the upload (to a server on the Ethernet LAN) speed is around 950 Kbytes/sec and the download speed is around 100 Kbytes/sec. Of course this is still significantly faster than cellular.\n\n## Setup\n\nThe library lives completely separate from the Device OS Ethernet implementation, and in fact you must disable Ethernet in Device OS for proper operation.\n\n```cpp\n// Ethernet must be disabled in Device OS. Include this in setup()\nSystem.disableFeature(FEATURE_ETHERNET_DETECTION);\n```\n\nThere are also other methods you must call from setup(), depending on the hardware and software configuration you want to use.\n\n## Hardware\n\nThis library should work with any WIZnet W5500 module. Some options include:\n\n### Particle Ethernet FeatherWing\n\nBoron in Ethernet FeatherWing (image removed)\n\nThe [Particle Ethernet FeatherWing](https://docs.particle.io/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing) can be used with this library.\n\n```cpp\n// PROTOTYPE\nIsolatedEthernet &withEthernetFeatherWing() \n\n// EXAMPLE - use in setup()\nIsolatedEthernet::instance()\n    .withEthernetFeatherWing()\n    .setup();\n```\n\n### Particle M.2 SoM evaluation board\n\nThe [Particle M.2 SoM evaluation board](https://docs.particle.io/reference/datasheets/b-series/b-series-eval-board/) can be used with this library.\n\n```cpp\n// PROTOTYPE\nIsolatedEthernet &withEthernetM2EvalBoard()\n\n// EXAMPLE - use in setup()\nIsolatedEthernet::instance()\n    .withEthernetM2EvalBoard()\n    .setup();\n```\n\n\n### Mikroe ETH click\n\nThe [Mikroe ETH WIZ click](https://www.mikroe.com/eth-wiz-click) contains a W5500 and can be used on their click shield boards.\n\nFor more information, see the [Mikroe community page](https://docs.particle.io/hardware/expansion/mikroe/) in the docs.\n\nB SoM with ETH click (image removed)\n\nIn this picture, it's used with the [Gen 3 SoM click shield](https://www.mikroe.com/click-shield-for-particle-gen-3). There are two sockets in most click shield base boards, and the bus parameter specifies which one you have the Ethernet installed in (1 = left, 2 = right).\n\n```cpp\n// PROTOTYPE\nIsolatedEthernet &withEthernetMikroeGen3SomShield(int bus);\n\n// EXAMPLE - use in setup()\nIsolatedEthernet::instance()\n    .withEthernetMikroeGen3SomShield(1)\n    .setup();\n```\n\nThere is also a [Feather click shield](https://www.mikroe.com/feather-click-shield) that can be used with the Boron.\n\n```cpp\n// PROTOTYPE\nIsolatedEthernet &withEthernetMikroeFeatherShield(int bus);\n\n// EXAMPLE - use in setup()\nIsolatedEthernet::instance()\n    .withEthernetMikroeFeatherShield(1)\n    .setup();\n```\n\n\n### Adafruit Ethernet FeatherWing\n\n```cpp\n// EXAMPLE - use in setup()\nIsolatedEthernet::instance()\n    .withPinCS(D5)\n    .setup();\n```\n\nThe [Adafruit Ethernet FeatherWing](https://www.adafruit.com/product/3201) can be used with this library. By default, it connects CS to pin D5 and does not connect INT and RESET, however these are not needed by this library.\n\n\n## IP address\n\nThe IP address can be configured a number of ways.\n\n### DHCP IP address\n\nIf the Ethernet LAN has a DHCP server, that is the easiest and does not require any configuration, and it's the default.\n\nThe DHCP server will provide the IP address, subnet mask, gateway address, and DNS server (if available).\n\nEven if static IP addresses are assigned, it's also common to assign them in the router, based on the Ethernet MAC address. That allows the network administrator to manage the IP addresses easily, and eliminates the need to manually configure IP addresses in individual devices. Each device will use DHCP, but the router will hand out the IP address based on the Ethernet MAC, or deny access if the device is unknown.\n\n### Static IP address\n\nIn some isolated LANs in particular there may by no DHCP server, in which case static IP addresses are required. \n\nYou can configure the IP address in code. This is fine if each device has its own firmware, but is hard to scale. See example 4-static for a complete example of this technique.\n\n```cpp\n// EXAMPLE - use in setup()\nIsolatedEthernet::instance()\n    .withEthernetFeatherWing()\n    .withIPAddress(IPAddress(192, 168, 2, 26))\n    .withSubnetMask(IPAddress(255, 255, 255, 0))\n    .withGatewayAddress(IPAddress(192, 168, 2, 1))\n    .withDNSAddress(IPAddress(8, 8, 8, 8))\n    .setup();    \n```\n\n\n### Static IP address with cloud configuration\n\nIt's also possible to store the IP address information in a file in the flash file system. You can then update this file using the Particle cloud by the native network interface, such as cellular. See example 3-static-config for a complete example of using this technique.\n\n```cpp\n// EXAMPLE - use in setup()\nIsolatedEthernet::instance()\n    .withEthernetFeatherWing()\n    .withStaticIP()\n    .withJsonConfigFile(\"/usr/ethercfg\")\n    .setup();\n```\n\n### Updating code and libraries\n\nYou must change code that uses the `TCPClient`, `TCPServer`, or `UDP` classes. Fortunately, the API is compatible and it should be a simple search and replace:\n\n| Before | After |\n| :--- | :--- |\n| `TCPClient` | `IsolatedEthernet::TCPClient` |\n| `TCPServer` | `IsolatedEthernet::TCPServer` |\n| `UDP` | `IsolatedEthernet::UDP` |\n\nBasically, you just need to choose by the class name whether you want to use the native Device OS implementation, or the Ethernet implementation.\n\n\n### Modifying libraries in Workbench\n\nWe highly recommend using Particle Workbench for development. This is especially true if you need to modify a version of an existing community library.\n\nIf you use the **Particle: Install Library** option the library will be added to the lib directory as well as your project.properties file. With this, you can view the library source easily by navigating into the lib directory.\n\nHowever, if you are going to make modifications to the library it is highly recommended that you **remove the library from project.properties!**\n\nThis is necessary because cloud compiles will use the official version in the community libraries if present in project.properties, even though your modified version is uploaded. Local compiles will use your modified version regardless of the project.properties files, but it's a good habit to remove the line to prevent confusion later.\n\nCommitting your modified project to a source control system like Github will make sure not only your code remains safe, but also your modified community libraries.\n\n## Logging\n\nNormally you'd enable logging like this:\n\n```cpp\nSerialLogHandler logHandler(LOG_LEVEL_INFO);\n```\n\nLogging within the library uses a logging category of app.ether, so you can set the log level independently. For example, if you want additional debugging messages, you can set it to:\n\n```cpp\nSerialLogHandler logHandler(LOG_LEVEL_INFO, { // Logging level default\n    { \"app.ether\", LOG_LEVEL_TRACE } // Logging level for IsolatedEthernet messages\n});\n```\n\n\n## Additional information\n\n\n- [WIZnet W5500 documentation](https://www.wiznet.io/product-item/w5500/)\n- [WIZnet ioLibrary driver](https://github.com/Wiznet/ioLibrary_Driver)\n\n\n## License\n\n- This library is Apache 2.0 licensed, see LICENSE file.\n- Can be used in open or closed source projects.\n\n### WIZnet\n\nCopyright (c) 2014 WIZnet Co.,Ltd.\nCopyright (c) WIZnet ioLibrary Project.\nAll rights reserved.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

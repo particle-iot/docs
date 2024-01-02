@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Monitor",
     "version": "0.0.2",
-    "installs": 302,
+    "installs": 320,
     "license": "LGPL",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "All the bits you need for the Spark Monitor",
@@ -102,6 +102,46 @@
             "1_SimpleMonitor": false
           },
           "boron": {
+            "1_SimpleMonitor": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1_SimpleMonitor": false
+          },
+          "boron": {
+            "1_SimpleMonitor": false
+          },
+          "bsom": {
+            "1_SimpleMonitor": false
+          },
+          "b5som": {
+            "1_SimpleMonitor": false
+          },
+          "tracker": {
+            "1_SimpleMonitor": false
+          },
+          "p2": {
+            "1_SimpleMonitor": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1_SimpleMonitor": false
+          },
+          "boron": {
+            "1_SimpleMonitor": false
+          },
+          "bsom": {
+            "1_SimpleMonitor": false
+          },
+          "b5som": {
+            "1_SimpleMonitor": false
+          },
+          "tracker": {
+            "1_SimpleMonitor": false
+          },
+          "esomx": {
             "1_SimpleMonitor": false
           }
         }

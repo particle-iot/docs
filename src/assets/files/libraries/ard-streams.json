@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ard-streams",
     "version": "1.0.2",
-    "installs": 1469,
+    "installs": 1501,
     "author": "Vladimir Talybin",
     "sentence": "This library includes iostreams that otherwise overflow the flash memory.",
     "paragraph": "Arduino STL iostreams.",
@@ -107,6 +107,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true,
+            "using_serial": true
+          },
+          "boron": {
+            "usage": true,
+            "using_serial": true
+          },
+          "bsom": {
+            "usage": true,
+            "using_serial": true
+          },
+          "b5som": {
+            "usage": true,
+            "using_serial": true
+          },
+          "tracker": {
+            "usage": true,
+            "using_serial": true
+          },
+          "esomx": {
+            "usage": true,
+            "using_serial": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true,
+            "using_serial": true
+          },
+          "boron": {
+            "usage": true,
+            "using_serial": true
+          },
+          "bsom": {
+            "usage": true,
+            "using_serial": true
+          },
+          "b5som": {
+            "usage": true,
+            "using_serial": true
+          },
+          "tracker": {
+            "usage": true,
+            "using_serial": true
+          },
+          "p2": {
+            "usage": true,
+            "using_serial": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true,
             "using_serial": true

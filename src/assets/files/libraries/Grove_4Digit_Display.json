@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_4Digit_Display",
     "version": "1.0.2",
-    "installs": 36676,
+    "installs": 37539,
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
     "sentence": "Particle library to control Grove_4Digital_Display TM1637.",
@@ -90,6 +90,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "NumberFlow": true
+          },
+          "boron": {
+            "NumberFlow": true
+          },
+          "bsom": {
+            "NumberFlow": true
+          },
+          "b5som": {
+            "NumberFlow": true
+          },
+          "tracker": {
+            "NumberFlow": true
+          },
+          "esomx": {
+            "NumberFlow": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "NumberFlow": true
+          },
+          "boron": {
+            "NumberFlow": true
+          },
+          "bsom": {
+            "NumberFlow": true
+          },
+          "b5som": {
+            "NumberFlow": true
+          },
+          "tracker": {
+            "NumberFlow": true
+          },
+          "p2": {
+            "NumberFlow": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "NumberFlow": true
           },

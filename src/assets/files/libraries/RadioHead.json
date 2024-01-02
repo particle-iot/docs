@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RadioHead",
     "version": "1.4.1",
-    "installs": 1247,
+    "installs": 1286,
     "author": "Mike McCauley <https://groups.google.com/forum/#!forum/radiohead-arduino>, SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "This is the RadioHead Packet Radio library for embedded microprocessors.",
@@ -107,6 +107,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "raspi": false,
+            "usage": false
+          },
+          "boron": {
+            "raspi": false,
+            "usage": false
+          },
+          "bsom": {
+            "raspi": false,
+            "usage": false
+          },
+          "b5som": {
+            "raspi": false,
+            "usage": false
+          },
+          "tracker": {
+            "raspi": false,
+            "usage": false
+          },
+          "esomx": {
+            "raspi": false,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "raspi": false,
+            "usage": false
+          },
+          "boron": {
+            "raspi": false,
+            "usage": false
+          },
+          "bsom": {
+            "raspi": false,
+            "usage": false
+          },
+          "b5som": {
+            "raspi": false,
+            "usage": false
+          },
+          "tracker": {
+            "raspi": false,
+            "usage": false
+          },
+          "p2": {
+            "raspi": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "raspi": false,
             "usage": false

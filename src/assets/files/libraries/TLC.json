@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TLC",
     "version": "1.0.0",
-    "installs": 101,
+    "installs": 112,
     "author": "Adafruit",
     "architectures": [],
     "visibility": "public",
@@ -85,6 +85,46 @@
             "tlc59711test": true
           },
           "boron": {
+            "tlc59711test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "tlc59711test": true
+          },
+          "boron": {
+            "tlc59711test": true
+          },
+          "bsom": {
+            "tlc59711test": true
+          },
+          "b5som": {
+            "tlc59711test": true
+          },
+          "tracker": {
+            "tlc59711test": true
+          },
+          "p2": {
+            "tlc59711test": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "tlc59711test": true
+          },
+          "boron": {
+            "tlc59711test": true
+          },
+          "bsom": {
+            "tlc59711test": true
+          },
+          "b5som": {
+            "tlc59711test": true
+          },
+          "tracker": {
+            "tlc59711test": true
+          },
+          "esomx": {
             "tlc59711test": true
           }
         }

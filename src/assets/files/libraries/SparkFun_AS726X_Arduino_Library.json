@@ -1,0 +1,114 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_AS726X_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_AS726X_Arduino_Library/archive/1.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_AS726X_Arduino_Library",
+    "version": "1.0.4",
+    "installs": 325,
+    "author": "Andrew England",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "A library to drive the AMS AS726X NIR/VIS Spectrum Sensor",
+    "paragraph": "The SparkFun AS726X Visible Spectral Sensor Breakout brings spectroscopy to the palm of your hand, making it easier than ever to measure and characterize how different materials absorb and reflect different wavelengths of light. The AS726X Breakout is unique in its ability to communicate by both an I2C interface and serial interface using AT commands. Hookup is easy, thanks to the Qwiic connectors attached to the board --- simply plug one end of the Qwiic cable into the breakout and the other into one of the Qwiic Shields, then stack the board on a development board. You’ll be ready to upload a sketch to start taking spectroscopy measurements in no time.",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_AS726X_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_AS726X_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_AS726X_Arduino_Library",
+  "versions": {
+    "1.0.4": {
+      "added": "2023-12-31T15:03:38.369Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          },
+          "p2": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          },
+          "esomx": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun AS726X Arduino Library\n========================================\n\n<table class=\"table table-hover table-striped table-bordered\">\n  <tr>\n   <td><a href=\"https://www.sparkfun.com/products/14347\"><div align=\"center\"><img src=\"https://cdn.sparkfun.com//assets/parts/1/2/3/2/6/14347-01.jpg\" title=\"SparkFun Spectral Sensor Breakout - AS7262 Visible (Qwiic)\"></div></a></center></td>\n   <td><a href=\"https://www.sparkfun.com/products/14351\"><div align=\"center\"><img src=\"https://cdn.sparkfun.com//assets/parts/1/2/3/3/8/14351-01.jpg\" title=\"SparkFun Spectral Sensor Breakout - AS7263 NIR (Qwiic)\"></div></a></td>\n  </tr>\n  <tr>\n    <td><div align=\"center\"> <a href=\"https://www.sparkfun.com/products/14347\">SparkFun Spectral Sensor Breakout - AS7262 Visible (Qwiic) (SEN-14347)</a></div></td>\n    <td><div align=\"center\"> <a href=\"https://www.sparkfun.com/products/14351\">SparkFun Spectral Sensor Breakout - AS7263 NIR (Qwiic) (SEN-14351)</a></div></td>\n  </tr>\n</table>\n\nThis is an Arduino IDE library to control the AS726X Spectral Sensor, which can be configured via I<sup>2</sup>C or SPI. The AS7262 version detects wavelengths in the visible range while the AS7263 version detects wavelengths just below the visible range, in the Near Infrared (NIR) range.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/extras** - Additional documentation for the user. These files are ignored by the IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/as726x-nirvi)** - Basic hookup guide for the AS726X.\n* **[Product Repository](https://github.com/sparkfun/Qwiic_Spectral_Sensor_AS726X)** - Main repository (including hardware files) for the AS726X Spectral Sensor.\n\nProduct Versions\n----------------\n* [14347](https://www.sparkfun.com/products/14347)- AS7262 Visible Spectral Sensor\n* [14351](https://www.sparkfun.com/products/14351)- AS7263 Near Infrared Spectral Sensor\n\nVersion History\n---------------\n* [V1.0.0](https://github.com/sparkfun/Sparkfun_AS726X_Arduino_Library/releases/tag/V1.0.0) - Initial Release\n* [V1.0.1](https://github.com/sparkfun/Sparkfun_AS726X_Arduino_Library/releases/tag/V1.0.1) - Updating printUncalibratedMeasurements()\n\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact technical support on our [SparkFun forums](https://forum.sparkfun.com/viewforum.php?f=152).\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n_<COLLABORATION CREDIT>_\n",
+  "allVersions": [
+    "1.0.4"
+  ]
+}

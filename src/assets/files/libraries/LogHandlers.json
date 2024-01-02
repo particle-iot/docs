@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LogHandlers",
     "version": "0.0.3",
-    "installs": 327,
+    "installs": 350,
     "author": "henry.goldwire@gmail.com",
     "architectures": [],
     "visibility": "public",
@@ -100,6 +100,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "republish": true,
+            "usage": true
+          },
+          "boron": {
+            "republish": true,
+            "usage": true
+          },
+          "bsom": {
+            "republish": true,
+            "usage": true
+          },
+          "b5som": {
+            "republish": true,
+            "usage": true
+          },
+          "tracker": {
+            "republish": true,
+            "usage": true
+          },
+          "esomx": {
+            "republish": true,
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "republish": true,
+            "usage": true
+          },
+          "boron": {
+            "republish": true,
+            "usage": true
+          },
+          "bsom": {
+            "republish": true,
+            "usage": true
+          },
+          "b5som": {
+            "republish": true,
+            "usage": true
+          },
+          "tracker": {
+            "republish": true,
+            "usage": true
+          },
+          "p2": {
+            "republish": true,
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "republish": true,
             "usage": true

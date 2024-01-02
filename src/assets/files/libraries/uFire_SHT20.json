@@ -7,7 +7,7 @@
   "attributes": {
     "name": "uFire_SHT20",
     "version": "1.0.0",
-    "installs": 1082,
+    "installs": 1129,
     "author": "uFire",
     "maintainer": "contact@ufire.co",
     "sentence": "Measure atmospheric temperature and humdity.",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Minimal": true
+          },
+          "boron": {
+            "Minimal": true
+          },
+          "bsom": {
+            "Minimal": true
+          },
+          "b5som": {
+            "Minimal": true
+          },
+          "tracker": {
+            "Minimal": true
+          },
+          "esomx": {
+            "Minimal": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Minimal": true
+          },
+          "boron": {
+            "Minimal": true
+          },
+          "bsom": {
+            "Minimal": true
+          },
+          "b5som": {
+            "Minimal": true
+          },
+          "tracker": {
+            "Minimal": true
+          },
+          "p2": {
+            "Minimal": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Minimal": true
           },

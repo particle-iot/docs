@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_OLED_Display_96X96",
     "version": "1.0.9",
-    "installs": 1769,
+    "installs": 1801,
     "license": "The LGPL License V2.1.",
     "author": "Seeed Studio, Jarvis Chung",
     "sentence": "Grove OLED Display for 96x96.",
@@ -212,6 +212,130 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "boron": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "bsom": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "b5som": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "tracker": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "esomx": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "boron": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "bsom": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "b5som": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "tracker": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "p2": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "OLED_Bitmap_Inverse_Display": true,
             "OLED_Draw_Bitmap": true,

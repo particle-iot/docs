@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Commander",
     "version": "4.2.7",
-    "installs": 358,
+    "installs": 372,
     "author": "Bill Bigge",
     "maintainer": "Bill Bigge <bbigge@gmail.com>",
     "sentence": "Command line library for Arduino.",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": false
           },

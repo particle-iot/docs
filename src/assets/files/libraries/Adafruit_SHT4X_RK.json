@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SHT4X_RK",
     "version": "1.0.2",
-    "installs": 415,
+    "installs": 1083,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for SHT4x temperature & humidity sensor.",
@@ -92,6 +92,46 @@
             "SHT4test": true
           },
           "boron": {
+            "SHT4test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "SHT4test": true
+          },
+          "boron": {
+            "SHT4test": true
+          },
+          "bsom": {
+            "SHT4test": true
+          },
+          "b5som": {
+            "SHT4test": true
+          },
+          "tracker": {
+            "SHT4test": true
+          },
+          "p2": {
+            "SHT4test": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "SHT4test": true
+          },
+          "boron": {
+            "SHT4test": true
+          },
+          "bsom": {
+            "SHT4test": true
+          },
+          "b5som": {
+            "SHT4test": true
+          },
+          "tracker": {
+            "SHT4test": true
+          },
+          "esomx": {
             "SHT4test": true
           }
         }

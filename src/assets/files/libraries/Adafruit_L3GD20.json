@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_L3GD20",
     "version": "0.1.2",
-    "installs": 707,
+    "installs": 723,
     "license": "Adafruit",
     "author": "kennethlimcp / Adafruit / marksherman",
     "sentence": "Adafruit_L3GD20/H for Particle",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Adafruit_L3GD20_test": true
+          },
+          "boron": {
+            "Adafruit_L3GD20_test": true
+          },
+          "bsom": {
+            "Adafruit_L3GD20_test": true
+          },
+          "b5som": {
+            "Adafruit_L3GD20_test": true
+          },
+          "tracker": {
+            "Adafruit_L3GD20_test": true
+          },
+          "esomx": {
+            "Adafruit_L3GD20_test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Adafruit_L3GD20_test": true
+          },
+          "boron": {
+            "Adafruit_L3GD20_test": true
+          },
+          "bsom": {
+            "Adafruit_L3GD20_test": true
+          },
+          "b5som": {
+            "Adafruit_L3GD20_test": true
+          },
+          "tracker": {
+            "Adafruit_L3GD20_test": true
+          },
+          "p2": {
+            "Adafruit_L3GD20_test": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Adafruit_L3GD20_test": true
           },

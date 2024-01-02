@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DiagnosticsHelperRK",
     "version": "0.0.2",
-    "installs": 26562,
+    "installs": 27762,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Functions for accessing diagnostics data on-device",
@@ -124,6 +124,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "boron": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "bsom": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "b5som": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "tracker": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "esomx": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "boron": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "bsom": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "b5som": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "tracker": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "p2": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-get-values-DiagnosticsHelperRK": true,
             "2-get-json-DiagnosticsHelperRK": true,

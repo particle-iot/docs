@@ -7,7 +7,7 @@
   "attributes": {
     "name": "spark-parse",
     "version": "0.0.3",
-    "installs": 439,
+    "installs": 453,
     "author": "Ian Wells <ijw@cack.org.uk>",
     "url": "https://github.com/iawells/spark-parse",
     "repository": "https://github.com/iawells/spark-parse.git",
@@ -84,6 +84,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "parse_hex": true
+          },
+          "boron": {
+            "parse_hex": true
+          },
+          "bsom": {
+            "parse_hex": true
+          },
+          "b5som": {
+            "parse_hex": true
+          },
+          "tracker": {
+            "parse_hex": true
+          },
+          "esomx": {
+            "parse_hex": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "parse_hex": true
+          },
+          "boron": {
+            "parse_hex": true
+          },
+          "bsom": {
+            "parse_hex": true
+          },
+          "b5som": {
+            "parse_hex": true
+          },
+          "tracker": {
+            "parse_hex": true
+          },
+          "p2": {
+            "parse_hex": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "parse_hex": true
           },

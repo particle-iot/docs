@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PhotonWaveOut",
     "version": "0.0.1",
-    "installs": 1500,
+    "installs": 1514,
     "license": "Apache-2.0",
     "author": "Stefan Sauer <ensonic@google.com>",
     "sentence": "Audio playback library for the particle.io",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "wave-out": false
+          },
+          "boron": {
+            "wave-out": false
+          },
+          "bsom": {
+            "wave-out": false
+          },
+          "b5som": {
+            "wave-out": false
+          },
+          "tracker": {
+            "wave-out": false
+          },
+          "esomx": {
+            "wave-out": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "wave-out": false
+          },
+          "boron": {
+            "wave-out": false
+          },
+          "bsom": {
+            "wave-out": false
+          },
+          "b5som": {
+            "wave-out": false
+          },
+          "tracker": {
+            "wave-out": false
+          },
+          "p2": {
+            "wave-out": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "wave-out": false
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_CCS811",
     "version": "1.0.2",
-    "installs": 8732,
+    "installs": 8886,
     "author": "Adafruit",
     "maintainer": "ScruffR at community.particle.io",
     "sentence": "This is an Adafruit library for the CCS811 I2C gas sensor - ported for Particle",
@@ -108,6 +108,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "boron": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "bsom": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "b5som": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "tracker": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "esomx": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "boron": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "bsom": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "b5som": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "tracker": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "p2": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "CCS811_OLED_Demo": false,
             "CCS811_test": true

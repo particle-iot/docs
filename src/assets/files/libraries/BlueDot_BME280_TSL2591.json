@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BlueDot_BME280_TSL2591",
     "version": "1.0.3",
-    "installs": 784,
+    "installs": 802,
     "license": "CC BY-SA 4.0",
     "author": "BlueDot",
     "maintainer": "BlueDot <info@bluedot.space>",
@@ -90,6 +90,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "BME280_TSL2591_Test": false
+          },
+          "boron": {
+            "BME280_TSL2591_Test": false
+          },
+          "bsom": {
+            "BME280_TSL2591_Test": false
+          },
+          "b5som": {
+            "BME280_TSL2591_Test": false
+          },
+          "tracker": {
+            "BME280_TSL2591_Test": false
+          },
+          "esomx": {
+            "BME280_TSL2591_Test": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BME280_TSL2591_Test": false
+          },
+          "boron": {
+            "BME280_TSL2591_Test": false
+          },
+          "bsom": {
+            "BME280_TSL2591_Test": false
+          },
+          "b5som": {
+            "BME280_TSL2591_Test": false
+          },
+          "tracker": {
+            "BME280_TSL2591_Test": false
+          },
+          "p2": {
+            "BME280_TSL2591_Test": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "BME280_TSL2591_Test": false
           },

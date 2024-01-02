@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SunSet_2a01",
     "version": "1.0.2",
-    "installs": 673,
+    "installs": 689,
     "license": "MIT",
     "author": "Peter Buelow (goballstate@gmail.com)",
     "sentence": "Deprecated, use sunset 1.0.6 or later",
@@ -84,6 +84,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "esomx": {
+            "example": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "p2": {
+            "example": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "example": false
           },

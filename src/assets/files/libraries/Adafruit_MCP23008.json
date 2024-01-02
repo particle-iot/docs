@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MCP23008",
     "version": "1.0.6",
-    "installs": 22008,
+    "installs": 22130,
     "license": "BSD-2",
     "author": "Limor Fried/Ladyada, Evan Simkowitz<esimkowitz@wustl.edu>",
     "sentence": "Adafruit_MCP23008 I2C expander library adapted for Particle IDE",
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "boron": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "bsom": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "b5som": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "tracker": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "esomx": {
+            "button": true,
+            "i2cledtest": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "boron": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "bsom": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "b5som": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "tracker": {
+            "button": true,
+            "i2cledtest": true
+          },
+          "p2": {
+            "button": true,
+            "i2cledtest": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "button": true,
             "i2cledtest": true

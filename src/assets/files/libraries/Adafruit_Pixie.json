@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Pixie",
     "version": "1.1.0",
-    "installs": 1403,
+    "installs": 1418,
     "license": "GNU GPL",
     "author": "Chris Gervang <chris@gervang.com>",
     "sentence": "Particle library (Ported from Arduino) for controlling Serial-based ultra-bright LED pixels and strip.",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "strandtest": false
+          },
+          "boron": {
+            "strandtest": false
+          },
+          "bsom": {
+            "strandtest": false
+          },
+          "b5som": {
+            "strandtest": false
+          },
+          "tracker": {
+            "strandtest": false
+          },
+          "esomx": {
+            "strandtest": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "strandtest": false
+          },
+          "boron": {
+            "strandtest": false
+          },
+          "bsom": {
+            "strandtest": false
+          },
+          "b5som": {
+            "strandtest": false
+          },
+          "tracker": {
+            "strandtest": false
+          },
+          "p2": {
+            "strandtest": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "strandtest": false
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adafruit-led-backpack",
     "version": "1.0.0",
-    "installs": 24849,
+    "installs": 24931,
     "license": "MIT",
     "author": "Tim Caswell <tim@creationix.com>",
     "sentence": "Forked from Adafruit's LED Backpack library, for SparkCore",
@@ -122,6 +122,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "boron": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "bsom": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "b5som": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "tracker": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "esomx": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "boron": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "bsom": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "b5som": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "tracker": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "p2": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "8x8-bicolor": true,
             "quadalphanum": true,

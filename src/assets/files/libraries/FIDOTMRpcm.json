@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FIDOTMRpcm",
     "version": "1.0.0",
-    "installs": 316,
+    "installs": 327,
     "author": "C Guy",
     "architectures": [],
     "visibility": "public",
@@ -136,6 +136,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "boron": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "bsom": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "b5som": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "tracker": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "esomx": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "boron": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "bsom": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "b5som": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "tracker": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "p2": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "basic": false,
             "music": false,

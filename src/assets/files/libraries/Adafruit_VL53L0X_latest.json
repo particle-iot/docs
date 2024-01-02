@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_VL53L0X_latest",
     "version": "1.0.4",
-    "installs": 2735,
+    "installs": 2861,
     "license": "LICENSE",
     "author": "Adafruit",
     "maintainer": "adafruit <support@adafruit.com>",
@@ -126,6 +126,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "boron": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "bsom": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "b5som": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "tracker": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "esomx": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "boron": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "bsom": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "b5som": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "tracker": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "p2": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "vl53l0x": true,
             "vl53l0x_dual": true,

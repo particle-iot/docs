@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SSD1325",
     "version": "1.0.3",
-    "installs": 563,
+    "installs": 577,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "SSD1325 monochrome OLED library",
@@ -106,6 +106,46 @@
           },
           "esomx": {
             "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
           }
         }
       },

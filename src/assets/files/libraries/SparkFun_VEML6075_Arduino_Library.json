@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_VEML6075_Arduino_Library",
     "version": "1.1.4",
-    "installs": 528,
+    "installs": 545,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the VEML6075 on the SparkFun Qwiic UV Sensor",
@@ -162,6 +162,94 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "boron": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "bsom": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "b5som": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "tracker": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "esomx": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "boron": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "bsom": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "b5som": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "tracker": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "p2": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example1_Stream_UV": true,
             "Example2_Configure_UV": true,

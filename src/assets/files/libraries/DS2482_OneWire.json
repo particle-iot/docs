@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS2482_OneWire",
     "version": "0.0.16",
-    "installs": 291,
+    "installs": 318,
     "license": "MIT",
     "author": "Joe Goggins <joe@particle.io>",
     "maintainer": "Wojtek Siudzinski <wojtek@particle.io>",

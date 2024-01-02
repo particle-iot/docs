@@ -7,7 +7,7 @@
   "attributes": {
     "name": "hover",
     "version": "1.1.0",
-    "installs": 827,
+    "installs": 843,
     "license": "BSD",
     "author": "Emran Mahbub, Jonathan Li <support@gearseven.com>",
     "sentence": "Hover is a development kit that lets you control your hardware projects with gestures and touch",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "hover-example": false
+          },
+          "boron": {
+            "hover-example": false
+          },
+          "bsom": {
+            "hover-example": false
+          },
+          "b5som": {
+            "hover-example": false
+          },
+          "tracker": {
+            "hover-example": false
+          },
+          "esomx": {
+            "hover-example": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "hover-example": false
+          },
+          "boron": {
+            "hover-example": false
+          },
+          "bsom": {
+            "hover-example": false
+          },
+          "b5som": {
+            "hover-example": false
+          },
+          "tracker": {
+            "hover-example": false
+          },
+          "p2": {
+            "hover-example": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "hover-example": false
           },

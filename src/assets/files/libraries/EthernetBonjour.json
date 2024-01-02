@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EthernetBonjour",
     "version": "1.0.1",
-    "installs": 431,
+    "installs": 444,
     "license": "GNUGPL",
     "author": "@moflome",
     "sentence": "Bonjour MDNS ZeroConfigure service for Particle Photon, port of Arduino EthernetBonjour for use with Apple HomeKit",
@@ -88,6 +88,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "UbloxM8Q_GPS",
     "version": "0.3.1",
-    "installs": 5907,
+    "installs": 5938,
     "author": "Lynd Wieman",
     "sentence": "A driver for the U-blox M8Q GPS receiver",
     "paragraph": "This driver supports the AssetTracker2 library and Particle Asset Tracker 2 hardware. It returns position, velocity, etc. using the u-blox protocol. This version only adds a repository.",
@@ -87,6 +87,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": false
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD2Relay",
     "version": "1.0.8",
-    "installs": 18519,
+    "installs": 18707,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 2 channel Spark compatible Relay Controller",
@@ -138,6 +138,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "boron": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "bsom": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "b5som": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "tracker": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "esomx": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "boron": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "bsom": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "b5som": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "tracker": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          },
+          "p2": {
+            "Blynk-2Relay-SI7020Temperature": false,
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Slack_Sign": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Blynk-2Relay-SI7020Temperature": false,
             "CloudControl": false,

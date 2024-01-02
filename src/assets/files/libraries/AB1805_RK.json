@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AB1805_RK",
     "version": "0.0.1",
-    "installs": 1204,
+    "installs": 1588,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for AB1805/AM1805 RTC/Watchdog for Particle devices",
@@ -196,6 +196,118 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "boron": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "bsom": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "b5som": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "tracker": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "esomx": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "boron": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "bsom": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "b5som": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "tracker": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "p2": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "01-minimal": true,
             "02-typical": true,

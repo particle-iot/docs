@@ -7,7 +7,7 @@
   "attributes": {
     "name": "test-library-publish",
     "version": "0.0.2",
-    "installs": 258,
+    "installs": 273,
     "license": "MIT",
     "author": "Joe Goggins <joe@particle.io>",
     "sentence": "A simple library that illustrates coding conventions of a Spark Library",
@@ -147,6 +147,70 @@
           },
           "boron": {
             "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "boron": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "bsom": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "b5som": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "tracker": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "p2": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "boron": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "bsom": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "b5som": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "tracker": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "esomx": {
+            "blink-an-led": false,
             "blink-an-led-slower": false,
             "blink-an-led-very-slow": false
           }

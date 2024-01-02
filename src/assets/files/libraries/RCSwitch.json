@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RCSwitch",
     "version": "2.5.2",
-    "installs": 21130,
+    "installs": 21168,
     "license": "GNU Lesser GPL",
     "author": "Suat Özgür <s@sui.li>",
     "sentence": "Library to operate low cost 315 MHz / 433 MHz remote control devices",
@@ -140,6 +140,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "boron": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "bsom": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "b5som": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "tracker": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "esomx": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "boron": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "bsom": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "b5som": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "tracker": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          },
+          "p2": {
+            "ReceiveDemo_Advanced": false,
+            "SendDemo": false,
+            "SparkFunction": false,
+            "TypeA_WithDIPSwitches": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "ReceiveDemo_Advanced": false,
             "SendDemo": false,

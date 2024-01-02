@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS18B20_Pi",
     "version": "1.0.2",
-    "installs": 1287,
+    "installs": 1309,
     "author": "Georgi Todorov",
     "architectures": [],
     "visibility": "public",
@@ -82,6 +82,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": false
           },

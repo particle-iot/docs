@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Alphanumeric_Display_Arduino_Library",
     "version": "1.1.2",
-    "installs": 461,
+    "installs": 480,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "A library to drive the Holtek HT16K33 LED Driver with an Alphanumeric Display.",
@@ -252,6 +252,154 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "boron": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "bsom": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "b5som": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "tracker": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "esomx": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "boron": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "bsom": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "b5som": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "tracker": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "p2": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example10_DefineChar": false,
             "Example1_Begin": false,

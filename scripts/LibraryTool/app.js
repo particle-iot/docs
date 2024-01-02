@@ -19,9 +19,20 @@ const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), '
 
 const targetInfo = [
     {
+        version: '5.6.0',
+        platforms: ['argon', 'boron', 'bsom', 'b5som', 'tracker', 'p2'],
+    },
+    /*
+    {
         version: '5.0.1',
         platforms: ['argon', 'boron', 'bsom', 'b5som', 'tracker', 'p2'],
     },
+    */
+    {
+        version: '4.2.0',
+        platforms: ['argon', 'boron', 'bsom', 'b5som', 'tracker', 'esomx'],
+    },
+    /*
     {
         version: '4.0.0',
         platforms: ['argon', 'boron', 'bsom', 'b5som', 'tracker', 'esomx'],
@@ -29,12 +40,11 @@ const targetInfo = [
     {
         version: '3.3.0',
         platforms: ['photon', 'electron', 'argon', 'boron'],
-/*        ifAddedAfter: '2022-01-01T00:00:00.000Z' */
     },
+    */
     { 
-        // Any new libraries build on 2.3.0
         version: '2.3.0',
-        platforms: ['photon', 'electron', 'argon', 'boron'],
+        platforms: ['photon', 'electron'], // , 'argon', 'boron'
         isNotExists: '2.0.1',
     },
     /*
@@ -42,12 +52,12 @@ const targetInfo = [
         version: '2.0.1',
         platforms: ['photon', 'electron', 'argon', 'boron'],
     },
-    */
     {
         version: '1.5.2',
         platforms: ['photon', 'electron', 'argon', 'boron'],
         ifAddedBefore: '2022-01-01T00:00:00.000Z'
     }
+    */
 ];
 
 

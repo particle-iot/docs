@@ -7,7 +7,7 @@
   "attributes": {
     "name": "flashee-eeprom",
     "version": "0.1.8",
-    "installs": 9690,
+    "installs": 9717,
     "license": "GPLv3",
     "author": "mdma <mat dot mcgowan+spark at gmail dot com>",
     "sentence": "Provides EEPROM-like access to the external flash on the spark. The library takes care of performing page erases and emulates the byte-level erase feature of eeprom.",
@@ -122,6 +122,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "boron": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "bsom": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "b5som": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "tracker": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "esomx": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "boron": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "bsom": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "b5som": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "tracker": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "p2": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "filemanager": false,
             "integration-tests": false,

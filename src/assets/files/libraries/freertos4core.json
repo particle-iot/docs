@@ -7,7 +7,7 @@
   "attributes": {
     "name": "freertos4core",
     "version": "0.2.0",
-    "installs": 2976,
+    "installs": 2993,
     "license": "GPLv3",
     "author": "mdma <mat dot mcgowan+spark at gmail dot com>",
     "sentence": "Adds FreeRTOS (multithreading, timers, queues, mutexes etc.) to the Core. Requires system firmware version 0.4.6 or later.",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "timers": false
+          },
+          "boron": {
+            "timers": false
+          },
+          "bsom": {
+            "timers": false
+          },
+          "b5som": {
+            "timers": false
+          },
+          "tracker": {
+            "timers": false
+          },
+          "esomx": {
+            "timers": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "timers": false
+          },
+          "boron": {
+            "timers": false
+          },
+          "bsom": {
+            "timers": false
+          },
+          "b5som": {
+            "timers": false
+          },
+          "tracker": {
+            "timers": false
+          },
+          "p2": {
+            "timers": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "timers": false
           },

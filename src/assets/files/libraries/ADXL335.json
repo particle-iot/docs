@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADXL335",
     "version": "1.0.1",
-    "installs": 1542,
+    "installs": 1563,
     "license": "MIT License",
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
@@ -109,6 +109,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "boron": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "bsom": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "b5som": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "tracker": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "esomx": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "boron": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "bsom": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "b5som": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "tracker": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "p2": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Calibration": false,
             "MeasuringAcceleration": false

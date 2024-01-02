@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2c7SegmentLed",
     "version": "1.0.1",
-    "installs": 529,
+    "installs": 543,
     "license": "MIT",
     "author": "Gary Muhonen <gary@dcity.org>",
     "sentence": "Particle library for controlling I2C 7 Segment LED Displays",
@@ -90,6 +90,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "I2c7SegmentLedDemo": true
+          },
+          "boron": {
+            "I2c7SegmentLedDemo": true
+          },
+          "bsom": {
+            "I2c7SegmentLedDemo": true
+          },
+          "b5som": {
+            "I2c7SegmentLedDemo": true
+          },
+          "tracker": {
+            "I2c7SegmentLedDemo": true
+          },
+          "esomx": {
+            "I2c7SegmentLedDemo": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "I2c7SegmentLedDemo": true
+          },
+          "boron": {
+            "I2c7SegmentLedDemo": true
+          },
+          "bsom": {
+            "I2c7SegmentLedDemo": true
+          },
+          "b5som": {
+            "I2c7SegmentLedDemo": true
+          },
+          "tracker": {
+            "I2c7SegmentLedDemo": true
+          },
+          "p2": {
+            "I2c7SegmentLedDemo": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "I2c7SegmentLedDemo": true
           },

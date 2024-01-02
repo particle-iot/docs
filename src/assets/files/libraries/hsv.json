@@ -7,7 +7,7 @@
   "attributes": {
     "name": "hsv",
     "version": "1.0.3",
-    "installs": 3041,
+    "installs": 3319,
     "license": "MIT",
     "author": "Julien Vanier <jvanier@gmail.com>",
     "sentence": "Convert color values between RGB and HSV",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "rainbow": true
+          },
+          "boron": {
+            "rainbow": true
+          },
+          "bsom": {
+            "rainbow": true
+          },
+          "b5som": {
+            "rainbow": true
+          },
+          "tracker": {
+            "rainbow": true
+          },
+          "esomx": {
+            "rainbow": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "rainbow": true
+          },
+          "boron": {
+            "rainbow": true
+          },
+          "bsom": {
+            "rainbow": true
+          },
+          "b5som": {
+            "rainbow": true
+          },
+          "tracker": {
+            "rainbow": true
+          },
+          "p2": {
+            "rainbow": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "rainbow": true
           },

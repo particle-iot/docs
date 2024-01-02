@@ -7,7 +7,7 @@
   "attributes": {
     "name": "VCNL4010",
     "version": "0.0.1",
-    "installs": 3184,
+    "installs": 3412,
     "license": "BSD",
     "author": "Ladyada <contact@adafruit.com>",
     "sentence": "Particle library for VCNL4010 all-in-one proximity/light sensor",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "VCNL4010-tester": true
+          },
+          "boron": {
+            "VCNL4010-tester": true
+          },
+          "bsom": {
+            "VCNL4010-tester": true
+          },
+          "b5som": {
+            "VCNL4010-tester": true
+          },
+          "tracker": {
+            "VCNL4010-tester": true
+          },
+          "esomx": {
+            "VCNL4010-tester": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "VCNL4010-tester": true
+          },
+          "boron": {
+            "VCNL4010-tester": true
+          },
+          "bsom": {
+            "VCNL4010-tester": true
+          },
+          "b5som": {
+            "VCNL4010-tester": true
+          },
+          "tracker": {
+            "VCNL4010-tester": true
+          },
+          "p2": {
+            "VCNL4010-tester": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "VCNL4010-tester": true
           },

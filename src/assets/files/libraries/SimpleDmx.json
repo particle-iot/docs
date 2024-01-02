@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SimpleDmx",
     "version": "0.1.0",
-    "installs": 888,
+    "installs": 908,
     "license": "MIT",
     "author": "André Hanak <impressum@a-hanak.de>",
     "sentence": "The library allows to transmit a DMX signal using the on board serial.",
@@ -105,6 +105,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "boron": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "bsom": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "b5som": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "tracker": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "esomx": {
+            "full-on": true,
+            "rainbow": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "boron": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "bsom": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "b5som": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "tracker": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "p2": {
+            "full-on": true,
+            "rainbow": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "full-on": true,
             "rainbow": true

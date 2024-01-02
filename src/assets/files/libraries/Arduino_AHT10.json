@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Arduino_AHT10",
     "version": "0.1.0",
-    "installs": 162,
+    "installs": 203,
     "author": "Adafruit",
     "architectures": [],
     "visibility": "public",
@@ -85,6 +85,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

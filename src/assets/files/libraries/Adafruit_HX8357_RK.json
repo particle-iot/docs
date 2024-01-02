@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_HX8357_RK",
     "version": "1.0.10",
-    "installs": 8639,
+    "installs": 8818,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit HX8357 3.5\" display library. Port of version 1.0.8 by rickkas7",
@@ -106,6 +106,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "boron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "bsom": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "b5som": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "tracker": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "esomx": {
+            "graphicstest_featherwing": false,
+            "touchpaint_featherwing": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "boron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "bsom": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "b5som": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "tracker": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "p2": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "graphicstest_featherwing": true,
             "touchpaint_featherwing": true

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunBME280",
     "version": "1.1.2",
-    "installs": 41301,
+    "installs": 41544,
     "license": "MIT",
     "author": "Marshall Taylor <sparkfun.com>",
     "maintainer": "Markus Haack (https://github.com/mhaack)",
@@ -144,6 +144,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "boron": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "bsom": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "b5som": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "tracker": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "esomx": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "boron": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "bsom": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "b5som": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "tracker": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          },
+          "p2": {
+            "CSV_Output": true,
+            "I2C_DeltaAltitude": false,
+            "I2C_ReadAllData": true,
+            "I2C_and_SPI_Multisensor": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "CSV_Output": true,
             "I2C_DeltaAltitude": false,

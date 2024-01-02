@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ProbeCube_ThingSpeak",
     "version": "1.1.1",
-    "installs": 221,
+    "installs": 304,
     "license": "MIT",
     "author": "Lafudoci",
     "sentence": "A fork from https://github.com/mathworks/thingspeak-particle",
@@ -50,8 +50,49 @@
           "boron": {
             "WriteMultipleVoltages": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "WriteMultipleVoltages": false
+          },
+          "boron": {
+            "WriteMultipleVoltages": false
+          },
+          "bsom": {
+            "WriteMultipleVoltages": false
+          },
+          "b5som": {
+            "WriteMultipleVoltages": false
+          },
+          "tracker": {
+            "WriteMultipleVoltages": false
+          },
+          "p2": {
+            "WriteMultipleVoltages": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "WriteMultipleVoltages": false
+          },
+          "boron": {
+            "WriteMultipleVoltages": false
+          },
+          "bsom": {
+            "WriteMultipleVoltages": false
+          },
+          "b5som": {
+            "WriteMultipleVoltages": false
+          },
+          "tracker": {
+            "WriteMultipleVoltages": false
+          },
+          "esomx": {
+            "WriteMultipleVoltages": false
+          }
         }
-      }
+      },
+      "added": "2023-12-31T15:19:34.731Z"
     }
   },
   "readme": "\n",

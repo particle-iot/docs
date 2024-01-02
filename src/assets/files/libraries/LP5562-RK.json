@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LP5562-RK",
     "version": "0.0.2",
-    "installs": 51,
+    "installs": 62,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for TI LP5562 LED driver",
@@ -152,6 +152,82 @@
             "2-hardware-test-LP5562-RK": true,
             "3-test-suite-LP5562-RK": true,
             "4-indicators-LP5562-RK": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "boron": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "bsom": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "b5som": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "tracker": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "p2": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "boron": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "bsom": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "b5som": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "tracker": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "esomx": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
           }
         }
       }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "drops",
     "version": "0.0.10",
-    "installs": 481,
+    "installs": 492,
     "license": "MIT",
     "author": "Jhon Ortega <jjortegalopez@udenar.edu.co>",
     "maintainer": "Juan Velasquez <jdvr1994@hotmail.com>",
@@ -163,6 +163,94 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "boron": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "bsom": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "b5som": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "tracker": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "esomx": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "boron": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "bsom": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "b5som": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "tracker": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "p2": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "getStateButton": false,
             "sendArrayNumber": false,

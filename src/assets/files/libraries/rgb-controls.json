@@ -7,7 +7,7 @@
   "attributes": {
     "name": "rgb-controls",
     "version": "0.0.1",
-    "installs": 15152,
+    "installs": 15248,
     "license": "MIT",
     "author": "Michael Gillett <mgillett54@gmail.com>",
     "sentence": "Particle.io library with methods for controlling RGB LEDs",
@@ -176,6 +176,106 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "boron": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "bsom": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "b5som": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "tracker": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "esomx": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "boron": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "bsom": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "b5som": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "tracker": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "p2": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "fade_array_example": true,
             "fade_example": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IRremoteLearn",
     "version": "0.0.1",
-    "installs": 4464,
+    "installs": 4793,
     "license": "GPL",
     "author": "Brett Walach <technobly@gmail.com>",
     "sentence": "IR Remote Control for Learner IR receivers",
@@ -108,6 +108,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "boron": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "bsom": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "b5som": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "tracker": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "esomx": {
+            "IRrecvDemo": false,
+            "IRsendDemo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "boron": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "bsom": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "b5som": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "tracker": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "p2": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "IRrecvDemo": true,
             "IRsendDemo": true

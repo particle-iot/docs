@@ -7,7 +7,7 @@
   "attributes": {
     "name": "QRCode",
     "version": "1.0.0",
-    "installs": 609,
+    "installs": 627,
     "author": "Tim Siggins <ttsigg@gmail.com>",
     "maintainer": "Tim Siggins <ttsigg@gmail.com>",
     "sentence": "A simple QR code generation library.",
@@ -107,6 +107,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "QRCode": true,
+            "usage": false
+          },
+          "boron": {
+            "QRCode": true,
+            "usage": false
+          },
+          "bsom": {
+            "QRCode": true,
+            "usage": false
+          },
+          "b5som": {
+            "QRCode": true,
+            "usage": false
+          },
+          "tracker": {
+            "QRCode": true,
+            "usage": false
+          },
+          "esomx": {
+            "QRCode": true,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "QRCode": true,
+            "usage": false
+          },
+          "boron": {
+            "QRCode": true,
+            "usage": false
+          },
+          "bsom": {
+            "QRCode": true,
+            "usage": false
+          },
+          "b5som": {
+            "QRCode": true,
+            "usage": false
+          },
+          "tracker": {
+            "QRCode": true,
+            "usage": false
+          },
+          "p2": {
+            "QRCode": true,
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "QRCode": true,
             "usage": false

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LiquidCrystal_I2C_Spark",
     "version": "1.1.0",
-    "installs": 229082,
+    "installs": 232093,
     "license": "GNU",
     "author": "Jim Brower <bulldoglowell@gmail.com>",
     "sentence": "LiquidCrystal_I2C ported for Spark Core",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "ClockExample": true
+          },
+          "boron": {
+            "ClockExample": true
+          },
+          "bsom": {
+            "ClockExample": true
+          },
+          "b5som": {
+            "ClockExample": true
+          },
+          "tracker": {
+            "ClockExample": true
+          },
+          "esomx": {
+            "ClockExample": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "ClockExample": true
+          },
+          "boron": {
+            "ClockExample": true
+          },
+          "bsom": {
+            "ClockExample": true
+          },
+          "b5som": {
+            "ClockExample": true
+          },
+          "tracker": {
+            "ClockExample": true
+          },
+          "p2": {
+            "ClockExample": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "ClockExample": true
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADXL345_d591",
     "version": "0.1.1",
-    "installs": 1965,
+    "installs": 1985,
     "license": "GPLv3",
     "author": "Kenneth Lim",
     "sentence": "ADXL345 3-axes accelerometer",
@@ -122,6 +122,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "boron": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "bsom": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "b5som": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "tracker": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "esomx": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "boron": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "bsom": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "b5som": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "tracker": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "p2": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1_reg_print": true,
             "2_no_lib": true,

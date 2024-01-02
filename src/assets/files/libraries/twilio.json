@@ -7,7 +7,7 @@
   "attributes": {
     "name": "twilio",
     "version": "0.0.1",
-    "installs": 1942,
+    "installs": 2230,
     "license": "MIT",
     "author": "hoxworth@gmail.com",
     "sentence": "A simple library for sending text messages over Twilio",

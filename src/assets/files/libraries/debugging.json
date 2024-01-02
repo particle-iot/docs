@@ -7,7 +7,7 @@
   "attributes": {
     "name": "debugging",
     "version": "0.0.3",
-    "installs": 463,
+    "installs": 524,
     "author": "SkippyTheIdiot",
     "repository": "https://github.com/SkippyTheIdiot/Particle/tree/master/Libraries/debugging",
     "architectures": [],
@@ -155,6 +155,94 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "boron": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "bsom": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "b5som": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "tracker": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "esomx": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "boron": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "bsom": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "b5som": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "tracker": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "p2": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "i2c-scanner": true,
             "serial-monitor": false,

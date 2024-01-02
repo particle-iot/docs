@@ -7,7 +7,7 @@
   "attributes": {
     "name": "L3D",
     "version": "1.1.2",
-    "installs": 8732,
+    "installs": 8834,
     "license": "MIT",
     "author": "Alex Hornstein <alex@lookingglassfactory.com>",
     "sentence": "A library for controlling the L3D cube with a particle photon.",
@@ -143,6 +143,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "boron": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "bsom": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "b5som": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "tracker": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "esomx": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "boron": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "bsom": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "b5som": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "tracker": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "p2": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "demo": false,
             "helloCube": false,

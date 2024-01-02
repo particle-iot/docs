@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EmonLib",
     "version": "1.1.2",
-    "installs": 30362,
+    "installs": 30744,
     "license": "MIT",
     "author": "glynhudson <glyn.hudson@openenergymonitor.org>, toonnelissen <toon@appsaloon.be>",
     "sentence": "Arduino Energy Monitoring Library - compatible with Arduino 1.0 - Ported to Spark",
@@ -102,6 +102,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "boron": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "bsom": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "b5som": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "tracker": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "esomx": {
+            "current_only": true,
+            "voltage_and_current": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "boron": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "bsom": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "b5som": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "tracker": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "p2": {
+            "current_only": true,
+            "voltage_and_current": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "current_only": true,
             "voltage_and_current": true

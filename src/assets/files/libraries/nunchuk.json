@@ -7,7 +7,7 @@
   "attributes": {
     "name": "nunchuk",
     "version": "1.0.0",
-    "installs": 632,
+    "installs": 647,
     "license": "BSD",
     "author": "Gabriel Bianconi <bianconi.gabriel@gmail.com>",
     "maintainer": "Tim Caswell <tim@creationix.com>",
@@ -87,6 +87,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "wiichuk-demo": true
+          },
+          "boron": {
+            "wiichuk-demo": true
+          },
+          "bsom": {
+            "wiichuk-demo": true
+          },
+          "b5som": {
+            "wiichuk-demo": true
+          },
+          "tracker": {
+            "wiichuk-demo": true
+          },
+          "esomx": {
+            "wiichuk-demo": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "wiichuk-demo": true
+          },
+          "boron": {
+            "wiichuk-demo": true
+          },
+          "bsom": {
+            "wiichuk-demo": true
+          },
+          "b5som": {
+            "wiichuk-demo": true
+          },
+          "tracker": {
+            "wiichuk-demo": true
+          },
+          "p2": {
+            "wiichuk-demo": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "wiichuk-demo": true
           },

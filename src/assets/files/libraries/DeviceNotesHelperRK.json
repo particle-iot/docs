@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DeviceNotesHelperRK",
     "version": "0.0.2",
-    "installs": 61,
+    "installs": 77,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Functions to save and retrieve data in the Device Notes field for a Particle devices",
@@ -129,6 +129,70 @@
             "3-print-DeviceNotesHelperRK": true
           },
           "boron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "boron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "bsom": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "b5som": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "tracker": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "p2": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "boron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "bsom": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "b5som": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "tracker": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "esomx": {
             "1-simple-DeviceNotesHelperRK": true,
             "2-counter-DeviceNotesHelperRK": true,
             "3-print-DeviceNotesHelperRK": true

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "nokia-5110-lcd",
     "version": "0.0.7",
-    "installs": 3399,
+    "installs": 3430,
     "license": "GNU GPLv3",
     "author": "Jim Lindblom, Grayson Smith",
     "sentence": "An Implementation of Sparkfun's Nokia 5110 Library for the Spark Core",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "esomx": {
+            "example": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "p2": {
+            "example": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "example": true
           },

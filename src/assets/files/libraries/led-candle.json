@@ -7,7 +7,7 @@
   "attributes": {
     "name": "led-candle",
     "version": "1.0.1",
-    "installs": 342,
+    "installs": 363,
     "license": "MIT",
     "author": "Darryl Hodgins <darrylh@darrylh.ca>",
     "sentence": "Simulate a flickering candle with an LED.",
@@ -103,6 +103,46 @@
             "usage": true
           },
           "boron": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
             "usage": true
           }
         }

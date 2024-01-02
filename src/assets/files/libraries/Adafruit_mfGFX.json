@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_mfGFX",
     "version": "1.0.4",
-    "installs": 92175,
+    "installs": 93826,
     "license": "Adafruit",
     "author": "Paul Kourany/Adafruit",
     "sentence": "Adafruit mfGFX multifont library for Particle Devices",

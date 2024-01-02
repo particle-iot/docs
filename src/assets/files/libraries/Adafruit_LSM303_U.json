@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LSM303_U",
     "version": "1.0.8",
-    "installs": 3056,
+    "installs": 3086,
     "license": "LGPLv3",
     "author": "Adafruit, Kevin Townsend, Zomerfeld(Ported)",
     "sentence": "This driver is for the Adafruit LSM303 Breakout (http://www.adafruit.com/products/1120), and is based on Adafruit's Unified Sensor Library (Adafruit_Sensor).",
@@ -105,6 +105,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "boron": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "bsom": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "b5som": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "tracker": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "esomx": {
+            "accelsensor": true,
+            "magsensor": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "boron": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "bsom": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "b5som": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "tracker": {
+            "accelsensor": true,
+            "magsensor": true
+          },
+          "p2": {
+            "accelsensor": true,
+            "magsensor": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "accelsensor": true,
             "magsensor": true

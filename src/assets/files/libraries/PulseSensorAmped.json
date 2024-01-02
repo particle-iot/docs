@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PulseSensorAmped",
     "version": "0.0.2",
-    "installs": 1919,
+    "installs": 3125,
     "author": "Bill Siever <bsiever@gmail.com>",
     "sentence": "Argon Port of Pulse Sensor Amped support",
     "url": "https://github.com/bsiever/Argon-pulsesensoramped",
@@ -103,6 +103,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "bluetooth": true,
+            "usage": true
+          },
+          "boron": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "bsom": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "b5som": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "tracker": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "esomx": {
+            "bluetooth": false,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "bluetooth": true,
+            "usage": true
+          },
+          "boron": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "bsom": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "b5som": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "tracker": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "p2": {
+            "bluetooth": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "bluetooth": true,
             "usage": true

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "thermistor-library",
     "version": "0.0.5",
-    "installs": 16360,
+    "installs": 16550,
     "license": "MIT",
     "author": "Garrett Bartley <wgb@wgb.me>",
     "sentence": "A simple class for calculating temperature from simple 10K negative temperature coefficient (NTC) thermistors.",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "esomx": {
+            "example": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "p2": {
+            "example": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "example": true
           },

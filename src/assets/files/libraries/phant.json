@@ -7,7 +7,7 @@
   "attributes": {
     "name": "phant",
     "version": "0.0.4",
-    "installs": 319,
+    "installs": 330,
     "license": "GPL v3",
     "author": "Romain MP <romain.mp@gmail.com>",
     "sentence": "A simple library to send data to a Phant server",
@@ -102,6 +102,46 @@
             "phant": true
           },
           "boron": {
+            "phant": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "phant": true
+          },
+          "boron": {
+            "phant": true
+          },
+          "bsom": {
+            "phant": true
+          },
+          "b5som": {
+            "phant": true
+          },
+          "tracker": {
+            "phant": true
+          },
+          "p2": {
+            "phant": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "phant": true
+          },
+          "boron": {
+            "phant": true
+          },
+          "bsom": {
+            "phant": true
+          },
+          "b5som": {
+            "phant": true
+          },
+          "tracker": {
+            "phant": true
+          },
+          "esomx": {
             "phant": true
           }
         }

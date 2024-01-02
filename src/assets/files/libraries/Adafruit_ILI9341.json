@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ILI9341",
     "version": "1.0.3",
-    "installs": 37416,
+    "installs": 38402,
     "author": "Paupl Kourany / Adafruit",
     "maintainer": "Paul Kourany / Adafruit <info@adafruit.com>",
     "sentence": "Library for Adafruit ILI9341 displays using Adafruit_mfGFX",
@@ -88,6 +88,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "graphicstest": true
+          },
+          "boron": {
+            "graphicstest": true
+          },
+          "bsom": {
+            "graphicstest": true
+          },
+          "b5som": {
+            "graphicstest": true
+          },
+          "tracker": {
+            "graphicstest": true
+          },
+          "esomx": {
+            "graphicstest": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "graphicstest": true
+          },
+          "boron": {
+            "graphicstest": true
+          },
+          "bsom": {
+            "graphicstest": true
+          },
+          "b5som": {
+            "graphicstest": true
+          },
+          "tracker": {
+            "graphicstest": true
+          },
+          "p2": {
+            "graphicstest": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "graphicstest": true
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ServoEaser",
     "version": "1.0.0",
-    "installs": 896,
+    "installs": 954,
     "author": "Tod E. Kurt",
     "architectures": [],
     "visibility": "public",
@@ -172,6 +172,106 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "boron": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "bsom": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "b5som": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "tracker": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "esomx": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "boron": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "bsom": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "b5som": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "tracker": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "p2": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "ServoEaser0ManualEasing": false,
             "ServoEaser1RandEasing": false,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Air_Quality",
     "version": "0.0.1",
-    "installs": 1452,
+    "installs": 1473,
     "author": "Hozan",
     "architectures": [],
     "visibility": "public",
@@ -100,6 +100,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "boron": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "bsom": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "b5som": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "tracker": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "esomx": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "boron": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "bsom": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "b5som": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "tracker": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "p2": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "AirQuality_Sensor": false,
             "usage": true

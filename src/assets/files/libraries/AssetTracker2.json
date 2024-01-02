@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AssetTracker2",
     "version": "0.3.1",
-    "installs": 5399,
+    "installs": 5437,
     "license": "none",
     "author": "Lynd Wieman",
     "sentence": "A library to support the Particle Asset Tracker 2 using a driver for the Ublox M8Q GPS receiver.",
@@ -142,6 +142,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "boron": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "bsom": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "b5som": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "tracker": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "esomx": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "boron": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "bsom": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "b5som": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "tracker": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "p2": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "0_GPS_Features": false,
             "1_GPS_Features": false,

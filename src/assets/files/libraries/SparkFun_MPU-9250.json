@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_MPU-9250",
     "version": "1.0.0",
-    "installs": 10021,
+    "installs": 10500,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics <TechSupport@SparkFun.com>",
     "sentence": "Driver for InvenSense's MPU-9250 9-DOF IMU (3-axis gyroscope, 3-axis accelerometer & 3-axis magnetometer)",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "MPU9250BasicAHRS": true
+          },
+          "boron": {
+            "MPU9250BasicAHRS": true
+          },
+          "bsom": {
+            "MPU9250BasicAHRS": true
+          },
+          "b5som": {
+            "MPU9250BasicAHRS": true
+          },
+          "tracker": {
+            "MPU9250BasicAHRS": true
+          },
+          "esomx": {
+            "MPU9250BasicAHRS": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "MPU9250BasicAHRS": true
+          },
+          "boron": {
+            "MPU9250BasicAHRS": true
+          },
+          "bsom": {
+            "MPU9250BasicAHRS": true
+          },
+          "b5som": {
+            "MPU9250BasicAHRS": true
+          },
+          "tracker": {
+            "MPU9250BasicAHRS": true
+          },
+          "p2": {
+            "MPU9250BasicAHRS": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "MPU9250BasicAHRS": true
           },

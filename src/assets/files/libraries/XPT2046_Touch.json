@@ -7,7 +7,7 @@
   "attributes": {
     "name": "XPT2046_Touch",
     "version": "1.1.7",
-    "installs": 4497,
+    "installs": 4512,
     "license": "MIT",
     "author": "Paul Stoffregen, ported by Volker Ritzka",
     "sentence": "Library for the CPT2046 Touch chip",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "with_serial": true
+          },
+          "boron": {
+            "with_serial": true
+          },
+          "bsom": {
+            "with_serial": true
+          },
+          "b5som": {
+            "with_serial": true
+          },
+          "tracker": {
+            "with_serial": true
+          },
+          "esomx": {
+            "with_serial": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "with_serial": true
+          },
+          "boron": {
+            "with_serial": true
+          },
+          "bsom": {
+            "with_serial": true
+          },
+          "b5som": {
+            "with_serial": true
+          },
+          "tracker": {
+            "with_serial": true
+          },
+          "p2": {
+            "with_serial": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "with_serial": true
           },

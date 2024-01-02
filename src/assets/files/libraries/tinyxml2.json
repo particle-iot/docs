@@ -7,7 +7,7 @@
   "attributes": {
     "name": "tinyxml2",
     "version": "0.0.1",
-    "installs": 701,
+    "installs": 886,
     "author": "Written by Lee Thomason Published by PoClab",
     "architectures": [],
     "visibility": "public",
@@ -85,6 +85,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

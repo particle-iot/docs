@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MCP23017",
     "version": "1.0.2",
-    "installs": 135676,
+    "installs": 136324,
     "license": "BSD License",
     "author": "Limor Fried/Ladyada/Paul Kourany",
     "sentence": "Adafruit_MCP23017 I2C expander library adapted for Spark",
@@ -149,6 +149,70 @@
           },
           "esomx": {
             "button": true,
+            "interrupt": false,
+            "toggle": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "boron": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "bsom": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "b5som": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "tracker": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "p2": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "boron": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "bsom": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "b5som": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "tracker": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "esomx": {
+            "button": false,
             "interrupt": false,
             "toggle": true
           }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "homekit-relay-switch",
     "version": "0.0.1",
-    "installs": 313,
+    "installs": 329,
     "architectures": [],
     "visibility": "public",
     "mine": false

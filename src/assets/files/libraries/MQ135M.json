@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQ135M",
     "version": "1.9.9",
-    "installs": 551,
+    "installs": 601,
     "author": "Meshal <malmuhareb@gmail.com>",
     "sentence": "RZero correction",
     "paragraph": "RZero: 81.65",
@@ -87,6 +87,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": false
           },

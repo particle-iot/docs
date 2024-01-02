@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TFMini-Public",
     "version": "0.1.0",
-    "installs": 1873,
+    "installs": 1885,
     "author": "Luke Pritchard<luke.pritchard@pm.me>",
     "maintainer": "Luke Pritchard<luke.pritchard@pm.me>",
     "sentence": "An Arduino driver for the Benewake TFMini time-of-flight distance sensor.",
@@ -107,6 +107,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "boron": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "bsom": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "b5som": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "tracker": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "esomx": {
+            "BasicReading": false,
+            "SingleReading": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "boron": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "bsom": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "b5som": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "tracker": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "p2": {
+            "BasicReading": false,
+            "SingleReading": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "BasicReading": false,
             "SingleReading": false

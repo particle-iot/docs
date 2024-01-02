@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_MP3_Trigger_Arduino_Library",
     "version": "1.0.2",
-    "installs": 914,
+    "installs": 932,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic MP3 Trigger",
@@ -215,6 +215,130 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "boron": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "bsom": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "b5som": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "tracker": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "esomx": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "boron": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "bsom": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "b5som": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "tracker": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          },
+          "p2": {
+            "Example1-PlaySong": false,
+            "Example2-PlayNext": false,
+            "Example3-PlayFile": false,
+            "Example4-StopPause": false,
+            "Example5-KitchenSink": false,
+            "Example6-ChangeAddress": false,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example1-PlaySong": false,
             "Example2-PlayNext": false,

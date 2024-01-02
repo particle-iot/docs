@@ -7,7 +7,7 @@
   "attributes": {
     "name": "M8RelayRK",
     "version": "0.0.1",
-    "installs": 73,
+    "installs": 89,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle library for M8 relay boards",
@@ -129,6 +129,70 @@
             "3-manual": false
           },
           "boron": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "boron": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "bsom": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "b5som": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "tracker": {
+            "1-quad": true,
+            "2-latching": true,
+            "3-manual": true
+          },
+          "p2": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "boron": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "bsom": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "b5som": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "tracker": {
+            "1-quad": true,
+            "2-latching": true,
+            "3-manual": true
+          },
+          "esomx": {
             "1-quad": false,
             "2-latching": false,
             "3-manual": false

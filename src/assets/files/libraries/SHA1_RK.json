@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SHA1_RK",
     "version": "0.0.1",
-    "installs": 598,
+    "installs": 638,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Implementation of SHA1 hash algorithm for Particle devices",
@@ -91,6 +91,46 @@
             "1-test-vectors": true
           },
           "boron": {
+            "1-test-vectors": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-test-vectors": true
+          },
+          "boron": {
+            "1-test-vectors": true
+          },
+          "bsom": {
+            "1-test-vectors": true
+          },
+          "b5som": {
+            "1-test-vectors": true
+          },
+          "tracker": {
+            "1-test-vectors": true
+          },
+          "p2": {
+            "1-test-vectors": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-test-vectors": true
+          },
+          "boron": {
+            "1-test-vectors": true
+          },
+          "bsom": {
+            "1-test-vectors": true
+          },
+          "b5som": {
+            "1-test-vectors": true
+          },
+          "tracker": {
+            "1-test-vectors": true
+          },
+          "esomx": {
             "1-test-vectors": true
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "InternetButtonADXL362",
     "version": "0.0.1",
-    "installs": 730,
+    "installs": 741,
     "license": "MIT License",
     "author": "Anthony Liekens <anthony@liekens.net>",
     "sentence": "Provides a library for the ADXL362 accelerometer and temperature sensor",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "ADXL362_SimpleRead": false
+          },
+          "boron": {
+            "ADXL362_SimpleRead": false
+          },
+          "bsom": {
+            "ADXL362_SimpleRead": false
+          },
+          "b5som": {
+            "ADXL362_SimpleRead": false
+          },
+          "tracker": {
+            "ADXL362_SimpleRead": false
+          },
+          "esomx": {
+            "ADXL362_SimpleRead": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "ADXL362_SimpleRead": false
+          },
+          "boron": {
+            "ADXL362_SimpleRead": false
+          },
+          "bsom": {
+            "ADXL362_SimpleRead": false
+          },
+          "b5som": {
+            "ADXL362_SimpleRead": false
+          },
+          "tracker": {
+            "ADXL362_SimpleRead": false
+          },
+          "p2": {
+            "ADXL362_SimpleRead": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "ADXL362_SimpleRead": false
           },

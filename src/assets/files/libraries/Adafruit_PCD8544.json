@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_PCD8544",
     "version": "1.1.1",
-    "installs": 2549,
+    "installs": 2570,
     "license": "BSD License",
     "author": "Limor Fried/Ladyada / Paul Kourany",
     "sentence": "Adafruit_PCD8544 Nokia 5110 LCD display library",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Noika5110": true
+          },
+          "boron": {
+            "Noika5110": true
+          },
+          "bsom": {
+            "Noika5110": true
+          },
+          "b5som": {
+            "Noika5110": true
+          },
+          "tracker": {
+            "Noika5110": true
+          },
+          "esomx": {
+            "Noika5110": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Noika5110": true
+          },
+          "boron": {
+            "Noika5110": true
+          },
+          "bsom": {
+            "Noika5110": true
+          },
+          "b5som": {
+            "Noika5110": true
+          },
+          "tracker": {
+            "Noika5110": true
+          },
+          "p2": {
+            "Noika5110": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Noika5110": true
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-MAX3010x",
     "version": "1.1.1",
-    "installs": 10986,
+    "installs": 12495,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the MAX30102 Pulse and MAX30105 Proximity Breakout",
@@ -297,6 +297,142 @@
             "Example6_FIFO_Readings": true,
             "Example7_Basic_Readings_Interrupts": true,
             "Example8_SPO2": false,
+            "Example9_RateTesting": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
+            "Example9_RateTesting": true
+          },
+          "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
+            "Example9_RateTesting": true
+          },
+          "bsom": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
+            "Example9_RateTesting": true
+          },
+          "b5som": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
+            "Example9_RateTesting": true
+          },
+          "tracker": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
+            "Example9_RateTesting": true
+          },
+          "p2": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
+            "Example9_RateTesting": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
+            "Example9_RateTesting": true
+          },
+          "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
+            "Example9_RateTesting": true
+          },
+          "bsom": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
+            "Example9_RateTesting": true
+          },
+          "b5som": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
+            "Example9_RateTesting": true
+          },
+          "tracker": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
+            "Example9_RateTesting": true
+          },
+          "esomx": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": true,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": true,
             "Example9_RateTesting": true
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "GenericI2c",
     "version": "0.0.2",
-    "installs": 1563,
+    "installs": 1585,
     "license": "GNU",
     "author": "Trey Felton <trey@tomadoh.com>",
     "sentence": "Library providing class for controlling and reading i2c devices",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "i2c-control": false
+          },
+          "boron": {
+            "i2c-control": false
+          },
+          "bsom": {
+            "i2c-control": false
+          },
+          "b5som": {
+            "i2c-control": false
+          },
+          "tracker": {
+            "i2c-control": false
+          },
+          "esomx": {
+            "i2c-control": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "i2c-control": false
+          },
+          "boron": {
+            "i2c-control": false
+          },
+          "bsom": {
+            "i2c-control": false
+          },
+          "b5som": {
+            "i2c-control": false
+          },
+          "tracker": {
+            "i2c-control": false
+          },
+          "p2": {
+            "i2c-control": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "i2c-control": false
           },

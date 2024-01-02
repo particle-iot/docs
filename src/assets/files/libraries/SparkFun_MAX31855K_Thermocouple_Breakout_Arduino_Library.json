@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_MAX31855K_Thermocouple_Breakout_Arduino_Library",
     "version": "1.0.1",
-    "installs": 117,
+    "installs": 136,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics <techsupport@SparkFun.com>",
     "sentence": "K type thermocouple digitizer board.",
@@ -93,6 +93,46 @@
             "SparkFun_MAX31855K_Thermocouple_Breakout": true
           },
           "boron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "boron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "bsom": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "b5som": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "tracker": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "p2": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "boron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "bsom": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "b5som": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "tracker": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "esomx": {
             "SparkFun_MAX31855K_Thermocouple_Breakout": true
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Particle_Adafruit_VC0706",
     "version": "1.1.2",
-    "installs": 159,
+    "installs": 169,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for VC0706-based Serial JPEG Cameras",
@@ -111,6 +111,58 @@
             "Snapshot": false
           },
           "boron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "bsom": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "b5som": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "tracker": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "p2": {
+            "MotionDetect": false,
+            "Snapshot": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "bsom": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "b5som": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "tracker": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "esomx": {
             "MotionDetect": false,
             "Snapshot": false
           }

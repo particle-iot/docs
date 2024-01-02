@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_PCA9685",
     "version": "2.0.0",
-    "installs": 19721,
+    "installs": 20310,
     "license": "BSD License",
     "author": "Limor Fried/Paul Kourany/Chad Bean/Louis DeScioli",
     "sentence": "Library for Adafruit's PCA9685, a 16-channel PWM & Servo driver,  adapted for Spark",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "light-wave": true
+          },
+          "boron": {
+            "light-wave": true
+          },
+          "bsom": {
+            "light-wave": true
+          },
+          "b5som": {
+            "light-wave": true
+          },
+          "tracker": {
+            "light-wave": true
+          },
+          "esomx": {
+            "light-wave": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "light-wave": true
+          },
+          "boron": {
+            "light-wave": true
+          },
+          "bsom": {
+            "light-wave": true
+          },
+          "b5som": {
+            "light-wave": true
+          },
+          "tracker": {
+            "light-wave": true
+          },
+          "p2": {
+            "light-wave": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "light-wave": true
           },

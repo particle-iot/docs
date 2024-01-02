@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AzureIotHubClientV2",
     "version": "1.0.2",
-    "installs": 11269,
+    "installs": 11370,
     "license": "MIT",
     "author": "Steve Webster",
     "sentence": "Azure IoT Hub Client library for XENON, ARGON and BORON.",
@@ -105,6 +105,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "boron": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "bsom": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "b5som": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "tracker": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "esomx": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "boron": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "bsom": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "b5som": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "tracker": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "p2": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "AzureIotHub-Full": false,
             "AzureIotHub-Simple": false

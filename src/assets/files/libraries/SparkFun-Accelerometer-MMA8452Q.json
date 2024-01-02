@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-Accelerometer-MMA8452Q",
     "version": "1.1.0",
-    "installs": 4476,
+    "installs": 4510,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Basic I2C functionality of the MMA8452Q Accelerometer Breakout (https://www.sparkfun.com/products/12756)",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "boron": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "bsom": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "b5som": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "tracker": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "esomx": {
+            "SparkFun_MMA8452Q_Basic": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "boron": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "bsom": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "b5som": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "tracker": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "p2": {
+            "SparkFun_MMA8452Q_Basic": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "SparkFun_MMA8452Q_Basic": true
           },

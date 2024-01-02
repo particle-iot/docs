@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DeviceGroupHelperRK",
     "version": "0.0.3",
-    "installs": 133,
+    "installs": 173,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Retrieve a device's device group from the device using a webhook",
@@ -242,6 +242,70 @@
             "3-extra-fields": false
           },
           "boron": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "boron": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "bsom": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "b5som": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "p2": {
+            "1-simple": true,
+            "2-notify": true,
+            "3-extra-fields": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "boron": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "bsom": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "b5som": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-notify": false,
+            "3-extra-fields": false
+          },
+          "esomx": {
             "1-simple": false,
             "2-notify": false,
             "3-extra-fields": false

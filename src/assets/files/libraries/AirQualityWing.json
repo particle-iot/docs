@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AirQualityWing",
     "version": "1.0.2",
-    "installs": 1296,
+    "installs": 1344,
     "license": "GNU General Public License v3.0",
     "author": "Jared Wolff (Circuit Dojo LLC)",
     "sentence": "Library that works with the Air Quality Wing for Particle Mesh.",
@@ -109,6 +109,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "boron": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "bsom": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "b5som": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "tracker": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "esomx": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "boron": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "bsom": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "b5som": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "tracker": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "p2": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "AirQualityWingExample": false,
             "CanaryExample": false

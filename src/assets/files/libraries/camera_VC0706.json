@@ -7,7 +7,7 @@
   "attributes": {
     "name": "camera_VC0706",
     "version": "1.0.0",
-    "installs": 362,
+    "installs": 391,
     "sentence": "Make's the camera_VC0706 work on photon",
     "architectures": [],
     "visibility": "public",
@@ -118,6 +118,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "bsom": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "b5som": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "tracker": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "esomx": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "bsom": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "b5som": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "tracker": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "p2": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "MotionDetect": false,
             "Snapshot": false,

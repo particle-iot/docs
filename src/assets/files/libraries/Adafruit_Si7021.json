@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Si7021",
     "version": "1.0.0",
-    "installs": 52385,
+    "installs": 52964,
     "license": "BSD",
     "author": "Adafruit info@adafruit.com",
     "sentence": "library for Si7021 humidity/temp sensor, Designed specifically to work with the Si7021 breakout in the Adafruit shop, modified for Particle Photon/Electron",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "si7021": true
+          },
+          "boron": {
+            "si7021": true
+          },
+          "bsom": {
+            "si7021": true
+          },
+          "b5som": {
+            "si7021": true
+          },
+          "tracker": {
+            "si7021": true
+          },
+          "esomx": {
+            "si7021": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "si7021": true
+          },
+          "boron": {
+            "si7021": true
+          },
+          "bsom": {
+            "si7021": true
+          },
+          "b5som": {
+            "si7021": true
+          },
+          "tracker": {
+            "si7021": true
+          },
+          "p2": {
+            "si7021": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "si7021": true
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Digital_Infrared_Temperature_Sensor_MLX90615",
     "version": "0.0.1",
-    "installs": 329,
+    "installs": 343,
     "license": "MIT",
     "author": "Jack Shao <xuguang.shao@seeed.cc>",
     "maintainer": "Jack Shao <xuguang.shao@seeed.cc>",
@@ -112,6 +112,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "multiDevice": false,
+            "singleDevice": false
+          },
+          "boron": {
+            "multiDevice": false,
+            "singleDevice": false
+          },
+          "bsom": {
+            "multiDevice": false,
+            "singleDevice": false
+          },
+          "b5som": {
+            "multiDevice": false,
+            "singleDevice": false
+          },
+          "tracker": {
+            "multiDevice": false,
+            "singleDevice": false
+          },
+          "esomx": {
+            "multiDevice": false,
+            "singleDevice": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "multiDevice": false,
+            "singleDevice": false
+          },
+          "boron": {
+            "multiDevice": false,
+            "singleDevice": false
+          },
+          "bsom": {
+            "multiDevice": false,
+            "singleDevice": false
+          },
+          "b5som": {
+            "multiDevice": false,
+            "singleDevice": false
+          },
+          "tracker": {
+            "multiDevice": false,
+            "singleDevice": false
+          },
+          "p2": {
+            "multiDevice": false,
+            "singleDevice": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "multiDevice": false,
             "singleDevice": false

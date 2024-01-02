@@ -7,7 +7,7 @@
   "attributes": {
     "name": "W5100_Ethernet",
     "version": "1.1.5",
-    "installs": 835,
+    "installs": 863,
     "license": "GNU",
     "author": "Various (see AUTHORS file for details)",
     "maintainer": "Arduino <info@arduino.cc>",
@@ -253,6 +253,154 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "boron": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "bsom": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "b5som": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "tracker": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "esomx": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "boron": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "bsom": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "b5som": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "tracker": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "p2": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "AdvancedChatServer": false,
             "ChatServer": false,

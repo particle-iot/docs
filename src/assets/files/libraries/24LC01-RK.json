@@ -7,7 +7,7 @@
   "attributes": {
     "name": "24LC01-RK",
     "version": "0.0.1",
-    "installs": 122,
+    "installs": 140,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for 24LC01 I2C EEPROM",
@@ -110,6 +110,58 @@
             "simple-24LC01-RK": true
           },
           "boron": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "boron": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "bsom": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "b5som": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "tracker": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "p2": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "boron": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "bsom": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "b5som": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "tracker": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "esomx": {
             "selftest-24LC01-RK": true,
             "simple-24LC01-RK": true
           }

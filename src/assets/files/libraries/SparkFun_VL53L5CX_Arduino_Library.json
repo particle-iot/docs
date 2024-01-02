@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_VL53L5CX_Arduino_Library",
     "version": "1.0.0",
-    "installs": 811,
+    "installs": 991,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Distance sensing (VL53L5CX) with 64 pixels up to 4 meters at 15Hz.",
@@ -216,6 +216,130 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "boron": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "bsom": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "b5som": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "tracker": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "esomx": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "boron": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "bsom": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "b5som": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "tracker": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "p2": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example1_DistanceArray": true,
             "Example2_FastStartup": true,

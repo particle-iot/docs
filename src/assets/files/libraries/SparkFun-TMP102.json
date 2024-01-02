@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-TMP102",
     "version": "1.0.0",
-    "installs": 3807,
+    "installs": 4548,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "Alex Wende <alex.wende@sparkfun.com>",
     "sentence": "A library to drive the Texas Instruments TMP102 by I2C.",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "boron": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "bsom": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "b5som": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "tracker": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "esomx": {
+            "SparkFun_TMP102_Breakout_Example": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "boron": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "bsom": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "b5som": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "tracker": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "p2": {
+            "SparkFun_TMP102_Breakout_Example": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "SparkFun_TMP102_Breakout_Example": true
           },

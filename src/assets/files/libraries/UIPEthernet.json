@@ -7,7 +7,7 @@
   "attributes": {
     "name": "UIPEthernet",
     "version": "2.0.5",
-    "installs": 327,
+    "installs": 340,
     "author": "CassyArduino",
     "sentence": "Ethernet library for ENC28J60 !!!!! UNDER DEVELOPMENT !!!!!",
     "architectures": [
@@ -216,6 +216,106 @@
             "UdpServer": false
           },
           "boron": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "boron": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "bsom": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "b5som": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "tracker": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "p2": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "boron": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "bsom": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "b5som": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "tracker": {
+            "AdvancedChatServer": false,
+            "EchoServer": false,
+            "TcpClient": false,
+            "TcpServer": false,
+            "UdpClient": false,
+            "UdpServer": false
+          },
+          "esomx": {
             "AdvancedChatServer": false,
             "EchoServer": false,
             "TcpClient": false,

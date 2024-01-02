@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ExponentiallySmoothedValue",
     "version": "1.0.0",
-    "installs": 1377,
+    "installs": 1390,
     "license": "GPL3",
     "author": "rvnash",
     "sentence": "Class to provide exponential smoothing to a signal which is a time series of values.",
@@ -85,6 +85,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DFRobot_PH",
     "version": "1.0.4",
-    "installs": 2120,
+    "installs": 2132,
     "author": "DFROBOT",
     "architectures": [],
     "visibility": "public",
@@ -118,6 +118,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "boron": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "bsom": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "b5som": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "tracker": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "esomx": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "boron": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "bsom": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "b5som": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "tracker": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "p2": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "DFRobot_PH_EC": false,
             "DFRobot_PH_Test": false,

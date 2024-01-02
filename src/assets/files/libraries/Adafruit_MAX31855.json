@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MAX31855",
     "version": "0.0.2",
-    "installs": 30671,
+    "installs": 31570,
     "license": "BSD",
     "author": "Adafruit, Technobly",
     "sentence": "Adafruit MAX31885 Library ported to Spark Core.",
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "boron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "bsom": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "b5som": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "tracker": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "esomx": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "boron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "bsom": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "b5som": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "tracker": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "p2": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "lcd-thermocouple": false,
             "serial-thermocouple": true

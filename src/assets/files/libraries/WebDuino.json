@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WebDuino",
     "version": "1.9.1",
-    "installs": 5976,
+    "installs": 6329,
     "license": "MIT",
     "author": "Ben Combee, Ran Talbott, Christopher Lee, Martin Lormes, Francisco M Cuenca-Acuna, Derek Fukumori",
     "maintainer": "Kasper Kamperman <kasperkamperman@gmail.com>",
@@ -233,6 +233,142 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "boron": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "bsom": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "b5som": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "tracker": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "esomx": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "boron": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "bsom": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "b5som": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "tracker": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "p2": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "AjaxBuzzer": true,
             "AjaxRGB": true,

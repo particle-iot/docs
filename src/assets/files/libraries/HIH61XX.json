@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HIH61XX",
     "version": "0.0.1",
-    "installs": 4190,
+    "installs": 4200,
     "license": "GNU",
     "author": "Geert Wille <geert@appstrakt.com>",
     "sentence": "A library for using the HIH61XX in your project",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "basic-data-output": true
+          },
+          "boron": {
+            "basic-data-output": true
+          },
+          "bsom": {
+            "basic-data-output": true
+          },
+          "b5som": {
+            "basic-data-output": true
+          },
+          "tracker": {
+            "basic-data-output": true
+          },
+          "esomx": {
+            "basic-data-output": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "basic-data-output": true
+          },
+          "boron": {
+            "basic-data-output": true
+          },
+          "bsom": {
+            "basic-data-output": true
+          },
+          "b5som": {
+            "basic-data-output": true
+          },
+          "tracker": {
+            "basic-data-output": true
+          },
+          "p2": {
+            "basic-data-output": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "basic-data-output": true
           },

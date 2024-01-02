@@ -7,7 +7,7 @@
   "attributes": {
     "name": "StorageHelperRK",
     "version": "0.0.5",
-    "installs": 1029,
+    "installs": 2331,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Library for storing persistent data in various ways",
@@ -148,6 +148,82 @@
             "07-validate": true
           },
           "boron": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "boron": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "bsom": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "b5som": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "tracker": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "p2": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "boron": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "bsom": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "b5som": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "tracker": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "esomx": {
             "04-persistent": true,
             "05-eeprom": true,
             "06-retained": true,

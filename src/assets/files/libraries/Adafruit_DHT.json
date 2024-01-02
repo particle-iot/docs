@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_DHT",
     "version": "0.0.4",
-    "installs": 405991,
+    "installs": 411212,
     "license": "MIT License",
     "author": "RussGrue <rstockhammer@hotmail.com>",
     "sentence": "Spark Core DHT Library based on Adafruit Arduino DHT Library",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "dht-test": true
+          },
+          "boron": {
+            "dht-test": true
+          },
+          "bsom": {
+            "dht-test": true
+          },
+          "b5som": {
+            "dht-test": true
+          },
+          "tracker": {
+            "dht-test": true
+          },
+          "esomx": {
+            "dht-test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "dht-test": true
+          },
+          "boron": {
+            "dht-test": true
+          },
+          "bsom": {
+            "dht-test": true
+          },
+          "b5som": {
+            "dht-test": true
+          },
+          "tracker": {
+            "dht-test": true
+          },
+          "p2": {
+            "dht-test": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "dht-test": true
           },

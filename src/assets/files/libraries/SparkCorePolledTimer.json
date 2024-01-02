@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkCorePolledTimer",
     "version": "1.0.0",
-    "installs": 30058,
+    "installs": 30495,
     "license": "Open",
     "author": "David Fowler <david.fowler@gmail.com>",
     "sentence": "Simple Timer Library for the Spark Core which enables time based events.",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "PolledTimerExample": true
+          },
+          "boron": {
+            "PolledTimerExample": true
+          },
+          "bsom": {
+            "PolledTimerExample": true
+          },
+          "b5som": {
+            "PolledTimerExample": true
+          },
+          "tracker": {
+            "PolledTimerExample": true
+          },
+          "esomx": {
+            "PolledTimerExample": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "PolledTimerExample": true
+          },
+          "boron": {
+            "PolledTimerExample": true
+          },
+          "bsom": {
+            "PolledTimerExample": true
+          },
+          "b5som": {
+            "PolledTimerExample": true
+          },
+          "tracker": {
+            "PolledTimerExample": true
+          },
+          "p2": {
+            "PolledTimerExample": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "PolledTimerExample": true
           },

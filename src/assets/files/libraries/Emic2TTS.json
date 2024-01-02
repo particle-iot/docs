@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Emic2TTS",
     "version": "1.0.0",
-    "installs": 3122,
+    "installs": 3156,
     "license": "MIT license",
     "author": "Krishnaraj Varma",
     "sentence": "Emic2 Text-to-Speech module library",
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "boron": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "bsom": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "b5som": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "tracker": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "esomx": {
+            "tts": false,
+            "ttsdemo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "boron": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "bsom": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "b5som": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "tracker": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "p2": {
+            "tts": true,
+            "ttsdemo": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "tts": true,
             "ttsdemo": true

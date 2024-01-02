@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ADT7410",
     "version": "1.2.0",
-    "installs": 212,
+    "installs": 248,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for the ADT7410 sensors in the Adafruit shop",
@@ -92,6 +92,46 @@
             "adt7410test": false
           },
           "boron": {
+            "adt7410test": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "adt7410test": false
+          },
+          "boron": {
+            "adt7410test": false
+          },
+          "bsom": {
+            "adt7410test": false
+          },
+          "b5som": {
+            "adt7410test": false
+          },
+          "tracker": {
+            "adt7410test": false
+          },
+          "p2": {
+            "adt7410test": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "adt7410test": false
+          },
+          "boron": {
+            "adt7410test": false
+          },
+          "bsom": {
+            "adt7410test": false
+          },
+          "b5som": {
+            "adt7410test": false
+          },
+          "tracker": {
+            "adt7410test": false
+          },
+          "esomx": {
             "adt7410test": false
           }
         }

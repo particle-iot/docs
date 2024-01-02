@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DebounceSwitchRK",
     "version": "0.0.1",
-    "installs": 1332,
+    "installs": 1452,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for debouncing switches",
@@ -250,6 +250,154 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "boron": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "bsom": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "b5som": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "tracker": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "esomx": {
+            "01-simple": false,
+            "02-toggle-simple": true,
+            "03-notify": false,
+            "04-toggle-notify": false,
+            "05-both": false,
+            "06-no-very-long": false,
+            "07-no-long": false,
+            "08-class-member": false,
+            "09-class-member-polling": false,
+            "10-per-switch-config": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "boron": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "bsom": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "b5som": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "tracker": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "p2": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "01-simple": true,
             "02-toggle-simple": true,

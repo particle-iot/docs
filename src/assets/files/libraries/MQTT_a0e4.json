@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQTT_a0e4",
     "version": "0.3.9",
-    "installs": 1252,
+    "installs": 1274,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/truly-moody/mqtt",
@@ -103,6 +103,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "boron": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "bsom": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "b5som": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "tracker": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "esomx": {
+            "mqttqostest": true,
+            "mqtttest": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "boron": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "bsom": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "b5som": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "tracker": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "p2": {
+            "mqttqostest": true,
+            "mqtttest": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "mqttqostest": true,
             "mqtttest": true

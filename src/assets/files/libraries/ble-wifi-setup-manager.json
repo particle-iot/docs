@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ble-wifi-setup-manager",
     "version": "0.2.0",
-    "installs": 2184,
+    "installs": 2348,
     "license": "MIT",
     "author": "Dan Kouba <dan.kouba@particle.io>",
     "maintainer": "Dan Kouba <dan.kouba@particle.io>",
@@ -109,6 +109,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "audomatic_mode": true,
+            "manual_mode": true
+          },
+          "boron": {
+            "audomatic_mode": false,
+            "manual_mode": false
+          },
+          "bsom": {
+            "audomatic_mode": false,
+            "manual_mode": false
+          },
+          "b5som": {
+            "audomatic_mode": false,
+            "manual_mode": false
+          },
+          "tracker": {
+            "audomatic_mode": false,
+            "manual_mode": false
+          },
+          "esomx": {
+            "audomatic_mode": false,
+            "manual_mode": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "audomatic_mode": true,
+            "manual_mode": true
+          },
+          "boron": {
+            "audomatic_mode": false,
+            "manual_mode": false
+          },
+          "bsom": {
+            "audomatic_mode": false,
+            "manual_mode": false
+          },
+          "b5som": {
+            "audomatic_mode": false,
+            "manual_mode": false
+          },
+          "tracker": {
+            "audomatic_mode": false,
+            "manual_mode": false
+          },
+          "p2": {
+            "audomatic_mode": false,
+            "manual_mode": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "audomatic_mode": true,
             "manual_mode": true

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BNO055_Library_SSSA",
     "version": "1.0.2",
-    "installs": 587,
+    "installs": 615,
     "author": "nrobinson2000github",
     "architectures": [],
     "visibility": "public",
@@ -85,6 +85,46 @@
             "usage": true
           },
           "boron": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
             "usage": true
           }
         }

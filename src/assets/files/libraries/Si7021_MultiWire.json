@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Si7021_MultiWire",
     "version": "0.0.2",
-    "installs": 888,
+    "installs": 908,
     "license": "MIT",
     "author": "Brandon Satorm <brandon@particle.io>",
     "sentence": "A Particle library for the Si7021 Temperature and Humidity sensor, with multi-wire support",
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": false
           },

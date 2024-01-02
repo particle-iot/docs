@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LedDisplay",
     "version": "0.4.11",
-    "installs": 334,
+    "installs": 346,
     "author": "Tom Igoe",
     "architectures": [],
     "visibility": "public",
@@ -259,6 +259,130 @@
             "writeCharacters": true
           },
           "boron": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "boron": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "bsom": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "b5som": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "tracker": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "p2": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "boron": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "bsom": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "b5som": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "tracker": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "esomx": {
             "fade": true,
             "print": true,
             "printAnalog": true,

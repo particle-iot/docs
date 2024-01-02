@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BusIO_Register",
     "version": "1.9.8",
-    "installs": 8481,
+    "installs": 11945,
     "license": "MIT License",
     "author": "Nathan Matos<than.matos@gmail.com>",
     "sentence": "Uploading this library to Particle",
@@ -214,6 +214,130 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "boron": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "bsom": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "b5som": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "tracker": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "esomx": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "boron": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "bsom": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "b5som": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "tracker": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          },
+          "p2": {
+            "i2c_address_detect": true,
+            "i2c_readwrite": true,
+            "i2c_registers": true,
+            "i2corspi_register": true,
+            "spi_modetest": true,
+            "spi_readwrite": true,
+            "spi_register_bits": true,
+            "spi_registers": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "i2c_address_detect": true,
             "i2c_readwrite": true,

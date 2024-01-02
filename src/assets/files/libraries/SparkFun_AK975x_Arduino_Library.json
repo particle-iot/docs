@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_AK975x_Arduino_Library",
     "version": "1.0.6",
-    "installs": 71,
+    "installs": 88,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the AK9753 PIR Human Presence Qwiic Board",
@@ -152,6 +152,82 @@
           "boron": {
             "Example1-BasicReadings": true,
             "Example2-Graph": false,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "p2": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "esomx": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
             "Example3-ConfigurationSettings": true,
             "Example4-ThresholdTests": true
           }

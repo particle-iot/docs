@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LMIC-Arduino",
     "version": "1.0.0",
-    "installs": 434,
+    "installs": 458,
     "author": "IBM",
     "sentence": "Arduino port of the LMIC (LoraWAN-in-C, formerly LoraMAC-in-C) framework provided by IBM.",
     "paragraph": "Supports SX1272/SX1276 and HopeRF RFM92/RFM95 tranceivers",
@@ -123,6 +123,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "boron": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "bsom": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "b5som": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "tracker": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "esomx": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "boron": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "bsom": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "b5som": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "tracker": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          },
+          "p2": {
+            "raw": false,
+            "ttn-abp": false,
+            "ttn-otaa": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "raw": false,
             "ttn-abp": false,

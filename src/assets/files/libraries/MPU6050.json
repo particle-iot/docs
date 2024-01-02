@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MPU6050",
     "version": "1.0.3",
-    "installs": 84552,
+    "installs": 85395,
     "license": "MIT license",
     "author": "Paul Kourany / Jeff Rowberg / James Hagerman",
     "sentence": "MPU6050 IMU library",
@@ -122,6 +122,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "boron": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "bsom": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "b5som": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "tracker": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "esomx": {
+            "MPU6050_DMP6": false,
+            "MPU6050_raw": false,
+            "example-mpu-dump-to-serial": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "boron": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "bsom": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "b5som": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "tracker": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "p2": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "MPU6050_DMP6": true,
             "MPU6050_raw": true,

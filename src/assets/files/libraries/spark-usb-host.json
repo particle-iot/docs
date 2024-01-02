@@ -7,7 +7,7 @@
   "attributes": {
     "name": "spark-usb-host",
     "version": "0.0.2",
-    "installs": 600,
+    "installs": 618,
     "license": "MIT",
     "author": "Ported by Ben L.",
     "sentence": "USB host library for Spark Core support for Arduino USB host sheild MAX3421E",

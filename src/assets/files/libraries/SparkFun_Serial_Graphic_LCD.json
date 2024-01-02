@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Serial_Graphic_LCD",
     "version": "1.1.1",
-    "installs": 2151,
+    "installs": 2167,
     "license": "MIT",
     "author": "Joel Bartlett <joel@sparkfun.com>",
     "sentence": "A library to send and receive serial data from the SparkFun Serial Graphic LCD.",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          },
+          "boron": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          },
+          "bsom": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          },
+          "b5som": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          },
+          "tracker": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          },
+          "esomx": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          },
+          "boron": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          },
+          "bsom": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          },
+          "b5som": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          },
+          "tracker": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          },
+          "p2": {
+            "SparkFun_Serial_Graphic_LCD_Example": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "SparkFun_Serial_Graphic_LCD_Example": false
           },

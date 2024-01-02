@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RunningAverage",
     "version": "0.0.1",
-    "installs": 39925,
+    "installs": 40850,
     "license": "GNU GPL 2.0",
     "author": "Lucas Choate <lucas@ingen-networks.com>",
     "sentence": "RunningAverage keeps a running average of your sampled data without blowing up your memory",
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "RunningAverage-Sample": true
+          },
+          "boron": {
+            "RunningAverage-Sample": true
+          },
+          "bsom": {
+            "RunningAverage-Sample": true
+          },
+          "b5som": {
+            "RunningAverage-Sample": true
+          },
+          "tracker": {
+            "RunningAverage-Sample": true
+          },
+          "esomx": {
+            "RunningAverage-Sample": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "RunningAverage-Sample": true
+          },
+          "boron": {
+            "RunningAverage-Sample": true
+          },
+          "bsom": {
+            "RunningAverage-Sample": true
+          },
+          "b5som": {
+            "RunningAverage-Sample": true
+          },
+          "tracker": {
+            "RunningAverage-Sample": true
+          },
+          "p2": {
+            "RunningAverage-Sample": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "RunningAverage-Sample": true
           },

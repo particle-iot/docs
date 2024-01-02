@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SC16IS740RK",
     "version": "0.0.8",
-    "installs": 13918,
+    "installs": 14994,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for SC16IS740 UART",
@@ -264,6 +264,70 @@
             "3-simple-spi-SC16IS740RK": true
           },
           "boron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "esomx": {
             "1-simple": true,
             "2-selftest-SC16IS740RK": true,
             "3-simple-spi-SC16IS740RK": true

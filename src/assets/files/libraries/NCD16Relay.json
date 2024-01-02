@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD16Relay",
     "version": "0.0.1",
-    "installs": 12716,
+    "installs": 12745,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 16 channel Spark compatible Relay Controller",
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "bsom": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "b5som": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "tracker": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "esomx": {
+            "CloudControl": false,
+            "Loop_Test": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "bsom": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "b5som": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "tracker": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "p2": {
+            "CloudControl": false,
+            "Loop_Test": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "CloudControl": false,
             "Loop_Test": false

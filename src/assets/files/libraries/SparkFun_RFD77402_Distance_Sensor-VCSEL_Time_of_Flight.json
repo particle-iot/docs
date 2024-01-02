@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_RFD77402_Distance_Sensor-VCSEL_Time_of_Flight",
     "version": "1.0.0",
-    "installs": 505,
+    "installs": 521,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic Distance Sensor - RFD77402",
@@ -143,6 +143,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "boron": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "bsom": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "b5som": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "tracker": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "esomx": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "boron": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "bsom": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "b5som": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "tracker": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          },
+          "p2": {
+            "Example1-BasicReadings": false,
+            "Example2-ConfidenceValue": false,
+            "Example3-FastRead": false,
+            "Tester": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example1-BasicReadings": false,
             "Example2-ConfidenceValue": false,

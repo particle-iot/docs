@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CarbonLibrary",
     "version": "0.0.6",
-    "installs": 351,
+    "installs": 369,
     "license": "MIT",
     "author": "Garrett Bartley <wgb@wgb.me>",
     "url": "https://github.com/wgbartley/spark-carbon-library",
@@ -85,6 +85,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "CarbonLibrary": false
+          },
+          "boron": {
+            "CarbonLibrary": false
+          },
+          "bsom": {
+            "CarbonLibrary": false
+          },
+          "b5som": {
+            "CarbonLibrary": false
+          },
+          "tracker": {
+            "CarbonLibrary": false
+          },
+          "esomx": {
+            "CarbonLibrary": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "CarbonLibrary": false
+          },
+          "boron": {
+            "CarbonLibrary": false
+          },
+          "bsom": {
+            "CarbonLibrary": false
+          },
+          "b5som": {
+            "CarbonLibrary": false
+          },
+          "tracker": {
+            "CarbonLibrary": false
+          },
+          "p2": {
+            "CarbonLibrary": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "CarbonLibrary": false
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADXL362DMA_Simon",
     "version": "0.0.8",
-    "installs": 115,
+    "installs": 132,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "ADXL362 accelerometer driver with SPI DMA support",
@@ -93,6 +93,46 @@
             "1acceladxl362": true
           },
           "boron": {
+            "1acceladxl362": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1acceladxl362": true
+          },
+          "boron": {
+            "1acceladxl362": true
+          },
+          "bsom": {
+            "1acceladxl362": true
+          },
+          "b5som": {
+            "1acceladxl362": true
+          },
+          "tracker": {
+            "1acceladxl362": true
+          },
+          "p2": {
+            "1acceladxl362": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1acceladxl362": true
+          },
+          "boron": {
+            "1acceladxl362": true
+          },
+          "bsom": {
+            "1acceladxl362": true
+          },
+          "b5som": {
+            "1acceladxl362": true
+          },
+          "tracker": {
+            "1acceladxl362": true
+          },
+          "esomx": {
             "1acceladxl362": true
           }
         }

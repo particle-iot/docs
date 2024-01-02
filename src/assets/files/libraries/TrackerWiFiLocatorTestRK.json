@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TrackerWiFiLocatorTestRK",
     "version": "0.0.1",
-    "installs": 141,
+    "installs": 151,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for using Google Maps Device Locator Integration",
@@ -91,6 +91,46 @@
             "simple": false
           },
           "boron": {
+            "simple": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "simple": false
+          },
+          "boron": {
+            "simple": false
+          },
+          "bsom": {
+            "simple": false
+          },
+          "b5som": {
+            "simple": false
+          },
+          "tracker": {
+            "simple": true
+          },
+          "p2": {
+            "simple": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "simple": false
+          },
+          "boron": {
+            "simple": false
+          },
+          "bsom": {
+            "simple": false
+          },
+          "b5som": {
+            "simple": false
+          },
+          "tracker": {
+            "simple": true
+          },
+          "esomx": {
             "simple": false
           }
         }

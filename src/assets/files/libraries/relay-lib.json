@@ -7,7 +7,7 @@
   "attributes": {
     "name": "relay-lib",
     "version": "3.0.0",
-    "installs": 2270,
+    "installs": 2327,
     "license": "MIT",
     "author": "Daniel Sullivan <mumblepins@gmail.com>",
     "sentence": "A simple relay control library",
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "boron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "bsom": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "b5som": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "tracker": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "esomx": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "boron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "bsom": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "b5som": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "tracker": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "p2": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "control-everything-shield-demo": false,
             "relay-shield-demo": false

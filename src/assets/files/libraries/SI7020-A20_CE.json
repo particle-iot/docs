@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SI7020-A20_CE",
     "version": "1.0.0",
-    "installs": 1769,
+    "installs": 1787,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of www.ControlEverything.com SI7020-A20 temperature sensor Mini module",
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "boron": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "bsom": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "b5som": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "tracker": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "esomx": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "boron": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "bsom": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "b5som": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "tracker": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "p2": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1_Reading_Temperature": true,
             "2_Publishing_Temperature": true

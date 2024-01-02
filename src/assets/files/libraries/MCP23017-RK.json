@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP23017-RK",
     "version": "0.0.1",
-    "installs": 10767,
+    "installs": 10858,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for 16-port I2C GPIO Expander MCP23017",
@@ -106,6 +106,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "boron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "bsom": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "b5som": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "tracker": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "esomx": {
+            "01-simple-gpio": false,
+            "02-really-simple-output": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "boron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "bsom": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "b5som": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "tracker": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "p2": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "01-simple-gpio": true,
             "02-really-simple-output": true

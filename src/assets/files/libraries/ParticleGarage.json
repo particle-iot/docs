@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ParticleGarage",
     "version": "1.1.0",
-    "installs": 222,
+    "installs": 312,
     "author": "Kevin Houston",
     "architectures": [],
     "dependencies": {
@@ -58,11 +58,64 @@
             "mqttUsage": false,
             "usage": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "boron": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "bsom": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "b5som": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "tracker": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "p2": {
+            "mqttUsage": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "boron": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "bsom": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "b5som": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "tracker": {
+            "mqttUsage": false,
+            "usage": false
+          },
+          "esomx": {
+            "mqttUsage": false,
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2023-12-31T15:13:29.031Z"
     }
   },
-  "readme": "# ParticleGarage\r\n\r\nA Particle library for ParticleGarage automates the monitoring and remote-control of a garage door with a power opener.\r\n\r\n## Usage\r\n\r\nConnect XYZ hardware, add the ParticleGarage library to your project and follow this simple example:\r\n\r\n```\r\n#include \"ParticleGarage.h\"\r\nParticleGarage particleGarage(D1, NORMALLY_OPEN, D2, NORMALLY_OPEN, D0, UnusedPin, NORMALLY_CLOSED, D4, 0);\r\n\r\nvoid setup() {\r\n  particleGarage.Init(\"Garage\", D1, NORMALLY_OPEN, D2, NORMALLY_OPEN, D0, UnusedPin, NORMALLY_CLOSED, D4, 0););\r\n}\r\n\r\nvoid loop() {\r\n  particleGarage.loop();\r\n}\r\n```\r\n\r\nSee the [examples](examples) folder for more details.\r\n\r\n## Documentation\r\n\r\nThe garage door state is monitored by two proximity switches (i use reed relays and a magnet attached to the garage door - but other limit switches could be used):\r\n    openPin - detects when the door is in the fully opened position\r\n    closePin - detects when the door is in the fully closed position\r\n    \r\nTo make the limit switches resilient to noise and bouncing (there tends to be a lot of vibration when the garage door is moving), the switch readings are sampled \r\nat a fixed 100ms interval using a timer and debounced using a simple bit shift register.\r\n\r\nThe pulsePin, via a relay, is wired to the garage door opener pins (in parallel with any physical switches inside the garage) to open/close the door.\r\nThe duration of the pulse is set by the PulseDuration() (default: 3 s).\r\nThe RemoteControl() function \r\n- Since the ParticleGarage knows if the door is opened or closed, the RemoteControl() function does not simply toggle the door, it commands the door to 'open' or 'close'.  \r\n- If the door is already in the correct position - it does nothing.\r\n- If the warningPin is defined, the warningPin will be pulsed for the WarningTime (connect to a buzzer or flashing light) to warn anyone in the vicinity that the door is about to move prior to pulsing the pulsePin when the door is commanded to move remotely.\r\n\r\nThe position of the garage door is monitored and the state is updated whether the garage door opener is controlled by this system, via a manual button, or \r\na car remote.\r\n- PulseTime - the length of time that the pulse pin is activated to start moving the door; if the door does not start moving (openPin and closePin not active) then a warning that the door didn't move is raised.\r\n- TravelTime - the length of time that the door should take to move from open to closed or vice versa; if a open or closed position is not reached in this amount of time, an error is raised and the door is pulsed once more to move it back to a good position; the travel time should be the time it takes to open and close the door to account for the door closing, hitting an obstacle, and re-opening.  The actual open/close travel time is published as \r\n- If the door does not move to a fully opened/closed position within a timeout period, an error is posted and the door opener is pulsed again to 'fix' the \r\nproblem (i.e. get it back to a known position).  The timeout is set by the TravelDuration() (default: 15 s).\r\n- If the door automatically moves back to the position it started from (e.g. it was blocked or the trip sensor was triggered), an error is posted but \r\nthe door is left in the position it achieved.\r\n\r\nParticleGarage can optionally be auto-closed after being open for a period of time (disabled by default).  Setting the AutoCloseDuration() to a positive value \r\nenables the option.  \r\n- The auto-close duration can be extended by configuring the motionPin to be connected to a motion detector - whenever motion is detected, the auto-close timer is reset.  \r\n- An event is posted when the auto-close is activated to close the garage door.\r\n\r\nTwo remote integrations can be enabled for the garage door:\r\n  Particle Cloud - raise events, configure, open/close, monitor 'live' state\r\n    - to enable, set publishToParticle to true in the Init() function.\r\n  MQTT - raise events, configure, open/close, monitor 'live' state\r\n    - to enable, call MQTTConnect() with a valid instance of an MQTT client; call MQTTDisconnect() to disable/clean-up on shutdown\r\n\r\n## Contributing\r\n\r\nHere's how you can make changes to this library and eventually contribute those changes back.\r\n\r\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\r\n\r\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\r\n\r\nModify the sources in <src> and <examples> with the new behavior.\r\n\r\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\r\n\r\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add ParticleGarage_myname` to add the library to a project on your machine or add the ParticleGarage_myname library to a project on the Web IDE or Desktop IDE.\r\n\r\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \r\n\r\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\r\n\r\n## LICENSE\r\nCopyright 2020 Kevin Houston\r\n\r\nLicensed under the <insert your choice of license here> license\r\n",
+  "readme": "# ParticleGarage\r\n\r\nA Particle library for ParticleGarage automates the monitoring and remote-control of a garage door with a power opener.\r\n\r\n## Usage\r\n\r\nConnect XYZ hardware, add the ParticleGarage library to your project and follow this simple example:\r\n\r\n```\r\n#include \"ParticleGarage.h\"\r\nParticleGarage particleGarage(D1, NORMALLY_OPEN, D2, NORMALLY_OPEN, D0, UnusedPin, NORMALLY_CLOSED, D4, 0);\r\n\r\nvoid setup() {\r\n  particleGarage.Init(\"Garage\", D1, NORMALLY_OPEN, D2, NORMALLY_OPEN, D0, UnusedPin, NORMALLY_CLOSED, D4, 0););\r\n}\r\n\r\nvoid loop() {\r\n  particleGarage.loop();\r\n}\r\n```\r\n\r\nSee the examples folder for more details.\r\n\r\n## Documentation\r\n\r\nThe garage door state is monitored by two proximity switches (i use reed relays and a magnet attached to the garage door - but other limit switches could be used):\r\n    openPin - detects when the door is in the fully opened position\r\n    closePin - detects when the door is in the fully closed position\r\n    \r\nTo make the limit switches resilient to noise and bouncing (there tends to be a lot of vibration when the garage door is moving), the switch readings are sampled \r\nat a fixed 100ms interval using a timer and debounced using a simple bit shift register.\r\n\r\nThe pulsePin, via a relay, is wired to the garage door opener pins (in parallel with any physical switches inside the garage) to open/close the door.\r\nThe duration of the pulse is set by the PulseDuration() (default: 3 s).\r\nThe RemoteControl() function \r\n- Since the ParticleGarage knows if the door is opened or closed, the RemoteControl() function does not simply toggle the door, it commands the door to 'open' or 'close'.  \r\n- If the door is already in the correct position - it does nothing.\r\n- If the warningPin is defined, the warningPin will be pulsed for the WarningTime (connect to a buzzer or flashing light) to warn anyone in the vicinity that the door is about to move prior to pulsing the pulsePin when the door is commanded to move remotely.\r\n\r\nThe position of the garage door is monitored and the state is updated whether the garage door opener is controlled by this system, via a manual button, or \r\na car remote.\r\n- PulseTime - the length of time that the pulse pin is activated to start moving the door; if the door does not start moving (openPin and closePin not active) then a warning that the door didn't move is raised.\r\n- TravelTime - the length of time that the door should take to move from open to closed or vice versa; if a open or closed position is not reached in this amount of time, an error is raised and the door is pulsed once more to move it back to a good position; the travel time should be the time it takes to open and close the door to account for the door closing, hitting an obstacle, and re-opening.  The actual open/close travel time is published as \r\n- If the door does not move to a fully opened/closed position within a timeout period, an error is posted and the door opener is pulsed again to 'fix' the \r\nproblem (i.e. get it back to a known position).  The timeout is set by the TravelDuration() (default: 15 s).\r\n- If the door automatically moves back to the position it started from (e.g. it was blocked or the trip sensor was triggered), an error is posted but \r\nthe door is left in the position it achieved.\r\n\r\nParticleGarage can optionally be auto-closed after being open for a period of time (disabled by default).  Setting the AutoCloseDuration() to a positive value \r\nenables the option.  \r\n- The auto-close duration can be extended by configuring the motionPin to be connected to a motion detector - whenever motion is detected, the auto-close timer is reset.  \r\n- An event is posted when the auto-close is activated to close the garage door.\r\n\r\nTwo remote integrations can be enabled for the garage door:\r\n  Particle Cloud - raise events, configure, open/close, monitor 'live' state\r\n    - to enable, set publishToParticle to true in the Init() function.\r\n  MQTT - raise events, configure, open/close, monitor 'live' state\r\n    - to enable, call MQTTConnect() with a valid instance of an MQTT client; call MQTTDisconnect() to disable/clean-up on shutdown\r\n\r\n## Contributing\r\n\r\nHere's how you can make changes to this library and eventually contribute those changes back.\r\n\r\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\r\n\r\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\r\n\r\nModify the sources in <src> and <examples> with the new behavior.\r\n\r\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\r\n\r\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add ParticleGarage_myname` to add the library to a project on your machine or add the ParticleGarage_myname library to a project on the Web IDE or Desktop IDE.\r\n\r\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \r\n\r\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\r\n\r\n## LICENSE\r\nCopyright 2020 Kevin Houston\r\n\r\nLicensed under the <insert your choice of license here> license\r\n",
   "allVersions": [
     "1.1.0"
   ]

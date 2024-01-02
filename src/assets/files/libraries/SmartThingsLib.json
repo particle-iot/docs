@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SmartThingsLib",
     "version": "1.0.12",
-    "installs": 408,
+    "installs": 425,
     "license": "GNU Lesser GPL v3",
     "author": "Juvenal Guzman",
     "sentence": "Helps to integrates with SmartThings custom device handler, this lib uses a custom copy of WebDuino for support special method.",
@@ -106,6 +106,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "smartbit": false,
+            "usage": false
+          },
+          "boron": {
+            "smartbit": false,
+            "usage": false
+          },
+          "bsom": {
+            "smartbit": false,
+            "usage": false
+          },
+          "b5som": {
+            "smartbit": false,
+            "usage": false
+          },
+          "tracker": {
+            "smartbit": false,
+            "usage": false
+          },
+          "esomx": {
+            "smartbit": false,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "smartbit": false,
+            "usage": false
+          },
+          "boron": {
+            "smartbit": false,
+            "usage": false
+          },
+          "bsom": {
+            "smartbit": false,
+            "usage": false
+          },
+          "b5som": {
+            "smartbit": false,
+            "usage": false
+          },
+          "tracker": {
+            "smartbit": false,
+            "usage": false
+          },
+          "p2": {
+            "smartbit": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "smartbit": false,
             "usage": false
