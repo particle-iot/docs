@@ -87,9 +87,8 @@ Unlike the Electron, the E series module exposes the VDDA pin of the STM32 micro
 This is the supply to the internal RTC, backup registers and SRAM. You can connect a backup battery to it (1.65 to 3.6VDC), if you wish to retain RTC/RAM when 3V3 is absent or simply tie it up to 3V3.
 
 #### PMID
-This pin is the output of the internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the E series module when powered by the battery alone.
 
-The confusing bit about this pin is that it will continue to provide 5.1VDC but only when the input voltage (VIN) is between 3.6V to 5.1VDC. As soon as the input voltage exceeds this limit, the PMID starts tracking _that_ voltage. For example if VIN = 9VDC, the PMID will be 9VDC and _NOT_ 5.1VDC. So you need to be careful when using it as a source for powering your external circuitry. The max current draw on this pin is 2.1A but is not recommended due to thermal limitations of the circuit board.
+This pin is connected to the PMID pin of the bq24195 PMIC. You should leave this pin unconnected.
 
 ---
 

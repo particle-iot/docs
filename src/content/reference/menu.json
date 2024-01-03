@@ -435,12 +435,6 @@
           "dir": "electron-datasheet",
           "title": "Electron datasheet",
           "href": "/reference/datasheets/e-series/electron-datasheet/"
-        },
-        {
-          "dir": "e404x-certification",
-          "title": "E404 Certification",
-          "href": "/reference/datasheets/e-series/e404x-certification/",
-          "hidden": true
         }
       ],
       {

@@ -97,11 +97,7 @@ This is the supply to the internal RTC, backup registers and SRAM. You can conne
 
 #### PMID
 
-**This pin in subject to change** depending on the PMIC that is selected for the E404X.
-
-This pin is the output of the internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the E series module when powered by the battery alone.
-
-The confusing bit about this pin is that it will continue to provide 5.1VDC but only when the input voltage (VIN) is between 3.6V to 5.1VDC. As soon as the input voltage exceeds this limit, the PMID starts tracking _that_ voltage. For example if VIN = 9VDC, the PMID will be 9VDC and _NOT_ 5.1VDC. So you need to be careful when using it as a source for powering your external circuitry. The max current draw on this pin is 2.1A but is not recommended due to thermal limitations of the circuit board.
+This pin is connected to the PMID pin of the bq24195 PMIC. You should leave this pin unconnected.
 
 ---
 
@@ -354,7 +350,7 @@ It cannot be programmed by the ST-LINK/V2.
 | 5 | LIPO | Connect to + pin on the LiPo battery, 4.2V maximum | &nbsp; |
 | 6 | NC | Do not connect to anything | &nbsp; |
 | 7 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
-| 8 | PMID | Connected to the PMID pin of the PMIC (may change) | &nbsp; |
+| 8 | PMID | Connected to the PMID pin of the PMIC. Leave unconnected. | &nbsp; |
 | 9 | 3V3 | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | &nbsp; |
 | 10 | NC | Do not connect to anything | &nbsp; |
 | 11 | NC | Do not connect to anything | &nbsp; |
@@ -760,6 +756,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 1   | 2023-02-07 | RK | GA (remove preliminary banner) |
 | 2   | 2023-02-17 | RK | Update certififed bands list |
 | 3   | 2023-05-17 | RK | Fix maximum voltage on LI pin (pin 5) |
+| 4   | 2024-01-03 | RK | Clarify use of PMID |
 
 ## Known errata
 

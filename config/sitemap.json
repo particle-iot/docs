@@ -1011,8 +1011,8 @@
             "hash": "4fe72740d8012175857470c34039f17bfcfd220926bd5d6dcf84968f914fc005"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
-            "date": "2023-10-27",
-            "hash": "2f7683ea581a1bf970cced6dff5cf7df224807c2e7ca8ab6e4ca6925d7a0e5a3"
+            "date": "2024-01-03",
+            "hash": "be647b79422fc335dd9f6df379ee64f2790838aa45a0e423e764a47da7b736eb"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
             "date": "2023-12-18",
@@ -1379,8 +1379,8 @@
             "hash": "35cf2dcf7d047f09b13fc031ed2b9bd22057245833d53744a71c6154a0cb6294"
         },
         "reference/datasheets/e-series/e-series-datasheet.md": {
-            "date": "2023-12-18",
-            "hash": "62cf9393cc4ef1732c3d6054c86b44e13144538cb0bf6046bf50fc8b9db97778"
+            "date": "2024-01-03",
+            "hash": "6d296c938fa8676e25f46d4b025e782bbecc84900abddaa53d37d50a8642cf05"
         },
         "reference/datasheets/e-series/e-series-eval-board.md": {
             "date": "2023-03-30",
@@ -1391,8 +1391,8 @@
             "hash": "1980b35a6053b26a25ff4c4e8ca7d83ffd680107899ca09780972dbb364e3f5c"
         },
         "reference/datasheets/e-series/e404x-datasheet.md": {
-            "date": "2023-11-06",
-            "hash": "346b2b8b79702b69f2580dbacca046180183fce579e32a28aaed569f084feffd"
+            "date": "2024-01-03",
+            "hash": "e6a464733ff734812c11c131653b9b6dd088ba5f0ec2ffd8521d992523b79051"
         },
         "reference/datasheets/e-series/electron-datasheet.md": {
             "date": "2023-12-18",

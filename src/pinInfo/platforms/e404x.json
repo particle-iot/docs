@@ -58,7 +58,7 @@
         {
             "num": 8,
             "name": "PMID",
-            "desc": "Connected to the PMID pin of the PMIC (may change)",
+            "desc": "Connected to the PMID pin of the PMIC. Leave unconnected.",
             "isPower": true
         },
         {

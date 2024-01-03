@@ -513,7 +513,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   |   | E Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | PMID | PMID |
-| ∆ | Description | Connected to the PMID pin of the PMIC | Connected to the PMID pin of the PMIC (may change) |
+| ∆ | Description | Connected to the PMID pin of the PMIC | Connected to the PMID pin of the PMIC. Leave unconnected. |
 #### Module Pin 9 (3V3)
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
