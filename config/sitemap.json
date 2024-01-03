@@ -8285,6 +8285,14 @@
         "reference/device-os/libraries/s/SparkFun_AS726X_Arduino_Library.md": {
             "hash": "0b78d20ed0d2b2afce5277f65f2262468605e88ad959951850871a6166288b26",
             "date": "2024-01-01"
+        },
+        "getting-started/logic-ledger/ledger.md": {
+            "hash": "73f03df391df72360f5ce9739918d7a1885064c7d8ed56919aca2e23f781cde9",
+            "date": "2024-01-02"
+        },
+        "getting-started/logic-ledger/logic.md": {
+            "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
+            "date": "2024-01-02"
         }
     }
 }
