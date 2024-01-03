@@ -292,6 +292,11 @@
         "dir": "ledger",
         "title": "Ledger",
         "href": "/getting-started/logic-ledger/ledger/"
+      },
+      {
+        "dir": "data-transformation",
+        "title": "Data transformation with Logic",
+        "href": "/getting-started/logic-ledger/data-transformation/"
       }
     ],
     {
