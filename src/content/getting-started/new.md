@@ -21,6 +21,14 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Clarify size of built-in types 2024-01-04
+
+The size of double, etc. are the same across all platforms, not just the Photon and Electron.
+
+### Clarify use of PMID on E404X 2024-01-03
+
+Clarified that PMID should not be used on the E404X.
+
 ### Updated library database 2024-01-02
 
 Updated the community library database with any recent versions, also updated the compile targets so every library example has been tested with 5.6.0 and 4.2.0 on an assortment of platforms.

@@ -25469,7 +25469,7 @@ byte b = 0x11;
 
 {{api name1="int"}}
 
-Integers are your primary data-type for number storage. On the Photon/Electron, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
+Integers are your primary data-type for number storage. On all current Particle hardware (RTL872x, nRF52, and STM32), an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
 int's store negative numbers with a technique called 2's complement math. The highest bit, sometimes referred to as the "sign" bit, flags the number as a negative number. The rest of the bits are inverted and 1 is added.
 
 Other variations:
@@ -25478,11 +25478,13 @@ Other variations:
   * `int16_t` : 16 bit signed integer
   * `int8_t`  : 8 bit signed integer
 
+When printing an int using `sprintf`, `String::format`, `Log.info`, etc., use `%d` to print as decimal, or `%x` to print as hex.
+
 #### unsigned int
 
 {{api name1="unsigned int"}}
 
-The Photon/Electron stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
+On all current Particle hardware (RTL872x, nRF52, and STM32) unsigned int is a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
 The difference between unsigned ints and (signed) ints, lies in the way the highest bit, sometimes referred to as the "sign" bit, is interpreted.
 
 Other variations:
@@ -25491,11 +25493,15 @@ Other variations:
   * `uint16_t`  : 16 bit unsigned integer
   * `uint8_t`   : 8 bit unsigned integer
 
+When printing an unsigned int using `sprintf`, `String::format`, `Log.info`, etc., use `%u` to print as decimal, or `%x` to print as hex.
+
 #### word
 
 {{api name1="word"}}
 
 `word` stores a 32-bit unsigned number, from 0 to 4,294,967,295.
+
+When printing a word using `sprintf`, `String::format`, `Log.info`, etc., use `%lu` to print as decimal, or `%lx` to print as hex.
 
 #### long
 
@@ -25503,15 +25509,21 @@ Other variations:
 
 Long variables are extended size variables for number storage, and store 32 bits (4 bytes), from -2,147,483,648 to 2,147,483,647.
 
+When printing a long using `sprintf`, `String::format`, `Log.info`, etc., use `%ld` to print as decimal, or `%lx` to print as hex.
+
 #### unsigned long
 
 {{api name1="unsigned long"}}
 
 Unsigned long variables are extended size variables for number storage, and store 32 bits (4 bytes). Unlike standard longs unsigned longs won't store negative numbers, making their range from 0 to 4,294,967,295 (2^32 - 1).
 
+When printing an unsigned long using `sprintf`, `String::format`, `Log.info`, etc., use `%lu` to print as decimal, or `%lx` to print as hex.
+
 #### short
 
 A short is a 16-bit data-type. This yields a range of -32,768 to 32,767 (minimum value of -2^15 and a maximum value of (2^15) - 1).
+
+When printing a short using `sprintf`, `String::format`, `Log.info`, etc., use `%d` to print as decimal, or `%x` to print as hex.
 
 #### float
 
@@ -25522,11 +25534,15 @@ Datatype for floating-point numbers, a number that has a decimal point. Floating
 Floating point numbers are not exact, and may yield strange results when compared. For example 6.0 / 3.0 may not equal 2.0. You should instead check that the absolute value of the difference between the numbers is less than some small number.
 Floating point math is also much slower than integer math in performing calculations, so should be avoided if, for example, a loop has to run at top speed for a critical timing function. Programmers often go to some lengths to convert floating point calculations to integer math to increase speed.
 
+When printing a float using `sprintf`, `String::format`, `Log.info`, etc., use `%f`.
+
 #### double
 
 {{api name1="double"}}
 
-Double precision floating point number. On the Photon/Electron, doubles have 8-byte (64 bit) precision.
+Double precision floating point number. On all current Particle hardware (RTL872x, nRF52, and STM32), doubles have 8-byte (64 bit) precision.
+
+When printing a double using `sprintf`, `String::format`, `Log.info`, etc., use `%lf`.
 
 #### string - char array
 

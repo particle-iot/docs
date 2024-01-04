@@ -1011,8 +1011,8 @@
             "hash": "4fe72740d8012175857470c34039f17bfcfd220926bd5d6dcf84968f914fc005"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
-            "date": "2024-01-03",
-            "hash": "be647b79422fc335dd9f6df379ee64f2790838aa45a0e423e764a47da7b736eb"
+            "date": "2024-01-04",
+            "hash": "b68301149b478b6d2de8654a9d3cf217f6bf95173f191a5f8c226fbebb599eab"
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
             "date": "2023-12-18",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2023-12-18",
-            "hash": "7b17f21076f59748dcbfd3eebb5543dc501ccf986852f14af09dabf09a66066d"
+            "date": "2024-01-04",
+            "hash": "abd4d2527f184435cf08b98d0996dd1055801d82d775849ec81a28d318f94caa"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -4383,8 +4383,8 @@
             "hash": "e9b882e177b08e0ab480f39eef19652805fb562bb3a5704ce68e6e4ae25a7a5b"
         },
         "reference/device-os/api/language-syntax/data-types.md": {
-            "date": "2023-09-20",
-            "hash": "47710304578f37a6da826f49843e1e41afe950ee9ef50f1b46b29aba9509f071"
+            "date": "2024-01-04",
+            "hash": "2fa47922ced802b0c5c1255be3ab7e40b0a3015e437a42171e29c976167c60b4"
         },
         "reference/device-os/api/language-syntax/exceptions.md": {
             "date": "2023-09-20",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "d81e08647dff8e81b4c825ec48ebcba7ddb826c33f54cfb9e2b2fa912fd50e93",
-            "date": "2024-01-02"
+            "hash": "f08ad270dc3c21e6010186b091cd6973399d6d11c83d30a096a528670bbc7414",
+            "date": "2024-01-04"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
