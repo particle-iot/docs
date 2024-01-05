@@ -25,7 +25,7 @@ When using this model:
 
 In this example, a Wi-Fi device (P2, Photon 2, or Argon) queries the nearby networks and passes the information to the [Google Geolocation API](https://developers.google.com/maps/documentation/geolocation/overview). This is a good use for data expansion because the Google API uses very verbose key names, and you want to maximize the number of access points for the best possible location results.
 
-### Device firmware
+## Device firmware
 
 
 Device-published events are limited to 1024 bytes, sometimes lower on some devices and Device OS versions. Likewise, some external services use JSON key names that are very verbose. You can use Logic to change key names, unpack data, or even change the shape of data structures easily.
@@ -63,7 +63,7 @@ writer.endObject();
 
 The logic block will expand these key names into the format required by the Google geolocation API.
 
-### Logic block
+## Logic block
 
 Follow the instructions in [Logic](/getting-started/logic-ledger/logic/) for creating a logic block triggered by an event.
 
@@ -96,7 +96,7 @@ Example JSON formatted request for Wi-Fi access points is as follows. The `consi
 }
 ```
 
-### Webhook
+## Webhook
 
 Logic itself cannot interact with an external web service. It can, however publish a transformed event that triggers a webhook.
 
