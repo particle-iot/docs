@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Ethernet Featherwing deprecation 2024-01-05
+
+The Ethernet Featherwing for Gen 3 devices is now deprecated and no longer available in the retail and wholesale stores.
+
 ### Clarify size of built-in types 2024-01-04
 
 The size of double, etc. are the same across all platforms, not just the Photon and Electron.

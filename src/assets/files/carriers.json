@@ -21008,7 +21008,7 @@
     {
       "name": "FWNG-ETH",
       "desc": "Particle Ethernet FeatherWing, [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
       "enterprise": false,

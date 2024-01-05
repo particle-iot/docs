@@ -442,6 +442,8 @@ Sample code for the GPS with LCD display can be [found here](https://go.particle
 
 ![Particle Ethernet FeatherWing](/assets/images/accessories/ethernet-featherwing/ethernet-featherwing.png)
 
+The Ethernet Featherwing has been deprecated and is no longer available for sale. The [Adafruit Ethernet Featherwing](https://www.adafruit.com/product/3201) can be used instead by following the instructions [here](/hardware/ethernet/ethernet/#adafruit-featherwing).
+
 The Ethernet FeatherWing is the fastest way to add wired connectivity to your Argon or Boron and turns any Particle Gen 3 developer kit into an Ethernet gateway. Based on the WIZnet W5500 chip, this side-by-side FeatherWing maintains great RF performance even while adding Ethernet connectivity to any Particle Gen 3 device.
 
 The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Gen 3 device along with a Feather accessory.

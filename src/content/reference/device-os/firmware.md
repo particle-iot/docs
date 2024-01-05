@@ -26680,11 +26680,4 @@ particle update
 
 ---
 
-**Debugging for Electron**
-
-##### Instructions on using the Tinker USB Debugging app [are here](https://docs.google.com/document/d/1NdYxPPk_i_mM2wM9oSbSZB1ElDlHA_x-IHY-UC7w62M/pub)
-This is useful for simply capturing the Electron's connection process.
-
----
-
 #### release-notes-wrapper

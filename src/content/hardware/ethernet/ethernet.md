@@ -8,7 +8,7 @@ columns: two
 
 Particle Gen 3 devices including the Argon, Boron, and B Series SoM have the ability to use Ethernet.
 
-For the Feather form-factor devices (Argon, Boron) this is typically done using the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing).
+For the Feather form-factor devices (Argon, Boron) this is typically done using the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing). If using the [Adafruit Ethernet Featherwing](https://www.adafruit.com/product/3201), follow the instructions [here](/hardware/ethernet/ethernet/#adafruit-featherwing).
 
 For the B Series SoM devices (B404, B402, B524, B523), the [B Series Evaluation Board](/reference/datasheets/b-series/b-series-eval-board/) includes Ethernet. You can also use the same Wiznet W5500 chip on your own custom base board for the B Series SoM.
 
@@ -34,6 +34,9 @@ These pinouts are using for the Ethernet FeatherWing, Argon, Boron, P2, and Phot
 |D5      | nCHIP SELECT|
 
 Pins D3 and D4 are the same as `SPI1` on the Argon and Boron thus you cannot use Ethernet and SPI1 at the same time. It is possible to move SPI1 to other pins using [this unsupported technique](https://github.com/rickkas7/spi1-reconfiguration).
+
+
+### Adafruit FeatherWing
 
 If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 

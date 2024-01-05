@@ -655,8 +655,8 @@
             "hash": "70b359228f2d2376e886cf18db1da4832b06d981815b87a04656cf5dfdc16753"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2023-11-22",
-            "hash": "00a1a0f3f8dcb5df0137c63e4bfbc45367bba509a2201d4b9e93029d5f500057"
+            "date": "2024-01-05",
+            "hash": "f51c9b482e8f488904ac069156aef6b0bb7c35d59dd2b53a84bc3b793b10b189"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -959,8 +959,8 @@
             "hash": "cb6ffee72fadd318093fd10e2c513ababa11bcb734e31dae3634ed6fae658c02"
         },
         "hardware/ethernet/ethernet.md": {
-            "date": "2023-11-16",
-            "hash": "fbf54d7fb60bcc25900cc129937f9bfd420d21c61c13baf7d977dea0e75dd487"
+            "date": "2024-01-05",
+            "hash": "24bbe24423fbf1f7322f0f3f77af39df7a5459ef81d9fa1df9aff849caeb9e5f"
         },
         "hardware/expansion/about-i2c.md": {
             "date": "2023-09-06",
@@ -983,8 +983,8 @@
             "hash": "c7ef510bfc2e2666ade942c1fff1177d66ccf1345d7cb7d2ca46d50ea5c1a7c7"
         },
         "hardware/expansion/feather.md": {
-            "date": "2023-03-17",
-            "hash": "29fdcc1a77c76038439ba5f42f5ab13548f05f1830c3a4b9356a9d5ece6710cd"
+            "date": "2024-01-05",
+            "hash": "c326da00e283d0172f4c7cf0d5b3ae092ac8709d74e00cc2b0d6cf2c7bfde730"
         },
         "hardware/expansion/mikroe.md": {
             "date": "2023-03-17",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-01-04",
-            "hash": "abd4d2527f184435cf08b98d0996dd1055801d82d775849ec81a28d318f94caa"
+            "date": "2024-01-05",
+            "hash": "8934c89b6437d479b8ce9476687e65cfd2f13b311bda96fc0a8da828c402ca7a"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1375,8 +1375,8 @@
             "hash": "b745973df80db319d86e98480f589e7e4ba03fac468b9ad5a2f583f89cb5ab7c"
         },
         "reference/datasheets/accessories/gen3-accessories.md": {
-            "date": "2023-08-30",
-            "hash": "35cf2dcf7d047f09b13fc031ed2b9bd22057245833d53744a71c6154a0cb6294"
+            "date": "2024-01-05",
+            "hash": "7eb433b059bd9e25b1010294d5436b36a64dafdb8ed42d757e03f9e4a310224e"
         },
         "reference/datasheets/e-series/e-series-datasheet.md": {
             "date": "2024-01-03",
@@ -1471,16 +1471,16 @@
             "hash": "d938953475a26cb1dcbf81bb58e718857ce997bdffb6e513e16a3670b2b28377"
         },
         "reference/discontinued/software/firmware-core.md": {
-            "date": "2023-12-18",
-            "hash": "26534e53d33509393456180362664c97b2503a4f76de412fe834b92e89ddcb22"
+            "date": "2024-01-05",
+            "hash": "55d6c4304359bfee072aa2084b73646d8b43e0238e909f75cf0730c54bfe31d9"
         },
         "reference/discontinued/software/firmware-mesh.md": {
             "date": "2022-06-14",
             "hash": "c2a21a44fa7c834e9ce7618f9b0141166434edcbd5a0dcf50b48adb5d396f88f"
         },
         "reference/discontinued/software/firmware-xenon.md": {
-            "date": "2023-12-18",
-            "hash": "d5962bad6487759db8aa12c5b83f2a8f0d147b349474e204b15a7c587106e9f2"
+            "date": "2024-01-05",
+            "hash": "1893abb118693cf8e768b30ce7665cea4b7f2c052f10267501e3e5e32dc772a3"
         },
         "reference/discontinued/software/windows.md": {
             "date": "2023-03-17",
@@ -4411,8 +4411,8 @@
             "hash": "01732d6a7369be9a60ad1b1036c1f417b6b9f1df3a31bf80070a383b1f78ad83"
         },
         "reference/device-os/api/memory/stack.md": {
-            "date": "2023-12-18",
-            "hash": "17ca7984b0d1e537c47f2eb9294f7eff324099870116fecb3d297b6c41d1c47c"
+            "date": "2024-01-05",
+            "hash": "01ccb527869759fcd9fecdf95254b61174b12b8af21d48034705ecb32e9ffbd3"
         },
         "reference/device-os/api/device-os-versions/device-os-versions.md": {
             "date": "2023-09-20",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "f08ad270dc3c21e6010186b091cd6973399d6d11c83d30a096a528670bbc7414",
-            "date": "2024-01-04"
+            "hash": "18b5aba23b31d8fa3a9f409b6258be9151d6a5508ed9eb3bf34e42bf0a4d8b99",
+            "date": "2024-01-05"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
