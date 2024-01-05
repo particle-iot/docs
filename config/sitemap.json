@@ -8293,6 +8293,10 @@
         "getting-started/logic-ledger/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
             "date": "2024-01-02"
+        },
+        "getting-started/logic-ledger/data-transformation.md": {
+            "hash": "0f3732a38521775d335d7583111822e3349dcc007c052111d8e54026fd6012fd",
+            "date": "2024-01-05"
         }
     }
 }

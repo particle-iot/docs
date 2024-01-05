@@ -14,13 +14,7 @@ and APIs in future versions based on user feedback.
 Pricing and availability may change in the future.
 {{box op="end"}}
 
-One of the feature of [Logic](/getting-started/logic-ledger/logic/) is the ability to take events published from a device and transform them before passing them to an external service using a webhook. Some reasons you might want to do this:
-
-- Expand data to minimize cellular data usage and fit within publish size limits.
-- Implement business logic in the cloud instead of on-device firmware for easier updates.
-- Support external services that have data formatting requirements that are hard to implement on-device, like XML.
-
-## Basics
+One of the feature of [Logic](/getting-started/logic-ledger/logic/) is the ability to take events published from a device and transform them before passing them to an external service using a webhook. You might want to do this to expand data to minimize cellular data usage and fit within publish size limits, as demonstrated in this page.
 
 When using this model:
 
@@ -29,55 +23,92 @@ When using this model:
 - The logic block transforms the data as desired and publishes a transformed event.
 - A product webhook receives the transformed event and interacts with an external service.
 
-### Publishing events
+In this example, a Wi-Fi device (P2, Photon 2, or Argon) queries the nearby networks and passes the information to the [Google Geolocation API](https://developers.google.com/maps/documentation/geolocation/overview). This is a good use for data expansion because the Google API uses very verbose key names, and you want to maximize the number of access points for the best possible location results.
 
-https://docs.particle.io/firmware/best-practices/json/#using-jsonwriter
+### Device firmware
+
+
+Device-published events are limited to 1024 bytes, sometimes lower on some devices and Device OS versions. Likewise, some external services use JSON key names that are very verbose. You can use Logic to change key names, unpack data, or even change the shape of data structures easily.
+
+The device firmware uses `WiFi.scan()` to scan for nearby Wi-Fi access points, sorts the list (highest strength first), and takes the strongest 25.
+
+While you can use any text-based format for sending data from the device to the cloud, a common choice is JSON. This makes it easy to add new fields later. We recommend using [JSONWriter](/firmware/best-practices/json/#using-jsonwriter) which is easy to use and built into Device OS.
+
+
+The important part for packing in as much data as possible is to use short JSON key names, such as:
+
+- `b` for bssid (base station MAC address in hex format)
+- `c` for channel number (decimal)
+- `r` for RSSI (signal strength, decimal, negative)
+
+```cpp
+writer.beginObject();
+writer.name("ap").beginArray();
+
+for(size_t ii = 0; ii < accessPointsCount; ii++) {
+    ApInfo* apInfo = accessPoints[ii];
+
+    writer.beginObject();
+
+    writer.name("b").value(apInfo->bssid);
+    writer.name("c").value(apInfo->channel);
+    writer.name("r").value(apInfo->rssi);
+
+    writer.endObject();
+}
+writer.endArray();
+
+writer.endObject();
+```
+
+The logic block will expand these key names into the format required by the Google geolocation API.
 
 ### Logic block
 
 Follow the instructions in [Logic](/getting-started/logic-ledger/logic/) for creating a logic block triggered by an event.
 
+The following table shows how the data published from the device is converted into the Geolocation API format. Note how much longer then API key names are, especially since the array elements keys are repeated for each access point found.
 
+| Device JSON | Geolocation API | Description
+| :--- | :--- | :--- |
+| `ap` | `wifiAccessPoints` | Array of objects |
+| `b` | `macAddress` | BSSID MAC address (hex) |
+| `c` | `channel` | Channel number (positive number) |
+| `r` | `signalStrength` | Signal strength (RSSI, negative number) |
+
+Example JSON formatted request for Wi-Fi access points is as follows. The `considerIp` is `false` as the Geolocation API should not consider the requesting IP address as this will be the Particle webhook server, not the public IP of the Wi-Fi network.
+
+```json
+{
+  "considerIp": "false",
+  "wifiAccessPoints": [
+    {
+      "macAddress": "3c:37:86:5d:75:d4",
+      "signalStrength": -35,
+      "channel": 6
+    },
+    {
+      "macAddress": "94:b4:0f:fd:c1:40",
+      "signalStrength": -35,
+      "channel": 11
+    }
+  ]
+}
+```
 
 ### Webhook
 
 Logic itself cannot interact with an external web service. It can, however publish a transformed event that triggers a webhook.
 
-- The events published by Logic are not limited to 1024 bytes like a device-published event.
+- The events published by Logic are **not** limited to 1024 bytes like a device-published event when not sent to a device.
 - Logic can trigger zero or more events from a device-published event.
 - Additional events triggered by Logic are not counted as data operations at this time.
-- Custom POST and PUT body formats can be generated by Logic.
 
+The Google Geolocation API requires an API key that goes into the URL of the webhook. Replace `YOUR_API_KEY` with your actual API key. Also note that the account must have Geolocation API access enabled, and also have billing enabled, or the request will fail.
 
-## Expanding data
-
-Device-published events are limited to 1024 bytes, sometimes lower on some devices and Device OS versions. Likewise, some external services use JSON key names that are very verbose. You can use Logic to change key names, unpack data, or even change the shape of data structures easily.
-
-
-
-## Business logic
-
-Say you have a device that is publishing temperature data periodically and want to implement temperature alerts using a push notification service like [Pushover](/integrations/community-integrations/pushover/). The notification service is triggered using a webhook, and it's common to generate the event from the device in an alarm condition.
-
-But what if you want to centralize the alerting so you can customize the alert behavior, such as temperature limits, alert frequency, etc. from the Particle console instead of having to update device firmware? You can use Logic for this use-case!
-
-
-
-## XML
-
-
-## Specialized data formats
-
-If you have a web service that requires data in a POST or PUT body using an unusual format (not JSON or application/x-www-form-urlencoded), you can do so using Logic.
-
-Use a transformed data webhook using a `body` parameter with a value of `{{{PARTICLE_EVENT_VALUE}}}`.
-
-Have your Logic block build the data structure as a string, and publish that string to the transformed data webhook. This data can be in any format that you can generate as a Javascript string.
-
-If you need to include binary data, you will need to generate `multipart/form-data` from your Logic block and encode the binary data using a format like Base 64. This can be done using Logic as well.
-
-
-
+```
+https://www.googleapis.com/geolocation/v1/geolocate?key=YOUR_API_KEY
+```
 
 
 
