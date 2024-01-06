@@ -33,9 +33,11 @@ In order to use Logic beta, you will need to:
 - Create a product for testing in your developer sandbox. There is no additional charge for this.
 - Add one or more devices to the product.
 
+Logic beta cannot be used with organization products at this time. It also cannot be used with individual sandbox devices.
+
 ## Device firmware
 
-Device-published events are limited to 1024 bytes, sometimes lower on some devices and Device OS versions. Likewise, some external services use JSON key names that are very verbose. You can use Logic to change key names, unpack data, or even change the shape of data structures easily.
+Device-published events are limited to 1024 bytes, less on some devices and Device OS versions. Likewise, some external services use JSON key names that are very verbose. You can use Logic to change key names, unpack data, or even change the shape of data structures easily.
 
 The device firmware uses `WiFi.scan()` to scan for nearby Wi-Fi access points, sorts the list (highest strength first), and takes the strongest 25.
 
@@ -78,8 +80,6 @@ The logic block will expand these key names into the format required by the Goog
 Follow the instructions in [Logic](/getting-started/logic-ledger/logic/) for creating an **Event triggered function**. Logic beta can only be used with your developer sandbox (not organizations) and with product devices.
 
 
-
-
 The following table shows how the data published from the device is converted into the Geolocation API format. Note how much longer then API key names are, especially since the array elements keys are repeated for each access point found.
 
 | Device JSON | Geolocation API | Description
@@ -109,7 +109,11 @@ Example JSON formatted request for Wi-Fi access points is as follows. The `consi
 }
 ```
 
-Code 
+This is the code for the logic block. 
+
+- It extracts the JSON from the original event into `origData`.
+- It expands the data into `reformattedData`.
+- It publishes it using the new name `wifiScanExpanded`.
 
 ```js
 import Particle from 'particle:core';
@@ -142,13 +146,12 @@ export default function process({ functionInfo, trigger, event }) {
 }
 ```
 
-Trigger
+Set the trigger to match your product and the original event name which must match your device code. Note that the trigger for Logic is an exact match, not a prefix match.
 
 | Trigger field | Value |
 | :--- | :--- |
 | Product | *Your test product* |
 | Trigger event name | `wifiScan` |
-
 
 
 ## Webhook
@@ -159,8 +162,9 @@ Logic itself cannot interact with an external web service. It can, however publi
 - Logic can trigger zero or more events from a device-published event.
 - Additional events triggered by Logic are not counted as data operations at this time.
 
-The Google Geolocation API requires an API key that goes into the URL of the webhook. Replace `YOUR_API_KEY` with your actual API key. Also note that the account must have Geolocation API access enabled, and also have billing enabled, or the request will fail.
+The Google Geolocation API requires an API key that goes into the URL of the webhook. 
 
+Create a product webhook using **Custom JSON**. Replace `YOUR_API_KEY` with your actual API key. Also note that the account must have Geolocation API access enabled, and also have billing enabled, or the request will fail with an 400 error.
 
 ```
 {
@@ -174,13 +178,12 @@ The Google Geolocation API requires an API key that goes into the URL of the web
 }
 ```
 
-`hook-response/wifiScanExpanded/0`
+If the device publish, Logic block, and webhook work successfully, you'll see something like this in the event log: `hook-response/wifiScanExpanded/0`
 
 ```
 { "location": { "lat": 38.9999999, "lng": -77.5555555 }, "accuracy": 103652.49179534121 }
 ```
 
-
-
+Your product event log should look something like this in the console.
 
 {{imageOverlay src="/assets/images/logic/event-log.png" class="no-darken"}}
