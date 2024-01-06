@@ -863,8 +863,8 @@
             "hash": "45253bb03a5c90015cc0660ae861b9f614c975980ad406c00fcbe1c755ec7dd5"
         },
         "tools/cloud-tools/configuration-schema.md": {
-            "date": "2023-07-28",
-            "hash": "3c3dca08b8ee13b658f01bf4a96a02941be36a3426832a58a1fdccc5beb7a3a2"
+            "date": "2024-01-06",
+            "hash": "b0587dc4fe69b95b92d05e8ccb5ad7a43627336a7a48b82815acbba743bfe969"
         },
         "tools/cloud-tools/events.md": {
             "date": "2022-12-22",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "18b5aba23b31d8fa3a9f409b6258be9151d6a5508ed9eb3bf34e42bf0a4d8b99",
-            "date": "2024-01-05"
+            "hash": "e81144026862901091e34242114d3cc34515a3947dd29cbda7abe2dbc489725a",
+            "date": "2024-01-06"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

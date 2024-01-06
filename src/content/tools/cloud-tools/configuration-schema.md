@@ -18,4 +18,5 @@ To enable the Monitor One features, use this control to change the product schem
 
 - To learn more about the configuration settings, see the [console documentation](/getting-started/console/console/#asset-tracker-features)
 - To learn more about configuration schemas for the Tracker One and Monitor One, see [Tracker configuration](/reference/tracker/tracker-configuration/).
+- To set your own custom schema, use [custom schema tool](/reference/tracker/tracker-configuration/#restore-default-schema).
 

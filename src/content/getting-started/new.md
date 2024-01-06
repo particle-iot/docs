@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Add link to custom schema page 2024-01-06
+
+Added a link from the [configuration schema tool](/tools/cloud-tools/configuration-schema/) to [custom schema instructions](/reference/tracker/tracker-configuration/#restore-default-schema).
+
 ### Ethernet Featherwing deprecation 2024-01-05
 
 The Ethernet Featherwing for Gen 3 devices is now deprecated and no longer available in the retail and wholesale stores.
