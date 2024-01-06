@@ -25,8 +25,14 @@ When using this model:
 
 In this example, a Wi-Fi device (P2, Photon 2, or Argon) queries the nearby networks and passes the information to the [Google Geolocation API](https://developers.google.com/maps/documentation/geolocation/overview). This is a good use for data expansion because the Google API uses very verbose key names, and you want to maximize the number of access points for the best possible location results.
 
-## Device firmware
+## Sandbox product
 
+In order to use Logic beta, you will need to:
+
+- Create a product for testing in your developer sandbox. There is no additional charge for this.
+- Add one or more devices to the product.
+
+## Device firmware
 
 Device-published events are limited to 1024 bytes, sometimes lower on some devices and Device OS versions. Likewise, some external services use JSON key names that are very verbose. You can use Logic to change key names, unpack data, or even change the shape of data structures easily.
 
@@ -65,7 +71,10 @@ The logic block will expand these key names into the format required by the Goog
 
 ## Logic block
 
-Follow the instructions in [Logic](/getting-started/logic-ledger/logic/) for creating a logic block triggered by an event.
+Follow the instructions in [Logic](/getting-started/logic-ledger/logic/) for creating an **Event triggered function**. Logic beta can only be used with your developer sandbox (not organizations) and with product devices.
+
+
+
 
 The following table shows how the data published from the device is converted into the Geolocation API format. Note how much longer then API key names are, especially since the array elements keys are repeated for each access point found.
 
@@ -95,6 +104,48 @@ Example JSON formatted request for Wi-Fi access points is as follows. The `consi
   ]
 }
 ```
+
+Code 
+
+```js
+import Particle from 'particle:core';
+
+export default function process({ functionInfo, trigger, event }) {
+  let origData;
+  try {
+	  origData = JSON.parse(event.eventData);
+  } catch (err) {
+    console.error("Invalid JSON", event.eventData);
+    throw err;
+  }
+  
+  let reformattedData = {
+    considerIp: false,
+    wifiAccessPoints: [],
+  };
+  
+  if (Array.isArray(origData.ap)) {
+    for(const ap of origData.ap) {
+      reformattedData.wifiAccessPoints.push({
+        macAddress: ap.b,
+        signalStrength: ap.r,
+        channel: ap.c,
+      });
+    }
+  }
+  console.log('reformattedData', reformattedData);
+  Particle.publish('wifiScanExpanded', reformattedData, { productId: event.productId });
+}
+```
+
+Trigger
+
+| Trigger field | Value |
+| :--- | :--- |
+| Product | *Your test product* |
+| Trigger event name | `wifiScan` |
+
+
 
 ## Webhook
 
