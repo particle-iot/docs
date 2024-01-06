@@ -3,6 +3,7 @@ title: Data transformation with Logic
 columns: two
 layout: commonTwo.hbs
 description: Data transformation of events using Logic
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
 ---
 
 # {{title}}
@@ -37,6 +38,9 @@ In order to use Logic beta, you will need to:
 Device-published events are limited to 1024 bytes, sometimes lower on some devices and Device OS versions. Likewise, some external services use JSON key names that are very verbose. You can use Logic to change key names, unpack data, or even change the shape of data structures easily.
 
 The device firmware uses `WiFi.scan()` to scan for nearby Wi-Fi access points, sorts the list (highest strength first), and takes the strongest 25.
+
+{{> project-browser project="wifi-scan-test" default-file="src/wifi-scan-test.cpp" height="400"}}
+
 
 While you can use any text-based format for sending data from the device to the cloud, a common choice is JSON. This makes it easy to add new fields later. We recommend using [JSONWriter](/firmware/best-practices/json/#using-jsonwriter) which is easy to use and built into Device OS.
 
@@ -157,9 +161,26 @@ Logic itself cannot interact with an external web service. It can, however publi
 
 The Google Geolocation API requires an API key that goes into the URL of the webhook. Replace `YOUR_API_KEY` with your actual API key. Also note that the account must have Geolocation API access enabled, and also have billing enabled, or the request will fail.
 
+
 ```
-https://www.googleapis.com/geolocation/v1/geolocate?key=YOUR_API_KEY
+{
+    "name": "wifiScanExpanded",
+    "event": "wifiScanExpanded",
+    "url": "https://www.googleapis.com/geolocation/v1/geolocate?key=YOUR_API_KEY",
+    "requestType": "POST",
+    "noDefaults": true,
+    "rejectUnauthorized": true,
+    "body": "{{{PARTICLE_EVENT_DATA}}}"
+}
+```
+
+`hook-response/wifiScanExpanded/0`
+
+```
+{ "location": { "lat": 38.9999999, "lng": -77.5555555 }, "accuracy": 103652.49179534121 }
 ```
 
 
 
+
+{{imageOverlay src="/assets/images/logic/event-log.png" class="no-darken"}}
