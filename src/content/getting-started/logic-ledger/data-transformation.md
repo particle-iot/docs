@@ -26,6 +26,8 @@ When using this model:
 
 In this example, a Wi-Fi device (P2, Photon 2, or Argon) queries the nearby networks and passes the information to the [Google Geolocation API](https://developers.google.com/maps/documentation/geolocation/overview). This is a good use for data expansion because the Google API uses very verbose key names, and you want to maximize the number of access points for the best possible location results.
 
+The second part of this example shows how to store the last known location for the device in Ledger.
+
 ## Sandbox product
 
 In order to use Logic beta, you will need to:
@@ -146,6 +148,8 @@ export default function process({ functionInfo, trigger, event }) {
 }
 ```
 
+The published event name is `'wifiScanExpanded/' + event.deviceId` because later on we'll need the original Device ID in the response. Since the integration event name is a prefix, it does not care that there are additional characters at the end.
+
 Set the trigger to match your product and the original event name which must match your device code. Note that the trigger for Logic is an exact match, not a prefix match.
 
 | Trigger field | Value |
@@ -166,7 +170,7 @@ The Google Geolocation API requires an API key that goes into the URL of the web
 
 Create a product webhook using **Custom JSON**. Replace `YOUR_API_KEY` with your actual API key. Also note that the account must have Geolocation API access enabled, and also have billing enabled, or the request will fail with an 400 error.
 
-```
+```json
 {
     "name": "wifiScanExpanded",
     "event": "wifiScanExpanded",
@@ -174,7 +178,9 @@ Create a product webhook using **Custom JSON**. Replace `YOUR_API_KEY` with your
     "requestType": "POST",
     "noDefaults": true,
     "rejectUnauthorized": true,
-    "body": "{{{PARTICLE_EVENT_DATA}}}"
+    "body": "\{{{PARTICLE_EVENT_DATA}}}",
+	"responseTopic": "wifiScanResponse",
+    "responseTemplate": "{\"eventName\": \"\{{PARTICLE_EVENT_NAME}}\",\"ts\": \"\{{PARTICLE_PUBLISHED_AT}}\",\"lat\": \{{location.lat}},\"lng\": \{{location.lng}},\"accuracy\": \{{accuracy}}}"
 }
 ```
 
@@ -184,6 +190,96 @@ If the device publish, Logic block, and webhook work successfully, you'll see so
 { "location": { "lat": 38.9999999, "lng": -77.5555555 }, "accuracy": 103652.49179534121 }
 ```
 
-Your product event log should look something like this in the console.
+Your product event log should look something like this in the console. Make sure you view the product event log, not the sandbox event log, or you will not see the responses.
 
-{{imageOverlay src="/assets/images/logic/event-log.png" class="no-darken"}}
+{{imageOverlay src="/assets/images/logic/data-transformation-event-log.png" class="no-darken"}}
+
+The webhook response will be `wifiScanResponse/0` and should look like this:
+
+{{imageOverlay src="/assets/images/logic/data-transformation-scan-response.png" class="no-darken"}}
+
+
+
+## Create ledger
+
+Now we'll go one step farther and store the last known location in [Ledger](/getting-started/logic-ledger/ledger/)! 
+
+In the **Ledger** icon your sandbox, create a new cloud-only ledger.
+
+
+| Setting | Value |
+| :--- | :--- |
+| Type | Cloud only |
+| Ledger name | `device-location` |
+| Scope | Device |
+
+
+Make sure you create the ledger before you create the Logic block to write to it, because you won't be able to save the logic block if the ledger doesn't already exist.
+
+## Save data to ledger
+
+| Setting | Value |
+| :--- | :--- |
+| Name | wifiScanResponse |
+| Product | *Your test product* |
+| Trigger event name | `wifiScanResponse/0` |
+
+Set the JSON to:
+
+```js
+import Particle from 'particle:core';
+
+export default function process({ functionInfo, trigger, event }) {
+  let origData;
+  try {
+	  origData = JSON.parse(event.eventData);
+  } catch (err) {
+    console.error("Invalid JSON", event.eventData);
+    throw err;
+  }
+  
+  const deviceId = origData.eventName.split('/')[1];
+  
+  const deviceLedger = Particle.ledger("device-location", { deviceId });
+  
+  let ledgerValue = {
+    ts: origData.ts,
+    lat: origData.lat,
+    lng: origData.lng,
+    accuracy: origData.accuracy
+  };
+  
+  deviceLedger.set(ledgerValue, Particle.REPLACE);
+}
+```
+
+This code first extracts the JSON from the event into `origData`, as we did before.
+
+When the wifiScanExpanded webhook is published, the device ID of the originating device is appended to the event name. This is necessary because Logic republishes a modified event name, so when the webhook is called `{{{PARTICLE_DEVICE_ID}}}` is `Logic` not the original Device ID. This code extracts the original device ID from the event name.
+
+```js
+const deviceId = origData.eventName.split('/')[1];
+```
+
+It then gets the ledger for this device:
+
+```js
+const deviceLedger = Particle.ledger("device-location", { deviceId });
+```
+
+And stores the data into the Ledger
+
+```js
+let ledgerValue = {
+    ts: origData.ts,
+    lat: origData.lat,
+    lng: origData.lng,
+    accuracy: origData.accuracy
+};
+  
+deviceLedger.set(ledgerValue, Particle.REPLACE);
+```
+
+If you view the ledger, you'll be able to see the last known location of the device!
+
+{{imageOverlay src="/assets/images/logic/data-transformation-ledger.png" class="no-darken"}}
