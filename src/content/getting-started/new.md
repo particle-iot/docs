@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Using Logic for data transformation
+
+New example of using [Logic for data transformation](/getting-started/logic-ledger/data-transformation/).
+
 ### Add link to custom schema page 2024-01-06
 
 Added a link from the [configuration schema tool](/tools/cloud-tools/configuration-schema/) to [custom schema instructions](/reference/tracker/tracker-configuration/#restore-default-schema).
@@ -51,7 +55,7 @@ Clarified the band power table for the [B524](/reference/datasheets/b-series/b52
 
 ### Ledger documentation 2023-12-29
 
-Added preliminary documentation for [Ledger beta](/getting-started/cloud/ledger/). 
+Added preliminary documentation for [Ledger beta](/getting-started/logic-ledger/ledger/). 
 
 ### Photon 2 schematic 2023-12-19
 
@@ -167,7 +171,7 @@ New What's new page ([this page](/getting-started/new/)) lists what's new in the
 ### Logic beta docs 2023-11-13
 
 Logic is a serverless computing platform to host the business logic of an IoT product by running scripts in response to events being emitted from devices. 
-[Logic beta documentation](/getting-started/cloud/logic/) is now available.
+[Logic beta documentation](/getting-started/logic-ledger/logic/) is now available.
 
 ### Classroom setup 2023-11-13
 
@@ -238,7 +242,7 @@ Updated the [installation instructions for Workbench](/quickstart/workbench/) to
 
 ### Updated Asset OTA docs 2023-10-03
 
-Updated Asset OTA page includes additional material and a [FAQ](/reference/device-os/asset-ota/#faq) with many more technical details.
+Updated Asset OTA page includes additional material and a [FAQ](/reference/asset-ota/asset-ota/#faq) with many more technical details.
 
 ### Device Restore USB and Monitor Edge v2 2023-09-30
 
@@ -266,7 +270,7 @@ On wider windows, the left navigation is now wider, making more of the content r
 
 ### Asset OTA documentation 2023-09-13
 
-Documentation for [Asset OTA](/reference/device-os/asset-ota/) is now available.
+Documentation for [Asset OTA](/reference/asset-ota/asset-ota/) is now available.
 
 ### Device Restore USB now supports the Monitor One 2023-09-11
 
