@@ -200,16 +200,6 @@
         "href": "/getting-started/cloud/ota-updates/"
       },
       {
-        "dir": "logic",
-        "title": "Logic",
-        "href": "/getting-started/cloud/logic/"
-      },
-      {
-        "dir": "ledger",
-        "title": "Ledger",
-        "href": "/getting-started/cloud/ledger/"
-      },
-      {
         "dir": "cloud-api",
         "title": "Cloud API",
         "href": "/getting-started/cloud/cloud-api/"
@@ -285,6 +275,28 @@
         "dir": "two-step-authentication",
         "title": "Two-step authentication",
         "href": "/getting-started/console/two-step-authentication/"
+      }
+    ],
+    {
+      "dir": "logic-ledger",
+      "title": "Logic & Ledger",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "logic",
+        "title": "Logic",
+        "href": "/getting-started/logic-ledger/logic/"
+      },
+      {
+        "dir": "ledger",
+        "title": "Ledger",
+        "href": "/getting-started/logic-ledger/ledger/"
+      },
+      {
+        "dir": "data-transformation",
+        "title": "Data transformation with Logic",
+        "href": "/getting-started/logic-ledger/data-transformation/"
       }
     ],
     {

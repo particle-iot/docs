@@ -199,6 +199,8 @@
   "/firmware/tracker-edge": "/firmware/tracker-edge/tracker-edge-firmware",
   "/getting-started": "/getting-started/getting-started",
   "/getting-started/cloud/": "/getting-started/cloud/introduction",
+  "/getting-started/cloud/ledger/": "/getting-started/logic-ledger/ledger",
+  "/getting-started/cloud/logic/": "/getting-started/logic-ledger/logic",
   "/getting-started/console": "/getting-started/console/console",
   "/getting-started/developer-tools/": "/getting-started/developer-tools/developer-tools",
   "/getting-started/device-os": "/getting-started/device-os/introduction-to-device-os",

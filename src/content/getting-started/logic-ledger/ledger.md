@@ -102,7 +102,7 @@ You can easily access owner, product, and device ledgers from Logic.
 - Store published events in Ledger using Logic.
 - Move business logic from device firmware to the cloud using Logic.
 
-See [Using Ledger from Logic](/getting-started/cloud/logic/#using-ledger-from-logic) in the Logic documentation for more information.
+See [Using Ledger from Logic](/getting-started/logic-ledger/logic/#using-ledger-from-logic) in the Logic documentation for more information.
 
 
 

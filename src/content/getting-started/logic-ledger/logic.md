@@ -36,7 +36,7 @@ For this beta version:
 - Run logs per function retained: 100
 - Maximum logic run execution time: 30 seconds
 
-A companion feature, [Ledger](/getting-started/cloud/ledger/), allows data to be stored in the cloud and synchronized with devices. Only the cloud side of ledger is available in beta now, and the device side will be added in January 2024.
+A companion feature, [Ledger](/getting-started/logic-ledger/ledger/), allows data to be stored in the cloud and synchronized with devices. Only the cloud side of ledger is available in beta now, and the device side will be added in January 2024.
 
 ## Common use cases
 
@@ -394,7 +394,7 @@ of the event data. Events published by Logic do not currently count against your
 
 #### Particle.ledger
 
-The [Ledger](/getting-started/cloud/ledger/) is available to Logic functions in the Particle core library: 
+The [Ledger](/getting-started/logic-ledger/ledger/) is available to Logic functions in the Particle core library: 
 
 ```js
 import Particle from 'particle:core';
