@@ -121,6 +121,20 @@ navMenu.load = async function() {
     $('.navMenuOuter').replaceWith(nav);
 }
 
+navMenu.openAnchor = function(href) {
+    if (!href || href.length == 0) {
+        return;
+    }
+    if (href.startsWith('/')) {
+        window.location.href = href;
+        return;
+    }
+
+    if (window.history) {
+        history.pushState({hash: href}, 'New Hash', '#' + href);
+    }
+    Docs.scrollToElement($('#' + href));
+}
 
 navMenu.generateNavHtml = function(menuJson) {
     // console.log('base=' + fileObj.path.base + ' topLevelName=' + topLevelName + ' sectionName=' + sectionName);
@@ -170,7 +184,9 @@ navMenu.generateNavHtml = function(menuJson) {
             let innerDivElem = document.createElement('div');
             $(innerDivElem).addClass('navMenu2');
             const aElem = document.createElement('a');
-            $(aElem).attr('href', item.href );
+            $(aElem).on('click', function() {
+                navMenu.openAnchor(item.href);
+            });
             $(aElem).addClass('navLink');
             $(aElem).text(makeTitle(item));
             $(innerDivElem).append(aElem);
@@ -221,7 +237,9 @@ navMenu.generateNavHtml = function(menuJson) {
                     $(innerDivElem).addClass('navMenu1');
 
                     const aElem = document.createElement('a');
-                    $(aElem).attr('href', item.href );
+                    $(aElem).on('click', function() {
+                        navMenu.openAnchor(item.href);
+                    });
                     $(aElem).addClass('navLink');
                     $(aElem).text(makeTitle(item));
                     $(innerDivElem).append(aElem);
@@ -292,7 +310,9 @@ navMenu.generateNavHtml = function(menuJson) {
                     
                     if (!isThisLetter) {
                         const aElem = document.createElement('a');
-                        $(aElem).attr('href', obj.href );
+                        $(aElem).on('click', function() {
+                            navMenu.openAnchor(obj.href);
+                        });
                         $(aElem).addClass('navLink');
                         $(aElem).text(obj.title);
                         $(innerDivElem).append(aElem);    
@@ -687,7 +707,9 @@ navMenu.scanHeaders = function () {
 
         e3 = document.createElement('a');
         $(e3).addClass('navLink')
-        $(e3).prop('href', '#' + hdr.id);
+        $(e3).on('click', function() {
+            navMenu.openAnchor(hdr.id);
+        });
         $(e3).text($(hdr.elem).text());
         $(e2).append(e3);
         $(e1).append(e2);
@@ -754,7 +776,9 @@ navMenu.scanHeaders = function () {
 
             e3 = document.createElement('a');
             $(e3).addClass('navLink')
-            $(e3).prop('href', '#' + hdr.id);
+            $(e3).on('click', function() {
+                navMenu.openAnchor(hdr.id);
+            });
             $(e3).text($(hdr.elem).text());
             $(e2).append(e3);
             $(e1).append(e2);

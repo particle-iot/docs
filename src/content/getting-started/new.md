@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Opening a hidden section
+
+If you try to open a link to a header in a section hidden by a disclosure triangle, or click on a
+left-hand navigation to one, the section is now opened first. Before, nothing would happen.
+
 ### Using Logic for data transformation
 
 New example of using [Logic for data transformation](/getting-started/logic-ledger/data-transformation/).

@@ -70,6 +70,24 @@ Created by Zach Supalla.
   Docs.scrollToElement = function(element) {
     let topOffset = 10;
 
+    // Make selection visible
+    let tempElem = $(element);
+    for(let tries = 0; tries < 20; tries++) {
+      if ($(tempElem).hasClass('content')) {
+        break;
+      }
+
+      if ($(tempElem).hasClass('collapseIndent')) {
+        if (!$(tempElem).is(':visible')) {
+          $(tempElem).show();
+          break;
+        }
+        else {
+        }
+      }
+      tempElem = $(tempElem).parent();        
+    }
+
     const containerElem = $('.document-search-container');
     if (containerElem.length) {
       if ($(containerElem).is(':visible')) {
