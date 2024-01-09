@@ -313,10 +313,7 @@ Created by Zach Supalla.
     prettyPrint();
   }
 
-  {{#if development}}
-  // Make sure to scroll the element after live reload
   if (window.location.hash && !window.location.hash.startsWith("#search=1&")) {
     Docs.scrollToElement(window.location.hash);
   }
-  {{/if}}
 })(jQuery);
