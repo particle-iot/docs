@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-01-05",
-            "hash": "8934c89b6437d479b8ce9476687e65cfd2f13b311bda96fc0a8da828c402ca7a"
+            "date": "2024-01-10",
+            "hash": "41403f68cd52409eabee1667b37aad2a25c117f7f4a9450274e08f32c88f963c"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1943,8 +1943,8 @@
             "hash": "7b12a10b03d457ae8a200b44260eaaea5a58ef566346200d7d10e1e0aee0d888"
         },
         "reference/device-os/api/wifi/selectantenna-antenna.md": {
-            "date": "2023-09-20",
-            "hash": "beb59424d6f84df28bf0e969c0d023454e5842bce6dbd27d6c43136d9d617e8b"
+            "date": "2024-01-10",
+            "hash": "e7f7b99049452cd9df674b4a4c416a0f3e5bc1ec0215b3910a419d2738656ca3"
         },
         "reference/device-os/api/wifi/listen.md": {
             "date": "2023-09-20",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "2d5bbf54980703b99879fe0c9c1faac1bc49ef389ebc89d7493c54a89551ddc3",
-            "date": "2024-01-09"
+            "hash": "63fa095ed3e779235d8675ceb274df0e1364c2c95825368b1ff280583b4ea5a1",
+            "date": "2024-01-10"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8297,6 +8297,10 @@
         "getting-started/logic-ledger/data-transformation.md": {
             "hash": "a3320ece65eadbda045bdde6e0bbb032651fa4bbff42ffe44a3fb4e3cdc50fb5",
             "date": "2024-01-07"
+        },
+        "reference/device-os/api/wifi/getantenna.md": {
+            "hash": "30671851a719452e22b9fc74542b6cd5b2ea78f63f2947d07ad3b6f08a732519",
+            "date": "2024-01-10"
         }
     }
 }

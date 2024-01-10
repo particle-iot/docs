@@ -1972,8 +1972,7 @@ particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
 {{api name1="WiFi.selectAntenna"}}
 
 {{note op="start" type="note"}}
-
-This function does not work on the P2 and Photon 2. Use BLE.selectAntenna() to set the antenna for both BLE and Wi-Fi.
+On ths P2 and Photon 2 this is only supported on Device OS 5.3.2 and later.
 
 The Argon (Gen 3) does not have an antenna switch for Wi-Fi; it can only use an external antenna. There is a separate setting
 for the Argon BLE antenna (BLE.selectAntenna).
@@ -1991,22 +1990,20 @@ STARTUP(WiFi.selectAntenna(ANT_EXTERNAL)); // selects the u.FL antenna
 STARTUP(WiFi.selectAntenna(ANT_AUTO)); // continually switches at high speed between antennas
 ```
 
-`WiFi.selectAntenna()` selects one of three antenna modes on your Photon or P1.  It takes one argument: `ANT_AUTO`, `ANT_INTERNAL` or `ANT_EXTERNAL`.
-`WiFi.selectAntenna()` must be used inside another function like STARTUP(), setup(), or loop() to compile.
+`WiFi.selectAntenna()` selects one of three antenna modes.  It takes one argument: `ANT_AUTO`, `ANT_INTERNAL` or `ANT_EXTERNAL`.
 
-You may specify in code which antenna to use as the default at boot time using the STARTUP() macro.
-
-> Note that the antenna selection is remembered even after power off or when entering safe mode.
+Note that the antenna selection is remembered even after power off or when entering safe mode.
 This is to allow your device to be configured once and then continue to function with the
 selected antenna when applications are flashed that don't specify which antenna to use.
+Resetting Wi-Fi credentials (long press of MODE) does not clear the antenna selection.
 
-This ensures that devices which must use the external antenna continue to use the external
-antenna in all cases even when the application code isn't being executed (e.g. safe mode.)
+You may specify in code which antenna to use as the default at boot time using the STARTUP() macro. If you are using system thread
+enabled mode or SEMI_AUTOMATIC or MANUAL system mode, you can select the antenna on setup or loop, however you should not set it 
+continuously.
 
 If no antenna has been previously selected, the `ANT_INTERNAL` antenna will be chosen by default.
 
-`WiFi.selectAntenna()` returns 0 on success, or -1005 if the antenna choice was not found.
-Other errors that may appear will all be negative values.
+`WiFi.selectAntenna()` returns 0 on success, or a non-zero error code.
 
 ```cpp
 // Use the STARTUP() macro to set the default antenna
@@ -2022,6 +2019,26 @@ void loop() {
   // your loop code
 }
 ```
+
+### getAntenna() 
+
+{{api name1="WiFi.getAntenna"}}
+
+{{note op="start" type="note"}}
+On ths P2 and Photon 2 this is only supported on Device OS 5.3.2 and later.
+{{note op="end"}}
+
+```cpp
+// PROTOTYPE
+WLanSelectAntenna_TypeDef getAntenna()
+```
+
+This function returns the currently selected antenna, one of:
+
+- `ANT_AUTO`
+- `ANT_INTERNAL`
+- `ANT_EXTERNAL`
+
 
 ### listen()
 

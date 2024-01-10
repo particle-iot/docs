@@ -59,6 +59,7 @@
   "/reference/device-os/firmware/#setconfig-wifi-": "/reference/device-os/api/wifi/setconfig-wifi/",
   "/reference/device-os/firmware/#getconfig-wifi-": "/reference/device-os/api/wifi/getconfig-wifi/",
   "/reference/device-os/firmware/#selectantenna-antenna-": "/reference/device-os/api/wifi/selectantenna-antenna/",
+  "/reference/device-os/firmware/#getantenna-": "/reference/device-os/api/wifi/getantenna/",
   "/reference/device-os/firmware/#listen--1": "/reference/device-os/api/wifi/listen/",
   "/reference/device-os/firmware/#listening--1": "/reference/device-os/api/wifi/listening/",
   "/reference/device-os/firmware/#setlistentimeout--1": "/reference/device-os/api/wifi/setlistentimeout/",

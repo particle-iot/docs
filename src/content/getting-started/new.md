@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Added documentation for WiFi.getAntenna 2024-01-10
+
+The [WiFi.getAntenna](/reference/device-os/api/wifi/getantenna/) function was not previously documented (but present since 0.8.0-rc.2).
+
 ### Opening a hidden section 2024-01-09
 
 If you try to open a link to a header in a section hidden by a disclosure triangle, or click on a
