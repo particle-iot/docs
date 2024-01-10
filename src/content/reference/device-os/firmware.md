@@ -13169,7 +13169,142 @@ typedef Map<String, Variant> VariantMap;
 
 {{since when="5.7.0"}}
 
-The `Map` class holds key-value pairs. It is used by [Ledger](#ledger).
+The `Map` C++ template holds key-value pairs. The template parameters determine the type of the key and value.
+
+The [VariantMap](#variantmap) is used by [Ledger](#ledger) to map [String](#string) to a [Variant](#variant) in [Ledger](#ledger). 
+
+
+### Map() [Map template]
+
+{{api name1="Map::Map()"}}
+
+Allocates an empty Map object. As it is a template you will also need to include template parameters or use a predefined class like [VariantMap](#variantmap).
+
+```cpp
+// PROTOTYPE
+Map();
+```
+
+### Map(std::initializer_list<Entry> entrie) [Map template]
+
+{{api name1="Map::Map(std::initializer_list<Entry> entrie)"}}
+
+Create a map from static initalization, typically to seed values from code.
+
+```cpp
+// PROTOTYPE
+Map(std::initializer_list<Entry> entries);
+
+// EXAMPLE
+Map<String, int> m1({{"a", 123}, {"b", 456}});
+```
+
+
+### Map(const Map& map) [Map template]
+
+{{api name1="Map::Map(const Map& map)"}}
+
+Makes a new map that's a copy of an existing map. After copying, changes in the original map won't affect the copy.
+
+```cpp
+// PROTOTYPE
+Map(const Map& map);
+```
+
+
+### set(const T& key, ValueT val) [Map template]
+
+{{api name1="Map::set(const T& key, ValueT val)"}}
+
+Replace an existing key-value pair in the map, or create a new one if `key` does not already exist.
+
+Returns true if the operation succeeded or false, typically because there wasn't enough free memory to add the entry.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+bool set(const T& key, ValueT val);
+```
+
+
+### get(const T& key) [Map template]
+
+{{api name1="Map::get(const T& key)"}}
+
+Gets the value of an entry in the map from its `key`. If the key does not exist, returns an empty value. See also the overload that allows you to specify the default value to be returned if the key does not exist.
+
+This returns a copy of the value, so it's less efficient for complex values. See also `operator[]` which returns a reference to the value instead of a copy, and `find()` which returns an iterator for the value.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+ValueT get(const T& key) const;
+```
+
+
+### get(const T& key, const ValueT& defaultVal) [Map template]
+
+{{api name1="Map::get(onst T& key, const ValueT& defaultVal)"}}
+
+Gets the value of an entry in the map from its `key`. If the key does not exist, returns `defaultVal`.
+
+This returns a copy of the value, so it's less efficient for complex values. See also `operator[]` which returns a reference to the value instead of a copy, and `find()` which returns an iterator for the value.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+ValueT get(const T& key, const ValueT& defaultVal) const;
+```
+
+
+
+### find(const T& key) [Map template]
+
+{{api name1="Map::find(const T& key)"}}
+
+Returns a `Map::Iterator` or `Map::ConstIterator` for an element with a key `key`. The iterator has a value of `end()` if the key is not found.
+
+```cpp
+// PROTOTYPES
+template<typename T>
+Iterator find(const T& key);
+
+template<typename T>
+ConstIterator find(const T& key) const;
+```
+
+### begin() [Map template]
+
+{{api name1="Map::begin()"}}
+
+Returns a `Map::Iterator` or `Map::ConstIterator` for iterating the entries in a map. 
+
+```cpp
+// PROTOTYPES
+Iterator begin();
+ConstIterator begin() const;
+
+// EXAMPLE
+Map<String, int> m1({{"a", 123}, {"b", 456}});
+for(auto it = m1.begin(); it != m1.end(); it++) {
+    Log.info("key=%s value=%d", it->first.c_str(), it->second);
+}
+```
+
+### end() [Map template]
+
+{{api name1="Map::end()"}}
+
+Returns a `Map::Iterator` or `Map::ConstIterator` for the entry after the last element of the map.
+
+```cpp
+// PROTOTYPES
+Iterator end();
+ConstIterator end() const;
+```
+
+
+
 
 ## Vector
 
@@ -13177,7 +13312,7 @@ The `Map` class holds key-value pairs. It is used by [Ledger](#ledger).
 
 {{since when="0.6.1"}}
 
-The `Vector` template is a dynamically-sized vector, essentially a dynamically-sized array, with additional convenience functions. It's similar to `std::vector` but does not require linking std::vector into the user application, which can save on flash usage. Vector is used by [Ledger](#ledger). 
+The `Vector` C++ template is a dynamically-sized vector, essentially a dynamically-sized array, with additional convenience functions. It's similar to `std::vector` but does not require linking std::vector into the user application, which can save on flash usage. Vector is used by [Ledger](#ledger). 
 
 As it a template, it can be used to store arbitrary C++ data types as well as standard built-in types. Some examples of types used in Device OS include:
 
@@ -13195,6 +13330,8 @@ Vector<char *>
 Vector<void *>
 Vector<uint8_t>
 ```
+
+As it is a vector (not a linked list), it's efficient to randomly access elements in the list by their index.
 
 ### Vector() [Vector template]
 
@@ -13547,6 +13684,30 @@ Peek at item `i` in the vector (zero-based). Only call this if the item exists.
 // PROTOTYPES
 T& at(int i);
 const T& at(int i) const;
+
+// EXAMPLE
+Vector<int> v({123, 456, 789});
+Log.info("%d", v.at(0));
+```
+
+### operator[](int i) [Vector template]
+
+{{api name1="T& Vector::operator[](int i)"}}
+
+Peek at item `i` in the vector (zero-based) using `operator[]` instead of `at()`. Only call this if the item exists.
+
+When used on the left side an expression, sets the value at that location. The array must already contain that element; you cannot 
+increase the size of the array using operator[].
+
+```cpp
+// PROTOTYPES
+T& operator[](int i);
+const T& operator[](int i) const;
+
+// EXAMPLE
+Vector<int> v({123, 456, 789});
+Log.info("%d", v[0]);
+v[0] = 999;
 ```
 
 
@@ -13638,6 +13799,62 @@ Removes all items in the vector, leaving it with a size of 0.
 void clear();
 ```
 
+
+### begin() [Vector template]
+
+{{api name1="Vector::begin()"}}
+
+Returns a `Vector::Iterator` or `Vector::ConstIterator` to iterate the vector. Since the vector provides efficient random access
+to elements you can also access the items by index using `at()` and an incrementing or decrementing loop instead of using an iterator.
+
+```cpp
+// PROTOTYPES
+Iterator begin();
+ConstIterator begin() const;
+
+// EXAMPLE
+Vector<int> v({123, 456, 789});
+for(auto it = v.begin(); it != v.end(); it++) {
+    Log.info("value %d", *it);
+}
+```
+
+### end() [Vector template]
+
+{{api name1="Vector::end()"}}
+
+Returns a `Vector::Iterator` or `Vector::ConstIterator` of the end of the vector.
+
+```cpp
+// PROTOTYPES
+Iterator end();
+ConstIterator end() const;
+```
+
+### insert(ConstIterator pos, T value) [Vector template]
+
+{{api name1="Vector::insert(ConstIterator pos, T value)"}}
+
+Inserts `value` at the current position of iterator `pos`, making the vector larger. Returns a new value
+to continue iteration.
+
+```cpp
+// PROTOTYPE
+Iterator insert(ConstIterator pos, T value);
+```
+
+
+### insert(ConstIterator pos, T value) [Vector template]
+
+{{api name1="Vector::insert(ConstIterator pos, T value)"}}
+
+Removes the item at the current position of iterator `pos`, making the vector smaller. Returns a new value
+to continue iteration.
+
+```cpp
+// PROTOTYPE
+Iterator erase(ConstIterator pos);
+```
 
 
 
