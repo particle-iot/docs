@@ -13123,6 +13123,523 @@ int8_t measurePower() const;
 
 In Device OS 3.0.0 and later there are accessors to read the values out of the iBeacon class.
 
+## Ledger
+
+{{api name1="Ledger"}}
+
+{{since when="5.7.0"}}
+
+Ledger provides device-to-cloud and cloud-to device data synchronization. See [Ledger](/getting-started/logic-ledger/ledger/) for an introduction to Ledger.
+
+See [Variant](#variant) for additional information.
+
+See [Map](#map) for additional information.
+
+
+## Variant
+
+{{api name1="Variant"}}
+
+{{since when="5.7.0"}}
+
+The `Variant` class holds typed data. It is used by [Ledger](#ledger) and [Map](#map).
+
+### VariantArray
+
+The `VariantArray` is a [Vector](#vector), essentially a dynamically-sized array of Variants, which are containers for arbitrary data. Think of this as a container to hold arbitrary data in Variant objects before converting to a JSON or CBOR array before sending across the network.
+
+```
+// DEFINITION
+typedef Vector<Variant> VariantArray;
+```
+
+
+### VariantMap
+
+The `VariantMap` class is a [Map](#map) of a [String](#string) to a [Variant](#variant). Think of this as a container to store key-value pair of arbitrary data. This is used to hold data before converting it to JSON or CBOR for sending over the network.
+
+```
+// DEFINITION
+typedef Map<String, Variant> VariantMap;
+```
+
+## Map
+
+{{api name1="Map"}}
+
+{{since when="5.7.0"}}
+
+The `Map` class holds key-value pairs. It is used by [Ledger](#ledger).
+
+## Vector
+
+{{api name1="Vector"}}
+
+{{since when="0.6.1"}}
+
+The `Vector` template is a dynamically-sized vector, essentially a dynamically-sized array, with additional convenience functions. It's similar to `std::vector` but does not require linking std::vector into the user application, which can save on flash usage. Vector is used by [Ledger](#ledger). 
+
+As it a template, it can be used to store arbitrary C++ data types as well as standard built-in types. Some examples of types used in Device OS include:
+
+```cpp
+Vector<WifiNetworkConfig>
+Vector<NetworkInterfaceConfig>
+Vector<SockAddr>
+Vector<WifiScanResult>
+Vector<BleCharacteristic>
+Vector<BleService>
+Vector<Asset>
+Vector<String>
+Vector<char>
+Vector<char *>
+Vector<void *>
+Vector<uint8_t>
+```
+
+### Vector() [Vector template]
+
+{{api name1="Vector::Vector()"}}
+
+Allocates a Vector object that is empty. It will be expanded as necessary. If you know the number of elements or the element contents, there are other constructors that can be used.
+
+```cpp
+// PROTOTYPE
+Vector();
+```
+
+### Vector(int n) [Vector template]
+
+{{api name1="Vector::Vector(int n)"}}
+
+Allocates a Vector object of size n elements. It can be expanded later if desired.
+
+```cpp
+// PROTOTYPE
+explicit Vector(int n);
+```
+
+### Vector(int n, const T& value) [Vector template]
+
+{{api name1="Vector::Vector(int n, const T& value)"}}
+
+Allocates a Vector object of size `n` elements with each item in the vector set to value.
+
+```cpp
+// PROTOTYPE
+explicit Vector(int n, const T& value);
+```
+
+
+### Vector(std::initializer_list<T> values) [Vector template]
+
+{{api name1="std::initializer_list<T> values"}}
+
+Allocates a Vector object from a `std::initializer_list<T>`. This is often used to initialize a list of values from code, see the example.
+
+```cpp
+// PROTOTYPE
+Vector(std::initializer_list<T> values);
+
+// EXAMPLE
+Vector<int> v({123, 456, 789});
+```
+
+### Vector(const Vector<T, AllocatorT>& vector) [Vector template]
+
+{{api name1="const Vector<T, AllocatorT>& vector"}}
+
+Allocates a new vector object that is a copy of an existing Vector. 
+
+If the original vector contained objects, for example `Vector<String>` then a new object will be allocated, so the values will not be linked together after allocation.
+
+If the original vector contained pointers such as `Vector<void *>`, the pointers will be copied, which can lead to object lifetime confusion.
+
+```cpp
+// PROTOTYPE
+Vector(const Vector<T, AllocatorT>& vector);
+```
+
+### append(T value) [Vector template]
+
+{{api name1="Vector::append(T value)"}}
+
+Appends a value to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool append(T value);
+```
+
+### append(int n, const T& value) [Vector template]
+
+{{api name1="Vector::append(int n, const T& value)"}}
+
+Appends `n` copies of `value` to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool append(int n, const T& value);
+```
+
+### append(const T* values, int n) [Vector template]
+
+{{api name1="Vector::append(const T* values, int n)"}}
+
+Appends the `n` items in the `values` array to the vector. This is typically done if you have a C++ array of `T` and want to append those items to your vector. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool append(const T* values, int n);
+```
+
+
+### append(const Vector<T, AllocatorT>& vecto) [Vector template]
+
+{{api name1="Vector::append(const Vector<T, AllocatorT>& vector)"}}
+
+Appends an existing vector to the end of this vector. 
+
+If the original vector contained objects, for example `Vector<String>` then a new object will be allocated, so the values will not be linked together after appending.
+
+If the original vector contained pointers such as `Vector<void *>`, the pointers will be copied, which can lead to object lifetime confusion.
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool append(const Vector<T, AllocatorT>& vecto);
+```
+
+
+### prepend(T value) [Vector template]
+
+{{api name1="Vector::prepend(T value)"}}
+
+Prepend (insert at beginning) a value to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool prepend(T value);
+```
+
+### prepend(int n, const T& value) [Vector template]
+
+{{api name1="Vector::prepend(int n, const T& value)"}}
+
+Prepend (insert at beginning) `n` copies of `value` to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool prepend(int n, const T& value);
+```
+
+### prepend(const T* values, int n) [Vector template]
+
+{{api name1="Vector::prepend(const T* values, int n)"}}
+
+Prepend (insert at beginning) the `n` items in the `values` array to the vector. This is typically done if you have a C++ array of `T` and want to prepend those items to your vector. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool prepend(const T* values, int n);
+```
+
+
+### prepend(const Vector<T, AllocatorT>& vector) [Vector template]
+
+{{api name1="Vector::prepend(const Vector<T, AllocatorT>& vector)"}}
+
+Prepend (insert at beginning) an existing vector to the end of this vector. 
+
+If the original vector contained objects, for example `Vector<String>` then a new object will be allocated, so the values will not be linked together after appending.
+
+If the original vector contained pointers such as `Vector<void *>`, the pointers will be copied, which can lead to object lifetime confusion.
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool prepend(const Vector<T, AllocatorT>& vecto);
+```
+
+
+### insert(int i, T value) [Vector template]
+
+{{api name1="Vector::insert(int i, T value)"}}
+
+Insert at location `i` (0 = beginning) a value to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool insert(int i, T value);
+```
+
+### insert(int i, int n, const T& value) [Vector template]
+
+{{api name1="Vector::insert(int i, int n, const T& value)"}}
+
+Insert at location `i` (0 = beginning) `n` copies of `value` to a Vector, making the vector larger. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool insert(int i, int n, const T& value);
+```
+
+### insert(int i, const T* values, int n) [Vector template]
+
+{{api name1="Vector::insert(int i, const T* values, int n)"}}
+
+Insert at location `i` (0 = beginning) the `n` items in the `values` array to the vector. This is typically done if you have a C++ array of `T` and want to insert those items to your vector. 
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool insert(int i, const T* values, int n);
+```
+
+
+### insert(const Vector<T, AllocatorT>& vector) [Vector template]
+
+{{api name1="Vector::insert(const Vector<T, AllocatorT>& vector)"}}
+
+Insert at location `i` (0 = beginning) an existing vector to the end of this vector. 
+
+If the original vector contained objects, for example `Vector<String>` then a new object will be allocated, so the values will not be linked together after appending.
+
+If the original vector contained pointers such as `Vector<void *>`, the pointers will be copied, which can lead to object lifetime confusion.
+
+Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPE
+bool insert(const Vector<T, AllocatorT>& vecto);
+```
+
+### removeAt(removeAt(int i, int n = 1) [Vector template]
+
+{{api name1="Vector::removeAt(int i, int n = 1)"}}
+
+Removes `n` elements (default" 1) at location `i` (0 = beginning) from a vector.
+
+If the original vector contained pointers such as `Vector<void *>`, the pointers are not deleted or freed; you must maintain your own object lifecycle.
+
+
+```cpp
+// PROTOTYPE
+void removeAt(int i, int n = 1);
+```
+
+
+### bool removeOne(const T& value) [Vector template]
+
+{{api name1="Vector::removeOne(const T& value)"}}
+
+Removes the first element whose value is `value`. This works for primitive types (int, etc.) as well as classes that support `operator==` like `String`.
+
+If the value is a pointer (such as `char *`) it will compare the pointer itself, not the thing being pointed to.
+
+Returns true if the item existed and was removed.
+
+```cpp
+// PROTOTYPE
+bool removeOne(const T& value);
+```
+
+
+### bool removeAll(const T& value) [Vector template]
+
+{{api name1="Vector::removeAll(const T& value)"}}
+
+Removes all elements whose value is `value`. This works for primitive types (int, etc.) as well as classes that support `operator==` like `String`.
+
+If the value is a pointer (such as `char *`) it will compare the pointer itself, not the thing being pointed to.
+
+Returns true if the item existed and at least one was removed.
+
+```cpp
+// PROTOTYPE
+bool removeAll(const T& value);
+```
+
+
+### T takeFirst() [Vector template]
+
+{{api name1="T Vector::takeFirst()"}}
+
+Removes the first element of the vector and returns it. Only call this if the vector is not empty.
+
+```cpp
+// PROTOTYPE
+T takeFirst();
+```
+
+### T takeLast() [Vector template]
+
+{{api name1="T Vector::takeLast()"}}
+
+Removes the last element of the vector and returns it. Only call this if the vector is not empty.
+
+```cpp
+// PROTOTYPE
+T takeLast();
+```
+
+### T takeAt(int i) [Vector template]
+
+{{api name1="T Vector::takeAt(int i)"}}
+
+Removes the element of the vector at index `i` and returns it. `i` is zero-based (0 = same as takeFirst). 
+Make sure the item exists before calling.
+
+```cpp
+// PROTOTYPE
+T takeAt(int i);
+```
+
+### T first() [Vector template]
+
+{{api name1="T& Vector::first()"}}
+
+Peek at the first item in the vector. Only call this if the vector is not empty.
+
+```cpp
+// PROTOTYPES
+T& first();
+const T& first() const;
+```
+
+### T last() [Vector template]
+
+{{api name1="T& Vector::last()"}}
+
+Peek at the last item in the vector. Only call this if the vector is not empty.
+
+```cpp
+// PROTOTYPES
+T& last();
+const T& last() const;
+```
+
+### T at(int i) [Vector template]
+
+{{api name1="T& Vector::at(int i)"}}
+
+Peek at item `i` in the vector (zero-based). Only call this if the item exists.
+
+```cpp
+// PROTOTYPES
+T& at(int i);
+const T& at(int i) const;
+```
+
+
+### indexOf(const T& value, int i = 0) [Vector template]
+
+{{api name1="Vector::indexOf(const T& value, int i = 0)"}}
+
+Find the index (zero-based) of an item whose value is `value` starting at index `i` (optional, if not specified from the start at index 0).
+
+Returns -1 if the item does not exist.
+
+```cpp
+// PROTOTYPE
+int indexOf(const T& value, int i = 0) const;
+```
+
+
+### lastIndexOf(const T& value) [Vector template]
+
+{{api name1="Vector::lastIndexOf(const T& value)"}}
+
+Find the index (zero-based) of the last item whose value is `value` in the vector.
+
+Returns -1 if the item does not exist.
+
+```cpp
+// PROTOTYPE
+int lastIndexOf(const T& value) const;
+```
+
+### lastIndexOf(const T& value, int i) [Vector template]
+
+{{api name1="Vector::lastIndexOf(const T& value, int i)"}}
+
+Find the index (zero-based) of the last item whose value is `value` in the vector starting at index `i`.
+
+Returns -1 if the item does not exist.
+
+```cpp
+// PROTOTYPE
+int lastIndexOf(const T& value, int i) const;
+```
+
+### contains(const T& value) [Vector template]
+
+{{api name1="contains(const T& value)"}}
+
+Returns true if the vector contains an item whose value is `value`. Essentially the same as `indexOf() >= 0`.
+
+```cpp
+// PROTOTYPE
+bool contains(const T& value) const;
+```
+
+
+### size() [Vector template]
+
+{{api name1="Vector::size()"}}
+
+Returns the size of the vector. 0 = empty. This operation is constant time regardless of the size of the vector.
+
+```cpp
+// PROTOTYPE
+int size() const;
+```
+
+
+
+### isEmpty() [Vector template]
+
+{{api name1="Vector::isEmpty()"}}
+
+Returns true if the vector is empty (size == 0).
+
+```cpp
+// PROTOTYPE
+bool isEmpty() const;
+```
+
+
+### isEmpty() [Vector template]
+
+{{api name1="Vector::clear()"}}
+
+Removes all items in the vector, leaving it with a size of 0.
+
+```cpp
+// PROTOTYPE
+void clear();
+```
+
+
+
 
 ## NFC
 
@@ -16866,7 +17383,7 @@ sensVal = constrain(sensVal, 10, 150);
 // limits range of sensor values to between 10 and 150
 ```
 
-### map()
+### map() [value tranformation]
 
 ```cpp
 // EXAMPLE USAGE
