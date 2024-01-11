@@ -13256,6 +13256,18 @@ template<typename T>
 ValueT get(const T& key, const ValueT& defaultVal) const;
 ```
 
+### has(const T& key) [Map template]
+
+{{api name1="Map::has(const T& key)"}}
+
+Returns true if the map has an entry with a key `key`.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+bool has(const T& key) const;
+```
+
 
 
 ### find(const T& key) [Map template]
@@ -13303,6 +13315,81 @@ Iterator end();
 ConstIterator end() const;
 ```
 
+### erase(ConstIterator pos) [Map template]
+
+{{api name1="Map::erase(ConstIterator pos)"}}
+
+Removes the entry at the current iterator position and returns the value to use to continue iteration.
+
+```cpp
+// PROTOTYPE
+Iterator erase(ConstIterator pos);
+```
+
+### remove(const T& key) [Map template]
+
+{{api name1="Map::remove(const T& key)"}}
+
+Remove entry with key `key` from the map. Returns true if the item existed and was removed, false if it did not exist.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+bool remove(const T& key);
+```
+
+
+### clear() [Map template]
+
+{{api name1="Map::clear()"}}
+
+Removes all entries from the map
+
+```cpp
+// PROTOTYPE
+void clear();
+```
+
+
+### size() [Map template]
+
+{{api name1="Map::size()"}}
+
+Returns the number of entries in the map.
+
+```cpp
+// PROTOTYPE
+int size() const;
+```
+
+
+### isEmpty() [Map template]
+
+{{api name1="Map::isEmpty()"}}
+
+Returns true if the map has no entries (size == 0).
+
+```cpp
+// PROTOTYPE
+ool isEmpty() const;
+```
+
+
+### operator[](const KeyT& key) [Map template]
+
+{{api name1="Map::operator[](const KeyT& key)"}}
+
+Gets a reference to an entry with key `key`. This will create the entry if it does not exist. If there is insufficient memory to allocate a new entry, it will cause a SOS panic. Using `set()` can provide more control over error conditions.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+ValueT& operator[](const T& key);
+
+// EXAMPLE
+Map<String, int> m1({{"a", 123}, {"b", 456}});
+m1["a"] = 999;
+```
 
 
 
