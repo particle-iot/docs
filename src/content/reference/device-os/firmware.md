@@ -13142,9 +13142,7 @@ See [Map](#map) for additional information.
 
 {{since when="5.7.0"}}
 
-The `Variant` class holds typed data. 
-
-It is used by [Ledger](#ledger), commonly used [VariantArray](#variantarray) and [VariantMap](#variantmap) to hold data that will be converted to JSON or CBOR.
+The `Variant` class holds typed data. It is used by [Ledger](#ledger). See also [VariantArray](#variantarray) and [VariantMap](#variantmap) to hold data that will be converted to JSON or CBOR.
 
 ### Variant::Type
 
@@ -13172,6 +13170,7 @@ You can construct a `Variant` object with a parameter of an explict type to crea
 
 ```cpp
 // PROTOTYPES
+Variant();
 Variant(const std::monostate& val);
 Variant(bool val);
 Variant(int val);
@@ -13193,7 +13192,8 @@ Variant(VariantMap val);'
 
 {{api name1="Variant::value()"}}
 
-The `value` method is a template that returns a reference to the stored value of the variant. The allowable types are listed in [Variant::Type](#varianttype). 
+The `value` method is a template that returns a reference to the stored value of the variant. The allowable types are listed in [Variant::Type](#varianttype). This can be done to either get or set a value.
+
 ```cpp
 // PROTOTYPES
 template<typename T>
@@ -13204,15 +13204,16 @@ const T& value() const;
 
 // EXAMPLES
 int value1 = variant1.value<int>();
+bool value2 = variant2.value<bool>();
+String value3 = variant3.value<String>();
 ```
-
 
 
 ### type() [Variant class]
 
 {{api name1="Variant::type()"}}
 
-Return the type of the `Variant`. See [Variant::Type](#varianttype) for a list of valid types. There are also accessors 
+Return the type of the `Variant`. See [Variant::Type](#varianttype) for a list of valid types. There are also [accessors to check for a specific type](#isxxx-variant-class) such as `isInt()`.
 
 ```cpp
 // PROTOTYPE
@@ -13243,14 +13244,17 @@ bool isMap() const;
 
 {{api name1="Variant::toBool()"}}
 
-Converts the value of the variant to a boolean.
+Returns value of the variant to an `bool` (boolean, `true` or `false`), converting the type if necessary. The original value is left unchanged.
 
 | Source | Result | 
 | :--- | :--- |
 | bool | unchanged |
-| numeric | 0 &rarr; false, non-zero &rarr; true |
-| String | 'false' &rarr; false, 'true' &rarr; true |
+| numeric | zero (`0`) &rarr; `false`, non-zero &rarr; `true` |
+| String | `false` &rarr; `false`, 'true' &rarr; "true" |
 | other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
 
 ```cpp
 // PROTOTYPES
@@ -13258,24 +13262,322 @@ bool toBool() const;
 bool toBool(bool& ok) const;
 ```
 
+### asBool() [Variant class]
+
+{{api name1="Variant::asBool()"}}
+
+Returns a reference to the value contained in this variant as a `bool`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+bool& asBool();
+```
+
+This method will convert the type of the variant to bool if necessary, see [toBool](#tobool-variant-class) for more information. If the conversion is not possible, the method will assert.
+
+
+### asBool() [Variant class]
+
+{{api name1="Variant::asBool()"}}
+
+Returns a reference to the value contained in this variant as an `bool`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+bool& asBool();
+```
+
+This method will convert the type of the variant to `bool` if necessary, see [toBool](#tobool-variant-class) for more information. If the conversion is not possible, the method will assert.
+
+
 ### toInt() [Variant class]
 
 {{api name1="Variant::toInt()"}}
 
-Converts the value of the variant to a boolean.
+Returns the value of the variant to an `int` (32-bit signed), converting the type if necessary. The original value is left unchanged.
 
 | Source | Result | 
 | :--- | :--- |
-| bool | false &rarr; 0, true &rarr; 1 |
+| bool | false &rarr; `0`, true &rarr; `1` |
 | numeric | unchanged |
-| String | string number &rarr; int |
+| String | string number &rarr; 32-bit integer |
 | other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
 
 ```cpp
 // PROTOTYPES
 int toInt() const;
 int toInt(bool& ok) const;
 ```
+
+
+### asInt() [Variant class]
+
+{{api name1="Variant::asInt()"}}
+
+Returns a reference to the value contained in this variant as an `int`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+int& asInt();
+```
+
+This method will convert the type of the variant to `int` if necessary, see [toInt](#toint-variant-class) for more information. If the conversion is not possible, the method will assert.
+
+
+### toUInt() [Variant class]
+
+{{api name1="Variant::toUInt()"}}
+
+Returns the value of the variant to `unsigned` (`unsigned int`, 32-bit unsigned), converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; `0`, true &rarr; `1` |
+| numeric | unchanged |
+| String | string number &rarr; 32-bit unsigned integer |
+| other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+unsigned toUInt() const;
+unsigned toUInt(bool& ok) const;
+```
+
+### asUInt() [Variant class]
+
+{{api name1="Variant::asUInt()"}}
+
+Returns a reference to the value contained in this variant as an `unsigned`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+unsigned& asUnsigned();
+```
+
+This method will convert the type of the variant to `unsigned` if necessary, see [toUInt](#touint-variant-class) for more information. If the conversion is not possible, the method will assert.
+
+
+
+### toInt64() [Variant class]
+
+{{api name1="Variant::toInt64()"}}
+
+Returns the value of the variant to an `int64_t` (64-bit signed integer), converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; `0`, true &rarr; `1` |
+| numeric | unchanged |
+| String | string number &rarr; 64-bit signed integer |
+| other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+int64_t toInt64() const;
+int64_t toInt64(bool& ok) const;
+```
+
+
+### asInt64() [Variant class]
+
+{{api name1="Variant::asInt64()"}}
+
+Returns a reference to the value contained in this variant as an `int64_t`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+int64_t& asInt64();
+```
+
+This method will convert the type of the variant to `int64_t` if necessary, see [toInt64](#toint64-variant-class) for more information. If the conversion is not possible, the method will assert.
+
+
+
+### toUInt64() [Variant class]
+
+{{api name1="Variant::toUInt64()"}}
+
+Returns the value of the variant to `uint64_t` (64-bit unsigned integer), converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; `0`, true &rarr; `1` |
+| numeric | unchanged |
+| String | string number &rarr; 64-bit unsigned integer |
+| other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+uint64_t toUInt64() const;
+uint64_t toUInt64(bool& ok) const;
+```
+
+
+### asUInt64() [Variant class]
+
+{{api name1="Variant::asUInt64()"}}
+
+Returns a reference to the value contained in this variant as an `uint64_t`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+uint64_t& asUInt64();
+```
+
+This method will convert the type of the variant to `uint64_t` if necessary, see [toUInt64](#touint64-variant-class) for more information. If the conversion is not possible, the method will assert.
+
+
+### toDouble() [Variant class]
+
+{{api name1="Variant::toDouble()"}}
+
+Returns the value of the variant to an `double` (8 byte or 64-bit double precision floating point), converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; `0.0`, true &rarr; `1.0` |
+| numeric | unchanged |
+| String | string number &rarr; double floating point |
+| other | conversion fails |
+
+If the value of the `double` it within the bounds of a `float` you can static cast from `double` to `float`. A `float` (single precision, 4-byte or 32-bit) will be promoted to a `double` automatically if necessary.
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+double toDouble() const;
+double toDouble(bool& ok) const;
+```
+
+### asDouble() [Variant class]
+
+{{api name1="Variant::asDouble()"}}
+
+Returns a reference to the value contained in this variant as an `double`. This can be used to modify the value of the variant.
+
+```cpp
+// PROTOTYPE
+double& asDouble();
+```
+
+This method will convert the type of the variant to `double` if necessary, see [toDouble](#todouble-variant-class) for more information. If the conversion is not possible, the method will assert.
+
+
+### toString() [Variant class]
+
+{{api name1="Variant::toString()"}}
+
+Returns the value of the variant to an `String` (an ASCII or UTF-8 string) and returns a copy of it, converting the type if necessary. The original value is left unchanged.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; "0", true &rarr; "1" |
+| numeric | converted to a string (decimal ASCII) |
+| String | unchanged |
+| other | conversion fails |
+
+There are two overloads, one that takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type or can be converted.
+
+```cpp
+// PROTOTYPES
+String toString() const;
+String toString(bool& ok) const;
+```
+
+### asString() [Variant class]
+
+{{api name1="Variant::asString()"}}
+
+Returns a reference to the value contained in this variant as an `String`. This can be used to modify the value of the variant and to more efficiently read the string without having to copy it.
+
+```cpp
+// PROTOTYPE
+String& asString();
+```
+
+This method will convert the type of the variant to `String` if necessary, see [toString](#tostring-variant-class) for more information. If the conversion is not possible, the method will assert.
+
+
+### toArray() [Variant class]
+
+{{api name1="Variant::toArray()"}}
+
+Returns the value of the variant as an array.
+
+| Source | Result | 
+| :--- | :--- |
+| VariantArray | unchanged |
+| other | conversion fails |
+
+This method takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type.
+
+```cpp
+// PROTOTYPES
+VariantArray toArray(bool& ok) const;
+```
+
+### asArray() [Variant class]
+
+{{api name1="Variant::asArray()"}}
+
+Returns a reference to the value contained in this variant as an `VariantArray`. This can be used to modify the value of the variant and to more efficiently read the array without having to copy it.
+
+```cpp
+// PROTOTYPE
+VariantArray& asArray();
+```
+
+This method will not convert the type of variant. If the Variant is not already a `VariantArray` then this method will assert.
+
+
+### toMap() [Variant class]
+
+{{api name1="Variant::toMap()"}}
+
+Returns the value of the variant as an map.
+
+| Source | Result | 
+| :--- | :--- |
+| VariantMap | unchanged |
+| other | conversion fails |
+
+This method takes an `ok` parameter passed by reference, which is filled in as 
+`true` if the data is already this type.
+
+```cpp
+// PROTOTYPES
+VariantMap toMap(bool& ok) const;
+```
+
+
+### asMap() [Variant class]
+
+{{api name1="Variant::asMap()"}}
+
+Returns a reference to the value contained in this variant as an `VariantMap`. This can be used to modify the value of the variant and to more efficiently read the map without having to copy it.
+
+```cpp
+// PROTOTYPE
+VariantMap& asMap();
+```
+
+This method will not convert the type of variant. If the Variant is not already a `VariantMap` then this method will assert.
 
 
 ## VariantArray
