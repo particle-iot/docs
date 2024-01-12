@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Static network interface example fixes 2024-01-12
+
+In several locations in the Device OS firmware API reference, when `.source(NetworkInterfaceConfigSource::STATIC)` was specified, there
+was a semicolon at the end of the line which should not be there.
+
 ### Added documentation for WiFi.getAntenna 2024-01-10
 
 The [WiFi.getAntenna](/reference/device-os/api/wifi/getantenna/) function was not previously documented (but present since 0.8.0-rc.2).

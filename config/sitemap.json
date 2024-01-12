@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-01-10",
-            "hash": "41403f68cd52409eabee1667b37aad2a25c117f7f4a9450274e08f32c88f963c"
+            "date": "2024-01-12",
+            "hash": "6e5bd0a2e8f7144493c14b527ed2da9649340cd47bede4379f9cb0bf4dbb2815"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1859,8 +1859,8 @@
             "hash": "93e1050fa0675a2aadd8916ea5891ddc78b3da065f4c7d86770c87e78280c338"
         },
         "reference/device-os/api/ethernet/setconfig-ethernet.md": {
-            "date": "2023-10-30",
-            "hash": "7f81145b21e9a6299b0cb75bb2d927460a12c43599b9dbefe56ac6211304c7f6"
+            "date": "2024-01-12",
+            "hash": "cec96ee5b346e539fa85e1fceab10e53d7af09558c514281480e35322affef3f"
         },
         "reference/device-os/api/ethernet/getconfig-ethernet.md": {
             "date": "2023-10-30",
@@ -1935,8 +1935,8 @@
             "hash": "40151f0955763f2b2171033aaabd3767f0a06a21dbf9ed03aac16612d2d2334e"
         },
         "reference/device-os/api/wifi/setconfig-wifi.md": {
-            "date": "2023-09-20",
-            "hash": "8870da5dbd0385def4d32e082517c507b3051e85d1573f857a00bd654fd32aa5"
+            "date": "2024-01-12",
+            "hash": "fc143eea8bd1eb30ce2b724495b0977bd5402e0881040111ab6b6df8e6d535c4"
         },
         "reference/device-os/api/wifi/getconfig-wifi.md": {
             "date": "2023-09-20",
@@ -2103,8 +2103,8 @@
             "hash": "f8da89cbffd039851da150ce85faad519e3bce0777bbd27a89760627bafe8254"
         },
         "reference/device-os/api/network/setconfig-network.md": {
-            "date": "2023-10-17",
-            "hash": "6e8b53846674f4049b1f6ca5dbc773cfe9ec5556fb7eed602d668ceedeae4941"
+            "date": "2024-01-12",
+            "hash": "d3db3a85d00fffffa61d3e44eef999ae594d04cf6ad8d4650ea69a696304f5ca"
         },
         "reference/device-os/api/network/getconfig-network.md": {
             "date": "2023-09-20",
@@ -2127,8 +2127,8 @@
             "hash": "7b4a1240d1419a981e22ab2f74462256da5e90bc470e5eaad6b70b17e76e25bf"
         },
         "reference/device-os/api/network/networkinterfaceconfig.md": {
-            "date": "2023-11-28",
-            "hash": "07b8e080feccc404f766c583a7f28dea91810f19351c3778813dbb003e67b331"
+            "date": "2024-01-12",
+            "hash": "ff6594d1441d02353f74f215ac33deeb1b62a9608233393870edb4c8b702e78c"
         },
         "reference/device-os/api/softap-http-pages/softap-http-pages.md": {
             "date": "2023-09-20",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "63fa095ed3e779235d8675ceb274df0e1364c2c95825368b1ff280583b4ea5a1",
-            "date": "2024-01-10"
+            "hash": "fc383b864ec4634e057b534a7178b79801bff896b19c1ee5a72686606f412878",
+            "date": "2024-01-12"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

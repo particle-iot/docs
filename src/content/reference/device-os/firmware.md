@@ -1654,7 +1654,7 @@ int setConfig(const particle::NetworkInterfaceConfig& conf);
 
 // EXAMPLE
 Ethernet.setConfig(NetworkInterfaceConfig()
-  .source(NetworkInterfaceConfigSource::STATIC);
+  .source(NetworkInterfaceConfigSource::STATIC)
   .address({192,168,1,20}, {255,255,255,0})
   .gateway(SockAddr({192,168,1,1}))
   .dns(SockAddr({192,168,1,1})));
@@ -1948,7 +1948,7 @@ int setConfig(const particle::NetworkInterfaceConfig& conf);
 
 // EXAMPLE
 WiFi.setConfig(NetworkInterfaceConfig()
-  .source(NetworkInterfaceConfigSource::STATIC);
+  .source(NetworkInterfaceConfigSource::STATIC)
   .address({192,168,1,20}, {255,255,255,0})
   .gateway({192,168,1,1})
   .dns({192,168,1,1});
@@ -3364,7 +3364,7 @@ int setConfig(const particle::NetworkInterfaceConfig& conf);
 
 // EXAMPLE
 Network.setConfig(NetworkInterfaceConfig()
-  .source(NetworkInterfaceConfigSource::STATIC);
+  .source(NetworkInterfaceConfigSource::STATIC)
   .address({192,168,1,20}, {255,255,255,0})
   .gateway(SockAddr({192,168,1,1}))
   .dns(SockAddr({192,168,1,1})));
@@ -3541,13 +3541,13 @@ SockAddr gateway(int family = AF_INET) const;
 
 // EXAMPLE
 Ethernet.setConfig(NetworkInterfaceConfig()
-  .source(NetworkInterfaceConfigSource::STATIC);
+  .source(NetworkInterfaceConfigSource::STATIC)
   .address({192,168,1,20}, {255,255,255,0})
   .gateway(SockAddr({192,168,1,1})));
 
 // EXAMPLE - Ethernet is isolated, do not use for Internet or cloud access
 Ethernet.setConfig(NetworkInterfaceConfig()
-  .source(NetworkInterfaceConfigSource::STATIC);
+  .source(NetworkInterfaceConfigSource::STATIC)
   .address({192,168,1,20}, {255,255,255,0})
   .gateway(SockAddr({0,0,0,0})));
 
@@ -3571,7 +3571,7 @@ NetworkInterfaceConfig& dns(SockAddr dns);
 
 // EXAMPLE
 Ethernet.setConfig(NetworkInterfaceConfig()
-  .source(NetworkInterfaceConfigSource::STATIC);
+  .source(NetworkInterfaceConfigSource::STATIC)
   .address({192,168,1,20}, {255,255,255,0})
   .gateway(SockAddr({192,168,1,1}))
   .dns(SockAddr({192,168,1,1}))
