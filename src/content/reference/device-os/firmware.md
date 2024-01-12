@@ -13142,9 +13142,143 @@ See [Map](#map) for additional information.
 
 {{since when="5.7.0"}}
 
-The `Variant` class holds typed data. It is used by [Ledger](#ledger) and [Map](#map).
+The `Variant` class holds typed data. 
 
-### VariantArray
+It is used by [Ledger](#ledger), commonly used [VariantArray](#variantarray) and [VariantMap](#variantmap) to hold data that will be converted to JSON or CBOR.
+
+### Variant::Type
+
+Variants have an explicit type, unlike JSON. The following
+
+| Constant | C++ Type |
+| :--- | :--- |
+| Variant::Type::NULL | Null type (`std::monostate`) |
+| Variant::Type::BOOL | `bool` |
+| Variant::Type::INT | `int` |
+| Variant::Type::UINT | `unsigned` |
+| Variant::Type::INT64 | `int64_t` |
+| Variant::Type::UINT64 | `uint64_t` |
+| Variant::Type::DOUBLE | `double` |
+| Variant::Type::STRING | `String` |
+| Variant::Type::ARRAY | `VariantArray` |
+| Variant::Type::MAP | `VariantMap` |
+
+
+### constructor [Variant class]
+
+{{api name1="Variant::Variant()"}}
+
+You can construct a `Variant` object with a parameter of an explict type to create a variant of that type.
+
+```cpp
+// PROTOTYPES
+Variant(const std::monostate& val);
+Variant(bool val);
+Variant(int val);
+Variant(unsigned val);
+Variant(long val);
+Variant(unsigned long val);
+Variant(long val);
+Variant(unsigned long val);
+Variant(long long val);
+Variant(unsigned long long val);
+Variant(double val);
+Variant(const char* val);
+Variant(String val);
+Variant(VariantArray val);
+Variant(VariantMap val);'
+```
+
+### value() [Variant class]
+
+{{api name1="Variant::value()"}}
+
+The `value` method is a template that returns a reference to the stored value of the variant. The allowable types are listed in [Variant::Type](#varianttype). 
+```cpp
+// PROTOTYPES
+template<typename T>
+T& value();
+
+template<typename T>
+const T& value() const;
+
+// EXAMPLES
+int value1 = variant1.value<int>();
+```
+
+
+
+### type() [Variant class]
+
+{{api name1="Variant::type()"}}
+
+Return the type of the `Variant`. See [Variant::Type](#varianttype) for a list of valid types. There are also accessors 
+
+```cpp
+// PROTOTYPE
+Type type() const;
+```
+
+### isXXX() [Variant class]
+
+Returns true if the Variant is of the specified type.
+
+```cpp
+// PROTOTYPES
+bool isNull() const;
+bool isBool() const;
+bool isInt() const;
+bool isUInt() const;
+bool isInt64() const;
+bool isUInt64() const;
+bool isDouble() const;
+bool isNumber() const;
+bool isString() const;
+bool isArray() const;
+bool isMap() const;
+```
+
+
+### toBool() [Variant class]
+
+{{api name1="Variant::toBool()"}}
+
+Converts the value of the variant to a boolean.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | unchanged |
+| numeric | 0 &rarr; false, non-zero &rarr; true |
+| String | 'false' &rarr; false, 'true' &rarr; true |
+| other | conversion fails |
+
+```cpp
+// PROTOTYPES
+bool toBool() const;
+bool toBool(bool& ok) const;
+```
+
+### toInt() [Variant class]
+
+{{api name1="Variant::toInt()"}}
+
+Converts the value of the variant to a boolean.
+
+| Source | Result | 
+| :--- | :--- |
+| bool | false &rarr; 0, true &rarr; 1 |
+| numeric | unchanged |
+| String | string number &rarr; int |
+| other | conversion fails |
+
+```cpp
+// PROTOTYPES
+int toInt() const;
+int toInt(bool& ok) const;
+```
+
+
+## VariantArray
 
 The `VariantArray` is a [Vector](#vector), essentially a dynamically-sized array of Variants, which are containers for arbitrary data. Think of this as a container to hold arbitrary data in Variant objects before converting to a JSON or CBOR array before sending across the network.
 
@@ -13153,8 +13287,67 @@ The `VariantArray` is a [Vector](#vector), essentially a dynamically-sized array
 typedef Vector<Variant> VariantArray;
 ```
 
+The methods below are implemented in the `Variant` class, so you can use them update a `Variant` that is of type `VariantArray`.
 
-### VariantMap
+### append() [VariantArray]
+
+{{api name1="Variant::append(Variant val)"}}
+
+Appends an element to the end of a `VariantArray`. This method is implemented in `Variant`. Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPES
+bool append(Variant val);
+```
+
+### prepend() [VariantArray]
+
+{{api name1="Variant::prepend(Variant val)"}}
+
+Prepend (insert at the beginning) an element to a `VariantArray`. This method is implemented in `Variant`. Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPES
+bool prepend(Variant val);
+```
+
+
+### insertAt() [VariantArray]
+
+{{api name1="insertAt(int index, Variant val)"}}
+
+Inserts an element with value `val` at index `index` (0-based) into a `VariantArray`. This method is implemented in `Variant`. Returns true if the operation succeeded.
+
+```cpp
+// PROTOTYPES
+bool insertAt(int index, Variant val);
+```
+
+
+### removeAt() [VariantArray]
+
+{{api name1="removeAt()"}}
+
+Removes the element at index `index` (0-based) into a `VariantArray`. This method is implemented in `Variant`.
+
+```cpp
+// PROTOTYPES
+void removeAt(int index);
+```
+
+### at() [VariantArray]
+
+{{api name1="at(int index)"}}
+
+Returns a copy of the element at index `index` (0-based) into a `VariantArray`. This method is implemented in `Variant`.
+
+```cpp
+// PROTOTYPES
+Variant at(int index) const;
+```
+
+
+## VariantMap
 
 The `VariantMap` class is a [Map](#map) of a [String](#string) to a [Variant](#variant). Think of this as a container to store key-value pair of arbitrary data. This is used to hold data before converting it to JSON or CBOR for sending over the network.
 
@@ -13162,6 +13355,65 @@ The `VariantMap` class is a [Map](#map) of a [String](#string) to a [Variant](#v
 // DEFINITION
 typedef Map<String, Variant> VariantMap;
 ```
+
+The methods below are implemented in the `Variant` class, so you can use them update a `Variant` that is of type `VariantMap`.
+
+### set() [VariantMap]
+
+{{api name1="Variant::set(const char* key, Variant val)" name2="Variant::set(const String& key, Variant val)"}}
+
+Add or update an element with key `key` in the map, setting the value to `value`. This method is implemented in `Variant`.
+
+```cpp
+// PROTOTYPES
+bool set(const char* key, Variant val);
+bool set(const String& key, Variant val);
+```
+
+If the stored value of this `Variant` is not a map, it is converted to a map in place prior to the operation.
+
+### remove() [VariantMap]
+
+{{api name1="Variant::remove(const char* key)" name2="Variant::remove(const String& key)"}}
+
+Remove an key `key` in the map. Returns true if this variant is a map and the key exists, otherwise returns false. This method is implemented in `Variant`.
+
+```cpp
+// PROTOTYPES
+bool remove(const char* key);
+bool remove(const String& key);
+```
+
+### get() [VariantMap]
+
+{{api name1="Variant::get(const char* key)" name2="Varient::get(const String& key)"}}
+
+Get the value of an element in the map. This method is implemented in `Variant`.
+
+This method copies the value, which is inefficient for complex variant values. operator[] can be used
+to get a reference to the value instead of copying it.
+
+If this variant is not a map, or the key does not exist, a null variant is returned.
+
+```cpp
+// PROTOTYPES
+Variant get(const char* key) const;
+Variant get(const String& key) const;
+```
+
+
+### has() [VariantMap]
+
+{{api name1="Variant::has(const char* key)" name2="Varient::has(const String& key)"}}
+
+Returns true if this variant is a map and contains `key`. This method is implemented in `Variant`.
+
+```cpp
+// PROTOTYPES
+bool has(const char* key) const;
+bool has(const String& key) const;
+```
+
 
 ## Map
 
@@ -13196,7 +13448,7 @@ Create a map from static initalization, typically to seed values from code.
 Map(std::initializer_list<Entry> entries);
 
 // EXAMPLE
-Map<String, int> m1({{"a", 123}, {"b", 456}});
+Map<String, int> m1({ {"a", 123}, {"b", 456} });
 ```
 
 
@@ -13297,7 +13549,7 @@ Iterator begin();
 ConstIterator begin() const;
 
 // EXAMPLE
-Map<String, int> m1({{"a", 123}, {"b", 456}});
+Map<String, int> m1({ {"a", 123}, {"b", 456} });
 for(auto it = m1.begin(); it != m1.end(); it++) {
     Log.info("key=%s value=%d", it->first.c_str(), it->second);
 }
@@ -13387,7 +13639,7 @@ template<typename T>
 ValueT& operator[](const T& key);
 
 // EXAMPLE
-Map<String, int> m1({{"a", 123}, {"b", 456}});
+Map<String, int> m1({ {"a", 123}, {"b", 456} });
 m1["a"] = 999;
 ```
 
