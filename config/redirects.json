@@ -419,6 +419,7 @@
   "/reference/device-os/api/language-syntax": "/reference/device-os/api/language-syntax/language-syntax",
   "/reference/device-os/api/led-signaling": "/reference/device-os/api/led-signaling/led-signaling",
   "/reference/device-os/api/ledger": "/reference/device-os/api/ledger/ledger",
+  "/reference/device-os/api/ledgerdata": "/reference/device-os/api/ledgerdata/ledgerdata",
   "/reference/device-os/api/logging": "/reference/device-os/api/logging/logging",
   "/reference/device-os/api/low-level-input-output": "/reference/device-os/api/low-level-input-output/low-level-input-output",
   "/reference/device-os/api/macros": "/reference/device-os/api/macros/startup",

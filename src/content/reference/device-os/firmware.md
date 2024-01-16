@@ -781,6 +781,30 @@ Particle.unsubscribe();
 
 There is no function to unsubscribe a single event handler. 
 
+### Particle.ledger
+
+{{api name1="Particle.ledger"}}
+
+{{since when="5.7.0"}}
+
+Request a ledger from the cloud. Returns a [`Ledger`](#ledger) object to read or write the data in the ledger. 
+
+This operation is asynchronous and the data will not be available until synchronized with the cloud. You will typically call this from `setup()` and you can do so before connected to the cloud.
+
+The type of ledger (device-to-cloud or cloud-to-device), as well as the ledger scope (organization, product, or device) is determined when the ledger is created on the cloud side, so it is not specified when you request the ledger. You must first create a ledger in the cloud; you cannot create a new ledger using the device-side API. The first time a device comes online in a product with a device-specific ledger, a new ledger instance will be created automatically for the device, however.
+
+```cpp
+// PROTOTYPE
+Ledger ledger(const char* name);
+
+// EXAMPLE
+Ledger sensors;
+
+void setup() {
+    sensors = Particle.ledger("sensors");
+}
+```
+
 ### Particle.maxEventDataSize()
 
 {{api name1="Particle.maxEventDataSize"}}
@@ -13129,11 +13153,33 @@ In Device OS 3.0.0 and later there are accessors to read the values out of the i
 
 {{since when="5.7.0"}}
 
-Ledger provides device-to-cloud and cloud-to device data synchronization. See [Ledger](/getting-started/logic-ledger/ledger/) for an introduction to Ledger.
+Ledger provides device-to-cloud and cloud-to device data synchronization. See [Ledger](/getting-started/logic-ledger/ledger/) for an introduction to Ledger. 
 
-See [Variant](#variant) for additional information.
+You will typically request a ledger using [Particle.ledger()](#particleledger) like this:
 
-See [Map](#map) for additional information.
+```cpp
+Ledger sensors;
+
+void setup() {
+    sensors = Particle.ledger("sensors");
+}
+```
+
+The `Particle.ledger` function is asynchronous and the data will not be available until the device comes online and has synchronized with the cloud.
+
+The type of ledger (device-to-cloud or cloud-to-device), as well as the ledger scope (organization, product, or device) is determined when the ledger is created on the cloud side, so it is not specified when you request the ledger.
+
+You will typically store the `Ledger` object you receive from `Particle.ledger()` as a global variable so you can access it again later easily.
+
+
+
+
+See [Variant](#variant) and [Map](#map) for additional information.
+
+## LedgerData
+
+The `LedgerData` class provides a subset of methods of the `Variant` class that are relevant to map operations.
+
 
 
 ## Variant
