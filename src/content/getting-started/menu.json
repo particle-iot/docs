@@ -297,6 +297,11 @@
         "dir": "data-transformation",
         "title": "Data transformation with Logic",
         "href": "/getting-started/logic-ledger/data-transformation/"
+      },
+      {
+        "dir": "ledger-sensor",
+        "title": "Ledger sensor",
+        "href": "/getting-started/logic-ledger/ledger-sensor/"
       }
     ],
     {

@@ -1,0 +1,150 @@
+---
+title: Ledger sensor
+columns: two
+layout: commonTwo.hbs
+description: Saving sensor data to Ledger
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
+---
+
+# {{title}}
+
+{{box op="start" cssClass="boxed warningBox"}}
+Ledger is in beta and is not recommended for production applications. There may be breaking changes to the behavior 
+and APIs in future versions based on user feedback. 
+
+Pricing and availability may change in the future.
+
+Ledger requires Device OS 5.7.0 or later.
+{{box op="end"}}
+
+This example stores sensor data from a device to a ledger in the cloud. This allows the latest sensor value to be
+retrieved even if the device is offline. 
+
+| Method | Description |
+| :--- | :--- |
+| Publish | Device sends value to cloud, but value is not saved in the cloud. |
+| Variable | Cloud can query the value if the device is online. |
+| Ledger | Device sends value to cloud, saves value in ledger so it can be accessed offline. |
+
+
+## Sandbox product
+
+In order to use Ledger beta, you will need to:
+
+- Create a product for testing in your developer sandbox. There is no additional charge for this.
+- Add one or more devices to the product.
+
+Ledger can only be used with devices in products; it cannot be used with individual developer devices.
+
+Ledger beta cannot be used with organization products at this time. 
+
+## Create a ledger
+
+Create a new **Device to Cloud ledger** for your sensor data. Go to the [Particle console](https://console.particle.io/) and select the **Ledger** icon in your developer sandbox. 
+
+{{imageOverlay src="/assets/images/ledger/ledger-select.png" class="no-darken"}}
+
+Create a new device to cloud ledger named **sensor**. You may need to rename it if **sensors** is already in use; if you do, you will need to update the device firmware so the names match.
+
+{{imageOverlay src="/assets/images/ledger/sensor-create.png" class="no-darken"}}
+
+This will create a new device to cloud ledger, which are always device-scoped.
+
+{{imageOverlay src="/assets/images/ledger/sensor-ledger-list.png" class="no-darken"}}
+
+You must create the ledger in the cloud before you can use it from device firmware.
+
+## Device firmware
+
+This is the test device firmware. It requires Device OS 5.7.0 or later.
+
+{{> project-browser project="ledger-sensor" default-file="src/ledger-sensor.cpp" height="400"}}
+
+Walking through the code:
+
+You will typically create a new `Ledger` object as a global variable.
+
+```cpp
+Ledger sensors;
+```
+
+This code keep track of how often to check the (fake) sensor. In this case, every 5 minutes.
+
+```cpp
+const std::chrono::milliseconds sensorCheckPeriod = 5min;
+unsigned long sensorCheckLast = 0;
+int sensorValue = 0;
+```
+
+In the setup() function you call `Particle.ledger()` to indicate that you want to work with the ledger. You don't specify anything other than the name, which must be unique within your product, owner, and organization. If you changed the name when creating the ledger, be sure to change it here as well.
+
+```cpp
+void setup() {
+    sensors = Particle.ledger("sensors");
+}
+```
+
+In this example, we don't actually have a sensor, but just simulate it using a random value. You'd replace this with code to read your sensor.
+
+```cpp
+// In a real application, you'd read the sensor here, but we'll just set a random 12-bit value
+sensorValue = rand() % 4096;
+```
+
+And this is the code to save the data to the ledger:
+
+```cpp
+Variant data;
+data.set("sensor", sensorValue);
+if (Time.isValid()) {
+    data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL).c_str());
+}
+sensors.set(data);
+```
+
+The data is structured, you can include things common in JSON and CBOR like:
+
+- Values of different types (integer, floating point, string, boolean)
+- Arrays of values
+- Objects containing other values, arrays, and objects
+
+
+### Logs
+
+The firmware will print debugging information to the USB serial console.
+
+```
+0000021540 [system] INFO: Cloud connected
+0000021626 [system.ledger] INFO: Requesting ledger info
+0000021787 [system.ledger] INFO: Received ledger info
+```
+
+And every 5 minutes it will update the ledger value in the cloud. 
+
+```
+0000321482 [app] INFO: set ledger sensor=1462
+0000621566 [app] INFO: set ledger sensor=500
+0000921477 [app] INFO: set ledger sensor=2350
+```
+
+## Viewing the ledger
+
+Once the device has successfully sent data to the cloud once a new instance will be listed in the ledger. Each instance corresponds to a single device.
+
+{{imageOverlay src="/assets/images/ledger/sensor-instance.png" class="no-darken"}}
+
+Using **Get Instance** allows to you examine the data that was synchronized from the device.
+
+{{imageOverlay src="/assets/images/ledger/sensor-values.png" class="no-darken"}}
+
+This corresponds to the USB serial debug log:
+
+```
+0000020922 [system] INFO: Cloud connected
+0000021255 [app] INFO: set ledger sensor=3511
+```
+
+In this simple demo, we're viewing the data in the console, but you might want to do additional processing using Logic. 
+
+You could also read the data using the [Particle Cloud API](/reference/cloud-apis/api/#ledger) from a web page or external application.
+
