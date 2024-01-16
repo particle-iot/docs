@@ -112,6 +112,8 @@ Common use cases:
 
 {{imageOverlay src="/assets/images/ledger/device-to-cloud.png" class="no-darken"}}
 
+For an example of using a Device to Cloud Ledger to store sensor data, see [Ledger sensor](/getting-started/logic-ledger/ledger-sensor).
+
 
 ## Cloud to Device ledger - console
 
