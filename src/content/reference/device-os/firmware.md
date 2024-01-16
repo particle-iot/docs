@@ -2136,10 +2136,11 @@ uint16_t seconds = WiFi.getListenTimeout();
 
 Allows the application to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
 
+- The P2, Photon 2, and Argon remember the 10 most recently set credentials.
+- The P2 and Photon 2 do not currently support WPA Enterprise.
+- The Argon does not support WPA Enterprise.
 - The Photon and P1 remember the 5 most recently set credentials.
 - The Photon and P1 can store one set of WPA Enterprise credentials in Device OS 0.7.0 and later.
-- The Argon remembers the 10 most recently set credentials.
-- The Argon does not support WPA Enterprise.
 
 ```cpp
 // Connects to an unsecured network.

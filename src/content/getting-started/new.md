@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### WiFi.setCredentials for P2/Photon 2 2024-01-16
+
+Documented the number of Wi-Fi credentials for the P2/Photon 2, which is the same as the Argon (10).
+
 ### Static network interface example fixes 2024-01-12
 
 In several locations in the Device OS firmware API reference, when `.source(NetworkInterfaceConfigSource::STATIC)` was specified, there
