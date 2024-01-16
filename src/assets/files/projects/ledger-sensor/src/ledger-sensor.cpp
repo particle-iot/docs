@@ -27,7 +27,7 @@ void loop() {
             Variant data;
             data.set("sensor", sensorValue);
             if (Time.isValid()) {
-                data.set("time", (int) Time.now());
+                data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL));
             }
             sensors.set(data);
             Log.info("set ledger sensor=%d", sensorValue);

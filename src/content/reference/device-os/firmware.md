@@ -13172,13 +13172,62 @@ The type of ledger (device-to-cloud or cloud-to-device), as well as the ledger s
 You will typically store the `Ledger` object you receive from `Particle.ledger()` as a global variable so you can access it again later easily.
 
 
+### set() [Ledger class]
+
+Sets a value in the ledger. This call is asychronous and the ledger 
+
+```cpp
+// PROTOTYPE
+int set(const LedgerData& data, SetMode mode = SetMode::REPLACE);
+
+// EXAMPLE
+Variant data;
+data.set("sensor", sensorValue);
+data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL));
+sensors.set(data);
+```
+
+While the parameter `data` is a [`LedgerData`] object, you will typically pass a `Variant`. See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for the full example.
+
+See [SetMode](#setmode-ledger-class), below, for valid values.
 
 
 See [Variant](#variant) and [Map](#map) for additional information.
 
+### SetMode [Ledger class]
+
+| Constant | Description |
+| :--- | :--- |
+| `SetMode::REPLACE` | Replace the current ledger data |
+| `SetMode::MERGE` | pdate some of the entries of the ledger data|
+
+### Ledger synchronization
+
+When a ledger is first modified, Device OS initiates a sync right away and start a 5 seconds cooldown timer.
+
+- If the ledger is modified again within the 5 second interval, the interval is started over.
+- When the cooldown timer expires, another sync is initiated.
+- The maximum delay between when the ledger is modified and when a sync is started is 30 seconds.
+
+A ledger can be modified while the device is offline, and will be synchronized when the device comes back online.
+
+
+### get() [Ledger class]
+
+```cpp
+// PROTOTYPE
+LedgerData get() const;
+```
+
+The get() method gets the Ledger data. This call does not block, so the data may be empty if the ledger has not yet been retrieved from the cloud.
+
+
 ## LedgerData
 
-The `LedgerData` class provides a subset of methods of the `Variant` class that are relevant to map operations.
+The `LedgerData` class provides a subset of methods of the `Variant` class that are relevant to map operations. The Ledger class [set()](#set-ledger-class) and [get()](#get-ledger-class) take a LedgerData object. 
+
+Because a `Variant` is transparently convereted into `LedgerData` you may never need to create a `LedgerData` object. See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for an example of this technique.
+
 
 
 
@@ -13189,6 +13238,30 @@ The `LedgerData` class provides a subset of methods of the `Variant` class that 
 {{since when="5.7.0"}}
 
 The `Variant` class holds typed data. It is used by [Ledger](#ledger). See also [VariantArray](#variantarray) and [VariantMap](#variantmap) to hold data that will be converted to JSON or CBOR.
+
+
+### set() [Variant class]
+
+One common use-case of Variant is setting values in a ledger. In this code, a fake sensor value is stored in `int sensorValue`. In a real application, you'd read an actual sensor there.
+
+Then a `Variant` object is created on the stack that will be filled with data.
+
+The `set()` method is described below in [VariantMap](#set-variantmap). It takes a key name (such as "sensor" or "time") and a value, which is also a `Variant`. Because there are Variant constructors for many variable types (see [variant constructor](#constructor-variant-class), below), you can pass a variable directly to set and the compiler will handle it appropriately. In the time example, the returned object from `Time.format` is a `String`.
+
+```cpp
+// In a real application, you'd read the sensor here, but we'll just set a random 12-bit value
+int sensorValue = rand() % 4096;
+
+// Save the value to the ledger
+Variant data;
+data.set("sensor", sensorValue);
+if (Time.isValid()) {
+    data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL));
+}
+sensors.set(data);
+```
+
+See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for the full example.
 
 ### Variant::Type
 
