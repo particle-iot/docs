@@ -302,6 +302,11 @@
         "dir": "ledger-sensor",
         "title": "Ledger sensor",
         "href": "/getting-started/logic-ledger/ledger-sensor/"
+      },
+      {
+        "dir": "ledger-configuration",
+        "title": "Ledger configuration",
+        "href": "/getting-started/logic-ledger/ledger-configuration/"
       }
     ],
     {

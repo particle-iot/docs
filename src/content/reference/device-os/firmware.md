@@ -793,6 +793,8 @@ This operation is asynchronous and the data will not be available until synchron
 
 The type of ledger (device-to-cloud or cloud-to-device), as well as the ledger scope (organization, product, or device) is determined when the ledger is created on the cloud side, so it is not specified when you request the ledger. You must first create a ledger in the cloud; you cannot create a new ledger using the device-side API. The first time a device comes online in a product with a device-specific ledger, a new ledger instance will be created automatically for the device, however.
 
+Ledger names consist only of lowercase alphanumeric and dash, up to 32 characters, and are unique across all scopes.
+
 ```cpp
 // PROTOTYPE
 Ledger ledger(const char* name);
@@ -13171,6 +13173,8 @@ The type of ledger (device-to-cloud or cloud-to-device), as well as the ledger s
 
 You will typically store the `Ledger` object you receive from `Particle.ledger()` as a global variable so you can access it again later easily.
 
+Ledger names consist only of lowercase alphanumeric and dash, up to 32 characters, and are unique across all scopes.
+
 
 ### set() [Ledger class]
 
@@ -13192,7 +13196,6 @@ While the parameter `data` is a [`LedgerData`] object, you will typically pass a
 See [SetMode](#setmode-ledger-class), below, for valid values.
 
 
-See [Variant](#variant) and [Map](#map) for additional information.
 
 ### SetMode [Ledger class]
 
@@ -13221,14 +13224,206 @@ LedgerData get() const;
 
 The get() method gets the Ledger data. This call does not block, so the data may be empty if the ledger has not yet been retrieved from the cloud.
 
+### lastUpdated() [Ledger class]
+
+Get the time the ledger was last updated, in milliseconds since the Unix epoch, or 0 if unknown.
+
+```cpp
+// PROTOTYPE
+int64_t lastUpdated() const;
+```
+
+### lastSynced() [Ledger class]
+
+Get the time the ledger was last synchronized with the Cloud, in milliseconds since the Unix epoch, or 0 if unknown.
+
+```cpp
+// PROTOTYPE
+int64_t lastSynced() const;
+```
+
+### dataSize [Ledger class]
+
+Returns the size of the ledger data in bytes.
+
+```cpp
+// PROTOTYPE
+size_t dataSize() const;
+```
+
+### name() [Ledger class]
+
+Returns the name of the ledger. This is typically set during setup().
+
+```cpp
+// 
+const char* name() const;
+```
+
+
+### scope() [Ledger class]
+
+```cpp
+// PROTOTYPE
+LedgerScope scope() const;
+```
+
+See [LedgerScope](#ledgerscope-ledger-class), below, for constants.
+
+### LedgerScope [Ledger class]
+
+The scope of a ledger is defined on the cloud side, so before the ledger is first retrieved the scope will be unknown on the device.
+
+| Constant | Description |
+| :--- | :--- |
+| `LedgerScope::UNKNOWN` | Unknown |
+| `LedgerScope::DEVICE` | Device |
+| `LedgerScope::PRODUCT` | Product |
+| `LedgerScope::OWNER` | User or organization |
+
+
+### isWritable() [Ledger class]
+
+Returns true if the ledger can be written to. Cloud to device ledgers cannot be written to.
+
+```cpp
+// PROTOTYPE
+bool isWritable() const;
+```
+
+### onSync(OnSyncCallback) [Ledger class]
+
+Registers a function to be called when the ledger is synchronized. This method takes a C function and an `arg` value. The arg can be a pointer to a C++ object instance, a pointer to some other structure, or can be 0 if you don't need an additional argument.
+
+```cpp
+// PROTOTYPE
+int onSync(OnSyncCallback callback, void* arg = nullptr);
+
+// CALLBACK DEFINITION
+typedef void (*OnSyncCallback)(Ledger ledger, void* arg);
+
+// CALLBACK PROTOTYPE
+void myCallback(Ledger ledger, void* arg)
+```
+
+### onSync(OnSyncFunction) [Ledger class]
+
+Registers a function to be called when the ledger is synchronized. This method takes a std::function which can be a C++ lambda, which can be useful for calling a method implemented in a non-static C++ class.
+
+```cpp
+// PROTOTYPE
+int onSync(OnSyncFunction callback);
+
+// CALLBACK DEFINITIONS
+typedef std::function<void(Ledger)> OnSyncFunction;
+
+// CALLBACK PROTOTYPE
+void myCallback(Ledger ledger)
+
+// CALLBACK LAMBDA
+myLedger.onSync([](Ledger ledger) {
+  // Code to run when synchronization completes goes here
+}
+```
+
 
 ## LedgerData
 
 The `LedgerData` class provides a subset of methods of the `Variant` class that are relevant to map operations. The Ledger class [set()](#set-ledger-class) and [get()](#get-ledger-class) take a LedgerData object. 
 
-Because a `Variant` is transparently convereted into `LedgerData` you may never need to create a `LedgerData` object. See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for an example of this technique.
+Because a `Variant` is transparently converted into `LedgerData` you may never need to create a `LedgerData` object. See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for an example of this technique.
 
 
+### constructor (Variant) [LedgerData class]
+
+Construct a LedgerData from a Variant. The Variant must be a `VariantMap`, if not then the LedgerData will be empty.
+
+```cpp
+// PROTOTYPE
+LedgerData(Variant var);
+```
+
+### constructor (std::initializer_list<Entry>) [LedgerData class]
+
+Construct a LedgerData option from statically defined entries.
+
+```cpp
+// PROTOTYPE
+LedgerData(std::initializer_list<Entry> entries);
+
+// EXAMPLE
+LedgerData data = { { "key1", "value1" }, { "key2", 2 } };
+```
+
+### set() [LedgerData class]
+
+```cpp
+// PROTOTYPES
+bool set(const char* name, Variant val);
+bool set(const String& name, Variant val);
+bool set(String&& name, Variant val);
+```
+
+### remove() [LedgerData class]
+
+```cpp
+// PROTOTYPES
+bool remove(const char* name);
+bool remove(const String& name);
+```
+
+### get() [LedgerData class]
+
+Get the value of an entry with the name `name`.
+
+This method is inefficient for complex value types, as it returns a copy of
+the value. Use `operator[]` to get a reference to the value.
+
+A null `Variant` is returned if the entry doesn't exist.
+
+```cpp
+// PROTOTYPES
+Variant get(const char* name) const;
+Variant get(const String& name) const;
+```
+
+### operator[name] [LedgerData class]
+
+Get a reference to the entry value with the given `name`.
+
+The entry is created if it doesn't exist.
+
+The device will panic if it fails to allocate memory for the new entry. Use `set()`
+or the methods provided by `VariantMap` if you need more control over how memory allocation
+errors are handled.
+
+```cpp
+// PROTOTYPES
+Variant& operator[](const char* name);
+Variant& operator[](const String& name);
+```
+
+
+### has() [LedgerData class]
+
+Check if an entry with the given name exists.
+
+```cpp
+// PROTOTYPES
+bool has(const char* name) const;
+bool has(const String& name) const;
+```
+
+### isEmpty() [LedgerData class]
+
+Returns true if the ledger data is empty (has no entries).
+
+```cpp
+// PROTOTYPE
+bool isEmpty() const;
+```
+
+See [Variant](#variant) and [Map](#map) for additional information.
 
 
 ## Variant

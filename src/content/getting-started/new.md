@@ -378,7 +378,7 @@ Clarified the band power table for the [B524](/reference/datasheets/b-series/b52
 
 ### Ledger documentation 2023-12-29
 
-Added preliminary documentation for [Ledger beta](/getting-started/logic-ledger/ledger/). 
+Added preliminary documentation for [Ledger alpha](/getting-started/logic-ledger/ledger/). 
 
 ### Photon 2 schematic 2023-12-19
 
