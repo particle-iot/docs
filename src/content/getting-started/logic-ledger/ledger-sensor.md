@@ -97,7 +97,7 @@ And this is the code to save the data to the ledger:
 Variant data;
 data.set("sensor", sensorValue);
 if (Time.isValid()) {
-    data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL).c_str());
+    data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL));
 }
 sensors.set(data);
 ```
