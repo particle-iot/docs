@@ -50,7 +50,7 @@ To access Ledger, open the console and select the **Ledger** icon in the left-ha
 
 | Option | Description |
 | :--- | :--- |
-| Ledger Name | Lowercase alphanumeric and dash, up to 32 characters, unique in scope |
+| Ledger Name | Lowercase alphanumeric and dash, up to 32 characters, unique across all scopes |
 | Description | Description for your use |
 | Scope | Product, Device, Owner |
 

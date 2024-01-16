@@ -9,7 +9,7 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
 # {{title}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-Ledger is in beta and is not recommended for production applications. There may be breaking changes to the behavior 
+Ledger is in alpha testing and is not recommended for production applications. There may be breaking changes to the behavior 
 and APIs in future versions based on user feedback. 
 
 Pricing and availability may change in the future.
@@ -18,7 +18,7 @@ Ledger requires Device OS 5.7.0 or later.
 {{box op="end"}}
 
 This example stores sensor data from a device to a ledger in the cloud. This allows the latest sensor value to be
-retrieved even if the device is offline. 
+retrieved even if the device is offline. This is a common use-case of device to cloud ledgers.
 
 | Method | Description |
 | :--- | :--- |
@@ -29,14 +29,12 @@ retrieved even if the device is offline.
 
 ## Sandbox product
 
-In order to use Ledger beta, you will need to:
+In order to use Ledger, you will need to:
 
 - Create a product for testing in your developer sandbox. There is no additional charge for this.
 - Add one or more devices to the product.
 
 Ledger can only be used with devices in products; it cannot be used with individual developer devices.
-
-Ledger beta cannot be used with organization products at this time. 
 
 ## Create a ledger
 
