@@ -13893,6 +13893,32 @@ VariantMap& asMap();
 
 This method will not convert the type of variant. If the Variant is not already a `VariantMap` then this method will assert.
 
+### toJSON [Variant class]
+
+{{api name1="Variant::toJSON()"}}
+
+Serializes a VariantArray or VariantMap as JSON and returns it in a `String` object.
+
+```cpp
+// PROTOTYPE
+String toJSON() const;
+```
+
+### fromJSON [Variant class]
+
+{{api name1="Variant::fromJSON()"}}
+
+Given a JSON object as a c-string or `JSONValue`, returns a `Variant` object.
+
+```cpp
+// PROTOTYPE
+static Variant fromJSON(const char* json);
+static Variant fromJSON(const JSONValue& val);
+
+// EXAMPLE
+const char *jsonStr = "{\"a\":123}";
+Variant data = Variant::fromJson(jsonStr);
+```
 
 ## VariantArray
 

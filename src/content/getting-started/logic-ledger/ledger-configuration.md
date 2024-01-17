@@ -43,6 +43,29 @@ Create a new device to cloud ledger named **test-config-device**. You may need t
 
 {{imageOverlay src="/assets/images/ledger/config-ledger-device.png" class="no-darken"}}
 
+
+### Create product ledger instance
+
+This example uses structured data to hold more complex configuration parameters. First set product default values. In the **test-config-defaults** ledger create a new instance for the product your devices are in.
+
+{{imageOverlay src="/assets/images/ledger/config-product-instance.png" class="no-darken"}}
+
+Using the **Advanced** tab, enter this JSON data:
+
+```json
+{
+    "temp": {
+        "min": 20,
+        "max": 30
+    },
+    "hum": {
+        "min": 10,
+        "max": 80
+    }
+}
+```
+
+
 ## Device firmware
 
 This is the test device firmware. It requires Device OS 5.7.0 or later.
@@ -51,4 +74,43 @@ This is the test device firmware. It requires Device OS 5.7.0 or later.
 
 Walking through the code:
 
+
+Logs:
+
+```
+0000022048 [app] INFO: set ledger {"hum":21.1,"temp":43.9,"time":"2024-01-17T12:00:56Z"}
+```
+
+
+```
+0000021784 [system.ledger] INFO: Requesting ledger info
+0000022178 [system.ledger] INFO: Received ledger info
+0000022470 [system.ledger] INFO: Subscribing to ledger updates
+0000022775 [system.ledger] INFO: Subscribed to ledger updates
+```
+
+## Configuration
+
+
+
+
+```
+0000237165 [app] INFO: syncCallback called
+```
+
+```
+0000141147 [app] INFO: value=19.600000 not in bounds, min=20.000000 max=30.000000
+0000141163 [app] INFO: value=32.200000 in bounds, min=10.000000 max=80.000000
+0000141428 [app] INFO: set ledger {"alarm":["temp"],"hum":32.2,"temp":19.6,"time":"2024-01-17T13:50:51Z"}
+```
+
+### Device-specific overrides
+
+
+
+
+## Push notification
+
+
+## Cloud-based notification using Logic
 

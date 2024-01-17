@@ -575,6 +575,8 @@
   "/reference/device-os/firmware/#asarray-variant-class-": "/reference/device-os/api/variant/asarray-variant-class/",
   "/reference/device-os/firmware/#tomap-variant-class-": "/reference/device-os/api/variant/tomap-variant-class/",
   "/reference/device-os/firmware/#asmap-variant-class-": "/reference/device-os/api/variant/asmap-variant-class/",
+  "/reference/device-os/firmware/#tojson-variant-class-": "/reference/device-os/api/variant/tojson-variant-class/",
+  "/reference/device-os/firmware/#fromjson-variant-class-": "/reference/device-os/api/variant/fromjson-variant-class/",
   "/reference/device-os/firmware/#variantarray": "/reference/device-os/api/variantarray/variantarray/",
   "/reference/device-os/firmware/#append-variantarray-": "/reference/device-os/api/variantarray/append-variantarray/",
   "/reference/device-os/firmware/#prepend-variantarray-": "/reference/device-os/api/variantarray/prepend-variantarray/",
