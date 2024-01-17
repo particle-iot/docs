@@ -82,22 +82,17 @@ void setup() {
 }
 ```
 
-In this example, we don't actually have a sensor, but just simulate it using a random value. You'd replace this with code to read your sensor.
+This is the code to save the data to the ledger:
 
 ```cpp
-// In a real application, you'd read the sensor here, but we'll just set a random 12-bit value
-sensorValue = rand() % 4096;
-```
-
-And this is the code to save the data to the ledger:
-
-```cpp
+// Save the value to the ledger
 Variant data;
-data.set("sensor", sensorValue);
+data.set("sensor", readSensor()); // readSensor() returns an int
 if (Time.isValid()) {
-    data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL));
+    data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL)); // Time.format returns a String
 }
 sensors.set(data);
+Log.info("set ledger %s", data.toJSON().c_str());
 ```
 
 The data is structured, you can include things common in JSON and CBOR like:
@@ -106,10 +101,30 @@ The data is structured, you can include things common in JSON and CBOR like:
 - Arrays of values
 - Objects containing other values, arrays, and objects
 
+The code adds an `int` (integer number) value from `readSensor()`.
+
+If the current time is available, adds it as a string in ISO8601 format.
+
+It then logs the data to the USB serial console. Note that Log.info is limited to around 100 characters, so if your data is long it will be truncated in the log, but will be correct in the ledger.
+
+This example replaces the ledger data for this device on every update. It's also possible to merge only newly changed data into the existing ledger.
+
+This sample app just uses a random value instead of reading an actual sensor. In a real application you'd replace the contents of readSensor() with code to actually read a sensor.
+
+```cpp
+int readSensor() {
+    // In a real application, you'd read the sensor here, but we'll just set a random 12-bit value
+    int sensorValue = rand() % 4096;
+
+    return sensorValue;
+}
+```
+
 
 ### Logs
 
-The firmware will print debugging information to the USB serial console.
+The firmware will print debugging information to the USB serial console. The first time the device requests a ledger there will be logging messages
+after cloud connecting, but subsequent connections may not have these messages.
 
 ```
 0000021540 [system] INFO: Cloud connected
@@ -117,12 +132,11 @@ The firmware will print debugging information to the USB serial console.
 0000021787 [system.ledger] INFO: Received ledger info
 ```
 
-And every 5 minutes it will update the ledger value in the cloud. 
+Every 5 minutes it will update the ledger value in the cloud from the logging message in our code.
 
 ```
-0000321482 [app] INFO: set ledger sensor=1462
-0000621566 [app] INFO: set ledger sensor=500
-0000921477 [app] INFO: set ledger sensor=2350
+0000020116 [app] INFO: set ledger {"sensor":2688,"time":"2024-01-17T11:22:43Z"}
+0000320113 [app] INFO: set ledger {"sensor":3516,"time":"2024-01-17T11:27:43Z"}
 ```
 
 ## Viewing the ledger
@@ -135,12 +149,7 @@ Using **Get Instance** allows to you examine the data that was synchronized from
 
 {{imageOverlay src="/assets/images/ledger/sensor-values.png" class="no-darken"}}
 
-This corresponds to the USB serial debug log:
-
-```
-0000020922 [system] INFO: Cloud connected
-0000021255 [app] INFO: set ledger sensor=3511
-```
+## Next steps
 
 In this simple demo, we're viewing the data in the console, but you might want to do additional processing using Logic. 
 
