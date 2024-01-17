@@ -18,6 +18,7 @@ void readSensor(double &temp, double &hum);
 void syncCallback(Ledger ledger);
 bool getValue(const char *group, const char *key, Variant &value);
 void checkLimits(Variant &data);
+void alertUser(const char *msg);
 
 
 void setup() {
@@ -116,6 +117,14 @@ bool getValue(const char *group, const char *key, Variant &value) {
     return hasKey;    
 }
 
+void alertUser(const char *msg) {
+    if (Particle.connected()) {
+        // Uncomment the following line to enable push notification alerts
+        // Particle.publish("push-notification", msg);
+    }
+    Log.info("alertUser %s", msg);
+}
+
 void checkLimits(Variant &data) {
     const char *groups[2] = {
         "temp",
@@ -141,7 +150,7 @@ void checkLimits(Variant &data) {
             
             if (min < max) {
                 if (value < min || value > max) {
-                    Log.info("value=%lf not in bounds, min=%lf max=%lf", value, min, max);
+                    Log.info("%s value=%lf not in bounds, min=%lf max=%lf", group, value, min, max);
 
                     // If the alarm key (array) does not exist, add it here, then append a string key
                     // to the array indicating the groups that are in alarm. 
@@ -152,14 +161,16 @@ void checkLimits(Variant &data) {
                     // {"alarm":["temp"],"hum":37.8,"temp":19.8,"time":"2024-01-17T13:52:51Z"}                
                     data["alarm"].append(group);
 
-                    // Put code here to alert on value out of bounds
+                    // 
+                    String msg = String::format("%s %lf not in range %lf to %lf %s", group, value, min, max, System.deviceID().c_str());
+                    alertUser(msg);
                 }
                 else {
-                    Log.info("value=%lf in bounds, min=%lf max=%lf", value, min, max);
+                    Log.info("%s value=%lf in bounds, min=%lf max=%lf", group, value, min, max);
                 }     
             }
             else {
-                    Log.info("value=%lf invalid configuration min=%lf max=%lf", value, min, max);
+                    Log.info("%s value=%lf invalid configuration min=%lf max=%lf", group, value, min, max);
             }
 
         }   

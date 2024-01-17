@@ -130,6 +130,11 @@ Common use cases:
 
 {{imageOverlay src="/assets/images/ledger/cloud-to-device.png" class="no-darken"}}
 
+A copy of the ledger is stored locally in the flash file system, so it can be available before connecting to the cloud 
+after it has been synchronized once. Of course if the ledger has been updated in the cloud, the changes will not be
+available until cloud connected and the ledger synchronized, so in some cases you may want to wait for that to occur.
+
+
 ### Using Ledger for configuration
 
 One common use case is to store configuration using Ledger. Since each Ledger is scoped to an organization, owner, product, or device, you can implement a custom hierarchy of configuration. For example, you can have product defaults in a product ledger, and device-specific values in a device-specific ledger. You can read both ledgers on-device and implement your own desired override behavior.
