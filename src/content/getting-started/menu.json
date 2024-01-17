@@ -307,6 +307,11 @@
         "dir": "ledger-configuration",
         "title": "Ledger configuration",
         "href": "/getting-started/logic-ledger/ledger-configuration/"
+      },
+      {
+        "dir": "logic-cloud-alerts",
+        "title": "Cloud alerts with Logic",
+        "href": "/getting-started/logic-ledger/logic-cloud-alerts/"
       }
     ],
     {
