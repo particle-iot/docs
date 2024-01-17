@@ -357,6 +357,9 @@ As a quick reference, these are the pre-defined webhook variables available for 
 - `\{{{PARTICLE_EVENT_NAME}}}`: The name of the event that triggers the webhook
 - `\{{{PARTICLE_EVENT_VALUE}}}`: The data associated with the webhook event
 - `\{{{PARTICLE_PUBLISHED_AT}}}`: When the webhook was sent
+- `\{{{PRODUCT_ID}}}`: The Product ID of the device that triggered the webhook
+- `\{{{PRODUCT_USER_ID}}}`: The user id of the device owner
+- `\{{{PRODUCT_VERSION}}}`: The firmware version that published the event
 
 
 **Also**, check out and join our [community forums](https://community.particle.io/) for advanced help, tutorials, and troubleshooting.
