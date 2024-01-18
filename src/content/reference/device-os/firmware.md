@@ -13157,7 +13157,7 @@ In Device OS 3.0.0 and later there are accessors to read the values out of the i
 
 Ledger provides device-to-cloud and cloud-to device data synchronization. See [Ledger](/getting-started/logic-ledger/ledger/) for an introduction to Ledger. 
 
-You will typically request a ledger using [Particle.ledger()](#particleledger) like this:
+You will typically request a ledger using [Particle.ledger()](#particle-ledger) like this:
 
 ```cpp
 Ledger sensors;
@@ -13193,7 +13193,7 @@ sensors.set(data);
 
 While the parameter `data` is a [`LedgerData`] object, you will typically pass a `Variant`. See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for the full example.
 
-See [SetMode](#setmode-ledger-class), below, for valid values.
+See [SetMode](#setmode-ledger-class-), below, for valid values.
 
 
 
@@ -13268,7 +13268,7 @@ const char* name() const;
 LedgerScope scope() const;
 ```
 
-See [LedgerScope](#ledgerscope-ledger-class), below, for constants.
+See [LedgerScope](#ledgerscope-ledger-class-), below, for constants.
 
 ### LedgerScope [Ledger class]
 
@@ -13326,10 +13326,58 @@ myLedger.onSync([](Ledger ledger) {
 }
 ```
 
+### remove() [Ledger class]
+
+Remove any data associated with a ledger from the device.
+
+The device must not be connected to the Cloud. The operation will fail if the ledger with the given name is in use.
+
+The data is not guaranteed to be removed in an irrecoverable way.
+
+See also [Ledger::removeAll](#removeall-ledger-class-) to remove all ledger data and includes a code example.
+
+```cpp
+// PROTOTYPE
+static int remove(const char* name);
+```
+
+### removeAll() [Ledger class]
+
+Remove any ledger data from the device.
+
+The device must not be connected to the Cloud. The operation will fail if the ledger with the given name is in use.
+
+The data is not guaranteed to be removed in an irrecoverable way.
+
+```cpp
+// PROTOTYPE
+static int removeAll();
+
+// EXAMPLE
+#include "Particle.h"
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+SYSTEM_THREAD(ENABLED);
+
+SerialLogHandler logHandler(LOG_LEVEL_INFO);
+
+void setup() {
+    // Remove any ledger data from the device.    
+    // The device must not be connected to the Cloud. The operation will fail if any of the ledgers are in use.
+    Ledger::removeAll();
+
+    Particle.connect();
+}
+
+void loop() {
+}
+
+```
 
 ## LedgerData
 
-The `LedgerData` class provides a subset of methods of the `Variant` class that are relevant to map operations. The Ledger class [set()](#set-ledger-class) and [get()](#get-ledger-class) take a LedgerData object. 
+The `LedgerData` class provides a subset of methods of the `Variant` class that are relevant to map operations. The Ledger class [set()](#set-ledger-class-) and [get()](#get-ledger-class-) take a LedgerData object. 
 
 Because a `Variant` is transparently converted into `LedgerData` you may never need to create a `LedgerData` object. See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for an example of this technique.
 
@@ -13441,7 +13489,7 @@ One common use-case of Variant is setting values in a ledger. In this code, a fa
 
 Then a `Variant` object is created on the stack that will be filled with data.
 
-The `set()` method is described below in [VariantMap](#set-variantmap). It takes a key name (such as "sensor" or "time") and a value, which is also a `Variant`. Because there are Variant constructors for many variable types (see [variant constructor](#constructor-variant-class), below), you can pass a variable directly to set and the compiler will handle it appropriately. In the time example, the returned object from `Time.format` is a `String`.
+The `set()` method is described below in [VariantMap](#set-variantmap-). It takes a key name (such as "sensor" or "time") and a value, which is also a `Variant`. Because there are Variant constructors for many variable types (see [variant constructor](#constructor-variant-class-), below), you can pass a variable directly to set and the compiler will handle it appropriately. In the time example, the returned object from `Time.format` is a `String`.
 
 ```cpp
 // In a real application, you'd read the sensor here, but we'll just set a random 12-bit value
@@ -13506,7 +13554,7 @@ Variant(VariantMap val);'
 
 {{api name1="Variant::value()"}}
 
-The `value` method is a template that returns a reference to the stored value of the variant. The allowable types are listed in [Variant::Type](#varianttype). This can be done to either get or set a value.
+The `value` method is a template that returns a reference to the stored value of the variant. The allowable types are listed in [Variant::Type](#variant-type). This can be done to either get or set a value.
 
 ```cpp
 // PROTOTYPES
@@ -13527,7 +13575,7 @@ String value3 = variant3.value<String>();
 
 {{api name1="Variant::type()"}}
 
-Return the type of the `Variant`. See [Variant::Type](#varianttype) for a list of valid types. There are also [accessors to check for a specific type](#isxxx-variant-class) such as `isInt()`.
+Return the type of the `Variant`. See [Variant::Type](#variant-type) for a list of valid types. There are also [accessors to check for a specific type](#isxxx-variant-class-) such as `isInt()`.
 
 ```cpp
 // PROTOTYPE
@@ -13587,7 +13635,7 @@ Returns a reference to the value contained in this variant as a `bool`. This can
 bool& asBool();
 ```
 
-This method will convert the type of the variant to bool if necessary, see [toBool](#tobool-variant-class) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to bool if necessary, see [toBool](#tobool-variant-class-) for more information. If the conversion is not possible, the method will assert.
 
 
 ### asBool() [Variant class]
@@ -13601,7 +13649,7 @@ Returns a reference to the value contained in this variant as an `bool`. This ca
 bool& asBool();
 ```
 
-This method will convert the type of the variant to `bool` if necessary, see [toBool](#tobool-variant-class) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `bool` if necessary, see [toBool](#tobool-variant-class-) for more information. If the conversion is not possible, the method will assert.
 
 
 ### toInt() [Variant class]
@@ -13638,7 +13686,7 @@ Returns a reference to the value contained in this variant as an `int`. This can
 int& asInt();
 ```
 
-This method will convert the type of the variant to `int` if necessary, see [toInt](#toint-variant-class) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `int` if necessary, see [toInt](#toint-variant-class-) for more information. If the conversion is not possible, the method will assert.
 
 
 ### toUInt() [Variant class]
@@ -13674,7 +13722,7 @@ Returns a reference to the value contained in this variant as an `unsigned`. Thi
 unsigned& asUnsigned();
 ```
 
-This method will convert the type of the variant to `unsigned` if necessary, see [toUInt](#touint-variant-class) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `unsigned` if necessary, see [toUInt](#touint-variant-class-) for more information. If the conversion is not possible, the method will assert.
 
 
 
@@ -13712,7 +13760,7 @@ Returns a reference to the value contained in this variant as an `int64_t`. This
 int64_t& asInt64();
 ```
 
-This method will convert the type of the variant to `int64_t` if necessary, see [toInt64](#toint64-variant-class) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `int64_t` if necessary, see [toInt64](#toint64-variant-class-) for more information. If the conversion is not possible, the method will assert.
 
 
 
@@ -13750,7 +13798,7 @@ Returns a reference to the value contained in this variant as an `uint64_t`. Thi
 uint64_t& asUInt64();
 ```
 
-This method will convert the type of the variant to `uint64_t` if necessary, see [toUInt64](#touint64-variant-class) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `uint64_t` if necessary, see [toUInt64](#touint64-variant-class-) for more information. If the conversion is not possible, the method will assert.
 
 
 ### toDouble() [Variant class]
@@ -13788,7 +13836,7 @@ Returns a reference to the value contained in this variant as an `double`. This 
 double& asDouble();
 ```
 
-This method will convert the type of the variant to `double` if necessary, see [toDouble](#todouble-variant-class) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `double` if necessary, see [toDouble](#todouble-variant-class-) for more information. If the conversion is not possible, the method will assert.
 
 
 ### toString() [Variant class]
@@ -13824,7 +13872,7 @@ Returns a reference to the value contained in this variant as an `String`. This 
 String& asString();
 ```
 
-This method will convert the type of the variant to `String` if necessary, see [toString](#tostring-variant-class) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `String` if necessary, see [toString](#tostring-variant-class-) for more information. If the conversion is not possible, the method will assert.
 
 
 ### toArray() [Variant class]
@@ -13922,6 +13970,8 @@ Variant data = Variant::fromJson(jsonStr);
 
 ## VariantArray
 
+{{api name1="VariantArray"}}
+
 The `VariantArray` is a [Vector](#vector), essentially a dynamically-sized array of Variants, which are containers for arbitrary data. Think of this as a container to hold arbitrary data in Variant objects before converting to a JSON or CBOR array before sending across the network.
 
 ```
@@ -13933,7 +13983,7 @@ The methods below are implemented in the `Variant` class, so you can use them up
 
 ### append() [VariantArray]
 
-{{api name1="Variant::append(Variant val)"}}
+{{api name1="Variant::append(val)"}}
 
 Appends an element to the end of a `VariantArray`. This method is implemented in `Variant`. Returns true if the operation succeeded.
 
@@ -13944,7 +13994,7 @@ bool append(Variant val);
 
 ### prepend() [VariantArray]
 
-{{api name1="Variant::prepend(Variant val)"}}
+{{api name1="Variant::prepend(val)"}}
 
 Prepend (insert at the beginning) an element to a `VariantArray`. This method is implemented in `Variant`. Returns true if the operation succeeded.
 
@@ -13956,7 +14006,7 @@ bool prepend(Variant val);
 
 ### insertAt() [VariantArray]
 
-{{api name1="insertAt(int index, Variant val)"}}
+{{api name1="insertAt(index, val)"}}
 
 Inserts an element with value `val` at index `index` (0-based) into a `VariantArray`. This method is implemented in `Variant`. Returns true if the operation succeeded.
 
@@ -13979,7 +14029,7 @@ void removeAt(int index);
 
 ### at() [VariantArray]
 
-{{api name1="at(int index)"}}
+{{api name1="at(index)"}}
 
 Returns a copy of the element at index `index` (0-based) into a `VariantArray`. This method is implemented in `Variant`.
 
@@ -13991,7 +14041,7 @@ Variant at(int index) const;
 
 ## VariantMap
 
-The `VariantMap` class is a [Map](#map) of a [String](#string) to a [Variant](#variant). Think of this as a container to store key-value pair of arbitrary data. This is used to hold data before converting it to JSON or CBOR for sending over the network.
+The `VariantMap` class is a [Map](#map) of a [String](#string-class) to a [Variant](#variant). Think of this as a container to store key-value pair of arbitrary data. This is used to hold data before converting it to JSON or CBOR for sending over the network.
 
 ```
 // DEFINITION
@@ -14002,7 +14052,7 @@ The methods below are implemented in the `Variant` class, so you can use them up
 
 ### set() [VariantMap]
 
-{{api name1="Variant::set(const char* key, Variant val)" name2="Variant::set(const String& key, Variant val)"}}
+{{api name1="Variant::set(key, value)"}}
 
 Add or update an element with key `key` in the map, setting the value to `value`. This method is implemented in `Variant`.
 
@@ -14016,7 +14066,7 @@ If the stored value of this `Variant` is not a map, it is converted to a map in 
 
 ### remove() [VariantMap]
 
-{{api name1="Variant::remove(const char* key)" name2="Variant::remove(const String& key)"}}
+{{api name1="Variant::remove(key)"}}
 
 Remove an key `key` in the map. Returns true if this variant is a map and the key exists, otherwise returns false. This method is implemented in `Variant`.
 
@@ -14028,7 +14078,7 @@ bool remove(const String& key);
 
 ### get() [VariantMap]
 
-{{api name1="Variant::get(const char* key)" name2="Varient::get(const String& key)"}}
+{{api name1="Variant::get(key)"}}
 
 Get the value of an element in the map. This method is implemented in `Variant`.
 
@@ -14046,7 +14096,7 @@ Variant get(const String& key) const;
 
 ### has() [VariantMap]
 
-{{api name1="Variant::has(const char* key)" name2="Varient::has(const String& key)"}}
+{{api name1="Variant::has(key)"}}
 
 Returns true if this variant is a map and contains `key`. This method is implemented in `Variant`.
 
@@ -14065,7 +14115,7 @@ bool has(const String& key) const;
 
 The `Map` C++ template holds key-value pairs. The template parameters determine the type of the key and value.
 
-The [VariantMap](#variantmap) is used by [Ledger](#ledger) to map [String](#string) to a [Variant](#variant) in [Ledger](#ledger). 
+The [VariantMap](#variantmap) is used by [Ledger](#ledger) to map [String](#string-class) to a [Variant](#variant) in [Ledger](#ledger). 
 
 
 ### Map() [Map template]
@@ -14081,7 +14131,7 @@ Map();
 
 ### Map(std::initializer_list<Entry> entrie) [Map template]
 
-{{api name1="Map::Map(std::initializer_list<Entry> entrie)"}}
+{{api name1="Map::Map(initializer_list)"}}
 
 Create a map from static initalization, typically to seed values from code.
 
@@ -14096,7 +14146,7 @@ Map<String, int> m1({ {"a", 123}, {"b", 456} });
 
 ### Map(const Map& map) [Map template]
 
-{{api name1="Map::Map(const Map& map)"}}
+{{api name1="Map::Map(map)"}}
 
 Makes a new map that's a copy of an existing map. After copying, changes in the original map won't affect the copy.
 
@@ -14108,7 +14158,7 @@ Map(const Map& map);
 
 ### set(const T& key, ValueT val) [Map template]
 
-{{api name1="Map::set(const T& key, ValueT val)"}}
+{{api name1="Map::set(key, value)"}}
 
 Replace an existing key-value pair in the map, or create a new one if `key` does not already exist.
 
@@ -14123,7 +14173,7 @@ bool set(const T& key, ValueT val);
 
 ### get(const T& key) [Map template]
 
-{{api name1="Map::get(const T& key)"}}
+{{api name1="Map::get(key)"}}
 
 Gets the value of an entry in the map from its `key`. If the key does not exist, returns an empty value. See also the overload that allows you to specify the default value to be returned if the key does not exist.
 
@@ -14138,7 +14188,7 @@ ValueT get(const T& key) const;
 
 ### get(const T& key, const ValueT& defaultVal) [Map template]
 
-{{api name1="Map::get(onst T& key, const ValueT& defaultVal)"}}
+{{api name1="Map::get(key, defaultVal)"}}
 
 Gets the value of an entry in the map from its `key`. If the key does not exist, returns `defaultVal`.
 
@@ -14152,7 +14202,7 @@ ValueT get(const T& key, const ValueT& defaultVal) const;
 
 ### has(const T& key) [Map template]
 
-{{api name1="Map::has(const T& key)"}}
+{{api name1="Map::has(key)"}}
 
 Returns true if the map has an entry with a key `key`.
 
@@ -14166,7 +14216,7 @@ bool has(const T& key) const;
 
 ### find(const T& key) [Map template]
 
-{{api name1="Map::find(const T& key)"}}
+{{api name1="Map::find(key)"}}
 
 Returns a `Map::Iterator` or `Map::ConstIterator` for an element with a key `key`. The iterator has a value of `end()` if the key is not found.
 
@@ -14211,7 +14261,7 @@ ConstIterator end() const;
 
 ### erase(ConstIterator pos) [Map template]
 
-{{api name1="Map::erase(ConstIterator pos)"}}
+{{api name1="Map::erase(pos)"}}
 
 Removes the entry at the current iterator position and returns the value to use to continue iteration.
 
@@ -14222,7 +14272,7 @@ Iterator erase(ConstIterator pos);
 
 ### remove(const T& key) [Map template]
 
-{{api name1="Map::remove(const T& key)"}}
+{{api name1="Map::remove(key)"}}
 
 Remove entry with key `key` from the map. Returns true if the item existed and was removed, false if it did not exist.
 
@@ -14269,9 +14319,8 @@ ool isEmpty() const;
 ```
 
 
-### operator[](const KeyT& key) [Map template]
+### operator[](key) [Map template]
 
-{{api name1="Map::operator[](const KeyT& key)"}}
 
 Gets a reference to an entry with key `key`. This will create the entry if it does not exist. If there is insufficient memory to allocate a new entry, it will cause a SOS panic. Using `set()` can provide more control over error conditions.
 
@@ -14327,7 +14376,7 @@ Vector();
 
 ### Vector(int n) [Vector template]
 
-{{api name1="Vector::Vector(int n)"}}
+{{api name1="Vector::Vector(n)"}}
 
 Allocates a Vector object of size n elements. It can be expanded later if desired.
 
@@ -14338,7 +14387,7 @@ explicit Vector(int n);
 
 ### Vector(int n, const T& value) [Vector template]
 
-{{api name1="Vector::Vector(int n, const T& value)"}}
+{{api name1="Vector::Vector(n, value)"}}
 
 Allocates a Vector object of size `n` elements with each item in the vector set to value.
 
@@ -14364,7 +14413,7 @@ Vector<int> v({123, 456, 789});
 
 ### Vector(const Vector<T, AllocatorT>& vector) [Vector template]
 
-{{api name1="const Vector<T, AllocatorT>& vector"}}
+{{api name1="Vector(Vector)"}}
 
 Allocates a new vector object that is a copy of an existing Vector. 
 
@@ -14379,7 +14428,7 @@ Vector(const Vector<T, AllocatorT>& vector);
 
 ### append(T value) [Vector template]
 
-{{api name1="Vector::append(T value)"}}
+{{api name1="Vector::append(value)"}}
 
 Appends a value to a Vector, making the vector larger. 
 
@@ -14392,7 +14441,7 @@ bool append(T value);
 
 ### append(int n, const T& value) [Vector template]
 
-{{api name1="Vector::append(int n, const T& value)"}}
+{{api name1="Vector::append(n, value)"}}
 
 Appends `n` copies of `value` to a Vector, making the vector larger. 
 
@@ -14405,7 +14454,7 @@ bool append(int n, const T& value);
 
 ### append(const T* values, int n) [Vector template]
 
-{{api name1="Vector::append(const T* values, int n)"}}
+{{api name1="Vector::append(values, n)"}}
 
 Appends the `n` items in the `values` array to the vector. This is typically done if you have a C++ array of `T` and want to append those items to your vector. 
 
@@ -14419,7 +14468,7 @@ bool append(const T* values, int n);
 
 ### append(const Vector<T, AllocatorT>& vecto) [Vector template]
 
-{{api name1="Vector::append(const Vector<T, AllocatorT>& vector)"}}
+{{api name1="Vector::append(Vector)"}}
 
 Appends an existing vector to the end of this vector. 
 
@@ -14437,7 +14486,7 @@ bool append(const Vector<T, AllocatorT>& vecto);
 
 ### prepend(T value) [Vector template]
 
-{{api name1="Vector::prepend(T value)"}}
+{{api name1="Vector::prepend(value)"}}
 
 Prepend (insert at beginning) a value to a Vector, making the vector larger. 
 
@@ -14450,7 +14499,7 @@ bool prepend(T value);
 
 ### prepend(int n, const T& value) [Vector template]
 
-{{api name1="Vector::prepend(int n, const T& value)"}}
+{{api name1="Vector::prepend(n, value)"}}
 
 Prepend (insert at beginning) `n` copies of `value` to a Vector, making the vector larger. 
 
@@ -14463,7 +14512,7 @@ bool prepend(int n, const T& value);
 
 ### prepend(const T* values, int n) [Vector template]
 
-{{api name1="Vector::prepend(const T* values, int n)"}}
+{{api name1="Vector::prepend(values, n)"}}
 
 Prepend (insert at beginning) the `n` items in the `values` array to the vector. This is typically done if you have a C++ array of `T` and want to prepend those items to your vector. 
 
@@ -14477,7 +14526,7 @@ bool prepend(const T* values, int n);
 
 ### prepend(const Vector<T, AllocatorT>& vector) [Vector template]
 
-{{api name1="Vector::prepend(const Vector<T, AllocatorT>& vector)"}}
+{{api name1="Vector::prepend(Vector)"}}
 
 Prepend (insert at beginning) an existing vector to the end of this vector. 
 
@@ -14495,7 +14544,7 @@ bool prepend(const Vector<T, AllocatorT>& vecto);
 
 ### insert(int i, T value) [Vector template]
 
-{{api name1="Vector::insert(int i, T value)"}}
+{{api name1="Vector::insert(index, value)"}}
 
 Insert at location `i` (0 = beginning) a value to a Vector, making the vector larger. 
 
@@ -14508,7 +14557,7 @@ bool insert(int i, T value);
 
 ### insert(int i, int n, const T& value) [Vector template]
 
-{{api name1="Vector::insert(int i, int n, const T& value)"}}
+{{api name1="Vector::insert(index, n, value)"}}
 
 Insert at location `i` (0 = beginning) `n` copies of `value` to a Vector, making the vector larger. 
 
@@ -14521,7 +14570,7 @@ bool insert(int i, int n, const T& value);
 
 ### insert(int i, const T* values, int n) [Vector template]
 
-{{api name1="Vector::insert(int i, const T* values, int n)"}}
+{{api name1="Vector::insert(index, values, n)"}}
 
 Insert at location `i` (0 = beginning) the `n` items in the `values` array to the vector. This is typically done if you have a C++ array of `T` and want to insert those items to your vector. 
 
@@ -14535,7 +14584,7 @@ bool insert(int i, const T* values, int n);
 
 ### insert(const Vector<T, AllocatorT>& vector) [Vector template]
 
-{{api name1="Vector::insert(const Vector<T, AllocatorT>& vector)"}}
+{{api name1="Vector::insert(vector)"}}
 
 Insert at location `i` (0 = beginning) an existing vector to the end of this vector. 
 
@@ -14552,7 +14601,7 @@ bool insert(const Vector<T, AllocatorT>& vecto);
 
 ### removeAt(removeAt(int i, int n = 1) [Vector template]
 
-{{api name1="Vector::removeAt(int i, int n = 1)"}}
+{{api name1="Vector::removeAt(index, n)"}}
 
 Removes `n` elements (default" 1) at location `i` (0 = beginning) from a vector.
 
@@ -14567,7 +14616,7 @@ void removeAt(int i, int n = 1);
 
 ### bool removeOne(const T& value) [Vector template]
 
-{{api name1="Vector::removeOne(const T& value)"}}
+{{api name1="Vector::removeOne(value)"}}
 
 Removes the first element whose value is `value`. This works for primitive types (int, etc.) as well as classes that support `operator==` like `String`.
 
@@ -14583,7 +14632,7 @@ bool removeOne(const T& value);
 
 ### bool removeAll(const T& value) [Vector template]
 
-{{api name1="Vector::removeAll(const T& value)"}}
+{{api name1="Vector::removeAll(value)"}}
 
 Removes all elements whose value is `value`. This works for primitive types (int, etc.) as well as classes that support `operator==` like `String`.
 
@@ -14599,7 +14648,7 @@ bool removeAll(const T& value);
 
 ### T takeFirst() [Vector template]
 
-{{api name1="T Vector::takeFirst()"}}
+{{api name1="Vector::takeFirst()"}}
 
 Removes the first element of the vector and returns it. Only call this if the vector is not empty.
 
@@ -14610,7 +14659,7 @@ T takeFirst();
 
 ### T takeLast() [Vector template]
 
-{{api name1="T Vector::takeLast()"}}
+{{api name1="Vector::takeLast()"}}
 
 Removes the last element of the vector and returns it. Only call this if the vector is not empty.
 
@@ -14621,7 +14670,7 @@ T takeLast();
 
 ### T takeAt(int i) [Vector template]
 
-{{api name1="T Vector::takeAt(int i)"}}
+{{api name1="Vector::takeAt(index)"}}
 
 Removes the element of the vector at index `i` and returns it. `i` is zero-based (0 = same as takeFirst). 
 Make sure the item exists before calling.
@@ -14633,7 +14682,7 @@ T takeAt(int i);
 
 ### T first() [Vector template]
 
-{{api name1="T& Vector::first()"}}
+{{api name1="Vector::first()"}}
 
 Peek at the first item in the vector. Only call this if the vector is not empty.
 
@@ -14645,7 +14694,7 @@ const T& first() const;
 
 ### T last() [Vector template]
 
-{{api name1="T& Vector::last()"}}
+{{api name1="Vector::last()"}}
 
 Peek at the last item in the vector. Only call this if the vector is not empty.
 
@@ -14657,7 +14706,7 @@ const T& last() const;
 
 ### T at(int i) [Vector template]
 
-{{api name1="T& Vector::at(int i)"}}
+{{api name1="Vector::at(index)"}}
 
 Peek at item `i` in the vector (zero-based). Only call this if the item exists.
 
@@ -14673,7 +14722,7 @@ Log.info("%d", v.at(0));
 
 ### operator[](int i) [Vector template]
 
-{{api name1="T& Vector::operator[](int i)"}}
+{{api name1="Vector::operator[](index)"}}
 
 Peek at item `i` in the vector (zero-based) using `operator[]` instead of `at()`. Only call this if the item exists.
 
@@ -14694,7 +14743,7 @@ v[0] = 999;
 
 ### indexOf(const T& value, int i = 0) [Vector template]
 
-{{api name1="Vector::indexOf(const T& value, int i = 0)"}}
+{{api name1="Vector::indexOf(value, index)"}}
 
 Find the index (zero-based) of an item whose value is `value` starting at index `i` (optional, if not specified from the start at index 0).
 
@@ -14708,7 +14757,7 @@ int indexOf(const T& value, int i = 0) const;
 
 ### lastIndexOf(const T& value) [Vector template]
 
-{{api name1="Vector::lastIndexOf(const T& value)"}}
+{{api name1="Vector::lastIndexOf(value)"}}
 
 Find the index (zero-based) of the last item whose value is `value` in the vector.
 
@@ -14721,7 +14770,7 @@ int lastIndexOf(const T& value) const;
 
 ### lastIndexOf(const T& value, int i) [Vector template]
 
-{{api name1="Vector::lastIndexOf(const T& value, int i)"}}
+{{api name1="Vector::lastIndexOf(value, index)"}}
 
 Find the index (zero-based) of the last item whose value is `value` in the vector starting at index `i`.
 
@@ -14734,7 +14783,7 @@ int lastIndexOf(const T& value, int i) const;
 
 ### contains(const T& value) [Vector template]
 
-{{api name1="contains(const T& value)"}}
+{{api name1="contains(value)"}}
 
 Returns true if the vector contains an item whose value is `value`. Essentially the same as `indexOf() >= 0`.
 
@@ -14814,7 +14863,7 @@ ConstIterator end() const;
 
 ### insert(ConstIterator pos, T value) [Vector template]
 
-{{api name1="Vector::insert(ConstIterator pos, T value)"}}
+{{api name1="Vector::insert(pos, value)"}}
 
 Inserts `value` at the current position of iterator `pos`, making the vector larger. Returns a new value
 to continue iteration.
@@ -14827,7 +14876,7 @@ Iterator insert(ConstIterator pos, T value);
 
 ### insert(ConstIterator pos, T value) [Vector template]
 
-{{api name1="Vector::insert(ConstIterator pos, T value)"}}
+{{api name1="Vector::insert(pos, value)"}}
 
 Removes the item at the current position of iterator `pos`, making the vector smaller. Returns a new value
 to continue iteration.

@@ -31,7 +31,7 @@ You can test this feature prior to the release of Device OS 5.7.0 using Particle
   - Pre-alpha: `ledger-sync-merged/sc-120056`
   - Alpha: `develop`
 
-- In the Workbench settings, point the Custom Device OS location to the location of your source. See [Working with a custom Device OS build](getting-started/developer-tools/workbench-faq/#working-with-a-custom-device-os-build).
+- In the Workbench settings, point the Custom Device OS location to the location of your source. See [Working with a custom Device OS build](/getting-started/developer-tools/workbench-faq/#working-with-a-custom-device-os-build).
 
 - Using **Particle: Configure application for device** in the command palette, select **deviceOS@source** and the device you are using.
 
@@ -95,13 +95,119 @@ This is the test device firmware. It requires Device OS 5.7.0 or later.
 
 Walking through the code:
 
+This example uses three ledgers:
 
-Logs:
+- `sensors` for send sensor values from the device to the cloud, same as the [Ledger Sensor](/getting-started/logic-ledger/ledger-sensor/) example.
+- `defaultConfig` for the product default configuration (cloud to device).
+- `deviceConfig` for the device-specific overrides (cloud to device).
+
+```cpp
+Ledger sensors;            // Device to cloud
+Ledger defaultConfig;      // Cloud to device, product defaults
+Ledger deviceConfig;       // Cloud to device, device-specific overrides
+```
+
+This example updated the ledger once per minute. You can change this here. For example, to update every 5 minutes, change `60s` to `5min`.
+
+```cpp
+const std::chrono::milliseconds sensorCheckPeriod = 60s;
+```
+
+In `setup()` this code waits for the USB serial debug terminal to connect for 10 seconds before proceeding. This is useful for debugging but you will remove this from a real application.
+
+```cpp
+void setup() {
+    // The next line is for debugging and waits for USB serial debug to connect for 10 seconds so you can see more early log messages
+    waitFor(Serial.isConnected, 10000);
+```
+
+This initializes the ledgers. You can either register a synchronization callback, or just read the ledger when you need to use it. This example does both, however the sync callback doesn't really do anything.
+
+The `sensors` ledger is device to cloud, so there is no synchronization callback.
+
+```cpp
+// Start ledger synchronization
+defaultConfig = Particle.ledger("test-config-defaults");
+defaultConfig.onSync(syncCallback);
+
+deviceConfig = Particle.ledger("test-config-device");
+deviceConfig.onSync(syncCallback);
+
+sensors = Particle.ledger("sensors");
+```
+
+This is where we write the fake sensor data (temperature and humidity) to the ledger. The `data` variable is a local copy of the structured ledger data, though in this case it only consists of two number (double) keys, `temp` and `hum`, and a String timestamps `time`.
+
+```cpp
+// Save the value to the ledger
+Variant data;
+data.set("temp", temp);
+data.set("hum", hum);
+if (Time.isValid()) {
+    data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL)); // Time.format returns a String
+}
+```
+
+To save this data to the cloud, we use the `set()` method of `Ledger`. This call is asynchronous.
+
+```cpp
+// Save in ledger and output to serial debug log
+sensors.set(data);
+Log.info("set ledger %s", data.toJSON().c_str());
+```
+
+In the `getValue()` function you can see one pattern for reading values from a ledger. 
+
+```cpp
+bool getValue(const char *group, const char *key, Variant &value) {
+    bool hasKey = false;
+
+    LedgerData defaultData = defaultConfig.get();
+    if (defaultData.has(group)) {
+        if (defaultData[group].has(key)) {
+            value = defaultData[group].get(key);
+            hasKey = true;
+        }
+    }
+```
+
+This example is reading this JSON:
+
+```json
+{
+    "temp": {
+        "min": 20,
+        "max": 30
+    },
+    "hum": {
+        "min": 10,
+        "max": 80
+    }
+}
+```
+
+The `group` parameter is `temp` or `hum` and is the outer JSON key.
+
+The `key` parameter is the inner object key, `min` or `max`.
+
+Use the `get()` method in your global `Ledger` object to get a `LedgerData` object. 
+
+Use the `has()` method to check if a key exists. 
+
+`operator[]` is used to get a reference to a `Variant` in the data, for example: `defaultData[group]`. Be sure to check if the key exists before using this operator, however!
+
+Then the `has()` method can be used to see if the inner `key` exists (such as `min` or `max`),
+
+To get the value as a `Variant`, use the `get()` method. Then use a method like `toInt()`, `toDouble()`, or `toString()` to convert it to the actual type you want.
+
+
+Logs from running the code will typically look like this:
 
 ```
 0000022048 [app] INFO: set ledger {"hum":21.1,"temp":43.9,"time":"2024-01-17T12:00:56Z"}
 ```
 
+The first time you request the ledgers you may also see logs like this:
 
 ```
 0000021784 [system.ledger] INFO: Requesting ledger info
@@ -112,18 +218,26 @@ Logs:
 
 ## Configuration
 
-
-
+The configuration in **test-config-defaults* was set above. If you edit this ledger in the console, you'll see this message in the logs.
 
 ```
 0000237165 [app] INFO: syncCallback called
 ```
+
+If the `temp` or `hum` is not within the `min` to `max` range, the ledger will include an `alarm` key:
 
 ```
 0000141147 [app] INFO: temp value=19.600000 not in bounds, min=20.000000 max=30.000000
 0000141163 [app] INFO: hum value=32.200000 in bounds, min=10.000000 max=80.000000
 0000141428 [app] INFO: set ledger {"alarm":["temp"],"hum":32.2,"temp":19.6,"time":"2024-01-17T13:50:51Z"}
 ```
+
+This is generated from `checkLimits()` by this line of code. That this does is get a reference to the `alarm` key in the `data` object, which is what we'll store in the ledger. If the key does not exist, it will be created. Then the `append()` method of `Variant` is called. If the parent element is not an array, it will be converted to a `VariantArray`. Then the new element (`group`) is appended to the array.
+
+```cpp
+data["alarm"].append(group);
+```
+
 
 ### Device-specific overrides
 
@@ -190,3 +304,11 @@ The USB serial debug log will show something like this:
 ```
 0000441154 [app] INFO: alertUser temp 9.400000 not in range 20.000000 to 30.000000 0a10aced202194944a02c53c
 ```
+
+
+## Cleanup
+
+Ledger information is kept on the device even after you remove the firmware that uses Ledger. To clean up this data
+see the documentation for [Ledger::removeAll()](/reference/device-os/api/ledger/removeall-ledger-class/) in the Device OS 
+firmware API reference.
+
