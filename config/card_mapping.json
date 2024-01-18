@@ -592,7 +592,7 @@
   "/reference/device-os/firmware/#has-variantmap-": "/reference/device-os/api/variantmap/has-variantmap/",
   "/reference/device-os/firmware/#map": "/reference/device-os/api/map/map/",
   "/reference/device-os/firmware/#map-map-template-": "/reference/device-os/api/map/map-map-template/",
-  "/reference/device-os/firmware/#map-std-initializer_list-entrie-map-template-": "/reference/device-os/api/map/map-std-initializer_list-entrie-map-template/",
+  "/reference/device-os/firmware/#map-std-initializer_list-entries-map-template-": "/reference/device-os/api/map/map-std-initializer_list-entries-map-template/",
   "/reference/device-os/firmware/#map-const-map-amp-map-map-template-": "/reference/device-os/api/map/map-const-map-amp-map-map-template/",
   "/reference/device-os/firmware/#set-const-t-amp-key-valuet-val-map-template-": "/reference/device-os/api/map/set-const-t-amp-key-valuet-val-map-template/",
   "/reference/device-os/firmware/#get-const-t-amp-key-map-template-": "/reference/device-os/api/map/get-const-t-amp-key-map-template/",

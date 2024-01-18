@@ -13155,7 +13155,7 @@ In Device OS 3.0.0 and later there are accessors to read the values out of the i
 
 {{since when="5.7.0"}}
 
-Ledger provides device-to-cloud and cloud-to device data synchronization. See [Ledger](/getting-started/logic-ledger/ledger/) for an introduction to Ledger. 
+Ledger provides device to cloud and cloud to device data synchronization. See [Ledger](/getting-started/logic-ledger/ledger/) for an introduction to Ledger. 
 
 You will typically request a ledger using [Particle.ledger()](#particle-ledger) like this:
 
@@ -13176,9 +13176,10 @@ You will typically store the `Ledger` object you receive from `Particle.ledger()
 Ledger names consist only of lowercase alphanumeric and dash, up to 32 characters, and are unique across all scopes.
 
 
+
 ### set() [Ledger class]
 
-Sets a value in the ledger. This call is asychronous and the ledger 
+Sets a value in the ledger. This call is asychronous.
 
 ```cpp
 // PROTOTYPE
@@ -13196,13 +13197,12 @@ While the parameter `data` is a [`LedgerData`] object, you will typically pass a
 See [SetMode](#setmode-ledger-class-), below, for valid values.
 
 
-
 ### SetMode [Ledger class]
 
 | Constant | Description |
 | :--- | :--- |
 | `SetMode::REPLACE` | Replace the current ledger data |
-| `SetMode::MERGE` | pdate some of the entries of the ledger data|
+| `SetMode::MERGE` | Update some of the entries of the ledger data |
 
 ### Ledger synchronization
 
@@ -13214,6 +13214,9 @@ When a ledger is first modified, Device OS initiates a sync right away and start
 
 A ledger can be modified while the device is offline, and will be synchronized when the device comes back online.
 
+A cloud to device ledger is stored locally in the flash file system on the device. This allows it to be used
+before cloud connecting, but if you do this, the device will not have received any updates queued in the cloud.
+If the ledger has not changed since the last synchronization, it will not be transferred again, saving data.
 
 ### get() [Ledger class]
 
@@ -13226,7 +13229,7 @@ The get() method gets the Ledger data. This call does not block, so the data may
 
 ### lastUpdated() [Ledger class]
 
-Get the time the ledger was last updated, in milliseconds since the Unix epoch, or 0 if unknown.
+Get the time the ledger was last updated, in milliseconds since the Unix epoch (January 1, 1970), or 0 if unknown.
 
 ```cpp
 // PROTOTYPE
@@ -13235,7 +13238,7 @@ int64_t lastUpdated() const;
 
 ### lastSynced() [Ledger class]
 
-Get the time the ledger was last synchronized with the Cloud, in milliseconds since the Unix epoch, or 0 if unknown.
+Get the time the ledger was last synchronized with the Cloud, in milliseconds since the Unix epoch (January 1, 1970), or 0 if unknown.
 
 ```cpp
 // PROTOTYPE
@@ -14129,7 +14132,7 @@ Allocates an empty Map object. As it is a template you will also need to include
 Map();
 ```
 
-### Map(std::initializer_list<Entry> entrie) [Map template]
+### Map(std::initializer_list<Entry> entries) [Map template]
 
 {{api name1="Map::Map(initializer_list)"}}
 
@@ -14319,8 +14322,9 @@ ool isEmpty() const;
 ```
 
 
-### operator[](key) [Map template]
+### operator[] (key) [Map template]
 
+{{api name1="Map::operator[](key)"}}
 
 Gets a reference to an entry with key `key`. This will create the entry if it does not exist. If there is insufficient memory to allocate a new entry, it will cause a SOS panic. Using `set()` can provide more control over error conditions.
 
@@ -14720,7 +14724,7 @@ Vector<int> v({123, 456, 789});
 Log.info("%d", v.at(0));
 ```
 
-### operator[](int i) [Vector template]
+### operator[] (int i) [Vector template]
 
 {{api name1="Vector::operator[](index)"}}
 
