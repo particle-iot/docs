@@ -13192,7 +13192,7 @@ data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL));
 sensors.set(data);
 ```
 
-While the parameter `data` is a [`LedgerData`] object, you will typically pass a `Variant`. See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for the full example.
+While the parameter `data` is a `LedgerData` object, you will typically pass a `Variant`. See [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/) for the full example.
 
 See [SetMode](#setmode-ledger-class-), below, for valid values.
 
@@ -13408,6 +13408,8 @@ LedgerData data = { { "key1", "value1" }, { "key2", 2 } };
 
 ### set() [LedgerData class]
 
+Set a top-level key in the LedgerData to a value stored in a `Variant`.
+
 ```cpp
 // PROTOTYPES
 bool set(const char* name, Variant val);
@@ -13416,6 +13418,8 @@ bool set(String&& name, Variant val);
 ```
 
 ### remove() [LedgerData class]
+
+Remove a top-level key in the LedgerData.
 
 ```cpp
 // PROTOTYPES
@@ -13452,6 +13456,12 @@ errors are handled.
 // PROTOTYPES
 Variant& operator[](const char* name);
 Variant& operator[](const String& name);
+
+// EXAMPLE - Create an array if necessary and add an element to the array.
+data["alarm"].append(reasonCode);
+
+// EXAMPLE - Create an object if necessary and add a key/value pair to it.
+data["sensors"].set("temp", tempValue);
 ```
 
 
@@ -13495,15 +13505,11 @@ Then a `Variant` object is created on the stack that will be filled with data.
 The `set()` method is described below in [VariantMap](#set-variantmap-). It takes a key name (such as "sensor" or "time") and a value, which is also a `Variant`. Because there are Variant constructors for many variable types (see [variant constructor](#constructor-variant-class-), below), you can pass a variable directly to set and the compiler will handle it appropriately. In the time example, the returned object from `Time.format` is a `String`.
 
 ```cpp
-// In a real application, you'd read the sensor here, but we'll just set a random 12-bit value
-int sensorValue = rand() % 4096;
+int sensorValue = readSensor();
 
-// Save the value to the ledger
 Variant data;
 data.set("sensor", sensorValue);
-if (Time.isValid()) {
-    data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL));
-}
+data.set("time", Time.format(TIME_FORMAT_ISO8601_FULL));
 sensors.set(data);
 ```
 
