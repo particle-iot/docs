@@ -112,7 +112,7 @@ Common use cases:
 
 {{imageOverlay src="/assets/images/ledger/device-to-cloud.png" class="no-darken"}}
 
-For an example of using a Device to Cloud Ledger to store sensor data, see [Ledger sensor](/getting-started/logic-ledger/ledger-sensor).
+For an example of using a Device to Cloud Ledger to store sensor data, see [Ledger sensor](/getting-started/logic-ledger/ledger-sensor/).
 
 
 ## Cloud to Device ledger - console
@@ -134,11 +134,23 @@ A copy of the ledger is stored locally in the flash file system, so it can be av
 after it has been synchronized once. Of course if the ledger has been updated in the cloud, the changes will not be
 available until cloud connected and the ledger synchronized, so in some cases you may want to wait for that to occur.
 
+If the local copy of the ledger is the same as the cloud version (as determined by a hash), it will not be downloaded
+again, saving data. 
+
+During Ledger beta, data operations are not charged for ledger synchronization. In the future, ledger downloads 
+may incur data operations at a rate of 1 data operations per 1Kbyte download. Ledgers can be up to 16K, so a 
+maximum ledger could incur 16 data operations.
+
+The maximum ledger size is dependent on a number of factors including RAM and flash size limitations, so on some
+platforms, particularly Gen 3 devices like the B Series SoM, Tracker SoM, Boron, and Argon, the limit could be lower.
+RAM usage is dependent not only on the total size of the data in the ledger, but also the shape of the data. Arrays 
+of small objects, for instance, will use significantly more RAM than a long character string.
 
 ### Using Ledger for configuration
 
 One common use case is to store configuration using Ledger. Since each Ledger is scoped to an organization, owner, product, or device, you can implement a custom hierarchy of configuration. For example, you can have product defaults in a product ledger, and device-specific values in a device-specific ledger. You can read both ledgers on-device and implement your own desired override behavior.
 
+For an example of using a Ledger for configuration, see [Ledger configuration](/getting-started/logic-ledger/ledger-configuration/).
 
 
 ## Using Ledger from Logic

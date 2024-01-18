@@ -19,6 +19,27 @@ Ledger requires Device OS 5.7.0 or later.
 
 One use case of a Cloud to Device ledger is storing configuration parameters. You can store data per organization, owner, product, or device. You can implement your own hierarchy (product with device overrides, for example). If ledger values are changed while the device is online, it will generally receive the update quickly, within 30 seconds. If the device is offline, it will receive the updates when the device connects to the cloud again.
 
+{{!-- BEGIN shared-blurb f77c1afd-51d7-488a-a090-9786b7133e73 --}}
+
+## Prior to Device OS 5.7.0
+
+You can test this feature prior to the release of Device OS 5.7.0 using Particle Workbench and a local copy of Device OS.
+
+- Clone Device OS from Github: [https://github.com/particle-iot/device-os](https://github.com/particle-iot/device-os).
+
+- Switch to the appropriate branch:
+  - Pre-alpha: `ledger-sync-merged/sc-120056`
+  - Alpha: `develop`
+
+- In the Workbench settings, point the Custom Device OS location to the location of your source. See [Working with a custom Device OS build](getting-started/developer-tools/workbench-faq/#working-with-a-custom-device-os-build).
+
+- Using **Particle: Configure application for device** in the command palette, select **deviceOS@source** and the device you are using.
+
+- Use **Particle: Flash application and Device OS (local)** once to upgrade Device OS on the device. After that, you can use **Particle: Flash application (local)**.
+
+Until the Device OS 5.7.0 release you cannot use the cloud compilers to build application that use device-side Ledger.
+
+{{!-- END shared-blurb --}}
 
 ## Sandbox product
 
