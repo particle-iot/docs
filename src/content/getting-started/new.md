@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Fixed navigation on some pages 2024-01-18
+
+Fixed a bug where if a page had no L2 headers, no navigation would be shown even if it had L3 headers. One example was the Workbench FAQ.
+
 ### WiFi.setCredentials for P2/Photon 2 2024-01-16
 
 Documented the number of Wi-Fi credentials for the P2/Photon 2, which is the same as the Argon (10).

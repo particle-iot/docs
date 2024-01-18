@@ -615,6 +615,7 @@ navMenu.scanHeaders = function () {
     let levelAdjust = 0;
 
     let lastL2;
+    let hasL2 = false;
 
     $(contentInner).find(headerLevels).each(function (index, elem) {
         // console.log('elem', elem);
@@ -631,6 +632,7 @@ navMenu.scanHeaders = function () {
 
             if (level == 2) {
                 lastL2 = obj;
+                hasL2 = true;
             }
 
             if (level > 2) {
@@ -641,6 +643,13 @@ navMenu.scanHeaders = function () {
             }
         }
     });
+
+    if (!hasL2) {
+        // Document has no L2 headers, promote all headers by one level
+        for(let hdr of navMenu.headers) {
+            hdr.level--;
+        }
+    }
 
     // console.log('scanHeaders headers', navMenu.headers);
     navMenu.searchContent();
