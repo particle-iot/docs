@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Scrolling fix in Device OS API reference 2024-01-18
+
+Fixed a longstanding bug where if the section you opened in the Device OS firmware API reference was shorter than the height of your window, the next section might not load automatically. Scrolling down would not load it, either.
+
 ### Fixed navigation on some pages 2024-01-18
 
 Fixed a bug where if a page had no L2 headers, no navigation would be shown even if it had L3 headers. One example was the Workbench FAQ.

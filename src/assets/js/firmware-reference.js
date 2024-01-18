@@ -331,31 +331,17 @@ $(document).ready(function() {
 
 
                 if (options.toEnd) {
-                    let doBefore = options.doBefore;
-
                     $(scrollableContent).data('nextLink', nav.next);
 
                     $('div.content').not('.note-common').last().append(divElem);
 
-                    params.scrollHeightAfter = $(scrollableContent).prop('scrollHeight');
-                    params.height = $(scrollableContent).height();
-
-                    // Add more if necessary
-                    if (params.scrollHeightAfter < params.height && nav.next) {
-                        // Add more
-                        options.link = nav.next;
-                        pageQueue.push(options);
+                    if (pageQueue.length) {
                         loadPage();
-                        doBefore = false;
-                    }                  
-                
-                    if (doBefore) {
-                        pageQueue.push({link: options.doBefore, toEnd: false});
-                        loadPage();
-                    }      
+                    }           
                 }
                 else {
                     // Insert before
+                    console.log('has has insertBefore');
                     $(scrollableContent).data('prevLink', nav.prev);
 
                     $('div.content').not('.note-common').first().prepend(divElem);
@@ -387,6 +373,20 @@ $(document).ready(function() {
     const queuePage = function(options) {
         pageQueue.push(options);
         loadPage();
+    }
+
+    const preloadPages = function(pathname) {
+        const pathParts = parsePath(pathname);
+        
+        for(let index = 0; index < apiIndex.sections.length; index++) {
+            const section = apiIndex.sections[index];
+            if (section.folder == pathParts.folder && section.file == pathParts.file) {
+                for(let ii = 1; ii <= 3 && (index + ii) < apiIndex.sections.length; ii++) {
+                    queuePage({link: apiIndex.sections[index + ii].href, toEnd:true});
+                }                
+                break;
+            }
+        }
     }
 
     // Load the page index
@@ -508,12 +508,7 @@ $(document).ready(function() {
 
         syncNavigation(thisUrl.pathname);
 
-        if (nav.next) {
-            queuePage({link: nav.next, toEnd:true, doBefore:nav.prev});
-        }
-        else if (nav.prev) {
-            queuePage({link: nav.prev, toEnd:true});
-        }    
+        preloadPages(thisUrl.pathname);
     });
     
 
