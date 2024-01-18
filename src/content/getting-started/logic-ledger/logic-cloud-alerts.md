@@ -3,6 +3,7 @@ title: Cloud alerts with Logic
 columns: two
 layout: commonTwo.hbs
 description: Cloud alerts with Logic
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
 ---
 
 # {{title}}
@@ -99,13 +100,13 @@ Use the follow event test data to test alert:
 {"temp":14.0, "hum": 40.0}
 ```
 
-And then **Run code**. You can then deploy the Logic block.
+And then **Run code**. You need to run the code once before you can deploy it.
 
 Set the trigger event name to **testCloudSensor** and **Deploy**.
 
-When the temperature is out of range, an alert will be generated, but this time it's done from values in a published event instead of synchronizing the configuration to the device.
+When the temperature is out of range, an alert will be generated.
 
-You can change the min and max values by modifying the logic block.
+You can change the min and max values by modifying `tempLimits` in the logic block.
 
 {{imageOverlay src="/assets/images/ledger/cloud-alert-run.png" class="no-darken"}}
 

@@ -38,7 +38,7 @@ You can test this feature prior to the release of Device OS 5.7.0 using Particle
   - Pre-alpha: `ledger-sync-merged/sc-120056`
   - Alpha: `develop`
 
-- In the Workbench settings, point the Custom Device OS location to the location of your source. See [Working with a custom Device OS build](getting-started/developer-tools/workbench-faq/#working-with-a-custom-device-os-build).
+- In the Workbench settings, point the Custom Device OS location to the location of your source. See [Working with a custom Device OS build](/getting-started/developer-tools/workbench-faq/#working-with-a-custom-device-os-build).
 
 - Using **Particle: Configure application for device** in the command palette, select **deviceOS@source** and the device you are using.
 
@@ -170,6 +170,13 @@ Once the device has successfully sent data to the cloud once a new instance will
 Using **Get Instance** allows to you examine the data that was synchronized from the device.
 
 {{imageOverlay src="/assets/images/ledger/sensor-values.png" class="no-darken"}}
+
+## Cleanup
+
+Ledger information is kept on the device even after you remove the firmware that uses Ledger. To clean up this data
+see the documentation for [Ledger::removeAll()](/reference/device-os/api/ledger/removeall-ledger-class/) in the Device OS 
+firmware API reference.
+
 
 ## Next steps
 
