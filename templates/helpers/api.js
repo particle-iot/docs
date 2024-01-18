@@ -14,6 +14,8 @@ module.exports = function(context) {
 
 	let html = '';
 
+    // This was needed for Swiftype, but is probably no longer needed
+    /*
     const sanitizeName = function(str) {
         return str.replace(/[^a-z0-9]/gi, '-').toLowerCase();
     };
@@ -59,6 +61,7 @@ module.exports = function(context) {
         
         html += '</a>'
     }
+    */
 
 	return new Handlebars.SafeString(html);
 };
