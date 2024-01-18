@@ -23,6 +23,36 @@ Instead of putting the business logic in device firmware and configuration, you 
 
 {{> project-browser project="logic-cloud-alerts" default-file="src/logic-cloud-alerts.cpp" height="400"}}
 
+The firmware for this just publishes imaginary sensor data.
+
+If you wish to change how often it publishes, change this line. You can also use minutes, such as `5min`.
+
+```cpp
+const std::chrono::milliseconds sensorCheckPeriod = 60s;
+```
+
+If you change the event name, be sure to change the trigger in the logic block.
+
+```cpp
+const char *eventName = "testCloudSensor";
+```
+
+The other important part is where the JSON data is built and published:
+
+```cpp
+// Publish
+memset(jsonBuffer, 0, sizeof(jsonBuffer));
+JSONBufferWriter writer(jsonBuffer, sizeof(jsonBuffer) - 1);
+
+writer.beginObject();
+writer.name("temp").value(temp);
+writer.name("hum").value(hum);
+writer.endObject();            
+
+Particle.publish(eventName, jsonBuffer);
+Log.info("publish %s %s", eventName, jsonBuffer);
+```
+
 If you monitor the USB serial debug log, you'll see something like this:
 
 ```
@@ -83,9 +113,9 @@ You can change the min and max values by modifying the logic block.
 
 You can also use events published from a device and handled by logic to write the Ledger from Logic. You might want to do this:
 
-- To consolidate code in one location
-- Support for older versions of Device OS (such as 4.x LTS)
-- Support for even older versions of Device OS on Gen 2 (such as 2.x LTS)
+- To consolidate code in one location on the cloud side.
+- Support for older versions of Device OS (such as 4.x LTS).
+- Support for even older versions of Device OS on Gen 2 (such as 2.x LTS).
 
 In order to use Ledger from Logic you will need to create a separate Cloud Only Ledger. You can't set values in a Device to Cloud Ledger from Logic (or the cloud API).
 
