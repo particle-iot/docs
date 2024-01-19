@@ -21,12 +21,33 @@ The three types of Ledgers are:
 | Scope | Description | Availability |
 | :--- | :--- | :--- |
 | Cloud Ledger | Stores information in the cloud without syncing to the edge. | In Beta Now |
-| Device to Cloud Ledger | Device storage that syncs automatically to the cloud | In Beta Now |
-| Cloud to Device Ledger | Set data in the cloud that will sync to devices | In Beta Now |
+| Device to Cloud Ledger | Device storage that syncs automatically to the cloud | In Alpha Now |
+| Cloud to Device Ledger | Set data in the cloud that will sync to devices | In Alpha Now |
 
-Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays.
+Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays. JSON does not support binary data, but you can store small binary data by encoding it, such as as hex, Base64, or Base85 encoding.
 
 Device to Cloud and Cloud to Device ledgers require Device OS 5.7.0 or later. This feature is currently in beta and will not be available in a Device OS 4.x LTS release. Device ledger support will not be available on Gen 2 devices (E Series other than the E404X, Electron, P1, and Photon 1).
+
+## Prior to Device OS 5.7.0
+
+You can test the Device Ledger feature prior to the release of Device OS 5.7.0 using Particle Workbench and a local copy of Device OS.
+
+- Clone Device OS from Github: [https://github.com/particle-iot/device-os](https://github.com/particle-iot/device-os).
+
+- Switch to the appropriate branch:
+  - Pre-alpha: `ledger-sync-merged/sc-120056`
+  - Alpha: `develop`
+
+- In the Workbench settings, point the Custom Device OS location to the location of your source. See [Working with a custom Device OS build](/getting-started/developer-tools/workbench-faq/#working-with-a-custom-device-os-build).
+
+- Using **Particle: Configure application for device** in the command palette, select **deviceOS@source** and the device you are using.
+
+- Use **Particle: Flash application and Device OS (local)** once to upgrade Device OS on the device. After that, you can use **Particle: Flash application (local)**.
+
+Until the Device OS 5.7.0 release you cannot use the cloud compilers to build application that use device-side Ledger.
+
+{{!-- END shared-blurb --}}
+
 
 ## Console
 
@@ -134,17 +155,16 @@ A copy of the ledger is stored locally in the flash file system, so it can be av
 after it has been synchronized once. Of course if the ledger has been updated in the cloud, the changes will not be
 available until cloud connected and the ledger synchronized, so in some cases you may want to wait for that to occur.
 
-If the local copy of the ledger is the same as the cloud version (as determined by a hash), it will not be downloaded
-again, saving data. 
+If the local copy of the ledger is the same as the cloud version, it will not be downloaded again, saving data. 
 
 During Ledger beta, data operations are not charged for ledger synchronization. In the future, ledger downloads 
-may incur data operations at a rate of 1 data operations per 1Kbyte download. Ledgers can be up to 16K, so a 
+may incur data operations at a rate of 1 data operations per 1 Kbyte download. Ledgers can be up to 16 Kbyte, so a 
 maximum ledger could incur 16 data operations.
 
 The maximum ledger size is dependent on a number of factors including RAM and flash size limitations, so on some
 platforms, particularly Gen 3 devices like the B Series SoM, Tracker SoM, Boron, and Argon, the limit could be lower.
 RAM usage is dependent not only on the total size of the data in the ledger, but also the shape of the data. Arrays 
-of small objects, for instance, will use significantly more RAM than a long character string.
+of small objects, for instance, will use more RAM than a long character string.
 
 ### Using Ledger for configuration
 
@@ -162,7 +182,7 @@ You can easily access owner, product, and device ledgers from Logic.
 
 See [Using Ledger from Logic](/getting-started/logic-ledger/logic/#using-ledger-from-logic) in the Logic documentation for more information.
 
-## Using Ledger from the Particle Cloud API
+## Using Ledger from the Cloud API
 
 Ledger can be also be accessed using the Particle Cloud REST API. See the [Cloud API reference](/reference/cloud-apis/api/#ledger) for more information.
 

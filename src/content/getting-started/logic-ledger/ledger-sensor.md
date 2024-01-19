@@ -184,3 +184,4 @@ In this simple demo, we're viewing the data in the console, but you might want t
 
 You could also read the data using the [Particle Cloud API](/reference/cloud-apis/api/#ledger) from a web page or external application.
 
+For an example of a cloud to device Ledger and reading data from a Ledger, see the [Ledger Configuration](/getting-started/logic-ledger/ledger-configuration/) example.
