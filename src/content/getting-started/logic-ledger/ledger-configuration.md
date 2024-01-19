@@ -305,10 +305,16 @@ The USB serial debug log will show something like this:
 0000441154 [app] INFO: alertUser temp 9.400000 not in range 20.000000 to 30.000000 0a10aced202194944a02c53c
 ```
 
-
 ## Cleanup
 
 Ledger information is kept on the device even after you remove the firmware that uses Ledger. To clean up this data
 see the documentation for [Ledger::removeAll()](/reference/device-os/api/ledger/removeall-ledger-class/) in the Device OS 
 firmware API reference.
 
+## Next steps
+
+In this simple demo, we're viewing the data in the console, but you might want to do additional processing using Logic. 
+
+You could also read the data using the [Particle Cloud API](/reference/cloud-apis/api/#ledger) from a web page or external application.
+
+For an example of a device to cloud Ledger and writing data to a Ledger, see the [Ledger Sensor](/getting-started/logic-ledger/ledger-sensor/) example.
