@@ -368,7 +368,7 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | NRND | B404XMTY|
 | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | NRND | B404XMEA|
 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B404XMTY|
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | B404XMEA|
+| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | B404XMEA|
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | Fast<sup>1</sup> | GA | |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |

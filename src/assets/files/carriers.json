@@ -19519,7 +19519,7 @@
     {
       "name": "B402MEA",
       "desc": "B Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "B404XMEA",
       "modem": "R410",
       "sim": 3,

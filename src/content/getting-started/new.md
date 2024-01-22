@@ -21,12 +21,14 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### B402MEA deprecated 2024-01-22
 
-#### SoM first board and Basic SoM fix 2024-01-22
+The SKU B402MEA is deprecated. The recommended replacement is B404XMEA.
+
+### SoM first board and Basic SoM fix 2024-01-22
 
 M.2 pin 40 should be D3 and M.2 pin 42 should be D2. These were reversed previously, however
 these sample boards do not use the pins.
-
 
 ### Scrolling fix in Device OS API reference 2024-01-18
 

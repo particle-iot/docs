@@ -86,7 +86,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | ASSET2GV2 | Asset Tracker 2G | Deprecated | A35K |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Deprecated | A26K |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | Deprecated | A27K |
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NRND | P006 |
+| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | Deprecated | P006 |
 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NRND | P007 |
 | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NRND | P033 |
 | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NRND | P033 |
@@ -212,7 +212,7 @@ Some older devices do not have the serial number stored on the device (E260, for
 | E4DT | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NRND |
 | P005 | E313EA | E Series 2G/3G (Global - E313), [x1] | Deprecated |
 | P005 | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | End of life |
-| P006 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NRND |
+| P006 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | Deprecated |
 | P007 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NRND |
 | P010 | ARG-STRTKT | Argon Starter Kit [x1] | NRND |
 | P011 | ARG-AQKT | Argon Air Quality Monitor Kit [x1] | NRND |

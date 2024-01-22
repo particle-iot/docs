@@ -107,7 +107,7 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | NRND|
+| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXU | &nbsp; | Deprecated|
@@ -378,7 +378,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &nbsp; | ANT-FLXV2 | &check; | GA|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
@@ -484,7 +484,7 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &check; | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &check; | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | &nbsp; | NRND|
+| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &check; | &nbsp; | NRND|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | &nbsp; | Deprecated|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | &nbsp; | Deprecated|
