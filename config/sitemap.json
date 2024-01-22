@@ -927,12 +927,12 @@
             "hash": "f63c9a9ff0cbc69cd85f636fbdae9568a67a094ed55c0eddc71f5d2dff4cac52"
         },
         "hardware/b-series-som/som-first-board.md": {
-            "date": "2023-11-21",
-            "hash": "65c18550892010848b207c4a9db4f24c17ebfe98cd27ecf890056bd3b92509ac"
+            "date": "2024-01-22",
+            "hash": "415bab5f969138efae004e756c08d7a2b19d3f3ce3ff50f1ad48ee6536365309"
         },
         "hardware/b-series-som/basic-som-design.md": {
-            "date": "2023-11-21",
-            "hash": "2b03f6ddec65aa030320fdb43762408d33d6eba7dc18cfc1bf2d4cfb2225fded"
+            "date": "2024-01-22",
+            "hash": "a4284163c16267c7bdc0209ac64b9be9e0237b94c2fb043024c5b981d9541386"
         },
         "hardware/certification/antenna.md": {
             "date": "2023-11-30",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c8f7ef0348f1a8fecb39eb46a7544f151b3e917ef8a8688e7c83d0c7664ce8fd",
-            "date": "2024-01-18"
+            "hash": "755cc51c312c3afa79020a40e70c94a16a898900e4879ae7c19f80ac844d397d",
+            "date": "2024-01-22"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

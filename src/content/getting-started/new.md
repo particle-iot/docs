@@ -21,6 +21,13 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+
+#### SoM first board and Basic SoM fix 2024-01-22
+
+M.2 pin 40 should be D3 and M.2 pin 42 should be D2. These were reversed previously, however
+these sample boards do not use the pins.
+
+
 ### Scrolling fix in Device OS API reference 2024-01-18
 
 Fixed a longstanding bug where if the section you opened in the Device OS firmware API reference was shorter than the height of your window, the next section might not load automatically. Scrolling down would not load it, either.

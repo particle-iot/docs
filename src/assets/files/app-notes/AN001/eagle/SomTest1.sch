@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.4.0">
+<eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="17" fill="1" visible="no" active="no"/>
+<layer number="4" name="Route4" color="18" fill="1" visible="no" active="no"/>
+<layer number="5" name="Route5" color="19" fill="1" visible="no" active="no"/>
+<layer number="6" name="Route6" color="25" fill="1" visible="no" active="no"/>
+<layer number="7" name="Route7" color="26" fill="1" visible="no" active="no"/>
+<layer number="8" name="Route8" color="27" fill="1" visible="no" active="no"/>
+<layer number="9" name="Route9" color="28" fill="1" visible="no" active="no"/>
+<layer number="10" name="Route10" color="29" fill="1" visible="no" active="no"/>
+<layer number="11" name="Route11" color="30" fill="1" visible="no" active="no"/>
+<layer number="12" name="Route12" color="20" fill="1" visible="no" active="no"/>
+<layer number="13" name="Route13" color="21" fill="1" visible="no" active="no"/>
+<layer number="14" name="Route14" color="22" fill="1" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
@@ -922,9 +934,9 @@ JST PH 2-pin thru-home side entry</description>
 <pin name="A3" x="-35.56" y="5.08" length="middle"/>
 <pin name="RX" x="35.56" y="5.08" length="middle" rot="R180"/>
 <pin name="AGND-39" x="-35.56" y="2.54" length="middle"/>
-<pin name="D2" x="35.56" y="2.54" length="middle" rot="R180"/>
+<pin name="D3" x="35.56" y="2.54" length="middle" rot="R180"/>
 <pin name="A4" x="-35.56" y="0" length="middle"/>
-<pin name="D3" x="35.56" y="0" length="middle" rot="R180"/>
+<pin name="D2" x="35.56" y="0" length="middle" rot="R180"/>
 <pin name="A5" x="-35.56" y="-2.54" length="middle"/>
 <pin name="SOM0" x="35.56" y="-2.54" length="middle" rot="R180"/>
 <pin name="A6" x="-35.56" y="-5.08" length="middle"/>
@@ -1286,8 +1298,8 @@ https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/2199230
 <connect gate="G$1" pin="AGND-39" pad="39"/>
 <connect gate="G$1" pin="AGND-49" pad="49"/>
 <connect gate="G$1" pin="CS" pad="48"/>
-<connect gate="G$1" pin="D2" pad="40"/>
-<connect gate="G$1" pin="D3" pad="42"/>
+<connect gate="G$1" pin="D2" pad="42"/>
+<connect gate="G$1" pin="D3" pad="40"/>
 <connect gate="G$1" pin="D4" pad="66"/>
 <connect gate="G$1" pin="D5" pad="68"/>
 <connect gate="G$1" pin="D6" pad="70"/>
@@ -1871,7 +1883,7 @@ VOUT=3.3V&lt;br&gt;</description>
 <part name="SUPPLY7" library="rickk2" deviceset="3V7" device=""/>
 <part name="S1" library="rickk2" deviceset="SWITCH-MOM-4.5" device=""/>
 <part name="S2" library="rickk2" deviceset="SWITCH-MOM-4.5" device=""/>
-<part name="J1" library="rickk2" deviceset="SPARK_M.2EKEY" device="" value=""/>
+<part name="J1" library="rickk2" deviceset="SPARK_M.2EKEY" device="" value="SPARK_M.2EKEY"/>
 <part name="C1" library="rickk2" deviceset="CAP-0.01UF-0603" device="" value="0.01uF"/>
 <part name="C3" library="rickk2" deviceset="CAP-1UF-0603.DEV" device="" value="1uF"/>
 <part name="R5" library="rickk2" deviceset="RES-150-0603" device="" value="150"/>

@@ -109,7 +109,7 @@ The eagle directory contains files for Autodesk Eagle CAD 9. It is a small two-l
 
 - SomTest1.sch - Schematic
 - SomTest1.brd - Board File
-- SomTest1v4.zip - Gerbers
+- SomTest1v5.zip - Gerbers
 - SomTest1.lbr - Library file containing all of the components on this board
 - SomTest1-brd.pdf - PDF version of the board
 - SomTest1-sch.pdf - PDF version of the schematic
@@ -143,4 +143,11 @@ The input current limit is actually controlled by three factors:
 Note that some 2A tablet chargers and multi-port USB power supplies supply 2A but do not implement DPDM; these will be treated as if VIN was used, and you must set the power source current, otherwise the input current will be limited to 900 mA, which is not enough to power a 2G/3G cellular modem without an attached battery.
 
 {{!-- END shared-blurb --}}
+
+## Revision history
+
+#### 2024-01-22 (v5)
+
+- M.2 pin 40 should be D3 and M.2 pin 42 should be D2. These were reversed previously, however
+this sample board does not use the pins.
 

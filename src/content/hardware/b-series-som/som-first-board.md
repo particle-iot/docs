@@ -302,6 +302,11 @@ Celebrate making your first working SoM base board!
 
 ### Version history
 
+#### 2024-01-22 (v3)
+
+- M.2 pin 40 should be D3 and M.2 pin 42 should be D2. These were reversed previously, however
+this sample board does not use the pins.
+
 #### 2020-03-30 (v2)
 
 - Changed R8 from 158K to 150K to change 3V7 to 3V8. The voltage increase to 3.875V adds an extra safety margin for some modem modules.
