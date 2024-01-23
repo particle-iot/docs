@@ -49,259 +49,41 @@ Once an interface is selected it will continue to be used until the connection i
 
 Most features are implemented in the `Network` class. This section will be part of the [Device OS firmware API reference](https://docs.particle.io/reference/device-os/api/network/network/) when released, but is included here for pre-release.
 
-
-
 ## Network
 
-The `Network` class can be used instead of `Cellular` or `WiFi` and represents the set of features common across all supported networking types: Cellular, Wi-Fi, and Ethernet. 
+### Network.preferred()
 
-There are two common uses for this:
+{{api name1="Network.preferred"}}
 
-- When you have code that runs on both Wi-Fi and Cellular devices, and you want to work automatically with the default network interface without having to use `#ifdef`.
-- When you are writing a library or module within a large application and want to be able to work with a specific interface that is decided on by the caller.
+You should normally let automatic connection management handle which network interface to use. There are `preferred()` methods in the `Cellular`, `WiFi`, and `Ethernet` classes that can be used if you have a need to steer the connection management toward a specific interface.
 
-```cpp
-// EXAMPLE
-#include "Particle.h"
-
-SYSTEM_THREAD(ENABLED);
-SerialLogHandler logHandler;
-
-class ExampleModule {
-public:
-    ExampleModule &withNetwork(NetworkClass &network) {
-        this->network = network;
-        return *this;
-    }
-
-    void setup() {        
-    }
-
-    void loop() {
-        bool ready = network.ready();
-        if (ready != lastReady) {
-            lastReady = ready;
-            Log.info("ready=%d", (int) ready);
-        }
-    }
-
-    NetworkClass &network = Network;
-    bool lastReady = false;
-};
-ExampleModule exampleModule;
-
-void setup() {
-    exampleModule
-        .withNetwork(Ethernet)
-        .setup();
-}
-
-void loop() {
-    exampleModule.loop();
-}
-
-```
-
-This example prints when the network changes to or from ready state. By default, it uses `Network`, the default networking for this device. However, the caller can use the `withNetwork()` method to pass in a different network. In this example, it changes the behavior to monitor the `Ethernet` network instead.
-
-When using the switchable network, it uses `network` (lowercase, the member variable), instead of `Network` (default interface), or a specific interface like `Cellular` or `WiFi`.
-
-### on() [Network]
-
-{{api name1="Network.on"}}
-
-`Network.on()` turns on the the default network interface for this device, typically Cellular or Wi-Fi.
-
-Note that `Network.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the network off.
-
-### off() [Network]
-
-{{api name1="Network.off"}}
-
-```cpp
-// EXAMPLE:
-Particle.disconnect();
-Network.off();
-```
-
-`Network.off()` turns off the default network interface for this device, typically Cellular or Wi-Fi.
-
-You must call [`Particle.disconnect()`](#particle-disconnect-) before turning off the network manually, otherwise the cloud connection may turn it back on again.
-
-This should only be used with [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode) (or `MANUAL`) as the cloud connection and Wi-Fi are managed by Device OS in `AUTOMATIC` mode.
-
-
-### connect() [Network]
-
-{{api name1="Network.connect"}}
-
-Attempts to connect to default network interface for this device, typically Cellular or Wi-Fi. 
-
-For Wi-Fi devices, if there are no credentials stored, this will enter listening mode, blinking dark blue. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `Network.ready()` to determine the connection status.
-
-```cpp
-// SYNTAX
-Network.connect();
-```
-
-On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
-
-On the Argon, starting with Device OS 1.5.0, a quick Wi-Fi scan is done before connecting. The list of available networks is compared with the configured SSIDs. The access point with the strongest signal is connected to. Prior to 1.5.0, only the original access point BSSID that was configured would ever be connected to, even if there was a different access point on the same SSID and network with a stronger signal.
-
-### disconnect() [Network]
-
-{{api name1="Network.disconnect"}}
-
-Disconnects from the network, but leaves the network module on.
-
-```cpp
-// SYNTAX
-Network.disconnect();
-```
-
-### connecting() [Network]
-
-{{api name1="Network.connecting"}}
-
-This function will return `true` once the device is attempting to connect, and will return `false` once the device has successfully connected to the network.
-
-```cpp
-// SYNTAX
-Network.connecting();
-```
-
-### ready() [Network]
-
-{{api name1="Network.ready"}}
-
-This function will return `true` once the device is connected to the network. Otherwise it will return `false`.
-
-```cpp
-// SYNTAX
-Network.ready();
-```
-
-### setConfig() [Network]
-
-{{api name1="Network.setConfig"}}
-
-{{since when="5.3.0"}}
-
-Set a [`NetworkInterfaceConfig`](#networkinterfaceconfig) for a generic network interface on the Argon, P2, and Photon 2 running Device OS 5.3.0 or later. This can be used with Ethernet and WiFi. This is used to set a static IP address or restore DHCP addressing (the default).
+- The automatic connection management rules still apply when preferring an interface.
+- The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
+- This does not affect an immediate change if the cloud is currently connected; it will only be consulted on the next automatic connection management.
+- Only one network type can be preferred, setting WiFi.preferred() will clear Cellular.preferred() for example.
 
 ```cpp
 // PROTOTYPE
-int setConfig(const particle::NetworkInterfaceConfig& conf);
+virtual NetworkClass& preferred(bool preferred = true);
 
-// EXAMPLE
-Network.setConfig(NetworkInterfaceConfig()
-  .source(NetworkInterfaceConfigSource::STATIC)
-  .address({192,168,1,20}, {255,255,255,0})
-  .gateway(SockAddr({192,168,1,1}))
-  .dns(SockAddr({192,168,1,1})));
+// EXAMPLE - Enable automatic connection management// EXAMPLE - disable prefer Wi-Fi
+Network.preferred();
 ```
 
-### getConfig() [Network]
+### Network.isPreferred()
 
-{{api name1="Network.getConfig"}}
+{{api name1="Network.isPreferred"}}
 
-{{since when="5.3.0"}}
-
-Get the current [`NetworkInterfaceConfig`](#networkinterfaceconfig) for a generic network interface interface on the Argon, P2, and Photon 2 running Device OS 5.3.0 or later. This can be used with Ethernet and WiFi.
+Returns true if automatic connection management is in use.
 
 ```cpp
-// PROTOTYPE
-particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
-```
+// PROTOTYPE 
+virtual bool isPreferred();
 
-
-### listen() [Network]
-
-{{api name1="Network.listen"}}
-
-This will enter or exit listening mode, blinking dark blue. The cloud connection is not available in listening mode.
-
-```cpp
-// SYNTAX - enter listening mode
-Network.listen();
-```
-
-Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
-have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
-mode, such as after a timeout. Listening mode is stopped using this syntax:
-
-```cpp
-
-// SYNTAX - exit listening mode
-Network.listen(false);
-
-```
-
-
-
-### listening() [Network]
-
-{{api name1="Network.listening"}}
-
-```cpp
-// SYNTAX
-Network.listening();
-```
-
-Returns true if the device is in listening mode (blinking dark blue). 
-
-This is only relevant when using `SYSTEM_THREAD(ENABLED)`. When not using threading, listening mode stops 
-user firmware from running, so you would not have an opportunity to test the value and calling this always 
-returns false.
-
-
-### setListenTimeout() [Network]
-
-{{api name1="Network.setListenTimeout"}}
-
-{{since when="0.6.1"}}
-
-```cpp
-// SYNTAX
-Network.setListenTimeout(seconds);
-```
-
-`Network.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout. This function is rarely needed.
-
-
-```cpp
-// EXAMPLE
-// If desired, use the STARTUP() macro to set the timeout value at boot time.
-STARTUP(Network.setListenTimeout(60)); // set listening mode timeout to 60 seconds
-
-void setup() {
-  // your setup code
-}
-
-void loop() {
-  // update the timeout later in code based on an expression
-  if (disableTimeout) Network.setListenTimeout(0); // disables the listening mode timeout
+if (Network.isPreferred()) {
+    // Automatic connection management is enabled
 }
 ```
-
-{{since when="1.5.0"}}
-
-You can also specify a value using [chrono literals](#chrono-literals), for example: `Network.setListenTimeout(5min)` for 5 minutes.
-
-
-
-### getListenTimeout() [Network]
-
-{{api name1="Network.getListenTimeout"}}
-
-{{since when="0.6.1"}}
-
-```cpp
-// SYNTAX
-uint16_t seconds = Network.getListenTimeout();
-```
-
-`Network.getListenTimeout()` is used to get the timeout value currently set for Listening Mode. Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled. This function is rarely needed.
 
 
 ## Cloud functions
@@ -369,3 +151,156 @@ if (Particle.connectionInterface() == WiFi) {
 }
 
 ```
+
+### Particle.disconnect()
+
+{{since when="5.6.0"}}
+
+[Automatic connection management](/reference/device-os/connection-management/) occurs on the next connection following a disconnection 
+from the Particle cloud. This happens automatically if the underlying network (cellular, Wi-Fi, or ethernet) becomes unavailable.
+
+In some special cases you can manually disconnect to force automatic connection management. You should avoid doing this
+frequently as the device will not have cloud connectivity during the disconnection, discovery, and reconnection process. It will also use
+cellular data (but not data operations).
+
+```cpp
+// EXAMPLE
+Particle.disconnect();
+waitFor(Particle.disconnected, 10000);
+Particle.connect();
+```
+
+
+## Cellular
+
+This section will be updated in the [Device OS firmware API reference](/reference/device-os/api/cellular/cellular/) when released.
+
+### Cellular.preferred()
+
+{{api name1="Cellular.preferred"}}
+
+You should normally let automatic connection management handle which network interface to use.
+
+In some cases you may want to prefer cellular or Wi-Fi, and this can be done using the API. Note however:
+
+- The automatic connection management rules still apply.
+- The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
+- This does not affect an immediate change if the cloud is currently connected; it will only be consulted on the next automatic connection management.
+- Only one network type can be preferred, setting Cellular.preferred() will clear WiFi.preferred() for example.
+
+```cpp
+// PROTOTYPE
+virtual NetworkClass& preferred(bool preferred = true);
+
+// EXAMPLE - enable prefer cellular
+Cellular.preferred();
+
+// EXAMPLE - disable prefer cellular
+Cellular.preferred(false);
+```
+
+### Cellular.isPreferred()
+
+{{api name1="Cellular.isPreferred"}}
+
+Returns true if the preferred network interface is cellular.
+
+```cpp
+// PROTOTYPE 
+virtual bool isPreferred();
+
+if (Cellular.isPreferred()) {
+    // Do something here
+}
+```
+
+
+## WiFi
+
+This section will be updated in the [Device OS firmware API reference](https://docs.particle.io/reference/device-os/api/wifi/wifi/) when released.
+
+### WiFi.preferred()
+
+{{api name1="WiFi.preferred"}}
+
+You should normally let automatic connection management handle which network interface to use.
+
+In some cases you may want to prefer cellular or Wi-Fi, and this can be done using the API. Note however:
+
+- The automatic connection management rules still apply.
+- The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
+- This does not affect an immediate change if the cloud is currently connected; it will only be consulted on the next automatic connection management.
+- Only one network type can be preferred, setting WiFi.preferred() will clear Cellular.preferred() for example.
+
+```cpp
+// PROTOTYPE
+virtual NetworkClass& preferred(bool preferred = true);
+
+// EXAMPLE - enable prefer Wi-Fi
+WiFi.preferred();
+
+// EXAMPLE - disable prefer Wi-Fi
+WiFi.preferred(false);
+```
+
+### WiFi.isPreferred()
+
+{{api name1="WiFi.isPreferred"}}
+
+Returns true if the preferred network interface is Wi-Fi.
+
+```cpp
+// PROTOTYPE 
+virtual bool isPreferred();
+
+if (WiFi.isPreferred()) {
+    // Do something here
+}
+```
+
+
+
+## Ethernet
+
+This section will be updated in the [Device OS firmware API reference](/reference/device-os/api/ethernet/ethernet/) when released.
+
+### Ethernet.preferred()
+
+{{api name1="Ethernet.preferred"}}
+
+You should normally let automatic connection management handle which network interface to use.
+
+In some cases you may want to prefer cellular or Wi-Fi, and this can be done using the API. Note however:
+
+- The automatic connection management rules still apply.
+- The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
+- This does not affect an immediate change if the cloud is currently connected; it will only be consulted on the next automatic connection management.
+- Only one network type can be preferred, setting WiFi.preferred() will clear Cellular.preferred() for example.
+
+```cpp
+// PROTOTYPE
+virtual NetworkClass& preferred(bool preferred = true);
+
+// EXAMPLE - enable prefer Ethernet
+Ethernet.preferred();
+
+// EXAMPLE - disable prefer Ethernet
+Ethernet.preferred(false);
+```
+
+### Ethernet.isPreferred()
+
+{{api name1="Ethernet.isPreferred"}}
+
+Returns true if the preferred network interface is Ethernet.
+
+```cpp
+// PROTOTYPE 
+virtual bool isPreferred();
+
+if (Ethernet.isPreferred()) {
+    // Do something here
+}
+```
+
+
