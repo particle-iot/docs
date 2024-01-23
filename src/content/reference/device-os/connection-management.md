@@ -55,18 +55,18 @@ You can manually prefer one type of network interface.
 - The automatic connection management rules still apply when preferring an interface.
 - The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
 - Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
-- Only one network type can be preferred, setting WiFi.preferred() will clear Cellular.preferred() for example.
+- Only one network type can be preferred, setting WiFi.prefer() will clear Cellular.prefer() for example.
 
 ```cpp
 // EXAMPLE - enable selecting a network preference (select only one)
-Cellular.preferred();
-WiFi.preferred();
-Ethernet.preferred();
+Cellular.prefer();
+WiFi.prefer();
+Ethernet.prefer();
 
 // EXAMPLE - disable selecting a network interface
-Cellular.preferred(false);
-WiFi.preferred(false);
-Ethernet.preferred(false);
+Cellular.prefer(false);
+WiFi.prefer(false);
+Ethernet.prefer(false);
 ```
 
 ## Forcing automatic connection management
@@ -95,30 +95,35 @@ The following sections will be added to the Device OS firmware API reference whe
 
 Most features are implemented in the `Network` class. This section will be part of the [Device OS firmware API reference](https://docs.particle.io/reference/device-os/api/network/network/) when released, but is included here for pre-release.
 
-### Network.preferred()
+### Network.prefer()
 
-{{api name1="Network.preferred"}}
+{{api name1="Network.prefer"}}
 
-You should normally let automatic connection management handle which network interface to use. There are `preferred()` methods in the `Cellular`, `WiFi`, and `Ethernet` classes that can be used if you have a need to steer the connection management toward a specific interface.
+{{since when="5.7.0"}}
+
+You should normally let automatic connection management handle which network interface to use. There are `prefer()` methods in the `Cellular`, `WiFi`, and `Ethernet` classes that can be used if you have a need to steer the connection management toward a specific interface.
 
 - The automatic connection management rules still apply when preferring an interface.
 - The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
 - Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
-- Only one network type can be preferred, setting WiFi.preferred() will clear Cellular.preferred() for example.
+- Only one network type can be preferred, setting `WiFi.prefer()` will clear `Cellular.prefer()` for example.
+- Setting `Network` as the preferred interface will clear other preferences such as `WiFi` and `Cellular`.
 
 ```cpp
 // PROTOTYPE
-virtual NetworkClass& preferred(bool preferred = true);
+virtual NetworkClass& prefer(bool prefer = true);
 
-// EXAMPLE - Enable automatic connection management// EXAMPLE - disable prefer Wi-Fi
-Network.preferred();
+// EXAMPLE - Enable automatic connection management (disable other preferences)
+Network.prefer();
 ```
 
 ### Network.isPreferred()
 
 {{api name1="Network.isPreferred"}}
 
-Returns true if automatic connection management is in use.
+{{since when="5.6.0"}}
+
+Returns true if automatic connection management is in use, which is to say that no other interfaces such as `WiFi` and `Cellular` have been selected as preferred.
 
 ```cpp
 // PROTOTYPE 
@@ -138,7 +143,11 @@ This section will be updated in the [Device OS firmware API reference](/referenc
 
 {{since when="5.6.0"}}
 
-In Device OS 5.6.0 and later you can choose which interface to connect to. Normally you should use [automatic connection management](/reference/device-os/connection-management/), but in special cases you can force a specific interface to be used:
+In Device OS 5.6.0 and later you can choose which interface to connect to. Normally you should use [automatic connection management](/reference/device-os/connection-management/), but in special cases you can force a specific interface to be used.
+
+{{box op="start" cssClass="boxed warningBox"}}
+Specifying an interface with `Particle.connect()` will only connect to that interface with no fallback to other interfaces, and is not recommended in most cases.
+{{box op="end"}}
 
 ```cpp
 // PROTOTYPE
@@ -149,7 +158,6 @@ Particle.connect(WiFi);
 Particle.connect(Ethernet);
 Particle.connect(Cellular);
 ```
-
 
 ### Particle.connectionInterface()
 
@@ -197,35 +205,38 @@ Particle.connect();
 
 This section will be updated in the [Device OS firmware API reference](/reference/device-os/api/cellular/cellular/) when released.
 
-### Cellular.preferred()
+### Cellular.prefer()
 
-{{api name1="Cellular.preferred"}}
+{{api name1="Cellular.prefer"}}
+
+{{since when="5.7.0"}}
 
 You should normally let [automatic connection management](/reference/device-os/connection-management/) handle which network interface to use.
 
-In some cases you may want to prefer cellular or Wi-Fi, and this can be done using the API. Note however:
+In some cases you may want to prefer cellular, Wi-Fi, or Ethernet, and this can be done using the API. Note however:
 
 - The automatic connection management rules still apply.
 - The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
 - Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
-- Only one network type can be preferred, setting Cellular.preferred() will clear WiFi.preferred() for example.
+- Only one network type can be preferred, setting `Cellular.prefer()` will clear `WiFi.prefer()` for example.
 
 ```cpp
 // PROTOTYPE
-virtual NetworkClass& preferred(bool preferred = true);
+virtual NetworkClass& prefer(bool prefer = true);
 
 // EXAMPLE - enable prefer cellular
-Cellular.preferred();
+Cellular.prefer();
 
 // EXAMPLE - disable prefer cellular
-Cellular.preferred(false);
+Cellular.prefer(false);
 ```
 
 ### Cellular.isPreferred()
 
 {{api name1="Cellular.isPreferred"}}
 
-Returns true if the preferred network interface is cellular.
+Returns true if the preferred network interface is cellular. This only indicates that the interface has been preferred and 
+does not reflect what interface is in use.
 
 ```cpp
 // PROTOTYPE 
@@ -241,9 +252,11 @@ if (Cellular.isPreferred()) {
 
 This section will be updated in the [Device OS firmware API reference](https://docs.particle.io/reference/device-os/api/wifi/wifi/) when released.
 
-### WiFi.preferred()
+### WiFi.prefer()
 
-{{api name1="WiFi.preferred"}}
+{{api name1="WiFi.prefer"}}
+
+{{since when="5.7.0"}}
 
 You should normally let [automatic connection management](/reference/device-os/connection-management/) handle which network interface to use.
 
@@ -252,24 +265,25 @@ In some cases you may want to prefer cellular or Wi-Fi, and this can be done usi
 - The automatic connection management rules still apply.
 - The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
 - Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
-- Only one network type can be preferred, setting WiFi.preferred() will clear Cellular.preferred() for example.
+- Only one network type can be preferred, setting `WiFi.prefer()` will clear `Cellular.prefer()` for example.
 
 ```cpp
 // PROTOTYPE
-virtual NetworkClass& preferred(bool preferred = true);
+virtual NetworkClass& prefer(bool prefer = true);
 
 // EXAMPLE - enable prefer Wi-Fi
-WiFi.preferred();
+WiFi.prefer();
 
 // EXAMPLE - disable prefer Wi-Fi
-WiFi.preferred(false);
+WiFi.prefer(false);
 ```
 
 ### WiFi.isPreferred()
 
 {{api name1="WiFi.isPreferred"}}
 
-Returns true if the preferred network interface is Wi-Fi.
+Returns true if the preferred network interface is Wi-Fi. This only indicates that the interface has been preferred and 
+does not reflect what interface is in use.
 
 ```cpp
 // PROTOTYPE 
@@ -286,9 +300,11 @@ if (WiFi.isPreferred()) {
 
 This section will be updated in the [Device OS firmware API reference](/reference/device-os/api/ethernet/ethernet/) when released.
 
-### Ethernet.preferred()
+### Ethernet.prefer()
 
-{{api name1="Ethernet.preferred"}}
+{{api name1="Ethernet.prefer"}}
+
+{{since when="5.7.0"}}
 
 You should normally let [automatic connection management](/reference/device-os/connection-management/) handle which network interface to use.
 
@@ -297,24 +313,25 @@ In some cases you may want to prefer cellular or Wi-Fi, and this can be done usi
 - The automatic connection management rules still apply.
 - The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
 - Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
-- Only one network type can be preferred, setting WiFi.preferred() will clear Cellular.preferred() for example.
+- Only one network type can be preferred, setting `Ethernet.prefer()` will clear `Cellular.prefer()` for example.
 
 ```cpp
 // PROTOTYPE
-virtual NetworkClass& preferred(bool preferred = true);
+virtual NetworkClass& prefer(bool prefer = true);
 
 // EXAMPLE - enable prefer Ethernet
-Ethernet.preferred();
+Ethernet.prefer();
 
 // EXAMPLE - disable prefer Ethernet
-Ethernet.preferred(false);
+Ethernet.prefer(false);
 ```
 
 ### Ethernet.isPreferred()
 
 {{api name1="Ethernet.isPreferred"}}
 
-Returns true if the preferred network interface is Ethernet.
+Returns true if the preferred network interface is Ethernet. This only indicates that the interface has been preferred and 
+does not reflect what interface is in use.
 
 ```cpp
 // PROTOTYPE 
