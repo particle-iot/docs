@@ -45,11 +45,55 @@ This process involves sending and receiving packets from the Particle cloud serv
 
 Once an interface is selected it will continue to be used until the connection is lost again.
 
+- Wi-Fi is only attempted if Wi-Fi credentials are configured.
+- Ethernet is only attempted if the Ethernet interface detection is enabled (`System.enableFeature(FEATURE_ETHERNET_DETECTION)`) and there is an Ethernet link available (the port is connected to an Ethernet switch or hub).
+
+## Connection preference
+
+You can manually prefer one type of network interface.
+
+- The automatic connection management rules still apply when preferring an interface.
+- The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
+- Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
+- Only one network type can be preferred, setting WiFi.preferred() will clear Cellular.preferred() for example.
+
+```cpp
+// EXAMPLE - enable selecting a network preference (select only one)
+Cellular.preferred();
+WiFi.preferred();
+Ethernet.preferred();
+
+// EXAMPLE - disable selecting a network interface
+Cellular.preferred(false);
+WiFi.preferred(false);
+Ethernet.preferred(false);
+```
+
+## Forcing automatic connection management
+
+Automatic connection management occurs on the next connection following a disconnection 
+from the Particle cloud. This happens automatically if the underlying network (cellular, Wi-Fi, or ethernet) becomes unavailable.
+
+In some special cases you can manually disconnect to force automatic connection management. You should avoid doing this
+frequently as the device will not have cloud connectivity during the disconnection, discovery, and reconnection process. It will also use
+cellular data (but not data operations).
+
+```cpp
+// EXAMPLE
+Particle.disconnect();
+waitFor(Particle.disconnected, 10000);
+Particle.connect();
+```
+
+
+## Device OS firmware API changes
+
+The following sections will be added to the Device OS firmware API reference when this feature is publicly released.
+
+
 ## Network class
 
 Most features are implemented in the `Network` class. This section will be part of the [Device OS firmware API reference](https://docs.particle.io/reference/device-os/api/network/network/) when released, but is included here for pre-release.
-
-## Network
 
 ### Network.preferred()
 
@@ -59,7 +103,7 @@ You should normally let automatic connection management handle which network int
 
 - The automatic connection management rules still apply when preferring an interface.
 - The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
-- This does not affect an immediate change if the cloud is currently connected; it will only be consulted on the next automatic connection management.
+- Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
 - Only one network type can be preferred, setting WiFi.preferred() will clear Cellular.preferred() for example.
 
 ```cpp
@@ -91,28 +135,6 @@ if (Network.isPreferred()) {
 This section will be updated in the [Device OS firmware API reference](/reference/device-os/api/cloud-functions/particle-connect/) when released.
 
 ### Particle.connect()
-
-{{api name1="Particle.connect"}}
-
-`Particle.connect()` connects the device to the Cloud. This will automatically activate the network connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
-
-```cpp
-void setup() {}
-
-void loop() {
-  if (Particle.connected() == false) {
-    Particle.connect();
-  }
-}
-```
-
-After you call `Particle.connect()`, your loop will not be called again until the device finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
-
-In most cases, you do not need to call `Particle.connect()`; it is called automatically when the device turns on. Typically you only need to call `Particle.connect()` after disconnecting with [`Particle.disconnect()`](#particle-disconnect-) or when you change the [system mode](#system-modes).
-
-Connecting to the cloud does not use Data Operation from your monthly or yearly quota. However, for cellular devices it does use cellular data, so unnecessary connection and disconnection can lead to increased data usage, which could result in hitting the monthly data limit for your account.
-
-On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
 {{since when="5.6.0"}}
 
@@ -179,13 +201,13 @@ This section will be updated in the [Device OS firmware API reference](/referenc
 
 {{api name1="Cellular.preferred"}}
 
-You should normally let automatic connection management handle which network interface to use.
+You should normally let [automatic connection management](/reference/device-os/connection-management/) handle which network interface to use.
 
 In some cases you may want to prefer cellular or Wi-Fi, and this can be done using the API. Note however:
 
 - The automatic connection management rules still apply.
 - The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
-- This does not affect an immediate change if the cloud is currently connected; it will only be consulted on the next automatic connection management.
+- Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
 - Only one network type can be preferred, setting Cellular.preferred() will clear WiFi.preferred() for example.
 
 ```cpp
@@ -223,13 +245,13 @@ This section will be updated in the [Device OS firmware API reference](https://d
 
 {{api name1="WiFi.preferred"}}
 
-You should normally let automatic connection management handle which network interface to use.
+You should normally let [automatic connection management](/reference/device-os/connection-management/) handle which network interface to use.
 
 In some cases you may want to prefer cellular or Wi-Fi, and this can be done using the API. Note however:
 
 - The automatic connection management rules still apply.
 - The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
-- This does not affect an immediate change if the cloud is currently connected; it will only be consulted on the next automatic connection management.
+- Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
 - Only one network type can be preferred, setting WiFi.preferred() will clear Cellular.preferred() for example.
 
 ```cpp
@@ -268,13 +290,13 @@ This section will be updated in the [Device OS firmware API reference](/referenc
 
 {{api name1="Ethernet.preferred"}}
 
-You should normally let automatic connection management handle which network interface to use.
+You should normally let [automatic connection management](/reference/device-os/connection-management/) handle which network interface to use.
 
 In some cases you may want to prefer cellular or Wi-Fi, and this can be done using the API. Note however:
 
 - The automatic connection management rules still apply.
 - The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
-- This does not affect an immediate change if the cloud is currently connected; it will only be consulted on the next automatic connection management.
+- Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
 - Only one network type can be preferred, setting WiFi.preferred() will clear Cellular.preferred() for example.
 
 ```cpp
