@@ -24,7 +24,7 @@ The header format must be exactly that because the search feature uses that to d
 ### JSON tool 2024-01-24
 
 There's always been a JSON verifier and encoder in the [JSON docs](/firmware/best-practices/json/#try-it-) but 
-now it's available as standalone [JSON tool](tools/developer-tools/json/) making it easier to find. There is also
+now it's available as standalone [JSON tool](/tools/developer-tools/json/) making it easier to find. There is also
 a new option to convert a JSON object into a C++ string.
 
 ### Singleton class generator tool 2024-01-24
