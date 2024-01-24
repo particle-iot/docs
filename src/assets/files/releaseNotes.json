@@ -27673,6 +27673,210 @@
                 2712,
                 2713
             ]
+        },
+        "v5.7.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.7.0",
+            "tag_name": "v5.7.0",
+            "name": "v5.7.0 (Argon/Boron/B SoM/B5 SoM/Tracker/Tracker M/E SoM X/M SoM/P2)",
+            "prerelease": true,
+            "created_at": "2024-01-23T17:33:39Z",
+            "published_at": "2024-01-24T12:39:36Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2718
+                    ],
+                    "section": "FEATURES",
+                    "text": "Allow duplicates in BLE scan results if requested with `BLE.scanWithFilter(BleScanFilter().allowDuplicates(true))`"
+                },
+                {
+                    "tags": [
+                        "P2 / M SoM"
+                    ],
+                    "prs": [
+                        2714
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "BLE: Dynamically adjust radio prioritization when both BLE and WiFi are active improving BLE scanning performance"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2717
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "ACM `preferred()`/`prefer()` API clean up"
+                },
+                {
+                    "tags": [
+                        "M SoM"
+                    ],
+                    "prs": [
+                        2716
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Adjust cloud keep-alive based on network connection"
+                },
+                {
+                    "tags": [
+                        "M SoM"
+                    ],
+                    "prs": [
+                        2722
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Enable session resumption"
+                },
+                {
+                    "tags": [
+                        "P2 / M SoM"
+                    ],
+                    "prs": [
+                        2728,
+                        2731
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "SPI performance improvements"
+                },
+                {
+                    "tags": [
+                        "P2 / M SoM"
+                    ],
+                    "prs": [
+                        2728,
+                        2731
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Ethernet performance improvements"
+                },
+                {
+                    "tags": [
+                        "P2 / M SoM"
+                    ],
+                    "prs": [
+                        2718
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE scan results should be filtered for duplicates by default"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2723
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix OpenOCD FreeRTOS thread list access (`uxTopUsedPriority`)"
+                },
+                {
+                    "tags": [
+                        "Gen 3"
+                    ],
+                    "prs": [
+                        2725
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE: Fix stack overflow in BLE timer callback"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2726
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes parsing of MCC/MNC with 00 or 000 MNC"
+                },
+                {
+                    "tags": [
+                        "P2 / M SoM"
+                    ],
+                    "prs": [
+                        2724
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Use security type from `JoinNewNetwork` request to connect to hidden networks"
+                },
+                {
+                    "tags": [
+                        "build"
+                    ],
+                    "prs": [
+                        2719
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "include alignment into section size calculations"
+                },
+                {
+                    "tags": [
+                        "P2 / M SoM"
+                    ],
+                    "prs": [
+                        2728,
+                        2731
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "SPI slave mode bugfixes"
+                },
+                {
+                    "tags": [
+                        "P2 / M SoM"
+                    ],
+                    "prs": [
+                        2729
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "USB TX hold-off mechanism should account for maximum transmit size"
+                },
+                {
+                    "tags": [
+                        "P2 / M SoM"
+                    ],
+                    "prs": [
+                        2729
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "USB ISR worker thread priority below network threads priorities"
+                },
+                {
+                    "tags": [
+                        "M SoM"
+                    ],
+                    "prs": [
+                        2720
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Make GNSS burn in test optional"
+                },
+                {
+                    "tags": [
+                        "M SoM"
+                    ],
+                    "prs": [
+                        2721
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Support for GNSS FQC test"
+                }
+            ],
+            "prs": [
+                2714,
+                2716,
+                2717,
+                2718,
+                2719,
+                2720,
+                2721,
+                2722,
+                2723,
+                2724,
+                2725,
+                2726,
+                2728,
+                2729,
+                2731
+            ]
         }
     },
     "pulls": {
@@ -40562,6 +40766,142 @@
             "state": "open",
             "created_at": "2023-12-07T02:03:46Z",
             "detail": "When both BLE and Wi-Fi are working, BLE scanning may has no result returned."
+        },
+        "2715": {
+            "url": "https://github.com/particle-iot/device-os/pull/2715",
+            "number": 2715,
+            "title": "Ledger API and sync",
+            "state": "open",
+            "created_at": "2023-12-11T13:18:26Z",
+            "detail": "This PR supersedes https://github.com/particle-iot/device-os/pull/2660 and https://github.com/particle-iot/device-os/pull/2675.\n\nBelow are some links to simplify navigation in the new code:\n\n- [Ledger application API](https://github.com/particle-iot/device-os/blob/ledger-sync-merged/sc-120056/wiring/inc/spark_wiring_ledger.h)\n- [Ledger system API](https://github.com/particle-iot/device-os/blob/ledger-sync-merged/sc-120056/system/inc/system_ledger.h)\n- [Ledger storage layer](https://github.com/particle-iot/device-os/blob/ledger-sync-merged/sc-120056/system/src/ledger/ledger.cpp)\n- [Ledger state machine](https://github.com/particle-iot/device-os/blob/ledger-sync-merged/sc-120056/system/src/ledger/ledger_manager.cpp)\n- [Synchronization protocol](https://github.com/particle-iot/device-os-protobuf/blob/main/cloud/ledger.proto)\n- [New CoAP API](https://github.com/particle-iot/device-os/blob/ledger-sync-merged/sc-120056/communication/inc/coap_api.h)\n- [Variant class](https://github.com/particle-iot/device-os/blob/ledger-sync-merged/sc-120056/wiring/inc/spark_wiring_variant.h)\n- [Map class](https://github.com/particle-iot/device-os/blob/ledger-sync-merged/sc-120056/wiring/inc/spark_wiring_map.h)"
+        },
+        "2716": {
+            "url": "https://github.com/particle-iot/device-os/pull/2716",
+            "number": 2716,
+            "title": "[msom] Adjust cloud keep alive based on network connection",
+            "state": "closed",
+            "created_at": "2023-12-12T21:06:03Z",
+            "detail": "MSoM platform has both cellular and wifi connection options. However, the cloud keep alive is fixed with the cellular duration of 23 minutes even when connecting with wifi"
+        },
+        "2717": {
+            "url": "https://github.com/particle-iot/device-os/pull/2717",
+            "number": 2717,
+            "title": "[acm] Fix Network.preferred() -> Network.prefer()",
+            "state": "closed",
+            "created_at": "2023-12-12T23:41:03Z",
+            "detail": "1. `Network.preferred()` is less clear than simply `Cellular.prefer()`\n2. `Network.preferred()` will both set the desired network back to default, and then return `Network` instead of the actual preferred network reference."
+        },
+        "2718": {
+            "url": "https://github.com/particle-iot/device-os/pull/2718",
+            "number": 2718,
+            "title": "Ensure consistent BLE scan behavior",
+            "state": "closed",
+            "created_at": "2023-12-13T08:05:31Z",
+            "detail": "`BLE.scan()` and `BLE.scanWithFilter()` filter duplicate results on Gen3, but it's not true on Gen4."
+        },
+        "2719": {
+            "url": "https://github.com/particle-iot/device-os/pull/2719",
+            "number": 2719,
+            "title": "[build] include alignment into section size calculations",
+            "state": "closed",
+            "created_at": "2023-12-13T21:36:10Z",
+            "detail": "Some applications that use non-trivial alignments (32, 128 etc) may fail to build with SRAM or other section overflow."
+        },
+        "2720": {
+            "url": "https://github.com/particle-iot/device-os/pull/2720",
+            "number": 2720,
+            "title": "[msom] make gnss burn in test optional",
+            "state": "closed",
+            "created_at": "2023-12-18T22:28:09Z",
+            "detail": "Dont require GNSS signal for burn in tests"
+        },
+        "2721": {
+            "url": "https://github.com/particle-iot/device-os/pull/2721",
+            "number": 2721,
+            "title": "[msom] Add GNSS test FQC command",
+            "state": "closed",
+            "created_at": "2023-12-28T22:51:08Z",
+            "detail": "Msom hardware supports a built in GNSS engine along with the cellular modem. The mfg-cli needs to be updated to test this GNSS functionality as part of FQC testing at the factory. A new tinker:gnss-test command has been added to enable testing of both M404 (Quectel BG95-M5 modem/GNSS) and M524(Quectel EG91 modem/GNSS) hardware."
+        },
+        "2722": {
+            "url": "https://github.com/particle-iot/device-os/pull/2722",
+            "number": 2722,
+            "title": "MSoM: enable session resumption",
+            "state": "closed",
+            "created_at": "2024-01-09T05:56:12Z",
+            "detail": "1. Session resumption is currentlly disabled on MSoM\n2. When session resumption is enabled, it may use stale session info that is restored from backup flash, which results in long connection time."
+        },
+        "2723": {
+            "url": "https://github.com/particle-iot/device-os/pull/2723",
+            "number": 2723,
+            "title": "[rtl872x] fix openocd FreeRTOS thread view",
+            "state": "closed",
+            "created_at": "2024-01-09T21:33:29Z",
+            "detail": "Openocd experiences an error when attempting to retrieve the Freertos symbols needed to debug on RTL872X platforms. \nThe error is related to the `uxTopUsedPriority` definition. This definition is used by openocd to determine how many lists of threads exist. Openocd will search for threads beyond the number of existing thread lists, return an error when trying to parse a random memory location and abandon using FreeRTOS symbols at all. \n\nI dont know why the NRF platforms do not have this issue, since they should also be \"off by 1\" with the number of tasks/priorities."
+        },
+        "2724": {
+            "url": "https://github.com/particle-iot/device-os/pull/2724",
+            "number": 2724,
+            "title": "[rtl872x] Use security type from usb message for joining hidden networks",
+            "state": "closed",
+            "created_at": "2024-01-16T20:00:16Z",
+            "detail": "Joining a hidden wifi network via USB `JoinNewNetworkRequest` message fails even if the fields are populated correctly, ie `hidden` is true, and `security` is set to the correct value."
+        },
+        "2725": {
+            "url": "https://github.com/particle-iot/device-os/pull/2725",
+            "number": 2725,
+            "title": "[gen3] fix stack overflow for the timer service thread.",
+            "state": "closed",
+            "created_at": "2024-01-17T17:08:14Z",
+            "detail": "[SC124588] Device panics with 13 blinks SOS pattern, which is stack overflow. This issue is introduced since https://github.com/particle-iot/device-os/pull/2696."
+        },
+        "2726": {
+            "url": "https://github.com/particle-iot/device-os/pull/2726",
+            "number": 2726,
+            "title": "[cellular] fixes handling of 00 or 000 MNC",
+            "state": "closed",
+            "created_at": "2024-01-17T18:19:56Z",
+            "detail": "Fixes handling of 00 (plenty of examples e.g. China Mobile: MCC=450 MNC=00) or 000 MNC (MCC=350 MNC=000 for One in Bermuda)."
+        },
+        "2727": {
+            "url": "https://github.com/particle-iot/device-os/pull/2727",
+            "number": 2727,
+            "title": "[cellular] To enable high-speed baud rate support for the EG91-NAX",
+            "state": "closed",
+            "created_at": "2024-01-19T11:31:28Z",
+            "detail": "[[SC124878](https://app.shortcut.com/particle/story/124878/eg91-nax-to-enable-high-speed-baud-rate-support-for-the-eg91-nax)] Add support for the `921600` baud-rate on the EG91-NAX modem for the B5SoM module."
+        },
+        "2728": {
+            "url": "https://github.com/particle-iot/device-os/pull/2728",
+            "number": 2728,
+            "title": "[rtl872x] refactors SPI implementation, a couple of Wiznetif driver workarounds, test",
+            "state": "closed",
+            "created_at": "2024-01-19T11:38:20Z",
+            "detail": "TODO"
+        },
+        "2729": {
+            "url": "https://github.com/particle-iot/device-os/pull/2729",
+            "number": 2729,
+            "title": "[rtl872x] usb: small fix for holdoff",
+            "state": "closed",
+            "created_at": "2024-01-19T14:51:14Z",
+            "detail": "1. Hold-off mechanism for USB CDC to avoid scheduling small IN transfers does not account for maximum transfer size\n2. USB thread processing ISRs should be below network thread to avoid affecting network performance"
+        },
+        "2730": {
+            "url": "https://github.com/particle-iot/device-os/pull/2730",
+            "number": 2730,
+            "title": "Feature/add ctrl req imei macaddr",
+            "state": "open",
+            "created_at": "2024-01-22T08:44:02Z",
+            "detail": "This branch / PR adds two protobuf entries to obtain MAC address for wifi devices and IMEI for cellular devices"
+        },
+        "2731": {
+            "url": "https://github.com/particle-iot/device-os/pull/2731",
+            "number": 2731,
+            "title": "[rtl872x] final spi fixes",
+            "state": "closed",
+            "created_at": "2024-01-22T14:20:12Z",
+            "detail": "See https://github.com/particle-iot/device-os/pull/2728"
         }
     }
 }

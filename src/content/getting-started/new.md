@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Device OS 5.7.0 2024-01-24
+
+Device OS 5.7.0 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, and release note viewer.
+
 ### B402MEA deprecated 2024-01-22
 
 The SKU B402MEA is deprecated. The recommended replacement is B404XMEA.
