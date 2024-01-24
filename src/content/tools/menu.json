@@ -86,6 +86,16 @@
         "dir": "configure-wi-fi",
         "title": "Configure Wi-Fi",
         "href": "/tools/developer-tools/configure-wi-fi/"
+      },
+      {
+        "dir": "class-generator",
+        "title": "Singleton class generator",
+        "href": "/tools/developer-tools/class-generator/"
+      },
+      {
+        "dir": "json",
+        "title": "JSON tools",
+        "href": "/tools/developer-tools/json/"
       }
     ],
     {

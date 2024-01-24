@@ -503,8 +503,8 @@
             "hash": "f94e3a733de6c5e81e31fff08d9b13f17ccc3f992377e3fc1e3fde9ea683876a"
         },
         "firmware/best-practices/json.md": {
-            "date": "2023-08-03",
-            "hash": "c76383b6b5ea8c22bb126868013b7ff3678f9f1f3f5ad313ea21b37d584d0e5e"
+            "date": "2024-01-24",
+            "hash": "e32112bd1b9af0d40ddbda35900ea98b3addbb573018af61c9757a3e7f44dbfe"
         },
         "firmware/best-practices/libraries.md": {
             "date": "2022-06-14",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ed801e9a039cbc75369e41ac1e295a6a309b900456c00b5fd126820886de9ed0",
+            "hash": "034ac7bf300c3026ad0a623be315e8d58056fd5469dbffe2e7aefa0854d394c9",
             "date": "2024-01-24"
         },
         "getting-started/cloud/logic.md": {
@@ -8301,6 +8301,14 @@
         "reference/device-os/api/wifi/getantenna.md": {
             "hash": "30671851a719452e22b9fc74542b6cd5b2ea78f63f2947d07ad3b6f08a732519",
             "date": "2024-01-10"
+        },
+        "tools/developer-tools/class-generator.md": {
+            "hash": "80a163d90da3e284d37882d194a6c15dab9eb730b0b92e69c2115aa7df66ae60",
+            "date": "2024-01-24"
+        },
+        "tools/developer-tools/json.md": {
+            "hash": "81d502af6d5a557fd038070442d5f3c896f2045319906913d0658673b2e0872f",
+            "date": "2024-01-24"
         }
     }
 }

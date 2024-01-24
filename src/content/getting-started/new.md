@@ -21,6 +21,18 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### JSON tool 2024-01-24
+
+There's always been a JSON verifier and encoder in the [JSON docs](/firmware/best-practices/json/#try-it-) but 
+now it's available as standalone [JSON tool](tools/developer-tools/json/) making it easier to find. There is also
+a new option to convert a JSON object into a C++ string.
+
+### Singleton class generator tool 2024-01-24
+
+There's always been a tool to create a single class template (optionally with threading and locking), but it 
+was hidden in the [singleton docs](/firmware/software-design/singleton/) but now it also exists as a 
+standalone [singleton class generator tool](/tools/developer-tools/class-generator/) making it easier to find.
+
 ### Device OS 5.7.0 2024-01-24
 
 Device OS 5.7.0 is now available in Device Restore DFU, Device Restore JTAG, hex file generator, and release note viewer.

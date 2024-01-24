@@ -203,6 +203,13 @@ Try intentionally creating syntax errors:
 - Try adding a key not in double quotes.
 - Try using single quotes instead of double quotes.
 
+### Convert to code
+
+Sometimes you will want to convert JSON data into static strings in your C++ application firmware. The
+tool below will convert the JSON above into code.
+
+{{> json-to-code rows="10" cols="90"}}
+
 ## Generate using sprintf
 
 A common use case is to generate JSON on your Particle device and send it to the cloud using `Particle.publish()`.
