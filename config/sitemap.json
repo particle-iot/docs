@@ -951,8 +951,8 @@
             "hash": "0e83f377423caf547523059c10ccdd671de607bfcd2a31971b93320d608fc3c1"
         },
         "hardware/certification/enabling-wifi-rf-test-for-esp32.md": {
-            "date": "2023-03-17",
-            "hash": "8f0b40e5115903c1cfeb11b1ed1d9ef184100e0e90f267a9ef5f7677fc98d310"
+            "date": "2024-01-25",
+            "hash": "9e3bc0581b4c2e13630cadca5a74b9fbb6eaa3e7dd933d135beba8d09ea1944d"
         },
         "hardware/ethernet/ethernet-featherwing.md": {
             "date": "2023-03-17",
@@ -1155,8 +1155,8 @@
             "hash": "d9c915bfbe9898935cdfb38327c53d9ba78061f2336b19af5d8ebcf52972d00b"
         },
         "reference/cloud-apis/javascript.md": {
-            "date": "2024-01-02",
-            "hash": "7e71a7c1c15ad75cb0869335ecf4717b980f2b303b32ddd8707512bd9e25c7d7"
+            "date": "2024-01-25",
+            "hash": "9ce04b9585c1f495cc6a08da51b208c97f86ff0465592f7266c4778300940688"
         },
         "reference/cloud-apis/node-js.md": {
             "date": "2023-03-17",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "6f765211d83efd9f004d323e43d390df636d0c14c7e0bca0560db5c1716332c8",
-            "date": "2024-01-24"
+            "hash": "4535239a3c907d0f43e0c6619b279bbcee9ac54fb66ed76da7aa74ca7365aa4e",
+            "date": "2024-01-25"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

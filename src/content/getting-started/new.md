@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### ESP32 Wi-Fi test binaries 2024-01-25
+
+Added a link to the test tools binary file to the [Argon ESP32 certification](/hardware/certification/enabling-wifi-rf-test-for-esp32) page.
+
 ### JSON tool 2024-01-24
 
 There's always been a JSON verifier and encoder in the [JSON docs](/firmware/best-practices/json/#try-it-) but 
