@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "apidoc": "^0.17.5",
-        "autoprefixer": "^7.1.5",
+        "autoprefixer": "^10.4.16",
         "binary-version-reader": "^2.0.1",
         "del": "^3.0.0",
         "gulp": "^4.0.2",
@@ -25,7 +25,7 @@
         "gulp-ignore": "^2.0.2",
         "gulp-less": "^4.0.1",
         "gulp-markdown": "^6.0.0",
-        "gulp-postcss": "^7.0.0",
+        "gulp-postcss": "^9.0.1",
         "gulp-rename": "^1.2.2",
         "gulp-replace": "^0.6.1",
         "handlebars": "^4.7.7",
