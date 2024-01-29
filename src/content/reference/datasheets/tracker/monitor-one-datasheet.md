@@ -1062,21 +1062,28 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
 The Monitor One contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
-### Battery warning
+### Battery warnings
 
 **CAUTION**
 
 RISK OF EXPLOSION IF BATTERY IS REPLACED BY AN INCORRECT TYPE.
 DISPOSE OF USED BATTERIES ACCORDING TO THE INSTRUCTIONS.
 
+
+- Replacement of a battery with an incorrect type that can defeat a safeguard.
+- Disposal of a battery into fire or a hot oven, or mechanically crushing or cutting of a battery, that can result in an explosion.
+- Leaving a battery in an extremely high temperature surrounding environment that can result in an explosion or the leakage of flammable liquid or gas.
+- A battery subjected to extremely low air pressure that may result in an explosion or the leakage of flammable liquid or gas.
+
+This symbol indicates DC voltage: <img style="display: inline-block; vertical-align: middle; width: 40px; background-color: #fff" src="/assets/images/dc_symbol.svg">
+
 ### Disposal
 
-![WEEE](/assets/images/weee.png)
+<img src="/assets/images/weee.png" style="background-color: #fff">
 
 This device must be treated as Waste Electrical & Electronic Equipment (WEEE) when disposed of.
 
 Any WEEE marked waste products must not be mixed with general household waste, but kept separate for the treatment, recovery and recycling of the materials used. For proper treatment, recovery and recycling; please take all WEEE marked waste to your Local Authority Civic waste site, where it will be accepted free of charge. If all consumers dispose of Waste Electrical & Electronic Equipment correctly, they will be helping to save valuable resources and preventing any potential negative effects upon human health and the environment of any hazardous materials that the waste may contain.
-
 
 ## Revision history
 
@@ -1092,3 +1099,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 2023-09-08 | RK | Added schematics |
 | 2023-10-18 | RK | Added FCC and ISED |
 | 2023-11-14 | RK | Renamed RS485 pins A and B instead of P and N |
+| 2024-01-29 | RK | Add battery warnings |

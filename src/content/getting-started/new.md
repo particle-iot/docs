@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Monitor One datasheet battery warnings 2024-01-29
+
+Added additional warnings related to batteries to the [Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/#battery-warnings).
+
 ### ESP32 Wi-Fi test binaries 2024-01-25
 
 Added a link to the test tools binary file to the [Argon ESP32 certification](/hardware/certification/enabling-wifi-rf-test-for-esp32) page.
