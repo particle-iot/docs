@@ -969,6 +969,49 @@ Connecting to the cloud does not use Data Operation from your monthly or yearly 
 
 On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
+
+{{since when="5.6.0"}}
+
+In Device OS 5.6.0 and later you can choose which interface to connect to. Normally you should use [automatic connection management](/reference/device-os/connection-management/), but in special cases you can force a specific interface to be used.
+
+{{box op="start" cssClass="boxed warningBox"}}
+Specifying an interface with `Particle.connect()` will only connect to that interface with no fallback to other interfaces, and is not recommended in most cases.
+{{box op="end"}}
+
+```cpp
+// PROTOTYPE
+static void connect(const spark::NetworkClass& network = spark::Network);
+
+// EXAMPLES
+Particle.connect(WiFi);
+Particle.connect(Ethernet);
+Particle.connect(Cellular);
+```
+
+### Particle.connectionInterface()
+
+{{api name1="Particle.connectionInterface"}}
+
+{{since when="5.6.0"}}
+
+Returns the current interface used for the Particle cloud connection in Device OS 5.6.0 and later.
+
+```cpp
+// PROTOTYPE
+spark::NetworkClass& connectionInterface();
+
+// EXAMPLE
+if (Particle.connectionInterface() == WiFi) {
+	// WiFi
+} else if (Particle.connectionInterface() == Cellular) {
+	// Cellular
+} else if (Particle.connectionInterface() == Network) {
+	// Generic
+}
+
+```
+
+
 ### Particle.disconnect()
 
 {{api name1="Particle.disconnect"}}
@@ -1033,6 +1076,23 @@ While this function will disconnect from the Cloud, it will keep the connection 
 
 *If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. 
 Safe mode can be used to reconnect to the cloud.*
+
+{{since when="5.6.0"}}
+
+[Automatic connection management](/reference/device-os/connection-management/) occurs on the next connection following a disconnection 
+from the Particle cloud. This happens automatically if the underlying network (cellular, Wi-Fi, or ethernet) becomes unavailable.
+
+In some special cases you can manually disconnect to force automatic connection management. You should avoid doing this
+frequently as the device will not have cloud connectivity during the disconnection, discovery, and reconnection process. It will also use
+cellular data (but not data operations).
+
+```cpp
+// EXAMPLE
+Particle.disconnect();
+waitFor(Particle.disconnected, 10000);
+Particle.connect();
+```
+
 
 ### Clear session
 
@@ -1400,6 +1460,9 @@ void setup() {
 
 Ethernet is available on the Photon 2, Argon, Boron when used with the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B Series SoM with the evaluation board or the equivalent circuitry on your base board. Circuitry can be added to your P2 or E404X base board for Ethernet as well.
 
+On the P2 and Photon 2, it is highly recommended that you use Device OS 5.7.0 or later when using Ethernet due to important
+bugs that were fixed in 5.6.0 and 5.7.0 that can affect Ethernet usability on RTL872x devices.
+
 It is not available on Gen 2 devices (Photon, P1, Electron, and E Series except the E404X).
 
 For more information about Ethernet, see the application note [AN037 Ethernet](/hardware/ethernet/ethernet/).
@@ -1673,6 +1736,48 @@ Get the current [`NetworkInterfaceConfig`](#networkinterfaceconfig) for the Ethe
 particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
 ```
 
+
+### Ethernet.prefer()
+
+{{api name1="Ethernet.prefer"}}
+
+{{since when="5.7.0"}}
+
+You should normally let [automatic connection management](/reference/device-os/connection-management/) handle which network interface to use.
+
+In some cases you may want to prefer cellular or Wi-Fi, and this can be done using the API. Note however:
+
+- The automatic connection management rules still apply.
+- The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
+- Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
+- Only one network type can be preferred, setting `Ethernet.prefer()` will clear `Cellular.prefer()` for example.
+
+```cpp
+// PROTOTYPE
+virtual NetworkClass& prefer(bool prefer = true);
+
+// EXAMPLE - enable prefer Ethernet
+Ethernet.prefer();
+
+// EXAMPLE - disable prefer Ethernet
+Ethernet.prefer(false);
+```
+
+### Ethernet.isPreferred()
+
+{{api name1="Ethernet.isPreferred"}}
+
+Returns true if the preferred network interface is Ethernet. This only indicates that the interface has been preferred and 
+does not reflect what interface is in use.
+
+```cpp
+// PROTOTYPE 
+virtual bool isPreferred();
+
+if (Ethernet.isPreferred()) {
+    // Do something here
+}
+```
 
 ### listen()
 
@@ -2038,6 +2143,50 @@ This function returns the currently selected antenna, one of:
 - `ANT_AUTO`
 - `ANT_INTERNAL`
 - `ANT_EXTERNAL`
+
+
+### WiFi.prefer()
+
+{{api name1="WiFi.prefer"}}
+
+{{since when="5.7.0"}}
+
+You should normally let [automatic connection management](/reference/device-os/connection-management/) handle which network interface to use.
+
+In some cases you may want to prefer cellular or Wi-Fi, and this can be done using the API. Note however:
+
+- The automatic connection management rules still apply.
+- The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
+- Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
+- Only one network type can be preferred, setting `WiFi.prefer()` will clear `Cellular.prefer()` for example.
+
+```cpp
+// PROTOTYPE
+virtual NetworkClass& prefer(bool prefer = true);
+
+// EXAMPLE - enable prefer Wi-Fi
+WiFi.prefer();
+
+// EXAMPLE - disable prefer Wi-Fi
+WiFi.prefer(false);
+```
+
+### WiFi.isPreferred()
+
+{{api name1="WiFi.isPreferred"}}
+
+Returns true if the preferred network interface is Wi-Fi. This only indicates that the interface has been preferred and 
+does not reflect what interface is in use.
+
+```cpp
+// PROTOTYPE 
+virtual bool isPreferred();
+
+if (WiFi.isPreferred()) {
+    // Do something here
+}
+```
+
 
 
 ### listen()
@@ -3384,6 +3533,45 @@ Get the current [`NetworkInterfaceConfig`](#networkinterfaceconfig) for a generi
 particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
 ```
 
+### Network.prefer()
+
+{{api name1="Network.prefer"}}
+
+{{since when="5.7.0"}}
+
+You should normally let automatic connection management handle which network interface to use. There are `prefer()` methods in the `Cellular`, `WiFi`, and `Ethernet` classes that can be used if you have a need to steer the connection management toward a specific interface.
+
+- The automatic connection management rules still apply when preferring an interface.
+- The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
+- Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
+- Only one network type can be preferred, setting `WiFi.prefer()` will clear `Cellular.prefer()` for example.
+- Setting `Network` as the preferred interface will clear other preferences such as `WiFi` and `Cellular`.
+
+```cpp
+// PROTOTYPE
+virtual NetworkClass& prefer(bool prefer = true);
+
+// EXAMPLE - Enable automatic connection management (disable other preferences)
+Network.prefer();
+```
+
+### Network.isPreferred()
+
+{{api name1="Network.isPreferred"}}
+
+{{since when="5.6.0"}}
+
+Returns true if automatic connection management is in use, which is to say that no other interfaces such as `WiFi` and `Cellular` have been selected as preferred.
+
+```cpp
+// PROTOTYPE 
+virtual bool isPreferred();
+
+if (Network.isPreferred()) {
+    // Automatic connection management is enabled
+}
+```
+
 
 ### listen() [Network]
 
@@ -3845,6 +4033,48 @@ This function will return `true` once the device is connected to the cellular ne
 ```cpp
 // SYNTAX
 Cellular.ready();
+```
+
+### Cellular.prefer()
+
+{{api name1="Cellular.prefer"}}
+
+{{since when="5.7.0"}}
+
+You should normally let [automatic connection management](/reference/device-os/connection-management/) handle which network interface to use.
+
+In some cases you may want to prefer cellular, Wi-Fi, or Ethernet, and this can be done using the API. Note however:
+
+- The automatic connection management rules still apply.
+- The preference only determines which to use if multiple interfaces are available. It will not force connection to a non-available interface.
+- Setting a preference does not affect an immediate change if the cloud is currently connected. It will only be consulted on the next automatic connection management which typically occurs after the cloud disconnects.
+- Only one network type can be preferred, setting `Cellular.prefer()` will clear `WiFi.prefer()` for example.
+
+```cpp
+// PROTOTYPE
+virtual NetworkClass& prefer(bool prefer = true);
+
+// EXAMPLE - enable prefer cellular
+Cellular.prefer();
+
+// EXAMPLE - disable prefer cellular
+Cellular.prefer(false);
+```
+
+### Cellular.isPreferred()
+
+{{api name1="Cellular.isPreferred"}}
+
+Returns true if the preferred network interface is cellular. This only indicates that the interface has been preferred and 
+does not reflect what interface is in use.
+
+```cpp
+// PROTOTYPE 
+virtual bool isPreferred();
+
+if (Cellular.isPreferred()) {
+    // Do something here
+}
 ```
 
 ### listen()

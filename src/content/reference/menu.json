@@ -129,8 +129,7 @@
       {
         "dir": "connection-management",
         "title": "Connection management",
-        "href": "/reference/device-os/connection-management/",
-        "internal": true
+        "href": "/reference/device-os/connection-management/"
       }
     ],
     {

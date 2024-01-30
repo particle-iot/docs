@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Connection management 2024-01-30
+
+[Automatic connection management](/reference/device-os/connection-management/) documentation is now available. The feature
+is available in Device OS 5.7.0.
+
 ### Monitor One datasheet battery warnings 2024-01-29
 
 Added additional warnings related to batteries to the [Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/#battery-warnings).

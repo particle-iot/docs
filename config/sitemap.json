@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-01-24",
-            "hash": "f7e0781871fd39748f1603c80c0c84d4790b1259a02462f572ac1815665a14e5"
+            "date": "2024-01-30",
+            "hash": "3d3bc25d19c76d2fe3f5d2c57bbadb97558708e072e84109d462ed11599190ad"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1767,12 +1767,12 @@
             "hash": "936a3cc1be02321b1322e853d7b55f561f5994c05c8b9671b717ab3137416e24"
         },
         "reference/device-os/api/cloud-functions/particle-connect.md": {
-            "date": "2023-09-20",
-            "hash": "053c29ef6762edac30837cf3a6e8705d0e5040ba2c9957f35cf41ae11fb50aaa"
+            "date": "2024-01-30",
+            "hash": "bf139998020fc8db3af5e37e252823f21c73a342a5c0fe6a514f5fb18c60d6c2"
         },
         "reference/device-os/api/cloud-functions/particle-disconnect.md": {
-            "date": "2023-09-20",
-            "hash": "71b4a94d9084a02b904c451059709a027d54895bbc0fc1628ba9d01c29e73d92"
+            "date": "2024-01-30",
+            "hash": "363f7ddc236b1212bac209fb7b97b96b0d3a69f43c9493bed5a2caa9a9ad1574"
         },
         "reference/device-os/api/cloud-functions/clear-session.md": {
             "date": "2023-09-20",
@@ -1827,8 +1827,8 @@
             "hash": "92aa2922ce92a8e2d80d84d8d309cc1d47247f1149bd6d0606885f873b34da44"
         },
         "reference/device-os/api/ethernet/ethernet.md": {
-            "date": "2023-09-20",
-            "hash": "25ba3b5bc273a4a0604ad71a9644add7d746bd3fa391efb95cc07dbfc5b1e590"
+            "date": "2024-01-30",
+            "hash": "cfb72ef250342e733cb47e0a183cf16291c162cb72110f0767f072162b2c31df"
         },
         "reference/device-os/api/ethernet/pin-configuration-ethernet.md": {
             "date": "2023-09-20",
@@ -2107,8 +2107,8 @@
             "hash": "d3db3a85d00fffffa61d3e44eef999ae594d04cf6ad8d4650ea69a696304f5ca"
         },
         "reference/device-os/api/network/getconfig-network.md": {
-            "date": "2023-09-20",
-            "hash": "572e9f00f55eb6b73d37f1172fa75930b7c95998251a0211e4bfb5a552769f33"
+            "date": "2024-01-30",
+            "hash": "3d01c639735ef5ec5da4507e3db7631edd52cdb7810d2284a522fee0e95f4263"
         },
         "reference/device-os/api/network/listen-network.md": {
             "date": "2023-09-20",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "4efc38d625948c6ddaa8bf593f7a25adec3e3fd1322376c4db5dda395b6896c2",
-            "date": "2024-01-29"
+            "hash": "ef913d91d279ef39424d8924689082dab18053ee807c00a9965b0d5e51d489a0",
+            "date": "2024-01-30"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8309,6 +8309,46 @@
         "tools/developer-tools/json.md": {
             "hash": "81d502af6d5a557fd038070442d5f3c896f2045319906913d0658673b2e0872f",
             "date": "2024-01-24"
+        },
+        "reference/device-os/connection-management.md": {
+            "hash": "449fd4b8d98b1318e7d1756c9d85bcd1656b5018aaeed247f0602bbad230005b",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/cloud-functions/particle-connectioninterface.md": {
+            "hash": "294ad5f6e690c55944351069e66f2a2c986ad06cb1f15ba4bef8391493aee534",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/ethernet/ethernet-prefer.md": {
+            "hash": "4680c813fe923a3e48fa975b977c3cc56a7fc4aba8be0e6350b564d0016bcb49",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/ethernet/ethernet-ispreferred.md": {
+            "hash": "11aacd0efc20e48acc2145c97a3af0cea13dffcf1ab0f5f6a4a4f2086692d394",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/wifi/wifi-prefer.md": {
+            "hash": "bf0068f353c3a0b168ebc022c9bc76b8543e195bc0500732eb1de35f2b20a9dd",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/wifi/wifi-ispreferred.md": {
+            "hash": "c4faa352d33cd11ed0222a30063f646d498a5a9a60ed5a57e71c045a4cd0ae17",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/network/network-prefer.md": {
+            "hash": "cf6926132fc5dd96807f329f27a3299bcb27edee2d45dce5034bbc81443d3f33",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/network/network-ispreferred.md": {
+            "hash": "0a8c5ec744413e6bfaaab27ce6c0afabe56cf49af10151a5765febd856b4bb19",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/cellular/cellular-prefer.md": {
+            "hash": "6b530c5446d7bf090d195fb53fdf8f192954de8609e209989eaf0f89fbec85fc",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/cellular/cellular-ispreferred.md": {
+            "hash": "4d7ee3850bfe5ac1d592f1c8cfbf94f07db5ce0f43ed9f5fa4f21710466c8fd1",
+            "date": "2024-01-30"
         }
     }
 }
