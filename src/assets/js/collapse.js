@@ -536,21 +536,19 @@ stepDiagram.setup = function() {
 			$(thisDiagram).empty();
 
 			// Default values
-			let diagram = {
-				step: {
-					width: '150',
-					background: 'ParticleBlue_400',
-					foreground: 'Midnight_800',
-					margin: '10px 10px 10px 10px', 
-					padding: '10px 10px 10px 10px',
-					arrowHeight: 50,
-					arrowWidth: 50,
-					arrowBase: 20,
-					arrowHead: 30,
-				}
+			let diagramSettings = {
+				width: '150',
+				background: 'ParticleBlue_500',
+				foreground: 'Midnight_800',
+				margin: '10px 10px 10px 10px', 
+				padding: '10px 10px 10px 10px',
+				arrowHeight: 40,
+				arrowWidth: 40,
+				arrowBase: 16,
+				arrowHead: 20,
 			}
 
-			Object.assign(diagram, JSON.parse(sourceText));
+			let diagram = Object.assign({}, diagramSettings, JSON.parse(sourceText));
 
 			// console.log('step-diagram', diagram);
 
@@ -563,9 +561,9 @@ stepDiagram.setup = function() {
 				if (!stepObj.kind) {
 					stepObj.kind = 'box';
 				}
-				for(const key in diagram.step) {
+				for(const key in diagramSettings) {
 					if (typeof stepObj[key] == 'undefined') {
-						stepObj[key] = diagram.step[key];
+						stepObj[key] = diagram[key];
 					}
 				}
 
@@ -579,7 +577,8 @@ stepDiagram.setup = function() {
 					$(stepDiv).css('background-color', colorNames[stepObj.background] || stepObj.background);
 
 					$(stepDiv).css('color', colorNames[stepObj.foreground] || stepObj.foreground);
-	
+					$(stepDiv).css('text-align', 'center');
+
 					$(stepDiv).text(stepObj.title);	
 				}
 				else
