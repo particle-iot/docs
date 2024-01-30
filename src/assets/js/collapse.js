@@ -528,28 +528,6 @@ stepDiagram.setup = function() {
 		'Scale_Bad_Violet': '#841D95',
 	};
 
-	const svgArrow = function(options = {}) {
-		const svgElem = document.createElement('svg');
-		$(svgElem).attr('width', options.width || '50px');
-		$(svgElem).attr('height', options.height || '50px');
-		$(svgElem).attr('fill', options.fill || '#808080');
-		$(svgElem).attr('viewBox', '0 0 29.77 29.77');
-		/*
-		$(svgElem).attr('version', '1.1');
-		$(svgElem).attr('xmlns', 'http://www.w3.org/2000/svg');
-		$(svgElem).attr('xmlns:xlink', 'http://www.w3.org/1999/xlink');
-		$(svgElem).attr('xml:space', 'preserve');
-*/
-		const gElem = document.createElement('g');
-
-		const pathElem = document.createElement('path');
-		$(pathElem).attr('d', 'M26.633,15.988c-1.171,1.172-3.071,1.172-4.243,0l-4.505-4.505V26.77c0,1.658-1.343,3-3,3s-3-1.342-3-3V11.487l-4.506,4.505c-0.585,0.586-1.354,0.879-2.121,0.879s-1.536-0.293-2.121-0.879c-1.172-1.172-1.172-3.07,0-4.242L14.887,0l11.747,11.747C27.805,12.917,27.805,14.816,26.633,15.988z');
-		$(gElem).append(pathElem);		
-
-		$(svgElem).append(gElem);
-
-		return svgElem;
-	}
 
 	$('.step-diagram').each(function() {
 		const thisDiagram = $(this);
@@ -601,21 +579,35 @@ stepDiagram.setup = function() {
 					$(stepDiv).text(stepObj.title);	
 				}
 				else
-				if (stepObj.kind == 'arrow') {					
+				if (stepObj.kind == 'arrow') {
+					const dims = {
+						width: 50,
+						height: 50,
+						base: 20,
+						head: 30,
+					};
+
+					const canvasElem = document.createElement('canvas');
+					$(canvasElem).attr('width', dims.width);
+					$(canvasElem).attr('height', dims.height);
 					
-					$(stepDiv).css('width', '50px');
-					$(stepDiv).css('height', '50px');
-					$(stepDiv).append(svgArrow());
+					const ctx = canvasElem.getContext("2d");
+					ctx.fillStyle = colorNames[stepObj.background] || stepObj.background;
+					ctx.beginPath();
+
+					ctx.moveTo(dims.width/2 - dims.base/2, 0);
+					ctx.lineTo(dims.width/2 + dims.base/2, 0);
+					ctx.lineTo(dims.width/2 + dims.base/2, dims.height - dims.head);
+					ctx.lineTo(dims.width, dims.height - dims.head);
+					ctx.lineTo(dims.width/2, dims.height);
+					ctx.lineTo(0, dims.height - dims.head);
+					ctx.lineTo(dims.width/2 - dims.base/2, dims.height - dims.head);
+					ctx.lineTo(dims.width/2 - dims.base/2, 0);
+
+					ctx.closePath();
+					ctx.fill();
 					
-					/*
-					const imgElem = document.createElement('img');
-					$(imgElem).attr('src', '/assets/images/step-diagram-arrow.svg');
-					imgElem.onload = function() {
-						console.log('img loaded');
-						$(imgElem).find('fill').html('#ffffff');
-					}
-					$(stepDiv).append(imgElem);
-					*/
+					$(stepDiv).append(canvasElem);
 				}
 
 				$(flexContainerDiv).append(stepDiv);
