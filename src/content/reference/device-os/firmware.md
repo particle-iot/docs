@@ -1737,7 +1737,7 @@ particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
 ```
 
 
-### Ethernet.prefer()
+### prefer() [Ethernet]
 
 {{api name1="Ethernet.prefer"}}
 
@@ -1763,7 +1763,7 @@ Ethernet.prefer();
 Ethernet.prefer(false);
 ```
 
-### Ethernet.isPreferred()
+### isPreferred() [Ethernet]
 
 {{api name1="Ethernet.isPreferred"}}
 
@@ -2145,7 +2145,7 @@ This function returns the currently selected antenna, one of:
 - `ANT_EXTERNAL`
 
 
-### WiFi.prefer()
+### prefer() [WiFi]
 
 {{api name1="WiFi.prefer"}}
 
@@ -2171,7 +2171,7 @@ WiFi.prefer();
 WiFi.prefer(false);
 ```
 
-### WiFi.isPreferred()
+### isPreferred() [WiFi]
 
 {{api name1="WiFi.isPreferred"}}
 
@@ -3533,7 +3533,7 @@ Get the current [`NetworkInterfaceConfig`](#networkinterfaceconfig) for a generi
 particle::NetworkInterfaceConfig getConfig(String profile = String()) const;
 ```
 
-### Network.prefer()
+### prefer() [Network]
 
 {{api name1="Network.prefer"}}
 
@@ -3555,7 +3555,7 @@ virtual NetworkClass& prefer(bool prefer = true);
 Network.prefer();
 ```
 
-### Network.isPreferred()
+### isPreferred() [Network]
 
 {{api name1="Network.isPreferred"}}
 
@@ -4035,7 +4035,7 @@ This function will return `true` once the device is connected to the cellular ne
 Cellular.ready();
 ```
 
-### Cellular.prefer()
+### prefer() [Cellular]
 
 {{api name1="Cellular.prefer"}}
 
@@ -4061,7 +4061,7 @@ Cellular.prefer();
 Cellular.prefer(false);
 ```
 
-### Cellular.isPreferred()
+### isPreferred() [Cellular]
 
 {{api name1="Cellular.isPreferred"}}
 

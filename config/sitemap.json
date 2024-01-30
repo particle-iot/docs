@@ -1288,7 +1288,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2024-01-30",
-            "hash": "3d3bc25d19c76d2fe3f5d2c57bbadb97558708e072e84109d462ed11599190ad"
+            "hash": "53e08d3b614ee11fac981438785413767d989c049e26829c7a182a4c327e42ed"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -8348,6 +8348,38 @@
         },
         "reference/device-os/api/cellular/cellular-ispreferred.md": {
             "hash": "4d7ee3850bfe5ac1d592f1c8cfbf94f07db5ce0f43ed9f5fa4f21710466c8fd1",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/ethernet/prefer-ethernet.md": {
+            "hash": "ed6dc8a7e2e8da380c620d67bb53a9e3fea501958bb9519db46f616eee0a39cd",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/ethernet/ispreferred-ethernet.md": {
+            "hash": "ffcc27d834cda4c3625835ea73d82d9cc4b96edc874789a71da402a9382fab1a",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/network/prefer-network.md": {
+            "hash": "89189a271aec6751028335f54ecb3aa9144256024fad35c6f4131145e928236b",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/network/ispreferred-network.md": {
+            "hash": "ae0cf39652eadb2c072522186e2b9209480a6c022f207e476f4c222ef7645acf",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/cellular/prefer-cellular.md": {
+            "hash": "a0e343d79e6e1a2c6d6ab50e99956fe021a01e8a088f021447165e85dc2447e0",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/cellular/ispreferred-cellular.md": {
+            "hash": "edcc82f432b7a8f307e6a9460e91165a36b3a0046b917711dd9e4c48b46dc8e0",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/wifi/prefer-wifi.md": {
+            "hash": "5351544630530f44346f24a4365e8ff90caf08dba25f549c19235bb0d37ce534",
+            "date": "2024-01-30"
+        },
+        "reference/device-os/api/wifi/ispreferred-wifi.md": {
+            "hash": "274f37d13de85702bcb3b90b2017d9833e86fe1887c1893ebae5a70c70ff3520",
             "date": "2024-01-30"
         }
     }
