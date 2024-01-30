@@ -538,17 +538,21 @@ stepDiagram.setup = function() {
 			// Default values
 			let diagram = {
 				step: {
-					width: '150px',
+					width: '150',
 					background: 'ParticleBlue_400',
 					foreground: 'Midnight_800',
 					margin: '10px 10px 10px 10px', 
-					padding: '10px 10px 10px 10px',	
+					padding: '10px 10px 10px 10px',
+					arrowHeight: 50,
+					arrowWidth: 50,
+					arrowBase: 20,
+					arrowHead: 30,
 				}
 			}
 
 			Object.assign(diagram, JSON.parse(sourceText));
 
-			console.log('step-diagram', diagram);
+			// console.log('step-diagram', diagram);
 
 			const flexContainerDiv = document.createElement('div');
 			$(flexContainerDiv).addClass('stepDiagramContainer');
@@ -571,7 +575,7 @@ stepDiagram.setup = function() {
 				$(stepDiv).css('padding', stepObj.padding);
 
 				if (stepObj.kind == 'box') {
-					$(stepDiv).css('width', stepObj.width);
+					$(stepDiv).css('width', stepObj.width + 'px');
 					$(stepDiv).css('background-color', colorNames[stepObj.background] || stepObj.background);
 
 					$(stepDiv).css('color', colorNames[stepObj.foreground] || stepObj.foreground);
@@ -580,29 +584,23 @@ stepDiagram.setup = function() {
 				}
 				else
 				if (stepObj.kind == 'arrow') {
-					const dims = {
-						width: 50,
-						height: 50,
-						base: 20,
-						head: 30,
-					};
 
 					const canvasElem = document.createElement('canvas');
-					$(canvasElem).attr('width', dims.width);
-					$(canvasElem).attr('height', dims.height);
+					$(canvasElem).attr('width', stepObj.width);
+					$(canvasElem).attr('height', stepObj.arrowHeight);
 					
 					const ctx = canvasElem.getContext("2d");
 					ctx.fillStyle = colorNames[stepObj.background] || stepObj.background;
 					ctx.beginPath();
 
-					ctx.moveTo(dims.width/2 - dims.base/2, 0);
-					ctx.lineTo(dims.width/2 + dims.base/2, 0);
-					ctx.lineTo(dims.width/2 + dims.base/2, dims.height - dims.head);
-					ctx.lineTo(dims.width, dims.height - dims.head);
-					ctx.lineTo(dims.width/2, dims.height);
-					ctx.lineTo(0, dims.height - dims.head);
-					ctx.lineTo(dims.width/2 - dims.base/2, dims.height - dims.head);
-					ctx.lineTo(dims.width/2 - dims.base/2, 0);
+					ctx.moveTo(stepObj.width/2 - stepObj.arrowBase/2, 0);
+					ctx.lineTo(stepObj.width/2 + stepObj.arrowBase/2, 0);
+					ctx.lineTo(stepObj.width/2 + stepObj.arrowBase/2, stepObj.arrowHeight - stepObj.arrowHead);
+					ctx.lineTo(stepObj.width/2 + stepObj.arrowWidth/2, stepObj.arrowHeight - stepObj.arrowHead);
+					ctx.lineTo(stepObj.width/2, stepObj.arrowHeight);
+					ctx.lineTo(stepObj.width/2 - stepObj.arrowWidth/2, stepObj.arrowHeight - stepObj.arrowHead);
+					ctx.lineTo(stepObj.width/2 - stepObj.arrowBase/2, stepObj.arrowHeight - stepObj.arrowHead);
+					ctx.lineTo(stepObj.width/2 - stepObj.arrowBase/2, 0);
 
 					ctx.closePath();
 					ctx.fill();
