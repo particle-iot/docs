@@ -1,8 +1,11 @@
 
 let imageOverlay = {};
+let stepDiagram = {};
+
 
 $(document).ready(function() {
 	imageOverlay.setupOverlay();
+	stepDiagram.setup();
 	
 	$('input.collapseDefault').each(function(index) {
 		var genericCssClass = $(this).attr('name');
@@ -467,3 +470,130 @@ imageOverlay.hideOverlay = function() {
 
 
 
+stepDiagram.setup = function() {
+	const colorNames = {
+		'ParticleBlue_400': '#5CECFF', 
+		'ParticleBlue_500': '#00E1FF',
+		'ParticleBlue_600': '#00D2E6', 
+		'ParticleBlue_700': '#00A3B3', 
+		'ParticleBlue_800': '#007580', 
+		'ParticleBlue_900': '#004F57', 
+		'Watermelon_500': '#FF6E8A',
+		'White_0': '#FFFFFF',
+		'Gray_100': '#F5F6FA',
+		'Gray_200': '#E2E4EB',
+		'Gray_300': '#BBBDC4',
+		'Gray_400': '#858A9B',
+		'Midnight_300': '#175676',
+		'Midnight_400': '#01466C',
+		'Midnight_500': '#00334F',
+		'Midnight_600': '#002438',
+		'Midnight_700': '#001928',
+		'Midnight_800': '#01131D',
+		'Midnight_900': '#010D14',
+		'Sky_400': '#E6F6FA',
+		'Sky_500': '#D9F2F7',
+		'Sky_600': '#AFE4EE',
+		'Sky_700': '#85D6E5',
+		'Sky_800': '#5BC8DC',
+		'Sky_900': '#2BB1CA',
+		'Watermelon_400': '#FFADBD',
+		'Watermelon_500': '#FF6E8A',
+		'Watermelon_600': '#FF5979',
+		'Watermelon_700': '#FF244E',
+		'Watermelon_800': '#EB002D',
+		'Watermelon_900': '#B80023',
+		'Mint_400': '#D1F0E0',
+		'Mint_500': '#B0E5C9',
+		'Mint_600': '#89E2B3',
+		'Mint_700': '#5FD898',
+		'Mint_800': '#36CE7E',
+		'Mint_900': '#27A060',
+		'Tangerine_400': '#FF9F61',
+		'Tangerine_500': '#FF802E',
+		'Tangerine_600': '#FA6200',
+		'Tangerine_700': '#C74E00',
+		'Tangerine_800': '#943A00',
+		'Tangerine_900': '#612600',
+		'State_Green_500': '#78ECB0',
+		'State_Orange_500': '#FFBC80',
+		'State_Orange_600': '#FF993D',
+		'State_Yellow_500': '#FFE949',
+		'State_Yellow_600': '#FAD51D',
+		'State_Red_500': '#FF6F76',
+		'State_Red_600': '#F45151',
+		'Scale_Good_Teal': '#01DBC5',
+		'Scale_Fair_Teal': '#94F0E5',
+		'Scale_Poor_Violet': '#BA70C6',
+		'Scale_Bad_Violet': '#841D95',
+	};
+
+	$('.step-diagram').each(function() {
+		const thisDiagram = $(this);
+		try {
+			const sourceText = $(thisDiagram).text();
+			$(thisDiagram).empty();
+
+			// Default values
+			let diagram = {
+				step: {
+					width: '150px',
+					background: 'ParticleBlue_400',
+					foreground: 'Midnight_800',
+					margin: '10px 10px 10px 10px', 
+					padding: '10px 10px 10px 10px',	
+				}
+			}
+
+			Object.assign(diagram, JSON.parse(sourceText));
+
+			console.log('step-diagram', diagram);
+
+			const flexContainerDiv = document.createElement('div');
+			$(flexContainerDiv).addClass('stepDiagramContainer');
+
+
+			for(let stepObj of diagram.steps) {
+				// step defaults
+				if (!stepObj.kind) {
+					stepObj.kind = 'box';
+				}
+				for(const key in diagram.step) {
+					if (typeof stepObj[key] == 'undefined') {
+						stepObj[key] = diagram.step[key];
+					}
+				}
+
+				const stepDiv = document.createElement('div');
+				$(stepDiv).addClass('stepDiagramStep');
+				$(stepDiv).css('width', stepObj.width);
+				$(stepDiv).css('margin', stepObj.margin);
+				$(stepDiv).css('padding', stepObj.padding);
+
+				if (stepObj.kind == 'box') {
+					$(stepDiv).css('background-color', colorNames[stepObj.background] || stepObj.background);
+
+					$(stepDiv).css('color', colorNames[stepObj.foreground] || stepObj.foreground);
+	
+					$(stepDiv).text(stepObj.title);	
+				}
+				else
+				if (stepObj.kind == 'arrow') {
+					const imgElem = document.createElement('img');
+					$(imgElem).attr('src', '/assets/images/step-diagram-arrow.svg');
+					$(stepDiv).append(imgElem);
+				}
+
+				$(flexContainerDiv).append(stepDiv);
+			}
+
+			$(thisDiagram).append(flexContainerDiv);
+
+			$(thisDiagram).show();
+		}
+		catch(e) {
+			console.log('except parsing step-diagram', e);
+		}
+
+	})
+}

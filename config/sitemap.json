@@ -8381,6 +8381,10 @@
         "reference/device-os/api/wifi/ispreferred-wifi.md": {
             "hash": "274f37d13de85702bcb3b90b2017d9833e86fe1887c1893ebae5a70c70ff3520",
             "date": "2024-01-30"
+        },
+        "scaling/best-practices/device-protection.md": {
+            "hash": "f28c76aa2635cf9f14e7b88064208c3f200b708648e741829313feae88ff7dea",
+            "date": "2024-01-30"
         }
     }
 }
