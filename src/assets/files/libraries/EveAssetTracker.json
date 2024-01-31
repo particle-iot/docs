@@ -1,0 +1,210 @@
+{
+  "type": "libraries",
+  "id": "EveAssetTracker",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/EveAssetTracker/archive/0.0.12.tar.gz"
+  },
+  "attributes": {
+    "name": "EveAssetTracker",
+    "version": "0.0.12",
+    "installs": 163,
+    "license": "LGPL",
+    "author": "Richard Whitney <richard@particle.io>",
+    "sentence": "Functions for the Asset Tracker use Electron",
+    "url": "https://github.com/spark/AssetTracker",
+    "repository": "https://github.com/spark/AssetTracker.git",
+    "architectures": [
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "e",
+  "cardUrl": "/reference/device-os/libraries/e/EveAssetTracker",
+  "versions": {
+    "0.0.12": {
+      "added": "2023-03-21T19:32:43.198Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "boron": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "bsom": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "b5som": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "tracker": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "p2": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "boron": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "bsom": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "b5som": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "tracker": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "esomx": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "electron": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "argon": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "boron": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "electron": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "argon": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "boron": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "boron": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "bsom": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "b5som": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "tracker": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "p2": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "boron": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "bsom": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "b5som": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "tracker": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "esomx": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "_The Asset Tracker has a lot of features, but some of these aren't as straightforward to use as simple LEDs and sensors. This library abstracts a lot of the complexity and provides simple functions with broad capability. It wraps modified versions of both Adafruit's Ultimate GPS and LIS3DH Arduino libraries, as well as some novel functions._\r\n\r\n## Examples\r\n\r\n1. __GPS Features__ - How to use the GPS efficiently, and some nice Electron functions\r\n2. __Accelerometer__ - Using the accelerometer with some cute tricks\r\n3. __WakeOnMove__ - Waking up from sleep mode when the Electron is moved\r\n\r\n",
+  "allVersions": [
+    "0.0.12",
+    "0.0.11",
+    "0.0.10"
+  ]
+}

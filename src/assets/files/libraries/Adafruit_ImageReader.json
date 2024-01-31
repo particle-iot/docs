@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ImageReader",
     "version": "1.0.9",
-    "installs": 4052,
+    "installs": 5332,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>, Brandon Satrom <brandon@particle.io>",
     "sentence": "Companion library for Adafruit_GFX to load images from SD card.",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_ImageReader",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_ImageReader",
   "versions": {
     "1.0.9": {
       "builds": {
@@ -233,6 +233,142 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "boron": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "bsom": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "b5som": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "tracker": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "esomx": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "boron": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "bsom": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "b5som": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "tracker": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "p2": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "BreakoutST7735-128x128": false,
             "BreakoutST7735-160x128": false,

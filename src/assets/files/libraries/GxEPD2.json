@@ -7,7 +7,7 @@
   "attributes": {
     "name": "GxEPD2",
     "version": "1.2.0",
-    "installs": 1269,
+    "installs": 1734,
     "author": "Jean-Marc Zingg",
     "maintainer": "Jean-Marc Zingg",
     "sentence": "Arduino Display Library for SPI E-Paper displays from Dalian Good Display and Waveshare. ",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/GxEPD2",
+  "cardUrl": "/reference/device-os/libraries/g/GxEPD2",
   "versions": {
     "1.2.0": {
       "builds": {

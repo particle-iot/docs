@@ -1,0 +1,178 @@
+{
+  "type": "libraries",
+  "id": "Particle_Adafruit_VC0706",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Particle_Adafruit_VC0706/archive/1.1.2.tar.gz"
+  },
+  "attributes": {
+    "name": "Particle_Adafruit_VC0706",
+    "version": "1.1.2",
+    "installs": 169,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Library for VC0706-based Serial JPEG Cameras",
+    "paragraph": "Library for VC0706-based Serial JPEG Cameras",
+    "category": "Device Control",
+    "url": "https://github.com/edalquist/Particle-Photon-Adafruit-VC0706-Serial-Camera-Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/reference/device-os/libraries/p/Particle_Adafruit_VC0706",
+  "versions": {
+    "1.1.2": {
+      "added": "2023-03-21T19:58:35.810Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "bsom": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "b5som": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "tracker": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "p2": {
+            "MotionDetect": false,
+            "Snapshot": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "bsom": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "b5som": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "tracker": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "esomx": {
+            "MotionDetect": false,
+            "Snapshot": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "electron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "electron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "bsom": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "b5som": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "tracker": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "p2": {
+            "MotionDetect": false,
+            "Snapshot": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "bsom": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "b5som": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "tracker": {
+            "MotionDetect": false,
+            "Snapshot": false
+          },
+          "esomx": {
+            "MotionDetect": false,
+            "Snapshot": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "  This is a library for the Adafruit TTL JPEG Camera (VC0706 chipset)\n\n  Pick one up today in the adafruit shop!\n  ------> http://www.adafruit.com/products/397\n\n  These displays use Serial to communicate, 2 pins are required to interface\n\n  Adafruit invests time and resources providing this open source code, \n  please support Adafruit and open-source hardware by purchasing \n  products from Adafruit!\n\n  Written by Limor Fried/Ladyada for Adafruit Industries.  \n  BSD license, all text above must be included in any redistribution\n\n\nTo download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_VC0706. Check that the Adafruit_VC0706 folder contains Adafruit_VC0706.cpp and Adafruit_VC0706.h\n\nPlace the Adafruit_VC0706 library folder your <arduinosketchfolder>/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE.",
+  "allVersions": [
+    "1.1.2",
+    "1.1.1"
+  ]
+}

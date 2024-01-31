@@ -84,13 +84,13 @@ The [API user](/reference/cloud-apis/api/#api-users) feature makes it possible t
 
 It's only available for products (not developer devices). 
 
-### Create API User
+### Create API user
 
 {{> cloud-api-user-create}}
 
 You can also create, list, update, and delete [API user tokens using the Particle Cloud API](/reference/cloud-apis/api/#creating-an-api-user).
 
-### List or Delete API Users
+### List or delete API users
 
 {{> cloud-api-user-list}}
 

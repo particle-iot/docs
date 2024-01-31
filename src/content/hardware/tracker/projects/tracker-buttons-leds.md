@@ -42,9 +42,9 @@ You'd typically connect those wires to your custom expansion board using one of 
 - Terminate by soldering the wires to your board
 
 
-## Hardware Design
+## Hardware design
 
-### Full Design
+### Full design
 
 Schematic:
 
@@ -117,7 +117,7 @@ Note that I2C requires pull-up resistors, and this design includes two sets, one
 
 More information on using the SHT30 temperature and humidity sensor can be found in [AN022 Tracker SHT3x Temperature/Humidity](/hardware/tracker/projects/tracker-sht3x-temperature-humidity/).
 
-### Regulator and M8 Connector
+### Regulator and M8 connector
 
 ![Regulator](/assets/images/app-notes/AN027/sch4.png)
 
@@ -126,7 +126,7 @@ The M8 connector supplies 5V at 370 mA, and can be turned on and off using the `
 Since the nRF52840 MCU only supports 3.3V logic levels on I2C, Serial, and GPIO, a 3.3V regulator is often required. This design uses a Torex XC6215. It's tiny, inexpensive ($0.71), and does not require an external inductor, which saves space and BoM costs. It's a 200 mA linear regulator, but the voltage from from CAN_5V to 3.3V is small enough and the load low enough that this is a reasonable choice.
 
 
-## Test Software
+## Test software
 
 This board will be used in a more full-featured example later. However this is test firmware to test the functionality of the board.
 

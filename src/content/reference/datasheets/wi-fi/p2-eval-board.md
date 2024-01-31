@@ -7,10 +7,8 @@ description: Datasheet for the Particle P2 Evaluation Board
 
 # P2 Evaluation Board
 
-**Preliminary pre-release version 2022-04-18**
-
 {{box op="start" cssClass="boxed warningBox"}}
-This is an preliminary pre-release datasheet and the contents are subject to change.
+The P2 evaluation board is not a product and was only produced in limited quantities for testing.
 {{box op="end"}}
 
 {{#unless pdf-generation}}
@@ -18,6 +16,8 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 {{/unless}}
 
 This is a simple breakout board for Particle's P2 Wi-Fi module. It breaks out all of its pins via easy to use headers. The board features a USB port, a barrel jack power connector, buttons, and RGB LED as well as Feather, Grove, and Qwiic connectors for prototyping with external sensors, displays, etc..
+
+The design for this board is open-source and can be found in [P2 reference design in Github](https://github.com/particle-iot/p2-reference-design).
 
 ## Description
 
@@ -59,7 +59,7 @@ From the Particle CLI, you can use a command such as:
 particle compile p2 . --target 3.2.1-p2.3 --saveTo firmware.bin
 ```
 
-Note that you must specify a target system version when building for the P2. If an upgrade of Device OS is required, it will be updated OTA.
+Note that you must specify a target Device OS version when building for the P2. If an upgrade of Device OS is required, it will be updated OTA.
 
 ### Using the Web IDE
 

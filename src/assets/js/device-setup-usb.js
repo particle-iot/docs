@@ -5,7 +5,7 @@ $(document).ready(function() {
     const doneUrl = '/assets/images/device-setup/ok-48.png';
 
     if (!navigator.usb) {
-        ga('send', 'event', gaCategory, 'No WebUSB', navigator.userAgent);
+        analytics.track('No WebUSB', {category:gaCategory, label:navigator.userAgent});
         $('.setupBrowserError').show();
         $('.setupStepOtherIssues').show();
         return;
@@ -35,7 +35,7 @@ $(document).ready(function() {
 
         const mode = $(thisElem).data('mode');
 
-        const modes = ['doctor', 'setup', 'restore', 'wifi'];
+        const modes = ['doctor', 'setup', 'restore', 'wifi', 'cloud', 'product'];
 
         // Hide all modes
         for(const m of modes) {
@@ -49,7 +49,7 @@ $(document).ready(function() {
         }
         gaCategory = 'USB Device Setup ' + mode;
 
-        const noLoginRequired = (mode == 'restore' || mode == 'wifi');
+        const noLoginRequired = (mode == 'restore' || mode == 'wifi' || mode == 'cloud');
 
         if (noLoginRequired || apiHelper.auth) {
             $(thisElem).find('.deviceSetupLoggedIn').show();
@@ -59,7 +59,7 @@ $(document).ready(function() {
             $(thisElem).find('.setupWiFiInstructions').show();
         }
 
-        ga('send', 'event', gaCategory, 'Opened Page', mode);
+        analytics.track('Opened Page', {category:gaCategory, label:mode});
 
         const setupSelectDeviceButtonElem = $(thisElem).find('.setupSelectDeviceButton');
         const setupStepElem = $(thisElem).find('.setupStep');
@@ -76,6 +76,7 @@ $(document).ready(function() {
         let deviceModuleInfo;
         let flashDeviceOptions = {};
         let userInfo;
+        let productData; // Used in product mode
 
         let ticketOptions = {
             subject: 'Request from Device Doctor',
@@ -116,28 +117,38 @@ $(document).ready(function() {
                 label: 'Device ID',
             },
             {
-                key: 'iccid',
+                key: '+CCID', // Was: 'iccid'
                 label: 'ICCID',
                 cellular: true
             },
             {
-                key: 'imei',
+                key: 'AT+CGSN', // Was: 'imei'
                 label: 'IMEI',
                 cellular: true
             },
             {
-                key: 'mfg',
+                key: 'AT+CIMI',
+                label: 'IMSI',
+                cellular: true
+            },
+            {
+                key: 'AT+CGMI', // Was: 'mfg'
                 label: 'Modem Manufacturer',
                 cellular: true
             },
             {
-                key: 'model',
+                key: 'AT+CGMM', // Was: 'model'
                 label: 'Modem Model',
                 cellular: true
             },
             {
-                key: 'fwvers',
+                key: 'AT+CGMR', // Was: 'fwvers'
                 label: 'Modem Firmware Version',
+                cellular: true
+            },
+            {
+                key: 'ATI9',
+                label: 'Modem Application Version',
                 cellular: true
             },
             {
@@ -278,6 +289,23 @@ $(document).ready(function() {
             $(thisElem).find('.userInfoTable > tbody').append(trElem);
         };
 
+
+        const renderSimpleTable = function(options) {
+            // option.data - array (outer = rows), of arrays (inner = column data)
+            // options.elem - destination tbody element
+
+            for(const rowObj of options.data) {                
+                const rowElem = document.createElement('tr');
+
+                for(const cellData of rowObj) {
+                    const cellElem = document.createElement('td');
+                    $(cellElem).text(cellData);
+                    $(rowElem).append(cellElem);
+                }
+
+                $(options.elem).append(rowElem);
+            }
+        }
 
         const getUserFirmwareBackup = function() {
             let firmwareBackup;
@@ -602,44 +630,57 @@ $(document).ready(function() {
         const showDeviceLogs = function() {
             $(deviceLogsElem).show();
 
+            let failureCount = 0;
+
             if (!deviceLogsTimer1) {
+                let statusNesting = 0;
+
                 deviceLogsTimer1 = setInterval(async function() {
 
-                    let reqObj = {
-                        op: 'status'
-                    };
-    
-                    let res;
-                    try {
-                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                    }
-                    catch(e) {
-                        if (e.message.includes('The device was disconnected.')) {
-                            stopDeviceLogs();
-                        } else {
-                            console.log('control request exception', e);
-                        }
-                        return;
-                    }
-                    
-                    if (res.result == 0 && res.data) {
-                        const respObj = JSON.parse(res.data);
-    
-                        if (checkStatus) {
-                            checkStatus(respObj);
-                        }
-    
-                        if (respObj.mcc) {
-                            setInfoTableItemObj(respObj);
-    
-                            if (mccmnc) {
-                                for(const obj of mccmnc) {
-                                    if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
-                                        setInfoTableItemObj(obj);                                        
-                                    }
+                    if (statusNesting == 0) {
+                        statusNesting++;
+                        try {
+                            let reqObj = {
+                                op: 'status'
+                            };
+            
+                            let res;
+                            try {
+                                res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                            }
+                            catch(e) {
+                                console.log('control request exception', e);
+                                if (++failureCount > 5) {
+                                    stopDeviceLogs();
                                 }
-                            }                                          
+                            }
+                            
+                            if (res.result == 0 && res.data) {
+                                const respObj = JSON.parse(res.data);
+            
+                                if (checkStatus) {
+                                    checkStatus(respObj);
+                                }
+                
+                                setInfoTableItemObj(respObj);    
+                                if (respObj.mcc) {
+                                    if (mccmnc) {
+                                        for(const obj of mccmnc) {
+                                            if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
+                                                setInfoTableItemObj(obj);                                        
+                                            }
+                                        }
+                                    }                                          
+                                }
+                            }
                         }
+                        catch(e) {
+                            console.log('exception', e);
+                        }
+                        statusNesting--;
+                    }
+                    else {
+                        // console.log('skipped status, busy');
                     }
                 }, 2000);    
             }
@@ -647,7 +688,8 @@ $(document).ready(function() {
             if (!deviceLogsTimer2) {
                 // Retrieve logs more slowly on Gen 2 because the control request handler can run out of RAM
                 let logTimerInterval = (deviceInfo.platformId <= 10) ? 2000 : 1000;
-                
+                let logNesting = 0;
+
                 deviceLogsTimer2 = setInterval(async function() {
                     if ($('.deviceLogWarning').is(':visible')) {
                         // On the Electron, skip the logs requests because control requests are blocked
@@ -655,48 +697,56 @@ $(document).ready(function() {
                         return;
                     }
 
-                    let reqObj = {
-                        op: 'logs'
-                    };
+                    if (logNesting == 0) {
+                        logNesting++;
+                        try {
+                            let reqObj = {
+                                op: 'logs'
+                            };
+            
+                            let res;
     
-                    let res;
-                    try {
-                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                    }
-                    catch(e) {
-                        if (e.message.includes('The device was disconnected.')) {
-                            stopDeviceLogs();
-                        } else {
-                            console.log('control request exception', e);
-                        }
-                        return;
-                    }
-                    
-                    if (res.result == 0 && res.data) {
-                        if (res.data.length > 0) {
-                            let tempLog = (deviceLogsPartialLine ? deviceLogsPartialLine : '') + res.data;
-                            let lastLF = tempLog.lastIndexOf('\n');
-                            if (lastLF < (tempLog.length - 1)) {
-                                deviceLogsPartialLine = tempLog.substr(lastLF + 1);
-                                tempLog = tempLog.substr(0, lastLF + 1);
-                            }
-                            else {
-                                deviceLogsPartialLine = '';
-                            }
-                            for(let line of tempLog.split('\n')) {
-                                line = line.trim();
-                                if (line.length) {
-                                    processLogMessage(line);
+                            res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                            if (res.result == 0 && res.data) {
+                                if (res.data.length > 0) {
+                                    let tempLog = (deviceLogsPartialLine ? deviceLogsPartialLine : '') + res.data;
+                                    let lastLF = tempLog.lastIndexOf('\n');
+                                    if (lastLF < (tempLog.length - 1)) {
+                                        deviceLogsPartialLine = tempLog.substr(lastLF + 1);
+                                        tempLog = tempLog.substr(0, lastLF + 1);
+                                    }
+                                    else {
+                                        deviceLogsPartialLine = '';
+                                    }
+                                    for(let line of tempLog.split('\n')) {
+                                        line = line.trim();
+                                        if (line.length) {
+                                            processLogMessage(line);
+                                        }
+                                    }
+                                    
+                                    deviceLogs += tempLog;
+                                    if ($(showDebuggingLogsElem).prop('checked')) {
+                                        $(deviceLogsTextElem).val(deviceLogs);
+                                        deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
+                                    }
                                 }
                             }
-                            
-                            deviceLogs += tempLog;
-                            if ($(showDebuggingLogsElem).prop('checked')) {
-                                $(deviceLogsTextElem).val(deviceLogs);
-                                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
+                        }
+                        catch(e) {
+                            console.log('control request exception', e);
+                            if (++failureCount > 5) {
+                                stopDeviceLogs();
                             }
                         }
+                        
+                        logNesting--;
                     }
+                    else {
+                        // console.log('skipped logs, busy');
+                        $('.manualLogs').show();
+                    }
+
                 }, logTimerInterval);
             }
 
@@ -780,6 +830,8 @@ $(document).ready(function() {
 
             const moduleTypeNames = ['', 'Bootloader', 'System Part', 'User Part', 'Monolithic', 'NCP', 'Softdevice (Radio Stack)']; 
 
+            const binaryVersionNames = ['', 'bootloader', 'system_part', 'user_part', 'monolithic', 'ncp_firmware', 'radio_stack']; 
+
             // Validity values:
             // 0 (or omitted): valid
             // 1 integrity check failed
@@ -804,6 +856,10 @@ $(document).ready(function() {
                 return moduleTypeNames[moduleType];
             }
 
+            moduleInfo.moduletypeProtobufToBinaryVersionName = function(moduleType) {
+                return binaryVersionNames[moduleType];
+            }    
+        
             moduleInfo.moduleTypeProtobufToSystem = function(moduleType) {
                 return systemModuleTypes[moduleType];
             };
@@ -816,6 +872,37 @@ $(document).ready(function() {
                 }
                 return 0;
             };
+
+            moduleInfo.getDescriptiveName = function(modOrDep) {
+                let descriptiveName;
+
+                if (modOrDep.moduleType == 1) {
+                    switch(modOrDep.index) {
+                        case 2:
+                            descriptiveName = 'prebootloader-part1';
+                            break;
+
+                        case 1:
+                            descriptiveName = 'prebootloader-mbr';
+                            break;
+
+                        default:
+                            descriptiveName = 'bootloader';
+                            break;
+                    }
+                }
+                else
+                if (modOrDep.moduleType == 2) {
+                    descriptiveName = 'system-part' + modOrDep.index;
+                }
+                else {
+                    descriptiveName = moduleInfo.moduletypeProtobufToName(modOrDep.moduleType);
+                    if (typeof modOrDep.index != 'undefined') {
+                        descriptiveName += ' (index ' + modOrDep.index + ')';
+                    }    
+                }
+                return descriptiveName;
+            }
 
             moduleInfo.getByModuleTypeIndex = function(moduleType, index) {
                 // Pass 1: Exact match
@@ -858,7 +945,27 @@ $(document).ready(function() {
                 // prebootloader-part1 on P2 is bootloader (1) index 2
                 return moduleInfo.getByModuleTypeIndex(1, 2);
             };
-        
+
+            moduleInfo.getSystemVersion = function() {
+                for(const m of moduleInfo.modules) {
+                    if (m.moduleType == 2) {
+                        return m.version;
+                    }
+                }
+                return 0;
+            }
+
+            moduleInfo.getSystemSemver = function() {
+                const v = moduleInfo.getSystemVersion();
+                if (v) {
+                    const semVer = apiHelper.systemVersionToSemVer(obj.version);
+                    if (semVer) {
+                        return semVer;
+                    }
+                } 
+                return 0;
+            }
+              
             /*
             tag       := (field << 3) BIT_OR wire_type, encoded as varint
             value     := (varint|zigzag) for wire_type==0 |
@@ -913,12 +1020,7 @@ $(document).ready(function() {
             $(tableBodyElem).html('');
 
             const formatModuleIndex = function(obj) {
-                if (obj.index) {
-                    return moduleInfo.moduletypeProtobufToName(obj.moduleType) + ' ' + obj.index;
-                }
-                else {
-                    return moduleInfo.moduletypeProtobufToName(obj.moduleType);
-                }
+                return moduleInfo.getDescriptiveName(obj);
             }
 
             const formatVersion = function(obj) {
@@ -997,7 +1099,7 @@ $(document).ready(function() {
                 deviceInfo.firmwareVersion = usbDevice.firmwareVersion;
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
 
-                ga('send', 'event', gaCategory, 'Selected', deviceInfo.platformId);
+                analytics.track('Selected', {category:gaCategory, label:deviceInfo.platformId});
 
                 if (!deviceInfo.targetVersion) {
                     deviceInfo.targetVersion = minimumDeviceOsVersion;
@@ -1019,6 +1121,144 @@ $(document).ready(function() {
                     $(thisElem).find('.setupStepCheckDeviceUnknown').show();
                     return;
                 }
+
+                if (mode == 'product') {
+                    // If in product device flashing mode, get device information
+                    productData = {
+                        deviceId: deviceInfo.deviceId,                        
+                    };
+
+                    try {
+                        productData.deviceData = (await apiHelper.particle.getDevice({ deviceId: productData.deviceId, auth: apiHelper.auth.access_token })).body;
+                        
+                        if (productData.deviceData.product_id < 100) {
+                            throw 'not a product device';
+                        }
+
+                        productData.productId = productData.deviceData.product_id;
+
+
+                        productData.productInfo = await new Promise(function(resolve, reject) {
+
+                            let request = {
+                                dataType: 'json',
+                                error: function (jqXHR) {
+                                    reject(jqXHR);
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json'
+                                },
+                                method: 'GET',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve(resp.product);
+                                },
+                                url: 'https://api.particle.io/v1/products/' + productData.productId,
+                            }
+                
+                            $.ajax(request);
+                        });
+                        // productData.productInfo
+                        //      .description
+                        //      .groups (array)
+                        //      .name
+                        //      .platform_id
+                        //      .settings (object)
+                        //      .user
+
+                        productData.productFirmware = await new Promise(function(resolve, reject) {
+
+                            let request = {
+                                dataType: 'json',
+                                error: function (jqXHR) {
+                                    reject(jqXHR);
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json'
+                                },
+                                method: 'GET',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve(resp);
+                                },
+                                url: 'https://api.particle.io/v1/products/' + productData.productId + '/firmware',
+                            }
+                
+                            $.ajax(request);
+                        });
+                        // productData.productFirmware
+                        //      array of objects:
+                        //          app_hash
+                        //          description
+                        //          device_os_version
+                        //          groups
+                        //          name (filename)
+                        //          product_default (boolean)
+                        //          title (display name)
+                        //          size
+                        //          version
+                
+                        for(const firmwareVerObj of productData.productFirmware) {
+                            if (firmwareVerObj.product_default) {
+                                productData.defaultProductFirmwareVersion = firmwareVerObj.version;
+                            }
+                        }
+
+
+                        productData.productDeviceData = (await apiHelper.particle.getDevice({ deviceId: productData.deviceId, product: productData.productId, auth: apiHelper.auth.access_token })).body;
+
+                        productData.productFirmwareVersion = productData.productDeviceData.targeted_firmware_release_version;
+                        if (!productData.productFirmwareVersion) {
+                            if (productData.defaultProductFirmwareVersion) {
+                                productData.productFirmwareVersion = productData.defaultProductFirmwareVersion;
+                                productData.productFirmwareIsDefault = true;
+                            }
+                            else {
+                                throw 'no firmware available';
+                            }
+                        }
+
+
+                        productData.productFirmwareInfo = productData.productFirmware.find(e => e.version == productData.productFirmwareVersion);
+                        // productData.productFirmwareInfo
+                        //      .description
+                        //      .device_os_version
+                        //      .name (filename)
+                        //      .title (display name)
+                        //      .version
+
+
+                        {
+                            const resp = await fetch('https://api.particle.io/v1/products/' + productData.productId + '/firmware/' + productData.productFirmwareVersion + '/binary', {
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json',
+                                }
+                            });
+                            const respData = await resp.arrayBuffer();    
+                            
+                            if (respData.byteLength > 100) {
+                                productData.productFirmwareBinary = respData;
+                            }
+                        }
+                 
+                    }
+                    catch(e) {
+                        console.log('exception', e);
+                        console.log('productData', productData);
+                    }
+
+                    if (!productData.productId) {
+                        setSetupStep('setupStepNotInProduct');
+                        return;
+                    }
+                    if (!productData.productFirmwareBinary) {
+                        setSetupStep('setupStepNoProductFirmware');
+                        return;
+                    }
+
+
+                }
     
                 if (!usbDevice.isInDfuMode) {
                     // Attempt to get the module info on the device using control requests if not already in DFU mode.
@@ -1035,10 +1275,10 @@ $(document).ready(function() {
                     }
                 }
                 else {
-                    ga('send', 'event', gaCategory, 'Already DFU', deviceInfo.platformId);
+                    analytics.track('Already DFU', {category:gaCategory, label:deviceInfo.platformId});
                 }
-
-                if (usbDevice.isCellularDevice) {                    
+                // 
+                if (deviceInfo.platformVersionInfo.cellular || usbDevice.isCellularDevice) {                    
                     deviceInfo.cellular = true;
 
                     // Used to do this, but this does not work on Gen 2 cellular devices
@@ -1054,25 +1294,25 @@ $(document).ready(function() {
                         });
 
                 }
-                else {
+                if (deviceInfo.platformVersionInfo.wifi) {
                     deviceInfo.wifi = true;
                 }
 
                 if (mode == 'wifi') {
                     if (!deviceInfo.wifi) {
-                        ga('send', 'event', gaCategory, 'Not allowed Is Cellular');
+                        analytics.track('Not allowed Is Cellular', {category:gaCategory});
                         setSetupStep('setupStepWiFiIsCellular');
                         return;
                     }
 
                     if (deviceInfo.platformVersionInfo.gen == 2) {
-                        ga('send', 'event', gaCategory, 'Not allowed Is Gen 2');
+                        analytics.track('Not allowed Is Gen 2', {category:gaCategory});
                         setSetupStep('setupStepWifiGen2');
                         return;
                     }
 
                     if (usbDevice.isInDfuMode) {
-                        ga('send', 'event', gaCategory, 'Not allowed Is DFU');
+                        analytics.track('Not allowed Is DFU', {category:gaCategory});
                         setSetupStep('setupStepWifiInDFU');
                         return;
                     }
@@ -1081,17 +1321,17 @@ $(document).ready(function() {
                 }
                 else {
                     // Don't check SIM or firmware backup when in device restore mode
-                    if (mode == 'setup' || mode == 'doctor') {
+                    if (mode == 'setup' || mode == 'doctor' || mode == 'cloud') {
                         const stor = localStorage.getItem(storageActivateSim);
                         if (stor) {
                             try {
                                 const storObj = JSON.parse(stor);
                                 // TODO: Check date here
                                 if (stor.deviceId == deviceInfo.deviceId) {
-                                    ga('send', 'event', gaCategory, 'Reopened during Activate SIM');
+                                    analytics.track('Reopened during Activate SIM', {category:gaCategory});
                                     // TODO: Maybe ask user here?
                                     activateSim();
-                                    return;''   
+                                    return;
                                 }
                             }
                             catch(e) {
@@ -1100,7 +1340,7 @@ $(document).ready(function() {
                         }
 
                         if (hasUserFirmwareBackup()) {
-                            ga('send', 'event', gaCategory, 'Firmware Backup Available');
+                            analytics.track('Firmware Backup Available', {category:gaCategory});
 
                             $('.restoreDeviceId').text(deviceInfo.deviceId);
                             $('.restoreFirmwareDiv').show();
@@ -1119,7 +1359,7 @@ $(document).ready(function() {
             }
             catch(e) {
                 console.log('exception', e);
-                ga('send', 'event', gaCategory, 'Exception', 'checkDevice');
+                analytics.track('Exception', {category:gaCategory, label:'checkDevice'});
                 // TODO: Handle errors like UsbError here
                 // UsbError {jse_shortmsg: 'IN control transfer failed', jse_cause: DOMException: The device was disconnected., jse_info: {…}, message: 'IN control transfer failed: The device was disconnected.', stack: 'VError: IN control transfer failed: The device was…://ParticleUsb/./src/usb-device-webusb.js?:81:10)'}
                 
@@ -1379,6 +1619,7 @@ $(document).ready(function() {
         const checkAccount  = async function() {
             if (mode == 'setup' || mode == 'doctor') {
                 // Device restore does not need a valid account
+                // Product flash doesn't care (as much) about the calling user's account so don't check that here
                 setSetupStep('setupStepCheckAccount');
 
                 const showStep = function(step) {
@@ -1514,7 +1755,7 @@ $(document).ready(function() {
                         product: deviceLookup.deviceProductId,
                         auth: apiHelper.auth.access_token 
                     });                
-                    ga('send', 'event', gaCategory, 'Mark as Development Device prior to flashing');
+                    analytics.track('Mark as Development Device prior to flashing', {category:gaCategory});
                 }
             }
 
@@ -1680,11 +1921,9 @@ $(document).ready(function() {
                                 return;                                
                             });
                         }
-                        ga('send', 'event', gaCategory, 'TowerScanAvailable', canTowerScan);
+                        analytics.track('TowerScanAvailable', {category:gaCategory, label:canTowerScan});
 
 
-                        showInfoTable();
-                        setInfoTableItem('deviceId', deviceInfo.deviceId);
                         setInfoTableItemObj(respObj);    
 
                         $(thisElem).find('.batteryWarning').hide();   
@@ -1695,7 +1934,7 @@ $(document).ready(function() {
                             else {
                                 // Non-LTE model 
                                 if (respObj.soc <= 0) {
-                                    ga('send', 'event', gaCategory, 'BatteryWarning');
+                                    analytics.track('BatteryWarning', {category:gaCategory});
                                     $(thisElem).find('.batteryWarning').show();   
                                 }
                             }
@@ -1783,7 +2022,7 @@ $(document).ready(function() {
                 if (needToActivate) {
                     try {
                         setStatus('Activating SIM...');
-                        ga('send', 'event', gaCategory, 'Activating SIM');
+                        analytics.track('Activating SIM', {category:gaCategory});
 
                         if (!clockStart) {
                             clockStart = new Date();
@@ -1840,6 +2079,13 @@ $(document).ready(function() {
                 return;
             }
 
+            if (deviceInfo.platformVersionInfo.wifi && deviceInfo.platformVersionInfo.cellular) {
+                // M SoM
+                if ($(thisElem).find('.doctorSetupWiFi')) {
+                    configureWiFi();                              
+                    return;
+                }
+            }
 
             reqObj = {
                 op: 'connect',
@@ -1889,7 +2135,7 @@ $(document).ready(function() {
                 }         
                 catch(e) {
                     console.log('exception getting USB devices', e);
-                    ga('send', 'event', gaCategory, 'Exception', 'reconnectToDevice');
+                    analytics.track('Exception', {category:gaCategory, label:'reconnectToDevice'});
                 }
 
             }
@@ -2102,7 +2348,8 @@ $(document).ready(function() {
                 });
 
             
-                if (flashDeviceOptions.mode == 'doctor' && !restoreFirmwareBinary) {
+                if ((flashDeviceOptions.mode == 'doctor' || mode == 'cloud') && !restoreFirmwareBinary) {
+                    // Not done for product mode
                     options.userBackup = true;
                 }
 
@@ -2121,7 +2368,7 @@ $(document).ready(function() {
                 console.log('exception', e);
                 setSetupStep('setupStepDfuFailed');
                 $('.dfuFailedReason').text(e.text);
-                ga('send', 'event', gaCategory, 'Exception', 'setupStepDfuFailed');
+                analytics.track('Exception', {category:gaCategory, label:'setupStepDfuFailed'});
             }
 
             // Wait a little extra before trying to reconnect
@@ -2153,7 +2400,7 @@ $(document).ready(function() {
             }
             catch(e) {
                 console.log('exception downloading restore json', e);
-                ga('send', 'event', gaCategory, 'Exception', 'get restore json');
+                analytics.track('Exception', {category:gaCategory, label:'get restore json'});
                 // TODO: Do something here
             }
                 
@@ -2166,7 +2413,7 @@ $(document).ready(function() {
             }
             catch(e) {
                 console.log('exception downloading restore json', e);
-                ga('send', 'event', gaCategory, 'Exception', 'get restore zip');
+                analytics.track('Exception', {category:gaCategory, label:'get restore zip'});
                 // TODO: Do something here
             }    
 
@@ -2180,41 +2427,102 @@ $(document).ready(function() {
             }
 
             // Check for P2 prebootloader update. Maybe do this after?
-            if (deviceInfo.platformVersionInfo.isRTL872x) {          
+            if (deviceInfo.platformVersionInfo.isRTL872x) {       
                 if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
                     const m = deviceModuleInfo.getPrebootLoaderPart1();
                     if (m) {
                         const newVersion = flashDeviceOptions.moduleInfo['prebootloader-part1'].prefixInfo.moduleVersion;
                         
+                        // console.log('prebootloader-part1', {onDevice: m.version, desired: newVersion});
+
                         if (m.version < newVersion) {
                             // Upgrade prebootloader
                             flashPrebootloaderFirst = true;
+                            analytics.track('Upgrade Prebootloader to ' + newVersion, {category:gaCategory});
                         }
                         else
                         if (m.version > newVersion) {
                             // Downgrade prebootloader
+                            flashPrebootloaderFirst = false;
                             flashPrebootloaderLast = true;
+                            analytics.track('Downgrade Prebootloader to ' + newVersion, {category:gaCategory});
                         }
                     }
                 } 
                 else {
                     // Either no module info (already in DFU) or fore update
+                    console.log('flashing prebootloader because no module info or force update deviceModuleInfo=', deviceModuleInfo);
                     flashPrebootloaderFirst = true;
                 }                            
             }
 
             if (flashPrebootloaderFirst) {
                 await flashPrebootloader();
-                ga('send', 'event', gaCategory, 'Flash Prebootloader First');
+                analytics.track('Flash Prebootloader First', {category:gaCategory});
             }
         
             // Flash Device OS
             await flashDeviceInternal();
-            ga('send', 'event', gaCategory, 'Flash Device');
+            analytics.track('Flash Device', {category:gaCategory});
             
             if (flashPrebootloaderLast) {
                 await flashPrebootloader();
-                ga('send', 'event', gaCategory, 'Flash Prebootloade rLast');
+                analytics.track('Flash Prebootloader Last', {category:gaCategory});
+            }
+
+            if (deviceInfo.platformVersionInfo.isRTL872x) {          
+                for(let tries = 1; !deviceModuleInfo && tries <= 3; tries++) {
+                    deviceModuleInfo = await getModuleInfoCtrlRequest();                    
+                }
+                
+                if (deviceModuleInfo) {                    
+                    // When upgrading from 5.3.0 to 5.5.0 and possibly other situations, the bootloader
+                    // does not upgrade using the OTA trick. 
+                    const desiredBootloaderVersion = flashDeviceOptions.moduleInfo['bootloader'].prefixInfo.moduleVersion;
+
+                    // 1 = bootloader
+                    // 0 = bootloader (1 = prebootloader-mbr, 2 = prebootloader-part1)
+                    const m = deviceModuleInfo.getByModuleTypeIndex(1, 0);
+                    
+                    if (desiredBootloaderVersion != m.version) {
+                        analytics.track('P2 bootloader reflash', {category:gaCategory});
+
+                        const zipEntry = flashDeviceOptions.zipFs.find('bootloader.bin');
+                        if (zipEntry) {
+                            let part = await zipEntry.getUint8Array();
+            
+                            /*
+                            if ((options.moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
+                                part = part.slice(24); // MODULE_PREFIX_SIZE
+                            }
+                            */
+                                                        
+                            const res = await usbDevice.updateFirmware(part, {timeout:30000}); 
+
+                            // Fetch module info again
+                            deviceModuleInfo = null;
+                            for(let tries = 1; !deviceModuleInfo && tries <= 10; tries++) {
+                                try {
+                                    deviceModuleInfo = await getModuleInfoCtrlRequest();
+                                }
+                                catch(e) {
+                                    console.log('exception getting module info', e);
+                                }
+
+                                if (!deviceModuleInfo) {
+                                    await new Promise(function(resolve, reject) {
+                                        setTimeout(function() {
+                                            resolve();
+                                        }, 3000);
+                                    });
+                                }
+                            }
+            
+
+                        }    
+            
+                    }
+                }
             }
 
             if (deviceInfo.platformVersionInfo.hasNCP) {
@@ -2245,7 +2553,7 @@ $(document).ready(function() {
                 if (updateNcp) {
                     flashDeviceOptions.ncpUpdate = true;
                     await flashDeviceInternal();
-                    ga('send', 'event', gaCategory, 'Flash NCP');
+                    analytics.track('Flash NCP', {category:gaCategory});
                 }
             }
 
@@ -2270,11 +2578,11 @@ $(document).ready(function() {
                 auth: apiHelper.auth.access_token 
             });
             if (res.statusCode >= 200 && res.statusCode < 300) {
-                ga('send', 'event', gaCategory, 'Add To Product', 'Success');
+                analytics.track('Add To Product', {category:gaCategory, label:'Success'});
             }
             else {
                 console.log('failed to add to product, do something here');
-                ga('send', 'event', gaCategory, 'Add To Product', 'Failure ' + res.statusCode);
+                analytics.track('Add To Product', {category:gaCategory, label:'Failure ' + res.statusCode});
             }
 
             if (setupOptions.developmentDevice) {
@@ -2285,7 +2593,7 @@ $(document).ready(function() {
                     product: setupOptions.productId,
                     auth: apiHelper.auth.access_token 
                 });                
-                ga('send', 'event', gaCategory, 'Mark as Development Device');
+                analytics.track('Mark as Development Device', {category:gaCategory});
             }
         
         };
@@ -2342,20 +2650,132 @@ $(document).ready(function() {
             const updateNcpCheckboxTrElem = $(thisElem).find('.updateNcpCheckboxTr');
             const updateNcpCheckboxElem = $(thisElem).find('.updateNcpCheckbox');
             const forceUpdateElem = $(thisElem).find('.forceUpdate');
+            const trackerMonitorSelectorRowElem = $(thisElem).find('.trackerMonitorSelectorRow');
+            const trackerMonitorRadioElem = $(thisElem).find('.trackerMonitorRadio');
+            const trackerMonitorTrackerElem = $(thisElem).find('.trackerMonitorTracker');
+            const trackerMonitorMonitorElem = $(thisElem).find('.trackerMonitorMonitor');
+            const edgeVersionElem = $(thisElem).find('.apiHelperUsbRestoreEdgeVersion');
+            const edgeVersionSelectorRowElem = $(thisElem).find('.edgeVersionSelectorRow');
             
-            // Doctor mode
+            // Doctor mode and cloud mode
             const doctorModeSettingsElem = $(thisElem).find('.doctorModeSettings');
             const doctorUseEthernetElem = $(thisElem).find('.doctorUseEthernet');
             const doctorSetKeepAliveCheckboxElem = $(thisElem).find('.doctorSetKeepAliveCheckbox');
             const doctorKeepAliveInputElem = $(thisElem).find('.doctorKeepAliveInput');
             const doctorForceVersionElem = $(thisElem).find('.doctorForceVersion');
             const doctorDeviceOsVersionElem = $(thisElem).find('.doctorDeviceOsVersion');
+            const hasWiFiRowElem = $(thisElem).find('.hasWiFiRow');
+            const hasAntennaRowElem = $(thisElem).find('.hasAntennaRow');
+            const doctorDeviceWiFiAntennaElem = $(thisElem).find('.doctorDeviceWiFiAntenna');
+
+            // Product mode
+            const productModeTableBodyElem = $(thisElem).find('.productModeTableBody');
+
+            const trackerEdgeVersionsResp = await fetch('/assets/files/tracker/trackerEdgeVersions.json');
+            const trackerEdgeVersions = JSON.parse(await trackerEdgeVersionsResp.text()); 
+
+            const monitorEdgeVersionsResp = await fetch('/assets/files/tracker/monitorEdgeVersions.json');
+            const monitorEdgeVersions = JSON.parse(await monitorEdgeVersionsResp.text()); 
 
 
             $('.apiHelperProductDestination').each(function() {
                 $(this).data('filterPlatformId', deviceInfo.platformId);
                 $(this).data('updateProductList')();    
             });
+
+
+            const showHideSetupBitSelection = function() {
+                let show = false;
+
+                if (deviceInfo.platformVersionInfo.gen == 3) {
+                    let versionElemForMode;
+                    switch(mode) {
+                        case 'doctor':
+                        case 'cloud':
+                        case 'product':
+                            versionElemForMode = doctorDeviceOsVersionElem;
+                            break;
+
+                        case 'restore':
+                            versionElemForMode = versionElem;
+                            break;
+
+                        case 'setup':
+                            versionElemForMode = setupDeviceOsVersionElem;
+                            break;
+                    }
+                    if (versionElemForMode) {
+                        const verObj = apiHelper.parseVersionStr($(versionElemForMode).val());
+                        if (verObj && verObj.major < 4) {
+                            show = true;
+                        }
+                    }
+                }
+
+                if (show && mode != 'cloud') {
+                    $(setupBitTrElem).show();
+                }
+                else {
+                    $(setupBitSelectElem).val('unchanged');
+                    $(setupBitTrElem).hide();
+                }    
+            };
+            
+            const updateTrackerMonitorDeviceOsVersions = function() {
+                const isTrackerOne = $(trackerMonitorTrackerElem).prop('checked');
+            
+                const edgeVersions = isTrackerOne ? trackerEdgeVersions : monitorEdgeVersions;
+
+                const versionName = $(edgeVersionElem).val();
+                const edgeVersionObj = edgeVersions.versions.find(e => e.v == versionName);
+
+                $(versionElem).empty();
+                for(let ver of deviceInfo.platformVersionInfo.versionArray) {
+                    const cmp = apiHelper.versionSort(edgeVersionObj.target, ver);
+                    if (cmp < 0) {
+                        break;
+                    }
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('name', ver);
+                    $(optionElem).text(ver);
+                    if (cmp == 0) {
+                        $(optionElem).attr('selected', 'selected');
+                    }
+
+                    versionElem.append(optionElem);
+                }
+                showHideSetupBitSelection();
+            }
+
+            $(edgeVersionElem).on('change', updateTrackerMonitorDeviceOsVersions);
+
+            const updateTrackerMonitorVersions = function() {
+                const isTrackerOne = $(trackerMonitorTrackerElem).prop('checked');
+            
+                const edgeVersions = isTrackerOne ? trackerEdgeVersions : monitorEdgeVersions;
+                $(edgeVersionElem).empty();
+                for(const v of edgeVersions.versions) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).text(v.title + ' (targets Device OS ' + v.target + ')');
+                    $(optionElem).attr('value', v.v);
+                    $(edgeVersionElem).append(optionElem);
+                }
+
+                updateTrackerMonitorDeviceOsVersions();
+            }
+
+
+            $(trackerMonitorRadioElem).each(function() {
+                // Used in Device Restore mode
+                const thisElem = $(this);
+                $(thisElem).on('click', function() {
+                    $(trackerMonitorRadioElem).prop('checked', false);
+                    $(thisElem).prop('checked', true);
+
+                    updateTrackerMonitorVersions();
+                });
+            });
+    
 
             const checkButtonEnable = function() {
                 let enableButton = true;
@@ -2364,16 +2784,24 @@ $(document).ready(function() {
                     switch($(modeSelectElem).val()) {
                         case 'upload':
                             $(restoreDeviceVersionTrElem).hide();
+                            $(edgeVersionSelectorRowElem).hide();
                             enableButton = !!restoreFirmwareBinary;
                             break;
 
                         case 'url':
                             $(restoreDeviceVersionTrElem).hide();
+                            $(edgeVersionSelectorRowElem).hide();
                             enableButton = $(userFirmwareUrlElem).val().trim() != '';
                             break;
 
                         default:
                             $(restoreDeviceVersionTrElem).show();
+                            if (deviceInfo.platformVersionInfo.isTracker) {
+                                $(edgeVersionSelectorRowElem).show();
+                            }
+                            else {
+                                $(edgeVersionSelectorRowElem).hide();
+                            }
                             break;
                     }
 
@@ -2402,7 +2830,27 @@ $(document).ready(function() {
 
             let minSysVer;
 
-            if (mode == 'doctor' || mode == 'setup') {
+            if (mode == 'product') {
+                userFirmwareBinary = productData.productFirmwareBinary;    
+
+                const userFirmwareModuleInfo = parseBinaryModuleInfo(userFirmwareBinary);
+                minSysVer = userFirmwareModuleInfo.depModuleVersion;
+
+                renderSimpleTable({
+                    elem: productModeTableBodyElem,
+                    data: [
+                        ['Device ID', productData.deviceId],
+                        ['Device Name', productData.deviceData.name],
+                        ['Product ID', productData.productId],
+                        ['Product Name', productData.productInfo.name],
+                        ['Firmware Release Name', productData.productFirmwareInfo.title],
+                        ['Product Firmware Version', productData.productFirmwareVersion],
+                        ['Device OS Version', apiHelper.systemVersionToSemVer(minSysVer)],
+                    ],
+                })
+            }
+            else
+            if (mode == 'doctor' || mode == 'setup' || mode == 'cloud') {
                 // In setup and doctor mode, minimum system version is the version the doctor/setup firmware was 
                 // compiled with
                 const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
@@ -2436,40 +2884,60 @@ $(document).ready(function() {
                 $(hasEthernetRowElem).hide();
             }
 
-            
-            if (mode == 'doctor') {
-               
+            if (deviceInfo.platformVersionInfo.wifi && deviceInfo.platformVersionInfo.cellular) {
+                // M SoM
+                $(hasWiFiRowElem).show();
+            }
+            else {
+                $(hasWiFiRowElem).hide();
+            }
+
+            if (deviceInfo.platformVersionInfo.wifiSelectAntenna) {
+                $(hasAntennaRowElem).show();
+            }
+            else {
+                $(hasAntennaRowElem).hide();
+            }
+
+
+            if (mode == 'doctor' || mode == 'cloud' || mode == 'product') {
+                $(doctorDeviceOsVersionElem).on('change', showHideSetupBitSelection);    
             }
             else
             if (mode == 'restore') {                
-                const lastVersion = $(versionElem).val();
-                $(versionElem).empty();
-                let firstRelease;
-                for(let ver of deviceInfo.platformVersionInfo.versionArray) {
-                    versionElem.append('<option name="' + ver + '">' + ver + '</option>');
-                    if (!firstRelease && !ver.includes('alpha') && !ver.includes('beta') && !ver.includes('rc')) {
-                        firstRelease = ver;
-                    }
-                }
-                if (lastVersion && !lastVersion.startsWith('Select')) {
-                    $(versionElem).val(lastVersion);
-                }
-                else if (firstRelease) {
-                    $(versionElem).val(firstRelease);
-                }
-
-                if (deviceInfo.platformVersionInfo.gen == 3) {
-                    $(setupBitTrElem).show();
-                }
 
                 if (deviceInfo.platformVersionInfo.isTracker) {
-                    $(modeSelectElem).find('option[value="tinker"]').text('Tracker Edge (Factory Default)');
+                    $(trackerMonitorSelectorRowElem).show();
+
+                    $(modeSelectElem).find('option[value="tinker"]').text('Edge (Factory Default)');
                     $(trackerTrElem).show();
+
+                    updateTrackerMonitorVersions();
                 }
                 else {
+                    $(trackerMonitorSelectorRowElem).hide();
+                    $(edgeVersionSelectorRowElem).hide();
+
                     $(modeSelectElem).find('option[value="tinker"]').text('Tinker (Factory Default)');
                     $(trackerTrElem).hide();
+
+                    const lastVersion = $(versionElem).val();
+                    $(versionElem).empty();
+                    let firstRelease;
+                    for(let ver of deviceInfo.platformVersionInfo.versionArray) {
+                        versionElem.append('<option name="' + ver + '">' + ver + '</option>');
+                        if (!firstRelease && !ver.includes('alpha') && !ver.includes('beta') && !ver.includes('rc')) {
+                            firstRelease = ver;
+                        }
+                    }
+                    if (lastVersion && !lastVersion.startsWith('Select')) {
+                        $(versionElem).val(lastVersion);
+                    }
+                    else if (firstRelease) {
+                        $(versionElem).val(firstRelease);
+                    }    
                 }                
+                $(versionElem).on('change', showHideSetupBitSelection);
 
                 $(selectUserBinaryButtonElem).on('click', function() {
                     $(userBinaryFileSelectorElem).trigger('click');
@@ -2515,6 +2983,7 @@ $(document).ready(function() {
             else
             if (mode == 'setup') {
                 // Setup mode
+                $(setupDeviceOsVersionElem).on('change', showHideSetupBitSelection);
 
                 if (deviceInfo.platformVersionInfo.isTracker) {
                     // Tracker setup mode
@@ -2596,6 +3065,9 @@ $(document).ready(function() {
 
             }
 
+            showHideSetupBitSelection();
+
+
             const showSimSelectionOption = (deviceInfo.platformId == 13);
 
             if (showSimSelectionOption) { 
@@ -2628,7 +3100,7 @@ $(document).ready(function() {
 
 
             $(setupDeviceButtonElem).on('click', async function() {
-                ga('send', 'event', gaCategory, 'Confirmed Flash');
+                analytics.track('Confirmed Flash', {category:gaCategory});
                 
                 const userFirmwareMode = $(modeSelectElem).val();
                 if (userFirmwareMode == 'url' || userFirmwareMode == 'customUrl') {
@@ -2636,7 +3108,7 @@ $(document).ready(function() {
                     const msg = 'This restore will use a custom binary downloaded from an external server. ' + 
                         'Make sure that it is from a reputable author and stored on a secure server. '
                     if (!confirm(msg)) {
-                        ga('send', 'event', gaCategory, 'Rejected using custom binary');
+                        analytics.track('Rejected using custom binary', {category:gaCategory});
                         setStatus('Restore canceled');
                         setSetupStep('setupStepStartOver');
                         return;
@@ -2646,6 +3118,37 @@ $(document).ready(function() {
                 
 
                 if (mode == 'restore') {
+                    if (deviceInfo.platformVersionInfo.isTracker) {
+                        // restoreFirmwareBinary
+                        const isTrackerOne = $(trackerMonitorTrackerElem).prop('checked');
+            
+                        let standardEdge = false;
+                        switch($(modeSelectElem).val()) {
+                            case 'upload':
+                            case 'url':
+                                break;
+    
+                            default:
+                                standardEdge = true;
+                                break;
+                        }
+
+                        if (standardEdge) {
+                            const edgeVersions = isTrackerOne ? trackerEdgeVersions : monitorEdgeVersions;
+        
+                            const versionName = $(edgeVersionElem).val();
+                            const edgeVersionObj = edgeVersions.versions.find(e => e.v == versionName);
+                            
+                            const resp = await fetch('/assets/files/tracker/' + edgeVersionObj.bin);
+                            userFirmwareBinary = await resp.arrayBuffer();        
+
+                            console.log('using standardEdge', {
+                                edgeVersionObj,
+                                userFirmwareBinary,
+                            });
+                        }
+                    }
+
                     deviceInfo.targetVersion = $(versionElem).val();
                     flashDeviceOptions.setupBit = $(setupBitSelectElem).val();
                     flashDeviceOptions.shippingMode = $(shippingModeCheckboxElem).prop('checked');
@@ -2657,10 +3160,10 @@ $(document).ready(function() {
                         }
                     }
                     if (flashDeviceOptions.forceUpdate) {
-                        ga('send', 'event', gaCategory, 'Restore Force Update');
+                        analytics.track('Restore Force Update', {category:gaCategory});
                     }
                     if (flashDeviceOptions.shippingMode) {
-                        ga('send', 'event', gaCategory, 'Restore Shipping Mode');
+                        analytics.track('Restore Shipping Mode', {category:gaCategory});
                     }
 
                 }
@@ -2703,11 +3206,11 @@ $(document).ready(function() {
                             });
 
                             if (result.ok) {
-                                ga('send', 'event', gaCategory, 'Create Product', 'Success');    
+                                analytics.track('Create Product', {category:gaCategory, label:'Success'});    
                             }
                             else {
                                 // TODO: Handle error here
-                                ga('send', 'event', gaCategory, 'Create Product', 'Failed');
+                                analytics.track('Create Product', {category:gaCategory, label:'Failed'});
                             }
         
 
@@ -2717,7 +3220,7 @@ $(document).ready(function() {
                         }
                         else {
                             setupOptions.productId = $(trackerProductSelectElem).val();
-                            ga('send', 'event', gaCategory, 'Add Tracker To Existing Product');    
+                            analytics.track('Add Tracker To Existing Product', {category:gaCategory});    
                         }
                         setupOptions.addToProduct = true;
                         setupOptions.noClaim = $(trackerSetupNoClaimElem).prop('checked');
@@ -2767,7 +3270,7 @@ $(document).ready(function() {
 
                     if ($(setupForceVersionElem).prop('checked')) {
                         deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
-                        ga('send', 'event', gaCategory, 'Setup using set version', deviceInfo.targetVersion);    
+                        analytics.track('Setup using set version', {category:gaCategory, label:deviceInfo.targetVersion});    
                     }
 
                     setupOptions.ethernet = $(setupUseEthernetElem).prop('checked');
@@ -2777,20 +3280,27 @@ $(document).ready(function() {
                     flashDeviceOptions.setupBit = 'done';
                 }
                 else {
-                    // mode == doctor
+                    // mode == doctor || mode == cloud || mode == product
                     setupOptions.ethernet = $(doctorUseEthernetElem).prop('checked');
 
                     if ($(doctorForceVersionElem).prop('checked')) {
                         deviceInfo.targetVersion = $(doctorDeviceOsVersionElem).val();
-                        ga('send', 'event', gaCategory, 'Doctor using set version', deviceInfo.targetVersion);    
+                        analytics.track('Doctor using set version', {category:gaCategory, label:deviceInfo.targetVersion});    
                     }
 
                     if (setupOptions.ethernet) {
-                        ga('send', 'event', gaCategory, 'Doctor using Ethernet');    
+                        analytics.track('Doctor using Ethernet', {category:gaCategory});    
                     }
 
                     if ($(doctorSetKeepAliveCheckboxElem).prop('checked')) {
                         setupOptions.keepAlive = parseInt($(doctorKeepAliveInputElem).val());
+                    }
+
+                    if (deviceInfo.platformVersionInfo.wifiSelectAntenna) {
+                        setupOptions.wifiSelectAntenna = parseInt($(doctorDeviceWiFiAntennaElem).val());
+                        if (setupOptions.wifiSelectAntenna != 255) {
+                            analytics.track('Doctor setting antenna', {category:gaCategory, label:setupOptions.wifiSelectAntenna});
+                        }
                     }
                     
                     apiHelper.setCommonDevice(deviceInfo.deviceId);
@@ -2800,7 +3310,7 @@ $(document).ready(function() {
 
                 hideDeviceFirmwareInfo();
                     
-                if (mode == 'doctor') {
+                if (mode == 'doctor') { // Not done for cloud or product
                     checkOwnership();
                 }
 
@@ -2813,7 +3323,36 @@ $(document).ready(function() {
 
                 await flashDevice();
 
+                if (deviceInfo.platformVersionInfo.isRTL872x && ((mode == 'doctor') || (mode == 'setup') || (mode == 'restore'))) {
+                    reqObj = {
+                        op: 'disableFeature',
+                        feature: 9, // FEATURE_DISABLE_LISTENING_MODE
+                    } 
+                    const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                }
+
+                if (mode == 'product') {
+                    setSetupStep('setupStepProductDone');
+                    analytics.track('Product flash complete', {category:gaCategory});    
+                }
+                else
+                if (mode == 'cloud') {
+                    setSetupStep('setupStepCloudDone');
+                    analytics.track('Cloud Debug flash complete', {category:gaCategory});    
+                }
+                else
                 if (mode == 'doctor' || mode == 'setup') {
+                    showInfoTable();
+                    setInfoTableItem('deviceId', deviceInfo.deviceId);
+
+                    if (typeof setupOptions.wifiSelectAntenna != 'undefined' && setupOptions.wifiSelectAntenna != 255) {
+                        reqObj = {
+                            op: 'wifiSelectAntenna',
+                            ant: setupOptions.wifiSelectAntenna,
+                        };
+                        await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                    }
+
                     if (setupOptions.ethernet) {
                         reqObj = {
                             op: 'connect',
@@ -2823,7 +3362,7 @@ $(document).ready(function() {
                         waitDeviceOnline();        
                     }
                     else
-                    if (deviceInfo.wifi) {
+                    if (deviceInfo.wifi && !deviceInfo.platformVersionInfo.cellular) {
                         configureWiFi();                              
                     }
                     else {
@@ -2863,6 +3402,7 @@ $(document).ready(function() {
             }
             setSetupStep('setupStepConfigureWiFi');
 
+
             $(thisElem).find('.networkTable > tbody').html('');
 
             $(thisElem).find('.searchingWiFi').css('visibility', 'visible');
@@ -2879,10 +3419,17 @@ $(document).ready(function() {
 
                 waitDeviceOnline();
             });
-            ga('send', 'event', gaCategory, 'Started Wi-Fi Scan');    
+            analytics.track('Started Wi-Fi Scan', {category:gaCategory});    
 
 
 
+            const wifiHiddenSsidDivElem = $(thisElem).find('.wifiHiddenSsidDiv');
+            const wifiHiddenSsidWarningDivElem = $(thisElem).find('.wifiHiddenSsidWarningDiv');
+            const wifiHiddenSsidCheckboxElem = $(thisElem).find('.wifiHiddenSsidCheckbox');
+            const wifiHiddenSsidTextElem = $(thisElem).find('.wifiHiddenSsidText');
+            const wifiSecurityTypeSelectElem =$(thisElem).find('.wifiSecurityTypeSelect');
+            const wifiSecurityTypeNormalRowElem =$(thisElem).find('.wifiSecurityTypeNormalRow');
+            const wifiSecurityTypeHiddenSsidRowElem =$(thisElem).find('.wifiSecurityTypeHiddenSsidRow');
 
             const wifiSettingsTableElem = $(thisElem).find('.wifiSettingsTable');
             const wifiSecurityTypeElem = $(thisElem).find('.wifiSecurityType');
@@ -2901,6 +3448,8 @@ $(document).ready(function() {
             const privateKeyElem = $(thisElem).find('.privateKey');
             const clientCertRowElem = $(thisElem).find('.clientCertRow');
             const clientCertElem = $(thisElem).find('.clientCert');
+
+            // </tr>const Elem =$(thisElem).find('.');
 
             let sortedNetworks = [];
 
@@ -2922,14 +3471,42 @@ $(document).ready(function() {
                 }
             }
 
+            const getSelectedNetwork = function() {
+                let res = {};
+
+                res.isHiddenSsid = $(wifiHiddenSsidDivElem).is(':visible') && $(wifiHiddenSsidCheckboxElem).prop('checked');
+                if (res.isHiddenSsid) {
+                    res.ssid = $(wifiHiddenSsidTextElem).val().trim();
+                    res.sec = parseInt($(wifiSecurityTypeSelectElem).val());
+
+                    $(wifiSecurityTypeNormalRowElem).hide();
+                    $(wifiSecurityTypeHiddenSsidRowElem).show();
+                }
+                else {
+                    $(wifiSecurityTypeNormalRowElem).show();
+                    $(wifiSecurityTypeHiddenSsidRowElem).hide();
+                }
+
+                if (typeof sec == 'undefined') {
+                    const checkedItems = $('input[name="selectedNetwork"]:checked');
+                    if (checkedItems.length > 0) {
+                        res.ssid = $(checkedItems).val();
+                        const wifiNetworkInfo = sortedNetworks.find(e => e.ssid == res.ssid);
+                        if (wifiNetworkInfo) {
+                            res.sec = wifiNetworkInfo.sec;
+                            res.cip = wifiNetworkInfo.cip;
+                        }
+                    }    
+                }
+
+                return res;
+            }
+
             const radioSelectionUpdate = function() {
-                const checkedItems = $('input[name="selectedNetwork"]:checked');
-                if (checkedItems.length > 0) {
+                const selectedNet = getSelectedNetwork();
+                
+                if (selectedNet.ssid) {
                     $(wifiSettingsTableElem).show();
-
-                    const ssid = $(checkedItems).val();
-
-                    const wifiNetworkInfo = sortedNetworks.find(e => e.ssid == ssid);
 
                     // sec values (WLanSecurityType):
                     // WLAN_SEC_UNSEC = 0,
@@ -2939,8 +3516,7 @@ $(document).ready(function() {
                     // WLAN_SEC_WPA_ENTERPRISE = 4,
                     // WLAN_SEC_WPA2_ENTERPRISE = 5,
                     const secNames = [ 'Unsecured', 'WEP', 'WPA', 'WPA2', 'WPA Enterprise', 'WPA2 Enterprise'];
-
-                    $(wifiSecurityTypeElem).text(secNames[wifiNetworkInfo.sec]);
+                    $(wifiSecurityTypeElem).text(secNames[selectedNet.sec]);
 
                     $(eapTypeRowElem).hide();
                     $(passwordRowElem).hide();
@@ -2950,20 +3526,23 @@ $(document).ready(function() {
                     $(privateKeyRowElem).hide();
                     $(clientCertRowElem).hide();
 
-                    if (wifiNetworkInfo.sec == 0) {
+                    if (selectedNet.sec == 0) {
                         // Unsecured
                     }
                     else
-                    if (wifiNetworkInfo.sec >= 1 && wifiNetworkInfo.sec <= 3) {
+                    if (selectedNet.sec >= 1 && selectedNet.sec <= 3) {
                         // WEP, WPA, WPA2
                         setStatus('Enter Wi-Fi network password and click Select Wi-Fi Network');
                         $(passwordRowElem).show();
 
-                        $(passwordInputElem).focus();
-                        $(passwordInputElem).select();            
+                        if (!selectedNet.isHiddenSsid) {
+                            // Don't do this for hidden SSID because it makes it impossible to type the hidden SSID name
+                            $(passwordInputElem).focus();
+                            $(passwordInputElem).select();                
+                        }
                     }
                     else
-                    if (wifiNetworkInfo.sec >= 4 && wifiNetworkInfo.sec <= 5) {
+                    if (selectedNet.sec >= 4 && selectedNet.sec <= 5) {
                         // Enterprise
                         $(eapTypeRowElem).show();
                         eapSelectUpdate();
@@ -2984,6 +3563,7 @@ $(document).ready(function() {
                     $(setCredentialsElem).prop('disabled', true);
                 }
             };
+
             
             const wifiNetworksUpdate = function() {
                 $(thisElem).find('.networkTable > tbody').empty();
@@ -3066,7 +3646,7 @@ $(document).ready(function() {
 
                 $(thisElem).find('.scanAgain').prop('disabled', false);
 
-                ga('send', 'event', gaCategory, 'Wi-Fi Scan Done', sortedNetworks.length);
+                analytics.track('Wi-Fi Scan Done', {category:gaCategory, label:sortedNetworks.length});
 
                 if (sortedNetworks.length == 0) {
                     setSetupStep('setupStepNoWiFi');
@@ -3164,7 +3744,7 @@ $(document).ready(function() {
 
 
                         if (knownNetworks.length > 0) {
-                            ga('send', 'event', gaCategory, 'Wi-Fi Existing', knownNetworks.length);
+                            analytics.track('Wi-Fi Existing', {category:gaCategory, label:knownNetworks.length});
 
                             $(wifiExistingRemoveSelectedElem).prop('disabled', true);
                             $(wifiExistingElem).show();
@@ -3211,7 +3791,7 @@ $(document).ready(function() {
                                 const res = await usbDevice.sendControlRequest(503, enc.toUint8Array()); // CTRL_REQUEST_WIFI_REMOVE_KNOWN_NETWORK
                                 console.log('res', res);
 
-                                ga('send', 'event', gaCategory, 'Wi-Fi Remove Existing');
+                                analytics.track('Wi-Fi Remove Existing', {category:gaCategory});
 
                                 updateWiFiOnDevice();
                             });
@@ -3225,7 +3805,7 @@ $(document).ready(function() {
                                 // console.log('res', res);
                                 // res.result == 0 on success
 
-                                ga('send', 'event', gaCategory, 'Wi-Fi Remove All');
+                                analytics.track('Wi-Fi Remove All', {category:gaCategory});
 
                                 updateWiFiOnDevice();
                             });
@@ -3241,6 +3821,38 @@ $(document).ready(function() {
                 }
                     
             }
+
+
+            // RTL872x allow use of hidden SSIDs on Device OS 5.5.0 and later BUT this does not currently work with control requests
+            // Hidden SSIDs are supported on P1 and Photon 1, but not implemented here
+            // Hidden SSIDs are not supported on Argon but this techique can be used to connect to a network while offline
+            if (deviceModuleInfo) {
+                const v = deviceModuleInfo.getSystemVersion();
+                let showHiddenOptions = false;
+                /*
+                if (deviceInfo.platformVersionInfo.isRTL872x) {
+                    if (v >= 5500) { // 5.5.0-rc.1 or later
+                        showHiddenOptions = true;
+                    }
+                }
+                */
+                $(wifiHiddenSsidWarningDivElem).hide();
+
+                if (deviceInfo.platformVersionInfo.isnRF52) {
+                    // Configuring a network that's offline isn't working on nRF52 either, so this is turned
+                    // off as well now. I tested it incorrectly and it looked like it was working, but it wasn't.
+                    // showHiddenOptions = true;
+                    // $(wifiHiddenSsidWarningDivElem).show();
+                }
+
+                if (showHiddenOptions) {
+                    $(wifiHiddenSsidDivElem).show();
+                    $(wifiHiddenSsidCheckboxElem).on('click', radioSelectionUpdate);
+                    $(wifiHiddenSsidTextElem).on('input', radioSelectionUpdate);
+                    $(wifiSecurityTypeSelectElem).on('change', radioSelectionUpdate);
+                }
+            }
+
 
             // Get list of known networks. Use Device OS control requests. This only works on Gen 3
             if (deviceInfo.platformVersionInfo.gen >= 3) {
@@ -3336,10 +3948,11 @@ $(document).ready(function() {
             $(setCredentialsElem).on('click', async function() {
                 $(setCredentialsElem).prop('disabled', true);
                 
-                const checkedItems = $('input[name="selectedNetwork"]:checked');
-                const ssid = $(checkedItems).val();
-                const wifiNetworkInfo = sortedNetworks.find(e => e.ssid == ssid);
+                const selectedNet = getSelectedNetwork();
                 const password = $(passwordInputElem).val();
+                console.log('setCredentials selectedNet', selectedNet);
+
+                // console.log('sortedNetworks', sortedNetworks);
 
                 if (mode != 'wifi') {
                     // Setting credentials can take a few seconds, so put up the next step first
@@ -3349,17 +3962,17 @@ $(document).ready(function() {
 
                     let reqObj = {
                         op: 'wifiSetCredentials',
-                        ssid,
-                        sec: wifiNetworkInfo.sec,
-                        cip: wifiNetworkInfo.cip,                    
+                        ssid: selectedNet.ssid,
+                        sec: selectedNet.sec,
+                        cip: selectedNet.cip,                    
                     };
 
-                    if (wifiNetworkInfo.sec >= 1 && wifiNetworkInfo.sec <= 3) {
+                    if (selectedNet.sec >= 1 && selectedNet.sec <= 3) {
                         // WEP, WPA, WPA2
                         reqObj.pass = password;
                     }
         
-                    if (wifiNetworkInfo.sec >= 4 && wifiNetworkInfo.sec <= 5) {
+                    if (selectedNet.sec >= 4 && selectedNet.sec <= 5) {
                         // Enterprise
                         const eapMode = parseInt($(eapSelectElem).val());
 
@@ -3394,7 +4007,7 @@ $(document).ready(function() {
                             reqObj.outer_identity = outerIdentity;
                         }
 
-                        ga('send', 'event', gaCategory, 'Wi-Fi Credentials Set');    
+                        analytics.track('Wi-Fi Credentials Set', {category:gaCategory});    
 
                     }
                     console.log('sending request', reqObj);
@@ -3413,20 +4026,20 @@ $(document).ready(function() {
                     hideDeviceFirmwareInfo();
 
                     setSetupStep('setupStepWifiStart');
-                    ga('send', 'event', gaCategory, 'Wi-Fi Configure Start');
+                    analytics.track('Wi-Fi Configure Start', {category:gaCategory});
 
                     
                     const reqObj = {
-                        ssid, 
+                        ssid: selectedNet.ssid, 
                         password
                     };
-
+                    console.log('setCredentials reqObj', reqObj);
                 
                     try {
                         const res = await usbDevice.joinNewWifiNetwork(reqObj);
 
                         setSetupStep('setupStepWifiComplete');
-                        ga('send', 'event', gaCategory, 'Wi-Fi Configure Success');
+                        analytics.track('Wi-Fi Configure Success', {category:gaCategory});
 
                         await usbDevice.reset();
 
@@ -3435,7 +4048,7 @@ $(document).ready(function() {
                     }
                     catch(e) {
                         setSetupStep('setupStepWifiFailed');
-                        ga('send', 'event', gaCategory, 'Wi-Fi Configure Failed');
+                        analytics.track('Wi-Fi Configure Failed', {category:gaCategory});
                     }
 
                 }
@@ -3510,7 +4123,7 @@ $(document).ready(function() {
     
                 $(userInfoElem).show();
 
-                ga('send', 'event', gaCategory, 'waitDeviceOnline');    
+                analytics.track('waitDeviceOnline', {category:gaCategory});    
 
 
                 if (mode == 'doctor') {
@@ -3521,7 +4134,7 @@ $(document).ready(function() {
                         setupOptions.noClaim = true;    
                     }
                     // In doctor, if there is an org, enable the ticket button
-                    if (apiHelper.selectedOrg) {
+                    if (apiHelper.canSubmitTickets) {
                         $('.ticketButtonDiv').show();
                     }
                 }
@@ -3553,7 +4166,7 @@ $(document).ready(function() {
                             if (deviceInfo.platformId == 10) {
                                 $('.deviceLogWarning').hide();
                             }
-                            ga('send', 'event', gaCategory, 'networkReady');    
+                            analytics.track('networkReady', {category:gaCategory});    
                             $(thisElem).find('.waitOnlineStepNetwork > td > img').attr('src', doneUrl);
                             $(thisElem).find('.waitOnlineStepCloud > td > img').css('visibility', 'visible');
                         }
@@ -3570,7 +4183,7 @@ $(document).ready(function() {
                 cloudConnectedResolve = null;
                 checkStatus = null;
 
-                ga('send', 'event', gaCategory, 'online');    
+                analytics.track('online', {category:gaCategory});    
 
                 if (!setupOptions.noClaim && !setupOptions.claimCode) {
                     // Claim device
@@ -3605,7 +4218,7 @@ $(document).ready(function() {
 
 
                     if (result.ok) {
-                        ga('send', 'event', gaCategory, 'claimed device');    
+                        analytics.track('claimed device', {category:gaCategory});    
                         $(thisElem).find('.waitOnlineStepClaim > td > img').attr('src', doneUrl);
                         
                         // Re-run device lookup to update information
@@ -3625,10 +4238,13 @@ $(document).ready(function() {
                     }
                 }
 
+                // Re-run device lookup to update information from the cloud
+                runDeviceLookup();
+
                 if (mode == 'doctor') {                    
                     // TODO: Check if device is claimed to my account and 
                     setSetupStep('setupStepTroubleshootingSuccess');
-                    ga('send', 'event', gaCategory, 'doctor success');    
+                    analytics.track('doctor success', {category:gaCategory});    
                     return;
                 }
 
@@ -3639,7 +4255,7 @@ $(document).ready(function() {
             catch(e) {
                 setSetupStep('setupStepClaimFailed');
                 console.log('exception', e);
-                ga('send', 'event', gaCategory, 'Exception', 'claim failed');
+                analytics.track('Exception', {category:gaCategory, label:'claim failed'});
             }
 
             
@@ -3700,14 +4316,14 @@ $(document).ready(function() {
         
                     $.ajax(request);            
                 });
-                ga('send', 'event', gaCategory, 'set name');    
+                analytics.track('set name', {category:gaCategory});    
 
                 setupDone();
             });
 
             
             $(thisElem).find('.skipNaming').on('click', function() {
-                ga('send', 'event', gaCategory, 'skip naming');    
+                analytics.track('skip naming', {category:gaCategory});    
                 setupDone();
             });
 
@@ -3888,14 +4504,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId: deviceInfo.deviceId, name: 'setColor', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    ga('send', 'event', 'LED Color Test', 'Success');
+                    analytics.track('Success', {category:'LED Color Test'});
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    ga('send', 'event', 'LED Color Test', 'Error', err);
+                    analytics.track('Error', {category:'LED Color Test', label:err});
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -3907,7 +4523,7 @@ $(document).ready(function() {
         const setupDone = async function() {
             setSetupStep('setupStepDone');
 
-            ga('send', 'event', gaCategory, 'setupDone');    
+            analytics.track('setupDone', {category:gaCategory});    
 
             if (setupOptions.addToProduct) {
                 $(thisElem).find('.setupStepDoneNonProduct').hide();
@@ -3921,3 +4537,4 @@ $(document).ready(function() {
     });
 
 });
+

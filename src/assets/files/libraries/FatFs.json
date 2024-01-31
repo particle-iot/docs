@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FatFs",
     "version": "0.2.13",
-    "installs": 302,
+    "installs": 405,
     "license": "MIT",
     "author": "Aaron Heise <aaron@hizlabs.com>",
     "sentence": "FatFs library by ChaN plus C++ driver loader, for Particle firmware. Includes an SD card (SPI mode) driver.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/FatFs",
+  "cardUrl": "/reference/device-os/libraries/f/FatFs",
   "versions": {
     "0.2.13": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "01_FatFs_Examples": false
+          },
+          "boron": {
+            "01_FatFs_Examples": false
+          },
+          "bsom": {
+            "01_FatFs_Examples": false
+          },
+          "b5som": {
+            "01_FatFs_Examples": false
+          },
+          "tracker": {
+            "01_FatFs_Examples": false
+          },
+          "esomx": {
+            "01_FatFs_Examples": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "01_FatFs_Examples": false
+          },
+          "boron": {
+            "01_FatFs_Examples": false
+          },
+          "bsom": {
+            "01_FatFs_Examples": false
+          },
+          "b5som": {
+            "01_FatFs_Examples": false
+          },
+          "tracker": {
+            "01_FatFs_Examples": false
+          },
+          "p2": {
+            "01_FatFs_Examples": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "01_FatFs_Examples": false
           },

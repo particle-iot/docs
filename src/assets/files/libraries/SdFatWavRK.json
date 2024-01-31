@@ -1,0 +1,144 @@
+{
+  "type": "libraries",
+  "id": "SdFatWavRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SdFatWavRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SdFatWavRK",
+    "version": "0.0.1",
+    "installs": 202,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Class for reading and writing wav files on SD cards on Particle",
+    "url": "https://github.com/rickkas7/SdFatWavRK",
+    "repository": "https://github.com/rickkas7/SdFatWavRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SdFatWavRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T20:03:31.156Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          },
+          "bsom": {
+            "1-tester": true
+          },
+          "b5som": {
+            "1-tester": true
+          },
+          "tracker": {
+            "1-tester": true
+          },
+          "p2": {
+            "1-tester": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          },
+          "bsom": {
+            "1-tester": true
+          },
+          "b5som": {
+            "1-tester": true
+          },
+          "tracker": {
+            "1-tester": true
+          },
+          "esomx": {
+            "1-tester": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-tester": true
+          },
+          "electron": {
+            "1-tester": true
+          },
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-tester": true
+          },
+          "electron": {
+            "1-tester": true
+          },
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          },
+          "bsom": {
+            "1-tester": true
+          },
+          "b5som": {
+            "1-tester": true
+          },
+          "tracker": {
+            "1-tester": true
+          },
+          "p2": {
+            "1-tester": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          },
+          "bsom": {
+            "1-tester": true
+          },
+          "b5som": {
+            "1-tester": true
+          },
+          "tracker": {
+            "1-tester": true
+          },
+          "esomx": {
+            "1-tester": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# SdFatWavRK\nUtility library for writing wav sound files to SD cards on Particle devices\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

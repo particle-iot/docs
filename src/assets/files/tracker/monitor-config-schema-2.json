@@ -1,0 +1,1729 @@
+{
+	"$schema": "https://particle.io/draft-07/schema#",
+	"$id": "https://github.com/particle-iot/monitor-edge/releases/tag/v2",
+	"type": "object",
+	"title": "Configuration schema for the Monitor Edge firmware from Particle",
+	"$comment": "the $id field doesn't strictly mean that this schema only works with that release of monitor-edge, rather, this means that the schema here was created for that version of monitor-edge, and will work on earlier and later versions until a new schema is required.  This means that schema v10 will work with firmware v11, as long as there's no added features in v11 not already mentioned here",
+	"description": "",
+	"required": [
+		"location"
+	],
+	"properties": {
+		"modbus_rs485": {
+			"$id": "#/properties/modbus_rs485",
+			"type": "object",
+			"title": "Modbus RS-485",
+			"description": "Configuration for Modbus RTU with RS-485.",
+			"default": {},
+			"minimumFirmwareVersion": 2,
+			"properties": {
+				"baud": {
+					"$id": "#/properties/modbus_rs485/baud",
+					"type": "string",
+					"title": "RS-485 Baud",
+					"description": "Baud rate to operate the RS-485 bus.",
+					"default": "38400",
+					"enum": [
+						"1200",
+						"2400",
+						"4800",
+						"9600",
+						"19200",
+						"28800",
+						"38400",
+						"57600",
+						"76800",
+						"115200"
+					]
+				},
+				"parity": {
+					"$id": "#/properties/modbus_rs485/parity",
+					"type": "string",
+					"title": "RS-485 Parity Bits",
+					"description": "Specifies partiy type used for the RS-485 bus.",
+					"default": "none",
+					"enum": [
+						"none",
+						"even"
+					]
+				},
+				"imd": {
+					"$id": "#/properties/modbus_rs485/imd",
+					"type": "integer",
+					"title": "Modbus Inter Message Delay",
+					"description": "Delay between the last Modbus response and the next transmission in milliseconds.  This is used for rate limiting transactions.",
+					"default": "0",
+					"minimum": 0,
+					"maximum": 10000
+				}
+			}
+		},
+		"modbus1": {
+			"$id": "#/properties/modbus1",
+			"type": "object",
+			"title": "Modbus Polling 1",
+			"description": "Configuration for polling a Modbus server ID.",
+			"default": {},
+			"minimumFirmwareVersion": 2,
+			"properties": {
+				"enable": {
+					"$id": "#/properties/modbus1/enable",
+					"type": "boolean",
+					"title": "Modbus Server Enable",
+					"description": "If enabled, poll the given Modbus server address.",
+					"default": false,
+					"examples": [
+						true
+					]
+				},
+				"id": {
+					"$id": "#/properties/modbus1/id",
+					"type": "integer",
+					"title": "Modbus Server ID",
+					"description": "The remote device server ID (also known as slave ID). Range: 1-255.",
+					"default": 1,
+					"minimum": 1,
+					"maximum": 255
+				},
+				"timeout": {
+					"$id": "#/properties/modbus1/timeout",
+					"type": "integer",
+					"title": "Modbus Timeout",
+					"description": "Allowable time to wait for a response in milliseconds. Range: 0-10000.",
+					"default": 2000,
+					"minimum": 0,
+					"maximum": 10000
+				},
+				"poll": {
+					"$id": "#/properties/modbus1/poll",
+					"type": "integer",
+					"title": "Polling Interval",
+					"description": "Defines the frequency (in seconds) in which the register will be polled and results published.",
+					"default": 1,
+					"minimum": 1
+				},
+				"publish": {
+					"$id": "#/properties/modbus1/publish",
+					"type": "string",
+					"title": "Publish polled value",
+					"description": "Select when to publish the polled value.",
+					"default": "always",
+					"enum": [
+						"always"
+					]
+				},
+				"function": {
+					"$id": "#/properties/modbus1/function",
+					"type": "string",
+					"title": "Modbus Function",
+					"description": "Type of read function.",
+					"default": "coil",
+					"enum": [
+						"coil",
+						"discrete_input",
+						"input_register",
+						"holding_register"
+					]
+				},
+				"address": {
+					"$id": "#/properties/modbus1/address",
+					"type": "integer",
+					"title": "Register Address",
+					"description": "Address to read from, zero based. Range: 0-65535.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"type": {
+					"$id": "#/properties/modbus1/type",
+					"type": "string",
+					"title": "Modbus data type",
+					"description": "Type of data being read.",
+					"default": "uint16",
+					"enum": [
+						"int16",
+						"uint16",
+						"int32",
+						"uint32",
+						"float32_abcd",
+						"float32_badc",
+						"float32_cdab",
+						"float32_dcba",
+						"bits"
+					]
+				},
+				"mask": {
+					"$id": "#/properties/modbus1/mask",
+					"type": "integer",
+					"title": "Mask Value",
+					"description": "16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.",
+					"default": 65535,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"shift": {
+					"$id": "#/properties/modbus1/shift",
+					"type": "integer",
+					"title": "Shift Value",
+					"description": "Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 15
+				},
+				"offset": {
+					"$id": "#/properties/modbus1/offset",
+					"type": "number",
+					"title": "Offset Value",
+					"description": "Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).",
+					"default": 0.0,
+					"examples": [
+						0.5
+					]
+				},
+				"scale": {
+					"$id": "#/properties/modbus1/scale",
+					"type": "number",
+					"title": "Scaling Value",
+					"description": "Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).",
+					"default": 1.0,
+					"examples": [
+						10.0
+					]
+				}
+			}
+		},
+		"modbus2": {
+			"$id": "#/properties/modbus2",
+			"type": "object",
+			"title": "Modbus Polling 2",
+			"description": "Configuration for polling a Modbus server ID.",
+			"default": {},
+			"minimumFirmwareVersion": 2,
+			"properties": {
+				"enable": {
+					"$id": "#/properties/modbus2/enable",
+					"type": "boolean",
+					"title": "Modbus Server Enable",
+					"description": "If enabled, poll the given Modbus server address.",
+					"default": false,
+					"examples": [
+						true
+					]
+				},
+				"id": {
+					"$id": "#/properties/modbus2/id",
+					"type": "integer",
+					"title": "Modbus Server ID",
+					"description": "The remote device server ID (also known as slave ID). Range: 1-255.",
+					"default": 1,
+					"minimum": 1,
+					"maximum": 255
+				},
+				"timeout": {
+					"$id": "#/properties/modbus2/timeout",
+					"type": "integer",
+					"title": "Modbus Timeout",
+					"description": "Allowable time to wait for a response in milliseconds. Range: 0-10000.",
+					"default": 2000,
+					"minimum": 0,
+					"maximum": 10000
+				},
+				"poll": {
+					"$id": "#/properties/modbus2/poll",
+					"type": "integer",
+					"title": "Polling Interval",
+					"description": "Defines the frequency (in seconds) in which the register will be polled and results published.",
+					"default": 1,
+					"minimum": 1
+				},
+				"publish": {
+					"$id": "#/properties/modbus2/publish",
+					"type": "string",
+					"title": "Publish polled value",
+					"description": "Select when to publish the polled value.",
+					"default": "always",
+					"enum": [
+						"always"
+					]
+				},
+				"function": {
+					"$id": "#/properties/modbus2/function",
+					"type": "string",
+					"title": "Modbus Function",
+					"description": "Type of read function.",
+					"default": "coil",
+					"enum": [
+						"coil",
+						"discrete_input",
+						"input_register",
+						"holding_register"
+					]
+				},
+				"address": {
+					"$id": "#/properties/modbus2/address",
+					"type": "integer",
+					"title": "Register Address",
+					"description": "Address to read from, zero based. Range: 0-65535.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"type": {
+					"$id": "#/properties/modbus2/type",
+					"type": "string",
+					"title": "Modbus data type",
+					"description": "Type of data being read.",
+					"default": "uint16",
+					"enum": [
+						"int16",
+						"uint16",
+						"int32",
+						"uint32",
+						"float32_abcd",
+						"float32_badc",
+						"float32_cdab",
+						"float32_dcba",
+						"bits"
+					]
+				},
+				"mask": {
+					"$id": "#/properties/modbus2/mask",
+					"type": "integer",
+					"title": "Mask Value",
+					"description": "16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.",
+					"default": 65535,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"shift": {
+					"$id": "#/properties/modbus2/shift",
+					"type": "integer",
+					"title": "Shift Value",
+					"description": "Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 15
+				},
+				"offset": {
+					"$id": "#/properties/modbus2/offset",
+					"type": "number",
+					"title": "Offset Value",
+					"description": "Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).",
+					"default": 0.0,
+					"examples": [
+						0.5
+					]
+				},
+				"scale": {
+					"$id": "#/properties/modbus2/scale",
+					"type": "number",
+					"title": "Scaling Value",
+					"description": "Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).",
+					"default": 1.0,
+					"examples": [
+						10.0
+					]
+				}
+			}
+		},
+		"modbus3": {
+			"$id": "#/properties/modbus3",
+			"type": "object",
+			"title": "Modbus Polling 3",
+			"description": "Configuration for polling a Modbus server ID.",
+			"default": {},
+			"minimumFirmwareVersion": 2,
+			"properties": {
+				"enable": {
+					"$id": "#/properties/modbus3/enable",
+					"type": "boolean",
+					"title": "Modbus Server Enable",
+					"description": "If enabled, poll the given Modbus server address.",
+					"default": false,
+					"examples": [
+						true
+					]
+				},
+				"id": {
+					"$id": "#/properties/modbus3/id",
+					"type": "integer",
+					"title": "Modbus Server ID",
+					"description": "The remote device server ID (also known as slave ID). Range: 1-255.",
+					"default": 1,
+					"minimum": 1,
+					"maximum": 255
+				},
+				"timeout": {
+					"$id": "#/properties/modbus3/timeout",
+					"type": "integer",
+					"title": "Modbus Timeout",
+					"description": "Allowable time to wait for a response in milliseconds. Range: 0-10000.",
+					"default": 2000,
+					"minimum": 0,
+					"maximum": 10000
+				},
+				"poll": {
+					"$id": "#/properties/modbus3/poll",
+					"type": "integer",
+					"title": "Polling Interval",
+					"description": "Defines the frequency (in seconds) in which the register will be polled and results published.",
+					"default": 1,
+					"minimum": 1
+				},
+				"publish": {
+					"$id": "#/properties/modbus3/publish",
+					"type": "string",
+					"title": "Publish polled value",
+					"description": "Select when to publish the polled value.",
+					"default": "always",
+					"enum": [
+						"always"
+					]
+				},
+				"function": {
+					"$id": "#/properties/modbus3/function",
+					"type": "string",
+					"title": "Modbus Function",
+					"description": "Type of read function.",
+					"default": "coil",
+					"enum": [
+						"coil",
+						"discrete_input",
+						"input_register",
+						"holding_register"
+					]
+				},
+				"address": {
+					"$id": "#/properties/modbus3/address",
+					"type": "integer",
+					"title": "Register Address",
+					"description": "Address to read from, zero based. Range: 0-65535.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"type": {
+					"$id": "#/properties/modbus3/type",
+					"type": "string",
+					"title": "Modbus data type",
+					"description": "Type of data being read.",
+					"default": "uint16",
+					"enum": [
+						"int16",
+						"uint16",
+						"int32",
+						"uint32",
+						"float32_abcd",
+						"float32_badc",
+						"float32_cdab",
+						"float32_dcba",
+						"bits"
+					]
+				},
+				"mask": {
+					"$id": "#/properties/modbus3/mask",
+					"type": "integer",
+					"title": "Mask Value",
+					"description": "16-bit bitmask to apply to read value to isolate bits. Use 65535 if masking is not required. Range: 0-65535.",
+					"default": 65535,
+					"minimum": 0,
+					"maximum": 65535
+				},
+				"shift": {
+					"$id": "#/properties/modbus3/shift",
+					"type": "integer",
+					"title": "Shift Value",
+					"description": "Shifting, in bits, to right shift read value after masking. Use 0 if shifting is not required. Range: 0-15.",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 15
+				},
+				"offset": {
+					"$id": "#/properties/modbus3/offset",
+					"type": "number",
+					"title": "Offset Value",
+					"description": "Offset applied to masked and shifted input. This represents “b” in “y = mx + b”. Use 0 if not required (float variable).",
+					"default": 0.0,
+					"examples": [
+						0.5
+					]
+				},
+				"scale": {
+					"$id": "#/properties/modbus3/scale",
+					"type": "number",
+					"title": "Scaling Value",
+					"description": "Scaling applied to masked and shifted input. This represents “m” in “y = mx + b”. Use 1 if not required (float variable).",
+					"default": 1.0,
+					"examples": [
+						10.0
+					]
+				}
+			}
+		},
+		"io": {
+			"$id": "#/properties/io",
+			"type": "object",
+			"title": "IO",
+			"description": "Configuration for Inputs and Outputs.",
+			"default": {},
+			"properties": {
+				"voltage": {
+					"$id": "#/properties/io/voltage",
+					"type": "object",
+					"title": "0-10V Voltage Input",
+					"description": "Configuration for 0-10V scaling.",
+					"default": {},
+					"properties": {
+						"sensorlow": {
+							"$id": "#/properties/io/voltage/sensorlow",
+							"type": "number",
+							"title": "Sensor low scaling",
+							"description": "Scaling applied to calibrated voltage inputs to scale value to sensor units in application.",
+							"default": 0.0,
+							"examples": [
+								0.0
+							]
+						},
+						"sensorhigh": {
+							"$id": "#/properties/io/voltage/sensorhigh",
+							"type": "number",
+							"title": "Sensor high scaling",
+							"description": "Scaling applied to calibrated voltage inputs to scale value to sensor units in application.",
+							"default": 10.0,
+							"examples": [
+								100.0
+							]
+						},
+						"sensorfc": {
+							"$id": "#/properties/io/voltage/sensorfc",
+							"type": "number",
+							"title": "Sensor filter cutoff frequency",
+							"description": "Frequency for 3db low pass filtering of the voltage input in Hertz.",
+							"default": 1.0,
+							"examples": [
+								12.0
+							],
+							"minimum": 0.001,
+							"maximum": 50.0
+						},
+						"threshlow": {
+							"$id": "#/properties/io/voltage/threshlow",
+							"type": "number",
+							"title": "Threshold low comparator limit",
+							"description": "Threshold value for comparator.",
+							"default": 2.0,
+							"examples": [
+								100.0
+							]
+						},
+						"hystlow": {
+							"$id": "#/properties/io/voltage/hystlow",
+							"type": "number",
+							"title": "Threshold low hysteresis",
+							"description": "Hysteresis value for comparator.",
+							"default": 1.0,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0
+						},
+						"th_low_en": {
+							"$id": "#/properties/io/voltage/th_low_en",
+							"type": "boolean",
+							"title": "Threshold low enable",
+							"description": "If enabled, publish an immediate event when the lower threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"threshhigh": {
+							"$id": "#/properties/io/voltage/threshhigh",
+							"type": "number",
+							"title": "Threshold high comparator limit",
+							"description": "Threshold value for comparator.",
+							"default": 8.0,
+							"examples": [
+								100.0
+							]
+						},
+						"hysthigh": {
+							"$id": "#/properties/io/voltage/hysthigh",
+							"type": "number",
+							"title": "Threshold high hysteresis",
+							"description": "Hysteresis value for comparator.",
+							"default": 1.0,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0
+						},
+						"th_high_en": {
+							"$id": "#/properties/io/voltage/th_high_en",
+							"type": "boolean",
+							"title": "Threshold high enable",
+							"description": "If enabled, publish an immediate event when the upper threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						}
+					}
+				},
+				"current": {
+					"$id": "#/properties/io/current",
+					"type": "object",
+					"title": "4-20mA Current Input",
+					"description": "Configuration for 4-20mA scaling.",
+					"default": {},
+					"properties": {
+						"sensorlow": {
+							"$id": "#/properties/io/current/sensorlow",
+							"type": "number",
+							"title": "Sensor low scaling",
+							"description": "Scaling applied to calibrated current inputs to scale value to sensor units in application.",
+							"default": 0.004,
+							"examples": [
+								0.0
+							]
+						},
+						"sensorhigh": {
+							"$id": "#/properties/io/current/sensorhigh",
+							"type": "number",
+							"title": "Sensor high scaling",
+							"description": "Scaling applied to calibrated current inputs to scale value to sensor units in application.",
+							"default": 0.020,
+							"examples": [
+								10.0
+							]
+						},
+						"sensorfc": {
+							"$id": "#/properties/io/current/sensorfc",
+							"type": "number",
+							"title": "Sensor filter cutoff frequency",
+							"description": "Frequency for 3db low pass filtering of the current input in Hertz.",
+							"default": 1.0,
+							"examples": [
+								12.0
+							],
+							"minimum": 0.001,
+							"maximum": 50.0
+						},
+						"threshlow": {
+							"$id": "#/properties/io/current/threshlow",
+							"type": "number",
+							"title": "Threshold low comparator limit",
+							"description": "Threshold value for comparator.",
+							"default": 0.008,
+							"examples": [
+								100.0
+							]
+						},
+						"hystlow": {
+							"$id": "#/properties/io/current/hystlow",
+							"type": "number",
+							"title": "Threshold low hysteresis",
+							"description": "Hysteresis value for comparator.",
+							"default": 0.002,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0
+						},
+						"th_low_en": {
+							"$id": "#/properties/io/current/th_low_en",
+							"type": "boolean",
+							"title": "Threshold low enable",
+							"description": "If enabled, publish an immediate event when the lower threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"threshhigh": {
+							"$id": "#/properties/io/current/threshhigh",
+							"type": "number",
+							"title": "Threshold high comparator limit",
+							"description": "Threshold value for comparator.",
+							"default": 0.016,
+							"examples": [
+								100.0
+							]
+						},
+						"hysthigh": {
+							"$id": "#/properties/io/current/hysthigh",
+							"type": "number",
+							"title": "Threshold high hysteresis",
+							"description": "Hysteresis value for comparator.",
+							"default": 0.002,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0
+						},
+						"th_high_en": {
+							"$id": "#/properties/io/current/th_high_en",
+							"type": "boolean",
+							"title": "Threshold high enable",
+							"description": "If enabled, publish an immediate event when the upper threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"th_fault_low": {
+							"$id": "#/properties/io/current/th_fault_low",
+							"type": "number",
+							"title": "Threshold low fault comparator limit",
+							"description": "Threshold value, in milliamps, for fault comparator.",
+							"default": 0.003875,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0,
+							"maximum": 0.030
+						},
+						"hyst_fault_low": {
+							"$id": "#/properties/io/current/hyst_fault_low",
+							"type": "number",
+							"title": "Threshold low fault hysteresis",
+							"description": "Hysteresis value, in milliamps, for fault comparator.",
+							"default": 0.000125,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0,
+							"maximum": 0.020
+						},
+						"th_fault_low_en": {
+							"$id": "#/properties/io/current/th_fault_low_en",
+							"type": "boolean",
+							"title": "Threshold low fault enable",
+							"description": "If enabled, publish an immediate event when the lower threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"th_fault_high": {
+							"$id": "#/properties/io/current/th_fault_high",
+							"type": "number",
+							"title": "Threshold high fault comparator limit",
+							"description": "Threshold value, in milliamps, for fault comparator.",
+							"default": 0.016,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0,
+							"maximum": 0.030
+						},
+						"hyst_fault_high": {
+							"$id": "#/properties/io/current/hyst_fault_high",
+							"type": "number",
+							"title": "Threshold high fault hysteresis",
+							"description": "Hysteresis value, in milliamps, for fault comparator.",
+							"default": 0.002,
+							"examples": [
+								100.0
+							],
+							"minimum": 0.0,
+							"maximum": 0.020
+						},
+						"th_fault_high_en": {
+							"$id": "#/properties/io/current/th_fault_high_en",
+							"type": "boolean",
+							"title": "Threshold high fault enable",
+							"description": "If enabled, publish an immediate event when the upper threshold is crossed.",
+							"default": false,
+							"examples": [
+								true
+							]
+						}
+					}
+				},
+				"input": {
+					"$id": "#/properties/io/input",
+					"type": "object",
+					"title": "24V Digital Input",
+					"description": "Configuration for optoisolated digial input.",
+					"default": {},
+					"properties": {
+						"immediate": {
+							"$id": "#/properties/io/input/immediate",
+							"type": "boolean",
+							"title": "Publish immediately on input change",
+							"description": "If enabled, publish an immediate event when the digital input changes.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"edge": {
+							"$id": "#/properties/io/input/edge",
+							"type": "string",
+							"title": "Edge detection",
+							"description": "Publish on input change based on edge detected.",
+							"default": "none",
+							"enum": [
+								"none",
+								"rising",
+								"falling",
+								"both"
+							]
+						}
+					}
+				}
+			}
+		},
+		"iocal": {
+			"$id": "#/properties/iocal",
+			"type": "object",
+			"title": "IO Calibration",
+			"description": "Calibration configuration for inputs.",
+			"default": {},
+			"properties": {
+				"voltage": {
+					"$id": "#/properties/iocal/voltage",
+					"type": "object",
+					"title": "0-10V Voltage Input",
+					"description": "Configuration for 0-10V calibration.",
+					"default": {},
+					"properties": {
+						"calgain": {
+							"$id": "#/properties/iocal/voltage/calgain",
+							"type": "number",
+							"title": "Calibration gain",
+							"description": "Gain applied to raw voltage inputs to correct gain errors.",
+							"default": 1.0,
+							"examples": [
+								0.95
+							]
+						},
+						"caloffset": {
+							"$id": "#/properties/iocal/voltage/caloffset",
+							"type": "number",
+							"title": "Calibration offset",
+							"description": "Offset applied to raw voltage inputs to correct offset errors.",
+							"default": 0.0,
+							"examples": [
+								-0.01
+							]
+						}
+					}
+				},
+				"current": {
+					"$id": "#/properties/iocal/current",
+					"type": "object",
+					"title": "4-20mA Current Input",
+					"description": "Configuration for 4-20mA calibration.",
+					"default": {},
+					"properties": {
+						"calgain": {
+							"$id": "#/properties/iocal/current/calgain",
+							"type": "number",
+							"title": "Calibration gain",
+							"description": "Gain applied to raw current inputs to correct gain errors.",
+							"default": 1.0,
+							"examples": [
+								0.95
+							]
+						},
+						"caloffset": {
+							"$id": "#/properties/iocal/current/caloffset",
+							"type": "number",
+							"title": "Calibration offset",
+							"description": "Offset applied to raw current inputs to correct offset errors.",
+							"default": 0.0,
+							"examples": [
+								-0.01
+							]
+						}
+					}
+				}
+			}
+		},
+		"location": {
+			"$id": "#/properties/location",
+			"type": "object",
+			"title": "Location",
+			"description": "Configuration for published locations.",
+			"default": {},
+			"examples": [
+				{
+					"interval_min": 10.0,
+					"interval_max": 120.0,
+					"min_publish": true,
+					"lock_trigger": false,
+					"radius": 50.0
+				}
+			],
+			"required": [
+				"radius",
+				"interval_min",
+				"interval_max",
+				"min_publish",
+				"lock_trigger"
+			],
+			"properties": {
+				"radius": {
+					"$id": "#/properties/location/properties/radius",
+					"type": "number",
+					"title": "Radius Trigger (meters)",
+					"description": "Publish location if it has moved this many meters from the last publish. 0 for unused.",
+					"default": 0.0,
+					"examples": [
+						5.0
+					],
+					"minimum": 0.0,
+					"maximum": 100000.0
+				},
+				"interval_min": {
+					"$id": "#/properties/location/properties/interval_min",
+					"type": "integer",
+					"title": "Maximum location update frequency (every n seconds)",
+					"description": "Never publish location information more often than this setting.",
+					"default": 900,
+					"examples": [
+						1000
+					],
+					"minimum": 0
+				},
+				"interval_max": {
+					"$id": "#/properties/location/properties/interval_max",
+					"type": "integer",
+					"title": "Minimum location update frequency (every n seconds)",
+					"description": "Always publish location, when possible, this often",
+					"default": 3600,
+					"examples": [
+						7200
+					],
+					"minimum": 0
+				},
+				"min_publish": {
+					"$id": "#/properties/location/properties/min_publish",
+					"type": "boolean",
+					"title": "Minimize Data",
+					"description": "If enabled, publish minimal location with only latitude and longitude. If disabled, publish additional information including speed, heading, etc.",
+					"default": false,
+					"examples": [
+						true
+					]
+				},
+				"lock_trigger": {
+					"$id": "#/properties/location/properties/lock_trigger",
+					"type": "boolean",
+					"title": "Publish on GPS lock",
+					"description": "If enabled, a change in GPS lock status will trigger a location publish, which will happen after the Minimum Interval has passed.",
+					"default": true,
+					"examples": [
+						false
+					]
+				},
+				"loc_ack": {
+					"$id": "#/properties/location/properties/loc_ack",
+					"type": "boolean",
+					"title": "Acknowledge location publishes",
+					"description": "If enabled, the device will expect cloud acknowledgement of location publishes and retry sending if cloud is unresponsive.  If disabled, the device will publish location messages and not account for cloud acknowledgement (fire-and-forget).  See https://docs.particle.io/reference/device-cloud/api/#tracker-configuration-events for more information",
+					"default": true,
+					"minimumFirmwareVersion": 1,
+					"examples": [
+						true
+					]
+				},
+				"enhance_loc": {
+					"$id": "#/properties/location/properties/enhance_loc",
+					"type": "boolean",
+					"title": "Enhanced location",
+					"description": "If enabled, the cloud will process and send enhanced geolocation events based on GNSS, WiFi access points, and cellular tower triangulation.",
+					"default": true,
+					"minimumFirmwareVersion": 1,
+					"examples": [
+						true
+					]
+				},
+				"tower": {
+					"$id": "#/properties/location/properties/tower",
+					"type": "boolean",
+					"title": "Publish cellular tower data",
+					"description": "If enabled, the device will collect nearby cellular towers and publish details with location events.",
+					"default": true,
+					"minimumFirmwareVersion": 1,
+					"examples": [
+						true
+					]
+				},
+				"gnss": {
+					"$id": "#/properties/location/properties/gnss",
+					"type": "boolean",
+					"title": "Publish GNSS data",
+					"description": "If enabled, the device will utilize the GNSS module to generate and publish geolocation coordinates with location events.",
+					"default": true,
+					"minimumFirmwareVersion": 1,
+					"examples": [
+						true
+					]
+				},
+				"wps": {
+					"$id": "#/properties/location/properties/wps",
+					"type": "boolean",
+					"title": "Publish WiFi access point data",
+					"description": "If enabled, the device will collect nearby WiFi access points and publish details with location events.",
+					"default": true,
+					"minimumFirmwareVersion": 1,
+					"examples": [
+						true
+					]
+				},
+				"loc_cb": {
+					"$id": "#/properties/location/properties/loc_cb",
+					"type": "boolean",
+					"title": "Call back to device with enhanced location data",
+					"description": "If enabled, the cloud will send an enhanced geolocation to the device based on GNSS, WiFi access points, and cellular tower triangulation.",
+					"default": false,
+					"minimumFirmwareVersion": 1,
+					"examples": [
+						true
+					]
+				},
+				"satdiag": {
+					"$id": "#/properties/location/properties/diag",
+					"type": "boolean",
+					"title": "Publish extra information to assist with debugging GNSS",
+					"description": "If enabled, publish GNSS constellation counts and C/NO characteristics.",
+					"default": false,
+					"minimumFirmwareVersion": 1,
+					"examples": [
+						true
+					]
+				}
+			}
+		},
+		"store": {
+			"$id": "#/properties/store",
+			"type": "object",
+			"title": "Store and Forward",
+			"description": "Configuration for Store and Forward.",
+			"default": {},
+			"minimumFirmwareVersion": 1,
+			"properties": {
+				"enable": {
+					"$id": "#/properties/store/properties/enable",
+					"type": "boolean",
+					"title": "Store and Forward",
+					"description": "If enabled, the device will store unpublished location publishes to the local filesystem when offline and publish them when back online.",
+					"default": true,
+					"examples": [
+						true
+					]
+				},
+				"quota": {
+					"$id": "#/properties/store/properties/quota",
+					"type": "integer",
+					"title": "Storage Size Limit",
+					"description": "Size in kilobytes to limit storage on the local filesytem for unpublished messages.",
+					"default": 64,
+					"minimum": 0,
+					"maximum": 4000
+				},
+				"policy": {
+					"$id": "#/properties/store/properties/policy",
+					"type": "string",
+					"title": "Discard Policy",
+					"description": "When storage size limit is exceeded drop_old deletes the oldest logged publish to retry, drop_new deletes the newest",
+					"default": "drop_old",
+					"enum": [
+						"drop_old",
+						"drop_new"
+					]
+				}
+			}
+		},
+		"imu_trig": {
+			"$id": "#/properties/imu_trig",
+			"type": "object",
+			"title": "Motion",
+			"description": "Configuration for motion detection.",
+			"default": {},
+			"properties": {
+				"motion": {
+					"$id": "#/properties/imu_trig/properties/motion",
+					"type": "string",
+					"title": "Movement Sensitivity",
+					"description": "If not disabled, device will publish location if it detects movement. Low sensitivity requires a large motion to publish.",
+					"default": "disable",
+					"enum": [
+						"disable",
+						"low",
+						"medium",
+						"high"
+					]
+				},
+				"high_g": {
+					"$id": "#/properties/imu_trig/properties/accel",
+					"type": "string",
+					"title": "High-G",
+					"description": "If enabled, device will publish location if it detects a High-G acceleration event.",
+					"default": "disable",
+					"enum": [
+						"disable",
+						"enable"
+					]
+				}
+			}
+		},
+		"temp_trig": {
+			"$id": "#/properties/temp_trig",
+			"type": "object",
+			"title": "Temperature",
+			"description": "Configuration for temperature thresholding.",
+			"default": {},
+			"properties": {
+				"high": {
+					"$id": "#/properties/temp_trig/high",
+					"type": "number",
+					"title": "High temperature threshold (Celsius)",
+					"description": "Publish location once if temperature is greater than or equal to threshold. The temperature will be required to be less than the high threshold minus hysteresis to clear event, when latching, or publish again when latching disabled.  Hysteresis must be valid.",
+					"default": 150.0,
+					"examples": [
+						65.0
+					],
+					"minimum": -40.0,
+					"maximum": 150.0
+				},
+				"high_en": {
+					"$id": "#/properties/temp_trig/high_en",
+					"type": "boolean",
+					"title": "High temperature monitoring",
+					"description": "If enabled, compare current temperature against high threshold.",
+					"default": false,
+					"examples": [
+						true
+					]
+				},
+				"high_latch": {
+					"$id": "#/properties/temp_trig/high_latch",
+					"type": "boolean",
+					"title": "High temperature event latching.",
+					"description": "Enable latching of high temperature trigger event until temperature has fallen below hysteresis level; otherwise, generate one high temperature event.",
+					"default": false,
+					"examples": [
+						true
+					]
+				},
+				"low": {
+					"$id": "#/properties/temp_trig/low",
+					"type": "number",
+					"title": "Low temperature threshold (Celsius)",
+					"description": "Publish location once if temperature is less than or equal to threshold. The temperature will be required to be more than the low threshold plus hysteresis to clear event, when latching, or publish again when latching disabled. Hysteresis must be valid.",
+					"default": -40.0,
+					"examples": [
+						0.0
+					],
+					"minimum": -40.0,
+					"maximum": 150.0
+				},
+				"low_en": {
+					"$id": "#/properties/temp_trig/low_en",
+					"type": "boolean",
+					"title": "Low temperature monitoring.",
+					"description": "If enabled, compare current temperature against low threshold.",
+					"default": false,
+					"examples": [
+						true
+					]
+				},
+				"low_latch": {
+					"$id": "#/properties/temp_trig/low_latch",
+					"type": "boolean",
+					"title": "Low temperature event latching.",
+					"description": "Enable latching of low temperature trigger event until temperature has risen above hysteresis level; otherwise, generate one low temperature event.",
+					"default": false,
+					"examples": [
+						true
+					]
+				},
+				"hyst": {
+					"$id": "#/properties/temp_trig/hyst",
+					"type": "number",
+					"title": "Hysteresis temperature threshold (Celsius)",
+					"description": "Hysteresis threshold applied to high and low thresholds to allow further temperature publishes. 0.0 for unused.",
+					"default": 0.0,
+					"examples": [
+						10.0
+					],
+					"minimum": 0.0,
+					"maximum": 190.0
+				}
+			}
+		},
+		"sleep": {
+			"$id": "#/properties/sleep",
+			"type": "object",
+			"title": "Sleep",
+			"description": "Configuration for low power operation. Supported in Asset Tracker Firmware v10 and later",
+			"default": {},
+			"minimumFirmwareVersion": 1,
+			"properties": {
+				"mode": {
+					"$id": "#/properties/sleep/properties/mode",
+					"type": "string",
+					"title": "Sleep Mode",
+					"description": "If enabled, device will operate with low power states during inactive periods.  The device will be inaccessible while in low power states",
+					"default": "disable",
+					"enum": [
+						"disable",
+						"enable"
+					]
+				},
+				"exe_min": {
+					"$id": "#/properties/sleep/properties/exe_min",
+					"type": "number",
+					"title": "Post Publish Execution Time",
+					"description": "Minimum duration, in seconds, of guaranteed execution time after publishing and before entering sleep.",
+					"default": 10.0,
+					"examples": [
+						10.0
+					],
+					"minimum": 5.0
+				},
+				"conn_max": {
+					"$id": "#/properties/sleep/properties/conn_max",
+					"type": "number",
+					"title": "Maximum Connecting Time",
+					"description": "Maximum duration, in seconds, to wait for a cellular connected state and GNSS lock before publish.",
+					"default": 90.0,
+					"examples": [
+						120.0
+					],
+					"minimum": 30.0
+				}
+			}
+		},
+		"tracker": {
+			"$id": "#/properties/tracker",
+			"type": "object",
+			"title": "Tracker",
+			"description": "Configuration for Tracker specific settings",
+			"default": {},
+			"properties": {
+				"usb_cmd": {
+					"$id": "#/properties/tracker/properties/usb_cmd",
+					"type": "boolean",
+					"title": "USB Command",
+					"description": "If enabled, device will parse incoming commands on USB.",
+					"default": true,
+					"examples": [
+						false
+					]
+				}
+			}
+		},
+		"monitoring": {
+			"$id": "#/properties/monitoring",
+			"type": "object",
+			"title": "Device Monitoring",
+			"description": "Configuration for device monitoring specific settings",
+			"default": {},
+			"minimumFirmwareVersion": 1,
+			"properties": {
+				"device_monitor": {
+					"$id": "#/properties/monitoring/device_monitor",
+					"type": "boolean",
+					"title": "Device Monitoring",
+					"description": "If enabled, device will publish metrics and fault details.",
+					"default": false,
+					"examples": [
+						false
+					]
+				}
+			}
+		},
+		"geofence": {
+			"$id": "#/properties/geofence",
+			"type": "object",
+			"title": "Geofence",
+			"description": "Configuration for geofencing settings",
+			"default": {},
+			"minimumFirmwareVersion": 1,
+			"deviceLevelOnly": true,
+			"properties": {
+				"interval": {
+					"$id": "#/properties/geofence/interval",
+					"type": "integer",
+					"title": "Wake interval (every n seconds)",
+					"description": "If device is configured for sleep, periodic interval to wake in order to evaluate geofences.",
+					"default": 0,
+					"examples": [
+						900
+					],
+					"minimum": 0
+				},
+				"zone1": {
+					"$id": "#/properties/geofence/zone1",
+					"type": "object",
+					"title": "Zone 1",
+					"description": "Configuration for Zone 1 settings.",
+					"default": {},
+					"properties": {
+						"enable": {
+							"$id": "#/properties/geofence/zone1/enable",
+							"type": "boolean",
+							"title": "Enable",
+							"description": "If enabled, the zone will be evaluated by the device.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"shape_type": {
+							"$id": "#/properties/geofence/zone1/shape_type",
+							"type": "string",
+							"title": "Shape",
+							"description": "Shape of the geofence.",
+							"default": "circular",
+							"enum": [
+								"circular"
+							]
+						},
+						"lat": {
+							"$id": "#/properties/geofence/zone1/lat",
+							"type": "number",
+							"title": "Latitude (Degrees)",
+							"description": "Latitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"examples": [
+								34
+							],
+							"minimum": -90,
+							"maximum": 90
+						},
+						"lon": {
+							"$id": "#/properties/geofence/zone1/lon",
+							"type": "number",
+							"title": "Longitude (Degrees)",
+							"description": "Longitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"examples": [
+								121
+							],
+							"minimum": -180,
+							"maximum": 180
+						},
+						"radius": {
+							"$id": "#/properties/geofence/zone1/radius",
+							"type": "number",
+							"title": "Radius (Meters)",
+							"description": "Defines circular area covered by the geofence.",
+							"default": 0,
+							"examples": [
+								1000
+							],
+							"minimum": 0,
+							"maximum": 100000
+						},
+						"inside": {
+							"$id": "#/properties/geofence/zone1/inside",
+							"type": "boolean",
+							"title": "Publish inside zone",
+							"description": "If enabled, publish event when the device is inside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"outside": {
+							"$id": "#/properties/geofence/zone1/outside",
+							"type": "boolean",
+							"title": "Publish outside zone",
+							"description": "If enabled, publish event when the device is outside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"enter": {
+							"$id": "#/properties/geofence/zone1/enter",
+							"type": "boolean",
+							"title": "Publish on enter zone",
+							"description": "If enabled, publish event when the device has entered the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"exit": {
+							"$id": "#/properties/geofence/zone1/exit",
+							"type": "boolean",
+							"title": "Publish on exit zone",
+							"description": "If enabled, publish event when the device has exited the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"verif": {
+							"$id": "#/properties/geofence/zone1/verif",
+							"type": "integer",
+							"title": "Time Before Trigger (Seconds)",
+							"description": "Amount of time the device is inside or outside the zone before triggering an event.",
+							"default": 0,
+							"examples": [
+								1
+							],
+							"minimum": 0
+						}
+					}
+				},
+				"zone2": {
+					"$id": "#/properties/geofence/zone2",
+					"type": "object",
+					"title": "Zone 2",
+					"description": "Configuration for Zone 2 settings.",
+					"default": {},
+					"properties": {
+						"enable": {
+							"$id": "#/properties/geofence/zone2/enable",
+							"type": "boolean",
+							"title": "Enable",
+							"description": "If enabled, the zone will be evaluated by the device.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"shape_type": {
+							"$id": "#/properties/geofence/zone2/shape_type",
+							"type": "string",
+							"title": "Shape",
+							"description": "Shape of the geofence.",
+							"default": "circular",
+							"enum": [
+								"circular"
+							]
+						},
+						"lat": {
+							"$id": "#/properties/geofence/zone2/lat",
+							"type": "number",
+							"title": "Latitude (Degrees)",
+							"description": "Latitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"examples": [
+								34
+							],
+							"minimum": -90,
+							"maximum": 90
+						},
+						"lon": {
+							"$id": "#/properties/geofence/zone2/lon",
+							"type": "number",
+							"title": "Longitude (Degrees)",
+							"description": "Longitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"examples": [
+								121
+							],
+							"minimum": -180,
+							"maximum": 180
+						},
+						"radius": {
+							"$id": "#/properties/geofence/zone2/radius",
+							"type": "number",
+							"title": "Radius (Meters)",
+							"description": "Defines circular area covered by the geofence.",
+							"default": 0,
+							"examples": [
+								1000
+							],
+							"minimum": 0,
+							"maximum": 100000
+						},
+						"inside": {
+							"$id": "#/properties/geofence/zone2/inside",
+							"type": "boolean",
+							"title": "Publish inside zone",
+							"description": "If enabled, publish event when the device is inside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"outside": {
+							"$id": "#/properties/geofence/zone2/outside",
+							"type": "boolean",
+							"title": "Publish outside zone",
+							"description": "If enabled, publish event when the device is outside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"enter": {
+							"$id": "#/properties/geofence/zone2/enter",
+							"type": "boolean",
+							"title": "Publish on enter zone",
+							"description": "If enabled, publish event when the device has entered the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"exit": {
+							"$id": "#/properties/geofence/zone2/exit",
+							"type": "boolean",
+							"title": "Publish on exit zone",
+							"description": "If enabled, publish event when the device has exited the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"verif": {
+							"$id": "#/properties/geofence/zone2/verif",
+							"type": "integer",
+							"title": "Time Before Trigger (Seconds)",
+							"description": "Amount of time the device is inside or outside the zone before triggering an event.",
+							"default": 0,
+							"examples": [
+								1
+							],
+							"minimum": 0
+						}
+					}
+				},
+				"zone3": {
+					"$id": "#/properties/geofence/zone3",
+					"type": "object",
+					"title": "Zone 3",
+					"description": "Configuration for Zone 3 settings.",
+					"default": {},
+					"properties": {
+						"enable": {
+							"$id": "#/properties/geofence/zone3/enable",
+							"type": "boolean",
+							"title": "Enable",
+							"description": "If enabled, the zone will be evaluated by the device.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"shape_type": {
+							"$id": "#/properties/geofence/zone3/shape_type",
+							"type": "string",
+							"title": "Shape",
+							"description": "Shape of the geofence.",
+							"default": "circular",
+							"enum": [
+								"circular"
+							]
+						},
+						"lat": {
+							"$id": "#/properties/geofence/zone3/lat",
+							"type": "number",
+							"title": "Latitude (Degrees)",
+							"description": "Latitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"examples": [
+								34
+							],
+							"minimum": -90,
+							"maximum": 90
+						},
+						"lon": {
+							"$id": "#/properties/geofence/zone3/lon",
+							"type": "number",
+							"title": "Longitude (Degrees)",
+							"description": "Longitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"examples": [
+								121
+							],
+							"minimum": -180,
+							"maximum": 180
+						},
+						"radius": {
+							"$id": "#/properties/geofence/zone3/radius",
+							"type": "number",
+							"title": "Radius (Meters)",
+							"description": "Defines circular area covered by the geofence.",
+							"default": 0,
+							"examples": [
+								1000
+							],
+							"minimum": 0,
+							"maximum": 100000
+						},
+						"inside": {
+							"$id": "#/properties/geofence/zone3/inside",
+							"type": "boolean",
+							"title": "Publish inside zone",
+							"description": "If enabled, publish event when the device is inside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"outside": {
+							"$id": "#/properties/geofence/zone3/outside",
+							"type": "boolean",
+							"title": "Publish outside zone",
+							"description": "If enabled, publish event when the device is outside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"enter": {
+							"$id": "#/properties/geofence/zone3/enter",
+							"type": "boolean",
+							"title": "Publish on enter zone",
+							"description": "If enabled, publish event when the device has entered the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"exit": {
+							"$id": "#/properties/geofence/zone3/exit",
+							"type": "boolean",
+							"title": "Publish on exit zone",
+							"description": "If enabled, publish event when the device has exited the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"verif": {
+							"$id": "#/properties/geofence/zone3/verif",
+							"type": "integer",
+							"title": "Time Before Trigger (Seconds)",
+							"description": "Amount of time the device is inside or outside the zone before triggering an event.",
+							"default": 0,
+							"examples": [
+								1
+							],
+							"minimum": 0
+						}
+					}
+				},
+				"zone4": {
+					"$id": "#/properties/geofence/zone4",
+					"type": "object",
+					"title": "Zone 4",
+					"description": "Configuration for Zone 1 settings.",
+					"default": {},
+					"properties": {
+						"enable": {
+							"$id": "#/properties/geofence/zone4/enable",
+							"type": "boolean",
+							"title": "Enable",
+							"description": "If enabled, the zone will be evaluated by the device.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"shape_type": {
+							"$id": "#/properties/geofence/zone4/shape_type",
+							"type": "string",
+							"title": "Shape",
+							"description": "Shape of the geofence.",
+							"default": "circular",
+							"enum": [
+								"circular"
+							]
+						},
+						"lat": {
+							"$id": "#/properties/geofence/zone4/lat",
+							"type": "number",
+							"title": "Latitude (Degrees)",
+							"description": "Latitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"examples": [
+								34
+							],
+							"minimum": -90,
+							"maximum": 90
+						},
+						"lon": {
+							"$id": "#/properties/geofence/zone4/lon",
+							"type": "number",
+							"title": "Longitude (Degrees)",
+							"description": "Longitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"examples": [
+								121
+							],
+							"minimum": -180,
+							"maximum": 180
+						},
+						"radius": {
+							"$id": "#/properties/geofence/zone4/radius",
+							"type": "number",
+							"title": "Radius (Meters)",
+							"description": "Defines circular area covered by the geofence.",
+							"default": 0,
+							"examples": [
+								1000
+							],
+							"minimum": 0,
+							"maximum": 100000
+						},
+						"inside": {
+							"$id": "#/properties/geofence/zone4/inside",
+							"type": "boolean",
+							"title": "Publish inside zone",
+							"description": "If enabled, publish event when the device is inside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"outside": {
+							"$id": "#/properties/geofence/zone4/outside",
+							"type": "boolean",
+							"title": "Publish outside zone",
+							"description": "If enabled, publish event when the device is outside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"enter": {
+							"$id": "#/properties/geofence/zone4/enter",
+							"type": "boolean",
+							"title": "Publish on enter zone",
+							"description": "If enabled, publish event when the device has entered the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"exit": {
+							"$id": "#/properties/geofence/zone4/exit",
+							"type": "boolean",
+							"title": "Publish on exit zone",
+							"description": "If enabled, publish event when the device has exited the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"verif": {
+							"$id": "#/properties/geofence/zone4/verif",
+							"type": "integer",
+							"title": "Time Before Trigger (Seconds)",
+							"description": "Amount of time the device is inside or outside the zone before triggering an event.",
+							"default": 0,
+							"examples": [
+								1
+							],
+							"minimum": 0
+						}
+					}
+				}
+			}
+		}
+	},
+	"additionalProperties": false
+}

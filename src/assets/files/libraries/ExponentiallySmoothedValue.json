@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ExponentiallySmoothedValue",
     "version": "1.0.0",
-    "installs": 1280,
+    "installs": 1390,
     "license": "GPL3",
     "author": "rvnash",
     "sentence": "Class to provide exponential smoothing to a signal which is a time series of values.",
@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/ExponentiallySmoothedValue",
+  "cardUrl": "/reference/device-os/libraries/e/ExponentiallySmoothedValue",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -85,6 +85,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true
           },

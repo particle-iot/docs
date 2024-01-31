@@ -1,0 +1,23 @@
+name: Compile Firmware
+
+on: [push]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Compile application
+        id: compile
+        uses: particle-iot/compile-action@v1
+        with:
+          particle-platform-name: 'boron'
+          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware-artifact
+          path: ${{ steps.compile.outputs.firmware-path }}

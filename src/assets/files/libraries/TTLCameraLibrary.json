@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TTLCameraLibrary",
     "version": "1.0.0",
-    "installs": 328,
+    "installs": 434,
     "author": "davidgs",
     "maintainer": "davidgs <davidgs@davidgs.com>",
     "sentence": "Library for VC0706-based Serial JPEG Cameras",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TTLCameraLibrary",
+  "cardUrl": "/reference/device-os/libraries/t/TTLCameraLibrary",
   "versions": {
     "1.0.0": {
       "builds": {},

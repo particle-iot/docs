@@ -545,7 +545,7 @@ Unlike functions and variables, you typically call Particle.publish from loop() 
 
 ---
 
-For [products](/getting-started/console/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows PRIVATE events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
+For [products](/getting-started/console/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream.
 
 
 ### Particle.publishVitals()
@@ -10260,7 +10260,7 @@ void loop()
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the device, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/getting-started/integrations/webhooks/).
+When using a Particle SIM with the device, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/integrations/webhooks/).
 {{/if}} {{!-- has-cellular --}}
 
 ### connected()
@@ -10575,7 +10575,7 @@ There are two primary ways of working with UDP - buffered operation and unbuffer
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the device, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/getting-started/integrations/webhooks/).
+When using a Particle SIM with the device, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/integrations/webhooks/).
 {{/if}} {{!-- has-cellular --}}
 
 ### begin()
@@ -14040,7 +14040,7 @@ waitUntil(Cellular.ready);
 ```
 {{/if}}
 
-Note: `waitUntil` does not tickle the [application watchdog](/reference/device-os/api/application-watchdog/application-watchdog/). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitUntil` does not tickle the [application watchdog](/reference/device-os/api/watchdog-application/watchdog-application/). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 
 #### waitFor()
@@ -14066,7 +14066,7 @@ if (waitFor(notConnected, 10000)) {
 }
 ```
 
-Note: `waitFor` does not tickle the [application watchdog](/reference/device-os/api/application-watchdog/application-watchdog/). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+Note: `waitFor` does not tickle the [application watchdog](/reference/device-os/api/watchdog-application/watchdog-application/). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 
 {{/if}} {{!-- has-threading --}}
@@ -17139,7 +17139,7 @@ Particle devices are programmed in C/C++. While the Arduino compatibility featur
 | 1.2.1 and later | gcc C++14 | gcc C11 |
 | earlier versions | gcc C++11 | gcc C11 |
 
-The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
+The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/reference/en)
 
 ### Structure
 
@@ -19123,15 +19123,5 @@ particle update
 **Note:** The CLI and `particle update` command is only updated when default firmware versions are released.  This is why we install a specific version of the CLI to get a specific older version of default firmware.
 
 ---
-
-**Debugging for Electron**
-
-##### Instructions on using the Tinker USB Debugging app [are here](https://docs.google.com/document/d/1NdYxPPk_i_mM2wM9oSbSZB1ElDlHA_x-IHY-UC7w62M/pub)
-This is useful for simply capturing the Electron's connection process.
-
----
-
-##### Instructions on using the Electron Troubleshooting app [are here](https://docs.google.com/document/d/1U_Wzy2SPRC3hZnKtw8d6QN2Tm8Q7QwtEbSUAeTkO3bk/pub)
-This is useful for interacting with the Electron's connection process.
 
 #### release-notes-wrapper

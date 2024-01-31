@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BLE_Group",
     "version": "0.4.0",
-    "installs": 5774,
+    "installs": 6927,
     "license": "LGPL",
     "author": "Mariano Goluboff <mariano@particle.io>",
     "sentence": "Create a group of Gen3 Particle devices that can communicate locally over BLE publish/subscribe.",
@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BLE_Group",
+  "cardUrl": "/reference/device-os/libraries/b/BLE_Group",
   "versions": {
     "0.3.0": {
       "builds": {
@@ -169,6 +169,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "boron": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "bsom": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "b5som": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "tracker": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "esomx": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "boron": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "bsom": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "b5som": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "tracker": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "p2": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "diagnostics": true,
             "heartbeat": true,

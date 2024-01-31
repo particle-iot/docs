@@ -181,6 +181,73 @@ textarea.usbSerialConsoleTextArea:focus {
     padding: 2px 0px 2px 0px;
 };
 
+.webhookDemoProductConfigBanner {
+    padding: 10px 10px 10px 10px;
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+};
+
+.webhookDemoProductConfigExplanation {
+    margin: 8px 0px 8px 0px;
+}
+.webhookDemoProductConfigStatus {
+    margin: 8px 0px 8px 0px;
+};
+
+.webhookDemoProductConfigData {
+    margin: 8px 0px 8px 0px;
+};
+
+/* Color codes from https://codepen.io/paazmaya/pen/ZEOydrw */
+.resistor-black {
+    background-color: hsl(0, 0%, 0%, 1);
+    color: #ffffff;
+};
+.resistor-brown {
+    background-color: hsla(30, 100%, 29%, 1);
+    color: #ffffff;
+};
+.resistor-red {
+    background-color: hsla(0, 100%, 50%, 1);
+    color: #000000;
+};
+.resistor-orange {
+    background-color: hsla(30, 100%, 50%, 1);
+    color: #000000;
+};
+.resistor-yellow {
+    background-color: hsla(60, 100%, 50%, 1);
+    color: #000000;
+};
+.resistor-green {
+    background-color: hsla(120, 100%, 50%, 1);
+    color: #000000;
+};
+.resistor-blue {
+    background-color: hsla(240, 100%, 50%, 1);
+    color: #000000;
+};
+.resistor-violet {
+    background-color: hsla(274, 100%, 50%, 1);
+    color: #000000;
+};
+.resistor-gray {
+    background-color: hsla(0, 0%, 50%, 1);
+    color: #000000;
+};
+.resistor-white {
+    background-color: hsla(0, 100%, 100%, 1);
+    color: #000000;
+};
+.resistor-gold {
+    background-color: hsla(46, 65%, 52%, 1);
+    color: #000000;
+};
+.resistor-silver {
+    background-color: hsla(0, 0%, 75%, 1);
+    color: #000000;
+};
+
 @media (prefers-color-scheme: dark) {
     div.apiHelper, div.codeboxBanner {
         background-color: @COLOR_Midnight_500;
@@ -207,6 +274,10 @@ textarea.usbSerialConsoleTextArea:focus {
         // This is the default color in body, defined in basics.less
         color: @COLOR_Gray_100;
     }    
+    .webhookDemoProductConfigBanner {
+        background-color: @COLOR_ParticleBlue_700;
+    }
+
 }
 
 
@@ -236,5 +307,8 @@ textarea.usbSerialConsoleTextArea:focus {
         // This is the default color in body, defined in basics.less
         color: @COLOR_Midnight_500;
     };
-    
+    .webhookDemoProductConfigBanner {
+        background-color: @COLOR_ParticleBlue_400;
+    }
+   
 }

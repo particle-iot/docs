@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SH1106_0",
     "version": "0.1.0",
-    "installs": 3485,
+    "installs": 5361,
     "license": "Whatever Adafruit uses",
     "author": "Adafruit, wonho-maker, Paul Kourney, Gerrit Coetzee",
     "sentence": "Port of wonho-maker's SH1106 port of Adafruit's SSD1306 OLED library based on Paul Kourney's port of the same libray. Anyway, you can run your SSH1106 OLED's now. Don't know which boards this doesn't work for.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_SH1106_0",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_SH1106_0",
   "versions": {
     "0.1.0": {
       "builds": {
@@ -122,6 +122,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "boron": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "bsom": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "b5som": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "tracker": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "esomx": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "boron": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "bsom": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "b5som": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "tracker": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "p2": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "sh1106_128x64_i2c": true,
             "sh1106_128x64_spi": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ard-boost",
     "version": "0.0.3",
-    "installs": 309,
+    "installs": 412,
     "license": "Boost Software License, Version 1.0.",
     "author": "Vladimir Talybin",
     "sentence": "Boost library port.",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ard-boost",
+  "cardUrl": "/reference/device-os/libraries/a/ard-boost",
   "versions": {
     "0.0.3": {
       "builds": {},

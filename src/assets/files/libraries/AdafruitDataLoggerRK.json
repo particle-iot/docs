@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AdafruitDataLoggerRK",
     "version": "0.0.1",
-    "installs": 4655,
+    "installs": 5009,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for the Adafruit SD card and RTC FeatherWing",
     "url": "https://github.com/rickkas7/AdafruitDataLoggerRK",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AdafruitDataLoggerRK",
+  "cardUrl": "/reference/device-os/libraries/a/AdafruitDataLoggerRK",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -152,12 +152,76 @@
             "2-SdRotatingFile": true,
             "3-TimeSync": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "boron": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "bsom": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "b5som": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "tracker": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "p2": {
+            "1-SdFat": false,
+            "2-SdRotatingFile": false,
+            "3-TimeSync": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "boron": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": false,
+            "3-TimeSync": true
+          },
+          "bsom": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "b5som": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "tracker": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "esomx": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.819Z"
     }
   },
-  "readme": "# AdafruitDataLoggerRK\n\n*Library for Adafruit AdaLogger SD card and RTC FeatherWing*\n\n![Adafruit AdaLogger](images/feather-logger.jpg)\n\nThis library is just a wrapper around the two things on the FeatherWing:\n\n- [Adafruit\\_RTClib\\_RK](https://github.com/rickkas7/Adafruit_RTClib_RK), a port of the Adafruit RTCLib (real time clock)\n- [SdCardLogHandlerRK](https://github.com/rickkas7/SdCardLogHandlerRK), a utility for writing log files to SD card\n- SdFat, included by SdCardLogHandlerRK\n\nThe SD card is connected to the SPI bus and the default connection for the CS pin is D5. \n\n| Pin | Usage |\n| --- | ----- | \n| MISO | SD Card DO |\n| MOSI | SD Card DI |\n| SCK | SD Card SCK | \n| D5 | SD Card CS\n\nThe RTC can only be used if the CR1220 battery is inserted. It connects by I2C and uses address 0x68.\n\n| Pin | Usage |\n| --- | ----- | \n| D0 | RTC I2C SDA |\n| D1 | RTC I2C SCL |\n\n## Examples\n\nThere are three examples:\n\n### 1-SdFat\n\nThe SdFat example is basically the SdFat TryMeFirst example and shows how to do basic SdFat operations.\n\n### 2-SdRotatingFile\n\nThis example makes it easy to write to a rotating log file. Each file is sequentially numbered. The largest number is newest, and writing appends to this file.\n\nThe maximum size of the file can be specified, as can the maximum number of files to keep.\n\nThis is intended to be used with text-based information, as data is written to the card by lines (ending with \\n).\n\n### 3-TimeSync\n\nThe TimeSync example shows how the RTC can be set from the cloud time, and how the Time class time can be set from the RTC. This is helpful on the 3rd-generation devices, because the nRF52840 does not maintain time in deep sleep modes or when powered down.\n\n",
+  "readme": "# AdafruitDataLoggerRK\n\n*Library for Adafruit AdaLogger SD card and RTC FeatherWing*\n\nAdafruit AdaLogger (image removed)\n\nThis library is just a wrapper around the two things on the FeatherWing:\n\n- [Adafruit\\_RTClib\\_RK](https://github.com/rickkas7/Adafruit_RTClib_RK), a port of the Adafruit RTCLib (real time clock)\n- [SdCardLogHandlerRK](https://github.com/rickkas7/SdCardLogHandlerRK), a utility for writing log files to SD card\n- SdFat, included by SdCardLogHandlerRK\n\nThe SD card is connected to the SPI bus and the default connection for the CS pin is D5. \n\n| Pin | Usage |\n| --- | ----- | \n| MISO | SD Card DO |\n| MOSI | SD Card DI |\n| SCK | SD Card SCK | \n| D5 | SD Card CS\n\nThe RTC can only be used if the CR1220 battery is inserted. It connects by I2C and uses address 0x68.\n\n| Pin | Usage |\n| --- | ----- | \n| D0 | RTC I2C SDA |\n| D1 | RTC I2C SCL |\n\n## Examples\n\nThere are three examples:\n\n### 1-SdFat\n\nThe SdFat example is basically the SdFat TryMeFirst example and shows how to do basic SdFat operations.\n\n### 2-SdRotatingFile\n\nThis example makes it easy to write to a rotating log file. Each file is sequentially numbered. The largest number is newest, and writing appends to this file.\n\nThe maximum size of the file can be specified, as can the maximum number of files to keep.\n\nThis is intended to be used with text-based information, as data is written to the card by lines (ending with \\n).\n\n### 3-TimeSync\n\nThe TimeSync example shows how the RTC can be set from the cloud time, and how the Time class time can be set from the RTC. This is helpful on the 3rd-generation devices, because the nRF52840 does not maintain time in deep sleep modes or when powered down.\n\n",
   "allVersions": [
     "0.0.1"
   ]

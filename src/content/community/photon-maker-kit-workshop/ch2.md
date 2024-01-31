@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Session 2 - Reading from sensors and posting data to the cloud
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            | Start programming your Photon, and leverage the device cloud to take and post sensor readings. |
 | --------------------------- | ---------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to read sensor data; Using Particle variables and cloud functions.                         |
@@ -194,7 +198,7 @@ The bulk of your program, from state management, handling user input, reading fr
 
 Flashing an LED when we take a temperature reading is ok, but wouldn't it be nice if we could actually see the temperature readings we've taken somehow? With Particle Device Cloud primitives, we can do just that. First, we're going to expose our temperature variable to the Device Cloud, then we'll introduce a function for triggering device readings on-demand. Finally, we'll publish an event each time a reading is taken so that other apps can subscribe to the sensor data our device is collecting!
 
-### Adding a Variable
+### Adding a variable
 
 1. In the `setup` function, add a `Particle.variable`. This class method tells the Particle device cloud that a variable named `tempF` should be created to hold the current value of the `temp` variable in our sketch.
 

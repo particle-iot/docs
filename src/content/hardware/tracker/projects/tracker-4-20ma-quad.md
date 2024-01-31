@@ -47,10 +47,10 @@ This example can be used three different ways:
 - Or you can populate 0.1" male header pins, which are handy for use with male-to-female Dupont wires for connecting directly to the Tracker SoM evaluation board.
 
 
-## Hardware - Quad
+## Hardware - quad
 
 
-### Schematic - Quad
+### Schematic - quad
 
 ![Quad Schematic](/assets/images/app-notes/AN021/quad-schematic-1.png)
 
@@ -86,11 +86,11 @@ Originally, I used a 100 ohm resistor is used so the maximum current of 30 mA wi
 | 30 mA   |  3.0 V  | 1506      | Short circuit |
 
 
-### Board Layout - Quad
+### Board layout - quad
 
 ![Quad Board](/assets/images/app-notes/AN021/quad-board.png)
 
-### BoM (Bill of Materials) - Quad
+### BoM (Bill of Materials) - quad
 
 | Quantity | Part | Description | Example | Cost |
 | :---: | :--- | :--- | :--- | ---: |
@@ -132,7 +132,7 @@ By the way, this [inexpensive tool from Amazon](https://www.amazon.com/dp/B07L49
 
 ## Firmware
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 
 You can download a complete project for use with Particle Workbench as a zip file here:
@@ -185,7 +185,7 @@ If you prefer to edit project.properties directly, add these:
 
 
 
-## Digging In - Quad
+## Digging in - quad
 
 ```cpp
 const size_t NUM_SENSOR_CONFIG = 2;
@@ -245,7 +245,7 @@ void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, cons
 
 This adds the keys defined in the `SensorConfig` to the location publishes.
 
-## Revision History
+## Revision history
 
 ### 0.0.2 (2020-08-11)
 

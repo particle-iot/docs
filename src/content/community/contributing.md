@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# How to Contribute to Particle's Open Source Repositories
+# How to contribute to Particle's open source repositories
 
 {{box op="start" cssClass="boxed warningBox"}}
 This page is no longer maintained and is provided for historical reference only
@@ -12,7 +12,7 @@ This page is no longer maintained and is provided for historical reference only
 
 Particle is an open-source platform. You might find something you'd like changed, a feature you'd like implemented, or a bug you see a fix for. If so, you can create a pull request or an issue on one of our open-source GitHub repos. Here's a quick run-down of some repos you might want to know about, as well as some information on how to contribute.
 
-## Open-Source Repos
+## Open-Source repos
 
 Go to https://github.com/particle-iot to see all the available repositories. There are quite a few! Here's a guide to the most popular repos.
 
@@ -63,7 +63,7 @@ The [`particle-dev`](https://github.com/particle-iot/particle-dev) repo contains
 The [`docs`](https://github.com/particle-iot/docs) repo contains Particle's open source [documentation](/reference/device-os/firmware/). If you want something to be added or changed, just make a pull request.
 
 
-### Official Libraries
+### Official libraries
 
 Particle maintains several open source libraries to be used with official Particle shields. They include:
 
@@ -72,12 +72,12 @@ Particle maintains several open source libraries to be used with official Partic
 - [`PowerShield`](https://github.com/particle-iot/PowerShield): the library intended for use with the [Photon Power Shield](/reference/datasheets/accessories/legacy-accessories/#power-shield)
 
 
-### Local Cloud
+### Local cloud
 
 The [`spark-server`](https://github.com/particle-iot/spark-server) repo is an API compatible open source server for interacting with devices speaking the [`spark-protocol`](https://github.com/particle-iot/spark-protocol). If you are interested in the local cloud, this repo is for you.
 
 
-### Hardware Design
+### Hardware design
 
 We share some hardware design files for each of our dev boards. These open source repos are designed mostly to give you a sense of what we are working on, but you are welcome to make contributions here as well if you have interest and expertise.
 

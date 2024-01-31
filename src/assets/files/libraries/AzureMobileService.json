@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AzureMobileService",
     "version": "0.0.3",
-    "installs": 352,
+    "installs": 445,
     "license": "GPL",
     "author": "Brian Sherwin <github:bsherwin>; Paul DeCarlo <github:toolboc>; Bill Fink <github:WhatsTheBigIT>",
     "sentence": "Simplify getting data to Azure Mobile Services",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AzureMobileService",
+  "cardUrl": "/reference/device-os/libraries/a/AzureMobileService",
   "versions": {
     "0.0.3": {
       "builds": {
@@ -140,6 +140,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "boron": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "bsom": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "b5som": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "tracker": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "esomx": {
+            "1_Create": false,
+            "2_Read": false,
+            "3_Update": false,
+            "4_Delete": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "boron": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "bsom": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "b5som": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "tracker": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "p2": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1_Create": true,
             "2_Read": true,

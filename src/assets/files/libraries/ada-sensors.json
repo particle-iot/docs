@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/ada-sensors",
+  "cardUrl": "/reference/device-os/libraries/a/ada-sensors",
   "versions": {
     "1.0.0": {
       "builds": {

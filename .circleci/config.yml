@@ -8,7 +8,7 @@ orbs:
 jobs:
   build:  
     docker:
-      - image: cimg/node:12.22
+      - image: cimg/node:16.19
     steps:
       - checkout
       - node/install-packages
@@ -23,18 +23,19 @@ jobs:
           paths:
             - build
 
-  deploy-staging:
-    docker:
-      - image: 'cimg/python:3.6'
-    steps:
-      - attach_workspace:
-          at: .
-      - aws-s3/sync:
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=300"
-          from: build
-          to: 's3://docs.staging.particle.io'
+  # deploys to docs.staging.particle.io are currently disabled
+  #deploy-staging:
+  #  docker:
+  #    - image: 'cimg/python:3.6'
+  #  steps:
+  #    - attach_workspace:
+  #        at: .
+  #    - aws-s3/sync:
+  #        arguments: |
+  #          --acl public-read \
+  #          --cache-control "max-age=300"
+  #        from: build
+  #        to: 's3://docs.staging.particle.io'
 
   deploy-prod:
     docker:
@@ -56,7 +57,7 @@ jobs:
           template: basic_fail_1
   test:  
     docker:
-      - image: cimg/node:12.22
+      - image: cimg/node:16.19
     steps:
       - checkout
       - node/install-packages
@@ -74,12 +75,12 @@ workflows:
       - build:
           context:
             - slack-secrets
-      - deploy-staging:
-          requires:
-            - build
-          filters:
-            branches:
-              only: staging
+      #- deploy-staging:
+      #    requires:
+      #      - build
+      #    filters:
+      #      branches:
+      #        only: staging
       - deploy-prod:
           requires:
             - build

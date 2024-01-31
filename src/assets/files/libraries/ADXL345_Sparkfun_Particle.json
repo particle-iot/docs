@@ -1,0 +1,304 @@
+{
+  "type": "libraries",
+  "id": "ADXL345_Sparkfun_Particle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ADXL345_Sparkfun_Particle/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "ADXL345_Sparkfun_Particle",
+    "version": "1.0.2",
+    "installs": 4123,
+    "author": "Rob Parke",
+    "sentence": "Particle library for the Sparkfun ADXL345 Accelerometer",
+    "paragraph": "Particle library for the Sparkfun ADXL345 Accelerometer based on the Sparkfun library for Arduino",
+    "url": "https://github.com/reparke/SparkFun_ADXL345_Particle_Library",
+    "repository": "https://github.com/reparke/SparkFun_ADXL345_Particle_Library.git",
+    "architectures": [],
+    "dependencies": {
+      "adxl345-sparkfun-particle": "1.0.2"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/ADXL345_Sparkfun_Particle",
+  "versions": {
+    "1.0.0": {
+      "added": "2023-03-21T15:15:27.510Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "boron": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "bsom": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "b5som": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "tracker": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "p2": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "boron": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "bsom": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "b5som": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "tracker": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "esomx": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "electron": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "argon": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "boron": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "electron": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "argon": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          },
+          "boron": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Graph": false
+          }
+        }
+      }
+    },
+    "1.0.2": {
+      "added": "2023-12-30T12:22:36.397Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "boron": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "bsom": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "b5som": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "tracker": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "p2": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "boron": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "bsom": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "b5som": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "tracker": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "esomx": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          },
+          "electron": {
+            "SparkFun_ADXL345_Calibration": false,
+            "SparkFun_ADXL345_Example": false,
+            "SparkFun_ADXL345_Tap": false,
+            "SparkFun_BabyBlynkMonitorThing": false,
+            "Sparkfun_ADXL345_Compare_Range": false,
+            "Sparkfun_ADXL345_Graph": false,
+            "Sparkfun_ADXL345_Orientation": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ADXL345_Sparkfun_Particle\nThis library for Particle devices is based on Sparkfun's I2C/SPI Arduino Library for ADXL345\n\nUsing this Library, you have the option of using either SPI or I2C to communicate with the ADXL345.\n\nIt is fairly reasonable to use and straight forward.\n\nYou will also be able to calibrate the ADXL345 whenever necessary as shown in the example.\n\nSparkFun ADXL345 Arduino Library\n========================================\n\n[![SparkFun ADXL345](https://cdn.sparkfun.com//assets/parts/3/9/0/2/09836-_01c.jpg)](https://www.sparkfun.com/products/9836)\n\n[*SparkFun Triple Axis Accelerometer Breakout - ADXL345*](https://www.sparkfun.com/products/9836)\n\nThe ADXL345 is a small, thin, low power, 3-axis MEMS accelerometer with high resolution (13-bit) measurement at up to +-16 g. Digital output data is formatted as 16-bit twos complement and is accessible through either a SPI (3- or 4-wire) or I2C digital interface.\n\nThe ADXL345 is well suited to measures the static acceleration of gravity in tilt-sensing applications, as well as dynamic acceleration resulting from motion or shock. Its high resolution (4 mg/LSB) enables measurement of inclination changes less than 1.0 degrees.\n\nThis Arduino library allows for both SPI or I2C communication. It also gives the user the ability to explore the following customizable features: tap/double tap detection, acvitivty/inactivity monitoring, and free fall detection.  \n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (**SparkFun_ADXL345_Example.ino** and **SparkFun_ADXL345_Calibration.ino**). Run these from the Arduino IDE. \n* Source files for the library (**SparkFun_ADXL345.cpp** and **SparkFun_ADXL345.h**).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/ADXL345_Breakout)** - Main repository (including hardware files) for the SparkFun Triple Axis Accelerometer Breakout - ADXL345.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/adxl345-hookup-guide)** - Basic hookup guide for the SparkFun Triple Axis Accelerometer Breakout - ADXL345.\n\nProducts that use this Library \n---------------------------------\n\n* [SparkFun Triple Axis Accelerometer Breakout - ADXL345 - PRT-9836](https://www.sparkfun.com/products/9836)- The ADXL345 is a small, thin, low power, 3-axis MEMS accelerometer with high resolution (13-bit) measurement at up to +-16 g. Digital output data is formatted as 16-bit twos complement and is accessible through either a SPI (3- or 4-wire) or I2C digital interface.\n\nVersion History\n---------------\n\n* [1.0.0](https://github.com/sparkfun/SparkFun_ADXL345_Arduino_Library/releases/tag/V_1.0.0) - Initial release of the Triple Axis Accelerometer Breakout - ADXL345 SparkFun Library.\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n_<COLLABORATION CREDIT>_\n",
+  "allVersions": [
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
+}

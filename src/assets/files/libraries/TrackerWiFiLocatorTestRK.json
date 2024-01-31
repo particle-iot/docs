@@ -1,0 +1,144 @@
+{
+  "type": "libraries",
+  "id": "TrackerWiFiLocatorTestRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/TrackerWiFiLocatorTestRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "TrackerWiFiLocatorTestRK",
+    "version": "0.0.1",
+    "installs": 151,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Library for using Google Maps Device Locator Integration",
+    "url": "https://github.com/rickkas7/TrackerWiFiLocatorTestRK",
+    "repository": "https://github.com/rickkas7/TrackerWiFiLocatorTestRK.git",
+    "architectures": [
+      "tracker"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/reference/device-os/libraries/t/TrackerWiFiLocatorTestRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T19:57:05.784Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "simple": false
+          },
+          "boron": {
+            "simple": false
+          },
+          "bsom": {
+            "simple": false
+          },
+          "b5som": {
+            "simple": false
+          },
+          "tracker": {
+            "simple": true
+          },
+          "p2": {
+            "simple": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "simple": false
+          },
+          "boron": {
+            "simple": false
+          },
+          "bsom": {
+            "simple": false
+          },
+          "b5som": {
+            "simple": false
+          },
+          "tracker": {
+            "simple": true
+          },
+          "esomx": {
+            "simple": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "simple": false
+          },
+          "electron": {
+            "simple": false
+          },
+          "argon": {
+            "simple": false
+          },
+          "boron": {
+            "simple": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "simple": false
+          },
+          "electron": {
+            "simple": false
+          },
+          "argon": {
+            "simple": false
+          },
+          "boron": {
+            "simple": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "simple": false
+          },
+          "boron": {
+            "simple": false
+          },
+          "bsom": {
+            "simple": false
+          },
+          "b5som": {
+            "simple": false
+          },
+          "tracker": {
+            "simple": true
+          },
+          "p2": {
+            "simple": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "simple": false
+          },
+          "boron": {
+            "simple": false
+          },
+          "bsom": {
+            "simple": false
+          },
+          "b5som": {
+            "simple": false
+          },
+          "tracker": {
+            "simple": true
+          },
+          "esomx": {
+            "simple": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Tracker Wi-Fi Locator\n\nTemporary support for the Google Maps Device Locator integration on the Tracker SoM and Tracker One for Wi-Fi geolocation.\n\nIn late 2020 or early 2021 a version of Device OS and Tracker Edge with support for location fusion will be available. This will utilize all three methods of location detection:\n\n- GNSS (GPS)\n- Wi-Fi Geolocation\n- Cellular Tower Location\n\nUntil this is available this library can be used to do a Wi-Fi scan for geolocation separately. This requires the use of the [Google Maps Device Locator](https://docs.particle.io/tutorials/integrations/google-maps/) integration. It's really best to wait until the official support is in place as this code is designed only for temporary use. It's not well tested. It does illustate how to communicate with the ESP32 Wi-Fi module on the Tracker SoM, however.\n\nThe official support will be much smaller because it can take advantage of features within Device OS already (AT command parser, ESP32 AT support) as well as not require a separate Google Geolocation integration. It's best to just wait if you can.\n\nThis can only be used on the Tracker SoM! Device OS 2.0.0-rc.3 or later is recommended.\n\nFrom the Command Palette, **Particle: Install Library** then install **TrackerWiFiLocatorTestRK**.\n\nThe latest build and instructions can be found [in Github](https://github.com/rickkas7/TrackerWiFiLocatorTestRK).\n\n## Firmware Library API\n\n### Sample Code\n\n```cpp\n#include \"TrackerWiFi.h\"\n#include \"google-maps-device-locator.h\"\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(SEMI_AUTOMATIC);\n\nSerialLogHandler logHandler;\n\nTrackerWiFi trackerWiFi;\n\nGoogleMapsDeviceLocator locator;\n\n\nvoid setup() {\n    // Optional: Enable to make it easier to see debug USB serial messages at startup\n    // waitFor(Serial.isConnected, 15000);\n    // delay(1000);\n\n    // Set up the Tracker Wi-Fi module (required)\n    trackerWiFi.setup();\n    \n    // Set the Google Maps Device Locator parameters. This sets it to periodic\n    // mode but you can also set it to manual mode. This is also where you would\n    // register a callback\n    locator.withLocateOnce();\n    \n    // .withCheckFlags(GoogleMapsDeviceLocator::CHECK_CELLULAR | GoogleMapsDeviceLocator::CHECK_WIFI);\n    // .withLocateOnce()\n    // .withLocatePeriodic(120);\n\n    Particle.connect();\n}\n\nvoid loop() {\n    // Be sure to call locator.loop() from loop!\n    locator.loop();\n}\n```\n\n\n### Creating an object\n\nYou normally create an locator object as a global variable in your program for both the locator \nand tracker objects:\n\n```\nTrackerWiFi trackerWiFi;\nGoogleMapsDeviceLocator locator;\n```\n\n### Set up Tracker WiFi object\n\nFrom setup():\n\n```\ntrackerWiFi.setup();\n```\n\n### Operating modes\n\nThere are three modes of operation:\n\nIf you want to only publish the location once when the device starts up, use withLocateOnce from your setup function.\n\n```\nlocator.withLocateOnce();\n```\n\nTo publish every *n* seconds while connected to the cloud, use withLocatePeriodic. The value is in seconds.\n\n```\nlocator.withLocatePeriodic(120);\n```\n\nTo manually connect, specify neither option and call publishLocation when you want to publish the location\n\n```\nlocator.publishLocation();\n```\n\n### The loop\n\nWith periodic and locate once modes, you must call \n\n```\nlocator.loop();\n```\n\nfrom your loop. It doesn't hurt to always call it, even in manual location mode. It gives the library time to process the data.\n\n### Customizing the event name\n\nThe default event name is **deviceLocator**. You can change that in setup using:\n\n```\nlocator.withEventName(\"myEventName\");\n```\n\nThis also must be updated in the integration, since the eventName is what triggers the webhook. \n\n### Subscription\n\nYou can also have the library tell your firmware code what location was found. Use the withSubscribe option with a callback function.\n\nThis goes in setup() for example:\n\n```\nlocator.withSubscribe(locationCallback).withLocatePeriodic(120);\n```\n\nThe callback function looks like this:\n\n```\nvoid locationCallback(float lat, float lon, float accuracy)\n```\n\nOne possibility is that you could display this information on a small OLED display, for example.\n\n### Debugging\n\n```\nSerialLogHandler logHandler;\n```\n\n## Adding to Tracker Edge Firmware\n\n```cpp\n#include \"Particle.h\"\n\n#include \"tracker_config.h\"\n#include \"tracker.h\"\n\n#include \"TrackerWiFi.h\"\n#include \"google-maps-device-locator.h\"\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(SEMI_AUTOMATIC);\n\nPRODUCT_ID(TRACKER_PRODUCT_ID);\nPRODUCT_VERSION(TRACKER_PRODUCT_VERSION);\n\nSerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {\n    { \"app.gps.nmea\", LOG_LEVEL_INFO },\n    { \"app.gps.ubx\",  LOG_LEVEL_INFO },\n    { \"ncp.at\", LOG_LEVEL_INFO },\n    { \"net.ppp.client\", LOG_LEVEL_INFO },\n});\n\nTrackerWiFi trackerWiFi;\n\nGoogleMapsDeviceLocator locator;\n\n\nvoid setup()\n{\n    Tracker::instance().init();\n\n    // Set up the Tracker Wi-Fi module (required)\n    trackerWiFi.setup();\n    \n    // Set the Google Maps Device Locator parameters. This sets it to periodic\n    // mode but you can also set it to manual mode. This is also where you would\n    // register a callback\n    locator.withLocateOnce();\n    \n    // .withCheckFlags(GoogleMapsDeviceLocator::CHECK_CELLULAR | GoogleMapsDeviceLocator::CHECK_WIFI);\n    // .withLocateOnce()\n    // .withLocatePeriodic(120);\n\n    Particle.connect();\n}\n\nvoid loop()\n{\n     Tracker::instance().loop();\n\n    // Be sure to call locator.loop() from loop!\n    locator.loop();\n}\n\n```\n\n\n## Version History\n\n#### 0.0.1 (2020-10-22)\n\n- Initial version\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

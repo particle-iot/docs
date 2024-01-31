@@ -1,66 +1,105 @@
-[
-  {
-    "version": 18,
-    "bin": "tracker-edge-18@3.3.0.bin",
-    "target": "3.3.0",
-    "zip": "v18.zip",
-    "v": "v18",
-    "title": "Tracker Edge v18 (Device OS 3.3.0)"
-  },
-  {
-    "version": 17,
-    "bin": "tracker-edge-17@3.2.0.bin",
-    "target": "3.2.0",
-    "zip": "v17.zip",
-    "v": "v17",
-    "title": "Tracker Edge v17 (Device OS 3.2.0)"
-  },
-  {
-    "version": 16,
-    "bin": "tracker-edge-16@3.1.0.bin",
-    "target": "3.1.0",
-    "zip": "v16.zip",
-    "v": "v16",
-    "title": "Tracker Edge v16 (Device OS 3.1.0)"
-  },
-  {
-    "version": 15,
-    "bin": "tracker-edge-15@3.1.0.bin",
-    "target": "3.1.0",
-    "zip": "v15.zip",
-    "v": "v15",
-    "title": "Tracker Edge v15 (Device OS 3.1.0)"
-  },
-  {
-    "version": 14,
-    "bin": "tracker-edge-14@3.0.0.bin",
-    "target": "3.0.0",
-    "zip": "v14.zip",
-    "v": "v14",
-    "title": "Tracker Edge v14 (Device OS 3.0.0)"
-  },
-  {
-    "version": 13,
-    "bin": "tracker-edge-13@3.0.0.bin",
-    "target": "3.0.0",
-    "zip": "v13.zip",
-    "v": "v13",
-    "title": "Tracker Edge v13 (Device OS 3.0.0)"
-  },
-  {
-    "version": 12,
-    "bin": "tracker-edge-12@3.0.0-rc.2.bin",
-    "target": "3.0.0-rc.2",
-    "zip": "v12.zip",
-    "v": "v12",
-    "title": "Tracker Edge v12 (Device OS 3.0.0-rc.2)"
-  },
-  {
-    "version": 11,
-    "bin": "tracker-edge-11@2.0.0-rc.4.bin",
-    "target": "2.0.0-rc.4",
-    "zip": "v11.zip",
-    "v": "v11",
-    "title": "Tracker Edge v11 (Device OS 2.0.0-rc.4)"
-  }
-]
+{
+    "versions": [
+        {
+            "v": "v18",
+            "title": "Tracker Edge Firmware v18",
+            "releaseNotes": "# Tracker Edge v18 Release\r\nBuilt against device OS v3.3.0\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v3.2.0 or greater.\r\n\r\n### FEATURES\r\n\r\n- Store and Forward feature for saving publish data while offline.\r\n- Added support for Memfault device monitoring.\r\n- Added battery charging configuration overrides.\r\n\r\n### ENHANCEMENTS\r\n\r\n- Added a new log category for TrackerSleep class.\r\n- Added more control for GNSS module dead reckoning.\r\n- Added GNSS enhancements for time-to-first-fix (TTFF).\r\n\r\n### BUGFIXES\r\n\r\n- Fix setting of HDOP to geofence zones.\r\n\r\n### OTHER CHANGES\r\n\r\n- Add configuration schema file to the project.\r\n- Cleared several compile warnings.\r\n- Changes for building under device OS versions above 3.x.",
+            "bin": "tracker-edge-18@3.3.0.bin",
+            "version": 18,
+            "zip": "v18.zip",
+            "target": "3.3.0",
+            "schemaVersion": 17,
+            "filename": "tracker-config-schema-17.json"
+        },
+        {
+            "v": "v17",
+            "title": "Tracker Edge Firmware v17",
+            "releaseNotes": "# Tracker Edge v17 Release\r\nBuilt against device OS v3.2.0\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v3.2.0 or greater.\r\n\r\n### FEATURES\r\n\r\n- Geofence feature with settings for 4 circular zones.\r\n\r\n### ENHANCEMENTS\r\n\r\n- Replaced application AM1805 RTC driver with new device OS watchdog calls.\r\n\r\n### BUGFIXES\r\n\r\n- Disable the hardware watchdog whenever performing firmware updates over OTA.\r\n\r\n### OTHER CHANGES\r\n\r\n- [TRACKER ONE] Changed the low battery evaluation interval to catch low state-of-charge sooner.\r\n",
+            "bin": "tracker-edge-17@3.2.0.bin",
+            "version": 17,
+            "zip": "v17.zip",
+            "target": "3.2.0"
+        },
+        {
+            "v": "v16",
+            "title": "Tracker Edge Firmware v16",
+            "releaseNotes": "# Tracker Edge v16 Release\r\nBuilt against device OS v3.1.0\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v3.0.0 or greater.\r\n\r\n### FEATURES\r\n\r\n- Additional setting and implementation for GNSS initialization retries if failures are detected.\r\n\r\n### ENHANCEMENTS\r\n\r\n- The ublox GPS library has been updated to provide performance counters.\r\n\r\n### BUGFIXES\r\n\r\n- Fix to calculating sleep and execution times when the device is in areas of low connectivity.\r\n\r\n### OTHER CHANGES\r\n\r\n- Switched several logging calls from the LOG() macro to the functional Log() method.\r\n",
+            "bin": "tracker-edge-16@3.1.0.bin",
+            "version": 16,
+            "zip": "v16.zip",
+            "target": "3.1.0"
+        },
+        {
+            "v": "v15",
+            "title": "Tracker Edge Firmware v15",
+            "releaseNotes": "# Tracker Edge v15 Release\r\nBuilt against device OS v3.1.0\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v3.0.0 or greater.\r\n\r\n### FEATURES\r\n\r\n- Additional setting for GNSS lock stability criteria based on HDOP rather than using existing horizontal accuracy.\r\n- Both HDOP and VDOP figures were added to outgoing location publishes.\r\n\r\n### ENHANCEMENTS\r\n\r\n- The CAN bus library can be initialized in listen-only mode.\r\n- GPS u-blox driver changes to detect errors during initialization and return immediately upon such errors.\r\n- An additional trigger named \"err\" will be sent in location publishes if GNSS module errors are encountered.\r\n- [TRACKER ONE] The GPS LED will flash rapidly if GNSS module errors are encountered.\r\n- WiFi scanning time has been shortened in order to reduce power usage.\r\n\r\n### BUGFIXES\r\n\r\n- GNSS module power on and off sequence changes for modules that may power up in the wrong interface configuration.",
+            "bin": "tracker-edge-15@3.1.0.bin",
+            "version": 15,
+            "zip": "v15.zip",
+            "target": "3.1.0"
+        },
+        {
+            "v": "v14",
+            "title": "Tracker Edge Firmware v14",
+            "releaseNotes": "# Tracker Edge v14 Release\r\nBuilt against device OS v3.0.0\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v3.0.0-rc.2 or greater.\r\n\r\n### FEATURES\r\n\r\nNo new features.\r\n\r\n### ENHANCEMENTS\r\n\r\nNo new enhancements.\r\n\r\n### BUGFIXES\r\n\r\n- Fuel gauge reports incorrect battery charge during sleep.",
+            "bin": "tracker-edge-14@3.0.0.bin",
+            "version": 14,
+            "zip": "v14.zip",
+            "target": "3.0.0"
+        },
+        {
+            "v": "v13",
+            "title": "Tracker Edge Firmware v13",
+            "releaseNotes": "# Tracker Edge v13 Release\r\nBuilt against device OS v3.0.0\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v3.0.0-rc.2 or greater.\r\n\r\n### FEATURES\r\n\r\n- Added reset command from cloud.\r\n\r\n### ENHANCEMENTS\r\n\r\n- Updated ublox GNSS drivers to allow UDR model changes.\r\n\r\n### BUGFIXES\r\n\r\n- Increased I2C timeouts for the AM1805 RTC driver as a precaution against crashes.\r\n- [TRACKER ONE] Fixed GNSS LED state to make sure it is off when going into shipping mode.",
+            "bin": "tracker-edge-13@3.0.0.bin",
+            "version": 13,
+            "zip": "v13.zip",
+            "target": "3.0.0"
+        },
+        {
+            "v": "v12",
+            "title": "Tracker Edge Firmware v12",
+            "releaseNotes": "# Tracker Edge v12 Release\r\nBuilt against device OS v3.0.0-rc.2.\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v3.0.0-rc.2 or greater.\r\n\r\n### FEATURES\r\n\r\n- Added enhanced location services (Location Fusion).\r\n- Added GNSS speed to location publishes.\r\n- Added dynamic charge current control over temperature.\r\n- [TRACKER ONE] Added IO/CAN power controls for configuration in application.\r\n\r\n### ENHANCEMENTS\r\n\r\n- Changed priorities of first and immediate publishes.\r\n- Reduced application footprint by migrating to wiring library mutexes.\r\n- Allow device OS to control battery charge enablement.\r\n\r\n### BUGFIXES\r\n\r\n- Fixed issue of default chip select SPI initialization effect on D5.\r\n- Fixed power management issue with incorrectly written DCT values.\r\n- Fixed issue with multiple publishes at boot.",
+            "bin": "tracker-edge-12@3.0.0-rc.2.bin",
+            "version": 12,
+            "zip": "v12.zip",
+            "target": "3.0.0-rc.2"
+        },
+        {
+            "v": "v11",
+            "title": "Tracker Edge Firmware v11",
+            "releaseNotes": "# Tracker Edge v11 Release\r\nBuilt against device OS release v2.0.0-rc.4\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v2.0.0-rc.3 or greater.\r\n\r\n### FEATURES\r\n\r\n- Added configurable setting to enable or disable parsing of location publish acknowledgements from the cloud.\r\n\r\n### ENHANCEMENTS\r\n\r\n- Changed CAN library enumerations for setting power modes so they do not collide with symbols in other device driver libraries.\r\n- Changed CAN library so that cloud compiles are possible.\r\n\r\n### BUGFIXES\r\n\r\n- Fixed issue of no location publishes when GNSS signal quality is low and out-of-lock.\r\n- [TRACKER ONE] Changed BLE antenna configuration from internal to external.",
+            "bin": "tracker-edge-11@2.0.0-rc.4.bin",
+            "version": 11,
+            "zip": "v11.zip",
+            "target": "2.0.0-rc.4"
+        },
+        {
+            "v": "v10",
+            "title": "Tracker Edge Firmware v10",
+            "releaseNotes": "# Tracker Edge v10 Release\r\nBuilt against device OS release v2.0.0-rc.3\r\n\r\n### COMPATIBILTY\r\n\r\nMust be built using device OS v2.0.0-rc.3 or greater.\r\n\r\n### FEATURES\r\n\r\n- Added sleep feature to place device into ultra low power mode sleep and wake periodically for timed and triggered events.\r\n\r\n### ENHANCEMENTS\r\n\r\n- Improved GPS lock status with a stability check of horizontal accuracy.  Location publishes will be held off until the accuracy is stable.\r\n- Placed CAN and ESP32 devices into low power mode to reduce overall power consumption\r\n- Enabled the RTC watchdog by default\r\n- [TRACKER ONE] Lowered low battery detect shutoff from 8% state-of-charge to 2% to gain more operational time.  Lowered battery warning from 15% to 8%.\r\n\r\n### BUGFIXES\r\n\r\n- [TRACKER ONE] Fixed intermittent issues with battery charge enablement/disablement when lower than 0 degrees C and above 50 degrees C",
+            "bin": "tracker-edge-10@2.0.0-rc.3.bin",
+            "version": 10,
+            "zip": "v10.zip",
+            "target": "2.0.0-rc.3"
+        },
+        {
+            "v": "v9",
+            "title": "Tracker Edge Firmware v9",
+            "releaseNotes": "# Tracker Edge v9 Release\r\nBuilt against device OS release v1.5.4-rc.2\r\n\r\n### FEATURES\r\n* Added lock trigger that signifies changes in GNSS lock status\r\n* Added CAN bus library as submodule\r\n* [TRACKER ONE] Disable battery charging when temperatures fall below 0 degrees C or rise above 50 degrees C in order to protect battery outside of operational temperatures\r\n* [TRACKER ONE] Force device to enter shipping mode when battery charge falls below 8% and publish location message with battery low trigger.  Publish location message with battery warning when charge falls below 15%.\r\n\r\n### ENHANCEMENTS\r\n\r\n* Improved ease-of-use in git clones of repository submodules by shifting from SSH to HTTPS URL links\r\n* Changed default minimum and maximum publish intervals to 15 minutes and 1 hour respectively in order to conserve user data limits\r\n\r\n### BUGFIXES\r\n\r\n* Fixed BMI160 (IMU) power consumption when placing devce into suspend mode (sleep)\r\n* Fixed BMI160 (IMU) SPI bus access timing differences when operating in normal versus low power and suspend modes\r\n* Fixed ublox GNSS module library warnings for packed vs unpacked structure casting\r\n* Fixed issue with parsing input of malformed JSON configuration commands\r\n* Fixed BMI160 (IMU) configuration settings to return to default values upon factory reset",
+            "bin": "tracker-edge-9@1.5.4-rc.2.bin",
+            "version": 9,
+            "zip": "v9.zip",
+            "target": "1.5.4-rc.2"
+        },
+        {
+            "v": "v8",
+            "title": "Tracker Edge Firmware v8",
+            "releaseNotes": "# Tracker Edge v8 Release\r\nBuilt against device OS release v1.5.4-rc.1\r\n\r\n### FEATURES\r\n* Detect and differentiate Tracker One and evaluation board products\r\n* Receive USB bus messages to configure parameters or command firmware\r\n\r\n### ENHANCEMENTS\r\n* Changed several tracker classes to singleton for ease-of-use\r\n\r\n### BUGFIXES\r\n* Fixed memory leak with cloud service messages to be published\r\n* Fixed memory leak related to GNSS power cycling",
+            "bin": "tracker-edge-8@1.5.4-rc.1.bin",
+            "version": 8,
+            "zip": "v8.zip",
+            "target": "1.5.4-rc.1"
+        }
+    ]
+}

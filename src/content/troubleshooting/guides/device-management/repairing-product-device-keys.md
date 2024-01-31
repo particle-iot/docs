@@ -52,7 +52,7 @@ On Gen 3 devices, if the SPI flash or Little FS file system becomes corrupted or
 
 ```
 particle keys server  
-particle keys doctor [deviceid]
+particle keys doctor
 ```
 
 The most common way to repair the keys is using these two CLI commands. The caveat is that the CLI must be logged into the account that the device is claimed to. This is the normal situation for development devices, as they're typically your device, and you are logged into your own account.

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LIS3DH",
     "version": "1.0.3",
-    "installs": 61842,
+    "installs": 63057,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for the Adafruit LIS3DH Accelerometer.",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_LIS3DH",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_LIS3DH",
   "versions": {
     "1.0.3": {
       "builds": {
@@ -125,6 +125,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "boron": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "bsom": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "b5som": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "tracker": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "esomx": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "boron": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "bsom": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "b5som": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "tracker": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "p2": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "acceldemo": false,
             "adcdemo": false,

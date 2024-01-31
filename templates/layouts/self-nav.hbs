@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="two-columns">
+<head>
+  {{> head }}
+</head>
+<body>
+  <div id="docs" data-level>
+    {{> header}}
+
+    <div class='content-root'>
+      <div class='menubar'>
+	      {{> deviceselector}}
+        <div class="navMenu" data-swiftype-index="false">
+          <div id="navActiveContent"></div>
+        </div>
+      </div>
+      <div class="page-body">
+        {{> document-search}}
+        <div class='content-inner'>
+          <div class="content" >
+            {{{contents}}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{> image-overlay}}
+    {{> scripts}}
+
+</body>
+</html>

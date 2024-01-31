@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DHT_I2C_Particle",
     "version": "1.0.6",
-    "installs": 1033,
+    "installs": 5682,
     "author": "Rob Parke",
     "sentence": "DHT 20 I2C library for Particle devices",
     "paragraph": "This is a DHT 20 I2C library for Particle devices (e.g. Photon, Argon, Boron) based on the Arduino library created by Rob Tillaart",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DHT_I2C_Particle",
+  "cardUrl": "/reference/device-os/libraries/d/DHT_I2C_Particle",
   "versions": {
     "1.0.6": {
       "added": "2022-10-29T21:17:05.962Z",
@@ -222,6 +222,130 @@
             "DHT20_test_esp": true
           },
           "boron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "boron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "bsom": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "b5som": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "tracker": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "p2": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "boron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "bsom": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "b5som": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "tracker": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "esomx": {
             "DHT20": true,
             "DHT20_I2C_speed": true,
             "DHT20_async": true,

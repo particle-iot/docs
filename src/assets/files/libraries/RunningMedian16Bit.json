@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RunningMedian16Bit",
     "version": "0.0.1",
-    "installs": 5635,
+    "installs": 5739,
     "license": "MIT",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",
@@ -26,7 +26,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RunningMedian16Bit",
+  "cardUrl": "/reference/device-os/libraries/r/RunningMedian16Bit",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -1,10 +1,216 @@
 const fs = require('fs');
 const path = require('path');
 
+const schemaDocs = require('./schema-docs');
+
 
 (function(generatorConfig) {
     
     generatorConfig.updates = [
+        // Monitor One schema
+        {
+            guid: '40b06c67-b4eb-4be9-b9c2-539ac2f68dbd',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'monitor',
+                    idOmit: [                        
+                        '#/properties/location',
+                        '#/properties/store',
+                        '#/properties/imu_trig',
+                        '#/properties/rgb',
+                        '#/properties/sleep',
+                        '#/properties/monitoring',
+                        '#/properties/geofence',
+                        '#/properties/temp_trig',
+                        '#/properties/tracker',
+                        '#/properties/modbus_rs485',
+                        '#/properties/modbus1',
+                        '#/properties/modbus2',
+                        '#/properties/modbus3',
+                        '#/properties/io',
+                        '#/properties/iocal',
+                    ],
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: 'c7548071-4421-40b6-b229-bf8e51e625cc',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'monitor',
+                    id: [
+                        '#/properties/modbus_rs485',
+                        '#/properties/modbus1',
+                        '#/properties/modbus2',
+                        '#/properties/modbus3',
+                    ],
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: 'cef0011b-49a1-4992-ab61-ee8eea74abc2',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'monitor',
+                    id: '#/properties/io',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: '23d4ca8b-c845-4939-bf6b-e259dc45af27',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'monitor',
+                    id: '#/properties/iocal',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+
+        // Tracker schema
+        {
+            guid: 'a0a2120c-78c7-4d51-84af-062f116d70be',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    idOmit: [
+                        '#/properties/location',
+                        '#/properties/store',
+                        '#/properties/imu_trig',
+                        '#/properties/rgb',
+                        '#/properties/sleep',
+                        '#/properties/monitoring',
+                        '#/properties/geofence',
+                        '#/properties/temp_trig',
+                        '#/properties/tracker'
+                    ],
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: '38cf5c3c-cd20-45a4-b87f-a541b9bbef70',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/location',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: '192e9889-fb5c-4082-af99-19d65beadc02',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/store',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: '36859bbf-9198-4f15-bf70-cd7471c84827',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/imu_trig',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: 'da5553f8-b134-484e-9b04-64aa241b66dd',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/rgb',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },
+        {
+            guid: 'b7d34d6c-e7e3-4125-85bb-6965346098ed',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/sleep',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },        
+        {
+            guid: '77fd453b-6ad4-4a69-adae-a7f31118c4ca',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/monitoring',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },        
+        {
+            guid: 'b1bb1d44-9b07-4237-ad3c-1050a7125619',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/geofence',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },        
+        {
+            guid: '62c6ee9b-ac47-4a85-aeae-075c62511901',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/temp_trig',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },        
+        {
+            guid: '77fd453b-6ad4-4a69-adae-a7f31118c4ca',
+            generatorFn: function(updater) {
+                return schemaDocs.generateMd({
+                    kind: 'tracker',
+                    id: '#/properties/tracker',
+                    headingOmit: true,
+                    indent: 3,
+                    updater,
+                });
+            },
+        },        
+
+
+        
+
         // firmware.md
         {
             guid:'4d3ada5a-494c-469b-b6ee-6b4ec53bc3d3', 
@@ -28,7 +234,34 @@ const path = require('path');
                 }); 
             } 
         },
+        // serial-number
+        {            
+            guid: 'b0fce313-6098-47bc-b2f7-c700210b1cc6', 
+            generatorFn:function(updater) {
+                return updater.generateSkuToPrefix(); 
+            }             
+        },
+        {            
+            guid: '682e93c3-adcd-4d72-b183-813ee5164dc4', 
+            generatorFn:function(updater) {
+                return updater.generatePrefixToSku(); 
+            }             
+        },
 
+        // product-lifecycle-policy-status
+        {            
+            guid: 'ac230403-4883-4c71-8781-601d6ca5a0fa', 
+            generatorFn:function(updater) {
+                return updater.generateSkuLifecycle(); 
+            }             
+        },
+        // verizon-faq
+        {            
+            guid: '45d4d59b-d643-41d2-96ef-a7ec73124a9c', 
+            generatorFn:function(updater) {
+                return updater.generateVerizonSku(); 
+            }             
+        },
         // Manual setup
         {
             guid: '58997959-6743-4757-8081-18a46c2f6abf', 
@@ -53,7 +286,7 @@ const path = require('path');
         {
             guid:'0ca3e34e-76e2-11eb-9439-0242ac130002',
             generatorFn:function(updater) {
-                return updater.generateCountryList('electron'); 
+                return updater.generateCountryList('electron', {noVerizon: true}); 
             } 
         },
         // E Series datasheet
@@ -66,9 +299,21 @@ const path = require('path');
         {
             guid:'2445e222-76e2-11eb-9439-0242ac130002',
             generatorFn:function(updater) {
-                return updater.generateCountryList('e series'); 
+                return updater.generateCountryList('e series', {noVerizon: true}); 
             } 
         },
+
+        // datasheets/electron/b-series-eval-board.md
+        {
+            guid:'3c7bdf46-c2a2-4b04-aeb1-222b761e036b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'M.2 SoM eval board header, nRF52 SoM'
+                }); 
+            } 
+        },                
         // datasheets/electron/e-series-eval-board.md
         {
             guid:'89806642-76cb-11eb-9439-0242ac130002',
@@ -160,6 +405,46 @@ const path = require('path');
                 }); 
             } 
         },     
+        {
+            guid:'0e3f5e76-cfaf-4215-8c3c-b764621ff10f', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('electron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'U201';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'10a242d8-273c-4d63-8aa1-69cc12bdc1fd', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('electron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'G350';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'2ed15218-3c7e-4866-b3f4-a27dff5ac592', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('electron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'U260';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'ff7523c9-9847-44f7-a749-752bc2c2f22c', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('electron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'U270';
+                    }        
+                }); 
+            } 
+        },
         // datasheets/electron/e404x-migration-guide.md
         {
             guid:'6c533551-bce6-4c2e-b248-c7274f4b1b22', 
@@ -329,6 +614,26 @@ const path = require('path');
                 }); 
             } 
         },
+        {
+            guid:'d1aa84ec-2018-4446-8bcf-2f0380abf834', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('boron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'R410';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'785e45e8-9da4-45d9-a1f5-71add831195b', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('boron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'U201';
+                    }        
+                }); 
+            } 
+        },        
         // datasheets/boron/b404-b402-datasheet.md
         {
             guid:'91d8b83c-76ce-11eb-9439-0242ac130002', 
@@ -361,7 +666,28 @@ const path = require('path');
                 }); 
             } 
         },
+        {
+            guid:'6d0451d8-43b0-498e-8a13-9a4099a0067e',
+            generatorFn:function(updater) {
+                return updater.generateCountryList('b series', {
+                    groupFn:function(groupObj) {
+                        return groupObj.modem != 'R410';
+                    },
+                    noModel: true,
+                }); 
+            } 
+        },
         // BRN404X
+        {
+            guid:'4b3e02b9-2be9-40ff-8486-90fa48a9e518', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'Boron'
+                }); 
+            } 
+        },                
         {
             guid: 'ac335968-6a40-4e3a-9493-46510917cf20',
             generatorFn:function(updater){
@@ -430,6 +756,16 @@ const path = require('path');
             } 
         },
         // B404X
+        {
+            guid:'e0eff6f3-2cc8-4ad3-92ef-8f8de063cf2b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'B4xx SoM'
+                }); 
+            } 
+        },                
         {
             guid: '50c2d429-c8a8-4dd1-9afa-5ceab1fdb714',
             generatorFn:function(updater){
@@ -535,6 +871,17 @@ const path = require('path');
         },
         // datasheets/boron/b524-b523-datasheet.md
         {
+            guid:'88cf3396-ffa7-4f4c-b2ef-deead0b0315d', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'B5xx SoM'
+                }); 
+            } 
+        },                
+        // 
+        {
             guid:'ea841986-76ce-11eb-9439-0242ac130002', 
             generatorFn:function(updater) {
                 return updater.generateFamilySkus('b series', {
@@ -582,6 +929,46 @@ const path = require('path');
                 return updater.generateFamilySkus('tracker', {
                     filterFn:function(skuObj) {
                         return !skuObj.name.startsWith('T') || skuObj.skuClass == 'eval';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'ff0124f9-1fef-464c-ad08-4d1379202ede', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('T') || skuObj.modem != 'BG96-MC';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'33d26d3d-613c-4ebc-96d0-cc1488f6ce4d', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('T') || skuObj.modem != 'EG91-EX';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'e63f1897-f6da-4b67-a67d-045960454fd6', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('ONE') || skuObj.modem != 'BG96-MC';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'1bd8150d-c605-497c-b973-14aaae0ddada', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('ONE') || skuObj.modem != 'EG91-EX';
                     }        
                 }); 
             } 
@@ -955,6 +1342,201 @@ const path = require('path');
             }
         },
         
+        // datasheets/boron/msom-e-series-migration-guide.md
+        {
+            guid:'159eb8da-b56b-40d7-8df0-b54b7889555d',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    mapBy: 'name',
+                    showPinNum: true,
+                    platformNewTitle: 'M SoM',
+                }); 
+            }
+        },   
+        {
+            guid:'369dffc5-2607-422c-8d2f-049b8bac8b5d',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'digitalWrite',
+                    label: 'GPIO',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'M SoM',
+                    checkmark: true,
+                }); 
+            }
+        },
+        {
+            guid:'4757df20-600f-4beb-b781-59ff36cbb3d5',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'M SoM',
+                }); 
+            }
+        },
+        {
+            guid:'b19893d3-ab63-4323-9b3f-b948d4c1c249',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'i2c',
+                    label: 'I2C',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'M SoM',
+                }); 
+            }
+        },        {
+            guid:'8c9a7dac-af5b-4a4d-9e40-7deb06ed921f', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'M SoM',
+                }); 
+            }
+        },
+        {
+            guid:'eeeca022-6ba8-4f96-b0e2-5b00362fed6d', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'M SoM',
+                }); 
+            }
+        },
+        {
+            guid:'4f18e140-7466-4fad-bc1f-55e8fcdf9561', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    platformNewTitle: '< SoM',
+                    includeHardwareTimer: true,
+                }); 
+            } 
+        },             
+        {
+            guid:'c17ecfe5-34b1-473b-86f2-d8c7e48ca167', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'E Series',
+                    port: 'can',
+                    label: 'CAN',
+                    noPinNumbers: true,
+                    oldPinNumber: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    checkmark: false,
+                    platformNewTitle: 'M SoM',
+                }); 
+            } 
+        }, 
+        {
+            guid:'55771164-b2c5-4c32-b389-ad5b9d6f378e', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'E Series',
+                    interface: 'hibernate'
+                }); 
+            } 
+        }, 
+        {
+            guid:'3e05bb14-1927-42cb-8f15-8ebe473bc99c', 
+            generatorFn:function(updater){
+                return updater.generateCountryComparison({
+                    models: [
+                        {
+                            title: 'E310',
+                            modem: 'U201',
+                            sim: 1,
+                        },
+                        {
+                            title: 'E313',
+                            modem: 'U201',
+                            sim: 2,
+                        },
+                        {
+                            title: 'B404X',
+                            modem: 'R510',
+                            sim: 4,
+                        },
+                        {
+                            title: 'B524',
+                            modem: 'EG91-E',
+                            sim: 4,
+                        },
+                    ],
+                });            
+            },     
+        },
+        {
+            guid:'a36f228d-5374-4bae-9557-4ec215613f66', 
+            generatorFn:function(updater) {
+                return updater.generateAntCell({
+                    filterFn: function(skuObj) {
+                        if (skuObj.family == 'e series' || skuObj.family == 'b series') { // TODO: Fix this!
+                            // Leave in list
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+                    },
+                });
+            }
+        },
+        
         // datasheets/boron/b-series-boron-migration-guide.md
         {
             guid:'b28329f3-7067-4ae1-aafa-c48b75d77674',
@@ -1064,6 +1646,16 @@ const path = require('path');
         },
         // datasheets/wi-fi/p2-datasheet.md
         {
+            guid:'2b457422-47aa-43ed-9fe6-a47d952fcd4b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: true,
+                    platformNew: 'P2'
+                }); 
+            } 
+        },                
+        {
             guid:'a201cbf3-f21d-4b34-ac10-a713ef5a857e', 
             generatorFn:function(updater){
                 return updater.generateFamilySkus('p series', {
@@ -1077,8 +1669,12 @@ const path = require('path');
             guid: '8bd904e1-0088-488c-9fbb-e695d7643949',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
-                    style: 'pinFunction',
+                    style: 'portPins',
                     platformNew: 'P2',
+                    port: 'digitalRead',
+                    label: 'GPIO',
+                    newMCU: 'MCU',
+                    showBootMode: true,
                 }); 
             } 
         },
@@ -1176,6 +1772,27 @@ const path = require('path');
             } 
         },
         {
+            guid:'c70374f7-3ef1-45b0-a5ee-cd7e09032ca7',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'P2',
+                    interface: 'is5VTolerant',
+                    noInterface: true,
+                }); 
+            } 
+        },
+        {
+            guid:'6e6f887d-3df4-4cb3-b8e4-67f2aa26ad72',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'P2',
+                    interface: 'hibernate'
+                }); 
+            } 
+        },
+        {
             guid:'3b7b8712-9617-11ec-b909-0242ac120002',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
@@ -1195,6 +1812,16 @@ const path = require('path');
         },
 
         // datasheets/wi-fi/photon-2-datasheet.md
+        {
+            guid:'d4d39408-f360-442f-b5ad-2b240da5d14c', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: false,
+                    platformNew: 'Photon 2'
+                }); 
+            } 
+        },                
         {
             guid:'097ba52c-0c46-4ec0-827d-3c5880d3fd3a', 
             generatorFn:function(updater){
@@ -1254,6 +1881,17 @@ const path = require('path');
                     style: 'interfacePins',
                     platformNew: 'Photon 2',
                     interface: 'i2c',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'2bb13ba8-9f9c-44d6-8734-df6e85bb09042',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Photon 2',
+                    interface: 'hibernate',
                     noPinNumbers: true,
                 }); 
             } 
@@ -1386,6 +2024,36 @@ const path = require('path');
                 return updater.generatePinInfo({
                     style: 'modulePins',
                     platformNew: 'Monitor One Expansion',
+                }); 
+            } 
+        },
+        {
+            guid:'fa286927-e333-41ee-9c2c-585f6729873b', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('MON404');
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'df800960-c749-4b1d-9c69-ae4372e86ab7', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('tracker', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('MON');
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'6cd2470c-9c54-45d5-877a-64290cf8f7b6',
+            generatorFn:function(updater) {
+                return updater.generateCountryList('tracker', {
+                    modelFilterFn:function(model) {
+                        return !model.startsWith('MON');
+                    }
                 }); 
             } 
         },
@@ -2404,6 +3072,36 @@ const path = require('path');
             } 
         },
         {
+            guid:'32ab7e42-640f-462e-bcf5-be48681aa6ab', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('e series', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'U201';
+                    }        
+                }); 
+            } 
+        },        
+        {
+            guid:'e2dcb80b-980f-400f-8151-672b236a194c', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('e series', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'R410';
+                    }        
+                }); 
+            } 
+        },        
+        {
+            guid:'d3744bfd-dee2-4722-8b14-624c4eca69ac', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('e series', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'R510';
+                    }        
+                }); 
+            } 
+        },        
+        {
             // SKUs by region
             guid:'921d1b74-0130-49e9-9322-3da75e405e4e',
             generatorFn:function(updater) {
@@ -2745,6 +3443,502 @@ const path = require('path');
             } 
         },
 
+        // M SoM - RTL8722DM
+        {
+            guid: '1ef65384-3694-4999-a6d8-4ee9432ca08d',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'M SoM',
+                }); 
+            } 
+        },        
+        {
+            guid: '5feb3f9e-2bf4-4e73-a2c8-b6584b125391',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'M SoM',
+                    sortByNum: true,
+                }); 
+            } 
+        },        
+        {
+            guid:'315abea5-56c1-45ce-af72-bf0d9d8e8482',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'portPins',
+                    platformNew: 'M SoM',
+                    port: 'digitalRead',
+                    label: 'GPIO',
+                    newMCU: 'MCU',
+                    showBootMode: true,
+                }); 
+            } 
+        },
+        {
+            guid:'64e4bc46-68b8-4974-a61e-ddeae080fd44',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'swd'
+                }); 
+            } 
+        },
+        {
+            guid:'8f52432b-ccd8-4be0-a2e2-1718b6771c4f',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'hardwareADC'
+                }); 
+            } 
+        },
+        {
+            guid:'d3ffb099-2b14-45d6-b006-71efef7af3ff',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'serial'
+                }); 
+            }                     
+        },
+        {
+            guid:'fd3eed60-17cc-4294-9a39-7f3d01bf7487',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'spi',
+                }); 
+            }                     
+        },
+        {
+            guid:'e673700c-e099-4705-b7be-768efe895a08',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'i2c'
+                }); 
+            }                     
+        },
+        {        
+            guid:'ce50aa3a-b76c-4140-bf85-100dded18864',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'analogWritePWM',
+                    noInterface: true,
+                    showHardwareTimer: false, // temporary until assigned
+                }); 
+            } 
+        },
+        {
+            guid:'dd39756a-80c9-4fc0-8665-7533da96152d',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'sim',
+                    noInterface: true,
+                    noMCU: true,
+                }); 
+            }                     
+        },        
+        {
+            guid:'58475011-6c17-488b-a042-a363c1312d02',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'hibernate'
+                }); 
+            }                     
+        },       
+        {
+            guid:'6d82afd2-3dd4-4a30-a75b-7d9b0b780986', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'old-new-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'B4xx SoM',
+                    platformOldTitle: 'B SoM',
+                    pinNumberOld: true,
+                    newHardwarePin: true,
+                    changeIndicator: true,
+                }); 
+            }
+        },
+        {
+            guid:'ed9de0f9-7941-4090-9fb2-d6bb398fd860', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'B4xx SoM',
+                    platformOldTitle: 'B SoM',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: false,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },        
+        {
+            guid:'5458f22f-840f-4892-97cc-57e6ebd5c1bb', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'B4xx SoM',
+                    platformOldTitle: 'B SoM',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: false,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },        
+        {
+            guid:'89fcdf38-5b12-43fa-b306-72a4262c913e', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'B4xx SoM',
+                    platformOldTitle: 'B SoM',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: false,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'d72da918-d38e-46f0-b651-0c4ddee8cad7', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'B4xx SoM',
+                    platformOldTitle: 'B SoM',
+                    port: 'i2c',
+                    label: 'I2C',
+                    useShortName: true,
+                    noPinNumbers: false,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'d6253ac9-1074-48cd-a7b9-05315e4a5850', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'B4xx SoM',
+                    platformOldTitle: 'B SoM',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: false,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },  
+        {
+            guid:'2ad3dc88-d864-49db-bb3a-46b2a2f7ced0', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'B4xx SoM',
+                    platformOldTitle: 'B SoM',
+                    showPinNum: true,
+                    platformNewTitle: 'M SoM',
+                }); 
+            } 
+        },
+        {
+            guid:'15c79387-e8a2-418b-886f-a9439e41663b',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'isUSB',
+                    noInterface: true,
+                }); 
+            } 
+        },
+        {
+            guid:'79cc6da1-8165-49c1-914d-e39064a9ed06',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'isLED',
+                    noInterface: true,
+                }); 
+            } 
+        },
+        {
+            guid:'e39d39e4-5349-44b3-9aaa-989469037cd45',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'bootPins',
+                    platformNew: 'M SoM'
+                }); 
+            }             
+        },
+        {
+            guid:'e39d39e4-5349-44b3-9aaa-989469037cd4',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'M SoM',
+                    interface: 'isControl',
+                    noInterface: true,
+                }); 
+            } 
+        },
+        {
+            guid:'c8bcf02e-86f8-45b2-8623-9768fc47515e',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'modulePins',
+                    platformNew: 'M SoM',
+                }); 
+            } 
+        },
+        ///
+        {
+            guid:'198f100b-a9d2-40c0-bfad-c835be7dcf6c', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'P2',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },        
+        {
+            guid:'8b15c299-ec3c-4638-94e0-70c287b3b480', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'P2',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },        
+        {
+            guid:'e825d0f8-1762-4ea4-9da8-22f393747616', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'P2',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'d4f5a73f-20a3-4e45-9cbb-f55a68e1c8a5', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'P2',
+                    port: 'i2c',
+                    label: 'I2C',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'be7ef0ce-b932-4cfd-840f-d8f7bf716a6d', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'P2',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },  
+        {
+            guid:'f892e697-679e-4e73-99f6-c396698f3b87', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'P2',
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                }); 
+            } 
+        },
+        //
+        {
+            guid:'0ad610ce-7eb9-463a-a214-3abf217f2e80', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'Boron',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },        
+        {
+            guid:'53ee9c68-d92a-4a07-b56a-7c1cfab44f60', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'Boron',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },        
+        {
+            guid:'ca018024-837f-42ea-9d48-55f307a26e38', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'Boron',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'1b2c8715-6448-4bb6-aebf-8a507c16a87d', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'Boron',
+                    port: 'i2c',
+                    label: 'I2C',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'f8d3a842-6457-4404-ad7b-d1c47a53e638', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'Boron',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                    newHardwarePin: true,
+                }); 
+            }
+        },  
+        {
+            guid:'92c0afb8-3e86-47bf-adc2-34873410a475', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'M SoM',
+                    platformOld: 'Boron',
+                    noPinNumbers: true,
+                    newPinNumber: true,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'M SoM',
+                }); 
+            } 
+        },
     ];
 
 

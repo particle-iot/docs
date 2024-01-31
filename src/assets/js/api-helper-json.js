@@ -159,13 +159,13 @@ $(document).ready(function() {
     $('.apiHelperJsonLinterPrettifyButton').on('click', function() {
         let parentElem = $(this).closest('.apiHelperJsonLinter');
         formatJson(parentElem, 2);
-        ga('send', 'event', eventCategory, 'Prettify');
+        analytics.track('Prettify', {category:eventCategory});
     });
 
     $('.apiHelperJsonLinterCompactButton').on('click', function() {
         let parentElem = $(this).closest('.apiHelperJsonLinter');
         formatJson(parentElem, 0);
-        ga('send', 'event', eventCategory, 'Compact');
+        analytics.track('Compact', {category:eventCategory});
     });
 
     $('.apiHelperJsonLinterStringifyButton').on('click', function() {
@@ -182,7 +182,7 @@ $(document).ready(function() {
             let str = escapeUnicode(jsonCompact, false);
             codeMirror.setValue('"' + str + '"');
 
-            ga('send', 'event', eventCategory, 'Stringify');
+            analytics.track('Stringify', {category:eventCategory});
         }  
         catch(e) {
         }
@@ -207,7 +207,7 @@ $(document).ready(function() {
             const jsonObj = JSON.parse(str);
             codeMirror.setValue(JSON.stringify(jsonObj, null, 2));
 
-            ga('send', 'event', eventCategory, 'Unstringify');
+            analytics.track('Unstringify', {category:eventCategory});
         }  
         catch(e) {
         }
@@ -221,7 +221,96 @@ $(document).ready(function() {
         const codeMirror = apiHelper.jsonLinterCodeMirror[index];
         let str = codeMirror.getValue();
         codeMirror.setValue(escapeUnicode(str, true));
-        ga('send', 'event', eventCategory, 'Escape Unicode');
+        analytics.track('Escape Unicode', {category:eventCategory});
     });
 
+    $('.apiHelperJsonToCode').each(function() {
+        const thisPartial = $(this);
+        const linterElem = $('.apiHelperJsonLinter');
+        const linterEditorElem = $('.apiHelperJsonLinterEditor');
+        const outputElem = $(thisPartial).find('.apiHelperJsonToCodeOutput > textarea');
+
+        const setStatus = function(s) {
+            $(thisPartial).find('.apiHelperJsonToCodeStatus').text(s);
+        }
+
+        const escapeText = function(s) {
+            let result = '';
+            for(let ii = 0; ii < s.length; ii++) {
+                const c = s.charAt(ii);
+                switch(c) {
+                    case '"':
+                    case '\\':
+                            result += '\\' + c;
+                        break;
+
+                    default:
+                        {
+                            const cc = s.charCodeAt(ii);
+                            if (cc < 128) {
+                                result += c;
+                            }
+                            else {
+                                result += '\\u' + hex4(cc);
+                            }
+                        }
+                        break;
+                }
+            }
+            return result;
+        }
+
+        const convert = function(stringifierFn) {
+            const index = parseInt($(linterElem).attr('data-index'));
+            const codeMirror = apiHelper.jsonLinterCodeMirror[index];
+            const jsonStr = codeMirror.getValue();
+    
+            try {
+                setStatus('');
+
+                const json = JSON.parse(jsonStr);
+
+                const convertedText = stringifierFn(json);
+
+                const lines = convertedText.split('\n');
+
+                let output = '';
+
+                if (lines.length == 1) {
+                    // Single line (compact)
+                    output = 'const char jsonStr[] = "' + escapeText(lines[0]) + '";\n';
+                }
+                else {
+                    // Multiple lines
+                    output = 'const char jsonStr[] = ';
+                    for(const line of lines) {
+                        const m = line.match(/([ \t]*)(.*)/)
+
+                        output += '\n' + m[1] + '"' + escapeText(m[2]) + '"';
+                    }
+                    output += ';\n';
+                }
+
+
+                $(outputElem).val(output);
+            }
+            catch(e) {
+                setStatus('Could not convert to code');
+                console.log('convert exception', e);
+            }
+        }
+
+        $(thisPartial).find('.apiHelperConvertToCodeReadableButton').on('click', function() {
+            convert(function(json) {
+                return JSON.stringify(json, null, 4);
+            });
+        });
+        $(thisPartial).find('.apiHelperConvertToCodeCompactButton').on('click', function() {
+            convert(function(json) {
+                return JSON.stringify(json);
+            });
+        });
+
+    });
 });
+

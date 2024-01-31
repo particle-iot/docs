@@ -2,12 +2,12 @@
   "type": "libraries",
   "id": "coap",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/coap/archive/0.2.4.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/coap/archive/0.2.5.tar.gz"
   },
   "attributes": {
     "name": "coap",
-    "version": "0.2.4",
-    "installs": 1142,
+    "version": "0.2.5",
+    "installs": 1262,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/CoAP/",
@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/coap",
+  "cardUrl": "/reference/device-os/libraries/c/coap",
   "versions": {
     "0.2.4": {
       "builds": {
@@ -130,10 +130,156 @@
         }
       },
       "added": "2022-06-17T10:16:53.945Z"
+    },
+    "0.2.5": {
+      "added": "2023-03-21T15:23:48.652Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "boron": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "bsom": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "b5som": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "tracker": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "p2": {
+            "coapserver": true,
+            "coaptest": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "boron": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "bsom": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "b5som": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "tracker": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "esomx": {
+            "coapserver": true,
+            "coaptest": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "electron": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "argon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "boron": {
+            "coapserver": true,
+            "coaptest": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "electron": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "argon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "boron": {
+            "coapserver": true,
+            "coaptest": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "boron": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "bsom": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "b5som": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "tracker": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "p2": {
+            "coapserver": true,
+            "coaptest": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "boron": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "bsom": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "b5som": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "tracker": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "esomx": {
+            "coapserver": true,
+            "coaptest": true
+          }
+        }
+      }
     }
   },
   "readme": "# CoAP client, server library for Spark Photon, Spark Core.\n<a href=\"http://coap.technology/\" target=_blank>CoAP</a> simple server, client library for Particle Photon, Core.\n\n## Source Code\nThis lightweight library source code are only 2 files. simple-coap.cpp, simple-coap.h.\n\n## Example\nSome sample sketches for Spark Core and Photon included(firmware/examples/).\n\n - coaptest.ino : simple request/response sample.\n - coapserver.ino : server endpoint url callback sample.\n\n## How to use\nIn this exmples need CoAP server libcoap or microcoap server for check the example program. There is setting the libcoap on Ubuntu Linux. But if there don't use CoAP server(request/reseponse), following setting don't be needed.\n\n    git clone https://github.com/obgm/libcoap\n    cd libcoap/\n    ./autogen.sh\n    ./configure --disable-examples\n    gcc -o coap-server ./examples/coap-server.c -I./include/coap/ -I. -L.libs -lcoap-1 -DWITH_POSIX\n    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.libs\n    ./coap-server\n    # next start Photon or Core, check the request/response.\n\n## Arduino compatible\nThis library is Arduino compatible. That's version is <a href=\"https://github.com/hirotakaster/CoAP/tree/arduino\">here</a>.\n",
   "allVersions": [
+    "0.2.5",
     "0.2.4",
     "0.2.3",
     "0.2.2",

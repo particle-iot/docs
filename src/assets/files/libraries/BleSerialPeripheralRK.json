@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BleSerialPeripheralRK",
     "version": "0.0.1",
-    "installs": 2486,
+    "installs": 2876,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library to simplify using the BLE UART peripheral",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BleSerialPeripheralRK",
+  "cardUrl": "/reference/device-os/libraries/b/BleSerialPeripheralRK",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -88,6 +88,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "boron": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "bsom": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "b5som": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "tracker": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "esomx": {
+            "1-simple-BleSerialPeripheralRK": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "boron": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "bsom": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "b5som": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "tracker": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "p2": {
+            "1-simple-BleSerialPeripheralRK": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-simple-BleSerialPeripheralRK": true
           },

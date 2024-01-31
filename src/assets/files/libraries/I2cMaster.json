@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2cMaster",
     "version": "0.0.4",
-    "installs": 11745,
+    "installs": 12140,
     "license": "GPL v3",
     "author": "William Greiman <fat16lib@sbcglobal.net>",
     "sentence": "An I2C Master library for Particle.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/I2cMaster",
+  "cardUrl": "/reference/device-os/libraries/i/I2cMaster",
   "versions": {
     "0.0.4": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "I2cMasterTest": false
+          },
+          "boron": {
+            "I2cMasterTest": false
+          },
+          "bsom": {
+            "I2cMasterTest": false
+          },
+          "b5som": {
+            "I2cMasterTest": false
+          },
+          "tracker": {
+            "I2cMasterTest": false
+          },
+          "esomx": {
+            "I2cMasterTest": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "I2cMasterTest": false
+          },
+          "boron": {
+            "I2cMasterTest": false
+          },
+          "bsom": {
+            "I2cMasterTest": false
+          },
+          "b5som": {
+            "I2cMasterTest": false
+          },
+          "tracker": {
+            "I2cMasterTest": false
+          },
+          "p2": {
+            "I2cMasterTest": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "I2cMasterTest": false
           },

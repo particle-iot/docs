@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AccelerometerADXL335",
     "version": "1.0.0",
-    "installs": 442,
+    "installs": 546,
     "license": "MIT License",
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AccelerometerADXL335",
+  "cardUrl": "/reference/device-os/libraries/a/AccelerometerADXL335",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -109,6 +109,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "boron": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "bsom": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "b5som": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "tracker": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "esomx": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "boron": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "bsom": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "b5som": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "tracker": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "p2": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Calibration": false,
             "MeasuringAcceleration": false

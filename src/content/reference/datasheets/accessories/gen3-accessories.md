@@ -5,17 +5,17 @@ columns: two
 description: Accessories for Particle Gen 3 devices including the Argon and Boron, and other Adafruit FeatherWing accessories.
 ---
 
-# Gen 3 Accessories
+# Gen 3 accessories
 
 These accessories are for the Particle Gen 3 devices: Argon and Boron in the Adafruit Feather form-factor.
 
-## Grove Starter Kit 
+## Grove starter kit 
 
 <div align=center><img src="/assets/images/accessories/grove-kit.jpg" ></div>
 
 The Grove starter kit is designed to make your first exploration into the world of sensing and actuating a breeze. The kit comes with seven different components that work out-of-the-box with Particle Gen 3 hardware and let you focus on learning the basics. Working with Starter Kit requires no soldering and minimal wiring. Simply connect the kit’s Grove Shield (the new co-developed FeatherWing adapter from Particle and SeeedStudio) to your Particle Gen 3 board and use the included cables to connect the adapter and the sensors and actuators that you want to use. It’s a plug-and-play experience.
 
-### Kit Contents
+### Kit contents
 
  - 1x Grove Shield for Particle Gen 3 devices
  - 1x Button
@@ -36,7 +36,7 @@ The main shield consists of a connector to plug in any of the Particle Argon or 
  - 2 I2C ports
  - 1 UART port
 
-The pins on the [Grove connector](http://wiki.seeedstudio.com/Grove_System/) are as follows:
+The pins on the Grove connector are as follows:
 
 | Pin | Color | Digital | Analog | I2C | UART
 | --- | --- | --- | --- | --- | --- |
@@ -60,7 +60,7 @@ It can be used on either a digital or analog input port, and the button is read 
 
 Additional information available [here.](https://www.seeedstudio.com/Grove-Button-p-766.html)
 
-#### Rotary Angle Sensor
+#### Rotary angle sensor
 
 <div align=center><img src="/assets/images/accessories/grove-mesh-starter-kit/pot.png" ></div>
 
@@ -71,7 +71,7 @@ It must be used on an analog input port, and the value is read using the primary
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-Rotary_Angle_Sensor/)
 
 
-#### Ultrasonic Ranger
+#### Ultrasonic ranger
 
 <div align=center><img src="/assets/images/accessories/grove-mesh-starter-kit/ultrasonic.png" ></div>
 
@@ -82,7 +82,7 @@ The library is available in the Web IDE as [Grove_Ultrasonic_Ranger](https://bui
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/)
 
 
-#### Temperature and Humidity Sensor
+#### Temperature and humidity sensor
 
 <div align=center><img src="/assets/images/accessories/grove-mesh-starter-kit/temphumi.png" ></div>
 
@@ -93,7 +93,7 @@ The library is available in the Web IDE as [Grove_Temperature_And_Humidity_Senso
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-TemperatureAndHumidity_Sensor/)
 
 
-#### Light Sensor v1.2
+#### Light sensor v1.2
 
 <div align=center><img src="/assets/images/accessories/grove-mesh-starter-kit/lightsensor.png" ></div>
 
@@ -134,7 +134,7 @@ digitalWrite(D2, LOW);
 
 It can be used on a digital or analog port, as the analog inputs can also be used as digital outputs.
 
-An example using [tone](/reference/device-os/api/advanced-i-o/tone/) (PWM) to play a melody can be found [here](https://go.particle.io/shared_apps/5bc52086cb4e858acf001098). Not every pin is PWM compatible, so make sure you use a port that supports PWM.
+An example using [tone](/reference/device-os/api/input-output-advanced/tone/) (PWM) to play a melody can be found [here](https://go.particle.io/shared_apps/5bc52086cb4e858acf001098). Not every pin is PWM compatible, so make sure you use a port that supports PWM.
 
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-Buzzer/)
 
@@ -156,7 +156,7 @@ Additional information available [here.](http://wiki.seeedstudio.com/Grove-4-Dig
 
 The Adafruit OLED display FeatherWing makes it easy to add a small text and graphics display to your project. Built in a FeatherWing form-factor, you can use a FeatherWing Doubler or FeatherWing Tripler to add a display to your Argon or Boron project with no loose wires. And it includes three handy momentary push-buttons.
 
-You can purchase one from the [Particle Store](https://store.particle.io/collections/accessories) or from [Adafruit](https://www.adafruit.com/product/2900). You can find more technical information [at Adafruit](https://learn.adafruit.com/adafruit-oled-featherwing/overview).
+You can purchase one from [Adafruit](https://www.adafruit.com/product/2900). You can find more technical information [at Adafruit](https://learn.adafruit.com/adafruit-oled-featherwing/overview).
 
 The library is available in the Web IDE as [oled-wing-adafruit](https://build.particle.io/libs/oled-wing-adafruit/0.0.4/tab/oled-wing-adafruit.cpp). You can find additional documentation [here](https://github.com/rickkas7/oled-wing-adafruit).
 
@@ -179,6 +179,8 @@ Note that if you are using the Adafruit OLED display and the Particle Ethernet F
 
 <div align=center><img src="/assets/images/accessories/ethernet-featherwing/ethernet-featherwing.png" ></div>
 
+The Ethernet Featherwing has been deprecated and is no longer available for sale. The [Adafruit Ethernet Featherwing](https://www.adafruit.com/product/3201) can be used instead by following the instructions [here](/hardware/ethernet/ethernet/#adafruit-featherwing).
+
 The Ethernet FeatherWing is the fastest way to add wired connectivity to your Argon or Boron and turns it into an Ethernet gateway. Based on the [WIZnet W5500](/assets/datasheets/w5500.pdf) chip, this side-by-side FeatherWing maintains great RF performance even while adding Ethernet connectivity to any Particle Gen 3 device.
 
 The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Gen 3 device along with a Feather accessory.
@@ -188,7 +190,7 @@ The form-factor is based around the Adafruit FeatherWing Tripler. The two side c
 
 <div align=center><img src="/assets/images/accessories/ethernet-featherwing/ethernet-featherwing-plugged.png" ></div>
 
-### Pin Map
+### Pin map
 
 |Particle Pin|Ethernet FeatherWing Pin   |
 |:-------|:--------------------------|
@@ -202,8 +204,6 @@ The form-factor is based around the Adafruit FeatherWing Tripler. The two side c
 **Notes:**
 
 <sup>[1]</sup> These pins are connected via jumper pads on the bottom. You can cut these jumper traces and rewire them to a different pin on the Gen 3 device if the need arises. However the Device OS does not allow use of other pins (at least through 1.1.0).
-
-The Ethernet driver for this wing is baked into Device OS. When you set up a new Particle Gen 3 device that is plugged into an Ethernet FeatherWing, simply select the _USE WITH ETHERNET?_ option on your Particle mobile app and it should recognize and talk over Ethernet automagically. It's that simple.
 
 The hardware design for this wing is completely open source. All the files are available on our [GitHub repository here.](https://github.com/particle-iot/ethernet-wing)
 
@@ -238,7 +238,7 @@ The recommended cable for PoE is Cat 6 twisted pair with a maximum length of 100
 
 The Eagle CAD design for the PoE adapter is open source. All the files are available on our [GitHub repository](https://github.com/particle-iot/ethernet-wing).
 
-## Classic Adapter
+## Classic adapter
 
 <div align=center><img src="/assets/images/accessories/classic-adapter.png" ></div>
 
@@ -348,7 +348,7 @@ When using the classic adapter, some pins will hang off the edge. Makes sure the
 {{collapse op="end"}}
 
 
-### Pin Map
+### Pin map
 
 |Legacy Device | Gen 3 Device|
 |:-------------|:-----------|
@@ -398,7 +398,7 @@ It's not possible to use SPI with the classic adapter. The Gen 3 SPI pins (MISO,
 | MOSI | D2 | D3 |
 | MISO | D3 | D4 |
 
-### Other Features
+### Other features
 
 The Gen 3 devices do not support DAC or CAN, so those classic devices using those features won't work with the classic adapter.
 

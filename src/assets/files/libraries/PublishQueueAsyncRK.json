@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PublishQueueAsyncRK",
     "version": "0.2.5",
-    "installs": 47521,
+    "installs": 53255,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Asynchronous publishing code for the Particle Electron",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PublishQueueAsyncRK",
+  "cardUrl": "/reference/device-os/libraries/p/PublishQueueAsyncRK",
   "versions": {
     "0.2.0": {
       "builds": {
@@ -254,6 +254,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "boron": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "bsom": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "b5som": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "tracker": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "esomx": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "boron": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "bsom": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "b5som": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "tracker": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "p2": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-periodic": true,
             "2-button-and-timer": true,

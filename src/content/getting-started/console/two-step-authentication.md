@@ -17,7 +17,7 @@ If your password was stolen, it wouldn't be of any use without your phone. And t
 
 ## Setup
 
-### Installing an Authenticator App
+### Installing an authenticator app
 
 Particle two-step authentication uses an [Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator) app on your mobile phone. You can use any compatible Authenticator app, but two we recommend are:
 
@@ -27,7 +27,7 @@ Particle two-step authentication uses an [Authenticator](https://en.wikipedia.or
 You only need to install one of them.
 
 
-### Enable Two-step authentication on your account
+### Enable two-step authentication on your account
 
 You will be asked if you want to enable two-step authentication when you log in:
 
@@ -49,7 +49,7 @@ If you lose your phone or it's damaged, you can use recovery codes. You should s
 
 You will be given the option to either download a file containing recovery codes, print a physical copy of the recovery codes, or copy them to your clipboard during the two-step authentication enrollment.
 
-## Using Two-step Authentication
+## Using two-step authentication
 
 ### From the web
 
@@ -59,11 +59,7 @@ When logging into sites like the [Particle Console](https://console.particle.io)
 
 Open the Authenticator mobile app you installed earlier. A 6-digit login code is displayed that you enter into this page. Each code is only valid for a short period of time.
 
-### From the mobile apps
-
-Two-step authentication is also supported from the iOS and Android Particle mobile apps.
-
-### From the Particle Command Line Interface (CLI)
+### From the Particle command line interface (CLI)
 
 The [Particle CLI]() also allows two-step authentication:
 
@@ -77,11 +73,17 @@ Lost access to your phone? Visit https://login.particle.io/account-info
 > Successfully completed login!
 ```
 
-### From the Particle Cloud API
+### From the Particle cloud API
 
 - You can use the [Javascript API](https://github.com/particle-iot/particle-api-js/blob/master/docs/api.md#sendotp) to log in using two-step authentication and manage settings.
 
-## Other Topics
+### From the mobile apps
+
+Two-step authentication is also supported from the iOS and Android Particle mobile apps.
+
+Note that the Particle mobile apps for iOS and Android will be deprecated in the future.
+
+## Other topics
 
 
 ### Lost phone

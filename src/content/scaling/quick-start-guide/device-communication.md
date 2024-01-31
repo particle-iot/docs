@@ -32,9 +32,9 @@ The Particle cloud connection uses the CoAP (constrained application protocol) o
 In order to conserve cellular data, Particle Cloud DTLS connections can be resumed. This allows a device to reconnect to the cloud using less than 200 bytes of data (vs. up to 5K of data for a full handshake).
 
   
-Using CoAP over DTLS with session resume allows the cloud connection to be resumed very efficiently, unlike some other protocols like MQTT over TLS/SSL that require a full 5K TLS handshake on reconnection.
+Using CoAP over DTLS with session resume allows the cloud connection to be resumed very efficiently, unlike some other protocols like MQTT over TLS/SSL that require a full 5K TLS handshake on reconnection. This includes every wake from sleep mode as an MQTT session cannot be maintained while in sleep mode, unlike DTLS.
 
-## Built-in Communication Primitives
+## Built-in communication primitives
 
 * Particle Publish allows a device to send an event to the cloud, which can communicate with external services.
 * Subscribe allows a device to receive events sent from the cloud.
@@ -47,4 +47,4 @@ When sent from a device to the cloud, Publish can be used to send things like se
 
 ![PublishFlow.png](/assets/images/support/PublishFlow.png)
 
-[Learn More About Integrations](/getting-started/integrations/integrations/)
+[Learn More About Integrations](/integrations/integrations/)

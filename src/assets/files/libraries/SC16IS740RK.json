@@ -2,12 +2,12 @@
   "type": "libraries",
   "id": "SC16IS740RK",
   "links": {
-    "download": "https://api.particle.io/v1/libraries/SC16IS740RK/archive/0.0.7.tar.gz"
+    "download": "https://api.particle.io/v1/libraries/SC16IS740RK/archive/0.0.8.tar.gz"
   },
   "attributes": {
     "name": "SC16IS740RK",
-    "version": "0.0.7",
-    "installs": 12558,
+    "version": "0.0.8",
+    "installs": 14994,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for SC16IS740 UART",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SC16IS740RK",
+  "cardUrl": "/reference/device-os/libraries/s/SC16IS740RK",
   "versions": {
     "0.0.7": {
       "builds": {
@@ -157,10 +157,188 @@
         }
       },
       "added": "2022-06-17T10:16:53.742Z"
+    },
+    "0.0.8": {
+      "added": "2023-08-20T12:40:56.047Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "esomx": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "argon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "argon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "esomx": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          }
+        }
+      }
     }
   },
-  "readme": "# SC16IS740RK\n\n*Interface to SC16IS740 UART for Particle devices*\n\n- Project Location: https://github.com/rickkas7/SC16IS740RK\n- License: MIT. You can use this library without fee in open and closed-source projects. \n\nSometimes you need more serial ports (UARTs) than are provided on the Particle Photon and Electron. One handy technique is to use an external I2C/SPI UART, such as the NXP SC16IS740.\n\nThis version supports I2C and SPI, but does not support hardware or software flow control or interrupts. Other features will be added later.\n\nThis library is also compatible with the mesh devices: Argon, Boron, and Xenon.\n\nOne difficulty is that the chip is only available in surface mount packages such as the TSSOP16. You'll need to use a [TSSOP-16 breakout board](https://www.adafruit.com/product/1207), make your own board (as described below) or put it directly on your own circuit board. As the pins are very small you may find it difficult to hand solder; it really should be mounted using a reflow oven.\n\nYou can connect up to 4 separate SC16IS740 chips to the single I2C interface on D0 and D1 by I2C.\n\nThe number of separate chips for SPI is limited to the number of available GPIO pins, as each one must have a unique CS pin, but they can share a single SPI bus.\n\nWhen using a 1.8432 MHz oscillator it supports baud rate from 50 to 115200.\n\nNote that the default I2C speed is 100 KHz, so it will be impossible to read or write continuously at 115200, but bursts that fit within the size of the FIFO (64 bytes) are fine.\n\nAlso, you can increase the speed of the I2C bus if all of the I2C devices support high speed mode by adding:\n\n```\nWire.setSpeed(CLOCK_SPEED_400KHZ);\n```\n\n## Using the library\n\nInclude the SC16IS740RK library in your project and use it as follows:\n\n```\n#include \"SC16IS740RK.h\"\n\n// Pick a debug level from one of these two:\nSerialLogHandler logHandler;\n// SerialLogHandler logHandler(LOG_LEVEL_TRACE);\n\nSC16IS740 extSerial(Wire, 0);\n\nchar out = ' ';\n\nvoid setup() {\n\tSerial.begin(9600);\n\n\tdelay(5000);\n\n\textSerial.begin(9600);\n}\n\nvoid loop() {\n\twhile(extSerial.available()) {\n\t\tint c = extSerial.read();\n\t\tLog.info(\"received %d\", c);\n\t}\n\n\textSerial.print(out);\n\tif (++out >= 127) {\n\t\tout = ' ';\n\t}\n\tdelay(100);\n}\n```\n\n```\nSC16IS740 extSerial(Wire, 0);\n```\n\nThis initializes an SC16IS740 object as a global variable. The second parameter is the address set on the A0 and A1 pins. \n\n```\n\textSerial.begin(9600);\n```\n\nCall begin() in setup() to set the baud rate. You can also set the number of data bits, parity, and stop bits.\n\nThe SC16IS740 library derives from Stream so the standard Arduino features like print, println, readUntil, etc. all work with this library.\n\n## API\n\n#### `public  `[`SC16IS740`](#class_s_c16_i_s740_1a48a15f05e738b52cca9549046b6360c5)`(TwoWire & wire,int addr,int intPin)` \n\nConstruct the UART object. Typically done as a global variable.\n\n#### Parameters\n* `wire` The I2C port to use, typically Wire.\n\n* `addr` The address you've set using the A0 and A1 pins, 0-3. This will be converted to the appropriate I2C address. Or you can directly specify the actual I2C address 0-127.\n\n* `intPin` The interrupt pin (-1 = not used). Note: interrupts are not currently supported.\n\n\n#### `public inline `[`SC16IS740`](#class_s_c16_i_s740)` & `[`withOscillatorHz`](#class_s_c16_i_s740_1a2bade8e74f73cd4175b295d7f6e620ce)`(int value)` \n\nSet the oscillator frequency in Hz (default: 1843200)\n\nYou must call this before begin.\n\n#### `public void `[`begin`](#class_s_c16_i_s740_1a2914d7b2eb94a0d9413c295611814cd2)`(int baudRate,uint8_t options)` \n\nSet up the chip. You must do this before reading or writing.\n\n#### Parameters\n* `baudRate` the baud rate (see below)\n\n* `options` The number of data bits, parity, and stop bits\n\nYou can call begin more than once if you want to change the baud rate. The FIFOs are cleared when you call begin.\n\nAvailable baud rates depend on your oscillator, but with a 1.8432 MHz oscillator, the following are supported: 50, 75, 110, 134.5, 150, 300, 600, 1200, 1800, 2000, 2400, 3600, 4800, 7200, 9600, 19200, 38400, 57600, 115200\n\nThe valid options in standard number of bits; none=N, even=E, odd=O; number of stop bits format: OPTIONS\\_8N1, OPTIONS\\_8E1, OPTIONS\\_8O1 OPTIONS\\_8N2, OPTIONS\\_8E2, OPTIONS\\_8O2 OPTIONS\\_7N1, OPTIONS\\_7E1, OPTIONS\\_7O1 OPTIONS\\_7N2, OPTIONS\\_7E2, OPTIONS\\_7O2\n\n#### `public inline void `[`blockOnOverrun`](#class_s_c16_i_s740_1a146f0afeb2d5efe71d2c44285a8260dd)`(bool value)` \n\nDefines what should happen when calls to [write()](#class_s_c16_i_s740_1ae95bfe10661800710fb0c3ed399dd6da)/print()/println()/printlnf() that would overrun the buffer.\n\nblockOnOverrun(true) - this is the default setting. When there is no room in the buffer for the data to be written, the program waits/blocks until there is room. This avoids buffer overrun, where data that has not yet been sent over serial is overwritten by new data. Use this option for increased data integrity at the cost of slowing down realtime code execution when lots of serial data is sent at once.\n\nblockOnOverrun(false) - when there is no room in the buffer for data to be written, the data is written anyway, causing the new data to replace the old data. This option is provided when performance is more important than data integrity.\n\n\n## Test Circuit\n\nIn this circuit, I made the following connections:\n\n- 1 VCC to 3V3 (red)\n- 2 SCL to D1 (blue)\n- 3 SDA to D0 (green)\n- 4 <IRQ Can leave unconnected (not currently used) (white)\n- 5 GND to GND (black)\n- 6 >RST Can leave unconnected (red)\n- 7 >RX to TX (yellow)\n- 8 <TX to RX (orange)\n\nRemember in serial you typically connect TX to RX and vice-versa. \n\nAlso note that the serial is 3.3V logic level. You'll need a driver to connect it to a real RS232C device using +/- 12V signals!\n\nThe SC16IS740 is 5V tolerant on RX, however only when powered! If you can run into a case where the SC16IS740 is not powered, you can only supply 3.8V to RX. \n\n![Photon Test](images/photon.jpg)\n\n![Electron Test](images/electron.jpg)\n\n\n## Custom breakout board\n\nI've included the Eagle CAD files for the breakout board I used above. \n\n- 1x 0.1 uF capacitor 0603\n- 6x 10K ohm resistor 0603\n- 1x [1.8432 MHz oscillator](https://www.digikey.com/product-detail/en/avx-corp-kyocera-corp/KC3225K1.84320C1GE00/1253-1488-1-ND/5322590) $1.36\n- 1x [SC16IS740 UART](https://www.digikey.com/product-detail/en/nxp-usa-inc/SC16IS740IPW,112/568-3648-5-ND/1154236) $2.80\n\n![schematic](images/schematic.png)\n\n![board](images/board.png)\n\n![board2](images/board2.jpg)\n\nThe holes marked A0 and A1 are designed for standard breakaway 0.1\" header pins. The addresses have pull-downs on them so the default is 0, but if you install the header pins and a jumper, they'll be pulled high so you can set address 0 - 3.\n\n## SPI Mode\n\nIn most cases, you'll save GPIO pins by using I2C. However, if you need the fastest speed possible, such as if you want multiple 115200 data streams, or if you want to do 230400 baud, you'll want to use SPI.\n\nFor the primary SPI (SPI):\n\n| Name | Flash Alt Name | Particle Pin | Example Color |\n| ---- | -------------- | ------------ | ------------- |\n| SS   | CS             | A2           | White         |\n| SCK  | CLK            | A3           | Orange        |\n| MISO | DO             | A4           | Blue          |\n| MOSI | DI             | A5           | Green         |\n\nInstead of instantiating a SC16IS740 object, use the SC16IS740SPI object:\n\n```\nSC16IS740SPI extSerial(SPI, A2);\n```\n\nFor the secondary SPI (SPI1):\n\n| Name | Flash Alt Name | Particle Pin | Example Color |\n| ---- | -------------- | ------------ | ------------- |\n| SS   | CS             | D5           | White         |\n| SCK  | CLK            | D4           | Orange        |\n| MISO | DO             | D3           | Blue          |\n| MOSI | DI             | D2           | Green         |\n\nInstead of instantiating a SC16IS740 object, use the SC16IS740SPI object:\n\n```\nSC16IS740SPI extSerial(SPI1, D5);\n```\n\n## Version History\n\n### 0.0.7 (2020-05-04)\n\n- Fix compiler error for undefined conversion to SpiClass with 1.5.1-rc.1.\n\n### 0.0.6\n\n- Fix compiler error for ambiguous requestFrom with 1.5.0-rc.2.\n\n### 0.0.3\n\nOn mesh devices, temporarily disable SPI DMA as this causes a SOS fault on multi-byte read or write operations when using SPI. \n\n",
+  "readme": "# SC16IS740RK\n\n*Interface to SC16IS740 UART for Particle devices*\n\nIt is recommended that you use \n[https://github.com/rickkas7/SC16IS7xxRK](https://github.com/rickkas7/SC16IS7xxRK)\nwhich is an updated version of this library, instead. The new SC16IS7xxRK library supports \ndual-port chips, hardware flow control, and other options.\n \n\n- Project Location: https://github.com/rickkas7/SC16IS740RK\n- License: MIT. You can use this library without fee in open and closed-source projects. \n\nSometimes you need more serial ports (UARTs) than are provided on the Particle Photon and Electron. One handy technique is to use an external I2C/SPI UART, such as the NXP SC16IS740.\n\nThis version supports I2C and SPI, but does not support hardware or software flow control or interrupts. Other features will be added later.\n\nThis library is also compatible with the mesh devices: Argon, Boron, and Xenon.\n\nOne difficulty is that the chip is only available in surface mount packages such as the TSSOP16. You'll need to use a [TSSOP-16 breakout board](https://www.adafruit.com/product/1207), make your own board (as described below) or put it directly on your own circuit board. As the pins are very small you may find it difficult to hand solder; it really should be mounted using a reflow oven.\n\nYou can connect up to 4 separate SC16IS740 chips to the single I2C interface on D0 and D1 by I2C.\n\nThe number of separate chips for SPI is limited to the number of available GPIO pins, as each one must have a unique CS pin, but they can share a single SPI bus.\n\nWhen using a 1.8432 MHz oscillator it supports baud rate from 50 to 115200.\n\nNote that the default I2C speed is 100 KHz, so it will be impossible to read or write continuously at 115200, but bursts that fit within the size of the FIFO (64 bytes) are fine.\n\nAlso, you can increase the speed of the I2C bus if all of the I2C devices support high speed mode by adding:\n\n```\nWire.setSpeed(CLOCK_SPEED_400KHZ);\n```\n\n## Using the library\n\nInclude the SC16IS740RK library in your project and use it as follows:\n\n```\n#include \"SC16IS740RK.h\"\n\n// Pick a debug level from one of these two:\nSerialLogHandler logHandler;\n// SerialLogHandler logHandler(LOG_LEVEL_TRACE);\n\nSC16IS740 extSerial(Wire, 0);\n\nchar out = ' ';\n\nvoid setup() {\n\tSerial.begin(9600);\n\n\tdelay(5000);\n\n\textSerial.begin(9600);\n}\n\nvoid loop() {\n\twhile(extSerial.available()) {\n\t\tint c = extSerial.read();\n\t\tLog.info(\"received %d\", c);\n\t}\n\n\textSerial.print(out);\n\tif (++out >= 127) {\n\t\tout = ' ';\n\t}\n\tdelay(100);\n}\n```\n\n```\nSC16IS740 extSerial(Wire, 0);\n```\n\nThis initializes an SC16IS740 object as a global variable. The second parameter is the address set on the A0 and A1 pins. \n\n```\n\textSerial.begin(9600);\n```\n\nCall begin() in setup() to set the baud rate. You can also set the number of data bits, parity, and stop bits.\n\nThe SC16IS740 library derives from Stream so the standard Arduino features like print, println, readUntil, etc. all work with this library.\n\n## API\n\n#### `public  ``SC16IS740``(TwoWire & wire,int addr,int intPin)` \n\nConstruct the UART object. Typically done as a global variable.\n\n#### Parameters\n* `wire` The I2C port to use, typically Wire.\n\n* `addr` The address you've set using the A0 and A1 pins, 0-3. This will be converted to the appropriate I2C address. Or you can directly specify the actual I2C address 0-127.\n\n* `intPin` The interrupt pin (-1 = not used). Note: interrupts are not currently supported.\n\n\n#### `public inline ``SC16IS740`` & ``withOscillatorHz``(int value)` \n\nSet the oscillator frequency in Hz (default: 1843200)\n\nYou must call this before begin.\n\n#### `public void ``begin``(int baudRate,uint8_t options)` \n\nSet up the chip. You must do this before reading or writing.\n\n#### Parameters\n* `baudRate` the baud rate (see below)\n\n* `options` The number of data bits, parity, and stop bits\n\nYou can call begin more than once if you want to change the baud rate. The FIFOs are cleared when you call begin.\n\nAvailable baud rates depend on your oscillator, but with a 1.8432 MHz oscillator, the following are supported: 50, 75, 110, 134.5, 150, 300, 600, 1200, 1800, 2000, 2400, 3600, 4800, 7200, 9600, 19200, 38400, 57600, 115200\n\nThe valid options in standard number of bits; none=N, even=E, odd=O; number of stop bits format: OPTIONS\\_8N1, OPTIONS\\_8E1, OPTIONS\\_8O1 OPTIONS\\_8N2, OPTIONS\\_8E2, OPTIONS\\_8O2 OPTIONS\\_7N1, OPTIONS\\_7E1, OPTIONS\\_7O1 OPTIONS\\_7N2, OPTIONS\\_7E2, OPTIONS\\_7O2\n\n#### `public inline void ``blockOnOverrun``(bool value)` \n\nDefines what should happen when calls to write()/print()/println()/printlnf() that would overrun the buffer.\n\nblockOnOverrun(true) - this is the default setting. When there is no room in the buffer for the data to be written, the program waits/blocks until there is room. This avoids buffer overrun, where data that has not yet been sent over serial is overwritten by new data. Use this option for increased data integrity at the cost of slowing down realtime code execution when lots of serial data is sent at once.\n\nblockOnOverrun(false) - when there is no room in the buffer for data to be written, the data is written anyway, causing the new data to replace the old data. This option is provided when performance is more important than data integrity.\n\n\n## Test Circuit\n\nIn this circuit, I made the following connections:\n\n- 1 VCC to 3V3 (red)\n- 2 SCL to D1 (blue)\n- 3 SDA to D0 (green)\n- 4 <IRQ Can leave unconnected (not currently used) (white)\n- 5 GND to GND (black)\n- 6 >RST Can leave unconnected (red)\n- 7 >RX to TX (yellow)\n- 8 <TX to RX (orange)\n\nRemember in serial you typically connect TX to RX and vice-versa. \n\nAlso note that the serial is 3.3V logic level. You'll need a driver to connect it to a real RS232C device using +/- 12V signals!\n\nThe SC16IS740 is 5V tolerant on RX, however only when powered! If you can run into a case where the SC16IS740 is not powered, you can only supply 3.8V to RX. \n\nPhoton Test (image removed)\n\nElectron Test (image removed)\n\n\n## Custom breakout board\n\nI've included the Eagle CAD files for the breakout board I used above. \n\n- 1x 0.1 uF capacitor 0603\n- 6x 10K ohm resistor 0603\n- 1x [1.8432 MHz oscillator](https://www.digikey.com/product-detail/en/avx-corp-kyocera-corp/KC3225K1.84320C1GE00/1253-1488-1-ND/5322590) $1.36\n- 1x [SC16IS740 UART](https://www.digikey.com/product-detail/en/nxp-usa-inc/SC16IS740IPW,112/568-3648-5-ND/1154236) $2.80\n\nschematic (image removed)\n\nboard (image removed)\n\nboard2 (image removed)\n\nThe holes marked A0 and A1 are designed for standard breakaway 0.1\" header pins. The addresses have pull-downs on them so the default is 0, but if you install the header pins and a jumper, they'll be pulled high so you can set address 0 - 3.\n\n## SPI Mode\n\nIn most cases, you'll save GPIO pins by using I2C. However, if you need the fastest speed possible, such as if you want multiple 115200 data streams, or if you want to do 230400 baud, you'll want to use SPI.\n\nFor the primary SPI (SPI):\n\n| Name | Flash Alt Name | Particle Pin | Example Color |\n| ---- | -------------- | ------------ | ------------- |\n| SS   | CS             | A2           | White         |\n| SCK  | CLK            | A3           | Orange        |\n| MISO | DO             | A4           | Blue          |\n| MOSI | DI             | A5           | Green         |\n\nInstead of instantiating a SC16IS740 object, use the SC16IS740SPI object:\n\n```\nSC16IS740SPI extSerial(SPI, A2);\n```\n\nFor the secondary SPI (SPI1):\n\n| Name | Flash Alt Name | Particle Pin | Example Color |\n| ---- | -------------- | ------------ | ------------- |\n| SS   | CS             | D5           | White         |\n| SCK  | CLK            | D4           | Orange        |\n| MISO | DO             | D3           | Blue          |\n| MOSI | DI             | D2           | Green         |\n\nInstead of instantiating a SC16IS740 object, use the SC16IS740SPI object:\n\n```\nSC16IS740SPI extSerial(SPI1, D5);\n```\n\n## Version History\n\n### 0.0.8 (2023-08-20)\n\n- Recommendation to use SC16IS7xxRK instead.\n\n### 0.0.7 (2020-05-04)\n\n- Fix compiler error for undefined conversion to SpiClass with 1.5.1-rc.1.\n\n### 0.0.6\n\n- Fix compiler error for ambiguous requestFrom with 1.5.0-rc.2.\n\n### 0.0.3\n\nOn mesh devices, temporarily disable SPI DMA as this causes a SOS fault on multi-byte read or write operations when using SPI. \n\n",
   "allVersions": [
+    "0.0.8",
     "0.0.7",
     "0.0.6",
     "0.0.5",

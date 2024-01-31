@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HX711ADC",
     "version": "0.0.3",
-    "installs": 74885,
+    "installs": 83274,
     "license": "LGPL",
     "author": "Bogde <https://github.com/bogde>",
     "sentence": "Library to interface the Avia Semiconductor HX711 24-Bit Analog-to-Digital Converter (ADC) for Weight Scales",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/HX711ADC",
+  "cardUrl": "/reference/device-os/libraries/h/HX711ADC",
   "versions": {
     "0.0.3": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "HX711Serial": true
+          },
+          "boron": {
+            "HX711Serial": true
+          },
+          "bsom": {
+            "HX711Serial": true
+          },
+          "b5som": {
+            "HX711Serial": true
+          },
+          "tracker": {
+            "HX711Serial": true
+          },
+          "esomx": {
+            "HX711Serial": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "HX711Serial": true
+          },
+          "boron": {
+            "HX711Serial": true
+          },
+          "bsom": {
+            "HX711Serial": true
+          },
+          "b5som": {
+            "HX711Serial": true
+          },
+          "tracker": {
+            "HX711Serial": true
+          },
+          "p2": {
+            "HX711Serial": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "HX711Serial": true
           },

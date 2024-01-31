@@ -115,18 +115,21 @@ $(document).ready(function () {
         $(parentElem).find('.apiHelperApiRequest').show();
     };
 
-    apiHelper.deviceList($('.apiHelperCloudDeviceSelect'), {
-        getTitle: function (dev) {
-            return dev.name + ' (' + dev.id + ')' + (dev.online ? '' : ' (offline)');
-        },
-        hasRefresh: true,
-        onChange: function (elem) {
-            const deviceId = $(elem).val();
-
-            const thisPartial = $(elem).closest('div.apiHelperDeviceVariable');
-
-        }
-    });
+    const cloudDeviceSelectElems = $('.apiHelperCloudDeviceSelect');
+    if (cloudDeviceSelectElems.length > 0) {
+        apiHelper.deviceList(cloudDeviceSelectElems, {
+            getTitle: function (dev) {
+                return dev.name + ' (' + dev.id + ')' + (dev.online ? '' : ' (offline)');
+            },
+            hasRefresh: true,
+            onChange: function (elem) {
+                const deviceId = $(elem).val();
+    
+                const thisPartial = $(elem).closest('div.apiHelperDeviceVariable');
+    
+            }
+        });    
+    }
 
     const simpleGetConfigs = [
         {
@@ -163,7 +166,7 @@ $(document).ready(function () {
                 const request = {
                     dataType: 'json',
                     error: function (jqXHR) {
-                        ga('send', 'event', simpleGetConfig.gaAction, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                        analytics.track('Error', {category:simpleGetConfig.gaAction, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                         setStatus('Request failed');
 
                         $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
@@ -175,7 +178,7 @@ $(document).ready(function () {
                     },
                     method: 'GET',
                     success: function (resp, textStatus, jqXHR) {
-                        ga('send', 'event', simpleGetConfig.gaAction, 'Success');
+                        analytics.track('Success', {category:simpleGetConfig.gaAction});
                         setStatus('');
 
                         $(outputJsonElem).show();
@@ -287,7 +290,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Get Variable', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:'Get Variable', label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error retrieving variable');
 
@@ -297,7 +300,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', 'Get Variable', 'Success');
+                    analytics.track('Success', {category:'Get Variable'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -353,7 +356,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Call function', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:'Call function', label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error calling function');
 
@@ -363,7 +366,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', 'Call Function', 'Success');
+                    analytics.track('Success', {category:'Call Function'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -456,7 +459,7 @@ $(document).ready(function () {
                 data: JSON.stringify(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -470,7 +473,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -543,7 +546,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'List Product Devices', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:'List Product Devices', label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting product device list');
 
@@ -557,7 +560,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', 'List Product Devices', 'Success');
+                    analytics.track('Success', {category:'List Product Devices'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -616,7 +619,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'List Org Products', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:'List Org Products', label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting organization products');
 
@@ -630,7 +633,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', 'List Org Products', 'Success');
+                    analytics.track('Success', {category:'List Org Products'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -689,7 +692,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'List Org Team', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:'List Org Team', label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting organization team members');
 
@@ -703,7 +706,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', 'List Org Team', 'Success');
+                    analytics.track('Success', {category:'List Org Team'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -806,7 +809,7 @@ $(document).ready(function () {
                 data: 'grant_type=' + encodeURIComponent(grantType) + '&expires_in=' + encodeURIComponent(expiresIn),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Create Token', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:'Create Token', label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error creating token');
 
@@ -820,7 +823,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', 'Create Token', 'Success');
+                    analytics.track('Success', {category:'Create Token'});
 
                     settings.productAccessToken = resp.access_token;
                     saveSettings();
@@ -892,7 +895,7 @@ $(document).ready(function () {
                         $(thisElem).find('.apiHelperMfaTokenRow').show();
                         return;
                     }
-                    ga('send', 'event', 'Create Token Simple', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:'Create Token Simple', label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error creating token');
 
@@ -906,7 +909,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('Token created!');
-                    ga('send', 'event', 'Create Token Simple', 'Success');
+                    analytics.track('Success', {category:'Create Token Simple'});
 
                     $(thisElem).find('.apiHelperAuthSettingsAccessToken').val(resp.access_token);
                     $(accessTokenRow).show();
@@ -944,7 +947,7 @@ $(document).ready(function () {
                 data: 'id=' + encodeURIComponent(deviceId),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Import Device', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:'Import Device', label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error importing device');
 
@@ -958,7 +961,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', 'Import Device', 'Success');
+                    analytics.track('Success', {category:'Import Device'});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1019,7 +1022,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1033,7 +1036,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1076,7 +1079,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1090,7 +1093,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1135,7 +1138,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1149,7 +1152,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1233,7 +1236,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1247,7 +1250,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1306,7 +1309,7 @@ $(document).ready(function () {
             let request = {
                 dataType,
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1320,7 +1323,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     if (outputFormat == 'csv') {
                         var blob = new Blob([resp], {type: "text/plain;charset=utf-8"});
@@ -1383,7 +1386,7 @@ $(document).ready(function () {
                 data: JSON.stringify(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1397,7 +1400,7 @@ $(document).ready(function () {
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1439,7 +1442,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1453,7 +1456,7 @@ $(document).ready(function () {
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1494,7 +1497,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1508,7 +1511,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1545,7 +1548,7 @@ $(document).ready(function () {
                 data: JSON.stringify(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1559,7 +1562,7 @@ $(document).ready(function () {
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -1622,7 +1625,7 @@ $(document).ready(function () {
                 data,
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Create Customer', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:'Create Customer', label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error creating customer');
 
@@ -1636,7 +1639,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', 'Create Customer', 'Success');
+                    analytics.track('Success', {category:'Create Customer'});
 
                     if (!settings.customers) {
                         settings.customers = {};
@@ -1701,7 +1704,7 @@ $(document).ready(function () {
                 data: objectToFormUrl(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -1715,7 +1718,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     if (!settings.customers) {
                         settings.customers = {};
@@ -1817,7 +1820,7 @@ $(document).ready(function () {
                 data,
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Create Claim Code', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:'Create Claim Code', label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error creating claim code');
 
@@ -1831,7 +1834,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', 'Create Claim Code', 'Success');
+                    analytics.track('Success', {category:'Create Claim Code'});
 
                     settings.claimCode = resp.claim_code;
                     saveSettings();
@@ -1880,7 +1883,7 @@ $(document).ready(function () {
                 data: JSON.stringify(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error');
+                    analytics.track('Error', {category:gaCategory});
 
                     setStatus('Error in ' + gaCategory);
 
@@ -1892,7 +1895,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -2036,7 +2039,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -2050,7 +2053,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -2091,7 +2094,7 @@ $(document).ready(function () {
                 data: 'id=' + encodeURIComponent(deviceId),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -2105,7 +2108,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -2146,7 +2149,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -2160,7 +2163,7 @@ $(document).ready(function () {
                 method: 'DELETE',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -2197,7 +2200,7 @@ $(document).ready(function () {
                 data: JSON.stringify(requestBodyObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -2211,7 +2214,7 @@ $(document).ready(function () {
                 method: 'PUT',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -2249,7 +2252,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -2263,7 +2266,7 @@ $(document).ready(function () {
                 method: 'DELETE',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -2770,6 +2773,9 @@ $(document).ready(function () {
         const copyModeElem = $(thisElem).find('.copyMode');
         const outputElem = $(thisElem).find('.apiHelperCloudApiOutput');
 
+        const productOrSandboxSelectorElem = $(thisElem).find('.apiHelperProductOrSandboxSelector');
+        let productSelectorObj;
+
         let integrationList;
         let integrationListElems;
         let integrationListDest;
@@ -2815,8 +2821,10 @@ $(document).ready(function () {
         };
 
         const updateIntegrationList = function() {
+            let sourceProduct = {};
+            productSelectorObj.getOptions(sourceProduct);
 
-            apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token }).then(
+            apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token, product: sourceProduct.productId }).then(
                 function(data) {
                     integrationList = data.body;
 
@@ -2860,7 +2868,7 @@ $(document).ready(function () {
                         });   
                     }
                     if (integrationList.length == 0) {
-                        setStatus('No integrations in developer sandbox');
+                        setStatus('No integrations in source');
                         $(integrationTableAndButtonsElem).hide();
                     }
                     else {
@@ -2893,6 +2901,14 @@ $(document).ready(function () {
             );   
         };
 
+        // This is triggered by the product selector when the product list changes
+        $(thisElem).on('updateProductList', async function(event, options) {
+            productSelectorObj = $(productOrSandboxSelectorElem).data('productSelector');
+            console.log('productSelectorObj', productSelectorObj);
+
+            updateIntegrationList();
+        });
+
         $(productDestinationElem).data('onChange', requestDestIntegrationList);
 
         $(actionButtonElem).on('click', async function () {
@@ -2905,6 +2921,15 @@ $(document).ready(function () {
             if (!integrationList) {
                 return;
             }
+
+            let sourceProduct = {};
+            productSelectorObj.getOptions(sourceProduct);
+
+            if (sourceProduct.productId == destinationProduct) {
+                alert('Source and destination products cannot be the same');
+                return;
+            }
+
 
             const keysToSkip = [
                 'created_at',
@@ -2984,6 +3009,15 @@ $(document).ready(function () {
                     });
 
                     appendOutput('Copied ' + integrationList[ii].event + '\n');
+                    
+                    let sourceUrlBase;
+                    if (sourceProduct.productId) {
+                        sourceUrlBase = 'https://api.particle.io/v1/products/' + sourceProduct.productId + '/integrations/' + integrationId
+                    }
+                    else {
+                        sourceUrlBase = 'https://api.particle.io/v1/integrations/' + integrationId;
+                    }
+
 
                     // Disable in destination (this does not work if you set it during creation)
                     if (copyMode == 'disableDest') {
@@ -3034,7 +3068,7 @@ $(document).ready(function () {
                                 success: function (resp, textStatus, jqXHR) {
                                     resolve();
                                 },
-                                url: 'https://api.particle.io/v1/integrations/' + integrationId
+                                url: sourceUrlBase
                             }
                 
                             $.ajax(request);
@@ -3058,7 +3092,7 @@ $(document).ready(function () {
                                 success: function (resp, textStatus, jqXHR) {
                                     resolve();
                                 },
-                                url: 'https://api.particle.io/v1/integrations/' + integrationId
+                                url: sourceUrlBase
                             }
                 
                             $.ajax(request);
@@ -3079,7 +3113,7 @@ $(document).ready(function () {
             requestDestIntegrationList();
         });
 
-        updateIntegrationList();
+        // updateIntegrationList();
 
     });
 
@@ -3121,6 +3155,9 @@ $(document).ready(function () {
                 $(thisElem).find('.productSelectorRow').hide();
                 $(thisElem).find('.sandboxOrgRow').hide();
                 $(thisElem).find('.orgSelectorRow').show();
+
+                setStatus('');
+                enableButton();
             }
 
         };
@@ -3174,7 +3211,10 @@ $(document).ready(function () {
 
                 const friendlyName = $(friendlyNameElem).val();
 
-                if (curScopes.length > 0 && friendlyName.length > 0 && productId) {
+                const prodOrgVal = $(thisElem).find('.prodOrg:checked').val();
+                const isOrgUser = (prodOrgVal == 'org');
+
+                if (curScopes.length > 0 && friendlyName.length > 0 && (productId || isOrgUser)) {
                     $(actionButtonElem).prop('disabled', false);
                 }
                 else {
@@ -3220,7 +3260,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error ' + gaCategory);
 
@@ -3233,7 +3273,7 @@ $(document).ready(function () {
                 },
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -3424,7 +3464,7 @@ $(document).ready(function () {
                 contentType: 'application/json',
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting billing period');
 
@@ -3438,13 +3478,21 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
 
                     $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
                     $(respElem).show();
+
+                    const serviceAgreementNotifications = $('.apiHelperCloudApiServiceAgreementNotifications').data('serviceAgreementNotifications');
+                    serviceAgreementNotifications.setParams({
+                        orgId: $(sandboxOrgSelectElem).val(),
+                        resp,
+                    });
+                    serviceAgreementNotifications.show();
+                    
                 },
                 url: getUrl('service_agreements')
             }
@@ -3480,6 +3528,97 @@ $(document).ready(function () {
         }
   
 
+    });
+
+    $('.apiHelperCloudApiServiceAgreementNotifications').each(function() {
+        const thisElem = $(this);
+        const gaCategory = 'GetServiceAgreementNotifications';
+
+        const agreementSelectElem = $(thisElem).find('.apiHelperAgreementSelect');
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const requestElem = $(thisElem).find('.apiHelperApiRequest');
+        const respElem = $(thisElem).find('.apiHelperApiResponse');
+        const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+
+        let serviceAgreementNotifications = {
+            // orgId
+        };
+        $(thisElem).data('serviceAgreementNotifications', serviceAgreementNotifications);
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const getUrl = function() {
+            let url;
+
+            if (serviceAgreementNotifications.params.orgId == 0) {
+                // Sandbox
+                url = 'https://api.particle.io/v1/user/service_agreements/' + $(agreementSelectElem).val() + '/notifications';
+            }
+            else {
+                // Organization
+                url = 'https://api.particle.io/v1/orgs/' + serviceAgreementNotifications.params.orgId + '/service_agreements/' + $(agreementSelectElem).val() + '/notifications';
+            }
+            return url;
+        }      
+    
+        $(actionButtonElem).on('click', function() {
+            let request = {
+                contentType: 'application/json',
+                dataType: 'json',
+                error: function (jqXHR) {
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
+
+                    setStatus('Error getting service agreement notifications');
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    analytics.track('Success', {category:gaCategory});
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url: getUrl()
+            }
+
+            setRequest(thisElem, request);
+
+            $(respElem).find('pre').text('');
+
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });        
+        serviceAgreementNotifications.setParams = function(params) {
+            serviceAgreementNotifications.params = params;
+
+            $(agreementSelectElem).empty();
+            for(const dataObj of params.resp.data) {
+                if (dataObj.type == 'service_agreement') {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', dataObj.id.toString());
+                    $(optionElem).text(dataObj.id.toString());
+                    $(agreementSelectElem).append(optionElem);                    
+                }
+            }
+        };
+
+        serviceAgreementNotifications.show = function() {
+
+            $(thisElem).show();
+        }
     });
 
     $('.apiHelperCloudApiDataOperationsReport').each(function() {
@@ -3560,7 +3699,7 @@ $(document).ready(function () {
                 contentType: 'application/json',
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategoryCheck, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategoryCheck, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting billing period');
 
@@ -3574,7 +3713,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategoryCheck, 'Success');
+                    analytics.track('Success', {category:gaCategoryCheck});
 
                     $(agreementSelectElem).html('');
 
@@ -3624,7 +3763,7 @@ $(document).ready(function () {
                 data: JSON.stringify(requestData),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategoryReport, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategoryReport, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting data operations report');
 
@@ -3638,7 +3777,7 @@ $(document).ready(function () {
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategoryReport, 'Success');
+                    analytics.track('Success', {category:gaCategoryReport});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -3666,7 +3805,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategoryStatus, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategoryStatus, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting report status');
 
@@ -3680,7 +3819,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategoryStatus, 'Success');
+                    analytics.track('Success', {category:gaCategoryStatus});
 
                     $(outputJsonElem).show();
                     setCodeBox(thisElem, JSON.stringify(resp, null, 2));
@@ -3707,7 +3846,7 @@ $(document).ready(function () {
 
         $(downloadReportButtonElem).on('click', function() {
             setStatus('Opened download URL in browser');
-            ga('send', 'event', gaCategoryDownload, 'Success');
+            analytics.track('Success', {category:gaCategoryDownload});
 
             $(requestElem).hide();
             $(respElem).hide();
@@ -3862,7 +4001,7 @@ $(document).ready(function () {
                 error: function (jqXHR) {
                     const err = (jqXHR.responseJSON ? jqXHR.responseJSON.error : '');
                     if (options.gaCategory) {
-                        ga('send', 'event', options.gaCategory, 'Error', err);
+                        analytics.track('Error', {category:options.gaCategory, label:err});
                     }
 
                     if (options.setStatus) {
@@ -3878,7 +4017,7 @@ $(document).ready(function () {
                 success: function (resp, textStatus, jqXHR) {
                     //setStatus('');
                     if (options.gaCategory) {
-                        ga('send', 'event', options.gaCategory, 'Success');
+                        analytics.track('Success', {category:options.gaCategory});
                     }
 
                     console.log('success', resp);
@@ -4214,4 +4353,5 @@ $(document).ready(function () {
     loadSettings();
 
 });
+
 

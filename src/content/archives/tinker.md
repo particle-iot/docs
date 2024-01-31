@@ -9,6 +9,8 @@ devices: [ photon,electron,argon,boron,xenon]
 
 {{box op="start" cssClass="boxed warningBox"}}
 This page is no longer maintained and is provided for historical reference only
+
+The Particle mobile app for iOS will be deprecated in the future. The Android app has been deprecated. You should use web-based or CLI setup instead.
 {{box op="end"}}
 
 You are viewing the Tinker documentation the **{{device}}**. To view the documentation for other 
@@ -36,13 +38,13 @@ To get started, you'll need the following things:
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor or other resistance-based sensor, such as a Thermistor or Force-Sensitive Resistor {{#if photon}}(Photoresistor included with Photon Kit and Maker Kit){{/if}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * Particle Mobile App 
 * **Experience**
     * Connecting your Device with your [smartphone or USB](/quickstart/photon/) 
 
 {{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
-## Step One: Select Your Device
+## Step one: Select your device
 
 You've already [connected your device](/quickstart/argon/). This means that when you open the Particle App, you'll see a screen like this:
 
@@ -65,7 +67,7 @@ If you tap the "Flash Tinker" button, you'll see a confirmation screen letting y
 To walk through the following examples yourself, you'll want to reflash the Tinker firmware. Click the "Flash" option and continue once your device comes back online.
 </p>
 
-## Step Two: Explore the Tinker App
+## Step two: Explore the Tinker app
 
 The app consists of 15 pins in vertical rows - 6 analog pins on the left, 9 digital pins on the right. These pins represent the 15 GPIO (General Purpose Input and Output) pins on your device.
 
@@ -83,7 +85,7 @@ In other words, Tinker lets you control and read the voltage of the pins on your
 Now for some examples!
 
 
-## Step Three: digitalWrite
+## Step three: digitalWrite
 
 The simplest thing we can do with Tinker is to turn the D7 LED on and off.
 
@@ -104,7 +106,7 @@ It will change its status to `HIGH` and your device's D7 LED will turn on. Tappi
 `digitalWrite` only has two options: `HIGH` and `LOW`. When we speak to our pins digitally, we can only send the maximum voltage or no voltage. That's great for when you only need two settings-- like if you had a light switch that could only go on and off, or locks that could only be open or closed. For everything in between, we use `analogWrite`.
 
 
-## Step Four: analogWrite
+## Step four: analogWrite
 
 In this example, we'll plug an LED into D2 and change its brightness with analogWrite. (D2 is a {{popup 'PWM pin.' 'note' 'A <a href = "https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation (PWM)</a> output is a digital output that can be filtered through various means to create a pseudo analog output. It is possible to analogWrite to `D0` through its PWM functionality.'}}
 
@@ -127,7 +129,7 @@ By sliding and releasing the slider, you should be able to see the LED dim and g
 If we wanted to, we could also switch modes and `digitalWrite` this LED to turn it on or off. To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up.
 
 
-## Step Five: digitalRead
+## Step five: digitalRead
 
 We can also use Tinker to check to see if a pin is on or off. `digitalRead` is great for checking things that only have two states-- switches and buttons for example.
 
@@ -144,7 +146,7 @@ If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now
 ![](/assets/images/gen3-tinker-d0-high.png)
 ![](/assets/images/gen3-tinker-d0-low.png)
 
-## Step Six: analogRead
+## Step six: analogRead
 
 If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
 
@@ -187,13 +189,13 @@ To get started, you'll need the following things:
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor or other resistance-based sensor, such as a Thermistor or Force-Sensitive Resistor {{#if photon}}(Photoresistor included with Photon Kit and Maker Kit){{/if}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * Particle Mobile App 
 * **Experience**
     * Connecting your Device with your [smartphone or USB](/quickstart/photon/) 
 
 {{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
-## Step One: Select Your Device
+## Step one: Select your device
 
 You've already connected your device, either with [smartphone or USB](/quickstart/photon/). This means that when you open the Particle App, you'll see a screen like this:
 
@@ -216,7 +218,7 @@ If you tap the "Flash Tinker" button, you'll see a confirmation screen letting y
 To walk through the following examples yourself, you'll want to reflash the Tinker firmware. Click the "Flash" option and continue once your device comes back online.
 </p>
 
-## Step Two: Explore the Tinker App
+## Step two: Explore the Tinker app
 
 The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on your device.
 
@@ -234,7 +236,7 @@ In other words, Tinker lets you control and read the voltage of the pins on your
 Now for some examples!
 
 
-## Step Three: digitalWrite
+## Step three: digitalWrite
 
 The simplest thing we can do with Tinker is to turn the D7 LED on and off.
 
@@ -255,7 +257,7 @@ It will change its status to `HIGH` and your device's D7 LED will turn on. Tappi
 `digitalWrite` only has two options: `HIGH` and `LOW`. When we speak to our pins digitally, we can only send the maximum voltage or no voltage. That's great for when you only need two settings-- like if you had a light switch that could only go on and off, or locks that could only be open or closed. For everything in between, we use `analogWrite`.
 
 
-## Step Four: analogWrite
+## Step four: analogWrite
 
 In this example, we'll plug an LED into D0 and change its brightness with analogWrite. (D0 is a {{popup 'PWM pin.' 'note' 'A <a href = "https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation (PWM)</a> output is a digital output that can be filtered through various means to create a pseudo analog output. It is possible to analogWrite to `D0` through its PWM functionality.'}}
 
@@ -281,7 +283,7 @@ By sliding and releasing the slider, you should be able to see the LED dim and g
 If we wanted to, we could also switch modes and `digitalWrite` this LED to turn it on or off. To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up.
 
 
-## Step Five: digitalRead
+## Step five: digitalRead
 
 We can also use Tinker to check to see if a pin is on or off. `digitalRead` is great for checking things that only have two states-- switches and buttons for example.
 
@@ -302,7 +304,7 @@ If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now
 ![](/assets/images/gen3-tinker-d0-high.png)
 ![](/assets/images/gen3-tinker-d0-low.png)
 
-## Step Six: analogRead
+## Step six: analogRead
 
 If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
 
@@ -350,13 +352,13 @@ To get started, you'll need the following things:
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor or other resistance-based sensor, such as a Thermistor or Force-Sensitive Resistor {{#if photon}}(Photoresistor included with Photon Kit and Maker Kit){{/if}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * Particle Mobile App
 * **Experience**
     * Connecting your Device [smartphone or USB](/quickstart/electron/)
 
 {{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
-## Step One: Select Your Device
+## Step one: Select your device
 
 You've already connected your device, either with [smartphone or USB](/quickstart/electron/). This means that when you open the Particle App, you'll see a screen like this:
 
@@ -379,7 +381,7 @@ If you tap the "Flash Tinker" button, you'll see a confirmation screen letting y
 To walk through the following examples yourself, you'll want to reflash the Tinker firmware. Click the "Flash" option and continue once your device comes back online.
 </p>
 
-## Step Two: Explore the Tinker App
+## Step two: Explore the Tinker app
 
 The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on your device.
 
@@ -397,7 +399,7 @@ In other words, Tinker lets you control and read the voltage of the pins on your
 Now for some examples!
 
 
-## Step Three: digitalWrite
+## Step three: digitalWrite
 
 The simplest thing we can do with Tinker is to turn the D7 LED on and off.
 
@@ -418,7 +420,7 @@ It will change its status to `HIGH` and your device's D7 LED will turn on. Tappi
 `digitalWrite` only has two options: `HIGH` and `LOW`. When we speak to our pins digitally, we can only send the maximum voltage or no voltage. That's great for when you only need two settings-- like if you had a light switch that could only go on and off, or locks that could only be open or closed. For everything in between, we use `analogWrite`.
 
 
-## Step Four: analogWrite
+## Step four: analogWrite
 
 In this example, we'll plug an LED into D0 and change its brightness with analogWrite. (D0 is a {{popup 'PWM pin.' 'note' 'A <a href = "https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation (PWM)</a> output is a digital output that can be filtered through various means to create a pseudo analog output. It is possible to analogWrite to `D0` through its PWM functionality.'}}
 
@@ -444,7 +446,7 @@ By sliding and releasing the slider, you should be able to see the LED dim and g
 If we wanted to, we could also switch modes and `digitalWrite` this LED to turn it on or off. To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up.
 
 
-## Step Five: digitalRead
+## Step five: digitalRead
 
 We can also use Tinker to check to see if a pin is on or off. `digitalRead` is great for checking things that only have two states-- switches and buttons for example.
 
@@ -465,7 +467,7 @@ If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now
 ![](/assets/images/gen3-tinker-d0-high.png)
 ![](/assets/images/gen3-tinker-d0-low.png)
 
-## Step Six: analogRead
+## Step six: analogRead
 
 If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
 
@@ -513,13 +515,13 @@ To get started, you'll need the following things:
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor or other resistance-based sensor, such as a Thermistor or Force-Sensitive Resistor {{#if photon}}(Photoresistor included with Photon Kit and Maker Kit){{/if}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher)
+  * Particle Mobile App 
 * **Experience**
     * Connecting your Device with your smartphone or over USB
 
 {{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
-## Step One: Select Your Device
+## Step one: Select your device
 
 You've already connected your device, either with your smartphone or over USB. This means that when you open the Particle App, you'll see a screen like this:
 
@@ -542,7 +544,7 @@ If you tap the "Flash Tinker" button, you'll see a confirmation screen letting y
 To walk through the following examples yourself, you'll want to reflash the Tinker firmware. Click the "Flash" option and continue once your device comes back online.
 </p>
 
-## Step Two: Explore the Tinker App
+## Step two: Explore the Tinker app
 
 The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on your device.
 
@@ -560,7 +562,7 @@ In other words, Tinker lets you control and read the voltage of the pins on your
 Now for some examples!
 
 
-## Step Three: digitalWrite
+## Step three: digitalWrite
 
 The simplest thing we can do with Tinker is to turn the D7 LED on and off.
 
@@ -581,7 +583,7 @@ It will change its status to `HIGH` and your device's D7 LED will turn on. Tappi
 `digitalWrite` only has two options: `HIGH` and `LOW`. When we speak to our pins digitally, we can only send the maximum voltage or no voltage. That's great for when you only need two settings-- like if you had a light switch that could only go on and off, or locks that could only be open or closed. For everything in between, we use `analogWrite`.
 
 
-## Step Four: analogWrite
+## Step four: analogWrite
 
 In this example, we'll plug an LED into D0 and change its brightness with analogWrite. (D0 is a {{popup 'PWM pin.' 'note' 'A <a href = "https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation (PWM)</a> output is a digital output that can be filtered through various means to create a pseudo analog output. It is possible to analogWrite to `D0` through its PWM functionality.'}}
 
@@ -607,7 +609,7 @@ By sliding and releasing the slider, you should be able to see the LED dim and g
 If we wanted to, we could also switch modes and `digitalWrite` this LED to turn it on or off. To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up.
 
 
-## Step Five: digitalRead
+## Step five: digitalRead
 
 We can also use Tinker to check to see if a pin is on or off. `digitalRead` is great for checking things that only have two states-- switches and buttons for example.
 
@@ -628,7 +630,7 @@ If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now
 ![](/assets/images/gen3-tinker-d0-high.png)
 ![](/assets/images/gen3-tinker-d0-low.png)
 
-## Step Six: analogRead
+## Step six: analogRead
 
 If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
 

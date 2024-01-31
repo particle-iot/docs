@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_EPD_RK",
     "version": "2.3.1",
-    "installs": 4826,
+    "installs": 5096,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "ePaper display driver 1.0.2 ported to Particle by rickkas7",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_EPD_RK",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_EPD_RK",
   "versions": {
     "2.3.1": {
       "builds": {
@@ -106,12 +106,52 @@
           "esomx": {
             "FeatherWingTest": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "FeatherWingTest": true
+          },
+          "boron": {
+            "FeatherWingTest": true
+          },
+          "bsom": {
+            "FeatherWingTest": true
+          },
+          "b5som": {
+            "FeatherWingTest": true
+          },
+          "tracker": {
+            "FeatherWingTest": true
+          },
+          "p2": {
+            "FeatherWingTest": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "FeatherWingTest": true
+          },
+          "boron": {
+            "FeatherWingTest": true
+          },
+          "bsom": {
+            "FeatherWingTest": true
+          },
+          "b5som": {
+            "FeatherWingTest": true
+          },
+          "tracker": {
+            "FeatherWingTest": true
+          },
+          "esomx": {
+            "FeatherWingTest": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.816Z"
     }
   },
-  "readme": "# Adafruit\\_EPD\\_RK\n\n*Particle port of the Adafruit EPD (e-paper, e-ink) display library*\n\nThis library is used to support the [Adafruit 2.13\" tri-color EPD display](https://www.adafruit.com/product/4128) (212x104 pixels). It can also be used with other Adafruit EPD displays.\n\n![Display](images/e-ink.jpg)\n\nYou can find more about the displays on the [Adafruit page](https://learn.adafruit.com/adafruit-eink-display-breakouts/overview).\n\n| Particle Pin | Display Pin | Description |\n| :---: | :---: | --- |\n| D2 | SDCS | SD card Chip Select, required for communicating with the onboard SD card holder |\n| D3 | SRCS | SRAM Chip Select, required for communicating with the onboard RAM chip |\n| D4 | ECS | E-Ink Chip Select, required for controlling the display |\n| D5 | D/C | E-Ink Data/Command pin, required for controlling the display |\n| MISO | MISO | SPI master in, slave out | \n| MOSI | MOSI | SPI master out, slave in |\n| SCK | SCK | SPI clock |\n\n- RST is connected to the hardware reset button, not a GPIO\n- BUSY is on a pad, but by default not connected to anything\n\nThis library is a port of the [Adafruit_EPD](https://github.com/adafruit/Adafruit_EPD) library.\n\nIt also relies on:\n\n- [Adafruit\\_GFX\\_RK](https://github.com/rickkas7/Adafruit_GFX_RK), a port of the [Adafruit-GFX](https://github.com/adafruit/Adafruit-GFX-Library) graphics library.\n- [SdFat](https://github.com/greiman/SdFat-Particle), an implementation of the FAT file system on SD card for Particle.\n\nThe back of the board looks like this:\n\n![Back](images/e-ink-back.jpg)\n\nAnd with an Argon inserted:\n\n![Back with Argon](images/e-ink-argon.jpg)\n\n\n## Example\n\nIn order to use the bitmap feature of the display, you'll need to have a FAT formatted micro SD card. Copy the blinka.bmp file to the top level of the SD card, then put it into the SD card slot on the FeatherWing.\n\nYou'll need to flash the examples/FeatherWingTest program to your Argon, Boron, or Xenon.\n\nIt will display several test patterns:\n\n- Lines\n- Text\n- The Adafruit graphic (if you set up the SD card)\n\nThe display only updates every 3 minutes, as the Adafruit documentation warns that the display can be permanently damaged if you refresh it more often than that.\n\n## Version History\n\n#### 2.3.1 (2020-08-02)\n\n- Updated Adafruit_GFX_RK to 1.5.8\n\n#### 2.3.0 (2019-12-15)\n\n- Updated to Adafruit version 2.3.0\n",
+  "readme": "# Adafruit\\_EPD\\_RK\n\n*Particle port of the Adafruit EPD (e-paper, e-ink) display library*\n\nThis library is used to support the [Adafruit 2.13\" tri-color EPD display](https://www.adafruit.com/product/4128) (212x104 pixels). It can also be used with other Adafruit EPD displays.\n\nDisplay (image removed)\n\nYou can find more about the displays on the [Adafruit page](https://learn.adafruit.com/adafruit-eink-display-breakouts/overview).\n\n| Particle Pin | Display Pin | Description |\n| :---: | :---: | --- |\n| D2 | SDCS | SD card Chip Select, required for communicating with the onboard SD card holder |\n| D3 | SRCS | SRAM Chip Select, required for communicating with the onboard RAM chip |\n| D4 | ECS | E-Ink Chip Select, required for controlling the display |\n| D5 | D/C | E-Ink Data/Command pin, required for controlling the display |\n| MISO | MISO | SPI master in, slave out | \n| MOSI | MOSI | SPI master out, slave in |\n| SCK | SCK | SPI clock |\n\n- RST is connected to the hardware reset button, not a GPIO\n- BUSY is on a pad, but by default not connected to anything\n\nThis library is a port of the [Adafruit_EPD](https://github.com/adafruit/Adafruit_EPD) library.\n\nIt also relies on:\n\n- [Adafruit\\_GFX\\_RK](https://github.com/rickkas7/Adafruit_GFX_RK), a port of the [Adafruit-GFX](https://github.com/adafruit/Adafruit-GFX-Library) graphics library.\n- [SdFat](https://github.com/greiman/SdFat-Particle), an implementation of the FAT file system on SD card for Particle.\n\nThe back of the board looks like this:\n\nBack (image removed)\n\nAnd with an Argon inserted:\n\nBack with Argon (image removed)\n\n\n## Example\n\nIn order to use the bitmap feature of the display, you'll need to have a FAT formatted micro SD card. Copy the blinka.bmp file to the top level of the SD card, then put it into the SD card slot on the FeatherWing.\n\nYou'll need to flash the examples/FeatherWingTest program to your Argon, Boron, or Xenon.\n\nIt will display several test patterns:\n\n- Lines\n- Text\n- The Adafruit graphic (if you set up the SD card)\n\nThe display only updates every 3 minutes, as the Adafruit documentation warns that the display can be permanently damaged if you refresh it more often than that.\n\n## Version History\n\n#### 2.3.1 (2020-08-02)\n\n- Updated Adafruit_GFX_RK to 1.5.8\n\n#### 2.3.0 (2019-12-15)\n\n- Updated to Adafruit version 2.3.0\n",
   "allVersions": [
     "2.3.1",
     "2.3.0",

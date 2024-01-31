@@ -63,7 +63,7 @@ module.exports = function(context) {
 
             if (mode == 'zip') {
                 if (info.versionsZip[version] && info.versionsZip[version].includes(platformObj.name)) {
-                    const script = "ga('send', 'event', 'Download', 'Device Restore Zip Download', '" + version + "/" + platformObj.name + "'); return true;";
+                    const script = "analytics.track('Device Restore Zip Download', 'Download', {category: '" + version + "/" + platformObj.name + "'}); return true;";
     
                     row += '<a href="/assets/files/device-restore/' + version + '/' + platformObj.name + '.zip" download onclick="' + script + '">Download</a>';
                     hasItems = true;
@@ -75,7 +75,7 @@ module.exports = function(context) {
             else {
                 if (info.versions[version].includes(platformObj.name)) {
                     if (mode == 'download') {
-                        const script = "ga('send', 'event', 'Download', 'Device Restore Hex Download', '" + version + "/" + platformObj.name + "'); return true;";
+                        const script = "analytics.track('Device Restore Hex Download', 'Download', {category: '" + version + "/" + platformObj.name + "'}); return true;";
     
                         row += '<a href="/assets/files/device-restore/' + version + '/' + platformObj.name + '.hex" download onclick="' + script + '">Download</a>';
                         hasItems = true;

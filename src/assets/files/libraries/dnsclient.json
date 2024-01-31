@@ -7,7 +7,7 @@
   "attributes": {
     "name": "dnsclient",
     "version": "0.0.13",
-    "installs": 529,
+    "installs": 600,
     "license": "Apache License, version 2.0",
     "author": "chris huitema",
     "sentence": "DNS Lookup Client ported from Arduino to Spark",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/dnsclient",
+  "cardUrl": "/reference/device-os/libraries/d/dnsclient",
   "versions": {
     "0.0.13": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "dnslookup": false
+          },
+          "boron": {
+            "dnslookup": false
+          },
+          "bsom": {
+            "dnslookup": false
+          },
+          "b5som": {
+            "dnslookup": false
+          },
+          "tracker": {
+            "dnslookup": false
+          },
+          "esomx": {
+            "dnslookup": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "dnslookup": false
+          },
+          "boron": {
+            "dnslookup": false
+          },
+          "bsom": {
+            "dnslookup": false
+          },
+          "b5som": {
+            "dnslookup": false
+          },
+          "tracker": {
+            "dnslookup": false
+          },
+          "p2": {
+            "dnslookup": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "dnslookup": false
           },

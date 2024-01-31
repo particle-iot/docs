@@ -1,0 +1,145 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_SHT4X_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_SHT4X_RK/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_SHT4X_RK",
+    "version": "1.0.2",
+    "installs": 1083,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Arduino library for SHT4x temperature & humidity sensor.",
+    "paragraph": "Arduino library for SHT4x temperature & humidity sensor.",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_SHT4x",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_SHT4X_RK",
+  "versions": {
+    "1.0.2": {
+      "added": "2023-03-21T21:19:49.431Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "SHT4test": true
+          },
+          "boron": {
+            "SHT4test": true
+          },
+          "bsom": {
+            "SHT4test": true
+          },
+          "b5som": {
+            "SHT4test": true
+          },
+          "tracker": {
+            "SHT4test": true
+          },
+          "p2": {
+            "SHT4test": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SHT4test": true
+          },
+          "boron": {
+            "SHT4test": true
+          },
+          "bsom": {
+            "SHT4test": true
+          },
+          "b5som": {
+            "SHT4test": true
+          },
+          "tracker": {
+            "SHT4test": true
+          },
+          "esomx": {
+            "SHT4test": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "SHT4test": true
+          },
+          "electron": {
+            "SHT4test": true
+          },
+          "argon": {
+            "SHT4test": true
+          },
+          "boron": {
+            "SHT4test": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "SHT4test": true
+          },
+          "electron": {
+            "SHT4test": true
+          },
+          "argon": {
+            "SHT4test": true
+          },
+          "boron": {
+            "SHT4test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "SHT4test": true
+          },
+          "boron": {
+            "SHT4test": true
+          },
+          "bsom": {
+            "SHT4test": true
+          },
+          "b5som": {
+            "SHT4test": true
+          },
+          "tracker": {
+            "SHT4test": true
+          },
+          "p2": {
+            "SHT4test": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "SHT4test": true
+          },
+          "boron": {
+            "SHT4test": true
+          },
+          "bsom": {
+            "SHT4test": true
+          },
+          "b5som": {
+            "SHT4test": true
+          },
+          "tracker": {
+            "SHT4test": true
+          },
+          "esomx": {
+            "SHT4test": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit SHT4X Temperature and Humidity Sensor Breakout [![Build Status](https://github.com/adafruit/Adafruit_SHT4X/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_SHT4X/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_SHT4X/html/index.html)\n\n<a href=\"https://www.adafruit.com/product/4636\"><img src=\"assets/board.jpg?raw=true\" width=\"500px\"></a>\n\nThis is a library for the SHT4X Digital Humidity + Temp sensor.\n\nIt is designed specifically to work with the SHT4X Digital in the Adafruit shop:\n\n* https://www.adafruit.com/products/4885\n\nThese sensors use **I2C** to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n\nCheck out the links above for our tutorials and wiring diagrams\n\n## Installation\n\nUse the Arduino Library Manager to install this library. If you're unfamiliar\nwith how this works, we have a great tutorial on Arduino library installation\nat: http://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use\n",
+  "allVersions": [
+    "1.0.2"
+  ]
+}

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "mdns_53d7",
     "version": "1.0.0",
-    "installs": 258,
+    "installs": 376,
     "license": "MIT license",
     "author": "Krishnaraj Varma",
     "sentence": "Adafruit CC3000_MDNS Library for Spark Core",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/mdns_53d7",
+  "cardUrl": "/reference/device-os/libraries/m/mdns_53d7",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -62,6 +62,86 @@
             "mdns": false
           },
           "boron": {
+            "mdns": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "mdns": false
+          },
+          "boron": {
+            "mdns": false
+          },
+          "bsom": {
+            "mdns": false
+          },
+          "b5som": {
+            "mdns": false
+          },
+          "tracker": {
+            "mdns": false
+          },
+          "p2": {
+            "mdns": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "mdns": false
+          },
+          "boron": {
+            "mdns": false
+          },
+          "bsom": {
+            "mdns": false
+          },
+          "b5som": {
+            "mdns": false
+          },
+          "tracker": {
+            "mdns": false
+          },
+          "esomx": {
+            "mdns": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "mdns": false
+          },
+          "boron": {
+            "mdns": false
+          },
+          "bsom": {
+            "mdns": false
+          },
+          "b5som": {
+            "mdns": false
+          },
+          "tracker": {
+            "mdns": false
+          },
+          "p2": {
+            "mdns": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "mdns": false
+          },
+          "boron": {
+            "mdns": false
+          },
+          "bsom": {
+            "mdns": false
+          },
+          "b5som": {
+            "mdns": false
+          },
+          "tracker": {
+            "mdns": false
+          },
+          "esomx": {
             "mdns": false
           }
         }

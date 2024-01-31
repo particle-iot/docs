@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SerialCommand1",
     "version": "1.1.2",
-    "installs": 392,
+    "installs": 510,
     "license": "open source",
     "author": "JC",
     "sentence": "serical command",
@@ -25,7 +25,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SerialCommand1",
+  "cardUrl": "/reference/device-os/libraries/s/SerialCommand1",
   "versions": {
     "1.1.2": {
       "builds": {
@@ -92,6 +92,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true
           },

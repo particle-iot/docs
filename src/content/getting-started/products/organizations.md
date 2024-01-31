@@ -19,7 +19,7 @@ team, and a centralized billing account. With an Organization, you can:
 
 Organizations are available in the Growth and Enterprise plans. Products that were started in the Free plan in an individual account can be migrated to an Organization when upgrading to Growth or Enterprise.
 
-## Setting up your Organization
+## Setting up your organization
 
 When you become an Enterprise customer with Particle, an Organization
 will be created on your behalf. At this time, you will provide the
@@ -67,7 +67,7 @@ is expanded, you will see the Organization(s) that you are a member of:
 ![Expanded space
 switcher](/assets/images/organizations/space-switcher-open.png)
 
-## Organization owned Products
+## Organization owned products
 Clicking on the name of an Organization will expose the space for that
 org. You will be directed to the list of Products that belong to the
 Organization. You can also click on the **Products** icon (<i
@@ -86,7 +86,7 @@ New Products can be created from the Console (by clicking on the **+ New
 Product** button here) or the API that will be assigned to the
 Organization.
 
-## Team Management
+## Team management
 
 With an Organization, you get improved team management and access
 controls capabilities. Each Organization has a team that can be managed
@@ -106,7 +106,7 @@ team member will be added -- the user who you've indicated should be the
 Owner of the org. That Owner should then use the team management tools
 in the Console to invite other team members to the Organization.
 
-### Tiered Access
+### Tiered access
 One of the main benefits of having an Organization team is the
 introduction of tiered levels of access. This allows you to take a
 _single_ action to grant access to many Products, instead of needing to
@@ -147,7 +147,7 @@ The combination of the Organization and Product Teams give you the
 flexibility and fine-grained control needed to define the right
 hierarchy and levels of access to meet your company's needs.
 
-### Product Collaborator View
+### Product collaborator view
 
 Once you are invited to collaborate on a product team (vs being part of an organization team), and accepted
 the invitation the product will show up in your Sandbox space with the following distinctions:
@@ -199,7 +199,7 @@ actions like inviting new members to the org team. At the Product level,
 you can take all fleet management actions like releasing a version of
 firmware to devices as well as the ability to manage the Product team.
 
-### Inviting Team Members
+### Inviting team members
 
 You can click on **Invite Team Member** to add new members to the
 Organization team. Remember that this will grant this user access to

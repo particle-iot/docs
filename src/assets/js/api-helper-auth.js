@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     const eventCategory = 'Docs SSO';
 
@@ -8,14 +7,14 @@ $(document).ready(function() {
     let orgInfo;
 
     const handleLogin = function() {
-        ga('send', 'event', eventCategory, 'Login Started');
+        analytics.track('Login Started', {category:eventCategory});
 
         const origUrl = window.location.href;
 		window.location.href = 'https://login.particle.io/login?redirect=' + encodeURI(origUrl); 
     };
 
     const handleEditAccount = function() {
-        ga('send', 'event', eventCategory, 'Edit Account');
+        analytics.track('Edit Account', {category:eventCategory});
 
         const origUrl = window.location.href;
 		window.location.href = 'https://login.particle.io/account-info?redirect=' + encodeURI(origUrl); 
@@ -24,10 +23,12 @@ $(document).ready(function() {
     const handleLogout = function() {
         localStorage.removeItem('particleAuth'); // No longer used, but if present, remove
         localStorage.removeItem('apiHelperOrg')
+        localStorage.removeItem('apiHelperLocalLogin');
+        localStorage.removeItem('apiHelperTestLogin');
+        localStorage.removeItem('savedSearch');
 
         if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {
-            ga('send', 'event', eventCategory, 'Logged Out Local');
-            localStorage.removeItem('apiHelperLocalLogin');
+            analytics.track('Logged Out Local', {category:eventCategory});
 
             if (!apiHelper.localLogin.tokenLogin) {
                 // Invalidate the token on the cloud side
@@ -49,8 +50,7 @@ $(document).ready(function() {
             location.reload();   
         }
         else {
-            ga('send', 'event', eventCategory, 'Logged Out SSO');
-            localStorage.removeItem('apiHelperTestLogin');
+            analytics.track('Logged Out SSO', {category:eventCategory});
             const origUrl = window.location.href;
             window.location.href = 'https://login.particle.io/logout?redirect=' + encodeURI(origUrl);     
         }
@@ -152,6 +152,7 @@ $(document).ready(function() {
         
             if (auth.username.endsWith('particle.io')) {
                 $('.internalMenuItem').show();
+                internalMenuItem = true;
             }
 
         };
@@ -183,6 +184,10 @@ $(document).ready(function() {
         }
         else {
             showNotLoggedIn();
+        }
+        if (window.location.href.startsWith('http://localhost')) {
+            $('.internalMenuItem').show();
+            internalMenuItem = true;
         }
 
         if (typeof apiHelper != 'undefined') {
@@ -247,7 +252,9 @@ $(document).ready(function() {
             if (!orgInfo) {
                 orgInfo = {};
             }
-    
+            apiHelper.orgInfo = orgInfo;
+            apiHelper.canSubmitTickets = false;
+
             const saveOrgInfo = function() {
                 localStorage.setItem('apiHelperOrg', JSON.stringify(orgInfo));
                 $('.apiHelper').trigger('selectedOrgUpdated');
@@ -281,6 +288,7 @@ $(document).ready(function() {
                                         const agreementType = obj.attributes.agreement_type;
                                         if (agreementType == 'enterprise') {
                                             orgInfo.isEnterprise = true;
+                                            apiHelper.canSubmitTickets = true;
                                         }
                                     }
                                     resolve();
@@ -557,4 +565,5 @@ $(document).ready(function() {
 
     });
 });
+
 

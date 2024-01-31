@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IRremote",
     "version": "0.0.3",
-    "installs": 36326,
+    "installs": 38356,
     "license": "GPL",
     "author": "Michael Doan",
     "sentence": "IR Remote Control",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/IRremote",
+  "cardUrl": "/reference/device-os/libraries/i/IRremote",
   "versions": {
     "0.0.3": {
       "builds": {
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": false
           },

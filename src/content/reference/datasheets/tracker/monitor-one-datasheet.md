@@ -5,38 +5,36 @@ layout: commonTwo.hbs
 description: Monitor One Datasheet
 ---
 
-# Monitor One Datasheet
+# Monitor One datasheet
 
 {{#unless pdf-generation}}
-{{!-- downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf" --}}
+{{downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-**Pre-release draft 2022-10-27 for review only. Do not distribute or share this URL!**
+{{imageOverlay src="/assets/images/monitor-one/monitor-one-closed.jpg" alt="Front view" class="full-width no-darken"}}
 
-{{box op="start" cssClass="boxed warningBox"}}
-This is an preliminary pre-release datasheet and the contents are subject to change.
-{{box op="end"}}
+The Monitor One is an off-the-shelf complete gateway design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for an expansion card and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
-{{imageOverlay src="/assets/images/monitor-one/front-on-post.jpg" alt="Front view" class="full-width no-darken"}}
-
-*The pictures in this preliminary datasheet are of a pre-release unit. The production units will be a different color, and may have other minor differences.*
-
-The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
-
-- **Ready to go** with rugged IP67-rated enclosure with room inside for expansion cards and additional connectors.
-- **Flexible power supply** to easily add asset tracking to most devices with a 6 - 90 VDC power input and a large 18650 LiPo battery pack.
+- **Ready to go** with rugged IP67-rated enclosure with room inside for an expansion card.
+- **Flexible power supply** to easily add asset tracking to most devices with a 6 - 30 VDC power input and a large 18650 LiPo battery pack.
 - **Internal or external antennas** for cellular and GNSS.
-- **Temperature sensors** within the enclosure, and also a battery pack temperature sensor.
-- **Expansion cards** allow for custom features.
-- **RGB LEDs** for system status, and two user RGB LEDs for your own use, visible from outside the enclosure.
+- **Temperature sensors** on the carrier board, and also a battery pack temperature sensor.
+- **Expansion card connector** to allow for custom application specific hardware.
+- **RGB LED** for system status, and two user RGB LEDs for your own use, visible from outside the enclosure.
 - **User button**, waterproof and accessible from outside the enclosure.
 
- 
+Particle gateway device like the Monitor One and Tracker One are designed to be used off-the-shelf to interface to other devices and sensors using standard protocols such as CAN bus, I2C, and serial.
+
+For information on setting up a Monitor One Developer Edition, see the [Monitor One Quickstart](/quickstart/monitor-one/).
+
+*The pictures in this datasheet are of a pre-release unit.*
+
 ## Block diagram
 
 {{imageOverlay src="/assets/images/monitor-one/block-diagram2.png" alt="Block diagram" class="full-width"}}
 
 Details about the Tracker SoM that is contained within the Monitor One can be found in the [Tracker SoM Datasheet](/reference/datasheets/tracker/tracker-som-datasheet/).
+
 
 ## External features
 
@@ -49,10 +47,11 @@ Details about the Tracker SoM that is contained within the Monitor One can be fo
 |  2 | GNSS antenna (internal) |
 |  3 | Cellular antenna (internal) |
 |  4 | External connectors (on bottom) |
-|  5 | Magnetic, bolt-down, or strap down mounting bracket |
+|  5 | Magnetic, bolt-down, or strap-down mounting bracket |
 |  6 | User RGB LEDs (2) |
 |  7 | User button (externally accessible) |
-|  8 | Wi-Fi geolocation antenna (internal) |
+|  8 | Wi-Fi geolocation antenna (internal, optional) |
+|  9 | Cover screws (6) (M2 hex, 2mm) |
 
 ### User button
 
@@ -64,9 +63,12 @@ A waterproof button is available from the outside of the enclosure.
 ### User LEDs (2)
 
 - There are two small RGB LEDs visible from the outside on the side of the unit, next to the user button.
-- You can program custom colors, blinking, and fade effects for each LED from your user firmware.
+- The upper LED defaults to being a GNSS lock indicator:
+  - Off: GNSS off
+  - Blinking (green): attempting to get a GNSS fix
+  - On (green): GNSS fix acquired
+- You can program custom colors, blinking, and fade effects from your user firmware for the lower LED.
 - LEDs are controlled by a ADP8866 I2C LED controller.
-
 
 ### Connectors
 
@@ -85,21 +87,35 @@ The bottom plate of the Monitor One can be customized with different connectors 
 
 By default the Monitor One uses the internal cellular and GNSS antennas, but can be switched to using the external connectors inside the enclosure.
 
+The cellular (1) and GNSS (4) antennas are not connected internally at the factory. In order to use the external connectors you must open the case, disconnect the internal antenna, and instead connect the U.FL connector for the external jack.
+
+The Monitor One is equipped with 2 external-facing SMA bulkhead connectors for both cellular and GNSS but are disconnected internally. The hardware is ready for use with external antennas giving the ability to connect a wide variety of application-specific antennas. It is recommended that the user perform required RF certifications with the selected antenna installed as the Monitor One has only been certified for use in select regions with the internal antennas.
+
 
 ## Mounting
 
-The Monitor One is intended to be mounted in the orientation shown at the top of the page, with the connectors facing down. You can also mount it with the mounting plate facing down as the GNSS antenna is angled to allow it to work in either orientation.
+The Monitor One is intended to be mounted in the orientation shown at the top of the page, with the connectors facing down. You can also mount it with the mounting plate mounted on a flat surface as the GNSS antenna is angled to allow it to work in either orientation.
 
-When using external cellular and GNSS antennas you can orient the Monitor One in any direction.
+When using external cellular and GNSS antennas you can orient the Monitor One in other directions.
 
-The mounting plate contains two magnets that allow it to be easily mounted on a metal surface, or to a metal plate affixed to a non-metal surface, such as the wood post shown above.
+{{imageOverlay src="/assets/images/monitor-one/back-labeled.png" alt="Back View" class="full-width"}}
 
-{{imageOverlay src="/assets/images/monitor-one/back-view.jpg" alt="Back View" class="full-width"}}
+| Label | Details |
+| :---: | :--- |
+| 1 | Mounting screw or bolt holes|
+| 2 | Slots for strap mounting |
+| 3 | Magnets |
+| 4 | Mounting plate removal screw (M3 hex, 3mm) |
 
-The mounting plate is removable from the back of the unit after removing the screw on the bottom, near the expansion connectors.
+The mounting plate contains two magnets (3) that allow it to be easily mounted on a metal surface.
 
-Once removed, you can screw or bolt the mounting plate to a surface and reattach the Monitor One. This is good for rough conditions and to help prevent theft.
+The mounting plate is removable from the back of the unit after removing the screw on the bottom (4), near the expansion connectors.
 
+Once removed, you can screw or bolt the mounting plate through the four holes (1) and reattach the Monitor One. This is good for rough conditions and for mounting on non-metal surfaces.
+
+The mounting plate can be strap mounted through the two slots (2).
+
+The magnets do not need to removed to use screw, bolt, or strap mounting.
 
 | Dimensions | Metric | SAE      |
 | :--------- | -----: |  ------: |
@@ -111,11 +127,11 @@ Once removed, you can screw or bolt the mounting plate to a surface and reattach
 
 | Dimensions | Metric | SAE      |
 | :--------- | -----: |  ------: |
-| Bolt/screw head hole diameter | 12.46 mm | 31/64" |
-| Bolt/screw head maximum height | 4.0 mm | 5/32" |
-| Bolt/screw hole diameter | 4.33 mm | 11/64" |
-| Bolt/screw shaft to surface | 3.65 mm | 9/64" |
-| Recommended bolt | M4 | #8 |
+| Bolt/screw head hole diameter (maximum) | 12.46 mm | 31/64" |
+| Bolt/screw head maximum height (maximum) | 4.0 mm | 5/32" |
+| Bolt/screw hole diameter (maximum) | 4.33 mm | 11/64" |
+| Bolt/screw shaft to surface (maximum) | 3.65 mm | 9/64" |
+| Recommended bolt or screw | M4 | #8 |
 
 
 {{imageOverlay src="/assets/images/monitor-one/hole-dim.png" alt="Mounting bracket screw hole dimensions" class="full-width"}}
@@ -128,6 +144,9 @@ When mounting using a strap, the strap will hold the mounting bracket against a 
 | Maximum strap width | 15 mm | 19/32" |
 
 {{imageOverlay src="/assets/images/monitor-one/strap-dim.png" alt="Strap mounting dimensions" class="full-width"}}
+
+If you wish to fabricate your own compatible mounting bracket, the STEP file can found in the [Monitor One Github repository](https://github.com/particle-iot/monitor-one).
+
 
 ## Internal features
 
@@ -157,19 +176,232 @@ When mounting using a strap, the strap will hold the mounting bracket against a 
 | 20 | Tracker SoM module |
 | 21 | Wi-Fi geolocation antenna (internal, not pictured) |
 
+## I/O Card
+
+The Monitor One is designed with easy-to-use expansion headers and an enclosure with sufficient space inside for an expansion card, and for additional expansion connector through the wall of enclosure.
+
+The Monitor One Developer's Edition includes the I/O Card, which includes:
+
+| Feature | Location | Details |
+| :--- | :--- | :--- |
+| VIN | M12 8-pin | Power input, 6 - 30V DC |
+| CAN Bus | M12 8-pin | |
+| RS485 (Modbus) | M12 8-pin | |
+| 4-20 mA input | M12 8-pin | |
+| 0-10V analog input | M12 8-pin | |
+| 12-24V slow-signal input | M12 4-pin | Opto-isolated |
+| Relay | M12 4-pin | 30VDC 2A maximum |
+| QWIIC connector | expansion card | 3.3V I2C |
+
+{{imageOverlay src="/assets/images/monitor-one/monitor-one-iocard.jpg" alt="I/O Card" class="full-width"}}
+
+### I/O Card M12 8-pin to flying leads
+
+The Monitor One includes a M12 8-pin male to flying leads cable, 1500&plusmn;20mm (about 60 inches or 5 feet). This is used to power the Monitor One, and also use the 4-20mA, 0-10V analog in, CAN bus, and RS485 (Modbus) interfaces.
+
+![M12 Cable Connector](/assets/images/monitor-one/m12-cable.png)
+
+<p class="attribution">Looking at the pins on the end of the connector on the cable</p>
+
+| Conn P1 (M12) | Color | Function | GPIO |
+| :---: | :---: | :--- | :--- |
+| 1 | White | CAN_P | |
+| 2 | Red | VIN (6-30 VDC) | |
+| 3 | Green | 4-20mA input | A7 |
+| 4 | Yellow | 0-10V input | A6 |
+| 5 | Gray | RS485_B (N) | |
+| 6 | Pink | RS485_A (P) | |
+| 7 | Blue | CAN_N | |
+| 8 | Black | Ground | |
+
+
+{{imageOverlay src="/assets/images/monitor-one/m12-8-flying.png" alt="M12 8-pin flying leads" class="full-width"}}
+
+Also included is an adapter from screw terminals to a 5.5x2.1mm barrel jack, center positive. If you disconnect and reconnect the adapter, make sure the + screw terminal is connected to red and the - screw terminal is connected to black. An appropriate 24 VDC power adapter is included.
+
+Any 6VDC to 30VDC power adapter at 2A with a 5.5x2.1mm barrel connector, center positive can be used instead, if desired. For automotive use, you can use this power input directly to a 12V or 24V vehicle power system as the power supply is designed to handle transient voltage present on vehicle power systems.
+
+The RS485 and CAN interface pins on the M12 8-pin connector cannot be used as GPIO.
+
+### I/O Card M12 4-pin to flying leads
+
+The Monitor One includes a M12 4-pin male to flying leads cable, 1500&plusmn;20mm (about 60 inches or 5 feet).
+
+{{imageOverlay src="/assets/images/monitor-one/m12-4-flying.png" alt="M12 8-pin flying leads" class="full-width"}}
+
+| Conn P1 (M12)| Color | Function | GPIO |
+| :---: | :---: | :--- | :--- |
+| 1 | Red | 12-24V slow-signal input | A5 |
+| 2 | Green | Relay COM | |
+| 3 | Black | Ground | |
+| 4 | Blue | Relay (NO) | NFC_PIN2 |
+
+
+
+### I/O Card details
+
+{{imageOverlay src="/assets/images/monitor-one/monitor-io.png" alt="I/O Card" class="full-width"}}
+
+| Label | Details |
+| :---: | :--- |
+|  1 | Prototyping area |
+|  2 | Power LED (LED1) |
+|  3 | RESET and MODE buttons |
+|  4 | QWIIC (I2C) connector |
+|  5 | RS-485 120 ohm termination resistor enable (JP3) |
+|  6 | RS-485 pull-up resistor (JP4) |
+|  8 | RS-485 pill-down resistor (JP5) |
+|  9 | CAN_5V LED (LED3) |
+| 10 | Relay energized LED (LED2) |
+| 11 | CAN termination resistor enable (JP9) |
+| 12 | CAN termination capacitor enable (JP10) |
+| 13 | Slow-signal input (12-24V) powered (LED4) |
+| 14 | M12 8-pin solder jumpers, location for prototyping wires |
+| 16 | Connector to M12 8-pin |
+| 17 | Slow-signal input (12-24V) and GND |
+| 18 | Relay COM and NO (normally open) |
+| 19 | Access to expansion card signals |
+| 20 | Access to expansion card signals |
+
+
+The M12 4-pin bulkhead connector has flying leads that are connected to the screw terminals (18) as follows:
+
+| M12 Pin | Color | Card |
+| :---: | :---: | :--- |
+| 1 | Red | INPUT |
+| 2 | Green | COM |
+| 3 | Black | GND |
+| 4 | Blue | NO |
+
+
+### Customizing the I/O Card
+
+If you wish to build upon the I/O Card, there is a small prototyping area (1). 
+
+If you need signals from the expansion card interface, they are available in the rows of pins (19, 20).
+
+If you wish to disable an interface that you are not using and re-use the pins on the M12 8-pin connector, there is a small trace jumper between the rows of pins in area (14). Cutting this trace isolates the expansion card signal from the signal to the connector (16). Then you can solder a small jumper wire to replace the signal on the M12 8-pin.
+
+The Eagle CAD schematic and board layout files for the I/O card can be found in the [Monitor One Github repository](https://github.com/particle-iot/monitor-one).
+
+### Block diagram - I/O Card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-block.png" alt="Block diagram" class="full-width"}}
+
+
+### Schematics - I/O Card
+
+#### Interconnects - I/O Card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-interconnects-1.png" alt="Interconnects" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/io-card-interconnects-2.png" alt="Interconnects" class="full-width"}}
+
+#### RS485 - I/O Card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-rs485.png" alt="RS-485" class="full-width"}}
+
+
+#### CAN - I/O Card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-can.png" alt="CAN" class="full-width"}}
+
+#### 4-20mA - I/O Card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-4-20mA.png" alt="4-20mA" class="full-width"}}
+
+#### 0-10V - I/O Card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-10v.png" alt="0-10V" class="full-width"}}
+
+#### Slow signal input - I/O Card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-slow-signal.png" alt="slow signal input" class="full-width"}}
+
+
+#### Relay - I/O Card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-relay.png" alt="relay" class="full-width"}}
+
+
+#### EEPROM - I/O Card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-eeprom.png" alt="eeprom" class="full-width"}}
+
+
+### Board layout - I/O Card
+
+{{imageOverlay src="/assets/images/monitor-one/io-card-board.png" alt="Board layout" class="full-width"}}
+
+
+## Prototype Card
+
+{{imageOverlay src="/assets/images/monitor-one/proto-labeled.png" alt="Prototype Card" class="full-width"}}
+
+| Label | Feature |
+| :---: | :--- |
+|  1 | QWIIC (I2C) connector |
+|  2 | RESET and MODE buttons |
+|  3 | EEPROM |
+|  4 | Prototyping area |
+|  5 | Access to expansion port signals |
+|  6 | Access to bulkhead connector signals |
+|  7 | B8B-PH connector, connect to M12 8-pin |
+|  8 | Screw terminals, connect to M12 4-pin |
+
+### B8B-PH connector
+
+The left connector (7) attaches to the M12 8-pin connector with a short adapter cable. You don't have to use this cable setup, but it's often convenient to do so.
+
+- Connector: [JST B8B-PH](https://www.digikey.com/en/products/detail/jst-sales-america-inc/B8B-PH-SM4-TBT-LF-SN/9918868) (right angle)
+- Mates with: [JST PHR-8](https://www.digikey.com/en/products/detail/jst-sales-america-inc./PHR-8/608630)
+
+| Connector B8B-PH | Color | M12 Pin | Function |
+| :---: | :---: | :---: | :--- |
+| 8 | 2 | Red | VIN (6-30 VDC) |
+| 7 | 8 | Black | Ground |
+| 6 | 6 | Pink | |
+| 5 | 5 | Gray | |
+| 4 | 1 | White | |
+| 3 | 7 | Blue | |
+| 2 | 4 | Yellow | |
+| 1 | 3 | Green | |
+
+- We recommend that you keep pin 8 (VIN) and pin 7 (GND) is the same positions.
+- Other pins can be used as desired.
+- The pins on the board layout are numbered 8 - 1 left to right, opposite of how the pins on the cable are numbered.
+
+
+### Screw terminals
+
+| Screw Terminal | Color | M12 Pin |
+| :---: | :---: | :---: |
+| A | Red | 1 |
+| B | Black | 3 |
+| C | Green | 2 |
+| D | Blue | 4 |
+
+- The order of these pins isn't significant, but this is how the I/O Card is wired, so it probably best to be consistent.
+
+
+### Schematics - Prototyping Card
+
+{{imageOverlay src="/assets/images/monitor-one/prototype-card-1.png" alt="Prototype Card Schematics" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/prototype-card-2.png" alt="Prototype Card Schematics" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/prototype-card-3.png" alt="Prototype Card Schematics" class="full-width"}}
+
+The Eagle CAD schematic and board layout files for the prototype can be found in the [Monitor One Github repository](https://github.com/particle-iot/monitor-one).
+
 
 ## Expansion card interface
-
-Tracker M is designed with easy-to-use expansion headers and an enclosure with sufficient space inside for an expansion card, and for additional expansion connector through the wall of enclosure.
 
 - Expansion card size: 50mm x 90mm (approximately 2" x 3.5")
 - Connectors: 24-pin 0.1" headers (two, one on each long side)
 - Male header pins on the bottom of expansion card
 - Attachment: 4 screws to standoffs (M3 screw recommended)
 
-Pre-built expansion cards will be available, including a prototyping breadboard expansion card. You can also design and fabricate your own.
+Pre-built expansion cards will be available, including the Prototype Card. You can also design and fabricate your own.
 
-{{imageOverlay src="/assets/images/monitor-one/expansion-proto.png" alt="Prototyping expansion card" class="full-width"}}
+If you are building your own card, you can start with the design for the I/O card or prototype card. The Eagle CAD schematic and board layout files can be found in [Monitor One Github repository](https://github.com/particle-iot/monitor-one).
 
 ### Expansion card pinout
 
@@ -185,7 +417,7 @@ Pre-built expansion cards will be available, including a prototyping breadboard 
 
 | Label | Feature |
 | :---: | :--- |
-| 14 | Expansion card to external connector cable (M8 to PHR8) |
+| 14 | Expansion card to external connector cable (M12 to PHR8) |
 | 17 | Expansion card external connector #1 (M12, 8-pin) |
 | 22 | Location of expansion card (green outline) |
 
@@ -193,24 +425,23 @@ The enclosure typically has a panel-mount M12 8 pin female connector in location
 
 The functions of the pins on the M12 8-pin connector are dependent on your base board, but the following pinouts are recommended:
 
-| Conn P1 (M12) | Conn P2 (PHR-8) | Function | 
-| :---: | :---: | :--- |
-| 1 | 8 | |
-| 2 | 1 | VIN |
-| 3 | 3 | CAN_P |
-| 4 | 4 | CAN_N |
-| 5 | 5 |  |
-| 6 | 6 |  |
-| 7 | 7 |  |
-| 8 | 2 | Ground |
-| Round | Rectangular | |
-| Enclosure | Expansion Card | |
+| Conn P1 (M12) | Conn P2 (PHR-8) | Color | Function | 
+| :---: | :---: | :--- | :--- |
+| 2 | 1 | Red | VIN (6-30 VDC) |
+| 8 | 2 | Black | Ground |
+| 6 | 3 | Pink | RS485_A (P) |
+| 5 | 4 | Gray | RS485_B (N) |
+| 1 | 5 | White | CAN_P|
+| 7 | 6 | Blue | CAN_N |
+| 4 | 7 | Yellow | 0-10V input |
+| 3 | 8 | Green | 4-20mA input |
+| Round | Rectangular | | |
+| Enclosure | Expansion Card | | |
 
-{{imageOverlay src="/assets/images/monitor-one/m8-phr8-cable.png" alt="M8 to PHR-8 cable" class="full-width"}}
 
-Note: wire color may vary from this graphic.
+{{imageOverlay src="/assets/images/monitor-one/m12-phr8-cable.png" alt="M12-8 to PHR-8 cable" class="full-width"}}
 
-- Cable length: 75mm
+- Cable length: 60 &plusmn;5 mm 
 - Wire gauge: 24 AWG
 - M12 8-pin connector, A-coded
 
@@ -220,7 +451,9 @@ The standard M12 connectors are IP67 waterproof (connected or not), 12 mm in dia
 
 The panel-mount 8-pin connector on the Monitor One is female, with the following pinout:
 
-{{imageOverlay src="/assets/images/monitor-one/8pin-connector-panel.png" alt="M12 connector" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/m12-panel.png" alt="M12 panel connector" class="full-width"}}
+
+<p class="attribution">Looking at the bulkhead connector from outside the enclosure</p>
 
 The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 
@@ -233,10 +466,12 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 
 | Pin Name | Description | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- |
+| NFC2_VIN_EN | GPIO (used for relay on I/O Card) | 27 | P0.10 |
+| NFC1_PERIPH_INT | Peripheral interrupt (active low) | 26 | P0.09 |
 | TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | 38 | P0.05 |
 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | 39 | P0.04 |
 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | 40 | P0.29 |
-| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | 41 | P0.29 |
+| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | 41 | P0.31 |
 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | 57 | P0.28 |
 | TSOM_A3_BATT_TEMP / D3 | Battery temperature sensor, A3 Analog in, GPIO D3, PWM | 58 | P0.30 |
 | RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | 71 | P0.08 |
@@ -249,6 +484,17 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 - On the Monitor One, you should not use A2 and A3 as GPIO or analog inputs as they are used by the external user button and battery temperature thermistor.
 - All GPIO are 3.3V and are not 5V tolerant.
 
+When using the I/O Card:
+
+| Pin | Direction | Function |
+| :---: | :---: | :--- |
+| A4 | Output | Direction control for RS485 |
+| A5 | Digital Input | Slow signal input, optoisolated, 12V to 24V = HIGH |
+| A6 | Analog Input | Analog input, 0-10V, 10V=4095 |
+| A7 | Analog Input | 4-20mA, 4mA=0, 20mA=4095 |
+| NFC_PIN2 | Output | Relay coil, HIGH = energized |
+
+
 ### ADC
 
 {{!-- BEGIN do not edit content below, it is automatically generated 7dcbd294-4979-41bf-8e70-252fdb227e06 --}}
@@ -258,7 +504,7 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 | TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | ADC3 | 38 | P0.05 |
 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | ADC2 | 39 | P0.04 |
 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | ADC5 | 40 | P0.29 |
-| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | ADC7 | 41 | P0.29 |
+| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | ADC7 | 41 | P0.31 |
 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | ADC4 | 57 | P0.28 |
 | TSOM_A3_BATT_TEMP / D3 | Battery temperature sensor, A3 Analog in, GPIO D3, PWM | ADC6 | 58 | P0.30 |
 
@@ -276,7 +522,7 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 | :--- | :--- | :--- | :--- | :--- |
 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | SPI (SCK) | 39 | P0.04 |
 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | SPI (MISO) | 40 | P0.29 |
-| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | SPI (MOSI) | 41 | P0.29 |
+| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | SPI (MOSI) | 41 | P0.31 |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -329,7 +575,7 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 | TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | PWM1 | 38 | P0.05 |
 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | PWM1 | 39 | P0.04 |
 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | PWM1 | 40 | P0.29 |
-| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | PWM1 | 41 | P0.29 |
+| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | PWM1 | 41 | P0.31 |
 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | PWM0 | 57 | P0.28 |
 | TSOM_A3_BATT_TEMP / D3 | Battery temperature sensor, A3 Analog in, GPIO D3, PWM | PWM0 | 58 | P0.30 |
 | RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | PWM2 | 71 | P0.08 |
@@ -375,14 +621,14 @@ Note that the two 60.4 ohm resistors are DNP (do not populate). If populated, th
 | 6 | NC | &nbsp; | &nbsp; |
 | 7 | NC | &nbsp; | &nbsp; |
 | 8 | NC | &nbsp; | &nbsp; |
-| 9 | NFC2_VIN_EN | VIN enable | P0.10 |
+| 9 | NFC2_VIN_EN | GPIO (used for relay on I/O Card) | P0.10 |
 | 10 | NFC1_PERIPH_INT | Peripheral interrupt (active low) | P0.09 |
 | 11 | TSOM_MODE | MODE button (active low) | P1.13 |
-| 12 | TSOM_RESET | RESET button (active low) | P0.08 |
+| 12 | TSOM_RESET | RESET button (active low) | &nbsp; |
 | 13 | TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | P0.05 |
 | 14 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | P0.04 |
 | 15 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | P0.29 |
-| 16 | TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | P0.29 |
+| 16 | TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | P0.31 |
 | 17 | GND | Ground. | &nbsp; |
 | 18 | 3V3 | 3.3V out, 1000 mA maximum including nRF52 and other peripherals. | &nbsp; |
 | 19 | RUN | Pull low to disable LTC7103 regulator. Has 100K pull-up to VIN. | &nbsp; |
@@ -421,7 +667,7 @@ Note that the two 60.4 ohm resistors are DNP (do not populate). If populated, th
 
 - Pins 9 and 10 have NFC in the name from the Tracker SoM, however NFC cannot be used on the Monitor One as the pins must be used as `VIN_EN` and `PERIPH_INT`.
 
-### I/O Characteristics
+### I/O characteristics
 
 The GPIO pins on the expansion connector have the following specifications, from the nRF52840 datasheet:
 
@@ -465,7 +711,7 @@ This is not necessary if your external peripherals are powered by 3V3 or CAN_5V.
 
 By default, if power is applied at the VIN pin it will be used to power the Monitor One and charge the built-in battery.
 
-If you are supplying VIN from another, larger battery pack, and want to be able to disconnect the VIN power supply to minimize current loss, you can do so using the following circuit:
+If you are supplying VIN from another, larger battery pack, and want to be able to disconnect the VIN power supply to minimize current loss, you can do so using the following circuit in lieu of using NFC2 as the relay pin, as the I/O Card does.
 
 {{imageOverlay src="/assets/images/monitor-one/vin-disable.png" alt="VIN disable" class="full-width"}}
 
@@ -539,14 +785,31 @@ By disconnecting the VIN power supply, it reduces the current used by the VIN an
 
 {{!-- END shared-blurb --}}
 
+## Schematics
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-1.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-2.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-3.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-4.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-5.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-6.png" alt="Schematic" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/schematic-7.png" alt="Schematic" class="full-width"}}
 
 
 ## Mechanical specifications
 
-### Operating Temperature
+### Operating temperature
 
-To be provided at a later date.
-
+| Parameter                        | Minimum | Maximum | Units |
+| :------------------------------- | ---: | ---: | :---- |
+| Operating temperature | -10 | 60 | &deg;C |
+| Battery charging enabled | 0 | 40 | &deg;C |
 
 ### Dimensions and weight
 
@@ -561,52 +824,266 @@ To be provided at a later date.
 
 {{imageOverlay src="/assets/images/monitor-one/side-dim.png" alt="Dimensions" class="full-width"}}
 
+
+### Dimensions for top cover artwork
+
+{{imageOverlay src="/assets/images/monitor-one/artwork-dimensions.png" alt="Artwork dimensions" class="full-width"}}
+
+
 ### Power consumption
 
 To be provided at a later date.
+
+### Battery specifications
+
+- Lithium-ion cylindrical rechargeable battery
+- Model: 18650-4P
+- Description: Single cell with PCM
+- Battery capacity: 12200 mAh
+- Batter voltage : 3.7 VDC (nominal)
+- Manufacturer: Guangdong Zhaoeng Technology Co., Ltd. (Guangdong, China)
+- [Datasheet](/assets/datasheets/ZN18650-4P.pdf)
 
 
 ## Country compatibility
 
 To be provided at a later date.
 
+{{!-- BEGIN do not edit content below, it is automatically generated 6cd2470c-9c54-45d5-877a-64290cf8f7b6 --}}
+
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Albania | MON524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Algeria | MON524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
+| Aruba | MON524 | 2G, 3G, Cat1 | Setar |
+| Australia | MON524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Austria | MON524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
+| Bahrain | MON524 | 2G, 3G, Cat1 | Zain |
+| Bangladesh | MON524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
+| Belarus | MON524 | 2G, 3G, Cat1 | A1 |
+| Belgium | MON524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
+| Bosnia and Herzegovina | MON524 | 2G, 3G | BH Telecom, HT Eronet |
+| Botswana | MON524 | 2G, 3G, Cat1 | BeMobile |
+| Brunei | MON524 | 2G, 3G, Cat1 | DST |
+| Bulgaria | MON524 | 2G, 3G | A1, Telenor, Vivacom |
+| Burkina Faso | MON524 | 2G, 3G, Cat1 | Orange |
+| Cabo Verde | MON524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
+| Cambodia | MON524 | 2G, 3G | Metfone |
+| Canada | MON404 | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Chad | MON524 | 2G, 3G, Cat1 | Airtel |
+| Chile | MON524 | 2G, 3G, Cat1 | Claro, Entel, Movistar |
+| Congo (Brazzaville) | MON524 | 2G, 3G, Cat1 | Airtel |
+| Congo (Kinshasa) | MON524 | 2G, 3G, Cat1 | Airtel |
+| Côte d'Ivoire | MON524 | 2G, 3G, Cat1 | MTN |
+| Croatia | MON524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
+| Cyprus | MON524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
+| Czechia | MON524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
+| Denmark | MON524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
+| Egypt | MON524 | 2G, 3G, Cat1 | Etisalat, Orange |
+| Estonia | MON524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
+| eSwatini | MON524 | 2G, 3G, Cat1 | MTN |
+| Ethiopia | MON524 | 2G, 3G, Cat1 | Ethio Telecom |
+| Faroe Islands | MON524 | 2G, 3G | Faroese Telecom, Vodafone |
+| Finland | MON524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| France | MON524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| French Guiana | MON524 | 2G, 3G | Digicel |
+| Gabon | MON524 | 2G, 3G, Cat1 | Airtel |
+| Germany | MON524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Ghana | MON524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
+| Gibraltar | MON524 | 2G, 3G, Cat1 | Gibtel |
+| Greece | MON524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
+| Guinea | MON524 | 2G, 3G, Cat1 | MTN |
+| Guinea-Bissau | MON524 | 2G, 3G, Cat1 | MTN |
+| Guyana | MON524 | 2G | Digicel |
+| Hong Kong | MON524 | 2G, 3G, Cat1 | CMHK, CSL, SmarTone |
+| Hungary | MON524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
+| Iceland | MON524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
+| Indonesia | MON524 | 2G, 3G, Cat1 | Indosat, Telkomsel, XL Axiata |
+| Ireland | MON524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
+| Israel | MON524 | 2G, 3G, Cat1 | Hot Mobile, Orange, Pelephone |
+| Italy | MON524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
+| Jordan | MON524 | 2G, 3G, Cat1 | Zain |
+| Kazakhstan | MON524 | 2G, 3G, Cat1 | Beeline, K-Cell |
+| Kenya | MON524 | 2G, 3G, Cat1 | Airtel |
+| Kuwait | MON524 | 2G, 3G, Cat1 | Viva, Zain |
+| Latvia | MON524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
+| Liechtenstein | MON524 | 2G, 3G, Cat1 | Mobilkom, Orange |
+| Lithuania | MON524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
+| Luxembourg | MON524 | 2G, 3G, Cat1 | Orange, POST, Tango |
+| Macao | MON524 | 2G, 3G, Cat1 | CTM |
+| Madagascar | MON524 | 2G, 3G, Cat1 | Airtel |
+| Malawi | MON524 | 2G, 3G, Cat1 | Airtel |
+| Malaysia | MON524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
+| Malta | MON524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
+| Mexico | MON404 | M1 | AT&T, Telcel |
+| Moldova | MON524 | 2G, 3G, Cat1 | Moldcell, Orange |
+| Mongolia | MON524 | 2G, 3G | Mobicom, Unitel |
+| Montenegro | MON524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
+| Morocco | MON524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
+| Mozambique | MON524 | 2G, 3G, Cat1 | Vodacom |
+| Myanmar | MON524 | 2G, 3G, Cat1 | MPT, Telenor |
+| Namibia | MON524 | 2G, 3G, Cat1 | Telecom Namibia |
+| Netherlands | MON524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
+| New Zealand | MON524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
+| Nigeria | MON524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
+| Norway | MON524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
+| Pakistan | MON524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
+| Palestine | MON524 | 2G, 3G | Jawwal |
+| Papua New Guinea | MON524 | 2G, 3G | bmobile |
+| Poland | MON524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
+| Portugal | MON524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
+| Qatar | MON524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
+| Romania | MON524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
+| Rwanda | MON524 | 2G, 3G, Cat1 | Airtel, MTN |
+| Serbia | MON524 | 2G, 3G, Cat1 | Telenor, VIP |
+| Seychelles | MON524 | 2G, 3G, Cat1 | Airtel |
+| Sint Maarten | MON524 | 2G, 3G, Cat1 | TelCell |
+| Slovakia | MON524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovenia | MON524 | 2G, 3G, Cat1 | A1, Mobitel |
+| South Africa | MON524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
+| South Korea | MON524 | 3G, Cat1 | KT, LG U+, SK Telecom |
+| South Sudan | MON524 | 2G, 3G, Cat1 | MTN |
+| Spain | MON524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
+| Sri Lanka | MON524 | 2G, 3G, Cat1 | Dialog, Mobitel |
+| Suriname | MON524 | 2G, 3G | Telesur |
+| Sweden | MON524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | MON524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Taiwan | MON524 | 3G, Cat1 | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tanzania | MON524 | 2G, 3G, Cat1 | Airtel |
+| Thailand | MON524 | 2G, 3G, Cat1 | AIS, DTAC, True Move |
+| Tunisia | MON524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
+| Uganda | MON524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
+| United Kingdom | MON524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
+| United States | MON404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+| Vietnam | MON524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
+| Zambia | MON524 | 2G, 3G, Cat1 | Airtel |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+<sup>7</sup>Verizon in the United States is only supported on enterprise plans.
+
 
 ---
 
-## Ordering Information
-
-To be provided at a later date.
+## Ordering information
 
 
+{{!-- BEGIN do not edit content below, it is automatically generated df800960-c749-4b1d-9c69-ae4372e86ab7 --}}
+
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | GA | |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | In development | |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | &check; | In development | |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+&dagger;EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 ---
 
 ## Certification
 
-To be provided at a later date.
 
+### FCC interference statement
 
-## Product Handling
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) This device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
 
-### ESD Precautions
+This device complies with Part 15, Part 15.247 of the FCC Rules. The FCC ID for this device is 2AEMI-MONEHDK.
+
+This device must not be co-located or operating in conjunction with any other antenna or transmitter. This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. 
+
+This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
+To comply with FCC’s RF radiation exposure limits for general population/uncontrolled exposure, this device must be installed to provide a separation distance of at least 20cm from all persons.
+
+WARNING: Any changes or modifications to this unit not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
+
+This device must not be collocated or operating in conjunction with any other antenna or transmitter.
+
+### ISED interference statement
+
+ISED: 20127-MONEHDK
+
+This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
+
+- this device may not cause interference.
+- this device must accept any interference, including interference that may cause undesired operation of the device.
+
+Le présent appareil est conforme aux CNR d'Industrie Canada applicables aux appareils radio exempts de licence. L'exploitation est autorisée aux deux conditions suivantes:
+
+- l'appareil ne doit pas produire de brouillage, et
+- l'utilisateur de l'appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d'en compromettre le fonctionnement.
+
+This Class B digital apparatus complies with Canadian ICES-003.
+
+Cet appareil numérique de la classe B est conforme à la norme NMB-003 du Canada.
+
+This device and its antenna(s) must not be co-located or operating in conjunction with any other antenna or transmitter, except tested built-in radios.
+
+Cet appareil et son antenne ne doivent pas être situés ou fonctionner en conjonction avec une autre antenne ou un autre émetteur, exception faites des radios intégrées qui ont été testées.
+ 
+This equipment complies with IC radiation exposure limits set forth for an uncontrolled environment. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
+
+Cet équipement est conforme aux limites d'exposition aux rayonnements IC établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps.
+
+### EU declaration of conformity
+
+We, Particle Industries, Inc., declare under our sole responsibility that the product, MON524E01C01KIT, to which this
+declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
+
+The full text of the EU declaration of conformity is available at the following Internet address [https://www.particle.io/](https://www.particle.io/).
+
+**Radiation Exposure Statement:** This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
+
+The operating frequency bands and the maximum transmitted power limit are listed below:
+
+- BLE 2402-2480MHz, 10dBm
+- Wi-Fi 2.4GHz band 2412-2484MHz, 21.5dBm
+- LTE B1 B3 B7 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
+- WCDMA 882.4-957.6 MHz 1922.6-2167.4 MHz, 25dBm
+
+### United Kingdom
+
+UKCA Conformity:
+
+Radio Equipment Regulations 2017 (S.I. 2017/1206)
+
+## Product handling
+
+### ESD precautions
 
 The Monitor One contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
-### Battery Warning
+### Battery warnings
 
 **CAUTION**
 
 RISK OF EXPLOSION IF BATTERY IS REPLACED BY AN INCORRECT TYPE.
 DISPOSE OF USED BATTERIES ACCORDING TO THE INSTRUCTIONS.
 
+
+- Replacement of a battery with an incorrect type that can defeat a safeguard.
+- Disposal of a battery into fire or a hot oven, or mechanically crushing or cutting of a battery, that can result in an explosion.
+- Leaving a battery in an extremely high temperature surrounding environment that can result in an explosion or the leakage of flammable liquid or gas.
+- A battery subjected to extremely low air pressure that may result in an explosion or the leakage of flammable liquid or gas.
+
+This symbol indicates DC voltage: <img style="display: inline-block; vertical-align: middle; width: 40px; background-color: #fff" src="/assets/images/dc_symbol.svg">
+
 ### Disposal
 
-![WEEE](/assets/images/weee.png)
+<img src="/assets/images/weee.png" style="background-color: #fff">
 
 This device must be treated as Waste Electrical & Electronic Equipment (WEEE) when disposed of.
 
 Any WEEE marked waste products must not be mixed with general household waste, but kept separate for the treatment, recovery and recycling of the materials used. For proper treatment, recovery and recycling; please take all WEEE marked waste to your Local Authority Civic waste site, where it will be accepted free of charge. If all consumers dispose of Waste Electrical & Electronic Equipment correctly, they will be helping to save valuable resources and preventing any potential negative effects upon human health and the environment of any hazardous materials that the waste may contain.
-
 
 ## Revision history
 
@@ -614,3 +1091,12 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 |:-----|:-------|:---------|
 | 2022-10-24 | RK | For internal review only |
 | 2023-02-14 | RK | Updated diagrams |
+| 2023-06-07 | RK | Numerous updates |
+| 2023-06-13 | RK | Add Prototype Card, update card names |
+| 2023-06-20 | RK | Added photos |
+| 2023-07-17 | RK | Link to quick start, screw sizes |
+| 2023-09-01 | RK | Added battery specifications |
+| 2023-09-08 | RK | Added schematics |
+| 2023-10-18 | RK | Added FCC and ISED |
+| 2023-11-14 | RK | Renamed RS485 pins A and B instead of P and N |
+| 2024-01-29 | RK | Add battery warnings |

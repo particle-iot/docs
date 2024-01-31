@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LiquidCrystal",
     "version": "1.0.2",
-    "installs": 12446,
+    "installs": 13109,
     "license": "BSD",
     "author": "Christian Vallières",
     "sentence": "A fork of Adafruit LiquidCrystal library that support i2c / SPI character LCD backpack.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_LiquidCrystal",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_LiquidCrystal",
   "versions": {
     "1.0.2": {
       "builds": {
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "boron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "bsom": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "b5som": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "tracker": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "esomx": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "boron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "bsom": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "b5som": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "tracker": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "p2": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "LiquidCrystal_i2c": true,
             "LiquidCrystal_spi": true

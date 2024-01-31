@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TideStats",
     "version": "0.0.4",
-    "installs": 219,
+    "installs": 306,
     "license": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",
@@ -22,11 +22,12 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TideStats",
+  "cardUrl": "/reference/device-os/libraries/t/TideStats",
   "versions": {
     "0.0.4": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2023-12-31T15:18:05.737Z"
     }
   },
   "readme": "# TideStats\r\nSentient Things tide gauge statistics library for the IoT Node. Library calculates tidal datum and other statistics from tide sensor measurements.\r\n\r\n\r\n",

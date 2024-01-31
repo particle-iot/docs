@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_SHTC3_Arduino_Library",
     "version": "1.1.2",
-    "installs": 1619,
+    "installs": 4015,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SHTC3 humidity and temperature sensor by Sensirion",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_SHTC3_Arduino_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_SHTC3_Arduino_Library",
   "versions": {
     "1.1.2": {
       "builds": {
@@ -126,6 +126,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "esomx": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "p2": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example1_BasicReadings": true,
             "Example3_ChangingOptions": true,

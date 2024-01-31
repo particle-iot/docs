@@ -36,7 +36,7 @@ carriers2.buildMenu = function() {
         // Device Popup
         let html = '';
         datastore.data.skuFamily.forEach(function(obj, index1) {
-            if (obj.wifi) {
+            if (obj.wifi || obj.cellular === false || !obj.group) {
                 return;
             }
             html += '<optgroup label="' + obj.name + '">';
@@ -117,11 +117,18 @@ carriers2.selectMenu = function() {
             countryHasSecondaryOrBackup[ccObj.country] = true;
         }
 
+        if (ccObj.country == 'United States' && ccObj.carrier == 'Verizon') {
+            // Skip on E404 and ELC404
+            if (skuFamilyObj.short.includes('E404') || skuFamilyObj.short.includes('ELC404')) {
+                return;
+            }
+        }
+
         countryCarrierFiltered.push(ccObj);
     });
 
     let warnRoaming = false;
-    let warnTMobile = false;
+    let warnVerizon = false;
 
     countryCarrierFiltered.forEach(function(ccObj) {
         let html = '';
@@ -147,9 +154,18 @@ carriers2.selectMenu = function() {
             if (ccObj[countryCarrierKey]['allow' + tech]) {
                 allow = true;
 
-                if (ccObj[countryCarrierKey]['allow' + tech] == 5) {
-                    cell = '<sup>5</sup>'; 
+                const allowValue = ccObj[countryCarrierKey]['allow' + tech];
+
+                if (allowValue == 5) {
+                    // T-Mobile  warning
+                    cell = '<sup>' + allowValue + '</sup>'; 
                     warnTMobile = true;
+                }
+                else
+                if (allowValue == 7) {
+                    // Verizon warning
+                    cell = '<sup>' + allowValue + '</sup>'; 
+                    warnVerizon = true;
                 }
                 else
                 if (!ccObj[countryCarrierKey].roamingRestrictions) {
@@ -172,18 +188,18 @@ carriers2.selectMenu = function() {
 
     });
 
-    if (warnTMobile) {
-        $('#byDeviceTMobileWarning').show();
-    }
-    else {
-        $('#byDeviceTMobileWarning').hide();        
-    }
-
     if (warnRoaming) {
         $('#byDeviceRoamingWarning').show();
     }
     else {
         $('#byDeviceRoamingWarning').hide();
+    }
+
+    if (warnVerizon) {
+        $('#byDeviceVerizonWarning').show();
+    }
+    else {
+        $('#byDeviceVerizonWarning').hide();        
     }
 
 }
@@ -303,7 +319,7 @@ rec2.selectMenu = function() {
                 // skuFamilyObj.family = 'tracker', 'b series', ...
                 let skusForModemSimFamily = [];
 
-                if (skuFamilyObj.wifi) {
+                if (skuFamilyObj.wifi || skuFamilyObj.cellular === false) {
                     return;
                 }
 
@@ -396,7 +412,7 @@ rec2.selectMenu = function() {
             })) {
                 return;
             }
-
+    
             let rowClass = '';
 
             if (lastCountry != ccObj.country) {
@@ -412,9 +428,9 @@ rec2.selectMenu = function() {
             modemObj.technologies.forEach(function(tech) {
                 const allow = ccObj[etherSimObj.simPlanKey]['allow' + tech];
                 html += '<td class="technologyCell">' + (!!allow ? '\u2705' : '&nbsp;');
-                if (allow == 5) {
-                    html += '<sup>5</sup>';
-                    carrierOptions.showFootnote5 = true;
+                if (allow == 7) {
+                    html += '<sup>7</sup>';
+                    carrierOptions.showFootnote7 = true;
                 }
                 html += '</td>'; // Green Check
             });
@@ -428,11 +444,8 @@ rec2.selectMenu = function() {
     };
 
     const generateFootnotes = function() {
-        if (carrierOptions.showFootnote5) {
-            html += '<p style="font-size: small;"><sup>5</sup>T-Mobile in the United States only officially supports ' +
-            'LTE Cat NB1, which is not supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas, ' +
-            'and where enabled, this device can connect to it. ' +
-            'There is no coverage map as T-Mobile does not acknowledge the existence of LTE Cat M1 coverage.</p>';             
+        if (carrierOptions.showFootnote7) {
+            html += '<p style="font-size: small;"><sup>7</sup>Verizon in the United States is only supported on enterprise plans.</p>';             
         }
 
     };
@@ -519,7 +532,7 @@ rec2.selectMenu = function() {
 
 
     datastore.data.skuFamily.forEach(function(skuFamilyObj) {
-        if (skuFamilyObj.wifi) {
+        if (skuFamilyObj.wifi || skuFamilyObj.cellular == false) {
             return;
         }
         if (!recs.YES || !recs.YES.skuFamily[skuFamilyObj.family]) {
@@ -539,7 +552,7 @@ rec2.selectMenu = function() {
         html += '<h2>Not recommended for new designs (NRND)</h2>';
 
         datastore.data.skuFamily.forEach(function(skuFamilyObj) {
-            if (skuFamilyObj.wifi) {
+            if (skuFamilyObj.wifi || skuFamilyObj.cellular == false) {
                 return;
             }
             if (!recs.NRND || !recs.NRND.skuFamily[skuFamilyObj.family]) {
@@ -555,7 +568,7 @@ rec2.selectMenu = function() {
     html += '<h2>Not recommended</h2>';
 
     datastore.data.skuFamily.forEach(function(skuFamilyObj) {
-        if (skuFamilyObj.wifi) {
+        if (skuFamilyObj.wifi || skuFamilyObj.cellular == false) {
             return;
         }
         if (!recs.NR || !recs.NR.skuFamily[skuFamilyObj.family]) {
@@ -693,6 +706,9 @@ const familyMapCreate = function() {
                     mapColor = skuFamilyObj.mapColor;
                 }
                 const style = 'background-color:#' + options.colorAxis.colors[mapColor];
+                if (!options.colorAxis.colors[mapColor]) {
+                    return;
+                }
 
                 datastore.data.skus.forEach(function(skuObj) {
                     if (skuObj.sim != skuFamilyObj.sim || skuObj.modem != skuFamilyObj.modem || skuObj.family != family) {
@@ -863,7 +879,7 @@ countryDetails.buildMenu = function() {
     // Device Popup
     let html = '';
     datastore.data.skuFamily.forEach(function(obj, index1) {
-        if (obj.wifi) {
+        if (obj.wifi || obj.cellular === false) {
             return;
         }
         html += '<optgroup label="' + obj.name + '">';
@@ -935,6 +951,19 @@ countryDetails.generateTable = function(options) {
         }
         html += dataui.generateSkuTable(skusArray, {});
     }
+    else
+    if (options.showSkuFamily) {
+        let skusArray = [];
+        for(let skuObj of datastore.data.skus) {
+            for(const prefix of options.showSkuFamily.short) {
+                if (skuObj.name.startsWith(prefix) && !skuObj.name.startsWith(prefix + 'X')) {
+                    skusArray.push(skuObj);
+                    break;
+                }
+            }
+        }
+        html += dataui.generateSkuTable(skusArray, {});
+    }
 
     // Recommendation
     html += '<span style="font-size: large;">' + recommendationObj.desc + '</span>\n';
@@ -947,6 +976,34 @@ countryDetails.generateTable = function(options) {
         }
     }
 
+    $(options.resultDiv).append(html);
+    html = '';
+
+    // Sunset warnings
+    // Check for 2G/3G only
+    let isOnly2G3G = true;
+    for(const tech of modemObj.technologies) {
+        if (tech != '2G' && tech != '3G') {
+            isOnly2G3G = false;
+        }
+    }
+    if (isOnly2G3G) {
+        const divElem = document.createElement('div');
+        $(divElem).attr('style', 'padding-top: 10px; padding-bottom: 10px;');
+
+        if (countryObj.sunsetWarning) {        
+            const aElem = document.createElement('a');
+            $(aElem).attr('href', countryObj.sunsetWarning);
+            $(aElem).text('See the 2G/3G sunset page for specific recommendations for this country');
+            $(divElem).append(aElem);    
+        }
+        else {
+            $(divElem).text('In some locations, 2G and/or 3G services are being shut down. Check with your local carrier to find when this device will no longer be able to be used in your area.');
+        }
+            
+        $(options.resultDiv).append(divElem);
+    }
+    
     // Carrier band table
     const footnotesDivId = options.tableId + 'FootnotesDiv';
 
@@ -964,7 +1021,7 @@ countryDetails.generateTable = function(options) {
             noPlan:'2',
             noBandNoPlan:'3',
             warnM1:'4',
-            warnTMobile: '5',
+            warnVerizon: '7',
         },
         footnotesDiv: footnotesDivId, // countryDetails.options.footnotesDiv,
         showAllTechnologies: true,
@@ -994,7 +1051,8 @@ countryDetails.onCountrySelected = function(country) {
             sim: skuFamilyDevice.sim,
             simPlan: skuFamilyDevice.simPlan,
             tableId: 'carrierDetailTable',
-            resultDiv
+            resultDiv,
+            showSkuFamily: skuFamilyDevice,
         });
         
     

@@ -28,7 +28,7 @@ The BRN404X model (LTE Cat M1, North America) can be found in the [Boron BRN404X
 #### Features - BRN402, BRN404 (Boron LTE)
 
  * The BRN402 and BRN404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
- * u-blox SARA-R410M-02B or R410M-03 LTE modem
+ * u-blox SARA-R410M-02B-00 or R410M-02B-03 LTE modem
  * LTE Cat M1 module
  * Support for United States, Canada, and Mexico only
  * 3GPP Release 13 LTE Cat M1 
@@ -47,7 +47,7 @@ The BRN404X model (LTE Cat M1, North America) can be found in the [Boron BRN404X
  * Embedded Particle EtherSIM (BRN314)
  * Embedded Particle SIM (BRN310)
 
-#### Features - All Models
+#### Features - all models
 
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
@@ -70,7 +70,30 @@ The BRN404X model (LTE Cat M1, North America) can be found in the [Boron BRN404X
  * FCC and PTCRB certified
  * RoHS compliant (lead-free)
 
-### Device OS Support
+
+### Model comparison
+
+{{!-- BEGIN shared-blurb f131d988-6f01-4ad5-95ec-762475eba505 --}}
+
+| | BRN404X | BRN404 | BRN402 | BRN313 | BRN310 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Region | NorAm | NorAm | NorAm | Global | Global |
+| Technology | LTE Cat M1 | LTE Cat M1 | LTE Cat M1 | 2G/3G | 2G/3G |
+| EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; |
+| Supply Secure | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Lifecycle | GA | Deprecated | Deprecated | NRND | NRND |
+
+- EtherSIM devices generally have a larger number of carriers and more may be added in the future
+- NorAm: North America (United States, Canada, and Mexico)
+- Global 2G/3G devices not recommended in the United States due to the impending shutdown of 2G/3G networks
+- NRND: Not recommended for new designs
+- See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility
+- See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information
+- See [Lifestyle stages](/reference/product-lifecycle/product-lifecycle-stages/) for more information
+
+{{!-- END shared-blurb --}}
+
+### Device OS support
 
 It is recommended that you use the latest version in the 4.x LTS release line with Boron models.
 
@@ -110,7 +133,7 @@ Please pay attention to the polarity of the LiPo connector. Not all LiPo batteri
 
 <div align=center><img src="/assets/images/lipo-polarity.png" ></div>
 
-#### Li+ PIN
+#### Li+ pin
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Boron. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
 
 For the Boron 2G/3G version, make sure that the external DC supply is able to support 2A peak current requirements.
@@ -118,7 +141,7 @@ For the Boron 2G/3G version, make sure that the external DC supply is able to su
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Boron first. Unlike the Photon, this pin _CANNOT_ be used to power the Boron.
 
-#### EN PIN
+#### EN pin
 
 The **EN** pin is not a power pin, per se, but it controls the 3V3 and cellular modem power via a load switch (XC8107, U2). The EN pin is pulled high by a 100K resistor to PMIC_SYS (3.8V), which is powered by VUSB, the micro USB connector, or the LiPo battery. Because the pull-up can result in voltages above 3.3V you should never directly connect EN to a 3.3V GPIO pin. Instead, you should only pull EN low, such as by using an N-channel MOSFET or other open-collector transistor.
 
@@ -148,8 +171,6 @@ The following antenna is optional, as the Boron comes with an on-board chip ante
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
 |Boron          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
 
-It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE antenna. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
-
 **Cellular**
 
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part #    | Gain       |
@@ -178,7 +199,7 @@ The Boron has a dedicated 10 pin debug connector that exposes the SWD interface 
 
 ## Memory map
 
-### nRF52840 Flash Layout Overview
+### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
  - User Application
@@ -187,7 +208,7 @@ The Boron has a dedicated 10 pin debug connector that exposes the SWD interface 
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+### External SPI flash layout overview (dfu offset: 0x80000000)
 
  - OTA (1500KB, @0x00289000)
  - Reserved (420KB, @0x00220000)
@@ -379,7 +400,7 @@ Boron has two radio modules, the nRF52 MCU BLE radio, and a cellular module, dep
 - Global 2G/3G.
 - Not recommended for use in the United States due to the shutdown of 2G and 3G networks in 2022.
 
-#### u-blox SARA-R410M-02B or R410M-03
+#### u-blox SARA-R410M-02B-00 or R410M-02B-03
 
 | Parameter | Value |
 | --- | --- |
@@ -401,7 +422,7 @@ Boron has two radio modules, the nRF52 MCU BLE radio, and a cellular module, dep
 - Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
 
 
-### I/O Characteristics 
+### I/O characteristics 
 
 These specifications are based on the nRF52840 datasheet.
 
@@ -420,11 +441,15 @@ GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA)
 
 ## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
 
 <div align=center><img src="/assets/images/boron/boron-dimensions.png" ></div>
  
  * Weight = 10 grams
+
+### 3D models
+
+3D models of the Boron are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/mesh/boron) in formats including step, iges, stl, and f3d.
 
 ### Mating connectors
 
@@ -469,13 +494,31 @@ The complete schematic and board files are open source and available on Particle
 
 {{imageOverlay src="/assets/images/boron/schematic-spi-flash.png" large="/assets/images/boron/schematic-spi-flash.png" alt="SPI Flash" }}
 
-### Fuel Gauge
+### Fuel gauge
 
 {{imageOverlay src="/assets/images/boron/schematic-fuelgauge.png" large="/assets/images/boron/schematic-fuelgauge.png" alt="Fuel Gauge" }}
 
 ### Interfaces
 
 {{imageOverlay src="/assets/images/boron/schematic-interfaces.png" large="/assets/images/boron/schematic-interfaces.png" alt="Interfaces" }}
+
+## Assembly
+
+### Water soluble flux
+
+When attaching a Boron to your base board, we recommend using a socket. As there are components on the bottom side of the Boron there is no version available with castellated holes, solder pads, or similar techniques for direct surface mounting.
+
+The pin headers on the bottom of the Boron are not intended to be reflowed using paste-in-hole. 
+
+If you decide to wave solder or hand-solder the Boron directly to your base board, water soluble flux should not be used. There are components within the Boron module that are moisture-sensitive, and wash water can get trapped under the RF shields, causing damage.
+
+Use no-clean flux instead if you must solder the Boron module.
+
+### Conformal coatings
+
+Boron modules should not use a conformal coating to protect the module from water. Some components on the module cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+
+Furthermore, the buttons cannot be protected by using a coating. Using an enclosure that protects both your base board and the Boron module as a single waterproof assembly is recommended instead.
 
 <!---
 ## Bill of materials
@@ -495,7 +538,6 @@ The complete schematic and board files are open source and available on Particle
 | Argentina | BRN314 | 2G, 3G | Claro, Movistar, Personal |
 | Armenia | BRN314 | 2G, 3G | Beeline, Ucom |
 | Aruba | BRN314 | 2G, 3G | Setar |
-| Australia | BRN314 | 3G | Optus, Telstra, Vodafone |
 | Austria | BRN314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | BRN314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
 | Bahamas | BRN314 | 2G, 3G | Aliv, BTC Bahamas |
@@ -571,8 +613,8 @@ The complete schematic and board files are open source and available on Particle
 | Malawi | BRN314 | 2G, 3G | Airtel |
 | Malaysia | BRN314 | 2G, 3G | Celcom, DiGi, Maxis |
 | Malta | BRN314 | 2G, 3G | Go Mobile, Vodafone |
-| Mexico | BRN404 | M1 | AT&T |
-| Mexico | BRN404X | M1 | AT&T |
+| Mexico | BRN404 | M1 | AT&T, Telcel |
+| Mexico | BRN404X | M1 | AT&T, Telcel |
 | Moldova | BRN314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | BRN314 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | BRN314 | 2G, 3G | Mtel, T-Mobile, Telenor |
@@ -580,11 +622,9 @@ The complete schematic and board files are open source and available on Particle
 | Myanmar | BRN314 | 2G, 3G | MPT, Telenor |
 | Namibia | BRN314 | 2G, 3G | Telecom Namibia |
 | Netherlands | BRN314 | 2G, 3G | KPN, T-Mobile, Vodafone |
-| New Zealand | BRN314 | 2G, 3G | 2degrees, Spark, Vodafone |
 | Nicaragua | BRN314 | 2G, 3G | Movistar |
 | Nigeria | BRN314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | BRN314 | 2G, 3G | TDC, Telenor, Telia |
-| Oman | BRN314 | 2G, 3G | Ooredoo |
 | Pakistan | BRN314 | 2G, 3G | Mobilink, Telenor, Ufone, Warid |
 | Palestine | BRN314 | 2G, 3G | Jawwal |
 | Panama | BRN314 | 2G, 3G | Digicel, Movistar |
@@ -596,7 +636,7 @@ The complete schematic and board files are open source and available on Particle
 | Portugal | BRN314 | 2G, 3G | NOS, TMN, Vodafone |
 | Puerto Rico | BRN314 | 2G, 3G | Claro |
 | Qatar | BRN314 | 2G, 3G | Ooredoo, Vodafone |
-| Romania | BRN314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Romania | BRN314 | 2G, 3G | Orange, Telekom Romania, Vodafone |
 | Rwanda | BRN314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | BRN314 | 2G, 3G | Flow |
 | Saint Lucia | BRN314 | 2G, 3G | Flow |
@@ -623,8 +663,8 @@ The complete schematic and board files are open source and available on Particle
 | Uganda | BRN314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | BRN314 | 2G, 3G | Kyivstar, Life, MTS |
 | United Kingdom | BRN314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
-| United States | BRN404 | M1 | AT&T |
-| United States | BRN404X | M1 | AT&T |
+| United States | BRN404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+| United States | BRN404X | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 | Uruguay | BRN314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | BRN314 | 2G, 3G | Beeline |
 | Venezuela | BRN314 | 2G, 3G | Movistar |
@@ -634,6 +674,8 @@ The complete schematic and board files are open source and available on Particle
 
 
 {{!-- END do not edit content above, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
+
+<sup>7</sup>Verizon in the United States is only supported on enterprise plans.
 
 
 ## Ordering information
@@ -647,17 +689,17 @@ Borons are available from [store.particle.io](https://store.particle.io/) in sin
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | NRND | BRN314KIT|
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND | BRN314TRAY50|
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | NRND | |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND | |
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | &check; | NRND | |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404TRAY50|
-| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404|
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404XTRAY50|
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | Deprecated | |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | Deprecated | |
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404X|
 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | NORAM | R410 |  | Deprecated | |
-| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 |  | Deprecated | BRN404KIT|
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | Deprecated | |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R410 | &check; | Deprecated | |
-| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
+| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 |  | Deprecated | BRN404XKIT|
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | Deprecated | BRN404X|
+| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R410 | &check; | Deprecated | BRN404XKIT|
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | BRN404XTRAY50|
 
 
 {{!-- END do not edit content above, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}
@@ -674,7 +716,7 @@ Borons are available from [store.particle.io](https://store.particle.io/) in sin
 -   CE
 -   PTCRB
 -   FCC ID: 2AEMI-BRN402
--   IC: 20127-BRN402
+-   ISED: 20127-BRN402
 
 **BORON 2G/3G**
 
@@ -682,11 +724,11 @@ Borons are available from [store.particle.io](https://store.particle.io/) in sin
 -   RoHS
 -   CE
 -   FCC ID: 2AEMI-BRN310
--   IC: 20127-BRN310
+-   ISED: 20127-BRN310
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 The Boron contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling Boron without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates Boron. ESD precautions should be implemented on the application board where the Boron is mounted. Failure to observe these precautions can result in severe damage to the Boron!
 
@@ -714,7 +756,7 @@ The Boron comes preprogrammed with a bootloader and a user application called Ti
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC ISED CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -768,8 +810,8 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
 
- * Contains transmitter module IC: 20127-BRN402 (BORON LTE)
- * Contains transmitter module IC: 20127-BRN310 (BORON 2G/3G)
+ * Contains transmitter module ISED: 20127-BRN402 (BORON LTE)
+ * Contains transmitter module ISED: 20127-BRN310 (BORON 2G/3G)
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -791,8 +833,9 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v008     | 28-Jul-2021 | RK | Corrected number of SPI ports (2) in peripherals and GPIO |
 | v009     | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 | v010     | 06-Sep-2022 | RK | Split BRN404X into new datasheet |
+| v011     | 28-Apr-2023 | RK | Add conformal coating and flux notes |
 
-## Known Errata
+## Known errata
 
 ## Contact
 
@@ -803,7 +846,3 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 **Community Forums**
 
 [https://community.particle.io](https://community.particle.io)
-
-**Email**
-
-[https://support.particle.io](https://support.particle.io)

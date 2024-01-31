@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DebounceSwitchRK",
     "version": "0.0.1",
-    "installs": 596,
+    "installs": 1452,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for debouncing switches",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DebounceSwitchRK",
+  "cardUrl": "/reference/device-os/libraries/d/DebounceSwitchRK",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -322,12 +322,160 @@
             "09-class-member-polling": false,
             "10-per-switch-config": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "boron": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "bsom": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "b5som": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "tracker": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "p2": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "boron": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "bsom": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "b5som": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "tracker": {
+            "01-simple": true,
+            "02-toggle-simple": true,
+            "03-notify": true,
+            "04-toggle-notify": false,
+            "05-both": true,
+            "06-no-very-long": true,
+            "07-no-long": true,
+            "08-class-member": true,
+            "09-class-member-polling": true,
+            "10-per-switch-config": true
+          },
+          "esomx": {
+            "01-simple": false,
+            "02-toggle-simple": true,
+            "03-notify": false,
+            "04-toggle-notify": false,
+            "05-both": false,
+            "06-no-very-long": false,
+            "07-no-long": false,
+            "08-class-member": false,
+            "09-class-member-polling": false,
+            "10-per-switch-config": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.031Z"
     }
   },
-  "readme": "# DebounceSwitchRK\n\nLibrary for switch debouncing for Particle devices\n\n\n## Library features\n\n- Debounces both momentary (push button) and toggle switches.\n- For push buttons, handles long press, very long press, and multi-tap (double-tap, triple-tap, etc.).\n- Thread-based, so button changes are not lost even if loop() is blocked or delayed.\n- Handles buttons connected to 3V3 or GND (active high or active low) with internal or external pull.\n- Handles buttons connected to a GPIO pin.\n- Also handles buttons connected to expanders, such as MCP23008 I2C GPIO expanders.\n- Works with both polling (default) and notify-on-change (handy for I2C GPIO with interrupts).\n- Many configurable parameters.\n\nThe full browsable API documentation is available [here](https://rickkas7.github.io/DebounceSwitchRK/index.html) as well as in the docs/html directory in the [Github Repository](https://github.com/rickkas7/DebounceSwitchRK).\n\n## General Design\n\n\n### Button Styles\n\nDifferent types of buttons (momentary push button or toggle), active high or low, with or without pull resistors, are specified using the `DebounceSwitchStyle` parameter to addSwitch().\n\n| Constant | Purpose |\n| :--- | :--- |\n| PRESS_LOW | Momentary switch to GND with an external pull-up |\n| PRESS_HIGH | Momentary switch to 3V3 with an external pull-down |\n| PRESS_LOW_PULLUP | Momentary switch to GND, along with using the MCU internal pull-up resistor |\n| PRESS_HIGH_PULLDOWN | Momentary switch to 3V3, along with using the MCU internal pull-up resistor | \n| TOGGLE | Toggle (on/off) switch that drives the input to GND or 3V3 |\n| TOGGLE_PULLDOWN | Toggle switch that connects the input to 3V3 in one position and disconnected in the other |\n| TOGGLE_PULLUP | Toggle switch that connects the input to GND in one position and disconnected in the other |\n\nIf you are designing a new circuit, the best option is to have your switch connect the GPIO to GND (not 3V3) and use on the of the MCU pull-up modes. So `PRESS_LOW_PULLUP` for a momentary push-button switch or `TOGGLE_PULLUP` for a toggle switch.\n\n### Callbacks\n\nThis library uses a thread and a callback approach. Even if the GPIO are polled (as is typically\nthe case for hardware GPIO connected to the MCU), you will be notified of debounced press and tap\nevents using a callback.\n\nThe callback has this prototype:\n\n```\nvoid callback(DebounceSwitchState *switchState, void *context);\n```\n\n- switchState is an object pointer for the switch that caused the event, and also what happened.\n- context is an optional pointer you passed into addSwitch() you can use to communicate extra\ndata to the callback.\n\nIt's also possible to make the callback a class member function of a class you've created.\n\n```\nvoid YourClass::callback(DebounceSwitchState *switchState);\n```\n\nThe callback is called from a worker thread with a small (1024 byte) stack, so you should avoid\ndoing operations which block or use a lot of stack space.\n\nReturning as quickly as possible without blocking is the best. If you must block, make sure you don't block more than 5 milliseconds total or the debouncing of the buttons and performance will be affected.\n\n### Polling Callback\n\nIf you are using GPIO connected to another chip, you can provide a pollCallback to poll the GPIO\nvalues. For example, if you have an MCP23008 I2C GPIO expander, you can connect buttons to that.\n\nThe poolCallback has this prototype:\n\n```\nbool callback(DebounceSwitchState *switchState, void *context);\n```\n\n- switchState is an object pointer for the switch that caused the event, and also what happened.\n- context is an optional pointer you passed into addSwitch() you can use to communicate extra\ndata to the callback.\n\nNote that the pollCallback returns a bool for the state of the GPIO (false = LOW, true = HIGH).\n\nIt's also possible to make the pollCallback a class member function of a class you've created.\n\n```\nbool YourClass::callback(DebounceSwitchState *switchState);\n```\n\nIf you are using an external GPIO you need to manage the pull resistors in your own code, so you'd use one of switch types `PRESS_LOW`, `PRESS_HIGH`, or `TOGGLE`.\n\n### Notify Mode\n\nIn some cases, it's inefficient to poll the switch. Polling happens every 5 milliseconds by\ndefault, which is fine for GPIO connected directly to the MCU. However, if the GPIO is on an I2C\nexpander, it's still well within the capabilities of I2C, but it can be made more efficient.\n \nThe MCP23008 supports interrupt mode. When the external GPIO changes state, it sets an output\nthat is read by a hardware GPIO on the MCU. This allows the MCU to determine if a change has\noccurred on the expander without having to do an I2C transaction; instead if can just read a \nhardware GPIO. \n\nThe MCP23008-RK library supports this mode, and allows for a callback to be called when the\nexternal GPIO state changes. This callback can then use the notify mode of the \nDebounceSwitchRK library to tell the debouncer what the current state of the switch signal \nis.\n\nSee the example in more-tests/02-mcp23008-interrupts:\n\n```\nDebounceSwitchState *sw = DebounceSwitch::getInstance()->addNotifySwitch(DebounceSwitchStyle::PRESS_LOW, \n    [](DebounceSwitchState *switchState, void *) {\n        // Called to notify of switch operations\n        Log.info(\"state=%s\", switchState->getPressStateName());\n        if (switchState->getPressState() == DebouncePressState::TAP) {\n            Log.info(\"%d taps\", switchState->getTapCount());\n        }\n    }, NULL);\n\ngpio.attachInterrupt(SWITCH_PIN, CHANGE, [sw](bool bValue) {\n    // Log.info(\"bValue=%d\", bValue);\n    sw->notify(bValue);\n});\n```\n\n## DebounceConfiguration\n\nThere are a number of configurable parameters. They can be set globally, for future calls to addSwitch(), per-switch, if desired.\n\nFor example:\n\n```\nvoid setup() {\n    DebounceSwitch::getInstance()->setup();\n\n    // Disable very long press mode\n    DebounceSwitch::getInstance()->withNoVeryLongPress();\n\n    DebounceSwitch::getInstance()->addSwitch(TEST_PIN, DebounceSwitchStyle::PRESS_LOW_PULLUP, \n        [](DebounceSwitchState *switchState, void *) {\n            Log.info(\"pin=%d state=%s\", switchState->getPin(), switchState->getPressStateName());\n            if (switchState->getPressState() == DebouncePressState::TAP) {\n                Log.info(\"%d taps\", switchState->getTapCount());\n            }\n    });\n}\n```\n\nThis changes the default, then adds a switch. If you change the default again, the existing switch will not be changed, but future calls to addSwitch() will be affected.\n\n### Per switch configuration\n\n```\n#include \"DebounceSwitchRK.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nSerialLogHandler logHandler;\n\nvoid switchCallback(DebounceSwitchState *switchState, void *) {\n    const char *name = (switchState->getPin() == D2) ? \"toggle D2\" : \"button D3\";\n    Log.info(\"%s state=%s\", name, switchState->getPressStateName());\n\n    if (switchState->getPressState() == DebouncePressState::TAP) {\n        Log.info(\"%d taps\", switchState->getTapCount());\n    }\n}\n\nvoid setup() {\n    DebounceSwitch::getInstance()->setup();\n\n    DebounceSwitchState *sw;\n    \n    // Toggle switch\n    sw = DebounceSwitch::getInstance()->addSwitch(D2, DebounceSwitchStyle::TOGGLE_PULLUP, switchCallback);\n    // Give the toggle switch a longer debounce time\n    sw->withDebounceMs(100);\n\n    // Push button switch\n    sw = DebounceSwitch::getInstance()->addSwitch(D3, DebounceSwitchStyle::PRESS_LOW_PULLUP, switchCallback);\n    // Disable long press and very long press mode on the button\n    sw->withNoLongPress();\n}\n\nvoid loop() {\n}\n```\n\nThe same methods also work for on the DebounceSwitchState object, so you can set the parameters per-switch.\n\n\n## Usage Patterns\n\n### Hardware GPIO, Simple Callback\n\n```\n#include \"Particle.h\"\n\n#include \"DebounceSwitchRK.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nSerialLogHandler logHandler;\n\nvoid switchCallback(DebounceSwitchState *switchState, void *context) {\n    // This function is called from a worker thread with a small (1K) stack.\n    // You should avoid any large, lengthy operations here.\n    Log.info(\"pin=%d state=%s\", switchState->getPin(), switchState->getPressStateName());\n    if (switchState->getPressState() == DebouncePressState::TAP) {\n        Log.info(\"%d taps\", switchState->getTapCount());\n    }    \n}\n\nvoid setup() {\n    DebounceSwitch::getInstance()->setup();\n\n    DebounceSwitch::getInstance()->addSwitch(D3, DebounceSwitchStyle::PRESS_LOW_PULLUP, switchCallback);\n}\n\nvoid loop() {\n}\n```\n\nThis is the simplest model for GPIO connected switches. Of note:\n\n```\nDebounceSwitch::getInstance()->setup();\n```\n\nBe sure to call this from global setup(). It's required!\n\n\n```\nDebounceSwitch::getInstance()->addSwitch(D3, DebounceSwitchStyle::PRESS_LOW_PULLUP, switchCallback);\n```\n\nThis is how you add a switch to be handled. You can add multiple switches in this manner.\n\nThe parameters of interest are:\n\n- `D3` The pin the switch is connected to\n- `DebounceSwitchStyle::PRESS_LOW_PULLUP` The switch is a momentary (push-button) switch and connects the GPIO to GND (active low). It uses the MCU's hardware pull-up to handle the case where the switch is open (not connected) to bring the signal HIGH.\n- `switchCallback` The function below.\n\nThis is the callback function:\n\n```\nvoid switchCallback(DebounceSwitchState *switchState, void *context) {\n    Log.info(\"pin=%d state=%s\", switchState->getPin(), switchState->getPressStateName());\n    if (switchState->getPressState() == DebouncePressState::TAP) {\n        Log.info(\"%d taps\", switchState->getTapCount());\n    }    \n}\n```\n\nThe callback is called from a worker thread with a small (1024 byte) stack, so you should avoid doing operations which block or use a lot of stack space. This example just logs things to debug USB serial using `Log.info`.\n\nNote that there is no code needed from loop(). This means that if your code is blocking loop, it won't adversely affect the handling of buttons.\n\n### Hardware GPIO, Lambda Callback\n\nThe callback can be a C++11 lambda function:\n\n```\nDebounceSwitch::getInstance()->addSwitch(D2, DebounceSwitchStyle::TOGGLE, [](DebounceSwitchState *switchState, void *) {\n    Log.info(\"toggle state=%s\", switchState->getPressStateName());\n});\n```\n\nThis is the actual lambda part:\n\n```\n[](DebounceSwitchState *switchState, void *) {\n    Log.info(\"toggle state=%s\", switchState->getPressStateName());\n}\n```\n\nThis declared a function in-line to be called when the event occurs. The function has this prototype:\n\n```\nvoid callback(DebounceSwitchState *switchState, void *)\n```\n\nIt's important to remember the callback part is execute later, not inline with the rest of the code. \n\nThe `[]` part is the lambda capture, which allows local variables and `this` (for C++ class instances) to be captured for use within the lambda function. In this case, there is nothing to capture.\n\n\n\n",
+  "readme": "# DebounceSwitchRK\n\nLibrary for switch debouncing for Particle devices\n\n\n## Library features\n\n- Debounces both momentary (push button) and toggle switches.\n- For push buttons, handles long press, very long press, and multi-tap (double-tap, triple-tap, etc.).\n- Thread-based, so button changes are not lost even if loop() is blocked or delayed.\n- Handles buttons connected to 3V3 or GND (active high or active low) with internal or external pull.\n- Handles buttons connected to a GPIO pin.\n- Also handles buttons connected to expanders, such as MCP23008 I2C GPIO expanders.\n- Works with both polling (default) and notify-on-change (handy for I2C GPIO with interrupts).\n- Many configurable parameters.\n\nThe full browsable API documentation is available [here](https://rickkas7.github.io/DebounceSwitchRK/index.html) as well as in the docs/html directory in the [Github Repository](https://github.com/rickkas7/DebounceSwitchRK).\n\n## General Design\n\n\n### Button Styles\n\nDifferent types of buttons (momentary push button or toggle), active high or low, with or without pull resistors, are specified using the `DebounceSwitchStyle` parameter to addSwitch().\n\n| Constant | Purpose |\n| :--- | :--- |\n| PRESS_LOW | Momentary switch to GND with an external pull-up |\n| PRESS_HIGH | Momentary switch to 3V3 with an external pull-down |\n| PRESS_LOW_PULLUP | Momentary switch to GND, along with using the MCU internal pull-up resistor |\n| PRESS_HIGH_PULLDOWN | Momentary switch to 3V3, along with using the MCU internal pull-up resistor | \n| TOGGLE | Toggle (on/off) switch that drives the input to GND or 3V3 |\n| TOGGLE_PULLDOWN | Toggle switch that connects the input to 3V3 in one position and disconnected in the other |\n| TOGGLE_PULLUP | Toggle switch that connects the input to GND in one position and disconnected in the other |\n\nIf you are designing a new circuit, the best option is to have your switch connect the GPIO to GND (not 3V3) and use on the of the MCU pull-up modes. So `PRESS_LOW_PULLUP` for a momentary push-button switch or `TOGGLE_PULLUP` for a toggle switch.\n\n### Callbacks\n\nThis library uses a thread and a callback approach. Even if the GPIO are polled (as is typically\nthe case for hardware GPIO connected to the MCU), you will be notified of debounced press and tap\nevents using a callback.\n\nThe callback has this prototype:\n\n```\nvoid callback(DebounceSwitchState *switchState, void *context);\n```\n\n- switchState is an object pointer for the switch that caused the event, and also what happened.\n- context is an optional pointer you passed into addSwitch() you can use to communicate extra\ndata to the callback.\n\nIt's also possible to make the callback a class member function of a class you've created.\n\n```\nvoid YourClass::callback(DebounceSwitchState *switchState);\n```\n\nThe callback is called from a worker thread with a small (1024 byte) stack, so you should avoid\ndoing operations which block or use a lot of stack space.\n\nReturning as quickly as possible without blocking is the best. If you must block, make sure you don't block more than 5 milliseconds total or the debouncing of the buttons and performance will be affected.\n\n### Polling Callback\n\nIf you are using GPIO connected to another chip, you can provide a pollCallback to poll the GPIO\nvalues. For example, if you have an MCP23008 I2C GPIO expander, you can connect buttons to that.\n\nThe poolCallback has this prototype:\n\n```\nbool callback(DebounceSwitchState *switchState, void *context);\n```\n\n- switchState is an object pointer for the switch that caused the event, and also what happened.\n- context is an optional pointer you passed into addSwitch() you can use to communicate extra\ndata to the callback.\n\nNote that the pollCallback returns a bool for the state of the GPIO (false = LOW, true = HIGH).\n\nIt's also possible to make the pollCallback a class member function of a class you've created.\n\n```\nbool YourClass::callback(DebounceSwitchState *switchState);\n```\n\nIf you are using an external GPIO you need to manage the pull resistors in your own code, so you'd use one of switch types `PRESS_LOW`, `PRESS_HIGH`, or `TOGGLE`.\n\n### Notify Mode\n\nIn some cases, it's inefficient to poll the switch. Polling happens every 5 milliseconds by\ndefault, which is fine for GPIO connected directly to the MCU. However, if the GPIO is on an I2C\nexpander, it's still well within the capabilities of I2C, but it can be made more efficient.\n \nThe MCP23008 supports interrupt mode. When the external GPIO changes state, it sets an output\nthat is read by a hardware GPIO on the MCU. This allows the MCU to determine if a change has\noccurred on the expander without having to do an I2C transaction; instead if can just read a \nhardware GPIO. \n\nThe MCP23008-RK library supports this mode, and allows for a callback to be called when the\nexternal GPIO state changes. This callback can then use the notify mode of the \nDebounceSwitchRK library to tell the debouncer what the current state of the switch signal \nis.\n\nSee the example in more-tests/02-mcp23008-interrupts:\n\n```\nDebounceSwitchState *sw = DebounceSwitch::getInstance()->addNotifySwitch(DebounceSwitchStyle::PRESS_LOW, \n    (link unavailable in preview) {\n        // Called to notify of switch operations\n        Log.info(\"state=%s\", switchState->getPressStateName());\n        if (switchState->getPressState() == DebouncePressState::TAP) {\n            Log.info(\"%d taps\", switchState->getTapCount());\n        }\n    }, NULL);\n\ngpio.attachInterrupt(SWITCH_PIN, CHANGE, sw {\n    // Log.info(\"bValue=%d\", bValue);\n    sw->notify(bValue);\n});\n```\n\n## DebounceConfiguration\n\nThere are a number of configurable parameters. They can be set globally, for future calls to addSwitch(), per-switch, if desired.\n\nFor example:\n\n```\nvoid setup() {\n    DebounceSwitch::getInstance()->setup();\n\n    // Disable very long press mode\n    DebounceSwitch::getInstance()->withNoVeryLongPress();\n\n    DebounceSwitch::getInstance()->addSwitch(TEST_PIN, DebounceSwitchStyle::PRESS_LOW_PULLUP, \n        (link unavailable in preview) {\n            Log.info(\"pin=%d state=%s\", switchState->getPin(), switchState->getPressStateName());\n            if (switchState->getPressState() == DebouncePressState::TAP) {\n                Log.info(\"%d taps\", switchState->getTapCount());\n            }\n    });\n}\n```\n\nThis changes the default, then adds a switch. If you change the default again, the existing switch will not be changed, but future calls to addSwitch() will be affected.\n\n### Per switch configuration\n\n```\n#include \"DebounceSwitchRK.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nSerialLogHandler logHandler;\n\nvoid switchCallback(DebounceSwitchState *switchState, void *) {\n    const char *name = (switchState->getPin() == D2) ? \"toggle D2\" : \"button D3\";\n    Log.info(\"%s state=%s\", name, switchState->getPressStateName());\n\n    if (switchState->getPressState() == DebouncePressState::TAP) {\n        Log.info(\"%d taps\", switchState->getTapCount());\n    }\n}\n\nvoid setup() {\n    DebounceSwitch::getInstance()->setup();\n\n    DebounceSwitchState *sw;\n    \n    // Toggle switch\n    sw = DebounceSwitch::getInstance()->addSwitch(D2, DebounceSwitchStyle::TOGGLE_PULLUP, switchCallback);\n    // Give the toggle switch a longer debounce time\n    sw->withDebounceMs(100);\n\n    // Push button switch\n    sw = DebounceSwitch::getInstance()->addSwitch(D3, DebounceSwitchStyle::PRESS_LOW_PULLUP, switchCallback);\n    // Disable long press and very long press mode on the button\n    sw->withNoLongPress();\n}\n\nvoid loop() {\n}\n```\n\nThe same methods also work for on the DebounceSwitchState object, so you can set the parameters per-switch.\n\n\n## Usage Patterns\n\n### Hardware GPIO, Simple Callback\n\n```\n#include \"Particle.h\"\n\n#include \"DebounceSwitchRK.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nSerialLogHandler logHandler;\n\nvoid switchCallback(DebounceSwitchState *switchState, void *context) {\n    // This function is called from a worker thread with a small (1K) stack.\n    // You should avoid any large, lengthy operations here.\n    Log.info(\"pin=%d state=%s\", switchState->getPin(), switchState->getPressStateName());\n    if (switchState->getPressState() == DebouncePressState::TAP) {\n        Log.info(\"%d taps\", switchState->getTapCount());\n    }    \n}\n\nvoid setup() {\n    DebounceSwitch::getInstance()->setup();\n\n    DebounceSwitch::getInstance()->addSwitch(D3, DebounceSwitchStyle::PRESS_LOW_PULLUP, switchCallback);\n}\n\nvoid loop() {\n}\n```\n\nThis is the simplest model for GPIO connected switches. Of note:\n\n```\nDebounceSwitch::getInstance()->setup();\n```\n\nBe sure to call this from global setup(). It's required!\n\n\n```\nDebounceSwitch::getInstance()->addSwitch(D3, DebounceSwitchStyle::PRESS_LOW_PULLUP, switchCallback);\n```\n\nThis is how you add a switch to be handled. You can add multiple switches in this manner.\n\nThe parameters of interest are:\n\n- `D3` The pin the switch is connected to\n- `DebounceSwitchStyle::PRESS_LOW_PULLUP` The switch is a momentary (push-button) switch and connects the GPIO to GND (active low). It uses the MCU's hardware pull-up to handle the case where the switch is open (not connected) to bring the signal HIGH.\n- `switchCallback` The function below.\n\nThis is the callback function:\n\n```\nvoid switchCallback(DebounceSwitchState *switchState, void *context) {\n    Log.info(\"pin=%d state=%s\", switchState->getPin(), switchState->getPressStateName());\n    if (switchState->getPressState() == DebouncePressState::TAP) {\n        Log.info(\"%d taps\", switchState->getTapCount());\n    }    \n}\n```\n\nThe callback is called from a worker thread with a small (1024 byte) stack, so you should avoid doing operations which block or use a lot of stack space. This example just logs things to debug USB serial using `Log.info`.\n\nNote that there is no code needed from loop(). This means that if your code is blocking loop, it won't adversely affect the handling of buttons.\n\n### Hardware GPIO, Lambda Callback\n\nThe callback can be a C++11 lambda function:\n\n```\nDebounceSwitch::getInstance()->addSwitch(D2, DebounceSwitchStyle::TOGGLE, (link unavailable in preview) {\n    Log.info(\"toggle state=%s\", switchState->getPressStateName());\n});\n```\n\nThis is the actual lambda part:\n\n```\n(link unavailable in preview) {\n    Log.info(\"toggle state=%s\", switchState->getPressStateName());\n}\n```\n\nThis declared a function in-line to be called when the event occurs. The function has this prototype:\n\n```\nvoid callback(DebounceSwitchState *switchState, void *)\n```\n\nIt's important to remember the callback part is execute later, not inline with the rest of the code. \n\nThe `[]` part is the lambda capture, which allows local variables and `this` (for C++ class instances) to be captured for use within the lambda function. In this case, there is nothing to capture.\n\n\n\n",
   "allVersions": [
     "0.0.1"
   ]

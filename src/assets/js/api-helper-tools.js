@@ -337,11 +337,11 @@ $(document).ready(function() {
 
                 await refreshTable();
 
-                ga('send', 'event', gaCategory, 'Get Devices Success', JSON.stringify(stats));
+                analytics.track('Get Devices Success', {category:gaCategory, label:JSON.stringify(stats)});
             }
             catch(e) {
                 console.log('exception', e);
-                ga('send', 'event', gaCategory, 'Get Devices Error');
+                analytics.track('Get Devices Error', {category:gaCategory});
             }
 
         };
@@ -546,7 +546,7 @@ $(document).ready(function() {
 
 
             }
-            ga('send', 'event', gaCategory, 'Checked', deviceList.length);
+            analytics.track('Checked', {category:gaCategory, label:deviceList.length});
             setStatus('Checked ' + deviceList.length + ' devices');
         }
 
@@ -626,11 +626,11 @@ $(document).ready(function() {
                 let deviceNum = 1;
 
                 if (!confirm('Removing cannot be undone and typically will cause the devices to go offline and not be able to reconnect. Proceed?')) {
-                    ga('send', 'event', gaCategory, 'Remove Cancel', deviceCount);
+                    analytics.track('Remove Cancel', {category:gaCategory, label:deviceCount});
                     return;
                 }
 
-                ga('send', 'event', gaCategory, 'Remove Start', deviceCount);
+                analytics.track('Remove Start', {category:gaCategory, label:deviceCount});
 
                 for(const deviceId in deviceInfoCache) {
                     setStatus('Processing device ' + deviceNum + ' of ' + deviceCount);
@@ -723,11 +723,11 @@ $(document).ready(function() {
                 await tableObj.getXlsxData({toFile: true});
 
 
-                ga('send', 'event', gaCategory, 'Execute Success', JSON.stringify(stats));
+                analytics.track('Execute Success', {category:gaCategory, label:JSON.stringify(stats)});
             }
             catch(e) {
                 console.log('exception', e);
-                ga('send', 'event', gaCategory, 'Execute Error');
+                analytics.track('Execute Error', {category:gaCategory});
             }
         }
 
@@ -964,6 +964,7 @@ $(document).ready(function() {
             $(thisPartial).trigger('updateSearchParam');
         });
         $(claimUsernameSelectElem).on('change', function() {
+            $(claimCheckboxElem).prop('checked', true);
             $(thisPartial).trigger('updateSearchParam');
         });
 
@@ -980,11 +981,6 @@ $(document).ready(function() {
             $(thisPartial).trigger('updateSearchParam');
         });
         
-        // This is triggered by the product selector when the product list changes
-        $(thisPartial).on('updateProductList', async function(event, options) {
-            $(thisPartial).trigger('updateSearchParam');
-        });
-
 
         const urlConfigFields = ['name', 'namePrefix', 'development'];
 
@@ -1021,22 +1017,34 @@ $(document).ready(function() {
                 let options = {};
                 getOptions(options);
 
+                let oldClaimUser = $(claimUsernameSelectElem).val();
+                if (!oldClaimUser) {
+                    oldClaimUser = urlParams.get('claim');;   
+                }
 
-                if (options.productId && (!teamList || deviceListProductId != options.productId)) {
-                    teamList = (await apiHelper.particle.listTeamMembers({ auth: apiHelper.auth.access_token, product:options.productId })).body.team;
-                    // console.log('team', team);
+                if (options.productId) {
+                    if (!teamList || deviceListProductId != options.productId) {
+                        teamList = await apiHelper.getTeamMembers({
+                            productId: options.productId, 
+                            orgId: options.orgId, 
+                            noProgrammatic: true,
+                        });
+            
+                        apiHelper.updateTeamSelect({
+                            team: teamList,
+                            elem: claimUsernameSelectElem,
+                        });
     
+                        if (oldClaimUser) {
+                            $(claimUsernameSelectElem).val(oldClaimUser);
+                        }    
+                    }
+                    $(thisPartial).find('.productSelected').show();
+                }
+                else {
                     $(claimUsernameSelectElem).empty();
-                    for(const member of teamList) {
-                        const optionElem = document.createElement('option');
-                        $(optionElem).prop('value', member.username);
-                        $(optionElem).text(member.username);                    
-                        $(claimUsernameSelectElem).append(optionElem);
-                    }
-                    const claimValue = urlParams.get('claim');
-                    if (claimValue) {
-                        $(claimUsernameSelectElem).val(claimValue);
-                    }
+                    teamList = null;
+                    $(thisPartial).find('.productSelected').hide();
                 }
 
                 let urlConfig = {};
@@ -1071,6 +1079,12 @@ $(document).ready(function() {
                 console.log('exception', e);
             }
         });
+        
+        // This is triggered by the product selector when the product list changes
+        $(document).on('updateProductList', async function(event, options) {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
         
         $(selectFileButtonElem).on('click', function() {
             $(importFileInputElem).trigger('click');
@@ -1135,7 +1149,7 @@ $(document).ready(function() {
                     }                
                 }
             }
-            ga('send', 'event', gaCategory, 'Add devices', numAdded);
+            analytics.track('Add devices', {category:gaCategory, label:numAdded});
 
             return numAdded > 0;
         }
@@ -1326,7 +1340,7 @@ $(document).ready(function() {
     
                         };
     
-                        if (!tableDeviceObj.development) {
+                        if (tableDeviceObj.development) {
                             // Mark as development
                             reqObj.development = true;
                         }
@@ -1406,11 +1420,11 @@ $(document).ready(function() {
                 }
     
                 setStatus('Done!');
-                ga('send', 'event', gaCategory, 'Import done', devicesToImport);
+                analytics.track('Import done', {category:gaCategory, label:devicesToImport});
             }
             catch(e) {
                 console.log('import device exception', e);
-                ga('send', 'event', gaCategory, 'Import exception');
+                analytics.track('Import exception', {category:gaCategory});
             }
 
         });
@@ -1720,3 +1734,4 @@ $(document).ready(function() {
 
 
 });
+

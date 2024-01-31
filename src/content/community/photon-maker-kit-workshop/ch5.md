@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Session 5 - Controlling your devices from the cloud
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            | Process sensor data in the cloud, and publish events to control an RGB LED on your Photon.                 |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to control an RGB LED from a Photon; Subscribing to Device Cloud events; Publishing events from Azure. |
@@ -149,7 +153,7 @@ Now that we have everything wired up on our device, lets publish events from the
 
 We can use Azure to process sensor events as they come in to IoT Hub. We can really do anything we want with the data once it's in Azure. That's the magic of the cloud. Let's setup an Azure Function which fires each time the temperature changes and then calls back to the Particle Cloud with the color to change the RBG bulb to.
 
-### Add new Consumer Group
+### Add new consumer group
 
 Each time you add a new endpoint or service which will interact with IoT Hub, it's a best practice to give that it's own Consumer Group. We're going to wire up an Azure Function, so let's create a new Consumer Group in IoT Hub for this Serverless Function.
 
@@ -161,7 +165,7 @@ Each time you add a new endpoint or service which will interact with IoT Hub, it
 
   ![](/assets/images/workshops/photon-maker-kit/05/new-consumer-group.png)
 
-### Create a new Azure Function
+### Create a new Azure function
 
 Azure Functions are the Azure Serverless platform. It allows you to write Node functions that run in the cloud without having to deploy Node or any runtime at all. You just write your code and let it run.
 

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Touch_4Wire",
     "version": "0.9.5",
-    "installs": 5922,
+    "installs": 6186,
     "license": "Adafruit",
     "author": "ScruffR / Adafruit",
     "sentence": "Adafruit 4-Wire-Touchscreen library (Compatible with Core 0.3.4ff, Photon/P1 0.4.3ff)",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/Touch_4Wire",
+  "cardUrl": "/reference/device-os/libraries/t/Touch_4Wire",
   "versions": {
     "0.9.5": {
       "builds": {
@@ -126,6 +126,58 @@
           },
           "esomx": {
             "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "bsom": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "b5som": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "tracker": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "p2": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "bsom": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "b5som": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "tracker": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "esomx": {
+            "BreakoutTouchPaint": false,
             "TouchScreenDemo": true
           }
         }

@@ -47,14 +47,16 @@ Most devices have a USB 2.0 Micro B receptacle, however some devices have USB C.
 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Micro B |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | USB-C |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Micro B |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | USB-C |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | USB-C |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | USB-C |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | USB-C |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Micro B |
 | PHN2KIT | Photon 2, Kit [x1] | Micro B |
-| PHN2MEA | Photon 2, [x1] | Micro B |
+| PHN2MEA | Photon 2 [x1] | Micro B |
 | PHOTONH | Photon with Headers, [x1] | Micro B |
 | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Micro B |
 | PHOTONNOH | Photon without Headers, Dev board Kit [x1] | Micro B |
@@ -63,17 +65,15 @@ Most devices have a USB 2.0 Micro B receptacle, however some devices have USB C.
 | SPKBTTN | Internet Button, [x1] | Micro B |
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | USB-C |
 | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | Micro B |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | Micro B |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | Micro B |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
 {{collapse op="end"}}
 
-## Device Restore USB
+## Device restore USB
 
 The first thing you should try is  [Device Restore USB](/tools/device-restore/device-restore-usb/). It may be helpful to put the device in DFU mode (blinking yellow) before using the tool:
 
@@ -82,8 +82,6 @@ Press and hold MODE (or SETUP), tap RESET, and continue holding down MODE until 
 ## Particle CLI
 
 Another option is to use the [Particle CLI](/getting-started/developer-tools/cli/).
-
-- Press and hold MODE (or SETUP), tap RESET, and continue holding down MODE until the status LED blinks yellow, then release to put the device in DFU mode.
 
 - Use the CLI command:
 
@@ -104,7 +102,9 @@ there are a few possible causes:
 - The hardware is defective. This particular failure happens more often with Gen 2 devices (STM32F205) and can't be repaired because the failure is in the flash inside the MCU.
 - See the less common scenarios below, as well.
 
-## Device Restore JTAG (SWD/JTAG)
+In rare cases, the `particle update` may not be able to switch the device into DFU mode (blinking yellow automatically). If this occurs, press and hold MODE (or SETUP), tap RESET, and continue holding down MODE until the status LED blinks yellow, then release to put the device in DFU mode.
+
+## Device restore JTAG (SWD/JTAG)
 
 In some cases, the device can't be restored by DFU, and can only be restored using SWD/JTAG. This requires a special programmer that allows the flash to be reprogrammed externally. See the [SWD/JTAG guide](/reference/developer-tools/jtag/) for more information.
 

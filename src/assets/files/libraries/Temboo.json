@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Temboo",
     "version": "1.2.8",
-    "installs": 503,
+    "installs": 566,
     "license": "Apache License, Version 2.0",
     "author": "Temboo, Spark port by Karl Kaiser <karl@bentuino.com>",
     "sentence": "Temboo Library for Spark, for details about Temboo service visit temboo.com",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/Temboo",
+  "cardUrl": "/reference/device-os/libraries/t/Temboo",
   "versions": {
     "1.2.8": {
       "builds": {
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "boron": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "bsom": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "b5som": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "tracker": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "esomx": {
+            "application_gmail": true,
+            "application_gxls": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "boron": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "bsom": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "b5som": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "tracker": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "p2": {
+            "application_gmail": true,
+            "application_gxls": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "application_gmail": true,
             "application_gxls": true

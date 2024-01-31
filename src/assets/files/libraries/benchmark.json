@@ -1,0 +1,142 @@
+{
+  "type": "libraries",
+  "id": "benchmark",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/benchmark/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "benchmark",
+    "version": "1.0.2",
+    "installs": 63,
+    "author": "Julien Vanier <julien@particle.io>",
+    "sentence": "A simple code execution time library",
+    "url": "https://github.com/monkbroc/particle-benchmark",
+    "repository": "https://github.com/monkbroc/particle-benchmark.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/reference/device-os/libraries/b/benchmark",
+  "versions": {
+    "1.0.2": {
+      "added": "2023-03-21T22:54:42.946Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "measure": false
+          },
+          "boron": {
+            "measure": true
+          },
+          "bsom": {
+            "measure": true
+          },
+          "b5som": {
+            "measure": true
+          },
+          "tracker": {
+            "measure": true
+          },
+          "p2": {
+            "measure": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "measure": true
+          },
+          "boron": {
+            "measure": false
+          },
+          "bsom": {
+            "measure": false
+          },
+          "b5som": {
+            "measure": false
+          },
+          "tracker": {
+            "measure": true
+          },
+          "esomx": {
+            "measure": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "measure": false
+          },
+          "electron": {
+            "measure": false
+          },
+          "argon": {
+            "measure": true
+          },
+          "boron": {
+            "measure": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "measure": false
+          },
+          "electron": {
+            "measure": true
+          },
+          "argon": {
+            "measure": true
+          },
+          "boron": {
+            "measure": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "measure": true
+          },
+          "boron": {
+            "measure": true
+          },
+          "bsom": {
+            "measure": true
+          },
+          "b5som": {
+            "measure": true
+          },
+          "tracker": {
+            "measure": true
+          },
+          "p2": {
+            "measure": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "measure": true
+          },
+          "boron": {
+            "measure": true
+          },
+          "bsom": {
+            "measure": true
+          },
+          "b5som": {
+            "measure": true
+          },
+          "tracker": {
+            "measure": true
+          },
+          "esomx": {
+            "measure": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Benchmark\n\nA simple code execution time library for Particle devices (Photon, Electron)\n\n## Usage\n\n```\n#include \"benchmark.h\"\n\nvoid loop() {\n  uint32_t duration = Benchmark.measure([&] {\n    // do long stuff here\n  });\n\n  // or measure a whole function\n  uint32_t fnDuration = Benchmark.measure(longFunction);\n}\n```\n\nSee complete example in the examples directory.\n\n## License\nCopyright 2016 Julien Vanier\nReleased under the MIT license\n",
+  "allVersions": [
+    "1.0.2",
+    "1.0.1"
+  ]
+}

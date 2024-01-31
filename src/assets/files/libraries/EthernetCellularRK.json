@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EthernetCellularRK",
     "version": "0.0.3",
-    "installs": 1283,
+    "installs": 2327,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Ethernet with cellular backup for Particle devices",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/EthernetCellularRK",
+  "cardUrl": "/reference/device-os/libraries/e/EthernetCellularRK",
   "versions": {
     "0.0.2": {
       "builds": {
@@ -120,6 +120,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
+            "1-simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-simple": true
           },

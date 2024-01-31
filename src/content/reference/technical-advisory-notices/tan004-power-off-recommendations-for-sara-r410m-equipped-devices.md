@@ -8,7 +8,7 @@ columns: two
 
 Published: May 18, 2021
 
-## Issue Summary
+## Issue summary
 
 Particle has produced the following power-off procedure recommendations for Particle devices running u-blox SARA-R410M-02B modules. The u-blox SARA-R410M-02B is a component that is used in **Particle Electron, E Series, Boron, and B Series LTE Cat-M1 Devices**. Devices that ungracefully power off the SARA-R410M module, especially if done with great frequency, may be subject to a very rare but serious flash memory corruption issue with the u-blox modem. 
 
@@ -16,7 +16,7 @@ Abrupt (“ungraceful” - unhandled by firmware protocols) power removal from t
 
 The recommendations detailed here are not bound to the same conditions (firmware version, manufacturing timeline) as the issue detailed in [TAN001 - SARA-R410M “124-Day](/reference/technical-advisory-notices/tan001-sara-r410m-124-day/)”.
 
-## Power-off Procedure Recommendations
+## Power-off procedure recommendations
 
 Risk of u-blox corruption is generally very low, but observing the following recommendations can all but eliminate this possibility.
 
@@ -37,7 +37,7 @@ System firmware can be updated on affected devices using a standard OTA firmware
 * During the update, ensure that power to the device is not interrupted and the device is not put to sleep.
 * Ensure that the device is within cellular range to complete over the air update.
 
-### Recommendations by Use-Case
+### Recommendations by use-case
 
 * **Low Battery States** \- battery-powered devices that allow their batteries to drain completely (or near completely) in an unchecked fashion are at _low_ risk for u-blox corruption. It is worth stating that devices in a frequent low-power/brownout states are already vulnerable to serious performance issues - including degraded connectivity, flash corruption, keys issues, etc....  
     
@@ -46,7 +46,7 @@ Devices powered by battery can monitor State of Charge via the FuelGauge Class o
     
 Using a backup battery or a supercapacitor that allows the device at least 30 seconds of power upon loss of the external power supply to gracefully power off the cellular modem using `Cellular.isOff()`and `Cellular.off()` APIs is recommended.
 
-### Identifying Impacted Devices:
+### Identifying impacted devices:
 
 Particle devices with u-blox memory corruption resulting from ungraceful modem power-off will fail to connect and can exhibit characteristic LED status signals and trace logs.
 

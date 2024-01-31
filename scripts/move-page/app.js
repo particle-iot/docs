@@ -210,17 +210,30 @@ async function insertIntoMenu(options) {
             array: lastItem.array
         })
     }
+    else {
+        items.push({
+            title: 'Append',
+            index: 0,
+            array: menuJson.items
+        });
+    }
  
     let menuItems = [];
     for(const item of items) {
         menuItems.push(item.title);
     }
 
-    const res = await helper.questionMenu('Insert Location? ', menuItems, {});
+    let insertLocation;
+    if (options.append) {
+        insertLocation = items.length - 1;
+    }
+    else {
+        insertLocation = await helper.questionMenu('Insert Location? ', menuItems, {});
+    }
 
-    // console.log('insert', items[res]);
+    // console.log('insert', items[insertLocation]);
 
-    items[res].array.splice(items[res].index, 0, {
+    items[insertLocation].array.splice(items[insertLocation].index, 0, {
         dir: options.urlName,
         title: options.title,
         href: '/' + options.dstDirPartialPath + '/' + options.urlName + '/'
@@ -244,6 +257,10 @@ async function run() {
             {
                 key: 'move',
                 desc: 'move a page',
+            },
+            {
+                key: 'moveSection',
+                desc: 'move a section of pages',
             },
             {
                 key: 'create',
@@ -271,16 +288,7 @@ async function run() {
             cmd = menuOptions[res].key;
         }
 
-        if (cmd == 'move') {
-            let options = {};
-
-            
-            console.log('Move a page: select source md file');
-            options.srcMdPartialPath = await getFile('');
-
-            console.log('Select destination directory');
-            options.dstDirPartialPath = await getDirectory('');
-
+        const movePage = async function(options) {
             // Remove from old menu
             removeFromMenu(options);
 
@@ -320,9 +328,60 @@ async function run() {
                 newRedirectsObj[obj.key] = obj.obj;
             }
             fs.writeFileSync(redirectsFile, JSON.stringify(newRedirectsObj, null, 2));
+        }
+
+        if (cmd == 'move') {
+            let options = {};
+
+            console.log('Move a page: select source md file');
+            options.srcMdPartialPath = await getFile('');
+
+            console.log('Select destination directory');
+            options.dstDirPartialPath = await getDirectory('');
+
+            await movePage(options);
             
             // Fix links? This takes a while to run, may be batch these up
             // fixLinks = true;
+        }
+
+        if (cmd == 'moveSection') {
+            let options = {};
+
+            
+            console.log('Move a section: select directory to move the contents of');
+            options.srcDirPartialPath = await getDirectory('');
+
+            console.log('Select destination directory');
+            options.dstDirPartialPath = await getDirectory('');
+
+            console.log('options', options);
+
+            // Find all pages in the source directory
+            const processDir = async function(relativePath) {
+                const dstDirPath = path.join(contentDir, options.dstDirPartialPath, relativePath);
+                if (!fs.existsSync(dstDirPath)) {
+                    fs.mkdirSync(dstDirPath);
+                }
+                for(const dirent of fs.readdirSync(path.join(contentDir, options.srcDirPartialPath, relativePath), {withFileTypes:true})) {
+                    if (dirent.isDirectory()) {
+                        if (!dirent.name.startsWith('.')) {                            
+                            processDir(path.join(relativePath, dirent.name));
+                        }
+                    }
+                    else
+                    if (dirent.isFile() && dirent.name.endsWith('.md')) {
+                        console.log({dir: relativePath, file: dirent.name});
+                        await movePage({
+                            srcMdPartialPath: path.join(options.srcDirPartialPath, relativePath, dirent.name),
+                            dstDirPartialPath: path.join(options.dstDirPartialPath, relativePath),
+                            append: true,
+                        });
+                    }
+                }
+            }
+            await processDir('');
+
         }
 
         if (cmd == 'create') {

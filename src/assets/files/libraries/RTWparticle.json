@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RTWparticle",
+  "cardUrl": "/reference/device-os/libraries/r/RTWparticle",
   "versions": {
     "1.1.5": {
       "builds": {

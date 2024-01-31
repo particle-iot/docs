@@ -7,7 +7,7 @@
   "attributes": {
     "name": "P9813",
     "version": "0.0.2",
-    "installs": 1323,
+    "installs": 1588,
     "license": "MIT",
     "author": "Julian Adenauer <julian@retune.de>",
     "sentence": "Library for controlling smart LEDs based on the P9813 protocol aka the ChainableLED in the Grove Starter Kit for Photon",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/P9813",
+  "cardUrl": "/reference/device-os/libraries/p/P9813",
   "versions": {
     "0.0.2": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "P9813-example": true
+          },
+          "boron": {
+            "P9813-example": true
+          },
+          "bsom": {
+            "P9813-example": true
+          },
+          "b5som": {
+            "P9813-example": true
+          },
+          "tracker": {
+            "P9813-example": true
+          },
+          "esomx": {
+            "P9813-example": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "P9813-example": true
+          },
+          "boron": {
+            "P9813-example": true
+          },
+          "bsom": {
+            "P9813-example": true
+          },
+          "b5som": {
+            "P9813-example": true
+          },
+          "tracker": {
+            "P9813-example": true
+          },
+          "p2": {
+            "P9813-example": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "P9813-example": true
           },

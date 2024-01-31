@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TimeAlarms",
     "version": "0.0.3",
-    "installs": 55770,
+    "installs": 58621,
     "license": "LGPL 3.0",
     "author": "Brian Ogilvie <bko@pobox.com>",
     "sentence": "Port of TimeAlarms",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TimeAlarms",
+  "cardUrl": "/reference/device-os/libraries/t/TimeAlarms",
   "versions": {
     "0.0.3": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "TimeAlarmsExample": false
+          },
+          "boron": {
+            "TimeAlarmsExample": false
+          },
+          "bsom": {
+            "TimeAlarmsExample": false
+          },
+          "b5som": {
+            "TimeAlarmsExample": false
+          },
+          "tracker": {
+            "TimeAlarmsExample": false
+          },
+          "esomx": {
+            "TimeAlarmsExample": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "TimeAlarmsExample": false
+          },
+          "boron": {
+            "TimeAlarmsExample": false
+          },
+          "bsom": {
+            "TimeAlarmsExample": false
+          },
+          "b5som": {
+            "TimeAlarmsExample": false
+          },
+          "tracker": {
+            "TimeAlarmsExample": false
+          },
+          "p2": {
+            "TimeAlarmsExample": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "TimeAlarmsExample": false
           },

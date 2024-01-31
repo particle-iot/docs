@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: Tracker M Datasheet
 ---
 
-# Tracker M Datasheet
+# Tracker M datasheet
 
 {{#unless pdf-generation}}
 {{!-- downloadButton url="/assets/pdfs/datasheets/tracker-m-datasheet.pdf" --}}
@@ -63,7 +63,7 @@ The P2 is a SMD module with a microcontroller, 2.4 GHz and 5 GHz Wi-Fi, and BLE.
   - Integrated RF switch
 - BLE 5 using same antenna as Wi-Fi
 - Realtek RTL8721DM MCU
-  - ARM Cortex M23 CPU, 200 MHz
+  - ARM Cortex M33 CPU, 200 MHz
 - 2048 KB (2 MB) user application maximum size
 - 3072 KB (3 MB) of RAM available to user applications
 - 2 MB flash file system
@@ -142,6 +142,14 @@ Note that the Tracker M is intended to be mounted on the bottom side of the expa
 
 - On the Tracker M, pins D0 and D1 are used in I2C mode by the temperature sensor. Pins D0 and D1 cannot be used as GPIO.
 
+#### GPIO - CAN expansion card
+
+With the Particle CAN expansion card, A0 and A5 cannot be used as user GPIO as they are used for:
+
+- A0: HIGH enables the 5V boost converter, used for CAN and 5V UART
+- A5: HIGH enables the UART. Both A0 and A5 must be high to use the UART (RX/TX)
+
+
 ### ADC
 
 {{!-- BEGIN do not edit content below, it is automatically generated ad9f1e40-1d9e-4fc3-9789-34453572592c --}}
@@ -202,6 +210,7 @@ Note that the Tracker M is intended to be mounted on the bottom side of the expa
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+- With the Particle CAN expansion card, both A0 (5V enable) and A5 (UART enable) must be set HIGH to use the UART.
 
 
 ### PWM
@@ -341,7 +350,7 @@ Note that the Tracker M is intended to be mounted on the bottom side of the expa
 
 
 
-### I/O Expander (IOEX)
+### I/O expander (ioex)
 
 The large number of peripheral chips on the Tracker M exceed the number of available GPIO on the P2. A MCP23S17 SPI I/O Expander is used to provide 16 additional GPIO pins. These can be accessed using the standard `digitalRead()` and `digitalWrite()` Device OS API calls.
 
@@ -371,7 +380,7 @@ The large number of peripheral chips on the Tracker M exceed the number of avail
 
 
 
-### CS DEMUX
+### CS demux
 
 The large number of SPI peripherals on the Tracker M and expansion card exceed the number of available GPIO on the P2.
 
@@ -480,7 +489,7 @@ The large number of SPI peripherals on the Tracker M and expansion card exceed t
 
 ## Mechanical specifications
 
-### Operating Temperature
+### Operating temperature
 
 To be provided at a later date.
 
@@ -508,7 +517,7 @@ To be provided at a later date.
 
 ---
 
-## Ordering Information
+## Ordering information
 
 To be provided at a later date.
 
@@ -521,13 +530,13 @@ To be provided at a later date.
 To be provided at a later date.
 
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 The Monitor One contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
-### Battery Warning
+### Battery warning
 
 **CAUTION**
 
@@ -549,3 +558,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 |:-----|:-------|:---------|
 | 2022-10-24 | RK | For internal review only |
 | 2022-11-17 | RK | Updated length and dimensions graphic |
+| 2023-03-08 | RK | Main CPU (KM4) is M33, not M23 |

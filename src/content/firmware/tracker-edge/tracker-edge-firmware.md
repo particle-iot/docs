@@ -3,10 +3,11 @@ title: Tracker Edge firmware
 columns: two
 layout: commonTwo.hbs
 description: Particle Tracker Edge Firmware
-includeDefinitions: [api-helper, api-helper-tracker, zip]
+includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, showdown, zip]
 ---
 
 # {{title}}
+
 
 One difference between the Tracker One and other Particle devices is that the Tracker One firmware can be used in three different ways:
 
@@ -16,15 +17,52 @@ One difference between the Tracker One and other Particle devices is that the Tr
 
 The [Tracker Edge Firmware API Reference](/firmware/tracker-edge/tracker-edge-api-reference/) is also available.
 
+{{note op="start" type="note"}}
+This page is for the Tracker One. If you are using the Monitor One, see [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/).
+{{note op="end"}}
+
+{{> sso}}
+
+## How to customize tracker products
+
+This video covers the Tracker basics including Tracker Edge, adding custom data to location publishes, and adding new settings panels for your own custom settings to the Particle console using a configuration schema.
+
+{{youtube "https://www.youtube.com/embed/FTLgQ_voKyc"}}
+
+
+## Configuration
+
+The configuration schema specifies all of the elements that can be cloud-configured via the [Particle console](https://console.particle.io/). The panels vary depending on whether the product is a Tracker One or Monitor One product. You can also customize the panels with options specific to your product.
+
+For more information about the console settings, see [device fleet settings](/getting-started/console/console/#device-fleet-settings).
+
+
 ## Using off-the-shelf releases
 
-In your product in the [console](https://console.particle.io), click on the **Firmware** icon.
+Your Tracker device is pre-configured with Tracker Edge firmware that you can use out of the box with no flashing of firmware necessary.
 
-![Releases](/assets/images/tracker/release.png)
+When new versions are released, you generally go through several steps that can be accomplished with the tool below:
 
-Instead of having to manually upload firmware that you write, by default new releases are automatically added to your firmware list. Just click the **Release Firmware** link to release a new version to your fleet.
+- Select the product you want to work with. Make sure you select a Tracker One product, not a Monitor One product.
+- Select the Edge version from the **Edge version** popup menu. The default is the newest version, which is recommended.
+- Download the Edge version you wish to upgrade to and upload this to your product using the **Upload Edge firmware to product** button.
+- Update the configuration schema using the **Set Configuration Schema** button.
+- The upload tool only adds the firmware to the product; you will still need to release the firmware to one or more devices from the console.
 
-Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added.
+{{> edge-firmware options="tracker"}}
+
+- To learn about the console settings, see [Tracker settings](/getting-started/console/console/#asset-tracker-features).
+
+
+{{collapse op="start" label="Show prior behavior"}}
+Before April 2023, when you created a new product for the Tracker (platform 26), the default Tracker Edge firmware was automatically
+added to your product as well.
+
+When a new version of Tracker Edge was released, if you had not uploaded your own product firmware, the new release would be added to the list, but not set as default.
+
+This behavior was removed because it was confusing and would not work properly with the Monitor One.
+{{collapse op="end"}}
+
 
 ## Development device setup
 
@@ -56,7 +94,7 @@ You can choose to leave your device unclaimed, however:
 
 - When prompted to select the Tracker device you want to work with, will need to specify it by Device ID (24 character hex) or hit Esc and manually put the Tracker in DFU mode (blinking yellow) using the buttons on the device.
 
-- You will not be able to subscribe to events from your custom firmware.
+- You will not be able cloud flash (OTA) an unclaimed product device from the Particle CLI or Workbench.
 
 #### Claim
 
@@ -72,7 +110,11 @@ particle device add <device-id>
 
 Replace &lt;device-id> with the 24-character hex device ID.
 
-## Getting the Tracker Edge Firmware
+## Getting the Tracker Edge firmware
+
+{{note op="start" type="note"}}
+This page is for the Tracker One. If you are using the Monitor One, see [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/).
+{{note op="end"}}
 
 You can download a complete project for use with Particle Workbench as a zip file here:
 
@@ -84,19 +126,55 @@ You can download a complete project for use with Particle Workbench as a zip fil
 - In order to use the Geofencing features, Tracker Edge v17 is required.
 - In order to use Store and Forward, Tracker Edge v18 is required
 
-{{box op="start" cssClass="boxed warningBox"}}
-Tracker Edge v18 can only be built by the Particle Workbench local compile. It cannot be built by the CLI or cloud compliers.
+After you've downloaded the source zip file:
 
-Tracker Edge v18 should target Device OS 3.3.0 (not 4.x or 5.x).
-{{box op="end"}}
-
+- Extract the downloaded .zip file.
 - Open Particle Workbench.
 - From the command palette, **Particle: Import Project**.
-- Run **Particle: Configure Workspace for Device**, select version 3.3.0, Tracker, and your device.
-- Run **Particle: Flash application (local)**.
+- Run **Particle: Configure Workspace for Device**, select version 3.3.0 or later, Tracker, and your device.
+- Run **Particle: Flash application (local)** or **Particle: Cloud flash**.
 
 Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
+It is recommended that Tracker fleets upgrade to the latest Device OS 4.x LTS (currently {{version mode="latestRelease" line="4"}}). 
+You can also use Device OS 3.3.0.
+
+{{note op="start" type="note"}}
+Tracker Edge v18 and earlier are not compatible Device OS 5.x. If you wish to target Device OS 5.0.0 or later, you must use the manual
+instructions below and use the **develop** branch of tracker-edge.
+{{note op="end"}}
+
+### Tracker Edge v18
+
+Prior to June 2023, you could not build Tracker Edge v18 using the cloud compilers. This included **Particle: Cloud compile** and **Particle: Cloud flash** in Workbench and the `particle compile` and `particle flash` commands in the CLI. 
+
+With Particle CLI version 3.11.1 and later, you can now cloud compile, with one additional caveat. To update your CLI version if necessary, use:
+
+```
+particle update-cli
+```
+
+The other requirement is that the top level of your tracker-edge directory contain a [particle.include](/assets/files/tracker/particle.include) file. The contents are:
+
+```
+**/*.def
+```
+
+If you've downloaded Tracker Edge v18 using the tool above recently, it was inserted automatically for you. If you've previously downloaded and modified the Tracker Edge v18 source, you can create the file or download and save it.
+
+With those two changes you can cloud compile Tracker Edge v18 with Device OS 4.x LTS.
+
+Tracker Edge v18 is not compatible with Device OS 5.x.
+
+### Tracker Edge v17 and Earlier
+
+Tracker Edge v17 and earlier will not build on Device OS 4.x LTS without a modification. In main.cpp, comment out this line when using Device OS 4.x LTS:
+
+```
+PRODUCT_ID(TRACKER_PRODUCT_ID);
+```
+
+Tracker Edge v17 is not compatible with Device OS 5.x.
 
 ### Manually
 
@@ -119,6 +197,8 @@ git submodule update --recursive
 - Run **Particle: Flash application (local)**.
 
 Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
+
+If you are cloning Tracker Edge v18 and would like to be able to cloud compile, you must add a [particle.include](/assets/files/tracker/particle.include) in the tracker-edge directory. Earlier tracker-edge firmware do not need it, later version already have it, and if you use the tool above it's automatically added if necessary.
 
 ## Overview
 
@@ -352,16 +432,6 @@ These pins have a 3.3V maximum and are **not** 5V tolerant!
 
 You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
-## Subscribing to events
-
-By default, Tracker One and Tracker SoM devices are unclaimed product devices. One caveat of this is that your firmware cannot use [`Particle.subscribe`](/reference/device-os/api/cloud-functions/particle-subscribe/) to subscribe to events. You can either:
-
-- Use [`Particle.function`](/reference/device-os/api/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
-
-- Claim the Tracker devices to an account. Often this will be a single account for all devices, possibly the owner of the product.
-
-For more information, see [Device claiming](/getting-started/cloud/device-claiming/).
-
 ## Using GitHub with Tracker Edge
 
 [GitHub](https://github.com/) is a tool for source code control, issue, and release management. It's great for managing Particle projects in Workbench. For many uses, it's free, too. There are many features, entire books, and tutorials about [Git](https://git-scm.com/) (the underlying source code control system) and GitHub (a service that allows you to store files in the cloud). This is just an overview.
@@ -484,8 +554,7 @@ On a successful cmd request, the result is 0. A result of -22 indicates the JSON
 
 **Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
-## Learn More 
+## Learn more 
 
 - The [Tracker Edge Firmware API Reference](/firmware/tracker-edge/tracker-edge-api-reference/) has more information on the available APIs.
 - The [Tracker Eval Board I2C Example](/getting-started/tracker/tracker-eval-tutorials/#i2c-sensor-example) shows how to add I2C sensor data to your location publishes.
-

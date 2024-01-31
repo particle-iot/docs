@@ -1,0 +1,67 @@
+{
+  "type": "libraries",
+  "id": "DS2482_OneWire",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/DS2482_OneWire/archive/0.0.16.tar.gz"
+  },
+  "attributes": {
+    "name": "DS2482_OneWire",
+    "version": "0.0.16",
+    "installs": 318,
+    "license": "MIT",
+    "author": "Joe Goggins <joe@particle.io>",
+    "maintainer": "Wojtek Siudzinski <wojtek@particle.io>",
+    "sentence": "A DS2482 LIbrary.",
+    "paragraph": "Illustrates coding conventions of a Particle Library.",
+    "category": "Other",
+    "url": "https://github.com/spark/uber-library-example",
+    "repository": "DS2482_OneWire",
+    "architectures": [
+      "avr",
+      "spark-core",
+      "particle-photon",
+      "particle-p1"
+    ],
+    "dependencies": {
+      "neopixel": "^1.2.3",
+      "internet-button": "*"
+    },
+    "build": {
+      "spark-core": {
+        "environment": {
+          "CFLAGS": "-O2"
+        }
+      },
+      "particle-photon": {
+        "firmware": "particle@0.5.0"
+      },
+      "particle-p1": {
+        "define": {
+          "DEBUG": "1"
+        }
+      }
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/reference/device-os/libraries/d/DS2482_OneWire",
+  "versions": {
+    "0.0.16": {
+      "added": "2023-03-21T18:30:11.690Z",
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "DS2482_OneWire\n==============\n\nA OneWire library using the DS2482 I2C->1-Wire bridge. Released under GPL.\n\nThis is designed to use Dallas DS18B20 temperature sensors connected to a DS2482 I2C->1-Wire bridge as part of a temperature monitoring system.\n\nThe code heavily borrows from two sources:\n* Paeaetech's DS2482 library (https://github.com/paeaetech/paeae/tree/master/Libraries/ds2482) - the bulk of the functionality if from here, slighty changed.\n* OneWire library (http://www.pjrc.com/teensy/td_libs_OneWire.html) - the CRC code is from here, along with all method names so we can use new library in place of this.\n\nDS18B20 is a 1-Wire temperature sensor (http://www.maximintegrated.com/datasheet/index.mvp/id/2812). These are commonly driven directly from an I/O pin using the OneWire library. This is fine for short and simple networks, but errors start to occur with large numbers (6+ devices) and networks longer than 5m or so.\n\nThe DS2482-100 is a I2C->1-Wire bridge (http://www.maximintegrated.com/datasheet/index.mvp/id/4382), containly functionality that means it is better at driving long and complex networks. \n\nBreakouts for the Raspberry Pi, which can be connected to Arduino, are available from Sheepwalk Electronics:\nhttp://www.sheepwalkelectronics.co.uk/product_info.php?cPath=22&products_id=30\n\n\n",
+  "allVersions": [
+    "0.0.16",
+    "0.0.15",
+    "0.0.14",
+    "0.0.13",
+    "0.0.12",
+    "0.0.11",
+    "0.0.10"
+  ]
+}

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkJson",
     "version": "0.0.2",
-    "installs": 214212,
+    "installs": 224720,
     "license": "Choose a license",
     "author": "bblanchon",
     "sentence": "JSON library Ported from @bblanchon",
@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkJson",
+  "cardUrl": "/reference/device-os/libraries/s/SparkJson",
   "versions": {
     "0.0.2": {
       "builds": {
@@ -138,6 +138,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "boron": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "bsom": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "b5som": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "tracker": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "esomx": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "boron": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "bsom": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "b5som": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "tracker": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "p2": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "IndentedPrintExample": false,
             "JsonGeneratorExample": false,

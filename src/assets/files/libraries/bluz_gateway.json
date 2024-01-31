@@ -7,7 +7,7 @@
   "attributes": {
     "name": "bluz_gateway",
     "version": "1.8.0",
-    "installs": 4227,
+    "installs": 4312,
     "license": "GPL",
     "author": "Eric Ely <ericely@bluz.io>",
     "sentence": "A library to turn a Particle board into a bluz gateway when paired with a Gateway Shield.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/bluz_gateway",
+  "cardUrl": "/reference/device-os/libraries/b/bluz_gateway",
   "versions": {
     "1.8.0": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "gateway": false
+          },
+          "boron": {
+            "gateway": false
+          },
+          "bsom": {
+            "gateway": false
+          },
+          "b5som": {
+            "gateway": false
+          },
+          "tracker": {
+            "gateway": false
+          },
+          "esomx": {
+            "gateway": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "gateway": false
+          },
+          "boron": {
+            "gateway": false
+          },
+          "bsom": {
+            "gateway": false
+          },
+          "b5som": {
+            "gateway": false
+          },
+          "tracker": {
+            "gateway": false
+          },
+          "p2": {
+            "gateway": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "gateway": false
           },

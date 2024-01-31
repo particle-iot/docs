@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RGBmatrixPanel",
     "version": "1.2.1",
-    "installs": 12951,
+    "installs": 13402,
     "license": "BSD license",
     "author": "Paul Kourany / Adafruit",
     "sentence": "Adafruit 16/32/64+ x 32 RGB matrix Panel library for Particle",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RGBmatrixPanel",
+  "cardUrl": "/reference/device-os/libraries/r/RGBmatrixPanel",
   "versions": {
     "1.2.1": {
       "builds": {
@@ -212,6 +212,130 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "boron": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "bsom": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "b5som": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "tracker": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "esomx": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "boron": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "bsom": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "b5som": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "tracker": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "p2": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "colorwheel_32x32": false,
             "colorwheel_progmem_32x32": false,

@@ -3,7 +3,7 @@ title: AN007 Tower Info
 layout: commonTwo.hbs
 columns: two
 ---
-# AN007 Tower Info
+# AN007 Tower info
 
 {{box op="start" cssClass="boxed warningBox"}}
 This page is no longer maintained and is provided for historical reference only
@@ -21,7 +21,7 @@ You can download the files associated with this app note [as a zip file](/assets
 
 
 
-### The Tower Scanner
+### The tower scanner
 
 The tower scanner can only do scanning for nearby towers on a Boron 2G/3G. Tower scan will only see 2G/3G towers. It should be able to see other GSM carriers, even ones the SIM cannot connect to, but cannot see non-GSM carriers like Verizon and Sprint in the United States. 
 
@@ -47,7 +47,7 @@ A Boron 2G/3G will breathe dark blue when running this firmware. It uses MANUAL 
 
 A Boron LTE runs in normal cloud-connected mode (breathing cyan).
 
-### The Tower Display
+### The tower display
 
 The display program is a web page that uses Web BLE. The selection of browsers that support Web BLE is limited:
 

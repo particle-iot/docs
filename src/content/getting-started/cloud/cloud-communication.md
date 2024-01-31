@@ -34,7 +34,7 @@ Publishing events is a common thing to do:
 
 You can learn more Particle publish in the [Device OS Firmware API reference](/reference/device-os/api/cloud-functions/particle-publish/). 
 
-### Publish - Simple
+### Publish - simple
 
 {{> codebox content="/assets/files/cloud-communication/publish1.cpp" format="cpp" height="400" flash="true"}}
 
@@ -131,7 +131,7 @@ void loop()
 We can't publish 1000 times a second, so we use the following construct to only publish every
 `publishPeriod`. We configured it above to be 30 seconds but you can set it anything 1 second or higher.
 
-`millis()` is the number of milliseconds since system boot. You must always set it up exactly
+`millis()` is the number of milliseconds since the device has booted. You must always set it up exactly
 like this: `millis() - lastTime >= periodBetweenRuns`. The reason is that `millis()` rolls over to zero
 every 49 days, and doing things like trying to remember the next time to run, instead of the last time
 you ran, often does not work properly across rollover. This exact construct is always safe across rollover.
@@ -193,7 +193,7 @@ If you are watching the USB serial debug output, you should see something like:
 The leftmost column is milliseconds since startup, and you can see that the publishes
 are going out exactly in 30 second (30000 millisecond) intervals.
 
-### Publish - Multiple Values
+### Publish - multiple values
 
 What if you wanted to publish multiple values instead of a single value?
 
@@ -242,7 +242,6 @@ And in the console:
 - Functions can only return a 32-bit integer value. They cannot return strings, double width floating point, etc.
 - Functions only work when the device is online and breathing cyan
 - Each function typically uses one Particle cloud [data operation](/getting-started/cloud/introduction/#pricing-tiers)
-- Functions and variables can be used on unclaimed product devices, but subscribe cannot
 
 Maybe a table will help:
 
@@ -251,7 +250,6 @@ Maybe a table will help:
 | One-to-many | One-to-one |
 | All devices in account can subscribe | Function only goes to one device |
 | No delivery confirmation built-in | Function returns an integer value |
-| | Works with unclaimed product devices |
 
 You can learn more Particle functions in the [Device OS Firmware API reference](/reference/device-os/api/cloud-functions/particle-function/). 
 There is also another tutorial in [Blink an LED over the net](/getting-started/hardware-tutorials/hardware-examples/#control-leds-over-the-39-net).
@@ -363,7 +361,6 @@ What happens if:
 - A variable can contain multiple values if encoded (comma separated values, JSON, etc.)
 - Variables only work when the device is online and breathing cyan
 - Each variable retrieval typically uses one Particle cloud [data operation](/getting-started/cloud/introduction/#pricing-tiers)
-- Functions and variables can be used on unclaimed product devices, but subscribe cannot
 
 | Publish from Device | Variable |
 | :---: || :---: |
@@ -373,7 +370,7 @@ What happens if:
 
 You can learn more Particle variables in the [Device OS Firmware API reference](/reference/device-os/api/cloud-functions/particle-variable/). 
 
-### Variable Normal
+### Variable normal
 
 {{> codebox content="/assets/files/cloud-communication/variable1.cpp" format="cpp" height="300" flash="true"}}
 
@@ -416,9 +413,7 @@ You can get the value of the variable here:
 particle get test2 sensor
 ```
 
-- Or using the Particle mobile app
-
-### Variable Calculated
+### Variable calculated
 
 {{> codebox content="/assets/files/cloud-communication/variable2.cpp" format="cpp" height="300" flash="true"}}
 
@@ -456,9 +451,6 @@ The function must return one of the allowed types: `int`, `bool`, `double`, or `
 - Subscribe only works when the device is online and breathing cyan
 - Each event received typically uses one Particle cloud [data operation](/getting-started/cloud/introduction/#pricing-tiers)
 - There is no confirmation built-in: the publisher of an event won't know if a specified device receives it
-- Subscribe cannot be used on unclaimed product devices
-- Product events are unidirectional from the device to the cloud. Devices cannot subscribe to product events.
-
 
 You can learn more Particle subscribe in the [Device OS Firmware API reference](/reference/device-os/api/cloud-functions/particle-subscribe/). 
 
@@ -483,7 +475,7 @@ The main differences are:
 It is possible to handle confirmation of event received; it would require that your device publish an event that it
 has received the event, and then the cloud would have to keep track of which devices received the event.
 
-### Device Subscribe
+### Device subscribe
 
 {{> codebox content="/assets/files/cloud-communication/subscribe2.cpp" format="cpp" height="300" flash="true"}}
 

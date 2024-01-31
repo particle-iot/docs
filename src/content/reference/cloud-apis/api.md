@@ -423,6 +423,24 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
 - API Route: POST /oauth/token
 {{!-- END shared-blurb --}}
 
+#### List access tokens - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- API Route: GET /v1/access_tokens
+
+#### Delete an access token - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- API Route: DELETE /v1/access_tokens/:token
+
+#### Create a user account - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- API Route: POST /v1/users
+
 #### Delete user account - API rate limits
 
 - Maximum of 100 requests every 5 minutes
@@ -450,7 +468,7 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
 - API Route: GET /v1/events
 
 
-#### Subscribe to Server-Sent Events - API rate limits
+#### Subscribe to server-sent events - API rate limits
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
@@ -464,12 +482,12 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
   - GET /v1/products/:ProductID/events/
   - GET /v1/products/:ProductID/devices/:DeviceID/events/
 
-#### Open Server-Sent Event Streams - API rate limits
+#### Open server-sent event streams - API rate limits
 
 - A maximum of 100 simultaneous connections
 - Limited by source IP address (public IP address)
 
-#### Get device data via serial Number - API rate limits
+#### Get device data via serial number - API rate limits
 
 - Maximum of  of 50 requests every hour
 - Limited per user account that generated the access token
@@ -583,18 +601,9 @@ When your device starts ("online") or stops ("offline") a session with the cloud
 {"name":"spark/status","data":"offline","ttl":"60","published_at":"2015-01-01T14:31:49.787Z","coreid":"0123456789abcdef01234567"}
 ```
 
-For cellular devices (Electron, E Series) and Gen 3 devices (Argon, Boron, and Xenon), online events occur only on a full handshake with the cloud. Sleeping for short periods of time (under 23 minutes) will not cause an online event. Offline events are never generated for cellular or Gen 3 devices.
+Offline events occur if the device gracefully disconnects from the cloud. If you remove the power to a device, the offline event will occur at approximately two times the default keep alive value. For the P2, Photon 2, and Argon, 2 &times; 25 seconds = 50 seconds. For cellular devices, 2 &times; 23 minutes = 46 minutes.
 
-For Wi-Fi devices (Photon, P1, Core), online events occur on every connection to the cloud and after any length of sleep. If you abruptly power off the device an offline event may take some time to occur.
-
-If your device is a packaged product, you may see an "auto-update" event from time to time.  This is the cloud 
-signaling that a new version of firmware is available for your product from your manufacturer, and an update is 
-about to be delivered over the air.
-
-```
-#  spark/status, auto-update
-{"name":"spark/status","data":"auto-update","ttl":"60","published_at":"2015-01-01T14:35:0.000Z","coreid":"0123456789abcdef01234567"}
-```
+If the device comes online and the cloud did not know it was previously offline, the offline will be generated immediately before the online, not when the actual offline occurred, since it would be impossible to know.
     
     
 #### Safe-mode
@@ -614,22 +623,20 @@ save you costs on bandwidth.  If you do get an automatic update, you may see a "
 {"name":"spark/safe-mode-updater/updating","data":"2","ttl":"60","published_at":"2016-01-01T14:41:0.000Z","coreid":"particle-internal"}
 ```
 
+You can copy and paste the raw event JSON data from a safe-mode event into the [Device Inspect Tool](/tools/developer-tools/device-inspect/) to decode the data.
 
 #### Flashing
 
 As updates are being delivered via the cloud to your device, you may see some events published by the cloud to help
-you monitor the update.  These may include an optional file name after the status type if available.
+you monitor the update, typically `started` and `success` but could also be `failed`.
 
 
 ```
-#spark/flash/status, started + [filename]
-{"name":"spark/flash/status","data":"started ","ttl":"60","published_at":"2016-02-09T14:43:05.606Z","coreid":"0123456789abcdef01234567"}
+{"name":"spark/flash/status","data":"started","ttl":"60","published_at":"2016-02-09T14:43:05.606Z","coreid":"0123456789abcdef01234567"}
 
-#spark/flash/status, success + [filename]
-{"name":"spark/flash/status","data":"success ","ttl":"60","published_at":"2016-02-09T14:38:18.978Z","coreid":"0123456789abcdef01234567"}
+{"name":"spark/flash/status","data":"success","ttl":"60","published_at":"2016-02-09T14:38:18.978Z","coreid":"0123456789abcdef01234567"}
    
-#spark/flash/status, failed + [filename]
-{"name":"spark/flash/status","data":"failed ","ttl":"60","published_at":"2016-02-09T14:43:11.732Z","coreid":"0123456789abcdef01234567"}
+{"name":"spark/flash/status","data":"failed","ttl":"60","published_at":"2016-02-09T14:43:11.732Z","coreid":"0123456789abcdef01234567"}
 ```
 
 #### app-hash
@@ -644,7 +651,62 @@ the previous session.
 {"name":"spark/device/app-hash","data":"2BA4E71E840F596B812003882AAE7CA6496F1590CA4A049310AF76EAF11C943A","ttl":"60","published_at":"2016-02-09T14:43:13.040Z","coreid":"2e0041000447343232363230"}
 ```
 
+#### particle/device/updates
 
+These events are used for controlling OTA updates.
+
+- `particle/device/updates/enabled` (true or false). Sent by the device in response to `System.enableUpdates()` or `System.disableUpdates()`.
+
+- `particle/device/updates/forced` (true or false). Sent by the device when a forced update is requested. This is used to prevent a race condition during forced updates.
+
+- `particle/device/updates/pending` (true or false). Sent by the cloud if there is an update pending.
+
+#### spark/device/last_reset
+
+The event data will be the reason for the most recent reset:
+
+| Data | Description |
+| :--- | :--- |
+| `unknown` | `RESET_REASON_UNKNOWN` |
+| `pin_reset` | `RESET_REASON_PIN_RESET` |
+| `power_management` | `RESET_REASON_POWER_MANAGEMENT` |
+| `power_down` | `RESET_REASON_POWER_DOWN` |
+| `power_brownout` | `RESET_REASON_POWER_BROWNOUT` |
+| `watchdog` | `RESET_REASON_WATCHDOG` |
+| `update` | `RESET_REASON_UPDATE` (firmware update) |
+| `update_error` | `RESET_REASON_UPDATE_ERROR` |
+| `update_timeout` | `RESET_REASON_UPDATE_TIMEOUT` |
+| `factory_reset` | `RESET_REASON_FACTORY_RESET` |
+| `safe_mode` | `RESET_REASON_SAFE_MODE` |
+| `dfu_mode` | `RESET_REASON_DFU_MODE` |
+| `panic` | `RESET_REASON_PANIC` |
+| `user` | `RESET_REASON_USER` |
+| `config_update` | `RESET_REASON_CONFIG_UPDATE` |
+
+- If the reset reason is not one of these known codes, the numeric value is included.
+- Not all hardware platforms can generate all reset reasons.
+
+If the reason is `RESET_REASON_PANIC`, then a comma and either a known panic code a number will be present:
+
+| Data | Description |
+| :--- | :--- |
+| `hard_fault` | `HardFault` (1) |
+| `2` | `NMIFault` (2) |
+| `memory_fault` | `MemManage` (3) |
+| `bus_fault` | `BusFault` (4) |
+| `usage_fault` | `UsageFault` (5) |
+| `6` | `InvalidLenth` (6) |
+| `7` | `Exit` (7) |
+| `out_of_heap` | `OutOfHeap` (8) |
+| `9` | `SPIOverRun` (9) |
+| `assert_failed` | `AssertionFailure` (10) |
+| `10` | `AssertionFailure` (10) |
+| `11` | `InvalidCase` (11) |
+| `12` | `PureVirtualCall` (12) |
+| `stack_overflow` | `StackOverflow` (13) |
+| 14 | `HeapError` (14) |
+
+For example: `panic, hard_fault`.
 
 #### Future reserved events
 
@@ -715,6 +777,15 @@ There is no express indication of how many parts there are. Any part less than 5
 Each chunk is a separate publish from the cloud point-of-view. Each chunk uses one data operation for each Particle device it is subscribed by. Furthermore, on all devices (except the Photon and P1), each chunk has a maximum of 3 retries at the CoAP level, but no further checks are done to insure delivery. These chunks are sent out rapidly, faster than the 1 second per publish limit. Thus if you have a large number of chunks, it is likely that some may not be received by the device, especially in areas with poor cellular connectivity. There is no way to get lost chunks retransmitted.
 
 These special webhook events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/cloud-apis/api/#get-a-stream-of-events) to see these events.
+
+#### Webhook events and the product event stream
+
+Prior to March 2023, webhook events like hook-sent, hook-error, and hook-response only went to the device owner's event stream. If the device was unclaimed, the events disappeared.
+
+Now, these events also appear in the product event stream, in the console, SSE event stream, and webhooks. 
+
+Additionally, unclaimed product devices can now subscribe to these events to get webhook responses.
+
 
 ## Asset tracking events
 
@@ -891,6 +962,21 @@ The full JSON schema for the location point can be downloaded [here](/assets/fil
 
 ## Firmware
 {{> api group=apiGroups.Firmware}}
+
+### Firmware API limits
+
+While compiling source code using the cloud compiler, or flashing a device with source code, there are limits:
+
+- Maximum time to compile: {{maximumCompileTime}}
+- Maximum source code size: {{maximumCompilePayload}}
+
+This affects the following endpoints:
+
+```
+POST /v1/binaries
+PUT /v1/devices/:deviceId
+```
+
 ## Product firmware
 {{> api group=apiGroups.ProductFirmware}}
 
@@ -919,13 +1005,25 @@ please see [the guide](/getting-started/console/device-groups/).
 ### Configuration
 {{> api group=apiGroups.Configuration}}
 
+## Logic
+
+{{> api group=apiGroups.Logic}}
+
+## Ledger
+
+{{> api group=apiGroups.Ledger}}
 
 ## Customers
+
+If you wish to provide a mobile app or web app for your customers, we recommend that you implement your own user management features on your front and back-end. You may want to use common third-party login features such as login with Google, Facebook, Twitter, etc. instead of implementing your own from scratch, but this not required. Implementing user management this way will eliminate the need for customer-specific Particle access tokens, which will greatly simplify the implementation of your front and back-end.
+
 {{> api group=apiGroups.Customers}}
 
 ### Reset password (simple auth)
 
-In most cases, we recommend using **Two-Legged Auth** where you have complete control over your customers and accounts. **Simple Auth** can be used as a simpler alternative, however you will need to provide an additional service if you want to allow your customers to be able to reset their password by email. The process works like this:
+If you wish to provide a mobile app or web app for your customers, we recommend that you implement your own user management features on your front and back-end. We do not recommend using simple auth or two-legged shadow customers in most cases now.
+
+ **Simple Auth** can be used as a simpler alternative, however you will need to provide an additional service if you want to allow your customers to be able to reset their password by email. The process works like this:
 
 1. Customer loses access, clicks "forgot password" on your mobile or front-end app.
 2. App hits an endpoint on your back-end. The back-end app should know your Particle access token, the one you used to create that product, and, optionally, list of valid customer emails.

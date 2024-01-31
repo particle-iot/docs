@@ -27,7 +27,7 @@ You can download the files associated with this app note [as a zip file](/assets
 {{> codebox content="/assets/files/app-notes/AN030/firmware/src/EEPROM-Samples.cpp" format="cpp" height="500"}}
 
 
-## Code Walk-Through
+## Code walk-through
 
 Standard stuff used in most of the examples:
 
@@ -583,7 +583,7 @@ void firmwareUpdateHandler(system_event_t event, int param) {
 }
 ```
 
-## Typical Logs
+## Typical logs
 
 This is the white then blinking green part:
 
@@ -708,7 +708,7 @@ This is a log from where device vitals are send in addition to the publish paylo
 ```
 
 
-### With Connection Failure
+### With connection failure
 
 The first part is a normal connection:
 

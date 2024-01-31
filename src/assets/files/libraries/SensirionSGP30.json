@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SensirionSGP30",
     "version": "1.0.4",
-    "installs": 4383,
+    "installs": 4615,
     "author": "Michael Guntli",
     "sentence": "Library for Sensirion SGP30 Indoor Quality Sensor",
     "paragraph": "Forked from Adafruit_SGP30 and ported to Particle Platform",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SensirionSGP30",
+  "cardUrl": "/reference/device-os/libraries/s/SensirionSGP30",
   "versions": {
     "1.0.4": {
       "builds": {
@@ -88,6 +88,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "sgp30test": true
+          },
+          "boron": {
+            "sgp30test": true
+          },
+          "bsom": {
+            "sgp30test": true
+          },
+          "b5som": {
+            "sgp30test": true
+          },
+          "tracker": {
+            "sgp30test": true
+          },
+          "esomx": {
+            "sgp30test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "sgp30test": true
+          },
+          "boron": {
+            "sgp30test": true
+          },
+          "bsom": {
+            "sgp30test": true
+          },
+          "b5som": {
+            "sgp30test": true
+          },
+          "tracker": {
+            "sgp30test": true
+          },
+          "p2": {
+            "sgp30test": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "sgp30test": true
           },

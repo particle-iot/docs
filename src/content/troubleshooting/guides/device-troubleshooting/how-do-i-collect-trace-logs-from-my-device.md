@@ -6,7 +6,7 @@ columns: two
 
 # {{{title}}}
 
-## Log Levels and Log Handlers
+## Log levels and log handlers
 
 Our Serial Log Handler class is a great resource when it comes to quickly sourcing traces from firmware that is behaving unexpectedly. You can read more about Log Handlers [here](/reference/device-os/firmware/electron/#log-handlers). For collecting trace logs from a device, it's best to use a Serial Log Handler with a certain priority: `SerialLogHandler logHandler(LOG_LEVEL_ALL);`. Simply prepend this logHandler to your firmware, above the `setup()` function. 
 

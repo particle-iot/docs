@@ -7,7 +7,7 @@
   "attributes": {
     "name": "electronsample",
     "version": "0.2.3",
-    "installs": 4011,
+    "installs": 4523,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Utilities for Electron fault tolerance",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "e",
-  "cardUrl": "/cards/libraries/e/electronsample",
+  "cardUrl": "/reference/device-os/libraries/e/electronsample",
   "versions": {
     "0.2.3": {
       "builds": {
@@ -88,6 +88,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-full-electronsample": false
+          },
+          "boron": {
+            "1-full-electronsample": true
+          },
+          "bsom": {
+            "1-full-electronsample": true
+          },
+          "b5som": {
+            "1-full-electronsample": true
+          },
+          "tracker": {
+            "1-full-electronsample": true
+          },
+          "esomx": {
+            "1-full-electronsample": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-full-electronsample": false
+          },
+          "boron": {
+            "1-full-electronsample": true
+          },
+          "bsom": {
+            "1-full-electronsample": true
+          },
+          "b5som": {
+            "1-full-electronsample": true
+          },
+          "tracker": {
+            "1-full-electronsample": true
+          },
+          "p2": {
+            "1-full-electronsample": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-full-electronsample": false
           },

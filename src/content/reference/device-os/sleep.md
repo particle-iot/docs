@@ -59,7 +59,11 @@ The three sleep modes are:
 
 You'll probably want to choose the lowest power option that has the options you need to wake. These are described in the [sleep modes documentation](/reference/device-os/api/sleep-sleep/stop-systemsleepmode/).
 
-Additionally, in `HIBERNATE` mode, the device wakes as if it has been reset. It goes through `setup()` again and starts with all non-retained variables cleared. In `ULTRA_LOW_POWER` and `STOP` modes, execution continues after the line of code that put the device to sleep, with all variables preserved.
+- On Gen 3 devices (Boron, B Series SoM, Argon, Tracker), the RTC is not operational in `HIBERNATE` sleep mode, and you cannot wake based on time.
+
+- On the P2, Photon 2, and Gen 2 (E Series, Electron, Photon, P1), GPIO outputs are not preserved in `HIBERNATE` mode. They go into high-impedance while in hibernate sleep.
+
+- In `HIBERNATE` mode, the device wakes as if it has been reset. It goes through `setup()` again and starts with all non-retained variables cleared. In `ULTRA_LOW_POWER` and `STOP` modes, execution continues after the line of code that put the device to sleep, with all variables preserved.
 
 ### Do I need network standby?
 
@@ -100,7 +104,6 @@ If you are using network standby with cloud connection enabled and are relying o
 
 - The longest time you can sleep is the keep-alive interval, typically 23 minutes. If you exceed this period without sending any data, the cloud can lose the ability to communicate with your device. Fortunately, you can wake, send data, and go back to sleep very quickly in this mode, within a second or two.
 - Make sure you are cloud connected (`Particle.connected()` returns true) before going to sleep. If you are not fully connected, then you won't be able to receive cloud messages while asleep.
-- Unclaimed product devices cannot subscribe to events, and thus cannot wake for events.
 - You cannot choose which features (function, variable, subscribe, OTA) will wake the device. If enabled, any of those will work to wake the device.
 
 ### Battery usage

@@ -19,7 +19,7 @@ void setup() {
     Log.error("This is error message, error=%d", errCode);
 
     // Format text message
-    Log.info("System version: %s", (const char*)System.version());
+    Log.info("Device OS version: %s", (const char*)System.version());
 }
 
 void loop() {
@@ -81,7 +81,6 @@ One thing you'll need to decide is how you want to identify the systems in the l
 Using the device name is convenient, however:
 
 - It requires a request to the cloud to get the device name, which is two data operations
-- It cannot be done from unclaimed product devices
 - To reduce data operations, you can store the name in EEPROM. 
 
 The easiest way to use the device name is by using the **DeviceNameHelperRK** library. You can find the [full documentation on GitHub](https://github.com/rickkas7/DeviceNameHelperRK).

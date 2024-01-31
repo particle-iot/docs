@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CE_BME280",
     "version": "1.0.1",
-    "installs": 17551,
+    "installs": 17864,
     "license": "BSD license",
     "author": "Adafruit <info@adafruit.com>, Thomas Rockenbauer (https://github.com/hl68fx)",
     "sentence": "Control Everything BME280 Library",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CE_BME280",
+  "cardUrl": "/reference/device-os/libraries/c/CE_BME280",
   "versions": {
     "1.0.1": {
       "builds": {

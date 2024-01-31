@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LMP91000",
     "version": "0.0.1",
-    "installs": 8823,
+    "installs": 8897,
     "license": "OIZOM",
     "author": "Shashank Sharma",
     "sentence": "LMP91000 library",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LMP91000",
+  "cardUrl": "/reference/device-os/libraries/l/LMP91000",
   "versions": {
     "0.0.1": {
       "builds": {

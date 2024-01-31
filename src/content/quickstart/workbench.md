@@ -9,57 +9,55 @@ description: Getting started with Particle Workbench, desktop IDE for Windows, M
 
 ## Installation
 
-### Windows
+Particle Workbench is an integrated development and debugging environment for Windows, Linux, and Mac, based on Visual Studio Code (VSCode). 
 
-- Download the [Windows installer](https://binaries.particle.io/workbench/ParticleWorkbenchInstaller.exe) (.exe file).
-- Double-click on the .exe file to begin installation.
-- Continue with the instructions for all operating systems, below.
-- Windows 7, 8, or 10 is required.
+### VSCode installation
 
-_NOTE: due to limitations with the local compiler's build system, usernames (or paths) with spaces cannot be supported at this time_
+{{imageOverlay src="/assets/images/vscode-download.png" alt="Download screen"}}
 
-### Mac
+Go to the [VisualStudio Code download page](https://code.visualstudio.com/download) and download the appropriate installer.
 
-- Download the [Mac installer](https://binaries.particle.io/workbench/ParticleWorkbenchInstaller.zip) (.zip file)
-- Double-click on the .zip file to extract it.
-- Double-click on the **Particle Workbench Installer** to begin installation.
-- Continue with the instructions for all operating systems, below.
-- Mac OS 10.12.0 (Sierra) or newer is required
+- We recommend using the standard build. While the Insiders build will generally work, there can be incompatibilities at at times.
+- The online vscode.dev is not supported for Particle development at this time.
+- If you already have VSCode installed, you can skip to [Workbench extension installation](#workbench-extension-installation), below, to install the Particle Workbench extension on your existing installation.
 
-_NOTE: If you are running Mac OS 10.15 (Catalina), please use Safari to download and unpack the installer `.zip` file ([settings](/assets/images/workbench-install-with-safari-settings.png)) - unpacking with the default Archive utility will not work_
+#### Windows - VSCode installation
 
-### Linux
+- The **User Installer** is generally the recommended version. For most Windows computers, the **x64** version is appropriate.
+- The **System Installer** can be used, but the Particle Workbench extension can only be installed per-user. Installing VSCode in the system and having each user install the Particle Workbench extension is supported, however.
+- The VSCode CLI is not generally required; it's used to manage VSCode extensions and is not necessary to use the Particle CLI to work with your devices.
+- To install on older versions of Windows, you will need to use an older version of VSCode:
+  - Windows 7: [Version 1.70.3](https://code.visualstudio.com/updates/v1_70) (July 2022)
+  - Windows 8 and 8.1: [Version 1.71](https://code.visualstudio.com/updates/v1_71) (August 2022)
+- Run the installer and follow the instructions
+- In the **Select Additional Tasks** page select the values as desired; there are no specific settings changes required for Particle Workbench.
 
-- Download the [Linux installer](https://binaries.particle.io/workbench/ParticleWorkbenchInstaller.AppImage) (.AppImage file)
-- Right-click on the .AppImage file and select the **Allow executing file as program** option. Alternatively, use the `chmod a+x` command to enable execution of the .AppImage file.
+![Windows options](/assets/images/vscode-install-windows.png)
 
-![Set Executable](/assets/images/workbench/linux-set-executable.png)
-
-- Double-click on the .AppImage to begin installation.
-- Continue with the instructions for all operating systems, below.
-- You will be prompted to authenticate as the super user up to 4 times during installation, for /usr/bin/apt and /bin/readlink:
-
-![Authenticate](/assets/images/workbench/install7.png)
-
-- Ubuntu Linux (or other Debian-style distribution) is required to use the installer.
-- If you are having difficulties, there are [additional tips in the FAQ](/getting-started/developer-tools/workbench-faq/#linux-tips).
-
-### All Operating Systems
-
-After clicking through the first two screens, you'll reach the first option. It is not necessary to install the Azure IoT toolkit.
-
-![Install Options](/assets/images/workbench/install4.png)
-
-Finally, when you reach the end of the install, both progress bars will reach 100% and the **Next** button will be enabled. You do need to click Next, otherwise you'll stay in that screen forever.
-
-![Install complete](/assets/images/workbench/install5.png)
-
-When prompted, be sure to click **Install** when asked to **Please install workbench dependencies**.
+_NOTE: due to limitations with the local compiler's build system, usernames (or paths) with spaces will be converted to short paths like `C:\Users\EXAMPL~1`_
 
 
-### VS Code already installed
+#### Linux - VSCode installation
 
-If you already have VS Code installed, you can add in the Particle workbench extension. 
+- Download and run the appropriate installer script for your version of Linux. Generally:
+  - Ubutu and Debian: .deb
+  - Red Hat: .rpm
+- The VSCode CLI is not generally required; it's used to manage VSCode extensions and is not necessary to use the Particle CLI to work with your devices.
+
+_NOTE: due to limitations with the local compiler's build system, paths with spaces cannot be supported at on Linux this time_
+
+#### Mac - VSCode installation
+
+- Download the appropriate Mac zip file (Intel chip, Apple Silicon, or Universal).
+- Open the `VSCode-darwin.zip` file in your Downloads folder to extract it.
+- The `Visual Studio Code` application can be dragged into your Applications folder.
+- The VSCode CLI is not generally required; it's used to manage VSCode extensions and is not necessary to use the Particle CLI to work with your devices.
+
+_NOTE: due to limitations with the local compiler's build system, paths with spaces cannot be supported at on Mac this time_
+
+## Workbench extension installation
+
+Once you have VS Code installed, you can add in the Particle workbench extension. 
 
 - Open the [VisualStudio Marketplace](https://marketplace.visualstudio.com/items?itemName=particle.particle-vscode-pack) in your web browser.
 
@@ -82,7 +80,6 @@ The core installation will take a few minutes. There's an indicator at the top o
 After reload, some more components will be installed and you will be prompted to install the Particle Local Compiler. This is recommended.
 
 ![Local Compiler](/assets/images/workbench/install-local.png)
-
 
 
 ## Create a project
@@ -137,6 +134,6 @@ To compile your program and download the binary, open the Command Palette and se
 For larger projects, development teams, and products, we recommend [Particle Workbench](/workbench) instead of the Web IDE. If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
 
 
-## Learn More
+## Learn more
 
 You can learn more about Workbench features in the [Particle Workbench Tutorial](/getting-started/developer-tools/workbench/).

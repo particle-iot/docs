@@ -14,7 +14,7 @@ Before you can make tax-exempt purchases through our store, you must meet the fo
 * be associated with an organization that is legally entitled to make tax-exempt purchases
 * be able to provide us with the necessary tax-exemption documentation
 
-## Requesting Tax-Exempt Status
+## Requesting tax-exempt status
 
 If you would like us to mark your Particle Wholesale Store account as tax-exempt, you will need to submit a request with our support team. 
 

@@ -1,0 +1,26 @@
+<div class="webhookDemo apiHelper" data-control="selectProduct">
+    <div class="apiHelperBox">
+        <div class="hideWhenStarted">
+            <table class="apiHelperTableNoMargin">
+                <tbody>
+                    <tr class="noDeviceSelected">
+                        <td colspan="2">Device platform: <select id="devicePlatformSelect" class="apiHelperSelect">
+                            <option value="-">Select device platform</option>
+                        </select></td>
+                    </tr>
+                    <tr class="platformSelected" style="display:none;">
+                        <td><label><input type="radio" id="createNewProduct" class="productRadio" checked/>Create new product</label></td>
+                        <td><input type="text" size="35" id="newProductNameInput" /><button id="createNewProductButton">Create</button></td>
+                    </tr>
+                    <tr class="platformSelected" style="display:none;">
+                        <td><label><input type="radio" id="useExistingProduct" class="productRadio" />Use an existing product</label></td>
+                        <td><select id="productSelect" class="apiHelperSelect"></select></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="showWhenStarted" style="display:none">                
+            <p>The product cannot be changed once the demo has been started.</p>
+        </div>
+    </div>
+</div>

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ReclaimerLabs_Thermocouple",
     "version": "0.9.7",
-    "installs": 857,
+    "installs": 927,
     "license": "MIT",
     "author": "Jason Cerundolo",
     "maintainer": "Jason Cerundolo",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/ReclaimerLabs_Thermocouple",
+  "cardUrl": "/reference/device-os/libraries/r/ReclaimerLabs_Thermocouple",
   "versions": {
     "0.9.7": {
       "builds": {

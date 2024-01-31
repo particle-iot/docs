@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD4Relay",
     "version": "0.0.2",
-    "installs": 25203,
+    "installs": 26065,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 4 channel Spark compatible Relay Controller",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NCD4Relay",
+  "cardUrl": "/reference/device-os/libraries/n/NCD4Relay",
   "versions": {
     "0.0.2": {
       "builds": {
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "boron": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "bsom": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "b5som": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "tracker": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "esomx": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "boron": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "bsom": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "b5som": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "tracker": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "p2": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "CloudControl": true,
             "NCD4RelaySample": true

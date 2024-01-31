@@ -9,7 +9,7 @@ description: Manufacturing with Particle Cellular Devices
 
 This document is designed to identify best practices for manufacturing products with Particle cellular devices at scale. The following information should be interpreted as a series of informed suggestions, not as prescribed rules, and we have done our best to account for the various exceptions we might expect from the following workflow.
 
-## Assumptions & Caveats
+## Assumptions & caveats
 
 The following assumptions are made for using this document:
 
@@ -27,7 +27,7 @@ It is assumed that you have incorporated one of the following Particle SKUs into
 | Electron | Gen 2 | ELC404, ELC314, E270, E260, E350 |
 
 
-#### There is one Contract Manufacturer (CM) handling assembly of the product.
+#### There is one contract manufacturer (CM) handling assembly of the product.
 
 For small-scale deployments and testing you could also be taking assembled circuit boards and preparing the final assembly, such as putting the circuit boards in the enclosure and connecting any cables, yourself.
 
@@ -54,7 +54,7 @@ or:
 - (Customer) Device Import/Claiming/Renaming/Group Assignment performed simultaneously with or after the manufacturing process.
 
 
-#### Manufacturing test firmware has been prepared in accordance with the principles of Incoming Quality Control.
+#### Manufacturing test firmware has been prepared in accordance with the principles of incoming quality control.
 
 Incoming Quality Control or IQC is the step of validating that each part in the assembly is functional and meets quality requirements prior to assembly into the finished product.  This step may not be necessary if the part is simply removed and swapped for a new one.  However, if the part is soldered into the product thus making it difficult to remove and swap a new one into the finished product, then IQC may be required to first test the component before installing.  This is typically done for every part if the consequence of a faulty device is expensive, and done as spot-checking if less so.  The IQC test rig is typically a ZIF socket used to plug in a device, press a button and visually see a pass/fail.
 
@@ -70,7 +70,7 @@ Particle does not have an example of manufacturing test firmware, given the vari
 Particle recommends putting an LED on all baseboards; without one it can be difficult to quickly assess the functionality of the Particle device. At the very least, we strongly recommend adding a test header or test points on the board so one can access the RGB LEDs, reset, mode, and USB from a debugging adapter. 
 
 
-## Manufacturing Procedure
+## Manufacturing procedure
 
 The following procedure involves commands from the host computer via the Particle Command Line Interface (CLI) and via curl to a series of Particle Cloud API endpoints. The CLI performs device programming and curl commands perform device provisioning. It is typical for each suite of commands to be wrapped into a shell script (such as bash for Linux, Mac, or Windows with Windows Subsystem for Linux enabled), MSDOS batch file (.bat), or a node.js script.
 
@@ -138,7 +138,7 @@ curl "https://api.particle.io/v1/products/$PRODUCT_NUM/sims"
 -d access_token=$ACCESS_TOKEN
 ```
 
-## Assembly and Test
+## Assembly and test
 
 ![](/assets/images/manufacturing/assembly-test.png)
 
@@ -175,6 +175,7 @@ if(!dct_read_app_data_copy(DCT_SETUP_DONE_OFFSET, &val, DCT_SETUP_DONE_SIZE) && 
 It is also possible to do this using the Particle CLI and USB if you are using a USB-based setup flow. If you skip this step, Gen 3 devices (Boron, B Series SoM, and Tracker SoM) will start in listening mode (blinking dark blue). See [Programming devices](/reference/developer-tools/programming-devices/#usb-particle-cli-manually-) for more information.
 
 - For the Tracker One and Tracker SoM, you will need to update the NCP (ESP32) firmware if you intend to use the Device OS 3.0.0 or later. It is not required for 2.x, but it is backwards compatible if you need to revert to 2.x from 3.x for any reason. This must be done over USB in listening mode (blinking dark blue, --serial). See [Argon and Tracker NCP](/reference/developer-tools/jtag/#argon-and-tracker-ncp) for more information.
+- All Monitor One devices ship the correct NCP version already.
 
 
 - Once your hex files are with your CM, enable your CM to pursue one of the following programmer strategies as detailed within our docs:
@@ -284,7 +285,17 @@ curl -X PUT "https://api.particle.io/v1/products/$PRODUCT_ID/devices/$DEVICE_ID"
 
 ### Claim the device
 
-Claim the device to an administrator email associated with the product. At the time this document was written, claiming is required for webhook responses to work for that device.
+It's generally best to use unclaimed product devices at this time.
+
+{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
+- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
+- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
+- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
+- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
+- Claiming is still allowed, if you prefer to continue to use claiming, but not recommended.
+{{!-- END shared-blurb --}}
+
+If you do wish to continue to claim devices, claim the device to an administrator email associated with the product.
 
 A generic administrator account is strongly recommended (particle@company.com, for example) across your entire Product and/or Organization structure for easy transfer of ownership and centralized billing.
 
@@ -294,8 +305,6 @@ curl "https://api.particle.io/v1/devices
 -d access_token=$ACCESS_TOKEN"
 ```
 
-You can skip the claiming step if you will be using devices in unclaimed state. If using unclaimed devices, the devices will not be able to subscribe to private events, but it still can receive function and variable requests.
-
 ## Scripting the provisioning process
 
 After the Device ID has been retrieved, the provisioning process as outlined above has several key steps:
@@ -303,7 +312,7 @@ After the Device ID has been retrieved, the provisioning process as outlined abo
 - The device is imported to a product
 - The device is added to a group
 - The device is given a name (optional)
-- The device is claimed
+- The device is claimed (optional)
 
 These steps can be automated using a script which can greatly speed up the process of performing the steps on multiple devices.
 

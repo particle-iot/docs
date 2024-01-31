@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Keypad_I2C",
     "version": "0.2.11",
-    "installs": 8074,
+    "installs": 8305,
     "author": "Evan Simkowitz <esimkowitz@wustl.edu>, Mark Stanley <mstanley@technologist.com>, Alexander Brevig <alexanderbrevig@gmail.com>, Sandro Lange",
     "maintainer": "Evan Simkowitz <esimkowitz@wustl.edu>",
     "sentence": "Particle IDE library for using a keypad with an I2C I/O expander",
@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "k",
-  "cardUrl": "/cards/libraries/k/Keypad_I2C",
+  "cardUrl": "/reference/device-os/libraries/k/Keypad_I2C",
   "versions": {
     "0.2.11": {
       "builds": {
@@ -87,6 +87,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "HelloKeypad": true
+          },
+          "boron": {
+            "HelloKeypad": true
+          },
+          "bsom": {
+            "HelloKeypad": true
+          },
+          "b5som": {
+            "HelloKeypad": true
+          },
+          "tracker": {
+            "HelloKeypad": true
+          },
+          "esomx": {
+            "HelloKeypad": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "HelloKeypad": true
+          },
+          "boron": {
+            "HelloKeypad": true
+          },
+          "bsom": {
+            "HelloKeypad": true
+          },
+          "b5som": {
+            "HelloKeypad": true
+          },
+          "tracker": {
+            "HelloKeypad": true
+          },
+          "p2": {
+            "HelloKeypad": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "HelloKeypad": true
           },

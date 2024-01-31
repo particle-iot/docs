@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BLE",
     "version": "0.0.3",
-    "installs": 11746,
+    "installs": 12235,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Particle port of Adafruit BlueFruitLE nRF51 Bluetooth LE library",
@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_BLE",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BLE",
   "versions": {
     "0.0.3": {
       "builds": {
@@ -91,6 +91,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "atcommand": false
+          },
+          "boron": {
+            "atcommand": false
+          },
+          "bsom": {
+            "atcommand": false
+          },
+          "b5som": {
+            "atcommand": false
+          },
+          "tracker": {
+            "atcommand": false
+          },
+          "esomx": {
+            "atcommand": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "atcommand": false
+          },
+          "boron": {
+            "atcommand": false
+          },
+          "bsom": {
+            "atcommand": false
+          },
+          "b5som": {
+            "atcommand": false
+          },
+          "tracker": {
+            "atcommand": false
+          },
+          "p2": {
+            "atcommand": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "atcommand": false
           },

@@ -5,7 +5,11 @@ columns: two
 layout: commonTwo.hbs
 ---
 
-# Session 3 - Particle Webhooks and Integrations
+# Session 3 - Particle webhooks and integrations
+
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
 
 The slides below provide an overview of integrating your Particle products with other third party systems using built-in integrations and Webhooks, as well as advanced features like fleet management and on-device debugging.
 

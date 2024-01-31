@@ -36,7 +36,7 @@
           "href": "/firmware/software-design/finite-state-machines/"
         }
       ]
-    },    
+    },
     {
       "dir": "best-practices",
       "isSection": true
@@ -51,6 +51,11 @@
         "dir": "about-apps",
         "title": "About apps",
         "href": "/firmware/best-practices/about-apps/"
+      },
+      {
+        "dir": "github-actions",
+        "title": "Github Actions (CI/CD)",
+        "href": "/firmware/best-practices/github-actions/"
       },
       {
         "dir": "json",
@@ -76,11 +81,22 @@
         "dir": "scheduling",
         "title": "Scheduling",
         "href": "/firmware/best-practices/scheduling/"
+      },
+      {
+        "dir": "firmware-build-options",
+        "title": "Firmware build options",
+        "href": "/firmware/best-practices/firmware-build-options/"
+      },
+      {
+        "dir": "firmware-template",
+        "title": "Firmware template",
+        "href": "/firmware/best-practices/firmware-template/"
       }
     ],
     {
       "dir": "tracker-edge",
-      "isSection": true
+      "isSection": true,
+      "title": "Gateway firmware"
     },
     [
       {
@@ -92,6 +108,21 @@
         "dir": "tracker-edge-api-reference",
         "title": "Tracker Edge API reference",
         "href": "/firmware/tracker-edge/tracker-edge-api-reference/"
+      },
+      {
+        "dir": "monitor-edge-firmware",
+        "title": "Monitor Edge firmware",
+        "href": "/firmware/tracker-edge/monitor-edge-firmware/"
+      },
+      {
+        "dir": "monitor-edge-api-reference",
+        "title": "Monitor Edge API reference",
+        "href": "/firmware/tracker-edge/monitor-edge-api-reference/"
+      },
+      {
+        "dir": "store-and-forward",
+        "title": "Store and forward",
+        "href": "/firmware/tracker-edge/store-and-forward/"
       }
     ],
     {

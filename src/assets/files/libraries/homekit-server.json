@@ -7,14 +7,14 @@
   "attributes": {
     "name": "homekit-server",
     "version": "0.0.1",
-    "installs": 345,
+    "installs": 431,
     "architectures": [],
     "visibility": "public",
     "mine": false
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/homekit-server",
+  "cardUrl": "/reference/device-os/libraries/h/homekit-server",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -81,6 +81,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": false
           },

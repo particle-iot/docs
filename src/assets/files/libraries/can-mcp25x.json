@@ -7,7 +7,7 @@
   "attributes": {
     "name": "can-mcp25x",
     "version": "1.0.0",
-    "installs": 550,
+    "installs": 1142,
     "license": "The MIT License (MIT)",
     "author": "Loovee",
     "sentence": "Driver library to support Microchip MCP2515 and MCP25625 controllers",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/can-mcp25x",
+  "cardUrl": "/reference/device-os/libraries/c/can-mcp25x",
   "versions": {
     "1.0.0": {
       "builds": {},
@@ -29,7 +29,7 @@
       "added": "2022-06-17T10:16:54.046Z"
     }
   },
-  "readme": "# can-mcp25x - MCP2515 and MCP25625 Driver\nParticle driver library to support Microchip MCP2515 and MCP25625 CAN controllers.\n\nThis code is based on the Seeed-Studio CAN bus shield repository (https://github.com/Seeed-Studio/CAN_BUS_Shield) written by Loovee (loovee@seeed.cc).\n\n---\n\n### LICENSE\n\nUnless stated elsewhere, file headers or otherwise, all files herein are licensed under The MIT License (MIT). For more information, please read the LICENSE file.\n\nIf you have questions about software licensing, please contact Particle [support](https://support.particle.io/).\n\n---\n### LICENSE FAQ\n\n**This firmware is released under The MIT License (MIT), what does that mean for you?**\n\n * You may use this commercially to build applications for your devices!  You **DO NOT** need to distribute your object files or the source code of your application under The MIT License.  Your source can be released under a non-MIT license.  Your source code belongs to you when you build an application using this library.\n\n**When am I required to share my code?**\n\n * You are **NOT required** to share your application firmware binaries, source, or object files when linking against libraries or System Firmware licensed under LGPL.\n\n**Why?**\n\n * This license allows businesses to confidently build firmware and make devices without risk to their intellectual property, while at the same time helping the community benefit from non-proprietary contributions to the shared reference firmware.\n\n**Questions / Concerns?**\n\n * Particle intends for this firmware to be commercially useful and safe for our community of makers and enterprises.  Please [Contact Us](https://support.particle.io/) if you have any questions or concerns, or if you require special licensing.\n\n_(Note!  This FAQ isn't meant to be legal advice, if you're unsure, please consult an attorney)_\n\n---\n\n### CONTRIBUTE\n\nWant to contribute to the Particle tracker edge firmware project? Follow [this link](CONTRIBUTING.md) to find out how.\n\n---\n\n### CONNECT\n\nHaving problems or have awesome suggestions? Connect with us [here.](https://community.particle.io/)\n\n---\n\n### Revision History\n\n#### 1.0.0\n* Initial file commit\n",
+  "readme": "# can-mcp25x - MCP2515 and MCP25625 Driver\nParticle driver library to support Microchip MCP2515 and MCP25625 CAN controllers.\n\nThis code is based on the Seeed-Studio CAN bus shield repository (https://github.com/Seeed-Studio/CAN_BUS_Shield) written by Loovee (loovee@seeed.cc).\n\n---\n\n### LICENSE\n\nUnless stated elsewhere, file headers or otherwise, all files herein are licensed under The MIT License (MIT). For more information, please read the LICENSE file.\n\nIf you have questions about software licensing, please contact Particle [support](https://support.particle.io/).\n\n---\n### LICENSE FAQ\n\n**This firmware is released under The MIT License (MIT), what does that mean for you?**\n\n * You may use this commercially to build applications for your devices!  You **DO NOT** need to distribute your object files or the source code of your application under The MIT License.  Your source can be released under a non-MIT license.  Your source code belongs to you when you build an application using this library.\n\n**When am I required to share my code?**\n\n * You are **NOT required** to share your application firmware binaries, source, or object files when linking against libraries or System Firmware licensed under LGPL.\n\n**Why?**\n\n * This license allows businesses to confidently build firmware and make devices without risk to their intellectual property, while at the same time helping the community benefit from non-proprietary contributions to the shared reference firmware.\n\n**Questions / Concerns?**\n\n * Particle intends for this firmware to be commercially useful and safe for our community of makers and enterprises.  Please [Contact Us](https://support.particle.io/) if you have any questions or concerns, or if you require special licensing.\n\n_(Note!  This FAQ isn't meant to be legal advice, if you're unsure, please consult an attorney)_\n\n---\n\n### CONTRIBUTE\n\nWant to contribute to the Particle tracker edge firmware project? Follow this link to find out how.\n\n---\n\n### CONNECT\n\nHaving problems or have awesome suggestions? Connect with us [here.](https://community.particle.io/)\n\n---\n\n### Revision History\n\n#### 1.0.0\n* Initial file commit\n",
   "allVersions": [
     "1.0.0"
   ]

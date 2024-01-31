@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_Temperature_And_Humidity_Sensor",
     "version": "1.0.7",
-    "installs": 56986,
+    "installs": 63651,
     "license": "MIT License",
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/Grove_Temperature_And_Humidity_Sensor",
+  "cardUrl": "/reference/device-os/libraries/g/Grove_Temperature_And_Humidity_Sensor",
   "versions": {
     "1.0.7": {
       "builds": {
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "dht11_demo": true
+          },
+          "boron": {
+            "dht11_demo": true
+          },
+          "bsom": {
+            "dht11_demo": true
+          },
+          "b5som": {
+            "dht11_demo": true
+          },
+          "tracker": {
+            "dht11_demo": true
+          },
+          "esomx": {
+            "dht11_demo": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "dht11_demo": true
+          },
+          "boron": {
+            "dht11_demo": true
+          },
+          "bsom": {
+            "dht11_demo": true
+          },
+          "b5som": {
+            "dht11_demo": true
+          },
+          "tracker": {
+            "dht11_demo": true
+          },
+          "p2": {
+            "dht11_demo": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "dht11_demo": true
           },

@@ -1,5 +1,5 @@
 ---
-title: WiFi Connectivity Troubleshooting Guide
+title: Wi-Fi Connectivity Troubleshooting Guide
 layout: commonTwo.hbs
 columns: two
 ---
@@ -7,17 +7,17 @@ columns: two
 # {{{title}}}
 The following guide is divided into 3 sections:
 
-* Basic WiFi Troubleshooting
+* Basic Wi-Fi Troubleshooting
 * Checking Network Compatibility
 * Further Troubleshooting Steps
 
-## Basic WiFi Troubleshooting
+## Basic Wi-Fi troubleshooting
 
-Particle's cellular and WiFi stacks differ in a few notable ways. From a troubleshooting perspective, the key difference is _visibility._ For cellular devices, the bulk of network operations are handled by Particle's MVNO and carrier partnerships, allowing our support staff significant visibility into potential cellular connectivity issues. 
+Particle's cellular and Wi-Fi stacks differ in a few notable ways. From a troubleshooting perspective, the key difference is _visibility._ For cellular devices, the bulk of network operations are handled by Particle's MVNO and carrier partnerships, allowing our support staff significant visibility into potential cellular connectivity issues. 
 
-However, _for WiFi devices_, the network component is situated much closer to the end user - one's own router, one's own ISP, or one's own commercial networking arrangement. For this reason, we ask our WiFi users to take a more active role in the troubleshooting process. This guide will walk you through the most common blockers to a successful first connection. We ask you to review this list before submitting a WiFi connectivity-related support ticket.
+However, _for Wi-Fi devices_, the network component is situated much closer to the end user - one's own router, one's own ISP, or one's own commercial networking arrangement. For this reason, we ask our Wi-Fi users to take a more active role in the troubleshooting process. This guide will walk you through the most common blockers to a successful first connection. We ask you to review this list before submitting a Wi-Fi connectivity-related support ticket.
 
-It should be explicitly stated that this guide is relevant to WiFi Particle devices that are blinking green (or alternating between blinking cyan and blinking green).
+It should be explicitly stated that this guide is relevant to Wi-Fi Particle devices that are blinking green (or alternating between blinking cyan and blinking green).
 
 First things first, let's make sure you've done all you can to help this device get connected:
 
@@ -28,34 +28,34 @@ First things first, let's make sure you've done all you can to help this device 
 
 If your device still struggles to connect, let's first evaluate the compatibility of your network before going through some hands-on troubleshooting. 
 
-## Checking Network Compatibility
+## Checking network compatibility
 
 **Do you have any firewalls** in place that may preempt IoT connectivity?
 
-_This is far, far and way the **most common issue** our Technical Support Team comes across when helping out our WiFi customers! If you do not think you have a firewall active, please double check and if possible contact your system administrator to ensure that no firewall is indeed blocking your Photon, P1, or Argon!_
+_This is far, far and way the **most common issue** our Technical Support Team comes across when helping out our Wi-Fi customers! If you do not think you have a firewall active, please double check and if possible contact your system administrator to ensure that no firewall is indeed blocking your Photon, P1, or Argon!_
 
 **From there -** 
 
    * Does the web connection require users to enter information on any kind of captive portal / login page? This can block Particle devices from successfully authenticating.
-   * Please ensure you're not attempting to connect to a 5GHz network. Our WiFi devices only support 2.4GHz networks.
+   * Please ensure you're not attempting to connect to a 5GHz network. Our Wi-Fi devices only support 2.4GHz networks.
    * Please note that our devices do not support 40MHz wide band channels.
    * Please check to ensure that IPv6 disabled for the network in question.
    * While you’re investigating your network settings, it’s worth confirming that the respective port is open:  
    `Outbound TCP port 5683 (Photon/P1) `  
    `Outbound UDP port 5684 (Argon) `
 
-## Further Troubleshooting Steps
+## Further troubleshooting steps
 
 **Before opening a support ticket**, we ask that you please try the following troubleshooting steps:
 
 **Please ensure another device (e.g. your laptop or phone) can connect to the Internet via your network.** If you have another Particle device you can bring this this location, please attempt to connect it as well! Take care to ensure that your Particle device is as close as it can be to your router when trying to troubleshoot.
 
-If no Particle devices can connect to the network in question, **please set up a Mobile Hotspot** and wait for it to appear in the CLI (see the bullet list at the top of this article for connection instructions). A Particle WiFi device should be able to connect to a Mobile Hotspot without issue. If the device continues to blink green when set to connect to a Mobile Hotspot, that eliminates a network-side issue and usually points to an issue with the device itself. When opening a support ticket, please confirm for our support staff that you've attempted this step!
+If no Particle devices can connect to the network in question, **please set up a Mobile Hotspot** and wait for it to appear in the CLI (see the bullet list at the top of this article for connection instructions). A Particle Wi-Fi device should be able to connect to a Mobile Hotspot without issue. If the device continues to blink green when set to connect to a Mobile Hotspot, that eliminates a network-side issue and usually points to an issue with the device itself. When opening a support ticket, please confirm for our support staff that you've attempted this step!
 
-Next, **consult the relevant resource for advanced WiFi troubleshooting**:
+Next, **consult the relevant resource for advanced Wi-Fi troubleshooting**:
 
-* [Troubleshooting WiFi on the Photon/P1](/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-photonp1/)
-* [Troubleshooting WiFi on the Argon](/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-argon/)
+* [Troubleshooting Wi-Fi on the Photon/P1](/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-photonp1/)
+* [Troubleshooting Wi-Fi on the Argon](/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-argon/)
 
 To take advantage of the above resources, you will need to follow the instructions here ([link](https://github.com/particle-iot/cloud-debug)) to source important debug logs via Cloud Debug. Please note the uninstallation instructions at the bottom of the link as well. Using the serial monitor per the instructions, please gather about 10 minutes or so of logs that document the device attempting to connect. Please then copy and paste those logs into a .txt or .log file and attach them to your support request.
 

@@ -1,0 +1,81 @@
+{
+  "type": "libraries",
+  "id": "HX711_SWE",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/HX711_SWE/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "HX711_SWE",
+    "version": "0.0.2",
+    "installs": 309,
+    "author": "Scott Alexander Gray",
+    "sentence": "A library for the HX711 chip that gets a correct reading the first time, and correct timeout restrictions and read checking.",
+    "url": "https://github.com/scottalexgray/HX711_SWE",
+    "repository": "https://github.com/scottalexgray/HX711_SWE.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/reference/device-os/libraries/h/HX711_SWE",
+  "versions": {
+    "0.0.2": {
+      "added": "2023-12-31T15:16:55.193Z",
+      "builds": {
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# HX711_SWE\n\nA Particle library for HX711_SWE\n\n## Welcome to your library!\n\nTo get started, modify the sources in src. Rename the example folder inside examples to a more meaningful name and add additional examples in separate folders.\n\nTo compile your example you can use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nLibraries can also depend on other libraries. To add a dependency use [`particle library add`](https://docs.particle.io/guide/tools-and-features/cli#adding-a-library) or [library management](https://docs.particle.io/guide/tools-and-features/dev/#managing-libraries) in Desktop IDE.\n\nAfter the library is done you can upload it with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. If you wish to make your library public, use `particle library publish` or `Publish` command.\n\n_TODO: update this README_\n\n## Usage\n\nConnect XYZ hardware, add the HX711_SWE library to your project and follow this simple example:\n\n```\n#include \"HX711_SWE.h\"\nHX711_SWE hX711_SWE;\n\nvoid setup() {\n  hX711_SWE.begin();\n}\n\nvoid loop() {\n  hX711_SWE.process();\n}\n```\n\nSee the examples folder for more details.\n\n## Documentation\n\nTODO: Describe `HX711_SWE`\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add HX711_SWE_myname` to add the library to a project on your machine or add the HX711_SWE_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2021 Scott Alexander Gray\n\nLicensed under the <insert your choice of license here> license\n",
+  "allVersions": [
+    "0.0.2"
+  ]
+}

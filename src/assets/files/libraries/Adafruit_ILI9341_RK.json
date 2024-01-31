@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ILI9341_RK",
     "version": "1.2.3",
-    "installs": 10607,
+    "installs": 11092,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for Adafruit ILI9341 displays. Port of version 1.2.0 by rickkas7.",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_ILI9341_RK",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_ILI9341_RK",
   "versions": {
     "1.2.3": {
       "builds": {
@@ -107,6 +107,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "boron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "bsom": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "b5som": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "tracker": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "esomx": {
+            "graphicstest_featherwing": false,
+            "touchpaint_featherwing": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "boron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "bsom": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "b5som": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "tracker": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "p2": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "graphicstest_featherwing": true,
             "touchpaint_featherwing": true

@@ -13,7 +13,7 @@ description: Datasheet for the Particle One Enclosure and Carrier Board
 
 ![Tracker One](/assets/images/t-one.svg)
 
-The Tracker One is a ready-to-go Tracker SoM carrier board with optional weatherproof enclosure.
+The Tracker One is a ready-to-go Particle gateway device with a Tracker SoM carrier board and weatherproof enclosure.
 
 - **Ready to go** with IP67-rated enclosure.
 - **GNSS Antenna Onboard:** convenient high-gain GNSS antenna for easy access to GNSS signals.
@@ -25,18 +25,33 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 ![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
 
-### Device OS Support
+Particle gateway device like the Monitor One and Tracker One are designed to be used off-the-shelf to interface to other devices and sensors using standard protocols such as CAN bus, I2C, and serial.
 
-It is recommended that you use the latest version in the 4.x LTS release line with the Tracker One.
 
-ONE404X and ONE524X devices, when released, will require a Device OS 4.x LTS release. If you plan on having a mixed fleet of Tracker devices containing the T404X, T524X, ONE404X or ONE524X, we recommend upgrading all device to the latest 4.x LTS release.
+### Model comparison
 
-Tracker Edge v18 requires a minimum of Device OS 3.3.0. Device OS 3.x is a developer preview release and has reached its end-of-support date. We recommend that all Tracker fleets upgrade to Device OS 4.x.
+| | ONE404 | ONE402 | ONE524 | ONE523 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Region  | NorAm | NorAm | EMEAA | Europe |
+| EtherSIM  | &check; | &nbsp; | &check; | &nbsp; |
+| Supply Secure | &check; | &nbsp; | &check; | &nbsp; |
+| Lifecycle | GA | Deprecated | GA | Deprecated |
+
+- EtherSIM devices generally have a larger number of carriers and more may be added in the future
+- NorAm: North America (United States, Canada, and Mexico)
+- EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported)
+- See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility
+- See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information
+- See [Lifestyle stages](/reference/product-lifecycle/product-lifecycle-stages/) for more information
+
+
+
+### Device OS support
 
 For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
 
 
-## Block Diagram
+## Block diagram
 
 {{imageOverlay src="/assets/images/at-som/at-carrier-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
@@ -82,7 +97,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 
 ---
 
-### Power and I/O Connector (M8)
+### Power and I/O connector (M8)
 
 | M8 Pin | Function   | Function  | Function  | I/O | Color |
 | :----: | :-------   | :-------  | :-------  | :--- | :--- |
@@ -124,7 +139,7 @@ Note that CAN bus is differential and consists of two lines:
 As the signals are differential you don't need to connect GND for CAN bus, but you do still need to connect it for Serial, I2C, or GPIO.
 
 
-### I/O Characteristics (M8)
+### I/O characteristics (M8)
 
 The three GPIO and port pins (A3/D3, RX/SDA/D9, TX/SCL/D8) have the following characteristics:
 
@@ -161,7 +176,7 @@ The CAN bus has a separate hardware transceiver and is not considered to be GPIO
 
 ---
 
-### Carrier Board Power and I/O Connector
+### Carrier board power and I/O connector
 
 The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](https://www.digikey.com/product-detail/en/jst-sales-america-inc/B8B-PH-SM4-TB-LF-SN/455-1740-1-ND/926837), 8-position, 2mm pitch, male pins, shrouded. The mating connector is the [JST PHR-8](https://www.digikey.com/product-detail/en/jst-sales-america-inc/PHR-8/455-1189-ND/608630). The female sockets are available plain, with leads, and in pre-manufactured ribbon cable formats.
 
@@ -177,7 +192,7 @@ The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](ht
 | 8         | 8      | GND       | Black          |  
 
 
-### Additional Peripherals
+### Additional peripherals
 
 | Signal | Device OS | Description |
 | :---: | :---: | :---
@@ -193,7 +208,7 @@ Note: While the USER button exists inside the Tracker One, the Tracker One is a 
 ---
 
 
-### Powering the Tracker Carrier Board
+### Powering the Tracker carrier board
 
 There are several options for powering the carrier board:
 
@@ -250,7 +265,7 @@ The **GNSS** LED indicates the GNSS fix status:
 As the GNSS antenna faces the top of the case, you also want the top of the case facing the sky to the greatest extent possible. You will likely be be unable to get a GNSS lock with the top facing down.
 
 ---
-## Tracker One Schematics
+## Tracker One schematics
 
 {{imageOverlay src="/assets/images/tracker/trackerone-sch1.png" alt="Schematic 1" class="full-width"}}
 
@@ -262,7 +277,7 @@ As the GNSS antenna faces the top of the case, you also want the top of the case
 
 ---
 
-## Peripheral Details
+## Peripheral details
 
 ### Thermistor
 
@@ -272,7 +287,7 @@ The Tracker Carrier Board contains a 100K NTC thermistor, connected to A0. It is
 
 It can be read using the [getTemperature()](/firmware/tracker-edge/tracker-edge-api-reference/#gettemperature-) API. Note that this is the temperature on the board, within the enclosure, and will typically be several degrees warmer than the ambient temperature.
 
-## Design Files
+## Design files
 
 The Tracker Carrier Board in the Tracker One is open-source and the Eagle CAD design files are available in GitHub:
 
@@ -281,7 +296,7 @@ The Tracker Carrier Board in the Tracker One is open-source and the Eagle CAD de
 
 ## Mechanical specifications
 
-### Operating Temperature
+### Operating temperature
 
 | Parameter                        | Minimum | Maximum | Units |
 | :------------------------------- | ---: | ---: | :---- |
@@ -313,9 +328,14 @@ Maximum Carrier Board Dimensions (mm):
 
 Note: The Tracker Carrier Board has a smaller bottom tab to provide space for the M8 connector.
 
+### 3D models
+
+3D models of the Tracker One enclosure are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/Tracker%20One) in step format.
+
+
 ---
 
-### Power consumption (Tracker One 402)
+### Power consumption (Tracker One ONE402 and ONE404)
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
@@ -355,7 +375,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ---
 
-### Power consumption (Tracker One 523)
+### Power consumption (Tracker One ONE523 and ONE524)
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
@@ -464,7 +484,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Malawi | ONE524 | 2G, 3G, Cat1 | Airtel |
 | Malaysia | ONE524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
 | Malta | ONE524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
-| Mexico | ONE404 | M1 | AT&T |
+| Mexico | ONE404 | M1 | AT&T, Telcel |
 | Moldova | ONE524 | 2G, 3G, Cat1 | Moldcell, Orange |
 | Mongolia | ONE524 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | ONE524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
@@ -476,14 +496,13 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | New Zealand | ONE524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
 | Nigeria | ONE524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
 | Norway | ONE524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
-| Oman | ONE524 | 2G, 3G, Cat1 | Ooredoo |
 | Pakistan | ONE524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
 | Palestine | ONE524 | 2G, 3G | Jawwal |
 | Papua New Guinea | ONE524 | 2G, 3G | bmobile |
 | Poland | ONE524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
 | Portugal | ONE524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
 | Qatar | ONE524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
-| Romania | ONE524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Romania | ONE524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
 | Rwanda | ONE524 | 2G, 3G, Cat1 | Airtel, MTN |
 | Serbia | ONE524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | ONE524 | 2G, 3G, Cat1 | Airtel |
@@ -504,16 +523,18 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Tunisia | ONE524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
 | Uganda | ONE524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | ONE524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
-| United States | ONE404 | M1 | AT&T |
+| United States | ONE404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 | Vietnam | ONE524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
 | Zambia | ONE524 | 2G, 3G, Cat1 | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated 2f3d1a14-76de-11eb-9439-0242ac130002 --}}
 
+<sup>7</sup>Verizon in the United States is only supported on enterprise plans.
+
 ---
 
-## Ordering Information
+## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
 
@@ -523,10 +544,6 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | &check; | GA | |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | EG91-EX | &check; | GA | |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | In development | |
-| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | &check; | In development | |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
-| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | &check; | In development | |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | NRND | ONE524MEA|
 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX |  | NRND | ONE524MTY|
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | Deprecated | ONE404MEA|
@@ -542,7 +559,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ## Certification
 
-### FCC Interference Statement
+### FCC interference statement
 
 This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) This device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
 
@@ -561,7 +578,7 @@ WARNING: Any changes or modifications to this unit not expressly approved by the
 
 This device must not be collocated or operating in conjunction with any other antenna or transmitter.
 
-### IC Interference Statement
+### ISED interference statement
 
 This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -585,7 +602,7 @@ This equipment complies with IC radiation exposure limits set forth for an uncon
 
 Cet équipement est conforme aux limites d'exposition aux rayonnements IC établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps.
 
-### EU Declaration of Conformity
+### EU declaration of conformity
 
 We, Particle Industries, Inc., declare under our sole responsibility that the product, ONE523M, ONE524M, ONE523M-NB, and ONE524M-NB, to which this
 declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
@@ -607,13 +624,13 @@ UKCA Conformity:
 
 Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 The Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
-### Battery Warning
+### Battery warning
 
 **CAUTION**
 
@@ -650,7 +667,7 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 013      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |
 | 014      | 2021 Feb 17 | RK | Tracker One v1.1 GPIO note, update schematics |
 | 015      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
-| 016      | 2021 Mar 23 | RK | Added FCC and IC interference statements |
+| 016      | 2021 Mar 23 | RK | Added FCC and ISED interference statements |
 | 017      | 2021 Mar 29 | RK | D8 and D9 were reversed in some tables |
 | 018      | 2021 Sep 10 | RK | Changed wording of peak vs. max current |
 | 019      | 2022 Aug 29 | RK | Added EU declaration of conformity |

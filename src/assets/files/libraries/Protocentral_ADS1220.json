@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Protocentral_ADS1220",
     "version": "0.0.2",
-    "installs": 166,
+    "installs": 302,
     "license": "OIZOM",
     "author": "Sohil Patel",
     "sentence": "ADS1220 library",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Protocentral_ADS1220",
+  "cardUrl": "/reference/device-os/libraries/p/Protocentral_ADS1220",
   "versions": {
     "0.0.2": {
       "builds": {
@@ -50,8 +50,49 @@
           "boron": {
             "Protocentral_ADS1220": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "Protocentral_ADS1220": true
+          },
+          "boron": {
+            "Protocentral_ADS1220": true
+          },
+          "bsom": {
+            "Protocentral_ADS1220": true
+          },
+          "b5som": {
+            "Protocentral_ADS1220": true
+          },
+          "tracker": {
+            "Protocentral_ADS1220": true
+          },
+          "p2": {
+            "Protocentral_ADS1220": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Protocentral_ADS1220": true
+          },
+          "boron": {
+            "Protocentral_ADS1220": true
+          },
+          "bsom": {
+            "Protocentral_ADS1220": true
+          },
+          "b5som": {
+            "Protocentral_ADS1220": true
+          },
+          "tracker": {
+            "Protocentral_ADS1220": true
+          },
+          "esomx": {
+            "Protocentral_ADS1220": true
+          }
         }
-      }
+      },
+      "added": "2023-12-31T15:21:00.185Z"
     }
   },
   "readme": "ADS1220 Library for Particle.",

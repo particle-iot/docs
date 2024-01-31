@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BME280_RK",
     "version": "1.0.9",
-    "installs": 10375,
+    "installs": 11265,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for BME280 sensors.",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_BME280_RK",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BME280_RK",
   "versions": {
     "1.0.9": {
       "builds": {
@@ -125,6 +125,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "boron": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "bsom": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "b5som": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "tracker": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "esomx": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "boron": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "bsom": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "b5som": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "tracker": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "p2": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "i2c_Wire1": true,
             "i2c_bme280": true,

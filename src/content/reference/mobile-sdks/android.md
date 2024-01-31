@@ -10,6 +10,11 @@ asyncclasslink: https://github.com/particle-iot/particle-android/blob/master/clo
 
 # {{title}}
 
+{{box op="start" cssClass="boxed warningBox"}}
+The Android SDK can only be used to set up Gen 2 devices (P1 and Photon). It will be deprecated in the future.
+{{box op="end"}}
+
+
 The Particle Android SDK consists of two parts:
 
 1. [the Cloud SDK](#android-cloud-sdk): a wrapper for our REST API which enables your mobile app to interact with Particle-powered hardware through the Particle Device Cloud
@@ -24,7 +29,7 @@ Both the Cloud SDK and Device Setup libraries have the following requirements:
 - The [AndroidX](https://developer.android.com/jetpack/androidx/) versions of the Jetpack support libraries
 
 
-## Support and Contributions
+## Support and contributions
 - If you **need help**, visit the [Mobile category](https://community.particle.io/c/mobile) in our [community forums](https://community.particle.io) for discussion, troubleshooting, and feedback around the Android Cloud SDK and Device Setup library.
 - If you have **found a bug**, _and can provide steps to reliably reproduce it_, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+android&unscoped_q=android), and apply the `bug` label.
 - If you **have a feature request**, open an issue [on GitHub](https://github.com/particle-iot/particle-android), and apply the `enhancement` label.
@@ -87,7 +92,7 @@ Cloud SDK usage mostly revolves around two main classes:
 1. [`ParticleCloud`](https://github.com/particle-iot/particle-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleCloud.kt), which is the interface for all cloud operations not specific to a claimed device, such as user authentication, retrieving a user's device list, claiming devices, and more
 2. [`ParticleDevice`](https://github.com/particle-iot/particle-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleDevice.kt), which represents a claimed device.  Each instance enables operations specific to that device, e.g.: invoking functions, reading variables, and accessing basic info like the device's name and version info.
 
-#### Blocking APIs FTW
+#### Blocking APIs ftw
 
 **preemptive tl;dr:** _many of the SDK's methods make **blocking network calls**, meaning they can't be called from the app's main thread.  The **strongly** recommended way of handling this requirement is to write your app in [Kotlin](https://developer.android.com/kotlin/learn) and use [coroutines](https://developer.android.com/kotlin/coroutines) to make call these SDK methods off the main thread._  _If you are unable to use Kotlin, the first example in the [API usage section](#common-tasks) shows another way to handle this requirement._
 
@@ -129,7 +134,7 @@ Async.executeAsync(someDevice, new Async.ApiWork<ParticleDevice, Integer>() {
 });
 ```
 
-#### Cloud Login
+#### Cloud login
 Log in to the Particle Device Cloud:
 
 ```java
@@ -137,7 +142,7 @@ ParticleCloudSDK.getCloud().logIn("ido@particle.io", "myl33tp4ssw0rd");
 Toaster.s(someActivity, "Logged in!");
 ```
 
-##### Injecting Session Access Token (Two Legged Authentication)
+##### Injecting session access token (two-legged authentication)
 
 If you use your own backend to authenticate users in your app, you can now easily inject the access token your backend gets from the Particle cloud using one of the new `setAccessToken()` methods on `ParticleCloud`. Additionally, the SDK will now automatically renew an expired session if a refresh token exists.
 
@@ -148,7 +153,7 @@ ParticleCloudSDK.getCloud().setAccessToken("9bb912533940e7c808b191c28cd6aaaf8d12
 ---
 
 
-#### List Devices
+#### List devices
 List the devices that belong to the currently logged-in user, and find a specific device by name:
 
 ```java
@@ -162,7 +167,7 @@ for (ParticleDevice device : devices) {
 ```
 ---
 
-#### Get Device Instance
+#### Get device instance
 Get a device instance by its ID:
 
 ```java
@@ -170,7 +175,7 @@ ParticleDevice myDevice = ParticleCloudSDK.getCloud().getDevice("53fa73265066544
 ```
 ---
 
-#### Read Device Information
+#### Read device information
 Accessing information about a device.
 
 ```java
@@ -189,7 +194,7 @@ String defaultBuildString = myDevice.getDefaultBuild();
 ```
 ---
 
-#### Read Variables
+#### Read variables
 Accessing variables of [all the standard Particle Device Cloud types](/reference/device-os/api/cloud-functions/particle-variable/) (integers, strings, doubles, and booleans):
 
 ```java
@@ -201,7 +206,7 @@ boolean aBoolean = myDevice.getBooleanVariable("someBooleanValue");
 ```
 ---
 
-#### Call a Function
+#### Call a function
 Invoke a function on the device with a list of parameters.  The return value from `callFunction()` is result code returned from the function on the device.
 
 ```java
@@ -211,7 +216,7 @@ Toaster.s(someActivity, "Result of calling digitalwrite: " + resultCode);
 ```
 ---
 
-#### List Variables and Functions
+#### List variables and functions
 `ParticleDevice.getFunctions()` returns a list of function names.  `ParticleDevice.getVariables()` returns a map of variable names to types.
 
 ```java
@@ -367,7 +372,7 @@ For example, to set logging to `BASIC`, you would add the following to your `str
 
 
 
-## Android Device Setup Library
+## Android device setup library
 
 ### Introduction
 The Particle Device Setup library provides everything you need to offer your users a simple initial setup process for Photon/P1-powered devices.  This includes all the necessary device communication code, an easily customizable UI, and a simple developer API.
@@ -397,7 +402,7 @@ dependencies {
 ```
 
 
-### Basic Usage
+### Basic usage
 
 The Device Setup library has two main requirements:
 

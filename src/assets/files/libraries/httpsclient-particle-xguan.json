@@ -7,7 +7,7 @@
   "attributes": {
     "name": "httpsclient-particle-xguan",
     "version": "0.0.7",
-    "installs": 394,
+    "installs": 533,
     "license": "GPL",
     "author": "Vamsi Vytla",
     "sentence": "A library that helps photon boards talk https to web servers",
@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/httpsclient-particle-xguan",
+  "cardUrl": "/reference/device-os/libraries/h/httpsclient-particle-xguan",
   "versions": {
     "0.0.7": {
       "builds": {
@@ -102,6 +102,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "boron": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "bsom": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "b5som": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "tracker": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "esomx": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "boron": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "bsom": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "b5som": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "tracker": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          },
+          "p2": {
+            "glowfish-post-test": false,
+            "timeapi-test": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "glowfish-post-test": false,
             "timeapi-test": false

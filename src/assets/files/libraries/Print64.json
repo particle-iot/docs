@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Print64",
     "version": "0.0.1",
-    "installs": 328,
+    "installs": 679,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Library for 64-bit number to ASCII conversion",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Print64",
+  "cardUrl": "/reference/device-os/libraries/p/Print64",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -88,6 +88,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
+            "1-simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-simple": true
           },

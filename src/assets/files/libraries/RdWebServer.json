@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RdWebServer",
     "version": "1.0.17",
-    "installs": 2949,
+    "installs": 4650,
     "license": "MIT",
     "author": "Rob Dobson",
     "sentence": "Simple web server supporting REST API and static files",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RdWebServer",
+  "cardUrl": "/reference/device-os/libraries/r/RdWebServer",
   "versions": {
     "1.0.17": {
       "builds": {
@@ -155,12 +155,76 @@
             "Particle_RdWebServerRateTest": false,
             "Particle_RdWebServerTest": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "Particle_RdWebServerPostTest": true,
+            "Particle_RdWebServerRateTest": true,
+            "Particle_RdWebServerTest": true
+          },
+          "boron": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "bsom": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "b5som": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "tracker": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "p2": {
+            "Particle_RdWebServerPostTest": true,
+            "Particle_RdWebServerRateTest": true,
+            "Particle_RdWebServerTest": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Particle_RdWebServerPostTest": true,
+            "Particle_RdWebServerRateTest": true,
+            "Particle_RdWebServerTest": true
+          },
+          "boron": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "bsom": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "b5som": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "tracker": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "esomx": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.884Z"
     }
   },
-  "readme": "# RdWebServer\n\nLibrary for a simple web server which supports a REST API and static pages/images\n\n## Usage\n\n```c++\n#include \"RdWebServer.h\"\n#include \"GenResources.h\"\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(AUTOMATIC);\n\n// Web server\nRdWebServer* pWebServer = NULL;\n\nvoid setup()\n{\n    // Construct server\n    pWebServer = new RdWebServer();\n\n    // Configure web server\n    if (pWebServer)\n    {\n      // Add resources to web server\n      pWebServer->addStaticResources(genResources, genResourcesCount);\n\n      // Start the web server\n      pWebServer->start(webServerPort);\n    }\n}\n\nvoid loop()\n{\n    // Service the web server\n    if (pWebServer)\n      pWebServer->service();\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nTo add a REST API:\n\n1. Include the RestAPIEndpoints helper\n\n```C++\n// API Endpoints\n#include \"RestAPIEndpoints.h\"\nRestAPIEndpoints restAPIEndpoints;\n```\n\n2. Create a method to handle the callback that you will receive from RdWebServer when the API endpoint is hit\n\n```C++\nvoid restAPI_QueryStatus(RestAPIEndpointMsg& apiMsg, String& retStr)\n{\n    retStr = \"{\\\"rslt\\\":\\\"ok\\\"}\";\n}\n```\n\n3. Register the endpoint with RestAPIEndpoint helper - do this anywhere in setup()\n\n```C++\nrestAPIEndpoints.addEndpoint(\"Q\", RestAPIEndpointDef::ENDPOINT_CALLBACK, restAPI_QueryStatus, \"\");\n```\n\n4. Add the endpoint definitions to the server\n\nDo this after the pWebServer has been initialized to point to the instance of an RdWebServer\n\n```C++\n  // Add resources to web server\n  pWebServer->addStaticResources(genResources, genResourcesCount);\n```\n\n## LICENSE\nCopyright 2017 Rob Dobson\n\nLicensed under the MIT license\n",
+  "readme": "# RdWebServer\n\nLibrary for a simple web server which supports a REST API and static pages/images\n\n## Usage\n\n```c++\n#include \"RdWebServer.h\"\n#include \"GenResources.h\"\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(AUTOMATIC);\n\n// Web server\nRdWebServer* pWebServer = NULL;\n\nvoid setup()\n{\n    // Construct server\n    pWebServer = new RdWebServer();\n\n    // Configure web server\n    if (pWebServer)\n    {\n      // Add resources to web server\n      pWebServer->addStaticResources(genResources, genResourcesCount);\n\n      // Start the web server\n      pWebServer->start(webServerPort);\n    }\n}\n\nvoid loop()\n{\n    // Service the web server\n    if (pWebServer)\n      pWebServer->service();\n}\n```\n\nSee the examples folder for more details.\n\n## Documentation\n\nTo add a REST API:\n\n1. Include the RestAPIEndpoints helper\n\n```C++\n// API Endpoints\n#include \"RestAPIEndpoints.h\"\nRestAPIEndpoints restAPIEndpoints;\n```\n\n2. Create a method to handle the callback that you will receive from RdWebServer when the API endpoint is hit\n\n```C++\nvoid restAPI_QueryStatus(RestAPIEndpointMsg& apiMsg, String& retStr)\n{\n    retStr = \"{\\\"rslt\\\":\\\"ok\\\"}\";\n}\n```\n\n3. Register the endpoint with RestAPIEndpoint helper - do this anywhere in setup()\n\n```C++\nrestAPIEndpoints.addEndpoint(\"Q\", RestAPIEndpointDef::ENDPOINT_CALLBACK, restAPI_QueryStatus, \"\");\n```\n\n4. Add the endpoint definitions to the server\n\nDo this after the pWebServer has been initialized to point to the instance of an RdWebServer\n\n```C++\n  // Add resources to web server\n  pWebServer->addStaticResources(genResources, genResourcesCount);\n```\n\n## LICENSE\nCopyright 2017 Rob Dobson\n\nLicensed under the MIT license\n",
   "allVersions": [
     "1.0.17",
     "1.0.14",

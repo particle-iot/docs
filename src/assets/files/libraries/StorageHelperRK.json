@@ -1,0 +1,244 @@
+{
+  "type": "libraries",
+  "id": "StorageHelperRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/StorageHelperRK/archive/0.0.5.tar.gz"
+  },
+  "attributes": {
+    "name": "StorageHelperRK",
+    "version": "0.0.5",
+    "installs": 2331,
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
+    "sentence": "Library for storing persistent data in various ways",
+    "url": "https://github.com/particle-iot/StorageHelperRK",
+    "repository": "https://github.com/particle-iot/StorageHelperRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/StorageHelperRK",
+  "versions": {
+    "0.0.5": {
+      "added": "2023-03-21T15:27:56.611Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "boron": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "bsom": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "b5som": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "tracker": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "p2": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "boron": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "bsom": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "b5som": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "tracker": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "esomx": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "04-persistent": false,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "electron": {
+            "04-persistent": false,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "argon": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "boron": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "04-persistent": false,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "electron": {
+            "04-persistent": false,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "argon": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "boron": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "boron": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "bsom": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "b5som": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "tracker": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "p2": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "boron": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "bsom": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "b5som": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "tracker": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          },
+          "esomx": {
+            "04-persistent": true,
+            "05-eeprom": true,
+            "06-retained": true,
+            "07-validate": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# StorageHelperRK\n\nLibrary for storing data in EEPROM, file system, SD card, FRAM, etc. on Particle devices\n\n- Github: https://github.com/rickkas7/StorageHelperRK\n- License: MIT (free for commercial or non-commercial use, including use in closed-source projects)\n- Full browsable API: https://rickkas7.github.io/StorageHelperRK/\n\n\n## Persistent Data\n\nThis library makes makes it easy to store simple persistent data on a variety of storage mechanisms including:\n\n- Retained memory\n- FRAM (MB85RCxx connected by I2C)\n- Emulated EEPROM in Device OS\n- POSIX flash filesystem (Particle Gen 3 devices and P2)\n- SdFat (Micro SD card)\n- Spiffs (SPI flash chips)\n\nIt's possible to add additional storage mechanisms by creating a subclass. It's not necessary to modify the library to add new storage mechanisms.\n\n### Data storage\n\n- Data includes C/C++ primitive types (int, float, double, bool, and other types like uint32_t) and C-strings of up to a maximum length that you configure.\n\n- Data is always cached in RAM, so it can be read quickly and efficiently, with no latency and low overhead.\n\n- You typically write simple get and set accessor functions for your data fields, so the correct data type is passed and returned.\n\n- Data is stored in binary format on your underlying storage method for efficiency. \n\n- Data is extensible in future versions of your code. While you cannot modify the existing fields in any way, you can add additional data at the end of the structure. If the data on disk is smaller than the current structure, it is zeroed out.\n\n- Data integrity detection includes magic bytes, length and version information, and a 32-bit hash of the data. These must match for be considered valid.\n\n- Deferred updates can be enabled which allow you to save values frequently, but write them to storage less often to avoid flash wear and to not slow down the thread that is updating.\n\n- The code is thread safe and can be used from loop, worker threads, or software timers.\n\n### Example\n\nThis is from the example 04-persistent.cpp. This is the code you're write for your data.\n\n```cpp\n#include \"StorageHelperRK.h\"\n\n\nSerialLogHandler logHandler(LOG_LEVEL_INFO);\n\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(SEMI_AUTOMATIC);\n\n\nconst char *persistentDataPath = \"/usr/test04.dat\";\n\n\nclass MyPersistentData : public StorageHelperRK::PersistentDataFile {\npublic:\n\tclass MyData {\n\tpublic:\n\t\t// This structure must always begin with the header (16 bytes)\n\t\tStorageHelperRK::PersistentDataBase::SavedDataHeader header;\n\t\t// Your fields go here. Once you've added a field you cannot add fields\n\t\t// (except at the end), insert fields, remove fields, change size of a field.\n\t\t// Doing so will cause the data to be corrupted!\n\t\t// You may want to keep a version number in your data.\n\t\tint test1;\n\t\tbool test2;\n\t\tdouble test3;\n\t\tchar test4[10];\n\t\t// OK to add more fields here \n\t};\n\n\tstatic const uint32_t DATA_MAGIC = 0x20a99e74;\n\tstatic const uint16_t DATA_VERSION = 1;\n\n\tMyPersistentData() : PersistentDataFile(persistentDataPath, &myData.header, sizeof(MyData), DATA_MAGIC, DATA_VERSION) {};\n\n\tint getValue_test1() const {\n\t\treturn getValue<int>(offsetof(MyData, test1));\n\t}\n\n\tvoid setValue_test1(int value) {\n\t\tsetValue<int>(offsetof(MyData, test1), value);\n\t}\n\n\tbool getValue_test2() const {\n\t\treturn getValue<bool>(offsetof(MyData, test2));\n\t}\n\n\tvoid setValue_test2(bool value) {\n\t\tsetValue<bool>(offsetof(MyData, test2), value);\n\t}\n\n\tdouble getValue_test3() const {\n\t\treturn getValue<double>(offsetof(MyData, test3));\n\t}\n\n\tvoid setValue_test3(double value) {\n\t\tsetValue<double>(offsetof(MyData, test3), value);\n\t}\n\n\tString getValue_test4() const {\n\t\tString result;\n\t\tgetValueString(offsetof(MyData, test4), sizeof(MyData::test4), result);\n\t\treturn result;\n\t}\n\tbool setValue_test4(const char *str) {\n\t\treturn setValueString(offsetof(MyData, test4), sizeof(MyData::test4), str);\n\t}\n\n    void logData(const char *msg) {\n        Log.info(\"%s: %d, %d, %lf, %s\", msg, myData.test1, (int)myData.test2, myData.test3, myData.test4);\n    }\n\n\n\tMyData myData;\n};\n\n\nMyPersistentData persistentData;\n\n\nvoid setup() {\n\t// Load the persistent data\n\tpersistentData.setup();\n\n\tParticle.connect();\n}\n\nvoid loop() {\n\n    static unsigned long lastCheck = 0;\n    if (millis() - lastCheck >= 10000) {\n        lastCheck = millis();\n\n        persistentData.setValue_test1(persistentData.getValue_test1() + 1);\n        persistentData.setValue_test2(!persistentData.getValue_test2());\n        persistentData.setValue_test3(persistentData.getValue_test3() - 0.1);\n        persistentData.setValue_test4(\"testing!\"); \n        persistentData.flush(true);\n\n        persistentData.logData(\"test\");\n    }  \n}\n```\n\n#### Code walk-through\n\nYou implement a subclass for your data. In this case, it's called `MyPersistentData` but you probably will want a more application-specific name.\n\nThe second part of the statement is what you are subclassing, and will be one of:\n\n- StorageHelperRK::PersistentDataFile data in a file (POSIX, SdFat, SPIFFS)\n- StorageHelperRK::PersistentDataRetained for retained memory\n- StorageHelperRK::PersistentDataEEPROM for the emulated EEPROM in Particle Device OS\n- StorageHelperRK::PersistentDataFRAM for MB85RCxx I2C FRAM\n\n```cpp\nclass MyPersistentData : public StorageHelperRK::PersistentDataFile {\n```\n\nThe next part is the description of your actual data you want to store.\n\n- The structure must always begin with `StorageHelperRK::PersistentDataBase::SavedDataHeader header;`. This structure adds 16 bytes of overhead and contains the magic bytes, version information, hash. etc.\n- You can add additional fields are desired for your application using C/C++ primitive types.\n- You can also add c-string variables. In this example test4 can be up to 9 characters. If you pass a value longer than that for set, the value will be truncated.\n- Once you release software with a data structure, you must never modify the existing fields, including resizing string fields or reordering fields.\n- You can, however, add additional fields at the end at any time.\n\n```cpp\nclass MyData {\npublic:\n    StorageHelperRK::PersistentDataBase::SavedDataHeader header;\n    int test1;\n    bool test2;\n    double test3;\n    char test4[10];\n    // OK to add more fields here \n};\n\n```\n\n- The magic bytes are 4 random bytes that you pick that identify your data structure. Since retained memory, EEPROM, etc. could contain contents left over from a previous application, this helps prevent invalid data from being used. If you completely change your data structure, you may want to pick new magic bytes.\n- There is also a version field. If either the magic bytes or version do not match, the existing data will be erased.\n- Do not update the version when simply adding fields at the end of the structure!\n- The constructor declaration is boilerplate that will typically look something like this, though the parameters before `&myData.header` may be different.\n- For file systems, the first parameter is the path to the file to store the data.\n\n```cpp\nstatic const uint32_t DATA_MAGIC = 0x20a99e74;\nstatic const uint16_t DATA_VERSION = 1;\n\nMyPersistentData() : PersistentDataFile(persistentDataPath, &myData.header, sizeof(MyData), DATA_MAGIC, DATA_VERSION) {};\n```\n\nNext we define accessor functions (get/set) for each of our variables. These are straightforward mappings between the type of data and the member in the class that holds the data.\n\n```cpp\nint getValue_test1() const {\n    return getValue<int>(offsetof(MyData, test1));\n}\n\nvoid setValue_test1(int value) {\n    setValue<int>(offsetof(MyData, test1), value);\n}\n```\n\nThe only one that's a little different are strings. \n\n- In the data structure, strings are always stored as c-strings, null-terminated.\n- The maximum length of the string is defined when you declare the structure.\n- You cannot resize the maximum field size after releasing a version without changing the version, which erases any previously saved data of the old version when loaded.\n- If you pass too long of a string to setValue, the string will be truncated.\n\n```cpp\nString getValue_test4() const {\n    String result;\n    getValueString(offsetof(MyData, test4), sizeof(MyData::test4), result);\n    return result;\n}\nbool setValue_test4(const char *str) {\n    return setValueString(offsetof(MyData, test4), sizeof(MyData::test4), str);\n}\n```\n\nA log function is optional, but you may find it useful for debugging.\n\n```cpp\nvoid logData(const char *msg) {\n    Log.info(\"%s: %d, %d, %lf, %s\", msg, myData.test1, (int)myData.test2, myData.test3, myData.test4);\n}\n```\n\nYou generally allocate an instance of the class on the heap. You don't have to worry about global constructor ordering because essentially nothing is done in the constructor.\n\n```cpp\nMyPersistentData persistentData;\n```\n\nIn setup(), however, you must initialize the object. This will load it from the file system, in this case, and initialize the structure if the file is not present or is invalid.\n\n- If the file does not exist the file will be initialized to zero values and empty strings\n- If the file has invalid magic bytes, version, or hash, it will be reinitialized to zero values\n- If the file contains data that is smaller than the current version, but is otherwise valid, then it will be preserved and only new values will be set to 0.\n\n```cpp\nvoid setup() {\n\t// Load the persistent data\n\tpersistentData.setup();\n```\n\nFinally, you can get and set values as needed in your code.\n\n```cpp\npersistentData.setValue_test1(persistentData.getValue_test1() + 1);\n```\n\nIf you set a value to the same value that it was before, no attempt will be made to save since for efficiency and to limit flash wear.\n\n\n## Deferred save\n\nThe library supports deferred save mode, which does not save the contents immediately after setting value. \n\nUse the withSaveDelayMs() method to set the number of milliseconds to wait after changing data to save it. This is especially useful if you tend to set multiple fields at the same time.\n\nCall the flush() method with the false parameter from loop(). This will save any deferred saves if necessary. This call is very fast with the false parameter so you can call it on every loop.\n\nThe example 05-eeprom uses deferred save mode.\n\nIdeally, you will also want to call flush with the true parameter:\n\n- Before system reset, via a reset system event handler\n- Before sleep, which will be dependent on your code\n\nWhen using the SleepHelper library, all of these things are taken care of automatically.\n\n### Manual save mode\n\nYou can also use the library in manual save mode. Use withSaveDelayMs with a non-zero value but do not call flush(false) from loop. Instead only call flush(true) when you want to save changes.\n\n\n## File system abstraction\n\nThere is a very limited file system abstraction as part of this library. It includes the bare minimum of functionality:\n\n- open (with read, write, append, truncate, and/or create)\n- close\n- seek\n- read\n- write\n- truncate\n\nThere are currently adapters for:\n\n- POSIX (Particle Gen 3 devices)\n- SdFat (Micro SD card)\n- Spiffs (SPI flash)\n\nYou can add your own by subclassing FileSystemBase. Since a pointer to the FileSystemBase subclass object is passed to the PersistentDataFileSystem constructor, you can add new file systems without having to modify the library.\n\n## Non-file subclasses\n\nYou can also subclass PersistentDataBase in the same way as PersistentDataEEPROM or PersistentDataBaseFRAM for things that aren't really files on a file system. This can also be done without modifying the library. You basically only need to implement the load and save methods. \n\n\n## Version history\n\n### 0.0.5 (2023-02-20)\n\n- Fixed a bug where using EEPROM mode could SOS+1 fault depending on the contents of the EEPROM\n\n### 0.0.4 (2023-02-19)\n\n- Fix a bug where EEPROM saving did not work with an offset other than 0\n\n### 0.0.3 (2022-12-27)\n\n- Added a new example for data validation and initialization (07-validate).\n- Added a new withLogData(true) option to log the data after reading and saving.\n- Added a new method to update the hash. This is normally done automatically, but the method is useful in special cases.\n\n### 0.0.2 (2022-08-29)\n\n- Fixed a bug that prevented EEPROM data from being saved. \n\n### 0.0.1 (2022-07-18)\n\n- Pulled the code from SleepHelper and added documentation\n- Added adapters for SdFat, SPIFFS, and FRAM\n\n",
+  "allVersions": [
+    "0.0.5",
+    "0.0.4",
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
+}

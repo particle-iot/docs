@@ -6,15 +6,19 @@ columns: two
 
 # {{{title}}}
 
-If your Particle-based Integration endpoint is failing to receive data, or is throwing unexpected errors, this article is a great starting point for your troubleshooting investigation. It's also worth exploring our Webhooks Tutorial ([link](/getting-started/integrations/webhooks/)) and our API documentation ([link](/reference/cloud-apis/webhooks/)) before proceeding to troubleshoot.
+If your Particle-based Integration endpoint is failing to receive data, or is throwing unexpected errors, this article is a great starting point for your troubleshooting investigation. It's also worth exploring our Webhooks Tutorial ([link](/integrations/webhooks/)) and our API documentation ([link](/reference/cloud-apis/webhooks/)) before proceeding to troubleshoot.
 
-## Navigating To The Integrations Page
+## Navigating to the integrations page
 
 Particle thoroughly logs the request and response of the last 10 Webhook successes and errors. This information is available to you in the Integrations panel of your [Console](https://console.particle.io), by selecting the following icon from the left-hand panel:
 
 ![Screen_Shot_2021-01-08_at_6.13.33_AM.png](/assets/images/support/Screen_Shot_2021-01-08_at_6.13.33_AM.png)
 
 Please be aware that Integrations contained within a Product are only visible once you've selected that Product's page within the Console.
+
+Find the integration that is having issues by looking at the number of failures in Today's traffic. You can also expand the row to view the history over the last 30 days.
+
+![Integrations list](/assets/images/integrations-list-expanded.png)
 
 After selecting a given Integration, the contents of this panel are likely familiar to you: a section on **Integration Info**, **Example Device Firmware**, and then - most relevant to our concerns here - the **History** section. Scroll down to **History** and take a note of the graph. A healthy state might look something like this:
 
@@ -42,7 +46,7 @@ The Errors page will prepend another important piece of information at the top o
 Now that you are familiar with the general layout of this page, let's dive deeper into the various error states one can encounter.
   
   
-## Missing Integrations
+## Missing integrations
 
 Let's say your Integrations History graph is emptier than you'd expect. This typically points to an issue downstream, where something is blocking the passage of expected Events from your device to our Integrations infrastructure. This is most often one of four things:
 
@@ -61,14 +65,14 @@ or by selecting a specific Device from the Devices page and viewing the Event St
 * If Events are being Published to your Terminal window after running the above, but they are not firing any Webhooks, it's time to check your Webhook's configuration. Ensure that the Event Name is specified correctly and that there are no formatting issues. Create a simplified test Integration that listens to the relevant Event and check for any differences in behavior.
 * Finally, before opening a support ticket, ensure that Particle is not experiencing any degraded performance in our Webhook/Integrations infrastructure by visiting [status.particle.io](https://status.particle.io).
 
-## Understanding Webhook Errors
+## Understanding webhook errors
 
 If instead of missing Webhooks, you are seeing errors (red marks on the History graph, see above), you can easily get to the root cause of those errors by following the instructions below. Take care to select the Errors menu:  
 ![Screen_Shot_2021-01-08_at_7.15.21_AM.png](/assets/images/support/Screen_Shot_2021-01-08_at_7.15.21_AM.png)
 
 Upon selecting "Errors" and then selecting a specific Error Event you will see the same formatting discussed above, **Error Message, Event, Webhook Request,** and **Webhook Response**. Look at both the Error Message and Webhook Response for the following Errors.
 
-### 4xx Error Codes (Client Error)
+### 4xx Error codes (client error)
 
 Error codes beginning with 4 (for example, the classic "404") indicate an error returned by your destination endpoint. These typically point to a malformed packet, an incorrectly formatted webhook message, or authentication/rate limit issues. For example:
 
@@ -79,7 +83,7 @@ Error codes beginning with 4 (for example, the classic "404") indicate an error 
 
 You can find more error codes here: ([link](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client%5Ferror%5Fresponses)).
 
-### 5xx Error Codes (Server Error)
+### 5xx Error codes (server error)
 
 Error codes beginning with 5 indicate an error returned on behalf of your server. These most often appear as **500** ("Server Error"), which generally means one of two things: your server is down, or your server is overloaded in some way. Investigate your server's health when you see 500s, taking the time to make basic requests to ensure it is responsive.
 
@@ -97,7 +101,7 @@ This signifies that the remote web server did initially accept the connection, b
 
 Conversely, for this error, your server endpoint is trying to connect but then abruptly closes the TCP connection. This can be due to protocol issues or timeout. This has been reported on Node.js and Azure endpoints.
 
-## Skipped Events
+## Skipped events
 
 Particle places no limitation on the rate at which a Webhook can be triggered by default. Therefore, ensure that the receiving server is capable of handling the request volume you are expecting to send. Failure to correctly calibrate in this regard will result in the **429** Error Code (see above).
 
@@ -111,7 +115,7 @@ You will know events are being skipped if you see a `hook-error` event in your e
 
 _(grey bars indicating skipped events)_ 
 
-## Integrations Leading To High Data Operation Consumption
+## Integrations leading to high data operation consumption
 
 An improperly configured webhook-response can accidentally lead to high Data Operation usage. If you have noticed that your Data Operation usage varies by whole number multiples of the frequencies with which a given webhoook fires, it's worth taking a closer look at the webhook response.
 
@@ -123,7 +127,7 @@ At the above "Logs" section, click on any date time entry to expand the data pay
 
 _For webhooks, data is sent as 512 bytes per Publish._ This means that a device that subscribes to a webhook response will receive a response in 512-byte chunks. A webhook response that consists of 5Kb of text data (e.g. a large chunk of HTML) will be sent as 10 Publish events, which equal 10 Data Operations. So - in short - if your devices subscribe to webhook responses, ensure your webhook responses are intentionally constructed and data-efficient! 
 
-## Important Resources For Webhook/Integration Troubleshooting
+## Important resources for webhook/integration troubleshooting
 
 * To test the viability of your endpoint, try testing against a service like [https://requestbin.com/ ](https://requestbin.com/)to receive the webhooks. Changing your destination endpoint to a neutral service like RequestBin is a great troubleshooting step to rule out infrastructure issues.
 * To conveniently send and view Webhooks results, you can use an API client like Postman. You can learn more about using Postman here (https://learning.postman.com/docs/getting-started/sending-the-first-request/).  
@@ -136,7 +140,7 @@ Note: in order to find your access token, follow the instructions [here](/troubl
          
 ![Screen_Shot_2021-02-18_at_8.38.09_AM.png](/assets/images/support/Screen_Shot_2021-02-18_at_8.38.09_AM.png)
 
-## Opening A Support Ticket
+## Opening a support ticket
 
 The vast majority of Webhook-related issues reported to Particle ultimately are identified within the above document. If you suspect that you are experiencing an edge case issue related to Particle's infrastructure, please first go to [status.particle.io](https://status.particle.io/) to check if an outage is occurring. After doing so, please open a ticket with the following information:
 
@@ -147,4 +151,3 @@ The vast majority of Webhook-related issues reported to Particle ultimately are 
    * **Critical:** since we do only log the last 10 successes and errors, please take screenshots of any fully-expanded Errors from the Console page (see above).
 * Specific DeviceIDs and Event Names (in the case of missing requests)
 
-As always, you can submit a support ticket via [support.particle.io!](https://support.particle.io)

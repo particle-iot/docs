@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Alphanumeric_Display_Arduino_Library",
     "version": "1.1.2",
-    "installs": 359,
+    "installs": 480,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "A library to drive the Holtek HT16K33 LED Driver with an Alphanumeric Display.",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Alphanumeric_Display_Arduino_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Alphanumeric_Display_Arduino_Library",
   "versions": {
     "1.1.2": {
       "builds": {
@@ -324,12 +324,160 @@
             "Example8_MultiDisplay": false,
             "Example9_ScrollingString": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "boron": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "bsom": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "b5som": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "tracker": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "p2": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "boron": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "bsom": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "b5som": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "tracker": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          },
+          "esomx": {
+            "Example10_DefineChar": false,
+            "Example1_Begin": false,
+            "Example2_TurnOnOneSegment": false,
+            "Example3_PrintChar": false,
+            "Example4_PrintString": false,
+            "Example5_DisplayOptions": false,
+            "Example6_colonAndDecimal": false,
+            "Example7_unkownChar": false,
+            "Example8_MultiDisplay": false,
+            "Example9_ScrollingString": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.092Z"
     }
   },
-  "readme": "SparkFun Alphanumeric Display Library\n========================================\n\n[![Qwiic Alphanumeric Display - Red](https://cdn.sparkfun.com/assets/parts/1/5/1/8/3/16427-Demo-01.jpg)](https://cdn.sparkfun.com/assets/parts/1/5/1/8/3/16427-Demo-01.jpg)\n\n[*Qwiic Alphanumeric Display - Red (SPX-16427)*](https://www.sparkfun.com/products/16427)\n\n[![Qwiic Alphanumeric Display - Blue](https://cdn.sparkfun.com/assets/parts/1/5/1/8/2/16426-Demo-01.jpg)](https://cdn.sparkfun.com/assets/parts/1/5/1/8/2/16426-Demo-01.jpg)\n\n[*Qwiic Alphanumeric Display - Blue (SPX-16426)*](https://www.sparkfun.com/products/16426)\n\n[![Qwiic Alphanumeric Display - Purple](https://cdn.sparkfun.com/assets/parts/1/5/1/8/1/16425-Demo-01.jpg)](https://cdn.sparkfun.com/assets/parts/1/5/1/8/1/16425-Demo-01.jpg)\n\n[*Qwiic Alphanumeric Display - Purple (SPX-16425)*](https://www.sparkfun.com/products/16425)\n\n[![Qwiic Alphanumeric Display - Pink](https://cdn.sparkfun.com/assets/parts/1/5/1/1/2/16391-Demo-01.jpg)](https://cdn.sparkfun.com/assets/parts/1/5/1/1/2/16391-Demo-01.jpg)\n\n[*Qwiic Alphanumeric Display - Pink (SPX-16391)*](https://www.sparkfun.com/products/16391)\n\nThe SparkFun Qwiic Alphanumeric Display is a 14-segment, 4 digit alphanumeric display with the Hotlek HT16K33 LED Driver. This library allows you to illuminate every segment individually or print full strings through I2C commands. The I2C address is configurable, so daisy-chain up to 4 displays on one bus! \n\nSparkFun labored with love to create this code. Feel like supporting open source hardware? \nBuy a [board]() from SparkFun!\n\nRepository Contents\n-------------------\n\n* **/examples** - Example code to show how the functions work.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **libray.properties** - General library properties for the Arduino package manager\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfunX/Qwiic_TMP117)** - Main repository (including hardware files)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact technical support on our [SparkFun forums](https://forum.sparkfun.com/viewforum.php?f=152).\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n_<COLLABORATION CREDIT>_\n",
+  "readme": "SparkFun Alphanumeric Display Library\n========================================\n\n[![Qwiic Alphanumeric Display - Red](https://cdn.sparkfun.com/assets/parts/1/5/1/8/3/16427-Demo-01.jpg)](https://cdn.sparkfun.com/assets/parts/1/5/1/8/3/16427-Demo-01.jpg)\n\n[*Qwiic Alphanumeric Display - Red (SPX-16427)*](https://www.sparkfun.com/products/16427)\n\n[![Qwiic Alphanumeric Display - Blue](https://cdn.sparkfun.com/assets/parts/1/5/1/8/2/16426-Demo-01.jpg)](https://cdn.sparkfun.com/assets/parts/1/5/1/8/2/16426-Demo-01.jpg)\n\n[*Qwiic Alphanumeric Display - Blue (SPX-16426)*](https://www.sparkfun.com/products/16426)\n\n[![Qwiic Alphanumeric Display - Purple](https://cdn.sparkfun.com/assets/parts/1/5/1/8/1/16425-Demo-01.jpg)](https://cdn.sparkfun.com/assets/parts/1/5/1/8/1/16425-Demo-01.jpg)\n\n[*Qwiic Alphanumeric Display - Purple (SPX-16425)*](https://www.sparkfun.com/products/16425)\n\n[![Qwiic Alphanumeric Display - Pink](https://cdn.sparkfun.com/assets/parts/1/5/1/1/2/16391-Demo-01.jpg)](https://cdn.sparkfun.com/assets/parts/1/5/1/1/2/16391-Demo-01.jpg)\n\n[*Qwiic Alphanumeric Display - Pink (SPX-16391)*](https://www.sparkfun.com/products/16391)\n\nThe SparkFun Qwiic Alphanumeric Display is a 14-segment, 4 digit alphanumeric display with the Hotlek HT16K33 LED Driver. This library allows you to illuminate every segment individually or print full strings through I2C commands. The I2C address is configurable, so daisy-chain up to 4 displays on one bus! \n\nSparkFun labored with love to create this code. Feel like supporting open source hardware? \nBuy a board from SparkFun!\n\nRepository Contents\n-------------------\n\n* **/examples** - Example code to show how the functions work.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **libray.properties** - General library properties for the Arduino package manager\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfunX/Qwiic_TMP117)** - Main repository (including hardware files)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact technical support on our [SparkFun forums](https://forum.sparkfun.com/viewforum.php?f=152).\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n_<COLLABORATION CREDIT>_\n",
   "allVersions": [
     "1.1.2"
   ]

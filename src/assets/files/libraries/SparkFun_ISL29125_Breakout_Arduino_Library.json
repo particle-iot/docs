@@ -1,0 +1,210 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_ISL29125_Breakout_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_ISL29125_Breakout_Arduino_Library/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_ISL29125_Breakout_Arduino_Library",
+    "version": "1.0.1",
+    "installs": 88,
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "Arduino library showing basic functionality for the ISL29125 RGB Light Sensor Breakout Board.",
+    "paragraph": "The ISL29125 breakout board makes it very easy to sense and record the light intensity of the general red, green, and blue spectrums of visible light while rejecting IR from light sources.",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/ISL29125_Breakout",
+    "repository": "https://github.com/sparkfun/SparkFun_ISL29125_Breakout_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_ISL29125_Breakout_Arduino_Library",
+  "versions": {
+    "1.0.1": {
+      "added": "2023-03-21T22:16:25.652Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "boron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "bsom": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "b5som": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "tracker": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "p2": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "boron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "bsom": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "b5som": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "tracker": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "esomx": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "electron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "argon": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "boron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "electron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "argon": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "boron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "boron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "bsom": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "b5som": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "tracker": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "p2": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "boron": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "bsom": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "b5som": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "tracker": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          },
+          "esomx": {
+            "ISL29125Basics": true,
+            "ISL29125Interrupts": true,
+            "ISL29125RGBLED": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun ISL29125 Breakout Arduino Library\n==========================================\n\n[![ISL29125 Breakout](https://cdn.sparkfun.com//assets/parts/9/6/7/7/12829-01.jpg)   \n*RGB Light Sensor Breakout-ISL29125 (SEN-12829)*](https://www.sparkfun.com/products/12829)\n\nSupporting code for the ISL29125 RGB Light Sensor.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/isl29125-rgb-light-sensor-hookup-guide)** - Basic hookup guide for the SparkFun ISL29125 Breakout.\n* **[Product Repository](https://github.com/sparkfun/ISL29125_Breakout)** - Main repository (including hardware files) for the SparkFun ISL29125 Breakout.\n\n\nLicense Information\n-------------------\nThis product is _**open source**_! \n\nThe **code** is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",
+  "allVersions": [
+    "1.0.1"
+  ]
+}

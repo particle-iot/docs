@@ -110,12 +110,9 @@ You can also use [Particle CLI](/getting-started/developer-tools/cli/) tool to s
 
 ### Watching results in Particle console
 
-Yet another way to monitor the data is using the [Particle Console](https://console.particle.io/events) or the mobile app.
+Yet another way to monitor the data is using the [Particle Console](https://console.particle.io/events).
 
 Particle Console:
 
 <div align=center><img src="/assets/images/e-series/illustrations/e-console.png" ></div>
 
-Particle Mobile App:
-
-<div align=center><img src="/assets/images/e-series/illustrations/e-mobile.jpg" ></div>

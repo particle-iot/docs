@@ -1,0 +1,142 @@
+{
+  "type": "libraries",
+  "id": "SwitchFramFeatherRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SwitchFramFeatherRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SwitchFramFeatherRK",
+    "version": "0.0.1",
+    "installs": 100,
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Demo board with DIP and BCD switches, and FRAM non-volatile memory",
+    "url": "https://github.com/rickkas7/SwitchFramFeatherRK",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SwitchFramFeatherRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T21:59:07.011Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
+            "1-simple": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple": true
+          },
+          "electron": {
+            "1-simple": true
+          },
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": true
+          },
+          "electron": {
+            "1-simple": true
+          },
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
+            "1-simple": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# SwitchFramFeatherRK\n\n*Demo FeatherWing with DIP and BCD switches, and FRAM non-volatile memory*\n\nMain Picture (image removed)\n\nThis project is a simple Adafruit FeatherWing that includes things you might want to include on a board or wing you design:\n\n- DIP switch\n- BCD rotary switch\n- FRAM (ferro-electric non-volatile memory)\n\nYou might use this for configuration of your project, for example.\n\nWhile the Eagle CAD files and BOM (bill of materials) are included here so you can build your own board exactly like this one, it's really intended to be ideas for things you can include in your own designs.\n\nThe other handy thing is that all of the features connected by I2C (pins D0 and D1), so it requires no additional GPIO! \n\nSchematic (image removed)\n\nBoard Layout (image removed)\n\n## Switches\n\nSometimes you'll want to include physical switches on your board. This demo includes two kinds:\n\n- 4 on-off SPST DIP switches\n- A rotary selector that supports values 0-9 by turning the knob\n\nOne problem with these types of switches is that they require a lot of GPIO pins. Each requires 4, so rather than tie up 8 GPIO pins on the Argon/Boron/Xenon, an 8-port I2C GPIO expander is used.\n\nThe MCP23008 I2C GPIO expander is great for situations like this. It attaches to the I2C bus (pins D0 and D1) and you can include up to 8 of these chips on a single device.\n\nOn the left side of the FeatherWing (as pictured above) you'll notice 3 small solder jumpers labeled A0, A1, and A2. By shorting out the solder jumper you can change the I2C address of the MCP23008 chip.\n\nTo make this board flexible, the solder jumpers connect to VCC (shorting the jumper sets value 1) and there are 10K pull-down resistors on the address lines. On your own boards you may want to just hardcode the address lines and eliminate the resistors and solder jumpers.\n\n| A2 | A1 | A0 | Address |\n| --- | --- | --- | --- | \n| open | open | open | 0x20 |\n| open | open | closed  | 0x21 |\n| open | closed | open | 0x22 |\n| open | closed | closed | 0x23 |\n| closed | open | open | 0x24 |\n| closed | open | closed  | 0x25 |\n| closed | closed | open | 0x26 |\n| closed | closed | closed | 0x27 |\n\nThe [MCP23008-RK](https://github.com/rickkas7/MCP23008-RK) library is used to read the GPIO lines connected to the chip.\n\n\n## FRAM\n\nThe FRAM (Ferroelectric RAM) is a non-volatile storage device, meaning it keeps the values when power is removed. Unlike flash memory, it's fast to write to and does not wear out, so it's ideal for saving values frequently.\n\nThe chip included here is a Fujitsu MB85RC64TAPNF-G-BDERE1, IC FRAM 64K I2C 3.4MHZ 8SOP. It costs $ 1.58 at single quantities so it's affordable to add to your board. It's also tiny, in an 8-SOP package, and connects by I2C, so it doesn't need extra GPIO. That 64 Kbits, so it can store 8 Kbytes of data.\n\nOn the right side of the FeatherWing (as pictured above) you'll notice 3 small solder jumpers labeled A0, A1, and A2. By shorting out the solder jumper you can change the I2C address of the FRAM chip.\n\n| A2 | A1 | A0 | Address |\n| --- | --- | --- | --- | \n| open | open | open | 0x50 |\n| open | open | closed  | 0x51 |\n| open | closed | open | 0x52 |\n| open | closed | closed | 0x53 |\n| closed | open | open | 0x54 |\n| closed | open | closed  | 0x55 |\n| closed | closed | open | 0x56 |\n| closed | closed | closed | 0x57 |\n\nThe [MB85RC256V-FRAM-RK](https://github.com/rickkas7/MB85RC256V-FRAM-RK) library makes it easy to use this chip. It provides an API just like the Particle [EEPROM API](https://docs.particle.io/reference/device-os/firmware/#eeprom) to load and save values in the FRAM.\n\n\n## Sample Code\n\nThe sample program prints out the the status of the switches at startup and when the values change. The library takes care of debouncing the switches and reporting changes automatically.\n\nThe sample code also stores a counter in FRAM, and the counter is updated once per second.\n\n```\n0000005678 [app] INFO: onDipSwitchChange oooo\n0000005680 [app] INFO: onBcdSwitchChange 6\n0000005684 [app] INFO: counter=908\n...\n0000015683 [app] INFO: counter=918\n0000016093 [app] INFO: onBcdSwitchChange 7\n0000016683 [app] INFO: counter=919\n0000017683 [app] INFO: counter=920\n0000018026 [app] INFO: onBcdSwitchChange 8\n0000018684 [app] INFO: counter=921\n0000019684 [app] INFO: counter=922\n0000019883 [app] INFO: onBcdSwitchChange 7\n0000020684 [app] INFO: counter=923\n0000021157 [app] INFO: onBcdSwitchChange 6\n...\n0000028683 [app] INFO: counter=931\n0000029289 [app] INFO: onDipSwitchChange |ooo\n0000029684 [app] INFO: counter=932\n0000030684 [app] INFO: counter=933\n0000031684 [app] INFO: counter=934\n0000032684 [app] INFO: counter=935\n0000033684 [app] INFO: counter=936\n0000034217 [app] INFO: onDipSwitchChange oooo\n```\n\nYou must call from setup:\n\n```\n\tswitchFramFeather.setup();\n```\n\nAnd from loop:\n\n```\n\tswitchFramFeather.loop();\n```\n\nThis provides time to the library to process the switches.\n\nIf you're not familiar with C++11 lambda syntax, this might look peculiar, but it's not that complicated:\n\n```\n\tswitchFramFeather.onBcdSwitchChange((link unavailable in preview) {\n\t\tLog.info(\"onBcdSwitchChange %d\", value);\n\t});\n```\n\nWhat this does is register a function to be called when the BCD switch value changes. It's just that it's declared in-line using a lambda, rather than having to declare a separate function. \n\nThe Log.info statement will execute and log to debug serial whenever the switch changes (even after setup exits).\n\nThe sample code to use the FRAM looks like this:\n\n```\nif (millis() - lastCounterUpdate >= 1000) {\n\t\tlastCounterUpdate = millis();\n\n\t\tsize_t counter;\n\t\tswitchFramFeather.get(0, counter);\n\t\tcounter++;\n\t\tswitchFramFeather.put(0, counter);\n\n\t\tLog.info(\"counter=%u\", counter);\n\t}\n```\n\n\n## BOM and Assembly\n\n| Quantity | Description | Example | \n| --- | --- | --- |\n| 8 | 10K resistor 0603 | [Panasonic ERJ-PA3J103V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-PA3J103V/P10KBZCT-ND/5036237) |\n| 1 | DIP switch SPST 4 pos | [CTS Electrocomponents 209-4MS](https://www.digikey.com/product-detail/en/cts-electrocomponents/209-4MS/CT2094MS-ND/217664) |\n| 1 | DIP Switch BCD 10 Position | [CTS Electrocomponents 220ADC10](https://www.digikey.com/product-detail/en/220ADC10/CT3069-ND/4743855/?itemSeq=273765935) |\n| 1 | MCP23008 | [Microchip MCP23008T-E-SO](https://www.digikey.com/product-detail/en/microchip-technology/MCP23008T-E-SO/MCP23008T-E-SOCT-ND/5358243) |\n| 1 | IC FRAM 64K I2C 3.4MHZ 8SOP | [Fujitsu MB85RC64TAPNF-G-BDERE1](https://www.digikey.com/product-detail/en/fujitsu-electronics-america-inc/MB85RC64TAPNF-G-BDERE1/865-1274-1-ND/6802280) |\n| | Male header pins 0.1\" | [Sullins PRPC040SAAN-RC](https://www.digikey.com/product-detail/en/PRPC040SAAN-RC/S1011EC-40-ND/2775214) |\n\n\nAssembly (image removed)\n\nThe Eagle CAD files are included in the Github repository. I fabricated my boards at [OshPark](https://oshpark.com). It costs $9 to get 3 FeatherWing boards manufactured (standard speed), with free shipping (in the United States, at least). The other handy thing is that you can upload the .brd file directly and don't have to generate Gerber files.\n\nAnd while theoretically possible to build this board using solder paste and a soldering iron with a very steady hand, it's intended to be reflowed. I use an inexpensive [T962 Reflow Oven](https://www.amazon.com/SMTHouse-Infrared-Soldering-Machine-Automatic/dp/B0152FTXN2/ref=sr_1_4).\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

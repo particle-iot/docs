@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AmazonDynamoDBClient",
     "version": "0.0.2",
-    "installs": 438,
+    "installs": 546,
     "license": "Apache 2.0 license",
     "author": "Jinesh Varia <jvaria@amazon.com>",
     "sentence": "Amazon DynamoDB Client for Spark Core.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AmazonDynamoDBClient",
+  "cardUrl": "/reference/device-os/libraries/a/AmazonDynamoDBClient",
   "versions": {
     "0.0.2": {
       "builds": {
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "boron": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "bsom": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "b5som": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "tracker": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "esomx": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "boron": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "bsom": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "b5som": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "tracker": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "p2": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
             "application": false

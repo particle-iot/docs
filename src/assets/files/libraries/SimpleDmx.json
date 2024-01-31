@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SimpleDmx",
     "version": "0.1.0",
-    "installs": 792,
+    "installs": 908,
     "license": "MIT",
     "author": "André Hanak <impressum@a-hanak.de>",
     "sentence": "The library allows to transmit a DMX signal using the on board serial.",
@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SimpleDmx",
+  "cardUrl": "/reference/device-os/libraries/s/SimpleDmx",
   "versions": {
     "0.1.0": {
       "builds": {
@@ -129,12 +129,64 @@
             "full-on": true,
             "rainbow": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "boron": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "bsom": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "b5som": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "tracker": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "p2": {
+            "full-on": true,
+            "rainbow": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "boron": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "bsom": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "b5som": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "tracker": {
+            "full-on": true,
+            "rainbow": true
+          },
+          "esomx": {
+            "full-on": true,
+            "rainbow": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.988Z"
     }
   },
-  "readme": "# SimpleDmx\n\nA Particle library for sending DMX signals using high-level functions from the particle firmware API.\n\nThis work is likely not a good solution for professional DMX applications. \nIt works for me with a small setup for ambient lightning.\nI'm not a DMX expert. \nThe implementation is very trivial and NOT optimized e.g. for performance.\nFeel free to [contribute](#Contributing).\n\n\n## Usage\n\n### Hardware\n\nConnect a RS-485 transceiver IC like (75176BP) to the `TX` pin of your particle device. \n\nA minimal example for quick tests with the photon:\n\n![breadboard example](hardware/breadboard-example.png)\n\nYou should decouple the dmx system for more robust applications. \nSchematics can be found at [www.mathertel.de](http://www.mathertel.de/Arduino/DMXShield.aspx).\n \n\n### Software\n\nUsing the library is as simple as:\n\n```\n#include \"SimpleDmx.h\"\nSimpleDmx simpleDmx;\n\nvoid setup() {\n  simpleDmx.start();\n  simpleDmx.setChannel(0,255);\n  // ...\n}\n\nvoid loop() {}\n```\n\nSee the [examples](examples) folder for more details.\n\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add SimpleDmx_myname` to add the library to a project on your machine or add the SimpleDmx_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n\n## LICENSE\nCopyright 2017 André Hanak <impressum@a-hanak.de>\n\nLicensed under the MIT license\n",
+  "readme": "# SimpleDmx\n\nA Particle library for sending DMX signals using high-level functions from the particle firmware API.\n\nThis work is likely not a good solution for professional DMX applications. \nIt works for me with a small setup for ambient lightning.\nI'm not a DMX expert. \nThe implementation is very trivial and NOT optimized e.g. for performance.\nFeel free to contribute.\n\n\n## Usage\n\n### Hardware\n\nConnect a RS-485 transceiver IC like (75176BP) to the `TX` pin of your particle device. \n\nA minimal example for quick tests with the photon:\n\nbreadboard example (image removed)\n\nYou should decouple the dmx system for more robust applications. \nSchematics can be found at [www.mathertel.de](http://www.mathertel.de/Arduino/DMXShield.aspx).\n \n\n### Software\n\nUsing the library is as simple as:\n\n```\n#include \"SimpleDmx.h\"\nSimpleDmx simpleDmx;\n\nvoid setup() {\n  simpleDmx.start();\n  simpleDmx.setChannel(0,255);\n  // ...\n}\n\nvoid loop() {}\n```\n\nSee the examples folder for more details.\n\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add SimpleDmx_myname` to add the library to a project on your machine or add the SimpleDmx_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n\n## LICENSE\nCopyright 2017 André Hanak <impressum@a-hanak.de>\n\nLicensed under the MIT license\n",
   "allVersions": [
     "0.1.0"
   ]

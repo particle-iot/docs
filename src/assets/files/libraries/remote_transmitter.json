@@ -7,7 +7,7 @@
   "attributes": {
     "name": "remote_transmitter",
     "version": "2.3.1",
-    "installs": 649,
+    "installs": 737,
     "license": "GPLv3",
     "author": "Randy Simons",
     "sentence": "This library provides an easy class for Arduino, to send and receive signals used by some common old style 433MHz remote control switches.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/remote_transmitter",
+  "cardUrl": "/reference/device-os/libraries/r/remote_transmitter",
   "versions": {
     "2.3.1": {
       "builds": {},

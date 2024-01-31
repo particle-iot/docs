@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NimbleParticleHeatblanketLibrary",
     "version": "0.12.1",
-    "installs": 2824,
+    "installs": 3079,
     "author": "Ryan Kast",
     "sentence": "A collection of classes and helpers for Nimble based Heatblanket controlling on a Particle device",
     "paragraph": "A collection of classes and helpers for Nimble based Heatblanket controlling on a Particle device",
@@ -28,7 +28,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NimbleParticleHeatblanketLibrary",
+  "cardUrl": "/reference/device-os/libraries/n/NimbleParticleHeatblanketLibrary",
   "versions": {
     "0.12.1": {
       "added": "2022-10-26T18:52:55.074Z",
@@ -98,6 +98,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

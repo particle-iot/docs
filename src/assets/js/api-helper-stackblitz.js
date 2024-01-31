@@ -48,5 +48,54 @@ $(document).ready(function () {
         });  
     });
 
+    $('.stackblitzEmbed').each(async function() {
+        const thisPartial = $(this);
+
+        let embedObject = {
+            project: $(thisPartial).data('project'),
+            width: parseInt($(thisPartial).data('width')) || 700,
+            height: parseInt($(thisPartial).data('height')) || 400,
+            options: $(thisPartial).data('options').split(','),
+            loaded: false,
+        }
+        $(thisPartial).data('embedObject', embedObject);
+
+        embedObject.load = async function() {
+            if (embedObject.loaded) {
+                return;
+            }
+            embedObject.loaded = true;
+
+            embedObject.vm = await StackBlitzSDK.embedProjectId($(thisPartial).find('.iframeDiv')[0], embedObject.project, {
+                width: embedObject.width,
+                height: embedObject.height,
+                view: 'editor',
+            });
+    
+            $(thisPartial).find('iframe').css('max-width', embedObject.width + 'px');
+    
+            const urlTimer = setInterval(async function() {
+                try {
+                    embedObject.url = await embedObject.vm.preview.getUrl();
+                }
+                catch(e) {                
+                }
+                if (embedObject.url) {
+                    console.log('embedObject.url', embedObject.url);
+                    if (embedObject.hasUrlCallback) {
+                        embedObject.hasUrlCallback(embedObject.url);
+                    }
+                    clearInterval(urlTimer);
+                }
+            }, 2000);
+        }
+
+        if (!embedObject.options.includes('waitLoad')) {
+            embedObject.load();
+        }
+        
+
+    });
+
 
 });

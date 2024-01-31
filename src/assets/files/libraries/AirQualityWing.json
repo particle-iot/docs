@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AirQualityWing",
     "version": "1.0.2",
-    "installs": 1212,
+    "installs": 1344,
     "license": "GNU General Public License v3.0",
     "author": "Jared Wolff (Circuit Dojo LLC)",
     "sentence": "Library that works with the Air Quality Wing for Particle Mesh.",
@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AirQualityWing",
+  "cardUrl": "/reference/device-os/libraries/a/AirQualityWing",
   "versions": {
     "1.0.2": {
       "builds": {
@@ -133,12 +133,64 @@
             "AirQualityWingExample": false,
             "CanaryExample": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "boron": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "bsom": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "b5som": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "tracker": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "p2": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "boron": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "bsom": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "b5som": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "tracker": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "esomx": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.939Z"
     }
   },
-  "readme": "# Air Quality Wing for Particle Mesh Library!\n\n![Render](images/render.png)\n\nThe Air Quality Wing for Particle Mesh (Previously Particle Squared) is a circuit board that helps you monitor the air quality around you. This repository is the code for the Air Quality Wing which enables you to monitor humidity, temperature, air particulates, eC02 and TVOCs in one small package.\n\nYou can use it with an Adafruit Feather compatible board or the newest mesh enabled boards from Particle. [For more information click here.](https://www.jaredwolff.com/particle-squared-air-quality-sensor/) If you want to use this library with other Particle boards, you'll have to modify `board.h` to suit your needs.\n\n[To get yours go here.](https://www.jaredwolff.com/store/air-quality-wing/)\n\n## Usage\n\nInsert a Xenon, Boron or Argon into a Air Quality Wing. Create a new project and import the library. (Search for `AirQualityWing`)\n\nHere's a base example. (Also available under `AirQualityWing/AirQualityWing.ino`)\n\n```c++\n/*\n * Project Air Quality Wing Library Example\n * Description: Basic example using the Air Quality Wing for Particle Mesh\n * Author: Jared Wolff (Circuit Dojo LLC)\n * Date: 10/27/2019\n * License: GNU GPLv3\n */\n\n#include \"AirQualityWing.h\"\n#include \"board.h\"\n\n// Logger\nSerialLogHandler logHandler(115200, LOG_LEVEL_ERROR, {\n    { \"app\", LOG_LEVEL_TRACE }, // enable all app messages\n});\n\n// Forward declaration of event handler\nvoid AirQualityWingEvent();\n\n// AirQualityWing object\nAirQualityWing AirQual = AirQualityWing();\n\n// Handler is called in main loop.\n// Ok to run Particle.Publish\nvoid AirQualityWingEvent() {\n\n  Log.trace(\"pub\");\n\n  // Publish event\n  Particle.publish(\"blob\", AirQual.toString(), PRIVATE, WITH_ACK);\n\n}\n\n// Cloud function for setting interval\nint set_interval( String period ) {\n\n  // Set the interval with the air quality code\n  AirQual.setInterval((uint32_t)period.toInt());\n\n  return -1;\n\n}\n\n// setup() runs once, when the device is first turned on.\nvoid setup() {\n\n  // Turn off the LED\n  // RGB.control(true);\n  // RGB.brightness(0);\n\n  // Set up PC based UART (for debugging)\n  Serial.blockOnOverrun(false);\n  Serial.begin();\n\n  // Set up I2C\n  Wire.setSpeed(I2C_CLK_SPEED);\n  Wire.begin();\n\n  // Default settings\n  AirQualityWingSettings_t defaultSettings =\n  { 20000, //Measurement Interval\n    true,                 //Has HPMA115\n    true,                 //Has CCS811\n    true,                 //Has Si7021\n    CCS811_ADDRESS,       //CCS811 address\n    CCS811_INT_PIN,       //CCS811 intpin\n    CCS811_RST_PIN,       //CCS811 rst pin\n    CCS811_WAKE_PIN,      //CCS811 wake pin\n    HPMA1150_EN_PIN       //HPMA int pin\n  };\n\n  // Setup & Begin Air Quality\n  AirQual.setup(AirQualityWingEvent, defaultSettings);\n  AirQual.begin();\n\n  // Set up cloud variable\n  Particle.function(\"set_interval\", set_interval);\n\n  // Startup message\n  Serial.println(\"Air Quality Wing for Particle Mesh\");\n\n}\n\n// loop() runs over and over again, as quickly as it can execute.\nvoid loop() {\n\n  uint32_t err_code = AirQual.process();\n  if( err_code != success ) {\n\n    switch(err_code) {\n      case si7021_error:\n         Particle.publish(\"err\", \"si7021\" , PRIVATE, NO_ACK);\n          Log.error(\"Error si7021\");\n      case ccs811_error:\n         Particle.publish(\"err\", \"ccs811\" , PRIVATE, NO_ACK);\n          Log.error(\"Error ccs811\");\n      case hpma115_error:\n         Particle.publish(\"err\", \"hpma115\" , PRIVATE, NO_ACK);\n          Log.error(\"Error hpma115\");\n      default:\n        break;\n    }\n\n  }\n\n}\n```\n\n## Other Examples\n\nThere's also an example for the [Canary](https://www.hackster.io/jaredwolff/the-canary-a-portable-air-quality-monitor-99a1f4). Compile it like so:\n\n```\nparticle compile xenon examples/CanaryExample/ src/\n```\n\nThen you can flash the file via the Particle cloud\n\n```\nparticle flash <device name> xenon_firmware_12345.bin\n```\n\n## Documentation\n\nTODO: Describe `AirQualityWing` Library\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile xenon examples/AirQualityWingExample/ src/` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add AirQualityWing_myname` to add the library to a project on your machine or add the AirQualityWing_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.\n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2019 Jared Wolff (Circuit Dojo LLC)\n\nLicensed under the GNU General Public License v3.0 license\n",
+  "readme": "# Air Quality Wing for Particle Mesh Library!\n\nRender (image removed)\n\nThe Air Quality Wing for Particle Mesh (Previously Particle Squared) is a circuit board that helps you monitor the air quality around you. This repository is the code for the Air Quality Wing which enables you to monitor humidity, temperature, air particulates, eC02 and TVOCs in one small package.\n\nYou can use it with an Adafruit Feather compatible board or the newest mesh enabled boards from Particle. [For more information click here.](https://www.jaredwolff.com/particle-squared-air-quality-sensor/) If you want to use this library with other Particle boards, you'll have to modify `board.h` to suit your needs.\n\n[To get yours go here.](https://www.jaredwolff.com/store/air-quality-wing/)\n\n## Usage\n\nInsert a Xenon, Boron or Argon into a Air Quality Wing. Create a new project and import the library. (Search for `AirQualityWing`)\n\nHere's a base example. (Also available under `AirQualityWing/AirQualityWing.ino`)\n\n```c++\n/*\n * Project Air Quality Wing Library Example\n * Description: Basic example using the Air Quality Wing for Particle Mesh\n * Author: Jared Wolff (Circuit Dojo LLC)\n * Date: 10/27/2019\n * License: GNU GPLv3\n */\n\n#include \"AirQualityWing.h\"\n#include \"board.h\"\n\n// Logger\nSerialLogHandler logHandler(115200, LOG_LEVEL_ERROR, {\n    { \"app\", LOG_LEVEL_TRACE }, // enable all app messages\n});\n\n// Forward declaration of event handler\nvoid AirQualityWingEvent();\n\n// AirQualityWing object\nAirQualityWing AirQual = AirQualityWing();\n\n// Handler is called in main loop.\n// Ok to run Particle.Publish\nvoid AirQualityWingEvent() {\n\n  Log.trace(\"pub\");\n\n  // Publish event\n  Particle.publish(\"blob\", AirQual.toString(), PRIVATE, WITH_ACK);\n\n}\n\n// Cloud function for setting interval\nint set_interval( String period ) {\n\n  // Set the interval with the air quality code\n  AirQual.setInterval((uint32_t)period.toInt());\n\n  return -1;\n\n}\n\n// setup() runs once, when the device is first turned on.\nvoid setup() {\n\n  // Turn off the LED\n  // RGB.control(true);\n  // RGB.brightness(0);\n\n  // Set up PC based UART (for debugging)\n  Serial.blockOnOverrun(false);\n  Serial.begin();\n\n  // Set up I2C\n  Wire.setSpeed(I2C_CLK_SPEED);\n  Wire.begin();\n\n  // Default settings\n  AirQualityWingSettings_t defaultSettings =\n  { 20000, //Measurement Interval\n    true,                 //Has HPMA115\n    true,                 //Has CCS811\n    true,                 //Has Si7021\n    CCS811_ADDRESS,       //CCS811 address\n    CCS811_INT_PIN,       //CCS811 intpin\n    CCS811_RST_PIN,       //CCS811 rst pin\n    CCS811_WAKE_PIN,      //CCS811 wake pin\n    HPMA1150_EN_PIN       //HPMA int pin\n  };\n\n  // Setup & Begin Air Quality\n  AirQual.setup(AirQualityWingEvent, defaultSettings);\n  AirQual.begin();\n\n  // Set up cloud variable\n  Particle.function(\"set_interval\", set_interval);\n\n  // Startup message\n  Serial.println(\"Air Quality Wing for Particle Mesh\");\n\n}\n\n// loop() runs over and over again, as quickly as it can execute.\nvoid loop() {\n\n  uint32_t err_code = AirQual.process();\n  if( err_code != success ) {\n\n    switch(err_code) {\n      case si7021_error:\n         Particle.publish(\"err\", \"si7021\" , PRIVATE, NO_ACK);\n          Log.error(\"Error si7021\");\n      case ccs811_error:\n         Particle.publish(\"err\", \"ccs811\" , PRIVATE, NO_ACK);\n          Log.error(\"Error ccs811\");\n      case hpma115_error:\n         Particle.publish(\"err\", \"hpma115\" , PRIVATE, NO_ACK);\n          Log.error(\"Error hpma115\");\n      default:\n        break;\n    }\n\n  }\n\n}\n```\n\n## Other Examples\n\nThere's also an example for the [Canary](https://www.hackster.io/jaredwolff/the-canary-a-portable-air-quality-monitor-99a1f4). Compile it like so:\n\n```\nparticle compile xenon examples/CanaryExample/ src/\n```\n\nThen you can flash the file via the Particle cloud\n\n```\nparticle flash <device name> xenon_firmware_12345.bin\n```\n\n## Documentation\n\nTODO: Describe `AirQualityWing` Library\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile xenon examples/AirQualityWingExample/ src/` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add AirQualityWing_myname` to add the library to a project on your machine or add the AirQualityWing_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.\n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2019 Jared Wolff (Circuit Dojo LLC)\n\nLicensed under the GNU General Public License v3.0 license\n",
   "allVersions": [
     "1.0.2",
     "1.0.1",

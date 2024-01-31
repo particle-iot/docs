@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Rfid",
     "version": "1.1.6",
-    "installs": 1862,
+    "installs": 2181,
     "author": "Elias Santistevan",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic RFID Reader",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Qwiic_Rfid",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Qwiic_Rfid",
   "versions": {
     "1.1.6": {
       "builds": {
@@ -203,12 +203,100 @@
             "Example4_ChangeI2CAddress": true,
             "Example5_I2CScanner": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "boron": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "bsom": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "b5som": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "tracker": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "p2": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "boron": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "bsom": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "b5som": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "tracker": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "esomx": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.898Z"
     }
   },
-  "readme": "SparkFun Qwiic RFID Reader Arduino Library \n========================================\n![SparkFun Qwiic RFID Reader](https://cdn.sparkfun.com/assets/parts/1/3/6/1/0/15191-SparkFun_RFID_Qwiic_Reader-01a.jpg)\n\n\n*[SparkFun Qwiic RFID Reader (SEN-15191)*](https://www.sparkfun.com/products/15191)\n\nThe SparkFun Qwiic RFID Reader is a simple I<sup>2</sup>C based RFID Reader. \nIt can hold up to 20 unique RFID tag IDs and their scan times, while also\nproviding an interrupt pin for easy on the fly tag ID retrieval. The SparkFun\nQwiic RFID Reader Arduino Library gives easy to use functions to get scanned\nRFID tag IDs, their scan times, or getting all 20 IDs at once and their scan\ntimes. Better yet, each function is demoed in the provided example code!\n\nRepository Contents\n-------------------\n\n* **/examples** - Example code for the Arduino IDE \n* **/src** - Source files for the library (.cpp and .h files). \n* **/keywords.txt** - Keywords from the library that are highlighted in Arduino IDE.\n* **/library.properties** - General Library properties for the Arduino Package Manager.\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n\nProducts that use this library\n--------------\n* [SEN-15191](https://www.sparkfun.com/products/15191) - SparkFun Qwiic RFID Reader\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nVarious bits of the code have different licenses applied. Anything SparkFun wrote is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n",
+  "readme": "SparkFun Qwiic RFID Reader Arduino Library \n========================================\nSparkFun Qwiic RFID Reader (image removed)\n\n\n*[SparkFun Qwiic RFID Reader (SEN-15191)*](https://www.sparkfun.com/products/15191)\n\nThe SparkFun Qwiic RFID Reader is a simple I<sup>2</sup>C based RFID Reader. \nIt can hold up to 20 unique RFID tag IDs and their scan times, while also\nproviding an interrupt pin for easy on the fly tag ID retrieval. The SparkFun\nQwiic RFID Reader Arduino Library gives easy to use functions to get scanned\nRFID tag IDs, their scan times, or getting all 20 IDs at once and their scan\ntimes. Better yet, each function is demoed in the provided example code!\n\nRepository Contents\n-------------------\n\n* **/examples** - Example code for the Arduino IDE \n* **/src** - Source files for the library (.cpp and .h files). \n* **/keywords.txt** - Keywords from the library that are highlighted in Arduino IDE.\n* **/library.properties** - General Library properties for the Arduino Package Manager.\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n\nProducts that use this library\n--------------\n* [SEN-15191](https://www.sparkfun.com/products/15191) - SparkFun Qwiic RFID Reader\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nVarious bits of the code have different licenses applied. Anything SparkFun wrote is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n",
   "allVersions": [
     "1.1.6"
   ]

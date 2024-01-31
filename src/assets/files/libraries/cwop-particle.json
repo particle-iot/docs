@@ -7,7 +7,7 @@
   "attributes": {
     "name": "cwop-particle",
     "version": "0.0.10",
-    "installs": 398,
+    "installs": 507,
     "license": "See associated license file",
     "author": "Andrew Keyser <legoguy@gmail.com>",
     "sentence": "CWOP weather data reporting library for Particle Core, Photon, Electron and P1.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/cwop-particle",
+  "cardUrl": "/reference/device-os/libraries/c/cwop-particle",
   "versions": {
     "0.0.10": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "basic-cwop": false
+          },
+          "boron": {
+            "basic-cwop": false
+          },
+          "bsom": {
+            "basic-cwop": false
+          },
+          "b5som": {
+            "basic-cwop": false
+          },
+          "tracker": {
+            "basic-cwop": false
+          },
+          "esomx": {
+            "basic-cwop": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "basic-cwop": false
+          },
+          "boron": {
+            "basic-cwop": false
+          },
+          "bsom": {
+            "basic-cwop": false
+          },
+          "b5som": {
+            "basic-cwop": false
+          },
+          "tracker": {
+            "basic-cwop": false
+          },
+          "p2": {
+            "basic-cwop": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "basic-cwop": false
           },

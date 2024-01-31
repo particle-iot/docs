@@ -1,0 +1,242 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_AK975x_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_AK975x_Arduino_Library/archive/1.0.6.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_AK975x_Arduino_Library",
+    "version": "1.0.6",
+    "installs": 88,
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "Library for the AK9753 PIR Human Presence Qwiic Board",
+    "paragraph": "An Arduino Library for the AK9753 4 channel PIR sensor used for human movement and presence sensing",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_AK975x_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_AK975x_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_AK975x_Arduino_Library",
+  "versions": {
+    "1.0.6": {
+      "added": "2023-03-21T22:33:49.791Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": false,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "p2": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1-BasicReadings": false,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": false,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": false,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": false,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "esomx": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1-BasicReadings": false,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "electron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": false
+          },
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": false,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": false,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "electron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "argon": {
+            "Example1-BasicReadings": false,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": false,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "p2": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          },
+          "esomx": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": true,
+            "Example4-ThresholdTests": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun AK975x Quad PIR Human Presence Sensor Arduino Library\n===========================================================\n\nSparkFun Human Presence Sensor Breakout - AK9753 (Qwiic) (image removed)\n\n[*SparkFun Human Presence Sensor Breakout - AK9753 (Qwiic) (SEN-14349)*](https://www.sparkfun.com/products/14349)\n\nThe Qwiic Human Presence Sensor uses the AK975x digital PIR. This sensor uses four sensors with overlapping fields of view in order to detect both human presence and the associated movement of that heat source.\n\nLibrary written by Nathan Seidle ([SparkFun](http://www.sparkfun.com)).\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* [Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-human-presence-sensor-ak9753-hookup-guide) - Basic hookup guide for the Qwiic Human Presence Sensor.\n* Product Repository\n  * [AK9753](https://github.com/sparkfun/Qwiic_Human_Presence_Sensor_Breakout_AK9753) - Main repository (including hardware files) for the retired AK9753 Qwiic breakout board.\n  * _[AK9750 (RETIRED)](https://github.com/sparkfunx/Qwiic_Human_Presence_Sensor-AK9750)** - Main repository (including hardware files) for the retired AK9750 Qwiic breakout board._\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nVarious bits of the code have different licenses applied. Anything SparkFun wrote is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round! Anything Maxim wrote has its own license. Anything that was co-writing with Peter Jansen is BSD.\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",
+  "allVersions": [
+    "1.0.6"
+  ]
+}

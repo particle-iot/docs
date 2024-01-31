@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_LCD_RGB_Backlight",
     "version": "1.0.1",
-    "installs": 22258,
+    "installs": 25363,
     "license": "MIT License",
     "author": "Loovee / Paul Kourany",
     "sentence": "Seeedstudio Grove LCD RGB Backlight library",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/Grove_LCD_RGB_Backlight",
+  "cardUrl": "/reference/device-os/libraries/g/Grove_LCD_RGB_Backlight",
   "versions": {
     "1.0.1": {
       "builds": {
@@ -368,12 +368,184 @@
             "setColor": true,
             "setCursor": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "boron": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "bsom": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "b5som": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "tracker": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "p2": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "boron": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "bsom": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "b5som": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "tracker": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "esomx": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.714Z"
     }
   },
-  "readme": "Grove - LCD RGB Backlight\n---------------------------------------------------------\n\n[![Grove - LCD RGB Backlight](http://www.seeedstudio.com/depot/images/product/LCD%20RGB.jpg)](http://www.seeedstudio.com/depot/grove-lcd-rgb-backlight-p-1643.html?cPath=34_36)\n\n\n\n<br>\nDone with tedious mono color backlight? This Grove enables you to set the color to whatever you like via the simple and concise Grove interface. It takes I2C as communication method with your microcontroller. So number of pins required for data exchange and backlight control shrinks from ~10 to 2, relieving IOs for other challenging tasks. Besides, Grove - LCD RGB Backlight supports user-defined characters. Want to get a love heart or some other foreign characters? Just take advantage of this feature and design it!\n\n\n\n<br>\n## Usage:\n\nThis is an Arudino Library. It include a .h file, a .cpp file and some examples. Through these examples, you can quickly master the use of Grove - LCD RGB Backlight.\n\nThe folowing we will introduce some function which is used very normal. \n\n\n### Initialization\nAt the very beginning of we use this lcd, we should had it initialized. You can use this function :\n\n    lcd.begin(16, 2);\n\nIt means that this lcd has 16 lines and 2 rows.\n\n\n<br>\n### Change Color of Backlight\nOne of Grove - LCD RGB Backlight's most important feature is: you can change the color backlight, and it's a very simple thing, just use the folowing function:\n\n    void setRGB(int r, int g, int b);\n\n\n<br>\n### Clear Display\n\nYou can clear the display by this function:\n\n    void clear();\n\n<br>\n### Turn on and turn of display\n\n    void noDisplay();\t\t\t// turn off display\n    void display();\t\t\t\t// turn on display\n\n<br>\n### Blink\n\n    void noBlink();\n    void blink();\n\n<br>\n### Cursor\n\n    void noCursor();\n    void cursor();\n\n\n<br>\nFor more information, please refer to [wiki page](http://www.seeedstudio.com/wiki/Grove_-_LCD_RGB_Backlight).\n\nParticle Devices\n----------\nAdapted for Spark Core by Paul Kourany, Dec 26, 2014\n- Compatible with all Particle devices\n\nUpdated to Libraries 2.0, Jan 29, 2017\n\n \n----\n\nThis software is written by loovee([luweicong@seeedstudio.com](luweicong@seeedstudio.com \"luweicong@seeedstudio.com\")) for seeed studio<br>\nand is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check License.txt for more information.<br>\n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed Studio is an open hardware facilitation company based in Shenzhen, China. <br>\nBenefiting from local manufacture power and convenient global logistic system, <br>\nwe integrate resources to serve new era of innovation. Seeed also works with <br>\nglobal distributors and partners to push open hardware movement.<br>\n\n\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Grove_LCD_RGB_Backlight)](https://github.com/igrigorik/ga-beacon)\n\n\n",
+  "readme": "Grove - LCD RGB Backlight\n---------------------------------------------------------\n\n[![Grove - LCD RGB Backlight](http://www.seeedstudio.com/depot/images/product/LCD%20RGB.jpg)](http://www.seeedstudio.com/depot/grove-lcd-rgb-backlight-p-1643.html?cPath=34_36)\n\n\n\n<br>\nDone with tedious mono color backlight? This Grove enables you to set the color to whatever you like via the simple and concise Grove interface. It takes I2C as communication method with your microcontroller. So number of pins required for data exchange and backlight control shrinks from ~10 to 2, relieving IOs for other challenging tasks. Besides, Grove - LCD RGB Backlight supports user-defined characters. Want to get a love heart or some other foreign characters? Just take advantage of this feature and design it!\n\n\n\n<br>\n## Usage:\n\nThis is an Arudino Library. It include a .h file, a .cpp file and some examples. Through these examples, you can quickly master the use of Grove - LCD RGB Backlight.\n\nThe folowing we will introduce some function which is used very normal. \n\n\n### Initialization\nAt the very beginning of we use this lcd, we should had it initialized. You can use this function :\n\n    lcd.begin(16, 2);\n\nIt means that this lcd has 16 lines and 2 rows.\n\n\n<br>\n### Change Color of Backlight\nOne of Grove - LCD RGB Backlight's most important feature is: you can change the color backlight, and it's a very simple thing, just use the folowing function:\n\n    void setRGB(int r, int g, int b);\n\n\n<br>\n### Clear Display\n\nYou can clear the display by this function:\n\n    void clear();\n\n<br>\n### Turn on and turn of display\n\n    void noDisplay();\t\t\t// turn off display\n    void display();\t\t\t\t// turn on display\n\n<br>\n### Blink\n\n    void noBlink();\n    void blink();\n\n<br>\n### Cursor\n\n    void noCursor();\n    void cursor();\n\n\n<br>\nFor more information, please refer to [wiki page](http://www.seeedstudio.com/wiki/Grove_-_LCD_RGB_Backlight).\n\nParticle Devices\n----------\nAdapted for Spark Core by Paul Kourany, Dec 26, 2014\n- Compatible with all Particle devices\n\nUpdated to Libraries 2.0, Jan 29, 2017\n\n \n----\n\nThis software is written by loovee(luweicong@seeedstudio.com) for seeed studio<br>\nand is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check License.txt for more information.<br>\n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed Studio is an open hardware facilitation company based in Shenzhen, China. <br>\nBenefiting from local manufacture power and convenient global logistic system, <br>\nwe integrate resources to serve new era of innovation. Seeed also works with <br>\nglobal distributors and partners to push open hardware movement.<br>\n\n\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Grove_LCD_RGB_Backlight)](https://github.com/igrigorik/ga-beacon)\n\n\n",
   "allVersions": [
     "1.0.1",
     "1.0.0"

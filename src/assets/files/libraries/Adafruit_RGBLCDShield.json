@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_RGBLCDShield",
     "version": "0.0.10",
-    "installs": 12036,
+    "installs": 12783,
     "license": "BSD",
     "author": "Mumblepins/Adafruit",
     "sentence": "Port of Adafruit RGB LCD Shield Library (https://github.com/adafruit/Adafruit-RGB-LCD-Shield-Library)",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_RGBLCDShield",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_RGBLCDShield",
   "versions": {
     "0.0.10": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "HelloWorld": true
+          },
+          "boron": {
+            "HelloWorld": true
+          },
+          "bsom": {
+            "HelloWorld": true
+          },
+          "b5som": {
+            "HelloWorld": true
+          },
+          "tracker": {
+            "HelloWorld": true
+          },
+          "esomx": {
+            "HelloWorld": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "HelloWorld": true
+          },
+          "boron": {
+            "HelloWorld": true
+          },
+          "bsom": {
+            "HelloWorld": true
+          },
+          "b5som": {
+            "HelloWorld": true
+          },
+          "tracker": {
+            "HelloWorld": true
+          },
+          "p2": {
+            "HelloWorld": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "HelloWorld": true
           },

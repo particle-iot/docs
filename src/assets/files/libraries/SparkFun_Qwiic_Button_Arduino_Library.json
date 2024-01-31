@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Button_Arduino_Library",
     "version": "2.0.4",
-    "installs": 491,
+    "installs": 885,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "Fischer Moseley <fischer.moseley@sparkfun.com>",
     "sentence": "Communicates and configures the SparkFun Qwiic Button and Switch.",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Qwiic_Button_Arduino_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Qwiic_Button_Arduino_Library",
   "versions": {
     "2.0.4": {
       "added": "2022-10-31T16:09:11.414Z",
@@ -226,6 +226,130 @@
             "Example8_ExtInterrupt": true
           },
           "boron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "boron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "bsom": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "b5som": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "tracker": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "p2": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "boron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "bsom": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "b5som": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "tracker": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "esomx": {
             "Example1_PrintButtonStatus": true,
             "Example2_LightWhenPressed": true,
             "Example3_PulseWhenPressed": true,

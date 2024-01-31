@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TlsTcpClient",
     "version": "0.2.16",
-    "installs": 11299,
+    "installs": 12595,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/TlsTcpClient",
@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TlsTcpClient",
+  "cardUrl": "/reference/device-os/libraries/t/TlsTcpClient",
   "versions": {
     "0.2.16": {
       "builds": {
@@ -103,6 +103,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "bsom": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "b5som": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "tracker": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "esomx": {
+            "a1-example": true,
+            "a2-example": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "bsom": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "b5som": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "tracker": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "p2": {
+            "a1-example": true,
+            "a2-example": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "a1-example": true,
             "a2-example": true

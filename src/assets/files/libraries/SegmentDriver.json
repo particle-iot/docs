@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SegmentDriver",
     "version": "1.0.0",
-    "installs": 1509,
+    "installs": 1596,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of AS1115 3 character LED 7 segment driver I²C Mini Module",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SegmentDriver",
+  "cardUrl": "/reference/device-os/libraries/s/SegmentDriver",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "RSSI_Example": false
+          },
+          "boron": {
+            "RSSI_Example": false
+          },
+          "bsom": {
+            "RSSI_Example": false
+          },
+          "b5som": {
+            "RSSI_Example": false
+          },
+          "tracker": {
+            "RSSI_Example": false
+          },
+          "esomx": {
+            "RSSI_Example": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "RSSI_Example": false
+          },
+          "boron": {
+            "RSSI_Example": false
+          },
+          "bsom": {
+            "RSSI_Example": false
+          },
+          "b5som": {
+            "RSSI_Example": false
+          },
+          "tracker": {
+            "RSSI_Example": false
+          },
+          "p2": {
+            "RSSI_Example": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "RSSI_Example": false
           },

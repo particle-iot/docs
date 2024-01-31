@@ -6,6 +6,12 @@
       "href": "/quickstart/setup-next-steps/"
     },
     {
+      "dir": "monitor-one",
+      "title": "Monitor One",
+      "href": "/quickstart/monitor-one/",
+      "internal": true
+    },
+    {
       "dir": "argon",
       "title": "Argon",
       "href": "/quickstart/argon/"

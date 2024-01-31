@@ -9,6 +9,9 @@
         <div class="setupStep">
             <div class="setupStepSelectDevice" style="display:none">
                 <div>
+                    <div class="setupMode">
+                        <p>You should use <a href="https://setup.particle.io/">https://setup.particle.io/</a> instead of this tool in most situations.</p>
+                    </div>
                     <p>Connect your Particle device to your computer with a USB cable, click the **Select Device** button, 
                         select your device, and click **Connect**.</p>
                     <p><button class="setupSelectDeviceButton apiHelperButton">Select Device</button></p>
@@ -32,7 +35,7 @@
                     <p>Checking the device you have connected. This normally takes a second, but it could take up to 30 seconds.</p>
                 </div>
                 <div class="setupStepCheckDeviceTracker" style="display:none">
-                    <p>This tool cannot set up Tracker devices, including the Tracker One and Tracker SoM. You should
+                    <p>This tool cannot set up Tracker devices, including the Tracker One, Tracker SoM, and Monitor One. You should
                         use <a href="https://setup.particle.io">setup.particle.io</a> instead.
                     </p>
                 </div>
@@ -50,15 +53,27 @@
                     <p>This tool will flash Device OS and doctor firmware to your device, replacing the 
                         existing Device OS and user firmware.</p>
                 </div>
+                <div class="cloudMode">
+                    <p>This tool will flash Device OS and cloud debug firmware to your device, replacing the 
+                        existing Device OS and user firmware.</p>
+                </div>
                 <div class="setupMode">
                     <p>This tool will flash Device OS and setup firmware to your device, replacing the 
                         existing Device OS and user firmware.</p>
+                </div>
+                <div class="productMode">
+                    <p>This tool will flash Device OS and product firmware to your device, replacing the 
+                        existing Device OS and user firmware.</p>
+                    <table class="apiHelperTableNoMargin">
+                        <tbody class="productModeTableBody">                            
+                        </tbody>
+                    </table>
                 </div>
                 <div class="restoreMode">
                     <p>This tool will flash Device OS and the specified user firmware to your device, replacing the 
                         existing Device OS and user firmware.</p>
                 </div>
-                <div class="setupMode doctorMode">
+                <div class="setupMode doctorMode cloudMode">
                     <p>Upon successful completion you can to program your firmware again 
                         over-the-air (OTA) or by USB.</p>
                     <p>A backup file containing your user firmware will be saved to your Downloads folder; 
@@ -86,10 +101,10 @@
                 <div class="setupMode">
                     <p>Proceed with flashing the device and device setup?</p>
                 </div>
-                <div class="doctorMode">
+                <div class="doctorMode cloudMode productMode">
                     <p>Proceed with flashing the device?</p>
                 </div>
-                <div class="setupMode doctorMode">
+                <div class="setupMode doctorMode cloudMode productMode">
                     <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device</button></p>
                 </div>
                 <div class="restoreFirmwareDiv" style="display:none; padding-top:40px;">
@@ -99,7 +114,7 @@
                 </p>
                 <p><button class="setupRestoreDeviceButton apiHelperButton">Restore firmware from backup file</button><input type="file" id="uploadUserBinary" accept=".bin" style="display:none"></p>
                 </div> <!-- restorePane -->
-                <div class="doctorMode">
+                <div class="doctorMode cloudMode">
                     <details style="padding-top: 100px" class="doctorModeSettings">
                         <summary>Advanced Options</summary>
                         <p>These options are seldom needed and may adversely affect connectivity if used incorrectly.</p>
@@ -107,6 +122,12 @@
                         </select></p>
                         <p class="hasEthernetRow"><label><input type="checkbox" class="doctorUseEthernet"/>Use Ethernet for connectivity</label></p>
                         <p><label><input type="checkbox" class="doctorSetKeepAliveCheckbox"/>Set keep-alive to </label> <input type="text" size="6" value="120" class="doctorKeepAliveInput" /> seconds</p>
+                        <p class="hasWiFiRow" style="display:none;"><label><input type="checkbox" class="doctorSetupWiFi"/>Setup Wi-Fi network credentials</label></p>
+                        <p class="hasAntennaRow" slot="display:none;">Wi-Fi Antenna <select class="doctorDeviceWiFiAntenna apiHelperSelect">
+                            <option value="255">Leave unchanged</option>
+                            <option value="0">Select Internal</option>
+                            <option value="1">Select External</option>
+                            </select></p>
                     </details>
                 </div>
                 <div class="setupMode">
@@ -142,6 +163,13 @@
                 </div>
                 <div class="restoreMode">
                     <table>
+                        <tr class="trackerMonitorSelectorRow" style="display:none;">
+                            <td class="apiHelperProductSelectorLabel">Device Type</td>
+                            <td>
+                                <label><input type="radio" class="trackerMonitorRadio trackerMonitorTracker" checked>Tracker One</label> &nbsp;&nbsp;
+                                <label><input type="radio" class="trackerMonitorRadio trackerMonitorMonitor">Monitor One</label>
+                            </td>
+                        </tr>
                         <tr>
                             <td class="apiHelperProductSelectorLabel">Restore Type</td>
                             <td>
@@ -153,8 +181,13 @@
                             </td>
                             <td>&nbsp;</td>
                         </tr>
+                        <tr class="edgeVersionSelectorRow">
+                            <td class="apiHelperProductSelectorLabel">Edge Version</td>
+                            <td><select class="apiHelperUsbRestoreEdgeVersion apiHelperSelect"></select></td>
+                            <td>&nbsp;</td>
+                        </tr>
                         <tr class="apiHelperUsbRestoreDeviceVersionTr">
-                            <td class="apiHelperProductSelectorLabel">Version</td>
+                            <td class="apiHelperProductSelectorLabel">Device OS Version</td>
                             <td><select class="apiHelperUsbRestoreDeviceVersion apiHelperSelect"><option>Select Device OS Version</option></select></td>
                             <td>&nbsp;</td>
                         </tr>
@@ -191,6 +224,16 @@
                     </table>
                     <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device</button></p>
                 </div>
+            </div>
+            <div class="setupStepNotInProduct" style="display:none">
+                <p>The connected device does not appear to be in a product, you are not a team member of the product it
+                    is a member of. You cannot flash product firmware at this time.
+                </p>
+            </div>
+            <div class="setupStepNoProductFirmware" style="display:none">
+                <p>The connected device does not have a firmware version locked, or the product does not have a 
+                    default firmware version. You cannot flash product firmware at this time.
+                </p>
             </div>
             <div class="setupStepAddToProduct" style="display:none">
                 <p>Adding device to product...</p> 
@@ -292,7 +335,7 @@
                     <p>If the status LED is solid white, not blinking, tap the reset button on the device, then Reconnect</p>
                 </div>
             </div>
-            <div class="setupStepNoWiFi" style="display:none">
+            <div class="setupStepNoWiFi" style="display:none;">
                 <p>No Wi-Fi networks were found.</p>
                 <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
                 
@@ -324,11 +367,27 @@
                     <tbody>
                     </tbody>
                 </table>
+                <div class="wifiHiddenSsidDiv" style="display:none; margin-top: 15px; margin-bottom: 15px; margin-left: 5px;">
+                    <label><input type="checkbox" class="wifiHiddenSsidCheckbox">Use manually entered SSID: </label><input type="text" class="wifiHiddenSsidText" />
+                    <div style="display:none; margin-left: 23px; margin-top: 6px; margin-bottom:10px;" class="wifiHiddenSsidWarningDiv">On the Argon, a manually entered SSID can only be used to pre-configure credentials.<br/>The Argon cannot connect to a hidden SSID.</div>
+                </div>
                 <table class="wifiSettingsTable apiHelperTableNoMargin" style="display:none">
                     <tbody>
-                        <tr>
+                        <tr class="wifiSecurityTypeNormalRow">
                            <td>Security Type</td> 
-                           <td class="wifiSecurityType"></td> 
+                           <td class="wifiSecurityType">
+                           </td> 
+                        </tr>
+                        <tr class="wifiSecurityTypeHiddenSsidRow" style="display: none;">
+                           <td>Security Type</td> 
+                           <td>
+                                <select class="wifiSecurityTypeSelect">
+                                    <option value="0">Unsecured</option>
+                                    <option value="1">WEP</option>
+                                    <option value="2">WPA</option>
+                                    <option value="3">WPA2</option>
+                                </select>
+                           </td> 
                         </tr>
                         <tr class="eapTypeRow" style="display:none">
                            <td>EAP Type</td> 
@@ -428,6 +487,12 @@
                     <p><input type="color" class="colorSelector" value="#ff0000"/> &nbsp;
                         <button class="setColorButton">Set Status LED Color</button></p>
                 </div>
+            </div>
+            <div class="setupStepProductDone" style="display:none">
+                <p>Flashing product firmware complete!</p>
+            </div>
+            <div class="setupStepCloudDone" style="display:none">
+                <p>Flashing cloud debug firmware complete! Monitor the status using the USB serial debug console.</p>
             </div>
             <div class="setupStepDeviceRestoreDone" style="display:none">
                 <p>Device restore complete!</p>
@@ -535,10 +600,16 @@
                 <p><label><input type="checkbox" class="showDebuggingLogs" checked>Show device debugging logs</label></p>
             </div>
             <div class="deviceLogsTextButtons">
-                <textarea class="deviceLogsText" rows="10" cols="100" style="font-size: 9px">
+                <textarea class="deviceLogsText" rows="10" cols="100" style="font-size: 9px; line-height: 11px;">
                 </textarea>
                 <p><button class="downloadLogs">Download Logs</button></p>                
             </div>
+        </div>
+        <div class="manualLogs" style="display:none; padding-top:20px;">
+            <p>It appears that the device is not responding with log data. The best way to troubleshoot when this occurs 
+                is to use the <b>particle serial monitor</b> CLI command.</p>
+            </p>
+            {{!-- {{> usb-serial-console}} --}}
         </div>
         <div class="supportInfo">
             <div class="towerInfo" style="display:none">
@@ -654,7 +725,8 @@
                 and does not flash any firmware to the device.</p>
             <p>It can only be used in Chrome, Edge, or Opera browsers on Windows, Linux, Mac, and Chromebook. It cannot be used on phones or
                 tablets, and cannot be used with Safari or Firefox.</p>
-            <p>This tool cannot be used with the Photon or P1 (Gen 2).</p>
+            <p>You can use the <a href="/getting-started/developer-tools/cli/">Particle CLI</a> 
+                if you don't have a compatible browser or want to configure a P1 or Photon 1 device.</p>
         </div>
     </div>
     <div class="setupBrowserError" style="display:none">

@@ -7,16 +7,15 @@ description: Datasheet for the Particle Photon, Gen 2 Wi-Fi development kit
 
 {{#unless pdf-generation}}
 
-# Photon Datasheet <sup>(v021)</sup>
+# Photon Datasheet
 
 **Model number:** PHOTONH, PHOTONNOH
 
 {{downloadButton url="/assets/pdfs/datasheets/photon-datasheet.pdf"}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-The Photon has been deprecated. The recommended replacement is the [Photon 2](/reference/datasheets/wi-fi/photon-2-datasheet/).
-
-See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
+The Photon has been deprecated. The recommended replacement is the Photon 2. See the [Photon 2 Datasheet](/reference/datasheets/wi-fi/photon-2-datasheet/) 
+and [Photon 2 from Photon Migration Guide](/hardware/migration-guides/photon-2-photon-migration-guide/) for more information.
 {{box op="end"}}
 
 <div align=center><img src="/assets/images/photon_vector2_600.png" width=200></div>
@@ -51,7 +50,7 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 * Open source design
 * Real-time operating system (FreeRTOS)
 * Soft AP setup
-* FCC, CE and IC certified
+* FCC (United States), CE (European Union), and ISED (Canada) certified
 
 ### Device OS Support
 
@@ -68,7 +67,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 
 ## Interfaces
 
-### Block Diagram
+### Block diagram
 
 <div align=center><img src="/assets/images/photon-block-diagram.png" width=600></div>
 
@@ -99,7 +98,7 @@ Additionally, a user API is available to switch between internal, external and e
 
 The chip antenna is impedance matched to the 50 ohm RF feed line via a Pi network comprised of three RF inductors (1 series, 2 shunt).  These values are quite specific to the Photon due to the PCB construction and layout of the RF section.  Even if the Photon's layout design is copied exactly, to achieve the best performance it would be worth re-examining the Pi network values on actual samples of the PCB in question.
 
-### FCC Approved Antennas
+### FCC approved antennas
 
 | Antenna Type | Manufacturer | MFG. Part # | Gain |
 |-|-|-|-|
@@ -158,7 +157,7 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 
 ---
 
-### External Coexistence Interface
+### External coexistence interface
 
 **Note:** This interface is not supported by the P0 module and cannot be used.
 
@@ -170,9 +169,9 @@ These pads would be used for the external coexistent interface to prevent simult
 
 ---
 
-## Memory Map
+## Memory map
 
-### STM32F205RGY6 Flash Layout Overview
+### STM32F205RGY6 Flash layout overview
 
 - Bootloader (16 KB)
 - DCT1 (16 KB), stores Wi-Fi credentials, keys, mfg info, system flags, etc..
@@ -230,7 +229,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 34 -D fillbyte
 echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 ```
 
-### Memory Map (Common)
+### Memory map (common)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -240,7 +239,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 | EEPROM1 | 0x800C000 | 0x8010000 | 16 KB |
 | EEPROM2 | 0x8010000 | 0x8020000 | 64 KB |
 
-### Memory Map (Modular Firmware - default)
+### Memory map (modular firmware - default)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -250,7 +249,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 | OTA Backup | 0x80C0000 | 0x80E0000 | 128 KB |
 | Factory Backup | 0x80E0000 | 0x8100000 | 128 KB |
 
-### Memory Map (Monolithic Firmware - optional)
+### Memory map (monolithic firmware - optional)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -392,7 +391,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ---
 
-### I/O Characteristics
+### I/O characteristics
 
 These specifications are based on the STM32F205RGY6 datasheet, with reference to Photon pin nomenclature.
 
@@ -430,7 +429,7 @@ These specifications are based on the STM32F205RGY6 datasheet, with reference to
 
 ## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
 
 | Headers | Dimensions in inches (mm)                | Weight    |
 |:-------:|:----------------------------------------:|:---------:|
@@ -459,7 +458,7 @@ A Photon with headers part for EAGLE can be found in the [Particle EAGLE library
 
 ---
 
-### Recommended pcb land pattern (Photon without headers)
+### Recommended PCB land pattern (Photon without headers)
 
 The Photon (without headers) can be surface mounted directly in an end application PCB using the following PCB land pattern:
 
@@ -492,24 +491,24 @@ A Photon without headers part for EAGLE can be found in the [Particle EAGLE libr
 
 <div align=center><img src="/assets/images/photon-sch-rf.png" width=500></div>
 
-### Schematic - PØ Wi-Fi Module
+### Schematic - PØ Wi-Fi module
 
 <div align=center><img src="/assets/images/photon-sch-p0-wifi-module.png" width=500></div>
 
 ## Layout
 
-### Photon v1.0.0 Top Layer (GTL)
+### Photon v1.0.0 top layer (gtl)
 <div align=center><img src="/assets/images/photon_v100_pcb_top.png" width=200></div>
 
-### Photon v1.0.0 GND Layer (G2L)
+### Photon v1.0.0 GND layer (g2l)
 <div align=center><img src="/assets/images/photon_v100_pcb_gnd.png" width=200></div>
 
 ---
 
-### Photon v1.0.0 3V3 Layer (G15L)
+### Photon v1.0.0 3V3 layer (g15l)
 <div align=center><img src="/assets/images/photon_v100_pcb_3v3.png" width=200></div>
 
-### Photon v1.0.0 Bottom Layer (GBL)
+### Photon v1.0.0 bottom layer (gbl)
 <div align=center><img src="/assets/images/photon_v100_pcb_bot.png" width=200></div>
 
 ## Recommended solder reflow profile
@@ -525,9 +524,9 @@ A Photon without headers part for EAGLE can be found in the [Particle EAGLE libr
 | D-E. | 245 - 220°C, Cooling rate: < 1°C/s |
 
 
-## Bill of Materials
+## Bill of materials
 
-### Build your own design based on the Photon!
+### Build your own design based on the photon!
 
 |Qty|Device|Minimum Specification|Package/Case|Part Designator|MFG.|MFG. PN|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -582,14 +581,14 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 -	RoHS
 -	CE
 -	FCC ID: 2AEMI-PHOTON
--	IC: 20127-PHOTON
+-	ISED: 20127-PHOTON
 
 **Photon without Headers**
 - Model Number: PHOTONNOH
 - RoHS
 - CE
 -	FCC ID: 2AEMI-PHOTON
--	IC: 20127-PHOTON
+-	ISED: 20127-PHOTON
 
 
 ## Product handling
@@ -608,7 +607,7 @@ Photons without headers in matchbox packaging are also available in JEDEC style 
 
 <i class="icon-right-hand"></i>For more information regarding moisture sensitivity levels, labeling, storage and drying see the MSL standard see IPC/JEDEC J-STD-020 (can be downloaded from [www.jedec.org](http://www.jedec.org)).
 
-### ESD Precautions
+### ESD precautions
 
 <i class="icon-attention"></i> The photon contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a photon without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates photons.  ESD precautions should be implemented on the application board where the photon is mounted. Failure to observe these precautions can result in severe damage to the photon! <i class="icon-attention"></i>
 
@@ -651,7 +650,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 <dd>Over The Air; describing how firmware is transferred to the device.</dd>
 </div>
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC ISED CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -702,7 +701,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC: 20127-PHOTON
+> Contains transmitter module ISED: 20127-PHOTON
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -722,7 +721,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v008 | 11-May-2015 | BW | Updated BT CO-EX, PWM info, Qualifications |
 | v009 | 31-May-2015 | BW | Updated Pinouts, DAC info, Height dimensions, Solder mask info, Recommended operating conditions |
 | v010 | 1-June-2015 | BW | Updated VBAT info |
-| v011 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Added pin numbers to PCB Land Pattern for Photon without headers. |
+| v011 | 24-July-2015 | BW | Added FCC ISED CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Added pin numbers to PCB Land Pattern for Photon without headers. |
 | v012 | 15-January-2016 | WH | Added TELEC Certification information and expanded explanation of Photons with and without headers.
 | v013 | 7-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, more descriptive info about bottom side pads, known errata URL. Updated: BT COEX info, pin diagram, block diagram, operating conditions, pin descriptions, land-pattern image signal keepout note.
 | v014 | 13-September-2016 | BW | Updated Mating connectors section. |
@@ -736,7 +735,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v022 | 31-Jan-2023 | RK | Added Device OS versions |
 
 
-## Known Errata
+## Known errata
 
 We are tracking [known errata with this datasheet here](https://github.com/particle-iot/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.
 
@@ -749,7 +748,3 @@ https://www.particle.io
 **Community Forums**
 
 https://community.particle.io
-
-**Email**
-
-https://support.particle.io

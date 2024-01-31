@@ -7,7 +7,7 @@
   "attributes": {
     "name": "glowfish-particle",
     "version": "0.0.12",
-    "installs": 259,
+    "installs": 325,
     "license": "MIT",
     "author": "Vamsi Vytla",
     "sentence": "A simple library that helps photon users to post to http://glowfi.sh machine learning service",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/glowfish-particle",
+  "cardUrl": "/reference/device-os/libraries/g/glowfish-particle",
   "versions": {
     "0.0.12": {
       "builds": {},

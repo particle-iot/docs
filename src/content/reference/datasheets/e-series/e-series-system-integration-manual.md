@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 description: Integration Manual for E Series modules, Gen 2 cellular
 ---
-# System Integration Manual
+# System integration manual
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-system-integration-manual.pdf"}}
@@ -18,7 +18,7 @@ For further information about this module please refer to:
  - [Firmware development](/reference/device-os/firmware/)
  - [Product management](/getting-started/console/console/)
 
-## E series architecture:
+## E Series architecture:
 
 The block diagram below summarizes the architecture of the E series module. It's key components are the STM32F205 microcontroller and the u-blox SARA cellular modem. In addition to that, the module has an on board power management IC, 3.3V DC regulator, LiPo fuel gauge, and an Particle embedded SIM chip. There is also room for additional SPI based FLASH memory expansion.
 
@@ -102,7 +102,7 @@ You can download a high resolution pinout diagram in a <a href="/assets/images/e
 
 [1] PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
-## Technical Specifications
+## Technical specifications
 
 ### Absolute maximum ratings <sup>[1]</sup> <i class="icon-attention"></i>
 
@@ -294,9 +294,9 @@ If you are choosing your own antenna please make sure of the following:
  - Select a connector with 50 ohm impedance.
  - Select the antenna with appropriate gain figure that does not exceed the regulatory requirements in the country of operation.
 
-### Handling and Soldering
+### Handling and soldering
 
-#### ESD Precautions
+#### ESD precautions
 
 The E series contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an E series without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the E series is mounted. Failure to observe these precautions can result in severe damage to the E series!
 

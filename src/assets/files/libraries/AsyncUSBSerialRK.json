@@ -1,0 +1,144 @@
+{
+  "type": "libraries",
+  "id": "AsyncUSBSerialRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/AsyncUSBSerialRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "AsyncUSBSerialRK",
+    "version": "0.0.1",
+    "installs": 95,
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
+    "sentence": "Asynchronous USB Serial (CDC) for the Particle P2 and Photon 2",
+    "url": "https://github.com/particle-iot/StorageHelperRK",
+    "repository": "https://github.com/particle-iot/StorageHelperRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/AsyncUSBSerialRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T23:15:43.992Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-simple": false
+          },
+          "boron": {
+            "1-simple": false
+          },
+          "bsom": {
+            "1-simple": false
+          },
+          "b5som": {
+            "1-simple": false
+          },
+          "tracker": {
+            "1-simple": false
+          },
+          "p2": {
+            "1-simple": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": false
+          },
+          "bsom": {
+            "1-simple": false
+          },
+          "b5som": {
+            "1-simple": false
+          },
+          "tracker": {
+            "1-simple": false
+          },
+          "esomx": {
+            "1-simple": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple": false
+          },
+          "electron": {
+            "1-simple": false
+          },
+          "argon": {
+            "1-simple": false
+          },
+          "boron": {
+            "1-simple": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": false
+          },
+          "electron": {
+            "1-simple": false
+          },
+          "argon": {
+            "1-simple": false
+          },
+          "boron": {
+            "1-simple": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
+            "1-simple": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# AsyncUSBSerialRK\n\n**Asynchronous USB Serial (CDC) for the Particle P2 and Photon 2**\n\n- Github: https://github.com/rickkas7/AsyncUSBSerialRK\n- License: MIT (free for use in open source or closed source projects, including commercial projects)\n\nOn the P2 and Photon 2, writing to the USB serial appears significantly slower than on other devices. This is because writing to USB CDC serial is synchronous on the P2 and Photon 2 (RTL8721D), but on other platforms there is a ring buffer. This class adds a buffer so Serial writes are fast.\n\nNote that this is only for USB CDC `Serial`, not UART serial (such as `Serial1`), which is already buffered.\n\n## Example\n\nThe examples/1-simple example is simple:\n\n```cpp\n#include \"AsyncUSBSerialRK.h\"\n\nSYSTEM_THREAD(ENABLED);\n\n\nvoid setup() {\n    // Replaces: Serial.begin();\n    AsyncUSBSerialRK::instance().begin();\n}\n\nvoid loop() {\n    static unsigned long lastRun = 0;\n\n    unsigned long start = millis();\n    AsyncUSBSerialRK::instance().printlnf(\"test %lu\", lastRun);\n    lastRun = millis() - start;\n\n    delay(1000);\n}\n```\n\n- Instead of calling `Serial.begin` call:\n\n```\nAsyncUSBSerialRK::instance().begin();\n```\n\nYou can optionally pass a baud rate, but it's ignored just like it is for `Serial.begin()`.\n\n- You can use all standard methods for Serial, such as `println`, `printlnf`, `write`, etc.\n\n- Also you can read from this object.\n\n- Instead of using `Serial.` use `AsyncUSBSerialRK::instance().`\n\nIf this seems to verbose, assign it to a variable:\n\n```\nAsyncUSBSerialRK ASerial = AsyncUSBSerialRK::instance();\n```\n\nThen instead of using `Serial.` or `AsyncUSBSerialRK::instance().` you instead can just use `ASerial.`.\n\n- The reason for the `instance()` thing (the singleton pattern) is in case you need to use the async serial from multiple source files.\n\n- By default the ring buffer is 256 bytes. If you want to make it bigger, pass the size as the parameter to instance() in the first place that the instance is created, typically during setup.\n\n```\nAsyncUSBSerialRK::instance(512).begin();\n```\n\n- The `blockOnOverrun()` in `Serial` is supported. The default is true which is to block execution when the ring buffer is full. If you set it to false, data that will overflow the buffer is discarded.\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BMP085",
     "version": "1.0.3",
-    "installs": 23795,
+    "installs": 24416,
     "author": "Adafruit",
     "sentence": "A powerful but easy to use BMP085/BMP180 Library",
     "paragraph": "A powerful but easy to use BMP085/BMP180 Library",
@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_BMP085",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BMP085",
   "versions": {
     "1.0.3": {
       "builds": {
@@ -87,6 +87,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "BMP085test": true
+          },
+          "boron": {
+            "BMP085test": true
+          },
+          "bsom": {
+            "BMP085test": true
+          },
+          "b5som": {
+            "BMP085test": true
+          },
+          "tracker": {
+            "BMP085test": true
+          },
+          "esomx": {
+            "BMP085test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BMP085test": true
+          },
+          "boron": {
+            "BMP085test": true
+          },
+          "bsom": {
+            "BMP085test": true
+          },
+          "b5som": {
+            "BMP085test": true
+          },
+          "tracker": {
+            "BMP085test": true
+          },
+          "p2": {
+            "BMP085test": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "BMP085test": true
           },

@@ -229,7 +229,7 @@ If it works, congrats! You've created your bus prediction URL.
 
 ### Create a webhook to retrieve prediction times
 
-Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](/getting-started/integrations/webhooks/).
+Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](/integrations/webhooks/).
 
 To create a webhook:
 * Go to the **[Particle Console](https://console.particle.io)**
@@ -482,7 +482,7 @@ Wouldn’t it be awesome to be able to know whether someone is occupying your of
 
 <iframe src="https://player.vimeo.com/video/178283764" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-### Set up a Slack Incoming Webhook
+### Set up a Slack incoming webhook
 A [Slack Incoming Webhook](https://api.slack.com/incoming-webhooks) listens for data from an external source and then posts it to a Slack channel of your choosing.
 
 First, make a channel for the webhook to post in. This example is for conference room availability, so we’ll make a channel called #conferenceroom. Next, click the gear icon and choose “Add an app or integration”.
@@ -528,7 +528,7 @@ The **\{{PARTICLE_EVENT_VALUE}}** field gets filled with the data sent when the 
 
 Scroll down to the bottom and hit **Create Webhook**.
 
-### Photon → Webhook Code
+### Photon → Webhook code
 Now we'll look at the code used to activate the webhook from a Photon. Here's all the code used in the project:
 ```
 /*****************************************************************************
@@ -584,7 +584,7 @@ Particle.publish("conf_avail"); //publish to conf_avail webhook
 ```
 The name of the event being published matches the **event name** parameter in the webhook we just made.
 
-Check out the [Publish](/reference/device-os/api/cloud-functions/particle-publish/),  [Subscribe](/reference/device-os/api/cloud-functions/particle-subscribe/), and [Webhooks](/getting-started/integrations/webhooks/) documentation for more information.
+Check out the [Publish](/reference/device-os/api/cloud-functions/particle-publish/),  [Subscribe](/reference/device-os/api/cloud-functions/particle-subscribe/), and [Webhooks](/integrations/webhooks/) documentation for more information.
 
 ### Set up the hardware
 On the PIR sensor itself, with the back of the PCB facing up, find the two small potentiometers. The one on the left controls the range of the sensor (3-7 meters), and the one on the right controls how long the sensor stays triggered once tripped (1.5 - 300 seconds). Set the range potentiometer to the size of your conference room, or just turn it all the way to the right if your conference room has no windows. Set the second potentiometer all the way to the left (counterclockwise) to maximize its timing resolution.

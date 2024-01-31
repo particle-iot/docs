@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LTC2943",
     "version": "1.0.0",
-    "installs": 2169,
+    "installs": 2662,
     "license": "Retains Linear Technologies copyright",
     "author": "Linear Technologies / Viscacha",
     "sentence": "A quick port of the Linduino LT2943 3 Cell Battery Fuel gauge to use the native Wire routines on Particle.",
@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LTC2943",
+  "cardUrl": "/reference/device-os/libraries/l/LTC2943",
   "versions": {
     "1.0.0": {
       "builds": {

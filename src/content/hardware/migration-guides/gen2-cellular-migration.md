@@ -30,21 +30,21 @@ The Electron is a 2nd-generation device designed to easily plug into a solderles
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | ELC314TY|
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | B524MTY|
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | NRND | |
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | ELC404TY|
-| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | NRND | |
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404XTRAY50|
 | ASSET2GV2 | Asset Tracker 2G | Global | G350 |  | Deprecated | |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | U260 |  | Deprecated | |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | U270 |  | Deprecated | |
-| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 |  | Deprecated | ELC314TY|
-| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 |  | Deprecated | ELC314TY|
-| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 |  | Deprecated | ELC314TY|
-| E350KIT | Electron 2G Kit (Global) | Global | G350 |  | Deprecated | |
-| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | Deprecated | ELC314TY|
-| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | ELC404EA|
+| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 |  | Deprecated | BRN404XKIT|
+| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 |  | Deprecated | BRN404XTRAY50|
+| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 |  | Deprecated | B524MEA|
+| E350KIT | Electron 2G Kit (Global) | Global | G350 |  | Deprecated | B524MEA|
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | Deprecated | B524MTY|
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404XKIT|
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | U260 |  | Deprecated | |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated 7a6e03da-072c-4955-922a-288e9609292a --}}
@@ -74,23 +74,23 @@ Though the form-factor is different than the Electron, they are nearly identical
 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | NRND | E314KIT|
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | NRND | |
 | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | &check; | NRND | |
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | E404KIT|
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | E404TRAY50|
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | |
+| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | E404XTRAY50|
 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND | |
 | E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
-| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Deprecated | E314MOD1|
+| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Deprecated | |
 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | Deprecated | |
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | U201 |  | Deprecated | |
 | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | &check; | Deprecated | |
-| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | E404MOD1|
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
+| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | |
+| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | E404XTRAY50|
 | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 |  | End of life | |
 
 
 {{!-- END do not edit content above, it is automatically generated d5825d70-1978-4172-a917-9127c8879f4e --}}
 
 
-### Feature Comparison - Gen 2
+### Feature comparison - Gen 2
 
 | Feature | Electron | E Series Module | Base Board |
 | --- | :---: | :---: | :---: |
@@ -127,9 +127,9 @@ There are antenna differences between some Gen 2 and Gen 3 models, and a differe
 
 The Boron is the 3rd-generation cellular device in a prototyping form factor. It has pins on the bottom that can plug into a solderless breadboard, and is compatible with the Adafruit Feather form-factor to easily add accessories like sensors and displays. You can also plug it into a socket on a custom circuit board.
 
-#### Country Compatibility - Boron
+#### Country compatibility - Boron
 
-- The Boron 2G/3G Global (BRN314) can be used world-wide, however it is not recommended for the United States. In December 2022, all 2G/3G cellular operators will have shut down their 2G and 3G cellular networks and this device will no longer be able to connect.
+- The Boron 2G/3G Global (BRN314) can be used world-wide, however it is not recommended for the United States. In April 2024, all 2G/3G cellular operators will have shut down their 2G and 3G cellular networks and this device will no longer be able to connect.
 - The Boron LTE Cat M1 (BRN404) is only recommended for use in the United States, Canada, and Mexico. 
 
 #### Peripherals and GPIO - Boron
@@ -146,17 +146,17 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | NRND | BRN314KIT|
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND | BRN314TRAY50|
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | NRND | |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND | |
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | &check; | NRND | |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404TRAY50|
-| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404|
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404XTRAY50|
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | Deprecated | |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | Deprecated | |
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404X|
 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | NORAM | R410 |  | Deprecated | |
-| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 |  | Deprecated | BRN404KIT|
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | Deprecated | |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R410 | &check; | Deprecated | |
-| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
+| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 |  | Deprecated | BRN404XKIT|
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | Deprecated | BRN404X|
+| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R410 | &check; | Deprecated | BRN404XKIT|
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | BRN404XTRAY50|
 
 
 {{!-- END do not edit content above, it is automatically generated 0f0d9a27-0176-4f7d-8006-75cf7c3f5072 --}}
@@ -174,7 +174,7 @@ The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3r
 
 Even though the B Series SoM is more difficult to prototype with than the Boron, the B Series module is designed for enterprise deployment and production at scale. The larger width of the module allows for a wider selection of cellular modems, which is why there's LTE Cat 1 (with 2G/3G fallback) for the B Series SoM but not for the Boron. The Quectel EG91-E modem is physically too wide to fit in the Boron (Adafruit feather) form-factor.
 
-#### Country Compatibility - B Series SoM
+#### Country compatibility - B Series SoM
 
 - The B Series SoM LTE Cat M1 (B404) is only recommended for use in the United States, Canada, and Mexico. 
 - The B Series LTE Cat 1 with 2G/3G fallback (B524) is only recommended in Europe, Australia, and New Zealand.
@@ -195,12 +195,12 @@ Even though the B Series SoM is more difficult to prototype with than the Boron,
 | B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
 | B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | EG91-E | &check; | GA | |
 | B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-E | &check; | GA | |
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | B404MEA|
-| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
-| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E |  | NRND | B524MEA|
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | B404MTY|
-| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
-| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E |  | Deprecated | B524MTY|
+| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404XMTY|
+| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | B404XMEA|
+| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
+| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E |  | NRND | B524MTY|
+| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | B404XMEA|
+| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E |  | Deprecated | B524MEA|
 
 
 {{!-- END do not edit content above, it is automatically generated 295a969b-7ffa-4f84-8234-7e4cb38d1f10 --}}
@@ -226,7 +226,7 @@ In addition to using the Tracker One assembled module, the following application
 
 - [AN025 Tracker SoM First Board](/hardware/tracker/tracker-som/tracker-som-first-board/) contains the Eagle CAD files for creating your first Tracker SoM base board design.
 
-#### Country Compatibility - Tracker SoM
+#### Country compatibility - Tracker SoM
 
 - The Tracker SoM LTE Cat M1 (T404) is only recommended for use in the United States, Canada, and Mexico. 
 - The Tracker LTE Cat 1 with 2G/3G fallback (T524) is only recommended in selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
@@ -245,36 +245,29 @@ In addition to using the Tracker One assembled module, the following application
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | GA | |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | GA | |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | &check; | GA | |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | EG91-EX | &check; | GA | |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | In development | |
-| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | &check; | In development | |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
-| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | &check; | In development | |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | In development | |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | &check; | In development | |
-| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | In development | |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | In development | |
-| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | GA | |
+| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | &check; | GA | |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | GA | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | In development | |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | &check; | In development | |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | NRND | ONE524MEA|
 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX |  | NRND | ONE524MTY|
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC |  | NRND | T404MTY|
-| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | NRND | |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | EG91-EX |  | NRND | T524MKIT|
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | NRND | |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | Deprecated | ONE404MEA|
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC |  | Deprecated | ONE404MTY|
 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | Deprecated | T404MEA|
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | BG96-MC |  | Deprecated | T404MKIT|
-| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | Deprecated | |
-| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | &check; | Deprecated | |
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | Deprecated | T524MEA|
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX |  | Deprecated | T524MTY|
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | Deprecated | |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated d833e557-5289-450c-92cf-a6eedec30bd8 --}}
@@ -306,7 +299,7 @@ In addition to using the Tracker One assembled module, the following application
 | Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
 
 
-## Software Differences
+## Software differences
 
 {{!-- BEGIN shared-blurb e5b77a80-8a7a-4bd6-a7b6-8685fb87ed43 --}}
 ### User firmware binary size
@@ -323,6 +316,11 @@ On Gen 3 devices, over-the-air (OTA) updates have two features that can improve 
 
 - Combined OTA can combine Device OS and user firmware updates into a single binary that requires only one download and one reboot to install.
 - Resumable OTA allows an update to resume from the point it stopped, instead of starting over from the beginning if interrupted.
+
+### Asset OTA
+
+[Asset OTA](/getting-started/cloud/ota-updates/#asset-ota) (available in Device OS 5.5.0 and later), makes it possible to include bundled assets in an OTA software update that can be delivered to other processors and components in your product. 
+
 {{!-- END shared-blurb --}}
 
 
@@ -355,7 +353,7 @@ The microcontroller is different in Gen 2 vs. Gen 3 devices:
 
 - Bluetooth LE (BLE 5.0) is supported on the B Series SoM and Gen 3 devices but not Gen 2.
 
-### NFC Tag
+### NFC tag
 
 - NFC tag mode is supported on Gen 3 devices but not Gen 2.
 
@@ -382,7 +380,7 @@ Interfacing with 5V peripherals can be done with a level shifter, a MOSFET, or a
 
 There are more UART ports on the Gen 2 devices than Gen 3. If you need more hardware serial ports, the best option is to use the [SC16IS740](https://github.com/rickkas7/SC16IS740RK) or its relatives like the SC16IS750. These devices connect by I2C or SPI, and you can add multiple ports this way.
 
-#### Serial Baud Rates
+#### Serial baud rates
 
 | Baud Rate | Gen 2 | Gen 3 |
 | ------: | :---: | :---: |
@@ -482,10 +480,9 @@ On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are
 It is also possible to add an external PWM driver such as the PCA9685 which adds 16 outputs via I2C. You can add 62 of these to a single I2C bus for 992 PWM outputs! The [Adafruit_PWMServoDriver](/reference/device-os/libraries/a/Adafruit_PWMServoDriver/) library supports this chip on all Particle devices.
 
 
+### Interrupts
 
 {{!-- BEGIN shared-blurb 0ad42255-7fdf-47d2-af7a-0e4dcff59790 --}}
-
-### Interrupts
 
 #### Interrupts - Gen 2
 
@@ -513,12 +510,12 @@ Shared on the Electron/E Series (only one pin for each bullet item can be used a
   - C3, TX
   - C4, RX
 
+{{!-- END shared-blurb --}}
 
 #### Interrupts - Gen 3
 
 There is a limit of 8 pins with interrupt handlers, however the selection of pins is not restricted.
 
-{{!-- END shared-blurb --}}
 
 
 ### DAC
@@ -543,7 +540,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 
 {{!-- BEGIN shared-blurb 28cd19b2-4f01-444b-8189-ba6191e6ebdd --}}
 
-### Sleep Modes
+### Sleep modes
 
 - In general, Gen 3 devices use less power in all modes.
 - In `HIBERNATE` mode, the RTC (real time clock) does not run on Gen 3 devices, so you cannot wake by time from `HIBERNATE` mode (formerly known as `SLEEP_MODE_DEEP`).
@@ -585,7 +582,7 @@ If you are relying on this behavior for external circuits, you should instead us
 
 {{!-- END shared-blurb --}}
 
-### PMIC and Fuel Gauge
+### PMIC and fuel gauge
 
 The Electron, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
 
@@ -596,7 +593,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 - Gen 2 devices can emulate a USB mouse or keyboard over the USB port. This feature is not available on Gen 3.
 - Gen 2 devices can support two separate USB serial emulation streams over the USB port. Gen 3 devices only support the normal `Serial` interface.
 
-## Cellular Differences
+## Cellular differences
 
 ### Carriers
 
@@ -620,9 +617,9 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Armenia | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Armenia | Ucom | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Aruba | Setar | &check; | &check; | &check; | &nbsp; |
-| Australia | Optus | &check; | &check; | &check; | &nbsp; |
-| Australia | Telstra | &check; | &check; | &check; | &nbsp; |
-| Australia | Vodafone | &nbsp; | &check; | &check; | &nbsp; |
+| Australia | Optus | &check; | <sup>NRND</sup> | &check; | &nbsp; |
+| Australia | Telstra | &check; | <sup>NRND</sup> | &check; | &nbsp; |
+| Australia | Vodafone | &nbsp; | <sup>NRND</sup> | &check; | &nbsp; |
 | Austria | 3 (Drei) | &check; | &check; | &check; | &nbsp; |
 | Austria | A1 | &check; | &check; | &check; | &nbsp; |
 | Austria | T-Mobile | &check; | &check; | &check; | &nbsp; |
@@ -660,7 +657,6 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Cameroon | MTN | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Canada | Bell Mobility | &check; | <sup>NRND</sup> | &nbsp; | &check; |
 | Canada | Rogers Wireless | &check; | <sup>NRND</sup> | &nbsp; | &check; |
-| Canada | Sasktel | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | Canada | Telus | &check; | <sup>NRND</sup> | &nbsp; | &check; |
 | Canada | Videotron | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | Cayman Islands | Flow | &check; | &check; | &nbsp; | &nbsp; |
@@ -801,8 +797,8 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Malta | Go Mobile | &check; | &check; | &check; | &nbsp; |
 | Malta | Vodafone | &check; | &check; | &check; | &nbsp; |
 | Mexico | AT&T | &check; | <sup>NRND</sup> | &nbsp; | &check; |
-| Mexico | Movistar | &check; | <sup>NRND</sup> | &nbsp; | &nbsp; |
-| Mexico | Telcel | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| Mexico | Movistar | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Mexico | Telcel | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
 | Moldova | Moldcell | &nbsp; | &check; | &check; | &nbsp; |
 | Moldova | Orange | &check; | &check; | &check; | &nbsp; |
 | Mongolia | Mobicom | &nbsp; | &check; | &check; | &nbsp; |
@@ -820,9 +816,9 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Netherlands | KPN | &check; | &check; | &check; | &nbsp; |
 | Netherlands | T-Mobile | &check; | &check; | &check; | &nbsp; |
 | Netherlands | Vodafone | &check; | &check; | &check; | &nbsp; |
-| New Zealand | 2degrees | &check; | &check; | &check; | &nbsp; |
-| New Zealand | Spark | &check; | &check; | &check; | &nbsp; |
-| New Zealand | Vodafone | &check; | &check; | &check; | &nbsp; |
+| New Zealand | 2degrees | &check; | <sup>NRND</sup> | &check; | &nbsp; |
+| New Zealand | Spark | &check; | <sup>NRND</sup> | &check; | &nbsp; |
+| New Zealand | Vodafone | &check; | <sup>NRND</sup> | &check; | &nbsp; |
 | Nicaragua | Movistar | &check; | &check; | &nbsp; | &nbsp; |
 | Niger | Celtel | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Nigeria | 9mobile | &nbsp; | &check; | &check; | &nbsp; |
@@ -837,8 +833,6 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Norway | TDC | &nbsp; | &check; | &check; | &nbsp; |
 | Norway | Telenor | &check; | &check; | &check; | &nbsp; |
 | Norway | Telia | &check; | &check; | &check; | &nbsp; |
-| Oman | Omantel | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Oman | Ooredoo | &check; | &check; | &check; | &nbsp; |
 | Pakistan | Mobilink | &check; | &check; | &check; | &nbsp; |
 | Pakistan | Telenor | &nbsp; | &check; | &check; | &nbsp; |
 | Pakistan | Ufone | &nbsp; | &check; | &check; | &nbsp; |
@@ -868,7 +862,6 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Qatar | Ooredoo | &check; | &check; | &check; | &nbsp; |
 | Qatar | Vodafone | &check; | &check; | &check; | &nbsp; |
 | Réunion | SFR | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Romania | DigiMobil | &nbsp; | &check; | &check; | &nbsp; |
 | Romania | Orange | &check; | &check; | &check; | &nbsp; |
 | Romania | Telekom Romania | &nbsp; | &check; | &check; | &nbsp; |
 | Romania | Vodafone | &check; | &check; | &check; | &nbsp; |
@@ -946,7 +939,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | United Kingdom | Vodafone | &check; | &check; | &check; | &nbsp; |
 | United States | Alaska Wireless | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | United States | AT&T | &check; | &nbsp; | &nbsp; | &check; |
-| United States | T-Mobile (USA) | &check; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| United States | T-Mobile (USA) | &check; | <sup>NRND</sup> | &nbsp; | &check; |
 | United States | Union Telephone | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | Uruguay | Antel | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Uruguay | Claro | &nbsp; | &check; | &nbsp; | &nbsp; |

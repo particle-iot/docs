@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Relay",
     "version": "1.1.2",
-    "installs": 1078,
+    "installs": 1194,
     "author": "Elias Santistevan",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Quad and Single Relay Boards",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Qwiic_Relay",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Qwiic_Relay",
   "versions": {
     "1.1.2": {
       "builds": {
@@ -179,6 +179,106 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "boron": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "bsom": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "b5som": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "tracker": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "esomx": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "boron": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "bsom": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "b5som": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "tracker": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "p2": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example1_Single_Relay_Basics": true,
             "Example2_Quad_Relay_Basics": true,

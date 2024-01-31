@@ -17,7 +17,7 @@
     "dependencies": {
         "apidoc": "^0.17.5",
         "autoprefixer": "^7.1.5",
-        "clean-css": "^5.1.2",
+        "binary-version-reader": "^2.0.1",
         "del": "^3.0.0",
         "gulp": "^4.0.2",
         "gulp-footer": "^1.0.5",
@@ -29,7 +29,7 @@
         "gulp-rename": "^1.2.2",
         "gulp-replace": "^0.6.1",
         "handlebars": "^4.7.7",
-        "jszip": "^3.7.0",
+        "jszip": "^3.8.0",
         "lodash": "^4.17.21",
         "lunr": "^2.3.9",
         "marked": "~0.3.1",
@@ -72,7 +72,7 @@
         "yargs": "^17.0.1"
     },
     "engines": {
-        "node": "12.22.1",
-        "npm": "6.14.12"
+        "node": "16.17.0",
+        "npm": "8.15.0"
     }
 }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "papertrail",
     "version": "0.0.5",
-    "installs": 37386,
+    "installs": 39589,
     "license": "MIT",
     "author": "Barak Weiss <barakwei@gmail.com>",
     "sentence": "Sends logs to Papertrail",
@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/papertrail",
+  "cardUrl": "/reference/device-os/libraries/p/papertrail",
   "versions": {
     "0.0.5": {
       "builds": {
@@ -109,12 +109,52 @@
           "esomx": {
             "01_simple_papertrail": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "01_simple_papertrail": true
+          },
+          "boron": {
+            "01_simple_papertrail": true
+          },
+          "bsom": {
+            "01_simple_papertrail": true
+          },
+          "b5som": {
+            "01_simple_papertrail": true
+          },
+          "tracker": {
+            "01_simple_papertrail": true
+          },
+          "p2": {
+            "01_simple_papertrail": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "01_simple_papertrail": true
+          },
+          "boron": {
+            "01_simple_papertrail": true
+          },
+          "bsom": {
+            "01_simple_papertrail": true
+          },
+          "b5som": {
+            "01_simple_papertrail": true
+          },
+          "tracker": {
+            "01_simple_papertrail": true
+          },
+          "esomx": {
+            "01_simple_papertrail": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.693Z"
     }
   },
-  "readme": "# Papertrail logging library for Particle\n\nEver wanted to get a log from your code without having to connect it to a PC and use Serial to debug?\nThis library enables Particle hardware to write log to Papertrail, and debug your application even\nwhen it's not connected to your machine.\nThis library uses the existing [logging](https://docs.particle.io/reference/firmware/photon/#logging)\nmechanism, so you can move to using Papertrail in minutes.\nCurrently, the library send the logs on UDP without any encryption. Since UDP is used, the order of the log entries in Papertrail can be different from the order of the entries sent.\n\n## What is Papertrail?\n\n[Papertrail](https://papertrailapp.com/) provides hosted log management. That means you can upload\nany log to the cloud. Once uploaded, you can view the entire log, filter it and search it.\n\n### Is it free?\n\nYes! Papertrail provides a [free plan](https://papertrailapp.com/signup?plan=free)! Use referral code `668c8a` to get an extra 50/MB/month more log volume for 1 year (and I will get as well).\n\n## Logging format\n\nThe library uses the Particle device ID for the Papertrail system by default. And the application name is configurable. The log message itself follows the same pattern as the [SerialLogHandler](https://docs.particle.io/reference/firmware/photon/#logging) class:\n```\n%ISO8601_TIME% %system% %app% [%category%] %log_level%: %text\"\n```\nFor example a full log entry looks like this:\n```\nDec 23 00:09:09 200000000555555555555555 App:  [app] ERROR: An error occurred!\n```\n\n## Compatible Hardware:\n\n* Particle Photon, Core and Electron were verified to work with this library.\n\n**Logging on the Electron can consume a lot of data and may result in a higher bill. Be careful about how often you log.**\n\n## Example:\n\n1. To use the example, first you need to sign up to Papertrail.\n2. Once signed up, go to Settings -> Log destinations. There you'll see your host and port. Should be something like `logs53.papertrailapp.com:12345`.\n3. In the example file, replace `logsX.papertrailapp.com` with your own host, and the port (`12345`) with your own.\n4. You can also replace the app name there (In this example, it was left as \"PapertrailSimpleDemo\").\n5. The library uses the [deviceID](https://docs.particle.io/reference/firmware/photon/#deviceid-) as the deafult system name, you can change this as well in the constructor.\n6. Flash the application.\n7. On your Papertrail dashboard, a new system will be created with your device ID. Click on it.\n8. Your log should look like this:\n\n![Simple log output](docs/simple_log.png)\n\n## Contributing\n\nFeel free to open an issue, open a PR, or to ask a question.\n",
+  "readme": "# Papertrail logging library for Particle\n\nEver wanted to get a log from your code without having to connect it to a PC and use Serial to debug?\nThis library enables Particle hardware to write log to Papertrail, and debug your application even\nwhen it's not connected to your machine.\nThis library uses the existing [logging](https://docs.particle.io/reference/firmware/photon/#logging)\nmechanism, so you can move to using Papertrail in minutes.\nCurrently, the library send the logs on UDP without any encryption. Since UDP is used, the order of the log entries in Papertrail can be different from the order of the entries sent.\n\n## What is Papertrail?\n\n[Papertrail](https://papertrailapp.com/) provides hosted log management. That means you can upload\nany log to the cloud. Once uploaded, you can view the entire log, filter it and search it.\n\n### Is it free?\n\nYes! Papertrail provides a [free plan](https://papertrailapp.com/signup?plan=free)! Use referral code `668c8a` to get an extra 50/MB/month more log volume for 1 year (and I will get as well).\n\n## Logging format\n\nThe library uses the Particle device ID for the Papertrail system by default. And the application name is configurable. The log message itself follows the same pattern as the [SerialLogHandler](https://docs.particle.io/reference/firmware/photon/#logging) class:\n```\n%ISO8601_TIME% %system% %app% [%category%] %log_level%: %text\"\n```\nFor example a full log entry looks like this:\n```\nDec 23 00:09:09 200000000555555555555555 App:  [app] ERROR: An error occurred!\n```\n\n## Compatible Hardware:\n\n* Particle Photon, Core and Electron were verified to work with this library.\n\n**Logging on the Electron can consume a lot of data and may result in a higher bill. Be careful about how often you log.**\n\n## Example:\n\n1. To use the example, first you need to sign up to Papertrail.\n2. Once signed up, go to Settings -> Log destinations. There you'll see your host and port. Should be something like `logs53.papertrailapp.com:12345`.\n3. In the example file, replace `logsX.papertrailapp.com` with your own host, and the port (`12345`) with your own.\n4. You can also replace the app name there (In this example, it was left as \"PapertrailSimpleDemo\").\n5. The library uses the [deviceID](https://docs.particle.io/reference/firmware/photon/#deviceid-) as the deafult system name, you can change this as well in the constructor.\n6. Flash the application.\n7. On your Papertrail dashboard, a new system will be created with your device ID. Click on it.\n8. Your log should look like this:\n\nSimple log output (image removed)\n\n## Contributing\n\nFeel free to open an issue, open a PR, or to ask a question.\n",
   "allVersions": [
     "0.0.5",
     "0.0.3",

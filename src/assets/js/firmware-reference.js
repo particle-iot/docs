@@ -114,12 +114,12 @@ $(document).ready(function() {
             href = linkOptional;
         }
         else {
-            // If the 0 <= offset.top <= 100 then the referencePage is at the top of the screen and is definitely the
+            // If the 0 <= offset.top <= 10 then the referencePage is at the top of the screen and is definitely the
             // one to display.
             // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
             // because it's been scrolled up.
             for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
-                if (pageOffsets[ii].top < 100) {
+                if (pageOffsets[ii].top < 10) {
                     href = pageOffsets[ii].href;
                     break;
                 }
@@ -331,31 +331,17 @@ $(document).ready(function() {
 
 
                 if (options.toEnd) {
-                    let doBefore = options.doBefore;
-
                     $(scrollableContent).data('nextLink', nav.next);
 
                     $('div.content').not('.note-common').last().append(divElem);
 
-                    params.scrollHeightAfter = $(scrollableContent).prop('scrollHeight');
-                    params.height = $(scrollableContent).height();
-
-                    // Add more if necessary
-                    if (params.scrollHeightAfter < params.height && nav.next) {
-                        // Add more
-                        options.link = nav.next;
-                        pageQueue.push(options);
+                    if (pageQueue.length) {
                         loadPage();
-                        doBefore = false;
-                    }                  
-                
-                    if (doBefore) {
-                        pageQueue.push({link: options.doBefore, toEnd: false});
-                        loadPage();
-                    }      
+                    }           
                 }
                 else {
                     // Insert before
+                    console.log('has has insertBefore');
                     $(scrollableContent).data('prevLink', nav.prev);
 
                     $('div.content').not('.note-common').first().prepend(divElem);
@@ -368,9 +354,10 @@ $(document).ready(function() {
 
                 apiIndex.sections[nav.index].contentElem = divElem;
 
+                ignoreScroll = Date.now() + 1000;
+
                 if (options.scrollIntoView) {
                     $(divElem)[0].scrollIntoView({block: "start", behavior: "smooth"}); // align to top 
-                    ignoreScroll = Date.now() + 1000;
                 }
 
                 if (options.syncNavigation) {
@@ -388,13 +375,25 @@ $(document).ready(function() {
         loadPage();
     }
 
+    const preloadPages = function(pathname) {
+        const pathParts = parsePath(pathname);
+        
+        for(let index = 0; index < apiIndex.sections.length; index++) {
+            const section = apiIndex.sections[index];
+            if (section.folder == pathParts.folder && section.file == pathParts.file) {
+                for(let ii = 1; ii <= 3 && (index + ii) < apiIndex.sections.length; ii++) {
+                    queuePage({link: apiIndex.sections[index + ii].href, toEnd:true});
+                }                
+                break;
+            }
+        }
+    }
+
     // Load the page index
     fetch('/assets/files/apiIndex.json')
     .then(response => response.json())
     .then(function(res) {
         apiIndex = res;
-
-        const nav = apiIndexFind(thisUrl.pathname);
 
         // Build out the rest of the navigation menu. Insert all content after this:
         // div.navContainer .deviceOsApiNavMenu        
@@ -410,57 +409,92 @@ $(document).ready(function() {
         apiIndex.folders = {};
 
         // Populate only the top level sections here because there are so many subsections
+        let topLevelSections = [];
         for(let section of apiIndex.sections) {
-
             if (section.folder != lastFolder) {
                 // New section
-                let divNavContainer = document.createElement('div');
-                $(divNavContainer).addClass('navContainer');
-                $(divNavContainer).addClass('navMenu3');
-
-                let d = document.createElement('div');
-                $(d).addClass('navIndent3');
-                $(divNavContainer).append(d);
-
-                // TODO: Skip disclosure if only a single item
-                d = document.createElement('div');
-                $(d).attr('data-folder', section.folder);
-                $(d).addClass('navDisclosure');
-                {
-                    const iElem = document.createElement('i');
-                    $(iElem).addClass('ion-arrow-right-b');
-                    $(d).append(iElem);
-                }
-                $(d).on('click', function() {
-                    const folder = $(this).attr('data-folder');
-                    if ($(this).find('i').hasClass('ion-arrow-right-b')) {
-                        populateFolder(folder);
-                    }
-                    else {
-                        console.log('close folder from click');
-                        closeFolder(folder);
-                    }  
+                topLevelSections.push({
+                    folder: section.folder,
+                    sections: [section],
                 });
-                $(divNavContainer).append(d);
-
-                d = document.createElement('div');
-                $(d).addClass('navContent3');
-                {
-                    const aElem = document.createElement('a');
-                    $(aElem).text(apiIndex.folderTitles[section.folder]);
-                    $(aElem).attr('href', section.href);
-                    $(aElem).addClass('navLink');
-                    $(d).append(aElem);
-                }
-                $(divNavContainer).append(d);
-
-                apiIndex.folders[section.folder] = {
-                    elem: divNavContainer
-                };
-                $(divActiveContent).append(divNavContainer);
-
                 lastFolder = section.folder;
             }
+            else {
+                topLevelSections[topLevelSections.length - 1].sections.push(section);
+            }
+        }
+
+        topLevelSections.sort(function(a, b) {
+            if (a.folder == 'introduction') {
+                return -1;
+            }
+            else
+            if (b.folder == 'introduction') {
+                return +1;
+            }
+            else {
+                return a.folder.localeCompare(b.folder);
+            }
+        });
+
+        // Re-sort apiIndex.sections so scrolling, forward, backward, next group, etc. work right
+        apiIndex.sections = [];
+        for(let obj of topLevelSections) {
+            for(let section of obj.sections) {
+                apiIndex.sections.push(section);
+            }
+        }
+        const nav = apiIndexFind(thisUrl.pathname);
+
+
+        for(const obj of topLevelSections) {
+            let section = obj.sections[0];
+            // New section
+            let divNavContainer = document.createElement('div');
+            $(divNavContainer).addClass('navContainer');
+            $(divNavContainer).addClass('navMenu3');
+
+            let d = document.createElement('div');
+            $(d).addClass('navIndent3');
+            $(divNavContainer).append(d);
+
+            // TODO: Skip disclosure if only a single item
+            d = document.createElement('div');
+            $(d).attr('data-folder', section.folder);
+            $(d).addClass('navDisclosure');
+            {
+                const iElem = document.createElement('i');
+                $(iElem).addClass('ion-arrow-right-b');
+                $(d).append(iElem);
+            }
+            $(d).on('click', function() {
+                const folder = $(this).attr('data-folder');
+                if ($(this).find('i').hasClass('ion-arrow-right-b')) {
+                    populateFolder(folder);
+                }
+                else {
+                    console.log('close folder from click');
+                    closeFolder(folder);
+                }  
+            });
+            $(divNavContainer).append(d);
+
+            d = document.createElement('div');
+            $(d).addClass('navContent3');
+            {
+                const aElem = document.createElement('a');
+                $(aElem).text(apiIndex.folderTitles[section.folder]);
+                $(aElem).attr('href', section.href);
+                $(aElem).addClass('navLink');
+                $(d).append(aElem);
+            }
+            $(divNavContainer).append(d);
+
+            apiIndex.folders[section.folder] = {
+                elem: divNavContainer
+            };
+            $(divActiveContent).append(divNavContainer);
+
 
         }
 
@@ -468,16 +502,13 @@ $(document).ready(function() {
 
         apiIndex.sections[nav.index].contentElem = $('.originalContent');
 
+        navMenu.searchContent();
+
         populateFolder(parsePath(thisUrl.pathname).folder);
 
         syncNavigation(thisUrl.pathname);
 
-        if (nav.next) {
-            queuePage({link: nav.next, toEnd:true, doBefore:nav.prev});
-        }
-        else if (nav.prev) {
-            queuePage({link: nav.prev, toEnd:true});
-        }    
+        preloadPages(thisUrl.pathname);
     });
     
 

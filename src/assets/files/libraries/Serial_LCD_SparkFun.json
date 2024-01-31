@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Serial_LCD_SparkFun",
     "version": "0.0.1",
-    "installs": 14394,
+    "installs": 14846,
     "license": "LGPL",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "A port of the `serLCD` library for the 16x2 LCD. Connect the LCD's RX to the Particle's TX, and print to Serial1",
@@ -21,7 +21,7 @@
   "verification": "verified",
   "kind": "verified community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/Serial_LCD_SparkFun",
+  "cardUrl": "/reference/device-os/libraries/s/Serial_LCD_SparkFun",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -106,6 +106,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "boron": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "bsom": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "b5som": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "tracker": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "esomx": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "boron": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "bsom": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "b5som": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "tracker": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "p2": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1_Basic_Use": true,
             "2_Internet_Display": true

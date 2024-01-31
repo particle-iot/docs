@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DFPlayer",
     "version": "0.0.1",
-    "installs": 3561,
+    "installs": 4691,
     "license": "GNU GPLv3",
     "author": "Rodney Palmer",
     "maintainer": "RodneyPalmer (rwpalmeribm@gmail.com)",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DFPlayer",
+  "cardUrl": "/reference/device-os/libraries/d/DFPlayer",
   "versions": {
     "0.0.1": {
       "builds": {

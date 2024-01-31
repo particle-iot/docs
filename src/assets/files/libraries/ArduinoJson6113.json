@@ -1,0 +1,403 @@
+{
+  "type": "libraries",
+  "id": "ArduinoJson6113",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ArduinoJson6113/archive/6.11.3.tar.gz"
+  },
+  "attributes": {
+    "name": "ArduinoJson6113",
+    "version": "6.11.3",
+    "installs": 1036,
+    "license": "MIT",
+    "author": "Benoit Blanchon <blog.benoitblanchon.fr>",
+    "maintainer": "Benoit Blanchon <blog.benoitblanchon.fr>",
+    "sentence": "An efficient and elegant JSON library for Arduino.",
+    "paragraph": "ArduinoJson supports ✔ serialization, ✔ deserialization, ✔ MessagePack, ✔ fixed allocation, ✔ zero-copy, ✔ streams, and more. It is the most popular Arduino library on GitHub ❤❤❤❤❤. Check out arduinojson.org for a comprehensive documentation.",
+    "category": "Data Processing",
+    "url": "https://arduinojson.org/?utm_source",
+    "repository": "https://github.com/bblanchon/ArduinoJson.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/ArduinoJson6113",
+  "versions": {
+    "6.11.3": {
+      "added": "2023-05-19T19:49:08.697Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "boron": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "bsom": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "b5som": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "tracker": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "p2": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "boron": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "bsom": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "b5som": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "tracker": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "esomx": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "electron": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "argon": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "boron": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "electron": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "argon": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "boron": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "boron": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "bsom": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "b5som": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "tracker": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "p2": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "boron": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "bsom": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "b5som": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "tracker": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          },
+          "esomx": {
+            "JsonConfigFile": false,
+            "JsonGeneratorExample": false,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": false,
+            "StringExample": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "ArduinoJson (image removed)\r\n\r\n---\r\n\r\n[![arduino-library-badge](https://www.ardu-badge.com/badge/ArduinoJson.svg?version=6.11.3)](https://www.ardu-badge.com/ArduinoJson/6.11.3)\r\n[![Build Status](https://ci.appveyor.com/api/projects/status/m7s53wav1l0abssg/branch/6.x?svg=true)](https://ci.appveyor.com/project/bblanchon/arduinojson/branch/6.x)\r\n[![Build Status](https://travis-ci.org/bblanchon/ArduinoJson.svg?branch=6.x)](https://travis-ci.org/bblanchon/ArduinoJson)\r\n[![Coverage Status](https://coveralls.io/repos/github/bblanchon/ArduinoJson/badge.svg?branch=6.x)](https://coveralls.io/github/bblanchon/ArduinoJson?branch=6.x)\r\n[![Star this project](http://githubbadges.com/star.svg?user=bblanchon&repo=ArduinoJson&style=flat&color=fff&background=007ec6)](https://github.com/bblanchon/ArduinoJson)\r\n\r\nArduinoJson is a C++ JSON library for Arduino and IoT (Internet Of Things).\r\n\r\n## Features\r\n\r\n* JSON decoding (comments are supported)\r\n* JSON encoding (with optional indentation)\r\n* MessagePack\r\n* Elegant API, easy to use\r\n* Fixed memory allocation (zero malloc)\r\n* No data duplication (zero copy)\r\n* Portable (written in C++98, can be used in any C++ project)\r\n* Self-contained (no external dependency)\r\n* Small footprint\r\n* Input and output streams\r\n* [100% code coverage](https://coveralls.io/github/bblanchon/ArduinoJson)\r\n* [Header-only library](https://en.wikipedia.org/wiki/Header-only)\r\n* [MIT License](https://en.wikipedia.org/wiki/MIT_License)\r\n* [Comprehensive documentation](https://arduinojson.org?utm_source=github&utm_medium=readme)\r\n\r\n## Compatibility\r\n\r\nArduinoJson works on the following hardware:\r\n\r\n* <img src=\"https://www.arduino.cc/favicon.ico\" height=\"16\" width=\"16\"> Arduino boards: [Uno](https://www.arduino.cc/en/Main/ArduinoBoardUno), [Due](https://www.arduino.cc/en/Main/ArduinoBoardDue), [Mini](https://www.arduino.cc/en/Main/ArduinoBoardMini), [Micro](https://www.arduino.cc/en/Main/ArduinoBoardMicro), [Yun](https://www.arduino.cc/en/Main/ArduinoBoardYun)...\r\n* <img src=\"http://espressif.com/sites/all/themes/espressif/favicon.ico\" height=\"16\" width=\"16\"> Espressif chips: [ESP8266](https://en.wikipedia.org/wiki/ESP8266), [ESP32](https://en.wikipedia.org/wiki/ESP32)\r\n* <img src=\"https://www.wemos.cc/themes/martin-materialize-parallax/assets/favicon.ico\" height=\"16\" width=\"16\"> WeMos boards: [D1](https://wiki.wemos.cc/products:d1:d1), [D1 mini](https://wiki.wemos.cc/products:d1:d1_mini),  ...\r\n* <img src=\"http://redbearlab.com/favicon.ico\" height=\"16\" width=\"16\"> RedBearLab boards: [BLE Nano](http://redbearlab.com/blenano/), [BLE Mini](http://redbearlab.com/blemini/), [WiFi Micro](https://redbear.cc/product/wifi/wifi-micro.html), [LOLIN32](https://wiki.wemos.cc/products:lolin32:lolin32)...\r\n* <img src=\"https://www.pjrc.com/favicon.ico\" height=\"16\" width=\"16\"> [Teensy](https://www.pjrc.com/teensy/) boards\r\n* <img src=\"https://software.intel.com/sites/all/themes/zero/favicon.ico\" height=\"16\" width=\"16\"> Intel boards: Edison, Galileo...\r\n* <img src=\"https://www-assets.particle.io/images/favicon.png\"  height=\"16\" width=\"16\"> Particle boards: [Photon](https://www.particle.io/products/hardware/photon-wifi-dev-kit), [Electron](https://www.particle.io/products/hardware/electron-cellular-dev-kit)...\r\n* <img src=\"http://www.ti.com/favicon.ico\" height=\"16\" width=\"16\"> Texas Instruments boards: [MSP430](http://www.ti.com/microcontrollers/msp430-ultra-low-power-mcus/overview/overview.html)...\r\n\r\nArduinoJson compiles with zero warning on the following compilers, IDEs, and platforms:\r\n\r\n* <img src=\"https://www.arduino.cc/favicon.ico\" height=\"16\" width=\"16\"> [Arduino IDE](https://www.arduino.cc/en/Main/Software)\r\n* <img src=\"http://cdn.platformio.org/favicon.ico\" height=\"16\" width=\"16\"> [PlatformIO](http://platformio.org/)\r\n* <img src=\"http://energia.nu/img/favicon.ico\" height=\"16\" width=\"16\"> [Energia](http://energia.nu/)\r\n* <img src=\"http://www.visualmicro.com/pics/arduino-visual-studio-ld.png\" height=\"16\" width=\"16\"> [Visual Micro](http://www.visualmicro.com/)\r\n* <img src=\"http://www.atmel.com/Images/favicon.ico\" height=\"16\" width=\"16\"> [Atmel Studio](http://www.atmel.com/microsite/atmel-studio/)\r\n* <img src=\"https://www.iar.com/favicon.ico\" height=\"16\" width=\"16\"> [IAR Embedded Workbench](https://www.iar.com/iar-embedded-workbench/)\r\n* <img src=\"http://www.st.com/etc/clientlibs/st-site/media/app/images/favicon.png\" height=\"16\" width=\"16\"> [Atollic TrueSTUDIO](https://atollic.com/truestudio/)\r\n* <img src=\"http://www.keil.com/favicon.ico\" height=\"16\" width=\"16\"> [Keil uVision](http://www.keil.com/)\r\n* <img src=\"http://www.microchip.com/favicon.ico\" height=\"16\" width=\"16\"> [MPLAB X IDE](http://www.microchip.com/mplab/mplab-x-ide)\r\n* <img src=\"https://gcc.gnu.org/favicon.ico\" height=\"16\" width=\"16\"> [GCC](https://gcc.gnu.org/)\r\n* <img src=\"https://clang.llvm.org/favicon.ico\" height=\"16\" width=\"16\"> [Clang](https://clang.llvm.org/)\r\n* <img src=\"https://www.visualstudio.com/favicon.ico\" height=\"16\" width=\"16\"> [Visual Studio](https://www.visualstudio.com/)\r\n\r\n## Quickstart\r\n\r\n### Deserialization\r\n\r\nHere is a program that parses a JSON document with ArduinoJson.\r\n\r\n```c++\r\nchar json[] = \"{\\\"sensor\\\":\\\"gps\\\",\\\"time\\\":1351824120,\\\"data\\\":[48.756080,2.302038]}\";\r\n\r\nDynamicJsonDocument doc(1024);\r\ndeserializeJson(doc, json);\r\n\r\nconst char* sensor = doc[\"sensor\"];\r\nlong time          = doc[\"time\"];\r\ndouble latitude    = doc[\"data\"][0];\r\ndouble longitude   = doc[\"data\"][1];\r\n```\r\n\r\nSee the [tutorial on arduinojson.org](https://arduinojson.org/doc/decoding/?utm_source=github&utm_medium=readme)\r\n\r\n### Serialization\r\n\r\nHere is a program that generates a JSON document with ArduinoJson:\r\n\r\n```c++\r\nDynamicJsonDocument doc(1024);\r\n\r\ndoc[\"sensor\"] = \"gps\";\r\ndoc[\"time\"]   = 1351824120;\r\n\r\nJsonArray data = doc.createNestedArray(\"data\");\r\ndata.add(48.756080);\r\ndata.add(2.302038);\r\n\r\nserializeJson(doc, Serial);\r\n// This prints:\r\n// {\"sensor\":\"gps\",\"time\":1351824120,\"data\":[48.756080,2.302038]}\r\n```\r\n\r\nSee the [tutorial on arduinojson.org](https://arduinojson.org/doc/encoding/?utm_source=github&utm_medium=readme)\r\n\r\n## Documentation\r\n\r\nThe documentation is available on [arduinojson.org](https://arduinojson.org/?utm_source=github&utm_medium=readme), here are some shortcuts:\r\n\r\n* The [Examples](https://arduinojson.org/example/?utm_source=github&utm_medium=readme) show how to use the library in various situations.\r\n* The [API Reference](https://arduinojson.org/api/?utm_source=github&utm_medium=readme) contains the description of each class and function.\r\n* The [FAQ](https://arduinojson.org/faq/?utm_source=github&utm_medium=readme) has the answer to virtually every question.\r\n* The [ArduinoJson Assistant](https://arduinojson.org/assistant/?utm_source=github&utm_medium=readme) writes programs for you!\r\n\r\n---\r\n\r\nDo you like this library? Please [star this project on GitHub](https://github.com/bblanchon/ArduinoJson/stargazers)!\r\n\r\nWhat? You don't like it but you *love* it?\r\nWe don't take donations anymore, but [we sell a book](https://arduinojson.org/book/?utm_source=github&utm_medium=readme), so you can help and learn at the same time!\r\n",
+  "allVersions": [
+    "6.11.3"
+  ]
+}

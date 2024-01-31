@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Si7021_kag",
     "version": "1.2.3",
-    "installs": 325,
+    "installs": 431,
     "license": "BSD",
     "author": "Adafruit info@adafruit.com",
     "maintainer": "Ron M. Battle CaptIgmu",
@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_Si7021_kag",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_Si7021_kag",
   "versions": {
     "1.2.3": {
       "builds": {},

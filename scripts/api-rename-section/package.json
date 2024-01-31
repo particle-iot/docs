@@ -1,0 +1,16 @@
+{
+    "name": "api-rename-section",
+    "version": "0.0.1",
+    "description": "",
+    "private": true,
+    "scripts": {},
+    "contributors": [],
+    "license": "MIT",
+    "dependencies": {
+        "@particle/node-example-helper": "^0.0.2",
+        "yargs": "^17.7.2"
+    },
+    "engines": {
+        "node": ">=16"
+    }
+}

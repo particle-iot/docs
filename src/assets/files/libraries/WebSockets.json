@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WebSockets",
     "version": "0.1.0",
-    "installs": 815,
+    "installs": 1181,
     "license": "LGPLv2.1",
     "author": "mdma <mat dot mcgowan+particle at gmail dot com>",
     "sentence": "Websocket client and server.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "w",
-  "cardUrl": "/cards/libraries/w/WebSockets",
+  "cardUrl": "/reference/device-os/libraries/w/WebSockets",
   "versions": {
     "0.1.0": {
       "builds": {},

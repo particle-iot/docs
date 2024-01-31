@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 description: Datasheet for the Particle E Series Evaluation Board, Gen 2 cellular
 ---
-# E Series Evaluation Board
+# E Series evaluation board
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-eval-board.pdf"}}
@@ -61,7 +61,7 @@ This is a simple breakout board for Particle's E series of cellular IoT modules.
 | C0-C5| IO       | Digital only GPIO. C4 and C5 can also be used as PWM outputs.
 | D0-D7| IO       | Digital only GPIO. D0, D1, D2, D3 can also be used as PWM outputs.|
 
-## Basic Setup
+## Basic setup
 
 The basic setup for the E series to be operational is shown below:
 
@@ -107,7 +107,7 @@ That's it! The rest of the development process should be similar to that of the 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | NRND | |
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | E404KIT|
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | |
 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND | |
 
 

@@ -40,7 +40,7 @@ This example can be used three different ways:
 - Or you can populate 0.1" male header pins, which are handy for use with male-to-female Dupont wires for connecting directly to the Tracker SoM evaluation board.
 
 
-## Common Parts
+## Common parts
 
 ![Regulator](/assets/images/app-notes/AN024/regulator.png)
 
@@ -58,18 +58,18 @@ This design includes a [Microchip MCP23008T-E/ML](https://www.digikey.com/produc
 
 Only 4 of the 8 GPIO are used in this project, however since the MCP23008T-E/ML is so small an inexpensive it's not really worthwhile to source a separate 4-port GPIO expander.
 
-## Quad Relay 
+## Quad relay 
 
 ![Quad Relay Picture](/assets/images/app-notes/AN024/quad-pic.jpg)
 
-### Schematic and Board - Quad Relay
+### Schematic and board - quad relay
 
 ![Quad Relay Schematic](/assets/images/app-notes/AN024/quad-schematic.png)
 
 ![Quad Relay Board Layout](/assets/images/app-notes/AN024/quad-board.png)
 
 
-### BoM (Bill of Materials) - Quad Relay
+### BoM (Bill of Materials) - quad relay
 
 
 | Quantity | Part | Description | Example | Cost |
@@ -92,7 +92,7 @@ Choose one of:
 |   | J7 | Male Header Pins (8x0.1") | [Sullins PRPC040SAAN-RC](https://www.digikey.com/product-detail/en/PRPC040SAAN-RC/S1011EC-40-ND/2775214) | |
 | 1 | J7 | Screw Terminal Block 8x0.1" PTH | [On Shore OSTVN08A150](https://www.digikey.com/product-detail/en/on-shore-technology-inc/OSTVN08A150/ED10566-ND/1588868) | $2.36 | 
 
-### Design Details - Quad Relay
+### Design details - quad relay
 
 ![Relay Design](/assets/images/app-notes/AN024/relay.png)
 
@@ -111,10 +111,10 @@ These relays have a high coil current (79.4 mA) so a transistor driver is requir
 
 Finally, the BAS21 diode is a flyback diode to prevent current from the relay coil from damaging the driver circuit. Any time you have a bare relay that doesn't internally include one, you must add one.
 
-### Firmware - Quad Relay
+### Firmware - quad relay
 
 
-#### Getting the Tracker Edge Firmware - Quad Relay
+#### Getting the Tracker Edge firmware - quad relay
 
 You can download a complete project for use with Particle Workbench as a zip file here:
 
@@ -151,7 +151,7 @@ git submodule update --init --recursive
 - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, 2.0.0-rc.3, or later, Tracker, and your device.
 - Run **Particle: Flash application (local)**.
 
-#### Add the libraries - Quad Relay
+#### Add the libraries - quad relay
 
 From the command palette in Workbench, **Particle: Install Library** then enter **M8RelayRK**. 
 
@@ -159,12 +159,12 @@ If you prefer to edit project.properties directly, add this:
 
 {{> codebox content="/assets/files/app-notes/AN024/firmware/AN024.dep" height="100"}}
 
-### The Source - Quad Relay
+### The source - quad relay
 
 {{> codebox content="/assets/files/app-notes/AN024/firmware/quad.cpp" format="cpp" height="500"}}
 
 
-### Testing - Quad Relay
+### Testing - quad relay
 
 This code adds a Particle function than can be controlled by the Particle CLI, console, mobile apps, etc..
 
@@ -184,17 +184,17 @@ Note: The call and library take a 0-based relay index (0 - 3), but the board is 
 
 ---
 
-## Dual Latching Relay
+## Dual latching relay
 
 ![Dual Latching Relay Picture](/assets/images/app-notes/AN024/latching-pic.jpg)
 
-### Schematic and Board - Dual Latching Relay
+### Schematic and board - dual latching relay
 
 ![Dual Latching Relay Schematic](/assets/images/app-notes/AN024/latching-schematic.png)
 
 ![Dual Latching Relay Board Layout](/assets/images/app-notes/AN024/latching-board.png)
 
-### BoM (Bill of Materials) - Dual Latching Relay
+### BoM (Bill of Materials) - dual latching relay
 
 | Quantity | Part | Description | Example | Cost |
 | :---: | :--- | :--- | :--- | ---: |
@@ -219,7 +219,7 @@ Choose one of:
 
 
 
-### Design Details - Dual Latching Relay
+### Design details - dual latching relay
 
 ![Latching Relay Design](/assets/images/app-notes/AN024/latching-relay.png)
 
@@ -240,9 +240,9 @@ While energizing coils on both relays at the same time is possible within the po
 
 Finally, the BAS21 diode is a flyback diode to prevent current from the relay coil from damaging the driver circuit. Any time you have a bare relay that doesn't internally include one, you must add one. And since the latching relay has two coils, there's one for each coil.
 
-### Firmware - Dual Latching Relay
+### Firmware - dual latching relay
 
-#### Getting the Tracker Edge Firmware - Dual Latching Relay
+#### Getting the Tracker Edge firmware - dual latching relay
 
 
 You can download a complete project for use with Particle Workbench as a zip file here:
@@ -282,7 +282,7 @@ git submodule update --init --recursive
 
 Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
-#### Add the libraries - Dual Latching Relay
+#### Add the libraries - dual latching relay
 
 From the command palette in Workbench, **Particle: Install Library** then enter **M8RelayRK**. 
 
@@ -291,11 +291,11 @@ If you prefer to edit project.properties directly, add this:
 {{> codebox content="/assets/files/app-notes/AN024/firmware/AN024.dep" height="100"}}
 
 
-#### The Source - Dual Latching Relay
+#### The source - dual latching relay
 
 {{> codebox content="/assets/files/app-notes/AN024/firmware/dual.cpp" format="cpp" height="500"}}
 
-### Testing - Dual Latching Relay
+### Testing - dual latching relay
 
 This code adds a Particle function than can be controlled by the Particle CLI, console, mobile apps, etc..
 

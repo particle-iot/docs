@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# Spark Core Datasheet
+# Spark core datasheet
 
 ## Subsystems
 
@@ -48,7 +48,7 @@ Some of the key features of the CC3000 module are as follows:
 - SPI host interface
 
 
-### External FLASH
+### External flash
 
 ![External Flash](/assets/images/core-flashchip.jpg)
 
@@ -101,11 +101,11 @@ After setting them up, the user can then write to or read from the pins using [d
 
 Each of these pins can individually source/sink a maximum of 20mA. In the input mode, the user can activate internal pull-up or pull-down resistors (typically equal to 40K ohms). By default these are deactivated.
 
-### Analog Inputs
+### Analog inputs
 
 Pins A0 to A7 can be set up as analog inputs and can measure voltages of up to 3.3V and are internally referenced to VDD. The user can read the pins using [analogRead()](/reference/device-os/api/input-output/analogread-adc/) function which returns a 12bit value.
 
-### Analog Outputs
+### Analog outputs
 
 This term is misleading and misused but is widely adopted in the Arduino community. The pins that are set to output an analog value don't actually output an analog voltage but rather produce a PWM signal whose duty cycle can be varied thus varying the total average power of the signal. On the Core, the PWM signals have a resolution of 8 bits and run at a frequency of 500Hz.
 
@@ -161,7 +161,7 @@ The hardware files for the JTAG shield are available [here.](https://github.com/
 
 ## Memory mapping
 
-### Internal Flash Memory Map
+### Internal flash memory map
 
 The STM32 has a total of 128KB internal flash memory which is divided into three main regions by us. Beginning at the top of the memory space is where the bootloader is saved and locked. The second region is reserved for storing system flags and the third region holds the actual user firmware.
 
@@ -188,7 +188,7 @@ The STM32 has a total of 128KB internal flash memory which is divided into three
    </tr>
 </table>
 
-### External Flash Memory Map
+### External flash memory map
 
 The external flash memory gives us an additional 2MB of storage space. This space is used to store the public and private keys, the factory reset firmware, a back-up firmware and a copy of the firmware sent Over The Air (OTA). The rest of the memory space is available to the user.
 
@@ -288,7 +288,7 @@ The transmission loss for the U.FL connector has been measured to be approximate
 
 Currently the Core is available in two flavors. With an on-board chip antenna or an uFL connector to connect an external antenna.
 
-### Chip Antenna
+### Chip antenna
 
 
 This version of the Core comes with an on board chip antenna that gives a signal strength similar to a mobile phone.  In most cases, a simple plastic enclosure will not affect the signal strength of the chip antenna.
@@ -336,6 +336,6 @@ Mechanical drawings of the Core are available [here.](https://github.com/particl
    </tr>
 </table>
 
-## Known Errata
+## Known errata
 
 We are tracking [known errata with this datasheet here](https://github.com/particle-iot/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.

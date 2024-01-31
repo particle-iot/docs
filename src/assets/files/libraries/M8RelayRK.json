@@ -1,0 +1,208 @@
+{
+  "type": "libraries",
+  "id": "M8RelayRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/M8RelayRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "M8RelayRK",
+    "version": "0.0.1",
+    "installs": 89,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Particle library for M8 relay boards",
+    "url": "https://github.com/rickkas7/M8RelayRK",
+    "repository": "https://github.com/rickkas7/M8RelayRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/reference/device-os/libraries/m/M8RelayRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T22:48:15.214Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "boron": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "bsom": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "b5som": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "tracker": {
+            "1-quad": true,
+            "2-latching": true,
+            "3-manual": false
+          },
+          "p2": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "boron": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "bsom": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "b5som": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "tracker": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": true
+          },
+          "esomx": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "electron": {
+            "1-quad": false,
+            "2-latching": true,
+            "3-manual": false
+          },
+          "argon": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "boron": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "electron": {
+            "1-quad": true,
+            "2-latching": false,
+            "3-manual": true
+          },
+          "argon": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "boron": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "boron": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "bsom": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "b5som": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "tracker": {
+            "1-quad": true,
+            "2-latching": true,
+            "3-manual": true
+          },
+          "p2": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "boron": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "bsom": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "b5som": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          },
+          "tracker": {
+            "1-quad": true,
+            "2-latching": true,
+            "3-manual": true
+          },
+          "esomx": {
+            "1-quad": false,
+            "2-latching": false,
+            "3-manual": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# M8 Relay Library\n\nThis is the library that goes with the M8 Tracker Relay hardware design. See the application note for more information.\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

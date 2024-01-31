@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_ISL29125",
     "version": "1.0.2",
-    "installs": 2820,
+    "installs": 2913,
     "license": "CC-SA",
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "sentence": "Arduino library showing basic functionality for the ISL29125 RGB Light Sensor Breakout Board. Ported to Particle by Ben Artin <ben@artins.org>",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_ISL29125",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_ISL29125",
   "versions": {
     "1.0.2": {
       "builds": {

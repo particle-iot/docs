@@ -7,7 +7,7 @@
   "attributes": {
     "name": "lpd8806",
     "version": "1.0.0",
-    "installs": 1676,
+    "installs": 1761,
     "license": "Choose a license",
     "author": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for LED strips and pixels using LPD8806 (and probably LPD8803/LPD8809)",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/lpd8806",
+  "cardUrl": "/reference/device-os/libraries/l/lpd8806",
   "versions": {
     "1.0.0": {
       "builds": {

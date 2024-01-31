@@ -1,0 +1,36 @@
+{
+  "type": "libraries",
+  "id": "CameraHelperRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/CameraHelperRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "CameraHelperRK",
+    "version": "0.0.1",
+    "installs": 121,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Library for using the 4D systems uCam-III on the Particle Tracker One",
+    "url": "https://github.com/rickkas7/CameraHelperRK",
+    "repository": "https://github.com/rickkas7/CameraHelperRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/reference/device-os/libraries/c/CameraHelperRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T22:01:41.135Z",
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "# CameraHelperRK\n\n**Helper library for using the 4D Systems uCam-III on Particle devices**\n\nExamples and tutorial can be found at:\n\n[https://github.com/rickkas7/TrackerCamera](https://github.com/rickkas7/TrackerCamera)\n\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

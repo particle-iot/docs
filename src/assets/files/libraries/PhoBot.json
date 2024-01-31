@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PhoBot",
     "version": "0.0.11",
-    "installs": 11655,
+    "installs": 12076,
     "license": "MIT",
     "author": "Simon Monk <simon@monkmakes.com>",
     "sentence": "A library for the MonkMakes PhoBot robot controller shield",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PhoBot",
+  "cardUrl": "/reference/device-os/libraries/p/PhoBot",
   "versions": {
     "0.0.11": {
       "builds": {
@@ -122,6 +122,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "boron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "bsom": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "b5som": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "tracker": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "esomx": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "boron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "bsom": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "b5som": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "tracker": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "p2": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "MotorTest": false,
             "WebControl": false,

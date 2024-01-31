@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotCurtain",
     "version": "5.1.0",
-    "installs": 309,
+    "installs": 506,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to support NCD 4 Relay board curtain control",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PatriotCurtain",
+  "cardUrl": "/reference/device-os/libraries/p/PatriotCurtain",
   "versions": {
     "5.1.0": {
       "added": "2022-10-31T20:59:19.347Z",

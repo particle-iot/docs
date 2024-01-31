@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP7941x",
     "version": "0.0.4",
-    "installs": 5006,
+    "installs": 5276,
     "license": "MIT",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MCP7941x",
+  "cardUrl": "/reference/device-os/libraries/m/MCP7941x",
   "versions": {
     "0.0.4": {
       "builds": {

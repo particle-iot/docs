@@ -6,7 +6,7 @@ layout: commonTwo.hbs
 description: Move beyond prototyping breadboards to custom printed circuit boards and SMD (surface mount device) technology
 ---
 
-# Beyond Prototyping
+# Beyond prototyping
 
 *Going from solderless breadboards to SMD components across Particle devices*
 
@@ -183,7 +183,7 @@ The schematic is the same, but the Eagle board layout is different:
 
 The Eagle CAD schematic and board files are in the **eagle** directory in the [GitHub repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
 
-#### Bill of Materials (BOM)
+#### Bill of materials (bom)
 
 | Quan | Item | Example | Price | 
 | :--: | :--- | :--- | ---: |
@@ -262,7 +262,7 @@ Board
 
 The Eagle CAD schematic and board files are in the **eagle** directory in the [GitHub repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
 
-#### Bill of Materials (BOM)
+#### Bill of materials (bom)
 
 | Quan | Item | Example | Price | 
 | :--: | :--- | :--- | ---: |
@@ -318,7 +318,7 @@ The Eagle CAD schematic and board files are in the **eagle** directory in the [G
 
 
 
-## Publish Demo
+## Publish demo
 
 The publish demo uses publish and subscribe to communicate between demo boards. Each device has its own button color programmed in its device firmware. Pressing the button publishes the color, which shows up on all of the other devices.
 
@@ -437,7 +437,7 @@ The code depends on the **LedSwitchRK** library.
 dependencies.LedSwitchRK=0.0.2
 ```
 
-### Test Firmware
+### Test firmware
 
 To make it easier to test a single device, I use the test firmware below.
 

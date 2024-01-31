@@ -40,6 +40,7 @@ To make it easy to restore a device to a completely known state, we've provided 
 - On the Argon and Tracker SoM, the NCP (network coprocessor) image for the ESP32 Wi-Fi module cannot be flashed using SWD/JTAG. See [Argon and Tracker NCP](#argon-and-tracker-ncp) below for more information.
 - On Gen 3 devices the Bootloader, Soft Device, UICR bytes, Device OS, and Tinker are restored.
 - On the Tracker, Tracker Edge is restored instead of Tinker. However since the 5x2 SWD connector is not populated on the Tracker One, and the pins are not exposed through the M8, it may not be practical to flash a Tracker One by SWD/JTAG.
+- On the Tracker, with 5.4.0 and later and 4.2.0 and later, UICR bytes are not set for compatibility with the Monitor One
 - On Gen 2 devices the Bootloader, Device OS, and Tinker are restored.
 
 The general procedure is:
@@ -51,7 +52,7 @@ The general procedure is:
 {{device-restore mode="download"}}
 
 
-## Special Notes for Downgrading
+## Special notes for downgrading
 
 {{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
 **Boron LTE BRN402 and B Series SoM B402**
@@ -66,7 +67,7 @@ Using the [Hex File Generator](/tools/developer-tools/hex-generator/), you can t
 This is an excellent option if your contract manufacturer will be programming your devices as they will likely be able to use the .hex files and a SWD/JTAG programmer to easily reprogram your devices. This can be done with the standard JTAG programmer software and does not require the Particle toolchains or Particle CLI be installed.
 
 
-## Chip Erase
+## Chip erase
 
 Depending on the device, the behavior of chip erase of the internal flash from SWD/JTAG is very different:
 
@@ -185,7 +186,7 @@ What this does:
 | `-c "reset"` | Reset the Particle device after flashing |
 | `-c "exit"` | Exit openocd |
 
-### Gen 2 Device Security Bit Error
+### Gen 2 device security bit error
 
 If you get a **Device Security Bit Error** when reprogramming a device, you will need to issue the following command, then flash the hex file as above.
 
@@ -232,7 +233,7 @@ All you need to do is:
 - Drag the .hex file on the **DAPLINK** volume created by the Debugger.
 
 
-## Particle Debugger with Web-browser flash
+## Particle Debugger with web-browser flash
 
 ![Particle Debugger](/assets/images/accessories/debugger.png)
 
@@ -413,7 +414,9 @@ The P2 (RTL8721D) software consists of five parts:
 
 The P2 requires OpenOCD 0.11.0 or later. Make sure you've updated your Particle Workbench software to the current version to make sure you have the correct version of OpenOCD installed. On the Mac, Homebrew also includes an appropriate version of OpenOCD.
 
-- Download the [flashing script](/assets/files/p2-flash.zip) that will simplify the flashing procedure. Extract the zip file.
+- Download the flashing scripts:
+  - [rtl872x.tcl](https://github.com/particle-iot/device-os/blob/develop/scripts/rtl872x.tcl)
+  - [flash.sh](https://github.com/particle-iot/device-os/blob/develop/scripts/flash.sh) 
 
 - Download the [P2 binary zip file](/reference/developer-tools/programming-devices/#usb-particle-cli-manually-) that contains the system, bootloader, etc.. Extract it in the p2-flash directory.
 
@@ -428,7 +431,7 @@ At this point, the device will reboot, but the user firmware binary (tinker) has
 
 ```
 particle usb dfu
-particle flash --usb p2/tinker.bin
+particle flash --local p2/tinker.bin
 ```
 
 ## Argon and Tracker NCP

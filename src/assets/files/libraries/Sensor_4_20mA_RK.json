@@ -1,0 +1,145 @@
+{
+  "type": "libraries",
+  "id": "Sensor_4_20mA_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Sensor_4_20mA_RK/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "Sensor_4_20mA_RK",
+    "version": "0.0.2",
+    "installs": 89,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Implementation of SHA1 hash algorithm for Particle devices",
+    "url": "https://github.com/rickkas7/Sensor_4_20mA_RK",
+    "repository": "https://github.com/rickkas7/Sensor_4_20mA_RK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/Sensor_4_20mA_RK",
+  "versions": {
+    "0.0.2": {
+      "added": "2023-03-21T22:29:55.231Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
+            "1-simple": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple": true
+          },
+          "electron": {
+            "1-simple": true
+          },
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": true
+          },
+          "electron": {
+            "1-simple": true
+          },
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
+            "1-simple": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Sensor_4_20mA_RK\n\n**4-20mA Sensor Library for Particle Devices**\n\nThis library can be used in two different ways:\n\n- Using the native ADC built into Particle devices\n- With an external ADC, such as an ADS1015 connected by I2C\n\nThis library is only the software part; a separate note addresses the hardware issues of sensing the 24V 4-20mA signal. The assumption is that you have some way of getting an analog signal that is proportional to the current. The values encoded in the library assume at 100 ohm low-side sense resistor with a 30 mA current limiter (MAX14626) but can be overridden for other designs.\n\n## API\n\n### Simple Example (examples/1-simple)\n\n```cpp\n#include \"Sensor_4_20mA_RK.h\"\n\nSerialLogHandler logHandler;\n\nSensor_4_20mA sensor;\n\nvoid setup() {\n    sensor\n        .withNativeADC()\n        .init();\n}\n\nvoid loop() {\n    static unsigned long lastReport = 0;\n    if (millis() - lastReport >= 2000) {\n        lastReport = millis();\n\n        Log.info(\"mA=%.3f\", sensor.readPinValue(A0).mA);\n    }\n}\n```\n\nThis is about as simple as it gets. \n\n```cpp\nSensor_4_20mA sensor;\n```\n\nCreate a global variable for the sensor library.\n\n```cpp\nvoid setup() {\n    sensor\n        .withNativeADC()\n        .init();\n}\n```\n\nInitialize it during setup with support for native ADC (like pin A0).\n\n```cpp\nLog.info(\"mA=%.3f\", sensor.readPinValue(A0).mA);\n```\n\nEvery two seconds, print the mA value.\n\n```cpp\ntypedef struct {\n    int         adcValue;\n    float       mA;\n    float       value;\n} SensorValue;\n```\n\nThe result from readPinValue() is a SensorValue structure. It contains the raw ADC value in adcValue and mA value. Since we did not set up a configuration object, value will be also be in mA. With a configuration, you can map the mA value into more useful values, like temperature for a 4-20 mA RTD temperature sensor.\n\n### Using an external ADC\n\nThere's built-in support for the ADS1015 I2C quad ADC.\n\n```cpp\n#include \"Particle.h\"\n\n\n// To include ADS1015 support, be sure to include the ADS1015 library\n// header BEFORE including Sensor_4_20mA_RK.h.\n#include \"SparkFun_ADS1015_Arduino_Library.h\"\n#include \"Sensor_4_20mA_RK.h\"\n\nSerialLogHandler logHandler;\n\nconst size_t NUM_SENSOR_CONFIG = 2;\nSensorConfig sensorConfig[NUM_SENSOR_CONFIG] = {\n    { 100, \"sen1\" },\n    { 101, \"sen2\", 0, 100, false }\n};\n\nSensor_4_20mA sensor;\n\nvoid setup() {\n    sensor\n        .withADS1015(100, ADS1015_CONFIG_PGA_1, 199, 1004, ADS1015_ADDRESS_GND, Wire)\n        .withConfig(sensorConfig, NUM_SENSOR_CONFIG)\n        .init();\n}\n\nvoid loop() {\n    static unsigned long lastReport = 0;\n    if (millis() - lastReport >= 2000) {\n        lastReport = millis();\n\n        for(size_t ii = 0; ii < NUM_SENSOR_CONFIG; ii++) {\n            SensorValue value = sensor.readPinValue(sensorConfig[ii].virtualPin);\n\n            Log.info(\"%s: value=%.3f mA=%.3f adcValue=%d\", sensorConfig[ii].name, value.value, value.mA, value.adcValue);\n        }\n    }\n\n}\n\n```\n\nIn this example there's a config structure, which is discussed below. The other major difference is the initialization:\n\n```cpp\nsensor\n    .withADS1015(100, ADS1015_CONFIG_PGA_1, 199, 1004, ADS1015_ADDRESS_GND, Wire)\n    .withConfig(sensorConfig, NUM_SENSOR_CONFIG)\n    .init();\n```\n\nThe parameters to `withADS1015()` are:\n\n- Since the ADC1015 ADCs don't have pin numbers (in the analogRead() sense), we assign them virtual pin numbers, which typically start at 100. They don't need to be contiguous. Each ADS1015 has 4 ADCs, so it always uses 4 virtual pins, even if you don't use all 4 ADCs. An 8-channel ADC would use 8. The value 100 is the virtual pin number to start with for that ADC.\n\n- `ADS1015_CONFIG_PGA_1` is the gain setting for the ADC for a 100 ohm sense resistor. \n\n- 199 is the ADC value for 4 mA (`adcValue4mA`) when using a 100 ohm sense resistor. See table below.\n\n- 1004 is the ADC value for 20 mA (`adcValue20mA`).\n\n| Parameter | 10 ohm | 100 ohm |\n| :--- | :--- | :--- |\n| `gain` | `ADS1015_CONFIG_PGA_16` | `ADS1015_CONFIG_PGA_1` |\n| `adcValue4mA` | 318 | 199 |\n| `adcValue20mA` | 1602 | 1004 |\n\n\nFor a 10 ohm sense resistor:\n\n```cpp\nsensor\n    .withADS1015(100, ADS1015_CONFIG_PGA_16, 318, 1602, ADS1015_ADDRESS_GND, Wire)\n    .withConfig(sensorConfig, NUM_SENSOR_CONFIG)\n    .init();\n```\n\n\nYou can add multiple I2C ADC easily, as well, by specifying different virtual pin start numbers and I2C addresses:\n\n```cpp\nsensor\n    .withADS1015(100, 0x48)\n    .withADS1015(104, 0x49)\n    .withConfig(sensorConfig, NUM_SENSOR_CONFIG)\n    .init();\n```\n\nYou can also use a different Wire interface, such as when using the multi-function pins on the Tracker One M8 connector:\n\n```cpp\nsensor\n    .withADS1015(100, ADS1015_ADDRESS_GND, Wire3)\n    .withConfig(sensorConfig, NUM_SENSOR_CONFIG)\n    .init();\n```\n\nYou can include both native and I2C ADC as well.\n\n```cpp\nsensor\n    .withNativeADC()\n    .withADS1015(100)\n    .withConfig(sensorConfig, NUM_SENSOR_CONFIG)\n    .init();\n```\n\nNote that the order is important! .init() must be last, after all of the .withXXX() methods. \n\n### Config\n\nThe configuration object looks like this:\n\n```cpp\nconst size_t NUM_SENSOR_CONFIG = 2;\nSensorConfig sensorConfig[NUM_SENSOR_CONFIG] = {\n    { 100, \"sen1\" },\n    { 101, \"sen2\", 0, 100, false }\n};\n```\n\nThe SensorConfig structure has these fields:\n\n```cpp\ntypedef struct {\n    int         virtualPin = 0;\n    const char *name;\n    float       valueLow = 4.0;\n    float       value20mA = 20.0;\n    bool        valueLowIs4mA = true;\n    float       offset = 0.0;\n    float       multiplier = 1.0;\n} SensorConfig;\n```\n\n- virtualPin The pin to read\n\nFor native pins, this is in the range of 0-99. Make sure you call withNativeADC() in the Sensor_4_20mA object to enable native ADC support. It's the pin number passed to analogRead().\n\nFor external ADC like the ADS1015, you assign a virtual pin for the device, like 100, and it will set aside an appropriate number of additional pins. For example, an ADS1015 has 4 channels so it would be 100, 101, 102, 103 for ports 1-4.\n \n Make sure you don't let virtual pin numbers overlap.\n \n- name Name to use when writing the sensor value to JSON\n \n This value is not copied because it's typically string constant.\n \n- valueLow The low-side value\n\nYou use this to convert the values to something more reasonable. For example, if you have 0-100°C 4-20mA temperature sensor, you'd set the low side value to 0.\n\nIf you do not set this, the value will be in mA (default is 4.0). \n\n- value20mA The high-side (20 mA) value\n\nYou use this to convert the values to something more reasonable. For example, if you have 0-100°C 4-20mA temperature sensor, you'd set this to 100.\n\n- valueLowIs4mA Set whether the low value is the 4 mA value of 0 mA value. Default is 4 mA (true).\n\nI got some cheap 4-20mA temperature sensors from Amazon. They're listed as 0-100°C, however it turns out that 0°C corresponds to 0 mA, not 4 mA. Setting this field to false will handle this use case without having to do the math to adjust for this yourself.\n\n- offset Adjustment offset. This is added to the value as a calibration adjustment. \n\nDefault is 0.0 (no adjustment)\n\n\n- multiplier Adjustment multiplier. This value is multiplied by this to adjust. \n\nThis is done after adding the offset. The default is 1.0 (no adjustment).\n\n\n### JSON Output\n\nOn the Tracker One you can easily output JSON in your location generation callback by using the writeJSON() method. This uses the name field of the config object as the key and the value as the value.\n\n```cpp\nvoid locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)\n{\n    sensor.writeJSON(writer);\n}\n```\n\n\n## Revision History\n\n### 0.0.2 (2020-08-11)\n\n- Added support for setting the adcValue4mA and adcValue20mA without modifying the library\n- Added support for adjusting the gain on the ADS1015 without modifying the library\n- Added documentation for using 10 ohm sense resistors on the ADS1015.\n\n### 0.0.1 (2020-08-08)\n\n- Initial version\n\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_ADT7410",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_ADT7410/archive/1.2.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_ADT7410",
+    "version": "1.2.0",
+    "installs": 248,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Arduino library for the ADT7410 sensors in the Adafruit shop",
+    "paragraph": "Arduino library for the ADT7410 sensors in the Adafruit shop",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_ADT7410",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_ADT7410",
+  "versions": {
+    "1.2.0": {
+      "added": "2023-03-21T19:31:54.687Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "adt7410test": false
+          },
+          "boron": {
+            "adt7410test": false
+          },
+          "bsom": {
+            "adt7410test": false
+          },
+          "b5som": {
+            "adt7410test": false
+          },
+          "tracker": {
+            "adt7410test": false
+          },
+          "p2": {
+            "adt7410test": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "adt7410test": false
+          },
+          "boron": {
+            "adt7410test": false
+          },
+          "bsom": {
+            "adt7410test": false
+          },
+          "b5som": {
+            "adt7410test": false
+          },
+          "tracker": {
+            "adt7410test": false
+          },
+          "esomx": {
+            "adt7410test": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "adt7410test": false
+          },
+          "electron": {
+            "adt7410test": false
+          },
+          "argon": {
+            "adt7410test": false
+          },
+          "boron": {
+            "adt7410test": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "adt7410test": false
+          },
+          "electron": {
+            "adt7410test": false
+          },
+          "argon": {
+            "adt7410test": false
+          },
+          "boron": {
+            "adt7410test": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "adt7410test": false
+          },
+          "boron": {
+            "adt7410test": false
+          },
+          "bsom": {
+            "adt7410test": false
+          },
+          "b5som": {
+            "adt7410test": false
+          },
+          "tracker": {
+            "adt7410test": false
+          },
+          "p2": {
+            "adt7410test": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "adt7410test": false
+          },
+          "boron": {
+            "adt7410test": false
+          },
+          "bsom": {
+            "adt7410test": false
+          },
+          "b5som": {
+            "adt7410test": false
+          },
+          "tracker": {
+            "adt7410test": false
+          },
+          "esomx": {
+            "adt7410test": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "Adafruit_ADT7410 [![Build Status](https://github.com/adafruit/Adafruit_ADT7410/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_ADT7410/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_ADT7410/html/index.html)\n================\n\nThis is the Adafruit ADT7410 Precision I2C Temperature sensor library\n\nTested and works great with the [Adafruit ADT7410 Breakout Board](http://www.adafruit.com/4089)\n\nThis chip uses I2C to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Kevin Townsend/Limor Fried for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n",
+  "allVersions": [
+    "1.2.0"
+  ]
+}

@@ -60,7 +60,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
   * NFC-A tag
  * Wi-Fi location: on-board ESP32 offers SSID scanning for using third-party Wi-Fi location services
- * PMIC (Power Management IC) and Fuel Gauge
+ * PMIC (Power Management ISED) and Fuel Gauge
  * On-module additional 8MB SPI flash
  * CAN Bus: on-board, integrated CAN Bus controller and transceiver making it ideal for fleet and micromobility
  * Boost Converter to power 5V CAN devices from a 3.6V battery
@@ -75,14 +75,30 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
  * Bluetooth chip antenna on module, switchable to use U.FL connector in software.
  * Five on-module U.FL connectors for cellular, GNSS, BLE, Wi-Fi, and alternative GNSS.
  * Castellated module designed to be reflow soldered to your own custom base board, or pre-populated on a Particle Evaluation Board or Carrier Board.
- * FCC, IC, and CE certified 
+ * FCC (United States), ISED (Canada), and CE (European Union) certified 
  * RoHS compliant (lead-free)
 
-### Device OS Support
+### Model comparison
+
+| | T404 | T402 | T524 | T523 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Region  | NorAm | NorAm | EMEAA | Europe |
+| EtherSIM  | &check; | &nbsp; | &check; | &nbsp; |
+| Supply Secure | &check; | &nbsp; | &check; | &nbsp; |
+| Lifecycle | GA | Deprecated | GA | Deprecated |
+
+- EtherSIM devices generally have a larger number of carriers and more may be added in the future
+- NorAm: North America (United States, Canada, and Mexico)
+- EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported)
+- See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility
+- See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information
+- See [Lifestyle stages](/reference/product-lifecycle/product-lifecycle-stages/) for more information
+
+
+
+### Device OS support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the Tracker SoM.
-
-T404X and T524X devices, when released, will require a Device OS 4.x LTS release. If you plan on having a mixed fleet of Tracker devices containing the T404X or T524X, we recommend upgrading all device to the latest 4.x LTS release.
 
 Tracker Edge v18 requires a minimum of Device OS 3.3.0. Device OS 3.x is a developer preview release and has reached its end-of-support date. We recommend that all Tracker fleets upgrade to Device OS 4.x.
 
@@ -141,9 +157,8 @@ If you are not powering GNSS\_BAT with a battery or super-capacitor, connect GNS
 ---
 
 #### PMID
-This pin is the output of the internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the module when powered by the battery alone.
 
-The confusing bit about this pin is that it will continue to provide 5.1VDC but only when the input voltage (VIN) is between 3.6V to 5.1VDC. As soon as the input voltage exceeds this limit, the PMID starts tracking _that_ voltage. For example if VIN = 9VDC, the PMID will be 9VDC and _NOT_ 5.1VDC. So you need to be careful when using it as a source for powering your external circuitry. The max current draw on this pin is 2.1A but is not recommended due to thermal limitations of the circuit board.
+This pin is connected to the PMID pin of the bq24195 PMIC. You should leave this pin unconnected.
 
 ### Antennas
 
@@ -159,7 +174,7 @@ There are a number of U.FL antenna connectors on the Tracker SoM:
 | DIV  | LTE cellular receive diversity antenna<sup>3</sup>  |
 
 
-<sup>1</sup>Not supported in initial release.
+<sup>1</sup>Not supported at this time.
 
 <sup>2</sup>There is a BLE chip antenna on the module, the external BLE antenna is optional.
 
@@ -184,7 +199,7 @@ As the GNSS system is receive-only (no transmitter), you can use any GNSS compat
 | BeiDou   | China |
 | Galileo  | European Space Agency |
 
-#### Cellular Antenna
+#### Cellular antenna
 
 The Tracker SoM has been certified with the following antenna:
 
@@ -207,6 +222,11 @@ The Tracker SoM has been certified with the following antenna:
 | Maximum power | 5W |
 | Impedance | 50&ohm; |
 | Size | 97.0 x 21.0 x 0.2 mm |
+
+{{box op="start" cssClass="boxed warningBox"}}
+Particle devices are certified for use only with the designated antenna specified above. The use of alternative antennas with our modules could necessitate a recertification process. To fully understand the potential consequences of using a non-certified antenna, Particle strongly advises seeking consultation with a qualified RF expert.
+{{box op="end"}}
+
 
 ---
 
@@ -284,7 +304,7 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 
 ## Memory map
 
-### nRF52840 Flash Layout Overview
+### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
  - User Application
@@ -293,7 +313,7 @@ This interface can be used to debug your code or reprogram your bootloader, devi
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+### External SPI flash layout overview (dfu offset: 0x80000000)
 
  - OTA (1500KB, @0x00689000)
  - Reserved (420KB, @0x00620000)
@@ -394,7 +414,7 @@ Circular labels are as follows:
 | 63 | AGND | POWER | nRF52 | nRF52 analog ground. Can connect to regular GND. |
 | 64 | CAN_N | CAN | CAN | CAN Data- |
 | 65 | CAN_P | CAN | CAN | CAN Data+ |
-| 66 | CAN_5V |  | XCL9142F40 | 5V power out, 0.8A maximum. Can be controlled by software. |
+| 66 | CAN_5V |  | XCL9142F40 | 5V power out, 370 mA maximum. Can be controlled by software. |
 | 67 | GND | POWER | | Ground |
 | 68 | MCU-D- | USB D- | nRF52 | MCU USB interface D-. Optional. |
 | 69 | MCU_D+ | USB D+ | nRF52 | MCU USB interface D+. Optional. |
@@ -592,7 +612,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ---
 
-### Power consumption (T524/T523)
+### Power consumption (t524/t523)
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
@@ -698,7 +718,7 @@ GNSS GPIO:
 
 ---
 
-### CAN Specifications
+### CAN specifications
 
 - Microchip MCP25625 CAN Controller with Integrated Transceiver
 - SPI Interface
@@ -765,7 +785,7 @@ CAN Transceiver Characteristics
 
 ### Other components
 
-#### IMU (Inertial Measurement Unit)
+#### IMU (inertial measurement unit)
 
 - Bosch Sensortec BMI160
 - SPI Interface connected to SPI1 (MISO1, MOSI1, SCK1) 
@@ -789,7 +809,7 @@ CAN Transceiver Characteristics
 - LiPo battery charger
 - Charge safety timer, thermal regulation, and thermal shutdown
 
-#### Fuel Gauge
+#### Fuel gauge
 
 - MAX17043
 - I2C interface (Wire1 address 0x36)
@@ -914,7 +934,7 @@ Espressif Systems ESP32 for Wi-Fi geolocation:
 
 ---
 
-### I/O Characteristics 
+### I/O characteristics 
 
 These specifications are based on the nRF52840 datasheet.
 
@@ -954,7 +974,7 @@ These specifications are based on the nRF52840 datasheet.
 
 ## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
 
 | Parameter | Value | Units |
 | :-------- |  ---: | :---- |
@@ -971,6 +991,25 @@ Weight will be provided at a later date.
 
 
 Dimensions are in millimeters.
+
+
+### Footprint
+
+A footprint, symbol, and device for Eagle CAD can be found in Particle-devices.lbr in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/).
+
+You can place traces and vias under the Tracker SoM module, except in the tRestrict area (red with dots) in the footprint.
+There are exposed manufacturing test pads on the bottom of the SoM in this rectangles, and you should avoid traces on the top layer and visa in this area.
+
+{{imageOverlay src="/assets/images/at-som/restrict-dimensions.png" alt="Restrict Dimensons" class="full-width"}}
+
+
+
+### 3D models
+
+3D models of the Tracker SoM module are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/T-SoM/T402) in formats including step, iges, and stl.
+
+The 3D models are the same for the T404 and T402. They are also the same for the T524 and T523, as the only changes are the SIM card, which is not visible.
+
 
 ---
 
@@ -1013,17 +1052,17 @@ Dimensions are in millimeters.
 {{imageOverlay src="/assets/images/at-som/pmic.png" alt="PMIC Schematic" class="full-width"}}
 
 
-#### Fuel Gauge
+#### Fuel gauge
 
 {{imageOverlay src="/assets/images/at-som/fuel.png" alt="Fuel Gauge Schematic"}}
 
-#### Cell Control
+#### Cell control
 
 {{imageOverlay src="/assets/images/at-som/cell-control.png" alt="Cell Control Schematic"}}
 
 ---
 
-#### I/O Expander
+#### I/O expander
 
 {{imageOverlay src="/assets/images/at-som/ioex.png" alt="I/O Expander Schematic"}}
 
@@ -1049,9 +1088,24 @@ Dimensions are in millimeters.
 {{imageOverlay src="/assets/images/at-som/3v3-regulator.png" alt="3V3 Regulator Schematic"}}
 
 
-### Layout Considerations
+### Layout considerations
 
 For information on production soldering, stencils, and layout, see [AN036 LCC Module SMT](/scaling/manufacturing/lcc-module-smt/).
+
+## Assembly
+
+### Water soluble flux
+
+Water soluble flux should not be used with the Tracker SoM module. There are components within the Tracker SoM that are moisture-sensitive, and 
+wash water can get trapped under the RF shields, causing damage.
+
+Use no-clean flux instead.
+
+### Conformal coatings
+
+We do not recommend using a conformal coating on the Tracker SoM module to protect the module from water. Some components on the SoM cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+ 
+Using an enclosure that protects both your base board and the Tracker SoM as a single waterproof assembly is recommended instead. This is the process used by the Tracker One, which includes an IP67-rated enclosure and external connectors.
 
 ---
 
@@ -1072,11 +1126,11 @@ However, there is no guarantee that interference will not occur in a particular 
 
 The device must not be co-located or operating in conjunction with any other antenna or transmitter.
 
-#### FCC RF Radiation Exposure Statement 
+#### FCC RF radiation exposure statement 
 
 Caution: To maintain compliance with the FCC's RF exposure guidelines, place the product at least 20cm from nearby persons. The module can be installed in mobile or fixed installations only, and it can not be installed in any portable installations.
 
-#### FCC Conditions
+#### FCC conditions
 
 This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
@@ -1090,9 +1144,9 @@ Contains Transmitter module FCC ID: 2AEMI-T40X or contains FCC ID: 2AEMI-T40X Th
 
 The end user manual shall include all required regulatory information / warning as shown in this manual, include: This product must be installed and operated with a minimum distance of 20 cm between the radiator and user body.
 
-### Industry Canada (IC)
+### Innovation, Science and Economic Development Canada (ISED)
 
-IC ID: 20127-T40X
+ISED: 20127-T40X
 
 - This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
   - this device may not cause interference.
@@ -1120,7 +1174,7 @@ This equipment complies with IC radiation exposure limits set forth for an uncon
 **Déclaration d'exposition aux radiations:**
 Cet équipement est conforme aux limites d'exposition aux rayonnements IC établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps.
 
-### EU Declaration of Conformity
+### EU declaration of conformity
 
 We, Particle Industries, Inc., declare under our sole responsibility that the product, T523M and T524M, to which this
 declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
@@ -1213,7 +1267,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Malawi | T524 | 2G, 3G, Cat1 | Airtel |
 | Malaysia | T524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
 | Malta | T524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
-| Mexico | T404 | M1 | AT&T |
+| Mexico | T404 | M1 | AT&T, Telcel |
 | Moldova | T524 | 2G, 3G, Cat1 | Moldcell, Orange |
 | Mongolia | T524 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | T524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
@@ -1225,14 +1279,13 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | New Zealand | T524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
 | Nigeria | T524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
 | Norway | T524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
-| Oman | T524 | 2G, 3G, Cat1 | Ooredoo |
 | Pakistan | T524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
 | Palestine | T524 | 2G, 3G | Jawwal |
 | Papua New Guinea | T524 | 2G, 3G | bmobile |
 | Poland | T524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
 | Portugal | T524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
 | Qatar | T524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
-| Romania | T524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Romania | T524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
 | Rwanda | T524 | 2G, 3G, Cat1 | Airtel, MTN |
 | Serbia | T524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | T524 | 2G, 3G, Cat1 | Airtel |
@@ -1253,34 +1306,32 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Tunisia | T524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
 | Uganda | T524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | T524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
-| United States | T404 | M1 | AT&T |
+| United States | T404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 | Vietnam | T524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
 | Zambia | T524 | 2G, 3G, Cat1 | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated 8e7b0446-76de-11eb-9439-0242ac130002 --}}
 
+<sup>7</sup>Verizon in the United States is only supported on enterprise plans.
+
 ---
 
 
-## Ordering Information
+## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | In development | |
-| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | In development | |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
-| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | GA | |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | GA | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC |  | NRND | T404MTY|
-| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | NRND | |
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | NRND | |
 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | Deprecated | T404MEA|
-| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | Deprecated | |
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | Deprecated | T524MEA|
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX |  | Deprecated | T524MTY|
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
@@ -1289,9 +1340,9 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 
 ---
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 The Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
 ### Connectors
@@ -1324,8 +1375,8 @@ The bootloader allows you to easily update the user application via several diff
 | 003      | 2020 Jul 17 | RK | Updated absolute maximum ratings |
 | 004      | 2020 Jul 30 | RK | Added explanation of DIV connector |
 | 005      | 2020 Aug 06 | RK | Added crystal to block diagram, added FCC information |
-| 006      | 2020 Aug 18 | RK | Added IC (Canada) information |
-| 007      | 2020 Sep 08 | RK | Added IC (Canada) information |
+| 006      | 2020 Aug 18 | RK | Added ISED (Canada) information |
+| 007      | 2020 Sep 08 | RK | Added ISED (Canada) information |
 | 008      | 2020 Sep 09 | RK | Remove 3GPP E-UTRA from T402 |
 | 009      | 2020 Sep 16 | RK | Added power consumption information |
 | 010      | 2002 Sep 25 | RK | Fixed typo in Istop_usart maximum current |
@@ -1342,3 +1393,8 @@ The bootloader allows you to easily update the user application via several diff
 | 021      | 2022 Aug 29 | RK | Added EU declaration of conformity |
 | 022      | 2022 Sep 16 | RK | Added UKCA conformity |
 | 023      | 2023 Jan 31 | RK | Add Device OS versions |
+| 024      | 2023 Mar 17 | RK | Pin table listed wrong maximum current for CAN_5V |
+| 025      | 2023 Apr 28 | RK | Add conformal coating and flux notes |
+| 026      | 2023 Jul 19 | RK | Block diagram had incorrect RGB pins |
+| 027      | 2023 Nov 20 | RK | Added link to footprint and restrict information |
+| 028      | 2023 Dec 23 | RK | Clarify use of PMID pin |

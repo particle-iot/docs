@@ -76,6 +76,14 @@ The configuration is hierarchical. The top level items (location, sleep, geofenc
   - zone4
     - ...
 
+## Monitor One configuration
+
+If you are using the Monitor One, you need to upload a configuration schema to change the console panels from 
+the standard Tracker One options to Monitor One options. You can do this with a couple clicks in the 
+[configuration schema tool](/tools/cloud-tools/configuration-schema/).
+
+For an explanation of the console settings, see [Monitor One settings](/getting-started/console/console/#monitor-one-settings).
+
 ## Per-device configuration
 
 Certain configuration modules are per-device only. The geofence configuration is the only built-in module set up this way. You can add your own custom modules that include the `deviceLevelOnly` flag which will make your configuration always per-device only. When a configuration module is per-device only it does not appear in the product fleet-wide settings, only per-device.
@@ -141,14 +149,15 @@ This picture shows how elements in the schema directly map to what you can see i
 
 **A custom schema replaces the existing schema.** This means that as new features are added to Tracker Edge you will want to periodically merge your changes into the latest schema so you will get any new options.
 
-### Default Schema
+### Default schema
 
-This is the full schema for Tracker Edge, as of version 13. You won't need to understand the whole thing yet, but this is what it looks like:
+This is the full schema for Tracker Edge. You won't need to understand the whole thing yet, but this is what it looks like:
 
 {{> codebox content="/assets/files/tracker/default-schema.json" format="json" height="300"}}
 
-- The `geofence` module was added in v13.
+- The `geofence` module was added in schema v13.
 - The `deviceLevelOnly` boolean flag was added in v13. This allows a configuration module to only be configured per-device, regardless of whether it's a development device or not.
+- The `monitor` module (MemFault) was added in schema v18.
 - The schema version does not change with every Tracker Edge version, and does not match. For example, Tracker Edge v17 is used with schema v13.
 
 ### Data types
@@ -188,8 +197,9 @@ If you set this schema you can go to the console and view your fleet configurati
 
 To remove the Engine panel and restore the default schema use the **Restore Default Schema** button:
 
-{{> config-schema }}
+{{> config-schema options="" }}
 
+You will probably also need to [reset on-device configuration to factory defaults](/getting-started/tracker/tracker-setup/#resetting-configuration) to remove the engine configuration from your local configuration.
 
 ### Viewing in the console
 
@@ -236,31 +246,9 @@ curl -X GET 'https://api.particle.io/v1/products/:productId/config?access_token=
 
 This will return a big block of JSON data and save it in the file backup-schema.json.
 
-Or, the device-specific schema for a development device:
-
-```
-curl -X GET 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H 'Accept: application/schema+json' -o backup-schema.json
-```
-
-- `:productId` with your product ID
-- `:deviceId` with your Device ID that is set as a development device. 
-- `:accessToken` with a product access token, described above.
-
 #### Setting a custom schema
 
 There is no UI for setting the configuration in the console, but you, you will need to set it using curl:
-
-```
-curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @engine-schema.json
-```
-
-- `:productId` with your product ID
-- `:deviceId` with your Device ID that is set as a development device. 
-- `:accessToken` with a product access token, described above.
-
-To restore the normal behavior, instead of using `@engine-schema.json`, use `@backup-schema.json` you saved in the previous step.
-
-Or, for product-wide configuration:
 
 ```
 curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @engine-schema.json
@@ -343,6 +331,14 @@ For the full example, see the [AN017 Tracker CAN](/hardware/tracker/projects/tra
 
 Here's an example of how you set up a custom schema and use it from firmware. It includes many of the available types of data.
 
+{{box op="start" cssClass="boxed warningBox"}}
+It is recommended that you experiment with custom configurations and schemas is a dedicated test 
+product. It can be difficult to successfully remove the custom configuration and schema data from all 
+devices and the cloud, which causes harmless but mildly annoying warnings when changing the configuration 
+after removing a custom schema.
+{{box op="end"}}
+
+
 ### Schema - Example
 
 {{> codebox content="/assets/files/tracker/test-schema-fragment.json" format="json" height="400"}}
@@ -364,7 +360,7 @@ Be sure to use the full schema, not just the part with "Mine" as a custom schema
 
 To remove the Mine panel and restore the default schema use the **Restore Default Schema** button:
 
-{{> config-schema }}
+{{> config-schema options="" }}
 
 
 ### Console - Example
@@ -373,7 +369,7 @@ This is what it looks like in the console.
 
 ![](/assets/images/tracker/settings-example.png)
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 
 You can download a complete project for use with Particle Workbench as a zip file here:
@@ -430,7 +426,7 @@ The C++ implementation file for the custom configuration class.
 {{> codebox content="/assets/files/tracker/example/MyConfig.cpp" format="cpp" height="300"}}
 
 
-### Digging In - Example
+### Digging in - Example
 
 #### Member variables in the C++ class
 

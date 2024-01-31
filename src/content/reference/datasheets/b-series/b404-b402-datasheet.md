@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B404/B402 Datasheet
+# B404/B402 datasheet
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b404-b402-datasheet.pdf"}}
@@ -32,8 +32,8 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 #### Features - B402, B404
 
- * u-blox SARA-R410M-02B or R410M-03 LTE modem (B402, B404)
-  * The B402 and B404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
+ * u-blox SARA-R410M-02B-00 or R410M-02B-03 LTE modem (B402, B404)
+  * The B402 and B404 have been deprecated, replacement is the B404X. See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 
@@ -44,7 +44,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 <sup>1</sup> Not all bands enabled in software by default
 
-#### Features - All Models
+#### Features - all models
 
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
@@ -66,7 +66,28 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * RoHS compliant (lead-free)
 
 
-### Device OS Support
+### Model comparison
+
+{{!-- BEGIN shared-blurb bfc112a3-ce3c-4c3e-a607-e547e240371a --}}
+
+| | B404X | B404 | B402 | B524 | B523 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Region | NorAm | NorAm | NorAm | EMEAA | Europe |
+| EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; |
+| Supply Secure | &check; | &nbsp; | &nbsp; | &check; | &nbsp; |
+| Lifecycle | GA | NRND | Deprecated | GA | Deprecated |
+
+- EtherSIM devices generally have a larger number of carriers and more may be added in the future
+- NorAm: North America (United States, Canada, and Mexico)
+- EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported)
+- NRND: Not recommended for new designs
+- See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility
+- See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information
+- See [Lifestyle stages](/reference/product-lifecycle/product-lifecycle-stages/) for more information
+
+{{!-- END shared-blurb --}}
+
+### Device OS support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the B404 and B402.
 
@@ -117,7 +138,7 @@ We do not recommend using a single 3.6V supply for both VCC and 3V3 as the cellu
 
 There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular radio (u-blox). We have provided two u.FL connectors to plug in the cellular and BLE antenna. These are required if you wish to use the cellular and BLE. If you do not need BLE, you do not need to connect the BLE antenna.
 
-#### Certified Cellular Antenna
+#### Certified cellular antenna
 
 | SKU  | Description |
 | :--- | :--- |
@@ -134,7 +155,11 @@ There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular r
   - Cable length: 210 mm
   - Gain: 4.71 dBi
 
-#### General Antenna Guidance
+{{box op="start" cssClass="boxed warningBox"}}
+Particle devices are certified for use only with the designated antenna specified above. The use of alternative antennas with our modules could necessitate a recertification process. To fully understand the potential consequences of using a non-certified antenna, Particle strongly advises seeking consultation with a qualified RF expert.
+{{box op="end"}}
+
+#### General antenna guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
@@ -168,7 +193,7 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 ## Memory map
 
-### nRF52840 Flash Layout Overview
+### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
   - User Application
@@ -177,7 +202,7 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+### External SPI flash layout overview (dfu offset: 0x80000000)
 
  - OTA (1500KB, @0x00289000)
  - Reserved (420KB, @0x00220000)
@@ -420,7 +445,7 @@ The B Series SoM has two radio modules.
   - 103 dBm sensitivity in 125 kbps Bluetooth® low energy mode (long range)
   - 20 to +8 dBm TX power, configurable in 4 dB steps
 
-#### u-blox SARA-R410M-02B or R410M-03
+#### u-blox SARA-R410M-02B-00 or R410M-02B-03
 
 | Parameter | Value |
 | --- | --- |
@@ -444,7 +469,7 @@ The B Series SoM has two radio modules.
 
 ---
 
-### I/O Characteristics 
+### I/O characteristics 
 
 These specifications are based on the nRF52840 datasheet.
 
@@ -483,7 +508,7 @@ These specifications are based on the nRF52840 datasheet.
 
 ## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
 
 | Parameters | Value | Unit |
 | --- | --- | --- |
@@ -498,6 +523,12 @@ These specifications are based on the nRF52840 datasheet.
 
 Dimensions are in millimeters.
 
+### 3D models
+
+3D models of the B Series SoM module are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/B-Series/B402) in formats including step, iges, stl, and f3d.
+
+The 3D models are the same for the B404 and B402, as the only changes are the SIM card, which is not visible.
+
 ---
 
 ### Mating connector and land pattern
@@ -511,7 +542,7 @@ One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product
 
 ---
 
-### Screw Assembly
+### Screw assembly
 
 ![Screw Assembly](/assets/images/b-series/b-series-screw.jpg)
 
@@ -531,16 +562,16 @@ We recommend this screw assembly to securely affix the B series SoM to your circ
 
 - Note that a hold-down screw is required because the M.2 connector does not have integrated locks and the SoM will pop up if not attached to the base board.
 
-### Design Considerations
+### Design considerations
 
 We strongly recommend against placing components under the SOM board because there is not enough height.
 
 {{imageOverlay src="/assets/images/b-series/b-series-keep-out.png" alt="Keep-Out Area"}}
 
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 The B series contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an B series without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the B series module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the B series!
 
 ### Connectors
@@ -565,7 +596,13 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 {{imageOverlay src="/assets/images/b-series/schematic-conn.png" alt="M.2 Connector"}}
 
-Note: The labels for CTS and RTS are reversed in this schematic.
+Note: An earlier version of this document had reversed the labels D2 and D3 in the diagram located here. The correct assignments are pictured above and are as follows:
+
+| SoM Pin | nRF52 Pin | Device OS Pin | Serial1 Flow Control |
+| :---: | :---: | :---: | :---: |
+| 40 | P1.01 | D3 | CTS |
+| 42 | P1.02 | D2 | RTS |
+
 
 ### SIM and Flash
 
@@ -577,6 +614,15 @@ Note: The labels for CTS and RTS are reversed in this schematic.
 ### Buffers
 
 {{imageOverlay src="/assets/images/b-series/schematic-buffers.png" alt="Buffers"}}
+
+## Assembly
+
+### Conformal coatings
+
+B Series SoM modules should not use a conformal coating to protect the module from water. Some components on the SoM cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+
+Furthermore, you cannot safely protect the the connection between the M.2 SoM and the M.2 NGFF connector by using a coating. Using an enclosure that protects both your base board and the B Series SoM as a single waterproof assembly is recommended instead.
+
 
 ## Default settings
 
@@ -595,8 +641,8 @@ The bootloader allows you to easily update the user application via several diff
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Canada | B404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Mexico | B404 | M1 | AT&T |
-| United States | B404 | M1 | AT&T |
+| Mexico | B404 | M1 | AT&T, Telcel |
+| United States | B404 | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
 
 
 {{!-- END do not edit content above, it is automatically generated c9241a2c-76e0-11eb-9439-0242ac130002 --}}
@@ -609,10 +655,10 @@ The bootloader allows you to easily update the user application via several diff
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | B404MEA|
-| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | B404MTY|
-| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
+| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404XMTY|
+| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | B404XMEA|
+| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
+| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | B404XMEA|
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -643,3 +689,5 @@ The bootloader allows you to easily update the user application via several diff
 | 019      | 10-Dec-2022 | RK | Added PMIC notes |
 | 020      | 06-Jan-2023 | RK | Clarify power supply notes for VCC and 3V3 |
 | 021      | 31-Jan-2023 | RK | Add Device OS versions |
+| 022      | 28-Apr-2023 | RK | Add conformal coating warning |
+| 023      | 07-Jun-2023 | RK | Fixed diagram of M.2 connector in schematics |

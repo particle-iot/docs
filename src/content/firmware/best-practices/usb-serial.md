@@ -58,6 +58,8 @@ The Windows Command Prompt has an unusual method of copying to the clipboard:
 - Drag a selection around the text you want to copy.
 - Press Enter to Copy to the clipboard (also in the Edit menu).
 
+If your device is not found using the serial monitor on Windows 10, see [Troubleshooting Windows 10 device drivers](/troubleshooting/guides/build-tools-troubleshooting/win10-device-drivers/).
+
 ### Particle Workbench
 
 In Particle Workbench (VS Code), open the command palette (Command-Shift-P on the Mac, Ctrl-Shift-P on Windows and Linux) and select **Particle: Serial Monitor**.

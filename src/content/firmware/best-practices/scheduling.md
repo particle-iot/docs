@@ -123,7 +123,7 @@ void loop() {
 
 ```
 
-## Software Timers
+## Software timers
 
 Another option is to use [software timers](/reference/device-os/api/software-timers/software-timers/). At first they might seem like a good option, however:
 
@@ -189,7 +189,7 @@ The [Watchdog Timers](/hardware/best-practices/watchdog-timers/) application not
 
 GNSS (GPS) provides a precise time reference at UTC. The Particle Tracker does not use this as a time reference, but it is possible to do so. One caveat is that it generally takes longer to acquire a GNSS lock than it does to connect to the Particle cloud, so in the most common use cases, it is neither faster nor significantly more accurate.
 
-### NTP (Network Time Protocol)
+### NTP (network time protocol)
 
 The network time protocol is used to set clocks on Internet connected computers. It can be used on Particle devices, however it requires a 3rd-party library, an external time server to use, and is not significantly more accurate than the Particle cloud time, so there is little reason to go through the effort, unless you have devices that are connected to the Internet but not the Particle cloud.
 

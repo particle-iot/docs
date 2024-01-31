@@ -1,0 +1,214 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_MLX90393_SSSA",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_MLX90393_SSSA/archive/2.0.8.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_MLX90393_SSSA",
+    "version": "2.0.8",
+    "installs": 914,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Driver for the MLX90393 magenetic field sensor",
+    "paragraph": "Driver for the MLX90393 magenetic field sensor",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_MLX90393_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_MLX90393_SSSA",
+  "versions": {
+    "2.0.8": {
+      "added": "2023-03-21T15:41:12.167Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "boron": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "bsom": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "b5som": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "tracker": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "p2": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "boron": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "bsom": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "b5som": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "tracker": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "esomx": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "electron": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "argon": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "boron": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "electron": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "argon": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "boron": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "boron": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "bsom": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "b5som": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "tracker": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "p2": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "boron": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "bsom": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "b5som": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "tracker": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          },
+          "esomx": {
+            "basicdemo": false,
+            "oled_demo": false,
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit MLX90393 Magnetic Field Sensor Driver [![Build Status](https://github.com/adafruit/Adafruit_MLX90393_Library/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_MLX90393_Library/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_MLX90393_Library/html/index.html)\r\n\r\nThis driver is for use with the Adafruit MLX90393 Breakout, and has been\r\ndesigned specifically for these boards:\r\n\r\n  ----> https://www.adafruit.com/product/4022\r\n\r\nAdafruit invests time and resources providing this open source code,\r\nplease support Adafruit and open-source hardware by purchasing\r\nproducts from Adafruit!\r\n\r\n## About this Driver\r\n\r\nWritten by Kevin Townsend for Adafruit Industries.  \r\nMIT license, all text above must be included in any redistribution\r\n",
+  "allVersions": [
+    "2.0.8",
+    "2.0.7",
+    "2.0.6",
+    "2.0.5",
+    "2.0.4",
+    "2.0.3"
+  ]
+}

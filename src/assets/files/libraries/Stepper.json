@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Stepper",
     "version": "1.1.3",
-    "installs": 37561,
+    "installs": 42613,
     "author": "Arduino",
     "maintainer": "Arduino <info@arduino.cc>",
     "sentence": "Allows Arduino boards to control a variety of stepper motors. ",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/Stepper",
+  "cardUrl": "/reference/device-os/libraries/s/Stepper",
   "versions": {
     "1.1.3": {
       "builds": {
@@ -143,6 +143,82 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "boron": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "bsom": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "b5som": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "tracker": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "esomx": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "boron": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "bsom": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "b5som": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "tracker": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "p2": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "MotorKnob": true,
             "stepper_oneRevolution": true,

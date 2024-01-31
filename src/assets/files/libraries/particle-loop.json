@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particle-loop",
+  "cardUrl": "/reference/device-os/libraries/p/particle-loop",
   "versions": {
     "0.0.1": {
       "builds": {

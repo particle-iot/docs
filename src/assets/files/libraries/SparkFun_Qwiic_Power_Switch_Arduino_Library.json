@@ -1,0 +1,146 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_Qwiic_Power_Switch_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_Qwiic_Power_Switch_Arduino_Library/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_Qwiic_Power_Switch_Arduino_Library",
+    "version": "1.0.0",
+    "installs": 88,
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "Arduino library for the Qwiic Power Switch",
+    "paragraph": "An Arduino library for the Qwiic Power Switch",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_Qwiic_Power_Switch_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_Qwiic_Power_Switch_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Qwiic_Power_Switch_Arduino_Library",
+  "versions": {
+    "1.0.0": {
+      "added": "2023-03-21T23:13:33.067Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "Example1_PowerOnOff": false
+          },
+          "boron": {
+            "Example1_PowerOnOff": true
+          },
+          "bsom": {
+            "Example1_PowerOnOff": false
+          },
+          "b5som": {
+            "Example1_PowerOnOff": false
+          },
+          "tracker": {
+            "Example1_PowerOnOff": false
+          },
+          "p2": {
+            "Example1_PowerOnOff": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_PowerOnOff": false
+          },
+          "boron": {
+            "Example1_PowerOnOff": false
+          },
+          "bsom": {
+            "Example1_PowerOnOff": true
+          },
+          "b5som": {
+            "Example1_PowerOnOff": false
+          },
+          "tracker": {
+            "Example1_PowerOnOff": false
+          },
+          "esomx": {
+            "Example1_PowerOnOff": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_PowerOnOff": false
+          },
+          "electron": {
+            "Example1_PowerOnOff": false
+          },
+          "argon": {
+            "Example1_PowerOnOff": false
+          },
+          "boron": {
+            "Example1_PowerOnOff": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Example1_PowerOnOff": true
+          },
+          "electron": {
+            "Example1_PowerOnOff": false
+          },
+          "argon": {
+            "Example1_PowerOnOff": false
+          },
+          "boron": {
+            "Example1_PowerOnOff": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_PowerOnOff": true
+          },
+          "boron": {
+            "Example1_PowerOnOff": true
+          },
+          "bsom": {
+            "Example1_PowerOnOff": true
+          },
+          "b5som": {
+            "Example1_PowerOnOff": true
+          },
+          "tracker": {
+            "Example1_PowerOnOff": true
+          },
+          "p2": {
+            "Example1_PowerOnOff": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_PowerOnOff": true
+          },
+          "boron": {
+            "Example1_PowerOnOff": true
+          },
+          "bsom": {
+            "Example1_PowerOnOff": true
+          },
+          "b5som": {
+            "Example1_PowerOnOff": true
+          },
+          "tracker": {
+            "Example1_PowerOnOff": true
+          },
+          "esomx": {
+            "Example1_PowerOnOff": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# SparkFun Qwiic Power Switch Arduino Library\n\nThe Qwiic Power Switch is a simple little board which can be used to switch the power to your Qwiic\nsystem. Many Qwiic boards draw very little current when not being used, but there are some that draw\nsignificantly more. The power switch allows you to switch the power to those boards, so you can minimize the\ncurrent draw and extend your battery life when you need to.\n\nThis is a library for the PCA9536 4-bit I/O digital expander which lets you control and monitor the Qwiic Power Switch.\n\n## Repository Contents\n\n- **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n- **/src** - Source files for the library (.cpp, .h).\n- **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n- **library.properties** - General library properties for the Arduino package manager.\n\n## Documentation\n\n- **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n- **[Product Repository](https://github.com/sparkfun/Qwiic_Power_Switch)** - Main repository (including hardware files)\n\n## License Information\n\nThis product is _**open source**_!\n\nPlease use, reuse, and modify these files as you see fit.\nPlease maintain the attribution and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\nEnjoy!\n\n**_Paul_**\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

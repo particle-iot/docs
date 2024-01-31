@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD8Relay",
     "version": "1.0.0",
-    "installs": 7873,
+    "installs": 8142,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 8 channel Spark compatible Relay Controller",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NCD8Relay",
+  "cardUrl": "/reference/device-os/libraries/n/NCD8Relay",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -122,6 +122,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "bsom": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "b5som": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "tracker": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "esomx": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "bsom": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "b5som": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "tracker": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          },
+          "p2": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "CloudControl": false,
             "Loop_Test": false,

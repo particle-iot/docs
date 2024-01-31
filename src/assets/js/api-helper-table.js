@@ -191,7 +191,6 @@ $(document).ready(function() {
                 if (key == tableObj.sort.sortBy) {
                     // Change direction
                     tableObj.sort.sortDir = -tableObj.sort.sortDir;
-                    console.log('sortBy key=' + key + ' sortDir=' + tableObj.sort.sortDir);
                 }
                 else {
                     // Change sort criteria
@@ -277,7 +276,7 @@ $(document).ready(function() {
             }
 
             $(tableBodyElem).append(rowElem);
-            tableObj.sort.rowElems.push(tableObj.sort.rowElems.length);
+            tableObj.sort.rowElems.push(rowElem);
             
             if (options.addToTableData) {
                 if (!tableObj.tableData) {
@@ -458,7 +457,7 @@ $(document).ready(function() {
                     // toFile/toClipboard is ignored; cannot create 
                     XLSX.writeFile(xlsxData.workbook, options.fileName);
                     if (tableObj.tableConfig.gaCategory) {
-                        ga('send', 'event', tableObj.tableConfig.gaCategory, 'Download', JSON.stringify(stats));
+                        analytics.track('Download', {category:tableObj.tableConfig.gaCategory, label:JSON.stringify(stats)});
                     }
                     break;
 
@@ -482,14 +481,14 @@ $(document).ready(function() {
                     document.body.removeChild(t);
 
                     if (tableObj.tableConfig.gaCategory) {
-                        ga('send', 'event', tableObj.tableConfig.gaCategory, 'Clipboard', JSON.stringify(stats));
+                        analytics.track('Clipboard', {category:tableObj.tableConfig.gaCategory, label:JSON.stringify(stats)});
                     }
                 }
                 if (options.toFile) {
                     let blob = new Blob([xlsxData.textOut], {type:'text/' + xlsxData.options.format});
                     saveAs(blob, options.fileName);	        
                     if (tableObj.tableConfig.gaCategory) {
-                        ga('send', 'event', tableObj.tableConfig.gaCategory, 'Download', JSON.stringify(stats));
+                        analytics.track('Download', {category:tableObj.tableConfig.gaCategory, label:JSON.stringify(stats)});
                     }
                 }
             }
@@ -851,3 +850,4 @@ $(document).ready(function() {
     });
 
 });
+

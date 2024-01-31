@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CryptoSuite",
     "version": "0.0.10",
-    "installs": 5522,
+    "installs": 6384,
     "license": "MIT",
     "author": "CryptoSuite Team",
     "sentence": "Cryptosuite is a cryptographic library for Arduino (including SHA and HMAC-SHA)",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CryptoSuite",
+  "cardUrl": "/reference/device-os/libraries/c/CryptoSuite",
   "versions": {
     "0.0.10": {
       "builds": {

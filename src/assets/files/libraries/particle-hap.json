@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle-hap",
     "version": "1.0.18",
-    "installs": 6261,
+    "installs": 7331,
     "license": "MIT",
     "author": "Lukas Jezny",
     "sentence": "Homekit server for Particle Photon",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particle-hap",
+  "cardUrl": "/reference/device-os/libraries/p/particle-hap",
   "versions": {
     "1.0.18": {
       "builds": {
@@ -300,12 +300,148 @@
             "roomba": false,
             "singlenixie": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": true,
+            "homestation": true,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "boron": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "bsom": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "b5som": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "tracker": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": true,
+            "homestation": true,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "p2": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": true,
+            "homestation": true,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": true,
+            "homestation": true,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "boron": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "bsom": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "b5som": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "tracker": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": true,
+            "homestation": true,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "esomx": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.799Z"
     }
   },
-  "readme": "# particle-hap\n\nParticle HAP is a ~~proof-of-concept~~ tested and working TCP server, which allows you to connect Particle devices to HomeKit, directly, without any in-the-middle HAP JS server.\nI am successfully using it to control my Window shutters, Lights, Nixie Clocks, Roomba (using serial link) and I've created simple weather station (temperature, humidity, light). Every device works just fine and stable.\n\n## BIG THANKS TO:\nI've used lot of inspiration and code from these repositories. I would really like to thank:\n\n- [Crypto inspiration](https://github.com/maximkulkin/esp-homekit-demo)\n- [Accessory handling inspiration](https://github.com/etwmc/Personal-HomeKit-HAP)\n- [Bonjour inspiration](https://github.com/moflo/homekit-particle)\n\n## Video\n\nExample video of pairing and handling.\n\n[![Watch the video](https://img.youtube.com/vi/jLw-PZ73Wlw/hqdefault.jpg)](https://youtu.be/jLw-PZ73Wlw)\n\n## Configuration\n\n```cpp\n//TCP for handling server port\n#define TCP_SERVER_PORT 5115\n//Maximum pairings available. Apple recommends 16. But be aware, one pairing needs (36+32)B of your EEPROM\n#define MAX_PAIRINGS 16\n//if you are using EEPROM, you can set offset for HomeKit to store pairings\n#define EEPROM_STORAGE_ADDRESS_OFFSET 512\n//Apple requires 8 connections at least and must accommodate a new ones. Photon can handle up to 10 connections, but one is cloud connection.\n//So allow 8 connections, every 9th will be closed send HTTP 503 and closed.\n//It seems that even 2 connections are working just fine, if you need to use sockets for something else.\n#define MAX_CONNECTIONS 8\n\n```\n\nAlso, be aware that there's constant `ACCESSORY_KEY` (in `HKConsts.h`). Should be unique per device. I've used constant just to save memory. But it can be a security leak. If you need to really generate accessory key, look for 'generateAccessoryKey' method and store that key somehow in EEPROM.\n\n## Integration\n\nThis project is available as a Community Library, `particle-hap`, which you can [import into your project](https://docs.particle.io/tutorials/device-os/libraries/#using-libraries).\n\nPlease see the example projects in the `examples` folder for a better idea of how to use `particle-hap` in your project.\n\n## Troubleshooting\n\nIf your Particle device isn't showing up in HomeKit, try resetting the `HKPersistor`.\n\n```cpp\nHKPersistor().resetAll();\nSystem.reset();\n```\n\nIf there are too many instances of your Particle device showing up in HomeKit, you may want to restart your iPhone/iPad, and if it doesn't work you need to flush your iOS device's DNS cache. Unfortunately, this also means you will lose any WiFi networks you have set up, and you'll need to re-enter those passwords. Go to _Settings_, _General_, _Reset_ and choose _Reset Network Settings_.\n\n## Dependencies\nThere are no library dependencies. All the crypto is based on WolfSSL, but highly customized to work on DeviceOS.\n\n## Known major issues\n- no major issues currently known\n\n## Limitations\nI had to use static shared memory buffers for processing request and response of HomeKit TCP server. Dynamic allocations of memory causes fragmentation and instability. So currently SHARED_REQUEST_BUFFER_LEN=1024 bytes and SHARED_RESPONSE_BUFFER_LEN=5000 bytes is used. You may reach the response buffer limit if you create some complex composite accessory (more than 5 services).\n\n## Troubleshooting\nQ: I am not able to see a device in pairing. Why?\nA: You need to be exactly on same Wifi network. Photon connects to 2.4Ghz and your iPhone connects to 5Ghz network by default. Devices not see each other.\n\nQ: How to debug HomeKit accessory discovery?\nA: Download Discovery app from AppStore (Bonjour Discovery) and look for _hap._tcp node in that app. You should see your device in there.\n\nQ: Is there any logs?\nA: Yes, of course. I am using standard Serial log. I log only the warnings (let's say, the negative branches of IFs :-) )\n\nQ: I can see device ready for pairing, but pairing fails.\nA: Mostly you have an error in describing your devices or characteristics values are bad/not in range etc. HomeKit accessory must be described using Apple defined Services. Each service must be described using mandatory and optional characteristics. All can be found in `HAP-Specification-Non-Commercial-Version.pdf` document.\n\n## What's planned:\n- more accessory types in examples (programmable switch, sensors). What do you need?\n\n## Goal:\n- integration with [Nixie Clocks](https://www.daliborfarny.com) so it will support Non-commercial HAP.\n\n## Compiling project\nWhen you're ready to compile your project, make sure you have the correct Particle device target selected and run `particle compile <platform>` in the CLI or click the Compile button in the Desktop IDE. The following files in your project folder will be sent to the compile service:\n\n- Everything in the `/src` folder, including your `.ino` application file\n- Everything in the `/lib` folder (which includes the `particle-hap` library)\n- The `project.properties` file for your project\n\n# Contribution\nAny contributions are more than welcomed. I would prefer to create PR instead of just posting as issues.\n\n## Hire us:\nWe are two guys, freelancers. We develop Android, iOS applications mostly. We also did some parts of FW for Nixie Clock and of course its iOS app.\nJust contact me at [ljezny@gmail.com](mailto:ljezny@gmail.com)\n\n## Licence\nCopyright 2019 Lukas Jezny\n\nLicensed under the MIT license.\n",
+  "readme": "# particle-hap\n\nParticle HAP is a ~~proof-of-concept~~ tested and working TCP server, which allows you to connect Particle devices to HomeKit, directly, without any in-the-middle HAP JS server.\nI am successfully using it to control my Window shutters, Lights, Nixie Clocks, Roomba (using serial link) and I've created simple weather station (temperature, humidity, light). Every device works just fine and stable.\n\n## BIG THANKS TO:\nI've used lot of inspiration and code from these repositories. I would really like to thank:\n\n- [Crypto inspiration](https://github.com/maximkulkin/esp-homekit-demo)\n- [Accessory handling inspiration](https://github.com/etwmc/Personal-HomeKit-HAP)\n- [Bonjour inspiration](https://github.com/moflo/homekit-particle)\n\n## Video\n\nExample video of pairing and handling.\n\n[![Watch the video](https://img.youtube.com/vi/jLw-PZ73Wlw/hqdefault.jpg)](https://youtu.be/jLw-PZ73Wlw)\n\n## Configuration\n\n```cpp\n//TCP for handling server port\n#define TCP_SERVER_PORT 5115\n//Maximum pairings available. Apple recommends 16. But be aware, one pairing needs (36+32)B of your EEPROM\n#define MAX_PAIRINGS 16\n//if you are using EEPROM, you can set offset for HomeKit to store pairings\n#define EEPROM_STORAGE_ADDRESS_OFFSET 512\n//Apple requires 8 connections at least and must accommodate a new ones. Photon can handle up to 10 connections, but one is cloud connection.\n//So allow 8 connections, every 9th will be closed send HTTP 503 and closed.\n//It seems that even 2 connections are working just fine, if you need to use sockets for something else.\n#define MAX_CONNECTIONS 8\n\n```\n\nAlso, be aware that there's constant `ACCESSORY_KEY` (in `HKConsts.h`). Should be unique per device. I've used constant just to save memory. But it can be a security leak. If you need to really generate accessory key, look for 'generateAccessoryKey' method and store that key somehow in EEPROM.\n\n## Integration\n\nThis project is available as a Community Library, `particle-hap`, which you can [import into your project](https://docs.particle.io/tutorials/device-os/libraries/#using-libraries).\n\nPlease see the example projects in the `examples` folder for a better idea of how to use `particle-hap` in your project.\n\n## Troubleshooting\n\nIf your Particle device isn't showing up in HomeKit, try resetting the `HKPersistor`.\n\n```cpp\nHKPersistor().resetAll();\nSystem.reset();\n```\n\nIf there are too many instances of your Particle device showing up in HomeKit, you may want to restart your iPhone/iPad, and if it doesn't work you need to flush your iOS device's DNS cache. Unfortunately, this also means you will lose any WiFi networks you have set up, and you'll need to re-enter those passwords. Go to _Settings_, _General_, _Reset_ and choose _Reset Network Settings_.\n\n## Dependencies\nThere are no library dependencies. All the crypto is based on WolfSSL, but highly customized to work on DeviceOS.\n\n## Known major issues\n- no major issues currently known\n\n## Limitations\nI had to use static shared memory buffers for processing request and response of HomeKit TCP server. Dynamic allocations of memory causes fragmentation and instability. So currently SHARED_REQUEST_BUFFER_LEN=1024 bytes and SHARED_RESPONSE_BUFFER_LEN=5000 bytes is used. You may reach the response buffer limit if you create some complex composite accessory (more than 5 services).\n\n## Troubleshooting\nQ: I am not able to see a device in pairing. Why?\nA: You need to be exactly on same Wifi network. Photon connects to 2.4Ghz and your iPhone connects to 5Ghz network by default. Devices not see each other.\n\nQ: How to debug HomeKit accessory discovery?\nA: Download Discovery app from AppStore (Bonjour Discovery) and look for _hap._tcp node in that app. You should see your device in there.\n\nQ: Is there any logs?\nA: Yes, of course. I am using standard Serial log. I log only the warnings (let's say, the negative branches of IFs :-) )\n\nQ: I can see device ready for pairing, but pairing fails.\nA: Mostly you have an error in describing your devices or characteristics values are bad/not in range etc. HomeKit accessory must be described using Apple defined Services. Each service must be described using mandatory and optional characteristics. All can be found in `HAP-Specification-Non-Commercial-Version.pdf` document.\n\n## What's planned:\n- more accessory types in examples (programmable switch, sensors). What do you need?\n\n## Goal:\n- integration with [Nixie Clocks](https://www.daliborfarny.com) so it will support Non-commercial HAP.\n\n## Compiling project\nWhen you're ready to compile your project, make sure you have the correct Particle device target selected and run `particle compile <platform>` in the CLI or click the Compile button in the Desktop IDE. The following files in your project folder will be sent to the compile service:\n\n- Everything in the `/src` folder, including your `.ino` application file\n- Everything in the `/lib` folder (which includes the `particle-hap` library)\n- The `project.properties` file for your project\n\n# Contribution\nAny contributions are more than welcomed. I would prefer to create PR instead of just posting as issues.\n\n## Hire us:\nWe are two guys, freelancers. We develop Android, iOS applications mostly. We also did some parts of FW for Nixie Clock and of course its iOS app.\nJust contact me at ljezny@gmail.com\n\n## Licence\nCopyright 2019 Lukas Jezny\n\nLicensed under the MIT license.\n",
   "allVersions": [
     "1.0.18",
     "1.0.17",

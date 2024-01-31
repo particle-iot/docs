@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sunset",
     "version": "1.1.7",
-    "installs": 8683,
+    "installs": 9713,
     "license": "GPLV2",
     "author": "Peter Buelow <goballstate@gmail.com>",
     "maintainer": "Peter Buelow <goballstate@gmail.com>",
@@ -30,7 +30,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/sunset",
+  "cardUrl": "/reference/device-os/libraries/s/sunset",
   "versions": {
     "1.1.3": {
       "builds": {
@@ -166,6 +166,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "esp": false,
+            "particle": false
+          },
+          "boron": {
+            "esp": false,
+            "particle": false
+          },
+          "bsom": {
+            "esp": false,
+            "particle": false
+          },
+          "b5som": {
+            "esp": false,
+            "particle": false
+          },
+          "tracker": {
+            "esp": false,
+            "particle": false
+          },
+          "esomx": {
+            "esp": false,
+            "particle": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "esp": false,
+            "particle": false
+          },
+          "boron": {
+            "esp": false,
+            "particle": false
+          },
+          "bsom": {
+            "esp": false,
+            "particle": false
+          },
+          "b5som": {
+            "esp": false,
+            "particle": false
+          },
+          "tracker": {
+            "esp": false,
+            "particle": false
+          },
+          "p2": {
+            "esp": false,
+            "particle": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "esp": false,
             "particle": false

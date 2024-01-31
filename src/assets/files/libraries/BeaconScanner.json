@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BeaconScanner",
     "version": "1.3.0",
-    "installs": 8874,
+    "installs": 10478,
     "license": "Apache License, Version 2.0",
     "author": "Mariano Goluboff",
     "sentence": "Scan BLE beacons",
@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BeaconScanner",
+  "cardUrl": "/reference/device-os/libraries/b/BeaconScanner",
   "versions": {
     "0.4.0": {
       "builds": {
@@ -305,12 +305,100 @@
             "tracker-callbacks": false,
             "tracker-continuous": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "boron": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "bsom": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "b5som": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "tracker": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "p2": {
+            "lairdBt510Log": false,
+            "log": false,
+            "publish": false,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "boron": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "bsom": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "b5som": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "tracker": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          },
+          "esomx": {
+            "lairdBt510Log": true,
+            "log": true,
+            "publish": true,
+            "tracker-callbacks": false,
+            "tracker-continuous": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.781Z"
     }
   },
-  "readme": "# Beacon Scanner\n\nThis library works with Particle Gen3 devices to scan for BLE advertisements and parses them for common beacon standards. Currently supported:\n* iBeacon\n* Eddystone UID, URL, and unencrypted TLM\n* Kontakt.io beacons (tested with Asset Tag S18-3)\n* Laird BT510 beacons, including connecting to them for changing configuration\n* KKM beacons (tested with Waterproof Beacon K8)\n\n## Functions available\n\nThere are a few functions that an application can call depending on the needs of the use case.\n\n### __NEW in Version 1.0.0__ Continuous threaded scanning\n\nIn this mode, the application no longer needs to block when doing a scan. Instead, start the continuous mode with\nthe following API. This will most likely go in `setup()` if the Application is always scanning:\n\n```c++\nScanner.startContinuous();\n```\n\nFor callbacks and removal of \"stale\" beacons (those that go out of range), it is required to periodically\ncall the `loop()` function in the library. This can be added to the application's `loop()`:\n\n```c++\nvoid loop() {\n    // Other code here\n    Scanner.loop();\n}\n```\n\nThe application can set the duration of each scan period by calling `setScanPeriod(uint8_t seconds)`. The default\nis 10 seconds. This period is important to decide when to remove beacons from the Vectors, as that is done when\na whole period has elapsed without that beacon being detected. That logic can be changed by calling\n`setMissedCount(uint8_t count)` and adjusting from 1 missed period to a larger number of periods.\n\nOne way of using the continuous mode, is to register a callback function that will get called each time a beacon\ncomes into range or goes out of range. To do so, declare a callback function like this:\n\n```c++\nvoid onCallback(Beacon& beacon, callback_type type) {\n  Log.trace(\"Address: %s. Type: %s\", beacon.getAddress().toString().c_str(), (type == NEW) ? \"Entered\" : \"Left\");\n}\n\nvoid setup() {\n    // Other setup\n    BLE.on();\n    Scanner.setCallback(onCallback);\n    Scanner.startContinuous();\n}\n```\n\nAnother option instead of callbacks (or in addition), the application can at any time get Vectors of the most recently \nscanned beacons like this (note that if the application consumes the beacons, callbacks of type `NEW` will be issued\nwhen they are scanned again). \n\nThe following example doesn't consume the beacons:\n\n```c++\nfor (auto i : Scanner.getKontaktTags()) {\n    Log.info(\"Address: %s, Temperature %u\", i.getAddress().toString().c_str(), i.getTemperature());\n}\n```\n\nYou can also provide a `JSONWriter` instance to the `toJson()` function of a beacon, to have it automatically\ngenerate the JSON for the application. This might be useful if you want to add the values to your own Publish\nevent, or if you have a Tracker and are using the Tracker's location object to add the beacons to. Using it\nin the Tracker would look like this:\n\n```c++\nvoid locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)\n{\n    for (auto i : Scanner.getKontaktTags()) {\n        i.toJson(&writer);\n    }\n}\nvoid setup() {\n    // Other setup\n    Tracker::instance().init();\n    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);\n    BLE.on();\n    Scanner.startContinuous();\n}\n```\n\nOr have the library automatically publish. This function consumes the beacons in the Vectors, so if callbacks are\nenabled, they will be called with type `NEW` if the beacons are detected again.\n\n```c++\nScanner.publish(\"all\");\n```\n\n### Automatic Scan and Publish\n\nIn this mode, the library will scan for BLE advertisements, and use Particle.publish() to send the data to the cloud.\n\n```c++\nvoid scanAndPublish(uint16_t duration, int flags, const char* eventName, PublishFlags pFlags, bool memory_saver)\n/*\nduration:   How long to collect data, in seconds\nflags:      Which type of beacons to publish. Use bitwise OR for multiple. e.g.: SCAN_KONTAKT | SCAN_IBEACON | SCAN_EDDYSTONE\neventName:  The cloud publish will use this event name, and add \"-ibeacon\",\"-kontakt\",\"-eddystone\"\npFlags:     Flags for the publish, e.g.: PRIVATE\nmemory_saver: Default is false. If set to true, it will publish more often and use less memory. Caution, this means that some data might not be collected from beacons that advertise multiple times with different data.\n*/\n```\n\nThe output of this on the console looks like (with eventName \"test\"):\n![](img/kontakt-example.png)\n\n![](img/ibeacon-example.png)\n\n### Get a Vector of the detected tags\n\nIf the application needs to get the data, rather than automatically publishing it, this can be accomplished by first running a scan using the following function:\n\n```c++\nvoid scan(uint16_t duration, int flags)\n/*\nduration: How long to collect data, in seconds (default: 5)\nflags: Which type of beacons to publish. Use bitwise OR for multiple. e.g.: SCAN_KONTAKT | SCAN_IBEACON | SCAN_EDDYSTONE (default: all)\n*/\n```\n\nAnd then the data for each supported type of advertiser can be retrieved as a Vector:\n```c++\nVector<KontaktTag> getKontaktTags();\nVector<iBeacon> getiBeacons();\nVector<Eddystone> getEddystone();\n```\n\n### A note on \"duration\"\n\nThis is how long the library will listen for beacons. However, during that time a beacon might advertise multiple times. The library will NOT publish every time the beacon advertises.\n\nFor a Kontakt tag, all the values will be based on the last received packet for each address detected.\n\nFor an iBeacon, all the values will be based on the last received packet except for RSSI. The RSSI will be an average of all the received values during the scan duration.\n\n## Typical usage\n\n```c++\n#include \"Particle.h\"\n#include \"BeaconScanner.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nvoid setup() {\n}\n\nunsigned long scannedTime = 0;\n\nvoid loop() {\n    if (Particle.connected() && (millis() - scannedTime) > 10000) {\n        scannedTime = millis();\n        Scanner.scanAndPublish(5, SCAN_KONTAKT | SCAN_IBEACON | SCAN_EDDYSTONE, \"test\", PRIVATE);\n    }\n}\n```\n\n## Typical Tracker usage\n\n```c++\n#include \"Particle.h\"\n#include \"tracker_config.h\"\n#include \"tracker.h\"\n#include \"BeaconScanner.h\"\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(SEMI_AUTOMATIC);\n\nPRODUCT_ID(TRACKER_PRODUCT_ID);\nPRODUCT_VERSION(TRACKER_PRODUCT_VERSION);\n\nSTARTUP(\n    Tracker::startup();\n);\n\nvoid locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)\n{\n     for (auto i : Scanner.getKontaktTags()) {\n        i.toJson(&writer);\n    }\n}\n\nvoid setup()\n{\n    Tracker::instance().init();\n    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);\n    BLE.on();\n    Scanner.startContinuous();\n}\n\n\nvoid loop()\n{\n    Tracker::instance().loop();\n    Scanner.loop();\n}\n```\n\n## Examples\n\n* __Log:__ Starts a scan for iBeacons, Kontakt tags, and Eddystone beacons, and then logs the address, major, and minor of the beacons, address and temperature of the tags, and address of Eddystone\n* __Publish:__ Starts a scan which publishes all the types of devices\n* __Tracker Continuous:__ With a Tracker, continuously scan and publish the most recently detected when the Tracker decides to publish\n* __Tracker Callback:__ With a Tracker, continuously scan, and use callbacks to alert the application when a beacon has been newly detected, or has been missed for more than 10 seconds. The callback function will store these events, and then append them to the normal location publish.\n* __Laird BT510 Log:__ This example logs when it receives alarms and events from the Laird BT510 beacon. It also exposes a function that can be called from the Particle Cloud with JSON to reconfigure the settings of the beacons that are nearby.\n",
+  "readme": "# Beacon Scanner\n\nThis library works with Particle Gen3 devices to scan for BLE advertisements and parses them for common beacon standards. Currently supported:\n* iBeacon\n* Eddystone UID, URL, and unencrypted TLM\n* Kontakt.io beacons (tested with Asset Tag S18-3)\n* Laird BT510 beacons, including connecting to them for changing configuration\n* KKM beacons (tested with Waterproof Beacon K8)\n\n## Functions available\n\nThere are a few functions that an application can call depending on the needs of the use case.\n\n### __NEW in Version 1.0.0__ Continuous threaded scanning\n\nIn this mode, the application no longer needs to block when doing a scan. Instead, start the continuous mode with\nthe following API. This will most likely go in `setup()` if the Application is always scanning:\n\n```c++\nScanner.startContinuous();\n```\n\nFor callbacks and removal of \"stale\" beacons (those that go out of range), it is required to periodically\ncall the `loop()` function in the library. This can be added to the application's `loop()`:\n\n```c++\nvoid loop() {\n    // Other code here\n    Scanner.loop();\n}\n```\n\nThe application can set the duration of each scan period by calling `setScanPeriod(uint8_t seconds)`. The default\nis 10 seconds. This period is important to decide when to remove beacons from the Vectors, as that is done when\na whole period has elapsed without that beacon being detected. That logic can be changed by calling\n`setMissedCount(uint8_t count)` and adjusting from 1 missed period to a larger number of periods.\n\nOne way of using the continuous mode, is to register a callback function that will get called each time a beacon\ncomes into range or goes out of range. To do so, declare a callback function like this:\n\n```c++\nvoid onCallback(Beacon& beacon, callback_type type) {\n  Log.trace(\"Address: %s. Type: %s\", beacon.getAddress().toString().c_str(), (type == NEW) ? \"Entered\" : \"Left\");\n}\n\nvoid setup() {\n    // Other setup\n    BLE.on();\n    Scanner.setCallback(onCallback);\n    Scanner.startContinuous();\n}\n```\n\nAnother option instead of callbacks (or in addition), the application can at any time get Vectors of the most recently \nscanned beacons like this (note that if the application consumes the beacons, callbacks of type `NEW` will be issued\nwhen they are scanned again). \n\nThe following example doesn't consume the beacons:\n\n```c++\nfor (auto i : Scanner.getKontaktTags()) {\n    Log.info(\"Address: %s, Temperature %u\", i.getAddress().toString().c_str(), i.getTemperature());\n}\n```\n\nYou can also provide a `JSONWriter` instance to the `toJson()` function of a beacon, to have it automatically\ngenerate the JSON for the application. This might be useful if you want to add the values to your own Publish\nevent, or if you have a Tracker and are using the Tracker's location object to add the beacons to. Using it\nin the Tracker would look like this:\n\n```c++\nvoid locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)\n{\n    for (auto i : Scanner.getKontaktTags()) {\n        i.toJson(&writer);\n    }\n}\nvoid setup() {\n    // Other setup\n    Tracker::instance().init();\n    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);\n    BLE.on();\n    Scanner.startContinuous();\n}\n```\n\nOr have the library automatically publish. This function consumes the beacons in the Vectors, so if callbacks are\nenabled, they will be called with type `NEW` if the beacons are detected again.\n\n```c++\nScanner.publish(\"all\");\n```\n\n### Automatic Scan and Publish\n\nIn this mode, the library will scan for BLE advertisements, and use Particle.publish() to send the data to the cloud.\n\n```c++\nvoid scanAndPublish(uint16_t duration, int flags, const char* eventName, PublishFlags pFlags, bool memory_saver)\n/*\nduration:   How long to collect data, in seconds\nflags:      Which type of beacons to publish. Use bitwise OR for multiple. e.g.: SCAN_KONTAKT | SCAN_IBEACON | SCAN_EDDYSTONE\neventName:  The cloud publish will use this event name, and add \"-ibeacon\",\"-kontakt\",\"-eddystone\"\npFlags:     Flags for the publish, e.g.: PRIVATE\nmemory_saver: Default is false. If set to true, it will publish more often and use less memory. Caution, this means that some data might not be collected from beacons that advertise multiple times with different data.\n*/\n```\n\nThe output of this on the console looks like (with eventName \"test\"):\n(image removed)\n\n(image removed)\n\n### Get a Vector of the detected tags\n\nIf the application needs to get the data, rather than automatically publishing it, this can be accomplished by first running a scan using the following function:\n\n```c++\nvoid scan(uint16_t duration, int flags)\n/*\nduration: How long to collect data, in seconds (default: 5)\nflags: Which type of beacons to publish. Use bitwise OR for multiple. e.g.: SCAN_KONTAKT | SCAN_IBEACON | SCAN_EDDYSTONE (default: all)\n*/\n```\n\nAnd then the data for each supported type of advertiser can be retrieved as a Vector:\n```c++\nVector<KontaktTag> getKontaktTags();\nVector<iBeacon> getiBeacons();\nVector<Eddystone> getEddystone();\n```\n\n### A note on \"duration\"\n\nThis is how long the library will listen for beacons. However, during that time a beacon might advertise multiple times. The library will NOT publish every time the beacon advertises.\n\nFor a Kontakt tag, all the values will be based on the last received packet for each address detected.\n\nFor an iBeacon, all the values will be based on the last received packet except for RSSI. The RSSI will be an average of all the received values during the scan duration.\n\n## Typical usage\n\n```c++\n#include \"Particle.h\"\n#include \"BeaconScanner.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nvoid setup() {\n}\n\nunsigned long scannedTime = 0;\n\nvoid loop() {\n    if (Particle.connected() && (millis() - scannedTime) > 10000) {\n        scannedTime = millis();\n        Scanner.scanAndPublish(5, SCAN_KONTAKT | SCAN_IBEACON | SCAN_EDDYSTONE, \"test\", PRIVATE);\n    }\n}\n```\n\n## Typical Tracker usage\n\n```c++\n#include \"Particle.h\"\n#include \"tracker_config.h\"\n#include \"tracker.h\"\n#include \"BeaconScanner.h\"\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(SEMI_AUTOMATIC);\n\nPRODUCT_ID(TRACKER_PRODUCT_ID);\nPRODUCT_VERSION(TRACKER_PRODUCT_VERSION);\n\nSTARTUP(\n    Tracker::startup();\n);\n\nvoid locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)\n{\n     for (auto i : Scanner.getKontaktTags()) {\n        i.toJson(&writer);\n    }\n}\n\nvoid setup()\n{\n    Tracker::instance().init();\n    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);\n    BLE.on();\n    Scanner.startContinuous();\n}\n\n\nvoid loop()\n{\n    Tracker::instance().loop();\n    Scanner.loop();\n}\n```\n\n## Examples\n\n* __Log:__ Starts a scan for iBeacons, Kontakt tags, and Eddystone beacons, and then logs the address, major, and minor of the beacons, address and temperature of the tags, and address of Eddystone\n* __Publish:__ Starts a scan which publishes all the types of devices\n* __Tracker Continuous:__ With a Tracker, continuously scan and publish the most recently detected when the Tracker decides to publish\n* __Tracker Callback:__ With a Tracker, continuously scan, and use callbacks to alert the application when a beacon has been newly detected, or has been missed for more than 10 seconds. The callback function will store these events, and then append them to the normal location publish.\n* __Laird BT510 Log:__ This example logs when it receives alarms and events from the Laird BT510 beacon. It also exposes a function that can be called from the Particle Cloud with JSON to reconfigure the settings of the beacons that are nearby.\n",
   "allVersions": [
     "1.3.0",
     "1.2.0",

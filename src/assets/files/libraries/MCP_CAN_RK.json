@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP_CAN_RK",
     "version": "1.5.1",
-    "installs": 2181,
+    "installs": 3646,
     "license": "LGPL2.1",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "https://github.com/coryjfowler/MCP_CAN_lib port for Particle",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MCP_CAN_RK",
+  "cardUrl": "/reference/device-os/libraries/m/MCP_CAN_RK",
   "versions": {
     "1.5.1": {
       "builds": {
@@ -250,6 +250,154 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "boron": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "bsom": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "b5som": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "tracker": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "esomx": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": false,
+            "Standard_MaskFilter": true
+          },
+          "boron": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "bsom": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "b5som": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "tracker": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "p2": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "CAN_loopback": true,
             "CAN_receive": true,

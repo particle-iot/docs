@@ -1,0 +1,177 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_Qwiic_Magnetometer-MLX90393",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_Qwiic_Magnetometer-MLX90393/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_Qwiic_Magnetometer-MLX90393",
+    "version": "1.0.0",
+    "installs": 217,
+    "author": "Theodore C. Yapo & SparkFun Electronics",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "Library for the SparkFun Qwiic Magnetometer",
+    "paragraph": "A Library for the Qwiic Magnetometer.",
+    "category": "Device Control",
+    "url": "https://github.com/sparkfun/Qwiic_Magnetometer_MLX90393",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Qwiic_Magnetometer-MLX90393",
+  "versions": {
+    "1.0.0": {
+      "added": "2023-03-21T19:04:11.390Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "p2": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "esomx": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "electron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "electron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "p2": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "bsom": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "b5som": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "tracker": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          },
+          "esomx": {
+            "Example1-BasicReadings": true,
+            "Example2-ConfigureSensor": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun Qwiic Magnetometer MLX90393\n========================================\n\nQwiic Magnetometer (image removed)\n\n[*SparkFun Qwiic Magnetometer MLX90393 (14571)*](https://www.sparkfun.com/products/14571)\n\nThe SparkFun MLX90393 Magnetometer Breakout is a triple-axis magnetic sensor board capable of sensing very small fields (like the Earth’s magnetic field), while still behaving as one would expect during saturation in larger fields (like a nearby magnet). The MLX90393 breakout can be used as a compass sensor but also works well as a non-contact controller, a flow meter with a magnetic impeller, or a linear actuator position sensor. To make it even easier to to get your readings, all communication is enacted exclusively via I2C, utilizing our handy Qwiic system. However, we still have broken out 0.1\"-spaced pins in case you prefer to use a breadboard.\n\nRepository Contents\n-------------------\n\n* **/Hardware** - Eagle design files (.brd, .sch)\n* **/Production** - Production panel files (.brd)\n* **/Software** - Example Code\n\nDocumentation\n--------------\n* **[Arduino Library](https://github.com/tedyapo/arduino-MLX90393)** - Arduino library MLX90393 magnetometer sensor.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-magnetometer-mlx90393-hookup-guide)** - Basic hookup guide for the SparkFun Qwiic Magnetometer MLX90393.\n* **[SparkFun Fritzing repo](https://github.com/sparkfun/Fritzing_Parts)** - Fritzing diagrams for SparkFun products. \n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

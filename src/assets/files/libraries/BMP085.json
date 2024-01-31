@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BMP085",
     "version": "2.0.0",
-    "installs": 1568,
+    "installs": 2174,
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
     "sentence": "Arduino library to control Grove Barometer Sensor BMP085/BMP180.",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BMP085",
+  "cardUrl": "/reference/device-os/libraries/b/BMP085",
   "versions": {
     "2.0.0": {
       "builds": {
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Barometer_Sensor": false
+          },
+          "boron": {
+            "Barometer_Sensor": false
+          },
+          "bsom": {
+            "Barometer_Sensor": false
+          },
+          "b5som": {
+            "Barometer_Sensor": false
+          },
+          "tracker": {
+            "Barometer_Sensor": false
+          },
+          "esomx": {
+            "Barometer_Sensor": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Barometer_Sensor": false
+          },
+          "boron": {
+            "Barometer_Sensor": false
+          },
+          "bsom": {
+            "Barometer_Sensor": false
+          },
+          "b5som": {
+            "Barometer_Sensor": false
+          },
+          "tracker": {
+            "Barometer_Sensor": false
+          },
+          "p2": {
+            "Barometer_Sensor": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Barometer_Sensor": false
           },

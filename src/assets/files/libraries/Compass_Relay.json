@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Compass_Relay",
     "version": "1.0.0",
-    "installs": 317,
+    "installs": 381,
     "license": "GNU",
     "author": "Travis Elliott <travis@controleverything.com>",
     "sentence": "Library serves as example for article Compass_Relay on controleverything.com",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/Compass_Relay",
+  "cardUrl": "/reference/device-os/libraries/c/Compass_Relay",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          },
+          "bsom": {
+            "application": false
+          },
+          "b5som": {
+            "application": false
+          },
+          "tracker": {
+            "application": false
+          },
+          "esomx": {
+            "application": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          },
+          "bsom": {
+            "application": false
+          },
+          "b5som": {
+            "application": false
+          },
+          "tracker": {
+            "application": false
+          },
+          "p2": {
+            "application": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "application": false
           },

@@ -20,15 +20,16 @@ description: Desktop IDE for programming Particle IoT devices for Windows, Mac O
 
 If you are interested in using Particle Workbench with the Tracker One or Tracker SoM, see [Tracker Edge Firmware](/firmware/tracker-edge/tracker-edge-firmware/) for additional information.
 
-## Workbench Features
 
-### Welcome Screen
+## Workbench features
+
+### Welcome screen
 
 ![Welcome Screen](/assets/images/workbench/welcome.png)
 
 The Welcome Screen has handy tips for using Workbench. If you close it, you can get it back by clicking on the Particle icon in the left toolbar.
 
-### Left Toolbar
+### Left toolbar
 
 Typically, there is a toolbar on the left with frequently used features.
 
@@ -52,7 +53,7 @@ Workbench adds custom Particle commands to the palette. Start typing `Particle` 
 
 There is also a [command palette reference](#command-palette-reference) below.
 
-### Dependency Manager
+### Dependency manager
 
 Downloading and maintaining a local toolchain can be a full-time job so Workbench introduces a new dependency manager. It downloads the Device OS, build system, compiler, and anything else needed to develop and debug Device OS apps, and places them in a local, private location in user space as to not mess with your current configuration.
 
@@ -60,7 +61,7 @@ You can install and uninstall different versions of Device OS (and dependencies)
 
 ![Dependency Manager](/assets/images/workbench/dependency-manager.png)
 
-### Working with Particle Projects
+### Working with Particle projects
 
 You can initialize a new project with the command, `Particle: Create New Project`. Doing so will open a new a Visual Studio Code folder preconfigured with everything needed to begin developing your Particle project, like Tasks, C++ IntelliSense, Commands, files and folders. Note that these are designed to only work when editing Particle projects as to not muddy up the rest of your editing experience.
 
@@ -77,6 +78,8 @@ A project contains a number of files. Here's what's in a small sample project:
 - **`README.md`** is where you could put documentation for your project.
 
 If you already have an existing Particle project (with a `project.properties` file), you can import it to create the necessary VS Code files by using the command **Particle: Import Project** from the command palette.
+
+You can also have `particle.include` and `particle.ignore` files for controlling which files are uploaded when cloud compiling. See [particle.include and particle.ignore](/getting-started/device-os/firmware-libraries/#particle-include-and-particle-ignore).
 
 ### Cloud build and flash
 
@@ -109,6 +112,7 @@ It's also possible to compile in the cloud and flash over USB, as described in t
 
 Local build does all of the compiling locally on your computer, and, once installed, can be used even without an Internet connection.
 
+{{!-- 
 In order to target a specific version of Device OS you must install the appropriate toolchain first. From the Command Palette select **Particle: Install Local Compiler**.
 
 ![Install Local Compiler](/assets/images/workbench/local-1.png)
@@ -116,39 +120,37 @@ In order to target a specific version of Device OS you must install the appropri
 Then select the version you want to install.
 
 ![Install Local Compiler Version](/assets/images/workbench/local-2.png)
+--}}
 
 To compile and flash locally, use the Command Palette and select one of the local flash options:
 
 - Particle: Flash application (local)
-- Particle: Flash application for debug (local)
 - Particle: Flash application & Device OS (local)
+- Particle: Flash application for debug (local)
 
-If you want to change the version of Device OS on the device, you should use [Device Restore USB](/tools/device-restore/device-restore-usb/) to update the device first, then **Flash application (local)** from Workbench. The reason is that **Flash application & Device OS** does not flash required dependencies, such as the bootloader and SoftDevice. While these can be updated OTA, there are caveats.
+As of September 2023, these commands behave slightly differently:
 
-{{collapse op="start" label="More about changing the Device OS version"}}
-Some potential pitfalls with changing the Device OS version through **Flash application & Device OS (local)** include:
+**Particle: Flash application (local)** is the command you will want to use most of the time with local compilation and a USB connection. It will now put your device in DFU mode only after successful compilation, and it will flash device OS only if an upgrade is necessary. It will not build Device OS. And it will correctly flash required parts like the bootloader and SoftDevice.
 
-- If the device is uses Wi-Fi and Wi-Fi is not configured, the device will not be able to update the missing components. The device will always boot into listening mode (blinking dark blue) even if you are using manual, semi-automatic, or threaded modes, and your firmware will not run.
+**Particle: Flash application & Device OS (local)** will always flash the targeted version of Device OS. It will not build Device OS. This is the best option if you don't know what version of Device OS is on the device and you want it in a known state.
 
-- If the device uses cellular and is out-of-area, the device will not be able to update the missing components. The device will go into connecting to cellular mode (blinking green) even if you are using manual, semi-automatic, or threaded modes, and your firmware will not run.
+**Particle: Flash application for debug (local)** still needs to build Device OS in order to generate debug symbols.
 
-- If the device is a Tracker and it has a Device OS version less than 3.0.0 and you are updating to a version 3.0.0 or later, in addition to the bootloader and SoftDevice device upgrades, the NCP (network coprocessor) needs to be updated. This can be done OTA, however the upgrade takes a while as the NCP update requires an intermediate update of Device OS, and the NCP itself is large. Device Restore DFU can update it over USB quickly and without using cellular data.
+It is now safe to upgrade or downgrade Device OS using these commands.
 
-- If you are downgrading Device OS, dependencies like the bootloader and SoftDevice are not downgraded OTA. This could result in unpredictable behavior, but if done for testing purposes, will result in an inaccurate test.
+These commands will also flash Asset OTA bundles if the `assetOtaDir` is specified in project.properties.
 
 **256K binary edge case**
 
 {{!-- BEGIN shared-blurb c44d9da5-6a99-46cc-a6e9-c9405c8fc578 --}}
-On Gen 3 devices including the Argon, Boron, B Series SoM, and Tracker, when upgrading from 3.0 or earlier to 3.1 or later, there is an edge case that can cause your old code to run. This will only occur when flashing over USB from Workbench, or using `particle flash --usb` or `particle flash --serial` from the Particle CLI. This problem does not occur with OTA flashing or Device Restore.
+On Gen 3 devices including the Argon, Boron, B Series SoM, and Tracker, when upgrading from 3.0 or earlier to 3.1 or later, there is an edge case that can cause your old code to run. This will only occur when flashing over USB from Workbench, or using `particle flash --local` or `particle flash --serial` from the Particle CLI. This problem does not occur with OTA flashing or Device Restore.
 
-When binaries were expanded from 128K to 256K maximum, this was accomplished by moving the start address 128K earlier in flash memory. The logic in the Device OS 3.1.0 and later bootloader is to check the 128K slot first, if there is a valid binary it will be used. This is necessary to make sure you can successfully using `particle flash <device> tinker`, `particle flash --usb tinker`, or the flash Tinker from the mobile apps.
+When binaries were expanded from 128K to 256K maximum, this was accomplished by moving the start address 128K earlier in flash memory. The logic in the Device OS 3.1.0 and later bootloader is to check the 128K slot first, if there is a valid binary it will be used. This is necessary to make sure you can successfully using `particle flash <device> tinker`, `particle flash --local tinker`.
 
-The problem is that if your 256K binary is less than 128K in size, the `particle flash --usb` command and Workbench **Particle: Flash application** commands do not invalidate the old 128K binary slot, which causes the old 128K binary to continue to run.
+The problem is that if your 256K binary is less than 128K in size, the `particle flash --local` command and Workbench **Particle: Flash application** commands do not invalidate the old 128K binary slot, which causes the old 128K binary to continue to run.
 
 The best workaround is to upgrade the device using [Device Restore USB](/tools/device-restore/device-restore-usb/) first, as it will clear the 128K binary slot during upgrade. This is only necessary once, when upgrading from before 3.1.0, to 3.1.0 or later.
 {{!-- END shared-blurb --}}
-
-{{collapse op="end"}}
 
 
 ![Flash Local](/assets/images/workbench/local-3.png)
@@ -185,11 +187,11 @@ When switching from a debug build back to a non-debug build, be sure to use the 
 
 To increase the verbosity of the local compiler, set **Enable Verbose Local Compiler Logging** in the [Settings](#settings).
 
-_NOTE: due to limitations with the local compiler's build system, usernames (or paths) with spaces cannot be supported at this time_
+_NOTE: due to limitations with the local compiler's build system, usernames (or paths) with spaces will be converted to short paths like `C:\Users\EXAMPL~1` on Windows, and cannot be supported on Mac and Linux at this time_
 
 The first local compile after switching the target Device OS version, platform, or Clean application & Device OS will take many minutes. Subsequent builds are generally faster. Builds on Mac and Linux are also significantly faster than Windows.
 
-### Compile and Flash Buttons
+### Compile and flash buttons
 
 When you are viewing a .cpp or .ino file, there will be two new icons in the upper right corner:
 
@@ -230,7 +232,7 @@ The device must be connected by USB and in DFU mode (blinking yellow). Hold down
 Then type in a command like:
 
 ```
-particle flash --usb electron_firmware_1548790892661.bin
+particle flash --local electron_firmware_1548790892661.bin
 ```
 
 You can just type the first few letters of the filename then hit Tab to auto-complete the rest.
@@ -239,7 +241,7 @@ You can just type the first few letters of the filename then hit Tab to auto-com
 
 
 
-### Integrated Serial Monitor
+### Integrated serial monitor
 
 One handy debugging technique is to use the USB debug serial port. Open the Command Palette and select **Particle: Serial Monitor**.
 
@@ -367,7 +369,7 @@ For Gen 2 devices, E Series (except E404X), Electron, P1, and Photon, debugging 
 
 {{!-- END shared-blurb --}}
 
-_Note: There are a handful of limitations around debugging 3rd-generation hardware. Please [see below](#disabling-mesh-networking-and-bluetooth) for details._
+_Note: There are a handful of limitations around debugging 3rd-generation hardware. Please [see below](#disabling-bluetooth) for details._
 
 For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp).
 
@@ -439,27 +441,31 @@ particle call argon2 div 10
 
 ![Debug Breakpoint](/assets/images/workbench/debug-6.png)
 
-#### Disabling Mesh Networking and Bluetooth
+- The P2 and Photon 2 (RTL872x) support up to 2 hardware breakpoints
+- Gen 3 devices (nrf52840) support up to 4 hardware breakpoints
 
-In some cases you may need to disable mesh networking and Bluetooth on your device in order to safely pause at break-points and step. If your device signals SOS ([example](/tutorials/device-os/led/argon/#red-flash-sos)) while debugging, try adding `Mesh.off();` and `BLE.off();` to the top of the `setup()` function in the TinkerBreak.cpp source file like this:
+#### Disabling Bluetooth
+
+In some cases you may need to disable Bluetooth on your device in order to safely pause at break-points and step. If your device signals SOS red blinks while debugging, try adding `BLE.off();` to the top of the `setup()` function in the TinkerBreak.cpp source file like this:
 
 ```
 void setup()
 {
-    // Disable mesh networking and bluetooth - note: Gen3 Hardware (argon, boron, xenon, bsom, etc) only!
-    Mesh.off();
+    // Disable bluetooth - note: Gen3 Hardware (argon, boron, xenon, bsom, etc) only!
     BLE.off();
 
-    //...rest of setup fn calls
+    // ... rest of setup
 }
 ```
 
-#### Disabling Optimization
+This is only necessary on Gen 3 devices with an nRF52 processor including the Boron, B Series SoM, Argon, and Tracker SoM.
+
+#### Disabling optimization
 
 In the TinkerBreak.cpp source file, you'll notice this at the top of the file. This is helpful to add to your source files to turn off compiler optimization, making it easier to debug. Otherwise you can't break on some lines, and some local variables won't be available.
 
 ```
-#pragma GCC optimize ("O0")
+#pragma GCC optimize ("o0")
 ```
 
 #### Debugging FreeRTOS
@@ -476,7 +482,7 @@ to your `launch.json` file. This is experimental and may cause the GDB server to
 That is just a brief introduction to debugging. For more information, see the [VS Code Debugging Documentation](https://code.visualstudio.com/docs/editor/debugging).
 
 
-### Debugging (2nd-generation with Particle Debugger)
+### Debugging (Gen 2 with Particle debugger)
 
 - You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device's D6 and D7 pins as described in the [Particle Debugger](/reference/datasheets/accessories/gen3-accessories/#debugger) documentation.
 
@@ -540,7 +546,7 @@ Some of the available settings are:
 
 - **Custom Device OS Location**: Source Device OS from a custom location - see [FAQ](/getting-started/developer-tools/workbench-faq/#working-with-a-custom-device-os-build).
 
-## Source Code Management
+## Source code management
 
 Visual Studio Code provides support for a number of source code management providers. Source code management makes it easy for team members to share code, track changes over time, and provide a cloud-based repository for storing a copy of your code.
 
@@ -548,12 +554,12 @@ Visual Studio Code provides support for a number of source code management provi
 
 Particle open source projects and many community libraries are stored in GitHub, and there is good support for Git in VS Code, so that's often a good choice. You can get started at the [Git SCM](https://git-scm.com/) website.
 
-## Command Palette Reference
+## Command palette reference
 
 	
 ### Particle: Audit Environment
 
-Prints information about the VS Code environment and settings to the Output window. This can be useful to send in [technical support requests](https://particle.io/support). 
+Prints information about the VS Code environment and settings to the Output window.
 
 If you are sharing the information in a public place like the [community forums](https://community.particle.io) be sure there isn't sensitive information you do not want to share in the data.
 
@@ -593,6 +599,11 @@ The device type and Device OS version are selected with **Particle: Configure Wo
 
 The filename will be of the form <i>platform</i>\_firmware\_<i>number</i>.bin. For example: boron_firmware_1598526579205.bin in the top level of your project directory.
 
+While compiling source code using the cloud compiler, or flashing a device with source code, there are limits:
+
+- Maximum time to compile: {{maximumCompileTime}}
+- Maximum source code size: {{maximumCompilePayload}}
+
 ### Particle: Cloud Flash
 
 This option compiles in the cloud and flashes the code to the device OTA.
@@ -608,6 +619,8 @@ When you first install a new compiler version, you should use the **Particle: Fl
 The device type and Device OS version are selected using **Particle: Install Local Compiler**.
 
 The resulting binary will be in the target directory. For example, if you are building the project **MyProject** for boron version 1.5.2, the resulting binary will be **target/1.5.2/boron/MyProject.bin**.
+
+There is no time or size limit for local compiles.
 
 ### Particle: Compile application & DeviceOS (local)
 
@@ -743,7 +756,7 @@ Update the included Particle CLI (command line interface) to the latest version.
 Shows who you are logged in as. A small popup window will display in the lower right with the account email address.
 
 
-## Migration Guide
+## Migration guide
 
 {{!-- See ch25559 --}}
 
@@ -801,7 +814,7 @@ In the bottom status bar:
 
 If you are used to the editing keyboard shortcuts, you can install the Atom keymap. Open the Command Palette and select **Preferences: Keymaps**.
 
-## Working with Products
+## Working with products
 
 When you are working on a product there are any number of possible scenarios, but this one is common and works well:
 
@@ -827,7 +840,7 @@ You can then:
 ![Workflow](/assets/images/release-firmware-flow.png)
 
 
-## Working with GitHub
+## Working with github
 
 [GitHub](https://github.com/) is a tool for source code control, issue, and release management. It's great for managing Particle projects in Workbench. For many uses, it's free, too. There are many features, entire books, and tutorials about [Git](https://git-scm.com/) (the underlying source code control system) and GitHub (a service that allows you to store files in the cloud). This is just an overview.
 
@@ -880,7 +893,7 @@ To summarize:
   - **Commit** marks all of the changes are ready to go as one package of changes
   - **Push** uploads the package of changes to GitHub
 
-### Making a copy of a project (Clone Repository)
+### Making a copy of a project (clone repository)
 
 Often you will want to work on a project that has already been created on GitHub. The process of creating a working copy of a project is to **Clone** it. Cloning only makes a copy of it on your computer and doesn't affect the project that you are cloning at this stage. Feel free to clone all you want!
 
@@ -961,7 +974,7 @@ git pull official release/v8
 If you prefer, you can merge to a specific release instead of develop.
 
 
-## Developing Particle Libraries
+## Developing Particle libraries
 
 There is limited support for developing [Particle Libraries](/getting-started/device-os/firmware-libraries/) in Workbench. 
 
@@ -977,13 +990,13 @@ name=AMCLCD-RK
 
 If you duplicated your  **library.properties** it should have a name already. The reason is that Workbench will not open a project directory that does not have a **project.properties** file.
 
-### Import Project
+### Import project
 
 From the Command Palette, select **Particle: Import Project**. Now that the directory contains a project.properties file, you will be able to import it. 
 
 Now the library will appears in your Workbench window and have IntelliSense highlighting.
 
-### Building Examples - Using CLI
+### Building examples - using CLI
 
 The main caveat is that there is no built-in support for building library examples using local build. The easiest solution is to the Particle CLI cloud compiler manually.
 
@@ -1004,11 +1017,11 @@ particle flash test2 examples/1-simple
 This compiles and flashes the device named **test2** OTA with the example firmware.
 
 
-### Building Examples - Local Build
+### Building examples - local build
 
 If you really do need to do a local build, for example, if you need to use the debugger, the only solution is to temporarily copy the files from the example you want to build into the **src** directory. Don't forget to remove them before publishing the library!
 
-### Uploading and Publishing
+### Uploading and publishing
 
 The easiest way to upload or publish your library is to select **Particle: Launch CLI** to open a shell panel. This will also set it up with the correct directory so you can:
 
@@ -1024,7 +1037,7 @@ particle library publish
 
 This publishes the library, making it public and visible to all other users.
 
-### Starting from Scratch
+### Starting from scratch
 
 If you are making a brand new library from scratch, you may want to use **Particle: Create New Project**. This will create the project.properties and src directories. Then you will want to:
 
@@ -1033,7 +1046,7 @@ If you are making a brand new library from scratch, you may want to use **Partic
 - Create the **examples** directory.
 - Create subdirectories in **examples** for each of your examples, with a main source file in each.
 
-## Learn More
+## Learn more
 
 Additional questions and answers are in the [FAQ](/getting-started/developer-tools/workbench-faq/).
 

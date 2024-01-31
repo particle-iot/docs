@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Unified_Sensors",
     "version": "0.0.1",
-    "installs": 1983,
+    "installs": 2104,
     "license": "Adafruit",
     "author": "Matt Thompson @inet_ntoa",
     "sentence": "Adafruit Unified Sensors for Particle",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "u",
-  "cardUrl": "/cards/libraries/u/Unified_Sensors",
+  "cardUrl": "/reference/device-os/libraries/u/Unified_Sensors",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Sensors": true
+          },
+          "boron": {
+            "Sensors": true
+          },
+          "bsom": {
+            "Sensors": true
+          },
+          "b5som": {
+            "Sensors": true
+          },
+          "tracker": {
+            "Sensors": true
+          },
+          "esomx": {
+            "Sensors": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Sensors": true
+          },
+          "boron": {
+            "Sensors": true
+          },
+          "bsom": {
+            "Sensors": true
+          },
+          "b5som": {
+            "Sensors": true
+          },
+          "tracker": {
+            "Sensors": true
+          },
+          "p2": {
+            "Sensors": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Sensors": true
           },

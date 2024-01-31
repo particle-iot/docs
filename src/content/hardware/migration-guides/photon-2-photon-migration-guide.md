@@ -7,12 +7,6 @@ description: Migration guide for transitioning from the Photon to Photon 2
 
 # {{title}}
 
-**Preliminary pre-release version 2022-04-16**
-
-{{box op="start" cssClass="boxed warningBox"}}
-This is an preliminary pre-release migration guide and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
-{{box op="end"}}
-
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/photon-2-photon-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -33,7 +27,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 |  | Realtek Semiconductor | ST Microelectronics | Nordic Semiconductor |
 | CPU | Cortex M33 @ 200 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 64 MHz |
 | | Cortex M23 @ 20 MHz | | |
-| RAM<sup>2</sup> | 512 KB | 128 KB | 256 KB |
+| RAM<sup>2</sup> | 4608 KB | 128 KB | 256 KB |
 | Flash<sup>3</sup> | 16 MB | 1 MB | 1 MB | 
 | Hardware FPU | &check; | | &check; |
 | Secure Boot | &check; | | |
@@ -64,7 +58,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 
 <sup>1</sup>A small amount of the flash file system is used by Device OS, most is available for user data storage using the POSIX filesystem API. This is separate from the flash memory used for Device OS, user application, and OTA transfers.
 
-<sup>2</sup> Total RAM; amount available to user applications is smaller.
+<sup>2</sup> Total RAM; amount available to user applications is smaller. On the Photon 2, available RAM is approximately 3072 KB. On the Photon, it is 55 KB.
 
 <sup>3</sup> Total built-in flash; amount available to user applications is smaller. The Argon also has a 4 MB external flash, a portion of which is available to user applications as a flash file system.
 
@@ -112,6 +106,9 @@ Both the Photon and Photon 2 have two SPI ports, however the pins are different 
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+If you are using SPI, Device OS 5.3.1 or later is recommended. Prior to that version, SPI ran at half of the set speed, and SPI1 ran at double the set speed. 
+Timing has also been improved for large DMA transfers; prior to 5.3.1, there could be 1 µs gaps for every 16 bytes of data transferred.
+
 #### SPI - Gen 2 devices (including Photon)
 
 | | SPI | SPI1 |
@@ -150,6 +147,7 @@ Both the Photon and Photon 2 have a single I2C port on the same pins, D0/D1.
 - The Photon 2 I2C port is not 5V tolerant
 - The Photon 2 A3/A4 pins are physically in the same location as D0/D1.
 - The Photon pins A3/A4 are D16/D15 on the Photon 2.
+- On the P2 and Photon 2, the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 
 ### Serial (UART)
@@ -323,7 +321,7 @@ On Gen 2 devices (STM32), only the WKP pin can wake from HIBERNATE sleep mode.
 
 This restriction does not exist on the Photon 2 and Gen 3 devices; any pin can be used to wake from all sleep modes.
 
-### CAN (Controller Area Network)
+### CAN (controller area network)
 
 The Photon supports CAN on pins D1 and D2. There is no CAN on the Photon 2 or Gen 3 devices (except the Tracker).
 
@@ -399,11 +397,21 @@ Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` functi
 
 ### Retained memory
 
-Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset, is not available on the Photon 2. This also prevents system usage of retained memory, including session resumption on reset.
+The P2 and Photon 2 have limited support for retained memory, also referred to as Backup RAM or SRAM, in Device OS 5.3.1 and later.
 
-On Gen 2 and Gen 3 devices, retained memory is 3068 bytes. 
+Retained memory is preserved with the following limitations:
 
-The flash file system can be used for data storage on the Photon 2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
+- When entering `HIBERNATE` sleep mode.
+- Under programmatic reset, such as `System.reset()` and OTA firmware upgrades.
+- In limited cases when using pin reset (RESET button or externally triggered reset).
+
+By default, the retained memory is saved every 10 seconds, so changes made to retained variables between the last save and an unplanned system reset will
+be lost. Calling [`System.backupRamSync`](/reference/device-os/api/system-calls/backupramsync/) on the P2 and Photon 2 can make sure the data is saved. The data is saved to a dedicated flash page in the RTL827x MCU 
+however you should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear.
+
+Prior to Device OS 5.3.1, retained memory is not supported. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
+
+Retained memory is 3068 bytes. 
 
 ### USB
 
@@ -417,7 +425,7 @@ The Photon 2 has components on both sides of the board, like the Argon. It is no
 
 The Photon 2 does not have the solder pads for the RGB LED and SETUP/MODE button on the bottom. The RGB LED can be directed in software to other pins on the Photon 2. The SETUP/MODE button is available on the header pins on the Photon 2.
 
-### Classic Adapter
+### Classic adapter
 
 ![Classic Adapter](/assets/images/accessories/classic-adapter.png)
 
@@ -485,212 +493,212 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 {{!-- BEGIN do not edit content below, it is automatically generated 8fe037d3-67e1-429f-9865-014e4e5b50af --}}
 
 #### 3V3
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | 3V3 | 3V3 |
-| Description | Regulated 3.3V DC output, maximum load 100 mA. Or input 3.0V to 3.6V. | Regulated 3.3V DC output, maximum load 500 mA |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | 3V3 | 3V3 |
+| ∆ | Description | Regulated 3.3V DC output, maximum load 100 mA. Or input 3.0V to 3.6V. | Regulated 3.3V DC output, maximum load 500 mA |
 #### A0
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | A0 | A0 |
-| Pin Alternate Name | n/a | D11 |
-| Description | A0 Analog in, GPIO | A0 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A0 | A0 |
+| ∆ | Pin Alternate Name | n/a | D11 |
+| &nbsp; | Description | A0 Analog in, GPIO | A0 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
+| ∆ | Internal pull resistance | 40K | 2.1K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A1
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | A1 | A1 |
-| Pin Alternate Name | n/a | D12 |
-| Description | A1 Analog in, GPIO | A1 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A1 | A1 |
+| ∆ | Pin Alternate Name | n/a | D12 |
+| &nbsp; | Description | A1 Analog in, GPIO | A1 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
+| ∆ | Internal pull resistance | 40K | 2.1K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A2
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | A2 | A2 |
-| Pin Alternate Name | n/a | D13 |
-| Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO, PWM. |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 42K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A2 | A2 |
+| ∆ | Pin Alternate Name | n/a | D13 |
+| ∆ | Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO, PWM. |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 40K | 42K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A3
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | A3 | D0 |
-| Pin Alternate Name | n/a | A3 |
-| Description | A3 True analog out, analog in, GPIO. | D0 GPIO, I2C SDA, A3 Analog In |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (DAC) | Yes | No |
-| SPI interface | SCK. Use SPI object. | n/a |
-| I2C interface | n/a | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K | 22K |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | A3 | D0 |
+| ∆ | Pin Alternate Name | n/a | A3 |
+| ∆ | Description | A3 True analog out, analog in, GPIO. | D0 GPIO, I2C SDA, A3 Analog In |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (DAC) | Yes | No |
+| ∆ | SPI interface | SCK. Use SPI object. | n/a |
+| ∆ | I2C interface | n/a | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
+| ∆ | Internal pull resistance | 40K | 22K |
 #### A4
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | A4 | D1 |
-| Pin Alternate Name | n/a | A4 |
-| Description | A4 Analog in, GPIO, SPI MISO. | D1 GPIO, PWM, I2C SCL, A4 Analog In |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | Yes |
-| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | Yes |
-| SPI interface | MISO. Use SPI object. | n/a |
-| I2C interface | n/a | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K | 22K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | A4 | D1 |
+| ∆ | Pin Alternate Name | n/a | A4 |
+| ∆ | Description | A4 Analog in, GPIO, SPI MISO. | D1 GPIO, PWM, I2C SCL, A4 Analog In |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | Yes |
+| ∆ | Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | Yes |
+| ∆ | SPI interface | MISO. Use SPI object. | n/a |
+| ∆ | I2C interface | n/a | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| ∆ | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
+| ∆ | Internal pull resistance | 40K | 22K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | A5 | A5 |
-| Pin Alternate Name | n/a | D14 |
-| Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | Yes |
-| Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
-| SPI interface | MOSI. Use SPI object. | n/a |
-| Supports attachInterrupt | No | Yes |
-| Internal pull-up or pull-down resistance | 40K | 42K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | A5 | A5 |
+| ∆ | Pin Alternate Name | n/a | D14 |
+| ∆ | Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | Yes |
+| ∆ | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
+| ∆ | SPI interface | MOSI. Use SPI object. | n/a |
+| ∆ | Supports attachInterrupt | No | Yes |
+| ∆ | Internal pull resistance | 40K | 42K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### D0
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | D0 | D0 |
-| Pin Alternate Name | n/a | A3 |
-| Description | D0 GPIO, I2C SDA | D0 GPIO, I2C SDA, A3 Analog In |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | No | Yes |
-| Internal pull-up or pull-down resistance | 40K | 22K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D0 | D0 |
+| ∆ | Pin Alternate Name | n/a | A3 |
+| ∆ | Description | D0 GPIO, I2C SDA | D0 GPIO, I2C SDA, A3 Analog In |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| ∆ | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| ∆ | Supports attachInterrupt | No | Yes |
+| ∆ | Internal pull resistance | 40K | 22K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### D1
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | D1 | D1 |
-| Pin Alternate Name | n/a | A4 |
-| Description | D0 GPIO, I2C SCL, CAN TX | D1 GPIO, PWM, I2C SCL, A4 Analog In |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | Yes | Yes |
-| I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
-| CAN interface | CAN2_TX | n/a |
-| Internal pull-up or pull-down resistance | 40K | 22K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D1 | D1 |
+| ∆ | Pin Alternate Name | n/a | A4 |
+| ∆ | Description | D0 GPIO, I2C SCL, CAN TX | D1 GPIO, PWM, I2C SCL, A4 Analog In |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| &nbsp; | Supports tone | Yes | Yes |
+| ∆ | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| ∆ | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
+| ∆ | CAN interface | CAN2_TX | n/a |
+| ∆ | Internal pull resistance | 40K | 22K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### D2
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | D2 | D2 |
-| Description | D2 GPIO, SPI1 MOSI, CAN RX | D2 GPIO, Serial2 RTS, SPI1 MOSI |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
-| Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
-| UART serial | n/a | RTS. Use Serial2 object. Flow control optional. |
-| SPI interface | MOSI. Use SPI1 object. | MOSI. Use SPI1 object. |
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
-| CAN interface | CAN2_RX | n/a |
-| I2S interface | I2S3_SD | n/a |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D2 | D2 |
+| ∆ | Description | D2 GPIO, SPI1 MOSI, CAN RX | D2 GPIO, Serial2 RTS, SPI1 MOSI |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
+| ∆ | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
+| ∆ | UART serial | n/a | RTS. Use Serial2 object. Flow control optional. |
+| &nbsp; | SPI interface | MOSI. Use SPI1 object. | MOSI. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
+| ∆ | CAN interface | CAN2_RX | n/a |
+| ∆ | I2S interface | I2S3_SD | n/a |
+| ∆ | Internal pull resistance | 40K | 2.1K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### D3
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | D3 | D3 |
-| Description | D3 GPIO, SPI1 MISO | D3 GPIO, Serial2 CTS, SPI1 MISO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
-| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
-| UART serial | n/a | CTS. Use Serial2 object. Flow control optional. |
-| SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
-| Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
-| Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D3 | D3 |
+| ∆ | Description | D3 GPIO, SPI1 MISO | D3 GPIO, Serial2 CTS, SPI1 MISO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
+| ∆ | Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
+| ∆ | UART serial | n/a | CTS. Use Serial2 object. Flow control optional. |
+| &nbsp; | SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
+| ∆ | Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
 #### D4
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | D4 | D4 |
-| Description | D4 GPIO, SPI1 SCK | D4 GPIO, Serial2 TX, SPI1 SCK |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | n/a | TX. Use Serial2 object. |
-| SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
-| Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
-| I2S interface | I2S3_SCK | n/a |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG TDO. Floating at boot. | n/a |
-| Signal used at boot | JTAG TDO. Floating at boot. | n/a |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D4 | D4 |
+| ∆ | Description | D4 GPIO, SPI1 SCK | D4 GPIO, Serial2 TX, SPI1 SCK |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | UART serial | n/a | TX. Use Serial2 object. |
+| &nbsp; | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
+| ∆ | I2S interface | I2S3_SCK | n/a |
+| ∆ | Internal pull resistance | 40K | 2.1K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG TDO. Floating at boot. | n/a |
+| ∆ | Signal used at boot | JTAG TDO. Floating at boot. | n/a |
 #### D5
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | D5 | D5 |
-| Description | D5 GPIO, SPI1 SS | D5 GPIO, Serial2 RX, SPI1 SS |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | n/a | RX. Use Serial2 object. |
-| SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. |
-| Supports attachInterrupt | Yes | Yes |
-| I2S interface | I2S3_WS | n/a |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
-| Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D5 | D5 |
+| ∆ | Description | D5 GPIO, SPI1 SS | D5 GPIO, Serial2 RX, SPI1 SS |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | UART serial | n/a | RX. Use Serial2 object. |
+| &nbsp; | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | I2S interface | I2S3_WS | n/a |
+| ∆ | Internal pull resistance | 40K | 2.1K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
+| ∆ | Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
 #### D6
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | D6 | D6 |
-| Description | D6 GPIO, SWCLK | D6 GPIO, SWCLK. |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
-| SWD interface | SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
-| Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D6 | D6 |
+| ∆ | Description | D6 GPIO, SWCLK | D6 GPIO, SWCLK. |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
+| &nbsp; | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
+| ∆ | Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
 #### D7
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | D7 | D7 |
-| Description | D7 GPIO, Blue LED, SWDIO | D7 GPIO, Blue LED, SWDIO |
-| Supports digitalRead | Yes. But the on-board LED will light when 3.3V is supplied on this pin as well. | Yes. |
-| Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes. On the Photon this is the blue D7 LED. |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
-| JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
-| SWD interface | SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. |
-| Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | D7 | D7 |
+| &nbsp; | Description | D7 GPIO, Blue LED, SWDIO | D7 GPIO, Blue LED, SWDIO |
+| ∆ | Supports digitalRead | Yes. But the on-board LED will light when 3.3V is supplied on this pin as well. | Yes. |
+| ∆ | Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes. On the Photon this is the blue D7 LED. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
+| ∆ | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
+| &nbsp; | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. |
+| ∆ | Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
 #### DAC
 | | Removed from Photon |
 | :--- | :--- |
@@ -702,17 +710,17 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports analogRead | Yes|
 | Supports analogWrite (DAC) | Yes|
 | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 #### EN
 | | Added to Photon 2 |
 | :--- | :--- |
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### GND
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | GND | GND |
-| Description | Ground. You only need to use one of the Photon ground pins. | Ground. |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | GND | GND |
+| ∆ | Description | Ground. You only need to use one of the Photon ground pins. | Ground. |
 #### LI+
 | | Added to Photon 2 |
 | :--- | :--- |
@@ -731,7 +739,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | UART serial | RX. Use Serial3 object.|
 | SPI interface | MISO. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### MODE
 | | Added to Photon 2 |
 | :--- | :--- |
@@ -750,7 +758,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | UART serial | TX. Use Serial3 object.|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### RGBB
 | | Removed from Photon |
 | :--- | :--- |
@@ -777,19 +785,19 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Pin Name | RST|
 | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
 #### RX
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | RX | RX |
-| Pin Alternate Name | n/a | D9 |
-| Description | Serial1 RX (received data), GPIO, PWM. | Serial1 RX (received data), GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 42K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | RX | RX |
+| ∆ | Pin Alternate Name | n/a | D9 |
+| ∆ | Description | Serial1 RX (received data), GPIO, PWM. | Serial1 RX (received data), GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 40K | 42K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### S3
 | | Added to Photon 2 |
 | :--- | :--- |
@@ -800,7 +808,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports digitalWrite | Yes|
 | SPI interface | Default SS for SPI.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### S4
 | | Added to Photon 2 |
 | :--- | :--- |
@@ -810,7 +818,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
+| Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### SCK
 | | Added to Photon 2 |
 | :--- | :--- |
@@ -822,7 +830,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | UART serial | RTS. Use Serial3 object. Flow control optional.|
 | SPI interface | SCK. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### SETUP
 | | Removed from Photon |
 | :--- | :--- |
@@ -830,20 +838,20 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Description | SETUP button, has internal pull-up. Pin number constant is BTN.|
 | I2S interface | I2S3_MCK|
 #### TX
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | TX | TX |
-| Pin Alternate Name | n/a | D8 |
-| Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial1 TX (transmitted data), GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 42K |
-| Input is 5V Tolerant | Yes | No |
-| Signal used at boot | n/a | Low at boot triggers ISP flash download |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | TX | TX |
+| ∆ | Pin Alternate Name | n/a | D8 |
+| ∆ | Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial1 TX (transmitted data), GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 40K | 42K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | Signal used at boot | n/a | Low at boot triggers ISP flash download |
 #### USBDATA-
 | | Removed from Photon |
 | :--- | :--- |
@@ -873,20 +881,20 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
 | Input is 5V Tolerant | Yes|
 #### WKP
-|   | Photon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | WKP | D10 |
-| Pin Alternate Name | A7 | WKP |
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | n/a |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
-| Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | Photon | Photon 2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Name | WKP | D10 |
+| ∆ | Pin Alternate Name | A7 | WKP |
+| ∆ | Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | Yes | n/a |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| ∆ | UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
+| &nbsp; | Supports attachInterrupt | Yes | Yes |
+| ∆ | Internal pull resistance | 40K | 2.1K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -896,6 +904,8 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 ### Wi-Fi Configuration
 
 The Photon 2 and Argon utilize BLE for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
+
+Sample applications for React Native, iOS, and Android will be provided in the future.
 
 | Feature | Photon 2 | Photon | Argon |
 | :--- | :---: | :---: | :---: |
@@ -940,14 +950,55 @@ If you have a product based on the Photon, you will need to create a separate pr
 
 ### Third-party libraries
 
+{{!-- BEGIN shared-blurb 0ac81e91-31f6-4a87-9d78-f10f016ab102 --}}
+
 Most third-party libraries are believed to be compatible. The exceptions include:
 
-- Libraries that use peripherals that are not present (such as DAC)
 - Libraries for MCU-specific features (such as ADC DMA)
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
+- Libraries that manipulate GPIO at high speeds or are timing-dependent
+
+#### DS18B20 (1-Wire temperature sensor)
+
+- Not compatible
+- OneWire library requires high-speed GPIO support
+- Can use [DS2482](https://github.com/rickkas7/DS2482-RK) I2C to 1-Wire bridge chip instead
+- SHT30 sensors (I2C) may be an alternative in some applications
+
+#### FastLED
+
+- Not compatible. 
+- In theory the library could be modified to use the same technique as the NeoPixel library.
 
 
-## Version History
+#### NeoPixel (WS2812, WS2812B, and WS2813)
+
+- Requires Device OS 5.3.2 or later and [Particle-NeoPixel](https://github.com/technobly/Particle-NeoPixel) version 1.0.3.
+
+#### OneWire
+
+- Not compatible
+- OneWire library requires high-speed GPIO support
+- Can use [DS2482](https://github.com/rickkas7/DS2482-RK) I2C to OneWire bridge instead
+
+#### DHT22 and DHT11 (temperature and humidity sensor)
+
+- Not compatible, requires high-speed GPIO support
+- Using an I2C temperature and humidity sensor like the SHT3x is recommended instead
+
+#### SHT1x (temperature and humidity sensor)
+
+- Not compatible, requires high-speed GPIO support
+- SHT3x using I2C is recommended
+
+#### SparkIntervalTimer 
+
+- Not compatible at this time
+- Requires hardware timer support from user firmware
+
+{{!-- END shared-blurb --}}
+
+## Version history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|
@@ -959,3 +1010,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
 |     | 2022-10-05 | RK | Added HIBERNATE sleep section |
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
+|     | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |

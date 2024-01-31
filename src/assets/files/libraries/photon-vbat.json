@@ -7,7 +7,7 @@
   "attributes": {
     "name": "photon-vbat",
     "version": "0.0.3",
-    "installs": 8031,
+    "installs": 8905,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Utility to read the VBAT and temperature values from a STM32F2xx processor",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/photon-vbat",
+  "cardUrl": "/reference/device-os/libraries/p/photon-vbat",
   "versions": {
     "0.0.3": {
       "builds": {
@@ -88,6 +88,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-example": false
+          },
+          "boron": {
+            "1-example": false
+          },
+          "bsom": {
+            "1-example": false
+          },
+          "b5som": {
+            "1-example": false
+          },
+          "tracker": {
+            "1-example": false
+          },
+          "esomx": {
+            "1-example": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-example": false
+          },
+          "boron": {
+            "1-example": false
+          },
+          "bsom": {
+            "1-example": false
+          },
+          "b5som": {
+            "1-example": false
+          },
+          "tracker": {
+            "1-example": false
+          },
+          "p2": {
+            "1-example": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-example": false
           },

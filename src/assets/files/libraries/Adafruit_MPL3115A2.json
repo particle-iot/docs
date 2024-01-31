@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MPL3115A2",
     "version": "1.0.1",
-    "installs": 7990,
+    "installs": 8660,
     "license": "BSD",
     "author": "Garrett Bartley",
     "sentence": "Spark Core library for the MPL3115A2 sensors in the Adafruit shop",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_MPL3115A2",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_MPL3115A2",
   "versions": {
     "1.0.1": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "esomx": {
+            "example": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "p2": {
+            "example": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "example": true
           },

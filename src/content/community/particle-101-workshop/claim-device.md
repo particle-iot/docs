@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Lab 1: Claiming Your Particle Argon
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            | Get your Particle Argon online and claimed to your account                     |
 | --------------------------- | --------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to claim a new Particle Argon using a browser and the Particle mobile app. |

@@ -1,0 +1,400 @@
+{
+  "type": "libraries",
+  "id": "SC16IS7xxRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SC16IS7xxRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SC16IS7xxRK",
+    "version": "0.0.1",
+    "installs": 345,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "I2C and SPI UART driver for Particle devices",
+    "url": "https://github.com/rickkas7/SC16IS7xxRK",
+    "repository": "https://github.com/rickkas7/SC16IS7xxRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SC16IS7xxRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-08-20T13:25:46.329Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "boron": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "bsom": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "b5som": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "tracker": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "p2": {
+            "01-simple-i2c": false,
+            "02-simple-spi": false,
+            "04-simple-rxtx": false,
+            "05-selftest": false,
+            "06-continuous-read": false,
+            "07-buffered-read": false,
+            "08-dual-loop": false,
+            "09-hw-flow": false,
+            "10-interrupts": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "boron": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "bsom": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "b5som": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "tracker": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "esomx": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": false,
+            "08-dual-loop": true,
+            "09-hw-flow": false,
+            "10-interrupts": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "01-simple-i2c": false,
+            "02-simple-spi": false,
+            "04-simple-rxtx": false,
+            "05-selftest": false,
+            "06-continuous-read": false,
+            "07-buffered-read": false,
+            "08-dual-loop": false,
+            "09-hw-flow": false,
+            "10-interrupts": false
+          },
+          "electron": {
+            "01-simple-i2c": false,
+            "02-simple-spi": false,
+            "04-simple-rxtx": false,
+            "05-selftest": false,
+            "06-continuous-read": false,
+            "07-buffered-read": false,
+            "08-dual-loop": false,
+            "09-hw-flow": false,
+            "10-interrupts": false
+          },
+          "argon": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "boron": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "01-simple-i2c": false,
+            "02-simple-spi": false,
+            "04-simple-rxtx": false,
+            "05-selftest": false,
+            "06-continuous-read": false,
+            "07-buffered-read": false,
+            "08-dual-loop": false,
+            "09-hw-flow": false,
+            "10-interrupts": false
+          },
+          "electron": {
+            "01-simple-i2c": false,
+            "02-simple-spi": false,
+            "04-simple-rxtx": false,
+            "05-selftest": false,
+            "06-continuous-read": false,
+            "07-buffered-read": false,
+            "08-dual-loop": false,
+            "09-hw-flow": false,
+            "10-interrupts": false
+          },
+          "argon": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "boron": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "boron": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "bsom": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "b5som": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "tracker": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "p2": {
+            "01-simple-i2c": false,
+            "02-simple-spi": false,
+            "04-simple-rxtx": false,
+            "05-selftest": false,
+            "06-continuous-read": false,
+            "07-buffered-read": false,
+            "08-dual-loop": false,
+            "09-hw-flow": false,
+            "10-interrupts": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "boron": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "bsom": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "b5som": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "tracker": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": true,
+            "08-dual-loop": true,
+            "09-hw-flow": true,
+            "10-interrupts": true
+          },
+          "esomx": {
+            "01-simple-i2c": true,
+            "02-simple-spi": true,
+            "04-simple-rxtx": true,
+            "05-selftest": true,
+            "06-continuous-read": true,
+            "07-buffered-read": false,
+            "08-dual-loop": true,
+            "09-hw-flow": false,
+            "10-interrupts": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# SC16IS7xxRK\n\n*I2C and SPI UART driver for Particle devices*\n\nFrom the NXP datasheet:\n\n> The SC16IS740/750/760 is a follower I²C-bus/SPI interface to a single-channel high performance UART. It offers data rates up to 5 Mbit/s and guarantees low operating and sleeping current. The SC16IS750 and SC16IS760 also provide the application with 8 additional programmable I/O pins. The device comes in very small HVQFN24, TSSOP24 (SC16IS750/760) and TSSOP16 (SC16IS740) packages, which makes it ideally suitable for handheld, battery operated applications. This family of products enables seamless protocol conversion from I²C-bus or SPI to and RS-232/RS-485 and are fully bidirectional.\n\nThis library also supports the SC16IS752 and SC16IS762 dual UART.\n\n- Github repository: [https://github.com/rickkas7/SC16IS7xxRK](https://github.com/rickkas7/SC16IS7xxRK) \n- [Browseable API docs](https://rickkas7.github.io/SC16IS7xxRK/index.html)\n- License: MIT (can be used in open or closed source projects, including commercial products)\n\n#### Chip features\n\n| SC16IS7xx | Ports | IrDA       | GPIO  | SPI Max |\n| :-------- | :---: | :--------: | :---: |:------- |\n| SC16IS740 | 1     |            |       | 4 Mbps  |\n| SC16IS750 | 1     | 115.2 Kbps | 8     | 4 Mbps  |\n| SC16IS760 | 1     | 1.152 Mbps | 8     | 15 Mbps | \n| SC16IS752 | 2     | 115.2 Kbps |       | 4 Mbps  |\n| SC16IS762 | 2     | 1.152 Mbps |       | 15 Mbps |\n\n- IrDA and GPIO not currently supported by this library.\n\n#### Chip packages\n\n| SC16IS7xx    | TSSOP16 | HVQFN24 | TSSOP24 | TSSOP28 | HVQFN32 |\n| :----------- | :-----: | :-----: | :-----: | :-----: | :-----: |\n| SC16IS740IPW | x       |         |         |         |         |\n| SC16IS750IBS |         | x       |         |         |         |\n| SC16IS760IBS |         | x       |         |         |         |\n| SC16IS750IPW |         |         | x       |         |         |\n| SC16IS760IPW |         |         | x       |         |         |\n| SC16IS752IPW |         |         |         | x       |         |\n| SC16IS762IPW |         |         |         | x       |         |\n| SC16IS752IBS |         |         |         |         | x       |\n| SC16IS762IBS |         |         |         |         | x       |\n\n\n## Serial connections and flow control\n\nThe SC16IS7xx supports both hardware and software flow control, though this library only supports optional hardware flow control.\n\n| SC16IS7xx | Direction | Description | \n| :-------- | :-------: | :--- |\n| TX        | Output    | UART transmitter output. Connect to other side's RX. |\n| RX        | Input     | UART receiver input. Connecvt to other sides' TX. |\n| /CTS      | Input     | UART clear to send (active LOW). Other side is ready to receive data when LOW. |\n| /RTS      | Output    | UART request to send (active LOW). The SC16IS7xx can receive data when LOW. |\n| /DSR      |           | Data set ready. Optional flow control pin manually controlled as GPIO. |\n| /DTR      |           | Data terminal ready. Optional flow control pin manually controlled as GPIO. |\n| /CD       |           | Carrier detect. Optional flow control pin manually controlled as GPIO. |\n| /RI       |           | Ring indictor. Optional flow control pin manually controlled as GPIO. |\n\nBoth the RX/TX pair and CTS/RTS pair are typically crossed between the two sides of the UART serial link. In other words, \nRX on one side connects to TX on the other and vice-versa.\n\nThe last four flow control signals are rarely used. The library does not currently support setting and reading these pins.\n\nNote that the serial outputs are 3.3V and the inputs must be 3.3V or 5V. If you are connecting to RS-232 or RS-485 you need the appropriate driver chip to shift the levels. \n\nAutomatic hardware flow control (CTS/RTS) is optional and can be enabled on a per-port basis.\n\n## Serial settings\n\n### Baud rates\n\nThe chip requires an external crystal, which is typically either 1.8432 MHz or 3.072 MHz. Both are supported by the library:\n\n| Baud Rate | 1.8432 MHz | 3.072 MHz |\n| :--- | :---: | :---: |\n| 50 | x | x |\n| 75 | x | x |\n| 110 | 0.026 | 0.026 |\n| 134.5 | 0.058 | 0.034 |\n| 150 | x | x |\n| 300 | x | x |\n| 600 | x | x |\n| 1200 | x | x |\n| 1800 | x | 0.312 |\n| 2000 | 0.069 | x |\n| 2400 | x | x |\n| 3600 | x | 0.628 |\n| 4800 | x | x |\n| 7200 | x | 1.23 |\n| 9600 | x | x |\n| 19200 | x | x |\n| 38400 | x | x |\n| 56000 | 2.86 |  |\n| 115200 | x |  |\n\n- A number in the table above indicates the percentage deviation from the baud rate. Because of the large deviation, 56000 baud is not recommended for use with a 1.8432 MHz crystal.\n- An empty space in the table above indicates that there is no divisor that can produce this baud rate with that crystal.\n\nWhen using higher baud rates, using buffered read mode is recommended. At 115200 baud approximately 11,520 bytes per second can be transmitted. Since the FIFO can be serviced 1000 times per second, with a read of up to 64 bytes, this is still within the capability of both SPI and I2C. SPI at 4 Mbit/sec. is recommended, however I2C will work. Using I2C in 400 Kbit/sec mode is recommended over the default of 100 Kbit/sec., however all I2C devices must be able to support 400 Kbit/sec. mode in order to use it.\n\n### Word lengths\n\nThe chip and library support 5, 6, 7, and 8 bit word lengths.\n\n### Stop bits\n\nThe chip and library support 1 or 2 stop bits at 6, 7, or 8 bit word lengths. At 5 bit word length, 1 or 1 1/2 stop bits are supported.\n\n### Parity\n\nThe chip and library support no parity, even, odd, forced 0, and forced 1 parity.\n\n## Buffered read mode\n\nThe chip has a 64-byte FIFO. In some situations, you may not be able to read the data out of the FIFO fast enough from the main application loop thread if you have other blocking operations. To solve this problem, buffered read mode can be enabled.\n\nWhen using buffered read, a worker thread is used to read the chip FIFO. Since the worker thread gets CPU time 1000 times per second, it can easily read data up to the maximum baud rate \n\n## Interrupts\n\nThis library optionally can use the hardware interrupt (IRQ) feature of the SC16IS7xx. Use is optional but not as useful as you'd think. In particular, it will not make data transfer faster or have lower latency!\n\n- It is not possible to start an I2C or SPI transaction from an ISR. However the chip must be queried to to determine which interrupt triggered.\n\n- Since you can only start transactions from a thread, interrupts don't reduce the latency any more than polling.\n\n- Interrupts do have a small benefit in that the thread would not have to query the chip on every loop, 1000 times per second. This is especially true when using I2C and you are infrequently transferring data.\n\n- Received data interrupts are only used in buffered read mode. In normal mode, the chip is queried on every read anyway, and interrupts would have no benefit.\n\n\n## Usage overview\n\nThe examples show how to use most of the library features, however a detailed description is provided below.\n\n### Declare an object\n\nFor the SC16IS740, SC16IS750, or SC16IS760, instantiate an object for the chip. This is typically done as a global object, but can be allocated on the heap using `new`. The constructor does very little and is safe as a global object.\n\n```cpp\nSC16IS7x0 extSerial;\n```\n\nFor the SC16IS752 and SC16IS762, declare:\n\n```cpp\nSC16IS7x2 extSerial;\n```\n\nThe object is not a singleton because you can have multiple chips. Using the A0 and A1, up to 16 chips can be added to an I2C bus. The number of chips connected to a single GPIO is limited only by the number of available GPIO as each chip must have a unique CS line.\n\n### Set SPI or I2C mode\n\nTypically from global `setup()` you set the options for the chip.\n\n\n#### SPI \n\nTo use SPI, you specify which SPI port (typically `SPI`), the CS pin, and the speed in MHz. The speed is optional, and defaults to 4 MHz.\n\n```cpp\n// SPI port, CS line\nextSerial.withSPI(&SPI, D4, 4);\n```\n\nThe SC16IS760 and SC16IS762 can run at SPI bus speeds up to 15 MHz but all other chips are limited to 4 MHz. Unlike SPI, each device on the SPI bus can run at a different speed and when an SPI transaction begins, the speed, bit order, and mode are set.\n\n#### I2C\n\nTo use I2C mode, use `withI2C()` specifying which I2C interface (typically `Wire`) and the index or I2C address:\n\n```cpp\nextSerial.withI2C(&Wire, 0);\n```\n\n| A1 | A0 | Index | I2C Address |\n| :---: | :---: | :---: | :--- |\n| VDD | VDD |  0 |    0x48 |\n| VDD | GND |  1 |    0x49 |\n| VDD | SCL |  2 |    0x4a |\n| VDD | SDA |  3 |    0x4b |\n| GND | VDD |  4 |    0x4c |\n| GND | GND |  5 |    0x4d |\n| GND | SCL |  6 |    0x4e |\n| GND | SDA |  7 |    0x4f |\n| SCL | VDD |  8 |    0x50 |\n| SCL | GND |  9 |    0x51 |\n| SCL | SCL | 10 |    0x52 |\n| SCL | SDA | 11 |    0x53 |\n| SDA | VDD | 12 |    0x54 |\n| SDA | GND | 13 |    0x55 |\n| SDA | SCL | 14 |    0x56 |\n| SDA | SDA | 15 |    0x57 |\n\nWhen using I2C, it's recommended that you use 400 KHz mode, with a caveat: With I2C, every device must be able to support 400 KHz mode in order to enable it. Unlike SPI, all chips must support the higher data rate and it is enabled globally for all devices.\n\n```cpp\nWire.setSpeed(CLOCK_SPEED_400KHZ);\n```\n\n### Set other options\n\n#### withOscillatorFrequency()\n\nThe default is 1843200 (1.8432 MHz). If you are using a 3.072 MHz crystal, set the oscillator frequency to 3072000. This is necessary to the baud rate is correctly set.\n\n```cpp\nextSerial.withOscillatorFrequency(3072000);\n```\n\nThe setting made be set before calling `begin()`.\n\n#### withIRQ\n\nIf you want to use hardware IRQ mode, use `withIRQ`. \n\n```cpp\nextSerial.withIRQ(D3); \n```\n\nUsing hardware IRQ is optional, and does *not* reduce latency or make the data transfer faster! \n\nIRQ mode must be enabled before buffered read mode, and before calling `begin()`.\n\n#### softwareReset\n\nThis does a software reset of the chip. Since hardware reset or `System.reset()` does not reset the chip, using `softwareReset()` during `setup()` is a good practice.\n\n```cpp\nextSerial.softwareReset();\n```\n\nThis is typically called at startup before calling `begin()`. \n\n#### powerOnCheck\n\nThis call is optional but you may want to call it after calling `softwareReset()`, especially during development.\n\nIt examines several registers to make sure they're in the expected state. If you do not use `softwareReset` the chip may be incorrectly flagged as failing powerOnCheck because the registers have already been programmed to a non-default state.\n\n```cpp\nextSerial.powerOnCheck();\n```\n\n### Per-port settings\n\nThe SC16IS740, SC16IS750, and SC16IS760 are single-port devices and the `SC16IS7x0` object is derived from `SC16IS7xxPort` so all per-port options can be used with your `extSerial` object directly.\n\n```cpp\nextSerial.begin(9600);\n```\n\nSince the SC16IS752 and SC16IS762 have two ports, you need to specify which port. You can use `a()` and `b()` to access port A or port B:\n\n```cpp\nextSerial.a().begin(9600);\nextSerial.b().begin(9600);\n```\n\nAlternatively, you can use the `[]` operator. This is useful if you want to specify which port from a variable.\n\n```cpp\nextSerial[0].begin(9600);\nextSerial[1].begin(9600);\n```\n\nAdditionally, even though it's not required, on the single-port chips you can use `a()` or `[0]` to access the single port so your code can be the same for the SC16IS7x0 and SC16IS7x2.\n\n```cpp\n// Optional, but works on the SC16IS7x0 for consistency with the SC16IS7x2.\nextSerial.a().begin(9600);\nextSerial[0].begin(9600);\n```\n\n#### withBufferedRead\n\nBuffered read mode uses a thread to read the chip, reducing the likelihood of FIFO overrun. The parameter is the size of the buffer\nto allocate on the heap.\n \n```cpp\nextSerial.withBufferedRead(1024);     // SC16IS7x0 only\nextSerial.a().withBufferedRead(1024); // SC16IS7x0 or SC16IS7x2\nextSerial.b().withBufferedRead(1024); // SC16IS7x2 only\n```\n\nThe setting made be set before calling `begin()`. This setting is per-port\n\n\n#### begin\n\nFinally you must call `begin()`. This sets the baud rate, stop bits, parity, and optionally enables hardware flow control. The default is 8N1 (8 bits, no parity, one stop bit), and flow control disabled.\n\n```cpp\nextSerial.begin(9600);     // SC16IS7x0 only\nextSerial.a().begin(9600); // SC16IS7x0 or SC16IS7x2\nextSerial.b().begin(9600); // SC16IS7x2 only\n```\n\nYou can call begin more than once if you want to change the baud rate. The FIFOs are cleared when you call begin.\n\nAvailable baud rates depend on your oscillator, but with a 1.8432 MHz oscillator, the following are supported:\n50, 75, 110, 134.5, 150, 300, 600, 1200, 1800, 2000, 2400, 3600, 4800, 7200, 9600, 19200, 38400, 57600, 115200\n\nThe valid options in standard number of bits; none=N, even=E, odd=O; number of stop bits format:\nOPTIONS_8N1, OPTIONS_8E1, OPTIONS_8O1, \nOPTIONS_8N2, OPTIONS_8E2, OPTIONS_8O2, \nOPTIONS_7N1, OPTIONS_7E1, OPTIONS_7O1, \nOPTIONS_7N2, OPTIONS_7E2, OPTIONS_7O2\n\n```cpp\nextSerial.begin(9600, SC16IS7xxPort::OPTIONS_7E1);\n```\n\nUnlike the Device OS options, the SC16IS7xx OPTIONS_8N1 value is not 0! If you omit are enabling\nhardware flow control be sure to set it like:\n\n```cpp\nextSerial.begin(9600, SC16IS7xxPort::OPTIONS_8N1 | SC16IS7xxPort::OPTIONS_FLOW_CONTROL_RTS_CTS);\n```\n\nIf you leave off the `OPTIONS_8N1` the output will be 5N1, not 8N1!\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

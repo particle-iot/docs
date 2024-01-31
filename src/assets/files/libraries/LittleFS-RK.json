@@ -1,0 +1,176 @@
+{
+  "type": "libraries",
+  "id": "LittleFS-RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/LittleFS-RK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "LittleFS-RK",
+    "version": "0.0.1",
+    "installs": 163,
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickk.com>",
+    "sentence": "LittleFS port for Particle Gen 2 devices",
+    "url": "https://github.com/rickkas7/LittleFS-RK",
+    "repository": "https://github.com/rickkas7/LittleFS-RK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/reference/device-os/libraries/l/LittleFS-RK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T20:11:47.266Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "boron": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "bsom": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "b5som": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "tracker": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "p2": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "boron": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "bsom": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "b5som": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "tracker": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "esomx": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "FileSystemTest": false,
+            "LargeFileTest": true
+          },
+          "electron": {
+            "FileSystemTest": false,
+            "LargeFileTest": true
+          },
+          "argon": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "boron": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "FileSystemTest": false,
+            "LargeFileTest": true
+          },
+          "electron": {
+            "FileSystemTest": false,
+            "LargeFileTest": true
+          },
+          "argon": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "boron": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "boron": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "bsom": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "b5som": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "tracker": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "p2": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "boron": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "bsom": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "b5som": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "tracker": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          },
+          "esomx": {
+            "FileSystemTest": false,
+            "LargeFileTest": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# LittleFS-RK \n\nPort of LittleFS for Particle Gen 2 devices.\n\n**Warning:** This only works on Gen 2 devices (Photon, P1, Electron, E Series)! The issue is that it uses the same C POSIX file API as currently used on the Gen 3 devices, so the linker will complain that it's implemented in two places, as it is. \n\n**Warning:** As this point in time, it's just a proof-of-concept for testing. There are almost certainly still bugs that haven't been found yet as it has not been extensively tested yet!\n\n- This is based on the Particle LittleFS implementation in Device OS: [https://github.com/particle-iot/device-os/tree/develop/third_party/littlefs](https://github.com/particle-iot/device-os/tree/develop/third_party/littlefs).\n\n- It contains the POSIX wrappers from Device OS: [https://github.com/particle-iot/device-os/tree/develop/hal/src/nRF52840/littlefs](https://github.com/particle-iot/device-os/tree/develop/hal/src/nRF52840/littlefs).\n\n- It contains other hacked bits of Device OS needed to make it compile and link from user firmware.\n\n- The POSIX file system API calls are the same as [are documented for the Boron](https://docs.particle.io/reference/device-os/firmware/boron/#file-system).\n\n- Tested with Winbond, ISSI, and Macronix SPI NOR flash chips.  \n\n- It even works with the MX25L25645G 256 Mbit (32 Mbyte) flash chip, which I could not get to work reliably with SPIFFS. See note in LargeFileTest.cpp; you must enable 32-bit addressing in SpiFlashRK using `spiFlash.set4ByteAddressing(true);` for this to work properly.\n\n## Usage\n\nYou'll probably need some includes:\n\n```cpp\n#include \"LittleFS-RK.h\"\n\n#include <dirent.h>\n#include <sys/stat.h>\n#include <fcntl.h>\n```\n\nThis code uses the [SpiFlashRK library](https://github.com/rickkas7/SpiFlashRK) to interface to the flash chip. You typically use one of these lines depending on the brand, SPI port, and CS line:\n\n```cpp\n// Pick a chip, port, and CS line\n// SpiFlashISSI spiFlash(SPI, A2);\n// SpiFlashWinbond spiFlash(SPI, A2);\n// SpiFlashMacronix spiFlash(SPI, A2);\n// SpiFlashWinbond spiFlash(SPI1, D5);\n// SpiFlashMacronix spiFlash(SPI1, D5);\n```\n\nYou then allocate a `LittleFS` object as a global:\n\n```\nLittleFS fs(&spiFlash, 0, 256);\n```\n\nThe parameters are:\n\n- `&spiFlash` the object for your flash chip\n- `0` the start sector for the file system (0 = beginning of chip)\n- `256` replace with the number of 4096-byte sectors to use for the file system. 256 * 4096 = 1,048,576 bytes = 1 Mbyte, the size of an 8 Mbit SPI flash chip. \n\nNote: You must only ever allocate one LittleFS object. Bad things will happen if you create more than one. You can allocate it with `new` but don't allocate it on the stack.\n\nFinally, in `setup()`, initialize the SPI flash and mount the file system. This will format it if it has not been formatted.\n\n```cpp\nspiFlash.begin();\nint res = fs.mount();\nLog.info(\"fs.mount() = %d\", res);\n```\n\n## Testing\n\nThere are two test programs:\n\n- FileSystemTest: A simple app\n- LargeFileTest: A test that writes larger files to test performance\n\n\n## Version History\n\n### 0.0.1 (2020-11-10)\n\n- Initial testing version. It probably still has bugs!\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

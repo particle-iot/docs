@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SSD1331",
     "version": "0.0.1",
-    "installs": 6047,
+    "installs": 6151,
     "license": "BSD license, all text above must be included in any redistribution",
     "author": "Fulvio Cusumano <fcusumano@gmail.com>",
     "sentence": "Adafruit SSD1331 library for SparkCore",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_SSD1331",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_SSD1331",
   "versions": {
     "0.0.1": {
       "builds": {

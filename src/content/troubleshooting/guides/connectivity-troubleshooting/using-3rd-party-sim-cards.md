@@ -29,7 +29,7 @@ The MFF2 embedded SIM card is not a programmed eSIM. It's basically the same as 
 | Electron 3G | U260 | &check; | &nbsp; |
 | Electron 3G | U270 |  &check; | &nbsp; |
 | Electron Global | ELC314 | &check; | &nbsp; |
-| Electron LTE (Cat M1) | ELC404X ELC404 ELC402 | &nbsp; | &check; |
+| Electron LTE (Cat M1) | ELC404 ELC402 | &nbsp; | &check; |
 | E Series 2G/3G | E314 E310 | &nbsp; | &check; |
 | E Series LTE (Cat M1) | E404X E404 E402 | &nbsp; | &check; |
 
@@ -81,7 +81,7 @@ The Electron and Boron do not currently support SIM cards with a PIN. If your SI
 
 The easiest way to remove a SIM PIN is from a phone. On the iPhone, it's in Settings - Phone - SIM PIN.
 
-## Finding Your APN
+## Finding your APN
 
 The APN ("Access Point Name") specifies how the Particle device should connect to the Internet. The setting varies by carrier, and sometimes by country. If you're searching Google for your APN, be aware that some carriers may list separate WAP APN or MMS APNs; you want to use the Generic or Internet APN.
 
@@ -91,7 +91,7 @@ If you have set your APN correctly the Particle device should proceed through th
 
 Some carriers may also require a username and password. Note those, if they are required, as well.
 
-## Device Type
+## Device type
 
 The instructions vary between the Boron and Electron. Select the device you want to configure here:
 
@@ -100,7 +100,7 @@ The instructions vary between the Boron and Electron. Select the device you want
 
 {{collapse op="start" cellularDevice="Boron"}}
 
-## Boron - Setting Up A 3rd-party SIM Card
+## Boron - Setting up a 3rd-party SIM card
 
 * For the Boron 2G/3G most nano SIM cards are compatible.
 * For the Boron LTE, support for LTE Cat M1 is required. This is an IoT-specific subset of LTE, and not all carriers support LTE Cat M1 at this time. Some may not have approved the u-blox SARA-R410M-02B modem used in the Boron LTE yet and may not allow it on their network, as well.
@@ -112,7 +112,7 @@ If you're ready to set up your Boron, follow these steps:
 
 ```html
 particle update
-particle flash --usb tinker
+particle flash --local tinker
 
 ```
 
@@ -149,7 +149,7 @@ void loop() {
 
 ```html
 particle compile boron 3rdPartySIM.cpp --saveTo firmware.bin 
-particle flash --usb firmware.bin
+particle flash --local firmware.bin
 
 ```
 
@@ -157,7 +157,7 @@ particle flash --usb firmware.bin
 * Flash Tinker back to the Boron:
 
 ```
-particle flash --usb tinker
+particle flash --local tinker
 
 ```
 
@@ -240,9 +240,9 @@ The embedded MFF2 Particle SIM card on the Boron LTE is only supported in the Un
 
 {{collapse op="start" cellularDevice="Electron"}}
 
-## Electron - Setting Up A 3rd-party SIM Card
+## Electron - Setting up a 3rd-party SIM card
 
-#### Making Tinker with APN setting - Electron
+#### Making tinker with APN setting - Electron
 
 To build Tinker with 3rd party APN settings; copy and paste this into a file, such as tinker.ino.
 
@@ -494,7 +494,7 @@ Put the Electron in DFU mode ([blinking yellow](/tutorials/device-os/led/electro
 ```
 particle update
 particle compile electron --target 2.3.0 tinker.ino --saveTo firmware.bin
-particle flash --usb firmware.bin
+particle flash --local firmware.bin
 
 ```
 
@@ -537,7 +537,7 @@ The 2G Electron (G350) supports 850, 900, 1800 and 1900 MHz (GPRS/EDGE).
 
 {{collapse op="end"}}
 
-## Claiming A Boron Or An Electron Manually
+## Claiming a Boron or an Electron manually
 
 Once your device is breathing cyan after successfully setting the APN, you can claim it.
 
@@ -568,7 +568,7 @@ At the bottom of your list of devices is **Add New Device** button. Click that a
 
 
 
-## About Keep-Alive
+## About keep-alive
 
 When mobile devices, including phones and the Electron and Boron, connect to the Internet they share a connection through their mobile carrier, similar to how multiple computers in your home share a connection through your home router.
 
@@ -615,7 +615,7 @@ For the Electron, also note that the keep-alive settings is only in device OS 0.
 
 ## More troubleshooting tips
 
-#### Blinking Blue
+#### Blinking blue
 
 If, when you power on the Electron, it's blinking dark blue ([listening mode blue](/tutorials/device-os/led/electron/#listening-mode)), the most common cause is that the SIM is loose. Try removing it and putting it back in again.
 

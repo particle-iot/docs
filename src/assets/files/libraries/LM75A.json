@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LM75A",
     "version": "1.1.0",
-    "installs": 214,
+    "installs": 404,
     "license": "MIT License",
     "author": "Quentin Comte-Gaz",
     "sentence": "I2C LM75A Temperature Sensor",
@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LM75A",
+  "cardUrl": "/reference/device-os/libraries/l/LM75A",
   "versions": {
     "1.1.0": {
       "builds": {
@@ -55,8 +55,103 @@
           "boron": {
             "usage": false
           }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2023-03-21T15:48:18.636Z"
     }
   },
   "readme": "# I2C LM75A Temperature Sensor\n\n## author\nQuentin Comte-Gaz\n\n## license\nMIT License\n\n## source\nhttps://github.com/QuentinCG/Arduino-LM75A-Temperature-Sensor-Library\n\n## Usage\nSee example\n\n## LICENSE\nCopyright 2018 Quentin Comte-Gaz\n\nLicensed under the MIT license\n",

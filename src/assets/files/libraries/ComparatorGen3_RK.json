@@ -1,0 +1,176 @@
+{
+  "type": "libraries",
+  "id": "ComparatorGen3_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ComparatorGen3_RK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "ComparatorGen3_RK",
+    "version": "0.0.1",
+    "installs": 60,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Support for the nRF52 hardware comparator for Particle user firmware",
+    "url": "https://github.com/rickkas7/ComparatorGen3_RK",
+    "repository": "https://github.com/rickkas7/ComparatorGen3_RK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/reference/device-os/libraries/c/ComparatorGen3_RK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T23:14:16.690Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "boron": {
+            "1-simple": false,
+            "2-rising": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-rising": false
+          },
+          "b5som": {
+            "1-simple": false,
+            "2-rising": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-rising": true
+          },
+          "p2": {
+            "1-simple": false,
+            "2-rising": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": false,
+            "2-rising": true
+          },
+          "boron": {
+            "1-simple": false,
+            "2-rising": true
+          },
+          "bsom": {
+            "1-simple": false,
+            "2-rising": false
+          },
+          "b5som": {
+            "1-simple": false,
+            "2-rising": false
+          },
+          "tracker": {
+            "1-simple": false,
+            "2-rising": false
+          },
+          "esomx": {
+            "1-simple": false,
+            "2-rising": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple": false,
+            "2-rising": false
+          },
+          "electron": {
+            "1-simple": false,
+            "2-rising": false
+          },
+          "argon": {
+            "1-simple": false,
+            "2-rising": false
+          },
+          "boron": {
+            "1-simple": true,
+            "2-rising": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple": false,
+            "2-rising": false
+          },
+          "electron": {
+            "1-simple": false,
+            "2-rising": false
+          },
+          "argon": {
+            "1-simple": false,
+            "2-rising": true
+          },
+          "boron": {
+            "1-simple": false,
+            "2-rising": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "p2": {
+            "1-simple": false,
+            "2-rising": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-rising": true
+          },
+          "esomx": {
+            "1-simple": false,
+            "2-rising": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ComparatorGen3_RK\n\n*Support for the nRF52 hardware comparator for Particle user firmware*\n\nThe nRF52840 MCU in Particle Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM, Tracker One) has a single analog comparator in the MCU that can be used on any of the available analog input pins. It can detect crossings, rising, falling, or both, optionally with hysteresis. \n\nNote: The nRF52840 supports both COMP (comparator) and LPCOMP (low-power comparator), but only one can be used at a time. \n\n| Feature | COMP | LPCOMP |\n| :--- | :---: | :---: |\n| Differential analog input | &check; | &nbsp; |\n| Single-Ended analog input | &check; | &check; |\n| External reference voltage | AIN0 or AIN1 | AIN0 - AIN7 |\n| Internal reference voltage | 1.2V, 1.8V, or 2.4V | 15 steps of VDD (0.22V each) |\n\nThe peripherals are similar but the features of the LPCOMP are what I needed and this library only supports LPCOMP. It wouldn't be hard to modify it to use COMP, but it does not currently work with COMP.\n\nThis library uses the nRF52 SDK to access the hardware. The SDK is available to user applications with no additional libraries, however there are some steps that need to be done when using interrupts from user firmware. The following Nordic resources will be helpful:\n\n- [nRF52840 LPCOMP hardware documentation](https://infocenter.nordicsemi.com/topic/ps_nrf52840/lpcomp.html?cp=4_0_0_5_11)\n- [nRF52 SDK LPCOMP driver](https://infocenter.nordicsemi.com/topic/com.nordic.infocenter.sdk5.v15.3.0/group__nrfx__lpcomp.html) containing the nRF52 SDK API\n- [nRF52 SDK LPCOMP HAL](https://infocenter.nordicsemi.com/topic/com.nordic.infocenter.sdk5.v15.3.0/group__nrf__lpcomp__hal.html) containing the constants and structures you will need\n\n## Usage\n\nSee the examples for more information.\n\n- 1-simple - toggles the blue D7 LED on change\n- 2-rising - counts the number of rising crossings and prints the results every second\n\nEven though the comparator is fast, interrupt latency makes it impossible to measure really high frequency signals. It sorts of works up to around 100,000 interrupts per second, but it loses some interrupts at the upper end of that, so it won't be particularly reliable at that rate.\n\n\nIf you use an external reference voltage, it must be on A0. It can't be on other pins. If using the internal reference, the possible values are:\n\n- `REF_0V4` (approximately 0.4V)\n- `REF_0V8` \n- `REF_1V2`\n- `REF_1V7`\n- `REF_2V1`\n- `REF_2V5`\n- `REF_2V9` (approximately 2.9V)\n- `PIN_A0`\n\nSee the ComparatorGen3_RK.h file. There are numerous comments that explain the functions and values.\n\n\n## Version History\n\n### 0.0.1 (2021-10-20)\n\n- Initial version\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

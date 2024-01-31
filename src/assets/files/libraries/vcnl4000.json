@@ -1,0 +1,142 @@
+{
+  "type": "libraries",
+  "id": "vcnl4000",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/vcnl4000/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "vcnl4000",
+    "version": "0.0.1",
+    "installs": 75,
+    "license": "BSD",
+    "author": "Ladyada <contact@adafruit.com>",
+    "sentence": "Spark library for VCNL4000 all-in-one proximity/light sensor",
+    "url": "https://github.com/suda/sparkvcnl4000",
+    "repository": "https://github.com/suda/sparkvcnl4000.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "v",
+  "cardUrl": "/reference/device-os/libraries/v/vcnl4000",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T21:23:16.576Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "VCNLtester": true
+          },
+          "boron": {
+            "VCNLtester": true
+          },
+          "bsom": {
+            "VCNLtester": true
+          },
+          "b5som": {
+            "VCNLtester": true
+          },
+          "tracker": {
+            "VCNLtester": true
+          },
+          "p2": {
+            "VCNLtester": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "VCNLtester": true
+          },
+          "boron": {
+            "VCNLtester": true
+          },
+          "bsom": {
+            "VCNLtester": true
+          },
+          "b5som": {
+            "VCNLtester": true
+          },
+          "tracker": {
+            "VCNLtester": true
+          },
+          "esomx": {
+            "VCNLtester": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "VCNLtester": true
+          },
+          "electron": {
+            "VCNLtester": true
+          },
+          "argon": {
+            "VCNLtester": true
+          },
+          "boron": {
+            "VCNLtester": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "VCNLtester": true
+          },
+          "electron": {
+            "VCNLtester": true
+          },
+          "argon": {
+            "VCNLtester": true
+          },
+          "boron": {
+            "VCNLtester": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "VCNLtester": true
+          },
+          "boron": {
+            "VCNLtester": true
+          },
+          "bsom": {
+            "VCNLtester": true
+          },
+          "b5som": {
+            "VCNLtester": true
+          },
+          "tracker": {
+            "VCNLtester": true
+          },
+          "p2": {
+            "VCNLtester": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "VCNLtester": true
+          },
+          "boron": {
+            "VCNLtester": true
+          },
+          "bsom": {
+            "VCNLtester": true
+          },
+          "b5som": {
+            "VCNLtester": true
+          },
+          "tracker": {
+            "VCNLtester": true
+          },
+          "esomx": {
+            "VCNLtester": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "TODO: Describe your library and how to run the examples\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

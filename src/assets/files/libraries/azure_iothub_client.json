@@ -7,7 +7,7 @@
   "attributes": {
     "name": "azure_iothub_client",
     "version": "0.0.3",
-    "installs": 1420,
+    "installs": 1584,
     "license": "MIT",
     "author": "dcristo@microsoft.com",
     "sentence": "Experimental port - Azure IoTHub client",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/azure_iothub_client",
+  "cardUrl": "/reference/device-os/libraries/a/azure_iothub_client",
   "versions": {
     "0.0.3": {
       "builds": {

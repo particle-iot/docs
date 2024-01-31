@@ -1,0 +1,37 @@
+{
+  "type": "libraries",
+  "id": "icm-20948",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/icm-20948/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "icm-20948",
+    "version": "1.0.3",
+    "installs": 164,
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "Use the low-power high-resolution ICM 20948 9 DoF IMU from Invensense with I2C or SPI. Includes a portable C skeleton",
+    "paragraph": "The <a href=\"https://www.invensense.com/products/motion-tracking/9-axis/icm-20948/\">SparkFun 9DoF IMU Breakout </a> uses the Invensense <a href=\"https://www.invensense.com/products/motion-tracking/9-axis/icm-20948/\">ICM-20948</a> -- a system-in-package featuring acceleration full-scales of ±2 / ±4 / ±8 / ±16 (g), rotational full-scales of ±250 / ±500 / ±1000 / ±2000 (°/sec) and a magnetic field full scale of ±4800 µT. The ICM-20948 can be accessed via either I2C (400 kHz) or SPI (7 MHz)",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/reference/device-os/libraries/i/icm-20948",
+  "versions": {
+    "1.0.3": {
+      "added": "2023-03-21T20:19:12.561Z",
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "SparkFun_ICM-20948_ArduinoLibrary\n========================================\n\nThis is the library for the [SparkFun 9DoF IMU Breakout - ICM-20948 (Qwiic)](https://www.sparkfun.com/products/15335). \n\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** - General library properties for the Arduino package manager.\n\nDocumentation\n--------------\n\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/sparkfun-9dof-imu-icm-20948-breakout-hookup-guide)** - Basic hookup guide for the SparkFun 9DoF IMU Breakout.\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n\nProducts that use this Library \n---------------------------------\n* [SparkFun 9DoF IMU Breakout - ICM-20948 (Qwiic)](https://www.sparkfun.com/products/15335)\n\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\nThe **code** is released under the GPL v3 license. See the included LICENSE.md for more information.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",
+  "allVersions": [
+    "1.0.3"
+  ]
+}

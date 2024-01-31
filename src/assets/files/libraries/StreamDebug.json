@@ -7,7 +7,7 @@
   "attributes": {
     "name": "StreamDebug",
     "version": "0.0.2",
-    "installs": 418,
+    "installs": 511,
     "author": "Exovii",
     "architectures": [],
     "visibility": "public",
@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/StreamDebug",
+  "cardUrl": "/reference/device-os/libraries/s/StreamDebug",
   "versions": {
     "0.0.2": {
       "builds": {},

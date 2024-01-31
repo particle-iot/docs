@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ntp-time",
     "version": "0.1.0",
-    "installs": 19734,
+    "installs": 22179,
     "license": "MIT",
     "author": "Douglas Johnson",
     "sentence": "Keeps the Particle Time synced to NTP.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/ntp-time",
+  "cardUrl": "/reference/device-os/libraries/n/ntp-time",
   "versions": {
     "0.1.0": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true
           },

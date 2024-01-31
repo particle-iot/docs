@@ -539,6 +539,10 @@ h1 small.beta {
     @media (max-width: @medium-size) {
       left: 0;
     }
+
+    @media (min-width: @screenWidthForMenubarWide) {
+      left: @menubarWideWidth;
+    }
   }
 }
 
@@ -1118,18 +1122,53 @@ hr {
   overflow-x: auto;
 }
 
-#imageOverlay {
+#imageToolsContainer {
   position: fixed;
   display: none;
   width: 100%;
-  height: 100%;
+  height: 40px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.9);
+  z-index: 301; 
+}
+
+#imageOverlayContainer {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9);
   z-index: 300; 
-  cursor: pointer;
+}
+
+#imageOverlay > canvas {
+  cursor: move;
+}
+
+.imageToolsBox {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  justify-content: flex-end;
+}
+
+.imageToolsButton {
+  width: 30px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 24px;
+  cursor: default;
+}
+
+.imageToolsSpacer {
+  width: 15px;
 }
 
 img.imageOverlay {
@@ -1183,3 +1222,213 @@ span.note-prefix {
 .note-warning {
   border-color: @note-warning;
 }
+
+
+/* ----------------------------------------------------------------------------
+ * Segment Cookie consent banner
+ */
+#consent-manager {
+  position: fixed;
+	bottom: 0;
+	left: 0;
+  right: 0;
+	z-index: 999999;
+	background: @COLOR_Midnight_500;
+  font-size: 10px;
+	> div > div {
+		max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+		div:nth-child(2) {
+      @media (max-width: 767px) {
+				display: flex;
+				margin: 0 -4px;
+				button {
+					margin: 4px;
+				}
+			}
+		}
+	}
+  span, button:only-child {
+    font-size: 12px;
+  }
+	p {
+		text-align: left;
+	}
+	p a:hover, p button:hover {
+		color: @COLOR_Gray_100;
+	}
+	div > button:first-child {
+    text-decoration: none;
+    border-radius: 0;
+    border: none;
+    transition: background-color 150ms, outline-color 150ms, outline-width 150ms, outline-offset 150ms;
+    user-select: none;
+    text-align: center;
+    font-family: @monospace-font;
+    line-height: 1;
+    font-weight: 400;
+    padding: .69rem 1rem;
+    font-size: 1rem;
+		color: @COLOR_Midnight_500;
+		background: transparent;
+		background-color: @COLOR_ParticleBlue_500;
+		outline: 2px solid @COLOR_ParticleBlue_500;
+		outline-offset: -2px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		&:hover {
+			background: transparent;
+			background-color: @COLOR_ParticleBlue_700;
+			outline-color: @COLOR_ParticleBlue_700;
+		}
+		&:focus {
+			outline-color: @COLOR_White_0;
+		}
+	}
+	div > button:nth-child(2) {
+    text-decoration: none;
+    border-radius: 0;
+    border: none;
+    transition: background-color 150ms, outline-color 150ms, outline-width 150ms, outline-offset 150ms;
+    user-select: none;
+    text-align: center;
+    font-family: @monospace-font;
+    line-height: 1;
+    font-weight: 400;
+    padding: .69rem 1rem;
+    font-size: 1rem;
+		background-color: transparent;
+		color: @COLOR_ParticleBlue_500;
+		outline: 1px solid @COLOR_ParticleBlue_500;
+		outline-offset: -1px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		&:hover {
+			background-color: @COLOR_Midnight_500;
+		}
+		&:focus {
+			outline-width: 2px;
+			outline-offset: -2px;
+			outline-color: @COLOR_White_0;
+		}
+	}
+  // Close button
+  button:enabled {
+    background-color: transparent;
+  }
+}
+/* ----------------------------------------------------------------------------
+ * Segment cookie consent preferences modal
+ */
+div[data-consent-manager-dialog] {
+  section {
+    border-radius: 0;
+  }
+  table {
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 0 0;
+    label, input, p, td, tr {
+      font-size: 12px;
+      line-height: 1.15; 
+    }
+    label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+    input[type='radio'] {
+      margin: 0;
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: @COLOR_White_0;
+      margin: 0 5px 0 0;
+      font: inherit;
+      color: @COLOR_Midnight_500;
+      width: 1.1em;
+      height: 1.1em;
+      border: 1px solid @COLOR_Midnight_500;
+      border-radius: 50%;
+      display: grid;
+      place-content: center;
+    }
+    input[type='radio']::before {
+      content: "";
+      width: 0.65em;
+      height: 0.65em;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+      box-shadow: inset 1em 1em @COLOR_Midnight_700;
+    }
+    input[type="radio"]:checked::before {
+      transform: scale(1);
+    }
+  }
+  form {
+    button[type="button"] {
+      text-decoration: none;
+      border-radius: 0;
+      border: none;
+      transition: background-color 150ms, outline-color 150ms, outline-width 150ms, outline-offset 150ms;
+      user-select: none;
+      text-align: center;
+      font-family: @monospace-font;
+      line-height: 1;
+      font-weight: 400;
+      padding: .69rem 1rem;
+      font-size: 1rem;
+      background-color: transparent;
+      color: @COLOR_Midnight_500;
+      outline: 1px solid @COLOR_Midnight_500;
+      outline-offset: -1px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        background-color: @COLOR_ParticleBlue_500;
+      }
+      &:focus {
+        outline-width: 0.2rem;
+        outline-offset: -0.2rem;
+      }
+    }
+    button[type="submit"] {
+      text-decoration: none;
+      border-radius: 0;
+      border: none;
+      transition: background-color 150ms, outline-color 150ms, outline-width 150ms, outline-offset 150ms;
+      user-select: none;
+      text-align: center;
+      font-family: @monospace-font;
+      line-height: 1;
+      font-weight: 400;
+      padding: .69rem 1rem;
+      font-size: 1rem;
+      color: @COLOR_Midnight_500;
+      background: transparent;
+      background-color: @COLOR_ParticleBlue_500;
+      outline: 1px solid @COLOR_ParticleBlue_500;
+      outline-offset: -1px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        background: transparent;
+        background-color: @COLOR_ParticleBlue_700;
+        outline-color: @COLOR_ParticleBlue_700;
+      }
+      &:focus {
+        outline-color: @COLOR_Midnight_500;
+      }
+    }
+  }
+  // Close button
+  button:enabled {
+    background-color: transparent;
+  }
+}
+

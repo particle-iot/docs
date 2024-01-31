@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel__spark_internet_button",
     "version": "0.0.5",
-    "installs": 991,
+    "installs": 1144,
     "license": "GNU GPLv3",
     "author": "Adafruit, Technobly, Gregoryfenton",
     "sentence": "An Implementation of Adafruit's NeoPixel Library for the Spark Core Spark Internet Button",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/neopixel__spark_internet_button",
+  "cardUrl": "/reference/device-os/libraries/n/neopixel__spark_internet_button",
   "versions": {
     "0.0.5": {
       "builds": {
@@ -128,12 +128,64 @@
             "a-rainbow": false,
             "extra-examples": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "boron": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "bsom": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "b5som": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "tracker": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "p2": {
+            "a-rainbow": false,
+            "extra-examples": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "boron": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "bsom": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "b5som": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "tracker": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "esomx": {
+            "a-rainbow": false,
+            "extra-examples": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.966Z"
     }
   },
-  "readme": "SparkCore-NeoPixel\n==================\n\nA library for manipulating NeoPixel RGB LEDs for the Spark Core.\nImplementation based on Adafruit's NeoPixel Library.\nLibrary currently supports WS2812, WS2812B GRB 800kHz style pixels, strips and sticks!\nWS2811 RGB 400kHz style pixels, strips and sticks!\n\nAlso supports these less common pixels\n---\n- Radio Shack Tri-Color LED Strip with TM1803 controller 400kHz bitstream.\n- TM1829 pixels, many [details here.](https://community.spark.io/t/neopixel-library-for-tm1829-controller-resolved/5363)\n\nComponents Required\n---\n- A Neopixel digital RGB LED (get at [adafruit.com](adafruit.com))\n- or a Radio Shack Tri-Color LED Strip (get at [radioshack.com](radioshack.com))\n- A Spark Shield Shield or breakout board to supply neopixel's with 5V (see store at [spark.io](spark.io))\n\nExample Usage\n---\n\nSee this [flashable, rainbow example](firmware/examples/a-rainbow.cpp) for details, or, in a nutshell:\n\n```cpp\nAdafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);\nvoid setup() {\n  strip.begin();\n  strip.show();\n}\nvoid loop() {\n  // change your pixel colors and call strip.show() again\n}\n```\n\nNuances\n---\n\n- Make sure get the # of pixels, pin number, type of pixels correct\n\n- NeoPixels require 5V logic level inputs and the Spark Core only has 3.3V logic level digital outputs. Level shifting from 3.3V to 5V is\nnecessary, the Spark Shield Shield has the [TXB0108PWR](http://www.digikey.com/product-search/en?pv7=2&k=TXB0108PWR) 3.3V to 5V level shifter built in (but has been known to oscillate at 50MHz with wire length longer than 6\"), alternatively you can wire up your own with a [SN74HCT245N](http://www.digikey.com/product-detail/en/SN74HCT245N/296-1612-5-ND/277258), or [SN74HCT125N](http://www.digikey.com/product-detail/en/SN74HCT125N/296-8386-5-ND/376860). These are rock solid.\n\n\nBuilding locally\n---\n\nIf you are building locally, place the files here:\n\n```\n..\\core-firmware\\inc\\neopixel.h\n..\\core-firmware\\src\\application.cpp (renamed from extra-examples.cpp)\n..\\core-firmware\\src\\neopixel.cpp\n..\\core-firmware\\src\\build.mk (optional, if you have your own make file going, just add the neopixel.cpp to it)\n```\n\nUseful Links\n---\n\n- NeoPixel Guide: https://learn.adafruit.com/adafruit-neopixel-uberguide\n- Quad Level Shifter IC: [SN74ACHT125N](https://www.adafruit.com/product/1787) (Adafruit)\n- Quad Level Shifter IC: [SN74HCT125N](http://www.digikey.com/product-detail/en/SN74HCT125N/296-8386-5-ND/376860) (Digikey)\n- Quad Level Shifter IC: [SN74AHCT125N](http://www.digikey.com/product-detail/en/SN74AHCT125N/296-4655-5-ND/375798) (Digikey)\n",
+  "readme": "SparkCore-NeoPixel\n==================\n\nA library for manipulating NeoPixel RGB LEDs for the Spark Core.\nImplementation based on Adafruit's NeoPixel Library.\nLibrary currently supports WS2812, WS2812B GRB 800kHz style pixels, strips and sticks!\nWS2811 RGB 400kHz style pixels, strips and sticks!\n\nAlso supports these less common pixels\n---\n- Radio Shack Tri-Color LED Strip with TM1803 controller 400kHz bitstream.\n- TM1829 pixels, many [details here.](https://community.spark.io/t/neopixel-library-for-tm1829-controller-resolved/5363)\n\nComponents Required\n---\n- A Neopixel digital RGB LED (get at adafruit.com)\n- or a Radio Shack Tri-Color LED Strip (get at radioshack.com)\n- A Spark Shield Shield or breakout board to supply neopixel's with 5V (see store at spark.io)\n\nExample Usage\n---\n\nSee this flashable, rainbow example for details, or, in a nutshell:\n\n```cpp\nAdafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);\nvoid setup() {\n  strip.begin();\n  strip.show();\n}\nvoid loop() {\n  // change your pixel colors and call strip.show() again\n}\n```\n\nNuances\n---\n\n- Make sure get the # of pixels, pin number, type of pixels correct\n\n- NeoPixels require 5V logic level inputs and the Spark Core only has 3.3V logic level digital outputs. Level shifting from 3.3V to 5V is\nnecessary, the Spark Shield Shield has the [TXB0108PWR](http://www.digikey.com/product-search/en?pv7=2&k=TXB0108PWR) 3.3V to 5V level shifter built in (but has been known to oscillate at 50MHz with wire length longer than 6\"), alternatively you can wire up your own with a [SN74HCT245N](http://www.digikey.com/product-detail/en/SN74HCT245N/296-1612-5-ND/277258), or [SN74HCT125N](http://www.digikey.com/product-detail/en/SN74HCT125N/296-8386-5-ND/376860). These are rock solid.\n\n\nBuilding locally\n---\n\nIf you are building locally, place the files here:\n\n```\n..\\core-firmware\\inc\\neopixel.h\n..\\core-firmware\\src\\application.cpp (renamed from extra-examples.cpp)\n..\\core-firmware\\src\\neopixel.cpp\n..\\core-firmware\\src\\build.mk (optional, if you have your own make file going, just add the neopixel.cpp to it)\n```\n\nUseful Links\n---\n\n- NeoPixel Guide: https://learn.adafruit.com/adafruit-neopixel-uberguide\n- Quad Level Shifter IC: [SN74ACHT125N](https://www.adafruit.com/product/1787) (Adafruit)\n- Quad Level Shifter IC: [SN74HCT125N](http://www.digikey.com/product-detail/en/SN74HCT125N/296-8386-5-ND/376860) (Digikey)\n- Quad Level Shifter IC: [SN74AHCT125N](http://www.digikey.com/product-detail/en/SN74AHCT125N/296-4655-5-ND/375798) (Digikey)\n",
   "allVersions": [
     "0.0.5"
   ]

@@ -15,9 +15,13 @@ The Particle Asset Tracking System is an integrated, customizable, hardware, fir
 
 The [Tracker One](/reference/datasheets/tracker/tracker-one/) is a complete system with a waterproof IP67-rated enclosure.
 
-![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
+![Tracker One Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
 
-The [Tracker SoM](/reference/datasheets/tracker/tracker-som-datasheet/) system-on-a-module is inside the Tracker One, but can also be purchased separately so you can reflow solder it to your own custom base board for the ultimate in flexibility.
+The [Monitor One](/reference/datasheets/tracker/monitor-one-datasheet/) is enclosed in a heavy duty waterproof enclosure that is large enough to contain expansion cards.
+
+![Monitor One Enclosure](/assets/images/monitor-one/monitor-one-closed.jpg)
+
+The [Tracker SoM](/reference/datasheets/tracker/tracker-som-datasheet/) system-on-a-module is inside the Tracker One and Monitor One, but can also be purchased separately so you can reflow solder it to your own custom base board for the ultimate in flexibility.
 
 ![SoM](/assets/images/t523-som.svg)
 
@@ -31,7 +35,7 @@ Features include:
 <div align="center"> <a href="/assets/images/at-som/at-som-block-diagram.png" target="_blank"> <img src="/assets/images/at-som/at-som-block-diagram.png" class="full-width"></a></div> 
 
 
-### Cloud Stack
+### Cloud stack
 
 ![Cloud Stack](/assets/images/at-som/at-cloud.png)
 
@@ -40,7 +44,7 @@ The Particle Asset Tracking system builds upon the Particle cloud foundation of 
 - The Configuration Service allows for fleet-wide and per-device configuration stored into the cloud and automatically synchronized with devices.
 - The Location Service receives geolocation and other data from devices and stores it in a database.
 
-### Firmware Stack
+### Firmware stack
 
 ![Firmware Stack](/assets/images/at-som/at-firmware.png)
 
@@ -52,31 +56,34 @@ One difference from other Particle devices is that the Tracker One firmware can 
 
 ## Customizable
 
+This video covers the Tracker basics including Tracker Edge, adding custom data to location publishes, and adding new settings panels for your own custom settings to the Particle console using a configuration schema.
+
+{{youtube "https://www.youtube.com/embed/FTLgQ_voKyc"}}
+
 ### Fully off-the-shelf
 
 - Tracker One hardware is designed to be used without modification. It's fully assembled and ready to go.
 - Tracker Edge firmware on Tracker One can be used without modification. You can use the firmware off-the-shelf and [customize it from the Particle console](/getting-started/console/console/#product-settings), with no writing of device firmware necessary at all.
-- Easily upgrade to new versions of Tracker Edge firmware from the console and release it to your fleet with [just a few clicks](/getting-started/console/console/#using-off-the-shelf-releases).
 
-### Semi-custom Firmware
+### Semi-custom firmware
 
 - You can use the [Particle Edge reference firmware](/firmware/tracker-edge/tracker-edge-firmware/) as a base and add your own code to extend it quickly and easily.
 - Designed to make it easy to upgrade the base firmware while keeping your customizations in place.
 - Add external sensors via the Tracker One M8 connector without opening the case.
 
-### Tracker Carrier Board
+### Tracker carrier board
 
 - The circuit board in the Tracker One will be available separately for semi-custom designs.
 - Use your own enclosure or modify the Tracker One enclosure to fit your needs. The Tracker One enclosure design is open-source.
 - Optionally add an expansion daughter board using a JST PHR-8 for internal access to the same signals as the Tracker One M8 connector.
 
-### Fully Custom
+### Fully custom
 
 - Reflow solder the Tracker SoM onto your own custom base board with the features you need for your product.
 - Design your board and enclosure together to fit your needs.
 - Best option if you need external antennas for both cellular and GNSS.
 
-## Find Out More
+## Find out more
 
 ![Docs Menu](/assets/images/tracker/docs-menu.png)
 
@@ -125,36 +132,29 @@ If you're building a carrier board you'll probably want to use the Eagle CAD Tra
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | GA | |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | GA | |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | &check; | GA | |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | EG91-EX | &check; | GA | |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | In development | |
-| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | &check; | In development | |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
-| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | &check; | In development | |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | In development | |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | &check; | In development | |
-| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | In development | |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | In development | |
-| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | GA | |
+| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | &check; | GA | |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | GA | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | In development | |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | &check; | In development | |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | NRND | ONE524MEA|
 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX |  | NRND | ONE524MTY|
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC |  | NRND | T404MTY|
-| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | NRND | |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | EG91-EX |  | NRND | T524MKIT|
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | NRND | |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | Deprecated | ONE404MEA|
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC |  | Deprecated | ONE404MTY|
 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | Deprecated | T404MEA|
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | BG96-MC |  | Deprecated | T404MKIT|
-| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | Deprecated | |
-| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | &check; | Deprecated | |
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | Deprecated | T524MEA|
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX |  | Deprecated | T524MTY|
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | Deprecated | |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated e6d392c0-777e-11eb-9439-0242ac130002 --}}

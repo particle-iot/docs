@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BME280",
     "version": "1.1.5",
-    "installs": 153796,
+    "installs": 170331,
     "license": "BSD license",
     "author": "Adafruit <info@adafruit.com>, Markus Haack (https://github.com/mhaack)",
     "sentence": "Adafruit BME280 Library",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_BME280",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BME280",
   "versions": {
     "1.1.5": {
       "builds": {
@@ -108,6 +108,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "boron": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "bsom": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "b5som": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "tracker": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "esomx": {
+            "advancedsettings": true,
+            "bme280test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "boron": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "bsom": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "b5som": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "tracker": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "p2": {
+            "advancedsettings": true,
+            "bme280test": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "advancedsettings": true,
             "bme280test": true

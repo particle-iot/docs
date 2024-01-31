@@ -42,7 +42,7 @@ Using publish and a webhook is particularly advantageous on cellular devices. It
 
 <img src="/assets/images/PublishFlow.png" class="full-width"/>
 
-For [products](/getting-started/console/console/#product-tools), it's possible receive product events sent by devices using webhooks or the [Server-Sent-Events (SSE)](/reference/cloud-apis/api/#product-event-stream) data stream. This allows  events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
+For [products](/getting-started/console/console/#product-tools), it's possible receive product events sent by devices using webhooks or the [Server-Sent-Events (SSE)](/reference/cloud-apis/api/#product-event-stream) data stream. This allows  events sent from devices to be received by the product even if the devices are claimed to different accounts. 
 
 When using SSE, your server makes an outbound connection to the Particle cloud. This connection is TLS/SSL encrypted and authenticated with your Particle account access token. This connection is kept open, allowing events to be sent down the connection as them come in efficiently. This also allows your server to be on a private network behind a firewall, and does not require a static IP address, DNS, or a SSL certificate.
 
@@ -117,7 +117,7 @@ Device OS versions that are suffixed with `-rc.x` are called _prereleases_ ("rc"
 
 Each release is documented thoroughly to give you a comprehensive picture of what has changed in the new version. For a full list of Device OS releases and their descriptions, please check out [the release page on GitHub](https://github.com/particle-iot/device-os/releases) for the firmware repository.
 
-## Firmware Modules
+## Firmware modules
 
 Particle firmware is split into modules: two or more modules for the
 Device OS (the code Particle writes and maintains)
@@ -129,7 +129,7 @@ over-the-air updates to the user application are so fast: you can update
 only the user application module without having to update the Device OS
 system modules.
 
-## Firmware Dependencies
+## Firmware dependencies
 
 Application firmware that is written in the
 [Web](https://build.particle.io) or
@@ -153,14 +153,14 @@ However, the Electron on your desk is running Device OS version `0.9.0`, a versi
 
 So what happens in these cases?
 
-### Safe Mode
+### Safe mode
 When booting up, the Particle device will check dependencies between the
 application firmware and the Device OS version. In the case of an incompatibility
 between the two, the device will automatically enter into [_safe mode_](/troubleshooting/led/#safe-mode) (breathing magenta). 
 
 Safe mode allows the device to connect to the Particle cloud, but does not run application firmware. There are many uses for safe mode, but is particularly relevant when a device receives application firmware compiled against a newer version of Device OS than it currently is running. In this case, safe mode prevents the device from running the incompatible application firmware that will cause it to hard fault.
 
-### Safe Mode Healer
+### Safe mode healer
 _Safe mode healer_ takes things one step further, automatically
 resolving firmware incompatibilities when a device enters safe
 mode. Because a device in safe mode still has network connectivity, it
@@ -222,7 +222,7 @@ There's a couple of things to note:
 - This approach will also work for _product firmware_. When a product firmware binary is [released to a fleet](/getting-started/console/console/#releasing-firmware), any device that receives it will enter into safe mode and heal itself by downloading the required Device OS
 - This approach will trigger Device OS _upgrades_, but not _downgrades_. As mentioned earlier, Device OS is backwards compatible meaning that devices can successfully run application firmware compiled against an older version of Device OS than it currently is running
 
-#### Workbench (Remote)
+#### Workbench (remote)
 
 You can also upgrade a device remotely using [Particle Workbench](/quickstart/workbench). 
 
@@ -259,7 +259,7 @@ particle flash YOUR_DEVICE_NAME_ID path/to/system-part3.bin
 ### Updating locally
 For devices in which you have physical access, there are also methods to update Device OS over-the-wire.
 
-#### Workbench (Local)
+#### Workbench (local)
 
 You can also upgrade a device locally over USB using [Particle Workbench](/quickstart/workbench). 
 
@@ -293,9 +293,9 @@ Be sure to put the device in [DFU mode](/troubleshooting/led/#dfu-mode-device-fi
 If you'd like to use the CLI to flash a Device OS version _other than the latest_, you can use the `particle flash` command in a similar way as [outlined above](#cli-remote-). The only difference will be that you'll pass an argument to tell the CLI to flash the files over USB, and you won't have to include the device name or ID in the command:
 
 ```bash
-particle flash --usb path/to/system-part1.bin
-particle flash --usb path/to/system-part2.bin
+particle flash --local path/to/system-part1.bin
+particle flash --local path/to/system-part2.bin
 # Sometimes required
-particle flash --usb path/to/system-part3.bin
+particle flash --local path/to/system-part3.bin
 ```
 

@@ -25,6 +25,12 @@ $(document).ready(function () {
         if (settings.apiKey) {
             $('.apiHelperWeatherApiKeyInput').val(settings.apiKey);
         }
+        if (settings.apiVersion) {
+            $('.weatherApiVersion').val(settings.apiVersion);            
+        }
+        else {
+            settings.apiVersion = $('.weatherApiVersion').val();                        
+        }
         if (settings.latLon) {
             $('.apiHelperWeatherLatLonInput').val(settings.latLon);
         }
@@ -91,6 +97,11 @@ $(document).ready(function () {
         const setStatus = function(str) {
             $(thisElem).find('.apiHelperStatus').text(str);
         };
+
+        $(thisElem).find('.weatherApiVersion').on('change', function() {
+            settings.apiVersion = $(this).val();
+            saveSettings();
+        });
 
         $(thisElem).find('.apiHelperWeatherApiKeyInput').on('input change', function() {
             const apiKey = $(this).val().trim();
@@ -180,7 +191,7 @@ $(document).ready(function () {
             const eventName = $(eventNameInputElem).val();
 
             let webhookConfigObj = {
-                url: 'https://api.openweathermap.org/data/2.5/onecall',
+                url: 'https://api.openweathermap.org/data/' + settings.apiVersion + '/onecall',
                 noDefaults: true,
                 rejectUnauthorized: true,
                 event: eventName,
@@ -237,7 +248,7 @@ $(document).ready(function () {
                         method: 'POST',
                         success: function (resp, textStatus, jqXHR) {
                             setStatus('Webhook ' + (found.length ? 'updated' : 'created') + '!');
-                            ga('send', 'event', 'Update Webhook', 'Success');
+                            analytics.track('Success', {category:'Update Webhook'});
                         },
                         url: 'https://api.particle.io/v1/integrations'
                     }
@@ -693,7 +704,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
 
                     setStatus('Error getting weather');
 
@@ -706,7 +717,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
                     setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
+                    analytics.track('Success', {category:gaCategory});
 
                     $(outputJsonElem).show();
                     
@@ -716,7 +727,7 @@ $(document).ready(function () {
                     $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
                     $(respElem).show();
                 },
-                url: 'https://api.openweathermap.org/data/2.5/onecall'
+                url: 'https://api.openweathermap.org/data/' + settings.apiVersion + '/onecall'
             }
                       
             const latLonParts = settings.latLon.split(',');
@@ -756,3 +767,4 @@ $(document).ready(function () {
 
 
 });
+

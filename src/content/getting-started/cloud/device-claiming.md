@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# Device Claiming
+# Device claiming
 
 *A long treatise on Particle device claiming*
 
@@ -23,8 +23,6 @@ Each device is identified by its unique Device ID, the 24-character hexadecimal 
 
 ### Do I need to claim my devices?
 
-**Probably!**
-
 {{note op="start" type="developer"}}
 For developer (non-product devices), the device must be claimed in order to use any Particle cloud features.
 
@@ -34,12 +32,21 @@ This includes Particle primitives (publish, subscribe, functions, variables) and
 {{note op="start" type="product"}}
 For devices in a product, you can use unclaimed product devices if:
 
-- The device firmware does not subscribe to events (including webhook responses)
 - You do not need to use the Wi-Fi device setup SDK for the Photon/P1
+- You do not use webhooks in the sandbox of the user who claimed the device
 
 However, you still will need to handle product membership and SIM activation even if you do not need to claim the device.
 
-It's also common for cellular products to claim all devices to a single account controlled by the product owner instead of using unclaimed product devices.
+It was previously common for cellular products to claim all devices to a single account controlled by the product owner instead of using unclaimed product devices, but this is no longer necessary.
+
+{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
+- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
+- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
+- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
+- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
+- Claiming is still allowed, if you prefer to continue to use claiming, but not recommended.
+{{!-- END shared-blurb --}}
+
 {{note op="end"}}
 
 ### When do I need to do it?
@@ -76,10 +83,6 @@ For product devices, claiming is irrelevant. It's the total number of devices th
 
 ### How do I claim a device?
 
-#### Particle mobile app claiming
-
-Most developers setting up a small number of development kits will use the Particle mobile app to claim their device. For the Argon and Photon (Wi-Fi) the mobile app also sets the Wi-Fi credentials, and sets the [setup done bit](#setup-done).
-
 #### Particle CLI claiming
 
 You can claim the device using the [Particle CLI](/getting-started/developer-tools/cli/):
@@ -108,7 +111,7 @@ particle usb setup-done
 
 - The `particle usb dfu` command puts the device in DFU (blinking yellow) mode. If you have a very old device, this may fail and you will need to use the buttons. Hold down MODE (or SETUP) and tap RESET. Continue to hold down MODE while the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then release.
 
-- The `particle update` command updates Device OS on the device. 
+- The `particle update` command updates Device OS on the device. This can be used to upgrade or downgrade to a specific version by using the `--target option`.
 
 - The `particle serial wifi` command sets the Wi-Fi credentials. This is only necessary for the Photon, P1, and Argon.
 
@@ -146,6 +149,10 @@ If you are using [customers](#customers) you will most likely use [claim codes](
 For product devices, you can claim the devices while offline by using the Particle cloud API [claim a device endpoint](/reference/cloud-apis/api/#claim-a-device). You would typically do this as part of your [manufacturing flow](/scaling/manufacturing/manufacturing-cellular/).
 {{note op="end"}}
 
+#### Particle mobile app claiming
+
+The Particle mobile app will be deprecated in the future and should not be used as part of your normal setup flow at this time.
+
 ### Unclaiming a device
 
 #### Console unclaiming
@@ -180,10 +187,6 @@ particle device remove <device-id>
 
 You must be logged in as the owner of the device to remove it. The device does not need to be online to unclaim.
 
-#### Particle mobile app unclaiming
-
-You can unclaim developer devices from the Particle mobile app device list, click on the device, then the gear icon, then **Unclaim device**.
-
 #### Web IDE unclaiming
 
 You can unclaim developer devices from the Web IDE. Click on the **Devices** tab, then the device you want to unclaim, the **>** icon, then the red trash can icon ("Remove devices from account").
@@ -203,7 +206,7 @@ The reason this occurs is that in order to find the Device ID, the mobile app ne
 {{note op="start" type="developer"}}
 - You can unclaim the device, then claim it to the new account.
 
-- If you use the mobile app with the Photon that is not in a product, you can transfer the device immediately.
+- If you use the Particle mobile app with the Photon that is not in a product, you can transfer the device immediately.
 
 - Using the Particle CLI or Web IDE, you can claim the device. If already claimed, you can request a transfer. The the original owner will be emailed and has to respond affirmatively for the transfer to take place.
 {{note op="end"}}
@@ -227,8 +230,8 @@ Each product can have only one device platform in it. For example, the Argon and
 - The B4xx (bsom) and B5xx (b5som) are different platforms and must be in different products.
 - The Photon and P1 are different platforms and must be in different products.
 - All Tracker SoM devices (Tracker One and Tracker SoM, both T4xx and T5xx) can be in the same product.
+- Tracker One and Monitor One devices can be in the same product, however because they use [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/) and  [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/) firmware, respectively, it's usually not practical to do so.
 
-Products are typically identified by their **Product ID** which is an integer that is unique across all products.
 
 ### Product firmware
 
@@ -250,9 +253,9 @@ You can change the product firmware version by the fleet-wide default, a device 
 
 This will either upgrade (move to a higher version number) or downgrade as necessary.
 
-Device firmware includes a target system version. This is the minimum version of Device OS that is required for the firmware to run. If the target system version is greater than the version on the device, the device will go into safe mode (breathing magenta, red and blue at the same time), and then the cloud will update required dependencies such as Device OS (multiple parts if necessary), bootloader, Soft Device (Gen 3), and NCP (Gen 3, rarely).
+Device firmware includes a target Device OS version. This is the minimum version of Device OS that is required for the firmware to run. If the target Device OS version is greater than the version on the device, the device will go into safe mode (breathing magenta, red and blue at the same time), and then the cloud will update required dependencies such as Device OS (multiple parts if necessary), bootloader, Soft Device (Gen 3), and NCP (Gen 3, rarely).
 
-However, since target system version is a minimum, it is never downgraded. Your firmware that targets an older version of Device OS should generally work on newer versions of Device OS, however the full environment may vary from the way it was before upgrade then downgrade.
+However, since target Device OS version is a minimum, it is never downgraded. Your firmware that targets an older version of Device OS should generally work on newer versions of Device OS, however the full environment may vary from the way it was before upgrade then downgrade.
 
 ### Wildcard product firmware
 
@@ -321,11 +324,6 @@ From setup.particle.io you can activate a SIM:
 - In a device with a built-in SIM (Boron, B Series SoM, E Series, Tracker, Electron LTE) from its serial number.
 - A Particle SIM card for use in an Electron 2G/3G from the ICCID on the plastic SIM card.
 
-### Mobile app SIM activation
-
-- As part of the setup process for the Boron, B Series SoM, Electron, or E Series you can activate the SIM from the Particle mobile app.
-- You cannot set up a Tracker One using the mobile app.
-
 ### Product SIM activation
 
 - If you add cellular device with an embedded MFF2 SIM to a product, the SIM is automatically activated so you don't need to add a separate step to do that.
@@ -363,85 +361,77 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | ASSET2GV2 | Asset Tracker 2G | Generally fast<sup>2</sup> | Deprecated | |
 | B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
 | B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | Fast<sup>1</sup> | GA | |
-| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | Sometimes slow<sup>3</sup> | Deprecated | B524MTY|
-| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | Sometimes slow<sup>3</sup> | NRND | B524MEA|
+| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B524MTY|
+| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | Sometimes slow<sup>3</sup> | Deprecated | B524MEA|
 | B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
 | B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
-| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | Deprecated | |
-| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | NRND | |
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | Deprecated | B404MTY|
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | B404MEA|
+| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | NRND | B404XMTY|
+| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | NRND | B404XMEA|
+| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B404XMTY|
+| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | B404XMEA|
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | Fast<sup>1</sup> | GA | |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |
-| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | Deprecated | |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | Fast<sup>1</sup> | Deprecated | |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | Deprecated | |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | BRN404TRAY50|
-| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | Sometimes slow<sup>3</sup> | Deprecated | BRN404KIT|
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | Deprecated | BRN404XTRAY50|
+| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | Fast<sup>1</sup> | Deprecated | BRN404XKIT|
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | Deprecated | BRN404X|
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | BRN404XTRAY50|
+| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | Sometimes slow<sup>3</sup> | Deprecated | BRN404XKIT|
 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | Sometimes slow<sup>3</sup> | Deprecated | |
-| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | BRN404|
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | BRN404X|
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Fast<sup>1</sup> | NRND | |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Fast<sup>1</sup> | NRND | |
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | BRN314TRAY50|
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | BRN314KIT|
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Fast<sup>1</sup> | Deprecated | |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | |
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Sometimes slow<sup>3</sup> | Deprecated | |
 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | Deprecated | |
+| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | Deprecated | E404XTRAY50|
 | E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | NRND | |
 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND | |
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | E404TRAY50|
-| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | E404MOD1|
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | E404KIT|
+| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | E404XTRAY50|
+| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | |
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | |
 | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Fast<sup>1</sup> | NRND | |
 | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Fast<sup>1</sup> | Deprecated | |
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND | |
-| E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Sometimes slow<sup>3</sup> | End of life | |
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Sometimes slow<sup>3</sup> | Deprecated | |
 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | |
-| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Generally fast<sup>2</sup> | Deprecated | E314MOD1|
+| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Generally fast<sup>2</sup> | Deprecated | |
 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Generally fast<sup>2</sup> | NRND | E314KIT|
-| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | ELC314TY|
-| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | ELC314TY|
-| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | ELC314TY|
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | Generally fast<sup>2</sup> | NRND | ELC314TY|
-| E350KIT | Electron 2G Kit (Global) | Generally fast<sup>2</sup> | Deprecated | |
-| E350TRAY50 | Electron 2G (Global), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | ELC314TY|
+| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | BRN404XKIT|
+| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | BRN404XTRAY50|
+| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | B524MEA|
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | Generally fast<sup>2</sup> | NRND | B524MTY|
+| E350KIT | Electron 2G Kit (Global) | Generally fast<sup>2</sup> | Deprecated | B524MEA|
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | B524MTY|
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Fast<sup>1</sup> | NRND | |
-| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | ELC404EA|
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | ELC404TY|
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | BRN404XKIT|
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | BRN404XTRAY50|
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | Deprecated | |
-| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | Generally fast<sup>2</sup> | NRND | |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | GA | |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | In development | |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | In development | |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | ONE404MEA|
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Sometimes slow<sup>3</sup> | Deprecated | ONE404MTY|
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | Fast<sup>1</sup> | GA | |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
-| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | Fast<sup>1</sup> | In development | |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Sometimes slow<sup>3</sup> | NRND | ONE524MEA|
 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | Sometimes slow<sup>3</sup> | NRND | ONE524MTY|
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | Fast<sup>1</sup> | GA | |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
-| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | Fast<sup>1</sup> | In development | |
 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | T404MEA|
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | Deprecated | T404MKIT|
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | T404MTY|
-| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | Deprecated | |
-| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Fast<sup>1</sup> | Deprecated | |
-| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | NRND | |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Fast<sup>1</sup> | In development | |
-| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | In development | |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
+| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Fast<sup>1</sup> | GA | |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Sometimes slow<sup>3</sup> | Deprecated | T524MEA|
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | T524MKIT|
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Sometimes slow<sup>3</sup> | Deprecated | T524MTY|
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | Deprecated | |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | Fast<sup>1</sup> | Deprecated | |
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | Fast<sup>1</sup> | NRND | |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | Fast<sup>1</sup> | In development | |
-| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | Fast<sup>1</sup> | In development | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | Fast<sup>1</sup> | GA | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
 
 
 {{!-- END do not edit content above, it is automatically generated fabf0754-7838-11ec-90d6-0242ac120003 --}}
@@ -458,7 +448,11 @@ Note that moving a SIM from a developer account (free sandbox) into a product ca
 
 Customers are an optional feature. They allow API access to specific devices typically from a mobile app. They are more common for Wi-Fi products that use the Photon Device Setup SDK and Particle SDK for iOS or Android.
 
-In lieu of customers, many cellular products claim all devices to a single account or use unclaimed product devices. Not using customers does not preclude having a mobile app, it just requires you handle authentication and API access control from your servers instead of having Particle handle it for you. This may be preferable if you are contracting out your development as you can make a generic mobile app using native APIs or a framework with no specific Particle dependencies, which widens the possible number of mobile developers you can use.
+**We generally recommend not using customers**, unless you are using the device setup SDK for the P1 or Photon. It's generally unnecessary in other cases.
+
+{{collapse op="start" label="Show older information"}}
+
+In lieu of customers, many cellular products claim all devices to a single account or use unclaimed product devices. Not using customers does not preclude having a mobile app, it just requires you handle authentication and API access control from your servers instead of having Particle handle it for you. This may be preferable if you are contracting out your development as you can make a generic mobile app using native APIs or a framework with no specific Particle dependencies, which widens the possible number of mobile developers you can use. However, this is no longer necessary and unclaimed product devices are even easier than using a single claimed account.
 
 There are two types of customers:
 
@@ -486,6 +480,8 @@ Remembers that customers are optional! If you already have your own server to ha
 
 When using the Photon Device Setup SDK for iOS and Android you don't have to worry about claim codes, since it's handled automatically behind the scenes.
 
+**If you are not using customers, claim codes are not necessary.**
+
 However, claim codes solve the problem of having a device add itself to a product and claim without having to divulge a product authentication key to the mobile app. This keeps your product authentication tokens more secure. 
 
 The claim code is generated by a cloud API call. This requires an oAuth create customer client ID and secret that only is used for claiming and does not allow access to anything else, so it's safe to hardcode it into your mobile app.
@@ -498,16 +494,11 @@ A claim code alone may also may associate a device with a product. It's still be
 
 ## Setting Wi-Fi credentials
 
-### Mobile app - Wi-Fi credentials
-
-The Particle mobile app is intended to set up developer devices, and thus it both sets Wi-Fi credentials and claims the device. This is what you want for developer use, but is probably not what you want for products.
-
 ### Photon setup SDK custom mobile app - Wi-Fi credentials
 
 The Photon setup SDK allows you to create your own white label iOS or Android mobile app that can set up a Photon or P1. It can set up both developer devices as well as simple auth or two-legged shadow auth customers.
 
 It cannot set up an Argon!
-
 
 ### Particle CLI - Wi-Fi credentials
 
@@ -517,15 +508,11 @@ With the device in listening mode (blinking dark blue):
 particle serial wifi
 ```
 
-## Setup Done
+## Setup done
 
 On Gen 3 devices running Device OS 3.x and earlier, the setup done bit determines if setup has been completed. Until the setup done bit is set, the device will boot into listening mode (blinking dark blue), even if it has valid Wi-Fi credentials (Argon) or SIM activation (Boron, B Series SoM, Tracker).
 
 **If you are using Device OS 4.0 and later, there is no setup done bit so you must skip this step.**
-
-### Mobile app - setup done
-
-If you use the Particle mobile app to set up your devices, the setup done bit will be set upon successful completion of setup.
 
 ### Particle CLI - setup done
 
@@ -536,6 +523,10 @@ particle usb setup-done
 ```
 
 This should be done with the device in normal operating mode or listening mode.
+
+
+{{collapse op="end"}}
+
 
 ## Device identifiers
 

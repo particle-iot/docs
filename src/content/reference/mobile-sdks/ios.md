@@ -11,11 +11,15 @@ Particle provides two iOS libraries:
 1. [Cloud SDK](#ios-cloud-sdk) - an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Device Cloud.
 2. [Photon Setup Library](#photon-setup-library) - a library which provides an easy setup wizard for your app users to set up their Particle-powered devices.
 
+{{box op="start" cssClass="boxed warningBox"}}
+The Photon Setup Library can only be used to set up Gen 2 devices (P1 and Photon). It will be deprecated in the future.
+{{box op="end"}}
+
 ## Requirements
 
 Cloud SDK supports iOS 8.0 and up, Photon Setup Library supports iOS 9.0 and up.
 
-## Support and Contributions
+## Support and contributions
 
 - If you **need help**, visit the [mobile category](https://community.particle.io/c/mobile) in our [community forums](https://community.particle.io) for discussion, troubleshooting, and feedback around the iOS Cloud SDK and Photon Setup Library.
 - If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+ios&unscoped_q=ios), and apply the `bug` label.
@@ -47,7 +51,7 @@ The new nullability annotations have been integrated into the Particle iOS Cloud
 
 All SDK callbacks return real optionals (`ParticleDevice?`) instead of implicitly unwrapped optionals (`ParticleDevice!`). See Swift examples below. Basically only a simple change required from the SDK user: to replace your callback argument types from `!` suffix to `?` suffix.
 
-### Getting Started
+### Getting started
 
 - Perform the installation step described under the [Installation](#installation) section below for integrating in your own project
 - You can also [Download Particle iOS Cloud SDK](https://github.com/particle-iot/particle-cloud-sdk-ios/archive/master.zip) and try out the included iOS example app
@@ -462,7 +466,7 @@ ParticleCloud.sharedInstance().publishEvent(withName: "event_from_app", data: "e
 ```
 ---
 
-### Delegate Protocol
+### Delegate protocol
 
 _Starting version 0.5.0_
 
@@ -560,7 +564,7 @@ Build your project - you now have the Particle SDK embedded in your project.
 
 Consult the javadoc style comments in `ParticleCloud.h`, `ParticleDevice.h` and other header files contained within the library for each public method or property. If the Cloud SDK installation completed successfully in your XCode project - you should be able to press `Control` + `Space` to get an auto-complete hints from XCode for each public method or property in the library.
 
-## Photon Setup Library
+## Photon setup library
 
 ### Introduction
 
@@ -742,7 +746,7 @@ Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials fo
  NSString *skipAuthenticationMessage;   // Message to display to user when she's requesting to skip authentication (Yes/No question)
 ```
 
-### iOS 13 Permission Notice
+### iOS 13 Permission notice
 
 Starting iOS 13, to access Wi-Fi SSID app has to be granted location permission. Photon setup relies on this information to advance past "Discover Device" screen, therefore on iOS devices running iOS 13+, additional screen requesting to grant location permission will be shown. 
 

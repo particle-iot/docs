@@ -1,0 +1,402 @@
+{
+  "type": "libraries",
+  "id": "testa",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/testa/archive/0.1.15.tar.gz"
+  },
+  "attributes": {
+    "name": "testa",
+    "version": "0.1.15",
+    "installs": 52,
+    "license": "LGPL",
+    "author": "Richard Whitney <richard@particle.io>",
+    "sentence": "Functions to make the Internet Button easy to use! If you have an original SparkButton, make sure to use `begin(1)`",
+    "url": "https://github.com/particle-iot/InternetButton",
+    "repository": "https://github.com/particle-iot/InternetButton.git",
+    "architectures": [],
+    "dependencies": {
+      "neopixel": "1.0.0",
+      "particle-adxl362": "0.0.1"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/reference/device-os/libraries/t/testa",
+  "versions": {
+    "0.1.15": {
+      "added": "2023-03-21T23:16:04.735Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "boron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "bsom": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "b5som": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "tracker": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "p2": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "boron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "bsom": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "b5som": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "tracker": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "esomx": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "electron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "argon": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "boron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "electron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "argon": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "boron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1_Blink_An_LED": true,
+            "2_Blink_ALL_the_LEDs": true,
+            "3_Buttons_and_LEDs": true,
+            "4_Good_Combination": true,
+            "5_Motion": true,
+            "6_Orientation": true,
+            "7_Internet": true,
+            "8_MakingMusic": true,
+            "9_ReleaseFirmware": true
+          },
+          "boron": {
+            "1_Blink_An_LED": true,
+            "2_Blink_ALL_the_LEDs": true,
+            "3_Buttons_and_LEDs": true,
+            "4_Good_Combination": true,
+            "5_Motion": true,
+            "6_Orientation": true,
+            "7_Internet": true,
+            "8_MakingMusic": true,
+            "9_ReleaseFirmware": true
+          },
+          "bsom": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "b5som": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "tracker": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "p2": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1_Blink_An_LED": true,
+            "2_Blink_ALL_the_LEDs": true,
+            "3_Buttons_and_LEDs": true,
+            "4_Good_Combination": true,
+            "5_Motion": true,
+            "6_Orientation": true,
+            "7_Internet": true,
+            "8_MakingMusic": true,
+            "9_ReleaseFirmware": true
+          },
+          "boron": {
+            "1_Blink_An_LED": true,
+            "2_Blink_ALL_the_LEDs": true,
+            "3_Buttons_and_LEDs": true,
+            "4_Good_Combination": true,
+            "5_Motion": true,
+            "6_Orientation": true,
+            "7_Internet": true,
+            "8_MakingMusic": true,
+            "9_ReleaseFirmware": true
+          },
+          "bsom": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "b5som": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "tracker": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          },
+          "esomx": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false,
+            "8_MakingMusic": false,
+            "9_ReleaseFirmware": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Internet Button\n[![Build Status](https://travis-ci.org/particle-iot/InternetButton.svg?branch=master)](https://travis-ci.org/particle-iot/InternetButton)\n\n_The Internet Button has a lot of features, but some of these aren't as straightforward to use as simple LEDs and sensors. This library abstracts a lot of the complexity and provides simple functions with broad capability. It wraps modified versions of both Adafruit's Neopixel and AnneM's ADXL362 Arduino libraries, as well as some novel functions._\n\n## Examples\n\n1. __Blink an LED__ - How to control the smart LEDs on this board\n2. __Blink all the LEDs__ - An extension on the simplest case\n3. __LEDs and Buttons__ - How to read the buttons on the Button, and make LEDs blink with them\n4. __Good Combination__ - A set of button and LED conditionals that I happen to like and use frequently\n5. __Motion__ - The Internet Button also has an accelerometer on it to measure motion- this shows how the related functions work\n6. __Orientation__ - How to use the accelerometer functions to determine the orientation\n7. __Internet__ - Send that data out to the world!\n8. __Making Music__ - Learn how to play notes and songs while controlling LEDs and reading buttons at the same time.\n9. __Release Firmware__ - Big, complicated set of epic.\n\n\n_Watch for gauge and other display additions to this library!_\n",
+  "allVersions": [
+    "0.1.15"
+  ]
+}

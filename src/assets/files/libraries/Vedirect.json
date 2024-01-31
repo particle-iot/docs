@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Vedirect",
     "version": "1.0.5",
-    "installs": 398,
+    "installs": 666,
     "author": "Janne Kario",
     "architectures": [],
     "visibility": "public",
@@ -15,7 +15,7 @@
   },
   "kind": "community library",
   "letter": "v",
-  "cardUrl": "/cards/libraries/v/Vedirect",
+  "cardUrl": "/reference/device-os/libraries/v/Vedirect",
   "versions": {
     "1.0.5": {
       "builds": {},

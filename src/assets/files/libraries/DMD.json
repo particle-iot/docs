@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DMD",
     "version": "0.0.3",
-    "installs": 1225,
+    "installs": 1388,
     "license": "Unknown",
     "author": "Paul Kourany",
     "sentence": "Freetronics Dot Matrix Display library for Particle",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DMD",
+  "cardUrl": "/reference/device-os/libraries/d/DMD",
   "versions": {
     "0.0.3": {
       "builds": {
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "boron": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "bsom": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "b5som": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "tracker": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "esomx": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "boron": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "bsom": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "b5som": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "tracker": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "p2": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "dmd_clock_readout": false,
             "dmd_demo": false

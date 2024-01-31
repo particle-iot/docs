@@ -69,7 +69,7 @@ Standard advertising payload data options include:
 
 While central devices do not advertise, they may scan for devices in range and use their advertising data to determine what to connect to. For example, the [heart rate central example](#heart-rate-central) finds the first heart rate sensor in range and connects to it automatically.
 
-### Scan Response
+### Scan response
 
 In addition to the 31 bytes of advertising data, the device doing the scanning can request the scan response data. This does not require authentication, and does not require making a connection. The scan response data is an additional 31 bytes of data the peripheral can return to the scanning device, though it takes an extra set of packets to and from the peripheral to request and receive it.
 
@@ -112,7 +112,7 @@ Note, however, the most efficient size is a maximum 236 bytes. Above that size, 
 
 You can improve performance by adjusting the [PPCP settings](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-setppcp-) to reduce the interval setting. It may be possible to transmit as fast as 52 Kbits/sec. with adjusted settings.
 
-#### Peripheral Characteristics
+#### Peripheral characteristics
 
 In a BLE peripheral role, each service has one or more characteristics. Each characteristic may have one of more values.
 
@@ -176,7 +176,7 @@ The 128-bit UUIDs are used for your own custom services and characteristics. The
 A 128-bit (16 byte) UUID is often written like this: `240d5183-819a-4627-9ca9-1aa24df29f18`. It's a series of 32 hexadecimal digits (0-9, a-f) written in a 8-4-4-4-12 pattern. The A-F can be uppercase or lowercase, they are not case-sensitive.
 
 
-#### Central Characteristics
+#### Central characteristics
 
 In a BLE central role (behaving like a phone), you typically have a receive handler to be notified when the peripheral updates each characteristic value that you care about.
 
@@ -245,7 +245,7 @@ else {
 
 For more information about characteristics, the [Nordic Semiconductor BLE characteristics tutorial](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-characteristics-a-beginners-tutorial) is good.
 
-#### Characteristic Definitions
+#### Characteristic definitions
 
 If you're not interested in decoding arbitrary characteristics, you can skip this section.
 
@@ -327,7 +327,7 @@ void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, 
 }
 ```
 
-### Peripheral Role
+### Peripheral role
 
 Using your Particle device in a peripheral role allows you to do things like:
 
@@ -339,7 +339,7 @@ There's also a special case of the peripheral role: A **broadcaster** only adver
 
 When in peripheral role the peripheral can advertise to any number of devices, but can only accept a connection from one at a time. A device can also only be a peripheral or central, not both at the same time.
 
-### Advertising (Peripheral)
+### Advertising (peripheral)
 
 Advertising is the process by which a BLE peripheral device broadcasts periodically. This serves two purposes:
 
@@ -421,7 +421,7 @@ You define the major and minor for your particular application, and generate any
 There are a number of iBeacon finding applications for iOS. I've used [Locate Beacon](https://apps.apple.com/us/app/locate-beacon/id738709014) successfully. Note: You must enter the Application UUID you want to search for; it can't arbitrarily find any iBeacon in range.
 
 
-### Central Role
+### Central role
 
 Using your Particle device in a central role allows you to do things like:
 
@@ -440,6 +440,7 @@ BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and
 - Device OS 3.0.0 and later: Support for "Legacy Pairing" passkey display or input modes (both central and peripheral).
 - Prior to Device OS 3.0.0: No support for secure pairing.
 - Out-of-band authentication (such as by NFC) is not built-in.
+- The P2 and Photon 2 do not support secure pairing (legacy or LESC) at this time.
 
 When pairing, there are two different things going on:
 
@@ -518,11 +519,11 @@ There is additional debugging information provided by USB serial debugging, for 
 
 BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and later. Earlier versions only supported BLE Peripheral Mode.
 
-### Device Nearby
+### Device nearby
 
 In this demo you have an central device and two or more peripheral devices. Each peripheral is assigned a color (red, green, blue, yellow, or magenta). As you wander closer and farther away from the central device, the peripheral with the strongest signal will show that color on the central status LED.
 
-#### Device Nearby Central
+#### Device nearby central
 
 **For Device OS 3.0 and later:**
 
@@ -535,7 +536,7 @@ In this demo you have an central device and two or more peripheral devices. Each
 
 BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and later. Earlier versions only supported BLE Peripheral Mode.
 
-#### Device Nearby Beacon
+#### Device nearby beacon
 
 {{> project-browser project="ble-nearby-beacon" default-file="src/ble-nearby-beacon.cpp" height="400" flash="true" options="gen3" target=">=1.3"}}
 
@@ -616,7 +617,7 @@ To try it:
 
 {{> project-browser project="ble-logging" default-file="src/main.cpp" height="400" flash="true" options="gen3" target=">=1.3"}}
 
-#### Web-based BLE Serial Monitor
+#### Web-based BLE serial monitor
 
 In addition to the mobile apps above, if you are using the Chrome web browser on Mac, Windows 10, Linux, Chromebook, or Android, you can also view the logs over BLE from your web browser. (This is not available on Chrome on iPhone or iPad, or most other browsers.)
 
@@ -651,31 +652,27 @@ The measuring device is the BLE central, and it looks for the peripheral every 5
 
 {{> project-browser project="ble-rssi-peripheral" default-file="src/ble-rssi-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
 
-### RSSI Meter (Long Range)
+### RSSI meter (long range)
 
-This is the previous RSSI Meter example with BLE long-range (coded phy) enabled. This requires Device OS 3.1 or later.
+This is the previous RSSI Meter example with BLE long-range (coded phy) enabled. This requires Device OS 3.1 or later. The P2 and Photon 2 do not support long-range (coded PHY).
 
 {{> project-browser project="ble-rssi-coded-central" default-file="src/ble-rssi-coded-central.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
 
 {{> project-browser project="ble-rssi-coded-peripheral" default-file="src/ble-rssi-coded-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
 
-### LESC Pairing - Simple
+### LESC pairing - simple
 
-This example shows how to do encrypted BLE communication using LESC Pairing in "just works" mode. This encrypts the data between the two devices, but does not authenticate, which requires some combination of displays and keypads or buttons. This requires Device OS 3.1 or later.
+This example shows how to do encrypted BLE communication using LESC Pairing in "just works" mode. This encrypts the data between the two devices, but does not authenticate, which requires some combination of displays and keypads or buttons. This requires Device OS 3.1 or later. The P2 and Photon 2 require Device OS 5.1 or later for LESC pairing.
 
 {{> project-browser project="ble-lesc1-central" default-file="src/ble-lesc1-central.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
 
 {{> project-browser project="ble-lesc1-peripheral" default-file="src/ble-lesc1-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
 
-{{!-- P2 BLE Central Warning --}}
-
-The P2 and Photon 2 do not currently support LESC pairing mode.
-
 {{#if not-yet-working}}
 
-### Legacy Pairing - Numeric Yes-No
+### Legacy pairing - numeric yes-no
 
-This example shows how to do authenticated and encrypted BLE communication using Legacy Pairing with the Numeric Yes-No mode. This requires a display on one side, and a display and Yes-No buttons on the other.
+This example shows how to do authenticated and encrypted BLE communication using Legacy Pairing with the Numeric Yes-No mode. This requires a display on one side, and a display and Yes-No buttons on the other. The P2 and Photon 2 do not support legacy pairing.
 
 The actual display devices and buttons are not that important, and you can easily substitute other displays such as plain SSD1306 OLED displays, but the example code was tested on these displays:
 
@@ -707,11 +704,11 @@ You can use it:
 
 Here are some Web BLE examples. The project links include the device source, as well as the HTML and Javascript. Just View Source on the page to view the Javascript code.
 
-#### Level Meter
+#### Level meter
 
 [BLE level meter](https://rickkas7.github.io/ble-potentiometer/) is an example that uses potentiometer connected to a Gen 3 devices to send the data directly to a compatible web browser, which displays the data on a web-based level meter.
 
-#### Live Graph
+#### Live graph
 
 [BLE live graph](https://rickkas7.github.io/ble-livegraph) is an example that uses potentiometer connected to a Gen 3 devices to send the data directly to a compatible web browser, which displays the data on a live scrolling graph.
 
@@ -728,7 +725,7 @@ Here are some Web BLE examples. The project links include the device source, as 
 </video>
 
 
-#### Power Source Display
+#### Power source display
 
 [BLE power source](https://rickkas7.github.io/ble-powersource) uses Device Diagnostics on the device to get the battery level, charging status, and power status (USB, VIN, etc.) and sends it over BLE. Using Web BLE, you can display this data on a compatible web browser. The display updates in real time!
 
@@ -741,7 +738,7 @@ Here are some Web BLE examples. The project links include the device source, as 
 
 As the previous tutorial showed, you can use Gen 3 devices to address a number of BLE use cases. To simplify the development of some common use cases, Particle has created libraries that allow you to more quickly add BLE functionality to your device.
 
-### BLE Gateway Library
+### BLE Gateway library
 
 **For Device OS 3.0 and later**
 
@@ -830,7 +827,7 @@ void onNewHrValue(HeartRateMonitor& monitor, BleUuid uuid, void* context) {
 ```
 
 
-### Beacon Scanner Library
+### Beacon scanner library
 
 This library works with Particle Gen3 devices to scan for BLE advertisements and parses them for common beacon standards. Currently supported:
 - iBeacon

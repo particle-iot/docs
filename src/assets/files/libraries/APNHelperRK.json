@@ -7,7 +7,7 @@
   "attributes": {
     "name": "APNHelperRK",
     "version": "0.0.2",
-    "installs": 9792,
+    "installs": 12082,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Utilities for managing multiple 3rd-party SIM APNs from a single Electron binary",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/APNHelperRK",
+  "cardUrl": "/reference/device-os/libraries/a/APNHelperRK",
   "versions": {
     "0.0.2": {
       "builds": {
@@ -88,6 +88,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1-simple-apn": false
+          },
+          "boron": {
+            "1-simple-apn": true
+          },
+          "bsom": {
+            "1-simple-apn": true
+          },
+          "b5som": {
+            "1-simple-apn": true
+          },
+          "tracker": {
+            "1-simple-apn": true
+          },
+          "esomx": {
+            "1-simple-apn": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple-apn": false
+          },
+          "boron": {
+            "1-simple-apn": true
+          },
+          "bsom": {
+            "1-simple-apn": true
+          },
+          "b5som": {
+            "1-simple-apn": true
+          },
+          "tracker": {
+            "1-simple-apn": true
+          },
+          "p2": {
+            "1-simple-apn": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1-simple-apn": false
           },

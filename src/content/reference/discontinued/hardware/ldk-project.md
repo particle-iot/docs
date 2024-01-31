@@ -13,7 +13,7 @@ In the Particle Leak Detection Kit, you'll learn how to build a local network th
 
 Low-power, cheap, and Mesh-capable Xenons will be used with water sensors to detect the presence of water. They will then relay that information to a Wi-Fi connected Argon which will act as a communication and notification hub. Thanks to the ease of use of the Grove system, this should be a simple and quick project, even if you’re just starting out.
 
-## Leak Detection Kit contents
+## Leak detection kit contents
 
 ![The Particle Leak Detection Kit's contents knolled on a white background](/assets/images/Leak-Detection-Kit-contents.jpg)
 

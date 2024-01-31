@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle-dst",
     "version": "0.1.0",
-    "installs": 3607,
+    "installs": 6421,
     "license": "MIT",
     "author": "Luca Morandini <luca.morandini98@gmail.com>",
     "sentence": "DST switching made simple!",
@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/particle-dst",
+  "cardUrl": "/reference/device-os/libraries/p/particle-dst",
   "versions": {
     "0.1.0": {
       "builds": {
@@ -123,6 +123,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "boron": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "bsom": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "b5som": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "tracker": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "esomx": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "boron": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "bsom": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "b5som": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "tracker": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "p2": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "auto_switch": true,
             "manual_switch": true,

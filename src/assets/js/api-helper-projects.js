@@ -16,6 +16,9 @@ $(document).ready(function() {
   
         const projectUrlBase = '/assets/files/projects/' + project;
 
+        const trackerAssetsDir = '/assets/files/tracker/'; 
+        const vsCodeSettingsUrl = trackerAssetsDir + 'vscode.zip';
+
         const outputCodeElem = $(thisElem).find('.apiHelperProjectBrowserOutputCode');
         const outputPreElem = $(thisElem).find('.apiHelperProjectBrowserOutputPre');
         const outputDivElem = $(thisElem).find('.apiHelperProjectBrowserOutputDiv');
@@ -36,8 +39,10 @@ $(document).ready(function() {
         let configFileOrig;
         let projectZip;
 
+
         const getProjectZip = async function() {
             if (!projectZip) {
+
                 projectZip = new zip.fs.FS();
 
                 setStatus('Getting project source...')
@@ -65,7 +70,7 @@ $(document).ready(function() {
                         }
                     }
                 }
-                addDir('', projectZip.root.children[0]);
+                addDir('', projectZip.root.children[0]);                
             }
             return projectZip;
         }
@@ -101,7 +106,7 @@ $(document).ready(function() {
             $(outputDivElem).hide();
 
             const langMap = {
-                'cpp': ['cpp', 'c++', 'cxx', 'c', 'h', 'hpp'],
+                'cpp': ['cpp', 'c++', 'cxx', 'c', 'h', 'hpp', 'ino'],
                 'json': ['json'],
                 'js': ['js']
             }
@@ -148,7 +153,7 @@ $(document).ready(function() {
             const fullUrlPath = projectUrlBase + '/' + $(fileSelect).val();
             showFile(fullUrlPath, text);
 
-			ga('send', 'event', gaCategory, 'View File', path);
+			analytics.track('View File', {category:gaCategory, label:path});
             setStatus('');
         });
 
@@ -249,7 +254,7 @@ $(document).ready(function() {
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
-                ga('send', 'event', gaCategory, 'Try It', $(tryItButtonElem).attr('data-project'));    
+                analytics.track('Try It', {category:gaCategory, label:$(tryItButtonElem).attr('data-project')});    
             }
             else {
                 const params = $(thisElem).data('params');
@@ -295,7 +300,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			ga('send', 'event', gaCategory, 'File Download', curPath);
+			analytics.track('File Download', {category:gaCategory, label:curPath});
 		});
 
 		$(thisElem).find('.apiHelperProjectCopyButton').on('click', function() {			
@@ -306,49 +311,172 @@ $(document).ready(function() {
 			document.execCommand("copy");
 			document.body.removeChild(t);
 
-			ga('send', 'event', gaCategory, 'File Copy', curPath);
+			analytics.track('File Copy', {category:gaCategory, label:curPath});
 		});
 
-        $(thisElem).find('.apiHelperProjectDownloadZipButton').on('click', async function() {
-			const zipFs = await getProjectZip();
+        const getProjectZipBlob = async function(options) {
+            const zipFs = await getProjectZip();
 
+            // This assumes that the top level is a directory, which we always do so the entire project will appear in a folder.        
+            const topDirName = zipFs.root.children[0].name;
+            zipFsTopDir = zipFs.find(topDirName);
+
+            if (options.copyDependencies) {
+                let dependencies = [];
+
+                const projectPropertiesEntry = zipFs.find(topDirName + '/project.properties');
+                if (projectPropertiesEntry) {
+                    const projectPropertiesText = await projectPropertiesEntry.getText();
+    
+                    let newFile = '';
+    
+                    for(const line of projectPropertiesText.split('\n')) {
+                        if (line.startsWith('dependencies.')) {
+                            const dotIndex = line.indexOf('.');
+                            const equalIndex = line.indexOf('=');
+                            if (dotIndex > 0 && equalIndex > dotIndex) {
+                                dependencies.push({
+                                    name: line.substring(dotIndex + 1, equalIndex),
+                                    ver: line.substring(equalIndex + 1),
+                                })
+                                newFile += 'orig_' + line + '\n';
+                            }
+                            else {
+                                newFile += line + '\n';
+                            }
+                        }
+                        else {
+                            newFile += line + '\n';
+                        }
+                    }
+                    if (newFile != projectPropertiesText) {
+                        projectPropertiesEntry.replaceText(newFile);
+                    }
+                }
+    
+                if (dependencies.length) {
+                    let zipFsLibDir = zipFs.find(topDirName + '/lib');
+                    if (!zipFsLibDir) {
+                        zipFsLibDir = zipFsTopDir.addDirectory('lib');
+                    }
+                    
+                    for(const depObj of dependencies) {
+    
+    
+                        const untarData = await new Promise(function(resolve, reject) {
+                            const url = 'https://api.particle.io/v1/libraries/' + depObj.name + '/archive/' + depObj.ver + '.tar.gz';
+    
+                            fetch(url)
+                                .then(response => response.arrayBuffer())
+                                .then(function(gzipData) {
+                                    const tarData = window.pako.inflate(gzipData);
+    
+                                    untar(tarData.buffer)
+                                        .progress(function(data) {
+                                        })
+                                        .then(async function(untarData) {
+                                            resolve(untarData);
+                                        }); 
+                                    });
+                        });
+    
+                        let zipFsThisLibDir = zipFs.find(topDirName + '/lib/' + depObj.name);
+                        if (!zipFsThisLibDir) {
+                            zipFsThisLibDir = zipFsLibDir.addDirectory(depObj.name);
+                        }
+        
+                        let libDirs = {};
+    
+                        // untarData is an array of objects
+                        //  .name filename (full path, does not begin with /)
+                        //  .type string "0" = file, "5" = directory
+                        //  .buffer ArrayBuffer of data
+                        for(const libFile of untarData) {
+                            let dirName = '';
+                            let fileName = libFile.name;
+                            const lastSlashIndex = libFile.name.lastIndexOf('/');
+                            if (lastSlashIndex >= 0) {
+                                dirName = libFile.name.substring(0, lastSlashIndex);
+                                fileName = libFile.name.substring(lastSlashIndex + 1);
+                            }
+    
+                            if (libFile.type == '5') {
+    
+                                if (libFile.name == '.' || libFile.name == '..') {
+                                    // Skip these
+                                }
+                                else {
+                                    // 
+                                    let zipFsThisDir = zipFs.find(topDirName + '/lib/' + depObj.name + '/' + libFile.name);
+                                    if (!zipFsThisDir) {
+                                        libDirs[libFile.name] = zipFsThisLibDir.addDirectory(libFile.name);
+                                    }
+                                }
+                            }
+                            else
+                            if (libFile.type == '0') {                            
+                                let zipFsThisDir = zipFsThisLibDir;
+                                if (dirName != '') {
+                                    zipFsThisDir = libDirs[dirName];
+                                }
+                                if (zipFsThisDir) {
+                                    zipFsThisDir.addUint8Array(fileName, new Uint8Array(libFile.buffer));   
+                                }
+                            }
+                        }
+                    }
+                }
+    
+            }
+
+            if (options.includeVsCodeSettings) {
+                if (!zipFs.find(topDirName  + '/.vscode')) {
+                    const zipFsVsCodeDir = zipFsTopDir.addDirectory('.vscode');
+                    await zipFsVsCodeDir.importHttpContent(vsCodeSettingsUrl);        
+                }
+            }
+        
             const blob = await zipFs.exportBlob({
                 level:0
             });
-        
+
+            return blob;
+        };
+        $(thisElem).data('getProjectZipBlob', getProjectZipBlob);
+
+        $(thisElem).find('.apiHelperProjectDownloadZipButton').on('click', async function() {        
+
+            const blob = await getProjectZipBlob({
+                copyDependencies: true,
+                includeVsCodeSettings: true,
+            });
+            
             const outputFile = project + '.zip';
             setStatus('Saving ' + outputFile + ' to Downloads...');
             saveAs(blob, outputFile);
 
-			ga('send', 'event', gaCategory, 'Zip Download', project);
+			analytics.track('Zip Download', {category:gaCategory, label:project});
         });
 
-        const flashDeviceButton = $(thisElem).find('.codeboxFlashDeviceButton');
-
-        $(flashDeviceButton).on('click', async function() {
-
-			const device = $(thisElem).find('select.codeboxFlashDeviceSelect').val();
-			if (!device || device == 'select') {
-				return;
-			}
-		
-            if (!apiHelper.confirmFlash()) {
-                return;
-            }
-		
-            $(flashDeviceButton).prop('disabled', true);
-            
+        const getFormData = async function(formDataOptions) {
             await getProjectZip();
 
             let formData = new FormData();
 
-            let targetVersion = 'latest';
-            if ($(targetVersionSelect).length > 0) {
-                targetVersion = $(targetVersionSelect).val();
+            if (formDataOptions.build_target_version) {
+                formData.append('build_target_version', formDataOptions.build_target_version);
             }
 
-            formData.append('deviceId', device);
-            formData.append('build_target_version', targetVersion);
+            if (formDataOptions.deviceId) {
+                formData.append('deviceId', formDataOptions.deviceId);
+            }
+            if (formDataOptions.platform_id) {
+                formData.append('platform_id', formDataOptions.platform_id);
+            }
+            if (formDataOptions.product_id) {
+                formData.append('product_id', formDataOptions.product_id);
+            }
+
             let fileNum = 0;
 
             const addDir = async function(path, zipDir) {
@@ -365,6 +493,34 @@ $(document).ready(function() {
             }
             await addDir('', projectZip.root.children[0]);
 
+            return formData;
+        };
+        $(thisElem).data('getFormData', getFormData);
+
+        const flashDeviceButton = $(thisElem).find('.codeboxFlashDeviceButton');
+
+        $(flashDeviceButton).on('click', async function() {
+
+			const device = $(thisElem).find('select.codeboxFlashDeviceSelect').val();
+			if (!device || device == 'select') {
+				return;
+			}
+		
+            if (!apiHelper.confirmFlash()) {
+                return;
+            }
+		
+            $(flashDeviceButton).prop('disabled', true);
+            
+            let formDataOptions = {
+                deviceId: device,
+            };
+            if ($(targetVersionSelect).length > 0) {
+                formDataOptions.build_target_version = $(targetVersionSelect).val();
+            }
+
+            const formData = await getFormData(formDataOptions);
+
             setStatus('Starting compile and flash...');
             let startTimer = setTimeout(function() {
                 setStatus('Compile still in progress...');
@@ -376,7 +532,7 @@ $(document).ready(function() {
                 data: formData,
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Flash Device Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Flash Device Error', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                     if (startTimer) {
                         clearTimeout(startTimer);
                         startTimer = null;
@@ -391,7 +547,7 @@ $(document).ready(function() {
                 method: 'PUT',
                 processData: false,
                 success: function (resp, textStatus, jqXHR) {
-                    ga('send', 'event', gaCategory, 'Flash Device Success');
+                    analytics.track('Flash Device Success', {category:gaCategory});
                     if (startTimer) {
                         clearTimeout(startTimer);
                         startTimer = null;
@@ -484,4 +640,5 @@ $(document).ready(function() {
 
 
 });
+
 

@@ -212,7 +212,7 @@ Use this to access the `TrackerShipping` object. You will rarely need to do this
 
 Since the Tracker One has a LiPo battery inside the case, and the case is screwed together, it's inconvenient to unplug the battery. Shipping mode puts the device in a very low power mode (even less than sleep mode) by using the power management controller (PMIC) to disconnect the battery. Shipping mode can be enabled from the console, so you don't need to have a custom firmware build to enter shipping mode. Note that you can only exit shipping mode by externally powering a Tracker One by USB or the M8 connector.
 
-You might want to use the API if you have a physical button to enter shipping mode on a custom device. You could have the button handler in your user firmware call `tracking.shipping.enter();` to enter shipping mode locally.
+You might want to use the API if you have a physical button to enter shipping mode on a custom device. You could have the button handler in your user firmware call `Tracker::instance().shipping.enter();` to enter shipping mode locally.
 
 **Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
@@ -842,7 +842,7 @@ TrackerSleep::instance().wakeAtMilliseconds(System.millis() + 60000);
 
 Normally the wake time is determined by the minimum location update frequency in the [cloud configuration](/getting-started/console/console/#location-settings). You can adjust this from code using the variations of `wakeAt()`.
 
-The next wake time is always calculated using `System.millis()`. This does not rely on the system real-time clock being set, and is not affected by daylight saving time or timezones. It is a 64-bit time millisecond values that will effectively never roll over to 0. Since sleep mode uses ULTRA_LOW_POWER mode, the `System.millis()` counter continues to increment while in sleep. The `System.millis()` value does reset to 0 on reset or cold boot, but the sleep cycles also reset in that condition.
+The next wake time is always calculated using `System.millis()`. This does not rely on the device real-time clock being set, and is not affected by daylight saving time or timezones. It is a 64-bit time millisecond values that will effectively never roll over to 0. Since sleep mode uses ULTRA_LOW_POWER mode, the `System.millis()` counter continues to increment while in sleep. The `System.millis()` value does reset to 0 on reset or cold boot, but the sleep cycles also reset in that condition.
 
 If you have other wake sources such as movement (IMU), GPIO, BLE, network, etc. you can still wake earlier than this time. 
 
@@ -903,12 +903,12 @@ Your firmware can register functions to be called during sleep-related events. T
   - `TrackerSleepReason::STATE_TO_SHUTDOWN` for state change handlers, entering the SHUTDOWN state (about to enter shipping mode).
 
 - `loop` Incremented on each call to loop.
-- `lastSleepMs` The last time, in milliseconds, the system went to sleep.
-- `lastWakeMs` The last time, in milliseconds, the system woke from sleep.
-- `nextWakeMs` The next time, in milliseconds, the system will wake from sleep.
+- `lastSleepMs` The last time, in milliseconds, the device went to sleep.
+- `lastWakeMs` The last time, in milliseconds, the device woke from sleep.
+- `nextWakeMs` The next time, in milliseconds, the device will wake from sleep.
 - `modemOnMs` The time, in milliseconds, when the modem was turned on.
  
-The times in milliseconds are values from `System.millis()`. This does not rely on the system real-time clock being set, and is not affected by daylight saving time or timezones. It is a 64-bit time millisecond values that will effectively never roll over to 0. Since sleep mode uses ULTRA_LOW_POWER mode, the `System.millis()` counter continues to increment while in sleep. The `System.millis()` value does reset to 0 on reset or cold boot, but the sleep cycles also reset in that condition.
+The times in milliseconds are values from `System.millis()`. This does not rely on the device real-time clock being set, and is not affected by daylight saving time or timezones. It is a 64-bit time millisecond values that will effectively never roll over to 0. Since sleep mode uses ULTRA_LOW_POWER mode, the `System.millis()` counter continues to increment while in sleep. The `System.millis()` value does reset to 0 on reset or cold boot, but the sleep cycles also reset in that condition.
 
 ### registerSleepPrepare - TrackerSleep
 

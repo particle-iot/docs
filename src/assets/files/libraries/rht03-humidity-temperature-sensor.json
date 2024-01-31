@@ -7,7 +7,7 @@
   "attributes": {
     "name": "rht03-humidity-temperature-sensor",
     "version": "1.0.0",
-    "installs": 5153,
+    "installs": 5451,
     "license": "BSD",
     "author": "Marc Liyanage <reg.github@entropy.ch>",
     "sentence": "Reads out a Maxdetect RHT03 (also known as DHT22 and AM2302) humidity/temperature sensor.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/rht03-humidity-temperature-sensor",
+  "cardUrl": "/reference/device-os/libraries/r/rht03-humidity-temperature-sensor",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "boron": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "bsom": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "b5som": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "tracker": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "esomx": {
+            "rht03-humidity-temperature-sensor": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "boron": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "bsom": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "b5som": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "tracker": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "p2": {
+            "rht03-humidity-temperature-sensor": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "rht03-humidity-temperature-sensor": true
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sht3x-i2c",
     "version": "1.0.0",
-    "installs": 2504,
+    "installs": 4990,
     "license": "Apache License, Version 2.0",
     "author": "Mariano Goluboff",
     "sentence": "Library for SHT31 I2C sensor",
@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/sht3x-i2c",
+  "cardUrl": "/reference/device-os/libraries/s/sht3x-i2c",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -123,6 +123,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "boron": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "bsom": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "b5som": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "tracker": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "esomx": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "boron": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "bsom": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "b5som": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "tracker": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "p2": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "periodic": false,
             "single-shot": true,

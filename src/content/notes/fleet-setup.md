@@ -5,8 +5,5 @@ Even if you are still prototyping and developing, it's a good idea to start by [
 There are many ways to manage onboarding devices at scale. For examples, see:
 
 - [Cellular manufacturing guide](/scaling/manufacturing/manufacturing-cellular/)
-- [Fleet device setup tool (node.js)](https://github.com/particle-iot/node-example-device-flash-setup)
-- [Fleet flashing and setup tool (node.js)](https://github.com/particle-iot/node-example-device-cloud-setup)
-
-
+- [Import devices tool](/tools/cloud-tools/import-devices/)
 

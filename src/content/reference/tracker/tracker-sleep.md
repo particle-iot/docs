@@ -29,11 +29,11 @@ You can also see that the BMI160 IMU (inertial measurement unit) is quite power-
 
 You can find more information about TrackerSleep API calls in the Tracker Edge firmware in the [TrackerSleep API Reference](/firmware/tracker-edge/tracker-edge-api-reference/#trackersleep).
 
-## Cloud Settings
+## Cloud settings
 
 The following settings can be configured across your whole device fleet, or for individual devices that are marked as development devices.
 
-#### Location Settings
+#### Location settings
 
 ![Location Settings](/assets/images/tracker/settings-1.png)
 
@@ -75,7 +75,7 @@ In some cases, you will want to set the maximum and minimum to the same value. T
 
 The other settings are described in [cloud configuration](/getting-started/console/console/#location-settings).
 
-#### Motion Settings
+#### Motion settings
 
 ![Motion Settings](/assets/images/tracker/settings-2.png)
 
@@ -93,7 +93,7 @@ The motion settings determine how the IMU (inertial measurement unit, the accele
   - **Disable**: High-G events are not generated (the default).
   - **Enable**: High-G events are generated.
 
-#### Sleep Settings
+#### Sleep settings
 
 ![Sleep Settings](/assets/images/tracker/settings-5.png)
 
@@ -103,7 +103,7 @@ The motion settings determine how the IMU (inertial measurement unit, the accele
 
 **Maximum Connecting Time** is the maximum duration, in seconds, to wait for being cellular-connected and to obtain a GNSS lock before publishing. If connecting takes too long, then the device will go back to sleep instead of continuously attempting to connect. The default is 90 seconds.
 
-## Common Scenarios
+## Common scenarios
 
 ### Publish at fixed frequency with sleep
 

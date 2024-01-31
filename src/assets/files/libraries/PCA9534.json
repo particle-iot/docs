@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PCA9534",
     "version": "0.1.4",
-    "installs": 2108,
+    "installs": 2768,
     "license": "MIT",
     "author": "Abdulrahman Saleh Khamis",
     "sentence": "PCA9534 I/O expander library with Particle like API calls",
@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PCA9534",
+  "cardUrl": "/reference/device-os/libraries/p/PCA9534",
   "versions": {
     "0.1.4": {
       "builds": {
@@ -177,12 +177,88 @@
             "inverted": true,
             "io": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "boron": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "bsom": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "b5som": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "tracker": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "p2": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "boron": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "bsom": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "b5som": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "tracker": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "esomx": {
+            "blink": true,
+            "interrupt": false,
+            "inverted": true,
+            "io": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.896Z"
     }
   },
-  "readme": "# PCA9534 I/O Expander\n\nPCA9534 GPIO expander library for Particle devices with Particle like API calls. It makes working with PCA9534 I/O expander pins easier, with familiar functions like `pinMode()` and `digitalWrite()`. Refer to the [datasheet](http://www.ti.com/lit/ds/symlink/pca9534.pdf) for more information about the chip.\n\n## Usage\n\n![Hardware connection](images/hardware_connection.png \"Hardware connection setup\")\n\nConnect an LED to PCA9534 pin 0 chip, add the PCA9534 library to your project and follow this simple example:\n\n```Arduino\n#include \"PCA9534.h\"\n\n#define GPIO_PIN_LED 0\n\nPCA9534 gpio;\n\nvoid setup() {\n  gpio.begin();\n  gpio.pinMode(GPIO_PIN_LED, OUTPUT);\n}\n\nvoid loop() {\n  gpio.digitalWrite(GPIO_PIN_LED, LOW); // LED On\n  delay(500);\n  gpio.digitalWrite(GPIO_PIN_LED, HIGH); // LED Off\n  delay(500);\n}\n```\n\nSee the examples folder for more details.\n\n## Documentation\n\n### `PCA9534`\nCreates a new PCA9534 class to manage a PCA9534 chip.\n\n```Arduino\n#include \"PCA9534.h\"\n...\n...\nPCA9534 gpio;\n...\n...\nvoid setup() {\n  gpio.begin();\n}\n```\n\n### `begin([i2caddr])`\nInitializes the device and performs initial I2C setup. This method should be called before any others are used.\n\n#### Parameters:\n| Name | Type | Description |\n|------|------|-------------|\n| `i2caddr` | `uint8_t` | Sets the slave address of the PCA9534, defaults to 0x20. |\n\n```Arduino\nvoid setup() {\n  gpio.begin(0x20);\n}\n```\n\n### `pinMode(pin, mode)`\nConfigures the specified pin to behave either as an input, inverted input, or output.\n\n#### Parameters:\n| Name | Type | Description |\n|------|------|-------------|\n| `pin` | `uint8_t` | Pin number whose mode you wish to set. |\n| `mode` | `uint8_t` | Pin mode one of: `INPUT`, `INPUT_INVERTED`, or `OUTPUT`. |\n\n```Arduino\nvoid setup() {\n  gpio.begin();\n  gpio.pinMode(0, OUTPUT);\n}\n```\n\n### `digitalWrite(pin, value)`\nWrites a `HIGH` or a `LOW` value to a digital pin.\n\n#### Parameters:\n| Name | Type | Description |\n|------|------|-------------|\n| `pin` | `uint8_t` | Pin number whose value you wish to set. |\n| `value` | `uint8_t` | Pin value one of: `HIGH`, or `LOW`. |\n\n```Arduino\nvoid loop() {\n  gpio.digitalWrite(0, LOW);\n  delay(500);\n  gpio.digitalWrite(0, HIGH);\n  delay(500);\n}\n```\n\n### `digitalRead(pin)`\nReads the value from a specified digital pin, either `HIGH` or `LOW`.\n\n*Note: when using `INPUT_INVERTED` on `pinMode()`, you will get the inverted status.*\n\n#### Parameters:\n| Name | Type | Description |\n|------|------|-------------|\n| `pin` | `uint8_t` | Pin number whose value you wish to get. |\n\n#### Returns:\n`uint8_t` - The status of the pin either HIGH or LOW.\n\n```Arduino\nvoid loop() {\n  uint8_t buttonStatus = gpio.digitalRead(1);\n  if (buttonStatus == HIGH) {\n    gpio.digitalWrite(0, LOW); // LED On\n  } else {\n    gpio.digitalWrite(0, HIGH); // LED Off\n  }\n}\n```\n\n## LICENSE\nCopyright 2017 Abdulrahman Saleh Khamis\n\nLicensed under the MIT license\n",
+  "readme": "# PCA9534 I/O Expander\n\nPCA9534 GPIO expander library for Particle devices with Particle like API calls. It makes working with PCA9534 I/O expander pins easier, with familiar functions like `pinMode()` and `digitalWrite()`. Refer to the [datasheet](http://www.ti.com/lit/ds/symlink/pca9534.pdf) for more information about the chip.\n\n## Usage\n\nHardware connection (image removed)\n\nConnect an LED to PCA9534 pin 0 chip, add the PCA9534 library to your project and follow this simple example:\n\n```Arduino\n#include \"PCA9534.h\"\n\n#define GPIO_PIN_LED 0\n\nPCA9534 gpio;\n\nvoid setup() {\n  gpio.begin();\n  gpio.pinMode(GPIO_PIN_LED, OUTPUT);\n}\n\nvoid loop() {\n  gpio.digitalWrite(GPIO_PIN_LED, LOW); // LED On\n  delay(500);\n  gpio.digitalWrite(GPIO_PIN_LED, HIGH); // LED Off\n  delay(500);\n}\n```\n\nSee the examples folder for more details.\n\n## Documentation\n\n### `PCA9534`\nCreates a new PCA9534 class to manage a PCA9534 chip.\n\n```Arduino\n#include \"PCA9534.h\"\n...\n...\nPCA9534 gpio;\n...\n...\nvoid setup() {\n  gpio.begin();\n}\n```\n\n### `begin([i2caddr])`\nInitializes the device and performs initial I2C setup. This method should be called before any others are used.\n\n#### Parameters:\n| Name | Type | Description |\n|------|------|-------------|\n| `i2caddr` | `uint8_t` | Sets the slave address of the PCA9534, defaults to 0x20. |\n\n```Arduino\nvoid setup() {\n  gpio.begin(0x20);\n}\n```\n\n### `pinMode(pin, mode)`\nConfigures the specified pin to behave either as an input, inverted input, or output.\n\n#### Parameters:\n| Name | Type | Description |\n|------|------|-------------|\n| `pin` | `uint8_t` | Pin number whose mode you wish to set. |\n| `mode` | `uint8_t` | Pin mode one of: `INPUT`, `INPUT_INVERTED`, or `OUTPUT`. |\n\n```Arduino\nvoid setup() {\n  gpio.begin();\n  gpio.pinMode(0, OUTPUT);\n}\n```\n\n### `digitalWrite(pin, value)`\nWrites a `HIGH` or a `LOW` value to a digital pin.\n\n#### Parameters:\n| Name | Type | Description |\n|------|------|-------------|\n| `pin` | `uint8_t` | Pin number whose value you wish to set. |\n| `value` | `uint8_t` | Pin value one of: `HIGH`, or `LOW`. |\n\n```Arduino\nvoid loop() {\n  gpio.digitalWrite(0, LOW);\n  delay(500);\n  gpio.digitalWrite(0, HIGH);\n  delay(500);\n}\n```\n\n### `digitalRead(pin)`\nReads the value from a specified digital pin, either `HIGH` or `LOW`.\n\n*Note: when using `INPUT_INVERTED` on `pinMode()`, you will get the inverted status.*\n\n#### Parameters:\n| Name | Type | Description |\n|------|------|-------------|\n| `pin` | `uint8_t` | Pin number whose value you wish to get. |\n\n#### Returns:\n`uint8_t` - The status of the pin either HIGH or LOW.\n\n```Arduino\nvoid loop() {\n  uint8_t buttonStatus = gpio.digitalRead(1);\n  if (buttonStatus == HIGH) {\n    gpio.digitalWrite(0, LOW); // LED On\n  } else {\n    gpio.digitalWrite(0, HIGH); // LED Off\n  }\n}\n```\n\n## LICENSE\nCopyright 2017 Abdulrahman Saleh Khamis\n\nLicensed under the MIT license\n",
   "allVersions": [
     "0.1.4",
     "0.1.3",

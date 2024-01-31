@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AdafruitColorTFTJoystickFeatherWing",
     "version": "0.0.1",
-    "installs": 1418,
+    "installs": 1545,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Adafruit Mini Color TFT with Joystick FeatherWing",
     "url": "https://github.com/rickkas7/AdafruitColorTFTJoystickFeatherWing",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AdafruitColorTFTJoystickFeatherWing",
+  "cardUrl": "/reference/device-os/libraries/a/AdafruitColorTFTJoystickFeatherWing",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "boron": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "bsom": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "b5som": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "tracker": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "esomx": {
+            "2-tft-basic": false,
+            "3-tft-graphicstest": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "boron": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "bsom": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "b5som": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "tracker": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "p2": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "2-tft-basic": true,
             "3-tft-graphicstest": true

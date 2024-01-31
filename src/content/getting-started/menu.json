@@ -38,6 +38,11 @@
       ]
     },
     {
+      "dir": "new",
+      "title": "What's new",
+      "href": "/getting-started/new/"
+    },
+    {
       "dir": "hardware",
       "isSection": true
     },
@@ -70,7 +75,7 @@
         "tiles": [
           {
             "title": "setup.particle.io",
-            "detail": "Set up your Particle device from a web browser or mobile app",
+            "detail": "Set up your Particle device from a web browser",
             "href": "https://setup.particle.io/"
           },
           {
@@ -88,8 +93,7 @@
       {
         "dir": "manual-setup",
         "title": "Manual setup",
-        "href": "/getting-started/setup/manual-setup/",
-        "internal": true
+        "href": "/getting-started/setup/manual-setup/"
       },
       {
         "dir": "accounts",
@@ -100,6 +104,16 @@
         "dir": "wpa2-enterprise",
         "title": "WPA2 Enterprise Wi-Fi Setup",
         "href": "/getting-started/setup/wpa2-enterprise/"
+      },
+      {
+        "dir": "wifi-setup-options",
+        "title": "Wi-Fi setup for products",
+        "href": "/reference/device-os/wifi-setup-options/"
+      },
+      {
+        "dir": "classroom",
+        "title": "Classroom setup",
+        "href": "/getting-started/setup/classroom/"
       }
     ],
     {
@@ -119,7 +133,7 @@
       },
       {
         "title": "Library search",
-        "href": "/cards/libraries/search/"
+        "href": "/reference/device-os/libraries/search/"
       }
     ],
     {
@@ -127,6 +141,23 @@
       "isSection": true
     },
     [
+      {
+        "dir": "developer-tools",
+        "title": "Developer tools",
+        "href": "/getting-started/developer-tools/developer-tools/",
+        "tiles": [
+          {
+            "title": "Workbench",
+            "detail": "Development environment for Particle devices",
+            "href": "/getting-started/developer-tools/workbench/"
+          },
+          {
+            "title": "Particle CLI",
+            "detail": "Command line interfface",
+            "href": "/reference/developer-tools/cli/"
+          }
+        ]
+      },
       {
         "dir": "workbench",
         "title": "Workbench",
@@ -177,6 +208,11 @@
         "dir": "device-claiming",
         "title": "Device claiming",
         "href": "/getting-started/cloud/device-claiming/"
+      },
+      {
+        "dir": "function-publish-demo",
+        "title": "Function and publish demo",
+        "href": "/getting-started/cloud/function-publish-demo/"
       }
     ],
     {
@@ -242,6 +278,28 @@
       }
     ],
     {
+      "dir": "logic-ledger",
+      "title": "Logic & Ledger",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "logic",
+        "title": "Logic",
+        "href": "/getting-started/logic-ledger/logic/"
+      },
+      {
+        "dir": "ledger",
+        "title": "Ledger",
+        "href": "/getting-started/logic-ledger/ledger/"
+      },
+      {
+        "dir": "data-transformation",
+        "title": "Data transformation with Logic",
+        "href": "/getting-started/logic-ledger/data-transformation/"
+      }
+    ],
+    {
       "dir": "products",
       "isSection": true
     },
@@ -289,76 +347,25 @@
       }
     ],
     {
-      "dir": "integrations",
+      "dir": "machine-learning",
       "isSection": true
     },
     [
       {
-        "dir": "integrations",
-        "title": "Integrations",
-        "href": "/getting-started/integrations/integrations/"
+        "dir": "machine-learning",
+        "title": "Machine Learning",
+        "href": "/getting-started/machine-learning/machine-learning/"
       },
       {
-        "dir": "webhooks",
-        "title": "Webhooks",
-        "href": "/getting-started/integrations/webhooks/"
+        "dir": "doorbell",
+        "title": "Doorbell SMS",
+        "href": "/getting-started/machine-learning/doorbell/"
       },
       {
-        "dir": "google-cloud-platform",
-        "title": "Google cloud platform",
-        "href": "/getting-started/integrations/google-cloud-platform/"
-      },
-      {
-        "dir": "google-maps",
-        "title": "Google maps",
-        "href": "/getting-started/integrations/google-maps/"
-      },
-      {
-        "dir": "community-integrations",
-        "isSection": true
-      },
-      [
-        {
-          "dir": "azure-iot-hub",
-          "title": "Azure IoT Hub",
-          "href": "/getting-started/integrations/community-integrations/azure-iot-hub/"
-        },
-        {
-          "dir": "influxdata",
-          "title": "InfluxData",
-          "href": "/getting-started/integrations/community-integrations/influxdata/"
-        },
-        {
-          "dir": "questdb",
-          "title": "QuestDB",
-          "href": "/getting-started/integrations/community-integrations/questdb/"
-        },
-        {
-          "dir": "ifttt",
-          "title": "IFTTT",
-          "href": "/getting-started/integrations/community-integrations/ifttt/"
-        },
-        {
-          "dir": "zapier",
-          "title": "Zapier",
-          "href": "/getting-started/integrations/community-integrations/zapier/"
-        },
-        {
-          "dir": "publish-to-google-sheets",
-          "title": "Publish to Google sheets",
-          "href": "/getting-started/integrations/community-integrations/publish-to-google-sheets/"
-        },
-        {
-          "dir": "weather",
-          "title": "Weather API",
-          "href": "/getting-started/integrations/community-integrations/weather/"
-        },
-        {
-          "dir": "memfault",
-          "title": "Memfault",
-          "href": "/getting-started/integrations/community-integrations/memfault/"
-        }
-      ]
+        "dir": "youre-muted",
+        "title": "You're muted",
+        "href": "/getting-started/machine-learning/youre-muted/"
+      }
     ],
     {
       "dir": "hardware-tutorials",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP23017-RK",
     "version": "0.0.1",
-    "installs": 10021,
+    "installs": 10858,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for 16-port I2C GPIO Expander MCP23017",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MCP23017-RK",
+  "cardUrl": "/reference/device-os/libraries/m/MCP23017-RK",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -130,12 +130,64 @@
             "01-simple-gpio": false,
             "02-really-simple-output": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "boron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "bsom": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "b5som": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "tracker": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "p2": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "boron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "bsom": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "b5som": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "tracker": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true
+          },
+          "esomx": {
+            "01-simple-gpio": false,
+            "02-really-simple-output": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.762Z"
     }
   },
-  "readme": "# MCP23017-RK\n*Particle driver for MCP23017 16-port I2C GPIO expander*\n\n\n## Pinouts\n\nOne Side:\n\n- 1 GPB0\n- 2 GPB1\n- 3 GPB2\n- 4 GPB3\n- 5 GPB4\n- 6 GPB5\n- 7 GPB6\n- 8 GPB7\n- 9 VDD (3.3 or 5V, red)\n- 10 VSS (GND, black)\n- 11 NC \n- 12 SCL (to Photon D1, blue)\n- 13 SDA (to Photon D0, green)\n- 14 NC\n\nOther Side:\n\n- 15 A0\n- 16 A1\n- 17 A2\n- 18 /RESET\n- 19 INTB\n- 20 INTA\n- 21 GPA0\n- 22 GPA1\n- 23 GPA2\n- 24 GPA3\n- 25 GPA4\n- 26 GPA5\n- 27 GPA6\n- 28 GPA7\n\nNote that the address lines are not biased so you must connect them to GND or VDD to set the address! Normally you'd connect all to GND to set address 0.\n\nSame for /RESET, though you probably want to connect that to VDD to keep the device out of reset.\n\n![pinout](images/pinout.png)\n\nHere's my test circuit:\n\n![circuit](images/circuit.jpg)\n\nImportant: Remember the pull-ups on the SDA and SCL lines (4.7K or 10K typically)! While many breakout boards like you'd get from Adafruit or Sparkfun includes the pull-ups on the board, you must add external resistors when using a bare MCP23008.\n\n## Using the Library\n\nThis library has an API that looks remarkably like the regular GPIO calls.\n\n### Initialization\n\nTypically you create an global object like this in your source:\n\n```\nMCP23017 gpio(Wire, 0);\n```\n\nThe first parameter is the interface. It's typically Wire (D0 and D1). \n\nThe second parameter is the address of the device (0-7). This corresponds to the value set on the A0, A1, and A2 pins and allows up to 8 separate MCP23008 devices on a single I2C bus.\n\nOn the Electron, you can also use Wire1 on C4 and C5:\n\n```\nMCP23017 gpio(Wire1, 0);\n```\n\n### begin\n\n```\nvoid begin();\n```\n\nYou must call begin(), typically during setup(), to initialize the Wire interface.\n\n### pinMode\n\n```\nvoid pinMode(uint16_t pin, PinMode mode);\n```\n\nSets the pin mode of a pin (0-15). Values for mode include:\n\n- INPUT (default)\n- INPUT_PULLUP\n- OUTPUT\n\nNote that it does not support INPUT_PULLDOWN, as the MCP23008 only supports internal pull-ups. Also, they're 100K vs. the 40K (-ish) pull-ups in the STM32F205.\n\nPins GPA0 - GPA7 are 0 - 7, and pins GPB0 - GPB7 are 8 - 15. \n\n### digitalWrite\n\n```\nvoid digitalWrite(uint16_t pin, uint8_t value);\n```\n\nSets the value of a pin (0-15) to the specified value. Values are typically:\n\n- 0 (or false or LOW)\n- 1 (or true or HIGH)\n\n### digitalRead\n\n```\nint32_t digitalRead(uint16_t pin);\n```\n\nReads the value of the pin (0-15). This will be HIGH (true, 1) or LOW (false, 0).\n\nIf used on an output pin, returns the current output state.\n\n\n### getPinMode\n\n```\nPinMode getPinMode(uint16_t pin);\n```\n\nReturns the pin mode of pin (0-15), which will be one of:\n\n- INPUT (default)\n- INPUT_PULLUP\n- OUTPUT\n\n### pinAvailable\n\n```\nbool pinAvailable(uint16_t pin);\n```\n\nReturns true if 0 <= pin <= 15.\n\t\n## Example Programs\n\n\n### Simple Example\n\n```\n#include \"Particle.h\"\n#include \"MCP23017-RK.h\"\n\nMCP23008 gpio(Wire, 0);\n\nvoid setup() {\n\tSerial.begin(9600);\n\n\tgpio.begin();\n\tgpio.pinMode(0, OUTPUT);\n\tgpio.digitalWrite(0, HIGH);\n}\n\nvoid loop() {\n}\n```\n\n### Other Example\n\nThe other example outputs a square wave on pins 6, 7, 8, 9:\n\n- GPA6: 1000 ms. period (1 Hz)\n- GPA7: 666 ms. period\n- GPB0: 200 ms. period (5 Hz)\n- GPB1: 20 ms. period (50 Hz)\n\nThis should result in the following:\n\n![Output](images/output.png)\n\nYou can also connect a jumper from GPB7 to one of those pins. It echoes the value on the GPB7 input to the blue D7 LED on the Photon, so you can see the different frequencies.\n\n\n\n",
+  "readme": "# MCP23017-RK\n*Particle driver for MCP23017 16-port I2C GPIO expander*\n\n\n## Pinouts\n\nOne Side:\n\n- 1 GPB0\n- 2 GPB1\n- 3 GPB2\n- 4 GPB3\n- 5 GPB4\n- 6 GPB5\n- 7 GPB6\n- 8 GPB7\n- 9 VDD (3.3 or 5V, red)\n- 10 VSS (GND, black)\n- 11 NC \n- 12 SCL (to Photon D1, blue)\n- 13 SDA (to Photon D0, green)\n- 14 NC\n\nOther Side:\n\n- 15 A0\n- 16 A1\n- 17 A2\n- 18 /RESET\n- 19 INTB\n- 20 INTA\n- 21 GPA0\n- 22 GPA1\n- 23 GPA2\n- 24 GPA3\n- 25 GPA4\n- 26 GPA5\n- 27 GPA6\n- 28 GPA7\n\nNote that the address lines are not biased so you must connect them to GND or VDD to set the address! Normally you'd connect all to GND to set address 0.\n\nSame for /RESET, though you probably want to connect that to VDD to keep the device out of reset.\n\npinout (image removed)\n\nHere's my test circuit:\n\ncircuit (image removed)\n\nImportant: Remember the pull-ups on the SDA and SCL lines (4.7K or 10K typically)! While many breakout boards like you'd get from Adafruit or Sparkfun includes the pull-ups on the board, you must add external resistors when using a bare MCP23008.\n\n## Using the Library\n\nThis library has an API that looks remarkably like the regular GPIO calls.\n\n### Initialization\n\nTypically you create an global object like this in your source:\n\n```\nMCP23017 gpio(Wire, 0);\n```\n\nThe first parameter is the interface. It's typically Wire (D0 and D1). \n\nThe second parameter is the address of the device (0-7). This corresponds to the value set on the A0, A1, and A2 pins and allows up to 8 separate MCP23008 devices on a single I2C bus.\n\nOn the Electron, you can also use Wire1 on C4 and C5:\n\n```\nMCP23017 gpio(Wire1, 0);\n```\n\n### begin\n\n```\nvoid begin();\n```\n\nYou must call begin(), typically during setup(), to initialize the Wire interface.\n\n### pinMode\n\n```\nvoid pinMode(uint16_t pin, PinMode mode);\n```\n\nSets the pin mode of a pin (0-15). Values for mode include:\n\n- INPUT (default)\n- INPUT_PULLUP\n- OUTPUT\n\nNote that it does not support INPUT_PULLDOWN, as the MCP23008 only supports internal pull-ups. Also, they're 100K vs. the 40K (-ish) pull-ups in the STM32F205.\n\nPins GPA0 - GPA7 are 0 - 7, and pins GPB0 - GPB7 are 8 - 15. \n\n### digitalWrite\n\n```\nvoid digitalWrite(uint16_t pin, uint8_t value);\n```\n\nSets the value of a pin (0-15) to the specified value. Values are typically:\n\n- 0 (or false or LOW)\n- 1 (or true or HIGH)\n\n### digitalRead\n\n```\nint32_t digitalRead(uint16_t pin);\n```\n\nReads the value of the pin (0-15). This will be HIGH (true, 1) or LOW (false, 0).\n\nIf used on an output pin, returns the current output state.\n\n\n### getPinMode\n\n```\nPinMode getPinMode(uint16_t pin);\n```\n\nReturns the pin mode of pin (0-15), which will be one of:\n\n- INPUT (default)\n- INPUT_PULLUP\n- OUTPUT\n\n### pinAvailable\n\n```\nbool pinAvailable(uint16_t pin);\n```\n\nReturns true if 0 <= pin <= 15.\n\t\n## Example Programs\n\n\n### Simple Example\n\n```\n#include \"Particle.h\"\n#include \"MCP23017-RK.h\"\n\nMCP23008 gpio(Wire, 0);\n\nvoid setup() {\n\tSerial.begin(9600);\n\n\tgpio.begin();\n\tgpio.pinMode(0, OUTPUT);\n\tgpio.digitalWrite(0, HIGH);\n}\n\nvoid loop() {\n}\n```\n\n### Other Example\n\nThe other example outputs a square wave on pins 6, 7, 8, 9:\n\n- GPA6: 1000 ms. period (1 Hz)\n- GPA7: 666 ms. period\n- GPB0: 200 ms. period (5 Hz)\n- GPB1: 20 ms. period (50 Hz)\n\nThis should result in the following:\n\nOutput (image removed)\n\nYou can also connect a jumper from GPB7 to one of those pins. It echoes the value on the GPB7 input to the blue D7 LED on the Photon, so you can see the different frequencies.\n\n\n\n",
   "allVersions": [
     "0.0.1"
   ]

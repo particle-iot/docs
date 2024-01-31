@@ -1,0 +1,147 @@
+{
+  "type": "libraries",
+  "id": "ADXL362DMA_Simon",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ADXL362DMA_Simon/archive/0.0.8.tar.gz"
+  },
+  "attributes": {
+    "name": "ADXL362DMA_Simon",
+    "version": "0.0.8",
+    "installs": 132,
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickk.com>",
+    "sentence": "ADXL362 accelerometer driver with SPI DMA support",
+    "url": "https://github.com/rickkas7/ADXL362DMA",
+    "repository": "https://github.com/rickkas7/ADXL362DMA.git",
+    "architectures": [
+      "particle-photon",
+      " particle-p1",
+      " particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/ADXL362DMA_Simon",
+  "versions": {
+    "0.0.8": {
+      "added": "2023-03-21T20:19:12.562Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1acceladxl362": true
+          },
+          "boron": {
+            "1acceladxl362": true
+          },
+          "bsom": {
+            "1acceladxl362": true
+          },
+          "b5som": {
+            "1acceladxl362": true
+          },
+          "tracker": {
+            "1acceladxl362": true
+          },
+          "p2": {
+            "1acceladxl362": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1acceladxl362": true
+          },
+          "boron": {
+            "1acceladxl362": true
+          },
+          "bsom": {
+            "1acceladxl362": true
+          },
+          "b5som": {
+            "1acceladxl362": true
+          },
+          "tracker": {
+            "1acceladxl362": true
+          },
+          "esomx": {
+            "1acceladxl362": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1acceladxl362": true
+          },
+          "electron": {
+            "1acceladxl362": true
+          },
+          "argon": {
+            "1acceladxl362": true
+          },
+          "boron": {
+            "1acceladxl362": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1acceladxl362": true
+          },
+          "electron": {
+            "1acceladxl362": true
+          },
+          "argon": {
+            "1acceladxl362": true
+          },
+          "boron": {
+            "1acceladxl362": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1acceladxl362": true
+          },
+          "boron": {
+            "1acceladxl362": true
+          },
+          "bsom": {
+            "1acceladxl362": true
+          },
+          "b5som": {
+            "1acceladxl362": true
+          },
+          "tracker": {
+            "1acceladxl362": true
+          },
+          "p2": {
+            "1acceladxl362": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1acceladxl362": true
+          },
+          "boron": {
+            "1acceladxl362": true
+          },
+          "bsom": {
+            "1acceladxl362": true
+          },
+          "b5som": {
+            "1acceladxl362": true
+          },
+          "tracker": {
+            "1acceladxl362": true
+          },
+          "esomx": {
+            "1acceladxl362": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ADXL362DMA\n*Library for ADXL362 accelerometer that uses SPI DMA for efficient transfers*\n\nThe ADXL362 is an inexpensive 3-DOF ultra-low power accelerometer. It can do movement detection from rest continuously at 270 nA (yes, nano-amps!) and also has a large FIFO that makes it possible to buffer samples while the processor is busy or even sleeping.\n\nData sheet:\nhttp://www.analog.com/media/en/technical-documentation/data-sheets/ADXL362.pdf\n\n\n",
+  "allVersions": [
+    "0.0.8",
+    "0.0.7"
+  ]
+}

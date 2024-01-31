@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PlainFFT",
     "version": "0.4.5",
-    "installs": 1888,
+    "installs": 2002,
     "license": "MIT",
     "author": "Nikos Kouvelas <nko@eworx.gr>",
     "sentence": "FFT library",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PlainFFT",
+  "cardUrl": "/reference/device-os/libraries/p/PlainFFT",
   "versions": {
     "0.4.5": {
       "builds": {

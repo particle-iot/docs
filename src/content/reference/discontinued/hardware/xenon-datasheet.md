@@ -66,7 +66,7 @@ Please pay attention to the polarity of the LiPo connector. Not all LiPo batteri
 
 <div align=center><img src="/assets/images/lipo-polarity.png" ></div>
 
-#### Li+ PIN
+#### Li+ pin
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Xenon. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
 
 #### 3V3 PIN
@@ -112,21 +112,21 @@ The Xenon has a dedicated 10 pin debug connector that exposes the SWD interface 
 
 ## Memory map
 
-### nRF52840 Flash Layout Overview
+### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
  - User Application (128KB, @0xD4000)
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+### External SPI flash layout overview (DFU offset: 0x80000000)
 
  - OTA (1500KB, @0x00289000)
  - Reserved (420KB, @0x00220000)
  - FAC (128KB, @0x00200000)
  - LittleFS (2M, @0x00000000)
 
-## Pins and button definitions
+## Pin and button definitions
 
 ### Pin markings
 
@@ -222,7 +222,7 @@ Xenon uses the Nordic Semiconductor nRF52840 SoC as the main controller and the 
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
 
-### I/O Characteristics 
+### I/O characteristics 
 
 These specifications are based on the nRF52840 datasheet.
 
@@ -238,7 +238,7 @@ These specifications are based on the nRF52840 datasheet.
 
 ## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
 
 <div align=center><img src="/assets/images/xenon/xenon-dimensions.png" ></div>
  
@@ -301,9 +301,9 @@ Xenons are available from [store.particle.io](https://store.particle.io/) in sin
 -   FCC ID: 2AEMI-XENN
 -   IC: 20127-XENN
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 The Xenon contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling Xenon without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates Xenon. ESD precautions should be implemented on the application board where the Xenon is mounted. Failure to observe these precautions can result in severe damage to the Xenon!
 
@@ -331,7 +331,7 @@ The Xenon comes preprogrammed with a bootloader and a user application called Ti
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC IC CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -398,7 +398,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v001     | 26 Oct 2018 | MB | Initial release |
 | v002     | 21 Jan 2020 | RK | Discontinued |
 
-## Known Errata
+## Known errata
 
 ## Contact
 
@@ -410,6 +410,3 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 [https://community.particle.io](https://community.particle.io)
 
-**Email**
-
-[https://support.particle.io](https://support.particle.io)

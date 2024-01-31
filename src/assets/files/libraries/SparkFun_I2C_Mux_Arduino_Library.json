@@ -1,0 +1,178 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_I2C_Mux_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_I2C_Mux_Arduino_Library/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_I2C_Mux_Arduino_Library",
+    "version": "1.0.0",
+    "installs": 1277,
+    "author": "SparkFun Electronics",
+    "maintainer": "SparkFun Electronics",
+    "sentence": "Library to control I2C multiplexers including the TCA9548/PCA9548.",
+    "paragraph": "I2C multiplexers are useful for connecting multiple I2C devices that have only one address. This library makes it easy to work with the 8-channel TCA9548/PCA9548 I2C multiplexer but also works with smaller 4 and 2 bit multiplexers. This library support daisychaining multiple muxes so that you can get up to 64 devices on one I2C bus! It also supports generic Wire ports (Wire1, myWire, etc). Checkout the <a href=\"https://www.sparkfun.com/products/14685\">Qwiic Mux</a> for more information.",
+    "category": "Device Control",
+    "url": "https://github.com/sparkfun/SparkFun_I2C_Mux_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_I2C_Mux_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_I2C_Mux_Arduino_Library",
+  "versions": {
+    "1.0.0": {
+      "added": "2023-03-21T15:49:05.719Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "boron": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "bsom": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "b5som": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "tracker": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "p2": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "boron": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "bsom": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "b5som": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "tracker": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "esomx": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": false
+          },
+          "electron": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "argon": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "boron": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": false
+          },
+          "electron": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "argon": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "boron": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "boron": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "bsom": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "b5som": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "tracker": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "p2": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "boron": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "bsom": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "b5som": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "tracker": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          },
+          "esomx": {
+            "Example1_BasicControl": true,
+            "Example3_AdvancedWireSettings": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun Qwiic I2C Mux Arduino Library\n===========================================================\n\n [![SparkFun Qwiic Mux - TCA9548 (BOB-14685)](https://cdn.sparkfun.com//assets/parts/1/2/8/9/0/14685-SparkFun_Qwiic_Mux_Breakout_-_8_Channel__TCA9548A_-01.jpg)](https://www.sparkfun.com/products/15242) \n\n[*SparkFun Qwiic Mux - TCA9548 (BOB-14685)*](https://www.sparkfun.com/products/14685)\n\nDo you have too many sensors with the same I<sup>2</sup>C address? Put them on the SparkFun Qwiic Mux Breakout to get them all talking on the same bus! The Qwiic Mux Breakout enables communication with multiple I<sup>2</sup>C devices that have the same address that makes it simple to interface with. The Qwiic Mux also has eight configurable addresses of its own, allowing for up to 64 I<sup>2</sup>C buses on a connection. To make it even easier to use this multiplexer, all communication is enacted exclusively via I<sup>2</sup>C, utilizing our handy Qwiic system.\n\nThe Qwiic Mux also allows you to change the last three bits of the address byte, allowing for eight jumper selectable addresses if you happen to need to put more than one Qwiic Mux Breakout on the same I<sup>2</sup>C port. The address can be changed by adding solder to any of the three ADR jumpers. Each SparkFun Qwiic Mux Breakout operate between 1.65V and 5.5V making it ideal for all of the Qwiic boards we produce in house.\n\nSparkFun labored with love to create this code. Feel like supporting open source hardware? \nBuy a [board](https://www.sparkfun.com/products/14685) from SparkFun!\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/Qwiic_Mux_TCA9548A)** - Main repository (including hardware files)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

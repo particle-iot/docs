@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SGP30",
     "version": "1.0.0",
-    "installs": 7524,
+    "installs": 8370,
     "license": "BSD license",
     "author": "Adafruit <info@adafruit.com>, SJB (dyadica.co.uk, github.com/dyadica)",
     "sentence": "Adafruit SGP30 Library",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_SGP30",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_SGP30",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true
           },

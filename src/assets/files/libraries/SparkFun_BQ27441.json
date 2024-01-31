@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_BQ27441",
     "version": "1.0.1",
-    "installs": 885,
+    "installs": 1025,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "An Arduino library for interfacing with the BQ72441-G1 LiPo Fuel Gauge",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_BQ27441",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_BQ27441",
   "versions": {
     "1.0.1": {
       "builds": {
@@ -125,6 +125,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "boron": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "bsom": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "b5som": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "tracker": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "esomx": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "boron": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "bsom": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "b5som": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "tracker": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          },
+          "p2": {
+            "BQ27441_Basic": true,
+            "BQ27441_GPOUT_BAT_LOW": true,
+            "BQ27441_GPOUT_SOC_INT": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "BQ27441_Basic": true,
             "BQ27441_GPOUT_BAT_LOW": true,

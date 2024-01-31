@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HighPowerStepperDriver",
     "version": "1.0.0",
-    "installs": 501,
+    "installs": 580,
     "author": "Pololu",
     "maintainer": "rkast @ github, reach out to me on the project repository for questions or concerns",
     "sentence": "High-Power Stepper Motor Driver library for Particle",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/HighPowerStepperDriver",
+  "cardUrl": "/reference/device-os/libraries/h/HighPowerStepperDriver",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -107,6 +107,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "boron": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "bsom": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "b5som": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "tracker": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "esomx": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "boron": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "bsom": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "b5som": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "tracker": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "p2": {
+            "BasicStepping": false,
+            "BasicSteppingSPI": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "BasicStepping": true,
             "BasicSteppingSPI": true

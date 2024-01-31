@@ -3,7 +3,7 @@ title: AN009 Firmware Examples
 layout: commonTwo.hbs
 columns: two
 ---
-# AN009 Firmware Examples
+# AN009 Firmware examples
 
 {{box op="start" cssClass="boxed warningBox"}}
 This page is no longer maintained and is provided for historical reference only
@@ -14,11 +14,11 @@ This application note has been split out into separate application notes.
 
 
 
-## Publishing Examples, Sleeping Cellular Devices
+## Publishing examples, Sleeping Cellular Devices
 
 There are three examples of periodically publishing data from an E Series, Electron, Boron, or B Series SoM that mostly sleeps.
 
-#### Wake Publish Sleep Cellular
+#### Wake publish sleep cellular
 
 This example illustrates:
 
@@ -30,7 +30,7 @@ This example illustrates:
 - Stay awake for firmware updates (optional).
 - [AN029 Wake, publish, then sleep for cellular devices](/firmware/low-power/wake-publish-sleep-cellular/)  provides an annotated code example for doing wake, publish, then sleep cycles with cellular devices.
 
-#### Stop Sleep Cellular
+#### Stop sleep cellular
 
 This example illustrates:
 

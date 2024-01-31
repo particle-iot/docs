@@ -1,0 +1,15 @@
+<div class="webhookDemo apiHelper" data-control="cleanup">
+    <div class="apiHelperBox">
+        <div id="cleanupCanRun" style="display:none;">
+            <div style="padding: 4px 0px 4px 6px;"><label><input type="checkbox" id="cleanupWebhook" class="cleanupUpdateOnClick" checked/>Remove webhooks (required to delete product)</label></div>
+            <div style="padding: 4px 0px 4px 6px;"><label><input type="checkbox" id="cleanupTinker" checked/>Flash Tinker to devices</label></div>
+            <div style="padding: 4px 0px 4px 6px;"><label><input type="checkbox" id="cleanupDevices" class="cleanupUpdateOnClick" checked/>Remove devices from product (required to delete product)</label></div>
+            <div style="padding: 4px 0px 4px 6px;"><label><input type="checkbox" id="cleanupProduct" checked/>Delete product</label></div>
+            <div style="padding: 8px;"><button id="cleanupButton" disabled>Cleanup</button></div>
+            <div id="cleanupProgressDiv" style="padding: 8px 0px 8px 6px; display:none"></div>
+        </div>
+        <div id="cleanupStartWarning">
+            <p>You must <a class="startDemo">Start Demo</a> to retrieve product information before it can be cleaned up.</p>
+        </div>
+    </div>
+</div>

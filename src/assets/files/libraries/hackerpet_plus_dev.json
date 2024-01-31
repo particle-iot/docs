@@ -7,7 +7,7 @@
   "attributes": {
     "name": "hackerpet_plus_dev",
     "version": "0.1.112",
-    "installs": 334,
+    "installs": 433,
     "license": "AGPL",
     "author": "Csaba Petre <csaba.petre@gmail.com>",
     "maintainer": "Csaba Petre <csaba.petre@gmail.com>",
@@ -26,7 +26,7 @@
   },
   "kind": "community library",
   "letter": "h",
-  "cardUrl": "/cards/libraries/h/hackerpet_plus_dev",
+  "cardUrl": "/reference/device-os/libraries/h/hackerpet_plus_dev",
   "versions": {
     "0.1.112": {
       "added": "2022-10-31T20:06:10.095Z",
@@ -96,6 +96,46 @@
             "main": false
           },
           "boron": {
+            "main": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          },
+          "bsom": {
+            "main": false
+          },
+          "b5som": {
+            "main": false
+          },
+          "tracker": {
+            "main": false
+          },
+          "p2": {
+            "main": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          },
+          "bsom": {
+            "main": false
+          },
+          "b5som": {
+            "main": false
+          },
+          "tracker": {
+            "main": false
+          },
+          "esomx": {
             "main": false
           }
         }

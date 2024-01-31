@@ -18,7 +18,7 @@ To set up your Argon, you'll need an Android or iOS mobile phone and a connectio
 <a href="https://setup.particle.io/?family=mesh&device=argon"  target="_blank" class="button">Set up your Argon</a>
 </div>
 
-### The Argon Kit comes with the following things:
+### The Argon kit comes with the following things:
 
 {{box op="start"}}
 

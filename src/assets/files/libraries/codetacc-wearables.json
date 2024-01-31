@@ -7,7 +7,7 @@
   "attributes": {
     "name": "codetacc-wearables",
     "version": "0.0.4",
-    "installs": 916,
+    "installs": 988,
     "license": "GNU GPLv3, BSD License for derivative works",
     "author": "Joon-Yee Chuah <jchuah@tacc.utexas.edu>",
     "sentence": "This library is designed to be used in the CODE @ TACC Cloud Connected Wearables curriculum, and wraps/provides compatibility for several Adafruit sensor libraries",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/codetacc-wearables",
+  "cardUrl": "/reference/device-os/libraries/c/codetacc-wearables",
   "versions": {
     "0.0.4": {
       "builds": {
@@ -194,6 +194,118 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "boron": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "bsom": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "b5som": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "tracker": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "esomx": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "boron": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "bsom": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "b5som": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "tracker": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "p2": {
+            "1_gpio": false,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "1_gpio": false,
             "2_switches": true,

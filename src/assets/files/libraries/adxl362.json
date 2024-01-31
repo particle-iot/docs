@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adxl362",
     "version": "0.0.0",
-    "installs": 6476,
+    "installs": 7086,
     "license": "CC-BY-SA-3.0",
     "author": "Gregoryfenton",
     "sentence": "adxl362 accelerometer for Spark Internet Button",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/adxl362",
+  "cardUrl": "/reference/device-os/libraries/a/adxl362",
   "versions": {
     "0.0.0": {
       "builds": {

@@ -25,7 +25,7 @@ The browser and USB-based tools are often the best way to restore known good dev
 
 ### Windows
 
-- If you get an USB device not selected error on Windows, you may have a [Windows device driver issue](https://github.com/rickkas7/particle_notes/tree/master/fixing-windows-10-serial-drivers) that is hard, but not impossible, to fix.
+- If you get an USB device not selected error on Windows 10, or devices do not appear, see [Troubleshooting Windows 10 device drivers](/troubleshooting/guides/build-tools-troubleshooting/win10-device-drivers/).
 
 
 ### Linux

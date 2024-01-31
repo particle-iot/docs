@@ -7,14 +7,14 @@
   "attributes": {
     "name": "sht20",
     "version": "1.0.0",
-    "installs": 7948,
+    "installs": 11252,
     "architectures": [],
     "visibility": "public",
     "mine": false
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/sht20",
+  "cardUrl": "/reference/device-os/libraries/s/sht20",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -99,12 +99,52 @@
           "esomx": {
             "DFRobot_SHT20_test": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "DFRobot_SHT20_test": true
+          },
+          "boron": {
+            "DFRobot_SHT20_test": true
+          },
+          "bsom": {
+            "DFRobot_SHT20_test": true
+          },
+          "b5som": {
+            "DFRobot_SHT20_test": true
+          },
+          "tracker": {
+            "DFRobot_SHT20_test": true
+          },
+          "p2": {
+            "DFRobot_SHT20_test": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "DFRobot_SHT20_test": true
+          },
+          "boron": {
+            "DFRobot_SHT20_test": true
+          },
+          "bsom": {
+            "DFRobot_SHT20_test": true
+          },
+          "b5som": {
+            "DFRobot_SHT20_test": true
+          },
+          "tracker": {
+            "DFRobot_SHT20_test": true
+          },
+          "esomx": {
+            "DFRobot_SHT20_test": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.786Z"
     }
   },
-  "readme": "# DFRobot_SHT20 Library for Arduino\nProvides an Arduino library for SHT20 Humidity And Temperature Sensor\n## Table of Contents\n\n* [Summary](#summary)\n* [Methods](#methods)\n* [History](#history)\n* [Credits](#credits)\n<snippet>\n<content>\n\n## Summary\n\nThe library is used to Use the SHT20 Sensor to obtain humidity and temperature.\n\n## Methods\n\n```C++\n\n/*\n * @brief Init SHT20 Sensor\n */\nvoid initSHT20(void);\n\n/*\n * @brief Check SHT20 Sensor\n */\nvoid checkSHT20(void);\n\n/*\n * @brief Read humidity\n *\n * @return The value of humidity\n */\nfloat readHumidity(void);\n\n/*\n * @breif Read Temperature\n *\n * @return The value of temperature\n */\nfloat readTemperature(void);\n\n```\n\n## History\n\n- data 2017-9-12\n- version V1.0\n\n## Credits\n\n- author [Zhangjiawei  <jiawei.zhang@dfrobot.com>]",
+  "readme": "# DFRobot_SHT20 Library for Arduino\nProvides an Arduino library for SHT20 Humidity And Temperature Sensor\n## Table of Contents\n\n* Summary\n* Methods\n* History\n* Credits\n<snippet>\n<content>\n\n## Summary\n\nThe library is used to Use the SHT20 Sensor to obtain humidity and temperature.\n\n## Methods\n\n```C++\n\n/*\n * @brief Init SHT20 Sensor\n */\nvoid initSHT20(void);\n\n/*\n * @brief Check SHT20 Sensor\n */\nvoid checkSHT20(void);\n\n/*\n * @brief Read humidity\n *\n * @return The value of humidity\n */\nfloat readHumidity(void);\n\n/*\n * @breif Read Temperature\n *\n * @return The value of temperature\n */\nfloat readTemperature(void);\n\n```\n\n## History\n\n- data 2017-9-12\n- version V1.0\n\n## Credits\n\n- author [Zhangjiawei  <jiawei.zhang@dfrobot.com>]",
   "allVersions": [
     "1.0.0"
   ]

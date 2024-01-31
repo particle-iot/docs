@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_AW9523_latest",
     "version": "1.0.1",
-    "installs": 516,
+    "installs": 942,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for the AW9523 GPIO expanders in the Adafruit shop",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_AW9523_latest",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_AW9523_latest",
   "versions": {
     "1.0.1": {
       "builds": {
@@ -125,6 +125,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "boron": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "bsom": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "b5som": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "tracker": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "esomx": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "boron": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "bsom": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "b5som": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "tracker": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "p2": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "blink_demo": false,
             "constcurrent_demo": false,

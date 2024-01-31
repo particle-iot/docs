@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_CharacterOLED_Particle",
     "version": "1.0.0",
-    "installs": 3199,
+    "installs": 3428,
     "license": "MIT",
     "author": "kbgg <kevin@kb.gg>",
     "sentence": "Adafruit 'Liquid Crystal' compatible libary for Character OLEDs",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_CharacterOLED_Particle",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_CharacterOLED_Particle",
   "versions": {
     "1.0.0": {
       "builds": {

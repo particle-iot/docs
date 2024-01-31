@@ -7,12 +7,6 @@ description: Migration guide for transitioning from the Argon to P2
 
 # {{title}}
 
-**Pre-release version 2022-04-08**
-
-{{box op="start" cssClass="boxed warningBox"}}
-This is an pre-release migration guide and the contents are subject to change.
-{{box op="end"}}
-
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/p2-argon-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -39,7 +33,7 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 |  | Realtek Semiconductor | ST Microelectronics | ST Microelectronics | Nordic Semiconductor |
 | CPU | Cortex M33 @ 200 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 64 MHz |
 | | Cortex M23 @ 20 MHz | | | |
-| RAM<sup>2</sup> | 512 KB | 128KB | 128 KB | 256 KB |
+| RAM<sup>2</sup> | 4608 KB | 128KB | 128 KB | 256 KB |
 | Flash<sup>3</sup> | 16 MB | 1 MB | 1 MB | 1 MB | 
 | Hardware FPU | &check; | | | &check; |
 | Secure Boot | &check; | | | |
@@ -73,7 +67,7 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 
 <sup>1</sup>A small amount of the flash file system is used by Device OS, most is available for user data storage using the POSIX filesystem API. This is separate from the flash memory used for Device OS, user application, and OTA transfers.
 
-<sup>2</sup> Total RAM; amount available to user applications is smaller.
+<sup>2</sup> Total RAM; amount available to user applications is smaller. On the P2, available RAM is approximately 3072 KB. On the Argon, it is 80 KB. On the Photon, it is 55 KB.
 
 <sup>3</sup> Total built-in flash; amount available to user applications is smaller. The Argon also has a 4 MB external flash, a portion of which is available to user applications as a flash file system.
 
@@ -103,6 +97,8 @@ This is a P2 custom board, not an actual product. Full instructions on how to bu
 The Photon 2 is a pin-based module that contains a P2, and may be appropriate in many cases. If you are planning on scaling, it may be advantageous to migrate from the Argon directly to the P2 as you may require base board changes as there are some differences between the Argon and Photon 2.
 
 ![Photon 2 Rendering](/assets/images/photon2-rendering.png)
+
+The [P2 reference design](https://github.com/particle-iot/p2-reference-design) is a full breakout board with additional Feather sockets that are compatible with the Photon 2.
 
 
 ### Status LED
@@ -182,7 +178,7 @@ the voltage regulator so you can choose any model as long as it meets the voltag
   - The Argon used a Torex XCL223, which is no longer available. The pin compatible XCL224 is also no longer available.
 - If the voltage is close to 3.3V, such as 5V USB, a linear regulator can be used.
 
-### LiPo Battery and LI+ pin
+### LiPo battery and li+ pin
 
 The P2 does not include a LiPo battery connector or charging circuit on the module. If you want these features you will need to include them on your base board.
 
@@ -237,6 +233,9 @@ The following are all SPI-related pins on the Argon and P2:
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+If you are using SPI, Device OS 5.3.1 or later is recommended. Prior to that version, SPI ran at half of the set speed, and SPI1 ran at double the set speed. 
+Timing has also been improved for large DMA transfers; prior to 5.3.1, there could be 1 µs gaps for every 16 bytes of data transferred.
+
 
 #### SPI - Gen 3 devices (including Argon)
 
@@ -277,6 +276,8 @@ Also, the Argon supports a secondary I2C interface on D2 and D3; this is not sup
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+- On the P2 and Photon 2, the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 
 
@@ -479,13 +480,36 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+
+### Battery voltage
+
+The P2 does not include a LiPo battery connector, but if you connect your battery to `VBAT_MEAS`, you can measure the battery voltage as follows:
+
+```cpp
+float voltage = analogRead(A6) / 819.2;
+```
+
+The constant is from the ADC range (0 - 4095) mapped to the voltage from 0 - 5 VDC (the maximum supported on VBAT_MEAS). 
+
+Note that battery voltage during discharge of a LiPo battery is not linear, so for battery powered applications where you need to know the state of charge, an external fuel gauge chip (such as the MAX17043 used on the Boron) is recommended.
+
 ### Retained memory
 
-Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset, is not available on the P2. This also prevents system usage of retained memory, including session resumption on reset.
+The P2 and Photon 2 have limited support for retained memory, also referred to as Backup RAM or SRAM, in Device OS 5.3.1 and later.
 
-On Gen 2 and Gen 3 devices, retained memory is 3068 bytes. 
+Retained memory is preserved with the following limitations:
 
-The flash file system can be used for data storage on the P2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
+- When entering `HIBERNATE` sleep mode.
+- Under programmatic reset, such as `System.reset()` and OTA firmware upgrades.
+- In limited cases when using pin reset (RESET button or externally triggered reset).
+
+By default, the retained memory is saved every 10 seconds, so changes made to retained variables between the last save and an unplanned system reset will
+be lost. Calling [`System.backupRamSync`](/reference/device-os/api/system-calls/backupramsync/) on the P2 and Photon 2 can make sure the data is saved. The data is saved to a dedicated flash page in the RTL827x MCU 
+however you should avoid saving the data extremely frequently as it is slower than RAM and will cause flash wear.
+
+Prior to Device OS 5.3.1, retained memory is not supported. The flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
+
+Retained memory is 3068 bytes. 
 
 ### Flash file system
 
@@ -497,7 +521,7 @@ The [EEPROM emulation API](/reference/device-os/api/eeprom/eeprom/) is the same 
 
 Both the Argon and P2 have 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
 
-### NFC Tag
+### NFC tag
 
 The Photon 2 does not have NFC Tag support. The Argon does.
 
@@ -618,11 +642,11 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 {{!-- BEGIN do not edit content below, it is automatically generated ee790982-5af6-44e2-aabf-89cd1ff1f392 --}}
 
 #### 3V3
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 2 | 26 |
-| Pin Name | 3V3 | 3V3 |
-| Description | Regulated 3.3V DC output, maximum load 1000 mA | 3.3V power to MCU |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 2 | 26 |
+| &nbsp; | Pin Name | 3V3 | 3V3 |
+| ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | 3.3V power to MCU |
 #### 3V3_IO
 | | Added to P2 |
 | :--- | :--- |
@@ -636,248 +660,248 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Name | 3V3_RF|
 | Description | 3.3V power to RF module|
 #### A1
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 6 | 43 |
-| Pin Name | A1 | A1 |
-| Pin Alternate Name | D18 | D12 |
-| Description | A1 Analog in, GPIO, PWM | A1 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 6 | 43 |
+| &nbsp; | Pin Name | A1 | A1 |
+| ∆ | Pin Alternate Name | D18 | D12 |
+| ∆ | Description | A1 Analog in, GPIO, PWM | A1 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### A3
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 8 | 36 |
-| Pin Name | A3 | D0 |
-| Pin Alternate Name | D16 | A3 |
-| Description | A3 Analog in, GPIO, PWM | D0 GPIO, I2C SDA, A3 Analog In |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
-| I2C interface | n/a | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 22K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 8 | 36 |
+| ∆ | Pin Name | A3 | D0 |
+| ∆ | Pin Alternate Name | D16 | A3 |
+| ∆ | Description | A3 Analog in, GPIO, PWM | D0 GPIO, I2C SDA, A3 Analog In |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| ∆ | I2C interface | n/a | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 22K |
 #### A4
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 9 | 35 |
-| Pin Name | A4 | D1 |
-| Pin Alternate Name | D15 | A4 |
-| Description | A4 Analog in, GPIO, PWM | D1 GPIO, PWM, I2C SCL, A4 Analog In |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes |
-| I2C interface | n/a | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 22K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 9 | 35 |
+| ∆ | Pin Name | A4 | D1 |
+| ∆ | Pin Alternate Name | D15 | A4 |
+| ∆ | Description | A4 Analog in, GPIO, PWM | D1 GPIO, PWM, I2C SCL, A4 Analog In |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes |
+| ∆ | I2C interface | n/a | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 22K |
 #### A5
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 10 | 23 |
-| Pin Name | A5 | A5 |
-| Pin Alternate Name | D14 | D14 |
-| Description | A5 Analog in, GPIO, PWM, SPI SS | A5 Analog in, GPIO, PWM. |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes |
-| SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 42K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 10 | 23 |
+| &nbsp; | Pin Name | A5 | A5 |
+| &nbsp; | Pin Alternate Name | D14 | D14 |
+| ∆ | Description | A5 Analog in, GPIO, PWM, SPI SS | A5 Analog in, GPIO, PWM. |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes |
+| ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 42K |
 #### D0
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 16 | 36 |
-| Pin Name | D0 | D0 |
-| Pin Alternate Name | n/a | A3 |
-| Description | I2C SDA, GPIO | D0 GPIO, I2C SDA, A3 Analog In |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | No | Yes |
-| I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 22K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 16 | 36 |
+| &nbsp; | Pin Name | D0 | D0 |
+| ∆ | Pin Alternate Name | n/a | A3 |
+| ∆ | Description | I2C SDA, GPIO | D0 GPIO, I2C SDA, A3 Analog In |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 22K |
 #### D1
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 17 | 35 |
-| Pin Name | D1 | D1 |
-| Pin Alternate Name | n/a | A4 |
-| Description | I2C SCL, GPIO | D1 GPIO, PWM, I2C SCL, A4 Analog In |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 22K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 17 | 35 |
+| &nbsp; | Pin Name | D1 | D1 |
+| ∆ | Pin Alternate Name | n/a | A4 |
+| ∆ | Description | I2C SCL, GPIO | D1 GPIO, PWM, I2C SCL, A4 Analog In |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 22K |
 #### D11
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 13 | 50 |
-| Pin Name | MISO | A0 |
-| Pin Alternate Name | D11 | D11 |
-| Description | SPI MISO, GPIO | A0 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | No | Yes |
-| SPI interface | MISO. Use SPI object. | n/a |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 13 | 50 |
+| ∆ | Pin Name | MISO | A0 |
+| &nbsp; | Pin Alternate Name | D11 | D11 |
+| ∆ | Description | SPI MISO, GPIO | A0 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | SPI interface | MISO. Use SPI object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### D12
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 12 | 43 |
-| Pin Name | MOSI | A1 |
-| Pin Alternate Name | D12 | D12 |
-| Description | SPI MOSI, GPIO | A1 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | No | Yes |
-| SPI interface | MOSI. Use SPI object. | n/a |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 12 | 43 |
+| ∆ | Pin Name | MOSI | A1 |
+| &nbsp; | Pin Alternate Name | D12 | D12 |
+| ∆ | Description | SPI MOSI, GPIO | A1 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | SPI interface | MOSI. Use SPI object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### D13
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 11 | 49 |
-| Pin Name | SCK | A2 |
-| Pin Alternate Name | D13 | D13 |
-| Description | SPI SCK, GPIO | A2 Analog in, PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| SPI interface | SCK. Use SPI object. | n/a |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 42K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 11 | 49 |
+| ∆ | Pin Name | SCK | A2 |
+| &nbsp; | Pin Alternate Name | D13 | D13 |
+| ∆ | Description | SPI SCK, GPIO | A2 Analog in, PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | No | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | Yes |
+| ∆ | SPI interface | SCK. Use SPI object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 42K |
 #### D17
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 7 | 42 |
-| Pin Name | A2 | S2 |
-| Pin Alternate Name | D17 | D17 |
-| Description | A2 Analog in, GPIO, PWM | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | No |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
-| UART serial | n/a | RTS. Use Serial3 object. Flow control optional. |
-| SPI interface | n/a | SCK. Use SPI object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 7 | 42 |
+| ∆ | Pin Name | A2 | S2 |
+| &nbsp; | Pin Alternate Name | D17 | D17 |
+| ∆ | Description | A2 Analog in, GPIO, PWM | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | Yes | No |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| ∆ | UART serial | n/a | RTS. Use Serial3 object. Flow control optional. |
+| ∆ | SPI interface | n/a | SCK. Use SPI object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### D19
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 5 | 47 |
-| Pin Name | A0 | S4 |
-| Pin Alternate Name | D19 | D19 |
-| Description | A0 Analog in, GPIO, PWM | S4 GPIO. (Was P1S4 on P1.) |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | No |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 5 | 47 |
+| ∆ | Pin Name | A0 | S4 |
+| &nbsp; | Pin Alternate Name | D19 | D19 |
+| ∆ | Description | A0 Analog in, GPIO, PWM | S4 GPIO. (Was P1S4 on P1.) |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogRead | Yes | No |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### D2
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 18 | 45 |
-| Pin Name | D2 | D2 |
-| Description | SPI1 SCK, Wire1 SDA, Serial1 RTS, PWM, GPIO | D2 GPIO, Serial2 RTS, SPI1 MOSI |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
-| UART serial | Options RTS hardware flow control for Serial1 | RTS. Use Serial2 object. Flow control optional. |
-| SPI interface | SCK. Use SPI1 object. | MOSI. Use SPI1 object. |
-| I2C interface | SDA. Use Wire1 object. | n/a |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 18 | 45 |
+| &nbsp; | Pin Name | D2 | D2 |
+| ∆ | Description | SPI1 SCK, Wire1 SDA, Serial1 RTS, PWM, GPIO | D2 GPIO, Serial2 RTS, SPI1 MOSI |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| ∆ | UART serial | Options RTS hardware flow control for Serial1 | RTS. Use Serial2 object. Flow control optional. |
+| ∆ | SPI interface | SCK. Use SPI1 object. | MOSI. Use SPI1 object. |
+| ∆ | I2C interface | SDA. Use Wire1 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### D3
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 19 | 51 |
-| Pin Name | D3 | D3 |
-| Description | SPI1 MOSI, Wire1 SCL, Serial1 CTS, PWM, GPIO | D3 GPIO, Serial2 CTS, SPI1 MISO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
-| UART serial | Options CTS hardware flow control for Serial1 | CTS. Use Serial2 object. Flow control optional. |
-| SPI interface | MOSI. Use SPI1 object. | MISO. Use SPI1 object. |
-| I2C interface | SCL. Use Wire1 object. | n/a |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 19 | 51 |
+| &nbsp; | Pin Name | D3 | D3 |
+| ∆ | Description | SPI1 MOSI, Wire1 SCL, Serial1 CTS, PWM, GPIO | D3 GPIO, Serial2 CTS, SPI1 MISO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| ∆ | UART serial | Options CTS hardware flow control for Serial1 | CTS. Use Serial2 object. Flow control optional. |
+| ∆ | SPI interface | MOSI. Use SPI1 object. | MISO. Use SPI1 object. |
+| ∆ | I2C interface | SCL. Use Wire1 object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### D4
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 20 | 52 |
-| Pin Name | D4 | D4 |
-| Description | SPI1 MISO, PWM, GPIO | D4 GPIO, Serial2 TX, SPI1 SCK |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
-| UART serial | n/a | TX. Use Serial2 object. |
-| SPI interface | MISO. Use SPI1 object. | SCK. Use SPI1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 20 | 52 |
+| &nbsp; | Pin Name | D4 | D4 |
+| ∆ | Description | SPI1 MISO, PWM, GPIO | D4 GPIO, Serial2 TX, SPI1 SCK |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| ∆ | UART serial | n/a | TX. Use Serial2 object. |
+| ∆ | SPI interface | MISO. Use SPI1 object. | SCK. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### D5
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 21 | 53 |
-| Pin Name | D5 | D5 |
-| Description | PWM, GPIO | D5 GPIO, Serial2 RX, SPI1 SS |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
-| UART serial | n/a | RX. Use Serial2 object. |
-| SPI interface | n/a | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 21 | 53 |
+| &nbsp; | Pin Name | D5 | D5 |
+| ∆ | Description | PWM, GPIO | D5 GPIO, Serial2 RX, SPI1 SS |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| ∆ | UART serial | n/a | RX. Use Serial2 object. |
+| ∆ | SPI interface | n/a | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### D6
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 22 | 55 |
-| Pin Name | D6 | D6 |
-| Description | PWM, GPIO | D6 GPIO, SWCLK |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 42K |
-| SWD interface | n/a | SWCLK. 40K pull-down at boot. |
-| Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 22 | 55 |
+| &nbsp; | Pin Name | D6 | D6 |
+| ∆ | Description | PWM, GPIO | D6 GPIO, SWCLK |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 42K |
+| ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
+| ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### D7
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 23 | 54 |
-| Pin Name | D7 | D7 |
-| Description | PWM, GPIO | D7 GPIO, SWDIO |
-| Supports digitalRead | Yes | Yes. |
-| Supports digitalWrite | Yes | Yes. On the Photon this is the blue D7 LED. |
-| Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 42K |
-| SWD interface | n/a | SWDIO. 40K pull-up at boot. |
-| Signal used at boot | n/a | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 23 | 54 |
+| &nbsp; | Pin Name | D7 | D7 |
+| ∆ | Description | PWM, GPIO | D7 GPIO, SWDIO |
+| ∆ | Supports digitalRead | Yes | Yes. |
+| ∆ | Supports digitalWrite | Yes | Yes. On the Photon this is the blue D7 LED. |
+| ∆ | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | No |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 42K |
+| ∆ | SWD interface | n/a | SWDIO. 40K pull-up at boot. |
+| ∆ | Signal used at boot | n/a | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
 #### EN
 | | Removed from Argon |
 | :--- | :--- |
@@ -885,11 +909,11 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### GND
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 4 | 1 |
-| Pin Name | GND | GND |
-| Description | Ground. | Ground. Be sure you connect all P1 ground pins. |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 4 | 1 |
+| &nbsp; | Pin Name | GND | GND |
+| ∆ | Description | Ground. | Ground. Be sure you connect all P1 ground pins. |
 #### LI+
 | | Removed from Argon |
 | :--- | :--- |
@@ -897,13 +921,13 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 #### MODE
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 3 | 46 |
-| Pin Name | MODE | MODE |
-| Pin Alternate Name | D20 | n/a |
-| Description | MODE button, has internal pull-up | MODE button. Pin number constant is BTN. External pull-up required! |
-| Supports attachInterrupt | n/a | Yes |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 3 | 46 |
+| &nbsp; | Pin Name | MODE | MODE |
+| ∆ | Pin Alternate Name | D20 | n/a |
+| ∆ | Description | MODE button, has internal pull-up | MODE button. Pin number constant is BTN. External pull-up required! |
+| ∆ | Supports attachInterrupt | n/a | Yes |
 #### NC
 | | Added to P2 |
 | :--- | :--- |
@@ -932,23 +956,23 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Description | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot.|
 | Supports attachInterrupt | Yes|
 #### RST
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 1 | 34 |
-| Pin Name | RST | RST |
-| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset. Pull low to reset; can leave unconnected in normal operation. |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 1 | 34 |
+| &nbsp; | Pin Name | RST | RST |
+| &nbsp; | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset. Pull low to reset; can leave unconnected in normal operation. |
 #### RX
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 14 | 30 |
-| Pin Name | RX | D10 |
-| Pin Alternate Name | D10 | WKP |
-| Description | Serial RX, GPIO | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | RX Use Serial1 object. | CTS. Use Serial3 object. Flow control optional. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 14 | 30 |
+| ∆ | Pin Name | RX | D10 |
+| ∆ | Pin Alternate Name | D10 | WKP |
+| ∆ | Description | Serial RX, GPIO | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | UART serial | RX. Use Serial1 object. | CTS. Use Serial3 object. Flow control optional. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 #### RX
 | | Added to P2 |
 | :--- | :--- |
@@ -960,7 +984,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports digitalWrite | Yes|
 | UART serial | RX. Use Serial1 object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 42K|
+| Internal pull resistance | 42K|
 #### S0
 | | Added to P2 |
 | :--- | :--- |
@@ -975,7 +999,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | UART serial | TX. Use Serial3 object.|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### S1
 | | Added to P2 |
 | :--- | :--- |
@@ -990,7 +1014,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | UART serial | RX. Use Serial3 object.|
 | SPI interface | MISO. Use SPI object.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### S3
 | | Added to P2 |
 | :--- | :--- |
@@ -1002,7 +1026,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports digitalWrite | Yes|
 | SPI interface | Default SS for SPI.|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull resistance | 2.1K|
 #### S5
 | | Added to P2 |
 | :--- | :--- |
@@ -1012,7 +1036,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Description | S5 GPIO. (Was P1S5 on P1.)|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode|
+| Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode|
 #### S6
 | | Added to P2 |
 | :--- | :--- |
@@ -1023,20 +1047,20 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
+| Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### TX
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 15 | 64 |
-| Pin Name | TX | TX |
-| Pin Alternate Name | D09 | D8 |
-| Description | Serial TX, GPIO | Serial1 TX (transmitted data), GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | TX Use Serial1 object. | TX. Use Serial1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 42K |
-| Signal used at boot | n/a | Low at boot triggers ISP flash download |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 15 | 64 |
+| &nbsp; | Pin Name | TX | TX |
+| ∆ | Pin Alternate Name | D09 | D8 |
+| ∆ | Description | Serial TX, GPIO | Serial1 TX (transmitted data), GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 42K |
+| ∆ | Signal used at boot | n/a | Low at boot triggers ISP flash download |
 #### USBDATA-
 | | Added to P2 |
 | :--- | :--- |
@@ -1057,6 +1081,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 12|
 | Pin Name | VBAT_MEAS|
 | Description | Battery voltage measurement (optional).|
+| Input is 5V Tolerant | Yes|
 #### VUSB
 | | Removed from Argon |
 | :--- | :--- |
@@ -1065,19 +1090,19 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
 | Input is 5V Tolerant | Yes|
 #### WKP
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 24 | 30 |
-| Pin Name | D8 | D10 |
-| Pin Alternate Name | WKP | WKP |
-| Description | GPIO, PWM | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
-| UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+|   |   | Argon | P2 |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 24 | 30 |
+| ∆ | Pin Name | D8 | D10 |
+| &nbsp; | Pin Alternate Name | WKP | WKP |
+| ∆ | Description | GPIO, PWM | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| ∆ | UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
+| ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| ∆ | Internal pull resistance | 13K | 2.1K |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -1108,13 +1133,56 @@ If you have a product based on the Argon, you will need to create a separate pro
 
 ### Third-party libraries
 
+{{!-- BEGIN shared-blurb 0ac81e91-31f6-4a87-9d78-f10f016ab102 --}}
+
 Most third-party libraries are believed to be compatible. The exceptions include:
 
 - Libraries for MCU-specific features (such as ADC DMA)
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
+- Libraries that manipulate GPIO at high speeds or are timing-dependent
+
+#### DS18B20 (1-Wire temperature sensor)
+
+- Not compatible
+- OneWire library requires high-speed GPIO support
+- Can use [DS2482](https://github.com/rickkas7/DS2482-RK) I2C to 1-Wire bridge chip instead
+- SHT30 sensors (I2C) may be an alternative in some applications
+
+#### FastLED
+
+- Not compatible. 
+- In theory the library could be modified to use the same technique as the NeoPixel library.
 
 
-## Version History
+#### NeoPixel (WS2812, WS2812B, and WS2813)
+
+- Requires Device OS 5.3.2 or later and [Particle-NeoPixel](https://github.com/technobly/Particle-NeoPixel) version 1.0.3.
+
+#### OneWire
+
+- Not compatible
+- OneWire library requires high-speed GPIO support
+- Can use [DS2482](https://github.com/rickkas7/DS2482-RK) I2C to OneWire bridge instead
+
+#### DHT22 and DHT11 (temperature and humidity sensor)
+
+- Not compatible, requires high-speed GPIO support
+- Using an I2C temperature and humidity sensor like the SHT3x is recommended instead
+
+#### SHT1x (temperature and humidity sensor)
+
+- Not compatible, requires high-speed GPIO support
+- SHT3x using I2C is recommended
+
+#### SparkIntervalTimer 
+
+- Not compatible at this time
+- Requires hardware timer support from user firmware
+
+{{!-- END shared-blurb --}}
+
+
+## Version history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|
@@ -1126,3 +1194,7 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
 |     | 2022-10-05 | RK | Added HIBERNATE sleep section |
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
+| 001 | 2023-03-13 | RK | Removed preliminary banner |
+| 002 | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
+| 003 | 2023-04-24 | RK | Document VBAT_MEAS and CHG |
+| 004 | 2023-05-05 | RK | Fix available RAM |

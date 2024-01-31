@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/apis-master",
+  "cardUrl": "/reference/device-os/libraries/a/apis-master",
   "versions": {
     "0.0.39": {
       "builds": {

@@ -1,0 +1,144 @@
+{
+  "type": "libraries",
+  "id": "spark-strip",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/spark-strip/archive/1.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "spark-strip",
+    "version": "1.1.0",
+    "installs": 155,
+    "license": "GNU LGPLv3",
+    "author": "DonGar, Adafruit, Technobly",
+    "sentence": "Control several RGB LED Strip types (Digital RGB, NeoPixel, DotStart.",
+    "url": "https://github.com/dongar/spark-strip",
+    "repository": "https://github.com/dongar/spark-strip.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/spark-strip",
+  "versions": {
+    "1.1.0": {
+      "added": "2023-03-21T20:00:09.288Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "p2": {
+            "example": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "esomx": {
+            "example": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "p2": {
+            "example": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "esomx": {
+            "example": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# spark-strip\nLibrary to drawing animations to various types of LED strips from a [Spark Core](https://store.spark.io/?product=spark-core)\n\nSupportedHardware:\n * LPD8806 RGB LEDs [Example](http://www.adafruit.com/product/306)\n * NeoPixel [Example](http://www.adafruit.com/products/1463)\n   * NeoPixel Strip - (WS2811/WS2812/WS2812B based)\n * May also support (not tested on hardware)\n   * Radio Shack Tri-Color Strip with TM1803 controller 400kHz bitstream.\n   * TM1829 pixels\n  \n",
+  "allVersions": [
+    "1.1.0",
+    "1.0.1",
+    "1.0.0"
+  ]
+}

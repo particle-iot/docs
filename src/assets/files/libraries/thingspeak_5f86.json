@@ -7,7 +7,7 @@
   "attributes": {
     "name": "thingspeak_5f86",
     "version": "0.0.2",
-    "installs": 1121,
+    "installs": 1338,
     "license": "The MIT License (MIT)",
     "author": "Dan Reid <danielallenreid@gmail.com>",
     "sentence": "Spark library for sending values to thingspeak",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/thingspeak_5f86",
+  "cardUrl": "/reference/device-os/libraries/t/thingspeak_5f86",
   "versions": {
     "0.0.2": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "sendRandomValue": false
+          },
+          "boron": {
+            "sendRandomValue": false
+          },
+          "bsom": {
+            "sendRandomValue": false
+          },
+          "b5som": {
+            "sendRandomValue": false
+          },
+          "tracker": {
+            "sendRandomValue": false
+          },
+          "esomx": {
+            "sendRandomValue": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "sendRandomValue": false
+          },
+          "boron": {
+            "sendRandomValue": false
+          },
+          "bsom": {
+            "sendRandomValue": false
+          },
+          "b5som": {
+            "sendRandomValue": false
+          },
+          "tracker": {
+            "sendRandomValue": false
+          },
+          "p2": {
+            "sendRandomValue": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "sendRandomValue": false
           },

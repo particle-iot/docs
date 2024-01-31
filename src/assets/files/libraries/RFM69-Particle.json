@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RFM69-Particle",
     "version": "0.0.5",
-    "installs": 8291,
+    "installs": 8778,
     "license": "GPL3.0",
     "author": "Jurie Pieterse",
     "sentence": "Adjusted to work with Photon. Some updates in 2019 to work with 3rd gen devices but not fully tested. Derived from LowPowerLab's RFM69 library.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RFM69-Particle",
+  "cardUrl": "/reference/device-os/libraries/r/RFM69-Particle",
   "versions": {
     "0.0.5": {
       "builds": {

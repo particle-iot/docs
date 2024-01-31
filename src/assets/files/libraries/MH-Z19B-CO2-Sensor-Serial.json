@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MH-Z19B-CO2-Sensor-Serial",
     "version": "1.0.2",
-    "installs": 3912,
+    "installs": 4326,
     "license": "MIT",
     "author": "Jidesh Veeramachaneni",
     "sentence": "Read and control the MH-Z19B CO2 Module.",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/MH-Z19B-CO2-Sensor-Serial",
+  "cardUrl": "/reference/device-os/libraries/m/MH-Z19B-CO2-Sensor-Serial",
   "versions": {
     "1.0.2": {
       "builds": {
@@ -108,12 +108,52 @@
           "esomx": {
             "usage": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.838Z"
     }
   },
-  "readme": "# MHZ19BCO2SensorSerial\n\nA header only library that reads and controls the MH-Z19B CO2 module by Winsen. This library is published as a Particle Library for use with the Particle Photon and Particle Electron platforms. For other platforms just copy the header file [MH-Z19B-CO2-Sensor-Serial.h](src/MH-Z19B-CO2-Sensor-Serial.h) to your project.\n\nThe library has been tested using [Google Test](https://github.com/google/googletest).\n\n## Usage\n\nSee the [example](examples/usage/usage.ino) for a complete example.\n\nYou may clone this repository and run the tests by doing the following:\n\n```\nmkdir build\ncd build\ncmake ..\nmake\nmake test\n```\n\n## LICENSE\n\nCopyright 2019 Jidesh Veeramachaneni  \nDistributed under the MIT License\n",
+  "readme": "# MHZ19BCO2SensorSerial\n\nA header only library that reads and controls the MH-Z19B CO2 module by Winsen. This library is published as a Particle Library for use with the Particle Photon and Particle Electron platforms. For other platforms just copy the header file MH-Z19B-CO2-Sensor-Serial.h to your project.\n\nThe library has been tested using [Google Test](https://github.com/google/googletest).\n\n## Usage\n\nSee the example for a complete example.\n\nYou may clone this repository and run the tests by doing the following:\n\n```\nmkdir build\ncd build\ncmake ..\nmake\nmake test\n```\n\n## LICENSE\n\nCopyright 2019 Jidesh Veeramachaneni  \nDistributed under the MIT License\n",
   "allVersions": [
     "1.0.2",
     "1.0.1",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2Cdev",
     "version": "0.0.3",
-    "installs": 2740,
+    "installs": 2972,
     "license": "GNU",
     "author": "Gymneus",
     "url": "https://github.com/kraken-down/i2cdev",
@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/I2Cdev",
+  "cardUrl": "/reference/device-os/libraries/i/I2Cdev",
   "versions": {
     "0.0.3": {
       "builds": {

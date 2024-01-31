@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_ICM-20948_ArduinoLibrary",
     "version": "1.1.1",
-    "installs": 2098,
+    "installs": 2688,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Use the low-power high-resolution ICM 20948 9 DoF IMU from Invensense with I2C or SPI. Includes a portable C skeleton",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_ICM-20948_ArduinoLibrary",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_ICM-20948_ArduinoLibrary",
   "versions": {
     "1.1.1": {
       "builds": {
@@ -126,6 +126,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "boron": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "bsom": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "b5som": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "tracker": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "esomx": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "boron": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "bsom": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "b5som": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "tracker": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "p2": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example1_Basics": true,
             "Example2_Advanced": true,

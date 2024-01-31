@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_TSL2561_Photon",
     "version": "3.1.9",
-    "installs": 908,
+    "installs": 1011,
     "license": "BSD",
     "author": "Aaron Jimenez",
     "sentence": "Unified sensor driver for Adafruit's TSL2561 breakouts",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_TSL2561_Photon",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_TSL2561_Photon",
   "versions": {
     "3.1.9": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Adafruit_TLS2561_U": false
+          },
+          "boron": {
+            "Adafruit_TLS2561_U": false
+          },
+          "bsom": {
+            "Adafruit_TLS2561_U": false
+          },
+          "b5som": {
+            "Adafruit_TLS2561_U": false
+          },
+          "tracker": {
+            "Adafruit_TLS2561_U": false
+          },
+          "esomx": {
+            "Adafruit_TLS2561_U": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Adafruit_TLS2561_U": false
+          },
+          "boron": {
+            "Adafruit_TLS2561_U": false
+          },
+          "bsom": {
+            "Adafruit_TLS2561_U": false
+          },
+          "b5som": {
+            "Adafruit_TLS2561_U": false
+          },
+          "tracker": {
+            "Adafruit_TLS2561_U": false
+          },
+          "p2": {
+            "Adafruit_TLS2561_U": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Adafruit_TLS2561_U": false
           },

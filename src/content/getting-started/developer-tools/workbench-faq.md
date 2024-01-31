@@ -23,7 +23,7 @@ It's possible to work with a non-released branch, fork, or manually merged PRs o
 * Get the latest Device OS source from GitHub. You'll need to have the command line version of git available in order to retrieve the submodules.
 
 ```
-git clone git@github.com:particle-iot/device-os.git
+git clone https://github.com/particle-iot/device-os
 cd ./device-os
 git checkout develop
 git submodule update --init --recursive

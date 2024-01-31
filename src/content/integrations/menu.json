@@ -1,0 +1,104 @@
+{
+  "items": [
+    {
+      "dir": "integrations",
+      "title": "Integrations",
+      "href": "/integrations/integrations/"
+    },
+    {
+      "dir": "webhooks",
+      "title": "Webhooks",
+      "href": "/integrations/webhooks/"
+    },
+    {
+      "dir": "webhook-demo",
+      "title": "Webhook demo",
+      "href": "/integrations/webhook-demo/"
+    },
+    {
+      "dir": "google-cloud-platform",
+      "title": "Google cloud platform",
+      "href": "/integrations/google-cloud-platform/"
+    },
+    {
+      "dir": "google-maps",
+      "title": "Google maps",
+      "href": "/integrations/google-maps/"
+    },
+    {
+      "dir": "community-integrations",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "about-community-integrations",
+        "title": "About community integrations",
+        "href": "/integrations/community-integrations/about-community-integrations/"
+      },
+      {
+        "dir": "azure-iot-hub",
+        "title": "Azure IoT Hub",
+        "href": "/integrations/community-integrations/azure-iot-hub/"
+      },
+      {
+        "dir": "influxdata",
+        "title": "InfluxData",
+        "href": "/integrations/community-integrations/influxdata/"
+      },
+      {
+        "dir": "blynk",
+        "title": "Blynk",
+        "href": "/integrations/community-integrations/blynk/"
+      },
+      {
+        "dir": "pushover",
+        "title": "Pushover (push notifications)",
+        "href": "/integrations/community-integrations/pushover/"
+      },
+      {
+        "dir": "questdb",
+        "title": "QuestDB",
+        "href": "/integrations/community-integrations/questdb/"
+      },
+      {
+        "dir": "tulip",
+        "title": "Tulip",
+        "href": "/integrations/community-integrations/tulip/"
+      },
+      {
+        "dir": "ilert",
+        "title": "ilert",
+        "href": "/integrations/community-integrations/ilert/"
+      },
+      {
+        "dir": "ifttt",
+        "title": "IFTTT",
+        "href": "/integrations/community-integrations/ifttt/"
+      },
+      {
+        "dir": "zapier",
+        "title": "Zapier",
+        "href": "/integrations/community-integrations/zapier/"
+      },
+      {
+        "dir": "publish-to-google-sheets",
+        "title": "Publish to Google sheets",
+        "href": "/integrations/community-integrations/publish-to-google-sheets/"
+      },
+      {
+        "dir": "weather",
+        "title": "Weather API",
+        "href": "/integrations/community-integrations/weather/"
+      },
+      {
+        "dir": "memfault",
+        "title": "Memfault",
+        "href": "/integrations/community-integrations/memfault/"
+      }
+    ],
+    {
+      "title": "Machine Learning",
+      "href": "/getting-started/machine-learning/machine-learning/"
+    }
+  ]
+}

@@ -42,7 +42,7 @@ If you use either non-mini version you'll also need two adapters. The second cab
 
 Since all of the Nordic tools use the J-Link it really is recommended. It's also really fast!
 
-## Learn About OpenThread
+## Learn about OpenThread
 
 Particle Mesh is really OpenThread, with much of the complexity hidden. Unfortunately when you run a native OpenThread stack you'll now have to deal with that. A good place to start are the [OpenThread Guides](https://openthread.io/guides).
 
@@ -122,7 +122,7 @@ Done
 Once you've set up two devices you can start following the instructions at [Build a Thread network with nRF52840 boards and OpenThread](https://codelabs.developers.google.com/codelabs/openthread-hardware/#5).
 
 
-## Setting up a Thread Mesh Border Router 
+## Setting up a Thread mesh border router 
 
 While you can communicate between Xenons at this point, you won't be able to communicate with the Internet until you set up a Border Router. You cannot use your existing Argon or Boron gateways. Border Router is the OpenThread term for what Particle called a Gateway.
 
@@ -134,13 +134,13 @@ There are several options for setting up an [OpenThread Border Router](https://o
 
 - There is also a version for Docker so you don't have to install all of the Linux dependencies.
 
-## Writing Firmware
+## Writing firmware
 
 Unfortunately writing code to the nRF52 SDK is beyond this tutorial, but there are a lot of examples in the nRF5 SDK. It will show how you can use GPIO, network features like UDP, etc.. The projects in the nRF5 SDK include Segger Embedded Studio project files so it's easy to view and run them.
 
 You can find several examples of setting up and flashing a device using the nRF SDK [here](https://medium.com/home-wireless/using-segger-studio-and-nordic-sdk-with-particle-xenon-91e34aeb632a).
 
-## Restoring Particle Firmware
+## Restoring Particle firmware
 
 The easiest way to restore the Particle firmware is to restore the backup you created earlier.
 

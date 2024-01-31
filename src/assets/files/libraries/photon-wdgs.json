@@ -7,7 +7,7 @@
   "attributes": {
     "name": "photon-wdgs",
     "version": "1.0.1",
-    "installs": 13287,
+    "installs": 13934,
     "license": "MIT",
     "author": "phsacar & amp",
     "sentence": "Use forced OTA and firmware > 1.2! Library to employ independent and window watch dogs of STM32F205 for the Particle Photon.",
@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/photon-wdgs",
+  "cardUrl": "/reference/device-os/libraries/p/photon-wdgs",
   "versions": {
     "1.0.1": {
       "builds": {
@@ -85,6 +85,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "photon-wdgs-demo": false
+          },
+          "boron": {
+            "photon-wdgs-demo": false
+          },
+          "bsom": {
+            "photon-wdgs-demo": false
+          },
+          "b5som": {
+            "photon-wdgs-demo": false
+          },
+          "tracker": {
+            "photon-wdgs-demo": false
+          },
+          "esomx": {
+            "photon-wdgs-demo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "photon-wdgs-demo": false
+          },
+          "boron": {
+            "photon-wdgs-demo": false
+          },
+          "bsom": {
+            "photon-wdgs-demo": false
+          },
+          "b5som": {
+            "photon-wdgs-demo": false
+          },
+          "tracker": {
+            "photon-wdgs-demo": false
+          },
+          "p2": {
+            "photon-wdgs-demo": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "photon-wdgs-demo": false
           },

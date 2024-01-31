@@ -1,0 +1,209 @@
+{
+  "type": "libraries",
+  "id": "DeviceNotesHelperRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/DeviceNotesHelperRK/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "DeviceNotesHelperRK",
+    "version": "0.0.2",
+    "installs": 77,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Functions to save and retrieve data in the Device Notes field for a Particle devices",
+    "url": "https://github.com/rickkas7/DeviceNotesHelperRK",
+    "repository": "https://github.com/rickkas7/DeviceNotesHelperRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/reference/device-os/libraries/d/DeviceNotesHelperRK",
+  "versions": {
+    "0.0.2": {
+      "added": "2023-03-21T22:22:35.667Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "boron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "bsom": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "b5som": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "tracker": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "p2": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "boron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "bsom": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "b5som": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "tracker": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "esomx": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "electron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "argon": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "boron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "electron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "argon": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "boron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "boron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "bsom": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "b5som": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "tracker": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "p2": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "boron": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "bsom": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "b5som": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "tracker": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          },
+          "esomx": {
+            "1-simple-DeviceNotesHelperRK": true,
+            "2-counter-DeviceNotesHelperRK": true,
+            "3-print-DeviceNotesHelperRK": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# DeviceNotesHelperRK\n\n*Utilities for using device notes from Particle devices*\n\nWhen you open a device in the [console](https://console.particle.io) there's a section on the right for notes. \n\nEmpty Note (image removed)\n\nYou can edit them using the **Edit** button and typically you use a textual description.\n\nTypical Note (image removed)\n\nHowever, you don't have to. One interesting technique is to store structured data in JSON there. You can set or get the data from the device itself (using webhooks) and also get or set the data using the Particle Cloud API. \n\nJSON Note (image removed)\n\nThis repository contains a library for Particle devices and some sample code for using this from other places.\n\nSome reasons you might want to do this:\n\n- Have per-device settings stored in the cloud but downloaded to the device, allowing a single firmware binary to be used.\n- Provide a way for a device to store a small amount of data in the cloud, without requiring a 3rd-party service or server.\n\nUsing functions and variables is usually easier, and if you have your own server, monitoring published events using webhooks or the Server-Sent-Events stream (SSE) is generally more efficient. However, in some limited use-cases, this technique is kind of handy!\n\n## Get an access token\n\nThe curl and node.js examples assume an environment variable `AUTH_TOKEN` that contains a valid Particle authentication token. You can create one using the API or get on from the [Web IDE](https://build.particle.io) Settings (gear icon).\n\nAuth Token (image removed)\n\nIn this case, the token is ab142050967cff79dc6586c82193978b3a62cab9.\n\nFor Mac and Linux:\n\n```\nexport AUTH_TOKEN=ab142050967cff79dc6586c82193978b3a62cab9\n```\n\nFor Windows:\n\n```\nset AUTH_TOKEN=ab142050967cff79dc6586c82193978b3a62cab9\n```\n\nYou'll also need this access token to paste into your webhook.\n\n## Create the webhooks\n\nThis technique requires two webhooks, one to get data and one to set it. The easiest way is to edit the access_token, then upload it from the Particle CLI.\n\n```\n{\n    \"event\": \"DeviceNotesGet\",\n    \"url\": \"https://api.particle.io/v1/devices/{{PARTICLE_DEVICE_ID}}\",\n    \"query\": {\n    \t\"access_token\": \"ab142050967cff79dc6586c82193978b3a62cab9\"\n    },\n    \"requestType\": \"GET\",\n    \"responseTopic\": \"DeviceNotesResponse\",\n    \"responseTemplate\": \"{{{notes}}}\",\n    \"mydevices\": true,\n    \"noDefaults\":true\n}\n```\n\nFor example, in the webhooks directory:\n\n```\nparticle webhook create DeviceNotesGet.json\n```\n\nIf you edit the webhook again, make sure you use `particle webhook delete` to delete the old one first! The `particle webhook create` command always creates a new one, even if there is already one with the same event trigger, and both will trigger.\n\n\nThere's also a webhook for the `DeviceNotesPut` command. You can omit this if you only read data from the cloud and never set the notes from a device.\n\n```\n{\n    \"event\": \"DeviceNotesPut\",\n    \"url\": \"https://api.particle.io/v1/devices/{{PARTICLE_DEVICE_ID}}\",\n    \"query\": {\n    \t\"access_token\": \"ab142050967cff79dc6586c82193978b3a62cab9\"\n    },\n    \"requestType\": \"PUT\",\n    \"json\": {\n    \t\"notes\":\"{{{PARTICLE_EVENT_VALUE}}}\"\n    },\n    \"mydevices\": true,\n    \"noDefaults\":true\n}\n```\n\nYou can also enter the webhooks manually into the Console web interface, if you prefer.\n\n## Using the library\n\nThe library examples are the best way to see how to use the library. However, the underlying [JsonParserGeneratorRK](https://github.com/rickkas7/JsonParserGeneratorRK) documentation may also be helpful.\n\nThere is also the helpful [JSON code generator](https://rickkas7.github.io/jsonparser). Paste your JSON code into the box and click on a row in the parsed output and it will generate the code you need to access that element.\n\nThe full [DeviceNotesHelperRK library documentation](https://rickkas7.github.io/DeviceNotesHelperRK/index.html) is browsable online.\n\n\n## Library Examples\n\n### 1-simple\n\nThe 1-simple example shows how to read a single JSON value (\"setting\") from the cloud at boot. This can easily be extended to other things.\n\nHere's a description of the the code:\n\n```\n#include \"DeviceNotesHelperRK.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nSerialLogHandler logHandler;\n\nDeviceNotesHelper deviceNotesHelper;\n```\n\nStandard boilerplate stuff. The code works with threading enabled or disabled. The `SerialLogHandler` is optional to display debugging info to the USB serial port.\n\nIt's common to allocate a single `DevicesNoteHelper` object as a global variable.\n\n```\nvoid setup() {\n\t// Override settings here\n\tdeviceNotesHelper\n\t\t.withBufferSize(1024) \t// Allow a JSON object up to 1024 bytes\n\t\t.withGetAtBoot();\t \t// Fetch the devices notes once at boot after connecting to the cloud\n```\n\nYou typically configure the `DeviceNotesHelper` in `setup()`. In this case, we set the maximum JSON object size (1024 bytes) and get the device notes once at boot. You can also get the data periodically using `withGetPeriodic()`.\n\n```\n\tdeviceNotesHelper.withDataUpdatedCallback((link unavailable in preview) {\n\t\t// This function gets called when the data is updated at boot time. We just print the\n\t\t// data here, but you could do something more useful with it.\n\n\t\tint setting = 0;\n\t\tjp.getValueByKey(jp.getOuterObject(), \"setting\", setting);\n\n\t\tLog.info(\"received setting=%d\", setting);\n\t});\n```\n\nThis is a C++11 lambda. You could put the code in a separate function if you prefer. The important part is that the code inside the { } gets run when the device notes are downloaded from the cloud. \n\nIn this example, we get the `setting` key from the device notes (an int variable) and print it to the serial debug console.\n\n```\n\t// You must call this from setup!\n\tdeviceNotesHelper.setup();\n}\n```\n\nMake sure you call `deviceNotesHelper.setup();` from `setup()`!\n\n\n```\nvoid loop() {\n\t// You must call this from loop, preferably every loop but at least every few seconds.\n\tdeviceNotesHelper.loop();\n}\n```\n\nMake sure you call `deviceNotesHelper.loop();` from `loop()`!\n\n### 2-counter\n\nThe 2-counter example shows how to both get an object from the cloud, as well as update it from the device. \n\nThis technique can be used to save a small amount of data from the device in the cloud without needing additional servers or 3rd-party services, even when the device is offline.\n\nFor devices that are online all the time, Particle variables might be a better choice.\n\nAnd at larger scales, having a server that stores the last value from Particle.publish using webhooks or SSE (server sent events) is far more efficient.\n\nThe object is limited to the size of a single publish, so 622 bytes.\n\nStill, it's an interesting technique!\n\n```\n#include \"DeviceNotesHelperRK.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nSerialLogHandler logHandler;\n\nDeviceNotesHelper deviceNotesHelper;\n```\n\nStandard boilerplate stuff. The code works with threading enabled or disabled. The `SerialLogHandler` is optional to display debugging info to the USB serial port.\n\nIt's common to allocate a single `DevicesNoteHelper` object as a global variable.\n\n```\nconst unsigned long UPDATE_COUNTER_PERIOD = 60000; // Once a minute\nunsigned long lastUpdateCounter = 0;\n\nvoid incrementCounter();\n```\n\nSome settings we use in our code and a forward declaration of the `incrementCounter()` function.\n\n```\nvoid setup() {\n\t// Override settings here\n\tdeviceNotesHelper.withBufferSize(640); // Allow a JSON object up to 640 bytes\n\tdeviceNotesHelper.withGetAtBoot();\n```\n\nSetting up the configuration. We have a maximum data size of a single publish because we set the data, so 640 bytes. We also get the data at boot.\n\n```\n\tdeviceNotesHelper.withDataUpdatedCallback((link unavailable in preview) {\n\t\t// This function gets called when the data is received from the cloud\n\t\tlastUpdateCounter = millis();\n\t\tincrementCounter();\n\t});\n```\n\nThe code in the { } gets executed whenever the data is received from the cloud. We track when that happened and increment the counter (see below).\n\n```\n\t// You must call this from setup!\n\tdeviceNotesHelper.setup();\n}\n```\n\nDon't forget to call `deviceNotesHelper.setup()` from `setup()`!\n\n```\nvoid loop() {\n\tif (millis() - lastUpdateCounter >= UPDATE_COUNTER_PERIOD && Particle.connected()) {\n\t\tlastUpdateCounter = millis();\n\n\t\tif (!deviceNotesHelper.hasData()) {\n\t\t\t// We didn't update from the cloud at boot successfully, so try to get data again\n\t\t\tdeviceNotesHelper.getFromCloud();\n\t\t}\n\t\telse {\n\t\t\t// We have saved data, so just increment the value we got last time\n\t\t\t// rather than doing both a get and set\n\t\t\tincrementCounter();\n\t\t}\n\t}\n```\n\nThis code periodically (every `UPDATE_COUNTER_PERIOD` milliseconds) while connected to the cloud, increments the counter and saves the value to the device notes.\n\n```\n\t// You must call this from loop, preferably every loop but at least every few seconds.\n\tdeviceNotesHelper.loop();\n}\n```\n\nDon't forget to call `deviceNotesHelper.loop()` from `loop()`!\n\n```\nvoid incrementCounter() {\n\tJsonParser &jp = deviceNotesHelper.getJsonParser();\n\n\tint counter = 0;\n\tjp.getValueByKey(jp.getOuterObject(), \"counter\", counter);\n\n\tJsonModifier mod(jp);\n\tmod.insertOrUpdateKeyValue(jp.getOuterObject(), \"counter\", ++counter);\n\n\tLog.info(\"counter=%d\", counter);\n\n\tdeviceNotesHelper.putToCloud();\n}\n```\n\nThis code gets the `counter` value that we previously got from the cloud and modifies the JSON to increment the value by 1.\n\nThen it uses the `deviceNotesHelper.putToCloud()` method to put the modified data to the cloud. It does a `Particle.publish()` which is transformed to a Particle API call by a webhook.\n\n### 3-print\n\nThe 3-print example is more or less like 1-simple, but it also shows how to pretty print the entire JSON object. Works with larger objects.\n\n## More about JsonParser\n\nTo decode the JSON data you use the `JsonParser` object. It's passed into your callback.\n\nSay you have this object:\n\n```\n{\n  \"t1\":\"abc\",\n  \"t2\":1234,\n  \"t3\":1234.5,\n  \"t4\":true,\n  \"t5\":false,\n  \"t6\":null,\n  \"t7\":\"\\\"quoted\\\"\"\n}\n```\n\nYou could read the value of t1 by using [getOuterValueByKey](http://rickkas7.github.io/JsonParserGeneratorRK/class_json_parser.html#a38858994342cd2735b716b117bf8afdf) and this code:\n\n```\nString strValue;\njp.getOuterValueByKey(\"t1\", strValue);\n```\n\nThis also works for other data types:\n\n```\nint intValue;\njp.getOuterValueByKey(\"t2\", intValue)\n\nfloat floatValue;\njp.getOuterValueByKey(\"t3\", floatValue);\n\nbool boolValue;\njp.getOuterValueByKey(\"t4\", boolValue);\n```\n\nYou can also read values of nested objects, arrays, etc. but you probably won't need to do that with device notes.\n\n## More about JsonModifier\n\nAssuming your `JsonParser` is in the variable `jp` you then construct a temporary modifier object on the stack like this:\n\n```\nJsonModifier mod(jp);\n```\n\nThe most common thing to do is have a JSON object and you want to update the value, or insert the value if it does not exist:\n\n```\nmod.insertOrUpdateKeyValue(jp.getOuterObject(), \"t2\", (int)999);\n```\n\nIf the input JSON was as above, then it would be changed to:\n\n```\n{\n  \"t1\":\"abc\",\n  \"t3\":1234.5,\n  \"t4\":true,\n  \"t5\":false,\n  \"t6\":null,\n  \"t7\":\"\\\"quoted\\\"\",\n  \"t2\":999\n}\n```\n\nYou can add int, long, float, double, bool, and const char * objects this way.\n\n```\nmod.insertOrUpdateKeyValue(jp.getOuterObject(), \"t1\", \"testing\");\n```\n\nUpdating an object will remove it from its current location and add it at the end of the object.\n\nAnother common function is `appendArrayValue()` which appends to an array.\n\nYou can also use `removeKeyValue()` and `removeArrayIndex()` to remove keys or array entries.\n\n## Updating notes using the Cloud API\n\n\n### Using curl\n\nTo get the device notes you get the device information. You must have the device ID (in this example, 1e0032000447343138333038), as well as the access token as described above.\n\n```\ncurl \"https://api.particle.io/v1/devices/1e0032000447343138333038?access_token=$AUTH_TOKEN\"\n```\n\nThis returns a JSON object with the device information. In it, you might see this field with the notes set as above. It's the JSON, though it's a string, not actually a JSON object.\n\n```\n\"notes\":\"{\\\"counter\\\":1,\\\"setting\\\":5}\"\n```\n\nTo set the value using curl is a bit awkward, but this changes the setting to 6:\n\n```\ncurl -X PUT -H \"Content-Type: application/json\" -d '{\"notes\":\"{\\\"counter\\\":1,\\\"setting\\\":6}\"}' \"https://api.particle.io/v1/devices/1e0032000447343138333038?access_token=$AUTH_TOKEN\"\n```\n\nWhen updating the data by curl you must include the whole data, not just the field you want to update. There is a possibility of update conflicts because of this, so this doesn't really take the place of using a proper database.\n\n## Version History\n\n### 0.0.2 (2021-01-07)\n\n- Upgrade to JsonParserGeneratorRK 0.1.4\n- Use addChunked to support out-of-order multipart webhook responses\n\n\n\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}

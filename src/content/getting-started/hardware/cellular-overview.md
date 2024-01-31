@@ -10,7 +10,7 @@ description: Introduction to Particle cellular devices and cellular standards
 Particle has a wide variety of cellular devices to suit many applications. There's a handy table at the end to help you device what's the best device for your application, but some explanation is in order first as there are a number of decisions to make!
 
 
-## Form Factor
+## Form factor
 
 ### Boron
 
@@ -32,17 +32,17 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | NRND | BRN314KIT|
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND | BRN314TRAY50|
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | NRND | |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND | |
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | &check; | NRND | |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404TRAY50|
-| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404|
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404XTRAY50|
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | Deprecated | |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | Deprecated | |
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404X|
 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | NORAM | R410 |  | Deprecated | |
-| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 |  | Deprecated | BRN404KIT|
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | Deprecated | |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R410 | &check; | Deprecated | |
-| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
+| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 |  | Deprecated | BRN404XKIT|
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | Deprecated | BRN404X|
+| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R410 | &check; | Deprecated | BRN404XKIT|
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | BRN404XTRAY50|
 
 
 {{!-- END do not edit content above, it is automatically generated 0f0d9a27-0176-4f7d-8006-75cf7c3f5072 --}}
@@ -103,19 +103,19 @@ The available models include:
 | B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
 | B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | EG91-E | &check; | GA | |
 | B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-E | &check; | GA | |
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | B404MEA|
-| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
-| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E |  | NRND | B524MEA|
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | B404MTY|
-| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
-| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E |  | Deprecated | B524MTY|
+| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404XMTY|
+| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | B404XMEA|
+| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
+| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E |  | NRND | B524MTY|
+| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | B404XMEA|
+| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E |  | Deprecated | B524MEA|
 
 
 {{!-- END do not edit content above, it is automatically generated 295a969b-7ffa-4f84-8234-7e4cb38d1f10 --}}
 
 
 
-### Tracker SoM
+### Tracker SoM and Tracker One
 
 {{!-- BEGIN shared-blurb 875eaa26-9bab-11ec-b909-0242ac120002 --}}
 ![SoM](/assets/images/at-som/at-som-bg96.png)
@@ -136,39 +136,47 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | GA | |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | GA | |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | &check; | GA | |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | EG91-EX | &check; | GA | |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | In development | |
-| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | &check; | In development | |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
-| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | &check; | In development | |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | In development | |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | &check; | In development | |
-| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | In development | |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | In development | |
-| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | GA | |
+| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | &check; | GA | |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | GA | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | In development | |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | &check; | In development | |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | NRND | ONE524MEA|
 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX |  | NRND | ONE524MTY|
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC |  | NRND | T404MTY|
-| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | &check; | NRND | |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | EG91-EX |  | NRND | T524MKIT|
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | NRND | |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | Deprecated | ONE404MEA|
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC |  | Deprecated | ONE404MTY|
 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | Deprecated | T404MEA|
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | BG96-MC |  | Deprecated | T404MKIT|
-| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | Deprecated | |
-| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | &check; | Deprecated | |
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | Deprecated | T524MEA|
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX |  | Deprecated | T524MTY|
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | Deprecated | |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated d833e557-5289-450c-92cf-a6eedec30bd8 --}}
+
+
+### Monitor One
+
+![Monitor One](/assets/images/monitor-one/monitor-one-closed.jpg)
+
+The Monitor One is based on the Tracker SoM but includes a rugged enclosure with multiple mounting options and room for expansion cards within the enclosure.
+
+- **Ready to go** with rugged IP67-rated enclosure with room inside for an expansion card.
+- **Flexible power supply** to easily add asset tracking to most devices with a 6 - 30 VDC power input and a large 18650 LiPo battery pack.
+- **Internal or external antennas** for cellular and GNSS.
+- **Temperature sensors** on the carrier board, and also a battery pack temperature sensor.
+- **Expansion card connector** to allow for custom application specific hardware.
+- **RGB LED** for system status, and two user RGB LEDs for your own use, visible from outside the enclosure.
+- **User button**, waterproof and accessible from outside the enclosure.
 
 
 ### E Series (SMD)
@@ -179,7 +187,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
 - The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
-- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
+- The E402 and E404 has been replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
 - New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
@@ -205,16 +213,16 @@ The E Series modules are generally 2nd-generation cellular device that is reflow
 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | NRND | E314KIT|
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | NRND | |
 | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | &check; | NRND | |
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | E404KIT|
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | E404TRAY50|
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | |
+| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | E404XTRAY50|
 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND | |
 | E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
-| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Deprecated | E314MOD1|
+| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Deprecated | |
 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | Deprecated | |
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | U201 |  | Deprecated | |
 | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | &check; | Deprecated | |
-| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | E404MOD1|
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
+| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | |
+| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | E404XTRAY50|
 | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 |  | End of life | |
 
 
@@ -237,27 +245,27 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | ELC314TY|
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | B524MTY|
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | NRND | |
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | ELC404TY|
-| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | NRND | |
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404XTRAY50|
 | ASSET2GV2 | Asset Tracker 2G | Global | G350 |  | Deprecated | |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | U260 |  | Deprecated | |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | U270 |  | Deprecated | |
-| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 |  | Deprecated | ELC314TY|
-| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 |  | Deprecated | ELC314TY|
-| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 |  | Deprecated | ELC314TY|
-| E350KIT | Electron 2G Kit (Global) | Global | G350 |  | Deprecated | |
-| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | Deprecated | ELC314TY|
-| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | ELC404EA|
+| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 |  | Deprecated | BRN404XKIT|
+| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 |  | Deprecated | BRN404XTRAY50|
+| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 |  | Deprecated | B524MEA|
+| E350KIT | Electron 2G Kit (Global) | Global | G350 |  | Deprecated | B524MEA|
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | Deprecated | B524MTY|
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404XKIT|
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | U260 |  | Deprecated | |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated 7a6e03da-072c-4955-922a-288e9609292a --}}
 
 
-## By Region
+## By region
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 921d1b74-0130-49e9-9322-3da75e405e4e --}}
@@ -265,89 +273,82 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | Region | SKU | Description | Modem | EtherSIM | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :---: | :---: | :--- | :--- |
 | Americas | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | U260 | &nbsp; | 2 | Deprecated | &nbsp; |
-| Americas | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | U260 | &nbsp; | 2 | Deprecated | ELC314TY |
-| Americas | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | U260 | &nbsp; | 2 | Deprecated | ELC314TY |
+| Americas | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | U260 | &nbsp; | 2 | Deprecated | BRN404XKIT |
+| Americas | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | U260 | &nbsp; | 2 | Deprecated | BRN404XTRAY50 |
 | Americas | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | U260 | &nbsp; | 2 | Deprecated | &nbsp; |
 | EMEAA | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | U270 | &nbsp; | 2 | Deprecated | &nbsp; |
-| EMEAA | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EG91-E | &nbsp; | 3 | NRND | B524MEA |
-| EMEAA | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EG91-E | &nbsp; | 3 | Deprecated | B524MTY |
+| EMEAA | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EG91-E | &nbsp; | 3 | Deprecated | B524MEA |
+| EMEAA | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EG91-E | &nbsp; | 3 | NRND | B524MTY |
 | EMEAA | B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EG91-E | &check; | 3 | GA | &nbsp; |
 | EMEAA | B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EG91-E | &check; | 3 | GA | &nbsp; |
-| EMEAA | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | U270 | &nbsp; | 2 | Deprecated | ELC314TY |
-| EMEAA | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | U270 | &nbsp; | 2 | NRND | ELC314TY |
+| EMEAA | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | U270 | &nbsp; | 2 | Deprecated | B524MEA |
+| EMEAA | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | U270 | &nbsp; | 2 | NRND | B524MTY |
+| EMEAA | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EG91-EX | &check; | 3 | In development | &nbsp; |
 | EMEAA | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EG91-EX | &nbsp; | 3 | NRND | ONE524MEA |
 | EMEAA | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EG91-EX | &nbsp; | 3 | NRND | ONE524MTY |
 | EMEAA | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EG91-EX | &check; | 3 | GA | &nbsp; |
 | EMEAA | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EG91-EX | &check; | 3 | GA | &nbsp; |
-| EMEAA | ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EG91-EX | &check; | 3 | In development | &nbsp; |
-| EMEAA | ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EG91-EX | &check; | 3 | In development | &nbsp; |
-| EMEAA | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | U270 | &nbsp; | 2 | NRND | &nbsp; |
+| EMEAA | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | U270 | &nbsp; | 2 | Deprecated | &nbsp; |
 | EMEAA | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EG91-EX | &nbsp; | 3 | Deprecated | T524MEA |
 | EMEAA | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EG91-EX | &nbsp; | 3 | NRND | T524MKIT |
 | EMEAA | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EG91-EX | &nbsp; | 3 | Deprecated | T524MTY |
-| EMEAA | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EG91-EX | &check; | 3 | Deprecated | &nbsp; |
-| EMEAA | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EG91-EX | &check; | 3 | Deprecated | &nbsp; |
-| EMEAA | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EG91-EX | &check; | 3 | NRND | &nbsp; |
-| EMEAA | T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EG91-EX | &check; | 3 | In development | &nbsp; |
-| EMEAA | T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EG91-EX | &check; | 3 | In development | &nbsp; |
-| EMEAA | T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EG91-EX | &check; | 3 | In development | &nbsp; |
+| EMEAA | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EG91-EX | &check; | 3 | GA | &nbsp; |
+| EMEAA | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EG91-EX | &check; | 3 | GA | &nbsp; |
+| EMEAA | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EG91-EX | &check; | 3 | GA | &nbsp; |
 | Global | ASSET2GV2 | Asset Tracker 2G | G350 | &nbsp; | 2 | Deprecated | &nbsp; |
-| Global | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | U201 | &nbsp; | 3 | NRND | BRN314KIT |
-| Global | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | U201 | &nbsp; | 3 | NRND | BRN314TRAY50 |
-| Global | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | U201 | &check; | 3 | NRND | &nbsp; |
+| Global | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | U201 | &nbsp; | 3 | Deprecated | &nbsp; |
+| Global | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | U201 | &nbsp; | 3 | NRND | &nbsp; |
+| Global | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | U201 | &check; | 3 | Deprecated | &nbsp; |
 | Global | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | U201 | &check; | 3 | NRND | &nbsp; |
 | Global | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | U201 | &nbsp; | 2 | NRND | E314KIT |
-| Global | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | U201 | &nbsp; | 2 | Deprecated | E314MOD1 |
+| Global | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | U201 | &nbsp; | 2 | Deprecated | &nbsp; |
 | Global | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | U201 | &nbsp; | 2 | Deprecated | &nbsp; |
 | Global | E313EA | E Series 2G/3G (Global - E313), [x1] | U201 | &nbsp; | 2 | Deprecated | &nbsp; |
 | Global | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | U201 | &nbsp; | 2 | End of life | &nbsp; |
 | Global | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | U201 | &check; | 2 | NRND | &nbsp; |
 | Global | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | U201 | &check; | 2 | Deprecated | &nbsp; |
 | Global | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | U201 | &check; | 2 | NRND | &nbsp; |
-| Global | E350KIT | Electron 2G Kit (Global) | G350 | &nbsp; | 2 | Deprecated | &nbsp; |
-| Global | E350TRAY50 | Electron 2G (Global), Tray [x50] | G350 | &nbsp; | 2 | Deprecated | ELC314TY |
+| Global | E350KIT | Electron 2G Kit (Global) | G350 | &nbsp; | 2 | Deprecated | B524MEA |
+| Global | E350TRAY50 | Electron 2G (Global), Tray [x50] | G350 | &nbsp; | 2 | Deprecated | B524MTY |
 | Global | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | U201 | &check; | 2 | NRND | &nbsp; |
-| NORAM | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 3 | NRND | B404MEA |
-| NORAM | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 3 | Deprecated | B404MTY |
-| NORAM | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | R410 | &check; | 3 | NRND | &nbsp; |
-| NORAM | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 3 | Deprecated | &nbsp; |
+| NORAM | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 3 | Deprecated | B404XMEA |
+| NORAM | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 3 | NRND | B404XMTY |
+| NORAM | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | R410 | &check; | 3 | NRND | B404XMEA |
+| NORAM | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 3 | NRND | B404XMTY |
 | NORAM | B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | R510 | &check; | 3 | GA | &nbsp; |
 | NORAM | B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R510 | &check; | 3 | GA | &nbsp; |
-| NORAM | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 3 | Deprecated | BRN404 |
+| NORAM | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 3 | Deprecated | BRN404X |
 | NORAM | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | R410 | &nbsp; | 3 | Deprecated | &nbsp; |
-| NORAM | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | R410 | &nbsp; | 3 | Deprecated | BRN404KIT |
-| NORAM | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 3 | NRND | BRN404TRAY50 |
-| NORAM | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | R410 | &check; | 3 | Deprecated | &nbsp; |
-| NORAM | BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | R410 | &check; | 3 | Deprecated | &nbsp; |
-| NORAM | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 3 | Deprecated | &nbsp; |
+| NORAM | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | R410 | &nbsp; | 3 | Deprecated | BRN404XKIT |
+| NORAM | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 3 | NRND | BRN404XTRAY50 |
+| NORAM | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | R410 | &check; | 3 | Deprecated | BRN404X |
+| NORAM | BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | R410 | &check; | 3 | Deprecated | BRN404XKIT |
+| NORAM | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 3 | Deprecated | BRN404XTRAY50 |
 | NORAM | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | R510 | &check; | 3 | GA | &nbsp; |
 | NORAM | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | R510 | &check; | 3 | GA | &nbsp; |
 | NORAM | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | R510 | &check; | 3 | GA | &nbsp; |
-| NORAM | E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | R410 | &nbsp; | 2 | NRND | E404KIT |
-| NORAM | E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 2 | Deprecated | E404MOD1 |
-| NORAM | E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 2 | NRND | E404TRAY50 |
+| NORAM | E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | R410 | &nbsp; | 2 | NRND | &nbsp; |
+| NORAM | E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 2 | Deprecated | &nbsp; |
+| NORAM | E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 2 | NRND | E404XTRAY50 |
 | NORAM | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | R410 | &check; | 2 | NRND | &nbsp; |
 | NORAM | E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | R410 | &check; | 2 | NRND | &nbsp; |
-| NORAM | E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 2 | Deprecated | &nbsp; |
+| NORAM | E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 2 | Deprecated | E404XTRAY50 |
 | NORAM | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R510 | &check; | 3 | GA | &nbsp; |
-| NORAM | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 2 | Deprecated | ELC404EA |
-| NORAM | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 2 | NRND | ELC404TY |
+| NORAM | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 2 | Deprecated | BRN404XKIT |
+| NORAM | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 2 | NRND | BRN404XTRAY50 |
 | NORAM | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | R410 | &check; | 2 | Deprecated | &nbsp; |
+| NORAM | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | BG96-MC | &check; | 3 | GA | &nbsp; |
+| NORAM | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | BG96-MC | &check; | 3 | In development | &nbsp; |
 | NORAM | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | BG96-MC | &nbsp; | 3 | Deprecated | ONE404MEA |
 | NORAM | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | BG96-MC | &nbsp; | 3 | Deprecated | ONE404MTY |
 | NORAM | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | BG96-MC | &check; | 3 | GA | &nbsp; |
 | NORAM | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | BG96-MC | &check; | 3 | GA | &nbsp; |
-| NORAM | ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | BG96-MC | &check; | 3 | In development | &nbsp; |
-| NORAM | ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | BG96-MC | &check; | 3 | In development | &nbsp; |
 | NORAM | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | BG96-MC | &nbsp; | 3 | Deprecated | T404MEA |
 | NORAM | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | BG96-MC | &nbsp; | 3 | Deprecated | T404MKIT |
 | NORAM | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | BG96-MC | &nbsp; | 3 | NRND | T404MTY |
-| NORAM | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | BG96-MC | &check; | 3 | Deprecated | &nbsp; |
-| NORAM | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | BG96-MC | &check; | 3 | Deprecated | &nbsp; |
-| NORAM | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | BG96-MC | &check; | 3 | NRND | &nbsp; |
-| NORAM | T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | BG96-MC | &check; | 3 | In development | &nbsp; |
-| NORAM | T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | BG96-MC | &check; | 3 | In development | &nbsp; |
-| NORAM | T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | BG96-MC | &check; | 3 | In development | &nbsp; |
+| NORAM | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | BG96-MC | &check; | 3 | GA | &nbsp; |
+| NORAM | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | BG96-MC | &check; | 3 | GA | &nbsp; |
+| NORAM | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | BG96-MC | &check; | 3 | GA | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 921d1b74-0130-49e9-9322-3da75e405e4e --}}
@@ -356,7 +357,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 - Global 2G/3G devices should not be used in the United States because of the [2G/3G sunset](/getting-started/hardware/cellular-overview/#united-states).
 
 
-## By Modem
+## By modem
 
 This table lists all SKUs, sorted by the type of cellular modem in the device.
 
@@ -364,62 +365,55 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 
 | Modem | SKU | Description | Region | EtherSIM | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :---: | :---: | :--- | :--- |
+| BG96-MC | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | 3 | GA | &nbsp; |
+| BG96-MC | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | 3 | In development | &nbsp; |
 | BG96-MC | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | &nbsp; | 3 | Deprecated | ONE404MEA |
 | BG96-MC | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | &nbsp; | 3 | Deprecated | ONE404MTY |
 | BG96-MC | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | GA | &nbsp; |
 | BG96-MC | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | 3 | GA | &nbsp; |
-| BG96-MC | ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | In development | &nbsp; |
-| BG96-MC | ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | 3 | In development | &nbsp; |
 | BG96-MC | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | &nbsp; | 3 | Deprecated | T404MEA |
 | BG96-MC | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | 3 | Deprecated | T404MKIT |
 | BG96-MC | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 3 | NRND | T404MTY |
-| BG96-MC | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | Deprecated | &nbsp; |
-| BG96-MC | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | 3 | Deprecated | &nbsp; |
-| BG96-MC | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | NRND | &nbsp; |
-| BG96-MC | T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | In development | &nbsp; |
-| BG96-MC | T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | 3 | In development | &nbsp; |
-| BG96-MC | T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | In development | &nbsp; |
-| EG91-E | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &nbsp; | 3 | NRND | B524MEA |
-| EG91-E | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | 3 | Deprecated | B524MTY |
+| BG96-MC | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | GA | &nbsp; |
+| BG96-MC | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | 3 | GA | &nbsp; |
+| BG96-MC | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | GA | &nbsp; |
+| EG91-E | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &nbsp; | 3 | Deprecated | B524MEA |
+| EG91-E | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | 3 | NRND | B524MTY |
 | EG91-E | B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
 | EG91-E | B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | 3 | GA | &nbsp; |
+| EG91-EX | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | &check; | 3 | In development | &nbsp; |
 | EG91-EX | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | 3 | NRND | ONE524MEA |
 | EG91-EX | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &nbsp; | 3 | NRND | ONE524MTY |
 | EG91-EX | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
 | EG91-EX | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | &check; | 3 | GA | &nbsp; |
-| EG91-EX | ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | 3 | In development | &nbsp; |
-| EG91-EX | ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &check; | 3 | In development | &nbsp; |
 | EG91-EX | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | 3 | Deprecated | T524MEA |
 | EG91-EX | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | &nbsp; | 3 | NRND | T524MKIT |
 | EG91-EX | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | 3 | Deprecated | T524MTY |
-| EG91-EX | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | 3 | Deprecated | &nbsp; |
-| EG91-EX | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &check; | 3 | Deprecated | &nbsp; |
-| EG91-EX | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | 3 | NRND | &nbsp; |
-| EG91-EX | T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | 3 | In development | &nbsp; |
-| EG91-EX | T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &check; | 3 | In development | &nbsp; |
-| EG91-EX | T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | 3 | In development | &nbsp; |
+| EG91-EX | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
+| EG91-EX | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
+| EG91-EX | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | 3 | GA | &nbsp; |
 | G350 | ASSET2GV2 | Asset Tracker 2G | Global | &nbsp; | 2 | Deprecated | &nbsp; |
-| G350 | E350KIT | Electron 2G Kit (Global) | Global | &nbsp; | 2 | Deprecated | &nbsp; |
-| G350 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | &nbsp; | 2 | Deprecated | ELC314TY |
-| R410 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | 3 | NRND | B404MEA |
-| R410 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 3 | Deprecated | B404MTY |
-| R410 | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | NRND | &nbsp; |
-| R410 | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | Deprecated | &nbsp; |
-| R410 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | 3 | Deprecated | BRN404 |
+| G350 | E350KIT | Electron 2G Kit (Global) | Global | &nbsp; | 2 | Deprecated | B524MEA |
+| G350 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | &nbsp; | 2 | Deprecated | B524MTY |
+| R410 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | 3 | Deprecated | B404XMEA |
+| R410 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 3 | NRND | B404XMTY |
+| R410 | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | NRND | B404XMEA |
+| R410 | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | NRND | B404XMTY |
+| R410 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | 3 | Deprecated | BRN404X |
 | R410 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | NORAM | &nbsp; | 3 | Deprecated | &nbsp; |
-| R410 | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | 3 | Deprecated | BRN404KIT |
-| R410 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 3 | NRND | BRN404TRAY50 |
-| R410 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | 3 | Deprecated | &nbsp; |
-| R410 | BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &check; | 3 | Deprecated | &nbsp; |
-| R410 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | Deprecated | &nbsp; |
-| R410 | E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | 2 | NRND | E404KIT |
-| R410 | E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | 2 | Deprecated | E404MOD1 |
-| R410 | E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 2 | NRND | E404TRAY50 |
+| R410 | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | 3 | Deprecated | BRN404XKIT |
+| R410 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 3 | NRND | BRN404XTRAY50 |
+| R410 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | 3 | Deprecated | BRN404X |
+| R410 | BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &check; | 3 | Deprecated | BRN404XKIT |
+| R410 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | Deprecated | BRN404XTRAY50 |
+| R410 | E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | 2 | NRND | &nbsp; |
+| R410 | E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | 2 | Deprecated | &nbsp; |
+| R410 | E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 2 | NRND | E404XTRAY50 |
 | R410 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | 2 | NRND | &nbsp; |
 | R410 | E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 2 | NRND | &nbsp; |
-| R410 | E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 2 | Deprecated | &nbsp; |
-| R410 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | 2 | Deprecated | ELC404EA |
-| R410 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 2 | NRND | ELC404TY |
+| R410 | E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 2 | Deprecated | E404XTRAY50 |
+| R410 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | 2 | Deprecated | BRN404XKIT |
+| R410 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 2 | NRND | BRN404XTRAY50 |
 | R410 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 2 | Deprecated | &nbsp; |
 | R510 | B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | 3 | GA | &nbsp; |
 | R510 | B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | GA | &nbsp; |
@@ -427,12 +421,12 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | R510 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &check; | 3 | GA | &nbsp; |
 | R510 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | 3 | GA | &nbsp; |
 | R510 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | GA | &nbsp; |
-| U201 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &nbsp; | 3 | NRND | BRN314KIT |
-| U201 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &nbsp; | 3 | NRND | BRN314TRAY50 |
-| U201 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | 3 | NRND | &nbsp; |
+| U201 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &nbsp; | 3 | Deprecated | &nbsp; |
+| U201 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &nbsp; | 3 | NRND | &nbsp; |
+| U201 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | 3 | Deprecated | &nbsp; |
 | U201 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &check; | 3 | NRND | &nbsp; |
 | U201 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | &nbsp; | 2 | NRND | E314KIT |
-| U201 | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | &nbsp; | 2 | Deprecated | E314MOD1 |
+| U201 | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | &nbsp; | 2 | Deprecated | &nbsp; |
 | U201 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | &nbsp; | 2 | Deprecated | &nbsp; |
 | U201 | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | &nbsp; | 2 | Deprecated | &nbsp; |
 | U201 | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | &nbsp; | 2 | End of life | &nbsp; |
@@ -441,13 +435,13 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | U201 | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | &check; | 2 | NRND | &nbsp; |
 | U201 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | 2 | NRND | &nbsp; |
 | U260 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | &nbsp; | 2 | Deprecated | &nbsp; |
-| U260 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | &nbsp; | 2 | Deprecated | ELC314TY |
-| U260 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | &nbsp; | 2 | Deprecated | ELC314TY |
+| U260 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | &nbsp; | 2 | Deprecated | BRN404XKIT |
+| U260 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | &nbsp; | 2 | Deprecated | BRN404XTRAY50 |
 | U260 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | &nbsp; | 2 | Deprecated | &nbsp; |
 | U270 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | &nbsp; | 2 | Deprecated | &nbsp; |
-| U270 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | &nbsp; | 2 | Deprecated | ELC314TY |
-| U270 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | 2 | NRND | ELC314TY |
-| U270 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | 2 | NRND | &nbsp; |
+| U270 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | &nbsp; | 2 | Deprecated | B524MEA |
+| U270 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | 2 | NRND | B524MTY |
+| U270 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | 2 | Deprecated | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated a85479cf-355b-45c8-9062-db69f037bfea --}}
@@ -466,17 +460,17 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 
 | SIM | SKU | Description | Region | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
-| EtherSIM | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | 3 | NRND | &nbsp; |
-| EtherSIM | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 3 | Deprecated | &nbsp; |
+| EtherSIM | B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | 3 | NRND | B404XMEA |
+| EtherSIM | B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 3 | NRND | B404XMTY |
 | EtherSIM | B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R510 | 3 | GA | &nbsp; |
 | EtherSIM | B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | 3 | GA | &nbsp; |
 | EtherSIM | B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | EG91-E | 3 | GA | &nbsp; |
 | EtherSIM | B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-E | 3 | GA | &nbsp; |
-| EtherSIM | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | 3 | NRND | &nbsp; |
+| EtherSIM | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | 3 | Deprecated | &nbsp; |
 | EtherSIM | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | 3 | NRND | &nbsp; |
-| EtherSIM | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | Deprecated | &nbsp; |
-| EtherSIM | BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R410 | 3 | Deprecated | &nbsp; |
-| EtherSIM | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 3 | Deprecated | &nbsp; |
+| EtherSIM | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | Deprecated | BRN404X |
+| EtherSIM | BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R410 | 3 | Deprecated | BRN404XKIT |
+| EtherSIM | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 3 | Deprecated | BRN404XTRAY50 |
 | EtherSIM | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | 3 | GA | &nbsp; |
 | EtherSIM | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | R510 | 3 | GA | &nbsp; |
 | EtherSIM | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | 3 | GA | &nbsp; |
@@ -485,50 +479,43 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | 2 | NRND | &nbsp; |
 | EtherSIM | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | 2 | NRND | &nbsp; |
 | EtherSIM | E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | 2 | NRND | &nbsp; |
-| EtherSIM | E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 2 | Deprecated | &nbsp; |
+| EtherSIM | E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 2 | Deprecated | E404XTRAY50 |
 | EtherSIM | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | 3 | GA | &nbsp; |
 | EtherSIM | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | 2 | NRND | &nbsp; |
 | EtherSIM | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | 2 | Deprecated | &nbsp; |
+| EtherSIM | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | 3 | GA | &nbsp; |
+| EtherSIM | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | 3 | In development | &nbsp; |
+| EtherSIM | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | 3 | In development | &nbsp; |
 | EtherSIM | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | 3 | GA | &nbsp; |
 | EtherSIM | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | 3 | GA | &nbsp; |
-| EtherSIM | ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | 3 | In development | &nbsp; |
-| EtherSIM | ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | 3 | In development | &nbsp; |
 | EtherSIM | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
 | EtherSIM | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
-| EtherSIM | ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 3 | In development | &nbsp; |
-| EtherSIM | ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | 3 | In development | &nbsp; |
-| EtherSIM | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | 3 | Deprecated | &nbsp; |
-| EtherSIM | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | 3 | Deprecated | &nbsp; |
-| EtherSIM | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | 3 | NRND | &nbsp; |
-| EtherSIM | T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | 3 | In development | &nbsp; |
-| EtherSIM | T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | 3 | In development | &nbsp; |
-| EtherSIM | T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | 3 | In development | &nbsp; |
-| EtherSIM | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 3 | Deprecated | &nbsp; |
-| EtherSIM | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | 3 | Deprecated | &nbsp; |
-| EtherSIM | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | 3 | NRND | &nbsp; |
-| EtherSIM | T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 3 | In development | &nbsp; |
-| EtherSIM | T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | 3 | In development | &nbsp; |
-| EtherSIM | T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | 3 | In development | &nbsp; |
-| Type KA | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | NRND | B404MEA |
-| Type KA | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 3 | Deprecated | B404MTY |
-| Type KA | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | Deprecated | BRN404 |
+| EtherSIM | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | 3 | GA | &nbsp; |
+| EtherSIM | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | BG96-MC | 3 | GA | &nbsp; |
+| EtherSIM | T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | BG96-MC | 3 | GA | &nbsp; |
+| EtherSIM | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
+| EtherSIM | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
+| EtherSIM | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
+| Type KA | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | Deprecated | B404XMEA |
+| Type KA | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 3 | NRND | B404XMTY |
+| Type KA | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | Deprecated | BRN404X |
 | Type KA | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | NORAM | R410 | 3 | Deprecated | &nbsp; |
-| Type KA | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 | 3 | Deprecated | BRN404KIT |
-| Type KA | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 3 | NRND | BRN404TRAY50 |
-| Type KA | E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | 2 | NRND | E404KIT |
-| Type KA | E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 2 | Deprecated | E404MOD1 |
-| Type KA | E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 2 | NRND | E404TRAY50 |
-| Type KA | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 2 | Deprecated | ELC404EA |
-| Type KA | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 2 | NRND | ELC404TY |
+| Type KA | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 | 3 | Deprecated | BRN404XKIT |
+| Type KA | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 3 | NRND | BRN404XTRAY50 |
+| Type KA | E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | 2 | NRND | &nbsp; |
+| Type KA | E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 2 | Deprecated | &nbsp; |
+| Type KA | E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 2 | NRND | E404XTRAY50 |
+| Type KA | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 2 | Deprecated | BRN404XKIT |
+| Type KA | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 2 | NRND | BRN404XTRAY50 |
 | Type KA | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | 3 | Deprecated | ONE404MEA |
 | Type KA | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | 3 | Deprecated | ONE404MTY |
 | Type KA | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | 3 | Deprecated | T404MEA |
 | Type KA | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | BG96-MC | 3 | Deprecated | T404MKIT |
 | Type KA | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | 3 | NRND | T404MTY |
-| Type KV | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | 3 | NRND | B524MEA |
-| Type KV | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | 3 | Deprecated | B524MTY |
-| Type KV | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | 3 | NRND | BRN314KIT |
-| Type KV | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | 3 | NRND | BRN314TRAY50 |
+| Type KV | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | 3 | Deprecated | B524MEA |
+| Type KV | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | 3 | NRND | B524MTY |
+| Type KV | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | 3 | Deprecated | &nbsp; |
+| Type KV | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | 3 | NRND | &nbsp; |
 | Type KV | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | U201 | 2 | Deprecated | &nbsp; |
 | Type KV | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 | 2 | End of life | &nbsp; |
 | Type KV | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | 3 | NRND | ONE524MEA |
@@ -539,22 +526,22 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | Type T | ASSET2GV2 | Asset Tracker 2G | Global | G350 | 2 | Deprecated | &nbsp; |
 | Type T | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | U260 | 2 | Deprecated | &nbsp; |
 | Type T | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | U270 | 2 | Deprecated | &nbsp; |
-| Type T | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 | 2 | Deprecated | ELC314TY |
-| Type T | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 | 2 | Deprecated | ELC314TY |
-| Type T | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 | 2 | Deprecated | ELC314TY |
-| Type T | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 | 2 | NRND | ELC314TY |
+| Type T | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 | 2 | Deprecated | BRN404XKIT |
+| Type T | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 | 2 | Deprecated | BRN404XTRAY50 |
+| Type T | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 | 2 | Deprecated | B524MEA |
+| Type T | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 | 2 | NRND | B524MTY |
 | Type T | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 | 2 | NRND | E314KIT |
-| Type T | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 | 2 | Deprecated | E314MOD1 |
+| Type T | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 | 2 | Deprecated | &nbsp; |
 | Type T | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 | 2 | Deprecated | &nbsp; |
-| Type T | E350KIT | Electron 2G Kit (Global) | Global | G350 | 2 | Deprecated | &nbsp; |
-| Type T | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 | 2 | Deprecated | ELC314TY |
+| Type T | E350KIT | Electron 2G Kit (Global) | Global | G350 | 2 | Deprecated | B524MEA |
+| Type T | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 | 2 | Deprecated | B524MTY |
 | Type T | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | U260 | 2 | Deprecated | &nbsp; |
-| Type T | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 | 2 | NRND | &nbsp; |
+| Type T | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 | 2 | Deprecated | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 8747e7eb-420e-425e-882c-e10117b77620 --}}
 
-## Cellular Carriers
+## Cellular carriers
 
 The Particle SIM supports many carriers around the world. The [list of mobile carriers](/reference/cellular/cellular-carriers/) is the complete list, however it's important to note that different Particle SIM cards that support a different set of carriers, which may also vary depending on the device.
 
@@ -562,7 +549,7 @@ The Particle SIM supports many carriers around the world. The [list of mobile ca
 - Boron 2G/3G BRN310
 - B Series B524 EtherSIM (LTE Cat 1 Europe, Australia, and New Zealand)
 - B Series B523 (LTE Cat 1 Europe)
-- LTE Cat M1 EtherSIM (Boron LTE, B Series B404X/B404, E Series LTE E404X/E404, and Electron LTE ELC404X/ELC404)
+- LTE Cat M1 EtherSIM (Boron LTE, B Series B404X/B404, E Series LTE E404X/E404, and Electron LTE ELC404)
 - LTE Cat M1 (Boron LTE, B Series B402, E Series LTE, and Electron LTE)
 - Electron ELC314 and E Series E314 EtherSIM
 - Electron 2G (G350), Electron 3G (U260 and U270), and E Series 2G/3G E310
@@ -592,7 +579,7 @@ The Boron has both a MFF2 Particle SIM soldered to the board and an empty nano S
 | Electron 3G | U260 | &check; | &nbsp; |
 | Electron 3G | U270 |  &check; | &nbsp; |
 | Electron Global | ELC314 | &check; | &nbsp; |
-| Electron LTE (Cat M1) | ELC404X ELC404 ELC402 | &nbsp; | &check; |
+| Electron LTE (Cat M1) | ELC404 ELC402 | &nbsp; | &check; |
 | E Series 2G/3G | E314 E310 | &nbsp; | &check; |
 | E Series LTE (Cat M1) | E404X E404 E402 | &nbsp; | &check; |
 
@@ -615,7 +602,7 @@ Non-LTE Particle SIM cards support world-wide roaming. However there may be limi
 | Electron 3G | U260 | Americas, AU, NZ<sup>3</sup> | | &check; | &check; | 850, 1900 |
 | Electron 3G | U270 | Europe, Asia, Africa<sup>4</sup> | | &check; | &check; | 900, 1800, 2100 |
 | Electron Global | ELC314 | World | | &check; | &check; | 850, 900, 1800, 1900, 2100 |
-| Electron LTE (Cat M1) | ELC404X ELC404 ELC402 | US, CA, MX<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
+| Electron LTE (Cat M1) | ELC404 ELC402 | US, CA, MX<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
 | E Series 2G/3G | E314 E310 | World | | &check; | &check;| 850, 900, 1800, 1900, 2100 |
 | E Series LTE (Cat M1) | E404X E404 E402 | US, CA, MX<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
 
@@ -652,29 +639,29 @@ Some Particle devices are compatible with [3rd-party SIM cards](/troubleshooting
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &nbsp; | U201 | 3 | NRND | BRN314KIT |
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &nbsp; | U201 | 3 | NRND | BRN314TRAY50 |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | U201 | 3 | NRND | &nbsp; |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &nbsp; | U201 | 3 | NRND | &nbsp; |
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &check; | U201 | 3 | NRND | &nbsp; |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 3 | NRND | BRN404TRAY50 |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | U270 | 2 | NRND | ELC314TY |
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 3 | NRND | BRN404XTRAY50 |
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | U270 | 2 | NRND | B524MTY |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | U201 | 2 | NRND | &nbsp; |
-| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | NRND | &nbsp; |
 | ASSET2GV2 | Asset Tracker 2G | Global | &nbsp; | G350 | 2 | Deprecated | &nbsp; |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
-| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | BRN404 |
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &nbsp; | U201 | 3 | Deprecated | &nbsp; |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | U201 | 3 | Deprecated | &nbsp; |
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | BRN404X |
 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | &nbsp; |
-| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | BRN404KIT |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R410 | 3 | Deprecated | &nbsp; |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &check; | R410 | 3 | Deprecated | &nbsp; |
-| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 3 | Deprecated | &nbsp; |
-| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | ELC314TY |
-| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | &nbsp; | U260 | 2 | Deprecated | ELC314TY |
-| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | ELC314TY |
-| E350KIT | Electron 2G Kit (Global) | Global | &nbsp; | G350 | 2 | Deprecated | &nbsp; |
-| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | &nbsp; | G350 | 2 | Deprecated | ELC314TY |
+| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | BRN404XKIT |
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R410 | 3 | Deprecated | BRN404X |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &check; | R410 | 3 | Deprecated | BRN404XKIT |
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 3 | Deprecated | BRN404XTRAY50 |
+| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | BRN404XKIT |
+| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | &nbsp; | U260 | 2 | Deprecated | BRN404XTRAY50 |
+| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | B524MEA |
+| E350KIT | Electron 2G Kit (Global) | Global | &nbsp; | G350 | 2 | Deprecated | B524MEA |
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | &nbsp; | G350 | 2 | Deprecated | B524MTY |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -698,8 +685,8 @@ The following long-discontinued SKU is 2G only and can no longer be used in area
 | SKU | Description | Region | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
 | ASSET2GV2 | Asset Tracker 2G | Global | G350 | 2 | Deprecated | &nbsp; |
-| E350KIT | Electron 2G Kit (Global) | Global | G350 | 2 | Deprecated | &nbsp; |
-| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 | 2 | Deprecated | ELC314TY |
+| E350KIT | Electron 2G Kit (Global) | Global | G350 | 2 | Deprecated | B524MEA |
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 | 2 | Deprecated | B524MTY |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -715,7 +702,7 @@ Some countries, primarily in Europe, decommissioned 3G first, keeping 2G and LTE
 | --- | :--- | 
 | Boron LTE (Cat M1) | BRN404 BRN402 |
 | B Series B402 SoM (LTE Cat M1) | B404X B404 B402 |
-| Electron LTE (Cat M1) | ELC404X ELC404 ELC402 |
+| Electron LTE (Cat M1) | ELC404 ELC402 |
 | E Series LTE (Cat M1) | E404X E404 E402 | 
 
 The following SKUs are 2G/3G only and should not be deployed in the United States.
@@ -724,26 +711,26 @@ The following SKUs are 2G/3G only and should not be deployed in the United State
 
 | SKU | Description | Region | EtherSIM | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &nbsp; | U201 | 3 | NRND | BRN314KIT |
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &nbsp; | U201 | 3 | NRND | BRN314TRAY50 |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | U201 | 3 | NRND | &nbsp; |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &nbsp; | U201 | 3 | NRND | &nbsp; |
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &check; | U201 | 3 | NRND | &nbsp; |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | U270 | 2 | NRND | ELC314TY |
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | U270 | 2 | NRND | B524MTY |
 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | &nbsp; | U201 | 2 | NRND | E314KIT |
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | &check; | U201 | 2 | NRND | &nbsp; |
 | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | &check; | U201 | 2 | NRND | &nbsp; |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | U201 | 2 | NRND | &nbsp; |
-| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | NRND | &nbsp; |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
-| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | ELC314TY |
-| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | &nbsp; | U260 | 2 | Deprecated | ELC314TY |
-| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | ELC314TY |
-| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | &nbsp; | U201 | 2 | Deprecated | E314MOD1 |
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &nbsp; | U201 | 3 | Deprecated | &nbsp; |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | U201 | 3 | Deprecated | &nbsp; |
+| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | BRN404XKIT |
+| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | &nbsp; | U260 | 2 | Deprecated | BRN404XTRAY50 |
+| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | B524MEA |
+| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | &nbsp; | U201 | 2 | Deprecated | &nbsp; |
 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | &nbsp; | U201 | 2 | Deprecated | &nbsp; |
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | &nbsp; | U201 | 2 | Deprecated | &nbsp; |
 | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | &check; | U201 | 2 | Deprecated | &nbsp; |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | &nbsp; |
 | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | &nbsp; | U201 | 2 | End of life | &nbsp; |
 
 
@@ -809,41 +796,38 @@ The following SKUs have LTE Cat M1 cellular modems:
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
-| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
-| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 3 | NRND | B404MEA |
-| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | R410 | 3 | NRND | &nbsp; |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 3 | NRND | BRN404TRAY50 |
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | R410 | 2 | NRND | E404KIT |
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 2 | NRND | E404TRAY50 |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
+| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | BG96-MC | 3 | In development | &nbsp; |
+| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 3 | NRND | B404XMTY |
+| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | R410 | 3 | NRND | B404XMEA |
+| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 3 | NRND | B404XMTY |
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 3 | NRND | BRN404XTRAY50 |
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | R410 | 2 | NRND | &nbsp; |
+| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 2 | NRND | E404XTRAY50 |
 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | R410 | 2 | NRND | &nbsp; |
 | E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | R410 | 2 | NRND | &nbsp; |
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 2 | NRND | ELC404TY |
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 2 | NRND | BRN404XTRAY50 |
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | &nbsp; | BG96-MC | 3 | NRND | T404MTY |
-| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | BG96-MC | 3 | NRND | &nbsp; |
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | R410 | 3 | Deprecated | B404MTY |
-| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 3 | Deprecated | &nbsp; |
-| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | BRN404 |
+| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | B404XMEA |
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | BRN404X |
 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | &nbsp; |
-| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | BRN404KIT |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R410 | 3 | Deprecated | &nbsp; |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &check; | R410 | 3 | Deprecated | &nbsp; |
-| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 3 | Deprecated | &nbsp; |
-| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 2 | Deprecated | E404MOD1 |
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 2 | Deprecated | &nbsp; |
-| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 2 | Deprecated | ELC404EA |
+| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | R410 | 3 | Deprecated | BRN404XKIT |
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R410 | 3 | Deprecated | BRN404X |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &check; | R410 | 3 | Deprecated | BRN404XKIT |
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 3 | Deprecated | BRN404XTRAY50 |
+| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 2 | Deprecated | &nbsp; |
+| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 2 | Deprecated | E404XTRAY50 |
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 2 | Deprecated | BRN404XKIT |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R410 | 2 | Deprecated | &nbsp; |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | &nbsp; | BG96-MC | 3 | Deprecated | ONE404MEA |
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | &nbsp; | BG96-MC | 3 | Deprecated | ONE404MTY |
 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | &nbsp; | BG96-MC | 3 | Deprecated | T404MEA |
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | BG96-MC | 3 | Deprecated | T404MKIT |
-| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | BG96-MC | 3 | Deprecated | &nbsp; |
-| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &check; | BG96-MC | 3 | Deprecated | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -879,21 +863,17 @@ The following SKU have LTE Cat 1 cellular modems:
 | B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | EG91-E | 3 | GA | &nbsp; |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | EG91-EX | 3 | In development | &nbsp; |
-| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &check; | EG91-EX | 3 | In development | &nbsp; |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | EG91-EX | 3 | In development | &nbsp; |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &check; | EG91-EX | 3 | In development | &nbsp; |
-| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | EG91-EX | 3 | In development | &nbsp; |
-| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &nbsp; | EG91-E | 3 | NRND | B524MEA |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | &check; | EG91-EX | 3 | In development | &nbsp; |
+| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | EG91-E | 3 | NRND | B524MTY |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | EG91-EX | 3 | NRND | ONE524MEA |
 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &nbsp; | EG91-EX | 3 | NRND | ONE524MTY |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | &nbsp; | EG91-EX | 3 | NRND | T524MKIT |
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &check; | EG91-EX | 3 | NRND | &nbsp; |
-| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | EG91-E | 3 | Deprecated | B524MTY |
+| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &nbsp; | EG91-E | 3 | Deprecated | B524MEA |
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | EG91-EX | 3 | Deprecated | T524MEA |
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | EG91-EX | 3 | Deprecated | T524MTY |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | EG91-EX | 3 | Deprecated | &nbsp; |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &check; | EG91-EX | 3 | Deprecated | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -931,7 +911,7 @@ AT&T's 3G shutdown will occur on **February 22, 2022**. After this occurs, the E
 
 T-Mobile began to reallocate 3G spectrum in March 2020 so there could be reduced coverage, and will eliminate all 3G coverage by July 1, 2022, leaving only 2G.
 
-T-Mobile will deactivate their 2G network at some point in the future, at which point 2G/3G devices will cease to work in the United States. This was originally scheduled for end of 2022. The new date has not been announced yet.
+T-Mobile will deactivate their 2G network in April 2024, at which point 2G/3G devices will cease to work in the United States. This was originally scheduled for end of 2022 and is unlikely to be extended again.
 
 The Boron 2G/3G only connects to T-Mobile in the United States already (it cannot connect to AT&T using the built-in MFF2 Particle SIM).
 
@@ -957,24 +937,32 @@ Some countries, such as Switzerland, have shut down their 2G networks first leav
 
 In Australia, there is no longer 2G service on any carrier and the Electron 2G cannot be used.
 
-While Telstra is planning to shut down 3G in June 2024, Optus plans to continue 3G on 900 MHz (but not 2100 MHz), and Vodafone has not announced a shutdown date. 
+| Date | Description |
+| :--- | :--- |
+| End of 2016 | End of all 2G service in Australia |
+| 2019-04 | Vodafone ending 3G service on 2100 MHz (900 MHz still available) |
+| 2023-12 | Vodafone ending 3G service |
+| 2024-06 | Telstra ending 3G service |
+| 2024-09 | Optus ending 3G service |
 
-If you have an Electron U260 (Americas), it will be unable to connect because it previously only connected to Telstra on 3G B5 (850 MHz). The EtherSIM won't help as it's a band issue, not a SIM issue.
-
-If you have an Electron U270 (EMEAA), it will continue to work on Optus 3G B8 (900 MHz).
-
-If you have a Boron BRN310, it will continue to connect to Vodafone on 3G B8 (900 MHz). 
-
-The BRN314 can connect to Optus, Vodafone, and Telstra and will continue to connect to Optus and Vodafone after the Telstra 3G shutdown.
+**Starting in December 2023 there will be dwinding 3G service in Australia. By September 2024 there will be no 2G or 3G service.**
 
 The recommended models for Australia are the B Series SoM B524, Tracker SoM T524, and Tracker One ONE524, which support LTE Cat 1 with 2G/3G fallback and will continue to work in Australia on all three carriers.
 
+### New Zealand
 
-| After       | Event                            | Electron G350 | Electron U260 | Electron U270 | E Series 2G/3G | Boron 2G/3G |
-| ----------- | -------------------------------- | :-----------: | :-----------: | :-----------: | :------------: | :---------: |
-| End of 2016 | Telstra ended 2G service         | &nbsp;        | &check;       | &check;       | &check;        | &check;     |
-| April 2019  | Telstra ends 2100 MHz 3G service | &nbsp;        | &check;       | &check;       | &check;        | &check;     |
-| Mid 2024    | Telstra ends 850 MHz 3G service  | &nbsp;        | &nbsp;        | &check;       | &check;        | &check;     | 
+| Date | Description |
+| :--- | :--- |
+| 2012-07-31 | Spark ends 2G service |
+| 2018-03-31 | 2degrees ends 2G service |
+| End of 2024 | Vodafone will end 3G service |
+| During 2025 | Vodafone ending 2G service |
+| Late 2025 | 2Degrees will end 3G service |
+| End of 2025 | Spark ending 3G service |
+
+**Starting at the end of 2024 there will be dwinding 3G service in New Zealand. By the end of 2025 there will be no 2G or 3G service.**
+
+The recommended models for New Zealand are the B Series SoM B524, Tracker SoM T524, and Tracker One ONE524, which support LTE Cat 1 with 2G/3G fallback and will continue to work in New Zealand on all three carriers.
 
 
 ### Canada
@@ -1058,7 +1046,7 @@ For comparison, using the [B524 in Brazil](/tutorials/cellular-connectivity/cell
 
 Likewise, even though Japan is part of the EMEAA region, the [B524 in Japan](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=Japan&device=B%20Series%20B524%20LTE%20CAT1%2F3G%2F2G%20(Europe%29%20EtherSIM) is not recommended because so many of the bands used in Japan are not supported by the EG91-E.
 
-In the United States, LTE Cat M1 EtherSIM devices (Boron BRNR404X/BRN404, B Series B404X/B404, Tracker T404 and ONE404, E Series E404X/E404, Electron ELC404X/ELC404) are a special case. The [country details for the United States](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=United%20States&device=Tracker%20T404%2FONE404%20LTE%20M1%20(NorAm%29%20EtherSIM) do not list T-Mobile as supported. The reason is that T-Mobile officially only supports LTE Cat NB1, which is different and not supported by Particle devices. However, many areas of the United States have unofficial T-Mobile LTE Cat M1 service, not advertised by T-Mobile. EtherSIM LTE Cat M1 devices will connect to T-Mobile or AT&T, whichever has a stronger signal. (Pre-2021 LTE Cat M1 devices cannot connect to T-Mobile at all with the built-in Particle SIM on those devices.)
+In the United States, LTE Cat M1 EtherSIM devices (Boron BRNR404X/BRN404, B Series B404X/B404, Tracker T404 and ONE404, E Series E404X/E404, Electron ELC404) are a special case. The [country details for the United States](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=United%20States&device=Tracker%20T404%2FONE404%20LTE%20M1%20(NorAm%29%20EtherSIM) do not list T-Mobile as supported. The reason is that T-Mobile officially only supports LTE Cat NB1, which is different and not supported by Particle devices. However, many areas of the United States have unofficial T-Mobile LTE Cat M1 service, not advertised by T-Mobile. EtherSIM LTE Cat M1 devices will connect to T-Mobile or AT&T, whichever has a stronger signal. (Pre-2021 LTE Cat M1 devices cannot connect to T-Mobile at all with the built-in Particle SIM on those devices.)
 
 
 ### Third-party SIMs
@@ -1089,6 +1077,7 @@ The following countries are at risk for permanent roaming restrictions:
 - Brazil
 - China
 - India
+- Oman
 - Russia
 - Singapore
 - Turkey
@@ -1137,7 +1126,6 @@ The section [2G and 3G sunset](/getting-started/hardware/cellular-overview/#2g-a
 | Electron 3G | E260 | U260 | Americas| &check; | &check; | &nbsp; | Gen2 | Card |Pins | 
 | Electron 3G | E270 | U270 | Europe, Asia, Africa | &check; | &check; | &nbsp; | Gen2 | Card | Pins | 
 | Electron Global | ELC314 | U201 | World | &check; | &check; | &nbsp; | Gen2 | Card | Pins | 
-| Electron LTE (Cat M1) | ELC404X | R510 | US, CA, MX | &nbsp; | &nbsp; | Cat M1  | Gen2 | MFF2<sup>1</sup> | Pins  | 
 | Electron LTE (Cat M1) | ELC404 ELC402 | R410 | US, CA, MX | &nbsp; | &nbsp; | Cat M1  | Gen2 | MFF2<sup>1</sup> | Pins  | 
 | E Series 2G/3G | E310 | U201 | World | &check; | &check; | &nbsp; | Gen2 | MFF2<sup>1</sup> | SMD Module | 
 | E Series LTE (Cat M1) | E404X | R510 | US, CA, MX |  &nbsp; | &nbsp; | Cat M1 | Gen2 | MFF2<sup>1</sup> | SMD Module | 

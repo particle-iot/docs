@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2CSoilMoistureSensor",
     "version": "1.0.3",
-    "installs": 3029,
+    "installs": 3601,
     "license": "MIT",
     "author": "Mike Morales",
     "sentence": "Library to control Miceuz Soil Moisture Sensor (https://github.com/Miceuz/i2c-moisture-sensor)",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/I2CSoilMoistureSensor",
+  "cardUrl": "/reference/device-os/libraries/i/I2CSoilMoistureSensor",
   "versions": {
     "1.0.3": {
       "builds": {
@@ -90,6 +90,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": true
           },

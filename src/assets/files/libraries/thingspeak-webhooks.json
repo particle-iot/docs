@@ -7,7 +7,7 @@
   "attributes": {
     "name": "thingspeak-webhooks",
     "version": "0.0.11",
-    "installs": 1605,
+    "installs": 1943,
     "license": "MIT",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/thingspeak-webhooks",
+  "cardUrl": "/reference/device-os/libraries/t/thingspeak-webhooks",
   "versions": {
     "0.0.11": {
       "builds": {

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TzCfg",
     "version": "0.0.1",
-    "installs": 1498,
+    "installs": 1579,
     "license": "GNU GPLv3",
     "author": "Rodney Palmer",
     "maintainer": "RodneyPalmer (rwpalmeribm@gmail.com)",
@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TzCfg",
+  "cardUrl": "/reference/device-os/libraries/t/TzCfg",
   "versions": {
     "0.0.1": {
       "builds": {

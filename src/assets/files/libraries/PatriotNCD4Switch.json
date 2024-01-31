@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotNCD4Switch",
     "version": "5.1.0",
-    "installs": 316,
+    "installs": 499,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to support NCD 4 Relay board + 4 GPIO Switches",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PatriotNCD4Switch",
+  "cardUrl": "/reference/device-os/libraries/p/PatriotNCD4Switch",
   "versions": {
     "5.1.0": {
       "added": "2022-10-31T20:48:36.573Z",

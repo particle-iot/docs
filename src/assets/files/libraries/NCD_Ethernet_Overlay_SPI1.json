@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD_Ethernet_Overlay_SPI1",
     "version": "1.0.0",
-    "installs": 459,
+    "installs": 579,
     "license": "MIT",
     "author": "Travis Elliott w NCD.io",
     "architectures": [
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NCD_Ethernet_Overlay_SPI1",
+  "cardUrl": "/reference/device-os/libraries/n/NCD_Ethernet_Overlay_SPI1",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "usage": false
           },

@@ -1,0 +1,138 @@
+{
+  "type": "libraries",
+  "id": "TLC",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/TLC/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "TLC",
+    "version": "1.0.0",
+    "installs": 112,
+    "author": "Adafruit",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/reference/device-os/libraries/t/TLC",
+  "versions": {
+    "1.0.0": {
+      "added": "2023-03-21T20:39:43.206Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "tlc59711test": true
+          },
+          "boron": {
+            "tlc59711test": true
+          },
+          "bsom": {
+            "tlc59711test": true
+          },
+          "b5som": {
+            "tlc59711test": true
+          },
+          "tracker": {
+            "tlc59711test": true
+          },
+          "p2": {
+            "tlc59711test": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "tlc59711test": true
+          },
+          "boron": {
+            "tlc59711test": true
+          },
+          "bsom": {
+            "tlc59711test": true
+          },
+          "b5som": {
+            "tlc59711test": true
+          },
+          "tracker": {
+            "tlc59711test": true
+          },
+          "esomx": {
+            "tlc59711test": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "tlc59711test": true
+          },
+          "electron": {
+            "tlc59711test": true
+          },
+          "argon": {
+            "tlc59711test": true
+          },
+          "boron": {
+            "tlc59711test": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "tlc59711test": true
+          },
+          "electron": {
+            "tlc59711test": true
+          },
+          "argon": {
+            "tlc59711test": true
+          },
+          "boron": {
+            "tlc59711test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "tlc59711test": true
+          },
+          "boron": {
+            "tlc59711test": true
+          },
+          "bsom": {
+            "tlc59711test": true
+          },
+          "b5som": {
+            "tlc59711test": true
+          },
+          "tracker": {
+            "tlc59711test": true
+          },
+          "p2": {
+            "tlc59711test": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "tlc59711test": true
+          },
+          "boron": {
+            "tlc59711test": true
+          },
+          "bsom": {
+            "tlc59711test": true
+          },
+          "b5som": {
+            "tlc59711test": true
+          },
+          "tracker": {
+            "tlc59711test": true
+          },
+          "esomx": {
+            "tlc59711test": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Adafruit_TLC59711\n================\n\n  This is a library for our Adafruit 12-channel PWM/LED driver\n\n  Pick one up today in the adafruit shop!\n  ------> http://www.adafruit.com/products/1455\n\n  These drivers uses SPI to communicate, 2 pins are required to  \n  interface: Data and Clock. The boards are chainable.\n\n  Adafruit invests time and resources providing this open source code, \n  please support Adafruit and open-source hardware by purchasing \n  products from Adafruit!\n\n  Written by Limor Fried/Ladyada for Adafruit Industries.  \n  BSD license, all text above must be included in any redistribution\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

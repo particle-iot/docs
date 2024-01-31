@@ -11,7 +11,7 @@ When it comes to IoT devices, there is no shortage of security concerns. This
 part of the guide will be a discussion of security-related topics that arise
 with a product at scale.
 
-## Treating Devices as Products
+## Treating devices as products
 
 When you created a product, you created a new type of device in the Particle
 cloud. So far, development kits that you have been using for prototyping have been considered as a "Photon," "P1", "Electron," or "Core" by the
@@ -85,7 +85,7 @@ functionality.
 <p class="caption">The device's firmware Product ID should match the Product ID
 of the device in the cloud</p>
 
-### Product Privileges
+### Product privileges
 
 A device that has been successfully added to a product will be granted special
 privileges. These privileges include (but are not limited to):
@@ -98,7 +98,7 @@ privileges. These privileges include (but are not limited to):
 These privileges are only guaranteed when there are [no mismatches](#mismatched-product-ids) between the Product ID of the device in the cloud and the Product
 ID reported by the device in firmware.
 
-## Mismatched Product IDs
+## Mismatched product ids
 
 There is the possibility that the Product ID saved in the Particle cloud for a
 given device does not match the self-identified Product ID reported by the
@@ -117,7 +117,7 @@ Ideally mismatches in Product IDs never happen, because you or a member of your
 team has taken the steps to [add the device to your product](/getting-started/console/console/#adding-devices) before the device comes online with your product's firmware
 binary.
 
-## Quarantining Devices
+## Quarantining devices
 
 With Device OS 4.0 and later, quarantine is not supported. You must pre-add all devices to your product, which is more secure than quarantine mode.
  
@@ -143,7 +143,7 @@ list</p>
 Note that each quarantined device has two potential actions you can take:
 *Approve* or *Deny*.
 
-### Approving a Quarantined Device
+### Approving a quarantined device
 
 With Device OS 4.0 and later, quarantine is not supported. You must pre-add all devices to your product.
 
@@ -155,7 +155,7 @@ of your organization.
 It is important to note that if your product has a released firmware version for
 this product, the device may immediately update if necessary.
 
-### Denying a Quarantined Device
+### Denying a quarantined device
 
 With Device OS 4.0 and later, quarantine is not supported. You must pre-add all devices to your product.
 
@@ -169,7 +169,7 @@ fact want to add the device to your product.
 
 If you remove a Device ID from your product and it subsequently tries to reconnect using product firmware, it will reappear in the Denied devices list, not the quarantine list.
 
-## Auto Approving Devices
+## Auto approving devices
 
 With Device OS 4.0 and later, auto-approve is not supported. You must pre-add all devices to your product.
 

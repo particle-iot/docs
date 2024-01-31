@@ -7,9 +7,9 @@ description: Setting up your Particle Asset Tracer
 
 # {{title}}
 
-## Hardware Setup
+## Hardware setup
 
-### Tracker Evaluation Board
+### Tracker evaluation board
 
 
 <div align="center"><img src="/assets/images/at-som/at-eval-labeled.png"></div>
@@ -104,7 +104,7 @@ The standard LED pattern for Tracker One devices is:
 
 You can find more information [here](/tutorials/device-os/led/tracker-som/).
 
-#### Powering Off
+#### Powering off
 
 The Tracker One does not have a power switch. You can turn it off from the cloud by using **Shipping Mode**. 
 
@@ -122,7 +122,15 @@ In the future, it will also be possible to enter shipping mode by USB, but this 
 
 **Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
-#### Other Functions
+#### Resetting configuration
+
+To reset all of the settings stored locally on device, use the same techique as above to call the `cmd` function handler, but instead pass:
+
+```
+{"cmd":"reset_to_factory"}
+```
+
+#### Other functions
 
 Other functions that would normally be performed by button presses can be done using the [Particle CLI](/reference/developer-tools/cli/#particle-usb-safe-mode) when connected by USB. For example:
 
@@ -137,8 +145,6 @@ particle usb stop-listening
 ## Setup
 
 To set up your device, go to [https://setup.particle.io](https://setup.particle.io). This will guide you through the steps needed to activate your SIM and set up your device.
-
-![Setup](/assets/images/tracker/setup.png)
 
 If you prefer to manually set up your device, click on the triangle to open the manual setup instructions:
 
@@ -161,7 +167,7 @@ You will probably also want to opt into the storage of geolocation data. In the 
 ![Enable Storage](/assets/images/tracker/privacy-storage.png)
 
 
-## Cloud Setup
+## Cloud setup
 
 These setup steps are intended for setting up a few developer trackers. Fleet setup steps are slightly different and can more easily be automated. For example, when you make a tray order of devices from the wholesale store, you get an email with the serial numbers of the devices.
 
@@ -208,7 +214,7 @@ particle device rename <device-id> "Tracker-1"
 
 {{collapse op="end"}}
 
-## Device Firmware
+## Device firmware
 
 One difference between the Tracker One and other Particle devices is that the Tracker One firmware can be used in three different ways:
 
@@ -221,7 +227,7 @@ The Tracker firmware is included on the device from the factory instead of Tinke
 Previously, product firmware needed to have the product ID embedded in the binary. As long as you add the Device ID of your Tracker SoM to the product first, this is no longer necessary. The factory binary can be used with your product without having to recompile. Using setup.particle.io to set up your device will take care of this for you automatically.
 
 
-## Map View
+## Map view
 
 One good place to get started is [the map view in the console](/getting-started/console/console/#map).
 

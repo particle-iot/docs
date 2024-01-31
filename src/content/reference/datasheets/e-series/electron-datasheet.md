@@ -6,7 +6,7 @@ description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 ---
 
 
-# Electron Datasheet <sup>(v010)</sup>
+# Electron Datasheet
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/electron-datasheet.pdf"}}
@@ -40,11 +40,11 @@ It also comes with Particle's development tools and cloud platform for managing 
  * 30 mixed-signal GPIO and advanced peripherals
  * Open source design
  * Real-time operation system (RTOS)
- * FCC, CE and IC certified
+ * FCC (United States), CE (European Union), and ISED (Canada) certified
 
 <sup>[1]</sup>The LTE model uses a MFF2 SMD Particle SIM instead of a physical SIM card. The Electron LTE is only available to existing enterprise customers who have deployed an Electron 2G/3G solution and would like to upgrade to LTE. It is only available in tray quantities. New designs should use the Boron LTE or B Series B404 SoM. It can only be used in the United States, Canada, and Mexico at this time.
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 2.x LTS release line with the all Electrons.
 
@@ -155,9 +155,9 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 **Notes:**
 [1] Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.)
 
-## Memory Map
+## Memory map
 
-### STM32F205RGT6 Flash Layout Overview
+### STM32F205RGT6 Flash layout overview
 
 - Bootloader (16 KB)
 - DCD1 (16 KB), stores keys, mfg info, system flags, etc..
@@ -215,7 +215,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 ```
 
-### Memory Map (Common)
+### Memory map (common)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -225,7 +225,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 | EEPROM1 | 0x800C000 | 0x8010000 | 16 KB |
 | EEPROM2 | 0x8010000 | 0x8020000 | 64 KB |
 
-### Memory Map (Modular Firmware - default)
+### Memory map (modular firmware - default)
 _Before 0.6.0 firmware_
 
 | Region | Start Address | End Address | Size |
@@ -251,7 +251,7 @@ _Since 0.6.0 firmware_
 
 ---
 
-### Memory Map (Monolithic Firmware - optional)
+### Memory map (monolithic firmware - optional)
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -323,7 +323,7 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 You can download a high resolution pinout diagram in a <a href="/assets/images/electron/illustrations/electron_pinout.pdf" target="_blank"><strong>PDF version here.</strong></a></div><br>
 
-## Technical Specifications
+## Technical specifications
 
 ### Absolute maximum ratings <sup>[1]</sup> <i class="icon-attention"></i>
 
@@ -398,7 +398,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ### Radio specifications
 
-The Electron is available in different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B or R410M-03).
+The Electron is available in different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B-00 or R410M-02B-03).
 
 Some countries have already stopped supporting 2G, including Australia, Japan, Korea, Singapore, and Taiwan. The cellular carrier used by the Electron no longer supports 2G in New Zealand and Switzerland. The G350 cannot be used in these countries.
 
@@ -439,7 +439,7 @@ Please be sure to order a board that works in the country where you want to depl
 | Band 2 (1900 MHz) | &check; | &check; | &nbsp; |
 |Power Class | Class 3 (24 dBm) |Class 3 (24 dBm) | Class 3 (24 dBm) |
 
-#### u-blox SARA-R410M-02B or R410M-03
+#### u-blox SARA-R410M-02B-00 or R410M-02B-03
 
 | Parameter | Value |
 | --- | --- |
@@ -458,7 +458,7 @@ Please be sure to order a board that works in the country where you want to depl
 
 ---
 
-### I/O Characteristics
+### I/O characteristics
 
 These specifications are based on the STM32F205RGT6 datasheet, with reference to Electron pin nomenclature.
 
@@ -492,9 +492,9 @@ These specifications are based on the STM32F205RGT6 datasheet, with reference to
 
 <sub>[5]</sub> Pull-up and pull-down resistors are designed with a true resistance in series with switchable PMOS/NMOS. This PMOS/NMOS contribution to the series resistance is minimum (~10% order).
 
-## Mechanical Specifications
+## Mechanical specifications
 
-### Dimensions and Weight
+### Dimensions and weight
  * Width = 0.8"
  * Height = 0.65"
  * Length = 2.05"
@@ -532,7 +532,7 @@ All of the Electron hardware design files are open source and available under a 
 
 The USB data lines are terminated with 22 Ohm resistors. These data pins are also exposed via small through holes next to the USB connector and are labeled D+ and D-. The VBUS (+5VDC VCC of the USB port) is fed to the PMIC via a 3Amp Schottky diode ([SS3P3](http://www.vishay.com/docs/88944/ss3p3.pdf)). The VBUS pin is also available via the unpopulated header hole on the top-right side of the Electron.
 
-### PMIC (Power Management Integrated Circuit)
+### PMIC (Power Management integrated circuit)
 
 ![PMIC](/assets/images/electron/schematics/pmic.png)
 
@@ -564,7 +564,7 @@ The u-blox cellular module talks to the microcontroller over a full-duplex USART
 
 Since u-blox module's communication interface operates at 1.8VDC, while the STM32F205RGT6 microcontroller operates at 3.3VDC, we need voltage translators in-between them. This is achieved with two [SN74AVC4T245](http://www.ti.com/lit/ds/symlink/sn74avc4t245.pdf) non-inverting buffers. The default state of the USART pins is set with the help of pull-up and pull-down resistors, and the unused input pins are tied to GND.
 
-### 3.3V Regulator and Fuel Gauge
+### 3.3V Regulator and fuel gauge
 
 ![Regulator and Fuel Gauge](/assets/images/electron/schematics/3v3reg-fuelgauge.png)
 
@@ -578,7 +578,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 
 ![All Layers](/assets/images/electron/pcb/all-layers.png)
 
-## Bill of Materials
+## Bill of materials
 
 |QTY |Device |Value |Package |Designator | Manufacturer | MFG. Part # |
 |-----|------------|-----------|------|------|-------|---------|-------------------------|----------|---------------------|----------------|
@@ -650,7 +650,6 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Argentina | ELC314 | 2G, 3G | Claro, Movistar, Personal |
 | Armenia | ELC314 | 2G, 3G | Beeline, Ucom |
 | Aruba | ELC314 | 2G, 3G | Setar |
-| Australia | ELC314 | 3G | Optus, Telstra, Vodafone |
 | Austria | ELC314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | ELC314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
 | Bahamas | ELC314 | 2G, 3G | Aliv, BTC Bahamas |
@@ -725,7 +724,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Malawi | ELC314 | 2G, 3G | Airtel |
 | Malaysia | ELC314 | 2G, 3G | Celcom, DiGi, Maxis |
 | Malta | ELC314 | 2G, 3G | Go Mobile, Vodafone |
-| Mexico | ELC404 | M1 | AT&T |
+| Mexico | ELC404 | M1 | AT&T, Telcel |
 | Moldova | ELC314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | ELC314 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | ELC314 | 2G, 3G | Mtel, T-Mobile, Telenor |
@@ -733,11 +732,9 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Myanmar | ELC314 | 2G, 3G | MPT, Telenor |
 | Namibia | ELC314 | 2G, 3G | Telecom Namibia |
 | Netherlands | ELC314 | 2G, 3G | KPN, T-Mobile, Vodafone |
-| New Zealand | ELC314 | 2G, 3G | 2degrees, Spark, Vodafone |
 | Nicaragua | ELC314 | 2G, 3G | Movistar |
 | Nigeria | ELC314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | ELC314 | 2G, 3G | TDC, Telenor, Telia |
-| Oman | ELC314 | 2G, 3G | Ooredoo |
 | Pakistan | ELC314 | 2G, 3G | Mobilink, Telenor, Ufone, Warid |
 | Palestine | ELC314 | 2G, 3G | Jawwal |
 | Panama | ELC314 | 2G, 3G | Digicel, Movistar |
@@ -749,7 +746,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Portugal | ELC314 | 2G, 3G | NOS, TMN, Vodafone |
 | Puerto Rico | ELC314 | 2G, 3G | Claro |
 | Qatar | ELC314 | 2G, 3G | Ooredoo, Vodafone |
-| Romania | ELC314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Romania | ELC314 | 2G, 3G | Orange, Telekom Romania, Vodafone |
 | Rwanda | ELC314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | ELC314 | 2G, 3G | Flow |
 | Saint Lucia | ELC314 | 2G, 3G | Flow |
@@ -776,7 +773,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Uganda | ELC314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | ELC314 | 2G, 3G | Kyivstar, Life, MTS |
 | United Kingdom | ELC314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
-| United States | ELC404 | M1 | AT&T |
+| United States | ELC404 | M1 | AT&T, T-Mobile (USA) |
 | Uruguay | ELC314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | ELC314 | 2G, 3G | Beeline |
 | Venezuela | ELC314 | 2G, 3G | Movistar |
@@ -796,29 +793,29 @@ Electrons are available from [store.particle.io](https://store.particle.io/) in 
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | ELC314TY|
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | NRND | B524MTY|
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | NRND | |
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | ELC404TY|
-| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | NRND | |
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404XTRAY50|
 | ASSET2GV2 | Asset Tracker 2G | Global | G350 |  | Deprecated | |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | U260 |  | Deprecated | |
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | U270 |  | Deprecated | |
-| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 |  | Deprecated | ELC314TY|
-| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 |  | Deprecated | ELC314TY|
-| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 |  | Deprecated | ELC314TY|
-| E350KIT | Electron 2G Kit (Global) | Global | G350 |  | Deprecated | |
-| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | Deprecated | ELC314TY|
-| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | ELC404EA|
+| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 |  | Deprecated | BRN404XKIT|
+| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 |  | Deprecated | BRN404XTRAY50|
+| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 |  | Deprecated | B524MEA|
+| E350KIT | Electron 2G Kit (Global) | Global | G350 |  | Deprecated | B524MEA|
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | Deprecated | B524MTY|
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | BRN404XKIT|
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | U260 |  | Deprecated | |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated ab31991a-76c5-11eb-9439-0242ac130002 --}}
 
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 <i class="icon-attention"></i> The Electron contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a Electron without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates Electrons.  ESD precautions should be implemented on the application board where the Electron is mounted. Failure to observe these precautions can result in severe damage to the Electron! <i class="icon-attention"></i>
 
@@ -868,7 +865,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 |OTA | Over The Air; describing how firmware is transferred to the device. |
 |uC  | Microcontroller |
 
-## FCC IC CE Warnings and End Product Labeling Requirements
+## FCC ISED CE warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -925,7 +922,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC:
+> Contains transmitter module ISED:
 
  * 8595A-SARAG350 (For 2G Electron using the G350 module)
  * 8595A-SARAU260 (For 3G Electron using the U260 module)
@@ -956,7 +953,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v011 | 31-Jan-2023 | RK | Added Device OS versions |
 
 
-## Known Errata
+## Known errata
 
 We are tracking [known errata with this datasheet here](https://github.com/particle-iot/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.
 
@@ -969,7 +966,3 @@ We are tracking [known errata with this datasheet here](https://github.com/parti
 **Community Forums**
 
 [https://community.particle.io](https://community.particle.io)
-
-**Email**
-
-[https://support.particle.io](https://support.particle.io)

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Fob_Alarm",
     "version": "1.0.0",
-    "installs": 663,
+    "installs": 738,
     "license": "GNU",
     "author": "Travis Elliott <travis@controleverything.com>",
     "sentence": "Library serves as example for ControlEverything KeyFob interface module for Photon and I2CBZ buzzer mini module.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/Fob_Alarm",
+  "cardUrl": "/reference/device-os/libraries/f/Fob_Alarm",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -104,12 +104,52 @@
           "esomx": {
             "key-fob-buzzer-article": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "key-fob-buzzer-article": true
+          },
+          "boron": {
+            "key-fob-buzzer-article": true
+          },
+          "bsom": {
+            "key-fob-buzzer-article": true
+          },
+          "b5som": {
+            "key-fob-buzzer-article": true
+          },
+          "tracker": {
+            "key-fob-buzzer-article": true
+          },
+          "p2": {
+            "key-fob-buzzer-article": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "key-fob-buzzer-article": true
+          },
+          "boron": {
+            "key-fob-buzzer-article": true
+          },
+          "bsom": {
+            "key-fob-buzzer-article": true
+          },
+          "b5som": {
+            "key-fob-buzzer-article": true
+          },
+          "tracker": {
+            "key-fob-buzzer-article": true
+          },
+          "esomx": {
+            "key-fob-buzzer-article": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.010Z"
     }
   },
-  "readme": "# About\n\nThis Library serves as supporting firmware for our Article Fob Alarm in which we monitor a Key Fob interface module connected to the Particle Photon.  We use the Key Fob interface module to monitor the button on a single button remote.  When this button is pressed we submit an event to the Particle Cloud, upon success of this event submission to Particle's cloud we pulse the buzzer once letting the KeyFob user know that the alarm has been submitted successfully.  IFTTT monitors this event and sends a notification to the Alarm monitor's phone letting them know a user has pushed the button at the remote site.  The alarm monitor can then press an IFTTT do button to acknoledge this alarm by pulsing the buzzer twice on the fob interface end, this lets the KeyFob user know that the remote user has been informed of the alarm.\n###Developer information\nNCD has been designing and manufacturing computer control products since 1995.  We have specialized in hardware design and manufacturing of Relay controllers for 20 years.  We pride ourselves as being the industry leader of computer control relay products.  Our products are proven reliable and we are very excited to support Particle.  For more information on NCD please visit www.controlanything.com\n\n###Requirements\n- [Key Fob Receiver Overlay Shield for Particle Photon and Particle Electron] [fobInterface]\n- [1 Button Key Fob Remote][1ButtonFobRemote]\n- [PCA9536 I²C Digital 3-Channel Input Output with Buzzer I²C Mini Module] [buzzerMiniModule]\n- [I²C Shield for Particle Photon] [i2CShieldPhoton]\n- [Particle Photon module][photonModule](Application is also compatible with Spark Core modules)\n- Knowledge base for developing and programming with Particle Core/Photon modules.\n\n### Version\n1.0.0\n\n### How to use this library\n\nThis is a fully implemented Library and is intended to be used as is.  Users may modify and use the library in any way they see fit.  The intended use is to search Community Libraries under Particle's WEB IDE for Fob_Alarm.  Once found make sure the key-fob-buzzer-article.ino tab is selected, then click Use This Example button on the left.  Then flash the firmware into your Particle Module.  For more information see [Particle's documentation] [sparkIncludeLibrary].\n\n### What it does\n\nThis application monitors Key Fob remote button presses through the Key Fob interface module connected to the Particle Photon module.  If it detects that button 5 was pressed(this physically is the only button on the single button key fob remote) it publishes an Event named eventAlarm to the Particle Cloude with the data Alarm.  Once this event is successfully published to the Particle cloud it will pulse the buzzer letting the user who pressed the Key Fob button know that the alarm was sent successfully.  The intention of this application is that another user who monitors this alarm will use IFTTT to trigger a notification on their smart phone to let them know there is an alarm.  They would then use the IFTTT Do button app to call a function on the controller which serves to acknoledge reception of the alarm message by pulsing the on board buzzer twice letting the user who pressed the Key Fob button know that the remote user monitoring the alarm has acknowledged the alarm.\n\nLicense\n----\n\nGNU\n[sparkIncludeLibrary]:https://docs.particle.io/guide/getting-started/build/photon/\n[fobInterface]:https://www.controleverything.com/content/Key-Fob?sku=PKFR\n[1ButtonFobRemote]:https://www.controleverything.com/content/Key-Fobs?sku=OTX-418-HH-KF1-MS\n[buzzerMiniModule]:https://www.controleverything.com/content/Digital-IO?sku=PCA9536_I2CBZ\n[i2CShieldPhoton]:https://www.controleverything.com/content/I2C-Master?sku=SPARKI2C\n[photonModule]:https://www.controleverything.com/content/Particle-Dev-Kit?sku=particle_photon\n",
+  "readme": "# About\n\nThis Library serves as supporting firmware for our Article Fob Alarm in which we monitor a Key Fob interface module connected to the Particle Photon.  We use the Key Fob interface module to monitor the button on a single button remote.  When this button is pressed we submit an event to the Particle Cloud, upon success of this event submission to Particle's cloud we pulse the buzzer once letting the KeyFob user know that the alarm has been submitted successfully.  IFTTT monitors this event and sends a notification to the Alarm monitor's phone letting them know a user has pushed the button at the remote site.  The alarm monitor can then press an IFTTT do button to acknoledge this alarm by pulsing the buzzer twice on the fob interface end, this lets the KeyFob user know that the remote user has been informed of the alarm.\n###Developer information\nNCD has been designing and manufacturing computer control products since 1995.  We have specialized in hardware design and manufacturing of Relay controllers for 20 years.  We pride ourselves as being the industry leader of computer control relay products.  Our products are proven reliable and we are very excited to support Particle.  For more information on NCD please visit www.controlanything.com\n\n###Requirements\n- [Key Fob Receiver Overlay Shield for Particle Photon and Particle Electron] [fobInterface]\n- [1 Button Key Fob Remote][1ButtonFobRemote]\n- [PCA9536 I²C Digital 3-Channel Input Output with Buzzer I²C Mini Module] [buzzerMiniModule]\n- [I²C Shield for Particle Photon] [i2CShieldPhoton]\n- [Particle Photon module]photonModule\n- Knowledge base for developing and programming with Particle Core/Photon modules.\n\n### Version\n1.0.0\n\n### How to use this library\n\nThis is a fully implemented Library and is intended to be used as is.  Users may modify and use the library in any way they see fit.  The intended use is to search Community Libraries under Particle's WEB IDE for Fob_Alarm.  Once found make sure the key-fob-buzzer-article.ino tab is selected, then click Use This Example button on the left.  Then flash the firmware into your Particle Module.  For more information see [Particle's documentation] [sparkIncludeLibrary].\n\n### What it does\n\nThis application monitors Key Fob remote button presses through the Key Fob interface module connected to the Particle Photon module.  If it detects that button 5 was pressed(this physically is the only button on the single button key fob remote) it publishes an Event named eventAlarm to the Particle Cloude with the data Alarm.  Once this event is successfully published to the Particle cloud it will pulse the buzzer letting the user who pressed the Key Fob button know that the alarm was sent successfully.  The intention of this application is that another user who monitors this alarm will use IFTTT to trigger a notification on their smart phone to let them know there is an alarm.  They would then use the IFTTT Do button app to call a function on the controller which serves to acknoledge reception of the alarm message by pulsing the on board buzzer twice letting the user who pressed the Key Fob button know that the remote user monitoring the alarm has acknowledged the alarm.\n\nLicense\n----\n\nGNU\n[sparkIncludeLibrary]:https://docs.particle.io/guide/getting-started/build/photon/\n[fobInterface]:https://www.controleverything.com/content/Key-Fob?sku=PKFR\n[1ButtonFobRemote]:https://www.controleverything.com/content/Key-Fobs?sku=OTX-418-HH-KF1-MS\n[buzzerMiniModule]:https://www.controleverything.com/content/Digital-IO?sku=PCA9536_I2CBZ\n[i2CShieldPhoton]:https://www.controleverything.com/content/I2C-Master?sku=SPARKI2C\n[photonModule]:https://www.controleverything.com/content/Particle-Dev-Kit?sku=particle_photon\n",
   "allVersions": [
     "1.0.0"
   ]

@@ -33,51 +33,51 @@ OTA is how most devices are upgraded in the field. This can also be done during 
 
 OTA will only ever upgrade the Device OS version; it will not downgrade. Device OS is generally backward compatible. If you built your user firmware targeting, say, 1.5.2, it would likely run correctly on Device OS 2.1.0. However, because of differences between versions, this is not always possible. Thus if you are relying on OTA, it is possible that devices from the factory could contain a newer version than you initially developed for.
 
+### Asset OTA
+
+{{!-- BEGIN shared-blurb e724be96-469f-4bf2-bead-c8c962accad8 --}}
+Asset OTA (available in Device OS 5.5.0 and later), makes it easy to include bundled assets that can be delivered to other processors and components in your system, such as:
+
+- Coprocessors
+- Graphics and fonts for external displays
+- Sound samples for device with audio output capabilities
+
+Including assets is as easy as including an directory in your project, specifying it in the `project.properties` and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB to 1.5 MB in size, after compression, depending on the platform, and do not use additional data operations.
+
+The compression algorithm is similar to gzip, so using a gzip program on the assets folder on your computer will yield the approximate size after compression.
+{{!-- END shared-blurb --}}
+
+## USB (particle flash --local)
+
+In most cases you will be using product firmware that you have built and uploaded to the console. By using the CLI, you can flash your product firmware and Device OS to the device over USB:
+
+```
+particle flash --local firmware.bin --target 4.1.0
+```
+
 ## USB (particle update)
 
-Using the `particle update` command in the Particle CLI is the most common way that end-users upgrade their devices, however there are a number of caveats:
+Using the `particle update` command in the Particle CLI is the most common way that end-users upgrade their devices.
 
-- The version that is installed by the update command is built into a specific version of the CLI. In the absence of updating the CLI, it will always install that version, even if there is a newer version available. However, for manufacturing, this is likely the behavior that you want.
-- The latest in the LTS branch (2.x, for example) is installed by the latest version of the CLI.
-- The feature branch (3.x, for example) is never installed by the CLI. Thus if you require Device OS 3.x, then you cannot use the `particle update` method.
-- The NCP (network coprocessor) is not upgraded by `particle update`. This currently only affects Tracker One/Tracker SoM devices being upgraded to Device OS 3.0.0 or later.
+You can upgrade (or downgrade) to a specific version of Device OS using the `--target` option. For example:
 
-### Installing a specific version of the CLI
-
-It's recommended that you first install the current version of the CLI using the [CLI installer](/getting-started/developer-tools/cli/). This is necessary to make sure the application dependencies such as dfu-util are installed, as well as any required device drivers for Windows and a udev rule for Linux.
-
-Then locate the version of the CLI you want in the [particle-cli GitHub releases](https://github.com/particle-iot/particle-cli/releases). For example, if you wanted Device OS 1.5.2, you'd want particle-cli v2.6.0. Expand **Assets** and download the .zip or .tar.gz for the source and extract it.
-
-From the Terminal or Command Prompt window, `cd` into the directory and install dependencies. For example:
-
-```
-cd ~/Downloads/particle-cli-2.6.0
-npm install
-```
-
-To run commands using this specific version of the Particle CLI, instead of using the `particle` command, instead use `npm start` in this directory with the same command line options. For example:
-
-```
-npm start version
-npm start help
-npm start login
-npm start list
-npm start update
+```sh
+$ particle update --target 4.1.0
 ```
 
 ## USB (Particle CLI, manually)
 
 It is also possible to use the Particle CLI to manually program the device, which provides the most flexibility at the expense of a more complicated script. The recommended flow is:
 
+In some cases, you may want to capture the Device ID at this point. If so:
+
 - The device should be in listening mode (blinking dark blue). If not, use `particle usb start-listening`.
 - You may want to capture the Device ID and ICCID using `particle identify`.
-- Flash the bootloader using `particle flash --serial`.
-- Flash the NCP (Tracker with 3.x only) using `particle flash --serial`.
-- Put the device in DFU mode (blinking yellow) using `particle usb dfu`.
-- Flash the SoftDevice (Gen 3 only) using `particle flash --usb`.
-- Program system-parts in numerical order using `particle flash --usb`
-- Program the user firmware using `particle flash --usb`
-- Mark setup done (Gen 3 running Device OS 3.x or earlier) using `particle usb setup-done`
+
+Place the binaries you want to flash in a directory, then:
+
+- Flash them using `particle flash --local <directory>`
+- Mark setup done (Gen 3 running Device OS 3.x or earlier) using `particle usb setup-done`. This is not required with Device OS 4.0 and later.
 
 You can download the necessary files for several common Device OS releases as a zip file for several common Device OS releases here:
 
@@ -125,7 +125,7 @@ SWD/JTAG is the recommended method for upgrading (or downgrading) Device OS, boo
 | ST-LINK/V2 | &check; | &nbsp; |
 
 
-### Device Compatibility - SWD/JTAG
+### Device compatibility - SWD/JTAG
 
 The Tracker SoM does not contain a 10-pin SWD debugging connector on the SoM itself, but is exposed on the pads of the SoM and the connector could be added to your base board.
 

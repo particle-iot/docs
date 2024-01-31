@@ -167,7 +167,7 @@ This board a two-layer circuit board so it can be manufactured inexpensively and
 As this board doesn't really do much, you'll unlikely use it as-is, but you can use it as a tutorial for how to hook up the PMIC and fuel gauge.
 
 
-## Software Differences
+## Software differences
 
 {{!-- BEGIN shared-blurb e5b77a80-8a7a-4bd6-a7b6-8685fb87ed43 --}}
 ### User firmware binary size
@@ -184,6 +184,11 @@ On Gen 3 devices, over-the-air (OTA) updates have two features that can improve 
 
 - Combined OTA can combine Device OS and user firmware updates into a single binary that requires only one download and one reboot to install.
 - Resumable OTA allows an update to resume from the point it stopped, instead of starting over from the beginning if interrupted.
+
+### Asset OTA
+
+[Asset OTA](/getting-started/cloud/ota-updates/#asset-ota) (available in Device OS 5.5.0 and later), makes it possible to include bundled assets in an OTA software update that can be delivered to other processors and components in your product. 
+
 {{!-- END shared-blurb --}}
 
 ### Increased API field limits
@@ -221,7 +226,7 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 - Bluetooth LE (BLE 5.0) is supported on B Series SoM but not the E Series.
 
-### NFC Tag
+### NFC tag
 
 - NFC tag mode is supported on the B Series SoM but not the E Series.
 
@@ -330,7 +335,7 @@ For example, if you have 3V3 disconnect circuitry but have pull-ups to non-disco
 
 There are more UART ports on the Gen 2 devices than Gen 3. If you need more hardware serial ports, the best option is to use the [SC16IS740](https://github.com/rickkas7/SC16IS740RK) or its relatives like the SC16IS750. These devices connect by I2C or SPI, and you can add multiple ports this way.
 
-#### Serial Baud Rates
+#### Serial baud rates
 
 | Baud Rate | Gen 2 | Gen 3 |
 | ------: | :---: | :---: |
@@ -482,9 +487,10 @@ On both the Boron and B Series SoM, retained memory is 3068 bytes, same as the E
 The flash file system on Gen 3 devices can also be used for data storage, however care must be taken to avoid excessive wear of the flash for frequently changing data.
 
 
-{{!-- BEGIN shared-blurb 0ad42255-7fdf-47d2-af7a-0e4dcff59790 --}}
 
 ### Interrupts
+
+{{!-- BEGIN shared-blurb 0ad42255-7fdf-47d2-af7a-0e4dcff59790 --}}
 
 #### Interrupts - Gen 2
 
@@ -512,12 +518,12 @@ Shared on the Electron/E Series (only one pin for each bullet item can be used a
   - C3, TX
   - C4, RX
 
+{{!-- END shared-blurb --}}
 
 #### Interrupts - Gen 3
 
 There is a limit of 8 pins with interrupt handlers, however the selection of pins is not restricted.
 
-{{!-- END shared-blurb --}}
 
 
 ### DAC
@@ -526,7 +532,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 
 - Gen 3 devices do not have built-in DAC, however they can easily be added by I2C or SPI to your base board.
 
-### CAN Bus
+### CAN bus
 
 - Gen 3 devices do not support CAN on the MCU.
 - The Tracker SoM includes CAN via a MCP25625 CAN interface with integrated transceiver.
@@ -540,7 +546,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 
 {{!-- BEGIN shared-blurb 28cd19b2-4f01-444b-8189-ba6191e6ebdd --}}
 
-### Sleep Modes
+### Sleep modes
 
 - In general, Gen 3 devices use less power in all modes.
 - In `HIBERNATE` mode, the RTC (real time clock) does not run on Gen 3 devices, so you cannot wake by time from `HIBERNATE` mode (formerly known as `SLEEP_MODE_DEEP`).
@@ -582,7 +588,7 @@ If you are relying on this behavior for external circuits, you should instead us
 
 {{!-- END shared-blurb --}}
 
-### PMIC and Fuel Gauge
+### PMIC and Fuel gauge
 
 The E Series, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
 
@@ -603,7 +609,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | USB mouse emulation | &check; | |
 
 
-### NFC Tag
+### NFC tag
 
 The B Series SoM has NFC Tag support, however you must add a U.FL antenna connector to your base board to use it.
 
@@ -653,14 +659,14 @@ Both require an external cellular antenna.
 | :----- | :--- | :--------: | :------: | :--------: | :-------: |
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | ANTCW2EA | &nbsp; | GA|
 | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | NRND|
-| B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
+| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
+| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
 | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
 | E Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
 | E Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
@@ -711,101 +717,101 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 {{!-- BEGIN do not edit content below, it is automatically generated 611f8e2a-7c24-434a-a98e-007c3aa3dd83 --}}
 
 #### 3V3
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 9 | 10 |
-| Pin Name | 3V3 | 3V3 |
-| Description | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | System power in, supply a fixed 3.0-3.6v power. |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 9 | 10 |
+| &nbsp; | Pin Name | 3V3 | 3V3 |
+| ∆ | Description | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | System power in, supply a fixed 3.0-3.6v power. |
 #### A0
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 26 | 23 |
-| Pin Name | A0 | A0 |
-| Pin Alternate Name | n/a | D19 |
-| Description | A0 Analog in, GPIO | A0 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 26 | 23 |
+| &nbsp; | Pin Name | A0 | A0 |
+| ∆ | Pin Alternate Name | n/a | D19 |
+| ∆ | Description | A0 Analog in, GPIO | A0 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A1
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 25 | 33 |
-| Pin Name | A1 | A1 |
-| Pin Alternate Name | n/a | D18 |
-| Description | A1 Analog in, GPIO | A1 Analog in, GPIO, PWM |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
-| Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 25 | 33 |
+| &nbsp; | Pin Name | A1 | A1 |
+| ∆ | Pin Alternate Name | n/a | D18 |
+| ∆ | Description | A1 Analog in, GPIO | A1 Analog in, GPIO, PWM |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A2
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 24 | 35 |
-| Pin Name | A2 | A2 |
-| Pin Alternate Name | n/a | D17 |
-| Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
-| Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 24 | 35 |
+| &nbsp; | Pin Name | A2 | A2 |
+| ∆ | Pin Alternate Name | n/a | D17 |
+| ∆ | Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
+| ∆ | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A3
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 23 | 37 |
-| Pin Name | A3 | A3 |
-| Pin Alternate Name | n/a | D16 |
-| Description | A3 True analog out, analog in, GPIO. | A3 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (DAC) | Yes | No |
-| SPI interface | SCK. Use SPI object. | n/a |
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 23 | 37 |
+| &nbsp; | Pin Name | A3 | A3 |
+| ∆ | Pin Alternate Name | n/a | D16 |
+| ∆ | Description | A3 True analog out, analog in, GPIO. | A3 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (DAC) | Yes | No |
+| ∆ | SPI interface | SCK. Use SPI object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K | 13K |
 #### A4
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 22 | 41 |
-| Pin Name | A4 | A4 |
-| Pin Alternate Name | n/a | D15 |
-| Description | A4 Analog in, GPIO, SPI MISO. | A4 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
-| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
-| SPI interface | MISO. Use SPI object. | n/a |
-| Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 22 | 41 |
+| &nbsp; | Pin Name | A4 | A4 |
+| ∆ | Pin Alternate Name | n/a | D15 |
+| ∆ | Description | A4 Analog in, GPIO, SPI MISO. | A4 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
+| ∆ | Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
+| ∆ | SPI interface | MISO. Use SPI object. | n/a |
+| ∆ | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 21 | 43 |
-| Pin Name | A5 | A5 |
-| Pin Alternate Name | n/a | D14 |
-| Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
-| Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
-| SPI interface | MOSI. Use SPI object. | n/a |
-| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 21 | 43 |
+| &nbsp; | Pin Name | A5 | A5 |
+| ∆ | Pin Alternate Name | n/a | D14 |
+| ∆ | Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
+| ∆ | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
+| ∆ | SPI interface | MOSI. Use SPI object. | n/a |
+| ∆ | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### AGND
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -823,7 +829,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B1
 | | Removed from E Series |
@@ -836,7 +842,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B2
 | | Removed from E Series |
@@ -850,7 +856,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B3
 | | Removed from E Series |
@@ -864,7 +870,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B4
 | | Removed from E Series |
@@ -876,7 +882,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B5
 | | Removed from E Series |
@@ -888,7 +894,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
 | Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C0
 | | Removed from E Series |
@@ -900,7 +906,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports digitalWrite | Yes|
 | UART serial | RX. Use Serial5 object.|
 | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C1
 | | Removed from E Series |
@@ -912,7 +918,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports digitalWrite | Yes|
 | UART serial | TX. Use Serial5 object.|
 | SPI interface | MOSI. Use SPI2 object.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C2
 | | Removed from E Series |
@@ -924,7 +930,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports digitalWrite | Yes|
 | UART serial | RX. Use Serial4 object.|
 | SPI interface | MISO. Use SPI2 object.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C3
 | | Removed from E Series |
@@ -937,7 +943,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | UART serial | TX. Use Serial4 object.|
 | SPI interface | SCK. Use SPI2 object.|
 | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler.|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C4
 | | Removed from E Series |
@@ -952,7 +958,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | I2C interface | SDA. Use Wire1 object. You can only use Wire or Wire1, not both!|
 | Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler.|
 | CAN interface | CAN1_TX|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C5
 | | Removed from E Series |
@@ -967,7 +973,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | I2C interface | SCL. Use Wire1 object. You can only use Wire or Wire1, not both!|
 | Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler.|
 | CAN interface | CAN1_RX|
-| Internal pull-up or pull-down resistance | 40K|
+| Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD-
 | | Added to B Series SoM |
@@ -991,52 +997,52 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Description | USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### D0
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 42 | 22 |
-| Pin Name | D0 | D0 |
-| Description | D0 GPIO, I2C | I2C SDA, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. |
-| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 42 | 22 |
+| &nbsp; | Pin Name | D0 | D0 |
+| ∆ | Description | D0 GPIO, I2C | I2C SDA, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| ∆ | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. |
+| ∆ | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### D1
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 41 | 20 |
-| Pin Name | D1 | D1 |
-| Description | D0 GPIO, I2C, CAN | I2C SCL, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. |
-| Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| CAN interface | CAN2_TX | n/a |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 41 | 20 |
+| &nbsp; | Pin Name | D1 | D1 |
+| ∆ | Description | D0 GPIO, I2C, CAN | I2C SCL, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| ∆ | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. |
+| ∆ | Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | CAN interface | CAN2_TX | n/a |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### D2
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 40 | 42 |
-| Pin Name | D2 | D2 |
-| Description | D2 GPIO, SPI1, CAN | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
-| Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
-| UART serial | n/a | Optional RTS hardware flow control for Serial1 |
-| SPI interface | MOSI. Use SPI1 object. | SCK. Use SPI1 object. |
-| I2C interface | n/a | SDA. Use Wire1 object. |
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| CAN interface | CAN2_RX | n/a |
-| I2S interface | I2S3_SD | n/a |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 40 | 42 |
+| &nbsp; | Pin Name | D2 | D2 |
+| ∆ | Description | D2 GPIO, SPI1, CAN | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
+| ∆ | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
+| ∆ | UART serial | n/a | RTS. Use Serial1 object. |
+| ∆ | SPI interface | MOSI. Use SPI1 object. | SCK. Use SPI1 object. |
+| ∆ | I2C interface | n/a | SDA. Use Wire1 object. |
+| ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | CAN interface | CAN2_RX | n/a |
+| ∆ | I2S interface | I2S3_SD | n/a |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### D22
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1046,7 +1052,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### D23
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1056,90 +1062,90 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### D3
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 39 | 40 |
-| Pin Name | D3 | D3 |
-| Description | D3 GPIO, SPI1 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
-| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
-| UART serial | n/a | Optional CTS hardware flow control for Serial1 |
-| SPI interface | MISO. Use SPI1 object. | MOSI. Use SPI1 object. |
-| I2C interface | n/a | SCL. Use Wire1 object. |
-| Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
-| Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 39 | 40 |
+| &nbsp; | Pin Name | D3 | D3 |
+| ∆ | Description | D3 GPIO, SPI1 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
+| ∆ | Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
+| ∆ | UART serial | n/a | CTS. Use Serial1 object. |
+| ∆ | SPI interface | MISO. Use SPI1 object. | MOSI. Use SPI1 object. |
+| ∆ | I2C interface | n/a | SCL. Use Wire1 object. |
+| ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
+| ∆ | Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
 #### D4
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 38 | 66 |
-| Pin Name | D4 | D4 |
-| Description | D4 GPIO, SPI1 | SPI1 MISO, PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | D4, D5, and D6 must have the same frequency. |
-| SPI interface | SCK. Use SPI1 object. | MISO. Use SPI1 object. |
-| Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| I2S interface | I2S3_SD | n/a |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG TDO. Floating at boot. | n/a |
-| Signal used at boot | JTAG TDO. Floating at boot. | n/a |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 38 | 66 |
+| &nbsp; | Pin Name | D4 | D4 |
+| ∆ | Description | D4 GPIO, SPI1 | SPI1 MISO, PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | D4, D5, and D6 must have the same frequency. |
+| ∆ | SPI interface | SCK. Use SPI1 object. | MISO. Use SPI1 object. |
+| ∆ | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | I2S interface | I2S3_SD | n/a |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG TDO. Floating at boot. | n/a |
+| ∆ | Signal used at boot | JTAG TDO. Floating at boot. | n/a |
 #### D5
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 37 | 68 |
-| Pin Name | D5 | D5 |
-| Description | D5 GPIO, SPI1 | PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | D4, D5, and D6 must have the same frequency. |
-| SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
-| Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
-| I2S interface | I2S3_WS | n/a |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
-| Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 37 | 68 |
+| &nbsp; | Pin Name | D5 | D5 |
+| ∆ | Description | D5 GPIO, SPI1 | PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | D4, D5, and D6 must have the same frequency. |
+| ∆ | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | n/a |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | I2S interface | I2S3_WS | n/a |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
+| ∆ | Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
 #### D6
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 36 | 70 |
-| Pin Name | D6 | D6 |
-| Description | D6 GPIO | PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | D4, D5, and D6 must have the same frequency. |
-| Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
-| SWD interface | SWCLK. 40K pull-down at boot. | n/a |
-| Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | n/a |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 36 | 70 |
+| &nbsp; | Pin Name | D6 | D6 |
+| ∆ | Description | D6 GPIO | PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | D4, D5, and D6 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
+| ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
+| ∆ | Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | n/a |
 #### D7
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 35 | 72 |
-| Pin Name | D7 | D7 |
-| Description | D7 GPIO | PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. |
-| Supports attachInterrupt | No. Shared with BAT_INT_PC13 | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
-| Input is 5V Tolerant | Yes | No |
-| JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
-| SWD interface | SWDIO. 40K pull-up at boot. | n/a |
-| Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | n/a |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 35 | 72 |
+| &nbsp; | Pin Name | D7 | D7 |
+| ∆ | Description | D7 GPIO | PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | No | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. |
+| ∆ | Supports attachInterrupt | No. Shared with BAT_INT_PC13 | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K. Pull-up applied in bootloader for JTAG. | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
+| ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
+| ∆ | Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | n/a |
 #### D8
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1150,34 +1156,34 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports digitalWrite | Yes|
 | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### DAC
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 20 | 45 |
-| Pin Name | DAC | A6 |
-| Pin Alternate Name | A6 | n/a |
-| Description | DAC/A6 True analog out, analog in, GPIO. | A6 Analog in, PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (DAC) | Yes | No |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
-| Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 20 | 45 |
+| ∆ | Pin Name | DAC | A6 |
+| ∆ | Pin Alternate Name | A6 | n/a |
+| ∆ | Description | DAC/A6 True analog out, analog in, GPIO. | A6 Analog in, PWM, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| ∆ | Supports analogWrite (DAC) | Yes | No |
+| ∆ | Supports analogWrite (PWM) | No | Yes |
+| ∆ | Supports tone | No | A0, A1, A6, and A7 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K | 13K |
 #### GND
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 2 | 1 |
-| Pin Name | GND | GND |
-| Description | Ground. Be sure to connect all GND pins. | Ground. |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 2 | 1 |
+| &nbsp; | Pin Name | GND | GND |
+| ∆ | Description | Ground. Be sure to connect all GND pins. | Ground. |
 #### LIPO
 | | Removed from E Series |
 | :--- | :--- |
 | Pin Number | 5|
 | Pin Name | LIPO|
-| Description | Connect to + pin on the LiPo battery, 3.6V maximum|
+| Description | Connect to + pin on the LiPo battery, 4.2V maximum|
 #### MISO
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1189,15 +1195,15 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports digitalWrite | Yes|
 | SPI interface | MISO. Use SPI object.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### MODE
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 55 | 32 |
-| Pin Name | MODE | MODE |
-| Pin Alternate Name | n/a | D20 |
-| Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up |
-| I2S interface | I2S3_MCK | n/a |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 55 | 32 |
+| &nbsp; | Pin Name | MODE | MODE |
+| ∆ | Pin Alternate Name | n/a | D20 |
+| ∆ | Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up |
+| ∆ | I2S interface | I2S3_MCK | n/a |
 #### MOSI
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1209,13 +1215,13 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports digitalWrite | Yes|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### NC
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 6 | 14 |
-| Pin Name | NC | NC |
-| Description | Do not connect to anything | n/a |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 6 | 14 |
+| &nbsp; | Pin Name | NC | NC |
+| ∆ | Description | Do not connect to anything | n/a |
 #### NC
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1241,47 +1247,47 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Pin Name | PMID|
 | Description | Connected to the PMID pin of the PMIC|
 #### RESET
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 56 | 34 |
-| Pin Name | RESET | RST |
-| Pin Alternate Name | RST | n/a |
-| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 56 | 34 |
+| ∆ | Pin Name | RESET | RST |
+| ∆ | Pin Alternate Name | RST | n/a |
+| ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### RGBB
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 52 | 65 |
-| Pin Name | RGBB | RGBB |
-| Description | RGB LED Blue | RGB LED Blue |
-| UART serial | RX. Use Serial2 object. | n/a |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 52 | 65 |
+| &nbsp; | Pin Name | RGBB | RGBB |
+| &nbsp; | Description | RGB LED Blue | RGB LED Blue |
+| ∆ | UART serial | RX. Use Serial2 object. | n/a |
 #### RGBG
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 53 | 63 |
-| Pin Name | RGBG | RGBG |
-| Description | RGB LED Green | RGB LED Green |
-| UART serial | TX. Use Serial2 object. | n/a |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 53 | 63 |
+| &nbsp; | Pin Name | RGBG | RGBG |
+| &nbsp; | Description | RGB LED Green | RGB LED Green |
+| ∆ | UART serial | TX. Use Serial2 object. | n/a |
 #### RGBR
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 54 | 61 |
-| Pin Name | RGBR | RGBR |
-| Description | RGB LED Red | RGB LED Red |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 54 | 61 |
+| &nbsp; | Pin Name | RGBR | RGBR |
+| &nbsp; | Description | RGB LED Red | RGB LED Red |
 #### RX
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 17 | 38 |
-| Pin Name | RX | RX |
-| Pin Alternate Name | n/a | D10 |
-| Description | Serial1 RX (received data), GPIO, PWM. | Serial RX, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| UART serial | RX. Use Serial1 object. | RX Use Serial1 object. |
-| Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 17 | 38 |
+| &nbsp; | Pin Name | RX | RX |
+| ∆ | Pin Alternate Name | n/a | D10 |
+| ∆ | Description | Serial1 RX (received data), GPIO, PWM. | Serial RX, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
+| ∆ | Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### SCK
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1293,7 +1299,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports digitalWrite | Yes|
 | SPI interface | SCK. Use SPI object.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
-| Internal pull-up or pull-down resistance | 13K|
+| Internal pull resistance | 13K|
 #### SIM_CLK
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -1325,34 +1331,34 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Pin Name | STAT|
 | Description | Charge status output from the PMIC.|
 #### TX
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 16 | 36 |
-| Pin Name | TX | TX |
-| Pin Alternate Name | n/a | D9 |
-| Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial TX, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
-| UART serial | TX. Use Serial1 object. | TX Use Serial1 object. |
-| Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 16 | 36 |
+| &nbsp; | Pin Name | TX | TX |
+| ∆ | Pin Alternate Name | n/a | D9 |
+| ∆ | Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial TX, GPIO |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| ∆ | Supports analogWrite (PWM) | Yes | No |
+| ∆ | Supports tone | Yes | No |
+| &nbsp; | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
+| ∆ | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 #### USBDATA-
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 14 | 13 |
-| Pin Name | USBDATA- | USBDATA- |
-| Description | USB Data- | USB Data- |
-| Input is 5V Tolerant | Yes | Yes |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 14 | 13 |
+| &nbsp; | Pin Name | USBDATA- | USBDATA- |
+| &nbsp; | Description | USB Data- | USB Data- |
+| &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### USBDATA+
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 13 | 11 |
-| Pin Name | USBDATA+ | USBDATA+ |
-| Description | USB Data+ | USB Data+ |
-| Input is 5V Tolerant | Yes | Yes |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 13 | 11 |
+| &nbsp; | Pin Name | USBDATA+ | USBDATA+ |
+| &nbsp; | Description | USB Data+ | USB Data+ |
+| &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### VBAT
 | | Removed from E Series |
 | :--- | :--- |
@@ -1391,20 +1397,20 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Description | USB VUSB power pin|
 | Input is 5V Tolerant | Yes|
 #### WKP
-|   | E Series | B Series SoM |
-| :--- | :--- | :--- |
-| Pin Number | 19 | 47 |
-| Pin Name | WKP | A7 |
-| Pin Alternate Name | A7 | n/a |
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | A7 Analog in, GPIO, Ethernet Reset |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | Yes | A0, A1, A6, and A7 must have the same frequency. |
-| Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
-| Internal pull-up or pull-down resistance | 40K | 13K |
-| Input is 5V Tolerant | Yes | No |
+|   |   | E Series | B Series SoM |
+| :--- | :--- | :--- | :--- |
+| ∆ | Pin Number | 19 | 47 |
+| ∆ | Pin Name | WKP | A7 |
+| ∆ | Pin Alternate Name | A7 | n/a |
+| ∆ | Description | WKP/A7 Wakeup (active high), analog in, GPIO. | A7 Analog in, GPIO, Ethernet Reset |
+| &nbsp; | Supports digitalRead | Yes | Yes |
+| &nbsp; | Supports digitalWrite | Yes | Yes |
+| &nbsp; | Supports analogRead | Yes | Yes |
+| &nbsp; | Supports analogWrite (PWM) | Yes | Yes |
+| ∆ | Supports tone | Yes | A0, A1, A6, and A7 must have the same frequency. |
+| ∆ | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| ∆ | Internal pull resistance | 40K | 13K |
+| ∆ | Input is 5V Tolerant | Yes | No |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -1425,7 +1431,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Argentina | &check; | &check; | &nbsp; | &nbsp; |
 | Armenia | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Aruba | &check; | &check; | &nbsp; | &check; |
-| Australia | &check; | &check; | &nbsp; | &check; |
+| Australia | NRND | NRND | &nbsp; | &check; |
 | Austria | &check; | &check; | &nbsp; | &check; |
 | Azerbaijan | &check; | &check; | &nbsp; | &nbsp; |
 | Bahamas | &check; | &nbsp; | &nbsp; | &nbsp; |
@@ -1531,13 +1537,12 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Namibia | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Nauru | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Netherlands | &check; | &check; | &nbsp; | &check; |
-| New Zealand | &check; | &check; | &nbsp; | &check; |
+| New Zealand | NRND | NRND | &nbsp; | &check; |
 | Nicaragua | &check; | &check; | &nbsp; | &nbsp; |
 | Niger | &check; | &check; | &nbsp; | &nbsp; |
 | Nigeria | &check; | &check; | &nbsp; | &check; |
 | North Macedonia | &check; | &check; | &nbsp; | &nbsp; |
 | Norway | &check; | &check; | &nbsp; | &check; |
-| Oman | &check; | &nbsp; | &nbsp; | &check; |
 | Pakistan | &check; | &check; | &nbsp; | &check; |
 | Palestine | &nbsp; | &nbsp; | &nbsp; | &check; |
 | Panama | &check; | &check; | &nbsp; | &nbsp; |
@@ -1642,7 +1647,7 @@ Most common third-party libraries work on both devices. The exceptions are libra
 - EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 
-## Version History
+## Version history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|

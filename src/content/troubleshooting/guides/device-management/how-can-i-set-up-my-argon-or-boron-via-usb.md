@@ -5,7 +5,8 @@ columns: two
 ---
 
 # {{{title}}}
-Many users set up their Argons and Borons by using the mobile apps for iOS and Android. However, it is quite simple to set up these devices over USB using the process described here.
+
+The easiest way to set up and Argon or Boron is by [setup.particle.io](https://setup.particle.io/). However, you can also use the steps below.
 
 ## Argon Setup
 
@@ -19,7 +20,7 @@ Many users set up their Argons and Borons by using the mobile apps for iOS and A
 particle usb dfu
 8. Update the device by running the following two commands. If the device goes out of blinking yellow after the first command, put it back into DFU mode.  
 particle update  
-particle flash --usb tinker
+particle flash --local tinker
 9. When the command reports **Flash success!**, reset the Argon. It should go back into listening mode (blinking dark blue).
 10. Flash NCP firmware to the device. Note that this must be done in listening mode (blinking dark blue). It cannot be done in DFU mode:  
 particle flash --serial argon-ncp-firmware-0.0.5-ota.bin
@@ -51,7 +52,7 @@ particle usb setup-done
 particle usb dfu
 7. Update the device. If the device goes out of blinking yellow after the first command, put it back into DFU mode.  
 particle update  
-particle flash --usb tinker
+particle flash --local tinker
 8. When the command reports **Flash success!**, reset the Boron. It should go back into listening mode (blinking dark blue).
 9. Verify that the update worked by running the following command:  
 particle serial identify  
@@ -75,7 +76,7 @@ particle device rename e00fce681fffffffffc08949b argon-3b
 particle usb setup-done
 17. You have successfully set up your Boron!
 
-## Marking Setup Done
+## Marking setup done
 
 Normally when you complete the mobile phone-based setup, the setup is marked as done. In the absence of this, every time you boot your Argon or Boron, it will go back into listening mode (blinking dark blue).
 

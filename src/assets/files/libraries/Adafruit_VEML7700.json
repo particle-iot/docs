@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_VEML7700",
     "version": "0.0.3",
-    "installs": 8593,
+    "installs": 9840,
     "license": "BSD",
     "author": "Adafruit, nrobinson2000",
     "sentence": "An Implementation of Adafruit's VEML7700 Library for the Particle Core, Photon, Electron, Argon, Boron, Xenon and RedBear Duo",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_VEML7700",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_VEML7700",
   "versions": {
     "0.0.3": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "veml7700_test": true
+          },
+          "boron": {
+            "veml7700_test": true
+          },
+          "bsom": {
+            "veml7700_test": true
+          },
+          "b5som": {
+            "veml7700_test": true
+          },
+          "tracker": {
+            "veml7700_test": true
+          },
+          "esomx": {
+            "veml7700_test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "veml7700_test": true
+          },
+          "boron": {
+            "veml7700_test": true
+          },
+          "bsom": {
+            "veml7700_test": true
+          },
+          "b5som": {
+            "veml7700_test": true
+          },
+          "tracker": {
+            "veml7700_test": true
+          },
+          "p2": {
+            "veml7700_test": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "veml7700_test": true
           },

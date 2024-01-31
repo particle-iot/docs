@@ -19,7 +19,7 @@ The first section has some technical information about how it works and why you 
 
 The second section has some examples of I2C devices that work with the Particle devices and some sample code. There are many more devices available. 
 
-## The Basics
+## The basics
 
 ### It's a bus!
 
@@ -192,7 +192,7 @@ The connections to the BME280 are described below. The SSD1306 connects as follo
 [The sample code is here](https://go.particle.io/shared_apps/5a1d9e5310c40e5c02001232).
 
 
-## Temperature Sensors
+## Temperature sensors
 
 There are a number of temperature sensors that work on the Photon. The TMP36 is an analog sensor, connecting to an ADC input on the Photon. 
 
@@ -334,7 +334,7 @@ Another nice thing is that you can power the MCP23008 from a 5V supply and it wi
 
 And if you need even more pins, [the MCP23017](https://github.com/rickkas7/MCP23017-RK) has 16 GPIO pins. You can find the documentation at the link, and its available in the community libraries as MCP23017-RK.
 
-## ADC (Analog to Digital Converters)
+## ADC (analog to digital converters)
 
 The Photon includes 8 ADC inputs for converting an analog to a digital value, 0-4095 in the case of the 12-bit ADCs in the Photon.
 
@@ -419,7 +419,7 @@ To build and flash over USB, I use the following commands:
 ```
 cd ds75-electron-wire1
 particle compile electron . --saveTo firmware.bin
-particle flash --usb firmware.bin
+particle flash --local firmware.bin
 ```
 
 And here's the output from serial:
@@ -484,7 +484,7 @@ done
 
 [The source code is here](https://go.particle.io/shared_apps/5a1d9fa810c40eb719001392)
 
-## Using Saleae Logic Analyzer
+## Using Saleae logic analyzer
 
 If you're really getting into working and debugging I2C, a great thing to have is a [Saleae Logic](https://www.saleae.com), a USB-based logic analyzer.
 
@@ -495,7 +495,7 @@ Not only can it display the waveforms, but it can also decode I2C, making it muc
 ![Logic with Circuit](/assets/images/i2c-faq-logic2.jpg)
 
 
-## I2C Slave Mode
+## I2C Slave mode
 
 In all of the examples above, the Photon/Electron was the I2C Master Device. It's also possible to use it as a slave device. You might do this if you're connecting two Particle devices together using I2C, or maybe if you were connecting a Photon or Electron to a Raspberry Pi.
 

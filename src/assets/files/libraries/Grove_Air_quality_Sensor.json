@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_Air_quality_Sensor",
     "version": "1.0.1",
-    "installs": 13837,
+    "installs": 15673,
     "license": "MIT",
     "author": "Seeed Studio",
     "maintainer": "Brandon Satrom <brandon@particle.io>",
@@ -29,7 +29,7 @@
   },
   "kind": "community library",
   "letter": "g",
-  "cardUrl": "/cards/libraries/g/Grove_Air_quality_Sensor",
+  "cardUrl": "/reference/device-os/libraries/g/Grove_Air_quality_Sensor",
   "versions": {
     "1.0.1": {
       "builds": {
@@ -138,12 +138,64 @@
             "Grove_Air_Quality_Sensor": true,
             "usage": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "boron": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "bsom": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "b5som": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "tracker": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "p2": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "boron": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "bsom": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "b5som": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "tracker": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "esomx": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.735Z"
     }
   },
-  "readme": "## Grove Air Quality Sensor\n-------------------------------------------------------------\n![](https://statics3.seeedstudio.com/images/101020021%201.jpg)\n\n[Grove Air Quality Sensor](https://www.seeedstudio.com/Grove-Air-quality-sensor-p-1065.html)\n\nThis sensor is designed for comprehensive monitoring of indoor air conditions.\nIt's responsive to a wide scope of harmful gases such as carbon monoxide, alcohol, acetone, thinner, formaldehyde and so on.\nDue to the measuring mechanism, this sensor can not output specific data to describe target gases' concentrations quantitatively.\nBut it's still competent enough to be used in applications that require only qualitative results, like auto refresher sprayers and auto air cycling systems.\n\nFor more information, please refer to the [wiki page][1]\n\n----\nThis software is written by Bruce Qin for Seeed Studio<br>\nand is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check license.txt for more information.<br>\n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then submitting a [pull request](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed Studio is an open hardware facilitation company based in Shenzhen, China. <br>\nBenefiting from local manufacturing power and a convenient global logistic system, <br>\nwe integrate resources to serve a new era of innovation. Seeed also works with <br>\nglobal distributors and partners to push the open hardware movement.<br>\n\n\n[1]:http://wiki.seeedstudio.com/Grove-Air_Quality_Sensor_v1.3\n\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Grove_Air_quality_Sensor)](https://github.com/igrigorik/ga-beacon)",
+  "readme": "## Grove Air Quality Sensor\n-------------------------------------------------------------\n(image removed)\n\n[Grove Air Quality Sensor](https://www.seeedstudio.com/Grove-Air-quality-sensor-p-1065.html)\n\nThis sensor is designed for comprehensive monitoring of indoor air conditions.\nIt's responsive to a wide scope of harmful gases such as carbon monoxide, alcohol, acetone, thinner, formaldehyde and so on.\nDue to the measuring mechanism, this sensor can not output specific data to describe target gases' concentrations quantitatively.\nBut it's still competent enough to be used in applications that require only qualitative results, like auto refresher sprayers and auto air cycling systems.\n\nFor more information, please refer to the [wiki page][1]\n\n----\nThis software is written by Bruce Qin for Seeed Studio<br>\nand is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check license.txt for more information.<br>\n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then submitting a [pull request](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed Studio is an open hardware facilitation company based in Shenzhen, China. <br>\nBenefiting from local manufacturing power and a convenient global logistic system, <br>\nwe integrate resources to serve a new era of innovation. Seeed also works with <br>\nglobal distributors and partners to push the open hardware movement.<br>\n\n\n[1]:http://wiki.seeedstudio.com/Grove-Air_Quality_Sensor_v1.3\n\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Grove_Air_quality_Sensor)](https://github.com/igrigorik/ga-beacon)",
   "allVersions": [
     "1.0.1"
   ]

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Particle_SI7021",
     "version": "0.0.1",
-    "installs": 10921,
+    "installs": 12234,
     "license": "OIZOM",
     "author": "Sohil Patel",
     "sentence": "SI7021 library",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/Particle_SI7021",
+  "cardUrl": "/reference/device-os/libraries/p/Particle_SI7021",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "readsensor": true
+          },
+          "boron": {
+            "readsensor": true
+          },
+          "bsom": {
+            "readsensor": true
+          },
+          "b5som": {
+            "readsensor": true
+          },
+          "tracker": {
+            "readsensor": true
+          },
+          "esomx": {
+            "readsensor": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "readsensor": true
+          },
+          "boron": {
+            "readsensor": true
+          },
+          "bsom": {
+            "readsensor": true
+          },
+          "b5som": {
+            "readsensor": true
+          },
+          "tracker": {
+            "readsensor": true
+          },
+          "p2": {
+            "readsensor": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "readsensor": true
           },

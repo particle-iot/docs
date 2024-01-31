@@ -1,0 +1,241 @@
+{
+  "type": "libraries",
+  "id": "LP5562-RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/LP5562-RK/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "LP5562-RK",
+    "version": "0.0.2",
+    "installs": 62,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Particle driver for TI LP5562 LED driver",
+    "url": "https://github.com/rickkas7/LP5562-RK",
+    "repository": "https://github.com/rickkas7/LP5562-RK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/reference/device-os/libraries/l/LP5562-RK",
+  "versions": {
+    "0.0.2": {
+      "added": "2023-03-21T22:50:49.989Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-simple-LP5562-RK": false,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": false,
+            "4-indicators-LP5562-RK": true
+          },
+          "boron": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": false,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": false
+          },
+          "bsom": {
+            "1-simple-LP5562-RK": false,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": false,
+            "4-indicators-LP5562-RK": false
+          },
+          "b5som": {
+            "1-simple-LP5562-RK": false,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": false
+          },
+          "tracker": {
+            "1-simple-LP5562-RK": false,
+            "2-hardware-test-LP5562-RK": false,
+            "3-test-suite-LP5562-RK": false,
+            "4-indicators-LP5562-RK": true
+          },
+          "p2": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": false,
+            "4-indicators-LP5562-RK": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": false,
+            "3-test-suite-LP5562-RK": false,
+            "4-indicators-LP5562-RK": true
+          },
+          "boron": {
+            "1-simple-LP5562-RK": false,
+            "2-hardware-test-LP5562-RK": false,
+            "3-test-suite-LP5562-RK": false,
+            "4-indicators-LP5562-RK": false
+          },
+          "bsom": {
+            "1-simple-LP5562-RK": false,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": false,
+            "4-indicators-LP5562-RK": false
+          },
+          "b5som": {
+            "1-simple-LP5562-RK": false,
+            "2-hardware-test-LP5562-RK": false,
+            "3-test-suite-LP5562-RK": false,
+            "4-indicators-LP5562-RK": false
+          },
+          "tracker": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": false
+          },
+          "esomx": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": false,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": false
+          },
+          "electron": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": false,
+            "4-indicators-LP5562-RK": false
+          },
+          "argon": {
+            "1-simple-LP5562-RK": false,
+            "2-hardware-test-LP5562-RK": false,
+            "3-test-suite-LP5562-RK": false,
+            "4-indicators-LP5562-RK": false
+          },
+          "boron": {
+            "1-simple-LP5562-RK": false,
+            "2-hardware-test-LP5562-RK": false,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-simple-LP5562-RK": false,
+            "2-hardware-test-LP5562-RK": false,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "electron": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": false,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": false
+          },
+          "argon": {
+            "1-simple-LP5562-RK": false,
+            "2-hardware-test-LP5562-RK": false,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": false
+          },
+          "boron": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "boron": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "bsom": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "b5som": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "tracker": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "p2": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "boron": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "bsom": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "b5som": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "tracker": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          },
+          "esomx": {
+            "1-simple-LP5562-RK": true,
+            "2-hardware-test-LP5562-RK": true,
+            "3-test-suite-LP5562-RK": true,
+            "4-indicators-LP5562-RK": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# LP5562-RK\n\n*LP5562 I2C LED Driver for Particle devices*\n\nThere are several possibilities for indicator RGB LEDs:\n\n- Direct connection to PWM outputs\n- Serial LEDs like NeoPixels (WS2812)\n- I2C LED drivers\n\nDirect PWM is the least expensive, but when you are using RGB LEDs you'll quickly run out of available PWM channels. You're pretty much limited to one additional RGB LED on most devices.\n\nNeoPixels are a great option as you can string together dozens of LEDs off a single GPIO. There are a few downsides:\n\n- You need to have 3.6V or higher. You can't run them off 3.3V.\n- The NeoPixel library runs for long periods of time with interrupts disabled for long strands, which may affect performance of other code.\n\nThe third option is to use an I2C LED driver. That's what this library is for. It allows the use of the TI LP5562 I2C LED driver from a Particle device. Why it this useful?\n\n- It runs at 3.3V\n- Uses cheap off-the-shelf RGB LEDs\n- You can include up to 4 of them on the I2C bus\n- It can drive LEDs up to 25.5 mA, great for large indicator LEDs\n- It has a programmable constant current driver so you don't need current limiting resistors\n- It's a programmable smart controller so many LED patterns can be made without intervention from the MCU\n\nWhat's the downside? It does add a chip ($1.14 in single quantities). The biggest challenge is that it's only available in a DSBGA12 package. This is a really, really tiny 3x4 BGA (ball grid array) chip. 1.648 mm x 1.248 mm. It's barely larger than an 0805 resistor, but with 12 pins. It can only be reflowed; it's obviously not possible to solder with a soldering iron.\n\nOn the plus side, you can put one of these on your board and it takes up less space than 3x  0603 current limiting resistors.\n\nWhile it's designed to drive an RGB LED plus one extra LED (white), it actually can drive any four independent LEDs. There are a couple benefits of using \"indicator mode\":\n\n- You can drive 4x LEDs up to 25.5 mA\n- Only uses I2C, no GPIO\n- Full programmable to be on/dim/off, plus programmable patterns like blink or breathe\n\n\n### The library\n\nUsing the LP5562-RK library is just a matter of adding the library to your project and initializing it:\n\n```\n#include \"LP5562-RK.h\"\n\nLP5562 ledDriver;\n\nvoid setup() {\n\tledDriver.withLEDCurrent(5.0).begin();\n\n\tledDriver.setBreathe(false, true, true, 20, 0, 255);\n}\n\nvoid loop() {\n}\n```\n\nYou normally allocate the object as a global object:\n\n```\nLP5562 ledDriver;\n```\n\nIn setup(), initialize the object. There are some options that you configure fluent-style then call the begin() method:\n\n```\nledDriver.withLEDCurrent(5.0).begin();\n```\n\nThere are methods to set a constant color, blink, alternating blink, and breathe. This call does cyan breathing:\n\n```\nledDriver.setBreathe(false, true, true, 20, 0, 255);\n```\n\nThe options left to right are:\n\n- red (disabled)\n- green (enabled)\n- blue (enabled) (green + blue = cyan)\n- 20 the number of half milliseconds per step (10 milliseconds)\n- 0 starting brightness \n- 255 ending brightness\n\n[Full browsable API docs](https://rickkas7.github.io/LP5562-RK/index.html) are available. The calls are extensively documented in the .h file. There's also a copy of the HTML docs in the docs subdirectory.\n\nThe three example programs illustrate all of the features.\n\n### I2C addressing\n\nThe LP5562 has two address select lines to allow you to connect four to a single I2C bus, using address 0x30 to 0x33.\n\nBecause of the closeness of the BGA balls if you use the external clock you'll probably be limited to using the single I2C address 0x30. The reason is that you'll probably need to route ground through pins B1 (AD1), B2 (AD0), to B3 (GND).\n\nExternal Clock (image removed)\n\nIf you're not using an external clock and using the same power supply for VCC and VDD, then life is much easier, and all addresses are easily routed:\n\nAddress 0 (AD1 = 0, AD0 = 0, 0x30):\n\nAddress 0 (image removed)\n\nAddress 1 (AD1 = 0, AD0 = 1, 0x31):\n\nAddress 1 (image removed)\n\nAddress 2 (AD1 = 1, AD0 = 0, 0x32):\n\nAddress 2 (image removed)\n\nAddress 3 (AD1 = 1, AD0 = 1, 0x33):\n\nAddress 3 (image removed)\n\n\n### RGB Demo Board\n\nI made a simple demo board to test and illustrate the use of the chip. \n\nBoard Image (image removed)\n\nHere's the schematic.\n\nSchematic (image removed)\n\nSchematic (image removed)\n\nAnd the board. It's an Adafruit Feather form-factor, intended to be used in a double or tripler with a Gen 3 Particle device (Argon, Boron, or Xenon). Male header pins go on the bottom side.\n\nBoard (image removed)\n\nClose-up of the LED circuitry:\n\nBoard Close (image removed)\n\nThe eagle subdirectory contains the open source design:\n\n- LedDriverTest1.sch (schematic)\n- LedDriverTest1.brd (board layout)\n- LedDriverTest1v1.zip (gerbers)\n- LedDriverTest1.lbr (library with all of the components used on the board)\n\n\n| Quantity | Item | Example | Price |\n| --- | --- | --- | ---: |\n| 1 | LP5562 | [LP5562TMX/NOPB ](https://www.digikey.com/product-detail/en/texas-instruments/LP5562TMX-NOPB/296-39061-1-ND/5142961) | $1.14 |\n| 1 | RGB LED | [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/9094273 CLMVC-FKA-CL1D1L71BB7C3C3) | $0.19 |\n| 1 | White LED | [Lite-On Inc. LTW-C191DS5](https://www.digikey.com/product-detail/en/lite-on-inc/LTW-C191DS5/160-2239-1-ND/7708913) | $0.55 |\n| 2 | 10K Resistor 0603 | [Panasonic ERJ-PA3J103V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-PA3J103V/P10KBZCT-ND/5036237) | $0.10 | \n|   | Male header pins 0.1\" | [Sullins PRPC040SAAN-RC](https://www.digikey.com/product-detail/en/PRPC040SAAN-RC/S1011EC-40-ND/2775214) |  |\n\n### Indicator Demo Board\n\nThis demo board tests 4 discrete LEDs instead of using an RGB LED. I made it using T-1 (3mm) through hole LEDs because I had a kit of them so I could use 3 20mA LEDs and 1 10mA LEDs. \n\nIndicator Board (image removed)\n\nSchematic:\n\nIndicator Schematic (image removed)\n\nBoard:\n\nIndicator Board (image removed)\n\nThe main difference between indicator mode and RGB mode is how the engines are set up. Because there are four LEDs and 3 engines, indicator mode sets up the three engines with common patterns:\n\n- Blink\n- Fast blink\n- Breathe\n\nThen you can assign any LED to be on, dim, off, or one of the three available patterns. This provides a lot of flexibility given the hardware limitations of the LP5562. Of course the full LP5562 programming API is available as well if you want to go crazy with the customization.\n\nIf you are using LEDs with different current requirements you can use the `withLEDCurrent()` overload with separate settings for red, green, blue, and white. \n\n```\nledDriver.withLEDCurrent(20.0, 20.0, 20.0, 10.0).begin();\n```\n\nTo use indicator mode, use `setIndicatorMode()`.\n\n```\nledDriver.setIndicatorMode();\n```\n\nTo set an LED, use one of the setLedMapping methods:\n\n```\nledDriver.setLedMappingR(LP5562::REG_LED_MAP_DIRECT, 0);\nledDriver.setLedMappingG(LP5562::REG_LED_MAP_ENGINE_1);\nledDriver.setLedMappingB(LP5562::REG_LED_MAP_ENGINE_2);\nledDriver.setLedMappingW(LP5562::REG_LED_MAP_ENGINE_3);\n```\n\n- `LP5562::REG_LED_MAP_DIRECT` sets a direct PWM value. 0 is off, 255 is full brightness, and values in between are dimmed.\n- `LP5562::REG_LED_MAP_ENGINE_1` is a normal blink. \n- `LP5562::REG_LED_MAP_ENGINE_2` is a fast blink.\n- `LP5562::REG_LED_MAP_ENGINE_3` is breathing. \n\n\n\n\n\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}

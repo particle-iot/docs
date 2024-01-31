@@ -7,7 +7,7 @@
   "attributes": {
     "name": "APDS-9301",
     "version": "1.0.2",
-    "installs": 368,
+    "installs": 457,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Broadcom APDS-9301 Lux Sensor.",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/APDS-9301",
+  "cardUrl": "/reference/device-os/libraries/a/APDS-9301",
   "versions": {
     "1.0.2": {
       "builds": {
@@ -107,6 +107,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "boron": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "bsom": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "b5som": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "tracker": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "esomx": {
+            "Simple_Example": false,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "boron": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "bsom": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "b5som": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "tracker": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "p2": {
+            "Simple_Example": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Simple_Example": false,
             "usage": false

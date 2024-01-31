@@ -52,7 +52,7 @@ The PoE adapter supplies 1800 mA. This is enough to power any Particle Gen 3 dev
 
 You can only use the PoE module with a IEEE 802.3af compliant Ethernet switch or power injector. Other common devices that use PoE include some models of security cameras, Wi-Fi access points, and Internet-based telephones.
 
-### PoE Ethernet Switch
+### PoE Ethernet switch
 
 There are many compatible Ethernet switches with PoE capabilities, ranging from small unmanaged switches to large industrial devices. 
 
@@ -62,7 +62,7 @@ For example, for home use you might use something like the Netgear GS305P 5-port
 
 In some cases, you may prefer to centralize the power like this, eliminating the need for small USB power supplies distributed to many locations. It also makes it easier to use one central uninterruptible power supply instead of distributing batteries to many small devices.
 
-### PoE Power Injector
+### PoE power injector
 
 If you are only powering a single device, you may want to use an inexpensive PoE power injector. 
 

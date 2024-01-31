@@ -19,7 +19,15 @@ This board includes basic features needed for P2 designs, including:
 - Voltage regulator
 - Breakout pins for GPIO and ports
 
-## Basic Design
+Another option is the [P2 reference design](https://github.com/particle-iot/p2-reference-design) which is a full breakout board with additional Feather sockets that are compatible with the Photon 2.
+
+{{note op="start" type="note"}}
+First board and basic design examples are intended to be easily hand-assembled on inexpensive 
+2-layer circuit boards using easily available parts. They are not intended to be reference examples of best 
+practices for electronic design.
+{{note op="end"}}
+
+## Basic design
 
 The P2 base board in this tutorial is about as simple as you can build. It does not have a fuel gauge or PMIC, and is powered by USB only, with no battery support. There will be other tutorials for more complex power supply designs.
 
@@ -64,7 +72,7 @@ A USB connector is highly recommended for software updates, serial debugging, an
 
 This design uses an [Amphenol FCI 10118194-0001LF](https://www.digikey.com/products/en?keywords=609-4618-1-nd) SMD USB micro B receptacle. This is the same style of USB connector as on all Particle devices and evaluation boards.
 
-### Power Supply
+### Power supply
 
 This design uses a [Texas Instruments TPS62026DGQR](https://www.digikey.com/en/products/detail/texas-instruments/TPS62026DGQ/1672251) 3.3V fixed voltage regulator. It supplies 600 mA at 3.3V from a 3.6V to 6V supply, which is perfect for USB power (5V).
 

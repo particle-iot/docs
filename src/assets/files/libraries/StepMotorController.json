@@ -7,7 +7,7 @@
   "attributes": {
     "name": "StepMotorController",
     "version": "0.0.32",
-    "installs": 757,
+    "installs": 871,
     "license": "",
     "author": "Ryan Kast<ryan.kast@nimble-iot.com>",
     "sentence": "Step Motor Controller Interface     ",
@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/StepMotorController",
+  "cardUrl": "/reference/device-os/libraries/s/StepMotorController",
   "versions": {
     "0.0.32": {
       "builds": {
@@ -102,6 +102,46 @@
           },
           "esomx": {
             "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
           }
         }
       },

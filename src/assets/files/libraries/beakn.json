@@ -7,7 +7,7 @@
   "attributes": {
     "name": "beakn",
     "version": "0.4.1",
-    "installs": 529,
+    "installs": 588,
     "license": "MIT",
     "author": "Jon Gallant <jon@jongallant.com>",
     "sentence": "The beakn SparkCore library is part of a DIY Lync Status light called beakn. More information here: http://blog.jongallant.com",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/beakn",
+  "cardUrl": "/reference/device-os/libraries/b/beakn",
   "versions": {
     "0.4.1": {
       "builds": {
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "boron": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "bsom": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "b5som": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "tracker": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "esomx": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "boron": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "bsom": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "b5som": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "tracker": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "p2": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "beakn-sparkcore": false,
             "beakn-sparkcore-onboard-led": true

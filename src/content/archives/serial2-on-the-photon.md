@@ -17,7 +17,7 @@ Anyway, you have been warned. Here we go!
 
 Here's the bottom of the Photon (USB connector on the right).
 
-![Bottom Diagram](https://particle.zendesk.com/hc/article_attachments/360051654314/photon-serial2-faq-02bottom.png)
+![Bottom Diagram](/assets/images/support/photon-serial2-faq-02bottom.png)
 
 You need to make connections to pins 28 and 29 (the serial port) and optionally pin 27 (red LED). By doing all three, you can attach an external RGB LED to these pins, which may be helpful for debugging.
 
@@ -25,13 +25,13 @@ I used three female header sockets. You may prefer to use a different type of co
 
 Here is is after soldering the leads in place:
 
-![Leads soldered](https://particle.zendesk.com/hc/article_attachments/360052532613/photon-serial2-faq-04leads.jpg)
+![Leads soldered](/assets/images/support/photon-serial2-faq-04leads.jpg)
 
 * White Wire: 28 Green LED/TX
 * Purple Wire: 29 Blue LED/RX
 * Brown Wire: 27 Red LED
 
-![Epoxy in place](https://particle.zendesk.com/hc/article_attachments/360051654334/photon-serial2-faq-05epoxy.jpg)
+![Epoxy in place](/assets/images/support/photon-serial2-faq-05epoxy.jpg)
 
 I used epoxy to glue the headers in place. This was more difficult and messier than I anticipated.
 
@@ -41,7 +41,7 @@ There is a much better way of doing this at the end of the document!
 
 One advantage of making all three connections is that you can verify your wiring by using an external common anode RGB LED. I used [this one from Adafruit](https://www.adafruit.com/products/159) but any common anode LED should work.
 
-![LED](https://particle.zendesk.com/hc/article_attachments/360051654354/photon-serial2-faq-06led.png)
+![LED](/assets/images/support/photon-serial2-faq-06led.png)
 
 Left to right when positioned as shown above (flat side on right, longest lead is second from right):
 
@@ -52,7 +52,7 @@ Left to right when positioned as shown above (flat side on right, longest lead i
 
 Here is the external LED connected to the pins:
 
-![LED Wired](https://particle.zendesk.com/hc/article_attachments/360052532633/photon-serial2-faq-07ledwired.jpg)
+![LED Wired](/assets/images/support/photon-serial2-faq-07ledwired.jpg)
 
 * Orange wire: Photon pin 28 to LED pin 4, blue
 * White wire: Photon pin 29 to LED pin 3, green
@@ -66,7 +66,7 @@ With any luck, everything will be working properly, verifying the connections on
 
 Here's where things get more destructive. You need to disconnect the built-in RGB LED when using Serial2 because otherwise the TX and RX pins will be connected via the LED, and data corruption will likely result. The easiest and safest way to do this is to remove the 3 current limiting resistors R1, R2, and R7.
 
-![Top Diagram](https://particle.zendesk.com/hc/article_attachments/360051654374/photon-serial2-faq-08top.png)
+![Top Diagram](/assets/images/support/photon-serial2-faq-08top.png)
 
 If you have an SMD hot air rework station, it would be easy to remove these resistors.
 
@@ -74,7 +74,7 @@ In theory you should be able to remove them with a soldering iron. I had trouble
 
 Here's the Photon with the resistors removed:
 
-![No resistors](https://particle.zendesk.com/hc/article_attachments/360052532653/photon-serial2-faq-09noresistors.jpg)
+![No resistors](/assets/images/support/photon-serial2-faq-09noresistors.jpg)
 
 It took a few tries, but you can tell you did it successfully when you boot up and the status LED doesn't light up.
 
@@ -101,7 +101,7 @@ To use the status LED on different pins, you must choose other pins that have PW
 * D3: Green (orange wire)
 * A4: Blue (white wire)
 
-![LED wired to alternate location](https://particle.zendesk.com/hc/article_attachments/360051654394/photon-serial2-faq-10ledwired.jpg)
+![LED wired to alternate location](/assets/images/support/photon-serial2-faq-10ledwired.jpg)
 
 The documentations for [tone](/reference/device-os/firmware/photon/#tone-) more details of which pins you can use. I purposely avoided D0/D1 since I2C can be handy, and TX/RX since why would to go through the insanity if you didn't need both UART serial ports.
 
@@ -161,7 +161,7 @@ void ledChangeHandler(uint8_t r, uint8_t g, uint8_t b) {
 
 Of course the whole reason to do this was to use the Serial2 port.
 
-![Final test](https://particle.zendesk.com/hc/article_attachments/360051654414/photon-serial2-faq-11final.jpg)
+![Final test](/assets/images/support/photon-serial2-faq-11final.jpg)
 
 When you're looking at the modified Photon from the USB port side for serial port use:
 
@@ -329,7 +329,7 @@ Received from other Photon: 6
 
 There is a much better way of making the bottom connections, as well. Using the "no headers" version of the Photon, it can be surface mounted on a printed circuit board:
 
-![SMT Photon](https://particle.zendesk.com/hc/article_attachments/360052532673/photon-serial2-faq-12smt.jpg)
+![SMT Photon](/assets/images/support/photon-serial2-faq-12smt.jpg)
 
 This is just a test board that exposes all of the bottom connections as well as the standard Photon pins. This works best if you have a reflow oven to bake the Photon onto the circuit board, as it's impossible to hand-solder to the bottom pads in the SMT configuration.
 

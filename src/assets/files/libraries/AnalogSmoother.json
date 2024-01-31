@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AnalogSmoother",
     "version": "1.0.0",
-    "installs": 687,
+    "installs": 966,
     "license": "MIT",
     "author": "Nicholas Cox, nickcox1008@gmail.com",
     "maintainer": "Nicholas Cox <https://github.com/knickers>",
@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AnalogSmoother",
+  "cardUrl": "/reference/device-os/libraries/a/AnalogSmoother",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -91,6 +91,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "graph": true
+          },
+          "boron": {
+            "graph": true
+          },
+          "bsom": {
+            "graph": true
+          },
+          "b5som": {
+            "graph": true
+          },
+          "tracker": {
+            "graph": true
+          },
+          "esomx": {
+            "graph": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "graph": true
+          },
+          "boron": {
+            "graph": true
+          },
+          "bsom": {
+            "graph": true
+          },
+          "b5som": {
+            "graph": true
+          },
+          "tracker": {
+            "graph": true
+          },
+          "p2": {
+            "graph": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "graph": true
           },

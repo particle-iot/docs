@@ -179,6 +179,30 @@
     },
     [
       {
+        "dir": "msom-b-series-migration-guide",
+        "title": "M SoM from B Series migration guide",
+        "href": "/hardware/migration-guides/msom-b-series-migration-guide/",
+        "internal": true
+      },
+      {
+        "dir": "msom-p2-migration-guide",
+        "title": "M SoM from P2 migration guide",
+        "href": "/hardware/migration-guides/msom-p2-migration-guide/",
+        "internal": true
+      },
+      {
+        "dir": "msom-boron-migration-guide",
+        "title": "M SoM from Boron or Argon migration guide",
+        "href": "/hardware/migration-guides/msom-boron-migration-guide/",
+        "internal": true
+      },      
+      {
+        "dir": "msom-e-series-migration-guide",
+        "title": "M SoM from E Series migration guide",
+        "href": "/hardware/migration-guides/msom-e-series-migration-guide/",
+        "internal": true
+      },      
+      {
         "dir": "b-series-boron-migration-guide",
         "title": "B Series from Boron Migration Guide",
         "href": "/hardware/migration-guides/b-series-boron-migration-guide/"
@@ -324,13 +348,23 @@
     [
       {
         "dir": "certification",
-        "title": "Certifications",
+        "title": "Certification",
         "href": "/hardware/certification/certification/"
+      },
+      {
+        "dir": "certification-documents",
+        "title": "Certification documents",
+        "href": "/hardware/certification/certification-documents/"
       },
       {
         "dir": "antenna",
         "title": "Antennas",
         "href": "/hardware/certification/antenna/"
+      },
+      {
+        "dir": "battery-certification",
+        "title": "Battery certification",
+        "href": "/hardware/certification/battery-certification/"
       },
       {
         "dir": "enabling-wifi-rf-test-for-esp32",
@@ -347,6 +381,11 @@
         "dir": "watchdog-timers",
         "title": "Watchdog timers",
         "href": "/hardware/best-practices/watchdog-timers/"
+      },
+      {
+        "dir": "serial-number",
+        "title": "Serial number management",
+        "href": "/hardware/best-practices/serial-number/"
       }
     ]
   ]

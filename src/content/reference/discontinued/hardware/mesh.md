@@ -22,9 +22,9 @@ Mesh networking and the Xenon have been discontinued.
 
 <sup>3</sup> Mesh networks that have already been created will continue to function after December 31, 2020, however you will not be able to add any new devices to a mesh network.
 
-## Questions and Answers
+## Questions and answers
 
-#### Does this affect my standalone Argon or Boron?
+#### Does this affect my standalone Argon or boron?
 
 Argon, Boron, and B Series SoM devices will continue to be manufactured and sold. While you cannot use the Thread Mesh functionality after 2020, the primary network interface (Wi-Fi for Argon, cellular for Boron and B Series) will continue to be supported. BLE (Bluetooth LE) will continue to be supported as well.
 

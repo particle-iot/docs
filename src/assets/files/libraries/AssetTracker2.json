@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AssetTracker2",
     "version": "0.3.1",
-    "installs": 5259,
+    "installs": 5437,
     "license": "none",
     "author": "Lynd Wieman",
     "sentence": "A library to support the Particle Asset Tracker 2 using a driver for the Ublox M8Q GPS receiver.",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/AssetTracker2",
+  "cardUrl": "/reference/device-os/libraries/a/AssetTracker2",
   "versions": {
     "0.3.1": {
       "builds": {
@@ -178,12 +178,88 @@
             "2_Accelerometer": false,
             "usage": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "boron": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "bsom": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "b5som": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "tracker": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "p2": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "boron": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "bsom": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "b5som": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "tracker": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          },
+          "esomx": {
+            "0_GPS_Features": false,
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.811Z"
     }
   },
-  "readme": "# AssetTracker2\n\nA Particle library for Asset Tracker 2. This library requires the UbloxM8Q_GPS \ndriver for the GPS receiver used in Asset Tracker 2, and the libraries\nAdadfruit_LIS3DH and Adafruit_Sensor which were required for the first Asset\nTracker hardware also.\n\n\n## Usage\n\nConnect the Particle Asset Tracker 2 hardware, add the AssetTracker2,\nthe UbloxM8Q_GPS, the Adafruit_LIS3SDH, and the Adafruit_Sensor libraries\nto your project and follow the example of one of the examples provided with\nthis library. \nOnly the 0_GPS_Features and 1_GPS_Features examples were modified. The other\nexamples are unchanged from what was included with the original AssetTracker\nlibrary.\n\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nWhen I first used the AssetTracker 2 hardware I tried the AssetTracker\nand Adafruit_GPS drivers which were written for a different GPS receiver.\nAlthough they worked to parse the NMEA data that the ublox receiver\ngenerates by default, they used the wrong protocol for configuration and\nso all commands were ignored.\nAlso, to get the most benefit from the ublox receiver the ubx protocol must\nbe used. So, I wrote this driver.\nRather than support two protocols and suffer with the complexities involved\nI only implemented the ubx protocol. When the receiver is initialized\nthe NMEA (ASCII) sentences are turned off and ubx protocol messages are\nenabled.\n\nThe ublox driver was written to be as compatible as possible with the\nAssetTracker driver but the AssetTracker library had dependencies on the \nnon-ublox GPS receiver that was used for AssetTracker 1.\nI have created the AssetTracker2 library to remove the dependencies, but\nthe AssetTracker2 is now inextricably depedendent on the ublox driver.\n\nThe external interface presented by AssetTracker and AssetTracker2 are \nsimilar but access methods that were specific to NMEA have been removed.\n \nThere is a timing problem on startup that is related to trying to initialize\nthe GPS receiver while the cell, network, and cloud connections are being\ninitialized by the particle system software. The symptom is the GPS\nreceiver doesn't get configured correctly and so the driver never \nreceives ubx messages immediately after initialization. \n\nYou can avoid the startup problem by starting in SYSTEM_MODE(MANUAL),\nthen call Particle.connect() after the GPS receiver is running. See\nexamples 0 and 1 for details.\n\nThis version of the drivers runs the gps access off a timer interrupt \ninstead of calling it repeatedly in loop(). This works much better without \nany lost data.\n\nBoiler plate from Particle that I didn't remove:\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add AssetTracker2_myname` to add the library to a project on your machine or add the AssetTracker2_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nThis software was mostly written by someone else. I make no claim to license\nor copyright.\n",
+  "readme": "# AssetTracker2\n\nA Particle library for Asset Tracker 2. This library requires the UbloxM8Q_GPS \ndriver for the GPS receiver used in Asset Tracker 2, and the libraries\nAdadfruit_LIS3DH and Adafruit_Sensor which were required for the first Asset\nTracker hardware also.\n\n\n## Usage\n\nConnect the Particle Asset Tracker 2 hardware, add the AssetTracker2,\nthe UbloxM8Q_GPS, the Adafruit_LIS3SDH, and the Adafruit_Sensor libraries\nto your project and follow the example of one of the examples provided with\nthis library. \nOnly the 0_GPS_Features and 1_GPS_Features examples were modified. The other\nexamples are unchanged from what was included with the original AssetTracker\nlibrary.\n\n\nSee the examples folder for more details.\n\n## Documentation\n\nWhen I first used the AssetTracker 2 hardware I tried the AssetTracker\nand Adafruit_GPS drivers which were written for a different GPS receiver.\nAlthough they worked to parse the NMEA data that the ublox receiver\ngenerates by default, they used the wrong protocol for configuration and\nso all commands were ignored.\nAlso, to get the most benefit from the ublox receiver the ubx protocol must\nbe used. So, I wrote this driver.\nRather than support two protocols and suffer with the complexities involved\nI only implemented the ubx protocol. When the receiver is initialized\nthe NMEA (ASCII) sentences are turned off and ubx protocol messages are\nenabled.\n\nThe ublox driver was written to be as compatible as possible with the\nAssetTracker driver but the AssetTracker library had dependencies on the \nnon-ublox GPS receiver that was used for AssetTracker 1.\nI have created the AssetTracker2 library to remove the dependencies, but\nthe AssetTracker2 is now inextricably depedendent on the ublox driver.\n\nThe external interface presented by AssetTracker and AssetTracker2 are \nsimilar but access methods that were specific to NMEA have been removed.\n \nThere is a timing problem on startup that is related to trying to initialize\nthe GPS receiver while the cell, network, and cloud connections are being\ninitialized by the particle system software. The symptom is the GPS\nreceiver doesn't get configured correctly and so the driver never \nreceives ubx messages immediately after initialization. \n\nYou can avoid the startup problem by starting in SYSTEM_MODE(MANUAL),\nthen call Particle.connect() after the GPS receiver is running. See\nexamples 0 and 1 for details.\n\nThis version of the drivers runs the gps access off a timer interrupt \ninstead of calling it repeatedly in loop(). This works much better without \nany lost data.\n\nBoiler plate from Particle that I didn't remove:\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add AssetTracker2_myname` to add the library to a project on your machine or add the AssetTracker2_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nThis software was mostly written by someone else. I make no claim to license\nor copyright.\n",
   "allVersions": [
     "0.3.1",
     "0.3.0",

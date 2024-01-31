@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Temperature_Alarm",
     "version": "1.0.0",
-    "installs": 732,
+    "installs": 812,
     "license": "GNU",
     "author": "Travis Elliott <travis@controleverything.com>",
     "sentence": "Library serves as example for article SI7020_I2CBZ_Temp_Alarm on controleverything.com",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/Temperature_Alarm",
+  "cardUrl": "/reference/device-os/libraries/t/Temperature_Alarm",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          },
+          "bsom": {
+            "application": true
+          },
+          "b5som": {
+            "application": true
+          },
+          "tracker": {
+            "application": true
+          },
+          "esomx": {
+            "application": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          },
+          "bsom": {
+            "application": true
+          },
+          "b5som": {
+            "application": true
+          },
+          "tracker": {
+            "application": true
+          },
+          "p2": {
+            "application": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "application": true
           },

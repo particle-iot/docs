@@ -66,14 +66,8 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 - Two U.FL connectors for external antennas (one for Bluetooth, another for Wi-Fi)
 
 - Meets the [Feather specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
-- FCC, CE and IC certified
+- FCC (United States), CE (European Union), and ISED (Canada) certified
 - RoHS compliant (lead-free)
 
-<div align="center">
-<br />
-
-<a href="https://store.particle.io/products/argon" target="_blank" class="button">BUY AN ARGON</a>
-
-</div>
 
 {{box op="end"}}

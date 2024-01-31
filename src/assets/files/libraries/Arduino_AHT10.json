@@ -1,0 +1,138 @@
+{
+  "type": "libraries",
+  "id": "Arduino_AHT10",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Arduino_AHT10/archive/0.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Arduino_AHT10",
+    "version": "0.1.0",
+    "installs": 203,
+    "author": "Adafruit",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/Arduino_AHT10",
+  "versions": {
+    "0.1.0": {
+      "added": "2023-03-21T19:38:20.332Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit AHT10 [![Build Status](https://github.com/adafruit/Adafruit_AHT10/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_AHT10/actions)\n\nThis is the Adafruit AHT10 Humidity and Temperature Sensor library for Arduino\n\nTested and works great with the Adafruit AHT10 Breakout Board\n[<img src=\"assets/board.png?raw=true\" width=\"500px\">](https://www.adafruit.com/products/)\nThis chip uses I2C to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\n# Dependencies\n* [Adafruit_BusIO](https://github.com/adafruit/Adafruit_BusIO)\n* [Adafruit_Sensor](https://github.com/adafruit/Adafruit_Sensor)\n\n# Contributing\n\nContributions are welcome! Please read our [Code of Conduct](https://github.com/adafruit/Adafruit_AHT10/blob/master/CODE_OF_CONDUCT.md>)\nbefore contributing to help this project stay welcoming.\n\n## Documentation and doxygen\nDocumentation is produced by doxygen. Contributions should include documentation for any new code added.\n\nSome examples of how to use doxygen can be found in these guide pages:\n\nhttps://learn.adafruit.com/the-well-automated-arduino-library/doxygen\n\nhttps://learn.adafruit.com/the-well-automated-arduino-library/doxygen-tips\n\nWritten by ladyada for Adafruit Industries.\nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\nTo install, use the Arduino Library Manager and search for \"Adafruit AHT10\" and install the library.\n",
+  "allVersions": [
+    "0.1.0"
+  ]
+}

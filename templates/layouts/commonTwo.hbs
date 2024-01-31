@@ -15,6 +15,7 @@
         </div>
       </div>
       <div class="page-body">
+        {{> document-search}}
         <div class='content-inner'>
           <div class="content" >
             {{{contents}}}
@@ -22,8 +23,8 @@
         </div>
       </div>
     </div>
-    <div id="imageOverlay"></div>
+    {{> image-overlay}}
+    {{> search-overlay }}
     {{> scripts}}
-
 </body>
 </html>

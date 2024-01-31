@@ -12,6 +12,9 @@ We highly recommend using the [web-based setup](https://setup.particle.io/) as i
 
 Note that these instructions are intended to be used to set up individual developer devices, not product fleets, though there are some common steps.
 
+If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-Fi setup options](/reference/device-os/wifi-setup-options/).
+
+
 ## Prerequisites 
 
 - Manual setup requires a Windows, Linux, or Mac computer. It cannot be completed on a phone, tablet, or Chromebook.
@@ -56,14 +59,16 @@ Note that these instructions are intended to be used to set up individual develo
 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Micro B |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | USB-C |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Micro B |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | USB-C |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | USB-C |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | USB-C |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | USB-C |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | USB-C |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Micro B |
 | PHN2KIT | Photon 2, Kit [x1] | Micro B |
-| PHN2MEA | Photon 2, [x1] | Micro B |
+| PHN2MEA | Photon 2 [x1] | Micro B |
 | PHOTONH | Photon with Headers, [x1] | Micro B |
 | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Micro B |
 | PHOTONNOH | Photon without Headers, Dev board Kit [x1] | Micro B |
@@ -72,10 +77,8 @@ Note that these instructions are intended to be used to set up individual develo
 | SPKBTTN | Internet Button, [x1] | Micro B |
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | USB-C |
 | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | Micro B |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | Micro B |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | Micro B |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -127,14 +130,16 @@ Note that these instructions are intended to be used to set up individual develo
 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | &nbsp; |
 | E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | &nbsp; |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | &nbsp; |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | &nbsp; |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | &nbsp; |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | &nbsp; |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | &nbsp; |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | &nbsp; |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | &nbsp; |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | &check; |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | &check; |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | &check; |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | &nbsp; |
 | PHN2KIT | Photon 2, Kit [x1] | &nbsp; |
-| PHN2MEA | Photon 2, [x1] | &nbsp; |
+| PHN2MEA | Photon 2 [x1] | &nbsp; |
 | PHOTONH | Photon with Headers, [x1] | &nbsp; |
 | PHOTONKIT | Photon with Headers Starter Kit, [x1] | &nbsp; |
 | PHOTONNOH | Photon without Headers, Dev board Kit [x1] | &nbsp; |
@@ -144,14 +149,10 @@ Note that these instructions are intended to be used to set up individual develo
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | &nbsp; |
 | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | &nbsp; |
 | T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | &nbsp; |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | &nbsp; |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | &nbsp; |
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | &check; |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | &check; |
 | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | &check; |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | &check; |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | &check; |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -168,7 +169,7 @@ In order to add your device to your product, you will need either:
 
 The CLI commands to claim a device and name a device require a Device ID. If you add a device to a product using the serial number, the console will show the Device ID corresponding to that serial number. The interactive tool below also does this.
 
-### Interactive - Get a device identifier
+### Interactive - get a device identifier
 
 This tool will get information about your device connected to your computer by USB:
 
@@ -208,11 +209,11 @@ Particle devices can be used in a product, or as sandbox developer devices. Even
 
 Using a product in the free plan is still free. You can have any combination of Wi-Fi and cellular devices in the free plan whether the devices are developer or product devices.
 
-### Interactive - Create or select a product
+### Interactive - create or select a product
 
-{{> create-or-select-product includeStatus="1"}}
+{{> create-or-select-product options="status"}}
 
-### Console - Create a product
+### Console - create a product
 
 - Go to the [Particle console](https://console.particle.io/). 
 
@@ -222,7 +223,7 @@ Using a product in the free plan is still free. You can have any combination of 
 
 - Fill in the fields and create the new product. Note the product ID of your new product. It's shown next to the key icon at the top of the window..
 
-### Console - Find an existing product
+### Console - find an existing product
 
 - Go to the [Particle console](https://console.particle.io/). 
 
@@ -236,13 +237,13 @@ Using a product in the free plan is still free. You can have any combination of 
 
 Adding a cellular device to a product also activates its SIM. If you skip this step, a cellular device may end up blinking green forever because it won't be able to connect to the cellular network.
 
-### Interactive - Add your device to your product
+### Interactive - add your device to your product
 
 {{> add-device-to-product }}
 
 The options for claim, mark as development, and name device are explained below.
 
-### Console - Add your device to your product
+### Console - add your device to your product
 
 - Go to the [Particle console](https://console.particle.io/). 
 
@@ -262,7 +263,7 @@ particle product device add <product_id> <device_id>
 
 ## Claim your device
 
-Claiming a device is separate from adding your device to a product. It makes your account the owner of the device, which allows to to so certain things like flash code directly to your device. Claiming is not always necessary; Tracker devices using Tracker Edge often run as unclaimed product devices. However, if you are going to be writing and testing firmware on devices, you almost certainly will need to claim the device.
+Claiming a device is separate from adding your device to a product. It makes your account the owner of the device, which allows to to so certain things like flash code directly to your device. Claiming is often unnecessary; Tracker devices using Tracker Edge often run as unclaimed product devices. However, if you are going to be writing and testing firmware on devices, you almost certainly will need to claim the device.
 
 ### CLI - Claim your device
 
@@ -277,7 +278,7 @@ particle device add <device_id>
 
 In addition to claiming a device, it's useful to mark the device as a development device. The main purpose is to allow you to manage your own firmware flashing for the device, so you can directly program testing firmware and other custom firmware to your device. If you do not mark the device as a development device, the cloud will immediately replace your custom firmware with the default product firmware, which is probably not what you want.
 
-### Console - Mark as development device
+### Console - mark as development device
 
 - Go to the [Particle console](https://console.particle.io/). 
 
@@ -295,7 +296,7 @@ Naming your device makes it easier to identify devices in the console, but is no
 
 You should avoid using a name as a unique identifier for devices in your product, as it's not always set and not guaranteed to be unique. You should instead use the Device ID when identifying devices in a database or back-end service.
 
-### Console - Name your device
+### Console - name your device
 
 - Go to the [Particle console](https://console.particle.io/). 
 

@@ -1,0 +1,144 @@
+{
+  "type": "libraries",
+  "id": "SHA1_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SHA1_RK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SHA1_RK",
+    "version": "0.0.1",
+    "installs": 638,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Implementation of SHA1 hash algorithm for Particle devices",
+    "url": "https://github.com/rickkas7/SHA1_RK",
+    "repository": "https://github.com/rickkas7/SHA1_RK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SHA1_RK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T15:38:45.664Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-test-vectors": true
+          },
+          "boron": {
+            "1-test-vectors": true
+          },
+          "bsom": {
+            "1-test-vectors": true
+          },
+          "b5som": {
+            "1-test-vectors": true
+          },
+          "tracker": {
+            "1-test-vectors": true
+          },
+          "p2": {
+            "1-test-vectors": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-test-vectors": true
+          },
+          "boron": {
+            "1-test-vectors": true
+          },
+          "bsom": {
+            "1-test-vectors": true
+          },
+          "b5som": {
+            "1-test-vectors": true
+          },
+          "tracker": {
+            "1-test-vectors": true
+          },
+          "esomx": {
+            "1-test-vectors": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-test-vectors": true
+          },
+          "electron": {
+            "1-test-vectors": true
+          },
+          "argon": {
+            "1-test-vectors": true
+          },
+          "boron": {
+            "1-test-vectors": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-test-vectors": true
+          },
+          "electron": {
+            "1-test-vectors": true
+          },
+          "argon": {
+            "1-test-vectors": true
+          },
+          "boron": {
+            "1-test-vectors": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-test-vectors": true
+          },
+          "boron": {
+            "1-test-vectors": true
+          },
+          "bsom": {
+            "1-test-vectors": true
+          },
+          "b5som": {
+            "1-test-vectors": true
+          },
+          "tracker": {
+            "1-test-vectors": true
+          },
+          "p2": {
+            "1-test-vectors": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-test-vectors": true
+          },
+          "boron": {
+            "1-test-vectors": true
+          },
+          "bsom": {
+            "1-test-vectors": true
+          },
+          "b5som": {
+            "1-test-vectors": true
+          },
+          "tracker": {
+            "1-test-vectors": true
+          },
+          "esomx": {
+            "1-test-vectors": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# SHA1 Library\n\n**SHA1 hash implementation for Particle Devices**\n\n## API\n\n\n### SHA1Init\n\n```cpp\n// PROTOTYPE\nvoid SHA1Init(SHA1_CTX* context);\n```\n\nInitialize the context structure. Call this to initialize or reuse a `SHA1_CTX` structure.\n\n### SHA1Update\n\n```cpp\n// PROTOTYPE\nvoid SHA1Update(SHA1_CTX* context, const unsigned char* data, u_int32_t len);\n```\n\nUpdates the hash with additional data. You can call this repeatedly with the same ctx to add more data to the hash if the data arrives in buffers.\n\n### SHA1Final\n\n```cpp\n// PROTOTYPE\nvoid SHA1Final(unsigned char digest[20], SHA1_CTX* context);\n```\n\nFinalizes the hash calculation and stores the SHA1 digest in `digest`. The `digest` variable must point to a buffer of 20 bytes to hold the hash. It's always 20 bytes (160 bits) for SHA1, other SHA hash algorithms have longer digests.\n\n### SHA1\\_CTX\n\n```cpp\ntypedef struct {\n    u_int32_t state[5];\n    u_int32_t count[2];\n    unsigned char buffer[64];\n} SHA1_CTX;\n```\n\nThis structure (72 bytes) stores the state of the SHA1 has. Initialize it with `SHA1Init`. \n\n\n## Original Library\n\n```\nSHA-1 in C\nBy Steve Reid <steve@edmweb.com>\n100% Public Domain\n```\n\nFound here: https://gist.github.com/jrabbit/1042021\n\n## Revision History\n\n### 0.0.1 (2020-08-07)\n\n- Initial version\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

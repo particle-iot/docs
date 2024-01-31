@@ -13,7 +13,7 @@ Particle devices (Gen 2 and Gen 3, including the Photon, P1, Electron, E Series,
 
 
 
-The threading system in Device OS is stable, and threads are used by the system internally and can be used judiciously.
+Threading in Device OS is stable, and threads are used by Device OS internally and can be used judiciously.
 
 Because Particle Devices have limited RAM and no virtual memory it's impractical to use a large number of threads. You should not expect to start dozens of threads as you might in a Java application, for example.
 
@@ -21,7 +21,7 @@ As with threaded programs on all platforms, you have to be careful with thread s
 
 Threads are an advanced programming feature and very powerful when used correctly. Used incorrectly they can introduce new and novel issues into your code that are often more difficult to debug than single-threaded code. Exercise caution and consider alternate designs such as finite state machines when your requirements allow.
 
-## Using Threads
+## Using threads
 
 A bit of background:
 
@@ -94,6 +94,14 @@ Argon:
 0000017565 [app] INFO: counter=6876
 ```
 
+P2 and Photon 2:
+
+```
+0000014885 [app] INFO: counter=10039
+0000015885 [app] INFO: counter=10160
+0000016885 [app] INFO: counter=10212
+```
+
 The results are quite different when the system thread is enabled:
 
 ```cpp
@@ -151,6 +159,14 @@ Argon:
 0000016275 [app] INFO: counter=31566
 0000017275 [app] INFO: counter=31688
 0000018275 [app] INFO: counter=31658
+```
+
+P2 and Photon 2:
+
+```
+0000015000 [app] INFO: counter=77111
+0000016000 [app] INFO: counter=77353
+0000017000 [app] INFO: counter=77440
 ```
 
 The takeaways is: 
@@ -241,62 +257,21 @@ Argon:
 0000023317 [app] INFO: counter=5235241
 ```
 
+P2 and Photon 2:
+
+```
+0000016000 [app] INFO: counter=38384422
+0000017000 [app] INFO: counter=19615061
+0000018000 [app] INFO: counter=19566063
+0000019000 [app] INFO: counter=19675594
+0000020000 [app] INFO: counter=39428569
+```
+
 The reason it's bad and unpredictable is that when the thread begins execution, it does not yield until its 1 millisecond time slice is completed used up and interrupted.
-
-### With yield
-
-A much better idea is to yield the CPU when you're done instead of crazy looping like that. Here's my modified threadFunction:
-
-```cpp
-void threadFunction(void) {
-	while(true) {
-		counter++;
-
-		os_thread_yield();
-	}
-	// You must not return from the thread function
-}
-```
-
-Photon 1.4.2:
-
-```
-0000008001 [app] INFO: counter=1002
-0000009001 [app] INFO: counter=1000
-0000010001 [app] INFO: counter=1004
-0000011001 [app] INFO: counter=1002
-0000012001 [app] INFO: counter=1000
-0000013001 [app] INFO: counter=1002
-0000014001 [app] INFO: counter=1002
-```
-
-Electron:
-
-```
-0000008000 [app] INFO: counter=988
-0000009000 [app] INFO: counter=1000
-0000010000 [app] INFO: counter=1000
-0000011000 [app] INFO: counter=1000
-0000012000 [app] INFO: counter=1000
-```
-
-Argon:
-
-```
-0000033322 [app] INFO: counter=998
-0000034322 [app] INFO: counter=998
-0000035322 [app] INFO: counter=998
-0000036322 [app] INFO: counter=999
-0000037322 [app] INFO: counter=999
-```
-
-As you can see, the results are much more predictable, and the thread runs pretty close to 1000 times per second. It also means that other threads run more predictably.
 
 ### Yielding using delay
 
-While the example above used `os_thread_yield()` you can get exactly the same results using `delay(1)`. The reason is that `delay()` also yields to other threads internally, and won't resume until the delay is complete. Since the thread scheduler is also on a 1 millisecond schedule, it works out the same.
-
-You can use whichever you prefer.
+The `delay()` function yields to other threads internally, and won't resume until the delay is complete. Since the thread scheduler is also on a 1 millisecond schedule, setting it to 1 will delay until the next timeslice.
 
 ```cpp
 #include "Particle.h"
@@ -533,7 +508,7 @@ Argon 1.4.2:
 
 ### Synchronized access
 
-Many system resources are not thread-safe and you must manually manage synchronization.
+Many device resources are not thread-safe and you must manually manage synchronization.
 
 For example, the USB serial debug port (Serial) can only be called safely from multiple threads if you surround all accesses with WITH_LOCK(), as in:
 
@@ -984,7 +959,7 @@ However you must avoid within a SINGLE\_THREADED\_BLOCK:
 - Any call that can block (`Particle.publish`, `Cellular.RSSI`, and others)
 - Any function that uses a mutex to guard a resource (`Log.info`, SPI transactions, etc.)
 
-The problem with mutex guarded resources is a bit tricky. For example: `Log.info` uses a mutex to prevent multiple threads from trying to log at the same time, causing the messages to be mixed together. However the code runs with interrupts and thread swapping enabled. Say the system thread is logging and your user thread code swaps in. The system thread still holds the logging mutex. Your code enters a SINGLE\_THREADED\_BLOCK, then does `Log.info`. The system will deadlock at this point. Your `Log.info` in the user thread blocks on the logging mutex. However it will never become available because thread swapping has been disabled, so the system thread can never release it. Both threads will stop running at this point.
+The problem with mutex guarded resources is a bit tricky. For example: `Log.info` uses a mutex to prevent multiple threads from trying to log at the same time, causing the messages to be mixed together. However the code runs with interrupts and thread swapping enabled. Say the system thread is logging and your user thread code swaps in. The system thread still holds the logging mutex. Your code enters a SINGLE\_THREADED\_BLOCK, then does `Log.info`. The device will deadlock at this point. Your `Log.info` in the user thread blocks on the logging mutex. However it will never become available because thread swapping has been disabled, so the system thread can never release it. Both threads will stop running at this point.
 
 Because it's hard to know exactly what resources will be guarded by a mutex its best to minimize the use of SINGLE\_THREADED\_BLOCK.
 
@@ -1096,7 +1071,7 @@ void threadFunction(void *param) {
 			Log.info("button pressed %d times", times);
 		}
 
-		os_thread_yield();
+		delay(1);
 	}
 
 	// You must not return from the thread function
@@ -1140,7 +1115,7 @@ Thread(const char* name, os_thread_fn_t function, void* function_param=NULL,
 - `name` Name for the thread. Currently limited to 16 bytes. Not really used for anything and does not need to be unique.
 - `function` the thread function
 - `function_param` optional context data to pass to the thread function
-- `priority` the thread priority (optional). The default is 2. Smaller numbers are lower priority. The idle task priority is 0 and is the lowest. The maximum is currently 9. Avoid creating very high priority threads as they can adversely affect the operation of the rest of the system.
+- `priority` the thread priority (optional). The default is 2. Smaller numbers are lower priority. The idle task priority is 0 and is the lowest. The maximum is currently 9. Avoid creating very high priority threads as they can adversely affect the operation of the rest of the device.
 - `stack_size` the stack size (optional). Default is 3K bytes (3072 bytes).
 
 The `function` parameter is the type:
@@ -1219,7 +1194,7 @@ os_result_t os_thread_create(os_thread_t* result, const char* name,
 
 - `result` filled in with the `os_thread_t` thread handle for the new thread
 - `name` Name for the thread. Currently limited to 16 bytes. Not really used for anything and does not need to be unique.
-- `priority` the thread priority (optional). The default is 2. Smaller numbers are lower priority. The idle task priority is 0 and is the lowest. The maximum is currently 9. Avoid creating very high priority threads as they can adversely affect the operation of the rest of the system.
+- `priority` the thread priority (optional). The default is 2. Smaller numbers are lower priority. The idle task priority is 0 and is the lowest. The maximum is currently 9. Avoid creating very high priority threads as they can adversely affect the operation of the device.
 - `fun` thread function
 - `thread_param` optional context data that is passed to the thread function.
 - `stack_size` the stack size (optional). Default is 3K bytes (3072 bytes).
@@ -1298,7 +1273,7 @@ os_result_t os_thread_yield(void);
 
 Yields the current thread's execution time slice to allow other threads to run. If you don't call this or other function that yields, the thread will get a full 1 millisecond time slices.
 
-Calling `delay(1)` is effectively the same as `os_thread_yield()` as it will give up the current time slices until the next scheduled time slices.
+You should use `delay(1)` instead of `os_thread_yield()` due to a bug in some versions of Device OS where `os_thread_yield()` does not yield to threads of equal priority, which can cause unexpected behavior. Because the task scheduler timeslice is 1 millisecond, the calls behave similarly.
 
 
 #### os\_thread\_delay\_until
@@ -1531,7 +1506,7 @@ Frees the memory allocated during `os_queue_create`.
 - `reserved` must be 0 or `nullptr`. It's not currently used.
 
 
-## More Details
+## More details
 
 You can find more documentation in the source:
 

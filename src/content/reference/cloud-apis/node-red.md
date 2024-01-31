@@ -50,7 +50,7 @@ information is collected
 - Disable access to using a broken device when a service-person is
 en-route to fix it
 
-## Key Terms
+## Key terms
 There are some key terms that will help you get started with the Rules
 Engine:
 
@@ -102,92 +102,23 @@ often also have a set of associated properties.
 In Node-RED, a message object is normally referred to as `msg`.
 Associated properties are most commonly stored in `msg.payload`.
 
-## Getting Started
+## Getting started
 
 Let's get you up and running with Node-RED. You can either run it using a cloud service, or run it locally on your computer.
 
 - [Using a Cloud Service](#using-a-cloud-service)
 - [Running Locally](#running-locally)
 
-## Using a Cloud Service
+## Using a cloud service
 
-There are a number of cloud services that support Node-RED, however the most convenient is the IBM Cloud. There's built-in support for deploying Node-RED, and you can do so in the free plan for simple flows. 
+There are a number of cloud services that support Node-RED. You can start from the [Node-RED Instructions](https://nodered.org/docs/getting-started/) for cloud-based services such as:
 
-- [Official Node-RED Instructions](https://nodered.org/docs/getting-started/ibmcloud) for IBM Cloud.
-- [A helpful article](https://hackernoon.com/how-to-securely-host-node-red-in-cloud-for-free-and-safely-expose-it-to-the-internet-over-https-hw5d3220) about setting up IBM Cloud.
-- Or, if you prefer, instructions for using [AWS](https://nodered.org/docs/getting-started/aws) or [Microsoft Azure](https://nodered.org/docs/getting-started/azure).
+- AWS EC2
+- Microsoft Azure
 
-### Using IBM Cloud
+Then follow the instructions below for [Getting started with Node-RED](#getting-started-with-node-red) to add the Particle Node to your instance and begin creating workflows.
 
-The [Node-RED IBM Cloud Instructions](https://nodered.org/docs/getting-started/ibmcloud) are quite complete, but the basic process is:
-
-- Sign up for a free [IBM Cloud](https://cloud.ibm.com) account if you do not already have one. No credit card is required to start.
-
-- After signing in create a **Create Resource +**, the blue button in the upper-right corner of the window. 
-
-![Create Resource](/assets/images/rules-engine/create-resource.png)
-
-- Search for **node-red**:
-
-![Create Resource](/assets/images/rules-engine/search-node-red.png)
-
-- Select the **Node-RED App**:
-
-![Create Resource](/assets/images/rules-engine/node-red-app.png)
-
-- Click **Get Started**. You can usually use the default settings and just select **Create** in the next page.
-
-![Create App](/assets/images/rules-engine/create-app.png)
-
-- In the **Services** panel, the status will be **Provisioning service credentials** for a few minutes.
-
-![Provisioning service credentials](/assets/images/rules-engine/provisioning-service-credentials.png)
-
-- When complete you can proceed to the next step by clicking the blue **Deploy your app** button on the right side to being deployment. You don't need to add services to it first; the Node-RED app itself contains everything you need to run it. 
-
-![Create Progress](/assets/images/rules-engine/create-deploy-app.png)
-
-- Select **Cloud Foundry** as the Deployment target if not already selected.
-
-![Deployment Target](/assets/images/rules-engine/deployment-target.png)
-
-- Create an API Key using the **New** button. The rest of the setting defaults are usually fine. Click **Next**.
-
-![Create API Key](/assets/images/rules-engine/create-api-key.png)
- 
-- You can use the default settings for **Configure the DevOps toolchain** then click **Create**.
-
-![Create Devops Toolchain](/assets/images/rules-engine/create-devops.png)
-
-- It will take a few minutes to deploy. The progress is shown in the **Delivery Pipelines** panel. It may be **No Stages Detected** for a minute before switching to **In progress** for a few minutes. When it reaches **Success** you can proceed to the next step.
-
-![Create Pipeline](/assets/images/rules-engine/create-pipeline.png)
-
-- Click the **Open Dashboard** link in **Services**.
-
-![Open Dashboard](/assets/images/rules-engine/open-dashboard.png)
-
-- In the Dashboard, click **Connections** in the left-hand menu. Note the URL under **Route**. If you selected the default settings it should be something like `https://node-red-<something>.mybluemix.net/`. Note that you need to use this URL, not the external endpoint URL in the Overview page.
-
-![Route URL](/assets/images/rules-engine/connection-route.png)
-
-- Open the Route URL and follow the steps to configure and secure your Node-RED installation. Make sure you set a strong password as anyone can get to your cloud-hosted Node-RED installation if they know the URL.
-
-![Cloud Configuration 1](/assets/images/rules-engine/cloud-configure-1.png)
-
-![Cloud Configuration 2](/assets/images/rules-engine/cloud-configure-2.png)
-
-![Cloud Configuration 3](/assets/images/rules-engine/cloud-configure-3.png)
-
-![Cloud Configuration 4](/assets/images/rules-engine/cloud-configure-4.png)
-
-- Once you've secured your installation, you'll be at the home page. Click the **Go to your Node-RED flow editor** button to begin.
-
-![Cloud Home](/assets/images/rules-engine/cloud-home.png)
-
-- Then follow the instructions below for [Getting started with Node-RED](#getting-started-with-node-red) to add the Particle Node to your instance and begin creating workflows.
-
-## Running Locally
+## Running locally
 
 It's also possible to run Node-RED on your own computer, either natively or in a Docker container.
 
@@ -198,7 +129,7 @@ If you are running Node-RED locally, you generally do not need to open firewall 
 
 If you want to access the Node-RED flow editor (port 1880) or dashboard from outside your local network you would need to configure port forwarding for most home networks. However, be sure to require logging in if you enable access!
 
-### Running Locally - Docker
+### Running locally - Docker
 
 [The Node-RED Docker instructions](https://nodered.org/docs/getting-started/docker) are a good place to start.
 
@@ -247,7 +178,7 @@ And delete it:
 docker rm mynodered
 ```
 
-### Running Locally - Native
+### Running locally - native
 
 This method is also a good way to run Node-RED on a **Raspberry Pi**, allowing you to use an inexpensive Raspberry Pi as your Node-RED server!
 
@@ -304,7 +235,7 @@ top of the flow builder to rename it at any time. You can also click on
 the **+** button in the top-right corner of the flow builder to create
 new flows.
 
-### Adding the Particle Node
+### Adding the Particle node
 
 Since presumably you're wanting to use this with Particle devices, you'll want to install the Particle node.
 
@@ -321,7 +252,7 @@ Since presumably you're wanting to use this with Particle devices, you'll want t
 ![Particle Nodes](/assets/images/rules-engine/particle-nodes.png)
 
 
-### Hello World Flow
+### Hello world flow
 
 We can start with the simplest flow possible: injecting some data in,
 and logging it out using the debug node.
@@ -394,7 +325,7 @@ object. This method of accessing properties of a message using
 
 Congrats! You've built your first flow successfully.
 
-### Adding Nodes to Your Palette
+### Adding nodes to your palette
 
 Beyond the nodes included with the default palette, you have the ability
 to install a variety of open-source nodes that have been contributed to
@@ -417,7 +348,7 @@ to add it to your palette. You will need to confirm this action.
 
 A table of the nodes that were installed with the Particle Rules Engine by default can be [found below](#nodes-in-particle-rules-engine).
 
-## The Particle Nodes
+## The Particle nodes
 
 The Particle Nodes include:
 
@@ -437,7 +368,7 @@ In the **User Settings** window in the **Palette** tab, select **Install** (1) t
 
 In order to use the Particle Nodes you will need to first set up authentication.
 
-### Setting up Authentication
+### Setting up authentication
 
 The Particle Nodes will need access to your Particle account in order to interact with your devices.
 
@@ -532,7 +463,7 @@ In the **User Settings** window in the **Palette** tab, select **Install** (1) t
 ![Rules Install](/assets/images/rules-engine/install.png)
 
 
-### Exporting Your Rules
+### Exporting your rules
 
 To export your rules from the Particle Rules Engine:
 
@@ -550,7 +481,7 @@ To export your rules from the Particle Rules Engine:
 
 Note: The exported rules contain any passwords you saved when you configured your nodes, along with the secret for your Particle authentication. Keep this secure.
 
-## Original Documentation
+## Original documentation
 
 Snapshots of the original Rules Engine documentation have been taken and saved as PDFs below, however the instructions may vary slightly when used on Node-RED directly.
 

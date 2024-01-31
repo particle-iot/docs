@@ -113,12 +113,14 @@
         {
             "page": 105,
             "title": "Ticket submitted!",
-            "note": "ticket-submitted.md"
+            "note": "ticket-submitted.md",
+            "doNotRestore": true
         },
         {
             "page": 106,
             "title": "Error submitting ticket",
-            "description": "An error occurred submitting your support ticket request."
+            "description": "An error occurred submitting your support ticket request.",
+            "doNotRestore": true
         },
         {
             "page": 107,
@@ -131,11 +133,15 @@
                 {
                     "page": 227,
                     "comment": "Submit purchase order",
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 },
                 {
                     "title": "View billing and data operations usage page in the console",
                     "url": "https://console.particle.io/billing"
+                },
+                {
+                    "title": "View detailed cellular usage information for a product",
+                    "url": "/troubleshooting/connectivity/cellular-usage/"
                 },
                 {
                     "title": "Managing billing and subscriptions",
@@ -144,6 +150,18 @@
                 {
                     "title": "Upgrading my account to the growth plan",
                     "page": 1260809279669
+                },
+                {
+                    "title": "Return & Refund Policy",
+                    "url": "/troubleshooting/faqs/orders/what-is-particles-return-refund-policy/"
+                },
+                {
+                    "title": "Payment methods",
+                    "url": "/troubleshooting/faqs/orders/what-payment-methods-can-i-use-at-checkout/"
+                },
+                {
+                    "title": "Shipping Options",
+                    "url": "/troubleshooting/faqs/shipping/what-shipping-options-does-particle-offer/"
                 },
                 {
                     "title": "I have another non-technical issue",
@@ -190,9 +208,13 @@
                     "page": 124
                 },
                 {
+                    "title": "I'd like to deactivate or remove multiple devices",
+                    "url": "/tools/cloud-tools/device-remove/"
+                },
+                {
                     "title": "I'd like to create a support ticket for another technical issue",
                     "page": 360006636913,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -302,7 +324,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 114,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -374,7 +396,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 117,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -463,7 +485,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 360005653314,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -498,7 +520,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 1500000002882,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -509,7 +531,7 @@
             "buttons": [
                 {
                     "title": "Visit the integrations getting started guide",
-                    "url": "/getting-started/integrations/integrations/"
+                    "url": "/integrations/integrations"
                 },
                 {
                     "title": "Visit the console to manage integrations",
@@ -518,6 +540,10 @@
                 {
                     "title": "Visit the integrations troubleshooting guide",
                     "url": "/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-webhookintegration-issues/"
+                },
+                {
+                    "title": "I'd like to move an integration from my sandbox to a product",
+                    "url": "/cloud-tools/integration-copy/"
                 },
                 {
                     "title": "Those resources did not answer my question",
@@ -537,7 +563,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 1500000002701,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -572,7 +598,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 360005653294,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -626,7 +652,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 360006631353,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -650,7 +676,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 1500000002842,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -725,7 +751,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 1500000008462,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ],
             "paths": [
@@ -786,7 +812,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 360005659054,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ],
             "paths": [
@@ -1014,7 +1040,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 360005659054,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ]
         },
@@ -1113,7 +1139,7 @@
                 {
                     "title": "I'd like to create a support ticket",
                     "page": 1500000002902,
-                    "orgRequired": true
+                    "enterpriseRequired": true
                 }
             ],
             "paths": [
@@ -1191,6 +1217,10 @@
             "title": "Set up P2 (Wi-Fi) developer device",
             "buttons": [
                 {
+                    "title": "Set up a device using web-based setup at setup.particle.io",
+                    "url": "https://setup.particle.io/"
+                },
+                {
                     "title": "Set up a P2 using the Particle CLI",
                     "page": 163
                 },
@@ -1229,6 +1259,10 @@
             "title": "Set up a Boron or B Series SoM (Gen 3 cellular) developer device",
             "buttons": [
                 {
+                    "title": "Set up a device using web-based setup at setup.particle.io",
+                    "url": "https://setup.particle.io/"
+                },
+                {
                     "page": 177,
                     "comment": "Set up a Gen 3 cellular device using the Particle CLI"
                 },
@@ -1247,6 +1281,10 @@
             "page": 160,
             "title": "Set up a Electron or E Series (Gen 2 cellular) developer device",
             "buttons": [
+                {
+                    "title": "Set up a device using web-based setup at setup.particle.io",
+                    "url": "https://setup.particle.io/"
+                },
                 {
                     "title": "Set up an Electron or E Series using the Particle CLI",
                     "page": 181
@@ -1267,6 +1305,10 @@
             "title": "Set up a Photon or P1 (Gen 2 Wi-Fi) developer device",
             "buttons": [
                 {
+                    "title": "Set up a device using web-based setup at setup.particle.io",
+                    "url": "https://setup.particle.io/"
+                },
+                {
                     "title": "Set up a Photon or P1 using the Particle CLI",
                     "page": 174
                 },
@@ -1285,6 +1327,10 @@
             "page": 162,
             "title": "Set up an Argon (Gen 3 Wi-Fi) developer device",
             "buttons": [
+                {
+                    "title": "Set up a device using web-based setup at setup.particle.io",
+                    "url": "https://setup.particle.io/"
+                },
                 {
                     "title": "Set up an Argon using the Particle CLI",
                     "page": 173
@@ -2750,11 +2796,13 @@
                 },
                 {
                     "id": 360026688693,
-                    "comment": "Account ID"
+                    "comment": "Account ID",
+                    "hidden": true
                 },
                 {
                     "id": 360026958653,
-                    "comment": "Community Post Link"
+                    "comment": "Community Post Link",
+                    "hidden": true
                 }
             ]
         },
@@ -2770,11 +2818,13 @@
                 },
                 {
                     "id": 360026688693,
-                    "comment": "Account ID"
+                    "comment": "Account ID",
+                    "hidden": true
                 },
                 {
                     "id": 360026958653,
-                    "comment": "Community Post Link"
+                    "comment": "Community Post Link",
+                    "hidden": true
                 }
             ]
         },
@@ -2790,15 +2840,19 @@
                 },
                 {
                     "id": 360026688693,
-                    "comment": "Account ID"
+                    "value": "",
+                    "comment": "Account ID",
+                    "hidden": true
                 },
                 {
                     "id": 360026688713,
-                    "comment": "Device ID(s)"
+                    "comment": "Device ID(s)",
+                    "hidden": true
                 },
                 {
                     "id": 360026958653,
-                    "comment": "Community Post Link"
+                    "comment": "Community Post Link",
+                    "hidden": true
                 }
             ]
         },
@@ -2814,11 +2868,13 @@
                 },
                 {
                     "id": 360026688693,
-                    "comment": "Account ID"
+                    "comment": "Account ID",
+                    "hidden": true
                 },
                 {
                     "id": 360026958653,
-                    "comment": "Community Post Link"
+                    "comment": "Community Post Link",
+                    "hidden": true
                 }
             ]
         },
@@ -2844,7 +2900,7 @@
             "fields": [
                 {
                     "id": 360026632133,
-                    "value": "i_would_like_to_submit_a_purchase_order",
+                    "value": "i_would_like_to_submit_a_purchase_order__enterprise_only_",
                     "comment": "Question popup"
                 },
                 {

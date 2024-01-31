@@ -91,7 +91,7 @@ void loop() {
 }
 ```
 
-### Blink All LEDs
+### Blink all LEDs
 
 ```cpp
 #include "InternetButton/InternetButton.h"
@@ -150,7 +150,7 @@ void loop(){
 }
 ```
 
-### Button/Light Combo
+### Button/Light combo
 
 ```cpp
 #include "InternetButton/InternetButton.h"
@@ -236,7 +236,7 @@ void loop(){
 }
 ```
 
-### Using The Accelerometer
+### Using the accelerometer
 
 ```cpp
 #include "InternetButton/InternetButton.h"
@@ -276,7 +276,7 @@ void loop(){
 }
 ```
 
-### Orientation Awareness
+### Orientation awareness
 
 ```cpp
 #include "InternetButton.h"

@@ -645,6 +645,11 @@
     "title": "Delete product configuration schema",
     "name": "DeleteProductConfigSchema",
     "group": "Configuration_5",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Delete configuration schema, use Tracker Edge defaults.</p>",
     "examples": [
       {
@@ -672,6 +677,11 @@
     "title": "Set product configuration",
     "name": "SetProductConfig",
     "group": "Configuration_5",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Set configuration values that will become the default for the product. This will also update eligible devices with this updated configuration.</p> <p>You should always get the entire configuration, change values, and set the whole configuration back. In HTTP REST APIs, POST and PUT do not merge changes with the existing data.</p>",
     "parameter": {
       "fields": {
@@ -711,6 +721,11 @@
     "title": "Set product configuration schema",
     "name": "SetProductConfigSchema",
     "group": "Configuration_5",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Set configuration schema that will become the default for the product.</p> <p>This must be the entire schema, including the standard Particle parts; there is no merging of changes.</p>",
     "examples": [
       {
@@ -747,6 +762,11 @@
     "title": "Delete device configuration schema",
     "name": "DeleteDeviceConfigSchema",
     "group": "Configuration_6",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Delete device's configuration schema, use product's.</p>",
     "examples": [
       {
@@ -774,6 +794,11 @@
     "title": "Set device configuration",
     "name": "SetDeviceConfig",
     "group": "Configuration_6",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Set some configuration values for the device that will override the product default.</p> <p>Send an empty request to reset the device to product defaults.</p> <p>Returns 200, 202 or 400 for various states</p> <ul> <li>200 when the device is online and accepted the configuration changes.</li> <li>202 when the device is offline. We'll complete the request when it comes online again</li> <li>400 When the device is online, but has rejected some of the configuration keys.  A list of accepted and rejected keys with device error codes is provided</li> </ul> <p>You should always get the entire configuration, change values, and set the whole configuration back. In HTTP REST APIs, POST and PUT do not merge changes with the existing data.</p>",
     "examples": [
       {
@@ -815,6 +840,11 @@
     "title": "Set device configuration schema",
     "name": "SetDeviceSchema",
     "group": "Configuration_6",
+    "permission": [
+      {
+        "name": "configuration:update"
+      }
+    ],
     "description": "<p>Set configuration schema for the device.</p> <p>This must be the entire schema, including the standard Particle parts; there is no merging of changes.</p>",
     "examples": [
       {
@@ -2152,7 +2182,7 @@
             "group": "Success 200",
             "type": "Array",
             "optional": false,
-            "field": "inupdatedDeviceIds",
+            "field": "invalidDeviceIds",
             "description": "<p>Device identifiers that were invalid and could not be imported</p>"
           }
         ]
@@ -2160,7 +2190,7 @@
       "examples": [
         {
           "title": "POST /v1/products/:productIdOrSlug/devices",
-          "content": "POST /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"updated\":1,\n \"updatedDeviceIds\":[\"abc1234\"],\n \"existingDeviceIds\":[],\n\t\"nonmemberDeviceIds\":[],\n\t\"inupdatedDeviceIds\":[]\n}",
+          "content": "POST /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"updated\":1,\n \"updatedDeviceIds\":[\"abc1234\"],\n \"existingDeviceIds\":[],\n\t\"nonmemberDeviceIds\":[],\n\t\"invalidDeviceIds\":[]\n}",
           "type": "json"
         }
       ]
@@ -4474,7 +4504,7 @@
     "examples": [
       {
         "title": "buildTargets",
-        "content": "$ curl \"https://api.particle.io/v1/build_targets?access_token=1234\"",
+        "content": "$ curl \"https://api.particle.io/v1/build_targets\"",
         "type": "bash"
       }
     ],
@@ -4500,7 +4530,7 @@
       "examples": [
         {
           "title": "buildTargets",
-          "content": "PUT /v1/build_targets\nHTTP/1.1 200 OK\n{\n  \"targets\": [\n    {\n      \"platforms\": [\n        0,\n        10,\n        8,\n        6\n      ],\n      \"prereleases\": [],\n      \"firmware_vendor\": \"Particle\",\n      \"version\": \"0.6.1\"\n    }\n  ],\n  \"platforms\": {\n    \"Core\": 0,\n    \"Photon\": 6,\n    \"P1\": 8,\n    \"Electron\": 10\n  }\n}",
+          "content": " PUT /v1/build_targets\n HTTP/1.1 200 OK\n {\n   \"targets\": [\n     {\n       \"platforms\": [\n         0,\n         10,\n         8,\n         6\n       ],\n       \"prereleases\": [],\n       \"firmware_vendor\": \"Particle\",\n       \"version\": \"0.6.1\"\n     }\n   ],\n   \"platforms\": {\n     \"Core\": 0,\n     \"Photon\": 6,\n     \"P1\": 8,\n     \"Electron\": 10\n   },\n   \"default_versions\": {\n     \"0\": \"0.7.0\",\n     \"6\": \"2.3.1\",\n     \"8\": \"2.3.1\",\n     \"10\": \"2.3.1\"\n    }\n }\nAs of April, 2023, an access token is no longer required to call this API.",
           "type": "json"
         }
       ]
@@ -5793,6 +5823,13 @@
           {
             "group": "Parameter",
             "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;{event} for {domain}&quot; if omitted.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
             "optional": false,
             "field": "requestType",
             "description": "<p>Type of web request triggered by the webhook that can be set to GET, POST, PUT, or DELETE</p>"
@@ -5960,7 +5997,7 @@
       "examples": [
         {
           "title": "POST /v1/webhooks",
-          "content": " POST /v1/webhooks\n HTTP/1.1 201 Created\n\n {\n\t  \"ok\": true\n\t  \"id\": \"12345\",\n\t  \"url\": \"https://samplesite.com\",\n\t  \"event\": \"hello\",\n\t  \"created_at\": \"2016-04-28T17:06:33.123Z\",\n\t  \"hookUrl\": \"https://api.particle.io/v1/webhooks/12345\"\n }",
+          "content": " POST /v1/webhooks\n HTTP/1.1 201 Created\n\n {\n\t  \"ok\": true\n\t  \"id\": \"12345\",\n\t  \"url\": \"https://samplesite.com\",\n\t  \"event\": \"hello\",\n\t  \"name\": \"hello for samplesite.com\",\n\t  \"created_at\": \"2016-04-28T17:06:33.123Z\",\n\t  \"hookUrl\": \"https://api.particle.io/v1/webhooks/12345\"\n }",
           "type": "json"
         }
       ]
@@ -6004,6 +6041,13 @@
             "optional": false,
             "field": "hub_name",
             "description": "<p>The name of your Azure IoT Hub</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;{event} for {hub_name}&quot; if omitted.</p>"
           },
           {
             "group": "Parameter",
@@ -6126,7 +6170,7 @@
       "examples": [
         {
           "title": "POST /v1/integrations",
-          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"AzureIotHub\",\n\t\"hub_name\":\"your-iot-hub-name\",\n\t\"policy_name\":\"iothubowner\",\n\t\"policy_key\": \"123abc\",\n\t\"ok\":true,\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
+          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"AzureIotHub\",\n\t\"hub_name\":\"your-iot-hub-name\",\n  \"name\": \"foo for yout-iot-hub-name\",\n\t\"policy_name\":\"iothubowner\",\n\t\"policy_key\": \"123abc\",\n\t\"ok\":true,\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
           "type": "json"
         }
       ]
@@ -6170,6 +6214,13 @@
             "optional": false,
             "field": "topic",
             "description": "<p>The Google Cloud Pub Sub topic name for publishing messages</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;{event} for {topic}&quot; if omitted.</p>"
           },
           {
             "group": "Parameter",
@@ -6257,7 +6308,7 @@
       "examples": [
         {
           "title": "POST /v1/integrations",
-          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"GoogleCloudPubSub\",\n\t\"topic\": \"your/topic/name\",\n\t\"ok\":true,\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
+          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"GoogleCloudPubSub\",\n\t\"topic\": \"your/topic/name\",\n  \"name\": \"foo for name\",\n\t\"ok\":true,\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
           "type": "json"
         }
       ]
@@ -6294,6 +6345,13 @@
             "optional": false,
             "field": "event",
             "description": "<p>The name of the Particle event that should trigger the integration</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook. Defaults to &quot;{event} for Google Maps&quot; if omitted.</p>"
           },
           {
             "group": "Parameter",
@@ -6388,7 +6446,7 @@
       "examples": [
         {
           "title": "POST /v1/integrations",
-          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"GoogleMaps\",\n\t\"ok\":true,\n\t\"api_key\": \"123abc\",\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
+          "content": "POST /v1/integrations\nHTTP/1.1 201 Created\n{\n\t\"id\":\"1\",\n\t\"event\":\"foo\",\n  \"name': \"foo for Google Maps\",\n\t\"created_at\":\"2017-03-16T19:54:54.570Z\",\n\t\"integration_type\":\"GoogleMaps\",\n\t\"ok\":true,\n\t\"api_key\": \"123abc\",\n\t\"integrationUrl\": \"https://api.particle.io/v1/integrations/1\"\n}",
           "type": "json"
         }
       ]
@@ -6438,6 +6496,13 @@
             "optional": true,
             "field": "url",
             "description": "<p>The web address that will be targeted when the webhook is triggered</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook</p>"
           },
           {
             "group": "Parameter",
@@ -6567,7 +6632,7 @@
       "examples": [
         {
           "title": "PUT /v1/integrations/12345",
-          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"Webhook\",\n\t\t\"url\":\"https://weather.com\",\n\t\t\"requestType\":\"POST\"\n\t}\n}",
+          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t    \"name\": \"Check weather\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"Webhook\",\n\t\t\"url\":\"https://weather.com\",\n\t\t\"requestType\":\"POST\"\n\t}\n}",
           "type": "json"
         }
       ]
@@ -6604,6 +6669,13 @@
             "optional": true,
             "field": "event",
             "description": "<p>The name of the Particle event that should trigger the integration</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook</p>"
           },
           {
             "group": "Parameter",
@@ -6684,7 +6756,7 @@
       "examples": [
         {
           "title": "PUT /v1/integrations/12345",
-          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"AzureIotHub\",\n\t\t\"hub_name\": \"your_iot_hub\",\n\t\t\"policy_name\": \"policy_name\"\n\t\t\"policy_key\": \"123abc\"\n\t}\n}",
+          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"AzureIotHub\",\n\t\t\"hub_name\": \"your_iot_hub\",\n\t    \"name\": \"Send to Azure\",\n\t\t\"policy_name\": \"policy_name\"\n\t\t\"policy_key\": \"123abc\"\n\t}\n}",
           "type": "json"
         }
       ]
@@ -6721,6 +6793,13 @@
             "optional": true,
             "field": "event",
             "description": "<p>The name of the Particle event that should trigger the integration</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook</p>"
           },
           {
             "group": "Parameter",
@@ -6780,7 +6859,7 @@
       "examples": [
         {
           "title": "PUT /v1/integrations/12345",
-          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"GoogleCloudPubSub\",\n\t\t\"topic\": \"your/topic/name\"\n\t}\n}",
+          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"GoogleCloudPubSub\",\n\t    \"name\": \"Send to Google\",\n\t\t\"topic\": \"your/topic/name\"\n\t}\n}",
           "type": "json"
         }
       ]
@@ -6817,6 +6896,13 @@
             "optional": true,
             "field": "event",
             "description": "<p>The name of the Particle event that should trigger the integration</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>A human-readable description of the webhook</p>"
           },
           {
             "group": "Parameter",
@@ -6876,7 +6962,7 @@
       "examples": [
         {
           "title": "PUT /v1/integrations/12345",
-          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"GoogleMaps\",\n\t\t\"api_key\": \"123abc\"\n\t}\n}",
+          "content": "PUT /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"foo\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"GoogleMaps\",\n\t    \"name\": \"Send to Google Maps\",\n\t\t\"api_key\": \"123abc\"\n\t}\n}",
           "type": "json"
         }
       ]
@@ -6952,7 +7038,7 @@
       "examples": [
         {
           "title": "GET /v1/integrations/12345",
-          "content": "GET /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"eventName\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"logs\": [...],\n\t\t\"integration_type\":\"Webhook\",\n\t\t\"url\":\"https://weather.com\",\n\t\t\"requestType\":\"POST\"\n\t}\n}",
+          "content": "GET /v1/integrations/12345\nHTTP/1.1 200 OK\n{\n\t\"integration\": {\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"eventName\",\n\t    \"name\": \"Check weather\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"logs\": [...],\n\t\t\"integration_type\":\"Webhook\",\n\t\t\"url\":\"https://weather.com\",\n\t\t\"requestType\":\"POST\"\n\t}\n}",
           "type": "json"
         }
       ]
@@ -6960,6 +7046,600 @@
     "version": "0.0.0",
     "filename": "api-service/src/views/event.js",
     "groupTitle": "Integrations_9"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions",
+    "title": "List ledger instance versions",
+    "description": "<p>Lists all ledger instance versions.</p>",
+    "group": "Ledger_10",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "scopeValue",
+            "description": "<p>Scope value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "replaced_before",
+            "description": "<p>List only versions replaced before this date</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "replaced_after",
+            "description": "<p>List only versions replaced after this date</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue/versions\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue/versions\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue/versions",
+          "content": "GET /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue/versions\nHTTP/1.1 200 OK\n{\n  \"versions\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"replaced_at\": \"2023-11-28T15:02:04.799Z\"\n    }\n  ],\n  \"meta\": {\n    \"has_more\": false\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_10",
+    "name": "GetV1OrgsOrgidorslugLedgersLedgernameInstancesScopevalueVersions"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers",
+    "title": "List ledger definitions",
+    "description": "<p>Lists all ledger definitions belonging to the specified org.</p>",
+    "group": "Ledger_1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "page",
+            "description": "<p>Page number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "perPage",
+            "description": "<p>Number of definitions per page</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "archived",
+            "description": "<p>Filter for archived definitions</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgSlugOrId/ledgers",
+          "content": "GET /v1/orgs/:orgSlugOrId/ledgers\nHTTP/1.1 200 OK\n{\n  \"ledgers\": [\n    {\n      \"scope\": \"Owner\",\n      \"name\": \"My Ledger\",\n      \"description\": \"My Ledger Description\",\n      \"direction\": \"Downstream\",\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n      \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_1",
+    "name": "GetV1OrgsOrgidorslugLedgers"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName",
+    "title": "Get ledger definition",
+    "description": "<p>Returns the specified ledger definition.</p>",
+    "group": "Ledger_2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName",
+          "content": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName\nHTTP/1.1 200 OK\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_2",
+    "name": "GetV1OrgsOrgidorslugLedgersLedgername"
+  },
+  {
+    "type": "post",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers",
+    "title": "Create a new ledger definition",
+    "description": "<p>Creates a ledger definition.</p>",
+    "group": "Ledger_3",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @definition.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "POST /v1/orgs/:orgSlugOrId/ledgers",
+          "content": "POST /v1/orgs/:orgSlugOrId/ledgers\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_3",
+    "name": "PostV1OrgsOrgidorslugLedgers"
+  },
+  {
+    "type": "put",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName",
+    "title": "Update ledger definition",
+    "description": "<p>Updates the ledger definition.</p>",
+    "group": "Ledger_4",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName\" \\",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @definition.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "PUT /v1/orgs/:orgSlugOrId/ledgers/:ledgerName",
+          "content": "PUT /v1/orgs/:orgSlugOrId/ledgers/:ledgerName\nHTTP/1.1 201 Created\n{\n  \"ledger\": {\n    \"scope\": \"Owner\",\n    \"name\": \"My Ledger\",\n    \"description\": \"My Ledger Description\",\n    \"direction\": \"Downstream\",\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    \"archived_at\": \"2023-01-01T00:00:00.000Z\" | null\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_4",
+    "name": "PutV1OrgsOrgidorslugLedgersLedgername"
+  },
+  {
+    "type": "delete",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName",
+    "title": "Archive a ledger definition",
+    "description": "<p>Archives a ledger definition.</p>",
+    "group": "Ledger_5",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName\" \\",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "DELETE /v1/orgs/:orgSlugOrId/ledgers/:ledgerName",
+          "content": "DELETE /v1/orgs/:orgSlugOrId/ledgers/:ledgerName\nHTTP/1.1 204 No content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_5",
+    "name": "DeleteV1OrgsOrgidorslugLedgersLedgername"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances",
+    "title": "List ledger instances",
+    "description": "<p>Lists all ledger instances.</p>",
+    "group": "Ledger_6",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "page",
+            "description": "<p>Page number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "perPage",
+            "description": "<p>Number of instances per page</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances",
+          "content": "GET /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances\nHTTP/1.1 200 OK\n{\n  \"instances\": [\n    {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"123\",\n        \"name\": \"My Product\"\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }, {\n      \"name\": \"prodledger\",\n      \"scope\": {\n        \"type\": \"Product\",\n        \"value\": \"456\",\n        \"not_owned\": true\n      },\n      \"size_bytes\": 1234,\n      \"data\": {},\n      \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n      \"created_at\": \"2023-01-01T00:00:00.000Z\",\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 1,\n    \"total\": 1\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_6",
+    "name": "GetV1OrgsOrgidorslugLedgersLedgernameInstances"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue",
+    "title": "Get ledger instance",
+    "description": "<p>Returns the specified ledger instance.</p>",
+    "group": "Ledger_7",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "scopeValue",
+            "description": "<p>Scope value</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue",
+          "content": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_7",
+    "name": "GetV1OrgsOrgidorslugLedgersLedgernameInstancesScopevalue"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
+    "title": "Get ledger instance version",
+    "description": "<p>Returns the specified version of a ledger instance.</p>",
+    "group": "Ledger_7",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "scopeValue",
+            "description": "<p>Scope value</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "version",
+            "description": "<p>Version ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions/:version\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions/:version",
+          "content": "GET /v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue/versions/:version\nHTTP/1.1 200 OK\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {},\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_7",
+    "name": "GetV1OrgsOrgidorslugLedgersLedgernameInstancesScopevalueVersionsVersion"
+  },
+  {
+    "type": "put",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/:scopeValue",
+    "title": "Set the ledger instance data",
+    "description": "<p>Sets the data of the specified ledger instance.</p>",
+    "group": "Ledger_8",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "scopeValue",
+            "description": "<p>Scope value</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\" \\",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @data.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "PUT /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue",
+          "content": "PUT /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 201 Created\n{\n  \"instance\": {\n    \"scope\": {\n      \"type\": \"Product\",\n      \"value\": \"123\",\n    },\n    \"name\": \"prodledger\",\n    \"size_bytes\": 1234,\n    \"data\": {\n      \"foo\": \"bar\"\n    },\n    \"updated_at\": \"2023-01-01T00:00:00.000Z\",\n    \"created_at\": \"2023-01-01T00:00:00.000Z\",\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_8",
+    "name": "PutV1OrgsOrgidorslugLedgersLedgernameInstancesScopevalue"
+  },
+  {
+    "type": "delete",
+    "url": "/v1/orgs/:orgIdOrSlug/ledgers/:ledgerName/instances/scopeValue",
+    "title": "Delete ledger instance",
+    "description": "<p>Deletes the specified ledger instance.</p>",
+    "group": "Ledger_9",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ledgerName",
+            "description": "<p>Ledger name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "scopeValue",
+            "description": "<p>Scope value</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\" \\",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "DELETE /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue",
+          "content": "DELETE /v1/orgs/:orgSlugOrId/ledgers/:ledgerName/instances/:scopeValue\nHTTP/1.1 204 No content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Ledger_9",
+    "name": "DeleteV1OrgsOrgidorslugLedgersLedgernameInstancesScopevalue"
   },
   {
     "type": "get",
@@ -7133,6 +7813,476 @@
     "version": "0.0.0",
     "filename": "api-service/src/views/location.js",
     "groupTitle": "Location_2"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/stats",
+    "title": "Get logic function stats",
+    "description": "<p>Returns the specified logic function stats.</p>",
+    "group": "Logic_10",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/stats\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/stats\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/stats",
+          "content": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/stats\nHTTP/1.1 200 OK\n{\n   \"logic_function_stats\": [\n     {\n       \"date\": \"20231106\",\n       \"success\": 175,\n       \"failure\": 168,\n       \"timeout\": 0\n     }\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_10",
+    "name": "GetV1OrgsOrgidorslugLogicFunctionsLogicfunctionidStats"
+  },
+  {
+    "type": "post",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/execute",
+    "title": "Execute logic function",
+    "description": "<p>Executes the provided logic function.</p>",
+    "group": "Logic_1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/execute\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/execute\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @debug_function.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "POST /v1/orgs/:orgIdOrSlug/logic/execute",
+          "content": "POST /v1/orgs/:orgIdOrSlug/logic/execute\nHTTP/1.1 200 OK\n{\n  \"result\": {\n    \"status\": \"Success\",\n    \"logs\": []\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_1",
+    "name": "PostV1OrgsOrgidorslugLogicExecute"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions",
+    "title": "List logic functions",
+    "description": "<p>Lists all logic functions belonging to the specified org.</p>",
+    "group": "Logic_2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "today_stats",
+            "description": "<p>Include today's stats</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions?today_stats=true\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions?today_stats=true\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgSlugOrId/logic/functions?today_stats=true",
+          "content": "GET /v1/orgs/:orgSlugOrId/logic/functions?today_stats=true\nHTTP/1.1 200 OK\n{\n  \"logic_functions\": [\n    {\n      \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n      \"owner_id\": \"org:deadbeef\",\n      \"version\": 4,\n      \"enabled\": false,\n      \"name\": \"My Logic Function\",\n      \"description\": \"\",\n      \"template_slug\": null,\n      \"source\": {\n        \"type\": \"JavaScript\",\n        \"code\": \"export default function main() {}\"\n      },\n      \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n      \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n      \"created_by\": \"user:deadbeef\",\n      \"updated_by\": \"user:deadbeef\",\n      \"logic_triggers\": [\n        {\n          \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n          \"type\": \"Scheduled\",\n          \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n          \"enabled\": true,\n          \"version\": 4,\n          \"cron\": \"0 0 0 0 0\",\n          \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n          \"end_at\": null,\n          \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n          \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n        }\n      ],\n      \"today_stats\": {\n        \"success\": 0,\n        \"failure\": 0,\n        \"timeout\": 0\n      }\n    }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_2",
+    "name": "GetV1OrgsOrgidorslugLogicFunctions"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId",
+    "title": "Get logic function",
+    "description": "<p>Returns the specified logic function.</p>",
+    "group": "Logic_3",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId",
+          "content": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId\nHTTP/1.1 200 OK\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"org:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_3",
+    "name": "GetV1OrgsOrgidorslugLogicFunctionsLogicfunctionid"
+  },
+  {
+    "type": "post",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions",
+    "title": "Create a new logic function",
+    "description": "<p>Creates a logic function.</p>",
+    "group": "Logic_4",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @logicFunction.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "POST /v1/orgs/:orgSlugOrId/logic/functions",
+          "content": "POST /v1/orgs/:orgSlugOrId/logic/functions\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"org:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_4",
+    "name": "PostV1OrgsOrgidorslugLogicFunctions"
+  },
+  {
+    "type": "put",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId",
+    "title": "Update logic function",
+    "description": "<p>Updates the logic function.</p>",
+    "group": "Logic_5",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\" \\",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       --data @logicFunction.json",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "PUT /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId",
+          "content": "PUT /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\nHTTP/1.1 201 Created\n{\n  \"logic_function\": {\n    \"id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n    \"owner_id\": \"org:deadbeef\",\n    \"version\": 4,\n    \"enabled\": false,\n    \"name\": \"My Logic Function\",\n    \"description\": \"\",\n    \"template_slug\": null,\n    \"source\": {\n      \"type\": \"JavaScript\",\n      \"code\": \"export default function main() {}\"\n    },\n    \"created_at\": \"2023-08-08T18:37:20.355177Z\",\n    \"updated_at\": \"2023-10-25T21:10:44.240143Z\",\n    \"created_by\": \"user:deadbeef\",\n    \"updated_by\": \"user:deadbeef\",\n    \"logic_triggers\": [\n      {\n        \"id\": \"08c6cfc4-e7d6-4b75-aa9e-8690d5c7aa5d\",\n        \"type\": \"Scheduled\",\n        \"logic_function_id\": \"79c1c82b-6dc5-49a1-b678-559b3e53a44d\",\n        \"enabled\": true,\n        \"version\": 4,\n        \"cron\": \"0 0 0 0 0\",\n        \"start_at\": \"2023-10-25T21:10:44.268743Z\",\n        \"end_at\": null,\n        \"last_scheduled_at\": \"2023-10-25T21:15:00Z\",\n        \"next_unscheduled_at\": \"2023-10-25T21:20:00Z\"\n      }\n    ],\n    \"today_stats\": {\n      \"success\": 0,\n      \"failure\": 0,\n      \"timeout\": 0\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_5",
+    "name": "PutV1OrgsOrgidorslugLogicFunctionsLogicfunctionid"
+  },
+  {
+    "type": "delete",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId",
+    "title": "Delete logic function",
+    "description": "<p>Deletes the specified logic function.</p>",
+    "group": "Logic_6",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\" \\",
+        "content": "$ curl -X DELETE \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "DELETE /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId",
+          "content": "DELETE /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId\nHTTP/1.1 204 No content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_6",
+    "name": "DeleteV1OrgsOrgidorslugLogicFunctionsLogicfunctionid"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs",
+    "title": "List logic functions runs",
+    "description": "<p>Lists all runs for the specified logic function.</p>",
+    "group": "Logic_7",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId/runs\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId/runs\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId/runs",
+          "content": "GET /v1/orgs/:orgSlugOrId/logic/functions/:logicFunctionId/runs\nHTTP/1.1 200 OK\n{\n  \"logic_runs\": [\n    {\n      \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n      \"owner_id\": \"org:deadbeef\",\n      \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n      \"logic_trigger_type\": \"Scheduled\",\n      \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n      \"status\": \"Success\",\n      \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n      \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n      \"log_filename\": \"org:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n    }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_7",
+    "name": "GetV1OrgsOrgidorslugLogicFunctionsLogicfunctionidRuns"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId",
+    "title": "Get logic function run",
+    "description": "<p>Returns the specified logic function run.</p>",
+    "group": "Logic_8",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicRunId",
+            "description": "<p>Logic run ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId",
+          "content": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId\nHTTP/1.1 200 OK\n{\n  \"logic_run\": {\n    \"id\": \"f1540276-63df-44a7-9f1b-b0dfec9640ea\",\n    \"owner_id\": \"org:deadbeef\",\n    \"logic_function_id\": \"f3635877-3106-49c0-84ea-28781d9371fe\",\n    \"logic_trigger_type\": \"Scheduled\",\n    \"logic_trigger_id\": \"899944c2-ff3f-4f6a-a135-c4bc624ec382\",\n    \"status\": \"Success\",\n    \"started_at\": \"2023-11-07T18:20:59.462214Z\",\n    \"finished_at\": \"2023-11-07T18:20:59.581605Z\",\n    \"log_filename\": \"org:deadbeef/function-f3635877-3106-49c0-84ea-28781d9371fe/Scheduled-899944c2-ff3f-4f6a-a135-c4bc624ec382/1699381259462:1699381259581_1f32a920-7690-41c0-9585-0bbcab7846e9.json\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_8",
+    "name": "GetV1OrgsOrgidorslugLogicFunctionsLogicfunctionidRunsLogicrunid"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
+    "title": "Get logic function run",
+    "description": "<p>Returns the specified logic function run logs.</p>",
+    "group": "Logic_9",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicFunctionId",
+            "description": "<p>Logic function ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "logicRunId",
+            "description": "<p>Logic run ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId/logs\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId/logs\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId/logs",
+          "content": "GET /v1/orgs/:orgIdOrSlug/logic/functions/:logicFunctionId/runs/:logicRunId/logs\nHTTP/1.1 200 OK\n{\n  \"logic_run_logs\": {\n    \"logs\": [\n      {\n        \"level\": \"Info\",\n        \"timestamp\": \"2023-11-07T18:20:59.470Z\",\n        \"args\": [\n          \"Hello\"\n        ]\n      }\n    ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/subspace.js",
+    "groupTitle": "Logic_9",
+    "name": "GetV1OrgsOrgidorslugLogicFunctionsLogicfunctionidRunsLogicrunidLogs"
   },
   {
     "type": "get",
@@ -7889,8 +9039,8 @@
             "group": "Parameter",
             "type": "File",
             "optional": false,
-            "field": "binary",
-            "description": "<p>A binary file encoded in <code>multipart/form-data</code> format containing the contents of the product firmware</p>"
+            "field": "file",
+            "description": "<p>A binary file encoded in <code>multipart/form-data</code> format containing the contents of the product firmware (<code>binary</code> is also accepted for backwards compatibility)</p>"
           },
           {
             "group": "Parameter",
@@ -7924,7 +9074,7 @@
     "examples": [
       {
         "title": "Example request",
-        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/firmware?access_token=1234\" \\\n       -F binary=@firmware.bin \\\n       -F version=1 \\\n       -F title=firmware",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/firmware?access_token=1234\" \\\n       -F file=@firmware.bin \\\n       -F version=1 \\\n       -F title=firmware",
         "type": "bash"
       }
     ],
@@ -8460,7 +9610,7 @@
       "examples": [
         {
           "title": "GET /v1/products/:productIdOrSlug/team",
-          "content": "GET /v1/products/:productIdOrSlug/team\nHTTP/1.1 200 OK\n{\n\t \"ok\": true.\n\t \"team\": [\n       {\n\t\t\t\"_id\":\"9980222caf8bad191600019b\",\n\t\t\t\"username\":\"jeff@particle.io\",\n\t\t\t\"no_mfa\": true\n\t\t},\n       ...\n  ]\n}",
+          "content": "GET /v1/products/:productIdOrSlug/team\nHTTP/1.1 200 OK\n{\n\t \"ok\": true.\n\t \"team\": [\n       {\n\t\t\t\"_id\":\"9980222caf8bad191600019b\",\n\t\t\t\"username\":\"jeff@particle.io\",\n\t\t\t\"no_mfa\": true,\n\t\t\t\"scim_provisioned\": true,\n\t\t\t\"no_password\": true\n\t\t},\n       ...\n  ]\n}",
           "type": "json"
         }
       ]
@@ -9472,8 +10622,8 @@
     "success": {
       "examples": [
         {
-          "title": "GET /v1/org/:orgSlugOrId/usage_reports/:usageReportId",
-          "content": " GET /v1/org/:orgSlugOrId/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-02-01\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
+          "title": "GET /v1/orgs/:orgSlugOrId/usage_reports/:usageReportId",
+          "content": " GET /v1/orgs/:orgSlugOrId/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-02-01\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
           "type": "json"
         }
       ],
@@ -10044,7 +11194,7 @@
       },
       {
         "title": "List notifications associated with an organization",
-        "content": "$ curl \"https://api.particle.io/v1/organizations/service_agreements/:serviceAgreementId/notifications?access_token=123abc\"",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/notifications?access_token=123abc\"",
         "type": "bash"
       }
     ],
@@ -10867,13 +12017,6 @@
             "optional": false,
             "field": "action",
             "description": "<p>Set to <code>activate</code> to trigger SIM activation</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Boolean",
-            "optional": false,
-            "field": "async",
-            "description": "<p>Set to true for activating a SIM asynchronously. Poll the Get SIM information endpoint to find out when the activation is finished.</p>"
           }
         ]
       }
@@ -10904,7 +12047,7 @@
     "url": "/v1/products/:productIdOrSlug/sims",
     "title": "Import and activate product SIMs",
     "name": "listProductSims",
-    "description": "<p>Import a group of SIM cards into a product. SIM cards will be activated upon import. Activated SIM cards will receive a prorated charge for the 1MB data plan for the remainder of the month on your next invoice. Either pass an array of ICCIDs or include a file containing a list of SIM cards.</p> <p>Import and activation will be queued for processing. You will receive an email with the import results when all SIM cards have been processed.</p> <p>Importing a SIM card associated with a device will also import the device into the product.</p>",
+    "description": "<p>Import a group of SIM cards into a product. SIM cards will be activated upon import. Either pass an array of ICCIDs or include a file containing a list of SIM cards.</p> <p>Import and activation will be queued for processing. You will receive an email with the import results when all SIM cards have been processed.</p> <p>Importing a SIM card associated with a device will also import the device into the product.</p>",
     "group": "Sims_7",
     "parameter": {
       "fields": {
@@ -11150,7 +12293,7 @@
       "examples": [
         {
           "title": "GET /v1/user",
-          "content": "GET /v1/user\nHTTP/1.1 200 OK\n{\n  \"username\": \"testuser@particle.io\",\n  \"subscription_ids\": [],\n  \"account_info\": {\n    \"first_name\": \"Test\",\n    \"last_name\": \"User\",\n    \"business_account\": false\n  },\n  \"mfa\": {\n    \"enabled\": false\n  },\n  \"wifi_device_count\": 0,\n  \"cellular_device_count\": 0\n}",
+          "content": "GET /v1/user\nHTTP/1.1 200 OK\n{\n  \"username\": \"testuser@particle.io\",\n  \"subscription_ids\": [],\n  \"account_info\": {\n    \"first_name\": \"Test\",\n    \"last_name\": \"User\",\n    \"business_account\": false\n  },\n  scim_provisioned: false,\n  no_password: false,\n  \"mfa\": {\n    \"enabled\": false\n  },\n  \"wifi_device_count\": 0,\n  \"cellular_device_count\": 0\n}",
           "type": "json"
         }
       ]
@@ -11196,6 +12339,13 @@
             "optional": false,
             "field": "current_password",
             "description": "<p>The current password. Required to change username or password</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "invalidate_tokens",
+            "description": "<p>Invalidate all access tokens for user</p>"
           }
         ]
       }
@@ -11374,7 +12524,7 @@
     },
     "version": "0.0.0",
     "filename": "api-service/src/views/api.js",
-    "group": "_Users_rickk_Documents_src_docs_merge_api_service_src_views_api_js",
-    "groupTitle": "_Users_rickk_Documents_src_docs_merge_api_service_src_views_api_js"
+    "group": "_Users_rickk_Documents_src_docs_api_service_src_views_api_js",
+    "groupTitle": "_Users_rickk_Documents_src_docs_api_service_src_views_api_js"
   }
 ]

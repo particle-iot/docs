@@ -8,6 +8,11 @@ description: Learn more about the Li-Po (lithium ion polymer) battery on some Pa
 
 # Batteries
 
+[Designing on Particle](/getting-started/getting-started/#designing-on-particle-videos) is a series of video tutorials that center best practices across the Particle platform. 
+This video covers best-practices for battery powered devices including using sleep modes, power management (PMIC) and fuel gauge chip use, and using watchdog timers as a fail-safe.
+
+{{youtube "https://www.youtube.com/embed/gyUrgB_wSu0"}}
+
 A number of Particle devices can use a [Lithium Ion Polymer battery](https://en.wikipedia.org/wiki/Lithium_polymer_battery) (LiPo):
 
 - Argon (Gen 3 Wi-Fi)

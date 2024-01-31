@@ -34,7 +34,7 @@ You can start developing with a Product for initial prototyping and testing and 
 
 Once you move beyond the 100-device limit of the Free plan, you can move to the [Growth plan](/getting-started/cloud/introduction/#pricing). 
 
-#### Enterprise Features
+#### Enterprise features
 
 Once you move beyond Growth to an Enterprise plan, you get features such as annual pooled usage, volume discounts, and service level agreements (SLA).
 
@@ -60,7 +60,7 @@ Programming devices can be done:
 
 ## 3\. Device and Claiming
 
-In addition to being part of the Product, devices typically need to be **claimed** to an account. For cellular Products, it is common to create a single account that all devices are claimed to. It's also possible to use [two-legged shadow customers](/reference/cloud-apis/authentication/#two-legged-authentication), for both cellular and Wi-Fi devices.
+It is no longer necessary to claim devices. Eliminating this step will greatly simplify device onboarding.
 
 [Learn more about Device Claiming](/getting-started/products/introduction-to-products/#device-and-claiming)
 

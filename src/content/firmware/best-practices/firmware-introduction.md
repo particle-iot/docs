@@ -11,13 +11,13 @@ description: Tips for writing Particle device software
 
 ## Getting started
 
-- If you are using the [Tracker One](/getting-started/hardware/tracking-system/) you may be able to use your device with no programming at all, as many features can be managed from the console.
+- If you are using the [Tracker One or Monitor One](/getting-started/hardware/tracking-system/) you may be able to use your device with no programming at all, as many features can be managed from the console.
 
 - Install [Particle Workbench](/getting-started/developer-tools/workbench/). This is the preferred development environment for Particle device programming.
 
 Particle devices are programming using C/C++, specifically gcc C++11, C++14, or C++17 depending on the version of Device OS you are targeting. If it's been a while since you've programmed in C/C++, there is a [language syntax overview](/reference/device-os/api/language-syntax/language-syntax/). Of course there are countless books and tutorials on the Internet as well.
 
-The collection of calls to manage the features of the device including cloud features, hardware interfaces (serial, I2C, SPI), networking features, etc. are in the [Device OS API](/reference/device-os/api/introduction/introduction/).
+The collection of calls to manage the features of the device including cloud features, hardware interfaces (serial, I2C, SPI), networking features, etc. are in the [Device OS API](/reference/device-os/api/introduction/getting-started/).
 
 ### Device firmware
 
@@ -32,7 +32,7 @@ Unlike a regular computer, Particle devices only run a single user application a
 
 Devices are intended to boot quickly, often within a second or two. On some devices the cellular network connection can remain active across a reboot, which allows the device to be reprogrammed or just rebooted with minimal disruption.
 
-Tracker One and Tracker SoM devices typically include the [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/) user firmware reference application which supports the additional peripherals on this device. You can expand this to include your own functionality.
+Tracker One and Tracker SoM devices typically include the [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/) user firmware reference application which supports the additional peripherals on this device. You can expand this to include your own functionality. Monitor One devices use the similar [Monitor Edge](/firmware/tracker-edge/monitor-edge-firmware/).
 
 When you flash User application and Device OS in Particle Workbench, the bootloader and any other dependencies (SoftDevice, for example) are not flashed. You may need to upgrade these components OTA after flashing. A better option is to use [Device Restore over USB](/tools/device-restore/device-restore-usb/) to program the version you want first, to make sure all dependencies will be met.
 
@@ -54,6 +54,13 @@ On Gen 2 devices, SWD/JTAG is only enabled by default in the bootloader. Compile
 Some very old versions of Device OS on the Photon and P1 included a copy of the bootloader in the system parts. The techniques above are used instead in current versions of Device OS.
 {{collapse op="end"}}
 
+---
+
+### Asset OTA
+
+Particle Asset OTA (available in Device OS 5.5.0 and later), allows users to include bundled assets in an OTA software update that can be delivered to other processors and components in your product. Bundled assets can be up to 1 MB to 1.5 MB in size, after compression, depending on platform and do not use additional data operations.
+
+With this feature, your Particle device can not only update itself, but also update the components connected to it.
 
 ### Program structure
 
@@ -314,9 +321,9 @@ For more information see, [Global object constructors](/reference/device-os/api/
 
 You must be very careful when using [SINGLE_THREADED_BLOCK](/reference/device-os/api/system-thread/single_threaded_block/) and you should avoid using it except to surround very small blocks of code that use only simple operations such as manipulating variables (such as queues), `digitalWrite()`, and `delayMicroseconds()`. 
 
-The reason is that many resources in the system are protected by mutexes. This includes things like SPI, I2C, the cellular modem, and logging. This is necessary so only a single thread can access the resource at time, but code that does not need that resource can continue to execute normally, and threads can swap as needed.
+The reason is that many resources in Device OS are protected by mutexes. This includes things like SPI, I2C, the cellular modem, and logging. This is necessary so only a single thread can access the resource at time, but code that does not need that resource can continue to execute normally, and threads can swap as needed.
 
-If you attempt to acquire a lock on a resource from inside a `SINGLE_THREADED_BLOCK` that is currently in use by another thread, the system will **deadlock**. Your thread will not proceed, because the resource is locked. However, since you have disabled thread switching because you used `SINGLE_THREADED_BLOCK`, the resource lock can never be freed, because the other thread cannot be swapped in.
+If you attempt to acquire a lock on a resource from inside a `SINGLE_THREADED_BLOCK` that is currently in use by another thread, the device will **deadlock**. Your thread will not proceed, because the resource is locked. However, since you have disabled thread switching because you used `SINGLE_THREADED_BLOCK`, the resource lock can never be freed, because the other thread cannot be swapped in.
 
 In old versions of Device OS, some resources like SPI were not protected. This caused failures when the system thread and user thread attempted to access SPI at the same time. The solution is use a mutex, but if you have code that previously used SPI from a `SINGLE_THREADED_BLOCK`, which does not actually solve the simultaneous access issue, it would fail with newer versions of Device OS by deadlocking.
 
@@ -380,7 +387,7 @@ A few of the locations that are **not** ISRs:
 - [Calculated variable handlers](/reference/device-os/api/cloud-functions/particle-variable-calculated/) are called from the loop thread.
 - [Subscription handlers](/reference/device-os/api/cloud-functions/particle-subscribe/) are called from the loop thread, however you cannot `Particle.publish` from a subscription handler.
 - [Serial events](/reference/device-os/api/serial/serialevent/) are called from the loop thread.
-- [Application watchdog callback](/reference/device-os/api/application-watchdog/application-watchdog/) but the system is probably unstable when it is called.
+- [Application watchdog callback](/reference/device-os/api/watchdog-application/watchdog-application/) but the device is probably unstable when it is called.
 
 In old versions of Device OS, allocating memory from an ISR would proceed, except randomly corrupt memory, often causing the device to crash later for completely unrelated reasons. Newer versions of Device OS will panic immediately, which makes it seem like code that previously worked no longer works on newer versions of Device OS, but really this is an improvement over randomly failing later.
 

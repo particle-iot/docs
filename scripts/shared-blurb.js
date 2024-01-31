@@ -27,6 +27,10 @@ module.exports = function(options) {
             if (!fileName.endsWith('.md')) {
                 continue;
             }
+            // Skip over expanded version of fireware.md (individual files for each L2 header)
+            if (fileName.startsWith('reference/device-os/api/')) {
+                continue;
+            }
 
 			var file = files[fileName];
             

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "lightshow",
     "version": "0.0.5",
-    "installs": 313,
+    "installs": 387,
     "license": "MIT",
     "author": "Jeremy Calloway <xntricweb@gmail.com>",
     "sentence": "A neopixel helper library to show off some pretty colors.",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/lightshow",
+  "cardUrl": "/reference/device-os/libraries/l/lightshow",
   "versions": {
     "0.0.5": {
       "builds": {
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "boron": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "bsom": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "b5som": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "tracker": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "esomx": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "boron": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "bsom": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "b5som": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "tracker": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "p2": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "_basic_lightshow": false,
             "_lightshow-with-blynk": false

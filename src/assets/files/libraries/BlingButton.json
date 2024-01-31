@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "b",
-  "cardUrl": "/cards/libraries/b/BlingButton",
+  "cardUrl": "/reference/device-os/libraries/b/BlingButton",
   "versions": {
     "0.0.2": {
       "builds": {

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "VL53L0X",
     "version": "0.0.4",
-    "installs": 21253,
+    "installs": 22596,
     "license": "GNU-LGPL",
     "author": "Pololu <inbox@pololu.com>",
     "sentence": "This is a library for VL53L0X distance sensor",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "v",
-  "cardUrl": "/cards/libraries/v/VL53L0X",
+  "cardUrl": "/reference/device-os/libraries/v/VL53L0X",
   "versions": {
     "0.0.4": {
       "builds": {
@@ -104,6 +104,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Continuous": true,
+            "Single": true
+          },
+          "boron": {
+            "Continuous": true,
+            "Single": true
+          },
+          "bsom": {
+            "Continuous": true,
+            "Single": true
+          },
+          "b5som": {
+            "Continuous": true,
+            "Single": true
+          },
+          "tracker": {
+            "Continuous": true,
+            "Single": true
+          },
+          "esomx": {
+            "Continuous": true,
+            "Single": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Continuous": true,
+            "Single": true
+          },
+          "boron": {
+            "Continuous": true,
+            "Single": true
+          },
+          "bsom": {
+            "Continuous": true,
+            "Single": true
+          },
+          "b5som": {
+            "Continuous": true,
+            "Single": true
+          },
+          "tracker": {
+            "Continuous": true,
+            "Single": true
+          },
+          "p2": {
+            "Continuous": true,
+            "Single": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Continuous": true,
             "Single": true

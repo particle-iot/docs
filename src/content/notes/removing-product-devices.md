@@ -6,6 +6,8 @@ In order to stop a device from being counted in the free or growth plan, there a
 
 At this point, the device will no longer be associated with your product, will not be counted for billing purposes, and could even be given to someone else to use at this point.
 
+The [Device Remove Tool](/tools/cloud-tools/device-remove/) can be used to simplify the process of removing multiple devices.
+
 #### To resume using the device
 
 - Add the Device ID to the product again

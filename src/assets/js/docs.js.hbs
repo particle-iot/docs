@@ -68,9 +68,36 @@ Created by Zach Supalla.
   };
 
   Docs.scrollToElement = function(element) {
+    let topOffset = 10;
+
+    // Make selection visible
+    let tempElem = $(element);
+    for(let tries = 0; tries < 20; tries++) {
+      if ($(tempElem).hasClass('content')) {
+        break;
+      }
+
+      if ($(tempElem).hasClass('collapseIndent')) {
+        if (!$(tempElem).is(':visible')) {
+          $(tempElem).show();
+          break;
+        }
+        else {
+        }
+      }
+      tempElem = $(tempElem).parent();        
+    }
+
+    const containerElem = $('.document-search-container');
+    if (containerElem.length) {
+      if ($(containerElem).is(':visible')) {
+        topOffset -= $(containerElem).height();
+      }
+    }
+
     var $element = $(element);
     if ($element.length === 1) {
-      var position = $element.position().top + 10;
+      var position = $element.position().top + topOffset;
       $('.content-inner').scrollTop(position);
     }
   };
@@ -253,19 +280,6 @@ Created by Zach Supalla.
 
     // console.log('leftRect.width=' + leftRect.width + ' rightRect.x=' + rightRect.x + ' rightRect.x-margin=' + (rightRect.x - 270));
 
-    // Is there enough room for the search box?
-    // The constant leaves enough room for a full search box and the "Logged In" banner. Should calculate this.
-    if (leftRect.width > (window.innerWidth - 370) || window.innerHeight < 400) {
-      // Show icon
-      $('.search').css('display', 'none');
-      $('.searchIcon').css('display', 'inline-block');
-    }
-    else {
-      // Show search box
-      $('.search').css('display', 'inline-block');
-      $('.searchIcon').css('display', 'none');
-    }
-
     if ($('.menubar').length == 0) {
       // On pages without a left nav, hide the hamburger icon
       $('.toggle-nav').hide();
@@ -299,10 +313,7 @@ Created by Zach Supalla.
     prettyPrint();
   }
 
-  {{#if development}}
-  // Make sure to scroll the element after live reload
-  if (window.location.hash && !window.location.hash.startsWith("#stq")) {
+  if (window.location.hash && !window.location.hash.startsWith("#search=1&")) {
     Docs.scrollToElement(window.location.hash);
   }
-  {{/if}}
 })(jQuery);

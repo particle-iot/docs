@@ -227,7 +227,7 @@ async function dfuDeviceRestore(usbDevice, options) {
     }
 
 
-    ga('send', 'event', options.eventCategory, 'DFU Restore Started', options.version + '/' + options.platformVersionInfo.name);
+    analytics.track('DFU Restore Started', {category:options.eventCategory, label:options.version + '/' + options.platformVersionInfo.name});
 
     if (options.flashBackup) {
 
@@ -617,7 +617,7 @@ async function dfuDeviceRestore(usbDevice, options) {
             { name: 'system-part3', title: 'Device OS System Part 3' },
             { name: 'softdevice', title: 'nRF52 Soft Device' },
             { name: 'tinker', reset:true, title: 'User Firmware' },
-            { name: 'tracker-edge', reset:true, title: 'Tracker Edge Firmware' },
+            { name: 'tracker-edge', reset:true, title: 'Edge Firmware' },
             { name: 'bootloader', title: 'Device OS Bootloader' },
         ];
         // Note that other parts that don't necessarily have binaries are added below
@@ -1093,7 +1093,7 @@ async function dfuDeviceRestore(usbDevice, options) {
     }
 
     if (dfuErrors.length) {
-        ga('send', 'event', options.eventCategory, 'DFU Flashing Error');
+        analytics.track('DFU Flashing Error', {category:options.eventCategory});
 
         return {
             ok: false,
@@ -1103,11 +1103,12 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
     }
 
-    ga('send', 'event', options.eventCategory, 'DFU Restore Success', options.version + '/' + options.platformVersionInfo.name);
+    analytics.track('DFU Restore Success', {category:options.eventCategory, label:options.version + '/' + options.platformVersionInfo.name});
 
     return {
         ok: true,
         text: 'Success!'
     }
 }
+
 

@@ -72,7 +72,7 @@ Looking closer at **System Module #1** we can see that it further depends on boo
       Bootloader module #0 - version 1003  
       Radio stack module #0 - version 202
 
-## Missing Dependency
+## Missing dependency
 
 In this example, we can see a **FAIL** in the dependencies for System module #1\. 
 

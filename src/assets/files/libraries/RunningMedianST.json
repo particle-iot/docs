@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RunningMedianST",
     "version": "0.0.1",
-    "installs": 6830,
+    "installs": 6945,
     "license": "MIT",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RunningMedianST",
+  "cardUrl": "/reference/device-os/libraries/r/RunningMedianST",
   "versions": {
     "0.0.1": {
       "builds": {

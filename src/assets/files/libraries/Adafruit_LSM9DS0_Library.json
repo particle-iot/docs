@@ -1,0 +1,177 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_LSM9DS0_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_LSM9DS0_Library/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_LSM9DS0_Library",
+    "version": "1.0.2",
+    "installs": 121,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Arduino library for LSM9DS0 9-DOF sensor board.",
+    "paragraph": "Arduino library for LSM9DS0 9-DOF sensor board.",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_LSM9DS0_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_LSM9DS0_Library",
+  "versions": {
+    "1.0.2": {
+      "added": "2023-03-21T20:55:47.787Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "boron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "bsom": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "b5som": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "tracker": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "p2": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "boron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "bsom": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "b5som": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "tracker": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "esomx": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "electron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "argon": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "boron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "electron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "argon": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "boron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "boron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "bsom": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "b5som": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "tracker": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "p2": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "boron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "bsom": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "b5som": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "tracker": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "esomx": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "Adafruit LSM9DS0 Library\n========================\n\nThis is a library for the Adafruit triple-axis accelerometer/magnetometer/gyroscope LSM9DS0 breakouts\n\nDesigned specifically to work with the Adafruit LSM9DS0 Breakout & Flora Sensor\n  ----> https://www.adafruit.com/products/2020\n  ----> https://www.adafruit.com/products/2021\n\nThese sensors use I2C to communicate, 2 pins are required to interface\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams \n\nWritten by Kevin Townsend for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n\nTo download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_LSM9DS0. Check that the Adafruit_LSM9DS0 folder contains Adafruit_LSM9DS0.cpp and Adafruit_LSM9DS0.h\n\nPlace the Adafruit_LSM9DS0 library folder your *arduinosketchfolder*/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE.\n\n<!-- START COMPATIBILITY TABLE -->\n\n## Compatibility\n\nMCU                | Tested Works | Doesn't Work | Not Tested  | Notes\n------------------ | :----------: | :----------: | :---------: | -----\nAtmega328 @ 16MHz  |      X       |             |            | \nAtmega328 @ 12MHz  |      X       |             |            | \nAtmega32u4 @ 16MHz |      X       |             |            | \nAtmega32u4 @ 8MHz  |      X       |             |            | \nESP8266            |      X       |             |            | \nAtmega2560 @ 16MHz |      X       |             |            | \nATSAM3X8E          |      X       |             |            | \nATSAM21D           |      X       |             |            | \nATtiny85 @ 16MHz   |             |             |     X       | \nATtiny85 @ 8MHz    |             |             |     X       | \nIntel Curie @ 32MHz |      X       |             |            | \nSTM32F2            |             |             |     X       | \n\n  * ATmega328 @ 16MHz : Arduino UNO, Adafruit Pro Trinket 5V, Adafruit Metro 328, Adafruit Metro Mini\n  * ATmega328 @ 12MHz : Adafruit Pro Trinket 3V\n  * ATmega32u4 @ 16MHz : Arduino Leonardo, Arduino Micro, Arduino Yun, Teensy 2.0\n  * ATmega32u4 @ 8MHz : Adafruit Flora, Bluefruit Micro\n  * ESP8266 : Adafruit Huzzah\n  * ATmega2560 @ 16MHz : Arduino Mega\n  * ATSAM3X8E : Arduino Due\n  * ATSAM21D : Arduino Zero, M0 Pro\n  * ATtiny85 @ 16MHz : Adafruit Trinket 5V\n  * ATtiny85 @ 8MHz : Adafruit Gemma, Arduino Gemma, Adafruit Trinket 3V\n\n<!-- END COMPATIBILITY TABLE -->\n",
+  "allVersions": [
+    "1.0.2"
+  ]
+}

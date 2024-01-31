@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel-pi",
     "version": "0.0.15",
-    "installs": 595,
+    "installs": 758,
     "license": "LGPLv3",
     "author": "Adafruit, Technobly, BoldBigflank",
     "sentence": "An Implementation of Adafruit's NeoPixel Library for the Spark Core, Particle Photon, P1, Electron and RedBear Duo",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/neopixel-pi",
+  "cardUrl": "/reference/device-os/libraries/n/neopixel-pi",
   "versions": {
     "0.0.15": {
       "builds": {
@@ -152,12 +152,76 @@
             "extra-examples": false,
             "rgbw-strandtest": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "boron": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "bsom": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "b5som": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "tracker": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "p2": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "boron": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "bsom": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "b5som": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "tracker": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "esomx": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.040Z"
     }
   },
-  "readme": "# Particle-NeoPixel\r\n\r\nA library for manipulating NeoPixel RGB LEDs for the Spark Core, Particle Photon, P1 and Electron.\r\nAlso now supports the [RedBear Duo](https://github.com/redbear/Duo).\r\n\r\nImplementation based on Adafruit's NeoPixel Library.\r\n\r\n## Supported Pixel Types\r\n- 800 KHz and 400kHz bitstream WS2812, WS2812B and WS2811\r\n- 800 KHz bitstream SK6812RGBW (NeoPixel RGBW pixel strips)\r\n  - (use 'SK6812RGBW' as `PIXEL_TYPE`)\r\n\r\nThe most common kinds are WS2812 (6-pin part), WS2812B (4-pin part) and SK6812RGBW (3 colors + white).\r\n\r\n#### Also supports these less common pixels\r\n\r\n- Radio Shack Tri-Color LED Strip with TM1803 controller 400kHz bitstream.\r\n- TM1829 pixels, many [details here.](https://community.particle.io/t/neopixel-library-for-tm1829-controller-resolved/5363)\r\n- Some functions from the [MessageTorch library](https://github.com/plan44/messagetorch/blob/master/messagetorch.cpp#L58-L134) have been added.\r\n- SK6812MINI \"NeoPixel Mini\" (use 'WS2812B' as `PIXEL_TYPE`)\r\n\r\n## Usage\r\n\r\nSet up the hardware:\r\n\r\n- A NeoPixel digital RGB LED (get at [adafruit.com](https://www.adafruit.com))\r\n- or a Radio Shack Tri-Color LED Strip (get at [radioshack.com](https://www.radioshack.com))\r\n- A power supply or breakout board to supply NeoPixel's with 5V\r\n\r\nFlash the [rainbow example](examples/a-rainbow/a-rainbow.cpp). With the\r\n[Particle CLI](https://docs.particle.io/guide/tools-and-features/cli/)\r\ndo `particle flash <my_device> examples/a-rainbow`\r\n\r\nAdapt it to your needs while keeping this general structure:\r\n\r\n```cpp\r\nAdafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);\r\nvoid setup() {\r\n  strip.begin();\r\n  strip.show();\r\n}\r\nvoid loop() {\r\n  // change your pixel colors and call strip.show() again\r\n}\r\n```\r\n\r\n## Documentation\r\n\r\n### `Adafruit_NeoPixel`\r\n\r\n```\r\n// IMPORTANT: Set pixel COUNT, PIN and TYPE\r\n#define PIXEL_COUNT 10\r\n#define PIXEL_PIN D2\r\n#define PIXEL_TYPE WS2812B\r\nAdafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);\r\n```\r\n\r\nCreates an object to interact wth a NeoPixel strip.\r\n\r\n`PIXEL_COUNT` is the number of pixels in strip.\r\n\r\n_Note: for some stripes like those with the TM1829, you need to count the number of segments, i.e. the number of controllers in your stripe, not the number of individual LEDs!_\r\n\r\n`PIXEL_PIN` is the pin number where your NeoPixel are connected (A0-A7, D0-D7, etc). Most pins are valid. If omitted, D2 is used.\r\n\r\n`PIXEL_TYPE` is the type of LED, one of WS2812, WS2812B, WS2812B2, WS2811, TM1803, TM1829, SK6812RGBW. If omitted, WS2812B is used.\r\n\r\n_Note: RGB order is automatically applied to WS2811, WS2812/WS2812B/WS2812B2/TM1803 is GRB order._\r\n\r\n### `begin`\r\n\r\n`strip.begin();`\r\n\r\nSets up the pin used for the NeoPixel strip.\r\n\r\n### `setPixelColor`\r\n### `setColor`\r\n\r\n```\r\nstrip.setPixelColor(num, red, green, blue);\r\nstrip.setPixelColor(num, red, green, blue, white);\r\nstrip.setPixelColor(num, color);\r\nstrip.setColor(num, red, green, blue);\r\nstrip.setColor(num, red, green, blue, white);\r\n```\r\n\r\nSet the color of LED number `num` (0 to `PIXEL_COUNT-1`). `red`,\r\n`green`, `blue`, `white` are between 0 and 255. White is only used for\r\nRGBW type pixels. `color` is a color returned from [`Color`](#color).\r\n\r\nThe brightness set with `setBrightness` will modify the color before it\r\nis applied to the LED.\r\n\r\n### `show`\r\n\r\n`strip.show();`\r\n\r\nDisplays the colors on the NeoPixel strip that were set with `setPixelColor` and other calls that change the color of LEDs.\r\n\r\nThis function takes some time to run (more time the more LEDs you have) and disables interrupts while running.\r\n\r\n### `clear`\r\n\r\n`strip.clear();`\r\n\r\nSet all LED color to off. Will take effect on next `show()`.\r\n\r\n### `setBrightness`\r\n\r\n`strip.setBrightness(brightness);`\r\n\r\nMake the LED less bright. `brightness` is from 0 (off) to 255 (max brightness) and defaults to 255.\r\n\r\nThis factor is not linear: 128 is not visibly half as bright as 255 but almost as bright.\r\n\r\n### `getBrightness`\r\n\r\n`uint8_t brightness = strip.getBrightness();`\r\n\r\nGet the current brightness.\r\n\r\n### `setColorScaled`\r\n\r\n```\r\nstrip.setColorScaled(num, red, green, blue, scaling);\r\nstrip.setColorScaled(num, red, green, blue, white, scaling);\r\n```\r\n\r\nSet the color of LED number `num` and scale that color non-linearly according to the `scaling` parameter (0 to 255).\r\n\r\n### `setColorDimmed`\r\n\r\n```\r\nstrip.setColorDimmed(num, red, green, blue, brightness);\r\nstrip.setColorDimmed(num, red, green, blue, white, brightness);\r\n```\r\n\r\nSet the color of LED number `num` and dim that color linearly according to the `brightness` parameter (0 to 255). In this case 128 should look half as bright as 255.\r\n\r\n### `Color`\r\n\r\n```\r\nuint32_t color = strip.Color(red, green, blue);\r\nuint32_t color = strip.Color(red, green, blue, white);\r\n```\r\n\r\nMake a color from component colors. Useful if you want to store colors in a variable or pass them as function arguments.\r\n\r\n### `getPixelColor`\r\n\r\n`uint32_t color = strip.getPixelColor();`\r\n\r\nGet the current color of an LED in the same format as [`Color`](#color).\r\n\r\n### `setPin`\r\n\r\n`strip.setPin(pinNumber);`\r\n\r\nChange the pin used for the NeoPixel strip.\r\n\r\n### `updateLength`\r\n\r\n`strip.updateLength(n);`\r\n\r\nChange the number of LEDs in the NeoPixel strip.\r\n\r\n### `getPixels`\r\n\r\n`uint8_t *pixels = strip.getPixels();`\r\n\r\nGet the raw color data for the LEDs.\r\n\r\n### `getNumLeds`\r\n### `numPixels`\r\n\r\n```\r\nuint16_t n = strip.getNumLeds();\r\nuint16_t n = strip.numPixels();\r\n```\r\n\r\nGet the number of LEDs in the NeoPixel strip. `numPixels` is an alias for `getNumLeds`.\r\n\r\n## Nuances\r\n\r\n- Make sure get the # of pixels, pin number, type of pixels correct\r\n- NeoPixels require 5V logic level inputs and the Spark Core and Photon only have 3.3V logic level digital outputs. Level shifting from 3.3V to 5V is necessary, the Particle Shield Shield has the [TXB0108PWR](http://www.digikey.com/product-search/en?pv7=2&k=TXB0108PWR) 3.3V to 5V level shifter built in (but has been known to oscillate at 50MHz with wire length longer than 6\"), alternatively you can wire up your own with a [SN74HCT245N](http://www.digikey.com/product-detail/en/SN74HCT245N/296-1612-5-ND/277258), or [SN74HCT125N](http://www.digikey.com/product-detail/en/SN74HCT125N/296-8386-5-ND/376860). These are rock solid.\r\n- To reduce NeoPixel burnout risk, add 1000 uF capacitor across pixel power leads, add 300 - 500 Ohm resistor on first pixel's data input and minimize distance between device and first pixel.  Avoid connecting on a live circuit. If you must, connect GND first.\r\n- Don't use `getPixelColor()` to move pixel data around when you are also using `setBrightness()`.  When the brightness is set, all `setPixelColor()` calls will end up scaling colors to dim them before they are stored in memory.  When using `getPixelColor()` the stored dimmed color is rescaled back up to the original color.  However, due to some loss of precision with the math, it is not possible to recreate this color data perfectly.  This is especially true with low brightness values.  If you `get` and `set` color data repeatedly with a dimmed pixel, it will eventually continue to decrease in value until it is equal to zero.\r\n- When changing the brightness, always call `setPixelColor()` first with fresh un-dimmed color data, then call `setBrightness()`, and finally `show()`.\r\n\r\n## References\r\n\r\n- NeoPixel Guide: https://learn.adafruit.com/adafruit-neopixel-uberguide\r\n- Quad Level Shifter IC: [SN74ACHT125N](https://www.adafruit.com/product/1787) (Adafruit)\r\n- Quad Level Shifter IC: [SN74HCT125N](http://www.digikey.com/product-detail/en/SN74HCT125N/296-8386-5-ND/376860) (Digikey)\r\n- Quad Level Shifter IC: [SN74AHCT125N](http://www.digikey.com/product-detail/en/SN74AHCT125N/296-4655-5-ND/375798) (Digikey)\r\n\r\n## License\r\nCopyright 2014-2017 Technobly, Phil Burgess\r\n\r\nReleased under the LGPL license\r\n",
+  "readme": "# Particle-NeoPixel\r\n\r\nA library for manipulating NeoPixel RGB LEDs for the Spark Core, Particle Photon, P1 and Electron.\r\nAlso now supports the [RedBear Duo](https://github.com/redbear/Duo).\r\n\r\nImplementation based on Adafruit's NeoPixel Library.\r\n\r\n## Supported Pixel Types\r\n- 800 KHz and 400kHz bitstream WS2812, WS2812B and WS2811\r\n- 800 KHz bitstream SK6812RGBW (NeoPixel RGBW pixel strips)\r\n  - (use 'SK6812RGBW' as `PIXEL_TYPE`)\r\n\r\nThe most common kinds are WS2812 (6-pin part), WS2812B (4-pin part) and SK6812RGBW (3 colors + white).\r\n\r\n#### Also supports these less common pixels\r\n\r\n- Radio Shack Tri-Color LED Strip with TM1803 controller 400kHz bitstream.\r\n- TM1829 pixels, many [details here.](https://community.particle.io/t/neopixel-library-for-tm1829-controller-resolved/5363)\r\n- Some functions from the [MessageTorch library](https://github.com/plan44/messagetorch/blob/master/messagetorch.cpp#L58-L134) have been added.\r\n- SK6812MINI \"NeoPixel Mini\" (use 'WS2812B' as `PIXEL_TYPE`)\r\n\r\n## Usage\r\n\r\nSet up the hardware:\r\n\r\n- A NeoPixel digital RGB LED (get at [adafruit.com](https://www.adafruit.com))\r\n- or a Radio Shack Tri-Color LED Strip (get at [radioshack.com](https://www.radioshack.com))\r\n- A power supply or breakout board to supply NeoPixel's with 5V\r\n\r\nFlash the rainbow example. With the\r\n[Particle CLI](https://docs.particle.io/guide/tools-and-features/cli/)\r\ndo `particle flash <my_device> examples/a-rainbow`\r\n\r\nAdapt it to your needs while keeping this general structure:\r\n\r\n```cpp\r\nAdafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);\r\nvoid setup() {\r\n  strip.begin();\r\n  strip.show();\r\n}\r\nvoid loop() {\r\n  // change your pixel colors and call strip.show() again\r\n}\r\n```\r\n\r\n## Documentation\r\n\r\n### `Adafruit_NeoPixel`\r\n\r\n```\r\n// IMPORTANT: Set pixel COUNT, PIN and TYPE\r\n#define PIXEL_COUNT 10\r\n#define PIXEL_PIN D2\r\n#define PIXEL_TYPE WS2812B\r\nAdafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);\r\n```\r\n\r\nCreates an object to interact wth a NeoPixel strip.\r\n\r\n`PIXEL_COUNT` is the number of pixels in strip.\r\n\r\n_Note: for some stripes like those with the TM1829, you need to count the number of segments, i.e. the number of controllers in your stripe, not the number of individual LEDs!_\r\n\r\n`PIXEL_PIN` is the pin number where your NeoPixel are connected (A0-A7, D0-D7, etc). Most pins are valid. If omitted, D2 is used.\r\n\r\n`PIXEL_TYPE` is the type of LED, one of WS2812, WS2812B, WS2812B2, WS2811, TM1803, TM1829, SK6812RGBW. If omitted, WS2812B is used.\r\n\r\n_Note: RGB order is automatically applied to WS2811, WS2812/WS2812B/WS2812B2/TM1803 is GRB order._\r\n\r\n### `begin`\r\n\r\n`strip.begin();`\r\n\r\nSets up the pin used for the NeoPixel strip.\r\n\r\n### `setPixelColor`\r\n### `setColor`\r\n\r\n```\r\nstrip.setPixelColor(num, red, green, blue);\r\nstrip.setPixelColor(num, red, green, blue, white);\r\nstrip.setPixelColor(num, color);\r\nstrip.setColor(num, red, green, blue);\r\nstrip.setColor(num, red, green, blue, white);\r\n```\r\n\r\nSet the color of LED number `num` (0 to `PIXEL_COUNT-1`). `red`,\r\n`green`, `blue`, `white` are between 0 and 255. White is only used for\r\nRGBW type pixels. `color` is a color returned from `Color`.\r\n\r\nThe brightness set with `setBrightness` will modify the color before it\r\nis applied to the LED.\r\n\r\n### `show`\r\n\r\n`strip.show();`\r\n\r\nDisplays the colors on the NeoPixel strip that were set with `setPixelColor` and other calls that change the color of LEDs.\r\n\r\nThis function takes some time to run (more time the more LEDs you have) and disables interrupts while running.\r\n\r\n### `clear`\r\n\r\n`strip.clear();`\r\n\r\nSet all LED color to off. Will take effect on next `show()`.\r\n\r\n### `setBrightness`\r\n\r\n`strip.setBrightness(brightness);`\r\n\r\nMake the LED less bright. `brightness` is from 0 (off) to 255 (max brightness) and defaults to 255.\r\n\r\nThis factor is not linear: 128 is not visibly half as bright as 255 but almost as bright.\r\n\r\n### `getBrightness`\r\n\r\n`uint8_t brightness = strip.getBrightness();`\r\n\r\nGet the current brightness.\r\n\r\n### `setColorScaled`\r\n\r\n```\r\nstrip.setColorScaled(num, red, green, blue, scaling);\r\nstrip.setColorScaled(num, red, green, blue, white, scaling);\r\n```\r\n\r\nSet the color of LED number `num` and scale that color non-linearly according to the `scaling` parameter (0 to 255).\r\n\r\n### `setColorDimmed`\r\n\r\n```\r\nstrip.setColorDimmed(num, red, green, blue, brightness);\r\nstrip.setColorDimmed(num, red, green, blue, white, brightness);\r\n```\r\n\r\nSet the color of LED number `num` and dim that color linearly according to the `brightness` parameter (0 to 255). In this case 128 should look half as bright as 255.\r\n\r\n### `Color`\r\n\r\n```\r\nuint32_t color = strip.Color(red, green, blue);\r\nuint32_t color = strip.Color(red, green, blue, white);\r\n```\r\n\r\nMake a color from component colors. Useful if you want to store colors in a variable or pass them as function arguments.\r\n\r\n### `getPixelColor`\r\n\r\n`uint32_t color = strip.getPixelColor();`\r\n\r\nGet the current color of an LED in the same format as `Color`.\r\n\r\n### `setPin`\r\n\r\n`strip.setPin(pinNumber);`\r\n\r\nChange the pin used for the NeoPixel strip.\r\n\r\n### `updateLength`\r\n\r\n`strip.updateLength(n);`\r\n\r\nChange the number of LEDs in the NeoPixel strip.\r\n\r\n### `getPixels`\r\n\r\n`uint8_t *pixels = strip.getPixels();`\r\n\r\nGet the raw color data for the LEDs.\r\n\r\n### `getNumLeds`\r\n### `numPixels`\r\n\r\n```\r\nuint16_t n = strip.getNumLeds();\r\nuint16_t n = strip.numPixels();\r\n```\r\n\r\nGet the number of LEDs in the NeoPixel strip. `numPixels` is an alias for `getNumLeds`.\r\n\r\n## Nuances\r\n\r\n- Make sure get the # of pixels, pin number, type of pixels correct\r\n- NeoPixels require 5V logic level inputs and the Spark Core and Photon only have 3.3V logic level digital outputs. Level shifting from 3.3V to 5V is necessary, the Particle Shield Shield has the [TXB0108PWR](http://www.digikey.com/product-search/en?pv7=2&k=TXB0108PWR) 3.3V to 5V level shifter built in (but has been known to oscillate at 50MHz with wire length longer than 6\"), alternatively you can wire up your own with a [SN74HCT245N](http://www.digikey.com/product-detail/en/SN74HCT245N/296-1612-5-ND/277258), or [SN74HCT125N](http://www.digikey.com/product-detail/en/SN74HCT125N/296-8386-5-ND/376860). These are rock solid.\r\n- To reduce NeoPixel burnout risk, add 1000 uF capacitor across pixel power leads, add 300 - 500 Ohm resistor on first pixel's data input and minimize distance between device and first pixel.  Avoid connecting on a live circuit. If you must, connect GND first.\r\n- Don't use `getPixelColor()` to move pixel data around when you are also using `setBrightness()`.  When the brightness is set, all `setPixelColor()` calls will end up scaling colors to dim them before they are stored in memory.  When using `getPixelColor()` the stored dimmed color is rescaled back up to the original color.  However, due to some loss of precision with the math, it is not possible to recreate this color data perfectly.  This is especially true with low brightness values.  If you `get` and `set` color data repeatedly with a dimmed pixel, it will eventually continue to decrease in value until it is equal to zero.\r\n- When changing the brightness, always call `setPixelColor()` first with fresh un-dimmed color data, then call `setBrightness()`, and finally `show()`.\r\n\r\n## References\r\n\r\n- NeoPixel Guide: https://learn.adafruit.com/adafruit-neopixel-uberguide\r\n- Quad Level Shifter IC: [SN74ACHT125N](https://www.adafruit.com/product/1787) (Adafruit)\r\n- Quad Level Shifter IC: [SN74HCT125N](http://www.digikey.com/product-detail/en/SN74HCT125N/296-8386-5-ND/376860) (Digikey)\r\n- Quad Level Shifter IC: [SN74AHCT125N](http://www.digikey.com/product-detail/en/SN74AHCT125N/296-4655-5-ND/375798) (Digikey)\r\n\r\n## License\r\nCopyright 2014-2017 Technobly, Phil Burgess\r\n\r\nReleased under the LGPL license\r\n",
   "allVersions": [
     "0.0.15",
     "0.0.14",

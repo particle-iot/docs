@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CayenneLPP",
     "version": "1.0.2",
-    "installs": 380,
+    "installs": 564,
     "author": "Electronic Cats",
     "maintainer": "Electronic Cats <hola@electroniccats.com>",
     "sentence": "CayenneLPP Arduino Library.",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/CayenneLPP",
+  "cardUrl": "/reference/device-os/libraries/c/CayenneLPP",
   "versions": {
     "1.0.2": {
       "builds": {
@@ -107,6 +107,58 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "boron": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "bsom": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "b5som": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "tracker": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "esomx": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "boron": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "bsom": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "b5som": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "tracker": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "p2": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Basic_library_TTN": false,
             "WeatherStation_LMIC": false

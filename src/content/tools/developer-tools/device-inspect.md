@@ -27,7 +27,7 @@ command instead.
 
 ## From the event log
 
-Devices report their system version information via the `spark/status/safe-mode` event. Copy and paste 
+Devices report their Device OS version information via the `spark/status/safe-mode` event. Copy and paste 
 the raw JSON data (be sure to use the **Raw** button) and paste it in the box below to decode 
 the data. This can be used to determine if the device went into safe mode because of a missing dependency.
 

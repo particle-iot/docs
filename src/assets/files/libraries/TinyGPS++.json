@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TinyGPS++",
     "version": "0.9.4",
-    "installs": 97186,
+    "installs": 106053,
     "license": "MIT",
     "author": "Mikal Hart",
     "sentence": "A new, customizable Arduino NMEA parsing library http://arduiniana.org",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "t",
-  "cardUrl": "/cards/libraries/t/TinyGPS++",
+  "cardUrl": "/reference/device-os/libraries/t/TinyGPS++",
   "versions": {
     "0.9.4": {
       "builds": {
@@ -194,6 +194,118 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "boron": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "bsom": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "b5som": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "tracker": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "esomx": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "boron": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "bsom": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "b5som": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "tracker": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "p2": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "BasicExample": true,
             "DeviceExample": false,

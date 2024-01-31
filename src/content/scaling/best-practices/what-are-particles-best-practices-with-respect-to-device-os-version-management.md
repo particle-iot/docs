@@ -25,10 +25,15 @@ particle update
 This should take care of the entire process. If the device does not reboot and run your firmware as expected, please place the device back into DFU Mode and run:
 
 ```
-particle flash --usb tinker 
+particle flash --local tinker 
 ```
 
-Then open up a Support Ticket!
+You can also use this technique to flash a specific version of Device OS:
+
+```
+particle update --target 5.5.0
+```
+
 
 ### What is the best way to keep DeviceOS modern at scale?
 

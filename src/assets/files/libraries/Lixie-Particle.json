@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Lixie-Particle",
     "version": "1.4.1",
-    "installs": 277,
+    "installs": 347,
     "license": "GNU v3",
     "author": "Connor Nishijima",
     "sentence": "Allows for easy writing to Lixie Digit displays!",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/Lixie-Particle",
+  "cardUrl": "/reference/device-os/libraries/l/Lixie-Particle",
   "versions": {
     "1.4.1": {
       "builds": {
@@ -202,12 +202,100 @@
             "read_analog_voltage": false,
             "scoreboard": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "boron": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "bsom": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "b5som": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "tracker": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "p2": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "boron": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "bsom": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "b5som": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "tracker": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "esomx": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.116Z"
     }
   },
-  "readme": "![Lixie Library](http://i.imgur.com/IzgIYfg.jpg)\r\n\r\n# Library for driving Lixie edge-lit displays!\r\n\r\nThis library allows for easy writing to Lixie Panels! It takes care of all the addressing and updating for you!\r\n\r\n**NOTE: THIS LIBRARY IS DESIGNED FOR PARTICLE PHOTON OR ELECTRON, NOT GEN3 MESH DEVICES**\r\n\r\n----------\r\n# Contents\r\n- [Installation](#installation)\r\n- [Getting Started](#getting-started)\r\n- [Basic Functions](#basic-functions)\r\n- [Advanced Functions](#advanced-functions)\r\n- [Debug Functions](#debug-functions)\r\n- [Troubleshooting](#troubleshooting)\r\n- [Contributing](#contributing)\r\n- [License and credits](#license-and-credits)\r\n\r\n----------\r\n# Installation\r\n\r\n**With Particle Web IDE**\r\n\r\n1. Open Libraries and search for \"Lixie-Particle\" and select it from the resulting list of libraries\r\n2. Select an example application from the Examples list\r\n\r\n**The Lixie-Particle library relies on [the FastLED2 library from Daniel Garcia] available on the Particle Web IDE!**\r\n\r\n3. Open Libraries and search for \"FastLED2\" and select it from the resulting list of libraries\r\n4. Click on \"INCLUDE IN PROJECT\" and select the Lixie-Particle example you had selected above from your list of applications\r\n5. ERASE the lines added at the top of the application file which look like this:\r\n\r\n```\r\n\t\t// This #include statement was automatically added by the Particle IDE.\r\n\t\t#include <FastLED2.h>\r\n```\r\n\r\n------------\r\n# Getting Started:\r\n\r\n## \\*Getting Started has moved to it's own guide [HERE](https://github.com/connornishijima/Lixie-arduino/blob/master/getting-started.md)!\r\n\r\n----------\r\n# Some Basic Functions\r\n\r\n**lix.begin**();\r\n\r\nInititalizes the underlying FastLED library and sets up variables like the digit colors.\r\n\r\n**lix.clear**();\r\n\r\nClears all displays, all lights off.\r\n\r\n**lix.write**(int **input** OR char* **input**);\r\n\r\n    int: Clears the displays, and pushes in a multi-digit integer as in: 2016\r\n\r\n    char*: Clears the displays, and pushes in a char array as in: \"2016\". This ignores any non-numeric chars in the string, allowing you to send \"12:52:47 PM\" and have the displays show \"12 52 47\" for a clock.\r\n\r\n**lix.color**(byte **r**, byte **g**, byte **b**);\r\n\r\nSets the \"on\" color of the digits using RGB. This is the color of an active number in the display. (Default: 255,255,255)\r\n\r\n**lix.color_off**(byte **r**, byte **g**, byte **b**);\r\n\r\nSets the \"off\" color of the digits using RGB. This is the color of all inactive numbers in the display. (Default: 0,0,0)\r\n\r\n**lix.show**();\r\n\r\nForce the Lixies to update with current values and colors. Called automatically after every write call.\r\n\r\n----------\r\n# Some Advanced Functions\r\n\r\n**lix.nixie_mode**(bool **enabled**);\r\n\r\nThe best damn Not-A-Nixie-Tube out there. Includes a well balanced amber digit, with neon aura emulation for a very convincing look.\r\n\r\n**lix.brightness**(byte **bright**);\r\n\r\nSets the brightness of the displays, from 0 - 255. (Default: 255)\r\n\r\n**lix.white_balance**(CRGB **c_adj**);\r\n\r\nSets a color calibration for the LEDs. Supports all FastLED color temperatures, and custom temperatures in the form CRGB(r, g, b). (Default: Tungsten100W / R: 255 G: 214 B: 170)\r\n\r\n**lix.max_power**(int **volts**, int **milliamps**);\r\n\r\nSets a software power limit for all Lixies. Displaying white at full brightness, a Lixie will draw approximately 1200mA. (Default: 5V, 1000mA)\r\n\r\n**lix.get_numdigits**();\r\n\r\nReturns the number of Lixie displays currently in use, as an integer.\r\n\r\n**lix.maxed_out**(int **input**);\r\n\r\nReturns true if the input is too large to fit on the displays, false otherwise.\r\n\r\n**lix.get_leds**();\r\n\r\nReturns a pointer to the CRGB array that holds the color values sent to the displays. The library's *show()* function overwrites the values in this array, so call *FastLED.show()* to see any changes.\r\n\r\n----------\r\n# Debug Functions\r\n\r\nThe library also includes a few debugging functions if you're having issues with your displays. These functions require that the Serial library be initialized with \"Serial.begin(speed)\" before they will work.\r\n\r\n**lix.print_binary**();\r\n\r\nPrints the values of the led_states array, in binary, to the serial console.\r\n\r\n**lix.print_current**();\r\n\r\nPrints the current values on the display, in integers, to the serial console.\r\n\r\n**lix.get_number**();\r\n\r\nReturns the current number the display is showing in uint32_t form.\r\n\r\n----------\r\n# Troubleshooting\r\n\r\nAt the moment the library uses dynamic allocation for the LED arrays, which is not reported as allocated memory by the compiler. If your microcontroller is doing strange things, the first thing to check is that you have at least 70 bytes of dynamic memory available per Lixie digit.\r\n\r\nIf you've discovered a bug in the library, please create an issue on the Github repository so it can be fixed!\r\n\r\n----------\r\n# Contributing\r\nAny advice or pull requests are welcome. :)\r\n\r\n----------\r\n# License and Credits\r\n**Developed by Connor Nishijima (2016)**\r\n\r\n**Pull Request Hall of Fame:**\r\n- [David Madison](https://github.com/dmadison)\r\n\r\n**Released under the [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.en.html).**\r\n",
+  "readme": "Lixie Library (image removed)\r\n\r\n# Library for driving Lixie edge-lit displays!\r\n\r\nThis library allows for easy writing to Lixie Panels! It takes care of all the addressing and updating for you!\r\n\r\n**NOTE: THIS LIBRARY IS DESIGNED FOR PARTICLE PHOTON OR ELECTRON, NOT GEN3 MESH DEVICES**\r\n\r\n----------\r\n# Contents\r\n- Installation\r\n- Getting Started\r\n- Basic Functions\r\n- Advanced Functions\r\n- Debug Functions\r\n- Troubleshooting\r\n- Contributing\r\n- License and credits\r\n\r\n----------\r\n# Installation\r\n\r\n**With Particle Web IDE**\r\n\r\n1. Open Libraries and search for \"Lixie-Particle\" and select it from the resulting list of libraries\r\n2. Select an example application from the Examples list\r\n\r\n**The Lixie-Particle library relies on [the FastLED2 library from Daniel Garcia] available on the Particle Web IDE!**\r\n\r\n3. Open Libraries and search for \"FastLED2\" and select it from the resulting list of libraries\r\n4. Click on \"INCLUDE IN PROJECT\" and select the Lixie-Particle example you had selected above from your list of applications\r\n5. ERASE the lines added at the top of the application file which look like this:\r\n\r\n```\r\n\t\t// This #include statement was automatically added by the Particle IDE.\r\n\t\t#include <FastLED2.h>\r\n```\r\n\r\n------------\r\n# Getting Started:\r\n\r\n## \\*Getting Started has moved to it's own guide [HERE](https://github.com/connornishijima/Lixie-arduino/blob/master/getting-started.md)!\r\n\r\n----------\r\n# Some Basic Functions\r\n\r\n**lix.begin**();\r\n\r\nInititalizes the underlying FastLED library and sets up variables like the digit colors.\r\n\r\n**lix.clear**();\r\n\r\nClears all displays, all lights off.\r\n\r\n**lix.write**(int **input** OR char* **input**);\r\n\r\n    int: Clears the displays, and pushes in a multi-digit integer as in: 2016\r\n\r\n    char*: Clears the displays, and pushes in a char array as in: \"2016\". This ignores any non-numeric chars in the string, allowing you to send \"12:52:47 PM\" and have the displays show \"12 52 47\" for a clock.\r\n\r\n**lix.color**(byte **r**, byte **g**, byte **b**);\r\n\r\nSets the \"on\" color of the digits using RGB. This is the color of an active number in the display. (Default: 255,255,255)\r\n\r\n**lix.color_off**(byte **r**, byte **g**, byte **b**);\r\n\r\nSets the \"off\" color of the digits using RGB. This is the color of all inactive numbers in the display. (Default: 0,0,0)\r\n\r\n**lix.show**();\r\n\r\nForce the Lixies to update with current values and colors. Called automatically after every write call.\r\n\r\n----------\r\n# Some Advanced Functions\r\n\r\n**lix.nixie_mode**(bool **enabled**);\r\n\r\nThe best damn Not-A-Nixie-Tube out there. Includes a well balanced amber digit, with neon aura emulation for a very convincing look.\r\n\r\n**lix.brightness**(byte **bright**);\r\n\r\nSets the brightness of the displays, from 0 - 255. (Default: 255)\r\n\r\n**lix.white_balance**(CRGB **c_adj**);\r\n\r\nSets a color calibration for the LEDs. Supports all FastLED color temperatures, and custom temperatures in the form CRGB(r, g, b). (Default: Tungsten100W / R: 255 G: 214 B: 170)\r\n\r\n**lix.max_power**(int **volts**, int **milliamps**);\r\n\r\nSets a software power limit for all Lixies. Displaying white at full brightness, a Lixie will draw approximately 1200mA. (Default: 5V, 1000mA)\r\n\r\n**lix.get_numdigits**();\r\n\r\nReturns the number of Lixie displays currently in use, as an integer.\r\n\r\n**lix.maxed_out**(int **input**);\r\n\r\nReturns true if the input is too large to fit on the displays, false otherwise.\r\n\r\n**lix.get_leds**();\r\n\r\nReturns a pointer to the CRGB array that holds the color values sent to the displays. The library's *show()* function overwrites the values in this array, so call *FastLED.show()* to see any changes.\r\n\r\n----------\r\n# Debug Functions\r\n\r\nThe library also includes a few debugging functions if you're having issues with your displays. These functions require that the Serial library be initialized with \"Serial.begin(speed)\" before they will work.\r\n\r\n**lix.print_binary**();\r\n\r\nPrints the values of the led_states array, in binary, to the serial console.\r\n\r\n**lix.print_current**();\r\n\r\nPrints the current values on the display, in integers, to the serial console.\r\n\r\n**lix.get_number**();\r\n\r\nReturns the current number the display is showing in uint32_t form.\r\n\r\n----------\r\n# Troubleshooting\r\n\r\nAt the moment the library uses dynamic allocation for the LED arrays, which is not reported as allocated memory by the compiler. If your microcontroller is doing strange things, the first thing to check is that you have at least 70 bytes of dynamic memory available per Lixie digit.\r\n\r\nIf you've discovered a bug in the library, please create an issue on the Github repository so it can be fixed!\r\n\r\n----------\r\n# Contributing\r\nAny advice or pull requests are welcome. :)\r\n\r\n----------\r\n# License and Credits\r\n**Developed by Connor Nishijima (2016)**\r\n\r\n**Pull Request Hall of Fame:**\r\n- [David Madison](https://github.com/dmadison)\r\n\r\n**Released under the [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.en.html).**\r\n",
   "allVersions": [
     "1.4.1",
     "1.4.0"

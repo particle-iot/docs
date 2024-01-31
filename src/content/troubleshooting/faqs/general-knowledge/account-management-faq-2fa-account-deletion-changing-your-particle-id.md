@@ -5,7 +5,7 @@ columns: two
 ---
 
 # {{{title}}}
-## How should I set up 2FA for my Particle Account?
+## How should I set up 2FA for my Particle account?
 
 The most important thing you should do when you set up 2FA is to **save the ten one-time recovery passcodes that are provided** \-- but do _not_ rely on storing them on your mobile device. We recommend printing them out and keeping them in a secure location away from your computer.
 

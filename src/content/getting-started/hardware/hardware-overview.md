@@ -10,13 +10,14 @@ includeDefinitions: [api-helper, carrier-family-map]
 
 *Finding the right Particle hardware for your project*
 
-- If you want an off-the-shelf, complete device with little or no hardware design required, see [off-the-shelf complete](#off-the-shelf-complete) below.
+- If you want an off-the-shelf, complete device with little or no hardware design required, see [off-the-shelf complete](#off-the-shelf-complete) gateways, below.
 - One way to start finding the right device is whether you're a hobbyist, prototyping, or producing a product. To start there, see [prototype or production](#prototype-or-production) below.
 - Another way to start is by deciding on [cellular or Wi-Fi](#cellular-or-wi-fi) first.
 
 
 ## Off-the-shelf complete
 
+Particle gateway devices contain a cellular communication module in an enclosure with the required antennas and certification. A waterproof connector makes it easy to add external sensors and devices that communicate over protocols such as CAN bus, serial, and I2C. 
 
 ### Tracker One
 
@@ -32,10 +33,6 @@ If you want an off-the-shelf device can requires little or no hardware design, t
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | GA |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | GA |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | GA |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | In development |
-| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | In development |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | In development |
-| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated b7083b52-4bd3-47a6-85e8-396922c41b33 --}}
@@ -71,7 +68,7 @@ If you are interested in measuring temperature and humidity, an [external sensor
 
 | SKU | Description | Lifecycle |
 | :--- | :--- | :--- |
-| M8CABEA | M8 Accessory Cable 5V Power 3.3V Logic (Straight), [x1] | GA |
+| M8CABEA | M8 Accessory Cable (Straight), [x1] | GA |
 | M8CABRAEA | M8 Accessory Cable (Right Angle), [x1] | GA |
 | M8CABRATY | M8 Accessory Cable (Right Angle), [x40] | GA |
 | M8CABTY | M8 Accessory Cable (Straight), [x40] | GA |
@@ -79,16 +76,17 @@ If you are interested in measuring temperature and humidity, an [external sensor
 | M8CONNTY | M8 Connector (Straight), [x40] | GA |
 | M8TEMPHUMIEA | M8 Sensor Temperature/Humidity (Straight), [x1] | GA |
 | M8TEMPHUMITY | M8 Sensor Temperature/Humidity (Straight), [x40] | GA |
-| ONEM8CABEA | M8 Accessory Cable 5V Power 3.3V Logic (Straight), [x1] | GA |
-| ONEM8CABRAEA | M8 Accessory Cable 5V Power 3.3V Logic Right Angle), [x1] | GA |
-| ONEM8CABRATY | M8 Accessory Cable 5V Power 3.3V Logic (Right Angle), [x40] | GA |
-| ONEM8CABTY | M8 Accessory Cable 5V Power 3.3V Logic Straight), [x40] | GA |
 | M8CAB3VEA | M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x1] | In development |
 | M8CAB3VTY | M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x40] | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated 6a02fd77-1222-4208-8da5-45c9290c5f6d --}}
 
+### Monitor One
+
+The Monitor One has the same cellular and processor module (Tracker SoM), but is enclosed in a heavy duty waterproof enclosure that is large enough to contain expansion cards.
+
+The [Monitor One datasheet](/reference/datasheets/tracker/monitor-one-datasheet/) is available and a limited number of developer preview units are currently available. 
 
 ## Prototype or production
 
@@ -108,12 +106,12 @@ There are also evaluation kits for the B Series SoM, Tracker SoM, and E Series m
 
 If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#cellular-or-wi-fi) below.
 
-- The Argon has been deprecated and will be replaced by the Photon 2. For the differences, see the [Argon to Photon 2 migration guide](/hardware/migration-guides/photon-2-argon-migration-guide/).
+- The Argon has been deprecated and has been replaced by the Photon 2. For the differences, see the [Argon to Photon 2 migration guide](/hardware/migration-guides/photon-2-argon-migration-guide/).
 - The Boron 2G/3G (BRN314KIT) has been deprecated (along with all other 2G/3G SKUs) as the u-blox SARA-U201 cellular modem module on it is end-of-life.
 - The Boron LTE Cat M1 (BRN404KIT or BRN404X) is the recommended model for the United States, Canada, and Mexico.
 - Can be powered by USB, rechargeable LiPo battery, or an external power supply.
 - All Boron devices include a built-in Particle SIM card ([free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required).
-- Starter kits include a mini-breadboard, USB cable, two resistors (220 ohm), one red LED, and one photodiode.
+- Starter kits include a mini-breadboard, USB cable, two resistors (220 ohm), one red LED, and one phototransistor.
 - ARG-STRTKT includes a variety of [Grove](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and a display.
 - A battery is included with the Boron 2G/3G (BRN314) as the cellular modem uses more power for brief periods of time than a standard laptop USB port will supply.
 
@@ -124,8 +122,9 @@ If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 | :--- | :--- | :--- | :---: | :--- |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &nbsp; | GA |
-| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | In development |
-| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | In development |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | &nbsp; | GA |
+| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | GA |
+| PHN2MEA | Photon 2 [x1] | Global | &nbsp; | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
@@ -143,6 +142,7 @@ There are numerous ways to expand Gen 3 devices:
   - Keypads
   - Small displays
 - [Grove](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and displays connect to digital, analog, I2C, and serial devices with a simple 4-pin cable.
+- [Mikroe](/hardware/expansion/mikroe/) has a large number of expansion boards for both Feather and M.2 SoM devices.
 
 
 Its also possible to prototype with these easy to use modules, then include the same functionality on a custom board later. The Adafruit and SparkFun designs are all open-source and include hardware design files for EagleCAD.
@@ -163,6 +163,7 @@ While you can use prototyping devices at scale, if you will be needing devices o
 
 The software for prototyping and production devices is similar. It's often possible to use a single code base to work with both types of modules. And, in many cases, across both Gen 2 and Gen 3 devices, or across both cellular and Wi-Fi devices.
 
+For best compatibility in the future we recommend designing around the M.2 (B Series SoM) form-factor, which is a better size to accommodate future communication modules. The Feather (Boron) form-factor is too narrow to fit cellular modules like the EG91 LTE Cat M1 module used in the B Series SoM B524.
 
 #### B Series SoM (Gen 3 Cellular)
 
@@ -222,7 +223,7 @@ For more information about the Tracker SoM, see [Cellular - Tracker SoM](#tracke
 The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
 - The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
-- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
+- The E402 and E404 has been replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
 - New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
@@ -291,7 +292,7 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 - No troubleshooting site-specific Wi-Fi configuration issues
 
 
-#### B Series SoM (Production Gen 3 Cellular)
+#### B Series SoM (Production Gen 3 cellular)
 
 ![B Series](/assets/images/b-series/b-series-top.png)
 
@@ -358,7 +359,7 @@ The available models include:
 
 - For more in-depth information on cellular devices see the [cellular introduction](/getting-started/hardware/cellular-overview/) page.
 
-#### Boron (Prototyping Gen 3 Cellular)
+#### Boron (Prototyping Gen 3 cellular)
 
 {{!-- BEGIN shared-blurb 33f29de8-9bab-11ec-b909-0242ac120002 --}}
 ![Boron](/assets/images/boron/boron-top.png)
@@ -434,20 +435,19 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 
 | SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
 | :--- | :--- | :--- | :---: | :---: | :--- |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | &check; | GA |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | &check; | GA |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | &check; | GA |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | &check; | GA |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | &check; | &check; | GA |
-| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | &check; | In development |
-| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | &check; | In development |
-| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | &check; | In development |
-| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &check; | &check; | In development |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &nbsp; | &check; | In development |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | In development |
-| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &nbsp; | &check; | In development |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | In development |
-| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &check; | In development |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &nbsp; | &check; | GA |
+| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &check; | GA |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | &check; | In development |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | &check; | &check; | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated b9f495c6-80bc-49d7-a4b7-cb210f89fb65 --}}
@@ -458,7 +458,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 - See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
 - For more in-depth information on cellular devices see the [cellular introduction](/getting-started/hardware/cellular-overview/) page.
 
-#### E Series (Production Gen 2 Cellular)
+#### E Series (Production Gen 2 cellular)
 
 {{!-- BEGIN shared-blurb 58d445bc-9bab-11ec-b909-0242ac120002 --}}
 ![E Series](/assets/images/e-series/illustrations/e0-top.png)
@@ -466,7 +466,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
 - The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
-- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
+- The E402 and E404 has been replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
 - New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
@@ -559,7 +559,7 @@ The Photon 2 will replace the Argon as the prototyping Wi-Fi device.
 |  | Realtek Semiconductor | ST Microelectronics | Nordic Semiconductor |
 | CPU | Cortex M33 @ 200 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 64 MHz |
 | | Cortex M23 @ 20 MHz | | |
-| RAM<sup>2</sup> | 512 KB | 128 KB | 256 KB |
+| RAM<sup>2</sup> | 4608 KB | 128 KB | 256 KB |
 | Flash<sup>3</sup> | 16 MB | 1 MB | 1 MB | 
 | Hardware FPU | &check; | | &check; |
 | Secure Boot | &check; | | |
@@ -591,7 +591,7 @@ The Photon 2 will replace the Argon as the prototyping Wi-Fi device.
 
 <sup>1</sup>A small amount of the flash file system is used by Device OS, most is available for user data storage using the POSIX filesystem API. This is separate from the flash memory used for Device OS, user application, and OTA transfers.
 
-<sup>2</sup> Total RAM; amount available to user applications is smaller.
+<sup>2</sup> Total RAM; amount available to user applications is smaller. On the Photon 2, available RAM is approximately 3072 KB. On the Argon, it is 80 KB.
 
 <sup>3</sup> Total built-in flash; amount available to user applications is smaller. The Argon also has a 4 MB external flash, a portion of which is available to user applications as a flash file system.
 
@@ -603,19 +603,11 @@ The Photon 2 will replace the Argon as the prototyping Wi-Fi device.
 
 ![](/assets/images/argon/argon-top.png)
 
-The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bottom). It is deprecated and will be replaced by the Photon 2.
+The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bottom). It is deprecated and has been replaced by the Photon 2.
 
 - [Argon datasheet](/reference/datasheets/wi-fi/argon-datasheet/)
 - [Ways to expand Gen 3 feather devices](#prototyping) (above)
 - [Photon 2 from Argon migration guide](/hardware/migration-guides/photon-2-argon-migration-guide/)
-
-{{!-- BEGIN do not edit content below, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10 --}}
-
-| SKU | Description | Region | Lifecycle |
-| :--- | :--- | :--- | :--- |
-
-
-{{!-- END do not edit content above, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10--}}
 
 #### P2 (Production Wi-Fi)
 
@@ -643,7 +635,7 @@ The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bott
 |  | Realtek Semiconductor | ST Microelectronics | ST Microelectronics | Nordic Semiconductor |
 | CPU | Cortex M33 @ 200 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 64 MHz |
 | | Cortex M23 @ 20 MHz | | | |
-| RAM<sup>2</sup> | 512 KB | 128KB | 128 KB | 256 KB |
+| RAM<sup>2</sup> | 4608 KB | 128KB | 128 KB | 256 KB |
 | Flash<sup>3</sup> | 16 MB | 1 MB | 1 MB | 1 MB | 
 | Hardware FPU | &check; | | | &check; |
 | Secure Boot | &check; | | | |
@@ -677,7 +669,7 @@ The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bott
 
 <sup>1</sup>A small amount of the flash file system is used by Device OS, most is available for user data storage using the POSIX filesystem API. This is separate from the flash memory used for Device OS, user application, and OTA transfers.
 
-<sup>2</sup> Total RAM; amount available to user applications is smaller.
+<sup>2</sup> Total RAM; amount available to user applications is smaller. On the P2, available RAM is approximately 3072 KB. On the Argon, it is 80 KB. On the Photon, it is 55 KB.
 
 <sup>3</sup> Total built-in flash; amount available to user applications is smaller. The Argon also has a 4 MB external flash, a portion of which is available to user applications as a flash file system.
 
@@ -703,15 +695,16 @@ The P1 is intended for production use. It is an older Gen 2 models as is depreca
 | :--- | :--- | :--- | :--- |
 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | Global | GA |
 | P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | GA |
-| PHN2KIT | Photon 2, Kit [x1] | Global | In development |
-| PHN2MEA | Photon 2, [x1] | Global | In development |
-| PHN2MTY | Photon 2, Tray [x50] | Global | In development |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | GA |
+| PHN2KIT | Photon 2, Kit [x1] | Global | GA |
+| PHN2MEA | Photon 2 [x1] | Global | GA |
+| PHN2MTY | Photon 2, Tray [x50] | Global | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b--}}
 
 
-### Both Cellular and Wi-Fi
+### Both cellular and Wi-Fi
 
 There are no Particle devices that include both cellular and Wi-Fi connectivity in a single device. While the Tracker SoM and Tracker One include cellular and Wi-Fi, the Tracker Wi-Fi can only be used for geolocation and cannot be used to connect to the Internet.
 
@@ -729,9 +722,10 @@ These modules are pin-compatible in the Feather form-factor, so you can make two
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &nbsp; | GA |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | GA |
-| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | In development |
-| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | In development |
-| PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | In development |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | &nbsp; | GA |
+| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | GA |
+| PHN2MEA | Photon 2 [x1] | Global | &nbsp; | GA |
+| PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated a4c0c80f-3745-4b3c-b6dd-e774c4c71ad5 --}}
@@ -754,7 +748,7 @@ It is not possible to use Ethernet with Gen 2 devices (Photon, P1, Electron, or 
 
 Ethernet is only intended for use as a method of connecting to the Internet. It is not intended to connect to isolated Ethernet segments such as Ethernet control networks, and relay information over cellular, for example. See the [AN037 Ethernet](/hardware/ethernet/ethernet/) application note for more information.
 
-The following pins are used by Ethernet. These cannot be reconfigured.
+The following pins are used by Ethernet. In Device OS 5.3.0 and later these can be [reconfigured](/reference/device-os/api/ethernet/pin-configuration-ethernet/).
 
 | Ethernet Pin | Argon, Boron, P2, Photon 2 | B Series SoM | Tracker SoM |
 | :--- | :---: | :---: | :---: |
@@ -777,19 +771,23 @@ The following pins are used by Ethernet. These cannot be reconfigured.
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &nbsp; | &check; | GA |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
-| FWNG-ETH | Particle Ethernet FeatherWing, [x1] | Global | &nbsp; | &nbsp; | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | &nbsp; | &nbsp; | GA |
+| MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | &check; | GA |
 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | Global | &nbsp; | &nbsp; | GA |
 | P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | &nbsp; | &nbsp; | GA |
-| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | &nbsp; | In development |
-| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | &nbsp; | In development |
-| PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | &nbsp; | In development |
-| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &nbsp; | &check; | In development |
-| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | In development |
-| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
-| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &nbsp; | &check; | In development |
-| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | In development |
-| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &check; | In development |
+| PHN2EDGEKIT | Edge ML Kit for Photon 2 (Photon 2 included) | Global | &nbsp; | &nbsp; | GA |
+| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | &nbsp; | GA |
+| PHN2MEA | Photon 2 [x1] | Global | &nbsp; | &nbsp; | GA |
+| PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | &nbsp; | GA |
+| T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &nbsp; | &check; | GA |
+| T404MKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
+| T404MTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &check; | GA |
+| MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | &check; | &check; | In development |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | &check; | &check; | In development |
+| FWNG-ETH | Particle Ethernet FeatherWing, [x1] | Global | &nbsp; | &nbsp; | Deprecated |
 
 
 {{!-- END do not edit content above, it is automatically generated 2de596b8-2889-4df7-86d1-910d5551b34f --}}

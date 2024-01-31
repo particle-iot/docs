@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PMS7003-Particle-Sensor-Serial",
     "version": "1.0.3",
-    "installs": 5011,
+    "installs": 5611,
     "license": "MIT",
     "author": "Jidesh Veeramachaneni",
     "sentence": "Read and control the Plantower PMS7003 Module.",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PMS7003-Particle-Sensor-Serial",
+  "cardUrl": "/reference/device-os/libraries/p/PMS7003-Particle-Sensor-Serial",
   "versions": {
     "1.0.3": {
       "builds": {
@@ -108,12 +108,52 @@
           "esomx": {
             "usage": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.823Z"
     }
   },
-  "readme": "# PMS7003Serial\n\nA header only library that reads and controls the Plantower PMS7002 module. This library is published as a Particle Library for use with the Particle Photon and Particle Electron platforms. For other platforms just copy the header file [PMS7003-Particle-Sensor-Serial.h](src/PMS7003-Particle-Sensor-Serial.h) to your project.\n\n## Usage\n\nSee the [example](examples/usage/usage.ino) for a complete example.\n\n## LICENSE\n\nCopyright 2019 Jidesh Veeramachaneni  \nDistributed under the MIT License\n",
+  "readme": "# PMS7003Serial\n\nA header only library that reads and controls the Plantower PMS7002 module. This library is published as a Particle Library for use with the Particle Photon and Particle Electron platforms. For other platforms just copy the header file PMS7003-Particle-Sensor-Serial.h to your project.\n\n## Usage\n\nSee the example for a complete example.\n\n## LICENSE\n\nCopyright 2019 Jidesh Veeramachaneni  \nDistributed under the MIT License\n",
   "allVersions": [
     "1.0.3",
     "1.0.2",

@@ -1,0 +1,372 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_MS5637Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_MS5637Library/archive/1.3.0.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_MS5637Library",
+    "version": "1.3.0",
+    "installs": 272,
+    "author": "TE Connectivity and SparkFun Electronics",
+    "maintainer": "SparkFun Electronics",
+    "sentence": "Library for the SparkFun Qwiic Pressure Sensor - MS5637",
+    "paragraph": "The SparkFun breakout board for the MS5637 is a very sensitive, fully calibrated, low power, easy to use barometric pressure sensor capable of detecting a change of as little as 13cm of air! Great for weather sensing and local altimetry projects.",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_MS5637_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_MS5637Library",
+  "versions": {
+    "1.3.0": {
+      "added": "2023-03-21T20:29:07.774Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "boron": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "bsom": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "b5som": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "tracker": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "p2": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "boron": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "bsom": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "b5som": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "tracker": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "esomx": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "electron": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "argon": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "boron": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "electron": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "argon": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          },
+          "boron": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": true,
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "boron": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "bsom": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "b5som": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "tracker": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "p2": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "boron": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "bsom": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "b5som": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "tracker": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          },
+          "esomx": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example9_Original_TE_Example": false,
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun MS5637 Barometric Pressure Library\n===========================================================\n\nSparkFun Pressure Sensor (Qwiic) - MS5637 (image removed)\n\n[*SparkX Pressure Sensor (Qwiic) - MS5637 (SPX-14688)*](https://www.sparkfun.com/products/14688)\n\nMEMs based barometric pressure sensors are quite common these days. The Qwiic Pressure Sensor with the MS5637 shines by being the most sensitive barometric pressure sensor we have come across. It is capable of detecting the difference in 13cm of air! And the MS5637 is low cost and easy to use.\n\nThe Qwiic Pressure Sensor for the MS5637 is a very sensitive, fully calibrated, low power, easy to use barometric pressure sensor capable of detecting a change of as little as 13cm of air! The Qwiic Pressure Sensor is perfect for home weather stations, detecting changes in altitude, and pneumatic based switches or actuators.\n\nThe original manufacturer TE has written a great Arduino library for the device. We've added a heap of examples and new functions to make the sensor even easier to use. Search the Arduino Library manager for 'SparkFun MS5637' to get the latest library features.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfunX/Qwiic_IMU_BNO080)** - Main repository (including hardware files)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",
+  "allVersions": [
+    "1.3.0",
+    "1.2.0",
+    "1.1.0",
+    "1.0.0"
+  ]
+}

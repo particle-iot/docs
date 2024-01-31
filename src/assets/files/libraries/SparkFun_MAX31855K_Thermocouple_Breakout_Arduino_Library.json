@@ -1,0 +1,146 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_MAX31855K_Thermocouple_Breakout_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_MAX31855K_Thermocouple_Breakout_Arduino_Library/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_MAX31855K_Thermocouple_Breakout_Arduino_Library",
+    "version": "1.0.1",
+    "installs": 136,
+    "author": "SparkFun Electronics",
+    "maintainer": "SparkFun Electronics <techsupport@SparkFun.com>",
+    "sentence": "K type thermocouple digitizer board.",
+    "paragraph": "The <a href=\"https://www.sparkfun.com/products/13266\">MAX31855</a> performs cold-junction compensation and digitizes the signal from a K-type thermocouple. The data is output in a signed 14-bit, SPI-compatible, read-only format. Example is pin compatible with the 3.3 V <a href=\"http://www.sparkfun.com/products/11114\">Arduino Pro Mini</a>.",
+    "category": "Sensors",
+    "url": "http://github.com/sparkfun/MAX31855K_Thermocouple_Digitizer",
+    "repository": "https://github.com/sparkfun/SparkFun_MAX31855K_Thermocouple_Breakout_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_MAX31855K_Thermocouple_Breakout_Arduino_Library",
+  "versions": {
+    "1.0.1": {
+      "added": "2023-03-21T20:27:09.521Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "boron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "bsom": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "b5som": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "tracker": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "p2": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "boron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "bsom": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "b5som": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "tracker": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "esomx": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "electron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "argon": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "boron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "electron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "argon": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "boron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "boron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "bsom": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "b5som": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "tracker": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "p2": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "boron": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "bsom": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "b5som": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "tracker": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          },
+          "esomx": {
+            "SparkFun_MAX31855K_Thermocouple_Breakout": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun MAX31855K Thermocouple Breakout Arduino Library\n========================================\n\n<img src=\"https://cdn.sparkfun.com/assets/learn_tutorials/3/3/1/MAX31855K_Thermocouple_Digitizer_Hookup_Guide-05.jpg\" alt=\"MAX31855K Thermocouple Breakout\" style=\"max-width:50%\"/>\n\n[*SEN-13266*](https://www.sparkfun.com/products/13266)\n\nThis library is used for interfacing the *SparkFun MAX31855K Thermocouple Breakout* board.  The library is configured by default to interface the board on pins D10-A1 of a [3.3V Arduino Pro Mini](https://www.sparkfun.com/products/11114).  The pins are configurable in the sketch, but this board runs at 3.3V. *Level shifting is needed if you are not using a 3.3V device to communicate with it*.\n\nRepository Contents\n-------------------\n\n* **LICENSE.md** - The license this library is distributed under.\n* **README.md** - This file!\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** - General library properties for the Arduino package manager.\n* **/examples** - Example sketche for the library (.ino). Run this from the Arduino IDE.\n* **/src** - Source files for the library (.cpp, .h).\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/MAX31855K_Thermocouple_Breakout)** - Main repository (including hardware files) for the MAX31855K Thermocouple Breakout.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/max31855k-thermocouple-breakout-hookup-guide)** - Basic hookup guide for the MAX31855K Thermocouple Breakout.\n\nProducts that use this Library\n---------------------------------\n\n* [SEN-13266](https://www.sparkfun.com/products/13266) - MAX31855K Thermocouple Breakout\n\nVersion History\n---------------\n\n* [v1.0](https://www.sparkfun.com/products/13266) - Initial release of the *MAX31855K Thermocouple Breakout*\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\n**SparkFun code, firmware, and software is released under the MIT License(http://opensource.org/licenses/MIT).**\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n_<COLLABORATION CREDIT>_\n",
+  "allVersions": [
+    "1.0.1"
+  ]
+}

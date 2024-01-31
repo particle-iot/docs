@@ -5,7 +5,11 @@ columns: two
 layout: commonTwo.hbs
 ---
 
-# Lab 3 - Working with  BLE
+# Lab 3 - Working with BLE
+
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
 
 | **Project Goal**            | Learn how to use BLE features on Gen3 devices.                                                              |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -20,7 +24,7 @@ In this lab, we'll explore using BLE to advertise data from your device. Specifi
 Make sure you have completed **all** the prerequisites before advancing beyond this point.
 {{box op="end"}}
 
-## Using Bluetooth with Particle Devices
+## Using Bluetooth with Particle devices
 
 Let's explore using Bluetooth with Particle Devices.
 
@@ -33,7 +37,7 @@ Let's explore using Bluetooth with Particle Devices.
 #include "DiagnosticsHelperRK.h"
 ```
 <br />
-4. Now, let's turn on threading in the app, using the `SYSTEM_THREAD` command below. This opt-in change will allow your user firmware and system firmware to run on separate threads, which can speed things up when you're doing cloud publishes and local operations like Bluetooth. Note: be sure to place the following line near the top of your program, outside of the `setup` and `loop` functions.
+4. Now, let's turn on threading in the app, using the `SYSTEM_THREAD` command below. This opt-in change will allow your user firmware and Device OS to run on separate threads, which can speed things up when you're doing cloud publishes and local operations like Bluetooth. Note: be sure to place the following line near the top of your program, outside of the `setup` and `loop` functions.
 ```
 SYSTEM_THREAD(ENABLED);
 ```

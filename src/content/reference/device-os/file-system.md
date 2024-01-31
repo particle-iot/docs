@@ -18,7 +18,7 @@ Gen 3 devices, including the Boron, Argon, B Series SoM, Tracker SoM, and Tracke
 
 It's accessible from user firmware using the [POSIX file system API](/reference/device-os/api/file-system/file-system/).
 
-## Quick Facts
+## Quick facts
 
 The file system is based on the open-source [LittleFS](https://github.com/littlefs-project/littlefs) project. From their GitHub, the features include:
 

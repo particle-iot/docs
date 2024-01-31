@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MMA8451",
     "version": "1.0.3",
-    "installs": 4732,
+    "installs": 4830,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for the MMA8451 Accelerometer sensors in the Adafruit shop",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_MMA8451",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_MMA8451",
   "versions": {
     "1.0.3": {
       "builds": {
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "MMA8451demo": false
+          },
+          "boron": {
+            "MMA8451demo": false
+          },
+          "bsom": {
+            "MMA8451demo": false
+          },
+          "b5som": {
+            "MMA8451demo": false
+          },
+          "tracker": {
+            "MMA8451demo": false
+          },
+          "esomx": {
+            "MMA8451demo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "MMA8451demo": false
+          },
+          "boron": {
+            "MMA8451demo": false
+          },
+          "bsom": {
+            "MMA8451demo": false
+          },
+          "b5som": {
+            "MMA8451demo": false
+          },
+          "tracker": {
+            "MMA8451demo": false
+          },
+          "p2": {
+            "MMA8451demo": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "MMA8451demo": false
           },

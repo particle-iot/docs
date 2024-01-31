@@ -174,7 +174,7 @@ in a text-based format and store it in a string. Some formats you might want to 
 - Base 64
 - Base 85 (Ascii85)
 
-### Try It!
+### Try it!
 
 Enter JSON in the box below to validate it. If there is a syntax error, there will be a red x in a circle 
 on the line with the syntax error.
@@ -202,6 +202,13 @@ Try intentionally creating syntax errors:
 - Try adding a trailing comma after the last array element.
 - Try adding a key not in double quotes.
 - Try using single quotes instead of double quotes.
+
+### Convert to code
+
+Sometimes you will want to convert JSON data into static strings in your C++ application firmware. The
+tool below will convert the JSON above into code.
+
+{{> json-to-code rows="10" cols="90"}}
 
 ## Generate using sprintf
 
@@ -535,7 +542,7 @@ of your software keys could be added or removed.
 The other common place where JSON is used is with webhooks, both for sending data 
 to external servers, as well as parsing responses from servers. 
 
-In the [Webhook Tutorial](/getting-started/integrations/webhooks/) there's a brief mention 
+In the [Webhook Tutorial](/integrations/webhooks/) there's a brief mention 
 of `\{{{PARTICLE_EVENT_VALUE}}}` but what is really going on there?
 
 The answer is that the webhook server uses a template language known as Mustache.
@@ -548,6 +555,7 @@ HTML escaping of the values):
 - `\{{{PARTICLE_EVENT_NAME}}}`: The name of the event that triggers the webhook
 - `\{{{PARTICLE_EVENT_VALUE}}}`: The data associated with the event
 - `\{{{PARTICLE_PUBLISHED_AT}}}`: When the event was published
+- `\{{{PRODUCT_ID}}}`: The Product ID of the device that triggered the webhook
 
 Product webhooks also have access to:
 

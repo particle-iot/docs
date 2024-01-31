@@ -87,7 +87,8 @@
       [
         {
           "title": "Search",
-          "href": "/reference/device-os/libraries/search/"
+          "href": "/reference/device-os/libraries/search/",
+          "isLibrarySearch": true
         }
       ],
       {
@@ -119,7 +120,67 @@
         "dir": "power-management-faq",
         "title": "Power Management FAQ",
         "href": "/reference/device-os/power-management-faq/"
+      },
+      {
+        "dir": "wifi-setup-options",
+        "title": "Wi-Fi setup options",
+        "href": "/reference/device-os/wifi-setup-options/"
+      },
+      {
+        "dir": "connection-management",
+        "title": "Connection management",
+        "href": "/reference/device-os/connection-management/"
       }
+    ],
+    {
+      "dir": "asset-ota",
+      "isSection": true,
+      "title": "Asset OTA"
+    },
+    [
+      {
+        "dir": "asset-ota",
+        "title": "Asset OTA",
+        "href": "/reference/asset-ota/asset-ota/"
+      },
+      {
+        "dir": "asset-ota-community",
+        "isSection": true,
+        "title": "Asset OTA community projects"
+      },
+      [
+        {
+          "dir": "asset-ota-community",
+          "title": "About Asset OTA community projects",
+          "href": "/reference/asset-ota/asset-ota-community/asset-ota-community/"
+        },
+        {
+          "dir": "arduino-uno-asset-ota",
+          "title": "Arduino Uno Asset OTA",
+          "href": "/reference/asset-ota/asset-ota-community/arduino-uno-asset-ota/"
+        },
+        {
+          "dir": "lcd-image-asset-ota",
+          "title": "LCD image Asset OTA",
+          "href": "/reference/asset-ota/asset-ota-community/lcd-image-asset-ota/"
+        },
+        {
+          "dir": "rp2040-raspberry-pi-asset-ota",
+          "title": "RP2040 Raspberry Pi Asset OTA",
+          "href": "/reference/asset-ota/asset-ota-community/rp2040-raspberry-pi-asset-ota/",
+          "hidden": true
+        },
+        {
+          "dir": "sound-asset-ota",
+          "title": "Sound Asset OTA",
+          "href": "/reference/asset-ota/asset-ota-community/sound-asset-ota/"
+        },
+        {
+          "dir": "stm32-asset-ota",
+          "title": "STM32 Asset OTA",
+          "href": "/reference/asset-ota/asset-ota-community/stm32-asset-ota/"
+        }
+      ]
     ],
     {
       "dir": "cloud-apis",
@@ -180,6 +241,11 @@
         "dir": "cellular-carriers",
         "title": "Cellular carriers",
         "href": "/reference/cellular/cellular-carriers/"
+      },
+      {
+        "dir": "verizon-faq2",
+        "title": "Verizon FAQ",
+        "href": "/reference/cellular/verizon-faq2/"
       },
       {
         "dir": "lte-cat-1-expansion",
@@ -272,7 +338,16 @@
         {
           "dir": "monitor-one-datasheet",
           "title": "Monitor One Datasheet",
-          "href": "/reference/datasheets/tracker/monitor-one-datasheet/",
+          "href": "/reference/datasheets/tracker/monitor-one-datasheet/"
+        },
+        {
+          "title": "Monitor One Developer Edition Quickstart",
+          "href": "/quickstart/monitor-one/"
+        },
+        {
+          "dir": "monitor-one-developer-edition-manual",
+          "title": "Monitor One Developer Edition Manual",
+          "href": "/reference/datasheets/tracker/monitor-one-developer-edition-manual/",
           "internal": true
         },
         {
@@ -329,16 +404,10 @@
           "href": "/reference/datasheets/b-series/boron-datasheet/"
         },
         {
-          "dir": "b404x-certification",
-          "title": "B Series B404X Certification",
-          "href": "/reference/datasheets/b-series/b404x-certification/",
-          "hidden": true
-        },
-        {
-          "dir": "brn404x-certification",
-          "title": "BRN404X Certification",
-          "href": "/reference/datasheets/b-series/brn404x-certification/",
-          "hidden": true
+          "dir": "msom-datasheet",
+          "title": "M SoM datasheet",
+          "href": "/reference/datasheets/m-series/msom-datasheet/",
+          "internal": true
         }
       ],
       {
@@ -371,12 +440,6 @@
           "dir": "electron-datasheet",
           "title": "Electron datasheet",
           "href": "/reference/datasheets/e-series/electron-datasheet/"
-        },
-        {
-          "dir": "e404x-certification",
-          "title": "E404 Certification",
-          "href": "/reference/datasheets/e-series/e404x-certification/",
-          "hidden": true
         }
       ],
       {
@@ -419,6 +482,11 @@
           "dir": "gen3-accessories",
           "title": "Gen 3 Accessories",
           "href": "/reference/datasheets/accessories/gen3-accessories/"
+        },
+        {
+          "dir": "edge-ml-kit",
+          "title": "Edge ML kit",
+          "href": "/reference/datasheets/accessories/edge-ml-kit/"
         },
         {
           "dir": "legacy-accessories",
@@ -534,6 +602,16 @@
         "dir": "tan011",
         "title": "TAN011 - Tracker SoM default application firmware issue",
         "href": "/reference/technical-advisory-notices/tan011/"
+      },
+      {
+        "dir": "tan012",
+        "title": "TAN012 - Rare connectivity issue with BRN404X, B404X, and E404X",
+        "href": "/reference/technical-advisory-notices/tan012/"
+      },
+      {
+        "dir": "tan013",
+        "title": "TAN013 - Tracker Manufacturing Firmware 3.3.0",
+        "href": "/reference/technical-advisory-notices/tan013/"
       }
     ],
     {
@@ -577,6 +655,11 @@
           "dir": "us-2g-3g-sunset",
           "title": "US 2G/3G Sunset",
           "href": "/reference/discontinued/cellular/us-2g-3g-sunset/"
+        },
+        {
+          "dir": "au-nz-sunset",
+          "title": "Australia and New Zealand 2G/3G Sunset",
+          "href": "/reference/discontinued/cellular/au-nz-sunset/"
         },
         {
           "dir": "gen2-cellular-deprecation",

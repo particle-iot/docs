@@ -1,0 +1,38 @@
+name: Compile and upload
+
+# This workflow runs on git tags
+# It will only run when a tag is pushed to the repository that matches the pattern "v*"
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  compile-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Compile application
+        id: compile
+        uses: particle-iot/compile-action@v1
+        with:
+          particle-platform-name: 'p2'
+          device-os-version: '5.3.1'
+          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
+
+      - name: Upload artifacts to GitHub
+        uses: actions/upload-artifact@v3
+        with:
+          path: ${{ steps.compile.outputs.firmware-path }}
+
+      - name: Upload product firmware to Particle
+        uses: particle-iot/firmware-upload-action@v1
+        with:
+          particle-access-token: ${{ secrets.PARTICLE_ACCESS_TOKEN }}
+          firmware-path: ${{ steps.compile.outputs.firmware-path }}
+          firmware-version: ${{ steps.compile.outputs.firmware-version }}
+          product-id: '12345'
+          title: 'Firmware v${{ steps.compile.outputs.firmware-version }}'
+          description: '[Firmware v${{ steps.compile.outputs.firmware-version }} GitHub Release](${{ steps.release.outputs.html_url }})'

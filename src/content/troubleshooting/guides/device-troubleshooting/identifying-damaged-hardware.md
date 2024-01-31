@@ -7,7 +7,7 @@ columns: two
 # {{{title}}}
 Please see the following to help diagnose issues with damaged hardware:
 
-## Initial Troubleshooting
+## Initial troubleshooting
 
 Before proceeding with this article, please review the following:
 
@@ -22,7 +22,7 @@ If you are using SPI, I2C or analog functions, be sure to check that those proto
 
 In most cases, the device should emerge unscathed from an errant short. 
 
-## Status LED Not Turning On
+## Status LED not turning on
 
 If you don’t see a Status LED, begin by removing your device from any shield, mount, or feather and disconnect all cables and batteries.
 
@@ -36,7 +36,7 @@ Try the following steps:
 
 If you have no luck with the above, it is likely that your device has been damaged and will have to be replaced. 
 
-## Device Fails in Circuit
+## Device fails in circuit
 
 If your device works in isolation, but plugging into the circuit causes issues, check the following items:
 
@@ -44,7 +44,7 @@ If your device works in isolation, but plugging into the circuit causes issues, 
    * The power pins are 3V3, Li+ and VUSB on Gen 3 devices and 3V3, VIN and VBAT on Gen 2 devices.
 * Make sure that none of the GPIO pins are shorted directly to ground when being driven HIGH.
 
-## Device Gets Warm (Battery-Powered)
+## Device gets warm (battery-powered)
 
 Make sure your battery connector conforms to the Feather specification and that the polarity is not reversed. See the Particle [battery tutorial.](/hardware/power/batteries/) 
 
@@ -52,10 +52,10 @@ If the polarity is correct, check with a spare battery if possible.
 
 Measure the voltage on the battery. It should measure between 3.4 and 4.2V. 
 
-## Device Gets Warm (USB/VUSB/VIN-Powered)
+## Device gets warm (USB/VUSB/VIN-powered)
 
 Check that there are no shorts between VUSB and GND by using a multimeter in Continuity mode - see this [Sparkfun guide.](https://learn.sparkfun.com/tutorials/how-to-use-a-multimeter/continuity) 
 
-## Device is Back-Powered
+## Device is back-powered
 
 The NRF52840 is a very low-power microcontroller, capable of functioning with an input voltage as low as 1.8V. If the main power supplies are cut off, it is possible to “back power” the NRF via pull-ups on the I2C or GPIO pins. Always make sure your pull-ups are connected to the 3V3 pin on the device, and not to an external power rail.

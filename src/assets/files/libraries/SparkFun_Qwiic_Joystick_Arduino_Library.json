@@ -1,0 +1,242 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_Qwiic_Joystick_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_Qwiic_Joystick_Arduino_Library/archive/1.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_Qwiic_Joystick_Arduino_Library",
+    "version": "1.1.0",
+    "installs": 380,
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "Library for the SparkFun Qwiic Joystick",
+    "paragraph": "An Arduino Library for the Qwist Joystick. Qwiic Joystick makes reading an analog joystick over I2C easy and fast. The current joystick position and button state can be read from separate registers. There is also an additional register to check if the button had been pressed since the last read of the button register. Available at: https://www.sparkfun.com/products/15168",
+    "category": "Device Control",
+    "url": "https://github.com/sparkfun/SparkFun_Qwiic_Joystick_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_Qwiic_Joystick_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Qwiic_Joystick_Arduino_Library",
+  "versions": {
+    "1.1.0": {
+      "added": "2023-03-21T18:56:26.138Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "p2": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "esomx": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "p2": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          },
+          "esomx": {
+            "Example1_BasicReadings": true,
+            "Example2_I2C_Address_and_Firmware": true,
+            "Example3_I2C_Scanner": true,
+            "Example4_Joystick_Serial_Output": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun Qwiic Joystick Arduino Library\n===========================================================\n\nSparkFun Qwiic Joystick (image removed)\n\n[*SparkFun Qwiic Joystick (DEV-15168)*](https://www.sparkfun.com/products/15168)\n\nSometimes you need a joystick in your project. The Qwiic Joystick is a great solution with an analog joystick and momentary button. The Qwiic Joystick was designed to get rid of the large mass of wires that are needed to implement a joystick on a breadboard. The ATtiny85 on the Qwiic Joystick takes care reading the joystick position and if the button is pressed, while making that data readable over an easy-to-use I<sup>2</sup>C interface.\n\nThe joystick has a built in button so the user can select an GUI menu or element by pressing on the joystick. The current position of the joystick and state of the button are readable through the I2C registers. In the firmware, there is also a seperate register to check for button presses inbetween reads of the button state, which is cleared after each read (also with the read of the button state).\n\nThe I2C address of Qwiic Joystick is software configurable which means you can hookup over 100 on a single I2C bus!\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n* **[Qwiic Joystick Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-joystick-hoookup-guide)** - Hookup guide for the Qwiic Joystick\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/Qwiic_Joystick)** - Main repository (including hardware files)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact technical support through the [SparkFun forum](https://forum.sparkfun.com/index.php).\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release any derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",
+  "allVersions": [
+    "1.1.0"
+  ]
+}

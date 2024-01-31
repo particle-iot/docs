@@ -47,14 +47,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId, name: 'led', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    ga('send', 'event', 'LED Function Test', 'Success');
+                    analytics.track('Success', {category:'LED Function Test'});
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    ga('send', 'event', 'LED Function Test', 'Error', err);
+                    analytics.track('Error', {category:'LED Function Test', label:err});
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -96,14 +96,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId, name: 'setColor', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    ga('send', 'event', 'LED Color Test', 'Success');
+                    analytics.track('Success', {category:'LED Color Test'});
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
-                    ga('send', 'event', 'LED Color Test', 'Error', err);
+                    analytics.track('Error', {category:'LED Color Test', label:err});
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -1205,19 +1205,21 @@ $(document).ready(function() {
 
     });
     
-    $('.apiHelperCloudApiDeviceSelect').each(async function() {
+    $('.apiHelperDeviceSelect').each(async function() {
         const thisPartial = $(this);
-
+        
         const options = $(thisPartial).data('options').split(',');
 
-        const apiHelperCloudDeviceSelectElem = $(thisPartial).find('.apiHelperCloudDeviceSelect');
-        const apiHelperCloudApiDeviceSelectStatusElem = $(thisPartial).find('.apiHelperCloudApiDeviceSelectStatus');
+        const deviceSelectSelectElem = $(thisPartial).find('.deviceSelectSelect');
 
-        const setStatus = function(s) {
-            $(apiHelperCloudApiDeviceSelectStatusElem).text(s);
-        }
+        let deviceSelect = {
+            options,
+            partialElem: thisPartial,
+            selectElem: deviceSelectSelectElem,
+        };
+        $(thisPartial).data('deviceSelect', deviceSelect);
 
-        apiHelper.deviceList(apiHelperCloudDeviceSelectElem, {
+        apiHelper.deviceList(deviceSelectSelectElem, {
             deviceFilter: function(dev) {
                 return true;
             },
@@ -1231,12 +1233,42 @@ $(document).ready(function() {
                     result = dev.id;
                 }
                 result += (dev.online ? '' : ' (offline)');
+                return result;
             },                    
             hasRefresh: true,
             hasSelectDevice: true,
             onChange: async function(elem) {
                 const newVal = $(elem).val();
+                deviceSelect.dev = apiHelper.deviceListCache.find(e => e.id == newVal);
+                if (deviceSelect.onChange) {
+                    deviceSelect.onChange(deviceSelect.dev);
+                }
+                if (options.includes('deviceInfo')) {
+                    const deviceSelectInfoElem = $(thisPartial).find('.deviceSelectInfo');
+                    const tbodyElem = $(deviceSelectInfoElem).find('tbody');
+                    $(deviceSelectInfoElem).show();
+                    $(tbodyElem).empty();
 
+                    deviceSelect.dev._platform = await apiHelper.getPlatformName(deviceSelect.dev.platform_id);
+                    deviceSelect.dev._sku = await apiHelper.getSkuFromSerial(deviceSelect.dev.serial_number);
+                    if (!deviceSelect.dev._sku) {
+                        deviceSelect.dev._sku = 'Unknown';
+                    }
+                    console.log('deviceInfo', deviceSelect.dev);
+
+                    let tableData = {
+                        'id': 'Device ID',
+                        'name': 'Device Name',
+                        '_platform': 'Platform',
+                        'serial_number': 'Serial Number',
+                        '_sku': 'SKU',          
+                        'product_id': 'Product ID',                                       
+                    };
+
+                    apiHelper.simpleTableObjectMap(tbodyElem, tableData, deviceSelect.dev);
+                    
+                    $(thisPartial).trigger('deviceSelected', [deviceSelect.dev]);
+                }
             }
         });   
 
@@ -1888,6 +1920,12 @@ $(document).ready(function() {
             options.sandboxOrg = sandboxOrg;   // 'sandbox' product or 'org' product
             options.productId = productId;    // 0 if sandbox
         
+            if (sandboxOrg != 'sandbox') {
+                options.orgId = $(orgSelectElem).val();
+            }
+            else {
+                options.orgId = 0;
+            }
 
         }
 
@@ -2006,6 +2044,12 @@ $(document).ready(function() {
         });
 
         $(orgSelectElem).on('change', updateProductList);
+
+        $(productSelectElem).on('change', function() {
+            let options = {};
+            productSelector.getOptions(options);
+            $(thisPartial).trigger('updateProductList', [options]);
+        });
 
         apiHelper.getOrgs().then(async function(orgsData) {
             // No orgs: orgsData.organizations empty array
@@ -2668,6 +2712,17 @@ $(document).ready(function() {
     $('.apiHelperCreateOrSelectProduct').each(function() {
         const thisPartial = $(this);
 
+        let partialOptions = $(thisPartial).data('options').split(',');
+        if (!partialOptions) {
+            partialOptions = [];
+        }
+        // sandboxOnly - don't show org options even if the account is in an org
+        // status - show status row
+
+        if (partialOptions.includes('status')) {
+            $(thisPartial).show('.statusRow');
+        }
+
         const platformSelectElem = $(thisPartial).find('.apiHelperPlatformSelect');
         const deviceTypeSKUsElem = $(thisPartial).find('.deviceTypeSKUs');
 
@@ -2711,6 +2766,11 @@ $(document).ready(function() {
             return;
         }
 
+        $(document).on('deviceSelected', function(event, deviceObj) {
+            $(platformSelectElem).val(deviceObj.platform_id.toString());
+            $(platformSelectElem).trigger('change');
+        })
+
         productSelector.getOptions = function(options) {
             if (!options) {
                 options = {};
@@ -2723,7 +2783,7 @@ $(document).ready(function() {
 
             options.platformId = parseInt(platformIdStr);
 
-            if (productSelector.orgs.length) {
+            if (productSelector.orgs.length && !partialOptions.includes('sandboxOnly')) {
                 // Has organizations
 
                 // sandbox or org
@@ -2731,9 +2791,13 @@ $(document).ready(function() {
                 if (options.sandboxOrg == 'org') {
                     options.orgId = $(orgSelectElem).val();
                 }
+                else {
+                    options.orgId = 0;
+                }
             }
             else {
                 options.sandboxOrg = 'sandbox';
+                options.orgId = 0;
             }
 
             // new or existing
@@ -2787,6 +2851,17 @@ $(document).ready(function() {
             let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
             productSelector.getOptions(settings);
             apiHelper.manualSettings.save();
+
+            let productId = 0;
+            if (settings.newExisting != 'new') {
+                const productSelectValString = $(productSelectElem).val();
+                if (productSelectValString) {
+                    productId = parseInt(productSelectValString);
+                }
+            }
+
+            console.log('triggering commonProductSelected', productId);
+            $(thisPartial).trigger('commonProductSelected', [productId]);
         }
 
         const updateNewExistingButton = function() {
@@ -2803,6 +2878,7 @@ $(document).ready(function() {
             else {
                 $(createProductButtonElem).prop('disabled', true);
             }    
+            $(thisPartial).trigger('updateProductList');
         }
 
         const updateProductList = async function(options = {}) {
@@ -2823,7 +2899,7 @@ $(document).ready(function() {
             
             const sandboxOrg = sandboxOrgRadioCheckedVal();
 
-            if (productSelector.orgs.length) {
+            if (productSelector.orgs.length && !partialOptions.includes('sandboxOnly')) {
                 // Has organizations
 
                 $(sandboxOrgRowElem).show();
@@ -2985,7 +3061,7 @@ $(document).ready(function() {
                 data: JSON.stringify(requestDataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    // ga('send', 'event', simpleGetConfig.gaAction, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    // analytics.track('Error', {category:simpleGetConfig.gaAction, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                     console.log('error', jqXHR);
                     setStatus('Product creation failed');
                 },
@@ -2995,7 +3071,7 @@ $(document).ready(function() {
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
-                    // ga('send', 'event', simpleGetConfig.gaAction, 'Success');
+                    // analytics.track('Success', {category:simpleGetConfig.gaAction});
                     console.log('success', resp);
                     // ok: boolean
                     // product: object
@@ -3046,6 +3122,7 @@ $(document).ready(function() {
             $(newExistingRadioElem).prop('checked', false);
             $(existingRadioElem).prop('checked', true);
             productSelector.saveSettings();
+            $(thisPartial).trigger('updateProductList');
         });
 
         $(newRadioElem).on('click', function() {
@@ -3123,6 +3200,40 @@ $(document).ready(function() {
     });
 
 
+
+    apiHelper.flattenObject = function(objIn) {
+        let objOut = {};
+
+        console.log('flattenObject objIn', objIn);
+
+        
+        const flattenInternal = function(valueIn, prefix) {
+            if (Array.isArray(valueIn)) {
+                for(let ii = 0; ii < valueIn.length; ii++) {
+                    const newKey = prefix + '[' + ii + ']';
+                    flattenInternal(valueIn[ii], newKey);
+                }
+            }
+            else
+            if (typeof valueIn == 'object') {
+                for(const key in valueIn) {
+                    const newKey = prefix + (prefix != '' ? '.' : '') + key;
+                    flattenInternal(valueIn[key], newKey);
+                }
+            }
+            else {
+                objOut[prefix] = valueIn;
+            }
+        }
+        flattenInternal(objIn, '');
+
+
+        console.log('flattenObject objOut', objOut);
+
+        return objOut;
+    }
+
+
 });
 
 
@@ -3151,3 +3262,4 @@ function updateTinker(settings) {
     });    
 }
 */
+

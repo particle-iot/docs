@@ -5,7 +5,7 @@ description: BLE Serial Debug Log
 includeDefinitions: [api-helper, ble-serial]
 ---
 
-# BLE Serial Debug Log
+# BLE serial debug log
 
 {{> ble-serial-console}}
 

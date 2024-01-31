@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IoTNodeThingSpeak",
     "version": "0.0.3",
-    "installs": 376,
+    "installs": 447,
     "license": "MIT",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/IoTNodeThingSpeak",
+  "cardUrl": "/reference/device-os/libraries/i/IoTNodeThingSpeak",
   "versions": {
     "0.0.3": {
       "builds": {},

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LedSwitchRK",
     "version": "0.0.2",
-    "installs": 281,
+    "installs": 352,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Handy library for the SparkFun tactile switch with LED with debouncing",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "l",
-  "cardUrl": "/cards/libraries/l/LedSwitchRK",
+  "cardUrl": "/reference/device-os/libraries/l/LedSwitchRK",
   "versions": {
     "0.0.2": {
       "builds": {
@@ -154,12 +154,76 @@
             "2-multiple-LedSwitchRK": false,
             "3-multi-tap-LedSwitchRK": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "boron": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "bsom": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "b5som": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "tracker": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "p2": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "boron": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "bsom": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "b5som": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "tracker": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "esomx": {
+            "1-single-LedSwitchRK": false,
+            "2-multiple-LedSwitchRK": false,
+            "3-multi-tap-LedSwitchRK": false
+          }
         }
       },
       "added": "2022-06-17T10:16:54.112Z"
     }
   },
-  "readme": "# LedSwitchRK\n\n*Handy library for the SparkFun tactile switch with LED with debouncing*\n\n\n[SparkFun](https://www.sparkfun.com) has a line of these nice tactile momentary button with various colored caps and built-in LEDs.\n\n- [Green](https://www.sparkfun.com/products/10440)\n- [Red](https://www.sparkfun.com/products/10442)\n- [Orange](https://www.sparkfun.com/products/10441)\n- [Blue](https://www.sparkfun.com/products/10443)\n- [White](https://www.sparkfun.com/products/10439)\n\n![Green Button](green.jpg)\n\nThis library is a simple wrapper around this and the [Debounce](https://github.com/dwcares/debounce) library to detect when the button is pressed and manipulate the LED.\n\n## Usage\n\nYou normally instantiate a global LedSwitch object for each switch you have. The constructor takes the led PIN and the switch pin.\n\nThe LED pin is intended to be connected to the + side of the LED switch. The other side of the LED connects to GND with a current limiting resistor (68 ohms).\n\nThe switch pin is intended to be connected to the momentary switch. The other side of the switch connects to GND. The internal pull-up is used so you don't need an external pull-up resistor.\n\nCall the `pressed()` method on each call to loop(). If it returns true, then the button has been pressed. The press is debounced. There is no support for multiple presses (double click, etc.) at this time.\n\nThere are methods to manipulate the LED:\n\n- `ledOn()`\n- `ledOff()`\n- `ledToggle()`\n\n## Example 1 - Single\n\n```\n#include \"LedSwitchRK.h\"\n\nLedSwitch ledSwitch(D4, D5); // led, switch\n\nvoid setup() {\n}\n\nvoid loop() {\n\tif (ledSwitch.pressed()) {\n\t\tledSwitch.ledToggle();\n\t}\n}\n\n```\n\n\n## Example 2 - Multiple\n\n\n```\n#include \"LedSwitchRK.h\"\n\nLedSwitch switches[4] = {\n\t\t// { LED pin, switch pin }\n\t\tLedSwitch(D5, D6),\n\t\tLedSwitch(A3, A2),\n\t\tLedSwitch(D3, D4),\n\t\tLedSwitch(A1, A0)\n};\n\nvoid setup() {\n}\n\nvoid loop() {\n\n\tfor(size_t ii = 0; ii < (sizeof(switches) / sizeof(switches[0])); ii++) {\n\t\tif (switches[ii].pressed()) {\n\t\t\tswitches[ii].ledToggle();\n\t\t}\n\t}\n}\n\n```\n\n\n\n\n",
+  "readme": "# LedSwitchRK\n\n*Handy library for the SparkFun tactile switch with LED with debouncing*\n\n\n[SparkFun](https://www.sparkfun.com) has a line of these nice tactile momentary button with various colored caps and built-in LEDs.\n\n- [Green](https://www.sparkfun.com/products/10440)\n- [Red](https://www.sparkfun.com/products/10442)\n- [Orange](https://www.sparkfun.com/products/10441)\n- [Blue](https://www.sparkfun.com/products/10443)\n- [White](https://www.sparkfun.com/products/10439)\n\nGreen Button (image removed)\n\nThis library is a simple wrapper around this and the [Debounce](https://github.com/dwcares/debounce) library to detect when the button is pressed and manipulate the LED.\n\n## Usage\n\nYou normally instantiate a global LedSwitch object for each switch you have. The constructor takes the led PIN and the switch pin.\n\nThe LED pin is intended to be connected to the + side of the LED switch. The other side of the LED connects to GND with a current limiting resistor (68 ohms).\n\nThe switch pin is intended to be connected to the momentary switch. The other side of the switch connects to GND. The internal pull-up is used so you don't need an external pull-up resistor.\n\nCall the `pressed()` method on each call to loop(). If it returns true, then the button has been pressed. The press is debounced. There is no support for multiple presses (double click, etc.) at this time.\n\nThere are methods to manipulate the LED:\n\n- `ledOn()`\n- `ledOff()`\n- `ledToggle()`\n\n## Example 1 - Single\n\n```\n#include \"LedSwitchRK.h\"\n\nLedSwitch ledSwitch(D4, D5); // led, switch\n\nvoid setup() {\n}\n\nvoid loop() {\n\tif (ledSwitch.pressed()) {\n\t\tledSwitch.ledToggle();\n\t}\n}\n\n```\n\n\n## Example 2 - Multiple\n\n\n```\n#include \"LedSwitchRK.h\"\n\nLedSwitch switches[4] = {\n\t\t// { LED pin, switch pin }\n\t\tLedSwitch(D5, D6),\n\t\tLedSwitch(A3, A2),\n\t\tLedSwitch(D3, D4),\n\t\tLedSwitch(A1, A0)\n};\n\nvoid setup() {\n}\n\nvoid loop() {\n\n\tfor(size_t ii = 0; ii < (sizeof(switches) / sizeof(switches[0])); ii++) {\n\t\tif (switches[ii].pressed()) {\n\t\t\tswitches[ii].ledToggle();\n\t\t}\n\t}\n}\n\n```\n\n\n\n\n",
   "allVersions": [
     "0.0.2",
     "0.0.1"

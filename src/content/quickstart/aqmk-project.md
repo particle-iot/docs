@@ -4,13 +4,19 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# The Air Quality Monitoring Kit
+# The air quality monitoring kit
 
 ![](/assets/images/10-solution.png)
 
 Air quality monitoring is a common IoT use case, whether gauging dust levels in a workshop or industrial setting, or measuring overall air quality in a public space. In this tutorial, you’ll learn how to perform air quality monitoring with the [Particle Air Quality Monitoring kit](https://part.cl/air-quality-kit), display readings on a screen, and publish data to the Particle Device Cloud.
 
-## The Air Quality Kit comes with the following things:
+{{box op="start" cssClass="boxed warningBox"}}
+The air quality monitoring kit has been deprecated. This page is no longer maintained and is provided for historical reference only
+
+The Particle mobile app for iOS will be deprecated in the future. The Android app has been deprecated. You should use web-based or CLI setup instead.
+{{box op="end"}}
+
+## The air quality kit comes with the following things:
 
 {{box op="start"}}
 - 1x Particle Argon or Boron
@@ -29,7 +35,7 @@ If you want to jump ahead to the completed code, see [the full listing and downl
 For this tutorial, you’ll need the following Particle tools and services:
 
 - A [Particle account](https://login.particle.io)
-- The Particle mobile app for [iOS](https://apps.apple.com/us/app/particle-iot/id991459054) or [Android](https://play.google.com/store/apps/details?id=io.particle.android.app&hl=en_US)
+- The Particle mobile app
 - [Particle Workbench](https://particle.io/workbench)
 
 ## Claiming your particle device
@@ -86,7 +92,7 @@ Now, let’s create a new project for the application firmware. The steps below 
 
 ## Measuring dust levels
 
-Now that we have everything set-up, let’s connect the Dust sensor. The Grove Dust sensor is a Shinyei PPD42 device that uses Static light scattering with a red LED, a photodiode, and an infrared LED to measure the amount of dust particles in the air. It’s a clever little digital device, and is easy to set-up if you have a few formulas in hand.
+Now that we have everything set-up, let’s connect the Dust sensor. The Grove Dust sensor is a Shinyei PPD42 device that uses Static light scattering with a red LED, a phototransistor, and an infrared LED to measure the amount of dust particles in the air. It’s a clever little digital device, and is easy to set-up if you have a few formulas in hand.
 
 1. In the project you just created, we need to add some items at the top of your firmware, before the `setup` and `loop`. First, add a reference to use the newlib Math functions by including the Math.h header file. This lets us use the pow() function with our first sensor. Next, add a couple #define directives.  The first is for the digital pin of your dust sensor, and the second is the number of milliseconds that we want to elapse between sensor readings.
 
@@ -418,7 +424,7 @@ The Grove OLED included with this kit is a small 128x64 screen that’s perfect 
 
 At this point, you no longer need to tether your device to your computer. Unplug the USB cable, plug in a LiPo battery and you can take this kit anywhere! Before we finish this tutorial, let’s take these sensor readings all the way to the cloud!
 
-## Publishing data to the Particle Device Cloud
+## Publishing data to the Particle device cloud
 
 For this last section, we’re going to take the data from our sensors, and publish that information to the Particle Device Cloud using the `publish` API. As usual, we’ll start with a firmware library. This one will make it easier for us to create a nice JSON object out of our sensor data.
 
@@ -484,7 +490,7 @@ For this last section, we’re going to take the data from our sensors, and publ
 
 ![](/assets/images/ConsoleMessage.png)
 
-## Final Code
+## Final code
 
 You can download the full project, ready to import into Particle Workbench from the [GitHub air-quality-kit repository](https://github.com/particle-iot/air-quality-kit).
 

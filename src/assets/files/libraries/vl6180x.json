@@ -1,0 +1,145 @@
+{
+  "type": "libraries",
+  "id": "vl6180x",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/vl6180x/archive/1.1.2.tar.gz"
+  },
+  "attributes": {
+    "name": "vl6180x",
+    "version": "1.1.2",
+    "installs": 171,
+    "author": "Casey Kuhns@SparkFun <techsupport@sparkfun.com>",
+    "maintainer": "Peter Buelow <goballstate@gmail.com>",
+    "sentence": "The VL6180 combines an IR emitter, a range sensor, and an ambient light sensor together for you to easily use and communicate with via an I2C interface.",
+    "paragraph": "Library allows you to read distance and light outputs from the sensor, outputting the data via a serial connection. Additional changes to support modifying i2c address in real time. ",
+    "category": "Sensors",
+    "url": "https://github.com/buelowp/SparkFun_ToF_Range_Finder-VL6180_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "v",
+  "cardUrl": "/reference/device-os/libraries/v/vl6180x",
+  "versions": {
+    "1.1.2": {
+      "added": "2023-03-21T20:02:44.602Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "boron": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "bsom": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "b5som": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "tracker": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "p2": {
+            "SparkFun_VL6180X_demo": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "boron": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "bsom": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "b5som": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "tracker": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "esomx": {
+            "SparkFun_VL6180X_demo": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "electron": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "argon": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "boron": {
+            "SparkFun_VL6180X_demo": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "electron": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "argon": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "boron": {
+            "SparkFun_VL6180X_demo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "boron": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "bsom": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "b5som": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "tracker": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "p2": {
+            "SparkFun_VL6180X_demo": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "boron": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "bsom": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "b5som": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "tracker": {
+            "SparkFun_VL6180X_demo": false
+          },
+          "esomx": {
+            "SparkFun_VL6180X_demo": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun ToF Range Finder - VL6180 Arduino Library\n========================================\n\nArduino library with basic functionality of the VL6180 sensor. \n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Breakout Repository](https://github.com/sparkfun/ToF_Range_Finder_Breakout-VL6180/tree/master)** - Main repository (including hardware files) for the breakout.\n* **[Sensor Repository](https://github.com/sparkfun/ToF_Range_Finder_Sensor-VL6180/tree/master)** - Main repository (including hardware files) for the sensor board.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/vl6180-hookup-guide)** - Basic hookup guide for the VL6180.\n\nProducts that use this Library \n---------------------------------\n\n* [SEN-12785](https://www.sparkfun.com/products/12785)- Sensor Board\n* [SEN-12784](https://www.sparkfun.com/products/12784)- Breakout board\n\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nThe **code** is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n",
+  "allVersions": [
+    "1.1.2"
+  ]
+}

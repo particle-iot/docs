@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Fingerprint",
     "version": "1.0.3",
-    "installs": 3652,
+    "installs": 3790,
     "license": "BSD License",
     "author": "Paul Kourany",
     "sentence": "Adafruit Fingerprint Sensor library",
@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_Fingerprint",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_Fingerprint",
   "versions": {
     "1.0.3": {
       "builds": {
@@ -123,6 +123,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "boron": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "bsom": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "b5som": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "tracker": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "esomx": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "boron": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "bsom": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "b5som": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "tracker": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "p2": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "blank": true,
             "enroll": false,

@@ -7,6 +7,10 @@ layout: commonTwo.hbs
 
 # Lab 3: Using the Particle CLI & Exploring the Device Cloud API
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 | **Project Goal**            | Use the Particle CLI & Device Cloud API to work with devices.                                                                                        |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to use the Particle CLI; Calling the Device CLoud API via cURL |
@@ -32,7 +36,7 @@ bash <( curl -sL https://particle.io/install-cli )
 <br /><br />
 5.  You can also call one of the two functions to light up the yellow or blue LED button. Type the command `particle call <your-device-name> toggleLed` in the terminal. Run the same command again to turn the light off.
 
-## The Particle Device Cloud API
+## The Particle device cloud API
 
 Behind the scenes, every interface that Particle provides to work with devices, from the Console, to mobile apps, SDKs, and the CLI, they all talk through a RESTful Device Cloud API. You can even call yourself, directly.
 

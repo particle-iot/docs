@@ -1,0 +1,369 @@
+{
+  "type": "libraries",
+  "id": "DHT20_I2C_Particle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/DHT20_I2C_Particle/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "DHT20_I2C_Particle",
+    "version": "1.0.3",
+    "installs": 468,
+    "author": "Rob Parke",
+    "sentence": "DHT 20 I2C library for Particle devices",
+    "paragraph": "This is a DHT 20 I2C library for Particle devices (e.g. Photon, Argon, Boron) based on the Arduino library created by Rob Tillaart",
+    "url": "https://github.com/reparke/DHT20_particle",
+    "repository": "https://github.com/reparke/DHT20_particle.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/reference/device-os/libraries/d/DHT20_I2C_Particle",
+  "versions": {
+    "1.0.3": {
+      "added": "2023-08-20T12:56:51.720Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "boron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "bsom": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "b5som": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "tracker": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "p2": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "boron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "bsom": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "b5som": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "tracker": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "esomx": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "electron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "argon": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "boron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "electron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "argon": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "boron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "boron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "bsom": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "b5som": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "tracker": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "p2": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "boron": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "bsom": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "b5som": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "tracker": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          },
+          "esomx": {
+            "DHT20": true,
+            "DHT20_I2C_speed": true,
+            "DHT20_async": true,
+            "DHT20_offset": true,
+            "DHT20_plotter": true,
+            "DHT20_read_status": true,
+            "DHT20_simple": true,
+            "DHT20_test_esp": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "\r\n\r\n# DHT20\r\n\r\nDHT20 I2C library for Particle devices\r\n\r\n\r\n## Description\r\n\r\nThis is a DHT20 I2C library for Particle devices (e.g. Photon, Argon, Boron) based on the [Arduino library](https://github.com/RobTillaart/DHT20) created by [Rob Tillaart](https://github.com/RobTillaart)\r\n\r\nThe library must be initiated by calling the **begin()** function, \r\nor **begin(dataPin, clockPin)** for **ESP32** and similar platforms.\r\n\r\nThereafter one has to call the **read()** function to do the actual reading,\r\nand with **getTemperature()** and **getHumidity()** to get the measured values.\r\nCalling these latter again will return the same values until a new **read()** is called.\r\n\r\nThe **read()** call of this sensor is blocking for 80+ milliseconds (datasheet 7.4)\r\nso the library also has a asynchronous interface. See below.\r\n\r\nSince 0.1.3 and 0.1.4 the performance of **read()** has been optimized, \r\nstill blocking but less long for about 45 milliseconds.\r\n\r\n\r\n### Connection\r\n\r\nAlways check datasheet \r\n\r\nFront view\r\n```\r\n          +--------------+\r\n  VDD ----| 1            |\r\n  SDA ----| 2    DHT20   |\r\n  GND ----| 3            |\r\n  SCL ----| 4            |\r\n          +--------------+\r\n```\r\n\r\n### Tested\r\n\r\nVerified to work with Particle Argon\r\n\r\n\r\n\r\n## Interface\r\n\r\n\r\n### Constructor\r\n\r\n- **DHT20(TwoWire \\*wire = &Wire)** constructor, using a specific Wire (I2C bus).\r\n- **bool begin(uint8_t dataPin, uint8_t clockPin)** begin for ESP32 et al, to set I2C bus pins.\r\n- **bool begin()** initializer for non ESP32. Returns true if connected.\r\n- **bool isConnected()** returns true if the address of the DHT20 can be seen on the I2C bus.\r\n\r\n\r\n### Core\r\n\r\n- **int8_t read()** read the sensor and store the values internally. \r\nIt returns the status of the read which should be 0.\r\n- **float getHumidity()** returns last Humidity read.\r\n- **float getTemperature()** returns last Temperature read.\r\n\r\n\r\n### Offset\r\n\r\n- **void setHumOffset(float offset)** set an offset to calibrate (1st order) the sensor.\r\n- **float getHumOffset()** return current offset, default 0.\r\n- **void setTempOffset(float offset)** set an offset to calibrate (1st order) the sensor.\r\n- **float getTempOffset()** return current offset, default 0.\r\n\r\n\r\n### Asynchronous interface\r\n\r\nThere are two timings that need to be considdered, \r\n- time between requests = 1000 ms\r\n- time between request and data ready = 80 ms\r\n\r\nThe async interface allows one to continue processing after a **requestData()** has been made. \r\nNote that there should be at least **1000 milliseconds** between subsequent requests.\r\n\r\nWith **bool isMeasuring()** one can check if a new measurement is ready.\r\nIf so the sensor can be read with **readData()**.\r\n\r\nTo interpret the read bits to temperature, humidity and status one needs to call **convert()** as last step.\r\n\r\n\r\n- **int requestData()** signals the sensor to make a new measurement.\r\nNote there must be at least 1000 milliseconds between requests!\r\n- **int readData()** does the actual reading of the data.\r\n- **int convert()** converts the read bits to temperature and humidity.\r\n\r\nSee the example **DHT20_async.ino**\r\n\r\n\r\n### Status\r\n\r\n- **uint8_t readStatus()** forced read of the status only.\r\nThis function blocks a few milliseconds to optimize communication.\r\n- **bool isCalibrated()** idem, wrapper around **readStatus()**\r\n- **bool isMeasuring()** idem, wrapper around **readStatus()**\r\n- **bool isIdle()** idem, wrapper around **readStatus()**\r\n- **int internalStatus()** returns the internal status of the sensor. (for debug).\r\n\r\n|  status bit  |  meaning                   |\r\n|:------------:|:---------------------------|\r\n|    7         |  1 = measurement, 0 = idle |\r\n|  6 - 4       |  unknown                   |\r\n|    3         |  1 = calibrated, 0 = not   |\r\n|  2 - 0       |  unknown                   |\r\n\r\n\r\n#### Experimental 0.1.4 resetSensor\r\n\r\nUse with care, as this is not tested.\r\n\r\n- **uint8_t resetSensor()** if at startup the sensor does not return a status of 0x18, \r\nthree registers 0x1B, 0x1C and 0x1E need to be reset. \r\nSee datasheet 7.4 Sensor Reading Process, point 1.\r\nThere is no documentation about the meaning of these registers.\r\nThe code is based upon example code for the AHT20 (from manufacturer).\r\n\r\n\r\n### Timing\r\n\r\n- **uint32_t lastRead()** last time the sensor is read in milliseconds since start.\r\n- **uint32_t lastRequest()** last time a request is made to make a measurement.\r\n\r\n\r\n### Return codes\r\n\r\n| name                        |  value  |  notes  |\r\n|:----------------------------|:-------:|:--------|\r\n| DHT20_OK                    |    00   |  OK\r\n| DHT20_ERROR_CHECKSUM        |   -10   |  values might be OK if they are like recent previous ones.\r\n| DHT20_ERROR_CONNECT         |   -11   |  check connection\r\n| DHT20_MISSING_BYTES         |   -12   |  check connection\r\n| DHT20_ERROR_BYTES_ALL_ZERO  |   -13   |  check connection\r\n| DHT20_ERROR_READ_TIMEOUT    |   -14   |\r\n| DHT20_ERROR_LASTREAD        |   -15   |  wait 1 second between reads\r\n\r\n\r\n## Operation\r\n\r\nSee examples\r\n\r\n\r\n## Future\r\n\r\n#### must\r\n\r\n\r\n#### should\r\n\r\n\r\n#### could\r\n\r\n- improve unit tests.\r\n- investigate \r\n  - sensor calibration (website aosong?)\r\n- investigate optimizing timing in readStatus()\r\n  - delay(1) ==> microSeconds(???).\r\n- separate changelog.md\r\n- connected flag?\r\n\r\n#### won't\r\n\r\n- **void setIgnoreChecksum(bool = false)** ignore checksum flag speeds up communication a bit\r\n- **bool getIgnoreChecksum()** get checksum flag. for completeness.\r\n- \r\n\r\n## Contributing\r\n\r\nHere's how you can make changes to this library and eventually contribute those changes back.\r\n\r\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\r\n\r\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\r\n\r\nModify the sources in <src> and <examples> with the new behavior.\r\n\r\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\r\n\r\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add DHT20_I2C_Particle_myname` to add the library to a project on your machine or add the DHT20_I2C_Particle_myname library to a project on the Web IDE or Desktop IDE.\r\n\r\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \r\n\r\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\r\n\r\n## Maintainer\r\n\r\nRob Parke\r\n",
+  "allVersions": [
+    "1.0.3",
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
+}

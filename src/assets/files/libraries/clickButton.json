@@ -7,7 +7,7 @@
   "attributes": {
     "name": "clickButton",
     "version": "1.0.9",
-    "installs": 78150,
+    "installs": 82095,
     "license": "GNU General Public License v3+",
     "author": "Paul Kourany/raron, raronzen@gmail.com",
     "sentence": "clickButton Library",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "c",
-  "cardUrl": "/cards/libraries/c/clickButton",
+  "cardUrl": "/reference/device-os/libraries/c/clickButton",
   "versions": {
     "1.0.9": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "clickButtonDemo": true
+          },
+          "boron": {
+            "clickButtonDemo": true
+          },
+          "bsom": {
+            "clickButtonDemo": true
+          },
+          "b5som": {
+            "clickButtonDemo": true
+          },
+          "tracker": {
+            "clickButtonDemo": true
+          },
+          "esomx": {
+            "clickButtonDemo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "clickButtonDemo": true
+          },
+          "boron": {
+            "clickButtonDemo": true
+          },
+          "bsom": {
+            "clickButtonDemo": true
+          },
+          "b5som": {
+            "clickButtonDemo": true
+          },
+          "tracker": {
+            "clickButtonDemo": true
+          },
+          "p2": {
+            "clickButtonDemo": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "clickButtonDemo": true
           },

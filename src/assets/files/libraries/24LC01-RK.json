@@ -1,0 +1,176 @@
+{
+  "type": "libraries",
+  "id": "24LC01-RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/24LC01-RK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "24LC01-RK",
+    "version": "0.0.1",
+    "installs": 140,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Particle driver for 24LC01 I2C EEPROM",
+    "url": "https://github.com/rickkas7/24LC01-RK",
+    "repository": "https://github.com/rickkas7/24LC01.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "other",
+  "cardUrl": "/reference/device-os/libraries/other/24LC01-RK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T20:52:09.421Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "boron": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "bsom": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "b5som": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "tracker": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "p2": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "boron": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "bsom": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "b5som": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "tracker": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "esomx": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "electron": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "argon": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "boron": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "electron": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "argon": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "boron": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "boron": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "bsom": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "b5som": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "tracker": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "p2": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "boron": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "bsom": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "b5som": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "tracker": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          },
+          "esomx": {
+            "selftest-24LC01-RK": true,
+            "simple-24LC01-RK": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# 24LC01-RK\n\n*Particle driver for the Microchip 24AA01/24LC01B/24FC01 I2C Serial EEPROM*\n\nYes, it's really small in size (128 byte, 1Kbit) but it it's cheap (US$0.19) [in single quantities](https://www.digikey.com/product-detail/en/microchip-technology/24LC01BT-I-OT/24LC01BT-I-OTCT-ND/721417) and it's tiny in the SOT-23/SC-70 package. It's also low-power, 1 uA in standby, so it's great for board identification.\n\n\n## Using the code\n\nTypically you create a global variable for the EEPROM:\n\n```\nEEPROM_24LC01 eeprom;\n```\n\nThe first parameter is the Wire interface to use, typically Wire (D0/D1). On the Electron you can also use Wire1 (C4/C5).\n\nThere is no address option, as the I2C address is not configurable on the 24xx01.\n\nFrom setup you typically call:\n\n```\neeprom.begin();\n```\n\nTo read and write data you use the readData and writeData methods:\n\n```\nbool readData(size_t eepromAddr, uint8_t *data, size_t dataLen);\nbool writeData(size_t eepromAddr, const uint8_t *data, size_t dataLen);\n```\n\nYou can also use get and put like the [EEPROM API](https://docs.particle.io/reference/firmware/photon/#eeprom). This makes it easy to convert code between using the built-in EEPROM and I2C EEPROM as you can use the calls nearly identically.\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

@@ -43,6 +43,10 @@ var ignoreHosts = [
   'infocenter.nordicsemi.com', // 403
   'www.nordicsemi.com', // 403
   'cygwin.com', // 403
+  'docs.microsoft.com', // 403
+  'hackernoon.com', // 403
+  'www.arduino.cc', // 403
+  'www.microchip.com', // 403
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.CIRCLE_PULL_REQUEST && process.env.CIRCLE_PULL_REQUEST !== 'false';

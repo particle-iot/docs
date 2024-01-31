@@ -19,6 +19,10 @@
     left: -@menubarWidth;
   }
 
+  @media(min-width: @screenWidthForMenubarWide) {
+    width: @menubarWideWidth;
+  }
+
   > ul {
     padding: 10px 20px;
 
@@ -97,6 +101,10 @@ div.navMenu2 {
   width: 245px;
   overflow: hidden;
   white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
 }
 
 div.navActive2 {
@@ -107,6 +115,11 @@ div.navActive2 {
   width: 230px;
   overflow: hidden;
   white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 230px + @menubarWideExtra;
+  }
+
 };
 
 div.navMenu3 {
@@ -115,6 +128,11 @@ div.navMenu3 {
   width: 245px;
   overflow: hidden;
   white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
+
 };
 
 div.navMenu4 {
@@ -123,6 +141,11 @@ div.navMenu4 {
   width: 245px;
   overflow: hidden;
   white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
+
 };
 
 div.navMenu5 {
@@ -131,6 +154,11 @@ div.navMenu5 {
   width: 245px;
   overflow: hidden;
   white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 245px + @menubarWideExtra;
+  }
+
 };
 
 div.navSectionSpacer {
@@ -157,26 +185,41 @@ div.navContent3 {
   width: 210px;
   overflow: hidden;
   white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 210px + @menubarWideExtra;
+  }
+
 };
 
 div.navIndent4 {
-  width: 50px;
+  width: 55px;
 };
 
 div.navContent4 {
-  width: 200px;
+  width: 195px;
   overflow: hidden;
   white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 200px + @menubarWideExtra;
+  }
+
 };
 
 div.navIndent5 {
-  width: 65px;
+  width: 70px;
 };
 
 div.navContent5 {
-  width: 185px;
+  width: 180px;
   overflow: hidden;
   white-space: nowrap;
+
+  @media (min-width: @screenWidthForMenubarWide) {
+    width: 185px + @menubarWideExtra;
+  }
+
 };
 
 div.navContent {

@@ -35,11 +35,11 @@ Put the Particle device in DFU mode (blinking yellow) as described above. Then r
 
 In the item that's highlighted, select **libusbK** using the tiny arrows. Then click the **Install Driver** button. For more information about libusbK, see [their wiki](https://github.com/libusb/libusb/wiki/Windows#How%5Fto%5Fuse%5Flibusb%5Fon%5FWindows).
 
-![Zadig Installer](https://particle.zendesk.com/hc/article_attachments/360051655274/installing-dfu-util-01zadig.png)
+![Zadig Installer](/assets/images/support/installing-dfu-util-01zadig.png)
 
 If you're installing for an Electron, note that the Zadig installer will still say **Photon DFU Mode**. This is normal. You can tell it's actually an Electron because the highlighted box will be D00A for an Electron.
 
-![Zadig for Electron](https://particle.zendesk.com/hc/article_attachments/360052533333/installing-dfu-util-24zadig.png)
+![Zadig for Electron](/assets/images/support/installing-dfu-util-24zadig.png)
 
 Some common values are:
 
@@ -58,7 +58,7 @@ For 32-bit Windows, you will need to download three files from:
 
 <http://dfu-util.sourceforge.net/releases/dfu-util-0.8-binaries/win32-mingw32/>
 
-![DFU Windows 32-bit download](https://particle.zendesk.com/hc/article_attachments/360051655294/installing-dfu-util-02download32.png)
+![DFU Windows 32-bit download](/assets/images/support/installing-dfu-util-02download32.png)
 
 You must download:
 
@@ -86,43 +86,43 @@ You first need to create a place to save your dfu-util installation. I like to p
 2. Select your C: drive, called **Windows 10 (C:)** in this example, but your may be different.
 3. Double click Program Files
 
-![Create folder in program files](https://particle.zendesk.com/hc/article_attachments/360051655314/installing-dfu-util-10programfiles.png)
+![Create folder in program files](/assets/images/support/installing-dfu-util-10programfiles.png)
 
 Right click on the right side of the window, select **New** then **Folder**.
 
-![Create folder in program files](https://particle.zendesk.com/hc/article_attachments/360052533353/installing-dfu-util-11newfolder.png)
+![Create folder in program files](/assets/images/support/installing-dfu-util-11newfolder.png)
 
 Name the new folder **dfu-util**. Then moved the files you downloaded into this directory.
 
-![Copy DFU files](https://particle.zendesk.com/hc/article_attachments/360051655334/installing-dfu-util-12copyfiles.png)
+![Copy DFU files](/assets/images/support/installing-dfu-util-12copyfiles.png)
 
 Rename the **dfu-util-static.exe** file to just **dfu-util.exe**.
 
 Depending on your settings, the **.exe** part may not display. In Windows 8, for example, it looks like this:
 
-![Copy DFU files](https://particle.zendesk.com/hc/article_attachments/360052533373/installing-dfu-util-04dfufiles.png)
+![Copy DFU files](/assets/images/support/installing-dfu-util-04dfufiles.png)
 
 #### Editing the path - Windows 10
 
 Click on the Windows Start menu, then the Settings (gear icon).
 
-![Start Settings](https://particle.zendesk.com/hc/article_attachments/360052533393/installing-dfu-util-13startsettings.png)
+![Start Settings](/assets/images/support/installing-dfu-util-13startsettings.png)
 
 In the Windows 10 Settings window, type **environment** into the box at the top and select **Edit the system environment variables.**
 
-![Settings](https://particle.zendesk.com/hc/article_attachments/360052533413/installing-dfu-util-14settings.png)
+![Settings](/assets/images/support/installing-dfu-util-14settings.png)
 
 Click the **Environment Variables** button at the bottom of the page.
 
-![Enviroment Variables](https://particle.zendesk.com/hc/article_attachments/360051655354/installing-dfu-util-15environmentvariables.png)
+![Enviroment Variables](/assets/images/support/installing-dfu-util-15environmentvariables.png)
 
 In the **Environment Variables** window, select **Path** in the bottom list (System variables) and click Edit.
 
-![Edit](https://particle.zendesk.com/hc/article_attachments/360052533433/installing-dfu-util-16edit.png)
+![Edit](/assets/images/support/installing-dfu-util-16edit.png)
 
 In the **Edit environment variable** window, click **New** then enter a new row in the table, **C:\\Program Files\\dfu-util**.
 
-![Edit New](https://particle.zendesk.com/hc/article_attachments/360051655374/installing-dfu-util-17editnew.png)
+![Edit New](/assets/images/support/installing-dfu-util-17editnew.png)
 
 After editing the system path environment variable you'll need to restart the computer.
 
@@ -135,29 +135,29 @@ dfu-util -l
 
 The result should look something like this:
 
-![command prompt](https://particle.zendesk.com/hc/article_attachments/360051655394/installing-dfu-util-21command.png)
+![command prompt](/assets/images/support/installing-dfu-util-21command.png)
 
 #### Editing the path - Windows 7 and 8
 
 You need to open the Control Panel.
 
-![Open Control Panel](https://particle.zendesk.com/hc/article_attachments/360052533453/installing-dfu-util-05controlpanel.png)
+![Open Control Panel](/assets/images/support/installing-dfu-util-05controlpanel.png)
 
 And then click on **System and Security**.
 
-![System and Security](https://particle.zendesk.com/hc/article_attachments/360052533473/installing-dfu-util-06systemandsecurity.png)
+![System and Security](/assets/images/support/installing-dfu-util-06systemandsecurity.png)
 
 Then click **System**.
 
-![System and Secury](https://particle.zendesk.com/hc/article_attachments/360052533493/installing-dfu-util-18system.png)
+![System and Secury](/assets/images/support/installing-dfu-util-18system.png)
 
 Then click on the **Advanced System Settings** link on the left side of the window.
 
-![Advanced Settings](https://particle.zendesk.com/hc/article_attachments/360052533513/installing-dfu-util-08advanced.png)
+![Advanced Settings](/assets/images/support/installing-dfu-util-08advanced.png)
 
 Then click on **Environment Variables...**
 
-![Environment](https://particle.zendesk.com/hc/article_attachments/360051655414/installing-dfu-util-09environment.png)
+![Environment](/assets/images/support/installing-dfu-util-09environment.png)
 
 Click on **Path** in the bottom list (System variables) and click Edit.
 
@@ -170,7 +170,7 @@ Finally, position the cursor at the end of the box and add to the end:
 
 There must be a semicolon separating the new item from the previous last item, and then the path to the directory we just created.
 
-![Edit variable](https://particle.zendesk.com/hc/article_attachments/360052533533/installing-dfu-util-19editvar.png)
+![Edit variable](/assets/images/support/installing-dfu-util-19editvar.png)
 
 After editing the system path environment variable you'll need to restart the computer or log out and log back in.
 
@@ -183,7 +183,7 @@ dfu-util -l
 
 It should look something like this:
 
-![Edit variable](https://particle.zendesk.com/hc/article_attachments/360051655434/installing-dfu-util-20command.png)
+![Edit variable](/assets/images/support/installing-dfu-util-20command.png)
 
 ### Windows - Debugging drivers
 
@@ -191,11 +191,11 @@ There are two separate device drivers in Windows, depending on whether the Parti
 
 When in DFU mode, the Device Manager looks like this: (Note that it says **Photon DFU Mode** for all device types, including Electrons; this is normal.)
 
-![DFU driver](https://particle.zendesk.com/hc/article_attachments/360052533553/installing-dfu-util-22dfu.png)
+![DFU driver](/assets/images/support/installing-dfu-util-22dfu.png)
 
 And when in normal operating mode or listening mode (blinking blue), the Device Manager looks like this:
 
-![COM driver](https://particle.zendesk.com/hc/article_attachments/360052533573/installing-dfu-util-23com.png)
+![COM driver](/assets/images/support/installing-dfu-util-23com.png)
 
 ### Installation - Mac
 

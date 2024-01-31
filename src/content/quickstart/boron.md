@@ -16,7 +16,7 @@ The Particle Boron is a cellular and Bluetooth development kit designed for buil
 <a href="https://setup.particle.io/?family=mesh&device=boron"  target="_blank" class="button">Set up your Boron</a>
 </div>
 
-### The Boron Kit comes with the following things:
+### The Boron kit comes with the following things:
 
 {{box op="start"}}
 

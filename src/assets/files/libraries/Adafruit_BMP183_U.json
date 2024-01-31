@@ -1,0 +1,147 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_BMP183_U",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_BMP183_U/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_BMP183_U",
+    "version": "1.0.0",
+    "installs": 113,
+    "license": "MIT",
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Arduino library for the BMP183 sensors in the Adafruit shop",
+    "paragraph": "Arduino library for the BMP183 sensors in the Adafruit shop",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_BMP183_Unified_Library",
+    "repository": "https://github.com/adafruit/Adafruit_BMP183_Unified_Library.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_BMP183_U",
+  "versions": {
+    "1.0.0": {
+      "added": "2023-03-21T21:19:16.830Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "#Adafruit Unified BMP183 Driver (Barometric Pressure Sensor) #\n\nThis driver is for the Adafruit BMP183 Breakout (http://www.adafruit.com/products/1900), and is based on Adafruit's Unified Sensor Library (Adafruit_Sensor).\n\n## About the BMP183 ##\n\nThis precision sensor from Bosch is the best low-cost sensing solution for measuring barometric pressure and temperature. Because pressure changes with altitude you can also use it as an altimeter! \n\n## What is the Adafruit Unified Sensor Library? ##\n\nThe Adafruit Unified Sensor Library ([Adafruit_Sensor](https://github.com/adafruit/Adafruit_Sensor)) provides a common interface and data type for any supported sensor.  It defines some basic information about the sensor (sensor limits, etc.), and returns standard SI units of a specific type and scale for each supported sensor type.\n\nIt provides a simple abstraction layer between your application and the actual sensor HW, allowing you to drop in any comparable sensor with only one or two lines of code to change in your project (essentially the constructor since the functions to read sensor data and get information about the sensor are defined in the base Adafruit_Sensor class).\n\nThis is imporant useful for two reasons:\n\n1.) You can use the data right away because it's already converted to SI units that you understand and can compare, rather than meaningless values like 0..1023.\n\n2.) Because SI units are standardised in the sensor library, you can also do quick sanity checks when working with new sensors, or drop in any comparable sensor if you need better sensitivity or if a lower cost unit becomes available, etc. \n\nLight sensors will always report units in lux, gyroscopes will always report units in rad/s, etc. ... freeing you up to focus on the data, rather than digging through the datasheet to understand what the sensor's raw numbers really mean.\n\n## About this Driver ##\n\nAdafruit invests time and resources providing this open source code.  Please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\nWritten by Kevin (KTOWN) Townsend for Adafruit Industries.\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

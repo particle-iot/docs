@@ -1,4 +1,4 @@
-<div class="apiHelper apiHelperLoggedIn apiHelperConfigSchema" style="display:none;">
+<div class="apiHelper apiHelperLoggedIn apiHelperConfigSchema" style="display:none;" data-options="{{options}}">
     <div class="apiHelperBox">
         <div style="padding-top: 5px">
             <table class="apiHelperProductSelectorTable">
@@ -10,17 +10,35 @@
                     <td class="apiHelperProductSelectorLabel">Product</td>
                     <td><select class="apiHelperTrackerProductSelect apiHelperSelect"></select></td>
                 </tr>
-                <tr class="apiHelperTrackerDeviceRow">
-                    <td class="apiHelperProductSelectorLabel">Device</td>
-                    <td><select class="apiHelperTrackerDeviceSelect apiHelperSelect" data-has-product-default="true"></select></td>
+            </table>
+        </div>
+        <div style="padding-top: 5px" class="noDownloadUpload">
+            <button class="apiHelperConfigSchemaDownload apiHelperButton">Download Schema</button>&nbsp;&nbsp;
+            <input type="file" class="apiHelperConfigSchemaFileInput" accept="*.json" style="display:none">
+            <button class="apiHelperConfigSchemaUpload apiHelperButton">Upload Schema</button>&nbsp;&nbsp;
+        </div>
+        <div style="padding-top: 10px">
+            <table class="apiHelperProductSelectorTable">
+                <tr class="apiHelperTrackerEdgeRow">
+                    <td class="apiHelperProductSelectorLabel">Device Firmware</td>
+                    <td>
+                        <label><input type="radio" value="tracker" class="deviceFirmwareRadio" checked>Tracker Edge</label> &nbsp;
+                        <label><input type="radio" value="monitor" class="deviceFirmwareRadio">Monitor Edge</label> &nbsp;
+                    </td>
+                </tr>
+                <tr class="apiHelperTrackerProductRow">
+                    <td class="apiHelperProductSelectorLabel">Schema Version</td>
+                    <td><select class="apiHelperTrackerSchemaVersion apiHelperSelect">
+                        <option value="default" selected>Cloud Default (for Tracker Edge)</option>
+                    </select></td>
+                </tr>
+                <tr class="alwaysBackup">
+                    <td colspan="2"><label><input type="checkbox" class="saveBackup">Download backup of existing schema before setting</label></td>
                 </tr>
             </table>
         </div>
         <div style="padding-top: 5px">
-            <button class="apiHelperConfigSchemaDownload apiHelperButton">Download Schema</button>&nbsp;&nbsp;
-            <input type="file" class="apiHelperConfigSchemaFileInput" accept="*.json" style="display:none">
-            <button class="apiHelperConfigSchemaUpload apiHelperButton">Upload Schema</button>&nbsp;&nbsp;
-            <button class="apiHelperConfigSchemaDefault apiHelperButton">Restore Default Schema</button>
+            <button class="apiHelperConfigSchemaSet apiHelperButton">Set Schema</button>
         </div>
         <div class="apiHelperConfigSchemaStatus"></div>
     </div>

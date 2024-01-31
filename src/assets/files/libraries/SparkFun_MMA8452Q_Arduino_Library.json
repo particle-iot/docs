@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_MMA8452Q_Arduino_Library",
     "version": "1.4.0",
-    "installs": 304,
+    "installs": 413,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Basic I2C functionality of the <a href=\"https://www.sparkfun.com/products/14587\">MMA8452Q Accelerometer Breakout</a>",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_MMA8452Q_Arduino_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_MMA8452Q_Arduino_Library",
   "versions": {
     "1.4.0": {
       "builds": {
@@ -234,6 +234,142 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          },
+          "boron": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          },
+          "bsom": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          },
+          "b5som": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          },
+          "tracker": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          },
+          "esomx": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          },
+          "boron": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          },
+          "bsom": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          },
+          "b5som": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          },
+          "tracker": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          },
+          "p2": {
+            "Example1_BasicReading": true,
+            "Example2_RawDataReading": true,
+            "Example3_Orientation": true,
+            "Example4_ChangeScale": true,
+            "Example5_ChangeDataRate": true,
+            "Example6_ReadTaps": true,
+            "Example7_OriginalDeprecated": true,
+            "Example8_AdvancedI2C": true,
+            "Example9_TwoSensors": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example1_BasicReading": true,
             "Example2_RawDataReading": true,

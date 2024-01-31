@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adafruit-sht31",
     "version": "0.0.7",
-    "installs": 80459,
+    "installs": 88247,
     "license": "GNU GPLv3",
     "author": "Adafruit, brolly759",
     "sentence": "Adafruit SHT31 port to Particle",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/adafruit-sht31",
+  "cardUrl": "/reference/device-os/libraries/a/adafruit-sht31",
   "versions": {
     "0.0.7": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "SHT31test": true
+          },
+          "boron": {
+            "SHT31test": true
+          },
+          "bsom": {
+            "SHT31test": true
+          },
+          "b5som": {
+            "SHT31test": true
+          },
+          "tracker": {
+            "SHT31test": true
+          },
+          "esomx": {
+            "SHT31test": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "SHT31test": true
+          },
+          "boron": {
+            "SHT31test": true
+          },
+          "bsom": {
+            "SHT31test": true
+          },
+          "b5som": {
+            "SHT31test": true
+          },
+          "tracker": {
+            "SHT31test": true
+          },
+          "p2": {
+            "SHT31test": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "SHT31test": true
           },

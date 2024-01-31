@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkCore-RF24",
     "version": "0.0.20",
-    "installs": 1077,
+    "installs": 1172,
     "license": "MIT",
     "author": "technobly",
     "sentence": "An Implementation of ManiacBug's RF24 Library for the Spark Core",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkCore-RF24",
+  "cardUrl": "/reference/device-os/libraries/s/SparkCore-RF24",
   "versions": {
     "0.0.20": {
       "builds": {
@@ -104,12 +104,52 @@
           "esomx": {
             "Spark_GettingStartedRF24": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "Spark_GettingStartedRF24": true
+          },
+          "boron": {
+            "Spark_GettingStartedRF24": true
+          },
+          "bsom": {
+            "Spark_GettingStartedRF24": true
+          },
+          "b5som": {
+            "Spark_GettingStartedRF24": true
+          },
+          "tracker": {
+            "Spark_GettingStartedRF24": true
+          },
+          "p2": {
+            "Spark_GettingStartedRF24": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Spark_GettingStartedRF24": true
+          },
+          "boron": {
+            "Spark_GettingStartedRF24": true
+          },
+          "bsom": {
+            "Spark_GettingStartedRF24": true
+          },
+          "b5som": {
+            "Spark_GettingStartedRF24": true
+          },
+          "tracker": {
+            "Spark_GettingStartedRF24": true
+          },
+          "esomx": {
+            "Spark_GettingStartedRF24": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.953Z"
     }
   },
-  "readme": "SparkCore-RF24\n==============\n\nAn Implementation of [ManiacBug's RF24 Library](https://github.com/maniacbug/RF24) for the Spark Core\n\nGrab the RAW version of each file and place into your web IDE as follows:\n![image](http://i.imgur.com/cYS7ZEK.png)\n\nIf you are building locally, place the files here:\n\n```\n..\\core-firmware\\inc\\RF24.h\n..\\core-firmware\\inc\\nRF24L01.h\n..\\core-firmware\\src\\application.cpp (renamed from Spark_GettingStartedRF24.cpp)\n..\\core-firmware\\src\\RF24.cpp\n..\\core-firmware\\src\\build.mk (optional, if you have your own make file going, just add the RF24.cpp to it)\n```\n",
+  "readme": "SparkCore-RF24\n==============\n\nAn Implementation of [ManiacBug's RF24 Library](https://github.com/maniacbug/RF24) for the Spark Core\n\nGrab the RAW version of each file and place into your web IDE as follows:\nimage (image removed)\n\nIf you are building locally, place the files here:\n\n```\n..\\core-firmware\\inc\\RF24.h\n..\\core-firmware\\inc\\nRF24L01.h\n..\\core-firmware\\src\\application.cpp (renamed from Spark_GettingStartedRF24.cpp)\n..\\core-firmware\\src\\RF24.cpp\n..\\core-firmware\\src\\build.mk (optional, if you have your own make file going, just add the RF24.cpp to it)\n```\n",
   "allVersions": [
     "0.0.20",
     "0.0.10"

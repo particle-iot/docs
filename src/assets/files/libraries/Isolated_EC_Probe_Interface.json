@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Isolated_EC_Probe_Interface",
     "version": "1.0.0",
-    "installs": 344,
+    "installs": 429,
     "author": "uFire",
     "maintainer": "contact@ufire.co",
     "sentence": "Measure Electrical Conductivity, Total Dissolved Solids, and Salinity",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "i",
-  "cardUrl": "/cards/libraries/i/Isolated_EC_Probe_Interface",
+  "cardUrl": "/reference/device-os/libraries/i/Isolated_EC_Probe_Interface",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -275,12 +275,136 @@
             "Temperature": true,
             "TemperatureCompensation": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "boron": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "bsom": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "b5som": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "tracker": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "p2": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "boron": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "bsom": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "b5som": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "tracker": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "esomx": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          }
         }
       },
       "added": "2022-06-17T10:16:54.096Z"
     }
   },
-  "readme": "[![GitHub release](https://img.shields.io/github/release/u-fire/Isolated_EC.svg)]()\n\n### Isolated EC Probe Interface\n\n> Monitor hydroponic nutrient levels or salinity in pools.\n - Electrical Conductivity in Siemens (0.5 - 20.0 mS/cm)\n - Total Dissolved Solids in PPM (250 - 100,000 PPM)\n - Salinity in PSU (2 - 12 PSU)\n - Temperature in Celsius/Fahrenheit (-55 - 125 C)\n - Electrically Isolated\n \n##### What it is\n\nAn electrically isolated I2C sensor device, a waterproof temperature sensor, and an electrical conductivity probe. It measures the conductivity of a solution and converts it into Siemens (S) total dissolved solids and salinity. The firmware allows for single or dual-point calibration with temperature compensation.\n\nThe board uses the [Qwiic](https://www.sparkfun.com/qwiic) Connect System for wiring, it's an easy-to-use, polarized, push-to-fit connector. No more mistaken connections or soldering header pins. \n\n##### Using it\n\nRead the [documentation](/docs/uFire_EC/) on the [specifications](/docs/uFire_EC/#characteristics), [setup](/docs/uFire_EC/#getting-started), and [use](/docs/uFire_EC/#use) of the device.\n\nThe library to use it is in the Arduino and Particle.io IDE. A [python](https://github.com/u-fire/Isolated_EC/tree/master/python/RaspberryPi) and [rust](https://crates.io/crates/ufire_ec) implementation for Raspberry Pi is available. There is also a [MicroPython](https://github.com/u-fire/Isolated_EC/tree/master/python/MicroPython) library.\n\n```\n#include <uFire_EC.h>\nuFire_EC ec;\nec.measureEC();\n```\n\n#### Buy it\n\nVisit [ufire.co](http://ufire.co) and buy a board and probe.\n",
+  "readme": "[![GitHub release](https://img.shields.io/github/release/u-fire/Isolated_EC.svg)]()\n\n### Isolated EC Probe Interface\n\n> Monitor hydroponic nutrient levels or salinity in pools.\n - Electrical Conductivity in Siemens (0.5 - 20.0 mS/cm)\n - Total Dissolved Solids in PPM (250 - 100,000 PPM)\n - Salinity in PSU (2 - 12 PSU)\n - Temperature in Celsius/Fahrenheit (-55 - 125 C)\n - Electrically Isolated\n \n##### What it is\n\nAn electrically isolated I2C sensor device, a waterproof temperature sensor, and an electrical conductivity probe. It measures the conductivity of a solution and converts it into Siemens (S) total dissolved solids and salinity. The firmware allows for single or dual-point calibration with temperature compensation.\n\nThe board uses the [Qwiic](https://www.sparkfun.com/qwiic) Connect System for wiring, it's an easy-to-use, polarized, push-to-fit connector. No more mistaken connections or soldering header pins. \n\n##### Using it\n\nRead the documentation on the specifications, setup, and use of the device.\n\nThe library to use it is in the Arduino and Particle.io IDE. A [python](https://github.com/u-fire/Isolated_EC/tree/master/python/RaspberryPi) and [rust](https://crates.io/crates/ufire_ec) implementation for Raspberry Pi is available. There is also a [MicroPython](https://github.com/u-fire/Isolated_EC/tree/master/python/MicroPython) library.\n\n```\n#include <uFire_EC.h>\nuFire_EC ec;\nec.measureEC();\n```\n\n#### Buy it\n\nVisit [ufire.co](http://ufire.co) and buy a board and probe.\n",
   "allVersions": [
     "1.0.0"
   ]

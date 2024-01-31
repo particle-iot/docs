@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Ublox_Particle_Library",
     "version": "1.1.0",
-    "installs": 1204,
+    "installs": 1410,
     "license": "MIT License",
     "author": "Particle Team <hello@particle.io>",
     "sentence": "SparkFun's Ublox Arduino library with minor modifications",
@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_Ublox_Particle_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_Ublox_Particle_Library",
   "versions": {
     "1.1.0": {
       "builds": {
@@ -177,12 +177,88 @@
             "Example3_EnableRTCM": false,
             "Example4_StartRTCMBase": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "boron": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "bsom": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "b5som": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "tracker": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "p2": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "boron": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "bsom": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "b5som": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "tracker": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          },
+          "esomx": {
+            "Example1_BasicNMEARead": false,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.941Z"
     }
   },
-  "readme": "Aaron's port of the SparkFun Ublox Arduino Library.  All credit goes to the\npeople at SparkFun.\n===========================================================\n\n![SparkFun GPS-RTK - NEO-M8P-2](https://cdn.sparkfun.com/r/500-500/assets/parts/1/3/2/8/2/14980-Ublox_GPS-RTK__Qwiic__-_NEO-M8P-2-01.jpg)\n\n[*SparkFun GPS-RTK - NEO-M8P-2 (SPX-14980)*](https://www.sparkfun.com/products/14980)\n\nThe NEO-M8P-2 module is the top-of-the-line module for high accuracy GNSS and GPS location solutions including RTK. The NEO-M8P-2 is unique in that it is capable of both rover and base station operations. The ‘-2’ designation means this module has survey-in mode allowing the module to become a base station and produce RTCM 3.x correction data. \n\nThis library allows the reading of NMEA data over I2C as well as sending binary UBX configuration commands over I2C. This is helpful for configuring advanced modules like the NEO-M8P-2.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfunX/Qwiic_GPS-RTK)** - Main repository (including hardware files)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nVarious bits of the code have different licenses applied. Anything SparkFun wrote is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",
+  "readme": "Aaron's port of the SparkFun Ublox Arduino Library.  All credit goes to the\npeople at SparkFun.\n===========================================================\n\nSparkFun GPS-RTK - NEO-M8P-2 (image removed)\n\n[*SparkFun GPS-RTK - NEO-M8P-2 (SPX-14980)*](https://www.sparkfun.com/products/14980)\n\nThe NEO-M8P-2 module is the top-of-the-line module for high accuracy GNSS and GPS location solutions including RTK. The NEO-M8P-2 is unique in that it is capable of both rover and base station operations. The ‘-2’ designation means this module has survey-in mode allowing the module to become a base station and produce RTCM 3.x correction data. \n\nThis library allows the reading of NMEA data over I2C as well as sending binary UBX configuration commands over I2C. This is helpful for configuring advanced modules like the NEO-M8P-2.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfunX/Qwiic_GPS-RTK)** - Main repository (including hardware files)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nVarious bits of the code have different licenses applied. Anything SparkFun wrote is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",
   "allVersions": [
     "1.1.0",
     "1.0.1"

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RadarIQ",
     "version": "1.0.5",
-    "installs": 244,
+    "installs": 318,
     "author": "RadarIQ Ltd (support@radariq.io)",
     "maintainer": "RadarIQ Ltd (support@radariq.io)",
     "sentence": "Adds support for the RadarIQ sensors.",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "r",
-  "cardUrl": "/cards/libraries/r/RadarIQ",
+  "cardUrl": "/reference/device-os/libraries/r/RadarIQ",
   "versions": {
     "1.0.5": {
       "builds": {
@@ -65,6 +65,86 @@
             "RadarIQDemo": false
           },
           "boron": {
+            "RadarIQDemo": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "RadarIQDemo": false
+          },
+          "boron": {
+            "RadarIQDemo": false
+          },
+          "bsom": {
+            "RadarIQDemo": false
+          },
+          "b5som": {
+            "RadarIQDemo": false
+          },
+          "tracker": {
+            "RadarIQDemo": false
+          },
+          "p2": {
+            "RadarIQDemo": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "RadarIQDemo": false
+          },
+          "boron": {
+            "RadarIQDemo": false
+          },
+          "bsom": {
+            "RadarIQDemo": false
+          },
+          "b5som": {
+            "RadarIQDemo": false
+          },
+          "tracker": {
+            "RadarIQDemo": false
+          },
+          "esomx": {
+            "RadarIQDemo": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "RadarIQDemo": false
+          },
+          "boron": {
+            "RadarIQDemo": false
+          },
+          "bsom": {
+            "RadarIQDemo": false
+          },
+          "b5som": {
+            "RadarIQDemo": false
+          },
+          "tracker": {
+            "RadarIQDemo": false
+          },
+          "p2": {
+            "RadarIQDemo": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "RadarIQDemo": false
+          },
+          "boron": {
+            "RadarIQDemo": false
+          },
+          "bsom": {
+            "RadarIQDemo": false
+          },
+          "b5som": {
+            "RadarIQDemo": false
+          },
+          "tracker": {
+            "RadarIQDemo": false
+          },
+          "esomx": {
             "RadarIQDemo": false
           }
         }

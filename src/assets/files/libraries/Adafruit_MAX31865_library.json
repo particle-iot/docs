@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MAX31865_library",
     "version": "1.0.0",
-    "installs": 7524,
+    "installs": 8359,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for the Adafruit RTD Amplifier breakout with MAX31865",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_MAX31865_library",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_MAX31865_library",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "max31865": true
+          },
+          "boron": {
+            "max31865": true
+          },
+          "bsom": {
+            "max31865": true
+          },
+          "b5som": {
+            "max31865": true
+          },
+          "tracker": {
+            "max31865": true
+          },
+          "esomx": {
+            "max31865": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "max31865": true
+          },
+          "boron": {
+            "max31865": true
+          },
+          "bsom": {
+            "max31865": true
+          },
+          "b5som": {
+            "max31865": true
+          },
+          "tracker": {
+            "max31865": true
+          },
+          "p2": {
+            "max31865": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "max31865": true
           },

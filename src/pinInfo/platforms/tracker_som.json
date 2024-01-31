@@ -1,0 +1,580 @@
+{
+    "id": 26,
+    "name": "Tracker SoM",
+    "pins": [
+        {
+            "num": 1,
+            "name": "GND",
+            "desc": "Ground.",
+            "isPower": true,
+            "morePins": [
+                8,
+                10,
+                25,
+                31,
+                42,
+                43,
+                48,
+                52,
+                54,
+                63,
+                67,
+                70,
+                75,
+                86,
+                88,
+                89,
+                93,
+                95
+            ]
+        },
+        {
+            "num": 2,
+            "name": "GNSS_BAT",
+            "desc": "Battery backup for GNSS.",
+            "is5VTolerant": false,
+            "isPower": true
+        },
+        {
+            "num": 3,
+            "name": "GNSS_RESET",
+            "desc": "GNSS hardware reset. Can be controlled by this pin or software.",
+            "is5VTolerant": false,
+            "isControl": true
+        },
+        {
+            "num": 4,
+            "name": "GNSS_VBUS",
+            "desc": "GNSS USB power. Optional.",
+            "isUSB": true
+        },
+        {
+            "num": 5,
+            "name": "GNSS_P",
+            "desc": "GNSS USB interface D+. Optional.",
+            "isUSB": true
+        },
+        {
+            "num": 6,
+            "name": "GNSS_N",
+            "desc": "GNSS USB interface D-. Optional.",
+            "isUSB": true
+        },
+        {
+            "num": 7,
+            "name": "GNSS_PULSE",
+            "desc": "GNSS time pulse output. Can be used for a GPS fix LED.",
+            "isIO": true
+        },
+        {
+            "num": 9,
+            "name": "NC",
+            "isNC": true,
+            "morePins": [
+                18,
+                19,
+                20,
+                21,
+                34,
+                35,
+                36,
+                37,
+                44,
+                59,
+                60,
+                61,
+                62,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82
+            ],
+            "somPin": "RESERVED"
+        },
+        {
+            "num": 11,
+            "name": "WIFI_EN",
+            "desc": "ESP32 enable. Can be controlled by this pin or software.",
+            "is5VTolerant": false,
+            "isControl": true
+        },
+        {
+            "num": 12,
+            "name": "WIFI_BOOT",
+            "desc": "ESP32 boot mode. Can be controlled by this pin or software.",
+            "is5VTolerant": false,
+            "isControl": true
+        },
+        {
+            "num": 13,
+            "name": "WIFI_TXD",
+            "desc": "ESP32 serial TX",
+            "is5VTolerant": false,
+            "isSerial": true
+        },
+        {
+            "num": 14,
+            "name": "WIFI_RXD",
+            "desc": "ESP32 serial RX",
+            "is5VTolerant": false,
+            "isSerial": true
+        },
+        {
+            "num": 15,
+            "name": "CELL_VBUS",
+            "desc": "Cellular modem USB power. Optional.",
+            "isUSB": true
+        },
+        {
+            "num": 16,
+            "name": "CELL_D+",
+            "desc": "Cellular modem USB interface D+. Optional.",
+            "isUSB": true
+        },
+        {
+            "num": 17,
+            "name": "CELL_D-",
+            "desc": "Cellular modem USB interface D-. Optional.",
+            "isUSB": true
+        },
+        {
+            "num": 22,
+            "name": "SWDIO",
+            "desc": "nRF52 MCU JTAG/SWD SWDIO",
+            "is5VTolerant": false,
+            "isJTAG": true
+        },
+        {
+            "num": 23,
+            "name": "SWDCLK",
+            "desc": "nRF52 MCU JTAG/SWD SWCLK",
+            "is5VTolerant": false,
+            "isJTAG": true
+        },
+        {
+            "num": 24,
+            "name": "SWO",
+            "desc": "nRF52 MCU JTAG/SWD SWO",
+            "is5VTolerant": false,
+            "isJTAG": true
+        },
+        {
+            "num": 26,
+            "name": "NFC1",
+            "desc": "NFC Antenna 1",
+            "hardwarePin": "P0.09",
+            "is5VTolerant": false,
+            "isNFC": true
+        },
+        {
+            "num": 27,
+            "name": "NFC2",
+            "desc": "NFC Antenna 2",
+            "hardwarePin": "P0.10",
+            "is5VTolerant": false,
+            "isNFC": true
+        },
+        {
+            "num": 28,
+            "name": "RGB_BLUE",
+            "desc": "Common anode RGB status LED, blue. Optional.",
+            "hardwarePin": "P1.03",
+            "hardwareTimer": "PWM3",
+            "is5VTolerant": false,
+            "isLED": true
+        },
+        {
+            "num": 29,
+            "name": "RGB_GREEN",
+            "desc": "Common anode RGB status LED, green. Optional.",
+            "hardwarePin": "P1.05",
+            "hardwareTimer": "PWM3",
+            "is5VTolerant": false,
+            "isLED": true
+        },
+        {
+            "num": 30,
+            "name": "RGB_RED",
+            "desc": "Common anode RGB status LED, red. Optional.",
+            "hardwarePin": "P1.06",
+            "hardwareTimer": "PWM3",
+            "is5VTolerant": false,
+            "isLED": true
+        },
+        {
+            "num": 32,
+            "name": "MODE",
+            "desc": "MODE button, requires pull-up to 3V3",
+            "hardwarePin": "P1.13",
+            "is5VTolerant": false,
+            "isControl": true
+        },
+        {
+            "num": 33,
+            "name": "RESET",
+            "desc": "RESET button, does not require pull-up, GND resets.",
+            "is5VTolerant": false,
+            "isControl": true
+        },
+        {
+            "num": 38,
+            "name": "A7",
+            "altName": "D7",
+            "desc": "A7 Analog in, GPIO D7, PWM, SPI SS, WKP",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwareADC": "ADC3",
+            "hardwarePin": "P0.05",
+            "hardwareTimer": "PWM1",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "tone": "A4, A5, A5, A7 must have the same frequency."
+        },
+        {
+            "num": 39,
+            "name": "A6",
+            "altName": "D6",
+            "desc": "A6 Analog in, GPIO D6, PWM, SPI (SCK)",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwareADC": "ADC2",
+            "hardwarePin": "P0.04",
+            "hardwareTimer": "PWM1",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "spi": "SPI (SCK)|SCK. Use SPI object.",
+            "tone": "A4, A5, A5, A7 must have the same frequency."
+        },
+        {
+            "num": 40,
+            "name": "A5",
+            "altName": "D5",
+            "desc": "A5 Analog in, GPIO D5, PWM, SPI MISO",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwareADC": "ADC5",
+            "hardwarePin": "P0.29",
+            "hardwareTimer": "PWM1",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "spi": "SPI (MISO)|MISO. Use SPI object.",
+            "tone": "A4, A5, A5, A7 must have the same frequency."
+        },
+        {
+            "num": 41,
+            "name": "A4",
+            "altName": "D4",
+            "desc": "A4 Analog in, GPIO D4, PWM, SPI MOSI",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwareADC": "ADC7",
+            "hardwarePin": "P0.31",
+            "hardwareTimer": "PWM1",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "spi": "SPI (MOSI)|MOSI. Use SPI object.",
+            "tone": "A4, A5, A5, A7 must have the same frequency."
+        },
+        {
+            "num": 45,
+            "name": "3V3",
+            "desc": "3.3V out, 1000 mA maximum including nRF52 and other peripherals.",
+            "isPower": true
+        },
+        {
+            "num": 46,
+            "name": "TS",
+            "desc": "Battery temperature sensor.",
+            "is5VTolerant": false,
+            "isControl": true
+        },
+        {
+            "num": 47,
+            "name": "PMID",
+            "desc": "Connected to the PMID pin of the PMIC. Leave unconnected.",
+            "isPower": true
+        },
+        {
+            "num": 49,
+            "name": "VIN",
+            "desc": "Power input 5V-12V DC.",
+            "isPower": true
+        },
+        {
+            "num": 50,
+            "name": "STAT",
+            "desc": "PMIC charge status indictor output. Can be used for CHRG LED.",
+            "is5VTolerant": false,
+            "isControl": true
+        },
+        {
+            "num": 51,
+            "name": "VBUS",
+            "desc": "nRF52 USB power input. Can be used as a 5V power supply instead of VIN.",
+            "isUSB": true
+        },
+        {
+            "num": 53,
+            "name": "LI+",
+            "desc": "Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS.",
+            "isPower": true
+        },
+        {
+            "num": 55,
+            "name": "A0",
+            "altName": "D0",
+            "desc": "A0 Analog in, GPIO D0, PWM, Wire SDA",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwareADC": "ADC1",
+            "hardwarePin": "P0.03",
+            "hardwareTimer": "PWM0",
+            "i2c": "Wire (SDA)|SDA. Use Wire object.",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "tone": "A0, A1, A2, A3 must have the same frequency."
+        },
+        {
+            "num": 56,
+            "name": "A1",
+            "altName": "D1",
+            "desc": "A1 Analog in, GPIO D1, PWM, Wire SCL",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwareADC": "ADC0",
+            "hardwarePin": "P0.02",
+            "hardwareTimer": "PWM0",
+            "i2c": "Wire (SCL)|SCL. Use Wire object.",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "tone": "A0, A1, A2, A3 must have the same frequency."
+        },
+        {
+            "num": 57,
+            "name": "A2",
+            "altName": "D2",
+            "desc": "A2 Analog in, GPIO D2, PWM, Serial1 CTS",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwareADC": "ADC4",
+            "hardwarePin": "P0.28",
+            "hardwareTimer": "PWM0",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "serial": "Serial1 CTS",
+            "tone": "A0, A1, A2, A3 must have the same frequency."
+        },
+        {
+            "num": 58,
+            "name": "A3",
+            "altName": "D3",
+            "desc": "A3 Analog in, GPIO D3, PWM, Serial1 RTS",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwareADC": "ADC6",
+            "hardwarePin": "P0.30",
+            "hardwareTimer": "PWM0",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "serial": "Serial1 RTS",
+            "tone": "A0, A1, A2, A3 must have the same frequency."
+        },
+        {
+            "num": 64,
+            "name": "CAN_N",
+            "desc": "CAN Data- or CANL",
+            "isIO": true
+        },
+        {
+            "num": 65,
+            "name": "CAN_P",
+            "desc": "CAN Data+ or CANH",
+            "isIO": true
+        },
+        {
+            "num": 66,
+            "name": "CAN_5V",
+            "desc": "5V power out, 0.8A maximum. Can be controlled by software.",
+            "isPower": true
+        },
+        {
+            "num": 68,
+            "name": "MCU-D-",
+            "desc": "nRF52 MCU USB interface D-.",
+            "isUSB": true
+        },
+        {
+            "num": 69,
+            "name": "MCU_D+",
+            "desc": "nRF52 MCU USB interface D+.",
+            "isUSB": true
+        },
+        {
+            "num": 71,
+            "name": "RX",
+            "altName": "D9",
+            "desc": "Serial1 RX, GPIO D9, PWM, Wire3 SDA",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwarePin": "P0.08",
+            "hardwareTimer": "PWM2",
+            "i2c": "Wire3 (SDA)|SDA. Use Wire3 object.",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "serial": "Serial1 RX|RX. Use Serial1 object.",
+            "tone": "D8, D9 must have the same frequency."
+        },
+        {
+            "num": 72,
+            "name": "TX",
+            "altName": "D8",
+            "desc": "Serial1 TX, GPIO D8, PWM, Wire3 SCL",
+            "analogRead": true,
+            "analogWriteDAC": false,
+            "analogWritePWM": true,
+            "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+            "digitalRead": true,
+            "digitalWrite": true,
+            "hardwarePin": "P0.06",
+            "hardwareTimer": "PWM2",
+            "i2c": "Wire3 (SCL)|SCL. Use Wire3 object.",
+            "internalPull": "13K",
+            "is5VTolerant": false,
+            "isIO": true,
+            "serial": "Serial1 TX|TX. Use Serial1 object.",
+            "tone": "D8, D9 must have the same frequency."
+        },
+        {
+            "num": 73,
+            "name": "RTC_BAT",
+            "desc": "RTC/Watchdog battery +. Connect to GND if not using.",
+            "isPower": true
+        },
+        {
+            "num": 74,
+            "name": "RTC_BTN",
+            "desc": "RTC EXTI. Can use as a wake button. Has 100K weak pull-up to 3V3.",
+            "isControl": true
+        },
+        {
+            "num": 83,
+            "name": "CELL_GPS_TX",
+            "desc": "Cellular modem GPS serial TX data.",
+            "isControl": true
+        },
+        {
+            "num": 84,
+            "name": "CELL_GPS_RX",
+            "desc": "Cellular modem GPS serial TX data.",
+            "isControl": true
+        },
+        {
+            "num": 85,
+            "name": "CELL_RI",
+            "desc": "Cellular modem ring indicator output.",
+            "isControl": true
+        },
+        {
+            "num": 87,
+            "name": "CELL_GPS_RF",
+            "desc": "Cellular modem GPS antenna.",
+            "isAntenna": true
+        },
+        {
+            "num": 90,
+            "name": "GNSS_BOOT",
+            "desc": "u-blox NEO-M8U boot mode.",
+            "isControl": true
+        },
+        {
+            "num": 91,
+            "name": "GNSS_ANT_PWR",
+            "desc": "u-blox NEO-M8U antenna power control.",
+            "isControl": true
+        },
+        {
+            "num": 92,
+            "name": "GNSS_LNA_EN",
+            "desc": "u-blox NEO-M8U LNA enable.",
+            "isControl": true
+        },
+        {
+            "num": 94,
+            "name": "GNSS_RF",
+            "desc": "blox NEO-M8U GNSS antenna.",
+            "isAntenna": true
+        }
+    ],
+    "diagram": {
+        "columns": [
+            "num",
+            "name",
+            [
+                "isPower",
+                "hardwareADC",
+                "jtag"
+            ],
+            [
+                "spi",
+                "swd",
+                "i2c"
+            ],
+            [
+                "hardwareTimer"
+            ],
+            [
+                "serial"
+            ],
+            "hardwarePin"
+        ]
+    },
+    "mcu": "nRF52840"
+}

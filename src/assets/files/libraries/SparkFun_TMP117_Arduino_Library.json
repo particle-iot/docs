@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_TMP117_Arduino_Library",
     "version": "1.2.3",
-    "installs": 734,
+    "installs": 2899,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "A library to drive the Texas Instruments TMP117 by I2C.",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_TMP117_Arduino_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_TMP117_Arduino_Library",
   "versions": {
     "1.2.3": {
       "builds": {
@@ -198,6 +198,118 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "esomx": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "p2": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example1_BasicReadings": true,
             "Example2_AlertStatuses": true,

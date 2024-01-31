@@ -17,6 +17,7 @@
         </div>
       </div>
       <div class="page-body">
+        {{> document-search}}
         <div class='content-inner'>
           <div class="content reference" id="{{path.name}}-content">
             {{{contents}}}
@@ -26,7 +27,8 @@
         </div>
       </div>
     </div>
-    <div id="imageOverlay"></div>
+    {{> image-overlay}}
+    {{> search-overlay }}
     {{> scripts}}
     <script src='/assets/js/firmwareversions.js'></script>
 </body>

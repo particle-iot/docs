@@ -160,7 +160,7 @@ $(document).ready(function() {
             const request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error GetApps', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    analytics.track('Error GetApps', {category:gaCategory, label:(jqXHR.responseJSON ? jqXHR.responseJSON.error : '')});
                     setStatus('Request failed');
 
                     $(getProjectsButtonElem).prop('disabled', false);
@@ -171,7 +171,7 @@ $(document).ready(function() {
                 },
                 method: 'GET',
                 success: function (resp, textStatus, jqXHR) {
-                    ga('send', 'event', gaCategory, 'Success GetApps');
+                    analytics.track('Success GetApps', {category:gaCategory});
                     setStatus('Retrieved apps');
 
                     $(getProjectsButtonElem).prop('disabled', false);
@@ -279,9 +279,10 @@ $(document).ready(function() {
             setStatus('Saving ' + outputFile + ' to Downloads...');
             saveAs(blob, outputFile);
         
-            ga('send', 'event', gaCategory, 'Success', '');
+            analytics.track('Success', {category:gaCategory, label:''});
         
             $(exportButtonElem).prop('disabled', false);
         });
     });
 });
+

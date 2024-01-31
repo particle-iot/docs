@@ -5,7 +5,13 @@ columns: two
 layout: commonTwo.hbs
 ---
 
-# Session 1 - Claiming Your Particle Device
+# Session 1 - Claiming your Particle device
+
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+
+The Particle mobile app for iOS will be deprecated in the future. The Android app has been deprecated. You should use web-based or CLI setup instead.
+{{box op="end"}}
 
 | **Project Goal**            | Get your Particle Photon online and claimed to your account                    |
 | --------------------------- | ------------------------------------------------------------------------------ |
@@ -13,7 +19,7 @@ layout: commonTwo.hbs
 | **Tools you’ll need**       | A Photon, USB Cable, the Particle CLI                                          |
 | **Time needed to complete** | 15 minutes                                                                     |
 
-## 3 Ways to Claim A New Device
+## 3 Ways to claim a new device
 
 Particle provides three methods for claiming a new Photon:
 
@@ -28,11 +34,11 @@ Once you've claimed your Photon, you'll use [Tinker](/guide/getting-started/tink
 ## Before you start
 
 1.  Create a new [Particle account](https://login.particle.io/signup)
-2.  Install the Particle [iOS](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) or [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) App
+2.  Install the Particle Mobile App
 3.  [Install the Particle CLI](/getting-started/developer-tools/cli/#install-the-particle-cli)
 4.  [Install the Particle Desktop IDE](/getting-started/developer-tools/workbench/)
 
-## Mobile App Instructions
+## Mobile app instructions
 
 **Note**: Images below are from the iOS setup. The flow of the Android setup experience is similar.
 
@@ -116,7 +122,7 @@ Once you've claimed your Photon, you'll use [Tinker](/guide/getting-started/tink
 
 If you're online, [skip below](#interacting-with-your-photon-with-tinker) to play with your new Photon with Tinker. For reference, we've provided the setup instructions for the web and mobile approaches, below.
 
-## Browser Instructions
+## Browser instructions
 
 1.  Navigate to [setup.particle.io](https://setup.particle.io/) in your browser
 

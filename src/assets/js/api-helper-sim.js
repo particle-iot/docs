@@ -411,33 +411,14 @@ $(document).ready(function() {
 
         };
 
-
         const simpleTable = function(obj) {
 
             const tableElem = document.createElement('table');
 
             const tbodyElem = document.createElement('tbody');
 
-            let trElem;
+            apiHelper.simpleTableObject(tbodyElem, obj);
             
-            for(key in obj) {
-                const value = obj[key];
-
-                const trElem = document.createElement('tr');
-
-                let tdElem;
-
-                tdElem = document.createElement('td');
-                $(tdElem).text(key);
-                trElem.appendChild(tdElem);
-
-                tdElem = document.createElement('td');
-                $(tdElem).text(value);
-                trElem.appendChild(tdElem);
-
-                tbodyElem.appendChild(trElem);                
-            }
-
             tableElem.appendChild(tbodyElem);
 
             return tableElem;

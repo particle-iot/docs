@@ -10,7 +10,7 @@ description: Learn about products on the Particle platform
 
 ## Introduction
 
-#### Developer Devices
+#### Developer devices
 
 Starting out with a single development kit and a single account you can use the Particle cloud features like:
 
@@ -51,7 +51,7 @@ Products allow a number of additional features over developer devices:
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
 - Email support
 
-#### Enterprise Features
+#### Enterprise features
 
 Once you move beyond self-service to an enterprise plan, you get features such as:
 
@@ -63,7 +63,7 @@ Once you move beyond self-service to an enterprise plan, you get features such a
 - [Contact sales](https://particle.io/sales/) for more information
 
 
-## Devices in Products
+## Devices in products
 
 For most products, you pay for all of the device cloud charges from your own account. You then either handle your own recurring billing with your customer, or build the cost into the cost of your product. 
 
@@ -73,7 +73,7 @@ This serves two purposes: It prevents someone from taking a developer device and
 
 You can add the devices to your product in bulk at once, even if you don't intend to use them right away. The billing will not start until the device comes online the first time. 
 
-## Initial Device Setup
+## Initial device setup
 
 It's possible to just send out devices from your order to your customers without programming them first, however this will slow down the initial connection process and use additional cellular data upgrading your product firmware and Device OS over cellular.
 
@@ -89,19 +89,20 @@ This also is a good time to test the device and make sure it is working properly
 
 Note that the device cloud charges begin when the devices comes online the first time. If you only flash the device by JTAG/SWD or USB and do not allow it to connect to the cloud, you can program it without starting device cloud billing.
 
-## Device and Claiming
+## Device and claiming
 
-In addition to being part of the product, devices typically need to be **claimed** to an account. For cellular products, it is common to create a single account that all devices are claimed to. It's also possible to use [two-legged shadow customers](/reference/cloud-apis/authentication/#two-legged-authentication), for both cellular and Wi-Fi devices.
+As of March 2023, claiming product devices is no longer necessary to subscribe to events on-device. This can simplify the process of device onboarding and we recommend that you use the unclaimed product device feature.
 
-A product device can be claimed to any team member of a product using the [Particle Cloud API](/reference/cloud-apis/api/#claim-a-device) after the device has been imported to the product. It does not need to be online for claiming.
+{{!-- BEGIN shared-blurb 04d55e8d-8af5-4d4b-b6a4-d4db886c669d --}}
+- Prior to March 2023, claiming was required if the device firmware subscribed to events on-device. This is no longer necessary.
+- You still need to claim a device is if you are using a webhook in the sandbox of the user who claimed the device. It is recommended that you use product webhooks instead, which do not require claiming.
+- If you are using a device with Mark as Development device, you may want to claim the device to your account so you can easily OTA flash it from Particle Workbench or other development environments.
+- If you previously had firmware that subscribed to events but was the device was unclaimed, the events previously disappeared. This is no longer the case and the device will now start receiving those events, and each event will count as a data operation.
+- Claiming is still allowed, if you prefer to continue to use claiming, but not recommended.
+{{!-- END shared-blurb --}}
 
-![Pre-claim Flow](/assets/images/PreclaimFlow.png)
 
-If you never need to send an event to your product's devices, it's possible to leave them unclaimed.
-
-For Wi-Fi devices, you will typically need to use a mobile app and the [Photon/P1 Setup Library](/reference/mobile-sdks/ios/) to set the Wi-Fi credentials, and this provides a convenient way to claim devices at the same time.
-
-## Product Firmware Workflow
+## Product firmware workflow
 
 When you are working on a product there are any number of possible scenarios, but this one is common and works well:
 

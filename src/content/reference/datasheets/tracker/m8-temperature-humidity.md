@@ -36,7 +36,7 @@ The cable assembly contains a 3.3V voltage regulator, as the I2C interface on th
 
 {{imageOverlay src="/assets/images/tracker/m8-temp-humidity-diagram.png" alt="Diagram" class="full-width"}}
 
-### Firmware Library
+### Firmware library
 
 The [Particle sht3x-i2c library](https://github.com/particle-iot/sht3x-i2c) can be used to communicate with this sensor from user firmware.
 
@@ -46,7 +46,7 @@ The [Particle sht3x-i2c library](https://github.com/particle-iot/sht3x-i2c) can 
 
 The [M8 Temperature/Humidity Sensor Tutorial](/hardware/tracker/m8-temperature-humidity/) includes additional information for using the library and this sensor.
 
-### Ordering Information
+### Ordering information
 
 | SKU  | Description |
 | :--- | :--- |

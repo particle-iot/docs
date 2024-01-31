@@ -28,7 +28,6 @@
 
 <div id="carrierTabs">
     <a class="nav active" id="carrierTabByDevice">By Device</a>
-    <a class="nav" id="carrierTabFindDevice">By Region</a>
     <a class="nav" id="carrierTabModelMap">Coverage Map</a>
     <a class="nav" id="carrierTabCountryDetails">Country Details</a>
 </div> <!-- carrierTabs -->
@@ -56,17 +55,13 @@
         </table>
     </div>
 
-    <div id="byDeviceTMobileWarning" style="display:none; font-size: small;">
-      <sup>5</sup>T-Mobile in the United States only officially supports LTE Cat NB1, which is not
-      supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas,
-      and where enabled, this device can connect to it. There is no coverage map as T-Mobile
-      does not acknowledge the existence of LTE Cat M1 coverage.
-    </div>
     <div id="byDeviceRoamingWarning" style="display:none; font-size: small;">
       <sup>6</sup>Not recommended due to permanent roaming restrictions. While the device
       may initially work, it may be blocked by local operators without warning.
     </div>
-
+    <div id="byDeviceVerizonWarning" style="display:none; font-size: small;">
+      <sup>7</sup>Verizon in the United States is only supported on enterprise plans.
+    </div>
 </div> <!-- carrierByDeviceDiv -->
 
 <div id="carrierFindDeviceDiv" style="display: none;">
@@ -152,6 +147,7 @@
       </div>
     </div>
     <div id="countryPopup" class="countryPopup"></div>
+    {{> search-overlay }}
     {{> scripts}}
 </body>
 </html>

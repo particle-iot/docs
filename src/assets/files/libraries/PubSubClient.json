@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PubSubClient",
     "version": "2.6.0",
-    "installs": 31320,
+    "installs": 33369,
     "license": "MIT",
     "author": "knolleary",
     "url": "https://github.com/tectiv3/pubsubclient",
@@ -18,7 +18,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PubSubClient",
+  "cardUrl": "/reference/device-os/libraries/p/PubSubClient",
   "versions": {
     "2.6.0": {
       "builds": {

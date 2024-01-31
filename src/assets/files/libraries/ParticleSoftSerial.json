@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ParticleSoftSerial",
     "version": "0.0.15",
-    "installs": 87488,
+    "installs": 91529,
     "license": "GNU Lesser General Public License",
     "author": "ScruffR",
     "sentence": "Basic SoftSerial implementation (requires SparkIntervalTimer library to work)",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/ParticleSoftSerial",
+  "cardUrl": "/reference/device-os/libraries/p/ParticleSoftSerial",
   "versions": {
     "0.0.15": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "PSS_SimpleTest": false
+          },
+          "boron": {
+            "PSS_SimpleTest": false
+          },
+          "bsom": {
+            "PSS_SimpleTest": false
+          },
+          "b5som": {
+            "PSS_SimpleTest": false
+          },
+          "tracker": {
+            "PSS_SimpleTest": false
+          },
+          "esomx": {
+            "PSS_SimpleTest": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "PSS_SimpleTest": false
+          },
+          "boron": {
+            "PSS_SimpleTest": false
+          },
+          "bsom": {
+            "PSS_SimpleTest": false
+          },
+          "b5som": {
+            "PSS_SimpleTest": false
+          },
+          "tracker": {
+            "PSS_SimpleTest": false
+          },
+          "p2": {
+            "PSS_SimpleTest": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "PSS_SimpleTest": false
           },

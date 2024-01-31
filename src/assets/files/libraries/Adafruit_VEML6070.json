@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_VEML6070",
     "version": "0.0.3",
-    "installs": 25902,
+    "installs": 26200,
     "license": "BSD",
     "author": "Limor (Ladyada) Fried, Tony DiCola",
     "sentence": "Adafruit_VEML6070 library for Particle",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_VEML6070",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_VEML6070",
   "versions": {
     "0.0.3": {
       "builds": {

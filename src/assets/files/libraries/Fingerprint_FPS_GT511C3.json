@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Fingerprint_FPS_GT511C3",
     "version": "1.0.6",
-    "installs": 2080,
+    "installs": 2145,
     "author": "Josh Hawley",
     "sentence": "A library for controlling the GT-511CS3 Fingerprint Scanner",
     "architectures": [],
@@ -16,7 +16,7 @@
   },
   "kind": "community library",
   "letter": "f",
-  "cardUrl": "/cards/libraries/f/Fingerprint_FPS_GT511C3",
+  "cardUrl": "/reference/device-os/libraries/f/Fingerprint_FPS_GT511C3",
   "versions": {
     "1.0.6": {
       "builds": {
@@ -119,6 +119,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "boron": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "bsom": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "b5som": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "tracker": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "esomx": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "boron": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "bsom": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "b5som": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "tracker": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "p2": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "FPS_Blink": false,
             "FPS_Enroll": false,

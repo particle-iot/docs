@@ -9,7 +9,7 @@ When considering the deployment of your Particle IoT device it is important to c
 
 In most cases changing the parameters of the PMIC (Power Management Integrated Circuit) will not be necessary or even recommended, but **in power-related use-cases outside of the conventional VIN / Particle LiPo configuration (e.g. a solar-powered deployment), attention to the PMIC in firmware can be critical.** 
 
-## Key Concepts
+## Key concepts
 
 Please review the code example below.
 
@@ -30,7 +30,7 @@ _\* Please note that the setting above are persistent and once set on a device, 
 
 The four settings from the above example that demand attention are highlighted below by use-case:
 
-### Source(USB/5V adaptor/Solar panel):
+### Source(USB/5V adaptor/solar panel):
 
 * `powerSourceMaxCurrent` \- The maximum current the device can pull from the source.  
 These are the available current limits:
@@ -54,7 +54,7 @@ These are the available current limits:
   
 **Note:** Beginning with the release of Device OS 1.5.x, and with further improvements in Particle's LTS branch (2.x, also applicable to 3.x), Particle introduced a new Power Manager ([link](/reference/device-os/firmware/boron/#power-manager)). The previous PMIC API ([link](/reference/device-os/firmware/boron/#pmic-power-management-ic-)) will be phased out moving forward.
 
-## Resetting The PMIC
+## Resetting the PMIC
 
 In some cases errant settings or misconfigurations can cause undesired behavior. The code below will reset the PMIC to its default values.
 
@@ -83,7 +83,7 @@ void turnOffCharging()
 }
 
   
-## Low Power Use-Cases
+## Low power use-cases
 
 When a device is running solely on battery power it needs to conserve power. The new Sleep API (link) is the best way to achieve this, if paired with an efficient publishing schema. We will release documentation optimized for low-power use-cases in the future, but in the meantime please see the following considerations for low-power deployments:
 

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-BH1749NUC",
     "version": "1.0.0",
-    "installs": 764,
+    "installs": 860,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the BH1749NUC color sensor on the SparkFun Qwiic RGB Sensor",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun-BH1749NUC",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun-BH1749NUC",
   "versions": {
     "1.0.0": {
       "builds": {
@@ -197,6 +197,118 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "boron": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "bsom": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "b5som": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "tracker": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "esomx": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "boron": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "bsom": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "b5som": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "tracker": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "p2": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example1-RGB_IR_Monitoring": false,
             "Example2_RGB_DataPolling": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_MCP9600_Arduino_Library",
     "version": "1.0.3",
-    "installs": 2344,
+    "installs": 2518,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "Fischer Moseley <fischer.moseley@sparkfun.com>",
     "sentence": "Driver for Microchip's MCP9600 Thermocouple Amplifier.",
@@ -23,7 +23,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SparkFun_MCP9600_Arduino_Library",
+  "cardUrl": "/reference/device-os/libraries/s/SparkFun_MCP9600_Arduino_Library",
   "versions": {
     "1.0.3": {
       "builds": {
@@ -180,6 +180,106 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "esomx": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "bsom": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "b5som": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "tracker": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "p2": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "Example1_BasicReadings": true,
             "Example2_SetThermocoupleType": true,

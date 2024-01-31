@@ -1,0 +1,23 @@
+<div class="webhookDemo apiHelper" data-control="fleet" data-options="{{options}}">
+    <div class="apiHelperBox">
+        <div class="showWhenStarted" style="display:none">
+            <table class="apiHelperTableNoMargin">
+                <thead id="fleetHeader">
+                    <tr>
+                        <th data-key="name">Name</th>
+                        <th data-key="id">Device ID</th>
+                        <th data-key="online" data-style="greenCheck">Online</th>
+                        <th data-key="firmware_version" data-style="firmware">Firmware</th>
+                        <th data-key="development" data-style="greenCheck">Development</th>
+                        {{#if deviceOsVersion}}<th data-key="system_firmware_version">Device OS Version</th>{{/if}}
+                    </tr>
+                </thead>
+                <tbody id="fleetTable">
+                </tbody>
+            </table>
+        </div>
+        <div class="hideWhenStarted">
+            <p><a class="startDemo">Start Demo</a> to see the devices in your product.</p>
+        </div>
+    </div>
+</div>

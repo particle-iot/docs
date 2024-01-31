@@ -6,7 +6,7 @@ columns: two
 
 # {{{title}}}
 
-## How To Use And Interact With The CLI
+## How to use and interact with the CLI
 
 Right off the bat, you may be reading this article with a more conceptual question: **_how do I actually access the Particle CLI and run commands?_**
 
@@ -22,7 +22,7 @@ You will be confronted with something that looks like this:
 
 with the cursor ready for your command! 
 
-## Running A Basic CLI Functionality Check
+## Running a basic CLI functionality check
 
 Before troubleshooting further, please take the following steps to ensure the CLI's basic operations are functional. Try running:
 
@@ -32,7 +32,21 @@ Before troubleshooting further, please take the following steps to ensure the CL
 
 If you receive errors from the above, it's worth proceeding further through this guide. If these commands report as expected, it's worth taking a good look at our CLI reference page ([link](/reference/developer-tools/cli/)) to ensure that the commands you are trying to run are supported and formatted correctly.
 
-## Ensuring The CLI Is Properly Installed On And Configure** **d For Your System
+### Windows 10 no devices found
+
+If you are experiencing these problems on Windows 10 you may have a driver issue:
+
+- No serial device identified in the web-based tools despite using a current version of Chrome or Edge.
+- `particle serial list` returns no devices.
+- `dfu-util -l`` returns no devices.
+
+See [Windows 10 device driver issues](/troubleshooting/guides/build-tools-troubleshooting/win10-device-drivers/) for more information.
+
+### Mac with Apple silicon
+
+If you are using a Mac with Apple silicon (M1, M2, M3, ...) and have previously imported your settings and applications from an Intel Mac, you may run into issues. See [CLI on Mac with Apple silicon](/troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon/).
+
+## Ensuring the CLI is properly installed on and configured for your system
 
 Issues related to build tools can be complex! After all, every computer is configured differently and is governed by unique administrative permissions schema, firewalls, networking settings, etc.... The majority of CLI issues are related to this complexity, so taking a step back and ensuring your tools are installed and configured properly is an important step to the troubleshooting process. 
 
@@ -52,15 +66,16 @@ Issues related to build tools can be complex! After all, every computer is confi
 **Delete the following files and directories** if available:
 
 * `.npm-cache`  
-   * `autoupdate`  
-   * `error.log`  
-   * `node-v8.15.0-<os>-<cpu>`  
-   (e.g. `node-v8.15.0-windows-x64`, `node-v8.15.0-darwin-x64`, `node-v8.15.0-linux-x64`)  
-   * `node_modules`  
-   * `package-lock.json`  
-   * `plugin-cache.json`  
-   * `profile.json`  
-   * `tmp`
+* `autoupdate`  
+* `error.log`  
+* `node-v<version>-<os>-<cpu>`  
+(e.g. `node-v16.20.0-windows-x64`, `node-v16.20.0-darwin-x64`, `node-v16.20.0-linux-x64`)  
+* `node_modules`  
+* `package.json`  
+* `package-lock.json`  
+* `plugin-cache.json`  
+* `profile.json`  
+* `tmp`
 
 **Update** the CLI:
 
@@ -77,7 +92,7 @@ Once that completes, confirm a successful reinstallation by by running the `part
 
 If the above steps fail to resolve the issue, **s** **croll to the bottom of this page and follow the steps for issue reporting.**
 
-## Steps To Take If The CLI Does Not Recognize Your Device
+## Steps to take if the CLI does not recognize your device
 
 Hardware peripheral issues have several main causes. In order:
 
@@ -94,9 +109,9 @@ When in DFU mode, the Device Manager looks like this: (Note that it may say **Ph
 And when in normal operating mode or listening mode (blinking blue), the Device Manager looks like this:  
     
 ![COM driver](/assets/images/support/installing-dfu-util-23com.png)
-6. If your device is recognized in DFU Mode but not in any other mode, you may need to perform an update to that device in order for it to recognize Serial commands. In order to do so, as always, place the device in DFU Mode (hold down BOTH buttons, then release only the `RESET` button, while holding down the `MODE` button. Wait for the LED to start flashing yellow (it will flash magenta first) and release the `MODE` button once it's flashing yellow). Then run the CLI commands `particle update` followed by `particle flash --usb tinker`.
+6. If your device is recognized in DFU Mode but not in any other mode, you may need to perform an update to that device in order for it to recognize Serial commands. In order to do so, as always, place the device in DFU Mode (hold down BOTH buttons, then release only the `RESET` button, while holding down the `MODE` button. Wait for the LED to start flashing yellow (it will flash magenta first) and release the `MODE` button once it's flashing yellow). Then run the CLI commands `particle update` followed by `particle flash --local tinker`.
 
-## How To Report CLI Issues
+## How to report CLI issues
 
 **Particle's Support Team refers CLI and Workbench issues to our Particle Community** **([link](https://community.particle.io/c/DT/CLI/52)).** There are several benefits to doing so - other members of our Community may already have a solution for this issue, it allows for more transparent self-service after your issue is resolved, and it also is an often direct channel to our CLI and Workbench Engineering Team. **In order to report your issue, please post in our Particle Community** ([link](https://community.particle.io/c/DT/CLI/52))   **following the instructions below**:
 

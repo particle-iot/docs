@@ -1,0 +1,139 @@
+{
+  "type": "libraries",
+  "id": "hvsMAX14830",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/hvsMAX14830/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "hvsMAX14830",
+    "version": "1.0.1",
+    "installs": 1820,
+    "author": "J Lawlor",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/reference/device-os/libraries/h/hvsMAX14830",
+  "versions": {
+    "1.0.1": {
+      "added": "2023-05-19T19:45:18.803Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# MAX14830\r\n\r\nA Particle library for MAX14830\r\n\r\n## Welcome to your library!\r\n\r\nTo get started, modify the sources in src. Rename the example folder inside examples to a more meaningful name and add additional examples in separate folders.\r\n\r\nTo compile your example you can use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\r\n\r\nLibraries can also depend on other libraries. To add a dependency use [`particle library add`](https://docs.particle.io/guide/tools-and-features/cli#adding-a-library) or [library management](https://docs.particle.io/guide/tools-and-features/dev/#managing-libraries) in Desktop IDE.\r\n\r\nAfter the library is done you can upload it with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. If you wish to make your library public, use `particle library publish` or `Publish` command.\r\n\r\n_TODO: update this README_\r\n\r\n## Usage\r\n\r\nConnect XYZ hardware, add the MAX14830 library to your project and follow this simple example:\r\n\r\n```\r\n#include \"MAX14830.h\"\r\nMAX14830 mAX14830;\r\n\r\nvoid setup() {\r\n  mAX14830.begin();\r\n}\r\n\r\nvoid loop() {\r\n  mAX14830.process();\r\n}\r\n```\r\n\r\nSee the examples folder for more details.\r\n\r\n## Documentation\r\n\r\nTODO: Describe `MAX14830`\r\n\r\n## Contributing\r\n\r\nHere's how you can make changes to this library and eventually contribute those changes back.\r\n\r\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\r\n\r\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\r\n\r\nModify the sources in <src> and <examples> with the new behavior.\r\n\r\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\r\n\r\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add MAX14830_myname` to add the library to a project on your machine or add the MAX14830_myname library to a project on the Web IDE or Desktop IDE.\r\n\r\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \r\n\r\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\r\n\r\n## LICENSE\r\nCopyright 2021 J Lawlor\r\n\r\nLicensed under the <insert your choice of license here> license\r\n",
+  "allVersions": [
+    "1.0.1",
+    "1.0.0"
+  ]
+}

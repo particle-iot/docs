@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PietteTech_DHT",
     "version": "0.0.14",
-    "installs": 171245,
+    "installs": 186550,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Scott Piette / Migrated and bug-fixed by ScruffR",
     "sentence": "Interrupt driven DHT11/21/22 Sensor library for Particle devices",
@@ -20,7 +20,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PietteTech_DHT",
+  "cardUrl": "/reference/device-os/libraries/p/PietteTech_DHT",
   "versions": {
     "0.0.12": {
       "builds": {
@@ -171,6 +171,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "boron": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "bsom": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "b5som": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "tracker": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "esomx": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "boron": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "bsom": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "b5som": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "tracker": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "p2": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "DHT_2sensor": true,
             "DHT_example": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PID-AutoTune",
     "version": "0.0.3",
-    "installs": 7084,
+    "installs": 7347,
     "license": "GPLv3",
     "author": "Brett Beauregard <br3ttb@gmail.com> brettbeauregard.com",
     "sentence": "PID AutoTune library for Particle",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PID-AutoTune",
+  "cardUrl": "/reference/device-os/libraries/p/PID-AutoTune",
   "versions": {
     "0.0.3": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "AutoTune": false
+          },
+          "boron": {
+            "AutoTune": false
+          },
+          "bsom": {
+            "AutoTune": false
+          },
+          "b5som": {
+            "AutoTune": false
+          },
+          "tracker": {
+            "AutoTune": false
+          },
+          "esomx": {
+            "AutoTune": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "AutoTune": false
+          },
+          "boron": {
+            "AutoTune": false
+          },
+          "bsom": {
+            "AutoTune": false
+          },
+          "b5som": {
+            "AutoTune": false
+          },
+          "tracker": {
+            "AutoTune": false
+          },
+          "p2": {
+            "AutoTune": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "AutoTune": false
           },

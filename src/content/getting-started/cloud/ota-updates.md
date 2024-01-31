@@ -31,7 +31,7 @@ Particle's platform is uniquely positioned to provide industry-leading
 OTA update capabilities for embedded devices. Using Particle for OTA
 updates give you the following benefits:
 
-### A Complete Solution
+### A complete solution
 
 A successful OTA update requires complex coordination between IoT hardware, device firmware, network connectivity, and an IoT device cloud. Trust us, this is a _very hard problem_ to solve correctly.
 
@@ -52,7 +52,53 @@ In fact, **one must have visibility and control over all four of these component
 
 Other IoT platforms may market an OTA feature, but in reality only provide a small sliver of the functionality required perform a complete, reliable, and secure update — leaving your team to piece together a bespoke solution that distracts them from spending valuable time on the features that make your IoT product unique.
 
-### Reliable and Resilient
+### Particle OTA
+
+Particle OTA is a fully-integrated over-the-air software update system that is built into the Particle IoT PaaS and Device OS. It allows customers to safely and reliably push software updates to single devices or entire fleets of devices directly from Particle’s device management console and developer tools, with no implementation work necessary.
+
+Particle OTA allows you to update your entire IoT device (both the Particle device and any other components) by delivering three kinds of updates:
+
+- **Application OTA** allows users to update the firmware application they are running on the Particle device in order to introduce new features, fix bugs, and generally improve the software application over time.
+
+- **Device OS OTA** allows users to update Device OS to the latest version alongside an application update so that Device OS can be kept up to date with improvements and bug fixes while properly testing against the user-generated software application.
+
+- **Asset OTA** allows users to include bundled assets in an OTA software update that can be delivered to other processors and components in the electronics system so that the Particle device can be responsible not just for updating itself but also the system that surrounds the device.
+
+### Asset OTA
+
+{{!-- BEGIN shared-blurb e724be96-469f-4bf2-bead-c8c962accad8 --}}
+Asset OTA (available in Device OS 5.5.0 and later), makes it easy to include bundled assets that can be delivered to other processors and components in your system, such as:
+
+- Coprocessors
+- Graphics and fonts for external displays
+- Sound samples for device with audio output capabilities
+
+Including assets is as easy as including an directory in your project, specifying it in the `project.properties` and building and flashing using Particle Workbench, the Particle CLI, or fleet-wide OTA for a product. Bundled assets can be up to 1 MB to 1.5 MB in size, after compression, depending on the platform, and do not use additional data operations.
+
+The compression algorithm is similar to gzip, so using a gzip program on the assets folder on your computer will yield the approximate size after compression.
+{{!-- END shared-blurb --}}
+
+{{!-- BEGIN shared-blurb 1b35c174-a08c-40f8-8a02-5d25f11b95c4 --}}
+- Particle Workbench and the Particle CLI will automatically generated bundled assets when the `project.properties` file contains an `assetOtaDir` key and a value containing a valid directory.
+
+```
+assetOtaDir=assets
+```
+
+- When using **Particle: Compile Application** or `particle compile` projects with bundled assets are built into a .zip file. This file contains both the firmware binary (.bin) as well as the assets. 
+- The asset bundle .zip can be uploaded to the console as product firmware binary.
+- When using **Particle: Flash application** or `particle flash` the same process is followed, except the device is flashed.
+- When flashing OTA, the asset bundle is transmitted using resumable OTA and compression for efficient data use.
+- You will need to include code in your application firmware to process the additional assets, such as sending them to a coprocessor or saving them to the file system.
+- Creating bundled assets will not be not possible in the Web IDE. Particle Workbench is recommended.
+
+{{!-- END shared-blurb --}}
+
+The application can register a callback using `System.onAssetOta(handler)` that will be called by Device OS when the device has received all the bundled assets. For more information, see the [Asset OTA Device OS API](/reference/device-os/api/asset-ota/asset-ota/).
+
+Full examples of using Asset OTA can be found on [the GitHub repository asset-ota-examples](https://github.com/particle-iot/asset-ota-examples).
+
+### Reliable and resilient
 
 Sending an OTA update is arguably one of the riskiest actions you can take on a connected device. Mishandling OTA updates could at a minimum cause temporary disruption, or at worst force the device into an unrecoverable state.
 
@@ -99,7 +145,7 @@ sent with a click of a button in our IDEs (available both in
 IDE](https://build.particle.io)), or via our developer-approved [REST
 API](/reference/cloud-apis/api/).
 
-#### Moving to Production
+#### Moving to production
 
 As you begin to deploy large numbers of devices, it is imperative to
 have the ability to safely batch OTA updates to many devices at one time. This is what allows you to roll out new software features, fix bugs, or patch security holes across your fleet.
@@ -157,12 +203,19 @@ From the Particle [Web IDE](https://build.particle.io), you simply select the de
 From the [Particle CLI](https://particle.io/cli/), you use a command like:
 
 ```
-particle flash my-device my-app.ino
+cd MyProject
+particle flash boron3 .
 ```
+
+The first parameter is a device name or Device ID (24-character hex).
+
+The second parameter is typically a directory path, or in this case `.` for the current directory, which is typically the directory containing the `project.properties` file, `src` directory, and application source.
 
 When used with products, the device must not only be marked as a development device, but also claimed to your Particle account. For this reason, we recommend each developer have their own device, claimed to their own account, and often on their desk with each access to buttons and the USB debug serial port, for ease of development.
 
-### Flash via the REST API
+With Device OS 5.5.0 and later, you can also flash a device with both a firmware binary and additional assets for [Asset OTA](#asset-ota) using the Particle CLI.
+
+### Flash via the rest API
 
 It is also possible to flash devices using the REST API. 
 
@@ -212,7 +265,7 @@ The Particle Device SDKs for iOS and Android are also able to flash code. Note t
 Particle offers tools to deliver OTA updates to a fleet of IoT devices,
 at any scale.
 
-### Firmware Releases
+### Firmware releases
 
 Firmware Releases are the primary mechanism of delivering fleet-wide OTA updates
 to a deployment of Particle devices. With a single action, you can
@@ -460,7 +513,7 @@ In this example, I've selected the `beta_test` group of devices to deploy a rele
 
 The [Product Tools Device Groups Guide](/getting-started/console/device-groups/) shows how to use groups.
 
-#### Releases via the REST API
+#### Releases via the rest API
 
 All of the operations that can be performed from the Console can also be automated using the REST API. You might do this to automate your build and release process, for example.
 
@@ -498,7 +551,7 @@ firmware (if a firmware has been released as the Product default)
 a product firmware, it will not receive an automatic OTA update from the
 Particle Device Cloud
 
-## Intelligent Firmware Releases
+## Intelligent firmware releases
 
 By default, firmware is sent to target devices as a _Standard Release_.
 Targeted device will receive the new version of firmware over time, with
@@ -506,9 +559,8 @@ each device updating the next time it starts a new secure session with
 the Device Cloud. This is to ensure devices are not disrupted while in
 use as a result of the reset needed to begin running the new firmware.
 
-** Intelligent Firmware Releases** is a premium
-fleet-wide OTA mechanism that enables scaling customers
-to predictably deliver fleet-wide firmware updates at _exactly_ the
+** Intelligent Firmware Releases** is a 
+fleet-wide OTA mechanism to predictably deliver fleet-wide firmware updates at _exactly_ the
 right time.
 
 - **Context awareness to prevent disruption**: Device Cloud sends immediate OTA to
@@ -594,7 +646,7 @@ returns `true` in application firmware. For more information, see the
 section below on [controlling OTA
 availability](#controlling-ota-availability).
 
-### Understanding the impact of Intelligent Firmware Releases
+### Understanding the impact of intelligent firmware releases
 
 After clicking **Next**, you will need to confirm that you understand
 the impact of the action that you are about to take:
@@ -712,7 +764,7 @@ This feature requires a firmware binary built for Device OS 1.2.0 or later. If a
 
 You can upgrade the Device OS in several ways, including both by USB and OTA following the [instructions here](/getting-started/device-os/introduction-to-device-os/#managing-device-os).
 
-### Force Enable OTA updates
+### Force enable OTA updates
 
 While you can inhibit firmware updates from your device firmware,
 sometimes you need to override the device's local setting. If, for example, you flashed firmware that had a bug in the disable updates code, you might need to force enable updates to replace the bad code.

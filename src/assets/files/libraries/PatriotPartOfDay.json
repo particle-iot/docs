@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotPartOfDay",
     "version": "5.1.0",
-    "installs": 744,
+    "installs": 829,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to generate partofday MQTT events for dusk, morning, etc.",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PatriotPartOfDay",
+  "cardUrl": "/reference/device-os/libraries/p/PatriotPartOfDay",
   "versions": {
     "5.1.0": {
       "builds": {},

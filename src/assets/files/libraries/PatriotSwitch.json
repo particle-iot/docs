@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotSwitch",
     "version": "5.1.0",
-    "installs": 1561,
+    "installs": 1834,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to support switches.",
@@ -22,7 +22,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PatriotSwitch",
+  "cardUrl": "/reference/device-os/libraries/p/PatriotSwitch",
   "versions": {
     "5.1.0": {
       "builds": {
@@ -89,6 +89,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "switch": false
+          },
+          "boron": {
+            "switch": false
+          },
+          "bsom": {
+            "switch": false
+          },
+          "b5som": {
+            "switch": false
+          },
+          "tracker": {
+            "switch": false
+          },
+          "esomx": {
+            "switch": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "switch": false
+          },
+          "boron": {
+            "switch": false
+          },
+          "bsom": {
+            "switch": false
+          },
+          "b5som": {
+            "switch": false
+          },
+          "tracker": {
+            "switch": false
+          },
+          "p2": {
+            "switch": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "switch": false
           },

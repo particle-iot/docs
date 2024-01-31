@@ -19,7 +19,7 @@ To set up the device you'll need an Android or iOS mobile phone and a connection
 - Bluetooth Antenna (2.4 GHz)
 - Cellular antenna
 
-#### The SoM Evaluation Board comes with: 
+#### The SoM evaluation board comes with: 
 
 - Evaluation board
 - Hold-down screw for M.2 SoM
@@ -74,7 +74,7 @@ To set up the device you'll need an Android or iOS mobile phone and a connection
 
 ## 3. Setup using the mobile apps (Method 1)
 
-If you'd like to use the mobile app setup process, follow the instructions in this section. If you want to use USB and command line setup instead, skip to section 4.
+If you'd like to use the mobile app setup process, follow the instructions in this section. If you want to use USB and command line setup instead, skip to section 4. In the future the Particle mobile apps for iOS and Android will be deprecated so you should plan on using Method 2 in the future.
 
 To begin setting up your B Series SoM, click the button below and follow the onscreen instructions. When you've completed set up, continue to Step #4.
 
@@ -109,7 +109,6 @@ Note the ICCID returned, you will need it in the next step.
 
 - Activate the SIM by going to [Particle Setup](https://setup.particle.io) and selecting the SIM card only option. You'll need the ICCID from the previous step.
 
-- Put the SoM in DFU mode (blinking yellow) by holding down the MODE button on the Evaluation Board and tapping RESET. Continue to hold down the MODE button while the status LED blinks magenta (red and blue at the same time), until it blinks yellow, then release MODE.
 - From a Command Prompt or Terminal window, issue the command:
 
 ```

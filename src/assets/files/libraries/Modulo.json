@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Modulo",
     "version": "1.2.0",
-    "installs": 304,
+    "installs": 393,
     "author": "Erin Tomson <erin@modulo.co>",
     "url": "https://github.com/modulolabs/modulo-particle",
     "repository": "https://github.com/modulolabs/modulo-particle.git",
@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "m",
-  "cardUrl": "/cards/libraries/m/Modulo",
+  "cardUrl": "/reference/device-os/libraries/m/Modulo",
   "versions": {
     "1.2.0": {
       "builds": {
@@ -210,6 +210,130 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "boron": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "bsom": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "b5som": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "tracker": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "esomx": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "boron": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "bsom": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "b5som": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "tracker": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "p2": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "DisplayEventsTutorial": false,
             "DisplayTutorial": false,

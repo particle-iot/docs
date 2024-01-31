@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_GFX",
     "version": "0.0.0",
-    "installs": 64751,
+    "installs": 69668,
     "license": "SOME",
     "author": "Paul Kourany <pkourany@gmail.com>",
     "sentence": "A Port of the ADAFruit GFX libary",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_GFX",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_GFX",
   "versions": {
     "0.0.0": {
       "builds": {

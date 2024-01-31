@@ -13,7 +13,7 @@ This is the old version of Device Restore USB. It will be deprecated in the near
 Using the [new version of Device Restore USB](/tools/device-restore/device-restore-usb/) is recommended.
 {{note op="end"}}
 
-This experimental tool works like [`particle update`](/reference/developer-tools/cli/#particle-update) in the Particle CLI, except it works from your browser (no software install required) and it can upgrade or downgrade to different versions of Device OS. It works with both Gen 2 and Gen 3 devices. 
+This experimental tool works like [`particle update`](/reference/developer-tools/cli/#particle-update) in the Particle CLI, except it works from your browser (no software install required). It works with both Gen 2 and Gen 3 devices. 
 
 There is also a version that implements [Device Restore over JTAG](/tools/device-restore/device-restore-jtag/) that works with the Particle debugger. It can restore devices that do not have a working bootloader (Dim D7 on Gen 2 devices) or have been completely erased.
 
@@ -39,7 +39,7 @@ There is also a version that implements [Device Restore over JTAG](/tools/device
 
 ---
 
-## Special Notes for Downgrading
+## Special notes for downgrading
 
 {{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
 **Boron LTE BRN402 and B Series SoM B402**

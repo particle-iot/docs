@@ -9,9 +9,9 @@ description: Using a specific Particle CLI version
 
 The Particle CLI should generally be installed using the instructions [here](/getting-started/developer-tools/cli), however there are some special cases where you may want to run an older version of the Particle CLI:
 
-- The `particle update` command in the CLI installs the specific LTS version of Device OS that the CLI was built to install, not necessarily the most recent version. If you want to install a specific older version of Device OS, you may want to use an older version of the CLI to do so.
+Prior to September, 2023, the `particle update` command installed the latest LTS version at the time the CLI version was released. Thus if you wanted to install an older version of Device OS you had to downgrade the CLI. This is no longer necessary as the `--target` option can be used to install a specific version instead.
 
-- Support for discontinued platforms like the Spark Core no longer exists in the current version of the CLI, so you may want to use an older version of the CLI to do things like flash the cc3000 update.
+Support for discontinued platforms like the Spark Core no longer exists in the current version of the CLI, so you may want to use an older version of the CLI to do things like flash the cc3000 update, however.
 
 ## Installation
 
@@ -21,11 +21,7 @@ The current source for the Particle CLI can be found [in Github](https://github.
 
 Some versions of interest:
 
-- CLI v3.5.0 switched to Device OS 4.0.0 LTS. 
-- If you need to use Device OS 2.3.0 LTS, you can use CLI v3.2.0.
 - If you need to use older platforms such as Redbear Duo and Core, use v2 (v2.16.0, currently).
-- The release notes indicate which Device OS version is installed by that version of the CLI if you want to install a specific version
-- There is no way to install the developer preview releases of Device OS (3.x, 5.x) using `particle update`.
 
 
 To replace the existing `particle` command you can use:
@@ -45,3 +41,9 @@ To restore the current version of the Particle CLI you can use:
 ```
 particle --update-cli
 ```
+
+Also note that the Particle CLI current requires node v16. It does not work with node v18 and later. Using a node version manager like nvm or fnm is recommended so you can switch between version if necessary.
+
+## Mac with Apple silicon
+
+If you are using a Mac with Apple silicon (M1, M2, M3, ...) and have previously imported your settings and applications from an Intel Mac see [CLI on Mac with Apple silicon](/troubleshooting/guides/build-tools-troubleshooting/cli-mac-apple-silicon/) for additional information.

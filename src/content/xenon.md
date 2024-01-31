@@ -55,7 +55,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 - Reset and Mode buttons
 - On-board 2.4GHz PCB antenna for Thread/BLE
 - Meets the [Feather specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
-- FCC, CE and IC certified
+- FCC (United States), CE (European Union), and ISED (Canada) certified
 - RoHS compliant (lead-free)
   <div align="center">
   <br />
@@ -65,7 +65,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 {{box op="end"}}
 
 
-### The Xenon Kit comes with the following things:
+### The Xenon kit comes with the following things:
 
 {{box op="start"}}
 

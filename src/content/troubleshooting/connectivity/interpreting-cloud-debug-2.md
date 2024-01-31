@@ -13,7 +13,7 @@ This guide mostly concentrates on cellular issues (Electron, E Series, and Boron
 
 
 
-## Decoding u-blox AT Commands
+## Decoding u-blox AT commands
 
 In order to decode the u-blox AT commands you'll probably need to use the (somewhat confusing) AT Commands Manual. There are two different versions:
 

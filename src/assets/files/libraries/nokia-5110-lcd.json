@@ -7,7 +7,7 @@
   "attributes": {
     "name": "nokia-5110-lcd",
     "version": "0.0.7",
-    "installs": 3295,
+    "installs": 3430,
     "license": "GNU GPLv3",
     "author": "Jim Lindblom, Grayson Smith",
     "sentence": "An Implementation of Sparkfun's Nokia 5110 Library for the Spark Core",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/nokia-5110-lcd",
+  "cardUrl": "/reference/device-os/libraries/n/nokia-5110-lcd",
   "versions": {
     "0.0.7": {
       "builds": {
@@ -104,12 +104,52 @@
           "esomx": {
             "example": true
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "p2": {
+            "example": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "esomx": {
+            "example": true
+          }
         }
       },
       "added": "2022-06-17T10:16:53.845Z"
     }
   },
-  "readme": "SparkCore-Nokia5110LCD\n==================\n\nA library for manipulating Nokia's 5110 LCD for the Spark Core.\nImplementation based on Sparkfun's Nokia 5110 LCD Library.\n\n\nComponents Required\n---\n- A Nokia 5110 LCD (get at [sparkfun.com](https://www.sparkfun.com/products/10168) or eBay or Amazon)\n\n\nExample Usage\n---\n\nSee this [flashable, extensive example](firmware/examples/example.cpp) for details, or, in a nutshell:\n\n```cpp\nNokia5110LCD::Display nokiaLCD(D0, D1, D2, A0); // SCE pin, RESET pin, Data/Command, and backlight pins\nvoid setup() {\n  nokiaLCD.begin();\n  nokiaLCD.updateDisplay(); // with displayMap untouched, SFE logo\n}\nvoid loop() {\n  // send various chars, strings, shapes to the buffer and write them to the display...\n}\n```\n\nNuances\n---\n\n- The first three parameters in the constructor can be any output pin\n\n- The Backlight pin should be able to implement PWM (aka analog pin)\n\n- The Serial data and Serial clock pins should stay at the default A3 and A5, respectively.\n\n\nBuilding locally\n---\n\nIf you are building locally, place the files here:\n\n```\n..\\core-firmware\\inc\\nokia-5110-lcd.h\n..\\core-firmware\\src\\application.cpp (renamed from example.cpp)\n..\\core-firmware\\src\\nokia-5110-lcd.cpp\n```\n",
+  "readme": "SparkCore-Nokia5110LCD\n==================\n\nA library for manipulating Nokia's 5110 LCD for the Spark Core.\nImplementation based on Sparkfun's Nokia 5110 LCD Library.\n\n\nComponents Required\n---\n- A Nokia 5110 LCD (get at [sparkfun.com](https://www.sparkfun.com/products/10168) or eBay or Amazon)\n\n\nExample Usage\n---\n\nSee this flashable, extensive example for details, or, in a nutshell:\n\n```cpp\nNokia5110LCD::Display nokiaLCD(D0, D1, D2, A0); // SCE pin, RESET pin, Data/Command, and backlight pins\nvoid setup() {\n  nokiaLCD.begin();\n  nokiaLCD.updateDisplay(); // with displayMap untouched, SFE logo\n}\nvoid loop() {\n  // send various chars, strings, shapes to the buffer and write them to the display...\n}\n```\n\nNuances\n---\n\n- The first three parameters in the constructor can be any output pin\n\n- The Backlight pin should be able to implement PWM (aka analog pin)\n\n- The Serial data and Serial clock pins should stay at the default A3 and A5, respectively.\n\n\nBuilding locally\n---\n\nIf you are building locally, place the files here:\n\n```\n..\\core-firmware\\inc\\nokia-5110-lcd.h\n..\\core-firmware\\src\\application.cpp (renamed from example.cpp)\n..\\core-firmware\\src\\nokia-5110-lcd.cpp\n```\n",
   "allVersions": [
     "0.0.7",
     "0.0.6",

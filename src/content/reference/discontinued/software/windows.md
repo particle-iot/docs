@@ -51,7 +51,7 @@ ParticleCloud.SharedCloud.SynchronizationContext = System.Threading.Synchronizat
 
 Here are few examples for the most common use cases to get your started:
 
-#### Log in to Particle Device Cloud
+#### Log in to Particle device cloud
 
 You don't need to worry about access tokens and session expiry, SDK takes care of that for you.
 
@@ -60,7 +60,7 @@ var success = await ParticleCloud.SharedCloud.LoginAsync("user@example.com", "my
 ```
 ---
 
-#### Log in to Particle Device Cloud with a token and validate
+#### Log in to Particle device cloud with a token and validate
 
 ```cs
 var success = await ParticleCloud.SharedCloud.TokenLoginAsync("d4f69e3a357f78316d50e76dbf10fe92364154bf");
@@ -261,7 +261,7 @@ You can either [download Particle Windows Cloud SDK](https://github.com/particle
 
 Particle Windows Cloud SDK is available under the Apache License 2.0. See the [LICENSE file](https://github.com/particle-iot/particle-windows-sdk/blob/master/LICENSE) for more info.
 
-## Particle Device Setup library *(Alpha)*
+## Particle Device setup library *(alpha)*
 
 ### Introduction
 

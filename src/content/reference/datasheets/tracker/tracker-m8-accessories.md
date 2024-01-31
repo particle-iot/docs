@@ -77,7 +77,7 @@ The M8 cables provide a convenient way to connect external devices to the Tracke
 
 ---
 
-### Wire Gauge - M8 Cables
+### Wire gauge - M8 cables
 
 | M8 Pin | Function  | Color          | Wire Gauge |
 | :----: | :-------- | :------------- | :--------- |
@@ -90,7 +90,7 @@ The M8 cables provide a convenient way to connect external devices to the Tracke
 | 7      | CAN_N     | Blue           | 26 AWG |
 | 8      | GND       | Black          | 24 AWG |
 
-### Dimensions - M8 Cables
+### Dimensions - M8 cables
 
 {{imageOverlay src="/assets/images/at-som/m8-diagram-straight.png" alt="M8 Straight" class="full-width"}}
 
@@ -104,7 +104,7 @@ The M8 cables provide a convenient way to connect external devices to the Tracke
 | Outer Diameter | 5.0 mm |
 | Approvals | UL2464, RoHS |
 
-### Orientation - M8 Cables
+### Orientation - M8 cables
 
 The key on the M8 panel connector is at 3 o'clock (right side, nearest to the USB connector), when facing the connectors, as in the diagram above. When using the right-angle M8 cable, the cable will face away from the USB connector.
 
@@ -114,16 +114,16 @@ The key on the M8 panel connector is at 3 o'clock (right side, nearest to the US
 
 | SKU  | Description |
 | :--- | :--- |
-| ONEM8CABEA | Tracker One M8 Accessory Cable (Straight), (x1) |
-| ONEM8CABTY | Tracker One M8 Accessory Cable (Straight), (x40) |
-| ONEM8CABRAEA | Tracker One M8 Accessory Cable (Right Angle), (x1) |
-| ONEM8CABRATY | Tracker One M8 Accessory Cable (Right Angle), (x40) |
+| M8CABEA | Tracker One M8 Accessory Cable (Straight), (x1) |
+| M8CABTY | Tracker One M8 Accessory Cable (Straight), (x40) |
+| M8CABRAEA | Tracker One M8 Accessory Cable (Right Angle), (x1) |
+| M8CABRATY | Tracker One M8 Accessory Cable (Right Angle), (x40) |
 
 
 
 ## M8 Connector 
 
-The ONEM8CONN is a connector similar to the M8 connector on the straight ONEM8CAB. It's intended for building your own M8 cable assembly and is the female side of the connector that mates with the Tracker One M8 connector. It is a bare connector and does not include a shroud. It is intended that your cable manufacturer will add an overmold to seal your cable to the connector.
+The M8CONNEA and M8CONNTY are a connector similar to the M8 connector on the straight ONEM8CAB. It's intended for building your own M8 cable assembly and is the female side of the connector that mates with the Tracker One M8 connector. It is a bare connector and does not include a shroud. It is intended that your cable manufacturer will add an overmold to seal your cable to the connector.
 
 ![M8 Connector](/assets/images/at-som/at-m8-connector1.png)
 ![M8 Connector](/assets/images/at-som/at-m8-connector2.png)
@@ -133,13 +133,13 @@ The ONEM8CONN is a connector similar to the M8 connector on the straight ONEM8CA
 
 | SKU  | Description |
 | :--- | :--- |
-| ONEM8CONNEA | Tracker One M8 Connector (Straight), (x1) |
-| ONEM8CONNTY | Tracker One M8 Connector (Straight), (x40) |
+| M8CONNEA | Tracker One M8 Connector (Straight), (x1) |
+| M8CONNTY | Tracker One M8 Connector (Straight), (x40) |
 
 This connector has the same pinouts as the cable above, but without the cable, so you can substitute your own cable of the desired length.
 
 
-## Other Sensors
+## Other sensors
 
 ### M8 Temperature/Humidity
 

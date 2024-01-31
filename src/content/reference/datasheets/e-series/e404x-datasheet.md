@@ -48,14 +48,14 @@ New designs should use the B404X (B Series SoM) instead of the E404X.
  * Reset and Mode pins for buttons
  * On-module MFF2 Particle SIM 
  * Two on-module U.FL connectors for external antennas
- * FCC and IC certified
+ * FCC (United States) and ISED (Canada) certified
  * RoHS compliant (lead-free)
  * Requires Device OS 4.0.0 LTS (or later)
 
 
 <sup>1</sup> Not all bands enabled in software by default
 
-### Device OS Support
+### Device OS support
 
 It is recommended that you use the latest version in the 4.x LTS release line with the E404X. The minimum required version is 4.0.0. You cannot use the E404X with Device OS 2.x LTS.
 
@@ -97,11 +97,7 @@ This is the supply to the internal RTC, backup registers and SRAM. You can conne
 
 #### PMID
 
-**This pin in subject to change** depending on the PMIC that is selected for the E404X.
-
-This pin is the output of the internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the E series module when powered by the battery alone.
-
-The confusing bit about this pin is that it will continue to provide 5.1VDC but only when the input voltage (VIN) is between 3.6V to 5.1VDC. As soon as the input voltage exceeds this limit, the PMID starts tracking _that_ voltage. For example if VIN = 9VDC, the PMID will be 9VDC and _NOT_ 5.1VDC. So you need to be careful when using it as a source for powering your external circuitry. The max current draw on this pin is 2.1A but is not recommended due to thermal limitations of the circuit board.
+This pin is connected to the PMID pin of the bq24195 PMIC. You should leave this pin unconnected.
 
 ---
 
@@ -126,7 +122,7 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 | Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
 
-#### General Antenna Guidance
+#### General antenna guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
@@ -351,10 +347,10 @@ It cannot be programmed by the ST-LINK/V2.
 | 2 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 3 | VBUS | Connect to VBUS power pin on the USB port | &nbsp; |
 | 4 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
-| 5 | LIPO | Connect to + pin on the LiPo battery, 3.6V maximum | &nbsp; |
+| 5 | LIPO | Connect to + pin on the LiPo battery, 4.2V maximum | &nbsp; |
 | 6 | NC | Do not connect to anything | &nbsp; |
 | 7 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
-| 8 | PMID | Connected to the PMID pin of the PMIC (may change) | &nbsp; |
+| 8 | PMID | Connected to the PMID pin of the PMIC. Leave unconnected. | &nbsp; |
 | 9 | 3V3 | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | &nbsp; |
 | 10 | NC | Do not connect to anything | &nbsp; |
 | 11 | NC | Do not connect to anything | &nbsp; |
@@ -413,9 +409,9 @@ It cannot be programmed by the ST-LINK/V2.
 
 
 
-## Memory Map
+## Memory map
 
-### nRF52840 Flash Layout Overview
+### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
   - User Application
@@ -424,7 +420,7 @@ It cannot be programmed by the ST-LINK/V2.
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+### External SPI flash layout overview (dfu offset: 0x80000000)
 
  - OTA (1500KB, @0x00289000)
  - Reserved (420KB, @0x00220000)
@@ -471,7 +467,7 @@ Unlike the Boron or Electron, the E404X module does not have an on-module RGB sy
 A detailed explanation of different color codes of the RGB system LED can be found [here](/troubleshooting/led/).
 
 
-## Technical Specifications
+## Technical specifications
 ### Absolute maximum ratings <sup>[1]</sup> <i class="icon-attention"></i>
 
 #### Supply voltages
@@ -570,7 +566,7 @@ The E404X has two radio modules.
 
 ---
 
-### I/O Characteristics 
+### I/O characteristics 
 
 These specifications are based on the nRF52840 datasheet.
 
@@ -605,13 +601,13 @@ These specifications are based on the nRF52840 datasheet.
 
 - GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/api/input-output/pinsetdrivestrength/) function.
 
-## Mechanical Specifications
+## Mechanical specifications
 
 <div align=center><img src="/assets/images/e-series/illustrations/e0-dims.png"></div>
 
 *This diagram indicates only the dimensions; the components on the module will be different.*
 
-### Dimensions and Weight
+### Dimensions and weight
  * Width = 36 mm
  * Height = 43 mm
  * Thickness = 4.6 mm
@@ -640,9 +636,9 @@ An E series part for EAGLE can be found in the [Particle EAGLE library](https://
 
 **To be provided at a later date**
 
-## Product Handling
+## Product handling
 
-### ESD Precautions
+### ESD precautions
 
 <i class="icon-attention"></i> The E series contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an E series without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates EØs.  ESD precautions should be implemented on the application board where the E series is mounted. Failure to observe these precautions can result in severe damage to the E series! <i class="icon-attention"></i>
 
@@ -680,7 +676,7 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 |uC  | Microcontroller |
 
 
-## FCC IC Warnings and End Product Labeling Requirements
+## FCC ISED warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -733,7 +729,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC: 20127-E404X
+> Contains transmitter module ISED: 20127-E404X
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -750,17 +746,19 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-05-06 | RK | Wire1 is not exposed on C4/C5 |
 |     | 2022-07-28 | RK | Update PWM assignments |
-|     | 2022-09-08 | RK | Update antenna, FCC, and IC |
+|     | 2022-09-08 | RK | Update antenna, FCC, and ISED |
 |     | 2022-09-16 | RK | Add minimum Device OS version, is 4.0.0 |
 |     | 2022-10-12 | RK | Removed power consumption section, was for B404 not E404X |
 |     | 2023-01-06 | RK | Update ADC information |
-|     | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
+|     | 2023-01-11 | RK | Updated certifications, added ISED, removed PTCRB |
 |     | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
 |     | 2023-01-31 | RK | Add Device OS versions |
 | 1   | 2023-02-07 | RK | GA (remove preliminary banner) |
 | 2   | 2023-02-17 | RK | Update certififed bands list |
+| 3   | 2023-05-17 | RK | Fix maximum voltage on LI pin (pin 5) |
+| 4   | 2024-01-03 | RK | Clarify use of PMID |
 
-## Known Errata
+## Known errata
 
 
 ## Contact
@@ -772,7 +770,3 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 **Community Forums**
 
 [https://community.particle.io](https://community.particle.io)
-
-**Email**
-
-[https://support.particle.io](https://support.particle.io)

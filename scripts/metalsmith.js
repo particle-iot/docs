@@ -52,14 +52,15 @@ var sitemap = require('./sitemap.js');
 var buildZip = require('./buildZip.js');
 var carriersUpdate = require('./carriers-update/carriers-update.js');
 var pinmapDiagram = require('./pinmap-diagram/pinmap-diagram.js');
-var trackerEdge = require('./tracker-edge.js');
 var trackerSchema = require('./tracker-schema.js');
 var deviceOsApi = require('./device-os-api.js');
 var libraries = require('./libraries.js');
 var deviceRestoreInfo = require('./device-restore-info.js');
 const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
+const pinInfoGenerator = require('./pininfo-generator.js').metalsmith;
 const systemVersion = require('./system-version.js');
 const sharedBlurb = require('./shared-blurb.js');
+const setupFirmware = require('./setup-firmware.js');
 const troubleshooting = require('./troubleshooting.js').metalsmith;
 
 var handlebars = require('handlebars');
@@ -122,15 +123,12 @@ exports.metalsmith = function () {
     })))
     .use(msIf(
       environment === 'development',
-      trackerEdge({
-        sourceDir: '../src',
-        trackerDir: 'assets/files/tracker',
-        jsonFile: 'trackerEdgeVersions.json'
+      systemVersion({
       })))
     .use(msIf(
       environment === 'development',
-      systemVersion({
-      })))
+      pinInfoGenerator(          
+      )))
     .use(msIf(
         environment === 'development',
         function(files, metalsmith, done) {
@@ -249,6 +247,13 @@ exports.metalsmith = function () {
     .use(sharedBlurb({
       contentDir: '../src/content',
       config: '../config/sharedBlurbs.json'
+    }))
+    .use(setupFirmware({
+      contentDir: '../src/content',
+      filesDir: '../src/assets/files',
+      sources: [
+        'troubleshooting/connectivity/cloud-debug.md',
+      ],
     }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link

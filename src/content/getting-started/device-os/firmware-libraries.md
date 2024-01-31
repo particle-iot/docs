@@ -13,13 +13,9 @@ Libraries are a central part of project development on the Particle platform lev
 
 Leveraging high quality libraries to build Internet-connected projects and applications can significantly reduce the risk, time, and cost associated with creating IoT product or device. Libraries also make it possible to easily maintain and reuse common code blocks, as well as incorporate and leverage existing third party libraries from the Particle ecosystem.
 
-In general, libraries in the Particle ecosystem have the following features:
+**Most Arduino libraries are compatible with Particle.** We've worked hard to ensure that our [firmware API](/reference/device-os/firmware/) contains all of the most commonly used Arduino functions and firmware commands so that many Arduino libraries can be submitted into the Particle library ecosystem without modification or minimal modification. All of the most popular Arduino libraries are already available through our libraries system, and many others can be easily modified for compatibility.
 
-1. **Most Arduino libraries are compatible with Particle.** We've worked hard to ensure that our [firmware API](/reference/device-os/firmware/) contains all of the most commonly used Arduino functions and firmware commands so that many Arduino libraries can be submitted into the Particle library ecosystem without modification. All of the most popular Arduino libraries are already available through our libraries system, and many others can be easily modified for compatibility.
-
-2. **Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling NeoPixel LEDs. You can learn more about libraries with dependencies in the [Library file structure](#library-file-structure) section below.
-
-3. **Particle libraries are reliable.** In addition to building and sharing our own high quality libraries, Particle verifies and promotes high quality community libraries that are fully documented, perform reliably, and include a variety of usage examples. Using our official and verified libraries means you'll spend less time debugging and more time building your project.
+**Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling NeoPixel LEDs. You can learn more about libraries with dependencies in the [Library file structure](#library-file-structure) section below.
 
 
 <a href="/reference/device-os/libraries/search/" class="button">Search and browse libraries</a>
@@ -27,24 +23,19 @@ In general, libraries in the Particle ecosystem have the following features:
 
 ## Kinds of libraries
 
-### Public Libraries
+### Public libraries
 
 The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are available for public consumption through our development tools and via our [Libraries API](/reference/cloud-apis/api/#libraries). The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
 
 Note that a library may have its own associated open source license that limits or restricts redistribution or commercialization of the library.
 
-### Official Libraries<img class="inline-header-image -small" src="/assets/images/particle-mark.png">
+### Official libraries<img class="inline-header-image -small" src="/assets/images/particle-mark.png">
 
-Official libraries are libraries that were created _by members of the Particle team_ and are designed to be used with Particle hardware. Examples of Official Particle libraries include:
-
-- `internetbutton` for the Internet Button, our kit for quickly prototyping simple IoT projects and experiences
-- `makerkit` for our Maker Kit, our kit for beginners to learn how to build IoT projects
-- `relayshield` for the Relay Shield, our shield for switching high and low voltage electronics.
-- `assettracker` for the Electron Asset Tracker Shield, our kit for tracking and locating valuable possessions
+Official libraries are libraries that were created _by members of the Particle team_ and are designed to be used with Particle hardware. 
 
 All Particle libraries meet the same quality standards as [Verified](#verified-libraries) libraries, and appear in the library list with the Particle logo next to them.
 
-### Verified Libraries<img class="inline-header-image -small" src="/assets/images/verified.png">
+### Verified libraries<img class="inline-header-image -small" src="/assets/images/verified.png">
 
 Verified libraries are community-contributed libraries that have been reviewed and confirmed by members of the Particle team to meet the following criteria:
 
@@ -54,10 +45,20 @@ Verified libraries are community-contributed libraries that have been reviewed a
 
 3. **The library has improved visibility.** Verified libraries float to the top of library searches, improving the visibility of the library within the Particle ecosystem.
 
-### Private Libraries<img class="inline-header-image -small" src="/assets/images/private.png">
+### Private libraries<img class="inline-header-image -small" src="/assets/images/private.png">
 
 Private libraries are libraries that have been uploaded to the Particle
 Device Cloud for reuse with many projects, but are _only_ visible to the individual who created and submitted the library. Private libraries can be published as public libraries at any time by the author of the library using the `particle library publish` command.
+
+### Workbench and CLI pseudo-libraries
+
+If you are using Particle Workbench or the Particle CLI, you may also want to store shared code across firmware or products using pseuo-libraries in a source code control system like Github.
+
+This allows private sharing of code between multiple users (unlike private libraries), along with robust change logging and version control.
+
+This technique is not available in the Web IDE, however we also do not recommend the Web IDE for product development.
+
+See [Workbench pseudo-libraries](#workbench-pseudo-libraries), below, for more information.
 
 ## Library file structure
 
@@ -65,15 +66,19 @@ Device Cloud for reuse with many projects, but are _only_ visible to the individ
 
 Every Particle library complies with the following file structure that will be automatically generated when a new library is initialized:
 
-- `examples`
-  - `usage`
-    - `usage.ino`
-- `src`
-  - `mylibrary.cpp`
-  - `mylibrary.h`
-- `library.properties`
-- `README.md`
-- `LICENSE.txt`
+```
+MyLibrary/
+  examples/
+    usage/
+      usage.ino
+  src/
+    MyLibrary.cpp
+    MyLibrary.h
+  library.properties
+  README.md
+  LICENSE
+```
+
 
 `examples` is the folder that contains the example applications that reference your library with one example per directory. If your library controls LEDs, for example, you should include an example called `examples/control/control.ino` that demonstrates how someone could use the library in a typical application.
 
@@ -83,11 +88,11 @@ Every Particle library complies with the following file structure that will be a
 
 `README.md` provides instructions for library creators on creation and usage.
 
-`LICENSE.txt` is the file that defines the license that the public library is distributed with. All libraries in Particle's library ecosystem must include an associated license.
+`LICENSE` or `LICENSE.txt` is the file that defines the license that the public library is distributed with. All libraries in Particle's library ecosystem must include an associated license.
 
 ### library.properties fields
 
-- **name** A short name for the library. The name must be unique, so there aren't 2 libraries with the same name. It will be the name of main `.cpp` and `.h` file.
+- **name** Name of the library. The name must be unique, so there aren't 2 libraries with the same name. It will be the name of the directory as well as the name of main `.cpp` and `.h` file. Note that library names must be unique across both public and private libraries. Thus you can get an error uploading a library whose name you cannot see in the community libraries because someone else has created a private library with that name already.
 
 - **version** A [Semantic Versioning](http://semver.org/) version number like 1.0.0
 
@@ -103,7 +108,7 @@ Every Particle library complies with the following file structure that will be a
 
 - **repository** The git repository like `http://github.com/user/project.git`, if available.
 
-- **architectures** A comma-separated list of supported hardware boards that are compatible with your library. If missing or set to `*`, the library will be available for all architectures. Available values for Particle libraries: `spark-core`, `particle-photon`, `particle-electron`, `particle-p1`, `digistump-oak`, `bluz`, `redbear-duo`.
+- **architectures** A comma-separated list of supported hardware boards that are compatible with your library. If missing or set to `*`, the library will be available for all architectures. 
 
 - **dependencies.<lib>** Other library that this library depends on, one line per library dependency. The value is the desired version number of the library dependency.
 
@@ -112,47 +117,112 @@ Every Particle library complies with the following file structure that will be a
 
 ## Project file structure
 
-There are 3 kinds of project structure:
-
-- legacy
-- simple
-- extended
-
-### Legacy Structure
-
-The legacy project structure stores files in the root of the project. There is no project definition file. This is
-the structure used by all projects prior to libraries v2.
-
-- `myapp`
-  - `application.ino`
-
-A legacy project does not support using libraries.
-
-### Simple Structure
-
-The simple project structure is similar to the legacy structure - the project sources are stored in the root. However,
-the project also includes a project definition file `project.properties`. Even saving a blank `project.properties` file
-is enough to make a simple project.
-
-- `myapp`
-  - `application.ino`
-  - `project.properties`
-
-A simple project has standard support for libraries; libraries can be added to the project via the CLI `library add` command.
-
-### Extended Structure
-
 The extended structure expands on the simple structure, placing all application sources in the `src` folder.
 
-- `myapp`
-  - `project.properties`
-  - `src`
-    - `application.ino`
+```
+myapp/
+  project.properties
+  src/
+    myapp.cpp
+```
 
 An extended project has full support for libraries, supporting both `library add` and copied libraries.
 
 An extended project can be created by using the CLI `particle project create` command.
 
+Your main application file can be a .cpp or a .ino file.
+
+### Projects with pseudo-libraries
+
+It's also possible to include library-like files in the `lib` directory. See [Workbench pseudo-libraries](#workbench-pseudo-libraries), below, for more information.
+
+```
+myapp/
+  project.properties
+  src/
+    myapp.cpp
+  lib/
+    library1/
+      src/
+        library1.cpp
+    SharedCode/
+      src/
+        SharedCode.cpp
+```
+
+### particle.include and particle.ignore
+
+The `particle.include` and `particle.ignore` files provide a way to include or exclude additional files from the cloud compiler. Please note that these files are only for special extras and the default files like the source and header files are handled separately and are not affected by the patterns specified in these two files. The include and ignore files can be located either in the project's root directory or in any of its subdirectories.
+
+When the particle.include file is placed in the root directory, files matching the specified patterns are searched recursively from the root directory. On the other hand, if the particle.include file is placed in a subdirectory, the search for matching files is performed recursively starting from that subdirectory as the base. The system automatically handles duplicates, so there is no need to worry about them.
+
+Similarly, the particle.ignore file follows the same behavior, but instead of including files, it excludes files that match the specified patterns from being sent to the cloud compiler.
+
+Example `particle.include` file that includes all `.def` files:
+
+```
+**/*.def
+```
+
+Example `particle.ignore` file to not upload the `test` and `docs` directories in a library.
+
+```
+test/**
+docs/**
+```
+
+### Asset OTA
+
+Particle Workbench and the Particle CLI will automatically generated bundled assets when the `project.properties` file contains an `assetOtaFolder` key and a value containing a valid directory.
+
+```
+assetOtaFolder=assets
+```
+
+For example:
+
+```
+myapp/
+  project.properties
+  src/
+    myapp.cpp
+  assets/
+    coprocessor.bin
+```
+
+
+### Older file structures
+
+These file structures are currently still supported, but may be deprecated in the future. We recommend using the structure above, with the `src` directory and a `project.properties` file, for all projects.
+
+{{collapse op="start" label="Show older file structures"}}
+**Legacy structure**
+
+The legacy project structure stores files in the root of the project. There is no project definition file. This is
+the structure used by all projects prior to libraries v2.
+
+```
+myapp/
+  application.ino
+```
+
+A legacy project does not support using libraries.
+
+**Simple structure**
+
+The simple project structure is similar to the legacy structure - the project sources are stored in the root. However,
+the project also includes a project definition file `project.properties`. Even saving a blank `project.properties` file
+is enough to make a simple project.
+
+```
+myapp/
+  myapp.ino
+  project.properties
+```
+
+A simple project has standard support for libraries; libraries can be added to the project via the CLI `library add` command.
+
+{{collapse op="end"}}
 
 ## Using libraries
 
@@ -194,19 +264,11 @@ Create at least one example `.ino` file inside a subfolder of `examples` to show
 
 If your library depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/reference/datasheets/accessories/legacy-accessories/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
 
-List the hardware platforms supported by your library supports to the [`architectures` field](#library-properties-fields) in `library.properties`. In the code you can compare the current platform constant with [the platform IDs](https://github.com/particle-iot/device-os/blob/develop/hal/shared/platforms.h).
-
-```
-#if PLATFORM_ID == 10 // Electron
-    #include "cellular_hal.h"
-#elif PLATFORM_ID == 6 // Photon
-    #include "softap_http.h"
-#else
-    #error "This library only works on the Electron and Photon"
-#endif
-```
+List the hardware platforms supported by your library supports to the [`architectures` field](#library-properties-fields) in `library.properties`, or use `*` for all current platforms.
 
 Review the `library.properties` and `README.md` and fill in as much information as possible.
+
+If you wish to develop libraries using Particle Workbench, see [Developing Particle Libraries with Workbench](/getting-started/developer-tools/workbench/#developing-particle-libraries).
 
 ### Testing the examples
 
@@ -231,7 +293,7 @@ When a version is ready for prime time, simply type `particle library publish <m
 After this, anybody with a Particle account will be able to use your library!
 Thank you!
 
-## Migrating Libraries
+## Migrating libraries
 
 On January 23, 2017, Particle introduced a new version of our firmware library manager, requiring that libraries be migrated from the old library structure (v1) to our new library structure (v2).
 
@@ -265,17 +327,112 @@ Follow these steps to migrate a v1 Particle library to the new v2 structure usin
   - See [https://github.com/particle-iot/PowerShield](https://github.com/particle-iot/PowerShield) for a good example.
 - Upload a private version of your library by running `particle library upload`
 - Try adding the library to a project using the [Web IDE](https://build.particle.io)
-- Publish the new public version of the library by running `particle library publish mylibrary` in the CLI
+- Publish the new public version of the library by running `particle library publish MyLibrary` in the CLI
 - Push to GitHub, and go celebrate!
 
 
-### Common issues with migration
+## Common issues with porting libraries
 
-- **Include statements**: After you have migrated a library, the process will automatically create a file, `mylibrary/mylibrary.h` that is included for compatibility with old projects. New projects and examples should use `#include "mylibrary.h"`
+- If you have a library `MyLibrary` be sure to have the file `src/MyLibrary.h`. This should exist, even if it only includes other header files. The Web IDE will automatically add `#include "MyLibrary.h"` to the project .ino file when adding the library.
 
-- **`library upload` scope**: When uploading a new version of a library, *all files in the library directory are uploaded.* Be careful in case you have files in there you don’t want to upload like test binaries and large PDFs.
+- When uploading a new version of a library, *all files in the library directory are uploaded.* Be careful in case you have files in there you don’t want to upload like test binaries and large PDFs.
 
-- **Versioning**: You can upload a private version multiple times with the same version number, but once you publish a version to the public you won’t be able to upload with the same version number. If you make a small mistake just increase the version number and upload again. Version numbers are free!
+- You can upload a private version multiple times with the same version number, but once you publish a version to the public you won’t be able to upload with the same version number. If you make a small mistake just increase the version number and upload again.
+
+- When porting a library, the library itself must have the source in the `src` directory. If it has files in the top level of the library project, they must be moved into a new `src` directory.
+
+- When porting a library, the `name` field in `library.properties` must match the directory name. This is not enforced on Arduino, so some libraries have a different name here.
+
+- You cannot set `#define` variables outside the project, such as using a `-D` in a Makefile. These external defines will need to be moved into header file instead.
+
+- You also cannot set an alternate search path in a library (equivalent to a `-I` in a Makefile). However, the `src` directory is added recursively, so any files within `src` will be found during compilation.
+
+- It is not possible to include a pre-compiled binary library (`.a` or `.so`) within a Particle library.
+
+- Beware of libraries that contain code for other non-Particle hardware platforms. This code can be picked up in the published library and, if large, can cause a timeout while attempting to compile the library, if not an error.
+
+- If you are porting code that you want to contribute back upstream, you can surround Particle-specific code with `#ifdef PARTICLE`.
+
+- If you need to modify a public library for private modifications or to fix a bug, see also [Workbench pseudo-libraries](#workbench-pseudo-libraries), below.
+
+- Beware of libraries with LGPL licensing. Due to the way the Particle libraries system works, statically linking the library to the application, the library exception in LGPL licensing does not apply! This means that LGPL (or GPL) licensed libraries cannot be used in closed-source commercial projects.
 
 If you're having additional issues with library migration or contribution, please feel free to post a message in the 
-[community forums](https://community.particle.io), or send us a message via our [support portal](https://support.particle.io).
+[community forums](https://community.particle.io).
+
+
+## Workbench pseudo-libraries
+
+### Using source control
+
+We highly recommend using a source code control system like Github to manage your projects. This assures that you can see all of the changes made over history, who made them, and also provide secure sharing of code. Github provides private repositories in the free plan; Github private repositories can also grant access to a specific list of Github users.
+
+You will generally commit your entire project, with the following notes:
+
+- `target/` should not be committed, as it contains built binaries and is very large. Include it in your `.gitignore` file.
+- `.vscode/` is normally committed as it contains project settings, but in some cases you may want to commit the base settings once and avoid updating it so your team members won't have any of their private settings overwritten in the future.
+
+This technique can also be used to share a complete project publicly, by making your Github repository public.
+
+### Working with public libraries
+
+When you add a library in Workbench using **Particle: Install Library** it does two things:
+
+- Adds to `project.properties` as a dependency.
+- Copies the library source into the `lib/` directory at the top of your project.
+
+The local copy in the `lib` directory is used when you compile locally. However, if you remove the dependency from `project.properties`, then the local copy will also be used for cloud compiles.
+
+We recommend that you:
+
+- Include the public library source in your project `lib` directory and store it in source control like Github.
+
+- Remove the dependency entry from `project.properties` so the behavior will be consistent between local and cloud compiles.
+
+### Modifying public libraries
+
+Sometimes you will need to make a small modification to a public library to make it suit your needs, or fix a minor compilation error caused in a new version of the compiler or Device OS. This is easy to do with pseudo-libraries.
+
+- Install the library using **Particle: Install Library**
+- Remove the dependency entry for the library from `project.properties`
+
+Now you are free to make modifications to the library in the `lib` directory and these changes will used for local, cloud, and CLI cloud compiles.
+
+### Using a 3rd-party library not in the community libraries
+
+Sometimes you will encounter a library that is available in Github, but not in the Particle libraries system. In this case, download or clone the repo into the `lib` directory of your project.
+
+Make sure all of the .cpp and .h files are in a `src` directory; they cannot be in the top level of the library directory within `lib` or in other directories.
+
+See also [Common porting issues](/#common-issues-with-porting-libraries), above.
+
+### Sharing code
+
+You may want to put shared code in a pseudo-library. This keeps it well-organized and separate from your main application. To do this, you create the structure of a library, but not an actual public or private library in the Particle community library system.
+
+```
+MyProject/
+  project.properties
+  src/
+    MyProject.cpp
+  lib/
+    SharedCode/
+      src/
+        Shared.cpp
+        Shared.h                        
+```
+
+In this structure, the pseudo-library `SharedCode` is in the `lib/` directory. The main requirement is that it contain a `src/` directory containing the .cpp and .h files. It can contain subdirectories in `src` if desired, and the subdirectories are added to the include search path automatically.
+
+You then have options:
+
+- Commit your whole project including `SharedCode` to source control. This does not automate the sharing process but still helps with organization.
+
+- Use the [Github submodule](https://github.blog/2016-02-01-working-with-submodules/) system for managing the shared code. If you think you will be modifying the shared code while working on a project then contributing the changes back up to the shared repository to eventually be incorporated into other projects, this is usually the best option. The biggest annoyance with submodules is that after cloning you must do a manual `git submodule update --init --recursive` to obtain the submodules, and this is not possible when downloading the zip file from the web-based Github.
+
+- Using [Github subrepo](https://github.com/ingydotnet/git-subrepo) feature is the best if you have a set of common code that is only ever consumed by your project, or you are sharing your project publicly as it produces a complete project when downloading the project zip file from the web-based Github.
+
+For more examples, see:
+
+- [Tracker Edge](https://github.com/particle-iot/tracker-edge) uses a mix of source included from the project (like Thermistor) and Github submodules.
+- [Monitor Edge](https://github.com/particle-iot/monitor-edge) uses the Github subrepo.

@@ -15,19 +15,24 @@ These devices will remain available for now, but will be deprecated when the MCU
 | Family | SKU |
 | :--- | | :--- |
 | Electron | ELC314 |
-| Electron | ELC404X |
 | E Series | E314 |
-| E Series | E404X |
+
+However the ELC314 and E314 should not be used in the United States, Canada, or Mexico due to the impending 2G/3G shutdown.
 
 ## Gen 2 deprecated products
 
-These SKUs are no longer available, however there is a pin-compatible replacement that is still available:
+These SKUs are no longer available, however there is a pin-compatible replacement that is still available for a limited time:
 
 | Family | SKU | Replacement |
 | :--- | | :--- | :--- |
-| Electron | E350, E260 (US, CA, MX) | ELC404X |
-| Electron | E350, E260, E270 (elsewhere) | ELC314 |
-| Electron | ELC402, ELC404 | ELC404X |
+| Electron | E350, E260, E270 (used in locations other than US, CA, MX) | ELC314 |
 | E Series | E402, E404 | E404X |
-| E Series | E310, E313 | E314 |
+| E Series | E310, E313 (used in locations other than US, CA, MX) | E314 |
+
+There is no pin-compatible replacement for these models:
+
+| Family | SKU |
+| :--- | | :--- |
+| Electron | E350, E260 (when used in US, CA, MX) |
+| Electron | ELC402, ELC404 |
 

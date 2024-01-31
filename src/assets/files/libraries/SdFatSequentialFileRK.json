@@ -1,0 +1,145 @@
+{
+  "type": "libraries",
+  "id": "SdFatSequentialFileRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SdFatSequentialFileRK/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "SdFatSequentialFileRK",
+    "version": "0.0.2",
+    "installs": 238,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Class for making sequentially numbered files on SdFat SD cards on Particle",
+    "url": "https://github.com/rickkas7/SdFatSequentialFileRK",
+    "repository": "https://github.com/rickkas7/SdFatSequentialFileRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/reference/device-os/libraries/s/SdFatSequentialFileRK",
+  "versions": {
+    "0.0.2": {
+      "added": "2023-03-21T19:48:40.797Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          },
+          "bsom": {
+            "1-tester": true
+          },
+          "b5som": {
+            "1-tester": true
+          },
+          "tracker": {
+            "1-tester": true
+          },
+          "p2": {
+            "1-tester": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          },
+          "bsom": {
+            "1-tester": true
+          },
+          "b5som": {
+            "1-tester": true
+          },
+          "tracker": {
+            "1-tester": true
+          },
+          "esomx": {
+            "1-tester": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-tester": true
+          },
+          "electron": {
+            "1-tester": true
+          },
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-tester": true
+          },
+          "electron": {
+            "1-tester": true
+          },
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          },
+          "bsom": {
+            "1-tester": true
+          },
+          "b5som": {
+            "1-tester": true
+          },
+          "tracker": {
+            "1-tester": true
+          },
+          "p2": {
+            "1-tester": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-tester": true
+          },
+          "boron": {
+            "1-tester": true
+          },
+          "bsom": {
+            "1-tester": true
+          },
+          "b5som": {
+            "1-tester": true
+          },
+          "tracker": {
+            "1-tester": true
+          },
+          "esomx": {
+            "1-tester": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# SdFatSequentialFileRK\n\n*Library to make it easier to use sequentially number files (like log files) on SD cards on Particle Devices*\n\n\n## Example\n\n```\n#include \"SdFatSequentialFileRK.h\"\n\nSerialLogHandler logHander;\n\n\nconst int SD_CHIP_SELECT = A5;\nSdFat sd;\nPrintFile file;\n\nSdFatSequentialFile sequentialFile(sd, SD_CHIP_SELECT, SPI_FULL_SPEED);\n\nbool generateFile = false;\n\n// Forward declarations\nvoid buttonHandler(system_event_t event, int data);\n\n\nvoid setup() {\n\t// Register handler to handle clicking on the SETUP button\n\tSystem.on(button_click, buttonHandler);\n\n}\n\nvoid loop() {\n\n\tif (generateFile) {\n\t\tgenerateFile = false;\n\n\t\tLog.info(\"generating sequential file!\");\n\n\t\tif (sequentialFile.openFile(&file, true)) {\n\t\t\tchar name[14];\n\t\t\tfile.getName(name, sizeof(name));\n\n\t\t\tLog.info(\"file opened successfully %s\", name);\n\n\t\t\tfile.println(\"testing!\");\n\n\t\t\tfile.close();\n\t\t}\n\t\telse {\n\t\t\tLog.info(\"file open failed\");\n\t\t}\n\n\t}\n}\n\n// button handler for the SETUP/MODE button. Generates a new file each time it's pressed\nvoid buttonHandler(system_event_t event, int data) {\n\tgenerateFile = true;\n}\n```\n\nYou need to specify the chip select pin for the SD card reader. You also need to create a `SdFat` object. You'll also probably want to create `PrintFile` or `FatFile` object. These are pretty typical for applications that use the SdFat library.\n\n```\nconst int SD_CHIP_SELECT = A5;\nSdFat sd;\nPrintFile file;\n\nSdFatSequentialFile sequentialFile(sd, SD_CHIP_SELECT, SPI_FULL_SPEED);\n```\n\nTo use a file:\n\n```\n\t\tif (sequentialFile.openFile(&file, true)) {\n\t\t\tchar name[14];\n\t\t\tfile.getName(name, sizeof(name));\n\n\t\t\tLog.info(\"file opened successfully %s\", name);\n\n\t\t\tfile.println(\"testing!\");\n\n\t\t\tfile.close();\n\t\t}\n\t\telse {\n\t\t\tLog.info(\"file open failed\");\n\t\t}\n```\n\nThe `true` parameter to openFile means create a new sequentially numbered file. Pass `false` to continue using the largest numbered file.\n\nUsing `PrintFile` object allows you to use standard Wiring Print functions like you would to Serial, TCPClient, etc.. Printing numbers as well as functions like `println` and `printlnf` are supported.\n\nDon't forget to close the file when done!\n\n\n## Version History\n\n#### 0.0.1 (2019-12-13)\n\n- Initial version\n\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}

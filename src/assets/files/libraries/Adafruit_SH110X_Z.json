@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SH110X_Z",
     "version": "2.1.3",
-    "installs": 775,
+    "installs": 2641,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "SH110X oled driver library for monochrome displays with SH1107 or SH1106G drivers",
@@ -25,7 +25,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_SH110X_Z",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_SH110X_Z",
   "versions": {
     "2.1.3": {
       "added": "2022-10-31T20:55:51.991Z",
@@ -114,6 +114,58 @@
             "SH1107_128x128": false
           },
           "boron": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "boron": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "bsom": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "b5som": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "tracker": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "p2": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "boron": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "bsom": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "b5som": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "tracker": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "esomx": {
             "OLED_featherwing": false,
             "SH1107_128x128": false
           }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sd-card-library",
     "version": "0.0.1",
-    "installs": 3318,
+    "installs": 3668,
     "license": "GPL v3",
     "author": "Daniel Sullivan <mumblepins@gmail.com>",
     "sentence": "SD Card Library (forked from https://github.com/technobly/SparkCore-SD)",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/sd-card-library",
+  "cardUrl": "/reference/device-os/libraries/s/sd-card-library",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -176,12 +176,88 @@
             "Spark-ReadWrite": false,
             "Spark-SpeedTest": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "boron": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "bsom": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "b5som": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "tracker": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "p2": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "boron": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "bsom": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "b5som": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "tracker": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "esomx": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.845Z"
     }
   },
-  "readme": "SparkCore-SD\n============\nWeb IDE library V0.0.1\nForked from https://github.com/technobly/SparkCore-SD by Daniel Sullivan (mumblepins)\n\nAn Implementation of the Arduino/Sparkfun SD Card Library for the Spark Core\n\nThis might be tricky to build online due to the number of files required.  I have not tried to set it up online.  Using the Spark-CLI tool might be a better way to build it online.\n\n![example](http://i.imgur.com/A3Au1B1.jpg)\n\n![example](http://i.imgur.com/aiMlHky.png)\n\n![pinout](http://i.imgur.com/JgpmcWO.png)\n\nIf you are building locally, place the files here:\n\n```cpp\n// put the entire 'libraries' folder and everything in it here\n\n..\\core-firmware\\libraries \n\n// rename one of the example apps located at ..\\libraries\\sd\\examples\\\n// to application.cpp and place it here\n\n..\\core-firmware\\src\\application.cpp\n```\nThanks to [@choosatron](http://www.choosatron.com) for your work on this!\n",
+  "readme": "SparkCore-SD\n============\nWeb IDE library V0.0.1\nForked from https://github.com/technobly/SparkCore-SD by Daniel Sullivan (mumblepins)\n\nAn Implementation of the Arduino/Sparkfun SD Card Library for the Spark Core\n\nThis might be tricky to build online due to the number of files required.  I have not tried to set it up online.  Using the Spark-CLI tool might be a better way to build it online.\n\nexample (image removed)\n\nexample (image removed)\n\npinout (image removed)\n\nIf you are building locally, place the files here:\n\n```cpp\n// put the entire 'libraries' folder and everything in it here\n\n..\\core-firmware\\libraries \n\n// rename one of the example apps located at ..\\libraries\\sd\\examples\\\n// to application.cpp and place it here\n\n..\\core-firmware\\src\\application.cpp\n```\nThanks to [@choosatron](http://www.choosatron.com) for your work on this!\n",
   "allVersions": [
     "0.0.1"
   ]

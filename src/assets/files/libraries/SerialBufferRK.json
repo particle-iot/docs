@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SerialBufferRK",
     "version": "0.0.3",
-    "installs": 40159,
+    "installs": 46075,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "SerialBuffer for Particle platform",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "s",
-  "cardUrl": "/cards/libraries/s/SerialBufferRK",
+  "cardUrl": "/reference/device-os/libraries/s/SerialBufferRK",
   "versions": {
     "0.0.2": {
       "builds": {
@@ -200,6 +200,70 @@
             "3-test-sender-SerialBufferRK": true
           },
           "boron": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "boron": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "bsom": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "b5som": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "tracker": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "p2": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "boron": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "bsom": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "b5som": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "tracker": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "esomx": {
             "1-simple-SerialBufferRK": true,
             "2-test-receiver-SerialBufferRK": true,
             "3-test-sender-SerialBufferRK": true

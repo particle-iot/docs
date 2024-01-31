@@ -38,9 +38,14 @@ Other features:
 - Fits in an off-the-shelf IP67 weather-resistant enclosure
 - Simple two-layer board is inexpensive to fabricate and can be developed in the free version of Eagle CAD
 
+{{note op="start" type="note"}}
+First board and basic design examples are intended to be easily hand-assembled on inexpensive 
+2-layer circuit boards using easily available parts. They are not intended to be reference examples of best 
+practices for electronic design.
+{{note op="end"}}
 
 
-## Board Diagram
+## Board diagram
 
 ![Labeled](/assets/images/app-notes/AN025/fb-labeled.png)
 

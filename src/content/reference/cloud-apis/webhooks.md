@@ -7,7 +7,7 @@ description: Control external web services from your Particle IoT device using t
 
 # {{title}}
 
-Webhooks lets you connect Particle events to other services on the Internet.  If you're new to webhooks, you should start at [the guide for webhooks](/getting-started/integrations/webhooks/) before continuing on here.
+Webhooks lets you connect Particle events to other services on the Internet.  If you're new to webhooks, you should start at [the guide for webhooks](/integrations/webhooks/) before continuing on here.
 
 You can create and administer webhooks with the [Console](https://console.particle.io) and the [Command Line Interface (CLI)](https://particle.io/cli).
 
@@ -18,6 +18,7 @@ EXAMPLE WEBHOOK
 {
   "eventName": "Metric",
   "url": "http://example.com",
+  "name": "Record my metric",
   "headers": {
     "X-Timestamp": "\{{PARTICLE_PUBLISHED_AT}}"
   },
@@ -35,9 +36,15 @@ EXAMPLE WEBHOOK
 
 The 3 main parts of the webhook are: which events from which devices trigger it, which service it targets and what data format to use.
 
-An event will trigger a webhook if:
-- The event name starts with the webhook `eventName`.
-- The device that published the event matches the webhook `deviceID` or all devices you own if `deviceID` is omitted.
+An event will trigger a webhook if the event name starts with the webhook `eventName`.
+
+Additionally, for non-product (developer sandbox) webhooks: 
+
+- If the webhook has a Device ID specified, only that single Device ID can trigger the webhook.
+- If the webhook has Any specified, then any device claimed to the account that owns the webhook can trigger the webhook by sending the event.
+
+For product devices, any product device can trigger the webhook. There are no Device ID filters for product webhooks.
+
 ## Webhook properties
 
 Webhook are created by specifying several properties in a configuration file in [JSON format](http://www.w3schools.com/js/js_json_intro.asp).
@@ -77,6 +84,16 @@ _Required_
 
 The web address that will be targeted when the webhook is triggered.
 
+### name
+
+```
+EXAMPLE
+"name": "Trigger alert"
+```
+
+A human-readable description of the webhook. If you don't provide a name, the default name will be something like "event for domain.com".
+
+
 ### requestType
 
 The HTTP method for the request, one of GET, POST, PUT, or DELETE.
@@ -98,7 +115,9 @@ EXAMPLE
 
 If specified trigger on events from this device only. When omitted, triggers on events by all your devices.
 
-Triggering by device name is not supported.
+Triggering by device name is not supported. You cannot specify multiple devices.
+
+This option can only be used for developer sandbox webhooks. You cannot use a device ID filter in a product webhook.
 
 ### headers
 
@@ -310,7 +329,7 @@ Customize the webhook response event name that your devices can subscribe to.
 
 This is most commonly use to have the response contains to the device ID so the device that triggered an event will be the only one to get the response.
 
-[See the product webhook guide](/getting-started/integrations/webhooks/#product-webhook-responses) for more details.
+[See the product webhook guide](/integrations/webhooks/#product-webhook-responses) for more details.
 
 ### errorResponseTopic
 
@@ -395,6 +414,7 @@ These variables are predefined for any webhook (use triple braces to avoid HTML 
 - `\{{{PARTICLE_EVENT_NAME}}}`: The name of the event that triggers the webhook
 - `\{{{PARTICLE_EVENT_VALUE}}}`: The data associated with the event
 - `\{{{PARTICLE_PUBLISHED_AT}}}`: When the event was published
+- `\{{{PRODUCT_ID}}}`: The Product ID of the device that triggered the webhook
 
 Product webhooks also have access to:
 
@@ -497,10 +517,18 @@ Explanation:
 - The third line (`hook-response`) contains the response received from your webhook URL. Large responses will generate multiple response events. Your device can subscribe to these events with `Particle.subscribe()` to receive the data.
 
 The event name will use the triggering event, not the webhook hook name filter.
-
+p
 If your hook captures everything starting with `my-hooks`, but you published `my-hooks/get_weather`, then your response event name would be `hook-response/my-hooks/get_weather`.  Each packet event name includes the index of the packet in the response.
 
 The hook sent and response events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/cloud-apis/api/#get-a-stream-of-events) to see these events.
+
+### Webhook events and the product event stream
+
+Prior to March 2023, webhook events like hook-sent, hook-error, and hook-response only went to the device owner's event stream. If the device was unclaimed, the events disappeared.
+
+Now, these events also appear in the product event stream, in the console, SSE event stream, and webhooks. 
+
+Additionally, unclaimed product devices can now subscribe to these events to get webhook responses.
 
 ### Multipart responses
 
@@ -537,7 +565,7 @@ throttling](#limits).
 
 The hook error events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/cloud-apis/api/#get-a-stream-of-events) to see these events.
 
-### Ordering and Duplicates
+### Ordering and duplicates
 
 Events, and therefore webhooks, do not have guaranteed end-to-end delivery. If you need to guarantee delivery of events, you should send a separate acknowledgement to the device from your server.
 
@@ -545,7 +573,7 @@ Events are not guaranteed to be delivered in the order they were sent. They typi
 
 Likewise, events are delivered at least once. In the case of a lost acknowledgement, the device may retransmit the event, which would cause your webhook to execute twice for the same event. You should make sure your server code is aware of this possibility. 
 
-## Using the Console
+## Using the console
 
 The [Webhook Builder](https://console.particle.io/integrations/webhooks/create) is a handy web-based form for creating webhooks.
 
@@ -577,7 +605,7 @@ For each logged webhook, you'll be able to see the source event that triggered t
 webhook, the HTTP request sent to the webhook URL, and the full HTTP
 response from the webhook server.
 
-![Webhook Logs](/assets/images/webhooks/webhook-logs.png)
+![Webhook Logs](/assets/images/integrations-event-log.png)
 
 ## Using the CLI
 
@@ -656,7 +684,7 @@ POST /v1/webhooks
 
 See the [API reference](/reference/cloud-apis/api/#webhooks) for details on the webhook endpoints.
 
-## Data Operations
+## Data operations
 
 When a device sends an event that triggers a webhook or other integration, that will consume one Data Operation.
 
@@ -700,7 +728,7 @@ Servers must return a response within the timeout period of 20 seconds. A server
 
 ## Examples
 
-### Sending Simple Data
+### Sending simple data
 
 Create a webhook that posts JSON data using the name and data from the event.
 
@@ -731,7 +759,7 @@ content-length: 31
 {"Temperature/Kitchen":"20.00"}
 ```
 
-### Sending Complex Data
+### Sending complex data
 
 Create a webhook that posts JSON data using several fields from the event.
 
@@ -804,7 +832,7 @@ content-length: 59
 
 ```
 
-### Receiving Complex Data
+### Receiving complex data
 
 Use template variables in both the request and response to interact with the [Google Maps Elevation API](https://developers.google.com/maps/documentation/elevation/start).
 
@@ -869,22 +897,22 @@ The Google API wants a parameter "location" with a value of two decimal numbers 
 In the response we want to return just the "elevation" parameter. The returned JSON object contains a key "results" that is an array. In the array is an object with the "elevation". Rather than dealing with parsing the whole result on the Photon we return just the elevation using the template `\{{results.0.elevation}}`.
 
 
-## Community Webhook Examples
+## Community webhook examples
 
 Below are a few community-written webhook examples. They have been sorted by what they do. These examples were not written by Particle but instead members of our community. Got your own webhook example? Post on the [community forums](https://community.particle.io/) and then issue a pull request to our [docs repo](https://github.com/particle-iot/docs/compare).
 
-### Sending SMS (Text Messages)
+### Sending SMS (text messages)
 
 - [Twilio - Sending a text message using Twilio](https://community.particle.io/t/webhooks-sending-a-text-message/10560) by [hoxworth](https://community.particle.io/users/hoxworth/activity)
 - [Tropo - Sending a text message (or voice call) using Tropo](https://community.particle.io/t/webhook-tutorial-send-a-sms/11431) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)
 
-### Push Notifications
+### Push notifications
 
 - [Pushbullet - Sending a push notification using Pushbullet](https://www.hackster.io/gusgonnet/add-push-notifications-to-your-hardware-41fa5e) by [gusgonnet](https://community.particle.io/users/gusgonnet/activity)
 
 - [Pushover - Sending push notifications to the devices of your choosing](https://community.particle.io/t/webhooks-tutorial-push-notifications-with-pushover/52070) by [jaredwolff](https://community.particle.io/users/jaredwolff/activity)
 
-### Sending Emails
+### Sending emails
 
 - [mailgun - Sending emails with mailgun](https://github.com/harrisonhjones/webhook-examples/tree/master/mailgun.org) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)
 

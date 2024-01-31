@@ -6,11 +6,11 @@ description: Adding features to the Tracker Evaluation Board
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 
-# Tracker Eval Board Tutorials
+# Tracker eval board tutorials
 
 This section has information on prototyping with the Tracker Evaluation board experiment and add new features, with an eye toward being able to easily migrate to the Tracker One, Tracker Carrier Board, or Tracker SoM for production.
 
-## DHT11 Temperature and Humidity Example
+## DHT11 temperature and humidity example
 
 The Tracker SoM Evaluation Board comes with a Grove DHT11 temperature and humidity sensor and a short 4-pin cable.
 
@@ -20,7 +20,7 @@ The Tracker SoM Evaluation Board comes with a Grove DHT11 temperature and humidi
 
 Connect the sensor to the 4-pin ribbon cable and the other end to the evaluation board. Either port can be used but this example assumes J10, the outer connector, pin A0 and A1.
 
-### Getting the Tracker Edge Firmware
+### Getting the Tracker Edge firmware
 
 You can download a complete project for use with Particle Workbench as a zip file here:
 
@@ -68,11 +68,11 @@ The first library is the interface for the temperature sensor.
 
 Because the sensor has a tendency to return incorrect values but does not include a checksum or CRC to determine that this has happened, the second library filters the results by collecting the last 10 samples, selecting only the samples within 1 standard deviation of the mean, and taking the mean of these samples without the outliers.
 
-### The Full Source
+### The full source
 
 {{> codebox content="/assets/files/tracker/Temperature.cpp" format="cpp" height="500"}}
 
-### The Details
+### The details
 
 ```cpp
 #include "Grove_Temperature_And_Humidity_Sensor.h"
@@ -193,7 +193,7 @@ If you open the map view and then the device, the new fields will appear in the 
 
 ---
 
-## I2C Sensor Example
+## I2C sensor example
 
 One of the best ways to expand the Tracker One is using I2C, since that interface makes it possible to add multiple external peripherals off the single M8 connector. You can use the same techniques on the Tracker SoM Evaluation Board and Tracker SoM.
 
@@ -326,11 +326,11 @@ void myLocationGenerationCallback(JSONWriter &writer,
 }
 ```
 
-### M8 Evaluation Board Adapter
+### M8 evaluation board adapter
 
 If you are interested in prototyping designs intended to connect to the Tracker One M8 connector, but want to do it using the Tracker SoM Evaluation Board, you may be interested in [this project](https://github.com/rickkas7/M8-Eval-Adapter). It's only a set of design files, BoM, etc. and you'd need to fabricate the board and build it yourself; it's not available as a finished product. It also explains a bit more about how the M8 connector can be used.
 
-### Design Files
+### Design files
 
 The Tracker SoM Evaluation board is open-source and the Eagle CAD design files are available in the 
 [Tracker Hardware GitHub repository](https://github.com/particle-iot/tracker-hardware).

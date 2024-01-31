@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PS2Communication",
     "version": "0.0.8",
-    "installs": 805,
+    "installs": 1049,
     "license": "GNU Lesser General Public License",
     "author": "ScruffR",
     "sentence": "Basic PS/2 communication framework (Core/Photon/P1)",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "p",
-  "cardUrl": "/cards/libraries/p/PS2Communication",
+  "cardUrl": "/reference/device-os/libraries/p/PS2Communication",
   "versions": {
     "0.0.8": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "PS2Mouse": false
+          },
+          "boron": {
+            "PS2Mouse": false
+          },
+          "bsom": {
+            "PS2Mouse": false
+          },
+          "b5som": {
+            "PS2Mouse": false
+          },
+          "tracker": {
+            "PS2Mouse": false
+          },
+          "esomx": {
+            "PS2Mouse": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "PS2Mouse": false
+          },
+          "boron": {
+            "PS2Mouse": false
+          },
+          "bsom": {
+            "PS2Mouse": false
+          },
+          "b5som": {
+            "PS2Mouse": false
+          },
+          "tracker": {
+            "PS2Mouse": false
+          },
+          "p2": {
+            "PS2Mouse": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "PS2Mouse": false
           },

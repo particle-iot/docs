@@ -3,6 +3,13 @@
 # global dictionary is at the start, file overrides afterwards
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
+Particle
+Argon
+Boron
+Xenon
+Photon
+Tracker
+USB
 0.01MB
 0.13mA
 0-5
@@ -3204,6 +3211,7 @@ RemoteDistanceSensor
 Remote4DigitDisplay
 workshoppers
 chainable
+Xenon
 Xenons
 MeshPubSubTest.ino
 ChainableLED
@@ -4117,7 +4125,7 @@ stateHandler
 MainStateMachine.cpp
 MainStateHander.cpp
 sprintf-style
- - src/content/getting-started/integrations/community-integrations/publish-to-google-sheets.md
+ - src/content/integrations/community-integrations/publish-to-google-sheets.md
 Codelab
 Code.gs
 24-character
@@ -5451,7 +5459,7 @@ Ubiquiti
 docs.particle.io
 5K
 2.0.x
- - src/content/getting-started/integrations/webhooks.md
+ - src/content/integrations/webhooks.md
 multipart
  - src/content/getting-started/cloud/cloud-communication.md
 testEvent
@@ -5553,9 +5561,9 @@ Ag1
 0603-sized
 T962
 PTH
- - src/content/getting-started/integrations/community-integrations/influxdata.md
+ - src/content/integrations/community-integrations/influxdata.md
 InfluxDB-IOT
- - src/content/getting-started/integrations/community-integrations/questdb.md
+ - src/content/integrations/community-integrations/questdb.md
 QuestDB
 dust-lpo
 _un_
@@ -5668,7 +5676,7 @@ IIC
 AB1850
 MCP79410
 NTP
- - src/content/getting-started/integrations/community-integrations/weather.md
+ - src/content/integrations/community-integrations/weather.md
 OpenWeather
 appid
 temp.day
@@ -5946,10 +5954,10 @@ E314X
  - src/content/reference/datasheets/wi-fi/p2-eval-board.md
 40-pin
 20x2
- - src/content/getting-started/integrations/community-integrations/ifttt.md
+ - src/content/integrations/community-integrations/ifttt.md
 TestEvent
 bCYXXXXXXXX_YfdXXXXXeV
- - src/content/getting-started/integrations/community-integrations/zapier.md
+ - src/content/integrations/community-integrations/zapier.md
 Zapier
  - src/content/tools/developer-tools/usb-serial.md
 WebSerial

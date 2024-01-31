@@ -156,7 +156,7 @@ var codeGenerator = {};
             code += 'os_thread_return_t ' + cg.options.name + '::threadFunction(void) {\n';
             code += cg.indent(1) + 'while(true) {\n';
             code += cg.wrapComment(2, false, 'Put your code to run in the worker thread here');
-            code += cg.indent(2) + 'os_thread_yield();\n';
+            code += cg.indent(2) + 'delay(1);\n';
             code += cg.indent(1) + '}\n';
             code += '}\n';
 

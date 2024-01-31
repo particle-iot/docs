@@ -1,0 +1,208 @@
+{
+  "type": "libraries",
+  "id": "BackoffHelperRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/BackoffHelperRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "BackoffHelperRK",
+    "version": "0.0.1",
+    "installs": 55,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Library to implement connection retry back-off using retained memory",
+    "url": "https://github.com/rickkas7/BackoffHelperRK",
+    "repository": "https://github.com/rickkas7/BackoffHelperRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/reference/device-os/libraries/b/BackoffHelperRK",
+  "versions": {
+    "0.0.1": {
+      "added": "2023-03-21T23:18:26.686Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "boron": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "bsom": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "b5som": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "tracker": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "p2": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "boron": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "bsom": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "b5som": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "tracker": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "esomx": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "electron": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "argon": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "boron": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "electron": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "argon": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          },
+          "boron": {
+            "1-usage": false,
+            "2-self-test": false,
+            "3-no-sleep": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": false
+          },
+          "boron": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "bsom": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "b5som": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "tracker": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "p2": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": false
+          },
+          "boron": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "bsom": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "b5som": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "tracker": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          },
+          "esomx": {
+            "1-usage": false,
+            "2-self-test": true,
+            "3-no-sleep": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# BackoffHelper library\n\nWhen a connection failure occurs you should use a back-off algorithm to avoid excessive\nreconnection to the cellular network. Aggressive reconnection behavior can result in your\nSIM being blocked by your mobile provider.\n\nThe recommended times are: 5, 10, 15, 20, 30, then 60 minutes.\n\nIn battery powered situations you'd typically go into `SLEEP_MODE_DEEP` for the waiting\nperiod. \n\nIf you have a constantly running application, you'd typically use `SYSTEM_MODE(SEMI_AUTOMATIC)`\nand use `Cellular.on()` and `Cellular.off()` to stop connecting during the back-off period.\n\nThis library keeps track of the number of tries in an 8-byte retained memory block so it\nis maintained when using `SLEEP_MODE_DEEP` to easily implement the suggested back-off.\n\nThis library is intended for use in fixed locations. If you have an application that is used in \na moving vehicle you may need to use a different algorithm that takes into account the exact \ntype of failure. For example, if there is no tower visible at all, you don't need to back off.\n\nAlso, while the pre-programmed settings are designed for cellular back-off, you can supply a \ncustom table for use with any back-off algorithm.\n\n## Usage\n\nAdd the BackoffHelper library and include the header file in your main source file:\n\n```\n#include \"BackoffHelperRK.h\"\n```\n\nIf you successfully connect to the cloud, call `BackoffHelper.success()` to reset\nthe failure tries counter. The `BackoffHelper` object is declared as a global object \nin BackoffHelperRK.h so you not need declare it. \n\nIf you fail to connect to the cloud, after a period of time (4-6 minutes recommended) \ncall `BackoffHelper.getFailureSleepTimeSecs()` to find out how long you should\nsleep (in seconds).\n\n```\nif (Particle.connected()) {\n    Log.info(\"connected to the cloud in %lu ms\", millis() - stateTime);\n\n    // Successfully connected, reset default sleep value and clear the \n    // cellular backoff timer\n    sleepSecs = SLEEP_SECS;\n    BackoffHelper.success();\n\n    state = STATE_PUBLISH; \n    stateTime = millis(); \n}\nelse\nif (millis() - stateTime >= CONNECT_MAX_MS) {\n    // Took too long to connect, go to sleep using a back-off \n    // of 5, 10, 15, 20, 30, then 60 minutes.\n    sleepSecs = BackoffHelper.getFailureSleepTimeSecs();\n\n    Log.info(\"failed to connect, going to sleep for %d seconds\", sleepSecs);\n    state = STATE_SLEEP;\n}\n```\n\nA full example app is in the 1-usage example.\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

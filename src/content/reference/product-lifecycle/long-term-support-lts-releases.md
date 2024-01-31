@@ -9,7 +9,7 @@ Particle is constantly improving Device OS with new releases that add new featur
 
 Many enterprises building and deploying mission-critical solutions with Particle value reliability over everything else. For those customers, Particle develops and releases Long Term Support (LTS) releases of Device OS that deliver consistent behavior and stable performance for device applications over extended periods of time.
 
-## What are Long Term Support (LTS) releases?
+## What are long term support (LTS) releases?
 
 Long Term Support (LTS) releases for Device OS are independent branches of Device OS that are feature-frozen in time. They do not receive updates with new features, API changes, or improvements that change the function or standard behavior of the device. 
 
@@ -65,7 +65,6 @@ Developer preview releases have an odd major version (3.x, 5.x, ...). These were
 | Boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | |
 | Argon | | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | |
 | E404X | E404X | | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
-| Tracker | T404X, T524X, ONE404X, ONE524X || {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
 | Tracker | T404, T524, T523 ONE404, ONE402, ONE524, ONE523 | {{version mode="latestRelease" line="3"}} | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  |
 
 - <sup>1</sup>B404 SoMs should only use Device OS 2.3.0 or later. While older units worked with older versions, newer units from the factory will only with with 2.3.0 and later due to a required component change. It's recommended that all B404 units use this version for compatibility.
@@ -142,7 +141,7 @@ While 4.x and 5.x started from the same place, the 5.0.0-alpha.1 release adds in
 
 Developer preview releases (3.x, for example) do not have an ESM phase, now that 5.0.0 was been released, there will not be additional updates after 3.3.0.
 
-## Switching Between Release Lines
+## Switching between release lines
 
 Particle guarantees smooth upgrades to new LTS releases from prior ones, but **does not provide a comparable guarantee for Device OS downgrades, even within an LTS release branch.** 
 

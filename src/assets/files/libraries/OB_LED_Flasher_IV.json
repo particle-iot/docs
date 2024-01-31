@@ -7,7 +7,7 @@
   "attributes": {
     "name": "OB_LED_Flasher_IV",
     "version": "6.3.25",
-    "installs": 348,
+    "installs": 428,
     "license": "MIT",
     "author": "BobDawgs",
     "sentence": "Onboard LED Flasher utility for Particle boards Core,Photon, and Electron with variable repeat count, Flash On and Off time control, and brightness",
@@ -17,7 +17,7 @@
   },
   "kind": "community library",
   "letter": "o",
-  "cardUrl": "/cards/libraries/o/OB_LED_Flasher_IV",
+  "cardUrl": "/reference/device-os/libraries/o/OB_LED_Flasher_IV",
   "versions": {
     "6.3.25": {
       "builds": {},

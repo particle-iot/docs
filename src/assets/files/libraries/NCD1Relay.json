@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD1Relay",
     "version": "0.0.2",
-    "installs": 7476,
+    "installs": 7852,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 1 channel Particle compatible Relay Controller",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/NCD1Relay",
+  "cardUrl": "/reference/device-os/libraries/n/NCD1Relay",
   "versions": {
     "0.0.2": {
       "builds": {
@@ -122,6 +122,70 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "bsom": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "b5som": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "tracker": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "esomx": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "bsom": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "b5som": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "tracker": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "p2": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "CloudControl": false,
             "Loop_Test": false,

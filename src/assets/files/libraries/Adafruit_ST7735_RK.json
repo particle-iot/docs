@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ST7735_RK",
     "version": "1.2.8",
-    "installs": 4834,
+    "installs": 6622,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "This is a library for the Adafruit ST7735 and ST7789 SPI displays. Ported to Particle by rickkas7.",
@@ -21,7 +21,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_ST7735_RK",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_ST7735_RK",
   "versions": {
     "1.2.8": {
       "builds": {
@@ -88,6 +88,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "BuildTest": true
+          },
+          "boron": {
+            "BuildTest": true
+          },
+          "bsom": {
+            "BuildTest": true
+          },
+          "b5som": {
+            "BuildTest": true
+          },
+          "tracker": {
+            "BuildTest": true
+          },
+          "esomx": {
+            "BuildTest": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "BuildTest": true
+          },
+          "boron": {
+            "BuildTest": true
+          },
+          "bsom": {
+            "BuildTest": true
+          },
+          "b5som": {
+            "BuildTest": true
+          },
+          "tracker": {
+            "BuildTest": true
+          },
+          "p2": {
+            "BuildTest": true
+          }
+        },
+        "4.2.0": {
           "argon": {
             "BuildTest": true
           },

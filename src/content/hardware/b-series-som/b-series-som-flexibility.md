@@ -17,7 +17,7 @@ The B Series SoM is designed for the flexibility to switch between different mod
 | B524 | b5som | &check; | EG91-E | EMEAA |
 | B523 | b5som | &nbsp; | EG9-E | Europe | 
 
-## Questions and Answers
+## Questions and answers
 
 ### Can the same software run across all devices?
 
@@ -49,25 +49,25 @@ The B5xx models (B524, B523) when running in 2G/3G mode require more current: 2A
 {{!-- BEGIN do not edit content below, it is automatically generated 28581230-6d89-4e9c-a7f7-7dcef556fb2b --}}
 
 #### Module Pin 2 (VCC)
-|   | B4xx SoM | B5xx SoM |
-| :--- | :--- | :--- |
-| Pin Name | VCC | VCC |
-| Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+|   |   | B4xx SoM | B5xx SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | VCC | VCC |
+| ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
 #### Module Pin 4 (VCC)
-|   | B4xx SoM | B5xx SoM |
-| :--- | :--- | :--- |
-| Pin Name | VCC | VCC |
-| Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+|   |   | B4xx SoM | B5xx SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | VCC | VCC |
+| ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
 #### Module Pin 6 (VCC)
-|   | B4xx SoM | B5xx SoM |
-| :--- | :--- | :--- |
-| Pin Name | VCC | VCC |
-| Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+|   |   | B4xx SoM | B5xx SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | VCC | VCC |
+| ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
 #### Module Pin 8 (VCC)
-|   | B4xx SoM | B5xx SoM |
-| :--- | :--- | :--- |
-| Pin Name | VCC | VCC |
-| Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+|   |   | B4xx SoM | B5xx SoM |
+| :--- | :--- | :--- | :--- |
+| &nbsp; | Pin Name | VCC | VCC |
+| ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -76,12 +76,12 @@ The B5xx models (B524, B523) when running in 2G/3G mode require more current: 2A
 
 Since the models are used in different regions you would likely have to even if there was a single SoM. 
 
-For example, if you use the standard Particle antenna you can often get by with only FCC unintentional radiator certification (Part 15 Subpart B). This is the least expensive of the certifications, and often can be SDoC (supplier's declaration of conformity), which is the least complicated of the filings. This is considerably less expensive than intentional radiator (Part 15 Subpart A) or other certifications like PTCRB.
+For example, if you use the standard Particle antenna you can often get by with only FCC unintentional radiator certification (Part 15 Subpart B). This is the least expensive of the certifications, and often can be SDoC (supplier's declaration of conformity), which is the least complicated of the filings. This is considerably less expensive than intentional radiator (Part 15 Subpart C) or other certifications like PTCRB.
 
 Unintentional radiator testing makes sure that the completed assembly, including any components you have on your base board, do not emit spurious electromagnetic radiation.
 
 | Region | Certification Required |
 | :--- | :--- |
 | United States, Mexico | FCC |
-| Canada | IC |
+| Canada | ISED |
 | Europe, Australia, New Zealand | CE |

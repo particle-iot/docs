@@ -2,6 +2,7 @@
 // string with the first letter of each name uppercased.
 // Usage:
 // {{titleize device}}
+// This function is copied to src/assets/js/navmenu.js - try to keep in sync
 module.exports = function(string) {
   var stringNoDashes = string.replace(/-/g, ' ');
   var stringToTitleCase = stringNoDashes.replace(/\w\S*/g, function(txt){
@@ -46,6 +47,10 @@ module.exports = function(string) {
 		
 	case 'Le':
 		txt = 'LE'; // As in Bluetooth LE
+		break;
+
+	case 'Ml':
+		txt = 'ML'; // Machine Learning
 		break;
 	
 	default:

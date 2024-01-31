@@ -19,9 +19,20 @@ const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), '
 
 const targetInfo = [
     {
+        version: '5.6.0',
+        platforms: ['argon', 'boron', 'bsom', 'b5som', 'tracker', 'p2'],
+    },
+    /*
+    {
         version: '5.0.1',
         platforms: ['argon', 'boron', 'bsom', 'b5som', 'tracker', 'p2'],
     },
+    */
+    {
+        version: '4.2.0',
+        platforms: ['argon', 'boron', 'bsom', 'b5som', 'tracker', 'esomx'],
+    },
+    /*
     {
         version: '4.0.0',
         platforms: ['argon', 'boron', 'bsom', 'b5som', 'tracker', 'esomx'],
@@ -29,12 +40,11 @@ const targetInfo = [
     {
         version: '3.3.0',
         platforms: ['photon', 'electron', 'argon', 'boron'],
-/*        ifAddedAfter: '2022-01-01T00:00:00.000Z' */
     },
+    */
     { 
-        // Any new libraries build on 2.3.0
         version: '2.3.0',
-        platforms: ['photon', 'electron', 'argon', 'boron'],
+        platforms: ['photon', 'electron'], // , 'argon', 'boron'
         isNotExists: '2.0.1',
     },
     /*
@@ -42,12 +52,12 @@ const targetInfo = [
         version: '2.0.1',
         platforms: ['photon', 'electron', 'argon', 'boron'],
     },
-    */
     {
         version: '1.5.2',
         platforms: ['photon', 'electron', 'argon', 'boron'],
         ifAddedBefore: '2022-01-01T00:00:00.000Z'
     }
+    */
 ];
 
 
@@ -72,10 +82,17 @@ catch (e) {
     libraryData = {};
 }
 
-async function fetchLibraryList() {
-    let libraryList = [];
+const allowAuthorsArray = [
+    '@particle.io',
+    'rickkas7',
+    'adafruit',
+    'sparkfun',
+];
 
-    for (let page = 1; page <= 16; page++) {
+async function fetchLibraryList() {
+    let libraryListRaw = [];
+
+    for (let page = 1; page <= 30; page++) {
         const data = await particle.listLibraries({
             auth: config.accessToken,
             excludeScopes: 'private',
@@ -87,9 +104,35 @@ async function fetchLibraryList() {
             break;
         }
 
-        libraryList = libraryList.concat(data.body.data);
+        libraryListRaw = libraryListRaw.concat(data.body.data);
     }
-    console.log('data', libraryList);
+    console.log('libraryListRaw ' + libraryListRaw.length + ' entries');
+
+    let libraryList = [];
+
+    for(const obj of libraryListRaw) {
+        let includeObj = false;
+        if (obj.attributes.installs > 300) {
+            includeObj = true;
+        }
+        if (!includeObj && obj.attributes.author) {
+            const author = obj.attributes.author.toLowerCase();
+            for(const a of allowAuthorsArray) {
+                if (author.indexOf(a) >= 0) {
+                    // console.log('including because of author', obj);
+                    includeObj = true;
+                    break;
+                }
+            }
+        }
+
+        if (includeObj) {
+            libraryList.push(obj);
+        }
+    }
+    console.log('libraryList ' + libraryList.length + ' entries');
+
+    //console.log('data', libraryList);
     fs.writeFileSync(libraryListPath, JSON.stringify(libraryList, null, 2));
 
     return libraryList;
@@ -291,6 +334,56 @@ async function testBuilds() {
     }
 }
 
+function fixMd(md) {
+    let offset = 0;
+    while(offset < md.length) {
+        const m = md.substring(offset).match(/(!{0,1})\[([^\]]*)\]\(([^\)]*)\)/);
+        if (!m) {
+            break;
+        }
+
+        let parts = {
+            before: md.substring(0, offset + m.index),
+            after: md.substring(offset + m.index + m[0].length),
+            replacement: m[0],
+            isImage: (m[1] == '!'),
+            alt: m[2],
+            link: m[3],
+            m,
+        }
+
+        if (parts.isImage) {
+            // Image
+            if (parts.alt.length) {
+                parts.replacement = parts.alt + ' (image removed)';
+            }
+            else {
+                parts.replacement = '(image removed)';
+            }
+        }
+        else {
+            // Link
+            if (parts.link.startsWith('http')) {
+                // absolute link, leave in place
+            }
+            else {
+                // Relative link, remove
+                if (parts.alt.length) {
+                    parts.replacement = parts.alt;
+                }
+                else {
+                    parts.replacement = '(link unavailable in preview)';
+                }
+            }
+        }
+
+        // console.log('parts', parts);
+        md = parts.before + parts.replacement + parts.after;
+        offset = parts.before.length + parts.replacement.length;        
+    }
+    return md;
+}
+
 async function generate() {
 
     const librariesDir = path.join(__dirname, '../../src/assets/files/libraries');
@@ -325,7 +418,7 @@ async function generate() {
         if (libInfo.letter < 'a' || libInfo.letter > 'z') {
             libInfo.letter = 'other';
         }
-        libInfo.cardUrl = '/cards/libraries/' + libInfo.letter + '/' + lib.id;
+        libInfo.cardUrl = '/reference/device-os/libraries/' + libInfo.letter + '/' + lib.id;
 
         // Build history
         if (libraryData[lib.id]) {
@@ -341,6 +434,9 @@ async function generate() {
                     const readmePath = path.join(libVerDir, name);
                     if (fs.existsSync(readmePath)) {
                         libInfo.readme = fs.readFileSync(readmePath, 'utf8');
+                        if (name.endsWith('.md')) {
+                            libInfo.readme = fixMd(libInfo.readme);
+                        }
                         return true;
                     }
                     else {

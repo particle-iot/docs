@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel-dma",
     "version": "0.0.1",
-    "installs": 514,
+    "installs": 634,
     "license": "GNU GPLv3",
     "author": "EkbDuffy",
     "sentence": "An Implementation of NeoPixel Library with usind Direct Memory Access methods for the Spark Core",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "n",
-  "cardUrl": "/cards/libraries/n/neopixel-dma",
+  "cardUrl": "/reference/device-os/libraries/n/neopixel-dma",
   "versions": {
     "0.0.1": {
       "builds": {
@@ -86,6 +86,46 @@
           }
         },
         "4.0.0": {
+          "argon": {
+            "test": false
+          },
+          "boron": {
+            "test": false
+          },
+          "bsom": {
+            "test": false
+          },
+          "b5som": {
+            "test": false
+          },
+          "tracker": {
+            "test": false
+          },
+          "esomx": {
+            "test": false
+          }
+        },
+        "5.6.0": {
+          "argon": {
+            "test": false
+          },
+          "boron": {
+            "test": false
+          },
+          "bsom": {
+            "test": false
+          },
+          "b5som": {
+            "test": false
+          },
+          "tracker": {
+            "test": false
+          },
+          "p2": {
+            "test": false
+          }
+        },
+        "4.2.0": {
           "argon": {
             "test": false
           },

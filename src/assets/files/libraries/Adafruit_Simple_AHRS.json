@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Simple_AHRS",
     "version": "0.0.3",
-    "installs": 409,
+    "installs": 516,
     "license": "Choose a license",
     "author": "Someone <email@somesite.com>",
     "sentence": "Briefly describe this library",
@@ -19,7 +19,7 @@
   },
   "kind": "community library",
   "letter": "a",
-  "cardUrl": "/cards/libraries/a/Adafruit_Simple_AHRS",
+  "cardUrl": "/reference/device-os/libraries/a/Adafruit_Simple_AHRS",
   "versions": {
     "0.0.3": {
       "builds": {},

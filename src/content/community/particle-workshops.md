@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# Getting Started with Particle Workshops
+# Getting started with Particle workshops
 
 {{box op="start" cssClass="boxed warningBox"}}
 This page is no longer maintained and is provided for historical reference only
@@ -22,9 +22,9 @@ Workshops are broken into group presentations intermixed with hands-on labs that
 
 This site contains in-depth lab documents that complement in-person presentations delivered by Particle staff. Attendance of a workshop isn't required to follow along with these labs, but they are written with assumption that you're using a specific set of hardware (i.e. A Particle Grove Start Kit, Particle Maker Kit, etc.) to complete the exercises. If you have all of the hardware needed for a given workshop, you can follow-along with the labs anywhere!
 
-## Self-Guided Workshops
+## Self-guided workshops
 
-- [Particle 101 Workshop](/community/particle-101-workshop/introduction/) - Requires a [Particle Argon](https://store.particle.io/products/argon-kit) and Grove Starter Kit for Particle. For the on-device debugging module, a Particle Debugger is required.
+- [Particle 101 Workshop](/community/particle-101-workshop/introduction/) - Requires a Particle Argon and Grove Starter Kit for Particle. For the on-device debugging module, a Particle Debugger is required.
 - [Particle Photon and Maker Kit Workshop](/community/photon-maker-kit-workshop/introduction/) - Requires a Particle Photon and [Particle Maker Kit](https://store.particle.io/collections/shields-and-kits).
 
 Interested in holding a Particle Workshop for your conference, company, or makerspace? [Send us an email](mailto://community@particle.io)!

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DFRobotDFPlayerMini",
     "version": "1.0.1",
-    "installs": 12725,
+    "installs": 13005,
     "license": "GPL",
     "author": "DFRobot",
     "maintainer": "Angelo <angelo.qiao@dfrobot.com>",
@@ -24,7 +24,7 @@
   },
   "kind": "community library",
   "letter": "d",
-  "cardUrl": "/cards/libraries/d/DFRobotDFPlayerMini",
+  "cardUrl": "/reference/device-os/libraries/d/DFRobotDFPlayerMini",
   "versions": {
     "1.0.1": {
       "builds": {
@@ -157,12 +157,76 @@
             "GetStarted": false,
             "Usage": false
           }
+        },
+        "5.6.0": {
+          "argon": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "boron": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "bsom": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "b5som": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "tracker": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "p2": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          }
+        },
+        "4.2.0": {
+          "argon": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "boron": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "bsom": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "b5som": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "tracker": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "esomx": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          }
         }
       },
       "added": "2022-06-17T10:16:53.740Z"
     }
   },
-  "readme": "# DFPlayer - A Mini MP3 Player For Arduino\n# 1.31.17 - Directory structure and files modified for Particle Photon import\n\nDFPlayer - A Mini MP3 Player For Arduino\nhttps://www.dfrobot.com/index.php?route=product/product&product_id=1121\n\nThis example shows the all the function of library for DFPlayer.\n\nCreated 2016-12-07\nBy [Angelo qiao](Angelo.qiao@dfrobot.com)\n\nGNU Lesser General Public License.\nSee <http://www.gnu.org/licenses/> for details.\nAll above must be included in any redistribution\n\nNotice and Trouble shooting\n\n1.Connection and Diagram can be found here\nhttps://www.dfrobot.com/wiki/index.php/DFPlayer_Mini_SKU:DFR0299#Connection_Diagram\n2.This code is tested on Arduino Uno, Leonardo, Mega boards.\n",
+  "readme": "# DFPlayer - A Mini MP3 Player For Arduino\n# 1.31.17 - Directory structure and files modified for Particle Photon import\n\nDFPlayer - A Mini MP3 Player For Arduino\nhttps://www.dfrobot.com/index.php?route=product/product&product_id=1121\n\nThis example shows the all the function of library for DFPlayer.\n\nCreated 2016-12-07\nBy Angelo qiao\n\nGNU Lesser General Public License.\nSee <http://www.gnu.org/licenses/> for details.\nAll above must be included in any redistribution\n\nNotice and Trouble shooting\n\n1.Connection and Diagram can be found here\nhttps://www.dfrobot.com/wiki/index.php/DFPlayer_Mini_SKU:DFR0299#Connection_Diagram\n2.This code is tested on Arduino Uno, Leonardo, Mega boards.\n",
   "allVersions": [
     "1.0.1"
   ]
