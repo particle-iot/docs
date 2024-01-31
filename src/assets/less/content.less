@@ -1167,6 +1167,15 @@ hr {
   cursor: default;
 }
 
+.imageToolsLink {
+  margin-left: 5px;
+  margin-right: 5px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 24px;
+  cursor: default;
+}
+
 .imageToolsSpacer {
   width: 15px;
 }
@@ -1176,6 +1185,43 @@ img.imageOverlay {
   height: 100%; 
   width: 100%;
 }
+
+// Details overlay
+
+#detailsToolsContainer {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 40px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 301; 
+}
+
+#detailsOverlayContainer {
+  position: fixed;
+  display: none;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 300; 
+}
+
+.detailsToolsBox {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  justify-content: flex-end;
+}
+
 
 // 
 // Colors and styles for the note helper
