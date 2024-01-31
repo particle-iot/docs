@@ -258,7 +258,7 @@ Both the P1 and Argon are deprecated, as designs should either use the Photon 2 
 | Integrated Wi-Fi antenna | &check; | &check; | | &check; |
 | U.FL Antenna Connector | &check; | &check; | &check; | &check; |
 | Configuration via | Wi-Fi | BLE | BLE | BLE |
-| Enterprise Wi-Fi | &check; | &check; | | &check; |
+| Enterprise Wi-Fi | &check; | &nbsp; | | &nbsp; |
 | USB Connector | Optional | Optional | &check; | &check; |
 | Status LED | Optional | Optional | &check; | &check; |
 | Reset and Mode Buttons | Optional | Optional | &check; | &check; |
@@ -518,7 +518,7 @@ The following are the Wi-Fi compatible devices:
 | Integrated Wi-Fi antenna | &check; | &check; | | &check; |
 | U.FL Antenna Connector | &check; | &check; | &check; | &check; |
 | Configuration via | Wi-Fi | BLE | BLE | BLE |
-| Enterprise Wi-Fi | &check; | &check; | | &check; |
+| Enterprise Wi-Fi | &check; | &nbsp; | | &nbsp; |
 | USB Connector | Optional | Optional | &check; | &check; |
 | Status LED | Optional | Optional | &check; | &check; |
 | Reset and Mode Buttons | Optional | Optional | &check; | &check; |

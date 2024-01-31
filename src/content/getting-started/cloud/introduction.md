@@ -174,7 +174,7 @@ To configure a Photon, P1 using WPA2 Enterprise using the Particle CLI. Of note:
 - Requires Device OS 0.7.0 or later for WPA2 Enterprise Support.
 - Device OS 1.5.4-rc.1 or 2.0.x or later is required if concatenated certificates (intermediate certificates) are required.
 - Only one set of WPA2 Enterprise Wi-Fi credentials can be stored.
-- The Argon does not have WPA2 Enterprise support.
+- The Argon, P2, and Photon 2 do not have WPA2 Enterprise support.
 
 There are a variety of encryption protocols for WPA2 Enterprise, however only the following are supported on the Photon and P1:
 
@@ -192,8 +192,6 @@ There are a variety of encryption protocols for WPA2 Enterprise, however only th
 | TLS versions | TLS1.0 and TLS1.1 only |
 
 Support has been tested with Microsoft NPS, Cisco Secure ACS, and Cisco ISE. FreeRADIUS RADIUS implementations with have been tested with Ubiquiti, Cisco, and Aruba access points. Eduroam sometimes works, however it is dependent on the university's WPA2 Enterprise configuration; some use settings that do not correspond to the requirements above.
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
 
 ### Special Wi-Fi considerations
 

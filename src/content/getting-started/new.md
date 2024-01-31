@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Enterprise Wi-Fi 2024-01-31
+
+Clarify that enterprise Wi-Fi is not supported on the P2/Photon 2.
+
 ### Connection management 2024-01-30
 
 [Automatic connection management](/reference/device-os/connection-management/) documentation is now available. The feature

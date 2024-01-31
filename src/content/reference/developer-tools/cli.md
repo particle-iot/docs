@@ -901,9 +901,8 @@ The JSON file for passing Wi-Fi credentials should look like this:
 
 The `security` property can be NONE, WEP, WPA2_AES, WPA2_TKIP, WPA2_AES+TKIP, WPA_AES, WPA_TKIP, WPA_AES+TKIP. For enterprise Wi-Fi, set security to WPA_802.1x or WPA2_802.1x and provide the `eap`, `username`, `outer_identity`, `client_certificate`, `private_key` and `root_ca` properties.
 
-WPA Enterprise is only available on the Photon and P1 (Gen 2). It is not available on the Argon (Gen 3).
+WPA Enterprise is only available on the Photon and P1 (Gen 2). It is not available on the Argon, P2, or Photon 2.
 
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
 
 
 ### particle serial list

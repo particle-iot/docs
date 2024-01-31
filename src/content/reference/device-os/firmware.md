@@ -2335,9 +2335,7 @@ The password is limited to 64 7-bit ASCII characters. If you pass in a longer pa
 {{note op="start" type="note"}}
 WPA Enterprise is only supported on the Photon and P1.
 
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
-
-It is not supported on the Argon.
+It is not supported on the Argon, P2, and Photon 2.
 {{note op="end"}}
 
 Credentials can be set using [WiFiCredentials class](#wificredentials-class).
@@ -3182,9 +3180,7 @@ Parameters:
 - `type`: EAP type. See [WLanEapType](#wlaneaptype-enum) enum for a list of supported values.
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 #### setIdentity()
 
@@ -3228,9 +3224,7 @@ Parameters:
 - `identity`: outer identity (string)
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 #### setClientCertificate()
 
@@ -3256,9 +3250,7 @@ Parameters:
 - `cert`: client certificate in PEM format (string)
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 #### setPrivateKey()
 
@@ -3284,9 +3276,7 @@ Parameters:
 - `key`: private key in PEM format (string)
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 #### setRootCertificate()
 
@@ -3321,9 +3311,7 @@ Parameters:
 - `cert`: one or multiple concatenated root certificates in PEM format (string)
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 ### WLanEapType Enum
 
@@ -3337,9 +3325,7 @@ This enum defines EAP types.
 | `WLAN_EAP_TYPE_TLS`  | EAP-TLS (RFC 2716)                                              |
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 ### SecurityType Enum
 

@@ -275,8 +275,8 @@
             "hash": "d4ad4f19ef50fac2b1d4627bd8756030ce1edee4cd649cab2edf85f17780f267"
         },
         "notes/status-led-blinking-green-gen3.md": {
-            "date": "2022-07-22",
-            "hash": "c03300c32d7cfcef795eec54a9be098833b548486fe77f4218175d6463f5d0a1"
+            "date": "2024-01-31",
+            "hash": "6fa1d1391fc0fba085b6f33ab83262c484fe5e9ae15ff9e9be70e5cb26409825"
         },
         "notes/status-led-blinking-green-p2.md": {
             "date": "2022-07-22",
@@ -587,8 +587,8 @@
             "hash": "30142d5f37a2f08a596a76864c03ae497b0a18ea5586dc983ad06e8f610f0fcb"
         },
         "getting-started/cloud/introduction.md": {
-            "date": "2023-08-29",
-            "hash": "1f2d55b2b23d1541b156fde6e06f3cee3c5dbab68c4e0ae85f9480ead32479ee"
+            "date": "2024-01-31",
+            "hash": "3048fe173135a896f95e89942865e9e84cf1101d088283f7bb2c440224afc08e"
         },
         "getting-started/cloud/ota-updates.md": {
             "date": "2023-09-05",
@@ -655,8 +655,8 @@
             "hash": "5881ffa3be37983aa2c34b2ad640985220d45544ded92338a999dbd05f8028a0"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2024-01-05",
-            "hash": "f51c9b482e8f488904ac069156aef6b0bb7c35d59dd2b53a84bc3b793b10b189"
+            "date": "2024-01-31",
+            "hash": "1694fc23bb5e3407450c8e9b7ab517f2e0e69316c7e3141b9991af2d9e35e336"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -707,8 +707,8 @@
             "hash": "ec6dc8ce26b04fc5f72521d8cccd72f5ce2c350b6656fcf27bf6e6ac7cdb7f12"
         },
         "getting-started/setup/wpa2-enterprise.md": {
-            "date": "2023-02-22",
-            "hash": "644bb832f9ae42200f0508fb1654dbb39da2def564fd08067ed6dfef9ca719dc"
+            "date": "2024-01-31",
+            "hash": "dfc16e6f2a32a29b01050224b97902590de17669f23572add4cb5cd9a162afa6"
         },
         "getting-started/tracker/tracker-eval-tutorials.md": {
             "date": "2023-03-17",
@@ -1171,8 +1171,8 @@
             "hash": "0c263490d13fd03851737f6841f19765f2702c1ebd3377dc2f87284b8860865b"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2023-11-16",
-            "hash": "276e93baf6ae60dd8378a16b76acf6c79dddf30529d3d0f46af1c0a31540efd9"
+            "date": "2024-01-31",
+            "hash": "04a7177fb7e8401835ab90a1e072a2c2aac7f3de3a493a08ad4d321b656ac9dd"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2023-09-06",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-01-30",
-            "hash": "53e08d3b614ee11fac981438785413767d989c049e26829c7a182a4c327e42ed"
+            "date": "2024-01-31",
+            "hash": "c3ca376552972b0c5f1ae28e3afb02b3e7b91ac2c6842bce7f054be8a27d4241"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1963,8 +1963,8 @@
             "hash": "b5d2ab0b081fbc1d82ec0ec52dc658d425816fb2e869d26a4b509aa26f3d83ac"
         },
         "reference/device-os/api/wifi/setcredentials.md": {
-            "date": "2024-01-16",
-            "hash": "8f49254ffe40a5ed6ae5030585d0b05d5072a629b45be9c17682d4337d067b36"
+            "date": "2024-01-31",
+            "hash": "da7382ffce2745ce5021de70c548be23d11b855e58889da09fe9dd76d084d03e"
         },
         "reference/device-os/api/wifi/getcredentials.md": {
             "date": "2023-09-20",
@@ -2059,12 +2059,12 @@
             "hash": "cad2655304f5974aa90f1f80f7cc78374c8999d6ca12adc27af563952436cdb4"
         },
         "reference/device-os/api/wifi/wificredentials-class.md": {
-            "date": "2023-09-20",
-            "hash": "d4ce014471ca6bb97cb17cbdb13f0ea5596d1a43af078b9d779d572b09cdb03e"
+            "date": "2024-01-31",
+            "hash": "d9ffcbc3e26e81def2293d4750096b3bee8103e37221b0e8289d74a9254d2c1c"
         },
         "reference/device-os/api/wifi/wlaneaptype-enum.md": {
-            "date": "2023-09-20",
-            "hash": "9235861949a30c85d4e98f8a55373efaa615b9df841a6aa8f02ee2f8b1f5e5bc"
+            "date": "2024-01-31",
+            "hash": "9d1b823f173d0572f7bbd9cfd13541d2e0d81c3d43c03d9e8a2f5bb420bb01c6"
         },
         "reference/device-os/api/wifi/securitytype-enum.md": {
             "date": "2023-09-20",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ef913d91d279ef39424d8924689082dab18053ee807c00a9965b0d5e51d489a0",
-            "date": "2024-01-30"
+            "hash": "c998f82a5af561e1e1f8a55bf7321f5b8c6bf94327e5d188eb5acf14118a1267",
+            "date": "2024-01-31"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
