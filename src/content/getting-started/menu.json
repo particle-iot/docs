@@ -312,6 +312,11 @@
         "dir": "logic-cloud-alerts",
         "title": "Cloud alerts with Logic",
         "href": "/getting-started/logic-ledger/logic-cloud-alerts/"
+      },
+      {
+        "dir": "device-info-ledger",
+        "title": "Device information in Ledger",
+        "href": "/getting-started/logic-ledger/device-info-ledger/"
       }
     ],
     {
