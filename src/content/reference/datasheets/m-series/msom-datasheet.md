@@ -12,7 +12,7 @@ This is a preliminary datasheet and changes may occur prior to release.
 {{box op="end"}}
 
 ![M SoM](/assets/images/m-series/msom-top.png)
-
+ 
 ## Overview
 
 The M SoM module contains the following functional units:
