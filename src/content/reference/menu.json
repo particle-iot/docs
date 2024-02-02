@@ -408,6 +408,12 @@
           "title": "M SoM datasheet",
           "href": "/reference/datasheets/m-series/msom-datasheet/",
           "internal": true
+        },
+        {
+          "dir": "muon-datasheet",
+          "title": "Muon datasheet",
+          "href": "/reference/datasheets/m-series/muon-datasheet/",
+          "internal": true
         }
       ],
       {

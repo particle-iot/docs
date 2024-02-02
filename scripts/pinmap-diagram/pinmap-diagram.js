@@ -1761,13 +1761,13 @@ const svg = require('./svg');
 
 
 
-    diagram.generateMuonAllPins = async function(generateOptions, files) {
+    diagram.generateMuon = async function(generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'muon',
+            platformName: 'Muon',
             // 104 818 
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/muon-expansion-blank.svg'),
-            outputPath: 'assets/images/muon-all-pins.svg',
+            outputPath: generateOptions.outputPath,
             // scale to make height 500px
             deviceImageTransform: 'translate(285,0) scale(2.6)',
             width: 1100,
@@ -1784,16 +1784,7 @@ const svg = require('./svg');
                     count: 24,
                     xDir: -1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 50,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 100,
-                            keys: ['net'],
-                        },
-                    ],
+                    columns: generateOptions.columns,
                 },
                 {   // Right side (outside, shared with Monitor One)
                     num: 25,
@@ -1805,16 +1796,7 @@ const svg = require('./svg');
                     count: 24,
                     xDir: 1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 50,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 100,
-                            keys: ['net'],
-                        },
-                    ],
+                    columns: generateOptions.columns,
                 },
                 {   // Left side (inside)
                     num: 49,
@@ -1826,16 +1808,7 @@ const svg = require('./svg');
                     count: 24,
                     xDir: 1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 50,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 100,
-                            keys: ['net'],
-                        },
-                    ],
+                    columns: generateOptions.columns,
                 },
                 {   // Right side (inside)
                     num: 73,
@@ -1847,16 +1820,7 @@ const svg = require('./svg');
                     count: 24,
                     xDir: -1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 50,
-                            keys: ['name'],
-                        },
-                        {
-                            width: 100,
-                            keys: ['net'],
-                        },
-                    ],
+                    columns: generateOptions.columns,
                 },
             ]
         });
@@ -2100,8 +2064,118 @@ const svg = require('./svg');
 
         await diagram.generateTrackerMExpansion(generateOptions, files);
 
-        await diagram.generateMuonAllPins(generateOptions, files);
+        // Muon
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['net'],
+                },
+            ],
+            outputPath: 'assets/images/muon-pins.svg',
+        }, generateOptions), files);
 
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['hardwareADC'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-adc.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['spi'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-spi.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['i2c'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-i2c.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['serial'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-uart.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['analogWritePWM'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-pwm.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['swd'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-swd.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['digitalRead'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-gpio.svg',
+        }, generateOptions), files);
     }
 
     diagram.buildP2Eval = function(pinInfo) {

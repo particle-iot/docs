@@ -3939,6 +3939,53 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+
+        // muon - RTL8722DM
+        {
+            guid: '4c12540b-20a8-4d2b-a070-0237af5223e3',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Muon',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },        
+        {
+            guid:'2f265258-147d-4139-8a20-d85d1d137af5',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'portPins',
+                    platformNew: 'Muon',
+                    port: 'digitalRead',
+                    label: 'GPIO',
+                    newMCU: 'MCU',
+                    showBootMode: true,
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        /*
+        
+
+
+
+cb3c6480-361d-4437-8cc3-6422e4c04d74
+
+a2d6df45-4f77-45d8-8280-f73c14add2e7
+
+3fd13fdc-0a2d-41aa-9a26-3afd196022bd
+
+e9702f86-0377-4b10-a451-c4ebebd36177
+
+0e2ce92a-0155-43c6-b496-e30bafeb33e4
+
+066637c0-a644-495e-982d-2698326b39f4
+
+c9e7a163-b53c-4c4f-81ff-f84ec7344a0c
+
+2629e77b-eb69-4f63-8f0e-011032c72782
+*/
     ];
 
 

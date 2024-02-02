@@ -231,13 +231,13 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | A5 / D14 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
 | D0 / A3 | ADC_2 | Wire (SDA) | &nbsp; | &nbsp; | PB[6] |
 | D1 / A4 | ADC_1 | Wire (SCL) | &nbsp; | &nbsp; | PB[5] |
-| D10 / WKP | &nbsp; | &nbsp; | &nbsp; | Serial3 (CTS) | PA[15] |
 | D2 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial2 (RTS) | PA[16] |
 | D3 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial2 (CTS) | PA[17] |
 | D4 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial2 (TX) | PA[18] |
 | D5 | &nbsp; | &nbsp; | SPI1 (SS) | Serial2 (RX) | PA[19] |
 | D6 | &nbsp; | SWCLK | &nbsp; | &nbsp; | PB[3] |
 | D7 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
+| D10 / WKP | &nbsp; | &nbsp; | &nbsp; | Serial3 (CTS) | PA[15] |
 | MISO / D16 | &nbsp; | &nbsp; | SPI (MISO) | Serial3 (RX) | PA[13] |
 | MOSI / D15 | &nbsp; | &nbsp; | SPI (MOSI) | Serial3 (TX) | PA[12] |
 | RX / D9 | &nbsp; | &nbsp; | &nbsp; | Serial1 (RX)  | PA[8] |

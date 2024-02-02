@@ -1347,8 +1347,8 @@
             "hash": "3dd6ca248f7badc5e7fa4d7bc79e6de47257793e34c9e0145a4c617273163ff6"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
-            "date": "2023-11-28",
-            "hash": "18c3e1866d668e56bca72680180fc847bf21daaa7f0f6c7e853d93bd5fb923bd"
+            "date": "2024-02-02",
+            "hash": "faaa2bcb9ce56bc35d149f1c9c75d7d92ac808ef242e7a531fedea97cf72aedb"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
             "date": "2023-12-20",
@@ -1359,7 +1359,7 @@
             "hash": "f314abfccf4a724743301c44d91e70c61cb08cd6b63e047fbae8e763f2afd10f"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
-            "date": "2023-11-28",
+            "date": "2024-02-02",
             "hash": "8d60c580adabdab7c81ca69f6b00a116a6d485f5dee77818dec78a66ff27b1b1"
         },
         "reference/datasheets/accessories/debugger.md": {
@@ -1411,8 +1411,8 @@
             "hash": "ac5af6a831bdc2d054c986b725b05e5b75810e5dcc12681f4071b1a1265e5cde"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2023-12-19",
-            "hash": "bfc665902747b17fad19acca27a045cb79bfefcba7bd6736b5f9b8e9b1b56752"
+            "date": "2024-02-02",
+            "hash": "61ab12aa2c07f91765cfcb6e34c91b47b8fc748135d95ae10a721ca433015f77"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2023-11-06",
@@ -1423,7 +1423,7 @@
             "hash": "bfedda06f1a45b6c8df5e3fee1ea3bbe720bead343af38077a52feae9c362534"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2024-01-29",
+            "date": "2024-02-02",
             "hash": "bd43b35eb4403c4e3b032c81a944c30554bf6cf64965b02de05fd079cb14140a"
         },
         "reference/datasheets/tracker/tracker-one.md": {

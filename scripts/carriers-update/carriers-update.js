@@ -2033,10 +2033,47 @@ const generatorConfig = require('./generator-config');
             }
         } 
 
+
+        const pinNameSort = function(a, b) {
+            if (typeof a != 'string') {
+                console.log('pinNameSort a not string', a);
+                a = '';
+            }
+            if (typeof b != 'string') {
+                console.log('pinNameSort b not string', a);
+                b = '';
+            }
+
+            const re = /([A-Z])([0-9]+)/;
+            const m_a = a.match(re);
+            const m_b = b.match(re);  
+            if (m_a && m_b) {
+                if (m_a[1] != m_b[1]) {
+                    return a.localeCompare(b);
+                }
+                else {
+                    return parseInt(m_a[2]) - parseInt(m_b[2]);
+                }
+            }
+            else {
+                return a.localeCompare(b);
+            }
+        }
+
+        const pinNameSortPinsArray = function(a, b) {
+            return pinNameSort(a.name, b.name);
+        }
+
         const sortTableData = function(tableData) {
             if (options.tableSortFn) {
                 tableData.sort(options.tableSortFn);
-            }    
+            }   
+            /* 
+            else
+            if (options.noPinNumbers) {
+                tableData.sort(pinNameSortPinsArray);
+            }
+            */
         }
 
         let platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
@@ -2288,9 +2325,7 @@ const generatorConfig = require('./generator-config');
                     pins.push(pin);
                 }
             }
-            pins.sort(function(a, b) {
-                return a.name.localeCompare(b.name);
-            });
+            pins.sort(pinNameSortPinsArray);
 
             let tableOptions = {
                 columns: [],

@@ -393,14 +393,14 @@ Future modules with a different MCU may have different pin functions. An effort 
 | D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | P0.26 |
 | D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | P0.27 |
 | D2 | 42 | &nbsp; | Wire1 (SDA) | SPI1 (SCK) | Serial1 RTS | P1.02 |
-| D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.24 |
-| D23 | 64 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.09 |
 | D3 | 40 | &nbsp; | Wire1 (SCL) | SPI1 (MOSI) | Serial1 CTS | P1.01 |
 | D4 | 66 | &nbsp; | &nbsp; | SPI1 (MISO) | &nbsp; | P1.08 |
 | D5 | 68 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.10 |
 | D6 | 70 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.11 |
 | D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.12 |
 | D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | P1.03 |
+| D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.24 |
+| D23 | 64 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.09 |
 | MISO / D11 | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | P1.14 |
 | MOSI / D12 | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | P1.13 |
 | NC | 14 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
