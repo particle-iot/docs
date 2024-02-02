@@ -30,7 +30,7 @@ The Muon adds:
 - 96-pin Expansion connector
 - Temperature sensor 
 - Configuration EEPROM
-- Real-time clock and watchdog chip (AM1805
+- Real-time clock and watchdog chip (AM1805)
 - Reset and mode buttons
 - RGB status LED
 - Power input options
@@ -123,6 +123,54 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 
 - SWO (Serial Wire Output) is not supported on the RTL8722DM.
 - Pins 45 and 53 are shared 
+
+## I2C Peripherals
+
+### Qwiic
+
+The Muon board also contains a 4-pin micro connector for 3.3V I2C devices. It is compatible with Sparkfun Qwiic and Adafruit STEMMA-QT for easy expansion without soldering or prototyping wires. See the [Qwiic page](/hardware/expansion/qwiic/) for more information.
+
+### EEPROM
+
+The EEPROM can be used for configuration and storage of small amounts of data that persists even when the power is removed.
+
+- 24CW640T
+- Address 0x50 (I think this needs to change)
+- 64 Kbit (8 Kbyte)
+- More than one million erase/write cycles 
+- Data retention > 200 years
+
+### Temperature sensor
+
+- TMP112A
+- Address 0x48
+
+### RTC/Watchdog
+
+- AM1805
+- Address 0x68
+
+### LoRa
+
+- The Quectel KG200Z LoRa module has a number of interfaces, including serial, SPI, and I2C
+- These interfaces can be enabled by DIP switches
+
+### USB-C voltage and current selection
+
+- HUSB238 
+- Address 0x08
+- Current and voltage selection
+- Adafruit has a breakout https://www.adafruit.com/product/5807
+
+### PMIC 
+
+- bq24195
+- Address 0x6B
+
+### Fuel Gauge
+
+- MAX17043
+- Address 0x36
 
 ## Pin information
 
@@ -333,7 +381,6 @@ Even though the B SoM and M SoM both have two SPI interfaces, note that the M So
 {{!-- END do not edit content above, it is automatically generated--}}
 
 
-
 ### I2C
 
 {{imageOverlay src="/assets/images/m-series/muon-i2c.svg" alt="GPIO pins" class="full-width"}}
@@ -351,6 +398,19 @@ Even though the B SoM and M SoM both have two SPI interfaces, note that the M So
 - The I2C port is 3.3V and must not be connected directly a 5V I2C bus
 - Maximum bus speed is 400 kHz
 - External pull-up resistors are required for I2C
+
+
+There are number of I2C peripherals on the Muon board. Makes ure external sensors and devices I2C addresses do not conflict with these addresses:
+
+
+| I2C Address | Peripheral |
+| :--- | :--- |
+| 0x08 | HUSB238 USB-C power controller |
+| 0x36 | MAX17043 Fuel Gauge |
+| 0x48 | TMP112A temperature sensor |
+| 0x50 | 24CW640T EEPROM |
+| 0x68 | AM1805 RTC/Watchdog |
+| 0x6B | bq24195 PMIC |
 
 
 ### PWM
