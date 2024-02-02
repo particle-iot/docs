@@ -1761,6 +1761,111 @@ const svg = require('./svg');
 
 
 
+    diagram.generateMuonAllPins = async function(generateOptions, files) {
+        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'muon',
+            // 104 818 
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/muon-expansion-blank.svg'),
+            outputPath: 'assets/images/muon-all-pins.svg',
+            // scale to make height 500px
+            deviceImageTransform: 'translate(285,0) scale(2.6)',
+            width: 1100,
+            height: 800,
+            background: 'white',
+            pins: [
+                {   // Left side (outside, shared with Monitor One)
+                    num: 1,
+                    x: 290,
+                    y: 202,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 24,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 100,
+                            keys: ['net'],
+                        },
+                    ],
+                },
+                {   // Right side (outside, shared with Monitor One)
+                    num: 25,
+                    x: 714,
+                    y: 685,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -21,
+                    count: 24,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 100,
+                            keys: ['net'],
+                        },
+                    ],
+                },
+                {   // Left side (inside)
+                    num: 49,
+                    x: 345,
+                    y: 202,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 24,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 100,
+                            keys: ['net'],
+                        },
+                    ],
+                },
+                {   // Right side (inside)
+                    num: 73,
+                    x: 659,
+                    y: 685,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -21,
+                    count: 24,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 100,
+                            keys: ['net'],
+                        },
+                    ],
+                },
+            ]
+        });
+
+        await diagram.generate(options, files);
+    }
+
+
+
     diagram.generateTrackerMExpansion = async function(generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
@@ -1994,6 +2099,9 @@ const svg = require('./svg');
         await diagram.generateMonitorOneExpansion(generateOptions, files);
 
         await diagram.generateTrackerMExpansion(generateOptions, files);
+
+        await diagram.generateMuonAllPins(generateOptions, files);
+
     }
 
     diagram.buildP2Eval = function(pinInfo) {
