@@ -191,32 +191,32 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 
 | Muon Pin Name | Muon GPIO | MCU | Special boot function |
 | :--- | :--- | :--- | :--- |
+| A0 / D19 | &check; | PB[4] | &nbsp; |
 | A1 / D18 | &check; | PB[5] | &nbsp; |
+| A2 / D17 | &check; | PB[6] | &nbsp; |
 | A3 / D16 | &check; | PB[1] | &nbsp; |
+| A4 / D15 | &check; | PB[2] | &nbsp; |
 | A5 / D14 | &check; | PB[3] | &nbsp; |
+| A6 / D29 | &check; | PB[7] | SWCLK. 40K pull-down at boot. |
 | A7 / WKP | &check; | PA[20] | &nbsp; |
-| D20 | &check; | PA[1] | &nbsp; |
-| D21 | &check; | PA[0] | &nbsp; |
-| D8 | &check; | PA[19] | &nbsp; |
-| SCK / D13 | &check; | PA[18] | &nbsp; |
-| MISO / D11 | &check; | PA[17] | &nbsp; |
-| MOSI / D12 | &check; | PA[16] | &nbsp; |
 | D0 | &check; | PB[0] | &nbsp; |
 | D1 | &check; | PA[31] | &nbsp; |
-| D3 | &check; | PA[15] | &nbsp; |
 | D2 | &check; | PA[14] | &nbsp; |
-| RX / D10 | &check; | PA[13] | &nbsp; |
-| TX / D9 | &check; | PA[12] | &nbsp; |
-| A0 / D19 | &check; | PB[4] | &nbsp; |
-| A2 / D17 | &check; | PB[6] | &nbsp; |
-| A4 / D15 | &check; | PB[2] | &nbsp; |
-| A6 / D29 | &check; | PB[7] | SWCLK. 40K pull-down at boot. |
-| D22 | &check; | PA[9] | &nbsp; |
-| D23 | &check; | PA[10] | &nbsp; |
+| D3 | &check; | PA[15] | &nbsp; |
 | D4 | &check; | PB[18] | &nbsp; |
 | D5 | &check; | PB[19] | &nbsp; |
 | D6 | &check; | PB[20] | &nbsp; |
 | D7 | &check; | PB[21] | &nbsp; |
+| D8 | &check; | PA[19] | &nbsp; |
+| D20 | &check; | PA[1] | &nbsp; |
+| D21 | &check; | PA[0] | &nbsp; |
+| D22 | &check; | PA[9] | &nbsp; |
+| D23 | &check; | PA[10] | &nbsp; |
+| MISO / D11 | &check; | PA[17] | &nbsp; |
+| MOSI / D12 | &check; | PA[16] | &nbsp; |
+| RX / D10 | &check; | PA[13] | &nbsp; |
+| SCK / D13 | &check; | PA[18] | &nbsp; |
+| TX / D9 | &check; | PA[12] | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -230,19 +230,18 @@ Certain GPIO will change state at boot, or cause the MCU to enter a special mode
 
 {{imageOverlay src="/assets/images/m-series/muon-adc.svg" alt="ADC pins" class="full-width"}}
 
-{{!-- BEGIN do not edit content below, it is automatically generated 8f52432b-ccd8-4be0-a2e2-1718b6771c4f --}}
+{{!-- BEGIN do not edit content below, it is automatically generated cb3c6480-361d-4437-8cc3-6422e4c04d74 --}}
 
-| Pin | Pin Name | Description | Interface | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | ADC_0 | PB[4] |
-| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | ADC_1 | PB[5] |
-| 35 | A2 / D17 | A2 Analog in, GPIO | ADC_2 | PB[6] |
-| 37 | A3 / D16 | A3 Analog in, GPIO | ADC_4 | PB[1] |
-| 41 | A4 / D15 | A4 Analog in, GPIO | ADC_5 | PB[2] |
-| 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | ADC_6 | PB[3] |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | ADC_3 | PB[7] |
-| 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | ADC_7 | PA[20] |
-| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | ADC_6 | PB[3] |
+| Pin Name | Description | Interface | M2 Pin | MCU |
+| :--- | :--- | :--- | :--- | :--- |
+| A0 / D19 | A0 Analog in, GPIO, PWM | ADC_0 | 23 | PB[4] |
+| A1 / D18 | A1 Analog in, GPIO, PWM | ADC_1 | 33 | PB[5] |
+| A2 / D17 | A2 Analog in, GPIO | ADC_2 | 35 | PB[6] |
+| A3 / D16 | A3 Analog in, GPIO | ADC_4 | 37 | PB[1] |
+| A4 / D15 | A4 Analog in, GPIO | ADC_5 | 41 | PB[2] |
+| A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | ADC_6 | 43 | PB[3] |
+| A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | ADC_3 | 45 | PB[7] |
+| A7 / WKP | A7 Analog In, WKP, GPIO D28 | ADC_7 | 47 | PA[20] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -265,16 +264,16 @@ For rapidly changing signals, a voltage follower IC can be used.
 {{imageOverlay src="/assets/images/m-series/muon-uart.svg" alt="UART pins" class="full-width"}}
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated d3ffb099-2b14-45d6-b006-71efef7af3ff --}}
+{{!-- BEGIN do not edit content below, it is automatically generated a2d6df45-4f77-45d8-8280-f73c14add2e7 --}}
 
-| Pin | Pin Name | Description | Interface | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | Serial1 (TX) | PA[12] |
-| 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Serial1 (RX)  | PA[13] |
-| 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Serial1 (CTS)  | PA[15] |
-| 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Serial1 (RTS)  | PA[14] |
-| 58 | D24 | D24 GPIO, Serial2 TX, do not pull down at boot | Serial2 (TX)  | PA[7] |
-| 60 | D25 | GPIO25, Serial2 RX | Serial2 (RX)  | PA[8] |
+| Pin Name | Description | Interface | M2 Pin | MCU |
+| :--- | :--- | :--- | :--- | :--- |
+| D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | Serial1 (RTS)  | 42 | PA[14] |
+| D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | Serial1 (CTS)  | 40 | PA[15] |
+| D24 | D24 GPIO, Serial2 TX, do not pull down at boot | Serial2 (TX)  | 58 | PA[7] |
+| D25 | GPIO25, Serial2 RX | Serial2 (RX)  | 60 | PA[8] |
+| RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | Serial1 (RX)  | 38 | PA[13] |
+| TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | Serial1 (TX) | 36 | PA[12] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -291,18 +290,18 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{imageOverlay src="/assets/images/m-series/muon-spi.svg" alt="GPIO pins" class="full-width"}}
 
-{{!-- BEGIN do not edit content below, it is automatically generated fd3eed60-17cc-4294-9a39-7f3d01bf7487 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 3fd13fdc-0a2d-41aa-9a26-3afd196022bd --}}
 
-| Pin | Pin Name | Description | Interface | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | SPI1 (MOSI) | PA[12] |
-| 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | SPI1 (MISO) | PA[13] |
-| 40 | D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | SPI1 (SS) | PA[15] |
-| 42 | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | SPI1 (SCK) | PA[14] |
-| 48 | D8 | D8 GPIO, SPI SS | SPI (SS) | PA[19] |
-| 50 | MISO / D11 | D11 GPIO, PWM, SPI MISO | SPI (MISO) | PA[17] |
-| 52 | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | SPI (MOSI) | PA[16] |
-| 54 | SCK / D13 | D13 GPIO, SPI SCK | SPI (SCK) | PA[18] |
+| Pin Name | Description | Interface | M2 Pin | MCU |
+| :--- | :--- | :--- | :--- | :--- |
+| D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK | SPI1 (SCK) | 42 | PA[14] |
+| D3 | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS | SPI1 (SS) | 40 | PA[15] |
+| D8 | D8 GPIO, SPI SS | SPI (SS) | 48 | PA[19] |
+| MISO / D11 | D11 GPIO, PWM, SPI MISO | SPI (MISO) | 50 | PA[17] |
+| MOSI / D12 | D12 GPIO, PWM, SPI MOSI | SPI (MOSI) | 52 | PA[16] |
+| RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | SPI1 (MISO) | 38 | PA[13] |
+| SCK / D13 | D13 GPIO, SPI SCK | SPI (SCK) | 54 | PA[18] |
+| TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | SPI1 (MOSI) | 36 | PA[12] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -339,12 +338,12 @@ Even though the B SoM and M SoM both have two SPI interfaces, note that the M So
 
 {{imageOverlay src="/assets/images/m-series/muon-i2c.svg" alt="GPIO pins" class="full-width"}}
 
-{{!-- BEGIN do not edit content below, it is automatically generated e673700c-e099-4705-b7be-768efe895a08 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated e9702f86-0377-4b10-a451-c4ebebd36177 --}}
 
-| Pin | Pin Name | Description | Interface | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 20 | D1 | D1 GPIO, I2C SCL | Wire (SCL) | PA[31] |
-| 22 | D0 | D0 GPIO, I2C SDA | Wire (SDA) | PB[0] |
+| Pin Name | Description | Interface | M2 Pin | MCU |
+| :--- | :--- | :--- | :--- | :--- |
+| D0 | D0 GPIO, I2C SDA | Wire (SDA) | 22 | PB[0] |
+| D1 | D1 GPIO, I2C SCL | Wire (SCL) | 20 | PA[31] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -358,23 +357,22 @@ Even though the B SoM and M SoM both have two SPI interfaces, note that the M So
 
 {{imageOverlay src="/assets/images/m-series/muon-pwm.svg" alt="GPIO pins" class="full-width"}}
 
-{{!-- BEGIN do not edit content below, it is automatically generated ce50aa3a-b76c-4140-bf85-100dded18864 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 0e2ce92a-0155-43c6-b496-e30bafeb33e4 --}}
 
-| Pin | Pin Name | Description | MCU |
-| :---: | :--- | :--- | :--- |
-| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | PB[4] |
-| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | PB[5] |
-| 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | PA[12] |
-| 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | PA[13] |
-| 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | PB[3] |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | PB[7] |
-| 50 | MISO / D11 | D11 GPIO, PWM, SPI MISO | PA[17] |
-| 52 | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | PA[16] |
-| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | PB[3] |
-| 66 | D4 | D4 GPIO, PWM | PB[18] |
-| 68 | D5 | D5 GPIO, PWM | PB[19] |
-| 70 | D6 | D6 GPIO, PWM | PB[20] |
-| 72 | D7 | D7 GPIO, PWM | PB[21] |
+| Pin Name | Description | M2 Pin | MCU |
+| :--- | :--- | :--- | :--- |
+| A0 / D19 | A0 Analog in, GPIO, PWM | 23 | PB[4] |
+| A1 / D18 | A1 Analog in, GPIO, PWM | 33 | PB[5] |
+| A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | 43 | PB[3] |
+| A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | 45 | PB[7] |
+| D4 | D4 GPIO, PWM | 66 | PB[18] |
+| D5 | D5 GPIO, PWM | 68 | PB[19] |
+| D6 | D6 GPIO, PWM | 70 | PB[20] |
+| D7 | D7 GPIO, PWM | 72 | PB[21] |
+| MISO / D11 | D11 GPIO, PWM, SPI MISO | 50 | PA[17] |
+| MOSI / D12 | D12 GPIO, PWM, SPI MOSI | 52 | PA[16] |
+| RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | 38 | PA[13] |
+| TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | 36 | PA[12] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -386,13 +384,13 @@ Even though the B SoM and M SoM both have two SPI interfaces, note that the M So
 
 The M SoM supports an external common anode RGB LED on the base board, and the pins are exposed on the expansion connector.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 79cc6da1-8165-49c1-914d-e39064a9ed06 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 066637c0-a644-495e-982d-2698326b39f4 --}}
 
-| Pin | Pin Name | Description | MCU |
-| :---: | :--- | :--- | :--- |
-| 61 | RGBR | RGB LED Red | PA[30] |
-| 63 | RGBG | RGB LED Green | PB[23] |
-| 65 | RGBB | RGB LED Blue | PB[22] |
+| Pin Name | Description | M2 Pin | MCU |
+| :--- | :--- | :--- | :--- |
+| RGBB | RGB LED Blue | 65 | PB[22] |
+| RGBG | RGB LED Green | 63 | PB[23] |
+| RGBR | RGB LED Red | 61 | PA[30] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -403,16 +401,15 @@ The M SoM supports an external common anode RGB LED on the base board, and the p
 
 These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
 
-{{!-- BEGIN do not edit content below, it is automatically generated e39d39e4-5349-44b3-9aaa-989469037cd45 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated c9e7a163-b53c-4c4f-81ff-f84ec7344a0c --}}
 
-| Pin | Pin Name | Description | MCU |
-| :---: | :--- | :--- | :--- |
-| 45 | A6 / D29 | SWCLK. 40K pull-down at boot. | PB[7] |
-| 53 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
-| 55 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
-| 58 | D24 | Low at boot triggers ISP flash download | PA[7] |
-| 60 | D25 | Goes high at boot | PA[8] |
-| 61 | RGBR | Low at boot triggers trap mode | PA[30] |
+| Pin Name | Description | M2 Pin | MCU |
+| :--- | :--- | :--- | :--- |
+| A6 / D29 | SWCLK. 40K pull-down at boot. | 45 | PB[7] |
+| RGBR | Low at boot triggers trap mode | 61 | PA[30] |
+| D24 | Low at boot triggers ISP flash download | 58 | PA[7] |
+| D25 | Goes high at boot | 60 | PA[8] |
+| D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | 55 | PA[27] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -437,12 +434,12 @@ The M SoM preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` slee
 
 Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin D21 can only use an external hardware pull-up or pull down.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 2629e77b-eb69-4f63-8f0e-011032c72782 --}}
 
-| Pin | Pin Name | Description | Interface | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 17 | D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
-| 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | PA[20] |
+| Pin Name | Description | Interface | M2 Pin | MCU |
+| :--- | :--- | :--- | :--- | :--- |
+| A7 / WKP | A7 Analog In, WKP, GPIO D28 | Only this pin can wake from HIBERNATE sleep mode. | 47 | PA[20] |
+| D21 | D21 GPIO | No internal pull up or pull down in HIBERNATE sleep mode. | 17 | PA[0] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

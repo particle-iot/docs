@@ -3965,26 +3965,107 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {
+            guid:'cb3c6480-361d-4437-8cc3-6422e4c04d74',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'hardwareADC',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'a2d6df45-4f77-45d8-8280-f73c14add2e7',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'serial',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            }                     
+        },
+        {
+            guid:'3fd13fdc-0a2d-41aa-9a26-3afd196022bd',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'spi',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            }                     
+        },
+        {
+            guid:'e9702f86-0377-4b10-a451-c4ebebd36177',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'i2c',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            }                     
+        },
+        {        
+            guid:'0e2ce92a-0155-43c6-b496-e30bafeb33e4',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'analogWritePWM',
+                    noInterface: true,
+                    showHardwareTimer: false, // temporary until assigned
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'066637c0-a644-495e-982d-2698326b39f4',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'isLED',
+                    noInterface: true,
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'2629e77b-eb69-4f63-8f0e-011032c72782',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'hibernate',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            }                     
+        },   
+        {
+            guid:'c9e7a163-b53c-4c4f-81ff-f84ec7344a0c',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'bootPins',
+                    platformNew: 'Muon',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            }             
+        },
+
         /*
-        
 
-
-
-cb3c6480-361d-4437-8cc3-6422e4c04d74
-
-a2d6df45-4f77-45d8-8280-f73c14add2e7
-
-3fd13fdc-0a2d-41aa-9a26-3afd196022bd
-
-e9702f86-0377-4b10-a451-c4ebebd36177
-
-0e2ce92a-0155-43c6-b496-e30bafeb33e4
-
-066637c0-a644-495e-982d-2698326b39f4
-
-c9e7a163-b53c-4c4f-81ff-f84ec7344a0c
-
-2629e77b-eb69-4f63-8f0e-011032c72782
 */
     ];
 

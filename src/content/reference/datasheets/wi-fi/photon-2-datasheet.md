@@ -281,16 +281,16 @@ The Photon 2 supports three UART serial interfaces.
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | Serial3 (RTS) | PA[14] |
-| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | Serial3 (TX) | PA[12] |
-| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | Serial3 (RX) | PA[13] |
-| RX / D9 | Serial1 RX (received data), GPIO | Serial1 (RX)  | PA[8] |
-| TX / D8 | Serial1 TX (transmitted data), GPIO | Serial1 (TX) | PA[7] |
 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | Serial2 (RTS) | PA[16] |
 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | Serial2 (CTS) | PA[17] |
 | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | Serial2 (TX) | PA[18] |
 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | Serial2 (RX) | PA[19] |
 | D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | Serial3 (CTS) | PA[15] |
+| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | Serial3 (RX) | PA[13] |
+| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | Serial3 (TX) | PA[12] |
+| RX / D9 | Serial1 RX (received data), GPIO | Serial1 (RX)  | PA[8] |
+| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | Serial3 (RTS) | PA[14] |
+| TX / D8 | Serial1 TX (transmitted data), GPIO | Serial1 (TX) | PA[7] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -310,14 +310,14 @@ The Photon 2 supports two SPI (serial peripheral interconnect) ports.
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| S3 / D18 | S3 GPIO, SPI SS, Was A5 on Gen 3. | SPI (SS) | PB[26] |
-| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | SPI (SCK) | PA[14] |
-| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | SPI (MOSI) | PA[12] |
-| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | SPI (MISO) | PA[13] |
 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | SPI1 (MOSI) | PA[16] |
 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | SPI1 (MISO) | PA[17] |
 | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | SPI1 (SCK) | PA[18] |
 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | SPI1 (SS) | PA[19] |
+| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | SPI (MISO) | PA[13] |
+| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | SPI (MOSI) | PA[12] |
+| S3 / D18 | S3 GPIO, SPI SS, Was A5 on Gen 3. | SPI (SS) | PB[26] |
+| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | SPI (SCK) | PA[14] |
 
 
 {{!-- END do not edit content above, it is automatically generated 90d1c896-32b3-4211-9d62-24d356098f29 --}}
@@ -409,8 +409,8 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| S4 / D19 | S4 GPIO, Was A4 on Gen 3. | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 | D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | Only this pin can wake from HIBERNATE sleep mode. | PA[15] |
+| S4 / D19 | S4 GPIO, Was A4 on Gen 3. | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

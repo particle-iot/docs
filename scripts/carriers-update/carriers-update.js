@@ -2068,12 +2068,6 @@ const generatorConfig = require('./generator-config');
             if (options.tableSortFn) {
                 tableData.sort(options.tableSortFn);
             }   
-            /* 
-            else
-            if (options.noPinNumbers) {
-                tableData.sort(pinNameSortPinsArray);
-            }
-            */
         }
 
         let platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
@@ -2990,6 +2984,7 @@ const generatorConfig = require('./generator-config');
                     }
                     if (m.new) {
                         rowData.newPinName = getPinNameWithAlt(m.new);
+                        rowData.newPinNameNoAlt = m.new.name;
                         rowData.newPort = portColumnValue(m.new[options.port]);
                         rowData.newHardwarePin = m.new.hardwarePin;
                         rowData.newBoot = m.new.boot;
@@ -2998,8 +2993,15 @@ const generatorConfig = require('./generator-config');
                 }
 
             }
-            sortTableData(tableData);
         
+            if (!options.tableSortFn && options.noPinNumbers) {
+                tableData.sort(function(a, b) {
+                    return pinNameSort(a.newPinNameNoAlt, b.newPinNameNoAlt);
+                });
+            }
+            else {
+                sortTableData(tableData);
+            }
 
             md += updater.generateTable(tableOptions, tableData);
         }
@@ -3025,9 +3027,14 @@ const generatorConfig = require('./generator-config');
                 }
             }
 
-            pins.sort(function(a, b) {
-                return a.num - b.num;
-            });
+            if (!options.noPinNumbers) {
+                pins.sort(function(a, b) {
+                    return a.num - b.num;
+                });
+            }
+            else {
+                pins.sort(pinNameSortPinsArray);
+            }
 
             let tableOptions = {
                 columns: [],
@@ -3069,6 +3076,12 @@ const generatorConfig = require('./generator-config');
                 tableOptions.columns.push({
                     key: 'p2pin',
                     title: 'P2 Pin'
+                });    
+            }
+            if (options.showM2Pin) {
+                tableOptions.columns.push({
+                    key: 'm2Pin',
+                    title: 'M2 Pin'
                 });    
             }
             if (!options.noMCU) {
@@ -3124,6 +3137,12 @@ const generatorConfig = require('./generator-config');
                 key: 'boot',
                 title: 'Description'
             });
+            if (options.showM2Pin) {
+                tableOptions.columns.push({
+                    key: 'm2Pin',
+                    title: 'M2 Pin'
+                });    
+            }
             tableOptions.columns.push({
                 key: 'hardwarePin',
                 title: 'MCU'

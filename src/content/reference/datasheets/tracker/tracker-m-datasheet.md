@@ -123,8 +123,8 @@ Note that the Tracker M is intended to be mounted on the bottom side of the expa
 
 | Pin Name | Description | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- |
-| CAN_VDD_EN | CAN_VDD_EN, CAN 5V supply enableIOEX GPB0 | &nbsp; | &nbsp; |
 | CAN_STBY | CAN_STBY, IOEX GPB1 | &nbsp; | &nbsp; |
+| CAN_VDD_EN | CAN_VDD_EN, CAN 5V supply enableIOEX GPB0 | &nbsp; | &nbsp; |
 | P2_A0 / D11 | A0 Analog in, GPIO | &nbsp; | PB[1] |
 | P2_A1 / D12 | A1 Analog in, GPIO | &nbsp; | PB[2] |
 | P2_A2 / D13 | A2 Analog in, PWM, GPIO | &nbsp; | PB[7] |
