@@ -67,6 +67,27 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 If you are migrating to the M SoM from another Particle device, see also the following migration guides:
 
 
+### Features
+
+{{imageOverlay src="/assets/images/m-series/muon-labeled.png" alt="Features labeled" class="full-width"}}
+
+| Label | Feature |
+| :---: | :--- |
+|  1 | M SoM |
+|  2 | LoRa antenna |
+|  3 | RGB status LED |
+|  4 | SWD/JTAG debugging connector |
+|  5 | Expansion connector |
+|  6 | MODE button |
+|  7 | RESET button | 
+|  8 | VIN (6-12 VDC) |
+|  9 | USB Power LED |
+| 10 | USB-C |
+| 11 | Charge LED |
+| 12 | LiPo battery connector (3-pin) |
+
+
+
 ### Power
 
 ### RF
@@ -504,6 +525,9 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+## Expansion card
+
+{{imageOverlay src="/assets/images/m-series/muon-dims2.png" alt="Expansion card dimensions" class="full-width"}}
 
 
 ## Mechanical specifications
