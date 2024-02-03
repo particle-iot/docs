@@ -203,6 +203,12 @@
         "internal": true
       },      
       {
+        "dir": "muon-boron-migration-guide",
+        "title": "Muon from Boron or Argon migration guide",
+        "href": "/hardware/migration-guides/muon-boron-migration-guide/",
+        "internal": true
+      },      
+      {
         "dir": "b-series-boron-migration-guide",
         "title": "B Series from Boron Migration Guide",
         "href": "/hardware/migration-guides/b-series-boron-migration-guide/"

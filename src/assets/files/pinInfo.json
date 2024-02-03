@@ -1986,7 +1986,7 @@
         {
           "num": 48,
           "name": "RTC_EXTI",
-          "desc": "RTC EXTI. Can use as a wake button. Has 100K weak pull-up to 3V3.",
+          "desc": "RTC EXTI. Can use as a wake button. Has 100K weak pull-up to RTC 3V3.",
           "isControl": true,
           "net": "RTC_EXTI",
           "somPin": 74
@@ -2112,6 +2112,7 @@
           "internalPull": "???",
           "is5VTolerant": false,
           "isIO": true,
+          "isRTC": true,
           "m2Pin": 64,
           "net": "M2_D23/RTC_INT",
           "somPin": "GPIO1",

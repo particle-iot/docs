@@ -4073,8 +4073,123 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },  
+        // Muon <- Argon/Boron Migration Guide
+        {
+            guid:'7569c844-d0ac-4468-b317-3c9c6d9b7198', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                    newHardwarePin: true,
+                }); 
+            }
+        },        
+        {
+            guid:'5bb5787d-980b-4cb7-8293-14ed6775d21b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                    newHardwarePin: true,
+                }); 
+            }
+        },        
+        {
+            guid:'bb723044-07c3-4cf6-819f-8a140213ec6b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                    newHardwarePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'202b1c57-447e-4821-b2f5-ef6f90407e49', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    port: 'i2c',
+                    label: 'I2C',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                    newHardwarePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'7ccd5b6d-7fac-406d-9245-8a0659e3b746', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                    newHardwarePin: true,
+                }); 
+            }
+        },  
+        {
+            guid:'a92768ab-8aea-4c68-8223-c1a6636141f8', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                }); 
+            } 
+        },
+
         /*
 
+b2602ec5-53ed-49e2-9c61-15545edcf63e
+
+7136eb07-5714-4cff-9e02-b35cd752ee7a
+
+2785be8b-e2f5-4867-8624-f3d8096b6f13
 */
     ];
 

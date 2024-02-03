@@ -153,62 +153,18 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 - SWO (Serial Wire Output) is not supported on the RTL8722DM.
 - Pins 45 and 53 are shared 
 
-## I2C Peripherals
+{{!-- BEGIN shared-blurb b22140c5-a3b4-4295-bd72-ae892dc637cf --}}
+| I2C Address | Peripheral |
+| :--- | :--- |
+| 0x08 | HUSB238 USB-C power controller |
+| 0x36 | MAX17043 Fuel Gauge |
+| 0x48 | TMP112A temperature sensor |
+| 0x50 | 24CW640T EEPROM |
+| 0x68 | AM1805 RTC/Watchdog |
+| 0x6B | bq24195 PMIC |
+|      | LoRa radio |
+{{!-- END shared-blurb --}}
 
-### Qwiic
-
-The Muon board also contains a 4-pin micro connector for 3.3V I2C devices. It is compatible with Sparkfun Qwiic and Adafruit STEMMA-QT for easy expansion without soldering or prototyping wires. See the [Qwiic page](/hardware/expansion/qwiic/) for more information.
-
-### EEPROM
-
-The EEPROM can be used for configuration and storage of small amounts of data that persists even when the power is removed.
-
-- 24CW640T
-- Address 0x50 (I think this needs to change)
-- 64 Kbit (8 Kbyte)
-- More than one million erase/write cycles 
-- Data retention > 200 years
-
-### Temperature sensor
-
-- TMP112A
-- Address 0x48
-
-### RTC/Watchdog
-
-- AM1805
-- Address 0x68
-
-| AM1805 Pin | Net | Description |
-| :--- | :--- | :--- |
-| VBAT | RTC_VBAT | Connect to GND if not using an external battery. |
-| FOUT/IRQ | M2_D23/RTC_INT | Allows RTC to wake MCU by interrupt. |
-| PSW/IRQ2 | PSW | VSYS on/off control. |
-| EXTI | RTC_EXTI | Interrupt input to RTC (optional). Pull-up to RTC 3.3 supply. |
-
-### LoRa
-
-- The Quectel KG200Z LoRa module has a number of interfaces, including serial, SPI, and I2C
-- These interfaces can be enabled by DIP switches
-
-### USB-C voltage and current selection
-
-- HUSB238 
-- Address 0x08
-- Current and voltage selection
-- Adafruit has a [breakout board for this chip](https://www.adafruit.com/product/5807)
-
-### PMIC 
-
-- bq24195
-- Address 0x6B
-- Located in the power module
-
-### Fuel Gauge
-
-- MAX17043
-- Address 0x36
-- Located in the power module
 
 ## Pin information
 
@@ -439,9 +395,11 @@ Even though the B SoM and M SoM both have two SPI interfaces, note that the M So
 - External pull-up resistors are required for I2C
 
 
+
 There are number of I2C peripherals on the Muon board. Makes ure external sensors and devices I2C addresses do not conflict with these addresses:
 
 
+{{!-- BEGIN shared-blurb b22140c5-a3b4-4295-bd72-ae892dc637cf --}}
 | I2C Address | Peripheral |
 | :--- | :--- |
 | 0x08 | HUSB238 USB-C power controller |
@@ -451,6 +409,9 @@ There are number of I2C peripherals on the Muon board. Makes ure external sensor
 | 0x68 | AM1805 RTC/Watchdog |
 | 0x6B | bq24195 PMIC |
 |      | LoRa radio |
+{{!-- END shared-blurb --}}
+
+
 
 
 ### PWM
@@ -1230,7 +1191,7 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">RTC_EXTI</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">RTC EXTI. Can use as a wake button. Has 100K weak pull-up to 3V3.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">RTC EXTI. Can use as a wake button. Has 100K weak pull-up to RTC 3V3.</td></tr>
 </tbody>
 </table>
 

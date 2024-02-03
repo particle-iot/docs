@@ -667,11 +667,11 @@
             "internalPull": "???",
             "is5VTolerant": false,
             "isIO": true,
+            "isRTC": true,
             "m2Pin": 64,
             "net": "M2_D23/RTC_INT",
             "somPin": "GPIO1",
-            "tone": false,
-            "isRTC": true
+            "tone": false
         },
         {
             "num": 61,
