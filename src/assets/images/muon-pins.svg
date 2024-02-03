@@ -2092,7 +2092,7 @@
     <rect x="-50" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="-25" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-NC    </text>
+GNSS_P    </text>
   </g>
   <g transform="translate(290,223) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -2327,12 +2327,6 @@ GND    </text>
     </rect>
     <text x="-25" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RUN    </text>
-    <line x1="-50" y1="0" x2="-54" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-154" y="-8" width="100" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-RUN    </text>
   </g>
   <g transform="translate(290,601) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -2340,12 +2334,6 @@ RUN    </text>
     <rect x="-50" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="-25" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PGOOD    </text>
-    <line x1="-50" y1="0" x2="-54" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-154" y="-8" width="100" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 PGOOD    </text>
   </g>
   <g transform="translate(290,622) " >
@@ -2439,12 +2427,6 @@ GND    </text>
     </rect>
     <text x="25" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VBUS    </text>
-    <line x1="50" y1="0" x2="54" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="54" y="-8" width="100" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-VBUS    </text>
   </g>
   <g transform="translate(714,622) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -2494,12 +2476,6 @@ GND    </text>
     <rect x="0" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="25" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PMIC_VIN    </text>
-    <line x1="50" y1="0" x2="54" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="54" y="-8" width="100" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 PMIC_VIN    </text>
   </g>
   <g transform="translate(714,538) " >
@@ -3051,12 +3027,6 @@ TS    </text>
     </rect>
     <text x="-25" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VBUS    </text>
-    <line x1="-50" y1="0" x2="-54" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-154" y="-8" width="100" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-VBUS    </text>
   </g>
   <g transform="translate(659,622) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -3106,12 +3076,6 @@ GND    </text>
     <rect x="-50" y="-8" width="50" height="16" stroke="black" fill="#00E1FF" >
     </rect>
     <text x="-25" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PMIC_VIN    </text>
-    <line x1="-50" y1="0" x2="-54" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-154" y="-8" width="100" height="16" stroke="black" fill="#E2E4EB" >
-    </rect>
-    <text x="-104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 PMIC_VIN    </text>
   </g>
   <g transform="translate(659,538) " >

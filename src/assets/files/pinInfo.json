@@ -1448,6 +1448,11 @@
       "name": "Muon",
       "pins": [
         {
+          "num": 1,
+          "name": "GNSS_P",
+          "desc": "NC on Muon (GNSS pulse output on Monitor One)."
+        },
+        {
           "num": 2,
           "name": "A1",
           "altName": "D18",
@@ -1538,7 +1543,6 @@
           "num": 7,
           "name": "NC",
           "morePins": [
-            1,
             8,
             38,
             39,
@@ -1752,19 +1756,17 @@
         {
           "num": 19,
           "name": "RUN",
-          "desc": "Pull low to disable LTC7103 regulator. Has 100K pull-up to VIN.",
-          "net": "RUN"
+          "desc": "NC on Muon (power enabled on Monitor One)."
         },
         {
           "num": 20,
           "name": "PGOOD",
-          "desc": "LTC7103 regulator open drain power good output. Pulled low when regulator is not in regulation.",
-          "net": "PGOOD"
+          "desc": "NC on Muon (open drain power good output on Monitor One)."
         },
         {
           "num": 23,
           "name": "VIN",
-          "desc": "Power input, 6 - 90 VDC",
+          "desc": "Power input, 6 - 12 VDC",
           "isPower": true,
           "morePins": [
             24,
@@ -1786,13 +1788,12 @@
         {
           "num": 27,
           "name": "VBUS",
-          "desc": "nRF52 USB power input. Can be used as a 5V power supply instead of VIN.",
+          "desc": "NC on Muon (nRF52 USB power input on Monitor One).",
           "isUSB": true,
           "monitorOne": "TSOM_USB_VBUS",
           "morePins": [
             75
-          ],
-          "net": "VBUS"
+          ]
         },
         {
           "num": 29,
@@ -1809,13 +1810,12 @@
         {
           "num": 31,
           "name": "PMIC_VIN",
-          "desc": "VIN to PMIC",
+          "desc": "NC on Muon.",
           "isPower": true,
           "monitorOne": "5V",
           "morePins": [
             79
-          ],
-          "net": "PMIC_VIN"
+          ]
         },
         {
           "num": 33,

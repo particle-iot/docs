@@ -3940,7 +3940,7 @@ const schemaDocs = require('./schema-docs');
             } 
         },
 
-        // muon - RTL8722DM
+        // Muon - RTL8722DM
         {
             guid: '4c12540b-20a8-4d2b-a070-0237af5223e3',
             generatorFn:function(updater){
@@ -4063,7 +4063,16 @@ const schemaDocs = require('./schema-docs');
                 }); 
             }             
         },
-
+        {
+            guid:'7bdb0f44-3eb6-4e4a-89bb-14c9bb159cbd', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: false,
+                    platformNew: 'Muon'
+                }); 
+            } 
+        },  
         /*
 
 */

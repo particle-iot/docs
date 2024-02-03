@@ -2657,15 +2657,29 @@ const generatorConfig = require('./generator-config');
 
             comparisonTags.push('hardwarePin', 'm2Pin');
 
-            const pinsExpanded = expandMorePins(platformInfoNew.pins);
-            pinsExpanded.sort(function(a, b) {
-                return a.num - b.num;
-            });
+            let pinsExpanded = [];
+
+            if (options.showPinNum) {
+                pinsExpanded = expandMorePins(platformInfoNew.pins);
+                pinsExpanded.sort(function(a, b) {
+                    return a.num - b.num;
+                });    
+            }
+            else {
+                for(const p of platformInfoNew.pins) {
+                    pinsExpanded.push(p);
+                }
+                pinsExpanded.sort(pinNameSortPinsArray);    
+            }
 
             for(const pin of pinsExpanded) {
             
-                md += '\n#### ' + pin.num + ' ' + pin.name + '\n\n';
-
+                if (options.showPinNum) {
+                    md += '\n#### ' + pin.num + ' ' + pin.name + '\n\n';
+                }
+                else {
+                    md += '\n#### ' + pin.name + '\n\n';
+                }
 
                 let tableOptions = {
                     columns: [],
