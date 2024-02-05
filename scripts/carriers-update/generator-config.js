@@ -3948,6 +3948,8 @@ const schemaDocs = require('./schema-docs');
                     style: 'pinFunction',
                     platformNew: 'Muon',
                     noPinNumbers: true,
+                    pinFilterFn: p => typeof p.hardwarePin == 'undefined',
+                    includeDesc: false, // Maybe turn on, but it's a little wide
                 }); 
             } 
         },        

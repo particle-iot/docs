@@ -15,7 +15,7 @@ This is a preliminary datasheet and changes may occur prior to release.
 
 ## Overview
 
-The M SoM module contains the following functional units:
+The Particle M SoM contains the following functional units:
  
 - M.2 SoM form-factor, like the B Series SoM
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
@@ -655,7 +655,7 @@ We strongly recommend against placing components under the SOM board because the
 ## Product Handling
 
 ### ESD Precautions
-The M SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an M SoM without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the M SoM module. ESD precautions should be implemented on the application board where the M SoM is mounted. Failure to observe these precautions can result in severe damage to the M SoM!
+The M SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an M SoM without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the Particle M SoM. ESD precautions should be implemented on the application board where the M SoM is mounted. Failure to observe these precautions can result in severe damage to the M SoM!
 
 ### Connectors
 

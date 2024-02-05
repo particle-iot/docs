@@ -15,7 +15,21 @@ This is a very preliminary datasheet. There may be errors and design changes pri
 
 The Muon is a developer kit based on the M SoM with additional peripherals for easy prototyping.
 
-The M SoM module contains the following functional units:
+- LoRaWAN module (Quectel KG200Z, 862 – 928 MHz)
+- 96-pin expansion connector
+- Temperature sensor (TMP112A)
+- Configuration EEPROM (24CW640T)
+- Real-time clock and watchdog chip (AM1805)
+- Reset and mode buttons
+- RGB status LED
+- Power input options
+  - USB-C
+  - VIN (6-12 VDC)
+  - LiPo battery with temperature sensor (3-pin JST-PH)
+
+### M SoM
+
+The Muon contains a Particle M SoM that the following functional units:
  
 - M.2 SoM form-factor, like the B Series SoM
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
@@ -24,19 +38,6 @@ The M SoM module contains the following functional units:
   - Quectel BG95-M5 LTE Cat M1 (North America)
   - Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
 
-The Muon adds:
-
-- LoRa module
-- 96-pin expansion connector
-- Temperature sensor
-- Configuration EEPROM
-- Real-time clock and watchdog chip (AM1805)
-- Reset and mode buttons
-- RGB status LED
-- Power input options
-  - USB-C
-  - VIN (6-12 VDC)
-  - LiPo battery
 
 ### MCU
 
@@ -80,7 +81,7 @@ If you are migrating to the M SoM from another Particle device, see also the fol
 | Label | Feature |
 | :---: | :--- |
 |  1 | M SoM |
-|  2 | LoRa antenna |
+|  2 | LoRaWAN antenna |
 |  3 | RGB status LED |
 |  4 | SWD/JTAG debugging connector |
 |  5 | Expansion connector |
@@ -122,6 +123,7 @@ If purchasing a battery from a 3rd-party supplier, verify the polarity as the po
   - Cellular 
   - Wi-Fi (2.4 GHz and 5 GHz) and BLE
   - GNSS (GPS)
+- The Muon adds an additional U.FL connector for LoRaWAN antenna.
 - Wi-Fi operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
 - GNSS features are limited M404 as the cellular modem cannot do cellular communication and GNSS at the same time.
 
@@ -180,7 +182,7 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 | 0x50 | 24CW640T EEPROM |
 | 0x68 | AM1805 RTC/Watchdog |
 | 0x6B | bq24195 PMIC |
-|      | LoRa radio |
+|      | LoRaWAN radio |
 {{!-- END shared-blurb --}}
 
 
@@ -205,9 +207,6 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 | A5 / D14 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
 | A6 / D29 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[7] |
 | A7 / WKP | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
-| CAN_5V | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| CAN_N | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| CAN_P | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | D0 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | PB[0] |
 | D1 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | PA[31] |
 | D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
@@ -225,22 +224,16 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 | D25 | &nbsp; | &nbsp; | &nbsp; | Serial2 (RX)  | PA[8] |
 | D26 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
 | D27 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
-| GNSS_P | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | MISO / D11 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
 | MOSI / D12 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
-| NC | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| PGOOD | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | RGBB | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
 | RGBG | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
 | RGBR | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
-| RUN | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | RX / D10 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial1 (RX)  | PA[13] |
 | SCK / D13 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[18] |
-| TS | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | TX / D9 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 (TX) | PA[12] |
 | USBDATA- | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[25] |
 | USBDATA+ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[26] |
-| VBUS | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -429,7 +422,7 @@ There are number of I2C peripherals on the Muon board. Makes ure external sensor
 | 0x50 | 24CW640T EEPROM |
 | 0x68 | AM1805 RTC/Watchdog |
 | 0x6B | bq24195 PMIC |
-|      | LoRa radio |
+|      | LoRaWAN radio |
 {{!-- END shared-blurb --}}
 
 
@@ -570,7 +563,7 @@ Some expansion cards designed for the Monitor One can be used with the Muon.
 
 {{!-- BEGIN do not edit content below, it is automatically generated b2602ec5-53ed-49e2-9c61-15545edcf63e --}}
 
-| Pin Name | Muon | Monitor One | Description |
+| Pin Name | Muon | Monitor One | Muon Description |
 | :--- | :--- | :--- | :--- |
 | 3V3 | +3V3 | +3V3 | 3.3V out. 700 mA for M SoM and 500 mA available for peripheral devices. |
 | A0 | M2_ADC0 | NC | A0 Analog in, GPIO, PWM |
@@ -607,7 +600,6 @@ Some expansion cards designed for the Monitor One can be used with the Muon.
 | MISO | M2_SPI_MISO | TSOM_A5 | D11 GPIO, PWM, SPI MISO |
 | MODE | M2_MODE | TSOM_MODE | MODE button. Pin number constant is BTN. External pull-up required! |
 | MOSI | M2_SPI_MOSI | TSOM_A4 | D12 GPIO, PWM, SPI MOSI |
-| NC | NC | NC | &nbsp; |
 | PGOOD | NC | PGOOD | NC on Muon (open drain power good output on Monitor One). |
 | PMIC_VIN | PMIC_VIN | 5V | Power out 5 - 12 VDC, supplied by VIN or USB-C |
 | RGBB | M2_RGB_B | NC | RGB LED Blue |
@@ -1539,7 +1531,7 @@ These are schematic version 0.2 and will likely change before release.
 ## Product Handling
 
 ### ESD Precautions
-The M SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an M SoM without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the M SoM module. ESD precautions should be implemented on the application board where the M SoM is mounted. Failure to observe these precautions can result in severe damage to the M SoM!
+The M SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an M SoM without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the Particle M SoM. ESD precautions should be implemented on the application board where the M SoM is mounted. Failure to observe these precautions can result in severe damage to the M SoM!
 
 ### Connectors
 

@@ -16,7 +16,7 @@ This is a preliminary datasheet and changes may occur prior to release.
 
 <p class="attribution">Pictures are not the same scale</p>
 
-The P2 module is a Wi-Fi SMD module that is mounted directly to your custom base board, while the M SoM is a M.2 SoM that fits in a M.2 socket on your base board and has both cellular and Wi-Fi capabilities. The M SoM module is larger and will not fit in the same footprint as the P2.
+The P2 module is a Wi-Fi SMD module that is mounted directly to your custom base board, while the M SoM is a M.2 SoM that fits in a M.2 socket on your base board and has both cellular and Wi-Fi capabilities. The Particle M SoM is larger and will not fit in the same footprint as the P2.
 
 However, since the P2 has a Realtek RTL8721DM processor and the M SoM has a Realtek RTL8722DM which is substantially similar, only having more GPIO, the migration should be relatively straightforward.
 

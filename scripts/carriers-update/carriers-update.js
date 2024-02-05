@@ -2316,7 +2316,9 @@ const generatorConfig = require('./generator-config');
             let pins = [];
             for(const pin of platformInfoNew.pins) {
                 if (!pin.isPower && !pin.isControl) {
-                    pins.push(pin);
+                    if (!options.pinFilterFn || !options.pinFilterFn(pin)) {
+                        pins.push(pin);
+                    }
                 }
             }
             pins.sort(pinNameSortPinsArray);
@@ -2352,6 +2354,13 @@ const generatorConfig = require('./generator-config');
                 key: 'hardwarePin',
                 title: 'MCU'
             });
+            if (options.includeDesc) {
+                tableOptions.columns.push({
+                    key: 'desc',
+                    title: 'Description'
+                });    
+            }
+
 
             let tableData = [];
             for(const pin of pins) {
@@ -2390,7 +2399,9 @@ const generatorConfig = require('./generator-config');
         if (options.style == 'expansion-muon-monitor-one') {
             let pins = [];
             for(const pin of platformInfoNew.pins) {
-                pins.push(pin);
+                if (pin.name != 'NC') {
+                    pins.push(pin);
+                }
             }
             pins.sort(pinNameSortPinsArray);
 
@@ -2412,7 +2423,7 @@ const generatorConfig = require('./generator-config');
             });
             tableOptions.columns.push({
                 key: 'desc',
-                title: 'Description',
+                title: 'Muon Description',
             });
 
             let tableData = [];

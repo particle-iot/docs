@@ -22,7 +22,7 @@ This is a very preliminary guide. There may be errors and design changes prior t
 
 The Argon and Boron are pin-based modules that can be installed in solderless breadboard for prototyping, can be installed in a socket on your custom board, or soldered directly to your board. The modules are in Adafruit Feather form-factor. There are male header pins on the bottom.
 
-The Muon is a larger development module. There female headers on the top of the board that accept an expansion card or can be connected to a solderless breadboard using Dupont wires or ribbon cable. The Muon contains a M SoM module mounted in a M.2 NGFF socket, a power supply, and various peripheral chips.
+The Muon is a larger development module. There female headers on the top of the board that accept an expansion card or can be connected to a solderless breadboard using Dupont wires or ribbon cable. The Muon contains a Particle M SoM mounted in a M.2 NGFF socket, a power supply, and various peripheral chips.
 
 | Device | Inches | Millimeters (mm) |
 | :--- | :--- | :--- |
@@ -238,7 +238,7 @@ There are number of I2C peripherals on the Muon board. Makes ure external sensor
 | 0x50 | 24CW640T EEPROM |
 | 0x68 | AM1805 RTC/Watchdog |
 | 0x6B | bq24195 PMIC |
-|      | LoRa radio |
+|      | LoRaWAN radio |
 {{!-- END shared-blurb --}}
 
 
