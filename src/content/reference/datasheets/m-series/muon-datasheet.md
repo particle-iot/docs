@@ -27,8 +27,8 @@ The M SoM module contains the following functional units:
 The Muon adds:
 
 - LoRa module
-- 96-pin Expansion connector
-- Temperature sensor 
+- 96-pin expansion connector
+- Temperature sensor
 - Configuration EEPROM
 - Real-time clock and watchdog chip (AM1805)
 - Reset and mode buttons
@@ -36,6 +36,7 @@ The Muon adds:
 - Power input options
   - USB-C
   - VIN (6-12 VDC)
+  - LiPo battery
 
 ### MCU
 
@@ -66,6 +67,9 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 
 If you are migrating to the M SoM from another Particle device, see also the following migration guides:
 
+- [Muon from Argon or Boron](/hardware/migration-guides/muon-boron-migration-guide/)
+
+*Additional guides will be added at a later date*
 
 ### Features
 
@@ -97,6 +101,20 @@ Power can be supplied to Muon by:
 - USB-C
 - VIN (6 - 12 VDC, via screw terminals)
 - LiPo battery (via 3-pin JST battery connector)
+
+#### LiPo battery connector
+
+The Muon has a 3-pin JST-PH (2mm pitch) battery connector that is the same as the Monitor One for connection to a 3.7V LiPo battery pack 
+with an integrated temperature sensor (10K NTC thermistor).
+
+Some other Particle devices have a 3.7V LiPo battery without a temperature sensor using 2-pin JST-PH connector. This battery is not compatible and cannot be used with the Muon. A temperature sensor or equivalent resistance is required for proper operation; replacing the connector is not sufficient to use a battery without a temperature sensor.
+
+<div align="center"><img src="/assets/images/m-series/battery-conn.png" class="small"></div>
+
+<p class="attribution">Facing the plug on the battery side</p>
+
+
+If purchasing a battery from a 3rd-party supplier, verify the polarity as the polarity is not standardized even for batteries using a JST-PH connector.
 
 ### RF
 
@@ -135,7 +153,7 @@ To be provided at a later date.
 
 Muon has a Particle-standard 10-pin 2x5 SWD debugging connector. This interface can be used to debug your code or reprogram your bootloader, device OS, or the user firmware using any standard SWD tools including our Gen 3 Debugger.
 
-<div align=center><img src="/assets/images/boron/swd-connector-pinout.png" ></div>
+<div align="center"><img src="/assets/images/boron/swd-connector-pinout.png" class="small"></div>
 
 SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is no longer available. This is the same as Gen 2 (STM32) but different than Gen 3 (nRF52840). Using a Debug build in Particle workbench will allow SWD to continue to run, but you will not be able to use pins A5, A6, or D27 as GPIO or ADC.
 
