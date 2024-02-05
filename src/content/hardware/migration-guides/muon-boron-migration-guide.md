@@ -8,7 +8,7 @@ description: M SoM from Boron or Argon migration guide
 # {{title}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-This is a preliminary datasheet and changes may occur prior to release.
+This is a very preliminary guide. There may be errors and design changes prior to release.
 {{box op="end"}}
 
 {{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/m-series/muon-top.png"}}
@@ -800,8 +800,6 @@ The Boron and Argon support NFC Tag mode.
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
-
-
 
 ## Software
 

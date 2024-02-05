@@ -1358,6 +1358,28 @@ To be provided at a later date.
 To be provided at a later date.
 
 
+
+## Schematics
+
+{{box op="start" cssClass="boxed warningBox"}}
+These are schematic version 0.2 and will likely change before release.
+{{box op="end"}}
+
+
+### Page 1 - Schematics
+
+{{imageOverlay src="/assets/images/m-series/muon-schematic-1.svg" alt="Schematic" class="full-width"}}
+
+### Page 2 - Schematics
+
+{{imageOverlay src="/assets/images/m-series/muon-schematic-2.svg" alt="Schematic" class="full-width"}}
+
+### Page 3 - Schematics
+
+{{imageOverlay src="/assets/images/m-series/muon-schematic-3.svg" alt="Schematic" class="full-width"}}
+
+
+
 ## Product Handling
 
 ### ESD Precautions
@@ -1511,4 +1533,4 @@ SE, SI, SK, TR, UA, UK(NI).
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre      | 2024-02-04 | RK | Interal pre-release |
+| pre      | 2024-02-05 | RK | Preliminary version (schematic 0.2 20240131R4) |
