@@ -4182,10 +4182,19 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        {
+            guid:'b2602ec5-53ed-49e2-9c61-15545edcf63e', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'expansion-muon-monitor-one',
+                    platformNew: 'Muon'
+                }); 
+            } 
+        },
 
         /*
 
-b2602ec5-53ed-49e2-9c61-15545edcf63e
+
 
 7136eb07-5714-4cff-9e02-b35cd752ee7a
 

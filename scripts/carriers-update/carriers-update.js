@@ -2386,6 +2386,61 @@ const generatorConfig = require('./generator-config');
         }
 
 
+
+        if (options.style == 'expansion-muon-monitor-one') {
+            let pins = [];
+            for(const pin of platformInfoNew.pins) {
+                pins.push(pin);
+            }
+            pins.sort(pinNameSortPinsArray);
+
+            let tableOptions = {
+                columns: [],
+            };
+            
+            tableOptions.columns.push({
+                key: 'name',
+                title: 'Pin Name',
+            });
+            tableOptions.columns.push({
+                key: 'muon',
+                title: 'Muon',
+            });
+            tableOptions.columns.push({
+                key: 'monitorOne',
+                title: 'Monitor One',
+            });
+            tableOptions.columns.push({
+                key: 'desc',
+                title: 'Description',
+            });
+
+            let tableData = [];
+            for(const pin of pins) {
+                let rowData = Object.assign({}, pin);
+                
+                if (rowData.net) {
+                    rowData.muon = pin.net;
+                }
+                else {
+                    rowData.muon = 'NC';
+                }
+
+                if (rowData.monitorOne) {
+                    rowData.monitorOne = pin.monitorOne;
+                }
+                else {
+                    rowData.monitorOne = 'NC';
+                }
+
+                
+                tableData.push(rowData);
+            }
+            
+            md += updater.generateTable(tableOptions, tableData);
+        }
+ 
+
         if (options.style == 'modulePins') {
             let pins = expandMorePins(platformInfoNew.pins);    
 

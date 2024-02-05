@@ -1450,7 +1450,8 @@
         {
           "num": 1,
           "name": "GNSS_P",
-          "desc": "NC on Muon (GNSS pulse output on Monitor One)."
+          "desc": "NC on Muon (GNSS pulse output on Monitor One).",
+          "monitorOne": "GNSS_PULSE"
         },
         {
           "num": 2,
@@ -1544,9 +1545,6 @@
           "name": "NC",
           "morePins": [
             8,
-            38,
-            39,
-            40,
             49,
             55,
             56,
@@ -1708,7 +1706,7 @@
           "is5VTolerant": false,
           "isIO": true,
           "m2Pin": 52,
-          "monitorOne": 16,
+          "monitorOne": "TSOM_A4",
           "net": "M2_SPI_MOSI",
           "somPin": "MOSI",
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
@@ -1746,8 +1744,9 @@
         {
           "num": 18,
           "name": "3V3",
-          "desc": "3.3V out, 1000 mA maximum including nRF52 and other peripherals.",
+          "desc": "3.3V out. 700 mA for M SoM and 500 mA available for peripheral devices.",
           "isPower": true,
+          "monitorOne": "+3V3",
           "morePins": [
             66
           ],
@@ -1756,18 +1755,21 @@
         {
           "num": 19,
           "name": "RUN",
-          "desc": "NC on Muon (power enabled on Monitor One)."
+          "desc": "NC on Muon (power enabled on Monitor One).",
+          "monitorOne": "RUN"
         },
         {
           "num": 20,
           "name": "PGOOD",
-          "desc": "NC on Muon (open drain power good output on Monitor One)."
+          "desc": "NC on Muon (open drain power good output on Monitor One).",
+          "monitorOne": "PGOOD"
         },
         {
           "num": 23,
           "name": "VIN",
           "desc": "Power input, 6 - 12 VDC",
           "isPower": true,
+          "monitorOne": "VIN",
           "morePins": [
             24,
             71,
@@ -1780,6 +1782,7 @@
           "name": "LI+",
           "desc": "Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS.",
           "isPower": true,
+          "monitorOne": "LI+",
           "morePins": [
             73
           ],
@@ -1906,6 +1909,24 @@
           "tone": false
         },
         {
+          "num": 38,
+          "name": "CAN_N",
+          "desc": "NC on Muon (CAN Data- or CANL on Monitor One)",
+          "monitorOne": "CAN_N"
+        },
+        {
+          "num": 39,
+          "name": "CAN_P",
+          "desc": "NC on Muon. (CAN Data+ or CANH on Monitor One)",
+          "monitorOne": "CAN_N"
+        },
+        {
+          "num": 40,
+          "name": "CAN_5V",
+          "desc": "NC on Muon. (CAN_5V on Monitor One)",
+          "monitorOne": "CAN_5V"
+        },
+        {
           "num": 42,
           "name": "USBDATA-",
           "desc": "USB Data-",
@@ -1945,7 +1966,7 @@
           "is5VTolerant": false,
           "isIO": true,
           "m2Pin": 38,
-          "monitorOne": "RX, D9, Wire3 SDA",
+          "monitorOne": "TSOM_RX",
           "net": "M2_RXD",
           "pwmChannel": "1.1",
           "serial": "Serial1 (RX) |RX. Use Serial1 object.",
@@ -1969,7 +1990,7 @@
           "is5VTolerant": false,
           "isIO": true,
           "m2Pin": 36,
-          "monitorOne": "TX, GPIO D8, PWM, Wire3 SCL",
+          "monitorOne": "TSOM_TX",
           "net": "M2_TXD",
           "pwmChannel": "1.0",
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
@@ -1982,16 +2003,16 @@
           "name": "RTC_BAT",
           "desc": "RTC/Watchdog battery +. Connect to GND if not using.",
           "isPower": true,
-          "net": "RTC_BAT",
-          "somPin": 73
+          "monitorOne": "RTC_BAT",
+          "net": "RTC_BAT"
         },
         {
           "num": 48,
           "name": "RTC_EXTI",
           "desc": "RTC EXTI. Can use as a wake button. Has 100K weak pull-up to RTC 3V3.",
           "isControl": true,
-          "net": "RTC_EXTI",
-          "somPin": 74
+          "monitorOne": "RTC_EXTI",
+          "net": "RTC_EXTI"
         },
         {
           "num": 50,

@@ -205,6 +205,9 @@ SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is 
 | A5 / D14 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
 | A6 / D29 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[7] |
 | A7 / WKP | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
+| CAN_5V | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CAN_N | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CAN_P | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | D0 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | PB[0] |
 | D1 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | PA[31] |
 | D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
@@ -505,11 +508,11 @@ Wi-Fi and BLE share the same antenna so you do not need to include a separate an
 
 ### Sleep
 
-The M SoM can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
+The Muon/M SoM can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
 
-The M SoM can only wake from `HIBERNATE` sleep mode on pin A7 (WKP), `RISING`, `FALLING`, or `CHANGE`.
+The Muon/M SoM can only wake from `HIBERNATE` sleep mode on pin A7 (WKP), `RISING`, `FALLING`, or `CHANGE`.
 
-The M SoM preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
+The Muon/M SoM preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
 
 Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin D21 can only use an external hardware pull-up or pull down.
 
@@ -529,6 +532,108 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 
 <p class="attribution">Dimensions in millimeters (mm)</p>
 
+The Muon can be expanded in several ways:
+
+- Qwiic or Stemma-QT I2C peripherals
+- Dupont wires or ribbon cables to a solderless breadboard
+- A custom expansion card that sits on top of the Muon
+
+### Custom expansion cards
+
+A custom expansion card generally fits in the area surrounding the standoff screws adjacent to the 96-pin expansion connector. The expansion card has 96 (or 48) male header pins on the bottom of the card.
+
+The card can either be the size of the Muon, or slightly smaller. If sized to fit the Muon, it will block the SWD/JTAG and Qwiic connectors, and partially block the RGB status LED.
+
+All expansion cards will block the MODE and RESET buttons, however expansion cards can include a second set of buttons on the expansion card and we recommend doing so for ease of development.
+
+
+### Monitor One expansion compatibility
+
+Some expansion cards designed for the Monitor One can be used with the Muon. 
+
+- The Monitor One uses a different MCU (Tracker SoM with nRF52840 MCU), there may be software and hardware compatibility issues.
+- The Monitor One has a 48-pin expansion card that is the same size as the Muon.
+- The Muon has two additional rows of expansion card pins, making a 96-pin expansion card interface that is partially backward compatible.
+- The Monitor One expansion card pin `5V` is `PMIC_VIN` on the Muon, and can be 5 to 12 VDC.
+- The Muon does not support CAN (Controller Area Network) and does not have `CAN_P`, `CAN_N`, and `CAN_5V`.
+- The Muon does not support `Wire3`, I2C over the RX/TX pins.
+
+#### Monitor One expansion interface 
+
+{{imageOverlay src="/assets/images/monitor-one-pins.svg" alt="Pinout" class="full-width"}}
+
+#### Muon expansion interface 
+
+{{imageOverlay src="/assets/images/muon-pins.svg" alt="Pinout" class="full-width"}}
+
+#### Monitor One vs. Muon expansion
+
+{{!-- BEGIN do not edit content below, it is automatically generated b2602ec5-53ed-49e2-9c61-15545edcf63e --}}
+
+| Pin Name | Muon | Monitor One | Description |
+| :--- | :--- | :--- | :--- |
+| 3V3 | +3V3 | +3V3 | 3.3V out. 700 mA for M SoM and 500 mA available for peripheral devices. |
+| A0 | M2_ADC0 | NC | A0 Analog in, GPIO, PWM |
+| A1 | M2_ADC1 | NC | A1 Analog in, GPIO, PWM |
+| A2 | M2_ADC2 | NC | A2 Analog in, GPIO |
+| A3 | M2_ADC3 | NC | A3 Analog in, GPIO |
+| A4 | M2_ADC4 | NC | A4 Analog in, GPIO |
+| A5 | M2_ADC5 | NC | A5 Analog in, PWM, GPIO, shared with pin 53 |
+| A6 | M2_ADC6 | NC | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 |
+| A7 | M2_ADC7 | NC | A7 Analog In, WKP, GPIO D28 |
+| CAN_5V | NC | CAN_5V | NC on Muon. (CAN_5V on Monitor One) |
+| CAN_N | NC | CAN_N | NC on Muon (CAN Data- or CANL on Monitor One) |
+| CAN_P | NC | CAN_N | NC on Muon. (CAN Data+ or CANH on Monitor One) |
+| D0 | M2_SDA | TSOM_A0_SDA | D0 GPIO, I2C SDA |
+| D1 | M2_SCL | TSOM_A1_SCL | D1 GPIO, I2C SCL |
+| D2 | M2_RTS | TSOM_A3_BATT_TEMP | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
+| D3 | M2_CTS | TSOM_A2_BUTTON | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
+| D4 | M2_D4 | NC | D4 GPIO, PWM |
+| D5 | M2_D5 | NC | D5 GPIO, PWM |
+| D6 | M2_D6 | NC | D6 GPIO, PWM |
+| D7 | M2_D7 | NC | D7 GPIO, PWM |
+| D8 | M2_SPI_CS | TSOM_A7 | D8 GPIO, SPI SS |
+| D20 | M2_D20 | NFC2_VIN_EN | D20 GPIO, relay on Monitor One I/O card |
+| D21 | M2_D21 | NFC1_PERIPH_INT | D21 GPIO |
+| D22 | M2_D22/PMIC_INT | NC | D22 GPIO, PMIC_INT |
+| D23 | M2_D23/RTC_INT | NC | D23 GPIO, RTC_INT |
+| D24 | M2_D24/TX1 | NC | D24 GPIO, Serial2 TX, do not pull down at boot |
+| D25 | M2_D25/RX1 | NC | GPIO25, Serial2 RX |
+| D26 | M2_D26/LORA_RST | NC | D26 GPIO, LORA_RST |
+| D27 | M2_D27 | NC | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot |
+| GND | GND | NC | Ground. |
+| GNSS_P | NC | GNSS_PULSE | NC on Muon (GNSS pulse output on Monitor One). |
+| LI+ | LI+ | LI+ | Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS. |
+| MISO | M2_SPI_MISO | TSOM_A5 | D11 GPIO, PWM, SPI MISO |
+| MODE | M2_MODE | TSOM_MODE | MODE button. Pin number constant is BTN. External pull-up required! |
+| MOSI | M2_SPI_MOSI | TSOM_A4 | D12 GPIO, PWM, SPI MOSI |
+| NC | NC | NC | &nbsp; |
+| PGOOD | NC | PGOOD | NC on Muon (open drain power good output on Monitor One). |
+| PMIC_VIN | PMIC_VIN | 5V | Power out 5 - 12 VDC, supplied by VIN or USB-C |
+| RGBB | M2_RGB_B | NC | RGB LED Blue |
+| RGBG | M2_RGB_G | NC | RGB LED Green |
+| RGBR | M2_RGB_R | NC | RGB LED Red |
+| RST | M2_RESET | TSOM_RESET | Hardware reset, active low. External pull-up required. |
+| RTC_BAT | RTC_BAT | RTC_BAT | RTC/Watchdog battery +. Connect to GND if not using. |
+| RTC_EXTI | RTC_EXTI | RTC_EXTI | RTC EXTI. Can use as a wake button. Has 100K weak pull-up to RTC 3V3. |
+| RUN | NC | RUN | NC on Muon (power enabled on Monitor One). |
+| RX | M2_RXD | TSOM_RX | Serial RX, PWM, GPIO, SPI1 MISO |
+| SCK | M2_SPI_SCK | TSOM_A6 | D13 GPIO, SPI SCK |
+| TS | TS | NC | PMIC temperature sensor |
+| TX | M2_TXD | TSOM_TX | Serial TX, PWM, GPIO, SPI1 MOSI |
+| USBDATA- | M2_USB_N | TSOM_USB_N | USB Data- |
+| USBDATA+ | M2_USB_P | TSOM_USB_P | USB Data+ |
+| VBUS | VBUS | TSOM_USB_VBUS | Power out from USB-C connector, 5 - 9 VDC |
+| VCC | VCC | TSOM_VIN | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
+| VIN | VIN | VIN | Power input, 6 - 12 VDC |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+
+
+
 ### Expansion card full pin details
 
 {{!-- BEGIN do not edit content below, it is automatically generated 7bdb0f44-3eb6-4e4a-89bb-14c9bb159cbd --}}
@@ -541,7 +646,7 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">3V3</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">3.3V out, 1000 mA maximum including nRF52 and other peripherals.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">3.3V out. 700 mA for M SoM and 500 mA available for peripheral devices.</td></tr>
 </tbody>
 </table>
 
@@ -704,6 +809,39 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">???</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[20]</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">M.2 connector pin number</td><td class="" style="text-align: left; ">47</td></tr>
+</tbody>
+</table>
+
+#### CAN_5V
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">CAN_5V</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">NC on Muon. (CAN_5V on Monitor One)</td></tr>
+</tbody>
+</table>
+
+#### CAN_N
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">CAN_N</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">NC on Muon (CAN Data- or CANL on Monitor One)</td></tr>
+</tbody>
+</table>
+
+#### CAN_P
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">CAN_P</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">NC on Muon. (CAN Data+ or CANH on Monitor One)</td></tr>
 </tbody>
 </table>
 

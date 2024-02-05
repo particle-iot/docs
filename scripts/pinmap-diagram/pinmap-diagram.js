@@ -1691,7 +1691,6 @@ const svg = require('./svg');
             platformName: 'Monitor One Expansion',
             // 104 818 
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/monitor-one-expansion-blank.svg'),
-            outputPath: 'assets/images/monitor-one-expansion.svg',
             // scale to make height 500px
             deviceImageTransform: 'translate(285,0) scale(2.6)',
             width: 1100,
@@ -1708,21 +1707,7 @@ const svg = require('./svg');
                     count: 24,
                     xDir: -1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 100,
-                            keys: ['name'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['spi'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                    ],
+                    columns: generateOptions.columnsLeft || generateOptions.columns,
                 },
                 {   // Right side
                     num: 25,
@@ -1734,24 +1719,7 @@ const svg = require('./svg');
                     count: 24,
                     xDir: 1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 100,
-                            keys: ['name'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                    ],
+                    columns: generateOptions.columnsRight || generateOptions.columns,
                 },
             ]
         });
@@ -2060,7 +2028,52 @@ const svg = require('./svg');
             feature: 'analogWritePWM',
         }, generateOptions), files);    
 
-        await diagram.generateMonitorOneExpansion(generateOptions, files);
+        await diagram.generateMonitorOneExpansion(Object.assign({
+            columnsLeft: [
+                {
+                    width: 100,
+                    keys: ['name'],
+                },
+                {
+                    keys: ['isPower', 'isControl', 'hardwareADC'],
+                },
+                {
+                    keys: ['spi'],
+                },
+                {
+                    keys: ['analogWritePWM'],
+                },
+            ],
+            columnsRight: [
+                {
+                    width: 100,
+                    keys: ['name'],
+                },
+                {
+                    keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                },
+                {
+                    keys: ['serial'],
+                },
+                {
+                    keys: ['spi', 'hardwareADC'],
+                },
+                {
+                    keys: ['analogWritePWM'],
+                },
+            ],
+            outputPath: 'assets/images/monitor-one-expansion.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMonitorOneExpansion(Object.assign({
+            columns: [
+                {
+                    width: 100,
+                    keys: ['name'],
+                },
+            ],
+            outputPath: 'assets/images/monitor-one-pins.svg',
+        }, generateOptions), files);
 
         await diagram.generateTrackerMExpansion(generateOptions, files);
 

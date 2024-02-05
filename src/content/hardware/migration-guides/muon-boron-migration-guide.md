@@ -329,7 +329,7 @@ The Boron and Argon support NFC Tag mode.
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
-| ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | 3.3V out, 1000 mA maximum including nRF52 and other peripherals. |
+| ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | 3.3V out. 700 mA for M SoM and 500 mA available for peripheral devices. |
 #### A0
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
@@ -424,6 +424,21 @@ The Boron and Argon support NFC Tag mode.
 | Internal pull resistance | ???|
 | SWD interface | SWCLK. 40K pull-down at boot.|
 | Signal used at boot | SWCLK. 40K pull-down at boot.|
+#### CAN_5V
+| | Added to Muon |
+| :--- | :--- |
+| Pin Name | CAN_5V|
+| Description | NC on Muon. (CAN_5V on Monitor One)|
+#### CAN_N
+| | Added to Muon |
+| :--- | :--- |
+| Pin Name | CAN_N|
+| Description | NC on Muon (CAN Data- or CANL on Monitor One)|
+#### CAN_P
+| | Added to Muon |
+| :--- | :--- |
+| Pin Name | CAN_P|
+| Description | NC on Muon. (CAN Data+ or CANH on Monitor One)|
 #### D0
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
