@@ -1116,7 +1116,7 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">PMIC_VIN</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">NC on Muon.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Power out 5 - 12 VDC, supplied by VIN or USB-C</td></tr>
 </tbody>
 </table>
 
@@ -1315,7 +1315,7 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 <th> </th><th>Details</th></thead>
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">VBUS</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">NC on Muon (nRF52 USB power input on Monitor One).</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Power out from USB-C connector, 5 - 9 VDC</td></tr>
 </tbody>
 </table>
 
@@ -1533,4 +1533,4 @@ SE, SI, SK, TR, UA, UK(NI).
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre      | 2024-02-05 | RK | Preliminary version (schematic 0.2 20240131R4) |
+| pre      | 2024-02-05 | RK | Preliminary version (schematic 0.02 20240203R6) |

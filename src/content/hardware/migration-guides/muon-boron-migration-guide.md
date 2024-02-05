@@ -670,7 +670,7 @@ The Boron and Argon support NFC Tag mode.
 | | Added to Muon |
 | :--- | :--- |
 | Pin Name | PMIC_VIN|
-| Description | NC on Muon.|
+| Description | Power out 5 - 12 VDC, supplied by VIN or USB-C|
 #### RGBB
 | | Added to Muon |
 | :--- | :--- |
@@ -767,7 +767,7 @@ The Boron and Argon support NFC Tag mode.
 | | Added to Muon |
 | :--- | :--- |
 | Pin Name | VBUS|
-| Description | NC on Muon (nRF52 USB power input on Monitor One).|
+| Description | Power out from USB-C connector, 5 - 9 VDC|
 #### VCC
 | | Added to Muon |
 | :--- | :--- |

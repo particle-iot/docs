@@ -343,12 +343,13 @@
         {
             "num": 27,
             "name": "VBUS",
-            "desc": "NC on Muon (nRF52 USB power input on Monitor One).",
+            "desc": "Power out from USB-C connector, 5 - 9 VDC",
             "isUSB": true,
             "monitorOne": "TSOM_USB_VBUS",
             "morePins": [
                 75
-            ]
+            ],
+            "net": "VBUS"
         },
         {
             "num": 29,
@@ -365,12 +366,13 @@
         {
             "num": 31,
             "name": "PMIC_VIN",
-            "desc": "NC on Muon.",
+            "desc": "Power out 5 - 12 VDC, supplied by VIN or USB-C",
             "isPower": true,
             "monitorOne": "5V",
             "morePins": [
                 79
-            ]
+            ],
+            "net": "PMIC_VIN"
         },
         {
             "num": 33,
