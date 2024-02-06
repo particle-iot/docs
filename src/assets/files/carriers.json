@@ -4222,7 +4222,8 @@
         "2G-1800",
         "3G-1",
         "LTE-3"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Albania",
@@ -4268,7 +4269,8 @@
         "2G-1800",
         "3G-1",
         "LTE-3"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Albania",
@@ -4296,7 +4298,8 @@
         "2G-1800",
         "3G-1",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Algeria",
@@ -4359,7 +4362,8 @@
         "2G-900",
         "2G-1800",
         "3G-1"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Angola",
@@ -4937,11 +4941,10 @@
         "2G-900",
         "2G-1800",
         "3G-1",
-        "LTE-1",
         "LTE-3",
-        "LTE-7",
-        "LTE-8"
-      ]
+        "LTE-7"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Austria",
@@ -4984,7 +4987,8 @@
         "3G-1",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Austria",
@@ -5038,8 +5042,11 @@
         "2G-1800",
         "3G-1",
         "LTE-3",
-        "LTE-7"
-      ]
+        "LTE-7",
+        "LTE-20",
+        "NB1-8"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Azerbaijan",
@@ -5440,8 +5447,10 @@
         "2G-1800",
         "3G-1",
         "3G-8",
-        "LTE-3"
-      ]
+        "LTE-3",
+        "NB1-8"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Belarus",
@@ -5474,7 +5483,8 @@
         "3G-8",
         "LTE-3",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Belgium",
@@ -5541,7 +5551,8 @@
         "3G-8",
         "LTE-3",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Belgium",
@@ -5604,8 +5615,13 @@
         "2G-1800",
         "3G-1",
         "3G-8",
-        "LTE-3"
-      ]
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20",
+        "LoRa"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Belize",
@@ -6429,8 +6445,10 @@
         "3G-5",
         "LTE-4",
         "LTE-7",
+        "LTE-12",
         "LTE-17"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Canada",
@@ -6496,11 +6514,14 @@
         "LTE-12",
         "LTE-13",
         "LTE-17",
-        "LTE-29"
+        "LTE-29",
+        "LTE-40",
+        "NB1"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Canada",
@@ -7160,8 +7181,10 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Croatia",
@@ -7171,32 +7194,35 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
         "3G-1",
-        "3G-8"
+        "3G-8",
+        "LTE-3"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "checked": "2024-02-06"
     },
     {
       "country": "Croatia",
@@ -7409,10 +7435,13 @@
         "2G-900",
         "2G-1800",
         "3G-1",
+        "LTE-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "LTE-38"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Czechia",
@@ -7451,7 +7480,8 @@
         "LTE-3",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Czechia",
@@ -7494,7 +7524,8 @@
         "LTE-7",
         "LTE-8",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Denmark",
@@ -7524,11 +7555,13 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "LTE-38"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Denmark",
@@ -7552,14 +7585,17 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "NB1-20"
       ],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "Denmark",
@@ -7601,7 +7637,9 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-20"
+        "LTE-20",
+        "NB1-20",
+        "M1-20"
       ]
     },
     {
@@ -7630,7 +7668,9 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "LTE-20",
+        "M1-20"
       ]
     },
     {
@@ -8093,14 +8133,16 @@
         "3G-1",
         "3G-8",
         "LTE-1",
-        "LTE-7",
-        "LTE-20"
+        "LTE-3",
+        "LTE-20",
+        "NB1-1"
       ],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "Estonia",
@@ -8132,8 +8174,10 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "eSwatini",
@@ -8319,7 +8363,8 @@
         "LTE-3",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Finland",
@@ -8352,7 +8397,8 @@
         "LTE-3",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Finland",
@@ -8390,8 +8436,11 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20",
+        "M1"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "France",
@@ -8489,16 +8538,19 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
         "LTE-7",
         "LTE-20",
-        "LTE-28"
+        "LTE-28",
+        "M1-20"
       ],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "France",
@@ -8532,11 +8584,12 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20",
-        "LTE-28"
-      ]
+        "LTE-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "French Guiana",
@@ -8756,6 +8809,7 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
+        "allowM1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
@@ -8779,8 +8833,16 @@
       "bands": [
         "2G-1800",
         "3G-1",
-        "LTE-20"
-      ]
+        "3G-8",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20",
+        "LTE-28",
+        "LTE-38",
+        "NB1-20",
+        "M1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Germany",
@@ -8836,8 +8898,11 @@
         "LTE-20",
         "LTE-28",
         "LTE-32",
-        "LTE-38"
-      ]
+        "LTE-38",
+        "NB1-8",
+        "M1"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Germany",
@@ -8875,9 +8940,16 @@
         "2G-900",
         "2G-1800",
         "3G-1",
+        "LTE-1",
+        "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "LTE-28",
+        "LTE-32",
+        "LTE-38",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Ghana",
@@ -9052,7 +9124,8 @@
         "LTE-3",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Greece",
@@ -9095,8 +9168,10 @@
         "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Greece",
@@ -9136,7 +9211,8 @@
         "LTE-3",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Greenland",
@@ -9424,6 +9500,19 @@
       "noBands": [
         "LTE"
       ]
+    },
+    {
+      "country": "Guernsey",
+      "carrier": "Sure",
+      "bands": [
+        "2G-1800",
+        "3G-1",
+        "3G-8",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
+      ],
+      "noBands": []
     },
     {
       "country": "Guinea",
@@ -9896,8 +9985,10 @@
         "3G-1",
         "3G-8",
         "LTE-3",
+        "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Hungary",
@@ -9938,9 +10029,12 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Iceland",
@@ -9963,11 +10057,14 @@
       },
       "bands": [
         "3G-1",
-        "LTE-3"
+        "LTE-1",
+        "LTE-3",
+        "LTE-20"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Iceland",
@@ -10005,8 +10102,10 @@
         "2G-1800",
         "3G-1",
         "3G-8",
-        "LTE-3"
-      ]
+        "LTE-3",
+        "LTE-7"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Iceland",
@@ -10040,9 +10139,12 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "India",
@@ -10363,7 +10465,8 @@
       },
       "bands": [
         "3G-1",
-        "LTE-3"
+        "LTE-3",
+        "LTE-20"
       ],
       "noBands": [
         "2G"
@@ -10388,7 +10491,8 @@
         "3G-8",
         "LTE-3",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Ireland",
@@ -10409,7 +10513,8 @@
       "supersim": {
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "Ireland",
@@ -10448,8 +10553,10 @@
         "2G-1800",
         "3G-1",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Isle of Man",
@@ -10656,8 +10763,11 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "LTE-32",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Italy",
@@ -10697,8 +10807,12 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-7",
+        "LTE-20",
+        "LTE-32",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Italy",
@@ -10729,9 +10843,12 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Jamaica",
@@ -11200,6 +11317,15 @@
       }
     },
     {
+      "country": "Kosovo",
+      "carrier": "Vala",
+      "bands": [
+        "3G-8",
+        "LTE-3"
+      ],
+      "checked": "2024-02-06"
+    },
+    {
       "country": "Kuwait",
       "carrier": "Ooredoo",
       "sunset2G": "?",
@@ -11533,7 +11659,9 @@
         "LTE-3",
         "LTE-7",
         "LTE-20",
-        "LTE-38"
+        "LTE-38",
+        "NB1-20",
+        "M1-20"
       ],
       "noBands": [
         "2G"
@@ -11541,7 +11669,8 @@
       "koreOneNet": {
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "Lithuania",
@@ -13541,8 +13670,10 @@
         "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Norway",
@@ -13573,10 +13704,13 @@
         "2G-900",
         "2G-1800",
         "3G-1",
+        "LTE-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Oman",
@@ -14386,8 +14520,13 @@
         "2G-1800",
         "3G-1",
         "3G-8",
-        "LTE-3"
-      ]
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Portugal",
@@ -14808,8 +14947,10 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Russia",
@@ -16048,6 +16189,20 @@
     },
     {
       "country": "Slovenia",
+      "carrier": "Telekom",
+      "bands": [
+        "3G-1",
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-8",
+        "LTE-20",
+        "NB1-8",
+        "NB1-20"
+      ]
+    },
+    {
+      "country": "Slovenia",
       "carrier": "Tusmobil",
       "sunset2G": "?",
       "sunset3G": "?",
@@ -16341,7 +16496,8 @@
         "3G-8",
         "LTE-3",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Spain",
@@ -16380,8 +16536,12 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "LTE-20",
+        "LTE-42",
+        "M1"
       ]
     },
     {
@@ -16413,8 +16573,12 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-7"
-      ]
+        "LTE-7",
+        "LTE-20",
+        "LTE-38",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Spain",
@@ -16429,7 +16593,8 @@
         "2G-1800",
         "3G-1",
         "LTE-3"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Sri Lanka",
@@ -16790,13 +16955,15 @@
       "bands": [
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Switzerland",
@@ -16818,13 +16985,14 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "LTE-28",
+        "LTE-67",
+        "LTE-75"
       ],
       "noBands": [
         "2G"
@@ -16832,7 +17000,8 @@
       "supersim": {
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "Switzerland",
@@ -17805,8 +17974,10 @@
       },
       "bands": [
         "3G-1",
+        "LTE-1",
         "LTE-3",
-        "LTE-20"
+        "LTE-20",
+        "LTE-32"
       ],
       "noBands": [
         "2G"
@@ -17846,7 +18017,8 @@
         "3G-1",
         "LTE-3",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "United Kingdom",
@@ -17888,9 +18060,14 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "LTE-40",
+        "NB1",
+        "M1"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "United Kingdom",
@@ -17965,8 +18142,14 @@
         "LTE-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-8",
+        "LTE-20",
+        "LTE-32",
+        "LTE-38",
+        "NB1-8",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "United States",
@@ -18030,7 +18213,8 @@
         "LTE-17",
         "LTE-29",
         "LTE-30",
-        "LTE-66"
+        "LTE-66",
+        "M1"
       ],
       "noBands": [
         "2G",
@@ -18184,7 +18368,11 @@
         "LTE-5",
         "LTE-12",
         "LTE-66",
-        "LTE-71"
+        "LTE-71",
+        "NB1-2",
+        "NB1-4",
+        "NB1-12",
+        "M1"
       ],
       "timeline": {
         "2G": [
@@ -18233,13 +18421,17 @@
       "carrier": "US Cellular",
       "lteM1": false,
       "bands": [
+        "LTE-2",
+        "LTE-4",
         "LTE-5",
-        "LTE-12"
+        "LTE-12",
+        "M1"
       ],
       "noBands": [
         "2G",
         "3G"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "United States",
@@ -18250,7 +18442,10 @@
         "LTE-4",
         "LTE-5",
         "LTE-13",
-        "LTE-66"
+        "LTE-66",
+        "M1-13",
+        "NB1-4",
+        "NB1-13"
       ],
       "noBands": [
         "2G",
@@ -18261,7 +18456,8 @@
         "allow3G": false,
         "allowCat1": false,
         "allowM1": 7
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "United States",
