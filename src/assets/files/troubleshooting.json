@@ -35,14 +35,19 @@
             "page": 101,
             "title-hidden": "Home",
             "description": "What kind of question do you have?",
+            "comment": "TODO: Delete this comment. Previously linked to order and billing questions page 107",
             "buttons": [
                 {
                     "title": "Technical questions about devices, or cloud services",
                     "page": 108
                 },
                 {
-                    "title": "Order and billing questions",
-                    "page": 107
+                    "page": 228,
+                    "comment": "Hardware order questions"
+                },
+                {
+                    "page": 229,
+                    "comment": "SaaS subscriptions questions"
                 },
                 {
                     "title": "I'd like to set up a device or devices",
@@ -125,6 +130,7 @@
         {
             "page": 107,
             "title": "Order and billing questions",
+            "comment": "TODO: remove this page",
             "buttons": [
                 {
                     "title": "Help with my order",
@@ -134,14 +140,6 @@
                     "page": 227,
                     "comment": "Submit purchase order",
                     "enterpriseRequired": true
-                },
-                {
-                    "title": "View billing and data operations usage page in the console",
-                    "url": "https://console.particle.io/billing"
-                },
-                {
-                    "title": "View detailed cellular usage information for a product",
-                    "url": "/troubleshooting/connectivity/cellular-usage/"
                 },
                 {
                     "title": "Managing billing and subscriptions",
@@ -154,14 +152,6 @@
                 {
                     "title": "Return & Refund Policy",
                     "url": "/troubleshooting/faqs/orders/what-is-particles-return-refund-policy/"
-                },
-                {
-                    "title": "Payment methods",
-                    "url": "/troubleshooting/faqs/orders/what-payment-methods-can-i-use-at-checkout/"
-                },
-                {
-                    "title": "Shipping Options",
-                    "url": "/troubleshooting/faqs/shipping/what-shipping-options-does-particle-offer/"
                 },
                 {
                     "title": "I have another non-technical issue",
@@ -2911,6 +2901,614 @@
                 {
                     "id": 8688454802459,
                     "comment": "Attachments"
+                }
+            ]
+        },
+        {
+            "page": 228,
+            "title": "Hardware order questions",
+            "buttons": [
+                {
+                    "title": "Payment methods",
+                    "url": "/troubleshooting/faqs/orders/what-payment-methods-can-i-use-at-checkout/"
+                },
+                {
+                    "title": "Shipping Options",
+                    "url": "/troubleshooting/faqs/shipping/what-shipping-options-does-particle-offer/"
+                },
+                {
+                    "title": "Return & Refund Policy",
+                    "url": "/troubleshooting/faqs/orders/what-is-particles-return-refund-policy/"
+                },
+                {
+                    "title": "I need my account to be tax-exempt",
+                    "comment": "TODO: Add form here"
+                },
+                {
+                    "page": 230,
+                    "comment": "Help with my order"
+                },
+                {
+                    "page": 227,
+                    "comment": "Submit purchase order",
+                    "enterpriseRequired": true
+                },
+                {
+                    "page": 242,
+                    "comment": "I need a copy of the invoice for my order"
+                },
+                {
+                    "title": "I have another non-technical question",
+                    "page": 220
+                }
+            ]
+        },
+        {
+            "page": 229,
+            "title": "SaaS subscriptions questions",
+            "buttons": [
+                {
+                    "title": "View billing and data operations usage page in the console",
+                    "url": "https://console.particle.io/billing"
+                },
+                {
+                    "title": "View detailed cellular usage information for a product",
+                    "url": "/troubleshooting/connectivity/cellular-usage/"
+                },
+                {
+                    "title": "Upgrade my sandbox to growth",
+                    "url": "https://www.particle.io/upgradetogrowth/"
+                },
+                {
+                    "title": "Growth account change or cancellation",
+                    "url": "https://docs.google.com/forms/d/e/1FAIpQLScg8KwqDCUXkVePMj2DfSHbAT0M_xhXNI_5J-bcGtcjEU9rqw/viewform"
+                },
+                {
+                    "page": 243,
+                    "comment": "manage subscriptions"
+                }
+            ]
+        },
+        {
+            "page": 230,
+            "title": "Help with my order",
+            "buttons": [
+                {
+                    "page": 360001073373,
+                    "title": "Button for testing TODO: remove"
+                },
+                {
+                    "page": 231,
+                    "comment": "Placing an order"
+                },
+                {
+                    "page": 232,
+                    "comment": "Pricing"
+                },
+                {
+                    "page": 233,
+                    "comment": "Shipping"
+                },
+                {
+                    "page": 234,
+                    "comment": "Issues with my order"
+                },
+                {
+                    "page": 239,
+                    "comment": "Returns"
+                }
+            ]
+        },
+        {
+            "page": 231,
+            "title": "Placing an order",
+            "ticketForm": 360001073373,
+            "fields": [
+                {
+                    "id": 360026060074,
+                    "value": "i_have_another_question_not_listed_here.",
+                    "comment": "Select a category popup",
+                    "hidden": true
+                },
+                {
+                    "id": 360026631653,
+                    "comment": "troubling placing order sub, used for i_have_another_question_not_listed_here"
+                },
+                {
+                    "id": 360026658914,
+                    "comment": "pricing questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658994,
+                    "comment": "shipping questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026659254,
+                    "comment": "returns sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments",
+                    "hidden": true
+                }
+            ]
+        },
+        {
+            "page": 232,
+            "title": "Pricing",
+            "ticketForm": 360001073373,
+            "fields": [
+                {
+                    "id": 360026060074,
+                    "value": "pricing",
+                    "comment": "Select a category popup",
+                    "hidden": true
+                },
+                {
+                    "id": 360026631653,
+                    "comment": "troubling placing order sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658914,
+                    "comment": "pricing questions sub"
+                },
+                {
+                    "id": 360026658994,
+                    "comment": "shipping questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026659254,
+                    "comment": "returns sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments",
+                    "hidden": true
+                }
+            ]
+        },
+        {
+            "page": 233,
+            "title": "Shipping",
+            "ticketForm": 360001073373,
+            "fields": [
+                {
+                    "id": 360026060074,
+                    "value": "pricing",
+                    "comment": "Select a category popup",
+                    "hidden": true
+                },
+                {
+                    "id": 360026631653,
+                    "comment": "troubling placing order sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658914,
+                    "comment": "pricing questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658994,
+                    "comment": "shipping questions sub"
+                },
+                {
+                    "id": 360026659254,
+                    "comment": "returns sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments",
+                    "hidden": true
+                }
+            ]
+        },
+        {
+            "page": 234,
+            "title": "Issues with my order",
+            "buttons": [
+                {
+                    "title": "File a claim for order insured by Route",
+                    "url": "https://claims.route.com/"
+                },
+                {
+                    "title": "Additional information about Route Package Protection",
+                    "url": "/troubleshooting/faqs/shipping/route-package-protection/"
+                },
+                {
+                    "page": 236,
+                    "comment": "missing items"
+                },
+                {
+                    "page": 237,
+                    "comment": "wrong items"
+                },
+                {
+                    "page": 238,
+                    "comment": "broken items"
+                }
+            ]
+        },
+        {
+            "page": 236,
+            "title": "I am missing items from my order",
+            "ticketForm": 360001073373,
+            "fields": [
+                {
+                    "id": 360026060074,
+                    "value": "returns",
+                    "comment": "Select a category popup",
+                    "hidden": true
+                },
+                {
+                    "id": 360026631653,
+                    "comment": "troubling placing order sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658914,
+                    "comment": "pricing questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658994,
+                    "comment": "shipping questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026659254,
+                    "comment": "returns sub",
+                    "value": "i_am_missing_items_from_my_order.",
+                    "hidden": true
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments",
+                    "hidden": true
+                }
+            ]
+        },
+        {
+            "page": 237,
+            "title": "I received the wrong items in my order",
+            "ticketForm": 360001073373,
+            "fields": [
+                {
+                    "id": 360026060074,
+                    "value": "returns",
+                    "comment": "Select a category popup",
+                    "hidden": true
+                },
+                {
+                    "id": 360026631653,
+                    "comment": "troubling placing order sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658914,
+                    "comment": "pricing questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658994,
+                    "comment": "shipping questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026659254,
+                    "comment": "returns sub",
+                    "value": "i_received_the_wrong_items_in_my_order.",
+                    "hidden": true
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments",
+                    "hidden": true
+                }
+            ]
+        },
+        {
+            "page": 238,
+            "title": "The items that I received are broken",
+            "ticketForm": 360001073373,
+            "fields": [
+                {
+                    "id": 360026060074,
+                    "value": "returns",
+                    "comment": "Select a category popup",
+                    "hidden": true
+                },
+                {
+                    "id": 360026631653,
+                    "comment": "troubling placing order sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658914,
+                    "comment": "pricing questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658994,
+                    "comment": "shipping questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026659254,
+                    "comment": "returns sub",
+                    "value": "the_items_that_i_received_are_broken.",
+                    "hidden": true
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments",
+                    "hidden": true
+                }
+            ]
+        },
+        {
+            "page": 239,
+            "title": "Returns",
+            "buttons": [
+                {
+                    "title": "Please review our Return and refund policy",
+                    "url": "/troubleshooting/faqs/orders/what-is-particles-return-refund-policy/"
+                },
+                {
+                    "page": 240,
+                    "comment": "More information on returns"
+                },
+                {
+                    "page": 241,
+                    "comment": "Other return questions"
+                }
+            ]
+        },
+        {
+            "page": 240,
+            "title": "I'd like more information on returns",
+            "ticketForm": 360001073373,
+            "fields": [
+                {
+                    "id": 360026060074,
+                    "value": "returns",
+                    "comment": "Select a category popup",
+                    "hidden": true
+                },
+                {
+                    "id": 360026631653,
+                    "comment": "troubling placing order sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658914,
+                    "comment": "pricing questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658994,
+                    "comment": "shipping questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026659254,
+                    "comment": "returns sub",
+                    "value": "i_d_like_to_initiate_a_return."
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments",
+                    "hidden": true
+                }
+            ]
+        },
+        {
+            "page": 241,
+            "title": "I have another returns questions",
+            "ticketForm": 360001073373,
+            "fields": [
+                {
+                    "id": 360026060074,
+                    "value": "returns",
+                    "comment": "Select a category popup",
+                    "hidden": true
+                },
+                {
+                    "id": 360026631653,
+                    "comment": "troubling placing order sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658914,
+                    "comment": "pricing questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026658994,
+                    "comment": "shipping questions sub",
+                    "hidden": true
+                },
+                {
+                    "id": 360026659254,
+                    "comment": "returns sub",
+                    "value": "i_have_another_returns_question."
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments",
+                    "hidden": true
+                }
+            ]
+        },
+        {
+            "page": 242,
+            "title": "I need a copy of the invoice for my order",
+            "ticketForm": 360001730794,
+            "fields": [
+                {
+                    "id": 360026632133,
+                    "comment": "billing issue popup",
+                    "value": "i_need_a_copy_of_my_invoice_for_my_order.",
+                    "hidden": true
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments",
+                    "hidden": true
+                }
+            ]
+        },
+        {
+            "page": 243,
+            "title": "Manage subscriptions",
+            "buttons": [
+                {
+                    "page": 244,
+                    "comment": "I need an invoice for my subscription service"
+                },
+                {
+                    "page": 245,
+                    "comment": "I have a question about a recent subscription charge"
+                },
+                {
+                    "page": 246,
+                    "comment": "I am experience technical difficulties with billing"
+                },
+                {
+                    "page": 247,
+                    "comment": "I need my account to be tax-exempt"
+                },
+                {
+                    "title": "I need to update my payment method on file",
+                    "url": "https://console.particle.io/billing"
+                }
+            ]
+        },
+        {
+            "page": 244,
+            "title": "I need an invoice for my subscription service",
+            "ticketForm": 360001730794,
+            "fields": [
+                {
+                    "id": 360026632133,
+                    "comment": "billing issue popup",
+                    "value": "i_need_an_invoice_for_my_subscription_service.",
+                    "hidden": true
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments",
+                    "hidden": true
+                }
+            ]
+        },
+        {
+            "page": 245,
+            "title": "I have a question about a recent subscription charge",
+            "ticketForm": 360001730794,
+            "fields": [
+                {
+                    "id": 360026632133,
+                    "comment": "billing issue popup",
+                    "value": "i_have_a_question_about_a_recent_subscription_charge",
+                    "hidden": true
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments"
+                }
+            ]
+        },
+        {
+            "page": 246,
+            "title": "I am experience technical difficulties with billing",
+            "ticketForm": 360001730794,
+            "fields": [
+                {
+                    "id": 360026632133,
+                    "comment": "billing issue popup",
+                    "value": "i_am_experiencing_technical_difficulties_with_billing.",
+                    "hidden": true
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments"
+                }
+            ]
+        },
+        {
+            "page": 247,
+            "title": "I need my account to be tax-exempt",
+            "ticketForm": 360001730794,
+            "fields": [
+                {
+                    "id": 360026632133,
+                    "comment": "billing issue popup",
+                    "value": "i_need_my_account_to_be_marked_tax-exempt.",
+                    "hidden": true
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "order number"
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "attachments"
                 }
             ]
         }

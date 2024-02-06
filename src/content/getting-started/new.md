@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Order and subscription support 2024-02-06
+
+Updated the support options for [orders and subscriptions](/troubleshooting/troubleshooting/?p=101,).
+
 ### Enterprise Wi-Fi 2024-01-31
 
 Clarify that enterprise Wi-Fi is not supported on the P2/Photon 2.
