@@ -25,6 +25,8 @@ The following cellular antennas are available:
 
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
+| Wide band LTE cell antenna [x1] | PARANTCW1EA | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) &#124; [Retail Store](https://store.particle.io/products/wide-band-lte-cat-m1-cell-antenna-x1) |
 | Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
 | Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B Series<sup>1</sup>, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
@@ -360,7 +362,9 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
 | Tracker One BLE Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-ble.pdf) |
 
-The P2 shares its antenna between Wi-Fi and BLE and does not require a separate BLE antenna. The P2 includes an internal trace antenna. An external dual-band antenna can be connected to the U.FL connector and selcted in software. This will require additional certification with your external antenna.
+The P2 and Photon 2 share its antenna between Wi-Fi and BLE and does not require a separate BLE antenna. The P2 includes an internal trace antenna. An external dual-band antenna can be connected to the U.FL connector and selcted in software. This will require additional certification with your external antenna.
+
+The M SoM shares its antenna between Wi-Fi and BLE, but does not include a built-in trace antenna. An external antenna is required to use BLE or Wi-Fi.
 
 ### Compatible devices (BLE)
 
@@ -473,6 +477,8 @@ The Particle NFC Antenna is available in the [retail](https://store.particle.io/
 | Particle NFC Antenna, [x1] | ANT-NFC | [Datasheet](/assets/datasheets/ANT-NFC.pdf) &#124; [Retail Store](https://store.particle.io/products/nfc-antenna) |
 | Tracker One NFC Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-nfc.pdf) |
 
+The P2, Photon 2, and M SoM do not support NFC.
+
 ### Compatible devices (NFC)
 
 These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC antenna, all other devices require an external NFC antenna to use the NFC tag feature. If you are not using NFC tag you do not need to add the antenna.
@@ -561,6 +567,13 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 ## GNSS (Satellite Navigation)
 
 The Tracker One includes a [Cirocomm PA035AQ0004](http://www.cirocomm.com/en-global/products_ciro/detail/PA035AQ0004) (T0004, 35x35mm) GPS/GLOSNASS antenna on the Tracker Carrier Board.
+
+The M SoM can use this GNSS antenna. Single unit quantites (M404MEA, M524MEA) include a GNSS antenna. It's not included in tray quantities.
+
+| SKU | Description | |
+| :--- | :--- | :--- |
+| PARANTGN1EA	| Particle GNSS FPC Antenna, [x1] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
+| PARANTGN1TY	| Particle GNSS FPC Antenna, [x50] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
 
 As the GNSS system is receive-only (no transmitter), you can use any GNSS compatible antenna without affecting the certification. Different GNSS systems use different frequencies. Many antennas are tuned to the United States GPS system, however you can also get multi-GNSS antennas that are compatible with other systems. All of these systems offer coverage world-wide.
 
