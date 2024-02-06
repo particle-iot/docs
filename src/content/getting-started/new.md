@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Order and subscription support 2024-02-06
 
-Updated the support options for [orders and subscriptions](/troubleshooting/troubleshooting/?p=101,).
+Updated the support options for [orders and subscriptions](/troubleshooting/troubleshooting/).
 
 ### Enterprise Wi-Fi 2024-01-31
 
