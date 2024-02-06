@@ -5,7 +5,7 @@
 104	I cannot login due to an error in the login page
 105	Ticket submitted!
 106	Error submitting ticket
-107	Order and billing questions
+107	Formerly Order and billing questions
 108	Technical questions
 109	Developer tool questions
 110	Particle workbench questions
@@ -129,7 +129,7 @@
 231	Placing an order
 232	Pricing
 233	Shipping
-234	Issues with my order
+234	Issue with my order
 236	I am missing items from my order
 237	I received the wrong items in my order
 238	The items that I received are broken

@@ -35,7 +35,6 @@
             "page": 101,
             "title-hidden": "Home",
             "description": "What kind of question do you have?",
-            "comment": "TODO: Delete this comment. Previously linked to order and billing questions page 107",
             "buttons": [
                 {
                     "title": "Technical questions about devices, or cloud services",
@@ -129,35 +128,8 @@
         },
         {
             "page": 107,
-            "title": "Order and billing questions",
-            "comment": "TODO: remove this page",
-            "buttons": [
-                {
-                    "title": "Help with my order",
-                    "page": 360001073373
-                },
-                {
-                    "page": 227,
-                    "comment": "Submit purchase order",
-                    "enterpriseRequired": true
-                },
-                {
-                    "title": "Managing billing and subscriptions",
-                    "page": 360001730794
-                },
-                {
-                    "title": "Upgrading my account to the growth plan",
-                    "page": 1260809279669
-                },
-                {
-                    "title": "Return & Refund Policy",
-                    "url": "/troubleshooting/faqs/orders/what-is-particles-return-refund-policy/"
-                },
-                {
-                    "title": "I have another non-technical issue",
-                    "page": 220
-                }
-            ]
+            "title": "Formerly Order and billing questions",
+            "buttons": []
         },
         {
             "page": 108,
@@ -2913,16 +2885,16 @@
                     "url": "/troubleshooting/faqs/orders/what-payment-methods-can-i-use-at-checkout/"
                 },
                 {
-                    "title": "Shipping Options",
+                    "title": "Shipping options",
                     "url": "/troubleshooting/faqs/shipping/what-shipping-options-does-particle-offer/"
                 },
                 {
-                    "title": "Return & Refund Policy",
+                    "title": "Return & refund policy",
                     "url": "/troubleshooting/faqs/orders/what-is-particles-return-refund-policy/"
                 },
                 {
-                    "title": "I need my account to be tax-exempt",
-                    "comment": "TODO: Add form here"
+                    "page": 247,
+                    "comment": "I need my account to be tax-exempt"
                 },
                 {
                     "page": 230,
@@ -2961,7 +2933,8 @@
                 },
                 {
                     "title": "Growth account change or cancellation",
-                    "url": "https://docs.google.com/forms/d/e/1FAIpQLScg8KwqDCUXkVePMj2DfSHbAT0M_xhXNI_5J-bcGtcjEU9rqw/viewform"
+                    "url": "https://docs.google.com/forms/d/e/1FAIpQLScg8KwqDCUXkVePMj2DfSHbAT0M_xhXNI_5J-bcGtcjEU9rqw/viewform",
+                    "detail": "Requests must be received 30 days prior to the start of your next billing cycle"
                 },
                 {
                     "page": 243,
@@ -2973,10 +2946,6 @@
             "page": 230,
             "title": "Help with my order",
             "buttons": [
-                {
-                    "page": 360001073373,
-                    "title": "Button for testing TODO: remove"
-                },
                 {
                     "page": 231,
                     "comment": "Placing an order"
@@ -2991,7 +2960,7 @@
                 },
                 {
                     "page": 234,
-                    "comment": "Issues with my order"
+                    "comment": "Issue with my order"
                 },
                 {
                     "page": 239,
@@ -3084,50 +3053,23 @@
         {
             "page": 233,
             "title": "Shipping",
-            "ticketForm": 360001073373,
-            "fields": [
+            "buttons": [
                 {
-                    "id": 360026060074,
-                    "value": "pricing",
-                    "comment": "Select a category popup",
-                    "hidden": true
+                    "title": "Shipping options",
+                    "url": "/troubleshooting/faqs/shipping/what-shipping-options-does-particle-offer/"
                 },
                 {
-                    "id": 360026631653,
-                    "comment": "troubling placing order sub",
-                    "hidden": true
-                },
-                {
-                    "id": 360026658914,
-                    "comment": "pricing questions sub",
-                    "hidden": true
-                },
-                {
-                    "id": 360026658994,
-                    "comment": "shipping questions sub"
-                },
-                {
-                    "id": 360026659254,
-                    "comment": "returns sub",
-                    "hidden": true
-                },
-                {
-                    "id": 360025997694,
-                    "comment": "order number"
-                },
-                {
-                    "id": 8688454802459,
-                    "comment": "attachments",
-                    "hidden": true
+                    "title": "International shipping information",
+                    "url": "/troubleshooting/faqs/shipping/if-my-order-is-shipping-to-a-country-outside-of-the-united-states-what-do-i-need-to-know/"
                 }
             ]
         },
         {
             "page": 234,
-            "title": "Issues with my order",
+            "title": "Issue with my order",
             "buttons": [
                 {
-                    "title": "File a claim for order insured by Route",
+                    "title": "File a claim for an order insured by Route Package Protection",
                     "url": "https://claims.route.com/"
                 },
                 {
