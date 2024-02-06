@@ -21,7 +21,7 @@ The M SoM module contains the following functional units:
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
 - Cellular modem 
-  - Quectel BG95-M5 LTE Cat M1 (North America)
+  - Quectel BG95-M5 LTE Cat M1/2G (Glboal)
   - Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
 
 ### MCU
@@ -932,12 +932,14 @@ SE, SI, SK, TR, UA, UK(NI).
 ---
 ## Ordering information
 
-| Model | Quantity | Region |
+| Model | Description | Quantity | Region |
 | :--- | :--- | :--- |
-| M404MEA | 1 | United States, Canada, and Mexico |
-| M404MTY | 50 | United States, Canada, and Mexico |
-| M524MEA | 1 | EMEAA (Europe, and parts of the Middle East, Africa, and Asia) |
-| M524MTY | 50 | EMEAA (Europe, and parts of the Middle East, Africa, and Asia) |
+| M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | 1 |  Global	 |
+| M404MTY | M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | 50 | Global |
+| M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | 1 | EMEAA |
+| M524MTY | M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | 50 | EMEAA |
+
+- EMEAA: Europe, and parts of the Middle East, Africa, and Asia
 
 ## Revision history
 

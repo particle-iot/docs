@@ -126,8 +126,7 @@
       {
         "dir": "device-protection",
         "title": "Device protection",
-        "href": "/scaling/best-practices/device-protection/",
-        "internal": true
+        "href": "/scaling/best-practices/device-protection/"
       }
     ]
   ]
