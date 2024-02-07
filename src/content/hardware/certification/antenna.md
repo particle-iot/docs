@@ -40,12 +40,13 @@ The following cellular antennas are available:
 
 ### Cellular antenna substitution
 
-The PARANTC41EA, ANTCW2EA, ANT-FLXU are generally compatible across all 2G, 3G, LTE Cat 1, and LTE Cat M1 devices. However, if you use an antenna that is not the antenna that the device was certified with, the device will require recertification. In the United States, this is FCC intentional radiator certification (FCC Part 15, Subpart C), which is the more complicated and expensive of the certifications as it checks the performance in each of the cellular bands.
+The PARANTCW1EA, PARANTC41EA, ANTCW2EA, ANT-FLXU are generally compatible across all 2G, 3G, LTE Cat 1, and LTE Cat M1 devices. However, if you use an antenna that is not the antenna that the device was certified with, the device will require recertification. In the United States, this is FCC intentional radiator certification (FCC Part 15, Subpart C), which is the more complicated and expensive of the certifications as it checks the performance in each of the cellular bands.
 
 **Particle recommends you use a Particle antenna that has already been certified for the device.**
 
-In the United States, you can generally substitute an antenna that is of the same type and equal or lesser gain, both total and in all bands.
+In the United States, you can generally substitute an antenna that is of the same type and equal or lesser gain, both total and in all bands. We still recommend using the certified antenna, as you will need FCC permissive change approval to substitute an antenna with equal or lesser gain.
 
+- If the device is certified with PARANTCW1EA, other antennas have lower gain, but this will result in lower performance
 - If the device is certified with PARANTC41EA, substituting ANTCW2EA requires recertification because ANTCW2EA has higher gain in the high frequency bands
 - If the device is certified with ANTCW2EA, substituting PARANTC41EA requires recertification because PARANTC41EA has higher gain in the low frequency bands
 - If the device is certified with both PARANTC41EA and ANT-FLXU (including the B404X and BRN404X), then substituting ANTCW2EA still requires recertification because of the peak and average gain in the 2600 MHz band.
@@ -56,6 +57,7 @@ Note that the ANT-ELEC should not be used with any LTE Cat 1 or LTE Cat M1 devic
 | Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
 | Peak gain | | | | | | | |
+| PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
 | PARANTC41EA | 2.46 | 3.86 | 3.86 |3.86 |3.86 | dBi |
 | ANTCW2EA | 1.42 | 3.77 | 4.62 | 4.71 | 4.66 | dBi |
 | ANT-FLXU | 1 | 3.5 | 5 | 5 | 4.5|  dBi |
@@ -70,13 +72,13 @@ Note that the ANT-ELEC should not be used with any LTE Cat 1 or LTE Cat M1 devic
 
 {{!-- BEGIN shared-blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e --}}
 
-| Dimension | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC | 
-| :--- | :---: | :---: | :---: | :---: |
-| Tray SKU | PARANTC41TY | ANTCW2TY | ANT-FLXU-50 | ANTELEC50 |
-| Length | 122.1mm | 97.0mm | 96.0mm | 80.0mm |
-| Width | 12.8mm | 21.0mm | 21.0mm | 20.0mm |
-| Thickness | 0.2mm | 0.2mm | 0.2mm | 0.2mm |
-| Cable Length | 183mm | 160mm | 150mm | 164mm |
+| Dimension | PARANTCW1EA | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC | 
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Tray SKU | PARANTCW1TY | PARANTC41TY | ANTCW2TY | ANT-FLXU-50 | ANTELEC50 |
+| Length | 116mm | 122.1mm | 97.0mm | 96.0mm | 80.0mm |
+| Width | 27mm | 12.8mm | 21.0mm | 21.0mm | 20.0mm |
+| Thickness | 0.2mm | 0.2mm | 0.2mm | 0.2mm | 0.2mm |
+| Cable Length | 189.5mm | 183mm | 160mm | 150mm | 164mm |
 
 PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna can be bent when being placed inside an enclosure. There are a couple restrictions to ensure good performance:
 
