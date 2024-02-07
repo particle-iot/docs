@@ -94,7 +94,37 @@ Power supply requirements:
 
 ### Approved Antennas
 
-To be provided at a later date.
+#### Certified cellular antennas
+
+The M SoM is certified with the following cellular antenna:
+
+| SKU | Description |
+| :--- | :--- |
+| PARANTCW1EA	| Wide band LTE cell antenna [x1] |
+| PARANTCW1TY	| Wide band LTE cell antenna [x50] |
+
+Single quantity M SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M SoM do not include antennas.
+
+#### Certified Wi-Fi/BLE antennas
+
+The M SoM is certified for use with the same antennas as the P2/Photon 2. The same antenna is shared for Wi-Fi and BLE. Unlike the P2/Photon 2, the external antenna is required for Wi-Fi and BLE and the M SoM does not include a built-in trace antenna on the module.
+
+| SKU | Description |
+| :--- | :--- |
+| PARANTWM1EA	| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] |
+| PARANTWM1TY	| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz [x50] |
+
+Single quantity M SoM units and developer kits include a PARANTWM1EA antenna. Tray quantities of the M SoM do not include antennas.
+
+#### Certified GNSS antennas
+
+| SKU | Description |
+| :--- | :--- |
+| PARANTGN1EA	| Particle GNSS FPC Antenna, [x1] |
+| PARANTGN1TY	| Particle GNSS FPC Antenna, [x50] |
+
+Single quantity M SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M SoM do not include antennas.
+
 
 #### General Antenna Guidance
 
