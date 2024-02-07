@@ -199,8 +199,8 @@
             "hash": "5f06f1936d0553c2c7bc34b2fef300be9d0a619736f96143ad5b54a84f275a34"
         },
         "notes/free-vs-growth-product.md": {
-            "date": "2022-10-20",
-            "hash": "bf2f275fbfdf77db375b1df79108ad2ebfeb8dd36624a60970f61ec946968d97"
+            "date": "2024-02-07",
+            "hash": "af983a212137c2a32c238daabea70cae2ba35e96f512d3162650a715a6dfc6ff"
         },
         "notes/get-device-id-iccid.md": {
             "date": "2022-08-09",
@@ -243,8 +243,8 @@
             "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         },
         "notes/plans.md": {
-            "date": "2022-10-20",
-            "hash": "c9719ff3aee30ff8c89a027c8e25ffa1f81f83ffff039dadf8add9e977e2f7f7"
+            "date": "2024-02-07",
+            "hash": "87caad5caf23a93e6c2ef57eacae8673426062b35b51e2648b7ed69b1b0f127d"
         },
         "notes/recover-account.md": {
             "date": "2022-07-22",
@@ -563,8 +563,8 @@
             "hash": "2a00b683c4407eb4ae1c714f4bbad2859789aa748107f4fd822ff2f78741fcb2"
         },
         "getting-started/billing/cellular-data.md": {
-            "date": "2023-03-17",
-            "hash": "3915f4a5bca36810f98c98081458abd0996a4fbd200ff3945c671259560bd2af"
+            "date": "2024-02-07",
+            "hash": "33b0baffa466cf5a80d438b33c93eb3d64ee32620f39b45497e0c5d827f3e97f"
         },
         "getting-started/billing/data-operations.md": {
             "date": "2023-03-17",
@@ -587,16 +587,16 @@
             "hash": "30142d5f37a2f08a596a76864c03ae497b0a18ea5586dc983ad06e8f610f0fcb"
         },
         "getting-started/cloud/introduction.md": {
-            "date": "2024-01-31",
-            "hash": "3048fe173135a896f95e89942865e9e84cf1101d088283f7bb2c440224afc08e"
+            "date": "2024-02-07",
+            "hash": "bd0c9f30416c9424107deaa72cef62126b7666d3ec87f2eb9e2734d29cc2e3be"
         },
         "getting-started/cloud/ota-updates.md": {
             "date": "2023-09-05",
             "hash": "7ce9dce10f7c84a6dba8c026746fc4561f7bce3835a40d57a5921f47e9a80fbe"
         },
         "getting-started/console/console.md": {
-            "date": "2023-12-08",
-            "hash": "fa2c7bb2d39c459485352a28731e03c300161ed9f88584c9ee1f0542f72227a3"
+            "date": "2024-02-07",
+            "hash": "2bf519ce2ccddb0a70329d9b63ae1720546495c86bcdf0f80837b5edeea6be1e"
         },
         "getting-started/console/development-devices.md": {
             "date": "2022-05-18",
@@ -683,8 +683,8 @@
             "hash": "98e6863334254269d9cd8bfc01041a185088418c79e8273b99a2a1815e2d55d1"
         },
         "getting-started/products/introduction-to-products.md": {
-            "date": "2023-07-12",
-            "hash": "5e1be11dadd64c0676782a22d5bbc3da6bc2bc8be8ce696285f7b82be0f55be4"
+            "date": "2024-02-07",
+            "hash": "efb20d33316fe2dfea45a13f5883b8bdd16773a3417e05cbc19304f8a6c3c3bc"
         },
         "getting-started/products/organizations.md": {
             "date": "2023-03-17",

@@ -719,7 +719,6 @@ Products can be prototyped in the Free plan at no charge. However, there is a li
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
-- Email support
 
 In the Growth plan, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data. 
 

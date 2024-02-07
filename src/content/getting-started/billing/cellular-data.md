@@ -32,7 +32,6 @@ Particle provides a number of devices with cellular connectivity including the T
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
-- Email support
 
 #### Enterprise plan
 
