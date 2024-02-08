@@ -92,40 +92,56 @@ Power supply requirements:
 - Wi-Fi operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
 - GNSS features are limited M404 as the cellular modem cannot do cellular communication and GNSS at the same time.
 
-### Approved Antennas
+## Approved Antennas
 
-#### Certified cellular antennas
+### Certified cellular antennas
 
 The M SoM is certified with the following cellular antenna:
 
-| SKU | Description |
-| :--- | :--- |
-| PARANTCW1EA	| Wide band LTE cell antenna [x1] |
-| PARANTCW1TY	| Wide band LTE cell antenna [x50] |
+| Antenna | SKU | Details | Links |
+| :----- | :--- | :------ | :---- |
+| Wide band LTE cell antenna [x1] | PARANTCW1EA | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
 Single quantity M SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M SoM do not include antennas.
 
-#### Certified Wi-Fi/BLE antennas
+
+| Dimension | Value | Unit |
+| :--- | ---: | :---: |
+| Length | 116.0 | mm |
+| Width | 27.0 | mm |
+| Thickness | 0.2 | mm |
+| Cable Length | 189.5 | mm |
+
+
+| Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| Peak gain | | | | | | | |
+| PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
+
+
+### Certified Wi-Fi/BLE antennas
 
 The M SoM is certified for use with the same antennas as the P2/Photon 2. The same antenna is shared for Wi-Fi and BLE. Unlike the P2/Photon 2, the external antenna is required for Wi-Fi and BLE and the M SoM does not include a built-in trace antenna on the module.
 
-| SKU | Description |
-| :--- | :--- |
-| PARANTWM1EA	| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] |
-| PARANTWM1TY	| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz [x50] |
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] | PARANTWM1EA | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/particle-p2-photon2-wi-fi-antenna-2-4-5ghz)  |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x50] |PARANTWM1TY | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) |
 
 Single quantity M SoM units and developer kits include a PARANTWM1EA antenna. Tray quantities of the M SoM do not include antennas.
 
-#### Certified GNSS antennas
+### Certified GNSS antennas
 
-| SKU | Description |
-| :--- | :--- |
-| PARANTGN1EA	| Particle GNSS FPC Antenna, [x1] |
-| PARANTGN1TY	| Particle GNSS FPC Antenna, [x50] |
+| SKU | Description | |
+| :--- | :--- | :--- |
+| PARANTGN1EA	| Particle GNSS FPC Antenna, [x1] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
+| PARANTGN1TY	| Particle GNSS FPC Antenna, [x50] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
 
-Single quantity M SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M SoM do not include antennas.
+Single quantity M SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
 
-#### General Antenna Guidance
+
+### General Antenna Guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
