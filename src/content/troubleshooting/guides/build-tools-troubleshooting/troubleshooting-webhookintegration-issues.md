@@ -127,17 +127,15 @@ At the above "Logs" section, click on any date time entry to expand the data pay
 
 _For webhooks, data is sent as 512 bytes per Publish._ This means that a device that subscribes to a webhook response will receive a response in 512-byte chunks. A webhook response that consists of 5Kb of text data (e.g. a large chunk of HTML) will be sent as 10 Publish events, which equal 10 Data Operations. So - in short - if your devices subscribe to webhook responses, ensure your webhook responses are intentionally constructed and data-efficient! 
 
-## Important resources for webhook/integration troubleshooting
+## Webhook/Integration debugging tools
 
-* To test the viability of your endpoint, try testing against a service like [https://requestbin.com/ ](https://requestbin.com/)to receive the webhooks. Changing your destination endpoint to a neutral service like RequestBin is a great troubleshooting step to rule out infrastructure issues.
-* To conveniently send and view Webhooks results, you can use an API client like Postman. You can learn more about using Postman here (https://learning.postman.com/docs/getting-started/sending-the-first-request/).  
-Note: in order to find your access token, follow the instructions [here](/troubleshooting/guides/device-management/how-do-i-manage-my-user-access-token/).
+For troubleshooting webhooks and integrations, consider these resources:
 
-* To quickly view and check the JSON, at the Console (console.particle.io), go to Edit Integration and Custom Template. You can then visually check the JSON formatting. For testing, you can remove {{variables}} and replace with hardcoded values.
+* **Endpoint Testing Services:** Utilize [Beeceptor](https://beeceptor.com/webhook-integration/) or [RequestBin](https://requestbin.com/) to verify your endpoint's functionality. These platforms capture webhooks and lets you review payloads, aiding in identifying any endpoint or infrastructure issues.
+* **API Client for Webhooks:** Postman is a useful HTTP client for dispatching webhooks paylodas and receiving service response. Detailed guidance on Postman usage can be found [here](https://learning.postman.com/docs/getting-started/first-steps/sending-the-first-request/). For access token information, refer to the instructions [here](/troubleshooting/guides/device-management/how-do-i-manage-my-user-access-token/).
+* **JSON Formatting Check:** Within the Particle Console, access 'Edit Integration' and 'Custom Template' to examine your JSON structure. For simpler evaluation, consider replacing {{{variables}}} with static values.
+* **Response Template Configuration:** Enhance clarity by setting up a custom response template. This is done in the Webhook Builder under 'Advanced Settings', where you can specify a custom Response Topic/Template.
 
-* Adding a response template can help tremendously with parsing out intelligible response codes.  
-   * To create a custom response template - navigate up the page to the Webhook Builder, click on Advanced Settings, and create a custom Response Topic / Template:  
-         
 ![Screen_Shot_2021-02-18_at_8.38.09_AM.png](/assets/images/support/Screen_Shot_2021-02-18_at_8.38.09_AM.png)
 
 ## Opening a support ticket
