@@ -94,7 +94,36 @@ Power supply requirements:
 
 ### Approved Antennas
 
-To be provided at a later date.
+#### Certified cellular antennas
+
+The M SoM is certified with the following cellular antenna:
+
+| SKU | Description |
+| :--- | :--- |
+| PARANTCW1EA	| Wide band LTE cell antenna [x1] |
+| PARANTCW1TY	| Wide band LTE cell antenna [x50] |
+
+Single quantity M SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M SoM do not include antennas.
+
+#### Certified Wi-Fi/BLE antennas
+
+The M SoM is certified for use with the same antennas as the P2/Photon 2. The same antenna is shared for Wi-Fi and BLE. Unlike the P2/Photon 2, the external antenna is required for Wi-Fi and BLE and the M SoM does not include a built-in trace antenna on the module.
+
+| SKU | Description |
+| :--- | :--- |
+| PARANTWM1EA	| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] |
+| PARANTWM1TY	| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz [x50] |
+
+Single quantity M SoM units and developer kits include a PARANTWM1EA antenna. Tray quantities of the M SoM do not include antennas.
+
+#### Certified GNSS antennas
+
+| SKU | Description |
+| :--- | :--- |
+| PARANTGN1EA	| Particle GNSS FPC Antenna, [x1] |
+| PARANTGN1TY	| Particle GNSS FPC Antenna, [x50] |
+
+Single quantity M SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M SoM do not include antennas.
 
 #### General Antenna Guidance
 
@@ -609,6 +638,89 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+## Technical specification
+
+{{!-- ### Absolute maximum ratings --}}
+
+
+{{!-- 
+### Recommended operating conditions
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+|:-|:-|:-:|:-:|:-:|:-:|
+| Operating Temperature | T<sub>op</sub> | -20 |  | +70 | °C |
+| Humidity Range Non condensing, relative humidity | | | | 95 | % |
+--}}
+
+{{!-- ### Wi-Fi Specifications --}}
+
+
+{{!-- ### I/O Characteristics --}}
+
+### Power consumption (M524) 
+
+| Parameter | Symbol | Min | Typ | Peak | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 26.4 | 26.6 | 26.9 | mA |
+| Operating current (uC on, BLE advertising) | I<sub>ble_adv</sub> | 62.9 | 66.1 | 84.2 | mA |
+| Operating current (uC on, BLE connected but idle) | I<sub>ble_conn_idle</sub> | 62.4 | 66.7 | 74 | mA |
+| Operating current (uC on, BLE scanning) | I<sub>ble_scan</sub> | 50.5 | 57.2 | 87.7 | mA |
+| Operating current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 36.7 | 44.4 | 907 | mA |
+| Operating current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 40.2 | 97.4 | 840 | mA |
+| Operating current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 37 | 43.1 | 132 | mA |
+| Operating current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 39.9 | 164 | 851 | mA |
+| Operating current (uC on, Wi-Fi on but not connected) | I<sub>wifi_idle</sub> | 26.1 | 26.3 | 26.6 | mA |
+| Operating current (uC on, Wi-Fi connecting to access point) | I<sub>wifi_conn_ap</sub> | 44.3 | 67.3 | 298 | mA |
+| Operating current (uC on, Wi-Fi connecting to cloud) | I<sub>wifi_conn_cloud</sub> | 61 | 68.2 | 357 | mA |
+| Operating current (uC on, Wi-Fi connected but idle) | I<sub>wifi_cloud_idle</sub> | 61.9 | 64.1 | 68.4 | mA |
+| Operating current (uC on, Wi-Fi connected and transmitting) | I<sub>wifi_cloud_tx</sub> | 60.1 | 64.8 | 309 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 419 | 421 | 425 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 412 | 415 | 418 | uA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 419 | 421 | 425 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 412 | 415 | 418 | uA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 23.9 | 26.1 | 28.6 | uA |
+| HIBERNATE mode sleep, RTC wake-up | I<sub>hib_intrtc</sub> | 24.5 | 26.5 | 28.1 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
+### Power consumption (M404) 
+
+| Parameter | Symbol | Min | Typ | Peak | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 27.7 | 27.9 | 28.1 | mA |
+| Operating current (uC on, BLE advertising) | I<sub>ble_adv</sub> | 65.5 | 69.5 | 85.9 | mA |
+| Operating current (uC on, BLE connected but idle) | I<sub>ble_conn_idle</sub> | 65.5 | 70.1 | 77 | mA |
+| Operating current (uC on, BLE scanning) | I<sub>ble_scan</sub> | 52.6 | 60.5 | 91.1 | mA |
+| Operating current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 36.2 | 159 | 816 | mA |
+| Operating current (uC on, cellular on but not connected using LTE Cat M1) | I<sub>cell_idle_catm1</sub> | 41.5 | 46.7 | 217 | mA |
+| Operating current (uC on, cellular connecting to tower using LTE Cat M1) | I<sub>cell_conn_twr_catm1</sub> | 39.8 | 43.9 | 131 | mA |
+| Operating current (uC on, cellular connecting to cloud using LTE Cat M1) | I<sub>cell_conn_cloud_catm1</sub> | 39.7 | 83.5 | 181 | mA |
+| Operating current (uC on, cellular connected but idle using LTE Cat M1) | I<sub>cell_cloud_idle_catm1</sub> | 41.8 | 44.5 | 155 | mA |
+| Operating current (uC on, cellular connected and transmitting using LTE Cat M1) | I<sub>cell_cloud_tx_catm1</sub> | 40.1 | 83.6 | 177 | mA |
+| Operating current (uC on, cellular on but not connected using 2G) | I<sub>cell_idle_2g</sub> | 38.9 | 44.7 | 1700 | mA |
+| Operating current (uC on, cellular connecting to tower using 2G) | I<sub>cell_conn_twr_2g</sub> | 36.9 | 128 | 1700 | mA |
+| Operating current (uC on, cellular connecting to cloud using 2G) | I<sub>cell_conn_cloud_2g</sub> | 35.9 | 98.3 | 1740 | mA |
+| Operating current (uC on, cellular connected but idle using 2G) | I<sub>cell_cloud_idle_2g</sub> | 35.8 | 40.3 | 114 | mA |
+| Operating current (uC on, cellular connected and transmitting using 2G) | I<sub>cell_cloud_tx_2g</sub> | 32 | 152 | 1720 | mA |
+| Operating current (uC on, Wi-Fi on but not connected) | I<sub>wifi_idle</sub> | 27.3 | 30.4 | 101 | mA |
+| Operating current (uC on, Wi-Fi connecting to access point) | I<sub>wifi_conn_ap</sub> | 25.4 | 68.9 | 353 | mA |
+| Operating current (uC on, Wi-Fi connecting to cloud) | I<sub>wifi_conn_cloud</sub> | 59.8 | 109 | 469 | mA |
+| Operating current (uC on, Wi-Fi connected but idle) | I<sub>wifi_cloud_idle</sub> | 61.6 | 64.5 | 184 | mA |
+| Operating current (uC on, Wi-Fi connected and transmitting) | I<sub>wifi_cloud_tx</sub> | 60.7 | 64.9 | 349 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 542 | 547 | 551 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 512 | 515 | 518 | uA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 542 | 547 | 551 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 512 | 515 | 518 | uA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 41.9 | 44 | 45.8 | uA |
+| HIBERNATE mode sleep, RTC wake-up | I<sub>hib_intrtc</sub> | 41.1 | 43.4 | 45.3 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
+
 
 ## Mechanical specifications
 
@@ -813,3 +925,4 @@ SE, SI, SK, TR, UA, UK(NI).
 |:---------|:-----|:-------|:---------|
 | pre      | 2023-10-03 | RK | Initial version |
 |          | 2023-12-20 | RK | Added FCC and IC IDs. Additional notes for ADCs, D24, and D25 |
+|          | 2024-02-08 | RK | Added power consumption information |
