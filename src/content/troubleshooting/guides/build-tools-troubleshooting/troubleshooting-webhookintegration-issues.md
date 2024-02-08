@@ -131,7 +131,7 @@ _For webhooks, data is sent as 512 bytes per Publish._ This means that a device 
 
 For troubleshooting webhooks and integrations, consider these resources:
 
-* **Endpoint Testing Services:** Utilize [Beeceptor](https://beeceptor.com/) or [RequestBin](https://requestbin.com/) to verify your endpoint's functionality. These platforms capture webhooks and lets you review payloads, aiding in identifying any endpoint or infrastructure issues.
+* **Endpoint Testing Services:** Utilize [Beeceptor](https://beeceptor.com/webhook-integration/) or [RequestBin](https://requestbin.com/) to verify your endpoint's functionality. These platforms capture webhooks and lets you review payloads, aiding in identifying any endpoint or infrastructure issues.
 * **API Client for Webhooks:** Postman is a useful HTTP client for dispatching webhooks paylodas and receiving service response. Detailed guidance on Postman usage can be found [here](https://learning.postman.com/docs/getting-started/first-steps/sending-the-first-request/). For access token information, refer to the instructions [here](/troubleshooting/guides/device-management/how-do-i-manage-my-user-access-token/).
 * **JSON Formatting Check:** Within the Particle Console, access 'Edit Integration' and 'Custom Template' to examine your JSON structure. For simpler evaluation, consider replacing {{{variables}}} with static values.
 * **Response Template Configuration:** Enhance clarity by setting up a custom response template. This is done in the Webhook Builder under 'Advanced Settings', where you can specify a custom Response Topic/Template.
