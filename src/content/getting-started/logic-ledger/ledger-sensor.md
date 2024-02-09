@@ -28,15 +28,13 @@ retrieved even if the device is offline. This is a common use-case of device to 
 
 {{!-- BEGIN shared-blurb f77c1afd-51d7-488a-a090-9786b7133e73 --}}
 
-## Prior to Device OS 5.7.0
+## Prior to Device OS 5.8.0
 
-You can test this feature prior to the release of Device OS 5.7.0 using Particle Workbench and a local copy of Device OS.
+You can test this feature prior to the release of Device OS 5.8.0 using Particle Workbench and a local copy of Device OS.
 
 - Clone Device OS from Github: [https://github.com/particle-iot/device-os](https://github.com/particle-iot/device-os).
 
-- Switch to the appropriate branch:
-  - Pre-alpha: `ledger-sync-merged/sc-120056`
-  - Alpha: `develop`
+- Switch to the `develop` branch if using a different branch.
 
 - In the Workbench settings, point the Custom Device OS location to the location of your source. See [Working with a custom Device OS build](/getting-started/developer-tools/workbench-faq/#working-with-a-custom-device-os-build).
 
@@ -44,7 +42,7 @@ You can test this feature prior to the release of Device OS 5.7.0 using Particle
 
 - Use **Particle: Flash application and Device OS (local)** once to upgrade Device OS on the device. After that, you can use **Particle: Flash application (local)**.
 
-Until the Device OS 5.7.0 release you cannot use the cloud compilers to build application that use device-side Ledger.
+Until the Device OS 5.8.0 release you cannot use the cloud compilers to build application that use device-side Ledger.
 
 {{!-- END shared-blurb --}}
 

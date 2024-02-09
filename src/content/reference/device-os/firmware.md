@@ -785,7 +785,7 @@ There is no function to unsubscribe a single event handler.
 
 {{api name1="Particle.ledger"}}
 
-{{since when="5.7.0"}}
+{{since when="5.8.0"}}
 
 Request a ledger from the cloud. Returns a [`Ledger`](#ledger) object to read or write the data in the ledger. 
 
@@ -13153,7 +13153,7 @@ In Device OS 3.0.0 and later there are accessors to read the values out of the i
 
 {{api name1="Ledger"}}
 
-{{since when="5.7.0"}}
+{{since when="5.8.0"}}
 
 Ledger provides device to cloud and cloud to device data synchronization. See [Ledger](/getting-started/logic-ledger/ledger/) for an introduction to Ledger. 
 
@@ -13491,7 +13491,7 @@ See [Variant](#variant) and [Map](#map) for additional information.
 
 {{api name1="Variant"}}
 
-{{since when="5.7.0"}}
+{{since when="5.8.0"}}
 
 The `Variant` class holds typed data. It is used by [Ledger](#ledger). See also [VariantArray](#variantarray) and [VariantMap](#variantmap) to hold data that will be converted to JSON or CBOR.
 
@@ -14120,7 +14120,7 @@ bool has(const String& key) const;
 
 {{api name1="Map"}}
 
-{{since when="5.7.0"}}
+{{since when="5.8.0"}}
 
 The `Map` C++ template holds key-value pairs. The template parameters determine the type of the key and value.
 
