@@ -11558,7 +11558,7 @@ Note that your mobile app will typically filter on the service UUID, not the nam
 
 You must call this before BLE setup is started. For listening mode, this is often in STARTUP(), however when using `FEATURE_DISABLE_LISTENING_MODE` and BLE provisioning mode, this can be in setup() before calling `BLE.provisioningMode(true)`.
 
-The maximum name length is `BLE_MAX_DEV_NAME_LEN`, or 20 ASCII characters. 
+The maximum name length is `BLE_MAX_DEV_NAME_LEN`, or 20 ASCII characters. In practice, however, this must must be 14 or fewer characters because it will not fit in the default advertising packet (which is limited to 31 bytes) if longer.
 
 ```cpp
 // PROTOTYPES

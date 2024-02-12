@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### setDeviceName maximum length 2024-02-12
+
+The practical limit for the device name is 14 characters to fit in the default advertising message.
+
 ### Enterprise Wi-Fi 2024-01-31
 
 Clarify that enterprise Wi-Fi is not supported on the P2/Photon 2.
