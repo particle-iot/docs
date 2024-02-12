@@ -14,7 +14,7 @@ and APIs in future versions based on user feedback.
 
 Pricing and availability may change in the future.
 
-Ledger requires Device OS 5.7.0 or later.
+Ledger requires Device OS 5.8.0 or later.
 {{box op="end"}}
 
 This example stores sensor data from a device to a ledger in the cloud. This allows the latest sensor value to be
@@ -74,7 +74,7 @@ You must create the ledger in the cloud before you can use it from device firmwa
 
 ## Device firmware
 
-This is the test device firmware. It requires Device OS 5.7.0 or later.
+This is the test device firmware. It requires Device OS 5.8.0 or later.
 
 {{> project-browser project="ledger-sensor" default-file="src/ledger-sensor.cpp" height="400"}}
 
