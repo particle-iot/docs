@@ -65,6 +65,8 @@ If you want to add to the `loc` event, see these documents:
 However, in some cases your data will be too large, or have a different cadence than the location publishes, in which case you can use 
 the techniques below.
 
+For a detailed description of the fields in the `loc` event, see [asset tracking events](/reference/cloud-apis/api/#asset-tracking-events) in the cloud API reference.
+
 ### Priority queues
 
 There are two priority queues:

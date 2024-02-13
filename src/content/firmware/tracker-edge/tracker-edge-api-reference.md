@@ -17,6 +17,8 @@ This reference guide describes the API for use with semi-custom and custom devic
 
 For an introduction to Tracker Edge Firmware, see the [Tracker Edge Tutorial](/firmware/tracker-edge/tracker-edge-firmware/#using-github-with-tracker-edge).
 
+For a detailed description of the fields in the `loc` and `loc-enhanced` events that are published by the Monitor Edge firmware, see [asset tracking events](/reference/cloud-apis/api/#asset-tracking-events) in the cloud API reference.
+
 
 ## Tracker
 

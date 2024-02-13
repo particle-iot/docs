@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker edge events 2024-02-13
+
+Added links to the Tracker Edge, Monitor Edge, and Store and Forward documentation to the published event reference in
+the [cloud API reference](/reference/cloud-apis/api/#asset-tracking-events).
+
 ### B Series eval power power 2024-02-13
 
 Clarified the power supply options for the [B Series eval board](/reference/datasheets/b-series/b-series-eval-board/).

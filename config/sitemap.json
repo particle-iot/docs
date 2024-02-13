@@ -543,20 +543,20 @@
             "hash": "0d42ab96ede9c749a55d0be2d8671c7fa4a421a3ab6e618687610a5c3583afe1"
         },
         "firmware/tracker-edge/monitor-edge-api-reference.md": {
-            "date": "2023-06-20",
-            "hash": "e4534091a7137267872d85aab3cf1eb5f36e063f9641761a315672cf1a5b7c7b"
+            "date": "2024-02-13",
+            "hash": "15d4b0c44ba82cfadec99f3ed4855d5a78353246a50d2e32f6b1684f46fdfc9b"
         },
         "firmware/tracker-edge/monitor-edge-firmware.md": {
             "date": "2023-10-31",
             "hash": "915db27c507b05fcf5fc47cc4967bcb2b793395837b7fd0e3e62a5147a6538d7"
         },
         "firmware/tracker-edge/store-and-forward.md": {
-            "date": "2023-07-26",
-            "hash": "d2ff11a7473e911c03d84b8f8b432dd79beecbebbd2dc2470d30d5f21ca4972b"
+            "date": "2024-02-13",
+            "hash": "74b05aa5b51629174d2d795a8c7ec923cddbc662d6c441c4fd6da91ec95b0952"
         },
         "firmware/tracker-edge/tracker-edge-api-reference.md": {
-            "date": "2023-06-20",
-            "hash": "d3ecc52b63da09c33169a6ae3055e5a3b7823e988f05dab6c59211dae5285c52"
+            "date": "2024-02-13",
+            "hash": "62b5e33e8d6ea8908c6244064953236069e5a6760b2ef59bc3435727e5df4b90"
         },
         "firmware/tracker-edge/tracker-edge-firmware.md": {
             "date": "2023-11-17",
@@ -1340,7 +1340,7 @@
         },
         "reference/datasheets/b-series/b-series-eval-board.md": {
             "date": "2024-02-13",
-            "hash": "273c43a2c2639edb01fc3b42a2711639390d2a0b21353085f033acac068525ff"
+            "hash": "ffc37aeed88176176cd7cda06b4d0f7d7675b610edc8cf6bc6f51b311af228cf"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
             "date": "2024-01-23",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "c752067f987d806b9ccb9aef6ec31ff0c7660ccf04ed53654790cb69565c97f0",
+            "hash": "b2e1abb1bdf21db53c25651168931db432a5c0018bf5b7f8d8d7eca399c9e8e3",
             "date": "2024-02-13"
         },
         "getting-started/cloud/logic.md": {
