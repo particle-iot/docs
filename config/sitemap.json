@@ -1339,8 +1339,8 @@
             "hash": "c03df7baae427ae0dc83f723b8486ca45f648f24675afce565963b676163dcaa"
         },
         "reference/datasheets/b-series/b-series-eval-board.md": {
-            "date": "2023-10-30",
-            "hash": "6d60aa268958d351d2b17fc0d165af8e68e30c8100e6c509c2e9285240994e20"
+            "date": "2024-02-13",
+            "hash": "273c43a2c2639edb01fc3b42a2711639390d2a0b21353085f033acac068525ff"
         },
         "reference/datasheets/b-series/b404-b402-datasheet.md": {
             "date": "2024-01-23",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "d9e3ce0c2ccee22f9fa319fdc06481f416ec8c035c55d667639b004b024deee8",
-            "date": "2024-02-12"
+            "hash": "c752067f987d806b9ccb9aef6ec31ff0c7660ccf04ed53654790cb69565c97f0",
+            "date": "2024-02-13"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

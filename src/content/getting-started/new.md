@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### B Series eval power power 2024-02-13
+
+Clarified the power supply options for the [B Series eval board](/reference/datasheets/b-series/b-series-eval-board/).
+
 ### setDeviceName maximum length 2024-02-12
 
 The practical limit for the device name is 14 characters to fit in the default advertising message.
