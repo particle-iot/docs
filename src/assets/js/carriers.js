@@ -1210,6 +1210,7 @@ msomBands.renderCountries = function(countries) {
 
             let bands = [];
             let footnotes = [];
+            let hasNon2G = false;
 
             for(const ccObj of carriersInCountry) {                    
 
@@ -1228,7 +1229,10 @@ msomBands.renderCountries = function(countries) {
 
                     if (!bands.includes(b)) {
                         bands.push(b);
-                    }                   
+                    }
+                    if (!b.startsWith("2G")) {
+                        hasNon2G = true;
+                    }
                     
                 }
             }
@@ -1253,6 +1257,8 @@ msomBands.renderCountries = function(countries) {
                     $(trElem).append(thElem);
                 }
     
+                
+
                 for(const b of bands) {
                     const thElem = document.createElement('th');
                     $(thElem).css('text-align', 'center')
@@ -1261,12 +1267,26 @@ msomBands.renderCountries = function(countries) {
                         const textNode = document.createTextNode(datastore.bandGetTag(b));
                         $(thElem).append(textNode);
                     }
+                    if (hasNon2G) {
+                        $(thElem).append(document.createElement('br'));
+                        {
+                            let textNode;
+                            const bandNum = datastore.bandGetBand(b);
+                            if (bandNum < 600) {
+                                textNode = document.createTextNode('B' + bandNum.toString());
+                            }
+                            else {
+                                textNode = document.createTextNode('');
+                            }
+                            $(thElem).append(textNode);
+                        }    
+                    }
                     $(thElem).append(document.createElement('br'));
                     {
                         let textNode;
                         const bandNum = datastore.bandGetBand(b);
                         if (bandNum < 600) {
-                            textNode = document.createTextNode('B' + bandNum.toString());
+                            textNode = document.createTextNode(dataui.bandToFrequency(bandNum).toString());
                         }
                         else {
                             textNode = document.createTextNode(bandNum.toString());
