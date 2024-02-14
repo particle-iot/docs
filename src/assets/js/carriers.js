@@ -1592,7 +1592,7 @@ msomBands.init = function(callback) {
             backgroundColor: '#AFE4EE', // COLOR_Sky_600
         },
         {
-            title: 'M523',
+            title: 'M524',
             modemObj: datastore.data.modems.find(e => e.model == 'EG91-EX'),
             borderRight: false,
             backgroundColor: '#89E2B3', // COLOR_Mint_600
