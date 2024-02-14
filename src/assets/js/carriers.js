@@ -1,4 +1,6 @@
+
 let carriers2 = {};
+let msomBands = {};
 
 //
 // By Device
@@ -627,6 +629,7 @@ const familyMapCreate = function() {
 
     familyMap.saveQuery = function() {
         const family = $(familyMap.options.familySelect).val();
+        console.log('familyMap.saveQuery', family);
 
         history.pushState(null, '', '?tab=ModelMap&family=' + encodeURIComponent(family));
     };
@@ -641,9 +644,12 @@ const familyMapCreate = function() {
             family = familyMap.options.family;
         }
 
+        // This is causing the family map to always get selected
+        /*
         if (!familyMap.options.noHistory) {
             familyMap.saveQuery();
         }
+        */
 
         const skuFamilyObj = datastore.findSkuFamily(family);
 
@@ -1122,13 +1128,405 @@ countryDetails.init = function(options, callback) {
 };
 
 //
+// msomBands
+//
+msomBands.fromQuery = function(urlParams) {
+
+    const region = urlParams.get('region');
+    if (region) {
+        $(msomBands.msomRegionSelectElem).val(region);
+    }
+    const country = urlParams.get('country');
+    if (country && region == 'country') {
+        $(msomBands.msomSpecificCountryElem).val(country);
+    }
+    msomBands.selectRegion();
+};
+
+msomBands.saveQuery = function() {
+
+    const region = $(msomBands.msomRegionSelectElem).val();
+    const specificCountry = (region == 'country') ? $(msomBands.msomSpecificCountryElem).val() : '';
+    
+    history.pushState(null, '', '?tab=Msom&region=' + encodeURIComponent(region) + '&country=' + encodeURIComponent(specificCountry));
+
+
+};
+
+msomBands.renderCountries = function(countries) {
+
+    for(const country of countries) {
+        const countryObj = datastore.data.countries.find(e => e.name == country);
+
+        {
+            const headerElem = document.createElement('h3');
+            $(headerElem).text(country);
+            $(msomBands.msomResultsElem).append(headerElem);    
+        }
+
+        let carriersInCountry = [];
+            
+        for(const ccObj of datastore.data.countryCarrier) {
+            if (ccObj.country == country) {
+                if (!ccObj.supersim) {
+                    continue;
+                }
+                carriersInCountry.push(ccObj);
+            }
+        }
+
+        for(const testObj of msomBands.tests) {
+            const headerElem = document.createElement('h5');
+            $(headerElem).text(country + ' - ' + testObj.title);
+            $(msomBands.msomResultsElem).append(headerElem);
+
+            let bands = [];
+            let footnotes = [];
+
+            for(const ccObj of carriersInCountry) {                    
+
+                for(let b of ccObj.bands) {
+                    b = b.replace('LTE', 'Cat1');
+
+                    let hasTech = false;
+                    for(const t of testObj.modemObj.technologies) {
+                        if (b.startsWith(t)) {
+                            hasTech = true;
+                        }
+                    }
+                    if (!hasTech) {
+                        continue;
+                    }
+
+                    if (!bands.includes(b)) {
+                        bands.push(b);
+                    }                   
+                    
+                }
+            }
+            bands.sort(datastore.sortCompareTagBand);
+
+            if (bands.length == 0) {
+                const divElem = document.createElement('div');
+                $(divElem).text('\u274C There are no carriers in ' + country + ' compatible with the ' + testObj.title + ' cellular modem.');
+                $(msomBands.msomResultsElem).append(divElem);
+                continue;
+            }
+
+            const tableDiv = document.createElement('div');
+            
+            const tableElem = document.createElement('table');
+
+            const theadElem = document.createElement('thead');
+            {
+                const trElem = document.createElement('tr');
+                {
+                    const thElem = document.createElement('th');
+                    $(trElem).append(thElem);
+                }
+    
+                for(const b of bands) {
+                    const thElem = document.createElement('th');
+                    $(thElem).css('text-align', 'center')
+
+                    {
+                        const textNode = document.createTextNode(datastore.bandGetTag(b));
+                        $(thElem).append(textNode);
+                    }
+                    $(thElem).append(document.createElement('br'));
+                    {
+                        let textNode;
+                        const bandNum = datastore.bandGetBand(b);
+                        if (bandNum < 600) {
+                            textNode = document.createTextNode('B' + bandNum.toString());
+                        }
+                        else {
+                            textNode = document.createTextNode(bandNum.toString());
+                        }
+                        $(thElem).append(textNode);
+                    }
+
+                    $(trElem).append(thElem);
+                }
+
+                $(theadElem).append(trElem);
+            }
+            $(tableElem).append(theadElem);
+
+            const tbodyElem = document.createElement('tbody');
+            $(tableElem).append(tbodyElem);
+
+
+            let roamingRestrictions = false;
+            let showSunset2G;
+            let showSunset3G;
+            let hasGreenCheck = false;
+            let hasRedX = false;
+
+            for(const ccObj of carriersInCountry) {
+                const trElem = document.createElement('tr');
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).text(ccObj.carrier);
+                    $(trElem).append(tdElem);
+                }
+
+                if (ccObj.supersim.roamingRestrictions) {
+                    roamingRestrictions = true;
+                }
+                const sunset2G = datastore.dateParse(ccObj.sunset2G);
+                const sunset3G = datastore.dateParse(ccObj.sunset3G);
+
+                for(const b of bands) {
+                    const modemSupportsBand = testObj.modemObj.bands.includes(b);
+                    const carrierSupportsBand = ccObj.bands.find(b1 => b1.replace('LTE', 'Cat1') == b);
+
+                    let value = '';
+                    let footnote;
+
+                    if (carrierSupportsBand) {
+                        if (modemSupportsBand) {
+                            value = '\u2705'; // green check
+                            hasGreenCheck = true;
+
+                            if (b.startsWith("2G")) {
+                                if (sunset2G.year && !showSunset2G) {
+                                    if (sunset2G.year < 2024) {
+                                        footnotes.push('2G sunset originally planned for ' + sunset2G.s + ' but may not been delayed');
+                                    }
+                                    else {
+                                        footnotes.push('2G sunset expected ' + sunset2G.s);
+                                    }
+                                    showSunset2G = footnotes.length;
+                                }
+                                if (showSunset2G) {
+                                    footnote = showSunset2G.toString();
+                                }
+                            }
+                            if (b.startsWith("3G")) {
+                                if (sunset3G.year && !showSunset3G) {
+                                    if (sunset3G.year < 2024) {
+                                        footnotes.push('3G sunset originally planned for ' + sunset3G.s + ' but may have been delayed');
+                                    }
+                                    else {
+                                        footnotes.push('3G sunset expected ' + sunset3G.s);
+                                    }
+                                    showSunset3G = footnotes.length;
+                                }
+                                if (showSunset3G) {
+                                    footnote = showSunset3G.toString();
+                                }
+                            }                        
+    
+                        }
+                        else {
+                            value = '\u274C'; // red x
+                            hasRedX = true;
+                        }
+                    }
+
+                    const tdElem = document.createElement('td');
+                    $(tdElem).css('text-align', 'center')
+                    $(tdElem).text(value);
+
+                    if (footnote) {
+                        const supElem = document.createElement('sup');
+                        $(supElem).text(footnote);
+                        $(tdElem).append(supElem);
+                    }
+                    $(trElem).append(tdElem);
+                }
+
+                $(tbodyElem).append(trElem);
+            }               
+
+            $(tableDiv).append(tableElem);
+            
+            $(msomBands.msomResultsElem).append(tableDiv);
+
+            const ulElem = document.createElement('ul');
+
+            if (roamingRestrictions) {
+                const liElem = document.createElement('li');
+                $(liElem).text('Permanent roaming restrictions may apply in this country.');
+                $(ulElem).append(liElem);
+            }
+
+            if (footnotes) {
+                for(let ii = 0; ii < footnotes.length; ii++) {
+                    const liElem = document.createElement('li');
+
+                    const supElem = document.createElement('sup');
+                    $(supElem).text((ii + 1).toString());
+                    $(liElem).append(supElem);
+
+                    const textElem = document.createTextNode(footnotes[ii]);
+                    $(liElem).append(textElem);
+
+                    $(ulElem).append(liElem);
+                }
+            }
+
+            if (hasGreenCheck) {
+                const liElem = document.createElement('li');
+                $(liElem).text('\u2705 Band is supported by carrier and the ' + testObj.title + ' cellular modem.');
+                $(ulElem).append(liElem);
+            }
+
+            if (hasRedX) {
+                const liElem = document.createElement('li');
+                $(liElem).text('\u274C Band is used by the carrier but not supported by the ' + testObj.title + ' cellular modem.');
+                $(ulElem).append(liElem);
+            }
+
+
+            $(msomBands.msomResultsElem).append(ulElem);
+
+        }
+
+    }
+
+
+}
+
+msomBands.selectRegion = function() {
+    const region = $(msomBands.msomRegionSelectElem).val();
+    if (region != `country`) {
+        $(msomBands.msomSpecificCountryElem).val('');
+    }
+
+    const specificCountry = (region == 'country') ? $(msomBands.msomSpecificCountryElem).val() : null;
+
+    msomBands.saveQuery();
+
+    $(msomBands.msomResultsElem).empty();
+
+    let countries = [];
+
+    if (specificCountry) {
+        countries.push(specificCountry);
+        msomBands.renderCountries(countries);
+    }
+    else
+    if (region == 'alphabetical') {
+        for(const ccObj of datastore.data.countryCarrier) {
+            if (!ccObj.supersim) {
+                continue;
+            }
+
+            if (!countries.includes(ccObj.country)) {
+                countries.push(ccObj.country);
+            }
+        }
+        msomBands.renderCountries(countries);
+    }
+    else {
+        let regions = [];
+
+        if (region == 'byRegion') {
+            regions = msomBands.regions;
+        }
+        else {
+            regions = [msomBands.regions.find(e => e.name == region)];
+        }
+
+        for(const regionObj of regions) {
+            countries = [];
+
+            for(const ccObj of datastore.data.countryCarrier) {
+                const countryObj = datastore.data.countries.find(e => e.name == ccObj.country);
+                
+                let inRegion = false;
+                for(const r1 of countryObj.regions) {
+                    if (regionObj.regions.includes(r1)) {
+                        inRegion = true;
+                        break;
+                    }
+                }
+                if (!inRegion) {
+                    continue;
+                }
+                if (!ccObj.supersim) {
+                    continue;
+                }
+    
+                if (!countries.includes(ccObj.country)) {
+                    countries.push(ccObj.country);
+                }
+            }   
+
+            {
+                const headerElem = document.createElement('h2');
+                $(headerElem).text(regionObj.name);
+
+                $(msomBands.msomResultsElem).append(headerElem);
+            }
+
+
+            msomBands.renderCountries(countries);
+        }     
+    }
+
+    
+}
+
+msomBands.onCountrySelected = function() {
+    $(msomBands.msomRegionSelectElem).val('country');
+    msomBands.selectRegion();
+    msomBands.saveQuery();
+}
+
+msomBands.init = function(callback) {
+
+    $('#carrierTabMsom').show();
+
+    // byRegion, alphabetical
+    msomBands.msomRegionSelectElem = $('#msomRegionSelect');
+    msomBands.msomResultsElem = $('#msomResults');
+    msomBands.msomSpecificCountryElem = $('#msomSpecificCountry');
+
+    msomBands.regions = datastore.data.regionGroups.find(e => e.id == 'region6').regions;
+    for(const r of msomBands.regions) {
+        const optionElem = document.createElement('option');
+        $(optionElem).attr('value', r.name);
+        $(optionElem).text('Only ' + r.name + ' region');
+
+        $(msomBands.msomRegionSelectElem).append(optionElem);
+    }
+    $(msomBands.msomRegionSelectElem).on('change', msomBands.selectRegion);
+    
+    msomBands.tests = [
+        {
+            title: 'M404',
+            modemObj: datastore.data.modems.find(e => e.model == 'BG95-M5'),
+        },
+        {
+            title: 'M523',
+            modemObj: datastore.data.modems.find(e => e.model == 'EG91-EX'),
+        },
+    ];
+    msomBands.selectRegion();
+
+    msomBands.countrySel = dataui.countrySelector({
+        textFieldId:'msomSpecificCountry',
+        popupClass: 'countryPopup',
+        resultDiv:'msomSpecificCountryDiv',        
+    }).init();
+    msomBands.countrySel.onCountrySelected = msomBands.onCountrySelected;
+
+
+    callback();
+}
+
+//
 // Initialization
 //
 const carrierSelectTabs = {
     'ByDevice':carriers2, 
     'FindDevice':rec2, 
     'ModelMap':familyMapCreate(), 
-    'CountryDetails':countryDetails
+    'CountryDetails':countryDetails,
+    'Msom':msomBands,
 };
 
 function carrierSelectTab(which) {
@@ -1167,6 +1565,8 @@ $(document).ready(function() {
         });
     });
 
+    const showMsom = true;
+
     // Remember the search parameters before they are replaced
     const urlParams = new URLSearchParams(window.location.search);
 
@@ -1201,8 +1601,15 @@ $(document).ready(function() {
                             resultDiv:'countryDetailsResultsDiv',
                             footnotesDiv:'countryDetailsFootnotesDiv'
                         },
-                        function() {
-                            carrierLoadQuery(urlParams);
+                        function() {                            
+                            if (showMsom) {
+                                msomBands.init(function() {
+                                    carrierLoadQuery(urlParams);
+                                });    
+                            }
+                            else {
+                                carrierLoadQuery(urlParams);
+                            }
                         });
                     });   
         
