@@ -91,6 +91,12 @@ carriers2.selectMenu = function() {
         technologies.forEach(function(tech) {
             html += '<th>' + tech + '</th>';
         });
+        if (technologies.includes("2G")) {
+            html += "<th>2G sunset</th>";
+        }
+        if (technologies.includes("3G")) {
+            html += "<th>3G sunset</th>";
+        }
         html += '</tr>';
 
         $('#' + carriers2.options.table + ' > thead').html(html);
@@ -180,6 +186,28 @@ carriers2.selectMenu = function() {
             }
             html += '<td>' + cell + '</td>';
         });
+
+        if (technologies.includes("2G")) {
+            const sunset2G = datastore.dateParse(ccObj.sunset2G);
+
+            if (sunset2G.year) {
+                html += '<td>' + sunset2G.s + '</td>';
+            }    
+            else {
+                html += '<td>&nbsp;</td>';
+            }
+        }
+        if (technologies.includes("3G")) {
+            const sunset3G = datastore.dateParse(ccObj.sunset3G);
+
+            if (sunset3G.year) {
+                html += '<td>' + sunset3G.s + '</td>';
+            }    
+            else {
+                html += '<td>&nbsp;</td>';
+            }
+        }
+
         if (!allow) {
             return;
         }
