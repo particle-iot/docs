@@ -1450,12 +1450,6 @@ msomBands.renderCountries = function(countries) {
             $(liElem).text('\u274C Band is used by the carrier but not supported by the cellular modem.');
             $(ulElem).append(liElem);
         }
-        
-        if (roamingRestrictions) {
-            const liElem = document.createElement('li');
-            $(liElem).text('Permanent roaming restrictions may apply in this country.');
-            $(ulElem).append(liElem);
-        }
 
         if (footnotes) {
             for(let ii = 0; ii < footnotes.length; ii++) {
@@ -1471,138 +1465,14 @@ msomBands.renderCountries = function(countries) {
                 $(ulElem).append(liElem);
             }
         }
-
-        $(msomBands.msomResultsElem).append(ulElem);
-
-
-        /*
-        let roamingRestrictions = false;
-        let showSunset2G;
-        let showSunset3G;
-        let hasGreenCheck = false;
-        let hasRedX = false;
-
-        for(const ccObj of carriersInCountry) {
-            const trElem = document.createElement('tr');
-            {
-                const tdElem = document.createElement('td');
-                $(tdElem).text(ccObj.carrier);
-                $(trElem).append(tdElem);
-            }
-
-            if (ccObj.supersim.roamingRestrictions) {
-                roamingRestrictions = true;
-            }
-            const sunset2G = datastore.dateParse(ccObj.sunset2G);
-            const sunset3G = datastore.dateParse(ccObj.sunset3G);
-
-            for(const b of bands) {
-                const modemSupportsBand = testObj.modemObj.bands.includes(b);
-                const carrierSupportsBand = ccObj.bands.find(b1 => b1.replace('LTE', 'Cat1') == b);
-
-                let value = '';
-                let footnote;
-
-                if (carrierSupportsBand) {
-                    if (modemSupportsBand) {
-                        value = '\u2705'; // green check
-                        hasGreenCheck = true;
-
-                        if (b.startsWith("2G")) {
-                            if (sunset2G.year && !showSunset2G) {
-                                if (sunset2G.year < 2024) {
-                                    footnotes.push('2G sunset originally planned for ' + sunset2G.s + ' but may not been delayed');
-                                }
-                                else {
-                                    footnotes.push('2G sunset expected ' + sunset2G.s);
-                                }
-                                showSunset2G = footnotes.length;
-                            }
-                            if (showSunset2G) {
-                                footnote = showSunset2G.toString();
-                            }
-                        }
-                        if (b.startsWith("3G")) {
-                            if (sunset3G.year && !showSunset3G) {
-                                if (sunset3G.year < 2024) {
-                                    footnotes.push('3G sunset originally planned for ' + sunset3G.s + ' but may have been delayed');
-                                }
-                                else {
-                                    footnotes.push('3G sunset expected ' + sunset3G.s);
-                                }
-                                showSunset3G = footnotes.length;
-                            }
-                            if (showSunset3G) {
-                                footnote = showSunset3G.toString();
-                            }
-                        }                        
-
-                    }
-                    else {
-                        value = '\u274C'; // red x
-                        hasRedX = true;
-                    }
-                }
-
-                const tdElem = document.createElement('td');
-                $(tdElem).css('text-align', 'center')
-                $(tdElem).text(value);
-
-                if (footnote) {
-                    const supElem = document.createElement('sup');
-                    $(supElem).text(footnote);
-                    $(tdElem).append(supElem);
-                }
-                $(trElem).append(tdElem);
-            }
-
-            $(tbodyElem).append(trElem);
-        }               
-
-        $(tableDiv).append(tableElem);
-        
-        $(msomBands.msomResultsElem).append(tableDiv);
-
-        const ulElem = document.createElement('ul');
-
         if (roamingRestrictions) {
             const liElem = document.createElement('li');
             $(liElem).text('Permanent roaming restrictions may apply in this country.');
             $(ulElem).append(liElem);
         }
 
-        if (footnotes) {
-            for(let ii = 0; ii < footnotes.length; ii++) {
-                const liElem = document.createElement('li');
-
-                const supElem = document.createElement('sup');
-                $(supElem).text((ii + 1).toString());
-                $(liElem).append(supElem);
-
-                const textElem = document.createTextNode(footnotes[ii]);
-                $(liElem).append(textElem);
-
-                $(ulElem).append(liElem);
-            }
-        }
-
-        if (hasGreenCheck) {
-            const liElem = document.createElement('li');
-            $(liElem).text('\u2705 Band is supported by carrier and the ' + testObj.title + ' cellular modem.');
-            $(ulElem).append(liElem);
-        }
-
-        if (hasRedX) {
-            const liElem = document.createElement('li');
-            $(liElem).text('\u274C Band is used by the carrier but not supported by the ' + testObj.title + ' cellular modem.');
-            $(ulElem).append(liElem);
-        }
-
-
         $(msomBands.msomResultsElem).append(ulElem);
 
-
-*/
     }
 
 
