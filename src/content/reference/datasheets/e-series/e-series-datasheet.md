@@ -594,6 +594,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Barbados | E314 | 2G, 3G | Flow |
 | Belarus | E314 | 2G, 3G | A1 |
 | Belgium | E314 | 2G, 3G | Base, Orange, Proximus |
+| Belize | E314 | 3G | Smart |
 | Bolivia | E314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | E314 | 2G, 3G | BH Telecom, HT Eronet |
 | Brunei | E314 | 2G, 3G | DST |

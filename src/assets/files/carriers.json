@@ -4275,8 +4275,8 @@
     {
       "country": "Albania",
       "carrier": "Vodafone",
-      "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -4469,7 +4469,8 @@
         "2G-900",
         "3G-1",
         "LTE-17"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Antigua and Barbuda",
@@ -4507,14 +4508,14 @@
       "bands": [
         "2G-850",
         "3G-1",
-        "3G-5",
         "LTE-4"
       ],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Argentina",
@@ -4544,7 +4545,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Argentina",
@@ -4582,8 +4584,10 @@
         "2G-1900",
         "3G-2",
         "3G-5",
-        "LTE-4"
-      ]
+        "LTE-4",
+        "M1-4"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Argentina",
@@ -4606,8 +4610,11 @@
         "2G-1900",
         "3G-2",
         "3G-5",
-        "LTE-4"
-      ]
+        "LTE-4",
+        "LTE-7",
+        "LTE-28"
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Armenia",
@@ -4712,11 +4719,13 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-3"
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Aruba",
@@ -4756,13 +4765,14 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Australia",
       "carrier": "Optus",
       "sunset2G": "2017-01-04",
-      "sunset3G": "2024-09",
+      "sunset3G": "2024-09-01",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -4840,7 +4850,12 @@
         "3G-5",
         "LTE-1",
         "LTE-3",
-        "LTE-28"
+        "LTE-7",
+        "LTE-8",
+        "LTE-28",
+        "M1-3",
+        "M1-28",
+        "NB1-28"
       ],
       "noBands": [
         "2G"
@@ -4860,7 +4875,8 @@
             "note": "3G service ending June 2024"
           }
         ]
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Australia",
@@ -4868,13 +4884,12 @@
       "sunset2G": "2017-09-30",
       "sunset3G": "2023-12-15",
       "supersim": {
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.25
       },
       "koreAllNet": {
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -4882,13 +4897,16 @@
         "allowCat1": true
       },
       "bands": [
-        "3G-8",
         "LTE-1",
         "LTE-3",
-        "LTE-5"
+        "LTE-5",
+        "LTE-8",
+        "LTE-28",
+        "NB1-8"
       ],
       "noBands": [
-        "2G"
+        "2G",
+        "3G"
       ],
       "timeline": {
         "2G": [
@@ -4910,7 +4928,8 @@
             "note": "3G service ending December 15, 2023"
           }
         ]
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Austria",
@@ -4952,6 +4971,7 @@
       "aliases": [
         "Mobilkom"
       ],
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -5012,7 +5032,7 @@
       "country": "Austria",
       "carrier": "T-Mobile",
       "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset3G": "2024-01-01",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -5036,6 +5056,15 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true
+      },
+      "timeline": {
+        "3G": [
+          {
+            "state": "active",
+            "end": "2024-01-01",
+            "note": "3G phase-out begins"
+          }
+        ]
       },
       "bands": [
         "2G-900",
@@ -5168,7 +5197,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Bahrain",
@@ -5267,8 +5297,8 @@
     {
       "country": "Bangladesh",
       "carrier": "GrameenPhone",
-      "sunset2G": "After 2025",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -5372,7 +5402,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Barbados",
@@ -5416,7 +5447,16 @@
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true
-      }
+      },
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Barbados",
+      "carrier": "Ozone",
+      "bands": [
+        "LTE-13"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Belarus",
@@ -5558,7 +5598,10 @@
       "country": "Belgium",
       "carrier": "Orange",
       "lteM1": true,
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
+        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
@@ -5566,21 +5609,24 @@
         "allowM1": true
       },
       "bands": [
+        "2G-900",
+        "2G-1800",
         "3G-1",
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
       ],
-      "noBands": [
-        "2G"
-      ]
+      "noBands": []
     },
     {
       "country": "Belgium",
       "carrier": "Proximus",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2024-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -5631,22 +5677,25 @@
         "3G-5",
         "LTE-2",
         "LTE-5"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Belize",
       "carrier": "Smart",
       "supersim": {
+        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.35
       },
       "bands": [
+        "3G-5",
         "LTE-13"
       ],
       "noBands": [
-        "2G",
-        "3G"
-      ]
+        "2G"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Benin",
@@ -5738,7 +5787,8 @@
         "2G-1900",
         "3G-5",
         "LTE-12"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Bermuda",
@@ -5755,7 +5805,8 @@
         "3G-2",
         "3G-5",
         "LTE-13"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Bolivia",
@@ -5801,31 +5852,61 @@
         "2G-850",
         "3G-5",
         "LTE-17"
-      ]
+      ],
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Bolivia",
+      "carrier": "Viva",
+      "bands": [
+        "3G-5",
+        "LTE-4"
+      ],
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Bonaire",
+      "carrier": "Telbo",
+      "aliases": [
+        "Kla"
+      ],
+      "bands": [
+        "3G-8",
+        "LTE-3"
+      ],
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Bonaire",
+      "carrier": "UTS",
+      "bands": [
+        "3G-1",
+        "LTE-3"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Bosnia and Herzegovina",
       "carrier": "BH Telecom",
+      "sunset3G": "2025-06-01",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "paygRate": 0.35
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
-        "allow3G": true,
-        "allow2G": true
+        "allow3G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 2,
-        "allow3G": true,
-        "allow2G": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
         "3G-1"
       ],
       "noBands": [
+        "2G",
         "LTE"
       ]
     },
@@ -5909,6 +5990,8 @@
       "bands": [
         "2G-1800",
         "3G-1",
+        "LTE-1",
+        "LTE-3",
         "LTE-7"
       ],
       "koreAllNet": {
@@ -5916,7 +5999,8 @@
         "allow3G": true,
         "allowLTE": true,
         "rank": "Secondary"
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Brazil",
@@ -5932,15 +6016,19 @@
         "2G-1800",
         "3G-1",
         "3G-5",
+        "3G-8",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "LTE-28",
+        "NB1-28"
       ],
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true,
         "rank": "Backup"
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Brazil",
@@ -5971,14 +6059,17 @@
         "2G-1900",
         "3G-1",
         "3G-5",
-        "LTE-7"
+        "LTE-3",
+        "LTE-7",
+        "LTE-28"
       ],
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true,
         "rank": "Backup"
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Brunei",
@@ -6000,28 +6091,29 @@
     {
       "country": "Brunei",
       "carrier": "DST",
-      "sunset2G": "NA",
       "sunset3G": "No Plan",
       "supersim": {
-        "allow2G": true,
+        "allow2G": false,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.15
       },
       "koreAllNet": {
-        "allow2G": true,
+        "allow2G": false,
         "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
-        "allow2G": true,
+        "allow2G": false,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
         "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -6041,6 +6133,7 @@
         "Mobitel EAD",
         "Mobilkom"
       ],
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -6315,17 +6408,18 @@
         "SmartMobile"
       ],
       "sunset2G": "?",
-      "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -6384,7 +6478,9 @@
         "3G-2",
         "3G-5",
         "LTE-4",
-        "LTE-7"
+        "LTE-7",
+        "M1-4",
+        "M1-7"
       ],
       "noBands": [
         "2G"
@@ -6407,7 +6503,7 @@
     {
       "country": "Canada",
       "carrier": "Rogers Wireless",
-      "sunset2G": "2020-12-31",
+      "sunset2G": "",
       "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
@@ -6446,7 +6542,11 @@
         "LTE-4",
         "LTE-7",
         "LTE-12",
-        "LTE-17"
+        "LTE-17",
+        "M1-4",
+        "M1-7",
+        "M1-12",
+        "M1-17"
       ],
       "checked": "2024-02-06"
     },
@@ -6516,7 +6616,16 @@
         "LTE-17",
         "LTE-29",
         "LTE-40",
-        "NB1"
+        "NB1",
+        "M1-2",
+        "M1-4",
+        "M1-5",
+        "M1-7",
+        "M1-12",
+        "M1-13",
+        "M1-17",
+        "M1-29",
+        "M1-40"
       ],
       "noBands": [
         "2G"
@@ -6549,17 +6658,19 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
-        "2G-900",
         "3G-1",
         "3G-5",
         "LTE-3"
-      ]
+      ],
+      "noBands": [
+        "2G"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Cayman Islands",
@@ -6603,7 +6714,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Central African Republic",
@@ -6690,13 +6802,14 @@
         "2G-1900",
         "3G-2",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Chile",
       "carrier": "Entel",
       "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset3G": "2024-11-30",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -6718,15 +6831,18 @@
         "3G-2",
         "3G-8",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Chile",
       "carrier": "Movistar",
-      "sunset2G": "?",
+      "aliases": [
+        "Telefonica"
+      ],
+      "sunset2G": "2023-12-31",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
@@ -6734,32 +6850,43 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-1900",
         "3G-2",
         "3G-5",
         "LTE-7"
-      ]
+      ],
+      "noBands": [
+        "2G"
+      ],
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Chile",
+      "carrier": "WOM",
+      "bands": [
+        "3G-4",
+        "lTE-4",
+        "LTE-28",
+        "LTE-66"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "China",
       "carrier": "China Mobile",
-      "sunset2G": "No Plan",
-      "sunset3G": "2020-01-01",
+      "sunset2G": "?",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -6799,7 +6926,7 @@
       "country": "China",
       "carrier": "China Unicom",
       "sunset2G": "2020-01-01",
-      "sunset3G": "No Plan",
+      "sunset3G": "2024-12-31",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -6848,7 +6975,8 @@
         "2G-1900",
         "3G-2",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Colombia",
@@ -6887,7 +7015,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Colombia",
@@ -6911,7 +7040,8 @@
         "3G-2",
         "LTE-4",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Congo (Brazzaville)",
@@ -7037,10 +7167,9 @@
     {
       "country": "Costa Rica",
       "carrier": "Claro",
-      "sunset2G": "?",
+      "sunset2G": "2023-12-31",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
@@ -7054,6 +7183,9 @@
         "2G-1800",
         "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -7140,7 +7272,7 @@
       "country": "Croatia",
       "carrier": "Croatian Telecom",
       "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset3G": "2024",
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
@@ -7379,78 +7511,71 @@
       "country": "Cyprus",
       "carrier": "PrimeTel",
       "supersim": {
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "3G-1",
         "LTE-3"
       ],
       "noBands": [
-        "2G"
+        "2G",
+        "3G"
       ]
     },
     {
       "country": "Czechia",
       "carrier": "O2",
-      "sunset2G": "?",
+      "sunset2G": "2024",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-1",
         "LTE-3",
         "LTE-7",
         "LTE-20",
         "LTE-38"
       ],
+      "noBands": [
+        "3G"
+      ],
       "checked": "2024-02-06"
     },
     {
       "country": "Czechia",
       "carrier": "T-Mobile",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -7458,28 +7583,27 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -7490,24 +7614,20 @@
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -7518,12 +7638,14 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-1",
         "LTE-3",
         "LTE-7",
         "LTE-8",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -7566,8 +7688,8 @@
     {
       "country": "Denmark",
       "carrier": "TDC",
-      "sunset2G": "2021",
-      "sunset3G": "2021",
+      "sunset2G": "?",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -7608,7 +7730,6 @@
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -7616,30 +7737,28 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-20",
         "NB1-20",
         "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -7650,7 +7769,6 @@
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -7658,19 +7776,19 @@
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-7",
         "LTE-20",
         "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -7850,15 +7968,18 @@
         "3G-2",
         "3G-5",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Ecuador",
       "carrier": "Conecel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "aliases": [
+        "CNT"
+      ],
+      "sunset2G": "2023-12-31",
+      "sunset3G": "2025-12-31",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
@@ -7868,11 +7989,14 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-850",
         "3G-2",
         "3G-5",
         "LTE-4"
-      ]
+      ],
+      "noBands": [
+        "2G"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Ecuador",
@@ -7895,7 +8019,8 @@
         "3G-2",
         "3G-5",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Ecuador",
@@ -8011,7 +8136,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "El Salvador",
@@ -8028,11 +8154,15 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "El Salvador",
       "carrier": "Telefonica",
+      "aliases": [
+        "Movistar"
+      ],
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -8056,7 +8186,17 @@
         "3G-2",
         "3G-5",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "El Salvador",
+      "carrier": "Tigo",
+      "bands": [
+        "3G-5",
+        "LTE-5"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Equatorial Guinea",
@@ -8095,7 +8235,10 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
       ]
     },
     {
@@ -8147,6 +8290,7 @@
     {
       "country": "Estonia",
       "carrier": "Telia",
+      "sunset3G": "2025-12-31",
       "aliases": [
         "AS EMT",
         "EMT",
@@ -8156,14 +8300,12 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
@@ -8176,6 +8318,9 @@
         "LTE-7",
         "LTE-20",
         "NB1-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -8327,8 +8472,8 @@
     {
       "country": "Finland",
       "carrier": "DNA",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2024-12-31",
       "lteM1": true,
       "supersim": {
         "preferredRate": true,
@@ -8362,7 +8507,10 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
       ],
       "checked": "2024-02-06"
     },
@@ -8407,11 +8555,10 @@
         "TeliaSonera"
       ],
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2023-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -8419,34 +8566,35 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 2,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-7",
         "LTE-20",
         "NB1-20",
-        "M1"
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
     {
       "country": "France",
       "carrier": "Bouygues",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2026-12-31",
+      "sunset3G": "2029-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -8505,8 +8653,8 @@
     {
       "country": "France",
       "carrier": "Orange",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2028-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -8555,8 +8703,8 @@
     {
       "country": "France",
       "carrier": "SFR",
-      "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset2G": "2026-12-31",
+      "sunset3G": "2028-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -8626,11 +8774,26 @@
       "sunset3G": "NA",
       "bands": [
         "2G-900",
-        "3G-1"
+        "3G-1",
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "French Guiana",
+      "carrier": "SFR",
+      "sunset2G": "?",
+      "sunset3G": "NA",
+      "bands": [
+        "3G-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Gabon",
@@ -8866,8 +9029,8 @@
     {
       "country": "Germany",
       "carrier": "Telekom",
-      "sunset2G": "2020-12-31",
-      "sunset3G": "2020-12-31",
+      "sunset2G": "?",
+      "sunset3G": "?",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -8900,35 +9063,37 @@
         "LTE-32",
         "LTE-38",
         "NB1-8",
-        "M1"
+        "M1-3",
+        "M1-7",
+        "M1-8",
+        "M1-20",
+        "M1-28",
+        "M1-32",
+        "M1-38"
       ],
       "checked": "2024-02-06"
     },
     {
       "country": "Germany",
       "carrier": "Vodafone",
-      "sunset2G": "2025",
+      "sunset2G": "2025-12-31",
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -8939,7 +9104,6 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-1",
         "LTE-3",
         "LTE-7",
@@ -8948,6 +9112,9 @@
         "LTE-32",
         "LTE-38",
         "NB1-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -9019,7 +9186,7 @@
         "ONEtouch"
       ],
       "sunset2G": "2025",
-      "sunset3G": "2020",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -9095,7 +9262,6 @@
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -9103,27 +9269,26 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -9137,24 +9302,20 @@
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -9165,11 +9326,13 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20",
         "NB1-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -9183,34 +9346,32 @@
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -9222,19 +9383,19 @@
       ],
       "telefonicaBundle2018": {
         "partnerZone": 5,
-        "allow3G": true,
         "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 3,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-8",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -9320,19 +9481,35 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
+        "3G-1",
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Guadeloupe",
+      "carrier": "SFR",
+      "bands": [
+        "2G-900",
+        "3G-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Guam",
@@ -9340,14 +9517,15 @@
       "sunset2G": "2018-01-10",
       "sunset3G": "No Plan",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-1900",
         "3G-5",
         "LTE-17"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -9420,7 +9598,8 @@
         "2G-1900",
         "3G-2",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Guatemala",
@@ -9435,7 +9614,8 @@
         "2G-1900",
         "3G-2",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Guatemala",
@@ -9451,7 +9631,8 @@
         "2G-850",
         "3G-5",
         "LTE-5"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Guernsey",
@@ -9675,7 +9856,7 @@
       "country": "Holy See (Vatican City)",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -9735,7 +9916,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Honduras",
@@ -9777,7 +9959,8 @@
         "2G-850",
         "3G-5",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Hong Kong",
@@ -9863,11 +10046,12 @@
       "sunset2G": "2016-12-31",
       "sunset3G": "?",
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "3G-8",
         "LTE-3"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -9876,28 +10060,26 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaPPU2020": {
         "partnerZone": 2,
-        "allow3G": true,
-        "allow2G": true
+        "allow3G": true
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "3G-8",
         "LTE-3",
         "LTE-8"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -9907,28 +10089,27 @@
       "sunset3G": "NA",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -9954,7 +10135,7 @@
       "country": "Hungary",
       "carrier": "Telenor",
       "sunset2G": "?",
-      "sunset3G": "2020?",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -9994,10 +10175,9 @@
       "country": "Hungary",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "2023-11-30",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -10005,18 +10185,15 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": false
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -10027,12 +10204,13 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-7",
         "LTE-20",
         "NB1-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -10072,8 +10250,8 @@
       "aliases": [
         "On Waves"
       ],
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -10111,7 +10289,7 @@
       "country": "Iceland",
       "carrier": "Vodafone",
       "sunset2G": "No Plan",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -10164,27 +10342,26 @@
       "aliases": [
         "Bharti Airtel"
       ],
-      "sunset2G": "2019-12-31",
+      "sunset2G": "?",
       "sunset3G": "2020-03-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.2,
         "roamingRestrictions": "warn"
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Backup"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-40"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -10294,7 +10471,7 @@
       "country": "India",
       "carrier": "VI",
       "sunset2G": "2025",
-      "sunset3G": "2020",
+      "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -10364,33 +10541,31 @@
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 3,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 4,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-8"
+      ],
+      "noBands": [
+        "3G"
       ],
       "koreOneNet": {
         "allow2G": true,
@@ -10403,16 +10578,17 @@
       "carrier": "XL Axiata",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-8"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -10476,7 +10652,7 @@
       "country": "Ireland",
       "carrier": "Meteor",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -10520,27 +10696,23 @@
       "country": "Ireland",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "2024-01-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -10551,10 +10723,12 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-20",
         "NB1-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -10683,6 +10857,8 @@
     {
       "country": "Israel",
       "carrier": "Partner",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2025-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -10699,13 +10875,14 @@
         "3G-1",
         "3G-8",
         "LTE-3"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Israel",
       "carrier": "Pelephone",
-      "sunset2G": "NA",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -10722,7 +10899,8 @@
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Italy",
@@ -10734,7 +10912,6 @@
       "sunset3G": "NA",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -10742,30 +10919,28 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-7",
         "LTE-20",
         "LTE-32",
         "NB1-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -10776,24 +10951,20 @@
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -10804,13 +10975,14 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-7",
         "LTE-20",
         "LTE-32",
         "NB1-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -10884,7 +11056,8 @@
         "2G-1800",
         "3G-1",
         "LTE-5"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Jamaica",
@@ -10897,38 +11070,37 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.3
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
-        "allow2G": true,
         "allow3G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 4,
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
-        "2G-1900",
         "3G-2",
         "LTE-5"
+      ],
+      "noBands": [
+        "2G"
       ],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Japan",
@@ -10943,7 +11115,11 @@
         "LTE-1",
         "LTE-11",
         "LTE-18",
-        "LTE-41"
+        "LTE-41",
+        "M1-1",
+        "M1-11",
+        "M1-18",
+        "M1-41"
       ],
       "noBands": [
         "2G",
@@ -10985,7 +11161,12 @@
         "LTE-9",
         "LTE-19",
         "LTE-21",
-        "LTE-28"
+        "LTE-28",
+        "M1-1",
+        "M1-9",
+        "M1-19",
+        "M1-21",
+        "M1-28"
       ],
       "noBands": [
         "2G"
@@ -10998,27 +11179,27 @@
       "sunset3G": "?",
       "lteM1": true,
       "supersim": {
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
         "allowM1": true
       },
       "koreAllNet": {
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "3G-1",
-        "3G-8",
-        "3G-11",
         "LTE-1",
         "LTE-8",
         "LTE-9",
-        "LTE-41"
+        "LTE-41",
+        "M1-1",
+        "M1-8",
+        "M1-9",
+        "M1-41"
       ],
       "noBands": [
-        "2G"
+        "2G",
+        "3G"
       ],
       "koreOneNet": {
         "allow3G": true,
@@ -11029,14 +11210,13 @@
       "country": "Jersey",
       "carrier": "Airtel-Vodafone",
       "sunset2G": "2018",
-      "sunset3G": "2020",
+      "sunset3G": "?",
       "telefonicaPPU2020": {
         "partnerZone": 2,
         "allow3G": true,
         "allowCat1": false
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true
       },
       "koreOneNet": {
@@ -11045,15 +11225,13 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1"
       ],
       "noBands": [
+        "2G",
         "LTE"
       ],
       "supersim": {
-        "allow2G": true,
         "allow3G": true
       }
     },
@@ -11133,14 +11311,15 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-1800",
         "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -11478,7 +11657,7 @@
       "country": "Latvia",
       "carrier": "LMT",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -11500,7 +11679,9 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "M1-3",
+        "M1-7"
       ]
     },
     {
@@ -11728,7 +11909,10 @@
     {
       "country": "Lithuania",
       "carrier": "Tele2",
-      "sunset2G": "?",
+      "aliases": [
+        "USB Tele2"
+      ],
+      "sunset2G": "2028-12-31",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -11811,12 +11995,11 @@
         "P&T",
         "LUXGSM"
       ],
-      "sunset2G": "2025",
+      "sunset2G": "2026-12-31",
       "sunset3G": "2020",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -11825,25 +12008,25 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "LTE-3"
+        "LTE-3",
+        "M1-3"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -11890,7 +12073,7 @@
     {
       "country": "Macao",
       "carrier": "CTM",
-      "sunset2G": "2015-06-30",
+      "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -12021,25 +12204,21 @@
       "sunset3G": "No Plan",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 4,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
@@ -12051,9 +12230,11 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -12099,23 +12280,22 @@
       "sunset3G": "No Plan",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-7"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -12128,15 +12308,16 @@
       "sunset3G": "No Plan",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-7"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -12213,7 +12394,7 @@
       "country": "Malta",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -12278,11 +12459,25 @@
       "sunset3G": "NA",
       "bands": [
         "2G-900",
-        "3G-1"
+        "3G-1",
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Martinique",
+      "carrier": "SFR",
+      "bands": [
+        "2G-900",
+        "3G-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Mauritania",
@@ -12377,7 +12572,8 @@
       "bands": [
         "3G-2",
         "3G-5",
-        "LTE-2"
+        "LTE-2",
+        "M1-2"
       ],
       "noBands": [
         "2G"
@@ -12466,7 +12662,8 @@
         "2G-1900",
         "3G-2",
         "3G-5",
-        "LTE-4"
+        "LTE-4",
+        "M1-4"
       ]
     },
     {
@@ -12486,6 +12683,7 @@
     {
       "country": "Moldova",
       "carrier": "Orange",
+      "sunset3G": "2025-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow3G": true,
@@ -12627,8 +12825,8 @@
     {
       "country": "Montenegro",
       "carrier": "Mtel",
-      "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset2G": "2025-01-01",
+      "sunset3G": "2025-01-01",
       "telefonicaPPU2020": {
         "partnerZone": 2,
         "allow3G": true,
@@ -12687,7 +12885,7 @@
       "country": "Montenegro",
       "carrier": "Telenor",
       "sunset2G": "?",
-      "sunset3G": "2020?",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -12900,6 +13098,8 @@
     {
       "country": "Myanmar",
       "carrier": "Telenor",
+      "sunset2G": "2024-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -12981,7 +13181,6 @@
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -12989,30 +13188,33 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
       "country": "Netherlands",
       "carrier": "T-Mobile",
       "sunset2G": "2020-01-01",
-      "sunset3G": "2022-01-01",
+      "sunset3G": "?",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -13036,7 +13238,10 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-8"
+        "LTE-8",
+        "M1-3",
+        "M1-7",
+        "M1-8"
       ],
       "noBands": [
         "2G"
@@ -13045,12 +13250,11 @@
     {
       "country": "Netherlands",
       "carrier": "Vodafone",
-      "sunset2G": "2025",
+      "sunset2G": "2025-12-31",
       "sunset3G": "2021-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -13058,17 +13262,14 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -13079,10 +13280,15 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -13100,7 +13306,7 @@
       "country": "New Zealand",
       "carrier": "2degrees",
       "sunset2G": "2018-03-31",
-      "sunset3G": "2025-09",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -13136,7 +13342,7 @@
         "3G": [
           {
             "state": "active",
-            "end": "2025-09",
+            "end": "2025-12-31",
             "note": "3G service ending late 2025"
           }
         ]
@@ -13174,7 +13380,12 @@
         "3G-1",
         "3G-5",
         "LTE-3",
-        "LTE-28"
+        "LTE-7",
+        "LTE-28",
+        "LTE-40",
+        "M1-1",
+        "M1-3",
+        "M1-28"
       ],
       "noBands": [
         "2G"
@@ -13194,7 +13405,8 @@
             "note": "3G service ending end of 2025"
           }
         ]
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "New Zealand",
@@ -13232,7 +13444,11 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-28"
+        "LTE-7",
+        "LTE-28",
+        "M1-3",
+        "M1-28",
+        "NB1-28"
       ],
       "timeline": {
         "2G": [
@@ -13249,7 +13465,8 @@
             "note": "3G service ending August 2024"
           }
         ]
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Nicaragua",
@@ -13271,7 +13488,8 @@
         "3G-2",
         "3G-5",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Nicaragua",
@@ -13307,7 +13525,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Niger",
@@ -13490,7 +13709,7 @@
       "country": "Nigeria",
       "carrier": "MTN",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -13636,26 +13855,22 @@
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1,
         "allowM1": true
       },
       "telefonicaBundle2018": {
         "partnerZone": 2,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
@@ -13667,48 +13882,56 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20",
-        "NB1-20"
+        "NB1-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
     {
       "country": "Norway",
       "carrier": "Telia",
-      "sunset2G": "?",
+      "sunset2G": "2025-12-31",
       "sunset3G": "2019-01-01",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1,
         "allowM1": true
       },
       "telefonicaBundle2018": {
         "partnerZone": 2,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-1",
         "LTE-3",
         "LTE-7",
         "LTE-20",
-        "NB1-20"
+        "NB1-20",
+        "M1-1",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -13946,13 +14169,14 @@
         "2G-850",
         "3G-5",
         "LTE-28"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Panama",
       "carrier": "Claro",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-12-31",
+      "sunset3G": "2026-12-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -13969,7 +14193,8 @@
         "3G-5",
         "LTE-2",
         "LTE-28"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Panama",
@@ -13977,22 +14202,20 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "paygRate": 0.25
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true
       },
       "bands": [
-        "2G-1800",
-        "2G-1900",
         "3G-2"
       ],
       "noBands": [
+        "2G",
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Panama",
@@ -14030,7 +14253,8 @@
         "3G-2",
         "3G-5",
         "LTE-28"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Papua New Guinea",
@@ -14099,7 +14323,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Paraguay",
@@ -14117,7 +14342,8 @@
         "3G-2",
         "3G-5",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Paraguay",
@@ -14158,7 +14384,8 @@
         "2G-1900",
         "3G-8",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Peru",
@@ -14194,7 +14421,8 @@
         "3G-2",
         "3G-5",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Peru",
@@ -14210,7 +14438,8 @@
         "2G-1900",
         "3G-2",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Peru",
@@ -14248,7 +14477,8 @@
         "2G-1900",
         "3G-5",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Peru",
@@ -14315,37 +14545,34 @@
       "country": "Philippines",
       "carrier": "Smart",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2023-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 4,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-5",
         "LTE-1",
         "LTE-3",
         "LTE-5"
+      ],
+      "noBands": [
+        "3G"
       ],
       "koreOneNet": {
         "allow2G": true,
@@ -14398,8 +14625,8 @@
       "aliases": [
         "PTK Centertel"
       ],
-      "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -14428,7 +14655,8 @@
         "2G-1800",
         "3G-1",
         "3G-8",
-        "LTE-3"
+        "LTE-3",
+        "M1-3"
       ]
     },
     {
@@ -14500,11 +14728,9 @@
     {
       "country": "Poland",
       "carrier": "T-Mobile",
-      "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset2G": "2030-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -14512,19 +14738,19 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-1",
         "LTE-3",
         "LTE-7",
         "LTE-20",
         "NB1-20"
+      ],
+      "noBands": [
+        "3G"
       ],
       "checked": "2024-02-06"
     },
@@ -14620,8 +14846,7 @@
     {
       "country": "Portugal",
       "carrier": "Vodafone",
-      "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset2G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -14754,7 +14979,7 @@
       "country": "Qatar",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2020",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -14841,8 +15066,8 @@
     {
       "country": "Romania",
       "carrier": "Orange",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -14875,7 +15100,9 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "M1-3",
+        "M1-7"
       ]
     },
     {
@@ -14884,6 +15111,7 @@
       "aliases": [
         "Cosmote"
       ],
+      "sunset2G": "2029-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -14913,7 +15141,7 @@
       "country": "Romania",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -15551,7 +15779,7 @@
       "country": "San Marino",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -15612,15 +15840,20 @@
     {
       "country": "Saudi Arabia",
       "carrier": "STC",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
+        "LTE-1",
         "LTE-3",
-        "LTE-40"
-      ]
+        "LTE-12",
+        "LTE-40",
+        "NB1-12"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Saudi Arabia",
@@ -15636,6 +15869,7 @@
         "3G-1",
         "LTE-1",
         "LTE-3",
+        "LTE-8",
         "LTE-38"
       ],
       "koreOneNet": {
@@ -15643,7 +15877,8 @@
         "allow3G": true,
         "allowLTE": true,
         "prohibited": true
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Senegal",
@@ -15719,7 +15954,7 @@
       "country": "Serbia",
       "carrier": "Telenor",
       "sunset2G": "?",
-      "sunset3G": "2020?",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -15878,7 +16113,7 @@
         "Singapore Telecom"
       ],
       "sunset2G": "2017-04-01",
-      "sunset3G": "?",
+      "sunset3G": "2024-07-31",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -15905,17 +16140,21 @@
         "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-8"
+        "LTE-8",
+        "NB1-8",
+        "M1-3",
+        "M1-8"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Singapore",
       "carrier": "StarHub",
       "sunset2G": "2017-04-01",
-      "sunset3G": "?",
+      "sunset3G": "2024-07-31",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -16004,8 +16243,8 @@
     {
       "country": "Slovakia",
       "carrier": "Orange",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2024-01-01",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16077,9 +16316,9 @@
     {
       "country": "Slovakia",
       "carrier": "Telekom",
+      "sunset3G": "2023-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -16087,10 +16326,12 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -16255,8 +16496,8 @@
     {
       "country": "South Africa",
       "carrier": "Cell C",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-06-30",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16280,8 +16521,8 @@
     {
       "country": "South Africa",
       "carrier": "MTN",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-06-30",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16370,7 +16611,10 @@
         "3G-1",
         "LTE-1",
         "LTE-3",
-        "LTE-8"
+        "LTE-8",
+        "M1-1",
+        "M1-3",
+        "M1-8"
       ],
       "noBands": [
         "2G"
@@ -16404,6 +16648,7 @@
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
+        "allowM1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
@@ -16424,7 +16669,10 @@
         "3G-1",
         "LTE-1",
         "LTE-3",
-        "LTE-8"
+        "LTE-5",
+        "LTE-7",
+        "M1-3",
+        "M1-5"
       ],
       "noBands": [
         "2G"
@@ -16432,7 +16680,8 @@
       "koreOneNet": {
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "South Sudan",
@@ -16473,7 +16722,7 @@
       "country": "Spain",
       "carrier": "Orange",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -16495,7 +16744,9 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "M1-3",
+        "M1-7"
       ],
       "checked": "2024-02-06"
     },
@@ -16503,7 +16754,7 @@
       "country": "Spain",
       "carrier": "Telefonica",
       "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -16541,14 +16792,18 @@
         "LTE-7",
         "LTE-20",
         "LTE-42",
-        "M1"
+        "M1-1",
+        "M1-3",
+        "M1-7",
+        "M1-20",
+        "M1-42"
       ]
     },
     {
       "country": "Spain",
       "carrier": "Vodafone",
-      "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16644,7 +16899,9 @@
         "2G-1800",
         "3G-1",
         "LTE-3",
-        "LTE-40"
+        "LTE-40",
+        "M1-3",
+        "M1-40"
       ]
     },
     {
@@ -16673,12 +16930,10 @@
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -16689,12 +16944,13 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "3G"
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       }
     },
@@ -16754,7 +17010,7 @@
       "country": "Svalbard and Jan Mayen",
       "carrier": "Telenor",
       "sunset2G": "?",
-      "sunset3G": "2020-12-31",
+      "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -16810,8 +17066,8 @@
     {
       "country": "Sweden",
       "carrier": "Tele2",
-      "sunset2G": "No Plan",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2024-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -16846,7 +17102,11 @@
         "LTE-3",
         "LTE-7",
         "LTE-8",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-8",
+        "M1-20"
       ],
       "koreOneNet": {
         "allow2G": true,
@@ -16858,7 +17118,7 @@
       "country": "Sweden",
       "carrier": "Telenor",
       "sunset2G": "No Plan",
-      "sunset3G": "2020-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16898,11 +17158,10 @@
       "country": "Sweden",
       "carrier": "Telia",
       "sunset2G": "No Plan",
-      "sunset3G": "?",
+      "sunset3G": "2023-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -16911,10 +17170,15 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -17007,7 +17271,7 @@
       "country": "Switzerland",
       "carrier": "Swisscom",
       "sunset2G": "2021-12-31",
-      "sunset3G": "2025",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": false,
@@ -17031,14 +17295,17 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
       ]
     },
     {
       "country": "Taiwan",
       "carrier": "Chunghwa",
       "sunset2G": "2017-06-30",
-      "sunset3G": "2018-12-31",
+      "sunset3G": "2025-06-30",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -17055,7 +17322,10 @@
         "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-8"
+        "LTE-8",
+        "M1-3",
+        "M1-7",
+        "M1-8"
       ],
       "noBands": [
         "2G"
@@ -17065,24 +17335,22 @@
       "country": "Taiwan",
       "carrier": "FarEasTone",
       "sunset2G": "2017-06",
-      "sunset3G": "2018-12",
+      "sunset3G": "2023-12-31",
       "supersim": {
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Backup"
       },
       "bands": [
-        "3G-1",
         "LTE-3",
         "LTE-28"
       ],
       "noBands": [
-        "2G"
+        "2G",
+        "3G"
       ],
       "koreOneNet": {
         "allow3G": true,
@@ -17112,17 +17380,20 @@
       },
       "bands": [
         "3G-1",
+        "LTE-1",
+        "LTE-7",
         "LTE-8"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Taiwan",
       "carrier": "Taiwan Mobile",
       "sunset2G": "2017-06-30",
-      "sunset3G": "2017-01-07",
+      "sunset3G": "2024-06-30",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -17140,12 +17411,16 @@
       },
       "bands": [
         "3G-1",
+        "LTE-1",
         "LTE-3",
-        "LTE-28"
+        "LTE-28",
+        "LTE-66",
+        "NB1-28"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Tajikistan",
@@ -17300,7 +17575,9 @@
         "3G-1",
         "3G-8",
         "LTE-1",
-        "LTE-3"
+        "LTE-3",
+        "M1-1",
+        "M1-3"
       ],
       "noBands": [
         "2G"
@@ -17309,6 +17586,7 @@
     {
       "country": "Thailand",
       "carrier": "DTAC",
+      "sunset3G": "2025-12-31",
       "aliases": [
         "Total Access Communication Public Company Limited"
       ],
@@ -17377,11 +17655,16 @@
       },
       "bands": [
         "3G-1",
-        "LTE-1"
+        "LTE-1",
+        "LTE-3",
+        "LTE-8",
+        "LTE-41",
+        "NB1-8"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Togo",
@@ -17575,11 +17858,14 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-8",
+        "LTE-38"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "noBands": [],
+      "checked": "2024-02-12"
     },
     {
       "country": "Turkey",
@@ -17588,17 +17874,23 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-8",
+        "LTE-20",
+        "NB1-20",
+        "M1-20"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "noBands": [],
+      "checked": "2024-02-12"
     },
     {
       "country": "Turkey",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2020",
+      "sunset3G": "?",
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
@@ -17612,7 +17904,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Turks and Caicos Islands",
@@ -17945,7 +18238,9 @@
         "2G-1800",
         "3G-1",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "M1-3",
+        "M1-7"
       ]
     },
     {
@@ -17987,7 +18282,7 @@
       "country": "United Kingdom",
       "carrier": "EE",
       "sunset2G": "?",
-      "sunset3G": "2022-12-31",
+      "sunset3G": "2024-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -18065,7 +18360,10 @@
         "LTE-20",
         "LTE-40",
         "NB1",
-        "M1"
+        "M1-1",
+        "M1-3",
+        "M1-20",
+        "M1-40"
       ],
       "checked": "2024-02-06"
     },
@@ -18108,24 +18406,20 @@
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
@@ -18137,8 +18431,6 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-1",
         "LTE-3",
         "LTE-7",
@@ -18149,12 +18441,15 @@
         "NB1-8",
         "NB1-20"
       ],
+      "noBands": [
+        "3G"
+      ],
       "checked": "2024-02-06"
     },
     {
       "country": "United States",
       "carrier": "Alaska Wireless",
-      "sunset2G": "2017-09",
+      "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -18214,7 +18509,15 @@
         "LTE-29",
         "LTE-30",
         "LTE-66",
-        "M1"
+        "M1-2",
+        "M1-4",
+        "M1-5",
+        "M1-12",
+        "M1-14",
+        "M1-17",
+        "M1-29",
+        "M1-30",
+        "M1-66"
       ],
       "noBands": [
         "2G",
@@ -18328,7 +18631,7 @@
       "aliases": [
         "T-Mobile"
       ],
-      "sunset2G": "2020-12-31",
+      "sunset2G": "2024-04-02",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -18372,7 +18675,12 @@
         "NB1-2",
         "NB1-4",
         "NB1-12",
-        "M1"
+        "M1-2",
+        "M1-4",
+        "M1-5",
+        "M1-12",
+        "M1-66",
+        "M1-71"
       ],
       "timeline": {
         "2G": [
@@ -18398,22 +18706,22 @@
         "Union Telecom"
       ],
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2023-09-30",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.35
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Backup"
       },
       "bands": [
-        "2G-1900",
         "3G-2"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -18425,7 +18733,10 @@
         "LTE-4",
         "LTE-5",
         "LTE-12",
-        "M1"
+        "M1-2",
+        "M1-4",
+        "M1-5",
+        "M1-12"
       ],
       "noBands": [
         "2G",
@@ -18437,6 +18748,12 @@
       "country": "United States",
       "carrier": "Verizon",
       "lteM1": true,
+      "supersim": {
+        "allow2G": false,
+        "allow3G": false,
+        "allowCat1": false,
+        "allowM1": 7
+      },
       "bands": [
         "LTE-2",
         "LTE-4",
@@ -18451,12 +18768,6 @@
         "2G",
         "3G"
       ],
-      "supersim": {
-        "allow2G": false,
-        "allow3G": false,
-        "allowCat1": false,
-        "allowM1": 7
-      },
       "checked": "2024-02-06"
     },
     {
@@ -18465,14 +18776,15 @@
       "sunset2G": "2018-12",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
-        "2G-1900",
         "3G-2"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -18500,7 +18812,8 @@
         "2G-1800",
         "3G-1",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Uruguay",
@@ -18522,7 +18835,8 @@
         "2G-1900",
         "3G-2",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Uruguay",
@@ -18558,7 +18872,8 @@
         "3G-2",
         "3G-5",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Uzbekistan",
@@ -18641,7 +18956,7 @@
       "aliases": [
         "Telefónica Venezuela"
       ],
-      "sunset2G": "?",
+      "sunset2G": "2025-12-31",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -18697,27 +19012,23 @@
       "carrier": "Viettel",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "paygRate": 0.2
       },
       "telefonicaBundle2018": {
         "partnerZone": 5,
-        "allow3G": true,
         "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 5,
-        "allow3G": true,
         "allow2G": true
       },
       "bands": [
         "2G-900",
-        "2G-1800",
-        "3G-1",
-        "3G-2"
+        "2G-1800"
       ],
       "noBands": [
-        "LTE"
+        "LTE",
+        "3G"
       ]
     },
     {
@@ -19114,6 +19425,7 @@
       "model": "BG95-M5",
       "manufacturer": "quectel",
       "name": "LTE Cat M1/2G",
+      "globalM1": true,
       "bands": [
         "2G-850",
         "2G-900",
@@ -23108,7 +23420,7 @@
         {
           "name": "M Series M404 LTE M1/2G (Global) EtherSIM",
           "short": [
-            "B404"
+            "M404"
           ],
           "region": "global",
           "lifecycle": "In development",
@@ -23120,7 +23432,7 @@
         {
           "name": "M Series M524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
           "short": [
-            "B524"
+            "M524"
           ],
           "region": "emeaa",
           "lifecycle": "In development",

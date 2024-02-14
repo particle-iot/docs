@@ -619,7 +619,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Aruba | Setar | &check; | &check; | &check; | &nbsp; |
 | Australia | Optus | &check; | <sup>NRND</sup> | &check; | &nbsp; |
 | Australia | Telstra | &check; | <sup>NRND</sup> | &check; | &nbsp; |
-| Australia | Vodafone | &nbsp; | <sup>NRND</sup> | &check; | &nbsp; |
+| Australia | Vodafone | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Austria | 3 (Drei) | &check; | &check; | &check; | &nbsp; |
 | Austria | A1 | &check; | &check; | &check; | &nbsp; |
 | Austria | T-Mobile | &check; | &check; | &check; | &nbsp; |
@@ -639,6 +639,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Belgium | Mobistar | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Belgium | Orange | &nbsp; | &check; | &check; | &nbsp; |
 | Belgium | Proximus | &check; | &check; | &check; | &nbsp; |
+| Belize | Smart | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Bermuda | CellOne | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Bolivia | NuevaTel | &check; | &check; | &nbsp; | &nbsp; |
 | Bolivia | Tigo | &check; | &nbsp; | &nbsp; | &nbsp; |

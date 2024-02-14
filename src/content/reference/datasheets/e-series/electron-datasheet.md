@@ -658,6 +658,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Barbados | ELC314 | 2G, 3G | Flow |
 | Belarus | ELC314 | 2G, 3G | A1 |
 | Belgium | ELC314 | 2G, 3G | Base, Orange, Proximus |
+| Belize | ELC314 | 3G | Smart |
 | Bolivia | ELC314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | ELC314 | 2G, 3G | BH Telecom, HT Eronet |
 | Brunei | ELC314 | 2G, 3G | DST |

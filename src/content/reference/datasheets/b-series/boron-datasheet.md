@@ -546,6 +546,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Barbados | BRN314 | 2G, 3G | Flow |
 | Belarus | BRN314 | 2G, 3G | A1 |
 | Belgium | BRN314 | 2G, 3G | Base, Orange, Proximus |
+| Belize | BRN314 | 3G | Smart |
 | Bolivia | BRN314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | BRN314 | 2G, 3G | BH Telecom, HT Eronet |
 | Brunei | BRN314 | 2G, 3G | DST |

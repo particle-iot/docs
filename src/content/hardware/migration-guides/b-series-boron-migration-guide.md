@@ -116,7 +116,7 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | Ghana | B524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | B524 | 2G, 3G, Cat1 | Gibtel |
 | Greece | B524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
-| Guadeloupe | B524 | 2G, 3G | Orange |
+| Guadeloupe | B524 | 2G, 3G, Cat1 | Orange |
 | Guinea | B524 | 2G, 3G, Cat1 | MTN |
 | Guinea-Bissau | B524 | 2G, 3G, Cat1 | MTN |
 | Guyana | B524 | 2G | Digicel |
