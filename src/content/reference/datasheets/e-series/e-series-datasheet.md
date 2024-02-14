@@ -597,7 +597,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Belize | E314 | 3G | Smart |
 | Bolivia | E314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | E314 | 2G, 3G | BH Telecom, HT Eronet |
-| Brunei | E314 | 2G, 3G | DST |
+| Brunei | E314 | 3G | DST |
 | Bulgaria | E314 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | E314 | 2G, 3G | Orange |
 | Cambodia | E314 | 2G, 3G | Metfone |
@@ -611,8 +611,8 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Costa Rica | E314 | 2G, 3G | Movistar |
 | Côte d'Ivoire | E314 | 2G, 3G | MTN |
 | Croatia | E314 | 2G, 3G | Hrvatski Telekom, Tele2 |
-| Cyprus | E314 | 2G, 3G | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | E314 | 2G, 3G | O2, T-Mobile, Vodafone |
+| Cyprus | E314 | 2G, 3G | Cytamobile-Vodafone, MTN |
+| Czechia | E314 | 2G | O2, T-Mobile, Vodafone |
 | Denmark | E314 | 2G, 3G | 3 (Tre), TDC, Telenor, Telia |
 | Dominica | E314 | 2G, 3G | Flow |
 | Dominican Republic | E314 | 2G, 3G | Altice Dominicana, Claro, Viva |
@@ -631,7 +631,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Germany | E314 | 2G, 3G | O2, Telekom, Vodafone |
 | Ghana | E314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | E314 | 2G, 3G | Gibtel |
-| Greece | E314 | 2G, 3G | Cosmote, Vodafone, Wind |
+| Greece | E314 | 2G | Cosmote, Vodafone, Wind |
 | Grenada | E314 | 2G | Flow |
 | Guadeloupe | E314 | 2G, 3G | Orange |
 | Guatemala | E314 | 2G, 3G | Claro, Movistar |
@@ -648,7 +648,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Israel | E314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
 | Italy | E314 | 2G, 3G | TIM, Vodafone, Wind |
 | Jamaica | E314 | 2G, 3G | Digicel, Flow |
-| Japan | E314 | 3G | NTT DoCoMo, Softbank |
+| Japan | E314 | 3G | NTT DoCoMo |
 | Jordan | E314 | 2G, 3G | Zain |
 | Kazakhstan | E314 | 2G, 3G | Beeline, K-Cell |
 | Kenya | E314 | 2G, 3G | Airtel |
@@ -700,7 +700,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Suriname | E314 | 2G, 3G | Telesur |
 | Sweden | E314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | E314 | 3G | Salt, Sunrise, Swisscom |
-| Taiwan | E314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Taiwan | E314 | 3G | Chunghwa, T Star, Taiwan Mobile |
 | Tajikistan | E314 | 2G, 3G | Beeline, Tcell |
 | Tanzania | E314 | 2G, 3G | Airtel |
 | Thailand | E314 | 2G, 3G | AIS, DTAC, True Move |

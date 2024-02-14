@@ -1216,7 +1216,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Belgium | T524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | T524 | 2G, 3G | BH Telecom, HT Eronet |
 | Botswana | T524 | 2G, 3G, Cat1 | BeMobile |
-| Brunei | T524 | 2G, 3G, Cat1 | DST |
+| Brunei | T524 | 3G, Cat1 | DST |
 | Bulgaria | T524 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | T524 | 2G, 3G, Cat1 | Orange |
 | Cabo Verde | T524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
@@ -1229,7 +1229,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Côte d'Ivoire | T524 | 2G, 3G, Cat1 | MTN |
 | Croatia | T524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Cyprus | T524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | T524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
+| Czechia | T524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | T524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | T524 | 2G, 3G, Cat1 | Etisalat, Orange |
 | Estonia | T524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
@@ -1243,7 +1243,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Germany | T524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
 | Ghana | T524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | T524 | 2G, 3G, Cat1 | Gibtel |
-| Greece | T524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
+| Greece | T524 | 2G, Cat1 | Cosmote, Vodafone, Wind |
 | Guinea | T524 | 2G, 3G, Cat1 | MTN |
 | Guinea-Bissau | T524 | 2G, 3G, Cat1 | MTN |
 | Guyana | T524 | 2G | Digicel |

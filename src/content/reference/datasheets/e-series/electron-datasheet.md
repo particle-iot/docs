@@ -661,7 +661,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Belize | ELC314 | 3G | Smart |
 | Bolivia | ELC314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | ELC314 | 2G, 3G | BH Telecom, HT Eronet |
-| Brunei | ELC314 | 2G, 3G | DST |
+| Brunei | ELC314 | 3G | DST |
 | Bulgaria | ELC314 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | ELC314 | 2G, 3G | Orange |
 | Cambodia | ELC314 | 2G, 3G | Metfone |
@@ -675,8 +675,8 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Costa Rica | ELC314 | 2G, 3G | Movistar |
 | Côte d'Ivoire | ELC314 | 2G, 3G | MTN |
 | Croatia | ELC314 | 2G, 3G | Hrvatski Telekom, Tele2 |
-| Cyprus | ELC314 | 2G, 3G | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | ELC314 | 2G, 3G | O2, T-Mobile, Vodafone |
+| Cyprus | ELC314 | 2G, 3G | Cytamobile-Vodafone, MTN |
+| Czechia | ELC314 | 2G | O2, T-Mobile, Vodafone |
 | Denmark | ELC314 | 2G, 3G | 3 (Tre), TDC, Telenor, Telia |
 | Dominica | ELC314 | 2G, 3G | Flow |
 | Dominican Republic | ELC314 | 2G, 3G | Altice Dominicana, Claro, Viva |
@@ -695,7 +695,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Germany | ELC314 | 2G, 3G | O2, Telekom, Vodafone |
 | Ghana | ELC314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | ELC314 | 2G, 3G | Gibtel |
-| Greece | ELC314 | 2G, 3G | Cosmote, Vodafone, Wind |
+| Greece | ELC314 | 2G | Cosmote, Vodafone, Wind |
 | Grenada | ELC314 | 2G | Flow |
 | Guadeloupe | ELC314 | 2G, 3G | Orange |
 | Guatemala | ELC314 | 2G, 3G | Claro, Movistar |
@@ -712,7 +712,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Israel | ELC314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
 | Italy | ELC314 | 2G, 3G | TIM, Vodafone, Wind |
 | Jamaica | ELC314 | 2G, 3G | Digicel, Flow |
-| Japan | ELC314 | 3G | NTT DoCoMo, Softbank |
+| Japan | ELC314 | 3G | NTT DoCoMo |
 | Jordan | ELC314 | 2G, 3G | Zain |
 | Kazakhstan | ELC314 | 2G, 3G | Beeline, K-Cell |
 | Kenya | ELC314 | 2G, 3G | Airtel |
@@ -764,7 +764,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Suriname | ELC314 | 2G, 3G | Telesur |
 | Sweden | ELC314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | ELC314 | 3G | Salt, Sunrise, Swisscom |
-| Taiwan | ELC314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Taiwan | ELC314 | 3G | Chunghwa, T Star, Taiwan Mobile |
 | Tajikistan | ELC314 | 2G, 3G | Beeline, Tcell |
 | Tanzania | ELC314 | 2G, 3G | Airtel |
 | Thailand | ELC314 | 2G, 3G | AIS, DTAC, True Move |
