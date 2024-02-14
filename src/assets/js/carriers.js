@@ -1332,8 +1332,8 @@ msomBands.renderCountries = function(countries) {
         const tbodyElem = document.createElement('tbody');
 
         let roamingRestrictions = false;
-        let showSunset2G;
-        let showSunset3G;
+        let showSunset2G = {};
+        let showSunset3G = {};
         let hasGreenCheck = false;
         let hasRedX = false;
 
@@ -1367,31 +1367,31 @@ msomBands.renderCountries = function(countries) {
                             hasGreenCheck = true;
 
                             if (b.startsWith("2G")) {
-                                if (sunset2G.year && !showSunset2G) {
+                                if (sunset2G.year && !showSunset2G[ccObj.carrier]) {
                                     if (sunset2G.year < 2024) {
                                         footnotes.push('2G sunset originally planned for ' + sunset2G.s + ' but may not been delayed');
                                     }
                                     else {
                                         footnotes.push('2G sunset expected ' + sunset2G.s);
                                     }
-                                    showSunset2G = footnotes.length;
+                                    showSunset2G[ccObj.carrier] = footnotes.length;
                                 }
-                                if (showSunset2G) {
-                                    footnote = showSunset2G.toString();
+                                if (showSunset2G[ccObj.carrier]) {
+                                    footnote = showSunset2G[ccObj.carrier].toString();
                                 }
                             }
                             if (b.startsWith("3G")) {
-                                if (sunset3G.year && !showSunset3G) {
+                                if (sunset3G.year && !showSunset3G[ccObj.carrier]) {
                                     if (sunset3G.year < 2024) {
                                         footnotes.push('3G sunset originally planned for ' + sunset3G.s + ' but may have been delayed');
                                     }
                                     else {
                                         footnotes.push('3G sunset expected ' + sunset3G.s);
                                     }
-                                    showSunset3G = footnotes.length;
+                                    showSunset3G[ccObj.carrier] = footnotes.length;
                                 }
-                                if (showSunset3G) {
-                                    footnote = showSunset3G.toString();
+                                if (showSunset3G[ccObj.carrier]) {
+                                    footnote = showSunset3G[ccObj.carrier].toString();
                                 }
                             }                        
 
