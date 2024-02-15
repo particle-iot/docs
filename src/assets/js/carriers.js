@@ -1205,6 +1205,10 @@ msomBands.renderCountries = function(countries) {
 
         for(const testObj of msomBands.tests) {
             testObj.bands = [];
+            testObj.counts = {
+                greenCheck: 0,
+                redX: 0,
+            }
 
             for(const ccObj of carriersInCountry) {                    
 
@@ -1242,6 +1246,7 @@ msomBands.renderCountries = function(countries) {
         */
 
         const tableDiv = document.createElement('div');
+        $(tableDiv).attr('style', 'overflow: auto;');
         
         const tableElem = document.createElement('table');
 
@@ -1259,7 +1264,7 @@ msomBands.renderCountries = function(countries) {
     
                 for(const testObj of msomBands.tests) {
                     const thElem = document.createElement('th');
-                    $(thElem).attr('style', 'border-bottom: 0px !important; text-align:center; background-color:' + testObj.backgroundColor + ';');
+                    $(thElem).attr('style', 'border-bottom: 0px !important; text-align:center; color:' + msomBands.headerTextColor + '; background-color:' + testObj.backgroundColor + ';');
                     $(thElem).attr('colspan', (testObj.bands.length + 1));
                     $(thElem).text(testObj.title);
                     $(trElem).append(thElem);
@@ -1277,7 +1282,7 @@ msomBands.renderCountries = function(countries) {
 
                     for(const b of testObj.bands) {
                         const thElem = document.createElement('th');
-                        $(thElem).attr('style', 'text-align:center;'); //  background-color:' + testObj.backgroundColor + ';');
+                        $(thElem).attr('style', 'text-align:center;');
         
                         {
                             const textNode = document.createTextNode(datastore.bandGetTag(b));
@@ -1360,11 +1365,12 @@ msomBands.renderCountries = function(countries) {
 
                     let value = '';
                     let footnote;
-
+        
                     if (carrierSupportsBand) {
                         if (modemSupportsBand) {
                             value = '\u2705'; // green check
                             hasGreenCheck = true;
+                            testObj.counts.greenCheck++;
 
                             if (b.startsWith("2G")) {
                                 if (sunset2G.year && !showSunset2G[ccObj.carrier]) {
@@ -1398,6 +1404,7 @@ msomBands.renderCountries = function(countries) {
                         }
                         else {
                             value = '\u274C'; // red x
+                            testObj.counts.redX++;
                             hasRedX = true;
                         }
                     }
@@ -1438,6 +1445,52 @@ msomBands.renderCountries = function(countries) {
 
         const ulElem = document.createElement('ul');
 
+        for(const testObj of msomBands.tests) {
+            const cmsObj = datastore.data.countryModemSim.find(e => e.country == country && e.modem == testObj.modemObj.model && e.sim == 4);
+            if (!cmsObj) {
+                continue;
+            }
+
+            const liElem = document.createElement('li');
+
+            const divElem = document.createElement('div');
+            $(divElem).attr('style', 'display:inline; color:' + msomBands.headerTextColor + '; background-color:' + testObj.backgroundColor + '; padding-left: 3px; padding-right: 3px; margin-right:5px;');
+
+            $(divElem).text(testObj.title);
+            $(liElem).append(divElem);
+            
+            let text = '';
+            if (cmsObj.recommendation == 'YES') {
+                text += 'Recommended and supported.';
+            }
+            else {
+                let total = testObj.counts.greenCheck + testObj.counts.redX;
+                if (total > 0) {
+                    let pct = Math.floor(testObj.counts.greenCheck * 100 / total);
+                    if (pct > 70) {
+                        text += 'Not officially supported at this time, but likely to work.';
+                    }
+                    else
+                    if (pct > 30) {
+                        text += 'Not officially supported, but may work in some locations.';
+                    }
+                    else
+                    if (pct > 0) {
+                        text += 'Unlikely to work reliably; poor band fit.';
+                    }
+                    else {
+                        text += 'Will not work, no available bands.';
+                    }
+                }
+                else {
+                    text += 'Will not work, no available bands.';
+                }
+            }
+
+            $(liElem).append(document.createTextNode(text));
+            $(ulElem).append(liElem);
+        }
+
 
         if (hasGreenCheck) {
             const liElem = document.createElement('li');
@@ -1450,6 +1503,7 @@ msomBands.renderCountries = function(countries) {
             $(liElem).text('\u274C Band is used by the carrier but not supported by the cellular modem.');
             $(ulElem).append(liElem);
         }
+
 
         if (footnotes) {
             for(let ii = 0; ii < footnotes.length; ii++) {
@@ -1584,12 +1638,14 @@ msomBands.init = function(callback) {
     }
     $(msomBands.msomRegionSelectElem).on('change', msomBands.selectRegion);
     
+    msomBands.headerTextColor = '#01466C'; // COLOR_Midnight_400
+
     msomBands.tests = [
         {
             title: 'M404',
             modemObj: datastore.data.modems.find(e => e.model == 'BG95-M5'),
             borderRight: true,
-            backgroundColor: '#AFE4EE', // COLOR_Sky_600
+            backgroundColor: '#AFE4EE', // COLOR_Sky_600        
         },
         {
             title: 'M524',
