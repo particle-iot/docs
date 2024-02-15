@@ -8405,6 +8405,10 @@
         "reference/datasheets/m-series/msom-datasheet.md": {
             "hash": "a7941fb1b856f6b45f93952da7b30ed7ed4b8ffc3f1341a2b600d954a426a4e9",
             "date": "2024-02-08"
+        },
+        "reference/datasheets/m-series/muon-datasheet.md": {
+            "hash": "515af8c5965af2ef450da1bfc10742f25707242b325b1258e8b53cc6d6664d65",
+            "date": "2024-02-15"
         }
     }
 }
