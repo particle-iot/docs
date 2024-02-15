@@ -1288,7 +1288,7 @@
         },
         "reference/device-os/firmware.md": {
             "date": "2024-02-15",
-            "hash": "553292a0c446c5b6ca77f1764b8003393b06f2e2137a4c6679627581df0bea04"
+            "hash": "8b0e59c730231b97ddb742068a0cd3ff3d5a4ae1e6f410b4db099cc8b0fd8173"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1331,8 +1331,8 @@
             "hash": "3c4dac407e243cf6c7b338dae1113f53754362ed8e2864ede65cfc5f703155e5"
         },
         "reference/product-lifecycle/supply-secure-faq.md": {
-            "date": "2023-08-02",
-            "hash": "85da72974ea574280cde6d80fb588e915e2e1b0158e298b912b8cd4bd909d5b6"
+            "date": "2024-02-15",
+            "hash": "deb4045adc394cb83575ae2f4244878578975caab77e896a3c8cf31ee3e8c19d"
         },
         "reference/product-lifecycle/notices/product-deprecation-notice-march-16-2022.md": {
             "date": "2023-08-02",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "24f70c05c0fc1c684d37840ae312b23d7b9c1bd1d998d0e398c82cdcecbdc210",
+            "hash": "55a5806d1be32bd8eb0d15286e58a9699cc02378cd2f505afff5ddc5139abd26",
             "date": "2024-02-15"
         },
         "getting-started/cloud/logic.md": {
@@ -8287,8 +8287,8 @@
             "date": "2024-01-01"
         },
         "getting-started/logic-ledger/ledger.md": {
-            "hash": "5b3c8f4fedb07af626db6cecb4540e5f70ca71f93547685471aaa249f1603c8a",
-            "date": "2024-01-08"
+            "hash": "207621c9e8eda12b94b4facbd072c651086dac06b7821e0f41a9156ca15522d2",
+            "date": "2024-02-15"
         },
         "getting-started/logic-ledger/logic.md": {
             "hash": "5ce15ada49ac2289a5dd298f89c5c384b300c9649d98d972ca8238a81c276ce0",
@@ -8405,6 +8405,498 @@
         "reference/datasheets/m-series/msom-datasheet.md": {
             "hash": "a7941fb1b856f6b45f93952da7b30ed7ed4b8ffc3f1341a2b600d954a426a4e9",
             "date": "2024-02-08"
+        },
+        "getting-started/logic-ledger/ledger-configuration.md": {
+            "hash": "ea047f1db95b7cbfb888e2346b82ed06dd198d7c87d1d2dea8e62bd7e61c7077",
+            "date": "2024-02-15"
+        },
+        "getting-started/logic-ledger/ledger-sensor.md": {
+            "hash": "dbdf3893cca0d3e086ba66a1237b0bab5279d7129c0215ae80e10ee2622de271",
+            "date": "2024-02-15"
+        },
+        "getting-started/logic-ledger/device-info-ledger.md": {
+            "hash": "4157674bbb1702c7f558669a609558e13ce7192317fb189e31bdb0048d7f234d",
+            "date": "2024-02-15"
+        },
+        "getting-started/logic-ledger/logic-cloud-alerts.md": {
+            "hash": "bb18d4fffa1b9131899314c78660ec58bb7c4788f2ba95e3fed23d5dbf563bde",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/cloud-functions/particle-ledger.md": {
+            "hash": "cfefbead86f23f18baa8e598c813df31a5d19efaf3add76784f52b3ce52f0e8d",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/ledger.md": {
+            "hash": "167cf716e5b91936127025a8b439e9e771045c751e01f8f9dc0b7a4e31e253ff",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/set-ledger-class.md": {
+            "hash": "d6e0efc8dc00aae70646a3fc1eccb0a46fb717611335769dadf1c2ebd3ce1a04",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/setmode-ledger-class.md": {
+            "hash": "07649356e6110dcdb29ecc3ced203a44c9e0d30bfbe202837f94e46f28e68a89",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/ledger-synchronization.md": {
+            "hash": "c2a38858d426d8a9c94ecfa366e4fb692c7e129dffab19c5b678a840ce5517dd",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/get-ledger-class.md": {
+            "hash": "a86035fd83eda3163c8adce21edc9c9203cab1f5b77b37fe14b4f51955e7a00c",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/lastupdated-ledger-class.md": {
+            "hash": "74dd481eb4f5ef9e510d47c4770a9c36d4dea5e2e3bd916ceae57b79ff1096c1",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/lastsynced-ledger-class.md": {
+            "hash": "45e4691b0cf4e13102728e5394e830aba9f3e845218f372f0e765dd03a4d4919",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/datasize-ledger-class.md": {
+            "hash": "fb2f76b88267478583113c2935627b0cd64f5695489d7bc1d7ce1cd77614128c",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/name-ledger-class.md": {
+            "hash": "878a5e92ba505384e87e1e4b72cf07911ce55ea31cd4c00abe171ca27e1218b7",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/scope-ledger-class.md": {
+            "hash": "f3f7f8f30e5ae83bc82476e321a666bca4b48321f56776c46f2a9134aa4e908c",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/ledgerscope-ledger-class.md": {
+            "hash": "712c7932c7d6c1f3a922034b78e801ac48a40bd23702a2a6d775086628bc4756",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/iswritable-ledger-class.md": {
+            "hash": "9792da2ef2e3637fca3075cb39ae092260425c6bcae12496e667d459bec6f7b9",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/onsync-onsynccallback-ledger-class.md": {
+            "hash": "f7f310b6c4cfa1f0f074557c87195eadd6a7eb6ab5bb234bc64171dd859ab8da",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/onsync-onsyncfunction-ledger-class.md": {
+            "hash": "5f1c82f2764c39bb964c878163127d114a41d8fc70d28d88a6c7938a0660538d",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/remove-ledger-class.md": {
+            "hash": "28b56002c33a9672d29839ac246a9f2ab10efcb8ce567b1294ba719478ebd07d",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledger/removeall-ledger-class.md": {
+            "hash": "cd23c27a5618a91f343162502b90dab0981230c9cbcd802df5c0d7cf474065fc",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledgerdata/ledgerdata.md": {
+            "hash": "425e02b5aa444abe3200e27984870a85b7b13f1fbcc4045fa52f72dbd849e384",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledgerdata/constructor-variant-ledgerdata-class.md": {
+            "hash": "92a23e6a7ca85a96301d77f9880b086f2aebff94e79b20cf4214fed8cd7ad0f3",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledgerdata/constructor-std-initializer_list-ledgerdata-class.md": {
+            "hash": "81327f6c57f3db0f0107c5bb90e70b3a0f71a69a19210d8ad23ccee1453fa051",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledgerdata/set-ledgerdata-class.md": {
+            "hash": "3060b275f0ed39a7827d36aba4ab51ddc049bc124310a895d2ac604896baa39b",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledgerdata/remove-ledgerdata-class.md": {
+            "hash": "ac702a02fed7f291d72d474f8daf0526e76f1061b642062ce4501d218d8d79c9",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledgerdata/get-ledgerdata-class.md": {
+            "hash": "5ff0bfd7858f7cf0efff8bda4314baa0e5f94511c9d3e95c5b41aa2b932fd3bd",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledgerdata/operator-name-ledgerdata-class.md": {
+            "hash": "905ddabda3fa32ac0bdfce2b98232da807a319f1a677737df7c7154c35b38c50",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledgerdata/has-ledgerdata-class.md": {
+            "hash": "7bc6dbc1c0b2f23f8b51d15c32589ee14f2ef5550b295ba3f3426a8fead96eb0",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/ledgerdata/isempty-ledgerdata-class.md": {
+            "hash": "b89046c5134a50645bdf3bec2e62e284ed76600e2ac3577c56160a6eb16503bf",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/variant.md": {
+            "hash": "f769b8776883702d1047421a213835ac639a086414cb3685810ecb5032ea6294",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/set-variant-class.md": {
+            "hash": "35a8c861983f6f22dc95bc68acbbd6a8bcb807001f36874a7b49f36133b02bcb",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/variant-type.md": {
+            "hash": "fa67d6f2af0d696c04ef2e907a8a25493b275ebb23815f508fbb2a9336398128",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/constructor-variant-class.md": {
+            "hash": "f6a05e4b069397dd0281b4d14606e0b5b29fe0092f76eaf65cbebd2bf4f7ddac",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/value-variant-class.md": {
+            "hash": "40b2ed402bc1efb338034574ad6639925a6f4e5a0355e7f608d88fdb3ed41bf6",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/type-variant-class.md": {
+            "hash": "0c0c67831ac4ca9f29d25fc2046cdf7e5ce0658fb337e5772223d475d3b8c4fa",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/isxxx-variant-class.md": {
+            "hash": "cb3e10a8e71aaf9d2ed0488c65bfa3b6e0bf1cebed75da3b16eae79648d2a432",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/tobool-variant-class.md": {
+            "hash": "9f20c2a0db2f090fd97dcaec45dfdb008c23f3c14ce73b52b65a9a68aa6b29db",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/asbool-variant-class.md": {
+            "hash": "d0702957fb794a85129de4b4a5b2d50613bff258658e213d096c4b08805799da",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/toint-variant-class.md": {
+            "hash": "021c975b64fa148c17eaabfbed330559087b1bbcec7a34c19bb2d2f648061460",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/asint-variant-class.md": {
+            "hash": "bff31febaf71344cd177e7ca070c1bd17e7182476821ad3019ef06c246129aa7",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/touint-variant-class.md": {
+            "hash": "abe5427ca7e551ccbe9f11e8c902d4c1fc3cd3b8d525c1b92e4ba65dd14feeb2",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/asuint-variant-class.md": {
+            "hash": "e9e50bbbe1fbc5d126aafb85d351888c59efb610db36a2f40d1b877f9eb78bc1",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/toint64-variant-class.md": {
+            "hash": "d4d89a6e1cdd67a14fd38c470eccc3b0b4235ec9fbae7e63ce3f30c5836ecbd4",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/asint64-variant-class.md": {
+            "hash": "5b7be154576534a8aaaa0bddf48d5d3d35242be2538346b0015597f25f5ec094",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/touint64-variant-class.md": {
+            "hash": "fc3aef8571011f4d5b0d242925d07cd1c591dce1b54abae280a7d2876766a875",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/asuint64-variant-class.md": {
+            "hash": "736c32e3908fec905a31eb38303ad5f6451fa61275ef3b34dcc60e342b192c6c",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/todouble-variant-class.md": {
+            "hash": "1491925bd2ac9ba3776d31e95390fa830fc3bd8ddcab7c08a81a235733cbcd8c",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/asdouble-variant-class.md": {
+            "hash": "dd60973d5da7b53ceea4356920e83c1fc1757cfbb4966079f76fdf0ef57d1b1e",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/tostring-variant-class.md": {
+            "hash": "f97c8b6d727acf828d33e715fb9434bf666b6645fa95cd68836a9351677a9dbb",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/asstring-variant-class.md": {
+            "hash": "6be56eca0683a14c5b39aa62f8c194af6879d86666e75d5a8ff58d158ea82262",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/toarray-variant-class.md": {
+            "hash": "33423e301e64ed626c4c0aaaa4040888a99553d9a9c2ed7df89c647be67a8c91",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/asarray-variant-class.md": {
+            "hash": "afb5a24e5a6f43c54cfc1d2a195ac6ce56bf7ae8a924dcaeb637405ca060e055",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/tomap-variant-class.md": {
+            "hash": "ecacf2bf9d473f7f540df49b95893227ee72d8d59c89b6b2227417da18d37feb",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/asmap-variant-class.md": {
+            "hash": "12bc9f8c843feabe779f8c5983be99deda078502ccd54a379fd9fc111ba1c806",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/tojson-variant-class.md": {
+            "hash": "f3e74fee8dc99726219535f6f7c84157a5efd73a701e6cafdcd75e50b6a389c1",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variant/fromjson-variant-class.md": {
+            "hash": "189e360ea58343b29d28c3ad32bba7f59aec0a19926e4987eabf389c0cae472f",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variantarray/variantarray.md": {
+            "hash": "914b0fabd213c4ff92f70dc9febadfc33d7cb5c3b54bdbf9ae38853ac05279fc",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variantarray/append-variantarray.md": {
+            "hash": "a8ef4bb7f01a32829928d26dfa9372fc2e3f0cdd99e08fe285705b5ee01203cf",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variantarray/prepend-variantarray.md": {
+            "hash": "5e9364002d1a28bf7ca31084d0145f070f0911759f6ab6c5fdfcb58a2464c601",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variantarray/insertat-variantarray.md": {
+            "hash": "f3be1ab5501a7bf3cef4eff6c694026cad4e35547bffe25b6b1a4cfc88c3c374",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variantarray/removeat-variantarray.md": {
+            "hash": "9b0b84b6f63984a7e7f5c85dd9166a6b47536c7e45582a9495a2ffe6a6602bc9",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variantarray/at-variantarray.md": {
+            "hash": "754ea065ec819f1521ed4b784223021a77e92dade79e4031145d7016b9da359c",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variantmap/variantmap.md": {
+            "hash": "87f1bfb025592c3f4a9d91c99c1b4aeda953b716c94852e8eb28d18e1361fdf3",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variantmap/set-variantmap.md": {
+            "hash": "f2f3ab577035829b2693c8025002c05d4e4388ba7cedb173f4ed165736e78edb",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variantmap/remove-variantmap.md": {
+            "hash": "783a7b7a93ae81405ee7fe88e1435acb2e44d03c38acf141fb6422b96eadd7f0",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variantmap/get-variantmap.md": {
+            "hash": "da98b68c57aa8850c2bfecae5a0e3906d0e2845f92ca9dddee065e1518323ece",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/variantmap/has-variantmap.md": {
+            "hash": "8b1efa6a02e479a65b419e7c654f401ec05423becfcf8124c7e3738223d3fe36",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/map.md": {
+            "hash": "18752a35b6abd80c691d0a52fa4835bf14c83d3c70a646a2d3690563fef65fb3",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/map-map-template.md": {
+            "hash": "9ce06be08c2468ba7a9d1aea8350679186d2e54f5f49374c6a6c24ff6577062a",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/map-std-initializer_list-entries-map-template.md": {
+            "hash": "f875b37ebaca4336ec18ce6ec66c4c72658e15409670b6aabb6700568d1969db",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/map-const-map-amp-map-map-template.md": {
+            "hash": "6f01ba9c269c2ff31906ae5a86a27e985cd5f5b613ae9d551ade0e8afd1fdc93",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/set-const-t-amp-key-valuet-val-map-template.md": {
+            "hash": "0d6cfb3f84c20c95bad76a647cad61986f31591ee78d869005e7f60c0bca45e8",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/get-const-t-amp-key-map-template.md": {
+            "hash": "38a630e81378794181ee761dc307ee4473be33ed588a94200ee3289e70626cb8",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/get-const-t-amp-key-const-valuet-amp-defaultval-map-template.md": {
+            "hash": "56cfe2f770db08390e6d838d1167e5d6759fafb005f56122696f64f2f5effcd6",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/has-const-t-amp-key-map-template.md": {
+            "hash": "150e1e1d286776dc620db453ee5a27e4179fad9501891231c984462a59f1c26b",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/find-const-t-amp-key-map-template.md": {
+            "hash": "c6a17a9234f4c546e25131198a4bba3df7c9bb704bbbe98d0d30aa8a275b3be7",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/begin-map-template.md": {
+            "hash": "913745fc1f1867ad68a2c34b1202798f0300b76726a802deddbb133e55711c95",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/end-map-template.md": {
+            "hash": "67e51994b98d05c28460a1eaac8d33a916157ff9cf82f04c1bdaafbbd5d239c9",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/erase-constiterator-pos-map-template.md": {
+            "hash": "ae64eabf8548afd091f556f2058eb9011d6950a80b343e55beed704bd8bcb8ac",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/remove-const-t-amp-key-map-template.md": {
+            "hash": "e77ce4a9ff2f293a34bbbefbfddf1632fbeed7bb54de00881574d303f73ba4c9",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/clear-map-template.md": {
+            "hash": "7531a2caa349d916f80519140f59b4ed8fcbc6cd1ce92d85685f8440df0daceb",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/size-map-template.md": {
+            "hash": "0f23bf9f9c40b292131929bf4623ec5db795ef43cac3cc5fc16f5156be30ded5",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/isempty-map-template.md": {
+            "hash": "b86dabe895d8f2b68edb292985ecb84f1dd27f7fc1de35eeef8db3dd6f860ac4",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/map/operator-key-map-template.md": {
+            "hash": "24d27847d303ba25c0924652229d414cad29677c984493c9efae45accf69ed01",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/vector.md": {
+            "hash": "bdedf459ff5ee5e9bbde3bb3f8ab1665023fa7d026e10d4b9974036a73ba14af",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/vector-vector-template.md": {
+            "hash": "721b5cbc8366fc24eb17ed89927c0d93444f4ad8cf08205627d8db1b4e1b82b7",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/vector-int-n-vector-template.md": {
+            "hash": "5580d49b1341031f6412b682659713246f8322511d02d2bf82e5824a4ce591f1",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/vector-int-n-const-t-amp-value-vector-template.md": {
+            "hash": "5480267d857afc304cd8ffb4e31d063cc23be48cf7ee7bf73085b9852ec8d5d2",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/vector-std-initializer_list-values-vector-template.md": {
+            "hash": "7fab5a392dd915cead6f5161f9779ed2f863b0e618e399eea3db427810215e23",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/vector-const-vector-amp-vector-vector-template.md": {
+            "hash": "b05078c76448ffbfa963096c990f5750e36b83cd492fb36cdfe7aea177da6de0",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/append-t-value-vector-template.md": {
+            "hash": "5c031ae81fe6507b3bb2e8ac4df2e23e160a3fee702363a6cb6dd1e77c8b4b8d",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/append-int-n-const-t-amp-value-vector-template.md": {
+            "hash": "61661623292ff8b8d2ef3a13bf77b509f6895b1d11e32340a1d894949e3f61a8",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/append-const-t-values-int-n-vector-template.md": {
+            "hash": "7fc8c09eae288dd7d48aa2442645e33a724446b5d6bad4b11ef3a813867ee5d2",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/append-const-vector-amp-vecto-vector-template.md": {
+            "hash": "a5283284047350dd3eeab0ea634c6411df1f0e154ad10dc97215d24e69d67782",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/prepend-t-value-vector-template.md": {
+            "hash": "7f26bfeb5a200dc5ab9d6ca481beba4c564f1d2753ae11ffa1afe6c16dd4dec8",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/prepend-int-n-const-t-amp-value-vector-template.md": {
+            "hash": "b068f650a589896cd069643f81b3385275009e424c7bdccb2030c0a69b41c0dc",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/prepend-const-t-values-int-n-vector-template.md": {
+            "hash": "c6b1f215ffcfc2bbfb5c996360b82a2a85d1e7d34a69d9f2db2c9ae52f8d526e",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/prepend-const-vector-amp-vector-vector-template.md": {
+            "hash": "f689260695d20cd16789e5970581163c4fe2400e56a72cfd69875993478c8bfc",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/insert-int-i-t-value-vector-template.md": {
+            "hash": "38c494f7ff4ac00debb17d194d5144fb58012f7ede8d09f94f78129354a4aecb",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/insert-int-i-int-n-const-t-amp-value-vector-template.md": {
+            "hash": "f02b515164982865b6819bf7ce4b530330e7c6a51082f1e9d83e0697f118ea77",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/insert-int-i-const-t-values-int-n-vector-template.md": {
+            "hash": "7c7dbd9d32ac3b43a33fbeb8b9d7877cffb5e41706a86ed93677ec4ba9ef1c21",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/insert-const-vector-amp-vector-vector-template.md": {
+            "hash": "d7deaf7bb646e43376d8db9a9f668f95200e2e416f075979dc4638ec02840304",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/removeat-removeat-int-i-int-n-1-vector-template.md": {
+            "hash": "a75c7b79f5a562b0434925497e315f08b6b06e330d06c11562a7847126b75753",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/bool-removeone-const-t-amp-value-vector-template.md": {
+            "hash": "811cb0ac17fb86b6cfb1d940e9fff5946c2cfe102b0d475d843e17747342f590",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/bool-removeall-const-t-amp-value-vector-template.md": {
+            "hash": "f21d5d0096e259d9e4d1fc507e1be51c6b105e94ea08dcad817efdebebb747aa",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/t-takefirst-vector-template.md": {
+            "hash": "581f37ac1b84e853a99adee19f905ea40c14cfdd683895f2755692788fffe505",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/t-takelast-vector-template.md": {
+            "hash": "7c2b62e06541b477fa5467723132909c17846ebddec80f1010cab2986ed510c3",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/t-takeat-int-i-vector-template.md": {
+            "hash": "5e7bdabfd8e55c45f6aec8cb5284e70fd4ce0b0cc0c3ca252ee221d81afb38d2",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/t-first-vector-template.md": {
+            "hash": "962c1dbcb3f37853af3bc8e4cc7a2a16fecb34ff79adcf66cba9279421347580",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/t-last-vector-template.md": {
+            "hash": "8ba0a33855ea7987115483ab5e63b9ce977f08c19ae0129d3c018573b8739407",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/t-at-int-i-vector-template.md": {
+            "hash": "b4448b3a01db1afc1552ade66a9fbcc0e36e501eb6c4e16bcaa3a7a034273c58",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/operator-int-i-vector-template.md": {
+            "hash": "07e933d2db646074783e469ae8c5239d4d7e6e9846394ee70d5ec3150f49adc6",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/indexof-const-t-amp-value-int-i-0-vector-template.md": {
+            "hash": "dee3b1ebc688a1bb7e7025404fa662230457b096dc29df970ca320ec73eaa17e",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/lastindexof-const-t-amp-value-vector-template.md": {
+            "hash": "e4d7c9bc0c0b6ad6c96b2cdac4a4f4e8c704ce98a77dbf186644fadfca575d83",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/lastindexof-const-t-amp-value-int-i-vector-template.md": {
+            "hash": "fb649edc87f6a6a1f944e0a0a34dbd547229976131ca0f2746356d452f0a47b2",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/contains-const-t-amp-value-vector-template.md": {
+            "hash": "6bcda050e2da99bd1367d6e6a357f9cbaa737dd34e43366b9cf97f61ebd8ab58",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/size-vector-template.md": {
+            "hash": "0d2962d2ccd5abf1ad543ab9ad4f5d7f94f587cdb652e1e8b3b480b45b90c1c0",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/isempty-vector-template.md": {
+            "hash": "8b04e28d6e5932b4acb7149354502cfe0c2eb9745d38f10476e7306261e7873c",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/begin-vector-template.md": {
+            "hash": "1476a348615bcb387eeea7474e8120094adb8a5acdeb63a8c4a147f092a7b3b2",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/end-vector-template.md": {
+            "hash": "38e269eac72bfa1c35328d7666a9e6abcdce42e314b41be61c43d01ededcba75",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/vector/insert-constiterator-pos-t-value-vector-template.md": {
+            "hash": "7f107f227a191f268edf663ba173321fb5050cfbef0aa33595ff718dbbd898f3",
+            "date": "2024-02-15"
+        },
+        "reference/device-os/api/math/map-value-tranformation.md": {
+            "hash": "a2d3af9f1caf11a31e318c81caa3a55d2390897994853d03a793a08c224e653d",
+            "date": "2024-02-15"
         }
     }
 }
