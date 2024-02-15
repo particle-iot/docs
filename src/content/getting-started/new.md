@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker cmd additions 2024-02-15
+
+Added information about the cmd handlers in [Tracker Edge](/firmware/tracker-edge/tracker-edge-api-reference/#regcommandcallback-cloudservice) and Monitor Edge for the `get_cfg` and `reset_to_factory` commands.
+
 ### Tracker edge events 2024-02-13
 
 Added links to the Tracker Edge, Monitor Edge, and Store and Forward documentation to the published event reference in
