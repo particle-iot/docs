@@ -297,6 +297,26 @@
         "dir": "data-transformation",
         "title": "Data transformation with Logic",
         "href": "/getting-started/logic-ledger/data-transformation/"
+      },
+      {
+        "dir": "ledger-sensor",
+        "title": "Ledger sensor",
+        "href": "/getting-started/logic-ledger/ledger-sensor/"
+      },
+      {
+        "dir": "ledger-configuration",
+        "title": "Ledger configuration",
+        "href": "/getting-started/logic-ledger/ledger-configuration/"
+      },
+      {
+        "dir": "logic-cloud-alerts",
+        "title": "Cloud alerts with Logic",
+        "href": "/getting-started/logic-ledger/logic-cloud-alerts/"
+      },
+      {
+        "dir": "device-info-ledger",
+        "title": "Device information in Ledger",
+        "href": "/getting-started/logic-ledger/device-info-ledger/"
       }
     ],
     {

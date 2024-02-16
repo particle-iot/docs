@@ -58,7 +58,7 @@ This support commitment applies to existing products deployed in the field as we
 #### What if I don't want to transition to particle's new supply secure modules?
 
 Customers who do not transition to our Supply Secure modules are at risk of going without access to additional hardware for the next 18-24 months, if not indefinitely.  
-Market indications suggest that the silicon crisis is going to get [worse before it gets better](https://www.wsj.com/articles/global-chip-shortage-is-far-from-over-as-wait-times-get-longer-11635413402), with a complete recovery not expected until 2023 or even 2024\. Many parts will _never_ recover, as manufacturers are discontinuing entire product lines altogether without the intention of reviving them.  
+Market indications suggest that the silicon crisis is going to get worse before it gets better, with a complete recovery not expected until 2023 or even 2024\. Many parts will _never_ recover, as manufacturers are discontinuing entire product lines altogether without the intention of reviving them.  
 
 Particle has invested significant resources into establishing smooth, simple, and reliable migration paths that enable our customers to continue deploying products throughout this challenging environment and believe it is in the best interests of _every_ customer to migrate to our Supply Secure modules.
 
