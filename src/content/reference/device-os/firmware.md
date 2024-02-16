@@ -11277,6 +11277,9 @@ The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on f
 ```cpp
 // PROTOTYPE
 int setPairingPasskey(const BlePeerDevice& peer, const uint8_t* passkey) const;
+
+// EXAMPLE
+BLE.setPairingPasskey(peer, (const uint8_t *)"123456");
 ```
 
 {{since when="3.0.0"}}
@@ -11285,7 +11288,9 @@ When you have a keyboard and the other side has a display, you may need to promp
 keyboard. This is done by the `BlePairingEventType::PASSKEY_INPUT` event. Once they have entered it, call this function 
 to set the code that they entered.
 
-The passkey is BLE_PAIRING_PASSKEY_LEN bytes long (6). The passkey parameter does not need to be null terminated.
+The passkey is BLE_PAIRING_PASSKEY_LEN bytes long (6). The passkey parameter does not need to be null terminated. 
+
+Since the parameter is not a null terminated c-string, it's declared as `const uint8_t *` instead of `const char *` but you can pass a c-string of 6 ASCII digits by casting it to a `const uint8_t *`.
 
 The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
 

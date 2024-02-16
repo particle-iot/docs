@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BLE.setPairingPasskey
+
+Clarified the use of the pass key parameter to [BLE.setPairingPasskey](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-setpairingpasskey-).
+
 ### CLI updates 2024-02-16
 
 Updates for Particle CLI documentation for CLI version 3.21.0.
