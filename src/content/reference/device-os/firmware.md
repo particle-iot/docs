@@ -791,7 +791,9 @@ Request a ledger from the cloud. Returns a [`Ledger`](#ledger) object to read or
 
 This operation is asynchronous and the data will not be available until synchronized with the cloud. You will typically call this from `setup()` and you can do so before connected to the cloud.
 
-The type of ledger (device-to-cloud or cloud-to-device), as well as the ledger scope (organization, product, or device) is determined when the ledger is created on the cloud side, so it is not specified when you request the ledger. You must first create a ledger in the cloud; you cannot create a new ledger using the device-side API. The first time a device comes online in a product with a device-specific ledger, a new ledger instance will be created automatically for the device, however.
+The type of ledger (device-to-cloud or cloud-to-device), as well as the ledger scope (organization, product, or device) is determined when the ledger is created on the cloud side, so it is not specified when you request the ledger. You must first create a ledger definition in the cloud; you cannot create a new ledger definition using the device-side API. 
+
+The first time a device comes online specifying a device to cloud ledger, a new ledger instance will be created for the device, however.
 
 Ledger names consist only of lowercase alphanumeric and dash, up to 32 characters, and are unique across all scopes.
 
@@ -13169,7 +13171,9 @@ void setup() {
 
 The `Particle.ledger` function is asynchronous and the data will not be available until the device comes online and has synchronized with the cloud.
 
-The type of ledger (device-to-cloud or cloud-to-device), as well as the ledger scope (organization, product, or device) is determined when the ledger is created on the cloud side, so it is not specified when you request the ledger.
+The type of ledger (device-to-cloud or cloud-to-device), as well as the ledger scope (organization, product, or device) is determined when the ledger is created on the cloud side, so it is not specified when you request the ledger. You must first create a ledger definition in the cloud; you cannot create a new ledger definition using the device-side API. 
+
+The first time a device comes online specifying a device to cloud ledger, a new ledger instance will be created for the device, however.
 
 You will typically store the `Ledger` object you receive from `Particle.ledger()` as a global variable so you can access it again later easily.
 
@@ -13179,7 +13183,7 @@ Ledger names consist only of lowercase alphanumeric and dash, up to 32 character
 
 ### set() [Ledger class]
 
-Sets a value in the ledger. This call is asychronous.
+Sets a value in the ledger. The data is saved to local flash storage immediately, but will be synchronized to the cloud at a later time.
 
 ```cpp
 // PROTOTYPE
@@ -13333,7 +13337,7 @@ myLedger.onSync([](Ledger ledger) {
 
 Remove any data associated with a ledger from the device.
 
-The device must not be connected to the Cloud. The operation will fail if the ledger with the given name is in use.
+The device must not be connected to the Cloud. The operation will fail if any of the ledgers are in use.
 
 The data is not guaranteed to be removed in an irrecoverable way.
 
@@ -13348,7 +13352,7 @@ static int remove(const char* name);
 
 Remove any ledger data from the device.
 
-The device must not be connected to the Cloud. The operation will fail if the ledger with the given name is in use.
+The device must not be connected to the Cloud. The operation will fail if any of the ledgers are in use.
 
 The data is not guaranteed to be removed in an irrecoverable way.
 
@@ -13493,7 +13497,7 @@ See [Variant](#variant) and [Map](#map) for additional information.
 
 {{since when="5.8.0"}}
 
-The `Variant` class holds typed data. It is used by [Ledger](#ledger). See also [VariantArray](#variantarray) and [VariantMap](#variantmap) to hold data that will be converted to JSON or CBOR.
+The `Variant` class holds typed data. It is used by [Ledger](#ledger). See also [VariantArray](#variantarray) and [VariantMap](#variantmap) to hold data that will be converted to JSON.
 
 
 ### set() [Variant class]
@@ -13579,6 +13583,24 @@ bool value2 = variant2.value<bool>();
 String value3 = variant3.value<String>();
 ```
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the value() vs. other accessors.
+
+
+### value, as, and to [Variant class]
+
+There are several variations of accessors to Variant values used for different purposes:
+
+| Accessor | Description |
+| :--- | :--- |
+| value<T>() | Returns a reference to the currently held value. Requires it be of the type T otherwise would cause undefined behavior. |
+| as<T>() or asXXX() | converts the underlying value of the variant to T in place, modifying the variant, and returns a reference to it. Safe to call if the types don't match but requires T to be one of the supported types, otherwise it will cause a compilation error. |
+| to<T>() or toXXX() | converts the underlying value to T without modifying the variant and returns the result by value. Safe to call if the types don't match, T can be arbitrary. |
+
+
+- When reading complex values like string, array, and map, using the value operator uses a reference (not a copy) so it's more efficient.
+- When assigning a value to a `Variant`, the `asXXX()` methods can be set the variant to be that type. Useful when building the data structure to set ledger values.
+- When reading values from a `Variant`, the `toXXX()` methods can be used to copy the data convert it as necessary, without modifying the original.
+
 
 ### type() [Variant class]
 
@@ -13610,7 +13632,6 @@ bool isArray() const;
 bool isMap() const;
 ```
 
-
 ### toBool() [Variant class]
 
 {{api name1="Variant::toBool()"}}
@@ -13633,6 +13654,8 @@ bool toBool() const;
 bool toBool(bool& ok) const;
 ```
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
 ### asBool() [Variant class]
 
 {{api name1="Variant::asBool()"}}
@@ -13644,22 +13667,9 @@ Returns a reference to the value contained in this variant as a `bool`. This can
 bool& asBool();
 ```
 
-This method will convert the type of the variant to bool if necessary, see [toBool](#tobool-variant-class-) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to bool if necessary, see [toBool](#tobool-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
 
-
-### asBool() [Variant class]
-
-{{api name1="Variant::asBool()"}}
-
-Returns a reference to the value contained in this variant as an `bool`. This can be used to modify the value of the variant.
-
-```cpp
-// PROTOTYPE
-bool& asBool();
-```
-
-This method will convert the type of the variant to `bool` if necessary, see [toBool](#tobool-variant-class-) for more information. If the conversion is not possible, the method will assert.
-
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
 
 ### toInt() [Variant class]
 
@@ -13669,7 +13679,7 @@ Returns the value of the variant to an `int` (32-bit signed), converting the typ
 
 | Source | Result | 
 | :--- | :--- |
-| bool | false &rarr; `0`, true &rarr; `1` |
+| bool | false &rarr; "false", true &rarr; "true" |
 | numeric | unchanged |
 | String | string number &rarr; 32-bit integer |
 | other | conversion fails |
@@ -13683,6 +13693,8 @@ int toInt() const;
 int toInt(bool& ok) const;
 ```
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
 
 ### asInt() [Variant class]
 
@@ -13695,7 +13707,9 @@ Returns a reference to the value contained in this variant as an `int`. This can
 int& asInt();
 ```
 
-This method will convert the type of the variant to `int` if necessary, see [toInt](#toint-variant-class-) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `int` if necessary, see [toInt](#toint-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
 
 
 ### toUInt() [Variant class]
@@ -13720,6 +13734,9 @@ unsigned toUInt() const;
 unsigned toUInt(bool& ok) const;
 ```
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
+
 ### asUInt() [Variant class]
 
 {{api name1="Variant::asUInt()"}}
@@ -13731,8 +13748,9 @@ Returns a reference to the value contained in this variant as an `unsigned`. Thi
 unsigned& asUnsigned();
 ```
 
-This method will convert the type of the variant to `unsigned` if necessary, see [toUInt](#touint-variant-class-) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `unsigned` if necessary, see [toUInt](#touint-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
 
 
 ### toInt64() [Variant class]
@@ -13757,6 +13775,8 @@ int64_t toInt64() const;
 int64_t toInt64(bool& ok) const;
 ```
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
 
 ### asInt64() [Variant class]
 
@@ -13769,8 +13789,9 @@ Returns a reference to the value contained in this variant as an `int64_t`. This
 int64_t& asInt64();
 ```
 
-This method will convert the type of the variant to `int64_t` if necessary, see [toInt64](#toint64-variant-class-) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `int64_t` if necessary, see [toInt64](#toint64-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
 
 
 ### toUInt64() [Variant class]
@@ -13795,6 +13816,8 @@ uint64_t toUInt64() const;
 uint64_t toUInt64(bool& ok) const;
 ```
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
 
 ### asUInt64() [Variant class]
 
@@ -13807,7 +13830,9 @@ Returns a reference to the value contained in this variant as an `uint64_t`. Thi
 uint64_t& asUInt64();
 ```
 
-This method will convert the type of the variant to `uint64_t` if necessary, see [toUInt64](#touint64-variant-class-) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `uint64_t` if necessary, see [toUInt64](#touint64-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
 
 
 ### toDouble() [Variant class]
@@ -13834,6 +13859,8 @@ double toDouble() const;
 double toDouble(bool& ok) const;
 ```
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
 ### asDouble() [Variant class]
 
 {{api name1="Variant::asDouble()"}}
@@ -13845,7 +13872,9 @@ Returns a reference to the value contained in this variant as an `double`. This 
 double& asDouble();
 ```
 
-This method will convert the type of the variant to `double` if necessary, see [toDouble](#todouble-variant-class-) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `double` if necessary, see [toDouble](#todouble-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
 
 
 ### toString() [Variant class]
@@ -13870,6 +13899,8 @@ String toString() const;
 String toString(bool& ok) const;
 ```
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
 ### asString() [Variant class]
 
 {{api name1="Variant::asString()"}}
@@ -13881,7 +13912,9 @@ Returns a reference to the value contained in this variant as an `String`. This 
 String& asString();
 ```
 
-This method will convert the type of the variant to `String` if necessary, see [toString](#tostring-variant-class-) for more information. If the conversion is not possible, the method will assert.
+This method will convert the type of the variant to `String` if necessary, see [toString](#tostring-variant-class-) for more information. If the conversion is not possible, the method will cause a compilation error.
+
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
 
 
 ### toArray() [Variant class]
@@ -13903,6 +13936,9 @@ This method takes an `ok` parameter passed by reference, which is filled in as
 VariantArray toArray(bool& ok) const;
 ```
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
+
 ### asArray() [Variant class]
 
 {{api name1="Variant::asArray()"}}
@@ -13916,6 +13952,7 @@ VariantArray& asArray();
 
 This method will not convert the type of variant. If the Variant is not already a `VariantArray` then this method will assert.
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
 
 ### toMap() [Variant class]
 
@@ -13936,6 +13973,8 @@ This method takes an `ok` parameter passed by reference, which is filled in as
 VariantMap toMap(bool& ok) const;
 ```
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the toXXX() vs. other accessors.
+
 
 ### asMap() [Variant class]
 
@@ -13950,6 +13989,8 @@ VariantMap& asMap();
 
 This method will not convert the type of variant. If the Variant is not already a `VariantMap` then this method will assert.
 
+See [value, as, and to](#value-as-and-to-variant-class-) for when to use the asXXX() vs. other accessors.
+
 ### toJSON [Variant class]
 
 {{api name1="Variant::toJSON()"}}
@@ -13960,6 +14001,7 @@ Serializes a VariantArray or VariantMap as JSON and returns it in a `String` obj
 // PROTOTYPE
 String toJSON() const;
 ```
+
 
 ### fromJSON [Variant class]
 
@@ -13981,14 +14023,14 @@ Variant data = Variant::fromJson(jsonStr);
 
 {{api name1="VariantArray"}}
 
-The `VariantArray` is a [Vector](#vector), essentially a dynamically-sized array of Variants, which are containers for arbitrary data. Think of this as a container to hold arbitrary data in Variant objects before converting to a JSON or CBOR array before sending across the network.
+The `VariantArray` is a [Vector](#vector), essentially a dynamically-sized array of Variants, which are containers for arbitrary data. Think of this as a container to hold arbitrary data in Variant objects before converting to a JSON array before sending across the network.
 
 ```
 // DEFINITION
 typedef Vector<Variant> VariantArray;
 ```
 
-The methods below are implemented in the `Variant` class, so you can use them update a `Variant` that is of type `VariantArray`.
+The methods below are implemented in the `Variant` class, so you can use them update a `Variant`.
 
 ### append() [VariantArray]
 
@@ -14040,7 +14082,7 @@ void removeAt(int index);
 
 {{api name1="at(index)"}}
 
-Returns a copy of the element at index `index` (0-based) into a `VariantArray`. This method is implemented in `Variant`.
+Returns a copy of the element (by value, not by reference) at index `index` (0-based) into a `VariantArray`. This method is implemented in `Variant`.
 
 ```cpp
 // PROTOTYPES
@@ -14050,14 +14092,14 @@ Variant at(int index) const;
 
 ## VariantMap
 
-The `VariantMap` class is a [Map](#map) of a [String](#string-class) to a [Variant](#variant). Think of this as a container to store key-value pair of arbitrary data. This is used to hold data before converting it to JSON or CBOR for sending over the network.
+The `VariantMap` class is a [Map](#map) of a [String](#string-class) to a [Variant](#variant). Think of this as a container to store key-value pair of arbitrary data. This is used to hold data before converting it to JSON for sending over the network.
 
 ```
 // DEFINITION
 typedef Map<String, Variant> VariantMap;
 ```
 
-The methods below are implemented in the `Variant` class, so you can use them update a `Variant` that is of type `VariantMap`.
+The methods below are implemented in the `Variant` class, so you can use them update a `Variant`.
 
 ### set() [VariantMap]
 

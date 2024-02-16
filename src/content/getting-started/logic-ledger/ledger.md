@@ -21,31 +21,14 @@ The three types of Ledgers are:
 | Scope | Description | Availability |
 | :--- | :--- | :--- |
 | Cloud Ledger | Stores information in the cloud without syncing to the edge. | In Beta Now |
-| Device to Cloud Ledger | Device storage that syncs automatically to the cloud | In Alpha Now |
-| Cloud to Device Ledger | Set data in the cloud that will sync to devices | In Alpha Now |
+| Device to Cloud Ledger | Device storage that syncs automatically to the cloud | In Beta Now |
+| Cloud to Device Ledger | Set data in the cloud that will sync to devices | In Beta Now |
 
 Each ledger is a block of JSON data, up to 16 Kbytes in length. You can define the data format yourself, and it does not need to be pre-defined (no schema required). It can contain simple values (string, number, boolean) as well as nested objects and arrays. JSON does not support binary data, but you can store small binary data by encoding it, such as as hex, Base64, or Base85 encoding.
 
 Device to Cloud and Cloud to Device ledgers require Device OS 5.8.0 or later. This feature is currently in beta and will not be available in a Device OS 4.x LTS release. Device ledger support will not be available on Gen 2 devices (E Series other than the E404X, Electron, P1, and Photon 1).
 
 {{!-- BEGIN shared-blurb f77c1afd-51d7-488a-a090-9786b7133e73 --}}
-
-## Prior to Device OS 5.8.0
-
-You can test this feature prior to the release of Device OS 5.8.0 using Particle Workbench and a local copy of Device OS.
-
-- Clone Device OS from Github: [https://github.com/particle-iot/device-os](https://github.com/particle-iot/device-os).
-
-- Switch to the `develop` branch if using a different branch.
-
-- In the Workbench settings, point the Custom Device OS location to the location of your source. See [Working with a custom Device OS build](/getting-started/developer-tools/workbench-faq/#working-with-a-custom-device-os-build).
-
-- Using **Particle: Configure application for device** in the command palette, select **deviceOS@source** and the device you are using.
-
-- Use **Particle: Flash application and Device OS (local)** once to upgrade Device OS on the device. After that, you can use **Particle: Flash application (local)**.
-
-Until the Device OS 5.8.0 release you cannot use the cloud compilers to build application that use device-side Ledger.
-
 {{!-- END shared-blurb --}}
 
 
@@ -66,6 +49,16 @@ To access Ledger, open the console and select the **Ledger** icon in the left-ha
 - Cloud to Device Ledger: Set data in the cloud that will sync to devices.
 
 {{imageOverlay src="/assets/images/ledger/ledger-select.png" class="no-darken"}}
+
+| Scope | Read Ledger | Write Ledger |
+| :--- | :--- | :--- |
+| Cloud Ledger | Console, Logic, Cloud API | Console, Logic, Cloud API |
+| Device to Cloud Ledger | Console, Logic, Cloud API  | Device |
+| Cloud to Device Ledger (Owner) | Device in product owned by owner | Console, Logic, Cloud API |
+| Cloud to Device Ledger (Product) | Device in specified product | Console, Logic, Cloud API |
+| Cloud to Device Ledger (Device) | Device | Console, Logic, Cloud API |
+
+
 
 ### Ledger options - console
 
