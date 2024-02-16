@@ -117,17 +117,6 @@ View [README#Development](https://github.com/particle-iot/particle-cli#developme
   These next two commands are all you need to get started setting up an account, claiming a device, and discovering new features.
 
 
-### particle setup
-
-  This command will guide you through logging in or creating a new account as well as claiming your device!
-
-
-```sh
-# how to setup your account and your device
-$ particle setup
-```
-
-
 ### particle help
 
   Shows you what commands are available and how to use them.  You can also give the name of a command for detailed help.

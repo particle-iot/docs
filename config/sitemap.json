@@ -223,8 +223,8 @@
             "hash": "6e907326faad3adb7e028059b0b43c5d3e2040f9865ce64f51e884f5f00fdc8d"
         },
         "notes/manual-mode-cloud.md": {
-            "date": "2022-08-24",
-            "hash": "4986daa97c7bcb2e9caf753aadcb14f09fd5ed3eed24bce6421375ea10d2f4b0"
+            "date": "2024-02-16",
+            "hash": "eb7b9e5c03c7e696b09e1289e74e2a0961ebbd198d6143ca3c170d72a4fa038e"
         },
         "notes/mark-setup-done-cli.md": {
             "date": "2022-08-09",
@@ -631,8 +631,8 @@
             "hash": "fe43b5964e44450e56103e97f747c646664ea83569e1ae612ef85c9a4d264f1f"
         },
         "getting-started/developer-tools/cli.md": {
-            "date": "2023-11-16",
-            "hash": "975cb52f6689d9dd744daf6c6c7a2089337f85204e7849596bf19466a390d14c"
+            "date": "2024-02-16",
+            "hash": "834eb40d4f68fe2687ec9892d1192b6142396454336a18e85724be104508819d"
         },
         "getting-started/developer-tools/workbench-faq.md": {
             "date": "2023-11-15",
@@ -1171,8 +1171,8 @@
             "hash": "0c263490d13fd03851737f6841f19765f2702c1ebd3377dc2f87284b8860865b"
         },
         "reference/developer-tools/cli.md": {
-            "date": "2024-01-31",
-            "hash": "04a7177fb7e8401835ab90a1e072a2c2aac7f3de3a493a08ad4d321b656ac9dd"
+            "date": "2024-02-16",
+            "hash": "1364a449648d4924c1d50b6987bf7e11fc842edd1bae4d3706c5e28290fdfcf5"
         },
         "reference/developer-tools/jtag.md": {
             "date": "2023-09-06",
@@ -1619,8 +1619,8 @@
             "hash": "4462b2935749951bd92587019f6cfc9260c7f5ffc75af6cbc672eeb5080119d9"
         },
         "troubleshooting/guides/device-troubleshooting/device-blinking-red-yellow-or-frozenno-led.md": {
-            "date": "2023-09-06",
-            "hash": "2bd107148d80442783b755b47f56414e57e1c5d819ca2a05072c74560866dc3d"
+            "date": "2024-02-16",
+            "hash": "e8fe938b080a28c8b4fcb1ea0d8e1f4cd828e138c02a2f411269708e1945ce46"
         },
         "troubleshooting/guides/device-troubleshooting/device-breathing-cyan-but-cannot-connect.md": {
             "date": "2023-04-20",
@@ -1643,8 +1643,8 @@
             "hash": "685e2f2a4ed32e075de2d6065d0f567ef05b15c344aaff7256d47db8fe8fd7bd"
         },
         "troubleshooting/guides/device-troubleshooting/using-particle-serial-inspect.md": {
-            "date": "2023-03-17",
-            "hash": "d10fa7f14260f36bc797e36201daa5d185b2412d4e3fa0093cd3a74ed7f5516b"
+            "date": "2024-02-16",
+            "hash": "6896885dc2cd46e830c39ef1987632c3eba8fab9492fb89e1200b6eb44ee79c6"
         },
         "troubleshooting/faqs/orders/can-i-update-my-order-once-it-has-been-placed.md": {
             "date": "2023-08-03",
@@ -8143,28 +8143,28 @@
             "hash": "3ebab9ebdc993d4e50eb5139d4fd48dd591bcdf9bf594a0458718ceb74a4b268"
         },
         "troubleshooting/led/boron.md": {
-            "date": "2023-09-29",
-            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
+            "date": "2024-02-16",
+            "hash": "9b10277e1773bd45eec57ad25da358f403974f82fe4b6fc70bb9b341c866fc83"
         },
         "troubleshooting/led/photon.md": {
-            "date": "2023-09-29",
-            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
+            "date": "2024-02-16",
+            "hash": "9b10277e1773bd45eec57ad25da358f403974f82fe4b6fc70bb9b341c866fc83"
         },
         "troubleshooting/led/electron.md": {
-            "date": "2023-09-29",
-            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
+            "date": "2024-02-16",
+            "hash": "9b10277e1773bd45eec57ad25da358f403974f82fe4b6fc70bb9b341c866fc83"
         },
         "troubleshooting/led/argon.md": {
-            "date": "2023-09-29",
-            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
+            "date": "2024-02-16",
+            "hash": "9b10277e1773bd45eec57ad25da358f403974f82fe4b6fc70bb9b341c866fc83"
         },
         "troubleshooting/led/xenon.md": {
-            "date": "2023-09-29",
-            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
+            "date": "2024-02-16",
+            "hash": "9b10277e1773bd45eec57ad25da358f403974f82fe4b6fc70bb9b341c866fc83"
         },
         "troubleshooting/led/tracker-som.md": {
-            "date": "2023-09-29",
-            "hash": "5fba0f0571b07ebca692ec65bea195571750ee1c4b508b8d4a765b48aa44022d"
+            "date": "2024-02-16",
+            "hash": "9b10277e1773bd45eec57ad25da358f403974f82fe4b6fc70bb9b341c866fc83"
         },
         "getting-started/developer-tools/developer-tools.md": {
             "hash": "ec6dc8ce26b04fc5f72521d8cccd72f5ce2c350b6656fcf27bf6e6ac7cdb7f12",

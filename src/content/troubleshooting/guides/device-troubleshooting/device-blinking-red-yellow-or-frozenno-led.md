@@ -99,6 +99,4 @@ If you are unable to resolve the issue via the above, please collect the followi
    * With what (User Application and DeviceOS firmware) is it running, and when/how did it receive that firmware
 * Finally, the results of the following command (if possible):
 
-Place your device in Listening Mode (pressing and holding down the MODE button until the device Blinks Dark Blue).
-
 Run the command `particle serial inspect` in the CLI. Place these results in your Support Ticket.
