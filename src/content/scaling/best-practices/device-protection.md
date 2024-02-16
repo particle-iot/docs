@@ -22,7 +22,7 @@ Additionally, the Particle Cloud will prevent flashing unauthorized firmware on 
 
 ## Upgrade process
 
-Device protection is enabled on a per-product basis within your organization as part of your enterprise plan contract.
+Device protection is enabled for your organization as part of your enterprise plan contract.
 
 {{step-diagram op="start"}}
 ```json
@@ -30,7 +30,7 @@ Device protection is enabled on a per-product basis within your organization as 
     "width": 450,
     "steps": [
         {
-            "title": "Device protection enabled for product"
+            "title": "Device protection enabled in the cloud"
         },
         {
             "kind": "arrow"
