@@ -2466,13 +2466,20 @@
             "optional": false,
             "field": "denied",
             "description": "<p>If set to <code>true</code>, this is a quarantined device that has been permanently denied access to product privileges. <em>Product endpoint only</em></p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "device_protection.status",
+            "description": "<p>The device protection status of this device</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "GET /v1/devices/0123456789abcdef01234567",
-          "content": "GET /v1/devices/0123456789abcdef01234567\nHTTP/1.1 200 OK\n{\n  \"id\": \"0123456789abcdef01234567\",\n  \"name\": \"gongbot\",\n  \"owner\": \"someone@particle.io\",\n  \"last_ip_address\": \"176.83.211.237\",\n  \"last_heard\": \"2015-07-17T22:28:40.907Z\",\n  \"last_handshake_at\": \"2015-07-15T20:08:00.456Z\",\n  \"product_id\": 13,\n  \"online\": true,\n  \"platform_id\": 13,\n  \"cellular\": true,\n  \"notes\": null,\n  \"functions\": [\n    \"gong\",\n    \"goto\"\n  ],\n  \"variables\": {\n    \"Gongs\": \"int32\"\n  },\n  \"status\": \"normal\",\n  \"serial_number\": \"AAAAAA111111111\",\n  \"iccid\": \"89314404000111111111\",\n  \"imei\": \"357520000000000\",\n  \"mac_wifi\": \"00:00:00:AA:BB:00\",\n  \"mobile_secret\": \"NVYM5RK6AHCBELA\",\n  \"system_firmware_version\": \"1.5.0\",\n  \"firmware_updates_enabled\": true,\n  \"firmware_updates_forced\": false\n}",
+          "content": "GET /v1/devices/0123456789abcdef01234567\nHTTP/1.1 200 OK\n{\n  \"id\": \"0123456789abcdef01234567\",\n  \"name\": \"gongbot\",\n  \"owner\": \"someone@particle.io\",\n  \"last_ip_address\": \"176.83.211.237\",\n  \"last_heard\": \"2015-07-17T22:28:40.907Z\",\n  \"last_handshake_at\": \"2015-07-15T20:08:00.456Z\",\n  \"product_id\": 13,\n  \"online\": true,\n  \"platform_id\": 13,\n  \"cellular\": true,\n  \"notes\": null,\n  \"functions\": [\n    \"gong\",\n    \"goto\"\n  ],\n  \"variables\": {\n    \"Gongs\": \"int32\"\n  },\n  \"status\": \"normal\",\n  \"serial_number\": \"AAAAAA111111111\",\n  \"iccid\": \"89314404000111111111\",\n  \"imei\": \"357520000000000\",\n  \"mac_wifi\": \"00:00:00:AA:BB:00\",\n  \"mobile_secret\": \"NVYM5RK6AHCBELA\",\n  \"system_firmware_version\": \"1.5.0\",\n  \"firmware_updates_enabled\": true,\n  \"firmware_updates_forced\": false,\n  \"device_protection\": {\n      \"status\": \"disabled\"\n  }\n}",
           "type": "js"
         }
       ]
@@ -4348,13 +4355,6 @@
             "optional": false,
             "field": "deviceId",
             "description": "<p>Device ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "build_target_version",
-            "description": "<p>The firmware version to compile against. Defaults to latest</p>"
           }
         ],
         "Flash a device with source code": [
@@ -4364,6 +4364,13 @@
             "optional": false,
             "field": "file",
             "description": "<p>The source code encoded in <code>multipart/form-data</code> format</p>"
+          },
+          {
+            "group": "flashCode",
+            "type": "String",
+            "optional": true,
+            "field": "build_target_version",
+            "description": "<p>The firmware version to compile against. Defaults to latest</p>"
           }
         ],
         "Flash a device with a pre-compiled binary": [
@@ -4372,17 +4379,16 @@
             "type": "String",
             "optional": false,
             "field": "file",
-            "description": "<p>The pre-compiled binary encoded in <code>multipart/form-data</code> format</p>"
-          },
+            "description": "<p>The pre-compiled binary encoded in <code>multipart/form-data</code> format.</p>"
+          }
+        ],
+        "Flash a device with a bundle": [
           {
-            "group": "flashBinary",
+            "group": "flashBundle",
             "type": "String",
-            "allowedValues": [
-              "binary"
-            ],
             "optional": false,
-            "field": "file_type",
-            "description": "<p>Indicates that you are uploading a binary and not source code</p>"
+            "field": "file",
+            "description": "<p>The bundle encoded in <code>multipart/form-data</code> format. The MIME type must be <code>application/zip</code>.</p>"
           }
         ]
       }
@@ -4398,7 +4404,12 @@
       },
       {
         "title": "flashBinary",
-        "content": "$ curl -X PUT \"https://api.particle.io/v1/devices/0123456789abcdef01234567?access_token=1234\" \\\n       -F file=@my-firmware-app.bin \\\n       -F file_type=binary",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/devices/0123456789abcdef01234567?access_token=1234\" \\\n       -F file=@my-firmware-app.bin",
+        "type": "bash"
+      },
+      {
+        "title": "flashBundle",
+        "content": "$ curl -X PUT \"https://api.particle.io/v1/devices/0123456789abcdef01234567?access_token=1234\" \\\n       -F \"file=@my-firmware-bundle.zip;type=application/zip\"",
         "type": "bash"
       }
     ],
@@ -4411,6 +4422,11 @@
         },
         {
           "title": "flashBinary",
+          "content": "PUT /v1/devices/0123456789abcdef01234567\nHTTP/1.1 200 OK\n{\n  \"id\": \"0123456789abcdef01234567\",\n  \"status\": \"Update started\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "flashBundle",
           "content": "PUT /v1/devices/0123456789abcdef01234567\nHTTP/1.1 200 OK\n{\n  \"id\": \"0123456789abcdef01234567\",\n  \"status\": \"Update started\"\n}",
           "type": "json"
         }
@@ -9040,7 +9056,7 @@
             "type": "File",
             "optional": false,
             "field": "file",
-            "description": "<p>A binary file encoded in <code>multipart/form-data</code> format containing the contents of the product firmware (<code>binary</code> is also accepted for backwards compatibility)</p>"
+            "description": "<p>A binary file encoded in <code>multipart/form-data</code> format containing the contents of the product firmware (<code>binary</code> is also accepted for backwards compatibility). When uploading a bundle, the MIME type must be <code>application/zip</code></p>"
           },
           {
             "group": "Parameter",
@@ -9075,6 +9091,11 @@
       {
         "title": "Example request",
         "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/firmware?access_token=1234\" \\\n       -F file=@firmware.bin \\\n       -F version=1 \\\n       -F title=firmware",
+        "type": "bash"
+      },
+      {
+        "title": "Uploading a bundle",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/firmware?access_token=1234\" \\\n       -F \"file=@bundle.zip;type=application/zip\" \\\n       -F version=1 \\\n       -F title=firmware",
         "type": "bash"
       }
     ],
@@ -9529,13 +9550,20 @@
             "optional": false,
             "field": "product.requires_activation_codes",
             "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "product.device_protection",
+            "description": "<p>The set device protection status of the devices in this product</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "GET /v1/products/photon",
-          "content": "GET /v1/products/photon\nHTTP/1.1 200 OK\n{\n  \"product\": {\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"subscription_id\": 1234,\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    }\n  }\n}",
+          "content": "GET /v1/products/photon\nHTTP/1.1 200 OK\n{\n  \"product\": {\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"subscription_id\": 1234,\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    },\n    \"device_protection\": \"disabled\"\n  }\n}",
           "type": "json"
         }
       ]

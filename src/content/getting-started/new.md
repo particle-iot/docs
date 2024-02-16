@@ -21,7 +21,12 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
-### BLE.setPairingPasskey
+### Upload firmware clarification 2024-02-16
+
+When using the upload product firmware cloud API to upload a .zip file containing Asset OTA images, it must be
+set as type application/json.
+
+### BLE.setPairingPasskey 2024-02-16
 
 Clarified the use of the pass key parameter to [BLE.setPairingPasskey](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-setpairingpasskey-).
 
