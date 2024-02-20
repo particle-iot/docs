@@ -184,9 +184,7 @@ navMenu.generateNavHtml = function(menuJson) {
             let innerDivElem = document.createElement('div');
             $(innerDivElem).addClass('navMenu2');
             const aElem = document.createElement('a');
-            $(aElem).on('click', function() {
-                navMenu.openAnchor(item.href);
-            });
+            $(aElem).attr('href', item.href);
             $(aElem).addClass('navLink');
             $(aElem).text(makeTitle(item));
             $(innerDivElem).append(aElem);
@@ -237,9 +235,7 @@ navMenu.generateNavHtml = function(menuJson) {
                     $(innerDivElem).addClass('navMenu1');
 
                     const aElem = document.createElement('a');
-                    $(aElem).on('click', function() {
-                        navMenu.openAnchor(item.href);
-                    });
+                    $(aElem).attr('href', item.href);
                     $(aElem).addClass('navLink');
                     $(aElem).text(makeTitle(item));
                     $(innerDivElem).append(aElem);
@@ -310,9 +306,7 @@ navMenu.generateNavHtml = function(menuJson) {
                     
                     if (!isThisLetter) {
                         const aElem = document.createElement('a');
-                        $(aElem).on('click', function() {
-                            navMenu.openAnchor(obj.href);
-                        });
+                        $(aElem).attr('href', obj.href);
                         $(aElem).addClass('navLink');
                         $(aElem).text(obj.title);
                         $(innerDivElem).append(aElem);    
