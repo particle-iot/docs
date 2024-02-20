@@ -562,6 +562,8 @@ We recommend this screw assembly to securely affix the B series SoM to your circ
 
 - Note that a hold-down screw is required because the M.2 connector does not have integrated locks and the SoM will pop up if not attached to the base board.
 
+- The screw should be connected to the ground plane on your base board.
+
 ### Design considerations
 
 We strongly recommend against placing components under the SOM board because there is not enough height.
