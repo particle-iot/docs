@@ -91,8 +91,8 @@ Power supply requirements:
   - Cellular 
   - Wi-Fi (2.4 GHz and 5 GHz) and BLE
   - GNSS (GPS)
+
 - Wi-Fi operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
-- GNSS features are limited M404 as the cellular modem cannot do cellular communication and GNSS at the same time.
 
 ## Approved Antennas
 
@@ -142,6 +142,9 @@ Single quantity M SoM units and developer kits include a PARANTWM1EA antenna. Tr
 
 Single quantity M SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
 
+- GNSS features are limited on the M404 as the cellular modem cannot do cellular communication and GNSS at the same time.
+- GNSS support will be added in a future version of Device OS.
+- Feature such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
 
 ### General Antenna Guidance
 
