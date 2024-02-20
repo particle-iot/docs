@@ -142,8 +142,8 @@ Some older devices do not have the serial number stored on the device (E260, for
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Deprecated | P024 |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | GA | P031 |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | GA | P031 |
-| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | NRND | P025 |
-| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | NRND | P025 |
+| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | GA | P025 |
+| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | GA | P025 |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA | P032 |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | GA | P032 |
 | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | Deprecated | P0MD |
@@ -225,8 +225,8 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P024 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | Deprecated |
 | P024 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | Deprecated |
 | P024 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NRND |
-| P025 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | NRND |
-| P025 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | NRND |
+| P025 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | GA |
+| P025 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | GA |
 | P025 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Deprecated |
 | P025 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | NRND |
 | P025 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Deprecated |

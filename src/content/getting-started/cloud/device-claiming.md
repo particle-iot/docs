@@ -416,8 +416,8 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Sometimes slow<sup>3</sup> | Deprecated | ONE404MTY|
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | Fast<sup>1</sup> | GA | |
-| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Sometimes slow<sup>3</sup> | NRND | ONE524MEA|
-| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | Sometimes slow<sup>3</sup> | NRND | ONE524MTY|
+| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Sometimes slow<sup>3</sup> | GA | ONE524MEA|
+| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | Sometimes slow<sup>3</sup> | GA | ONE524MTY|
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | Fast<sup>1</sup> | GA | |
 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | T404MEA|

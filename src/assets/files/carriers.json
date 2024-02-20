@@ -21480,7 +21480,7 @@
     {
       "name": "ONE523MEA",
       "desc": "Tracker One LTE CAT1/3G/2G (Europe), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "GA",
       "replacement": "ONE524MEA",
       "modem": "EG91-EX",
       "sim": 2,
@@ -21519,7 +21519,7 @@
     {
       "name": "ONE523MTY",
       "desc": "Tracker One CAT1/3G/2G (Europe), Bulk [x40]",
-      "lifecycle": "NRND",
+      "lifecycle": "GA",
       "replacement": "ONE524MTY",
       "modem": "EG91-EX",
       "sim": 2,

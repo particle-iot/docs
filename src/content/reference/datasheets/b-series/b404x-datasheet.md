@@ -2138,4 +2138,3 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 034      | 2023-07-18 | RK | Added alternate antenna ANT-FLXU |
 | 035      | 2023-11-13 | RK | Add full pin details |
 | 036      | 2024-02-20 | RK | M.2 screw assembly should be connected to ground |
-
