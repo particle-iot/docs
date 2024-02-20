@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Pin drive strength P2 2024-02-20
+
+Pin drive strength for the P2 and Photon 2 is now included in the [Device OS firmware API](/reference/device-os/api/input-output/pinsetdrivestrength/)
+documentation and datasheets.
+
 ### Upload firmware clarification 2024-02-16
 
 When using the upload product firmware cloud API to upload a .zip file containing Asset OTA images, it must be
