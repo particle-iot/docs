@@ -263,6 +263,12 @@ If you want to create a webhook from an existing template, you can switch over t
 
 You can also copy from the "Custom Template" tab and share the webhook template with others.
 
+## Webhook security
+
+**Particle strongly recommends using https (TLS/SSL)** for all webhook communication for security. It not only protects the contents of your webhook call, but also makes it harder for a bad actor to spoof being your server to intercept data.
+
+Using transport-level security is especially important when sending credentials such as authorization tokens or basic authentication (username/password) to help prevent stealing of credentials.
+
 ## Product webhooks
 
 If you are building a product using Particle, you now have the ability to create webhooks at the product-level. This will allow you as a product creator to define a single webhook than any of the devices in the product's fleet can trigger.

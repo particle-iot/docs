@@ -112,6 +112,25 @@ The state of charge of the device’s connected battery, represented as a percen
 
 If the battery charge falls too low,  the device is at risk of losing power and going offline. Battery charge is displayed as a percentage from 0-100% — the closer to 100, the more charge is available to the battery.
 
+Only devices that contain a fuel gauge chip report the battery state. This includes:
+
+- Boron
+- Tracker SoM and Tracker One
+- Monitor One
+- E Series
+- Electron
+
+A fuel gauge (MAX17043) is optional on:
+
+- B SoM (if included on your base board)
+
+It is not available on:
+
+- P2, Photon 2
+- Argon
+- P1, Photon 1
+
+
 ### Data resolution
 Device Vitals are bucketed into varying time intervals depending on which time range is selected in the Console:
 
@@ -238,8 +257,41 @@ send their vitals to the Device Cloud. There's a trade off to be made:
 The more frequent you send the vitals, the higher fidelity of data
 available to you when troubleshooting. But, this comes with an increase
 in cellular data usage (Each vitals message is ~150 bytes). You can find
-the proper balance for your specific needs.
+the proper balance for your specific needs. A good starting point is every
+6 hours, 4 times per day, or 21600 seconds.
 
+
+### Advanced vitals publishing
+
+The technique above is useful in most cases, but if you want a bit more control 
+over when the device vitals are published you can use a technique such as this:
+
+```cpp
+#include "Particle.h"
+
+SYSTEM_MODE(AUTOMATIC);
+SYSTEM_THREAD(ENABLED);
+
+SerialLogHandler logHandler(LOG_LEVEL_INFO);
+
+const std::chrono::seconds vitalsPeriod = 6h; // How often to publish vitals
+retained time_t vitalsTimeNext = 0; // Time (UTC) of next vitals publish
+
+void setup() {
+}
+
+void loop() {
+    if (Particle.connected() && Time.isValid()) {
+        if (vitalsTimeNext == 0 || vitalsTimeNext > (Time.now() + vitalsPeriod.count())) {
+            vitalsTimeNext = Time.now() + vitalsPeriod.count();
+        }
+        if (Time.now() <= vitalsTimeNext) {
+            Particle.publishVitals(particle::NOW);
+            vitalsTimeNext = Time.now() + vitalsPeriod.count();
+        }
+    }
+}
+```
 
 ### Refreshing from device cloud
 

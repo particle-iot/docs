@@ -579,8 +579,8 @@
             "hash": "7a0d200828d22f9c6d8e90b1d78a9a8f49d8f31b6657997689cab1eba7ee60de"
         },
         "getting-started/cloud/cloud-communication.md": {
-            "date": "2023-06-20",
-            "hash": "a35004ea0dae484a932cac276f4cc7a63fcd88b8e1a3f5fc6efed0a8b2e2ede9"
+            "date": "2024-02-20",
+            "hash": "4ac918686f80b4d7ca3452661877abc61cc5762974abf50664f5cff7880d8354"
         },
         "getting-started/cloud/function-publish-demo.md": {
             "date": "2023-08-03",
@@ -603,8 +603,8 @@
             "hash": "1e6063dd5390a328f24367fe727df6c3b83af2ddf8ea5bef8315ca765338e3d2"
         },
         "getting-started/console/device-vitals.md": {
-            "date": "2023-10-04",
-            "hash": "2d29af9fb465f836bdf27b28cb23388b4892647571e469a58cc482752b5cdd74"
+            "date": "2024-02-20",
+            "hash": "7c2e9035043b46cc885c9cff3ed5ba72d8a84377929bb14a84481686ba4eb187"
         },
         "getting-started/console/device-groups.md": {
             "date": "2023-03-17",
@@ -735,8 +735,8 @@
             "hash": "d485461e66b78d8d6dfa87cb9e0e73945b605c67926ab42a27071685cdd4ae3e"
         },
         "integrations/webhooks.md": {
-            "date": "2024-01-18",
-            "hash": "2573aa5015062739678389154768ee0c5561fd78feba66912fce0895d4b8291f"
+            "date": "2024-02-20",
+            "hash": "c25d395a249f1bce001629e5f46e97eb38c4c21a1cd48e0a9a15eb64e92faad9"
         },
         "integrations/community-integrations/about-community-integrations.md": {
             "date": "2023-08-03",
@@ -1311,8 +1311,8 @@
             "hash": "a34b63d0db842919603a646f67ffd32d4456e649aa8d403f6f6fb7599cf9d7bc"
         },
         "reference/device-os/versions.md": {
-            "date": "2023-09-06",
-            "hash": "dccf791ab88650c23e8d12fbd90cca5df55f125ed13bcf446e1984c07f358b7e"
+            "date": "2024-02-20",
+            "hash": "0cd2b309f3d1a5f18c0a316f3c2e80747dc5290322e8e57948c36d29f12682c3"
         },
         "reference/device-os/wifi-setup-options.md": {
             "date": "2023-05-19",

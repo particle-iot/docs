@@ -234,6 +234,14 @@ And in the console:
 ![Console Events 2](/assets/images/consoleTestEvent2.png)
 
 
+## Publish best practices
+
+- Rate limit your publishes. If you exceed the rate limit average of 1 per second the events will be discarded. 
+- Check for cloud connectivity before publishing for best performance.
+- If you have timing-sensitive code in your loop, you may want to publish events from a worker thread in the background. 
+- Efficiently using publish can save on data operations.
+
+
 ## Function
 
 - Functions allow the cloud to call one device to perform a task with optional data
