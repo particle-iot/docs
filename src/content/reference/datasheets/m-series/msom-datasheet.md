@@ -21,8 +21,10 @@ The M SoM module contains the following functional units:
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
 - Cellular modem 
-  - Quectel BG95-M5 LTE Cat M1/2G (Glboal)
-  - Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
+  - M404: Quectel BG95-M5 LTE Cat M1/2G (Glboal)
+  - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
+
+The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
 
 ### MCU
 
@@ -927,10 +929,154 @@ SE, SI, SK, TR, UA, UK(NI).
 
 ## Country compatibility
 
+### M404 - Country compatibility
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 291c6e45-3647-412b-8e38-47d29d5b4a83 --}}
+
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Canada | M404 | 2G, M1 | Bell Mobility, Rogers Wireless, Telus |
+| Mexico | M404 | 2G, M1 | AT&T, Telcel |
+| United States | M404 | 2G, M1 | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
+
+
+### M523 - Country compatibility
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated da2ba229-df4a-4df6-a0a5-d74444b8d5c1 --}}
+
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Albania | M524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Algeria | M524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
+| Aruba | M524 | 2G, 3G, Cat1 | Setar |
+| Australia | M524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Austria | M524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
+| Bahrain | M524 | 2G, 3G, Cat1 | Zain |
+| Bangladesh | M524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
+| Belarus | M524 | 2G, 3G, Cat1 | A1 |
+| Belgium | M524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
+| Bosnia and Herzegovina | M524 | 2G, 3G | BH Telecom, HT Eronet |
+| Botswana | M524 | 2G, 3G, Cat1 | BeMobile |
+| Brunei | M524 | 3G, Cat1 | DST |
+| Bulgaria | M524 | 2G, 3G | A1, Telenor, Vivacom |
+| Burkina Faso | M524 | 2G, 3G, Cat1 | Orange |
+| Cabo Verde | M524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
+| Cambodia | M524 | 2G, 3G | Metfone |
+| Chad | M524 | 2G, 3G, Cat1 | Airtel |
+| Chile | M524 | 2G, 3G, Cat1 | Claro, Entel, Movistar |
+| Congo (Brazzaville) | M524 | 2G, 3G, Cat1 | Airtel |
+| Congo (Kinshasa) | M524 | 2G, 3G, Cat1 | Airtel |
+| Côte d'Ivoire | M524 | 2G, 3G, Cat1 | MTN |
+| Croatia | M524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
+| Cyprus | M524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
+| Czechia | M524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
+| Denmark | M524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
+| Egypt | M524 | 2G, 3G, Cat1 | Etisalat, Orange |
+| Estonia | M524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
+| eSwatini | M524 | 2G, 3G, Cat1 | MTN |
+| Ethiopia | M524 | 2G, 3G, Cat1 | Ethio Telecom |
+| Faroe Islands | M524 | 2G, 3G | Faroese Telecom, Vodafone |
+| Finland | M524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| France | M524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| French Guiana | M524 | 2G, 3G | Digicel |
+| Gabon | M524 | 2G, 3G, Cat1 | Airtel |
+| Germany | M524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Ghana | M524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
+| Gibraltar | M524 | 2G, 3G, Cat1 | Gibtel |
+| Greece | M524 | 2G, Cat1 | Cosmote, Vodafone, Wind |
+| Guinea | M524 | 2G, 3G, Cat1 | MTN |
+| Guinea-Bissau | M524 | 2G, 3G, Cat1 | MTN |
+| Guyana | M524 | 2G | Digicel |
+| Hong Kong | M524 | 2G, 3G, Cat1 | CMHK, CSL, SmarTone |
+| Hungary | M524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
+| Iceland | M524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
+| Indonesia | M524 | 2G, 3G, Cat1 | Indosat, Telkomsel, XL Axiata |
+| Ireland | M524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
+| Israel | M524 | 2G, 3G, Cat1 | Hot Mobile, Orange, Pelephone |
+| Italy | M524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
+| Jordan | M524 | 2G, 3G, Cat1 | Zain |
+| Kazakhstan | M524 | 2G, 3G, Cat1 | Beeline, K-Cell |
+| Kenya | M524 | 2G, 3G, Cat1 | Airtel |
+| Kuwait | M524 | 2G, 3G, Cat1 | Viva, Zain |
+| Latvia | M524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
+| Liechtenstein | M524 | 2G, 3G, Cat1 | Mobilkom, Orange |
+| Lithuania | M524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
+| Luxembourg | M524 | 2G, 3G, Cat1 | Orange, POST, Tango |
+| Macao | M524 | 2G, 3G, Cat1 | CTM |
+| Madagascar | M524 | 2G, 3G, Cat1 | Airtel |
+| Malawi | M524 | 2G, 3G, Cat1 | Airtel |
+| Malaysia | M524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
+| Malta | M524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
+| Moldova | M524 | 2G, 3G, Cat1 | Moldcell, Orange |
+| Mongolia | M524 | 2G, 3G | Mobicom, Unitel |
+| Montenegro | M524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
+| Morocco | M524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
+| Mozambique | M524 | 2G, 3G, Cat1 | Vodacom |
+| Myanmar | M524 | 2G, 3G, Cat1 | MPT, Telenor |
+| Namibia | M524 | 2G, 3G, Cat1 | Telecom Namibia |
+| Netherlands | M524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
+| New Zealand | M524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
+| Nigeria | M524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
+| Norway | M524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
+| Pakistan | M524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
+| Palestine | M524 | 2G, 3G | Jawwal |
+| Papua New Guinea | M524 | 2G, 3G | bmobile |
+| Poland | M524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
+| Portugal | M524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
+| Qatar | M524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
+| Romania | M524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
+| Rwanda | M524 | 2G, 3G, Cat1 | Airtel, MTN |
+| Serbia | M524 | 2G, 3G, Cat1 | Telenor, VIP |
+| Seychelles | M524 | 2G, 3G, Cat1 | Airtel |
+| Sint Maarten | M524 | 2G, 3G, Cat1 | TelCell |
+| Slovakia | M524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovenia | M524 | 2G, 3G, Cat1 | A1, Mobitel |
+| South Africa | M524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
+| South Korea | M524 | 3G, Cat1 | KT, LG U+, SK Telecom |
+| South Sudan | M524 | 2G, 3G, Cat1 | MTN |
+| Spain | M524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
+| Sri Lanka | M524 | 2G, 3G, Cat1 | Dialog, Mobitel |
+| Suriname | M524 | 2G, 3G | Telesur |
+| Sweden | M524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | M524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Taiwan | M524 | 3G, Cat1 | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tanzania | M524 | 2G, 3G, Cat1 | Airtel |
+| Thailand | M524 | 2G, 3G, Cat1 | AIS, DTAC, True Move |
+| Tunisia | M524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
+| Uganda | M524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
+| United Kingdom | M524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
+| Vietnam | M524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
+| Zambia | M524 | 2G, 3G, Cat1 | Airtel |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
 
 
 ---
 ## Ordering information
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5c48836c-dced-4420-be6f-15916d265a5e --}}
+
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| M404MTY | M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | In development | |
+| M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
+| M524MTY | M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
+
 
 | Model | Description | Quantity | Region |
 | :--- | :--- | :--- |
