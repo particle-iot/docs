@@ -228,7 +228,11 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 {{!-- END do not edit content above, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
 
+- The drive strength is 4 mA per pin in normal drive and 12 mA per pin in high drive mode on the P2.
+- There is a maximum of 200 mA across all pins. The total maximum could be further limited by your 3.3V regulator.
+- Drive strength selection using [pinSetDriveStrength](/reference/device-os/api/input-output/pinsetdrivestrength/) is only available in Device OS 5.5.0 and later on the P2.
 - On the P2, Pin RGBR (PA[30]) has a 10K hardware pull-up in the module because it's a trap pin that controls the behavior of the internal 1.1V regulator. This does not affect the RGB LED but could affect your design if you are repurposing this pin as GPIO. You must not hold this pin low at boot.
+
 
 ### ADC (analog to digital converter)
 
@@ -2015,6 +2019,7 @@ SE, SI, SK, TR, UA, UK(NI).
 | 011 | 2023-09-08 | RK | Add 5V tolerance section |
 | 012 | 2023-11-13 | RK | Add full pin details |
 | 013 | 2023-12-20 | RK | Add boot mode pin information to GPIO pin listing |
+| 014 | 2024-02-20 | RK | Added pin drive strength |
 
 ## Known errata
 

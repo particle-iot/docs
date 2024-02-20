@@ -347,6 +347,9 @@ Additionally, SWD is supported on pins on the M.2 connector:
 {{!-- END do not edit content above, it is automatically generated--}}
 
 - All GPIO are 3.3V only and are not 5V tolerant
+- The drive strength is 4 mA per pin in normal drive and 12 mA per pin in high drive mode on the M SoM.
+- There is a maximum of 200 mA across all pins. The total maximum could be further limited by your 3.3V regulator.
+- Drive strength selection using [pinSetDriveStrength](/reference/device-os/api/input-output/pinsetdrivestrength/) is only available in Device OS 5.5.0 and later on the M SoM.
 
 Certain GPIO will change state at boot, or cause the MCU to enter a special mode. See the [boot mode pins](#boot-mode-pins) section, below, for more information.
 
@@ -944,3 +947,4 @@ SE, SI, SK, TR, UA, UK(NI).
 |          | 2023-12-20 | RK | Added FCC and IC IDs. Additional notes for ADCs, D24, and D25 |
 |          | 2024-02-08 | RK | Added power consumption information |
 |          | 2024-02-20 | RK | M.2 screw assembly should be connected to ground |
+|          | 2024-02-20 | RK | Added pin drive strength |

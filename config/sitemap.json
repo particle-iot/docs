@@ -652,11 +652,11 @@
         },
         "getting-started/hardware/cellular-overview.md": {
             "date": "2024-02-20",
-            "hash": "44cdae795ce6a705a567182f4af5e9b27560c478c62446123c396e15f81a6b7b"
+            "hash": "a30169ec34df0f765fdd7c5ec92b22b035e725bb9b8f45dad3c5b8ec92b02803"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2024-02-20",
-            "hash": "8c5b61c0a80181e912efd318e90ce20715c5d701209f1e2b556db419e72bb72c"
+            "hash": "f141a930d7689cfcb5d867364520f18635adb1f5a2ec2d8c4067f9d7dbeecdd9"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
             "date": "2023-03-22",
@@ -936,7 +936,7 @@
         },
         "hardware/certification/antenna.md": {
             "date": "2024-02-20",
-            "hash": "34087809d37e20909bc252850e790b0e16295d0926f0a22710c27ecab792d701"
+            "hash": "de5531c4cd89b378bbb139fbb0412764a09824f014f6157eaa84f7c40690c4bc"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -944,7 +944,7 @@
         },
         "hardware/certification/certification-documents.md": {
             "date": "2024-02-20",
-            "hash": "e64e81ca71db89cd496ebf79a24ee67246e0e2c4426a846f3ffcaec67db8d4ac"
+            "hash": "9740747f4593b377f4a67890f6f88dbeceef74e4fd89a9bcfc55e4152c6a68f6"
         },
         "hardware/certification/certification.md": {
             "date": "2023-11-06",
@@ -1016,7 +1016,7 @@
         },
         "hardware/migration-guides/gen2-cellular-migration.md": {
             "date": "2024-02-20",
-            "hash": "24d42d4735f6236a0234da2521af516fbfec2bb850be8343e4f2abf3d72f744c"
+            "hash": "df8a5ffd327f89c4c8f6e6abb6b77be53eb2c787af1ba670fcdda90507e8c302"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
             "date": "2023-10-27",
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-02-16",
-            "hash": "6b10219e17c7ee591bd578c031d400062ca7ff3218908fca19f9f8c3fb6fdcc0"
+            "date": "2024-02-20",
+            "hash": "8167b1a297a2e8df56f7a12165e16d85dd3790809bd58bae3c0ee5fc6f64f02b"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -1324,7 +1324,7 @@
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
             "date": "2024-02-20",
-            "hash": "02e8c330e8d5b121e18828f1de1ac5012dd126311ef81d2fd32a6d30e9d12efd"
+            "hash": "0d71c1dde30012105110dafd3a23ab280f1b029ae938f99e14d461d52cf1ccf1"
         },
         "reference/product-lifecycle/product-lifecycle-stages.md": {
             "date": "2023-03-17",
@@ -1348,7 +1348,7 @@
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
             "date": "2024-02-20",
-            "hash": "fce246dca2713784b8750b7bd2895c3829ae4599c454036b3b464dee00e54528"
+            "hash": "a0f69218d07c29222ea553e328b252a2aeef1a7162e8433d2bfc7c54f0d61e2d"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
             "date": "2024-02-20",
@@ -1407,12 +1407,12 @@
             "hash": "b99320b79b015da28ad0b476b7875be996fc4d83825800851ba9572d31cb1963"
         },
         "reference/datasheets/wi-fi/p2-datasheet.md": {
-            "date": "2023-12-20",
-            "hash": "ac5af6a831bdc2d054c986b725b05e5b75810e5dcc12681f4071b1a1265e5cde"
+            "date": "2024-02-20",
+            "hash": "5e712fff4c24c5858de2883f05c64d5901b47a8807b6769d26f5298e4d8e2af6"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2023-12-19",
-            "hash": "bfc665902747b17fad19acca27a045cb79bfefcba7bd6736b5f9b8e9b1b56752"
+            "date": "2024-02-20",
+            "hash": "f10c49fc8b2ead1103d70b8e20f0f0b2428225fb943f0d3a71bee40af2f453b4"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2023-11-06",
@@ -1428,7 +1428,7 @@
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2024-02-20",
-            "hash": "77f559fddd987f02ed6f86f00dd3af2d03f0d5d72996e29e96f7b27b2cbb0e3a"
+            "hash": "70eea55437aa36fa183176e7c72d71973bfafab74821bddf5b748c6d374ec7c4"
         },
         "reference/datasheets/tracker/tracker-m8-accessories.md": {
             "date": "2023-08-02",
@@ -2351,16 +2351,16 @@
             "hash": "7b6595c065fed479010f5a151b0c31e68c75f3e60fe46437e9394449a97c62df"
         },
         "reference/device-os/api/input-output/digitalwrite.md": {
-            "date": "2023-09-20",
-            "hash": "3e7a323f9e843b367565dd77559aba239f316e5d55e9f4607d24f315b7eab3f4"
+            "date": "2024-02-20",
+            "hash": "bcdfcfd0ed3c125027d2472d9fca1c97736fad7b19b056a44de70fd29fc6858a"
         },
         "reference/device-os/api/input-output/digitalread.md": {
             "date": "2023-09-20",
             "hash": "e41e5b0b99affec50bd0d3315ac8876e57c22edb08045920412602ab9ec3c59d"
         },
         "reference/device-os/api/input-output/pinsetdrivestrength.md": {
-            "date": "2023-09-20",
-            "hash": "0d9c884ae6f351acae95063640d5dd984d70303c9e23ca552aac11ae4fe3a545"
+            "date": "2024-02-20",
+            "hash": "02247c9da22cca21501b9fdc2b7637a44abcfe27613b3f7918934703281ab3fa"
         },
         "reference/device-os/api/input-output/analogwrite-pwm.md": {
             "date": "2023-09-20",
@@ -8175,7 +8175,7 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "a0e39bbdb9bb45cca982baced81c67f16fd6de3032b2184137e08baaf19411a4",
+            "hash": "85c1930b63e393b95fd4a112817b1fdf9801a3594642c5f62a147665f5f4603d",
             "date": "2024-02-20"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {

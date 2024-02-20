@@ -5437,7 +5437,7 @@ void loop()
 
 - Pins `D0` and `D1` can be used as analog inputs on the P2 (`A3` and `A4`) if I2C is not being used.
 
-- The drive strength on the P2 and Photon 2 is 16 mA per pin with a maximum of 200 mA across all pins. On the P2, the total maximum could be further limited by your 3.3V regulator.
+- The drive strength on the P2 and Photon 2 is 4 mA per pin in normal drive and 12 mA per pin in high drive mode. Drive strength selection is only available in Device OS 5.5.0 and later. There is a maximum of 200 mA across all pins. On the P2, the total maximum could be further limited by your 3.3V regulator.
 {{note op="end"}}
 
 ---
@@ -5527,7 +5527,7 @@ void loop()
 int pinSetDriveStrength(pin_t pin, DriveStrength drive);
 ```
 
-Sets the pin drive strength on Gen 3 devices with Device OS 2.0.0 and later.
+Sets the pin drive strength on Gen 3 devices with Device OS 2.0.0 and later, or P2/Photon 2 (RTL872x) with Device OS 5.5.0 and later.
 
 `DriveStrength` is one of:
 
@@ -5549,11 +5549,25 @@ The drive strength is typically 2 mA in standard drive mode (the default), and 9
 ---
 
 {{note op="start" type="gen3"}}
-- Pin drive strength setting is only available on Gen 3 devices (nRF52840). 
-- On the P2 and Photon 2, the pin drive strength is always 16 mA.
-- On Gen 2 devices (Photon, P1, Electron, and E Series) the pin drive strength is always 25 mA.
+- On nRF52 devices, this call can be used to change the pin drive strength from 2 mA (default, standard) to 9 mA (high drive strength).
 {{note op="end"}}
 
+---
+
+{{note op="start" type="P2"}}
+- The drive strength on the P2 and Photon 2 is 4 mA per pin in normal drive and 12 mA per pin in high drive mode. 
+- There is a maximum of 200 mA across all pins. On the P2, the total maximum could be further limited by your 3.3V regulator.
+- Drive strength selection is only available in Device OS 5.5.0 and later on RTL872x devices. 
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen2"}}
+- On Gen 2 devices (Photon, P1, Electron, and E Series) the pin drive strength is always 25 mA and cannot be changed.
+- This API is not available on Gen 2 devices.
+{{note op="end"}}
+
+---
 
 ### analogWrite() (PWM)
 
