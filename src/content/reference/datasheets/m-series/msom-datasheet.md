@@ -1078,15 +1078,6 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 - EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 
-| Model | Description | Quantity | Region |
-| :--- | :--- | :--- |
-| M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | 1 |  Global	 |
-| M404MTY | M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | 50 | Global |
-| M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | 1 | EMEAA |
-| M524MTY | M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | 50 | EMEAA |
-
-- EMEAA: Europe, and parts of the Middle East, Africa, and Asia
-
 ## Revision history
 
 | Revision | Date | Author | Comments |
