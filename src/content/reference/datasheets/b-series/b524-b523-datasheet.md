@@ -1817,3 +1817,4 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | 020      | 28-Apr-2023 | RK | Add conformal coating warning |
 | 021      | 13-Nov-2023 | RK | Add full pin details |
 | 022      | 20-Dec-2023 | RK | Clarified band power information table |
+| 023      | 20-Feb-2024 | RK | M.2 screw assembly should be connected to ground |

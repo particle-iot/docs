@@ -693,3 +693,4 @@ The bootloader allows you to easily update the user application via several diff
 | 021      | 31-Jan-2023 | RK | Add Device OS versions |
 | 022      | 28-Apr-2023 | RK | Add conformal coating warning |
 | 023      | 07-Jun-2023 | RK | Fixed diagram of M.2 connector in schematics |
+| 024      | 20-Feb-2024 | RK | M.2 screw assembly should be connected to ground |

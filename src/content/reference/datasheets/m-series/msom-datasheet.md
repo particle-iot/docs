@@ -943,3 +943,4 @@ SE, SI, SK, TR, UA, UK(NI).
 | pre      | 2023-10-03 | RK | Initial version |
 |          | 2023-12-20 | RK | Added FCC and IC IDs. Additional notes for ADCs, D24, and D25 |
 |          | 2024-02-08 | RK | Added power consumption information |
+|          | 2024-02-20 | RK | M.2 screw assembly should be connected to ground |
