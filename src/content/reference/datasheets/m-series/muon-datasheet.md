@@ -11,6 +11,7 @@ description: Muon datasheet
 This is a preliminary overview of the Muon. A full datasheet will be released at a later date.
 {{box op="end"}}
 
+
 ## Overview
 
 The Muon is a developer kit based on the M SoM with additional peripherals for easy prototyping.
@@ -26,6 +27,8 @@ The Muon is a developer kit based on the M SoM with additional peripherals for e
   - USB-C
   - VIN (6-12 VDC)
   - LiPo battery with temperature sensor (3-pin JST-PH)
+
+![](/assets/images/m-series/muon-iso.jpg)
 
 ### M SoM
 
