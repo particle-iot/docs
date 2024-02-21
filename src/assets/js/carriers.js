@@ -1445,18 +1445,13 @@ msomBands.renderCountries = function(countries) {
 
         const ulElem = document.createElement('ul');
 
-        for(const testObj of msomBands.tests) {
-            const cmsObj = datastore.data.countryModemSim.find(e => e.country == country && e.modem == testObj.modemObj.model && e.sim == 4);
-            if (!cmsObj) {
-                continue;
-            }
-
+        const appendRecommendation = function(testObj, cmsObj, options = {}) {
             const liElem = document.createElement('li');
 
             const divElem = document.createElement('div');
             $(divElem).attr('style', 'display:inline; color:' + msomBands.headerTextColor + '; background-color:' + testObj.backgroundColor + '; padding-left: 3px; padding-right: 3px; margin-right:5px;');
 
-            $(divElem).text(testObj.title);
+            $(divElem).text(options.title || testObj.title);
             $(liElem).append(divElem);
             
             let text = '';
@@ -1468,7 +1463,7 @@ msomBands.renderCountries = function(countries) {
                 if (total > 0) {
                     let pct = Math.floor(testObj.counts.greenCheck * 100 / total);
                     if (pct > 70) {
-                        text += 'Not officially supported at this time, but likely to work.';
+                        text += options.msg70 || 'Not officially supported at this time, but likely to work.';
                     }
                     else
                     if (pct > 30) {
@@ -1489,6 +1484,22 @@ msomBands.renderCountries = function(countries) {
 
             $(liElem).append(document.createTextNode(text));
             $(ulElem).append(liElem);
+        }
+
+        for(const testObj of msomBands.tests) {
+            const cmsObj = datastore.data.countryModemSim.find(e => e.country == country && e.modem == testObj.modemObj.model && e.sim == 4);
+            if (!cmsObj) {
+                continue;
+            }
+
+            appendRecommendation(testObj, cmsObj);
+            if (testObj.title == 'M404') {
+                appendRecommendation(testObj, cmsObj, {
+                    title: 'M635',
+                    msg70: 'Likely to be supported at release',
+                });
+
+            }
         }
 
 

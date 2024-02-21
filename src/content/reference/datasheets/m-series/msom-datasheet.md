@@ -21,8 +21,9 @@ The M SoM module contains the following functional units:
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
 - Cellular modem 
-  - M404: Quectel BG95-M5 LTE Cat M1/2G (Glboal)
+  - M404: Quectel BG95-M5 LTE Cat M1/2G (Global)
   - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
+  - M635: Quectel BG95-M5 LTE Cat M1/2G (Global with satellite)
 
 The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
 
@@ -102,8 +103,8 @@ The M SoM is certified with the following cellular antenna:
 
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
-| Wide band LTE cell antenna [x1] | PARANTCW1EA | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
-| Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x1] | PARANTCW1EA | M404, M524, M635 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524, M635 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
 Single quantity M SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M SoM do not include antennas.
 
@@ -142,7 +143,7 @@ Single quantity M SoM units and developer kits include a PARANTWM1EA antenna. Tr
 
 Single quantity M SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
 
-- GNSS features are limited on the M404 as the cellular modem cannot do cellular communication and GNSS at the same time.
+- GNSS features are limited on the M404 and M635 as the cellular modem cannot do cellular communication and GNSS at the same time.
 - GNSS support will be added in a future version of Device OS.
 - Feature such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
 
@@ -745,6 +746,10 @@ The typical (typ) values are the best indicator of overall power consumption ove
 peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 
+### Power consumption (M635)
+
+To be determined at a later date. When operated on LTE Cat M1 or 2G, should be similar to M404.
+
 
 ## Mechanical specifications
 
@@ -1061,6 +1066,9 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+### M635 - Country compatibility
+
+Global, country list to be provided a later date.
 
 
 ---
@@ -1072,8 +1080,9 @@ The M404 is fully supported in the United States, Canada, and Mexico. It is in b
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | M404MTY | M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | In development | |
-| M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
+| M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
 | M524MTY | M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
+| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

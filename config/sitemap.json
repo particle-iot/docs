@@ -651,8 +651,8 @@
             "hash": "09fe09cf7d2670d8b814c109837f47e1f85c18c163cb166505ea117825bb5d57"
         },
         "getting-started/hardware/cellular-overview.md": {
-            "date": "2024-02-20",
-            "hash": "82b0a19dd9a9d3ed90701bab7a58f87c6b657fb15e94a20bc75a051d1b0ea85b"
+            "date": "2024-02-21",
+            "hash": "18b68b5714d03cf50253fb02238cc4656a5156805ceebe1aaaf793631c6784d6"
         },
         "getting-started/hardware/hardware-overview.md": {
             "date": "2024-02-20",
@@ -699,8 +699,8 @@
             "hash": "26da47333626255984b53884e59cfc010cc068b2fd94e833a13404eefb4989f0"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2024-02-20",
-            "hash": "6c76beeaca02504a9e40ba6e9fc7771ec1cdf07ec9a814a2f6af2887a0f81e40"
+            "date": "2024-02-21",
+            "hash": "cc4010dec1bab35dab625296f130ffc233cdd93f1a08afdbfb0bc5777b125412"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -935,8 +935,8 @@
             "hash": "a4284163c16267c7bdc0209ac64b9be9e0237b94c2fb043024c5b981d9541386"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-02-20",
-            "hash": "7bfc36ee09f33668fd53a11b786136c1ed9dcc945ab9080483c2811cb541578f"
+            "date": "2024-02-21",
+            "hash": "01222eaaa7c7264520a7a16441e6eaf90035173e5fcdcb8079e3eb4cc620bea1"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -1127,7 +1127,7 @@
             "hash": "75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070"
         },
         "reference/cellular/lte-cat-1-expansion.md": {
-            "date": "2024-02-20",
+            "date": "2024-02-21",
             "hash": "1841c55361bc9a8889fed60be95457f89c0864b434aa1585e5327c6b42e4317c"
         },
         "reference/cellular/sim-cards.md": {
@@ -8175,8 +8175,8 @@
             "date": "2023-10-17"
         },
         "hardware/best-practices/serial-number.md": {
-            "hash": "584109ed0fc6562250bf7b98237d2e12e086b05586e67a97d71692704c04f1a0",
-            "date": "2024-02-20"
+            "hash": "8a7720529d95a20ff0904beecc69343b649a21e31125ad36a4c125036b564d6a",
+            "date": "2024-02-21"
         },
         "reference/device-os/api/device-identifiers/device-identifiers.md": {
             "hash": "0e7c01678fbde8f0e33e725697af33617dbeec584182854277228b66bcf3ef3e",
@@ -8403,11 +8403,11 @@
             "date": "2024-02-06"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "a2c71a0d1c5cc8ef340b6c6fde0a0d1a7e632d3e8ce1ddb117f582b67c501d89",
+            "hash": "84142787c5a85f5e4a378ab1da09848fc6120babfaa6feae6f6d61b2016a39dc",
             "date": "2024-02-21"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
-            "hash": "23fa0645c806959d597927faff1442bb115efbb933b99de81d53db99d73ad8bd",
+            "hash": "38aeca84bc565bed6550903a2617713faf24fd4530dd8d145fc1afcc665b15f3",
             "date": "2024-02-21"
         }
     }

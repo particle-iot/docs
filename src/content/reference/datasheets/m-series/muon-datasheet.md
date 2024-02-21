@@ -38,8 +38,11 @@ The Muon contains a Particle M SoM that the following functional units:
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
 - Cellular modem 
-  - Quectel BG95-M5 LTE Cat M1 (North America)
-  - Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
+  - M404: Quectel BG95-M5 LTE Cat M1/2G (Global)
+  - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
+  - M635: Quectel BG95-M5 LTE Cat M1/2G (Global with satellite)
+
+The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
 
 
 ### MCU

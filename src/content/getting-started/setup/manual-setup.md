@@ -136,6 +136,7 @@ If you are interested in setting up customer Wi-Fi for product fleets, see [Wi-F
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | &nbsp; |
 | M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | &nbsp; |
 | M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | &nbsp; |
+| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | &nbsp; |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | &nbsp; |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | &nbsp; |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | &nbsp; |
