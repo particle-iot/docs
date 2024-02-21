@@ -184,6 +184,10 @@ navMenu.generateNavHtml = function(menuJson) {
             let innerDivElem = document.createElement('div');
             $(innerDivElem).addClass('navMenu2');
             const aElem = document.createElement('a');
+            $(aElem).on('click', function(ev) {
+                ev.preventDefault();
+                navMenu.openAnchor(item.href);
+            });
             $(aElem).attr('href', item.href);
             $(aElem).addClass('navLink');
             $(aElem).text(makeTitle(item));
@@ -235,6 +239,10 @@ navMenu.generateNavHtml = function(menuJson) {
                     $(innerDivElem).addClass('navMenu1');
 
                     const aElem = document.createElement('a');
+                    $(aElem).on('click', function(ev) {
+                        ev.preventDefault();
+                        navMenu.openAnchor(item.href);
+                    });
                     $(aElem).attr('href', item.href);
                     $(aElem).addClass('navLink');
                     $(aElem).text(makeTitle(item));
@@ -306,6 +314,10 @@ navMenu.generateNavHtml = function(menuJson) {
                     
                     if (!isThisLetter) {
                         const aElem = document.createElement('a');
+                        $(aElem).on('click', function(ev) {
+                            ev.preventDefault();
+                            navMenu.openAnchor(obj.href);
+                        });
                         $(aElem).attr('href', obj.href);
                         $(aElem).addClass('navLink');
                         $(aElem).text(obj.title);
@@ -453,7 +465,16 @@ navMenu.searchContent = function() {
             addDoc();
         });
         
-        const searchResults = lunrIndex.search(navMenu.searchQuery);
+        let searchResults = [];
+        const searchQuery = navMenu.searchQuery.replace(/:/g, ' ');
+        
+        try {
+            searchResults = lunrIndex.search(searchQuery);
+        }
+        catch(e) {
+            console.log('exception in search', {searchQuery, e});
+        }
+
         // console.log('searchResults', searchResults);
         if (searchResults.length > 0) {            
             const containerElem = $('.document-search-container');
