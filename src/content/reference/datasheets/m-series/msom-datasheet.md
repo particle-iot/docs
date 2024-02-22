@@ -38,7 +38,7 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
   - ARM Cortex M33 CPU, 200 MHz
 - 2048 KB (2 MB) user application maximum size
 - 3072 KB (3 MB) of RAM available to user applications
-- 2 MB flash file system
+- 8 MB flash file system
 - FCC (United States), ISED (Canada), and CE (European Union) certified
 
 ### Block diagram
