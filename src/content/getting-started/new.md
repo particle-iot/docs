@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### BLE.scan callback example typo 2024-02-22
+
+The example in for [BLE.scan(callback)](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-scan-callback-) had an error that 
+prevented compiling.
+
 ### M SoM datasheet 2024-02-22
 
 The [preliminary M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/) and [migration guides](/hardware/migration-guides/msom-b-series-migration-guide/) are now available. The [battery calculator](/tools/developer-tools/battery-calculator) and 

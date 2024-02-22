@@ -655,7 +655,7 @@
             "hash": "18b68b5714d03cf50253fb02238cc4656a5156805ceebe1aaaf793631c6784d6"
         },
         "getting-started/hardware/hardware-overview.md": {
-            "date": "2024-02-20",
+            "date": "2024-02-22",
             "hash": "f141a930d7689cfcb5d867364520f18635adb1f5a2ec2d8c4067f9d7dbeecdd9"
         },
         "getting-started/hardware-tutorials/e-series-eval-kit.md": {
@@ -1287,8 +1287,8 @@
             "hash": "97d8ff268e598b197d705eddc63d0a4eb653554296f6283a9d216da6e9865f1d"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-02-20",
-            "hash": "8167b1a297a2e8df56f7a12165e16d85dd3790809bd58bae3c0ee5fc6f64f02b"
+            "date": "2024-02-22",
+            "hash": "9503eb357eaef48e9f1a097702b323a355a33a4b096472184200688aaad6e799"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -2911,8 +2911,8 @@
             "hash": "3e4fa2a06f652d31c059e78e9fb0cc99d1699221303838a1ca8a9f8c9a3a52e5"
         },
         "reference/device-os/api/bluetooth-le-ble/ble-class.md": {
-            "date": "2024-02-16",
-            "hash": "2901354c7f75fe9e11a5835ce5e72b3964a988ffdc49931a7ca74498f4eae79a"
+            "date": "2024-02-22",
+            "hash": "c25306d3fe3da807b58dae9af8d6ce67124654625d8fe04dcefc67e4a42e6b2a"
         },
         "reference/device-os/api/bluetooth-le-ble/blescanfilter.md": {
             "date": "2023-09-20",
@@ -2931,8 +2931,8 @@
             "hash": "9257af6aa3dfaa6b413e6439bc3af1a20cc26c0fc5e16e0c949adcba7f10deeb"
         },
         "reference/device-os/api/bluetooth-le-ble/bleuuid.md": {
-            "date": "2023-09-20",
-            "hash": "fa9248795a5384c33d477d511ac1f3b04df4781907ddd6a0b4d68dbccadadf2c"
+            "date": "2024-02-22",
+            "hash": "ff3134e27ccd2b8a983d093acc216741c14730194225820edd2fe10a8e9c1b49"
         },
         "reference/device-os/api/bluetooth-le-ble/bleadvertisingdata.md": {
             "date": "2023-09-20",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "aa29f02c59fe45a865df011af140eb4da33fa56c5b4899a02815c79cd03ba9a9",
+            "hash": "5d8ce673c87a00dc22bf41c543b632fd60328afa6ed5b0d4d05efc55efff5da2",
             "date": "2024-02-22"
         },
         "getting-started/cloud/logic.md": {

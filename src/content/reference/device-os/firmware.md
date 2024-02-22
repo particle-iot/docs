@@ -10552,7 +10552,7 @@ void loop() {
                     scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
                     scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5], scanResults[ii].rssi);
 
-            String name = scanResults[ii].advertisingData.deviceName();
+            String name = scanResults[ii].advertisingData().deviceName();
             if (name.length() > 0) {
                 Log.info("Advertising name: %s", name.c_str());
             }
@@ -10624,12 +10624,12 @@ void loop() {
 }
 
 void scanResultCallback(const BleScanResult *scanResult, void *context) {
-  // For Device OS 2.x and earlier, use scanResults[ii].address[0], etc. without the ()
+  // For Device OS 2.x and earlier, use scanResults->address[0], etc. without the ()
   Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
-          scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
-          scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5], scanResults[ii].rssi());
+          scanResult->address()[0], scanResult->address()[1], scanResult->address()[2],
+          scanResult->address()[3], scanResult->address()[4], scanResult->address()[5], scanResult->rssi());
 
-	String name = scanResult->advertisingData.deviceName();
+	String name = scanResult->advertisingData().deviceName();
 	if (name.length() > 0) {
 		Log.info("deviceName: %s", name.c_str());
 	}
@@ -10662,7 +10662,7 @@ must access them as:
 For example:
 
 ```
-len = scanResults[ii].advertisingData().get(BleAdvertisingDataType::MANUFACTURER_SPECIFIC_DATA, buf, BLE_MAX_ADV_DATA_LEN);
+len = scanResult->advertisingData().get(BleAdvertisingDataType::MANUFACTURER_SPECIFIC_DATA, buf, BLE_MAX_ADV_DATA_LEN);
 ```
 
 The `context` parameter is often used if you implement your scanResultCallback in a C++ object. You can store the object instance pointer (`this`) in the context.
@@ -12165,7 +12165,7 @@ if (rxUuid == txUuid) {
 
 // EXAMPLE 2
 BleUuid foundServiceUUID;
-size_t svcCount = scanResult->advertisingData.serviceUUID(&foundServiceUUID, 1);
+size_t svcCount = scanResult->advertisingData().serviceUUID(&foundServiceUUID, 1);
 if (svcCount > 0 && foundServiceUUID == serviceUuid) {
 	// Device advertises our custom service "serviceUuid" so try to connect to it
 }
