@@ -4222,7 +4222,8 @@
         "2G-1800",
         "3G-1",
         "LTE-3"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Albania",
@@ -4268,13 +4269,14 @@
         "2G-1800",
         "3G-1",
         "LTE-3"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Albania",
       "carrier": "Vodafone",
-      "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -4296,7 +4298,8 @@
         "2G-1800",
         "3G-1",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Algeria",
@@ -4359,7 +4362,8 @@
         "2G-900",
         "2G-1800",
         "3G-1"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Angola",
@@ -4465,7 +4469,8 @@
         "2G-900",
         "3G-1",
         "LTE-17"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Antigua and Barbuda",
@@ -4503,14 +4508,14 @@
       "bands": [
         "2G-850",
         "3G-1",
-        "3G-5",
         "LTE-4"
       ],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Argentina",
@@ -4540,7 +4545,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Argentina",
@@ -4578,8 +4584,10 @@
         "2G-1900",
         "3G-2",
         "3G-5",
-        "LTE-4"
-      ]
+        "LTE-4",
+        "M1-4"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Argentina",
@@ -4602,8 +4610,11 @@
         "2G-1900",
         "3G-2",
         "3G-5",
-        "LTE-4"
-      ]
+        "LTE-4",
+        "LTE-7",
+        "LTE-28"
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Armenia",
@@ -4708,11 +4719,13 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-3"
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Aruba",
@@ -4752,13 +4765,14 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Australia",
       "carrier": "Optus",
       "sunset2G": "2017-01-04",
-      "sunset3G": "2024-09",
+      "sunset3G": "2024-09-01",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -4836,7 +4850,12 @@
         "3G-5",
         "LTE-1",
         "LTE-3",
-        "LTE-28"
+        "LTE-7",
+        "LTE-8",
+        "LTE-28",
+        "M1-3",
+        "M1-28",
+        "NB1-28"
       ],
       "noBands": [
         "2G"
@@ -4856,7 +4875,8 @@
             "note": "3G service ending June 2024"
           }
         ]
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Australia",
@@ -4864,13 +4884,12 @@
       "sunset2G": "2017-09-30",
       "sunset3G": "2023-12-15",
       "supersim": {
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.25
       },
       "koreAllNet": {
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -4878,13 +4897,16 @@
         "allowCat1": true
       },
       "bands": [
-        "3G-8",
         "LTE-1",
         "LTE-3",
-        "LTE-5"
+        "LTE-5",
+        "LTE-8",
+        "LTE-28",
+        "NB1-8"
       ],
       "noBands": [
-        "2G"
+        "2G",
+        "3G"
       ],
       "timeline": {
         "2G": [
@@ -4906,7 +4928,8 @@
             "note": "3G service ending December 15, 2023"
           }
         ]
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Austria",
@@ -4937,11 +4960,10 @@
         "2G-900",
         "2G-1800",
         "3G-1",
-        "LTE-1",
         "LTE-3",
-        "LTE-7",
-        "LTE-8"
-      ]
+        "LTE-7"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Austria",
@@ -4949,6 +4971,7 @@
       "aliases": [
         "Mobilkom"
       ],
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -4984,7 +5007,8 @@
         "3G-1",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Austria",
@@ -5008,7 +5032,7 @@
       "country": "Austria",
       "carrier": "T-Mobile",
       "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset3G": "2024-01-01",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -5033,13 +5057,25 @@
         "allow3G": true,
         "allowCat1": true
       },
+      "timeline": {
+        "3G": [
+          {
+            "state": "active",
+            "end": "2024-01-01",
+            "note": "3G phase-out begins"
+          }
+        ]
+      },
       "bands": [
         "2G-900",
         "2G-1800",
         "3G-1",
         "LTE-3",
-        "LTE-7"
-      ]
+        "LTE-7",
+        "LTE-20",
+        "NB1-8"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Azerbaijan",
@@ -5161,7 +5197,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Bahrain",
@@ -5260,8 +5297,8 @@
     {
       "country": "Bangladesh",
       "carrier": "GrameenPhone",
-      "sunset2G": "After 2025",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -5365,7 +5402,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Barbados",
@@ -5409,7 +5447,16 @@
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true
-      }
+      },
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Barbados",
+      "carrier": "Ozone",
+      "bands": [
+        "LTE-13"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Belarus",
@@ -5440,8 +5487,10 @@
         "2G-1800",
         "3G-1",
         "3G-8",
-        "LTE-3"
-      ]
+        "LTE-3",
+        "NB1-8"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Belarus",
@@ -5474,7 +5523,8 @@
         "3G-8",
         "LTE-3",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Belgium",
@@ -5541,13 +5591,17 @@
         "3G-8",
         "LTE-3",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Belgium",
       "carrier": "Orange",
       "lteM1": true,
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
+        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
@@ -5555,21 +5609,24 @@
         "allowM1": true
       },
       "bands": [
+        "2G-900",
+        "2G-1800",
         "3G-1",
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
       ],
-      "noBands": [
-        "2G"
-      ]
+      "noBands": []
     },
     {
       "country": "Belgium",
       "carrier": "Proximus",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2024-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -5604,8 +5661,13 @@
         "2G-1800",
         "3G-1",
         "3G-8",
-        "LTE-3"
-      ]
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20",
+        "LoRa"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Belize",
@@ -5615,22 +5677,25 @@
         "3G-5",
         "LTE-2",
         "LTE-5"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Belize",
       "carrier": "Smart",
       "supersim": {
+        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.35
       },
       "bands": [
+        "3G-5",
         "LTE-13"
       ],
       "noBands": [
-        "2G",
-        "3G"
-      ]
+        "2G"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Benin",
@@ -5722,7 +5787,8 @@
         "2G-1900",
         "3G-5",
         "LTE-12"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Bermuda",
@@ -5739,7 +5805,8 @@
         "3G-2",
         "3G-5",
         "LTE-13"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Bolivia",
@@ -5785,31 +5852,61 @@
         "2G-850",
         "3G-5",
         "LTE-17"
-      ]
+      ],
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Bolivia",
+      "carrier": "Viva",
+      "bands": [
+        "3G-5",
+        "LTE-4"
+      ],
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Bonaire",
+      "carrier": "Telbo",
+      "aliases": [
+        "Kla"
+      ],
+      "bands": [
+        "3G-8",
+        "LTE-3"
+      ],
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Bonaire",
+      "carrier": "UTS",
+      "bands": [
+        "3G-1",
+        "LTE-3"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Bosnia and Herzegovina",
       "carrier": "BH Telecom",
+      "sunset3G": "2025-06-01",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "paygRate": 0.35
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
-        "allow3G": true,
-        "allow2G": true
+        "allow3G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 2,
-        "allow3G": true,
-        "allow2G": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
         "3G-1"
       ],
       "noBands": [
+        "2G",
         "LTE"
       ]
     },
@@ -5893,6 +5990,8 @@
       "bands": [
         "2G-1800",
         "3G-1",
+        "LTE-1",
+        "LTE-3",
         "LTE-7"
       ],
       "koreAllNet": {
@@ -5900,7 +5999,8 @@
         "allow3G": true,
         "allowLTE": true,
         "rank": "Secondary"
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Brazil",
@@ -5916,15 +6016,19 @@
         "2G-1800",
         "3G-1",
         "3G-5",
+        "3G-8",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "LTE-28",
+        "NB1-28"
       ],
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true,
         "rank": "Backup"
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Brazil",
@@ -5955,14 +6059,17 @@
         "2G-1900",
         "3G-1",
         "3G-5",
-        "LTE-7"
+        "LTE-3",
+        "LTE-7",
+        "LTE-28"
       ],
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true,
         "rank": "Backup"
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Brunei",
@@ -5984,28 +6091,29 @@
     {
       "country": "Brunei",
       "carrier": "DST",
-      "sunset2G": "NA",
       "sunset3G": "No Plan",
       "supersim": {
-        "allow2G": true,
+        "allow2G": false,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.15
       },
       "koreAllNet": {
-        "allow2G": true,
+        "allow2G": false,
         "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
-        "allow2G": true,
+        "allow2G": false,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
         "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -6025,6 +6133,7 @@
         "Mobitel EAD",
         "Mobilkom"
       ],
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -6299,17 +6408,18 @@
         "SmartMobile"
       ],
       "sunset2G": "?",
-      "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -6368,7 +6478,9 @@
         "3G-2",
         "3G-5",
         "LTE-4",
-        "LTE-7"
+        "LTE-7",
+        "M1-4",
+        "M1-7"
       ],
       "noBands": [
         "2G"
@@ -6391,7 +6503,7 @@
     {
       "country": "Canada",
       "carrier": "Rogers Wireless",
-      "sunset2G": "2020-12-31",
+      "sunset2G": "",
       "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
@@ -6429,8 +6541,14 @@
         "3G-5",
         "LTE-4",
         "LTE-7",
-        "LTE-17"
-      ]
+        "LTE-12",
+        "LTE-17",
+        "M1-4",
+        "M1-7",
+        "M1-12",
+        "M1-17"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Canada",
@@ -6496,11 +6614,23 @@
         "LTE-12",
         "LTE-13",
         "LTE-17",
-        "LTE-29"
+        "LTE-29",
+        "LTE-40",
+        "NB1",
+        "M1-2",
+        "M1-4",
+        "M1-5",
+        "M1-7",
+        "M1-12",
+        "M1-13",
+        "M1-17",
+        "M1-29",
+        "M1-40"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Canada",
@@ -6528,17 +6658,19 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
-        "2G-900",
         "3G-1",
         "3G-5",
         "LTE-3"
-      ]
+      ],
+      "noBands": [
+        "2G"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Cayman Islands",
@@ -6582,7 +6714,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Central African Republic",
@@ -6669,13 +6802,14 @@
         "2G-1900",
         "3G-2",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Chile",
       "carrier": "Entel",
       "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset3G": "2024-11-30",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -6697,15 +6831,18 @@
         "3G-2",
         "3G-8",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Chile",
       "carrier": "Movistar",
-      "sunset2G": "?",
+      "aliases": [
+        "Telefonica"
+      ],
+      "sunset2G": "2023-12-31",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
@@ -6713,32 +6850,43 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-1900",
         "3G-2",
         "3G-5",
         "LTE-7"
-      ]
+      ],
+      "noBands": [
+        "2G"
+      ],
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Chile",
+      "carrier": "WOM",
+      "bands": [
+        "3G-4",
+        "lTE-4",
+        "LTE-28",
+        "LTE-66"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "China",
       "carrier": "China Mobile",
-      "sunset2G": "No Plan",
-      "sunset3G": "2020-01-01",
+      "sunset2G": "?",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -6778,7 +6926,7 @@
       "country": "China",
       "carrier": "China Unicom",
       "sunset2G": "2020-01-01",
-      "sunset3G": "No Plan",
+      "sunset3G": "2024-12-31",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -6827,7 +6975,8 @@
         "2G-1900",
         "3G-2",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Colombia",
@@ -6866,7 +7015,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Colombia",
@@ -6890,7 +7040,8 @@
         "3G-2",
         "LTE-4",
         "LTE-7"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Congo (Brazzaville)",
@@ -7016,10 +7167,9 @@
     {
       "country": "Costa Rica",
       "carrier": "Claro",
-      "sunset2G": "?",
+      "sunset2G": "2023-12-31",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
@@ -7033,6 +7183,9 @@
         "2G-1800",
         "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -7119,7 +7272,7 @@
       "country": "Croatia",
       "carrier": "Croatian Telecom",
       "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset3G": "2024",
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
@@ -7160,8 +7313,10 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Croatia",
@@ -7171,32 +7326,35 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
         "3G-1",
-        "3G-8"
+        "3G-8",
+        "LTE-3"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "checked": "2024-02-06"
     },
     {
       "country": "Croatia",
@@ -7353,75 +7511,71 @@
       "country": "Cyprus",
       "carrier": "PrimeTel",
       "supersim": {
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "3G-1",
         "LTE-3"
       ],
       "noBands": [
-        "2G"
+        "2G",
+        "3G"
       ]
     },
     {
       "country": "Czechia",
       "carrier": "O2",
-      "sunset2G": "?",
+      "sunset2G": "2024",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
+        "LTE-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "LTE-38"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Czechia",
       "carrier": "T-Mobile",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -7429,29 +7583,29 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Czechia",
@@ -7460,24 +7614,20 @@
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -7488,13 +7638,16 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-1",
         "LTE-3",
         "LTE-7",
         "LTE-8",
         "LTE-20"
-      ]
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Denmark",
@@ -7524,17 +7677,19 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "LTE-38"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Denmark",
       "carrier": "TDC",
-      "sunset2G": "2021",
-      "sunset3G": "2021",
+      "sunset2G": "?",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -7552,14 +7707,17 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "NB1-20"
       ],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "Denmark",
@@ -7572,7 +7730,6 @@
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -7580,28 +7737,28 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
-        "LTE-20"
+        "LTE-20",
+        "NB1-20",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -7612,7 +7769,6 @@
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -7620,17 +7776,19 @@
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "LTE-20",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -7810,15 +7968,18 @@
         "3G-2",
         "3G-5",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Ecuador",
       "carrier": "Conecel",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "aliases": [
+        "CNT"
+      ],
+      "sunset2G": "2023-12-31",
+      "sunset3G": "2025-12-31",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
@@ -7828,11 +7989,14 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-850",
         "3G-2",
         "3G-5",
         "LTE-4"
-      ]
+      ],
+      "noBands": [
+        "2G"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Ecuador",
@@ -7855,7 +8019,8 @@
         "3G-2",
         "3G-5",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Ecuador",
@@ -7971,7 +8136,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "El Salvador",
@@ -7988,11 +8154,15 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "El Salvador",
       "carrier": "Telefonica",
+      "aliases": [
+        "Movistar"
+      ],
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -8016,7 +8186,17 @@
         "3G-2",
         "3G-5",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "El Salvador",
+      "carrier": "Tigo",
+      "bands": [
+        "3G-5",
+        "LTE-5"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Equatorial Guinea",
@@ -8055,7 +8235,10 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
       ]
     },
     {
@@ -8093,18 +8276,21 @@
         "3G-1",
         "3G-8",
         "LTE-1",
-        "LTE-7",
-        "LTE-20"
+        "LTE-3",
+        "LTE-20",
+        "NB1-1"
       ],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "Estonia",
       "carrier": "Telia",
+      "sunset3G": "2025-12-31",
       "aliases": [
         "AS EMT",
         "EMT",
@@ -8114,14 +8300,12 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
@@ -8132,8 +8316,13 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "eSwatini",
@@ -8283,8 +8472,8 @@
     {
       "country": "Finland",
       "carrier": "DNA",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2024-12-31",
       "lteM1": true,
       "supersim": {
         "preferredRate": true,
@@ -8318,8 +8507,12 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Finland",
@@ -8352,7 +8545,8 @@
         "LTE-3",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Finland",
@@ -8361,11 +8555,10 @@
         "TeliaSonera"
       ],
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2023-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -8373,31 +8566,35 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 2,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "France",
       "carrier": "Bouygues",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2026-12-31",
+      "sunset3G": "2029-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -8456,8 +8653,8 @@
     {
       "country": "France",
       "carrier": "Orange",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2028-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -8489,22 +8686,25 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
         "LTE-7",
         "LTE-20",
-        "LTE-28"
+        "LTE-28",
+        "M1-20"
       ],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "France",
       "carrier": "SFR",
-      "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset2G": "2026-12-31",
+      "sunset3G": "2028-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -8532,11 +8732,12 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20",
-        "LTE-28"
-      ]
+        "LTE-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "French Guiana",
@@ -8573,11 +8774,26 @@
       "sunset3G": "NA",
       "bands": [
         "2G-900",
-        "3G-1"
+        "3G-1",
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "French Guiana",
+      "carrier": "SFR",
+      "sunset2G": "?",
+      "sunset3G": "NA",
+      "bands": [
+        "3G-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Gabon",
@@ -8756,6 +8972,7 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
+        "allowM1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
@@ -8779,8 +8996,16 @@
       "bands": [
         "2G-1800",
         "3G-1",
-        "LTE-20"
-      ]
+        "3G-8",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20",
+        "LTE-28",
+        "LTE-38",
+        "NB1-20",
+        "M1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Germany",
@@ -8804,8 +9029,8 @@
     {
       "country": "Germany",
       "carrier": "Telekom",
-      "sunset2G": "2020-12-31",
-      "sunset3G": "2020-12-31",
+      "sunset2G": "?",
+      "sunset3G": "?",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -8836,34 +9061,39 @@
         "LTE-20",
         "LTE-28",
         "LTE-32",
-        "LTE-38"
-      ]
+        "LTE-38",
+        "NB1-8",
+        "M1-3",
+        "M1-7",
+        "M1-8",
+        "M1-20",
+        "M1-28",
+        "M1-32",
+        "M1-38"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Germany",
       "carrier": "Vodafone",
-      "sunset2G": "2025",
+      "sunset2G": "2025-12-31",
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -8874,10 +9104,19 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
+        "LTE-1",
+        "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "LTE-28",
+        "LTE-32",
+        "LTE-38",
+        "NB1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Ghana",
@@ -8947,7 +9186,7 @@
         "ONEtouch"
       ],
       "sunset2G": "2025",
-      "sunset3G": "2020",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -9023,7 +9262,6 @@
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -9031,28 +9269,28 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Greece",
@@ -9064,24 +9302,20 @@
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -9092,11 +9326,15 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Greece",
@@ -9108,35 +9346,34 @@
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Greenland",
@@ -9146,19 +9383,19 @@
       ],
       "telefonicaBundle2018": {
         "partnerZone": 5,
-        "allow3G": true,
         "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 3,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-8",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -9244,19 +9481,35 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
+        "3G-1",
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Guadeloupe",
+      "carrier": "SFR",
+      "bands": [
+        "2G-900",
+        "3G-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Guam",
@@ -9264,14 +9517,15 @@
       "sunset2G": "2018-01-10",
       "sunset3G": "No Plan",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-1900",
         "3G-5",
         "LTE-17"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -9344,7 +9598,8 @@
         "2G-1900",
         "3G-2",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Guatemala",
@@ -9359,7 +9614,8 @@
         "2G-1900",
         "3G-2",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Guatemala",
@@ -9375,7 +9631,8 @@
         "2G-850",
         "3G-5",
         "LTE-5"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Guernsey",
@@ -9424,6 +9681,19 @@
       "noBands": [
         "LTE"
       ]
+    },
+    {
+      "country": "Guernsey",
+      "carrier": "Sure",
+      "bands": [
+        "2G-1800",
+        "3G-1",
+        "3G-8",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
+      ],
+      "noBands": []
     },
     {
       "country": "Guinea",
@@ -9586,7 +9856,7 @@
       "country": "Holy See (Vatican City)",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -9646,7 +9916,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Honduras",
@@ -9688,7 +9959,8 @@
         "2G-850",
         "3G-5",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Hong Kong",
@@ -9774,11 +10046,12 @@
       "sunset2G": "2016-12-31",
       "sunset3G": "?",
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "3G-8",
         "LTE-3"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -9787,28 +10060,26 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaPPU2020": {
         "partnerZone": 2,
-        "allow3G": true,
-        "allow2G": true
+        "allow3G": true
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "3G-8",
         "LTE-3",
         "LTE-8"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -9818,28 +10089,27 @@
       "sunset3G": "NA",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -9865,7 +10135,7 @@
       "country": "Hungary",
       "carrier": "Telenor",
       "sunset2G": "?",
-      "sunset3G": "2020?",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -9896,17 +10166,18 @@
         "3G-1",
         "3G-8",
         "LTE-3",
+        "LTE-7",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Hungary",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "2023-11-30",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -9914,18 +10185,15 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": false
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -9936,11 +10204,15 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
+        "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Iceland",
@@ -9963,11 +10235,14 @@
       },
       "bands": [
         "3G-1",
-        "LTE-3"
+        "LTE-1",
+        "LTE-3",
+        "LTE-20"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Iceland",
@@ -9975,8 +10250,8 @@
       "aliases": [
         "On Waves"
       ],
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -10005,14 +10280,16 @@
         "2G-1800",
         "3G-1",
         "3G-8",
-        "LTE-3"
-      ]
+        "LTE-3",
+        "LTE-7"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Iceland",
       "carrier": "Vodafone",
       "sunset2G": "No Plan",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -10040,9 +10317,12 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "India",
@@ -10062,27 +10342,26 @@
       "aliases": [
         "Bharti Airtel"
       ],
-      "sunset2G": "2019-12-31",
+      "sunset2G": "?",
       "sunset3G": "2020-03-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.2,
         "roamingRestrictions": "warn"
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Backup"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-40"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -10192,7 +10471,7 @@
       "country": "India",
       "carrier": "VI",
       "sunset2G": "2025",
-      "sunset3G": "2020",
+      "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -10262,33 +10541,31 @@
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 3,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 4,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-8"
+      ],
+      "noBands": [
+        "3G"
       ],
       "koreOneNet": {
         "allow2G": true,
@@ -10301,16 +10578,17 @@
       "carrier": "XL Axiata",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-8"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -10363,7 +10641,8 @@
       },
       "bands": [
         "3G-1",
-        "LTE-3"
+        "LTE-3",
+        "LTE-20"
       ],
       "noBands": [
         "2G"
@@ -10373,7 +10652,7 @@
       "country": "Ireland",
       "carrier": "Meteor",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -10388,7 +10667,8 @@
         "3G-8",
         "LTE-3",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Ireland",
@@ -10409,33 +10689,30 @@
       "supersim": {
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "Ireland",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "2024-01-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -10446,10 +10723,14 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Isle of Man",
@@ -10576,6 +10857,8 @@
     {
       "country": "Israel",
       "carrier": "Partner",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2025-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -10592,13 +10875,14 @@
         "3G-1",
         "3G-8",
         "LTE-3"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Israel",
       "carrier": "Pelephone",
-      "sunset2G": "NA",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -10615,7 +10899,8 @@
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Italy",
@@ -10627,7 +10912,6 @@
       "sunset3G": "NA",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -10635,29 +10919,30 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "LTE-32",
+        "NB1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Italy",
@@ -10666,24 +10951,20 @@
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -10694,11 +10975,16 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-7",
+        "LTE-20",
+        "LTE-32",
+        "NB1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Italy",
@@ -10729,9 +11015,12 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Jamaica",
@@ -10767,7 +11056,8 @@
         "2G-1800",
         "3G-1",
         "LTE-5"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Jamaica",
@@ -10780,38 +11070,37 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.3
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
-        "allow2G": true,
         "allow3G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 4,
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
-        "2G-1900",
         "3G-2",
         "LTE-5"
+      ],
+      "noBands": [
+        "2G"
       ],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-13"
     },
     {
       "country": "Japan",
@@ -10826,7 +11115,11 @@
         "LTE-1",
         "LTE-11",
         "LTE-18",
-        "LTE-41"
+        "LTE-41",
+        "M1-1",
+        "M1-11",
+        "M1-18",
+        "M1-41"
       ],
       "noBands": [
         "2G",
@@ -10868,7 +11161,12 @@
         "LTE-9",
         "LTE-19",
         "LTE-21",
-        "LTE-28"
+        "LTE-28",
+        "M1-1",
+        "M1-9",
+        "M1-19",
+        "M1-21",
+        "M1-28"
       ],
       "noBands": [
         "2G"
@@ -10881,27 +11179,27 @@
       "sunset3G": "?",
       "lteM1": true,
       "supersim": {
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
         "allowM1": true
       },
       "koreAllNet": {
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "3G-1",
-        "3G-8",
-        "3G-11",
         "LTE-1",
         "LTE-8",
         "LTE-9",
-        "LTE-41"
+        "LTE-41",
+        "M1-1",
+        "M1-8",
+        "M1-9",
+        "M1-41"
       ],
       "noBands": [
-        "2G"
+        "2G",
+        "3G"
       ],
       "koreOneNet": {
         "allow3G": true,
@@ -10912,14 +11210,13 @@
       "country": "Jersey",
       "carrier": "Airtel-Vodafone",
       "sunset2G": "2018",
-      "sunset3G": "2020",
+      "sunset3G": "?",
       "telefonicaPPU2020": {
         "partnerZone": 2,
         "allow3G": true,
         "allowCat1": false
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true
       },
       "koreOneNet": {
@@ -10928,15 +11225,13 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1"
       ],
       "noBands": [
+        "2G",
         "LTE"
       ],
       "supersim": {
-        "allow2G": true,
         "allow3G": true
       }
     },
@@ -11016,14 +11311,15 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-1800",
         "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -11200,6 +11496,15 @@
       }
     },
     {
+      "country": "Kosovo",
+      "carrier": "Vala",
+      "bands": [
+        "3G-8",
+        "LTE-3"
+      ],
+      "checked": "2024-02-06"
+    },
+    {
       "country": "Kuwait",
       "carrier": "Ooredoo",
       "sunset2G": "?",
@@ -11352,7 +11657,7 @@
       "country": "Latvia",
       "carrier": "LMT",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -11374,7 +11679,9 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "M1-3",
+        "M1-7"
       ]
     },
     {
@@ -11533,7 +11840,9 @@
         "LTE-3",
         "LTE-7",
         "LTE-20",
-        "LTE-38"
+        "LTE-38",
+        "NB1-20",
+        "M1-20"
       ],
       "noBands": [
         "2G"
@@ -11541,7 +11850,8 @@
       "koreOneNet": {
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "Lithuania",
@@ -11599,7 +11909,10 @@
     {
       "country": "Lithuania",
       "carrier": "Tele2",
-      "sunset2G": "?",
+      "aliases": [
+        "USB Tele2"
+      ],
+      "sunset2G": "2028-12-31",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -11682,12 +11995,11 @@
         "P&T",
         "LUXGSM"
       ],
-      "sunset2G": "2025",
+      "sunset2G": "2026-12-31",
       "sunset3G": "2020",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -11696,25 +12008,25 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "LTE-3"
+        "LTE-3",
+        "M1-3"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -11761,7 +12073,7 @@
     {
       "country": "Macao",
       "carrier": "CTM",
-      "sunset2G": "2015-06-30",
+      "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -11892,25 +12204,21 @@
       "sunset3G": "No Plan",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 4,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
@@ -11922,9 +12230,11 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -11970,23 +12280,22 @@
       "sunset3G": "No Plan",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-3",
         "LTE-7"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -11999,15 +12308,16 @@
       "sunset3G": "No Plan",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-7"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -12084,7 +12394,7 @@
       "country": "Malta",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -12149,11 +12459,25 @@
       "sunset3G": "NA",
       "bands": [
         "2G-900",
-        "3G-1"
+        "3G-1",
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "checked": "2024-02-13"
+    },
+    {
+      "country": "Martinique",
+      "carrier": "SFR",
+      "bands": [
+        "2G-900",
+        "3G-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Mauritania",
@@ -12248,7 +12572,8 @@
       "bands": [
         "3G-2",
         "3G-5",
-        "LTE-2"
+        "LTE-2",
+        "M1-4"
       ],
       "noBands": [
         "2G"
@@ -12337,7 +12662,8 @@
         "2G-1900",
         "3G-2",
         "3G-5",
-        "LTE-4"
+        "LTE-4",
+        "M1-4"
       ]
     },
     {
@@ -12357,6 +12683,7 @@
     {
       "country": "Moldova",
       "carrier": "Orange",
+      "sunset3G": "2025-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow3G": true,
@@ -12498,8 +12825,8 @@
     {
       "country": "Montenegro",
       "carrier": "Mtel",
-      "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset2G": "2025-01-01",
+      "sunset3G": "2025-01-01",
       "telefonicaPPU2020": {
         "partnerZone": 2,
         "allow3G": true,
@@ -12558,7 +12885,7 @@
       "country": "Montenegro",
       "carrier": "Telenor",
       "sunset2G": "?",
-      "sunset3G": "2020?",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -12771,6 +13098,8 @@
     {
       "country": "Myanmar",
       "carrier": "Telenor",
+      "sunset2G": "2024-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -12852,7 +13181,6 @@
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -12860,30 +13188,33 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
       "country": "Netherlands",
       "carrier": "T-Mobile",
       "sunset2G": "2020-01-01",
-      "sunset3G": "2022-01-01",
+      "sunset3G": "?",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -12907,7 +13238,10 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-8"
+        "LTE-8",
+        "M1-3",
+        "M1-7",
+        "M1-8"
       ],
       "noBands": [
         "2G"
@@ -12916,12 +13250,11 @@
     {
       "country": "Netherlands",
       "carrier": "Vodafone",
-      "sunset2G": "2025",
+      "sunset2G": "2025-12-31",
       "sunset3G": "2021-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -12929,17 +13262,14 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -12950,10 +13280,15 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -12971,7 +13306,7 @@
       "country": "New Zealand",
       "carrier": "2degrees",
       "sunset2G": "2018-03-31",
-      "sunset3G": "2025-09",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -13007,7 +13342,7 @@
         "3G": [
           {
             "state": "active",
-            "end": "2025-09",
+            "end": "2025-12-31",
             "note": "3G service ending late 2025"
           }
         ]
@@ -13045,7 +13380,12 @@
         "3G-1",
         "3G-5",
         "LTE-3",
-        "LTE-28"
+        "LTE-7",
+        "LTE-28",
+        "LTE-40",
+        "M1-1",
+        "M1-3",
+        "M1-28"
       ],
       "noBands": [
         "2G"
@@ -13065,7 +13405,8 @@
             "note": "3G service ending end of 2025"
           }
         ]
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "New Zealand",
@@ -13103,7 +13444,11 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-28"
+        "LTE-7",
+        "LTE-28",
+        "M1-3",
+        "M1-28",
+        "NB1-28"
       ],
       "timeline": {
         "2G": [
@@ -13120,7 +13465,8 @@
             "note": "3G service ending August 2024"
           }
         ]
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Nicaragua",
@@ -13142,7 +13488,8 @@
         "3G-2",
         "3G-5",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Nicaragua",
@@ -13178,7 +13525,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Niger",
@@ -13361,7 +13709,7 @@
       "country": "Nigeria",
       "carrier": "MTN",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -13507,26 +13855,22 @@
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1,
         "allowM1": true
       },
       "telefonicaBundle2018": {
         "partnerZone": 2,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
@@ -13538,45 +13882,58 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Norway",
       "carrier": "Telia",
-      "sunset2G": "?",
+      "sunset2G": "2025-12-31",
       "sunset3G": "2019-01-01",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1,
         "allowM1": true
       },
       "telefonicaBundle2018": {
         "partnerZone": 2,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
+        "LTE-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20",
+        "M1-1",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Oman",
@@ -13812,13 +14169,14 @@
         "2G-850",
         "3G-5",
         "LTE-28"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Panama",
       "carrier": "Claro",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-12-31",
+      "sunset3G": "2026-12-31",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -13835,7 +14193,8 @@
         "3G-5",
         "LTE-2",
         "LTE-28"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Panama",
@@ -13843,22 +14202,20 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "paygRate": 0.25
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true
       },
       "bands": [
-        "2G-1800",
-        "2G-1900",
         "3G-2"
       ],
       "noBands": [
+        "2G",
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Panama",
@@ -13896,7 +14253,8 @@
         "3G-2",
         "3G-5",
         "LTE-28"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Papua New Guinea",
@@ -13965,7 +14323,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Paraguay",
@@ -13983,7 +14342,8 @@
         "3G-2",
         "3G-5",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Paraguay",
@@ -14024,7 +14384,8 @@
         "2G-1900",
         "3G-8",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Peru",
@@ -14060,7 +14421,8 @@
         "3G-2",
         "3G-5",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Peru",
@@ -14076,7 +14438,8 @@
         "2G-1900",
         "3G-2",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Peru",
@@ -14114,7 +14477,8 @@
         "2G-1900",
         "3G-5",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Peru",
@@ -14181,37 +14545,34 @@
       "country": "Philippines",
       "carrier": "Smart",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2023-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 4,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-5",
         "LTE-1",
         "LTE-3",
         "LTE-5"
+      ],
+      "noBands": [
+        "3G"
       ],
       "koreOneNet": {
         "allow2G": true,
@@ -14264,8 +14625,8 @@
       "aliases": [
         "PTK Centertel"
       ],
-      "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -14294,7 +14655,8 @@
         "2G-1800",
         "3G-1",
         "3G-8",
-        "LTE-3"
+        "LTE-3",
+        "M1-3"
       ]
     },
     {
@@ -14366,11 +14728,9 @@
     {
       "country": "Poland",
       "carrier": "T-Mobile",
-      "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset2G": "2030-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -14378,16 +14738,21 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
-        "LTE-3"
-      ]
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20",
+        "NB1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Portugal",
@@ -14481,8 +14846,7 @@
     {
       "country": "Portugal",
       "carrier": "Vodafone",
-      "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset2G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -14615,7 +14979,7 @@
       "country": "Qatar",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2020",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -14702,8 +15066,8 @@
     {
       "country": "Romania",
       "carrier": "Orange",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -14736,7 +15100,9 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "M1-3",
+        "M1-7"
       ]
     },
     {
@@ -14745,6 +15111,7 @@
       "aliases": [
         "Cosmote"
       ],
+      "sunset2G": "2029-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -14774,7 +15141,7 @@
       "country": "Romania",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -14808,8 +15175,10 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Russia",
@@ -15410,7 +15779,7 @@
       "country": "San Marino",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -15471,15 +15840,20 @@
     {
       "country": "Saudi Arabia",
       "carrier": "STC",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
+        "LTE-1",
         "LTE-3",
-        "LTE-40"
-      ]
+        "LTE-12",
+        "LTE-40",
+        "NB1-12"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Saudi Arabia",
@@ -15495,6 +15869,7 @@
         "3G-1",
         "LTE-1",
         "LTE-3",
+        "LTE-8",
         "LTE-38"
       ],
       "koreOneNet": {
@@ -15502,7 +15877,8 @@
         "allow3G": true,
         "allowLTE": true,
         "prohibited": true
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "Senegal",
@@ -15578,7 +15954,7 @@
       "country": "Serbia",
       "carrier": "Telenor",
       "sunset2G": "?",
-      "sunset3G": "2020?",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -15737,7 +16113,7 @@
         "Singapore Telecom"
       ],
       "sunset2G": "2017-04-01",
-      "sunset3G": "?",
+      "sunset3G": "2024-07-31",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -15764,17 +16140,21 @@
         "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-8"
+        "LTE-8",
+        "NB1-8",
+        "M1-3",
+        "M1-8"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Singapore",
       "carrier": "StarHub",
       "sunset2G": "2017-04-01",
-      "sunset3G": "?",
+      "sunset3G": "2024-07-31",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -15863,8 +16243,8 @@
     {
       "country": "Slovakia",
       "carrier": "Orange",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2030-12-31",
+      "sunset3G": "2024-01-01",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -15936,9 +16316,9 @@
     {
       "country": "Slovakia",
       "carrier": "Telekom",
+      "sunset3G": "2023-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
@@ -15946,10 +16326,12 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -16048,6 +16430,20 @@
     },
     {
       "country": "Slovenia",
+      "carrier": "Telekom",
+      "bands": [
+        "3G-1",
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-8",
+        "LTE-20",
+        "NB1-8",
+        "NB1-20"
+      ]
+    },
+    {
+      "country": "Slovenia",
       "carrier": "Tusmobil",
       "sunset2G": "?",
       "sunset3G": "?",
@@ -16100,8 +16496,8 @@
     {
       "country": "South Africa",
       "carrier": "Cell C",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-06-30",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16125,8 +16521,8 @@
     {
       "country": "South Africa",
       "carrier": "MTN",
-      "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset2G": "2024-06-30",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16215,7 +16611,10 @@
         "3G-1",
         "LTE-1",
         "LTE-3",
-        "LTE-8"
+        "LTE-8",
+        "M1-1",
+        "M1-3",
+        "M1-8"
       ],
       "noBands": [
         "2G"
@@ -16249,6 +16648,7 @@
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
+        "allowM1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
@@ -16269,7 +16669,10 @@
         "3G-1",
         "LTE-1",
         "LTE-3",
-        "LTE-8"
+        "LTE-5",
+        "LTE-7",
+        "M1-3",
+        "M1-5"
       ],
       "noBands": [
         "2G"
@@ -16277,7 +16680,8 @@
       "koreOneNet": {
         "allow3G": true,
         "allowLTE": true
-      }
+      },
+      "checked": "2024-02-12"
     },
     {
       "country": "South Sudan",
@@ -16318,7 +16722,7 @@
       "country": "Spain",
       "carrier": "Orange",
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -16340,14 +16744,17 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-7"
-      ]
+        "LTE-7",
+        "M1-3",
+        "M1-7"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Spain",
       "carrier": "Telefonica",
       "sunset2G": "No Plan",
-      "sunset3G": "No Plan",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -16380,15 +16787,23 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "LTE-20",
+        "LTE-42",
+        "M1-1",
+        "M1-3",
+        "M1-7",
+        "M1-20",
+        "M1-42"
       ]
     },
     {
       "country": "Spain",
       "carrier": "Vodafone",
-      "sunset2G": "2025",
-      "sunset3G": "2021-12-31",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "?",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16413,8 +16828,12 @@
         "3G-1",
         "3G-8",
         "LTE-3",
-        "LTE-7"
-      ]
+        "LTE-7",
+        "LTE-20",
+        "LTE-38",
+        "NB1-20"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Spain",
@@ -16429,7 +16848,8 @@
         "2G-1800",
         "3G-1",
         "LTE-3"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Sri Lanka",
@@ -16479,7 +16899,9 @@
         "2G-1800",
         "3G-1",
         "LTE-3",
-        "LTE-40"
+        "LTE-40",
+        "M1-3",
+        "M1-40"
       ]
     },
     {
@@ -16508,12 +16930,10 @@
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
@@ -16524,12 +16944,13 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3"
+      ],
+      "noBands": [
+        "3G"
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       }
     },
@@ -16589,7 +17010,7 @@
       "country": "Svalbard and Jan Mayen",
       "carrier": "Telenor",
       "sunset2G": "?",
-      "sunset3G": "2020-12-31",
+      "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -16645,8 +17066,8 @@
     {
       "country": "Sweden",
       "carrier": "Tele2",
-      "sunset2G": "No Plan",
-      "sunset3G": "?",
+      "sunset2G": "2025-12-31",
+      "sunset3G": "2024-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
@@ -16681,7 +17102,11 @@
         "LTE-3",
         "LTE-7",
         "LTE-8",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-8",
+        "M1-20"
       ],
       "koreOneNet": {
         "allow2G": true,
@@ -16693,7 +17118,7 @@
       "country": "Sweden",
       "carrier": "Telenor",
       "sunset2G": "No Plan",
-      "sunset3G": "2020-12-31",
+      "sunset3G": "2025-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -16733,11 +17158,10 @@
       "country": "Sweden",
       "carrier": "Telia",
       "sunset2G": "No Plan",
-      "sunset3G": "?",
+      "sunset3G": "2023-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -16746,10 +17170,15 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
+      ],
+      "noBands": [
+        "3G"
       ]
     },
     {
@@ -16790,13 +17219,15 @@
       "bands": [
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
         "LTE-7",
         "LTE-20"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "Switzerland",
@@ -16818,13 +17249,14 @@
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "LTE-28",
+        "LTE-67",
+        "LTE-75"
       ],
       "noBands": [
         "2G"
@@ -16832,13 +17264,14 @@
       "supersim": {
         "allow3G": true,
         "allowCat1": true
-      }
+      },
+      "checked": "2024-02-06"
     },
     {
       "country": "Switzerland",
       "carrier": "Swisscom",
       "sunset2G": "2021-12-31",
-      "sunset3G": "2025",
+      "sunset3G": "2025-12-31",
       "lteM1": true,
       "supersim": {
         "allow2G": false,
@@ -16862,14 +17295,17 @@
         "3G-8",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
+        "LTE-20",
+        "M1-3",
+        "M1-7",
+        "M1-20"
       ]
     },
     {
       "country": "Taiwan",
       "carrier": "Chunghwa",
       "sunset2G": "2017-06-30",
-      "sunset3G": "2018-12-31",
+      "sunset3G": "2025-06-30",
       "lteM1": true,
       "supersim": {
         "allow3G": true,
@@ -16886,7 +17322,10 @@
         "3G-1",
         "LTE-3",
         "LTE-7",
-        "LTE-8"
+        "LTE-8",
+        "M1-3",
+        "M1-7",
+        "M1-8"
       ],
       "noBands": [
         "2G"
@@ -16896,24 +17335,22 @@
       "country": "Taiwan",
       "carrier": "FarEasTone",
       "sunset2G": "2017-06",
-      "sunset3G": "2018-12",
+      "sunset3G": "2023-12-31",
       "supersim": {
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Backup"
       },
       "bands": [
-        "3G-1",
         "LTE-3",
         "LTE-28"
       ],
       "noBands": [
-        "2G"
+        "2G",
+        "3G"
       ],
       "koreOneNet": {
         "allow3G": true,
@@ -16943,17 +17380,20 @@
       },
       "bands": [
         "3G-1",
+        "LTE-1",
+        "LTE-7",
         "LTE-8"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Taiwan",
       "carrier": "Taiwan Mobile",
       "sunset2G": "2017-06-30",
-      "sunset3G": "2017-01-07",
+      "sunset3G": "2024-06-30",
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
@@ -16971,12 +17411,16 @@
       },
       "bands": [
         "3G-1",
+        "LTE-1",
         "LTE-3",
-        "LTE-28"
+        "LTE-28",
+        "LTE-66",
+        "NB1-28"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Tajikistan",
@@ -17131,7 +17575,9 @@
         "3G-1",
         "3G-8",
         "LTE-1",
-        "LTE-3"
+        "LTE-3",
+        "M1-1",
+        "M1-3"
       ],
       "noBands": [
         "2G"
@@ -17140,6 +17586,7 @@
     {
       "country": "Thailand",
       "carrier": "DTAC",
+      "sunset3G": "2025-12-31",
       "aliases": [
         "Total Access Communication Public Company Limited"
       ],
@@ -17208,11 +17655,16 @@
       },
       "bands": [
         "3G-1",
-        "LTE-1"
+        "LTE-1",
+        "LTE-3",
+        "LTE-8",
+        "LTE-41",
+        "NB1-8"
       ],
       "noBands": [
         "2G"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Togo",
@@ -17406,11 +17858,14 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-8",
+        "LTE-38"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "noBands": [],
+      "checked": "2024-02-12"
     },
     {
       "country": "Turkey",
@@ -17419,17 +17874,23 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-8",
+        "LTE-20",
+        "NB1-20",
+        "M1-20"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "noBands": [],
+      "checked": "2024-02-12"
     },
     {
       "country": "Turkey",
       "carrier": "Vodafone",
       "sunset2G": "2025",
-      "sunset3G": "2020",
+      "sunset3G": "?",
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
@@ -17443,7 +17904,8 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "checked": "2024-02-12"
     },
     {
       "country": "Turks and Caicos Islands",
@@ -17776,7 +18238,9 @@
         "2G-1800",
         "3G-1",
         "LTE-3",
-        "LTE-7"
+        "LTE-7",
+        "M1-3",
+        "M1-7"
       ]
     },
     {
@@ -17805,8 +18269,10 @@
       },
       "bands": [
         "3G-1",
+        "LTE-1",
         "LTE-3",
-        "LTE-20"
+        "LTE-20",
+        "LTE-32"
       ],
       "noBands": [
         "2G"
@@ -17816,7 +18282,7 @@
       "country": "United Kingdom",
       "carrier": "EE",
       "sunset2G": "?",
-      "sunset3G": "2022-12-31",
+      "sunset3G": "2024-12-31",
       "supersim": {
         "allow2G": true,
         "allow3G": true,
@@ -17846,7 +18312,8 @@
         "3G-1",
         "LTE-3",
         "LTE-20"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "United Kingdom",
@@ -17888,9 +18355,17 @@
         "2G-1800",
         "3G-1",
         "3G-8",
+        "LTE-1",
         "LTE-3",
-        "LTE-20"
-      ]
+        "LTE-20",
+        "LTE-40",
+        "NB1",
+        "M1-1",
+        "M1-3",
+        "M1-20",
+        "M1-40"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "United Kingdom",
@@ -17931,24 +18406,20 @@
       "sunset3G": "2021-12-31",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
@@ -17960,18 +18431,25 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
-        "3G-8",
         "LTE-1",
         "LTE-3",
         "LTE-7",
-        "LTE-20"
-      ]
+        "LTE-8",
+        "LTE-20",
+        "LTE-32",
+        "LTE-38",
+        "NB1-8",
+        "NB1-20"
+      ],
+      "noBands": [
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "United States",
       "carrier": "Alaska Wireless",
-      "sunset2G": "2017-09",
+      "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -18030,7 +18508,10 @@
         "LTE-17",
         "LTE-29",
         "LTE-30",
-        "LTE-66"
+        "LTE-66",
+        "M1-2",
+        "M1-4",
+        "M1-12"
       ],
       "noBands": [
         "2G",
@@ -18144,7 +18625,7 @@
       "aliases": [
         "T-Mobile"
       ],
-      "sunset2G": "2020-12-31",
+      "sunset2G": "2024-04-02",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -18184,7 +18665,16 @@
         "LTE-5",
         "LTE-12",
         "LTE-66",
-        "LTE-71"
+        "LTE-71",
+        "NB1-2",
+        "NB1-4",
+        "NB1-12",
+        "M1-2",
+        "M1-4",
+        "M1-5",
+        "M1-12",
+        "M1-66",
+        "M1-71"
       ],
       "timeline": {
         "2G": [
@@ -18210,22 +18700,22 @@
         "Union Telecom"
       ],
       "sunset2G": "?",
-      "sunset3G": "?",
+      "sunset3G": "2023-09-30",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.35
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Backup"
       },
       "bands": [
-        "2G-1900",
         "3G-2"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -18233,35 +18723,46 @@
       "carrier": "US Cellular",
       "lteM1": false,
       "bands": [
+        "LTE-2",
+        "LTE-4",
         "LTE-5",
-        "LTE-12"
+        "LTE-12",
+        "M1-2",
+        "M1-4",
+        "M1-5",
+        "M1-12"
       ],
       "noBands": [
         "2G",
         "3G"
-      ]
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "United States",
       "carrier": "Verizon",
       "lteM1": true,
-      "bands": [
-        "LTE-2",
-        "LTE-4",
-        "LTE-5",
-        "LTE-13",
-        "LTE-66"
-      ],
-      "noBands": [
-        "2G",
-        "3G"
-      ],
       "supersim": {
         "allow2G": false,
         "allow3G": false,
         "allowCat1": false,
         "allowM1": 7
-      }
+      },
+      "bands": [
+        "LTE-2",
+        "LTE-4",
+        "LTE-5",
+        "LTE-13",
+        "LTE-66",
+        "M1-13",
+        "NB1-4",
+        "NB1-13"
+      ],
+      "noBands": [
+        "2G",
+        "3G"
+      ],
+      "checked": "2024-02-06"
     },
     {
       "country": "United States",
@@ -18269,14 +18770,15 @@
       "sunset2G": "2018-12",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
-        "2G-1900",
         "3G-2"
+      ],
+      "noBands": [
+        "2G"
       ]
     },
     {
@@ -18304,7 +18806,8 @@
         "2G-1800",
         "3G-1",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Uruguay",
@@ -18326,7 +18829,8 @@
         "2G-1900",
         "3G-2",
         "LTE-4"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Uruguay",
@@ -18362,7 +18866,8 @@
         "3G-2",
         "3G-5",
         "LTE-2"
-      ]
+      ],
+      "checked": "2024-02-13"
     },
     {
       "country": "Uzbekistan",
@@ -18445,7 +18950,7 @@
       "aliases": [
         "Telefónica Venezuela"
       ],
-      "sunset2G": "?",
+      "sunset2G": "2025-12-31",
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
@@ -18501,27 +19006,23 @@
       "carrier": "Viettel",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "paygRate": 0.2
       },
       "telefonicaBundle2018": {
         "partnerZone": 5,
-        "allow3G": true,
         "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 5,
-        "allow3G": true,
         "allow2G": true
       },
       "bands": [
         "2G-900",
-        "2G-1800",
-        "3G-1",
-        "3G-2"
+        "2G-1800"
       ],
       "noBands": [
-        "LTE"
+        "LTE",
+        "3G"
       ]
     },
     {
@@ -18915,6 +19416,42 @@
       ]
     },
     {
+      "model": "BG95-M5",
+      "manufacturer": "quectel",
+      "name": "LTE Cat M1/2G",
+      "globalM1": true,
+      "bands": [
+        "2G-850",
+        "2G-900",
+        "2G-1800",
+        "2G-1900",
+        "M1-1",
+        "M1-2",
+        "M1-3",
+        "M1-4",
+        "M1-5",
+        "M1-8",
+        "M1-12",
+        "M1-13",
+        "M1-18",
+        "M1-19",
+        "M1-20",
+        "M1-25",
+        "M1-26",
+        "M1-27",
+        "M1-28",
+        "M1-31",
+        "M1-66",
+        "M1-72",
+        "M1-73",
+        "M1-85"
+      ],
+      "technologies": [
+        "2G",
+        "M1"
+      ]
+    },
+    {
       "model": "EG91-E",
       "manufacturer": "quectel",
       "name": "Europe LTE Cat 1",
@@ -19013,6 +19550,27 @@
         "Cat1-5",
         "Cat1-12",
         "Cat1-13"
+      ],
+      "technologies": [
+        "3G",
+        "Cat1"
+      ]
+    },
+    {
+      "model": "EG91-NAX",
+      "manufacturer": "quectel",
+      "name": "North America LTE Cat1",
+      "bands": [
+        "3G-2",
+        "3G-4",
+        "3G-5",
+        "Cat1-2",
+        "Cat1-4",
+        "Cat1-5",
+        "Cat1-12",
+        "Cat1-13",
+        "Cat1-25",
+        "Cat1-26"
       ],
       "technologies": [
         "3G",
@@ -21087,6 +21645,188 @@
       "batteryRequired": false
     },
     {
+      "name": "M404MEA",
+      "desc": "M Series LTE M1/2G (Global, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "modem": "BG95-M5",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "production",
+      "skuRegion": "global",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": true,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": true,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "prefix": "P054",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": false,
+      "batteryRequired": false,
+      "verizon": true
+    },
+    {
+      "name": "M404MTY",
+      "desc": "M Series LTE M1/2G (Global, EtherSIM), Tray [x50]",
+      "lifecycle": "In development",
+      "multiple": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": false,
+      "modem": "BG95-M5",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "production",
+      "skuRegion": "global",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": false,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": false,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": false,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": false,
+      "prefix": "P054",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": false,
+      "batteryRequired": false,
+      "verizon": true
+    },
+    {
+      "name": "M524MEA",
+      "desc": "M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "modem": "EG91-EX",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "production",
+      "skuRegion": "emeaa",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": true,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": true,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "prefix": "P055",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "M524MTY",
+      "desc": "M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50]",
+      "lifecycle": "In development",
+      "multiple": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": false,
+      "modem": "EG91-EX",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "production",
+      "skuRegion": "emeaa",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": false,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": false,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": false,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": false,
+      "prefix": "P055",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "M635MEA",
+      "desc": "M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "modem": "BG95-M5",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "production",
+      "skuRegion": "global",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": true,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": true,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "prefix": "P055",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
       "name": "M8CAB3VEA",
       "desc": "M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x1]",
       "lifecycle": "In development",
@@ -21329,6 +22069,140 @@
       "usb": "micro-b",
       "batteryRequired": false,
       "verizon": true
+    },
+    {
+      "name": "MUON404EA",
+      "desc": "Muon LTE M1/2G Kit (Global, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": true,
+      "modem": "BG95-M5",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "prototyping",
+      "skuRegion": "global",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": true,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": true,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "prefix": "P054",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": "c",
+      "batteryRequired": false,
+      "verizon": true
+    },
+    {
+      "name": "MUON524EA",
+      "desc": "Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": true,
+      "modem": "EG91-EX",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "production",
+      "skuRegion": "global",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": true,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": true,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "prefix": "P055",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": "c",
+      "batteryRequired": false
+    },
+    {
+      "name": "MUON6XXEA",
+      "desc": "Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "modem": "BG95-M5",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "prototyping",
+      "skuRegion": "global",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": true,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": true,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "prefix": "P054",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": "c",
+      "batteryRequired": false,
+      "verizon": true
+    },
+    {
+      "name": "MUONCB",
+      "desc": "Muon Carrier Board",
+      "lifecycle": "In development",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "accessory": true,
+      "usb": "c",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": false,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": false,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": false,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": false,
+      "skuRegion": "global",
+      "batteryRequired": false
     },
     {
       "name": "ONE402MEA",
@@ -22725,6 +23599,36 @@
       ]
     },
     {
+      "family": "m series",
+      "name": "M Series SoM",
+      "group": [
+        {
+          "name": "M Series M404/M635 LTE M1/2G (Global) EtherSIM",
+          "short": [
+            "M404"
+          ],
+          "region": "global",
+          "lifecycle": "In development",
+          "sim": 4,
+          "simPlan": 40,
+          "modem": "BG95-M5",
+          "mapColor": 0
+        },
+        {
+          "name": "M Series M524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
+          "short": [
+            "M524"
+          ],
+          "region": "emeaa",
+          "lifecycle": "In development",
+          "sim": 4,
+          "simPlan": 40,
+          "modem": "EG91-EX",
+          "mapColor": 1
+        }
+      ]
+    },
+    {
       "family": "b series",
       "name": "B Series SoM",
       "group": [
@@ -23329,6 +24233,13 @@
     {
       "sim": 4,
       "simPlan": 40,
+      "modem": "BG95-M5",
+      "desc": "M Series LTE M1/2G Global EtherSIM",
+      "lifecycle": "GA"
+    },
+    {
+      "sim": 4,
+      "simPlan": 40,
       "modem": "BG96-MC",
       "desc": "Tracker LTE M1 NorAm EtherSIM",
       "lifecycle": "GA"
@@ -23366,7 +24277,7 @@
       "sim": 4,
       "simPlan": 40,
       "modem": "EG91-EX",
-      "desc": "Tracker LTE Cat1/3G/2G EMEAA EtherSIM",
+      "desc": "Tracker LTE, M Series Cat1/3G/2G EMEAA EtherSIM",
       "lifecycle": "GA"
     },
     {
@@ -23507,6 +24418,13 @@
   "countryModemSim": [
     {
       "country": "Afghanistan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Afghanistan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -23604,6 +24522,13 @@
     },
     {
       "country": "Albania",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Albania",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -23700,6 +24625,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Algeria",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Algeria",
@@ -23805,6 +24737,13 @@
     },
     {
       "country": "Andorra",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Andorra",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -23910,6 +24849,13 @@
     },
     {
       "country": "Angola",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Angola",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -24012,6 +24958,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Anguilla",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Anguilla",
@@ -24116,6 +25069,13 @@
     },
     {
       "country": "Antarctica",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Antarctica",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -24218,6 +25178,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Antigua and Barbuda",
@@ -24322,6 +25289,13 @@
     },
     {
       "country": "Argentina",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Argentina",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -24420,6 +25394,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Armenia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Armenia",
@@ -24526,6 +25507,13 @@
     },
     {
       "country": "Aruba",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Aruba",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -24624,6 +25612,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Australia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Australia",
@@ -24728,6 +25723,13 @@
     },
     {
       "country": "Austria",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Austria",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -24825,6 +25827,13 @@
     },
     {
       "country": "Azerbaijan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Azerbaijan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -24923,6 +25932,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Bahamas",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Bahamas",
@@ -25028,6 +26044,13 @@
     },
     {
       "country": "Bahrain",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bahrain",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25127,6 +26150,13 @@
     },
     {
       "country": "Bangladesh",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bangladesh",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25223,6 +26253,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Barbados",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Barbados",
@@ -25327,6 +26364,13 @@
     },
     {
       "country": "Belarus",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Belarus",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25427,6 +26471,13 @@
     },
     {
       "country": "Belgium",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Belgium",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25524,6 +26575,13 @@
     },
     {
       "country": "Belize",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Belize",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25625,6 +26683,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Benin",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Benin",
@@ -25730,6 +26795,13 @@
     },
     {
       "country": "Bermuda",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bermuda",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25832,6 +26904,13 @@
     },
     {
       "country": "Bolivia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bolivia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -25934,6 +27013,13 @@
     },
     {
       "country": "Bonaire",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bonaire",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26036,6 +27122,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Bosnia and Herzegovina",
@@ -26136,6 +27229,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Botswana",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Botswana",
@@ -26238,6 +27338,14 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Brazil",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Brazil",
@@ -26351,6 +27459,13 @@
     },
     {
       "country": "Brunei",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Brunei",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26449,6 +27564,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Bulgaria",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Bulgaria",
@@ -26549,6 +27671,13 @@
     },
     {
       "country": "Burkina Faso",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Burkina Faso",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26653,6 +27782,13 @@
     },
     {
       "country": "Burundi",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Burundi",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26755,6 +27891,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Cabo Verde",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Cabo Verde",
@@ -26860,6 +28003,13 @@
     },
     {
       "country": "Cambodia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cambodia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -26958,6 +28108,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Cameroon",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Cameroon",
@@ -27061,6 +28218,12 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Canada",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Canada",
@@ -27160,6 +28323,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Cayman Islands",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Cayman Islands",
@@ -27264,6 +28434,13 @@
     },
     {
       "country": "Central African Republic",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Central African Republic",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27366,6 +28543,13 @@
     },
     {
       "country": "Chad",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Chad",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27464,6 +28648,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Chile",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Chile",
@@ -27565,6 +28756,14 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "China",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "China",
@@ -27676,6 +28875,13 @@
     },
     {
       "country": "Colombia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Colombia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27777,6 +28983,13 @@
     },
     {
       "country": "Congo (Brazzaville)",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Congo (Brazzaville)",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27876,6 +29089,13 @@
     },
     {
       "country": "Congo (Kinshasa)",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Congo (Kinshasa)",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -27974,6 +29194,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Costa Rica",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Costa Rica",
@@ -28078,6 +29305,13 @@
     },
     {
       "country": "Côte d'Ivoire",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Côte d'Ivoire",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28180,6 +29414,13 @@
     },
     {
       "country": "Croatia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Croatia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28277,6 +29518,13 @@
     },
     {
       "country": "Cuba",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cuba",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28379,6 +29627,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Curaçao",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Curaçao",
@@ -28484,6 +29739,13 @@
     },
     {
       "country": "Cyprus",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cyprus",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28583,6 +29845,13 @@
     },
     {
       "country": "Czechia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Czechia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28677,6 +29946,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Denmark",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Denmark",
@@ -28777,6 +30053,13 @@
     },
     {
       "country": "Dominica",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Dominica",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28878,6 +30161,13 @@
     },
     {
       "country": "Dominican Republic",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Dominican Republic",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -28979,6 +30269,13 @@
     },
     {
       "country": "Ecuador",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ecuador",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29077,6 +30374,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Egypt",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Egypt",
@@ -29182,6 +30486,13 @@
     },
     {
       "country": "El Salvador",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "El Salvador",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29283,6 +30594,13 @@
     },
     {
       "country": "Equatorial Guinea",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Equatorial Guinea",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29385,6 +30703,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Estonia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Estonia",
@@ -29482,6 +30807,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "eSwatini",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "eSwatini",
@@ -29587,6 +30919,13 @@
     },
     {
       "country": "Ethiopia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ethiopia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29691,6 +31030,13 @@
     },
     {
       "country": "Faroe Islands",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Faroe Islands",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29790,6 +31136,13 @@
     },
     {
       "country": "Fiji",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Fiji",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -29889,6 +31242,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Finland",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Finland",
@@ -29989,6 +31349,13 @@
     },
     {
       "country": "France",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "France",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30083,6 +31450,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "French Guiana",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "French Guiana",
@@ -30189,6 +31563,13 @@
     },
     {
       "country": "Gabon",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Gabon",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30288,6 +31669,13 @@
     },
     {
       "country": "Gambia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Gambia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30390,6 +31778,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Georgia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Georgia",
@@ -30494,6 +31889,13 @@
     },
     {
       "country": "Germany",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Germany",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30588,6 +31990,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Ghana",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Ghana",
@@ -30690,6 +32099,13 @@
     },
     {
       "country": "Gibraltar",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Gibraltar",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30787,6 +32203,13 @@
     },
     {
       "country": "Greece",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Greece",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30884,6 +32307,13 @@
     },
     {
       "country": "Greenland",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Greenland",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -30984,6 +32414,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Grenada",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Grenada",
@@ -31085,6 +32522,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Guadeloupe",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Guadeloupe",
@@ -31188,6 +32632,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Guam",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Guam",
@@ -31294,6 +32745,13 @@
     },
     {
       "country": "Guatemala",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guatemala",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -31395,6 +32853,13 @@
     },
     {
       "country": "Guernsey",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guernsey",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -31494,6 +32959,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Guinea",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Guinea",
@@ -31598,6 +33070,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Guinea-Bissau",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Guinea-Bissau",
@@ -31700,6 +33179,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Guyana",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Guyana",
@@ -31804,6 +33290,13 @@
     },
     {
       "country": "Haiti",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Haiti",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -31905,6 +33398,13 @@
     },
     {
       "country": "Holy See (Vatican City)",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Holy See (Vatican City)",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32004,6 +33504,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Honduras",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Honduras",
@@ -32105,6 +33612,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Hong Kong",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Hong Kong",
@@ -32210,6 +33724,13 @@
     },
     {
       "country": "Hungary",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Hungary",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32307,6 +33828,13 @@
     },
     {
       "country": "Iceland",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Iceland",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32401,6 +33929,14 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "India",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "India",
@@ -32512,6 +34048,13 @@
     },
     {
       "country": "Indonesia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Indonesia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32611,6 +34154,13 @@
     },
     {
       "country": "Iran",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Iran",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32716,6 +34266,13 @@
     },
     {
       "country": "Iraq",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Iraq",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -32818,6 +34375,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Ireland",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Ireland",
@@ -32918,6 +34482,13 @@
     },
     {
       "country": "Isle of Man",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Isle of Man",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -33017,6 +34588,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Israel",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Israel",
@@ -33119,6 +34697,13 @@
     },
     {
       "country": "Italy",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Italy",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -33213,6 +34798,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Jamaica",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Jamaica",
@@ -33314,6 +34906,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Japan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Japan",
@@ -33418,6 +35017,13 @@
     },
     {
       "country": "Jersey",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Jersey",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -33515,6 +35121,13 @@
     },
     {
       "country": "Jordan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Jordan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -33613,6 +35226,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Kazakhstan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Kazakhstan",
@@ -33718,6 +35338,13 @@
     },
     {
       "country": "Kenya",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kenya",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -33817,6 +35444,13 @@
     },
     {
       "country": "Kiribati",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kiribati",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -33922,6 +35556,13 @@
     },
     {
       "country": "Kosovo",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kosovo",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -34024,6 +35665,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Kuwait",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Kuwait",
@@ -34123,6 +35771,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Kyrgyzstan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Kyrgyzstan",
@@ -34230,6 +35885,13 @@
     },
     {
       "country": "Lao People's Democratic Republic",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lao People's Democratic Republic",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -34332,6 +35994,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Latvia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Latvia",
@@ -34432,6 +36101,13 @@
     },
     {
       "country": "Lebanon",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lebanon",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -34534,6 +36210,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Lesotho",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Lesotho",
@@ -34639,6 +36322,13 @@
     },
     {
       "country": "Liechtenstein",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Liechtenstein",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -34736,6 +36426,13 @@
     },
     {
       "country": "Lithuania",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lithuania",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -34830,6 +36527,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Luxembourg",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Luxembourg",
@@ -34930,6 +36634,13 @@
     },
     {
       "country": "Macao",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Macao",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35031,6 +36742,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Madagascar",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Madagascar",
@@ -35133,6 +36851,13 @@
     },
     {
       "country": "Malawi",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Malawi",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35231,6 +36956,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Malaysia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Malaysia",
@@ -35333,6 +37065,13 @@
     },
     {
       "country": "Maldives",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Maldives",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35438,6 +37177,13 @@
     },
     {
       "country": "Mali",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mali",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35540,6 +37286,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Malta",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Malta",
@@ -35637,6 +37390,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Martinique",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Martinique",
@@ -35744,6 +37504,13 @@
     },
     {
       "country": "Mauritania",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mauritania",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35849,6 +37616,13 @@
     },
     {
       "country": "Mauritius",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mauritius",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -35954,6 +37728,13 @@
     },
     {
       "country": "Mayotte",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mayotte",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36056,6 +37837,12 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Mexico",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Mexico",
@@ -36158,6 +37945,13 @@
     },
     {
       "country": "Moldova",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Moldova",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36258,6 +38052,13 @@
     },
     {
       "country": "Monaco",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Monaco",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36360,6 +38161,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Mongolia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Mongolia",
@@ -36462,6 +38270,13 @@
     },
     {
       "country": "Montenegro",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Montenegro",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36556,6 +38371,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Montserrat",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Montserrat",
@@ -36658,6 +38480,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Morocco",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Morocco",
@@ -36763,6 +38592,13 @@
     },
     {
       "country": "Mozambique",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mozambique",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36862,6 +38698,13 @@
     },
     {
       "country": "Myanmar",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Myanmar",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -36966,6 +38809,13 @@
     },
     {
       "country": "Namibia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Namibia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37070,6 +38920,13 @@
     },
     {
       "country": "Nauru",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nauru",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37172,6 +39029,13 @@
     },
     {
       "country": "Nepal",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nepal",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37274,6 +39138,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Netherlands",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Netherlands",
@@ -37374,6 +39245,13 @@
     },
     {
       "country": "Netherlands Antilles",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Netherlands Antilles",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37476,6 +39354,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "New Zealand",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "New Zealand",
@@ -37580,6 +39465,13 @@
     },
     {
       "country": "Nicaragua",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nicaragua",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37681,6 +39573,13 @@
     },
     {
       "country": "Niger",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Niger",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37778,6 +39677,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Nigeria",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Nigeria",
@@ -37880,6 +39786,13 @@
     },
     {
       "country": "North Macedonia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "North Macedonia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -37977,6 +39890,13 @@
     },
     {
       "country": "Norway",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Norway",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38071,6 +39991,14 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Oman",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Oman",
@@ -38190,6 +40118,13 @@
     },
     {
       "country": "Pakistan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Pakistan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38289,6 +40224,13 @@
     },
     {
       "country": "Palestine",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Palestine",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38390,6 +40332,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Panama",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Panama",
@@ -38494,6 +40443,13 @@
     },
     {
       "country": "Papua New Guinea",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Papua New Guinea",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38598,6 +40554,13 @@
     },
     {
       "country": "Paraguay",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Paraguay",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38698,6 +40661,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Peru",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Peru",
@@ -38802,6 +40772,13 @@
     },
     {
       "country": "Philippines",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Philippines",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -38896,6 +40873,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Poland",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Poland",
@@ -38996,6 +40980,13 @@
     },
     {
       "country": "Portugal",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Portugal",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39090,6 +41081,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Puerto Rico",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Puerto Rico",
@@ -39192,6 +41190,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Qatar",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Qatar",
@@ -39294,6 +41299,13 @@
     },
     {
       "country": "Réunion",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Réunion",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39394,6 +41406,13 @@
     },
     {
       "country": "Romania",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Romania",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39488,6 +41507,14 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Russia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Russia",
@@ -39599,6 +41626,13 @@
     },
     {
       "country": "Rwanda",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Rwanda",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39698,6 +41732,13 @@
     },
     {
       "country": "Saint Barthélemy",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Barthélemy",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -39799,6 +41840,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Saint Kitts and Nevis",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Saint Kitts and Nevis",
@@ -39903,6 +41951,13 @@
     },
     {
       "country": "Saint Lucia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Lucia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40004,6 +42059,13 @@
     },
     {
       "country": "Saint Martin (French part)",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Martin (French part)",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40105,6 +42167,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Saint Vincent and the Grenadines",
@@ -40209,6 +42278,13 @@
     },
     {
       "country": "Samoa",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Samoa",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40314,6 +42390,13 @@
     },
     {
       "country": "San Marino",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "San Marino",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40413,6 +42496,14 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Saudi Arabia",
@@ -40529,6 +42620,13 @@
     },
     {
       "country": "Senegal",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Senegal",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40631,6 +42729,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Serbia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Serbia",
@@ -40728,6 +42833,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Seychelles",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Seychelles",
@@ -40829,6 +42941,13 @@
     },
     {
       "country": "Sierra Leone",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Sierra Leone",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -40931,6 +43050,14 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Singapore",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Singapore",
@@ -41040,6 +43167,13 @@
     },
     {
       "country": "Sint Maarten",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Sint Maarten",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41141,6 +43275,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "no carriers"
+    },
+    {
+      "country": "Slovakia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Slovakia",
@@ -41241,6 +43382,13 @@
     },
     {
       "country": "Slovenia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Slovenia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41338,6 +43486,13 @@
     },
     {
       "country": "Solomon Islands",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Solomon Islands",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41440,6 +43595,13 @@
     },
     {
       "country": "Somalia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Somalia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41542,6 +43704,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "South Africa",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "South Africa",
@@ -41641,6 +43810,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "South Korea",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "South Korea",
@@ -41743,6 +43919,13 @@
     },
     {
       "country": "South Sudan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "South Sudan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -41841,6 +44024,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Spain",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Spain",
@@ -41941,6 +44131,13 @@
     },
     {
       "country": "Sri Lanka",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Sri Lanka",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42037,6 +44234,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Suriname",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Suriname",
@@ -42141,6 +44345,13 @@
     },
     {
       "country": "Svalbard and Jan Mayen",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Svalbard and Jan Mayen",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42243,6 +44454,13 @@
     },
     {
       "country": "Sweden",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Sweden",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42340,6 +44558,13 @@
     },
     {
       "country": "Switzerland",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Switzerland",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42434,6 +44659,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Taiwan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Taiwan",
@@ -42535,6 +44767,13 @@
     },
     {
       "country": "Tajikistan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tajikistan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42639,6 +44878,13 @@
     },
     {
       "country": "Tanzania",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tanzania",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42735,6 +44981,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Thailand",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Thailand",
@@ -42837,6 +45090,13 @@
     },
     {
       "country": "Togo",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Togo",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -42939,6 +45199,13 @@
     },
     {
       "country": "Tonga",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tonga",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43041,6 +45308,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Trinidad and Tobago",
@@ -43145,6 +45419,13 @@
     },
     {
       "country": "Tunisia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tunisia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43244,6 +45525,14 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Turkey",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
@@ -43365,6 +45654,13 @@
     },
     {
       "country": "Turks and Caicos Islands",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Turks and Caicos Islands",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43468,6 +45764,13 @@
     },
     {
       "country": "Uganda",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Uganda",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43567,6 +45870,13 @@
     },
     {
       "country": "Ukraine",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ukraine",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43665,6 +45975,14 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "United Arab Emirates",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "United Arab Emirates",
@@ -43777,6 +46095,13 @@
     },
     {
       "country": "United Kingdom",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "United Kingdom",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -43871,6 +46196,12 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "United States",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "United States",
@@ -43972,6 +46303,13 @@
     },
     {
       "country": "Uruguay",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Uruguay",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44073,6 +46411,13 @@
     },
     {
       "country": "Uzbekistan",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Uzbekistan",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44176,6 +46521,13 @@
     },
     {
       "country": "Vanuatu",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Vanuatu",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44278,6 +46630,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Venezuela",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Venezuela",
@@ -44379,6 +46738,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Vietnam",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Vietnam",
@@ -44481,6 +46847,13 @@
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
+    },
+    {
+      "country": "Virgin Islands (British)",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Virgin Islands (British)",
@@ -44585,6 +46958,13 @@
     },
     {
       "country": "Virgin Islands (U.S.)",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Virgin Islands (U.S.)",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44687,6 +47067,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Yemen",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Yemen",
@@ -44793,6 +47180,13 @@
     },
     {
       "country": "Zambia",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Zambia",
       "modem": "BG96-MC",
       "sim": 3,
       "recommendation": "NR",
@@ -44891,6 +47285,13 @@
       "sim": 1,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Zimbabwe",
+      "modem": "BG95-M5",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Zimbabwe",

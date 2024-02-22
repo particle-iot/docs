@@ -25,6 +25,8 @@ The following cellular antennas are available:
 
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
+| Wide band LTE cell antenna [x1] | PARANTCW1EA | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) &#124; [Retail Store](https://store.particle.io/products/wide-band-lte-cat-m1-cell-antenna-x1) |
 | Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
 | Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B Series<sup>1</sup>, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
@@ -38,12 +40,13 @@ The following cellular antennas are available:
 
 ### Cellular antenna substitution
 
-The PARANTC41EA, ANTCW2EA, ANT-FLXU are generally compatible across all 2G, 3G, LTE Cat 1, and LTE Cat M1 devices. However, if you use an antenna that is not the antenna that the device was certified with, the device will require recertification. In the United States, this is FCC intentional radiator certification (FCC Part 15, Subpart C), which is the more complicated and expensive of the certifications as it checks the performance in each of the cellular bands.
+The PARANTCW1EA, PARANTC41EA, ANTCW2EA, ANT-FLXU are generally compatible across all 2G, 3G, LTE Cat 1, and LTE Cat M1 devices. However, if you use an antenna that is not the antenna that the device was certified with, the device will require recertification. In the United States, this is FCC intentional radiator certification (FCC Part 15, Subpart C), which is the more complicated and expensive of the certifications as it checks the performance in each of the cellular bands.
 
 **Particle recommends you use a Particle antenna that has already been certified for the device.**
 
-In the United States, you can generally substitute an antenna that is of the same type and equal or lesser gain, both total and in all bands.
+In the United States, you can generally substitute an antenna that is of the same type and equal or lesser gain, both total and in all bands. We still recommend using the certified antenna, as you will need FCC permissive change approval to substitute an antenna with equal or lesser gain.
 
+- If the device is certified with PARANTCW1EA, other antennas have lower gain, but this will result in lower performance
 - If the device is certified with PARANTC41EA, substituting ANTCW2EA requires recertification because ANTCW2EA has higher gain in the high frequency bands
 - If the device is certified with ANTCW2EA, substituting PARANTC41EA requires recertification because PARANTC41EA has higher gain in the low frequency bands
 - If the device is certified with both PARANTC41EA and ANT-FLXU (including the B404X and BRN404X), then substituting ANTCW2EA still requires recertification because of the peak and average gain in the 2600 MHz band.
@@ -54,6 +57,7 @@ Note that the ANT-ELEC should not be used with any LTE Cat 1 or LTE Cat M1 devic
 | Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
 | Peak gain | | | | | | | |
+| PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
 | PARANTC41EA | 2.46 | 3.86 | 3.86 |3.86 |3.86 | dBi |
 | ANTCW2EA | 1.42 | 3.77 | 4.62 | 4.71 | 4.66 | dBi |
 | ANT-FLXU | 1 | 3.5 | 5 | 5 | 4.5|  dBi |
@@ -68,13 +72,13 @@ Note that the ANT-ELEC should not be used with any LTE Cat 1 or LTE Cat M1 devic
 
 {{!-- BEGIN shared-blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e --}}
 
-| Dimension | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC | 
-| :--- | :---: | :---: | :---: | :---: |
-| Tray SKU | PARANTC41TY | ANTCW2TY | ANT-FLXU-50 | ANTELEC50 |
-| Length | 122.1mm | 97.0mm | 96.0mm | 80.0mm |
-| Width | 12.8mm | 21.0mm | 21.0mm | 20.0mm |
-| Thickness | 0.2mm | 0.2mm | 0.2mm | 0.2mm |
-| Cable Length | 183mm | 160mm | 150mm | 164mm |
+| Dimension | PARANTCW1EA | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC | 
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Tray SKU | PARANTCW1TY | PARANTC41TY | ANTCW2TY | ANT-FLXU-50 | ANTELEC50 |
+| Length | 116mm | 122.1mm | 97.0mm | 96.0mm | 80.0mm |
+| Width | 27mm | 12.8mm | 21.0mm | 21.0mm | 20.0mm |
+| Thickness | 0.2mm | 0.2mm | 0.2mm | 0.2mm | 0.2mm |
+| Cable Length | 189.5mm | 183mm | 160mm | 150mm | 164mm |
 
 PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna can be bent when being placed inside an enclosure. There are a couple restrictions to ensure good performance:
 
@@ -150,9 +154,18 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ELC404TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
 | Electron LTE CAT-M1 (NorAm), [x1] | ELC402EA | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
 | Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | PARANTCW1EA | &nbsp; | In development|
+| M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTCW1EA | &nbsp; | In development|
+| M Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &check; | PARANTCW1EA | &nbsp; | In development|
+| M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTCW1EA | &nbsp; | In development|
+| M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &check; | PARANTCW1EA | &nbsp; | In development|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | 1 | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | 1 | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | 1 | &nbsp; | GA|
+| Muon Carrier Board | MUONCB | &nbsp; | PARANTCW1EA | &nbsp; | In development|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &check; | PARANTCW1EA | &nbsp; | In development|
+| Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &check; | PARANTCW1EA | &nbsp; | In development|
+| Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON6XXEA | &check; | PARANTCW1EA | &nbsp; | In development|
 | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | 1 | &nbsp; | GA|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | 1 | &nbsp; | GA|
 | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | &check; | 1 | &nbsp; | GA|
@@ -266,9 +279,18 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 | Argon, Starter Kit  [x1] | ARGNKIT | &nbsp; | ANT-FLXV2 | &check; | NRND|
 | Argon, Tray [x50] | ARGNTRAY50 | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Edge ML Kit for Photon 2 (Photon 2 included) | PHN2EDGEKIT | trace | 4 | &nbsp; | GA|
+| M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | In development|
+| M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| M Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | In development|
+| M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &nbsp; | PARANTWM1EA | &check; | In development|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | 1 | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | 1 | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | 1 | &nbsp; | &nbsp; | GA|
+| Muon Carrier Board | MUONCB | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON6XXEA | &nbsp; | PARANTWM1EA | &check; | In development|
 | P0 Wi-Fi Module, Cut tape [x10] | P0MOD10 | &nbsp; | true | &nbsp; | Deprecated|
 | P0 Wi-Fi Module, Reel [x2000] | P0REEL | &nbsp; | true | &nbsp; | Deprecated|
 | P1 Wi-Fi Module, Cut tape [x10] | P1MOD10 | trace | 3 | &nbsp; | Deprecated|
@@ -352,7 +374,9 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
 | Tracker One BLE Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-ble.pdf) |
 
-The P2 shares its antenna between Wi-Fi and BLE and does not require a separate BLE antenna. The P2 includes an internal trace antenna. An external dual-band antenna can be connected to the U.FL connector and selcted in software. This will require additional certification with your external antenna.
+The P2 and Photon 2 share its antenna between Wi-Fi and BLE and does not require a separate BLE antenna. The P2 includes an internal trace antenna. An external dual-band antenna can be connected to the U.FL connector and selcted in software. This will require additional certification with your external antenna.
+
+The M SoM shares its antenna between Wi-Fi and BLE, but does not include a built-in trace antenna. An external antenna is required to use BLE or Wi-Fi.
 
 ### Compatible devices (BLE)
 
@@ -395,9 +419,18 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | ANT-FLXV2 | &nbsp; | GA|
 | Edge ML Kit for Photon 2 (Photon 2 included) | PHN2EDGEKIT | &check; | 4 | &nbsp; | GA|
+| M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | In development|
+| M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| M Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | In development|
+| M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &nbsp; | PARANTWM1EA | &check; | In development|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | &nbsp; | &nbsp; | GA|
+| Muon Carrier Board | MUONCB | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON6XXEA | &nbsp; | PARANTWM1EA | &check; | In development|
 | P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | &check; | 4 | &nbsp; | GA|
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | &check; | 4 | &nbsp; | GA|
 | Photon 2 [x1] | PHN2MEA | &check; | 4 | &nbsp; | GA|
@@ -460,6 +493,8 @@ The Particle NFC Antenna is available in the [retail](https://store.particle.io/
 | :------ | :--- | :---- | 
 | Particle NFC Antenna, [x1] | ANT-NFC | [Datasheet](/assets/datasheets/ANT-NFC.pdf) &#124; [Retail Store](https://store.particle.io/products/nfc-antenna) |
 | Tracker One NFC Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-nfc.pdf) |
+
+The P2, Photon 2, and M SoM do not support NFC.
 
 ### Compatible devices (NFC)
 
@@ -536,6 +571,7 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 | Family | SKUs |
 | :----- | :--- |
 | Tracker | MON404E01C01KIT, MON404E02C01KIT, MON524E01C01KIT|
+| M Series SoM | M404MEA, M404MTY, M524MEA, M524MTY, M635MEA, MUON404EA, MUON524EA, MUON6XXEA|
 | E Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
@@ -548,6 +584,13 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 ## GNSS (Satellite Navigation)
 
 The Tracker One includes a [Cirocomm PA035AQ0004](http://www.cirocomm.com/en-global/products_ciro/detail/PA035AQ0004) (T0004, 35x35mm) GPS/GLOSNASS antenna on the Tracker Carrier Board.
+
+The M SoM can use this GNSS antenna. Single unit quantites (M404MEA, M524MEA) include a GNSS antenna. It's not included in tray quantities.
+
+| SKU | Description | |
+| :--- | :--- | :--- |
+| PARANTGN1EA	| Particle GNSS FPC Antenna, [x1] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
+| PARANTGN1TY	| Particle GNSS FPC Antenna, [x50] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
 
 As the GNSS system is receive-only (no transmitter), you can use any GNSS compatible antenna without affecting the certification. Different GNSS systems use different frequencies. Many antennas are tuned to the United States GPS system, however you can also get multi-GNSS antennas that are compatible with other systems. All of these systems offer coverage world-wide.
 
@@ -569,9 +612,18 @@ The following devices have GNSS capabilities:
 | Asset Tracker 2G | ASSET2GV2 | &check; | &check; | Deprecated|
 | Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | &check; | Deprecated|
 | Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | &check; | Deprecated|
+| M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | &check; | In development|
+| M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &check; | &nbsp; | In development|
+| M Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &check; | &check; | In development|
+| M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &check; | &nbsp; | In development|
+| M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &check; | &check; | In development|
 | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &check; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | &check; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | &check; | GA|
+| Muon Carrier Board | MUONCB | &check; | &nbsp; | In development|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &check; | &check; | In development|
+| Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &check; | &check; | In development|
+| Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON6XXEA | &check; | &check; | In development|
 | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | &check; | GA|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &check; | GA|
 | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | &check; | &check; | GA|

@@ -409,9 +409,18 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | Deprecated | |
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | |
+| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
+| M524MTY | M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | Fast<sup>1</sup> | In development | |
+| M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
+| M404MTY | M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | Fast<sup>1</sup> | In development | |
+| M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | GA | |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | In development | |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | In development | |
+| MUONCB | Muon Carrier Board | Fast<sup>1</sup> | In development | |
+| MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
+| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
+| MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | ONE404MEA|
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Sometimes slow<sup>3</sup> | Deprecated | ONE404MTY|
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |

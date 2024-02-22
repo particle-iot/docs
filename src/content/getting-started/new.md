@@ -21,6 +21,15 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### M SoM datasheet 2024-02-22
+
+The [preliminary M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/) and [migration guides](/hardware/migration-guides/msom-b-series-migration-guide/) are now available. The [battery calculator](/tools/developer-tools/battery-calculator) and 
+[cellular carrier list](/reference/cellular/cellular-carriers/) includes M SoM now.
+
+### Muon datasheet preview 2024-02-22
+
+The [Muon datasheet preview](/reference/datasheets/m-series/muon-datasheet/) is now available.
+
 ### Pin drive strength P2 2024-02-20
 
 Pin drive strength for the P2 and Photon 2 is now included in the [Device OS firmware API](/reference/device-os/api/input-output/pinsetdrivestrength/)

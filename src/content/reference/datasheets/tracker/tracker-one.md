@@ -433,7 +433,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Belgium | ONE524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | ONE524 | 2G, 3G | BH Telecom, HT Eronet |
 | Botswana | ONE524 | 2G, 3G, Cat1 | BeMobile |
-| Brunei | ONE524 | 2G, 3G, Cat1 | DST |
+| Brunei | ONE524 | 3G, Cat1 | DST |
 | Bulgaria | ONE524 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | ONE524 | 2G, 3G, Cat1 | Orange |
 | Cabo Verde | ONE524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
@@ -446,7 +446,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Côte d'Ivoire | ONE524 | 2G, 3G, Cat1 | MTN |
 | Croatia | ONE524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Cyprus | ONE524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | ONE524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
+| Czechia | ONE524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | ONE524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | ONE524 | 2G, 3G, Cat1 | Etisalat, Orange |
 | Estonia | ONE524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
@@ -460,7 +460,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Germany | ONE524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
 | Ghana | ONE524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | ONE524 | 2G, 3G, Cat1 | Gibtel |
-| Greece | ONE524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
+| Greece | ONE524 | 2G, Cat1 | Cosmote, Vodafone, Wind |
 | Guinea | ONE524 | 2G, 3G, Cat1 | MTN |
 | Guinea-Bissau | ONE524 | 2G, 3G, Cat1 | MTN |
 | Guyana | ONE524 | 2G | Digicel |

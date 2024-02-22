@@ -89,7 +89,7 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | Belgium | B524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | B524 | 2G, 3G | BH Telecom, HT Eronet |
 | Botswana | B524 | 2G, 3G, Cat1 | BeMobile |
-| Brunei | B524 | 2G, 3G, Cat1 | DST |
+| Brunei | B524 | 3G, Cat1 | DST |
 | Bulgaria | B524 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | B524 | 2G, 3G, Cat1 | Orange |
 | Cabo Verde | B524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
@@ -101,7 +101,7 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | Côte d'Ivoire | B524 | 2G, 3G, Cat1 | MTN |
 | Croatia | B524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Cyprus | B524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | B524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
+| Czechia | B524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | B524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | B524 | 2G, 3G, Cat1 | Etisalat, Orange |
 | Estonia | B524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
@@ -115,8 +115,8 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | Germany | B524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
 | Ghana | B524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | B524 | 2G, 3G, Cat1 | Gibtel |
-| Greece | B524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
-| Guadeloupe | B524 | 2G, 3G | Orange |
+| Greece | B524 | 2G, Cat1 | Cosmote, Vodafone, Wind |
+| Guadeloupe | B524 | 2G, 3G, Cat1 | Orange |
 | Guinea | B524 | 2G, 3G, Cat1 | MTN |
 | Guinea-Bissau | B524 | 2G, 3G, Cat1 | MTN |
 | Guyana | B524 | 2G | Digicel |

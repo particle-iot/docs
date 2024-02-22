@@ -546,9 +546,10 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Barbados | BRN314 | 2G, 3G | Flow |
 | Belarus | BRN314 | 2G, 3G | A1 |
 | Belgium | BRN314 | 2G, 3G | Base, Orange, Proximus |
+| Belize | BRN314 | 3G | Smart |
 | Bolivia | BRN314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | BRN314 | 2G, 3G | BH Telecom, HT Eronet |
-| Brunei | BRN314 | 2G, 3G | DST |
+| Brunei | BRN314 | 3G | DST |
 | Bulgaria | BRN314 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | BRN314 | 2G, 3G | Orange |
 | Cambodia | BRN314 | 2G, 3G | Metfone |
@@ -563,8 +564,8 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Costa Rica | BRN314 | 2G, 3G | Movistar |
 | Côte d'Ivoire | BRN314 | 2G, 3G | MTN |
 | Croatia | BRN314 | 2G, 3G | Hrvatski Telekom, Tele2 |
-| Cyprus | BRN314 | 2G, 3G | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | BRN314 | 2G, 3G | O2, T-Mobile, Vodafone |
+| Cyprus | BRN314 | 2G, 3G | Cytamobile-Vodafone, MTN |
+| Czechia | BRN314 | 2G | O2, T-Mobile, Vodafone |
 | Denmark | BRN314 | 2G, 3G | 3 (Tre), TDC, Telenor, Telia |
 | Dominica | BRN314 | 2G, 3G | Flow |
 | Dominican Republic | BRN314 | 2G, 3G | Altice Dominicana, Claro, Viva |
@@ -583,7 +584,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Germany | BRN314 | 2G, 3G | O2, Telekom, Vodafone |
 | Ghana | BRN314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | BRN314 | 2G, 3G | Gibtel |
-| Greece | BRN314 | 2G, 3G | Cosmote, Vodafone, Wind |
+| Greece | BRN314 | 2G | Cosmote, Vodafone, Wind |
 | Grenada | BRN314 | 2G | Flow |
 | Guadeloupe | BRN314 | 2G, 3G | Orange |
 | Guatemala | BRN314 | 2G, 3G | Claro, Movistar |
@@ -600,7 +601,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Israel | BRN314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
 | Italy | BRN314 | 2G, 3G | TIM, Vodafone, Wind |
 | Jamaica | BRN314 | 2G, 3G | Digicel, Flow |
-| Japan | BRN314 | 3G | NTT DoCoMo, Softbank |
+| Japan | BRN314 | 3G | NTT DoCoMo |
 | Jordan | BRN314 | 2G, 3G | Zain |
 | Kazakhstan | BRN314 | 2G, 3G | Beeline, K-Cell |
 | Kenya | BRN314 | 2G, 3G | Airtel |
@@ -653,7 +654,7 @@ Furthermore, the buttons cannot be protected by using a coating. Using an enclos
 | Suriname | BRN314 | 2G, 3G | Telesur |
 | Sweden | BRN314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | BRN314 | 3G | Salt, Sunrise, Swisscom |
-| Taiwan | BRN314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Taiwan | BRN314 | 3G | Chunghwa, T Star, Taiwan Mobile |
 | Tajikistan | BRN314 | 2G, 3G | Beeline, Tcell |
 | Tanzania | BRN314 | 2G, 3G | Airtel |
 | Thailand | BRN314 | 2G, 3G | AIS, DTAC, True Move |

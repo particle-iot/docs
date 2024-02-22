@@ -278,3 +278,115 @@ datastore.findMapRegionsByPoint = function(point) {
 
     return result;
 };
+
+
+datastore.bandGetTag = function(x) {
+    const index = x.indexOf('-');
+    if (index > 0) {
+        return x.substr(0, index);
+    }
+    else {
+        return '';
+    }
+};
+
+datastore.bandGetBand = function(x) {
+    const index = x.indexOf('-');
+    if (index > 0) {
+        return parseInt(x.substr(index + 1));
+    }
+    else {
+        return 0;
+    }
+};
+
+datastore.sortCompareTagBand = function(a, b) {
+    const aTag = datastore.bandGetTag(a);
+    const bTag = datastore.bandGetTag(b);
+
+    const cmp = aTag.localeCompare(bTag);
+    if (cmp != 0) {
+        return cmp;
+    } 
+
+    const aBand = datastore.bandGetBand(a);
+    const bBand = datastore.bandGetBand(b);
+
+    return aBand - bBand;
+};
+
+datastore.sortCompareNumeric = function(a, b) {
+    return parseInt(a) - parseInt(b);
+};
+
+datastore.dateParse = function(d) {
+    let result = {
+        s: d,
+    };
+
+    if (typeof d == 'number') {
+        result.year = d;
+    }
+    else
+    if (typeof d == 'string') {
+        let m;
+
+        m = d.match(/([0-9]+)-([0-9]+)-([0-9]+)/);
+        if (m) {
+            result.year = parseInt(m[1]);
+            result.month = parseInt(m[2]);
+            result.day = parseInt(m[3]);
+        }
+        else {
+            m = d.match(/([0-9]+)-([0-9]+)/);
+            if (m) {
+                result.year = parseInt(m[1]);
+                result.month = parseInt(m[2]);
+            }
+            else {
+                m = d.match(/(^[0-9]+)$/);
+                if (m) {
+                    result.year = parseInt(m[1]);
+                }        
+            }
+        }
+
+    } 
+
+    // console.log('dateParse ' + d, result);
+
+    return result;
+}
+
+datastore.dateCompareKey = function(d1, d2, key) {
+    if (typeof d1[key] != 'undefined' && typeof d2[key] != 'undefined') {
+        return d1[key] - d2[key];
+    }
+    else
+    if (typeof d1[key] != 'undefined') {
+        return -1;
+    }
+    else
+    if (typeof d2[key] != 'undefined') {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+
+
+datastore.dateCompare = function(d1, d2) {
+    const r1 = datastore.dateParse(d1);
+    const r2 = datastore.dateParse(d2);
+    
+    let cmp;
+    cmp = datastore.dateCompareKey(r1, t2, 'year');
+    if (cmp == 0) {
+        cmp = datastore.dateCompareKey(r1, t2, 'month');
+        if (cmp == 0) {
+            cmp = datastore.dateCompareKey(r1, t2, 'day');                                   
+        }    
+    }
+    return cmp;
+}
