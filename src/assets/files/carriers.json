@@ -19557,6 +19557,27 @@
       ]
     },
     {
+      "model": "EG91-NAX",
+      "manufacturer": "quectel",
+      "name": "North America LTE Cat1",
+      "bands": [
+        "3G-2",
+        "3G-4",
+        "3G-5",
+        "Cat1-2",
+        "Cat1-4",
+        "Cat1-5",
+        "Cat1-12",
+        "Cat1-13",
+        "Cat1-25",
+        "Cat1-26"
+      ],
+      "technologies": [
+        "3G",
+        "Cat1"
+      ]
+    },
+    {
       "model": "EG91-AUX",
       "manufacturer": "quectel",
       "name": "Latin America LTE Cat1",
@@ -23582,7 +23603,7 @@
       "name": "M Series SoM",
       "group": [
         {
-          "name": "M Series M404 LTE M1/2G (Global) EtherSIM",
+          "name": "M Series M404/M635 LTE M1/2G (Global) EtherSIM",
           "short": [
             "M404"
           ],

@@ -190,7 +190,7 @@ carriers2.selectMenu = function() {
         if (technologies.includes("2G")) {
             const sunset2G = datastore.dateParse(ccObj.sunset2G);
 
-            if (sunset2G.year) {
+            if (sunset2G.year && ccObj[countryCarrierKey]['allow2G']) {
                 html += '<td>' + sunset2G.s + '</td>';
             }    
             else {
@@ -200,7 +200,7 @@ carriers2.selectMenu = function() {
         if (technologies.includes("3G")) {
             const sunset3G = datastore.dateParse(ccObj.sunset3G);
 
-            if (sunset3G.year) {
+            if (sunset3G.year && ccObj[countryCarrierKey]['allow3G']) {
                 html += '<td>' + sunset3G.s + '</td>';
             }    
             else {
@@ -218,6 +218,14 @@ carriers2.selectMenu = function() {
 
     });
 
+    console.log('skuFamilyObj')
+    if (skuFamilyObj.short.includes('M404')) {
+        $('#byDeviceM404Warning').show();
+    }
+    else {
+        $('#byDeviceM404Warning').hide();
+    }
+    
     if (warnRoaming) {
         $('#byDeviceRoamingWarning').show();
     }
@@ -1475,7 +1483,8 @@ msomBands.renderCountries = function(countries) {
                 if (total > 0) {
                     let pct = Math.floor(testObj.counts.greenCheck * 100 / total);
                     if (pct > 70) {
-                        text += 'Beta test countries to be determined. Not officially supported at this time, but likely to work.';
+                        // text += 'Beta test countries to be determined. Not officially supported at this time, but likely to work.';
+                        text += 'Not officially supported at this time, but likely to work.';
                     }
                     else
                     if (pct > 30) {
