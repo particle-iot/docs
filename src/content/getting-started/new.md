@@ -23,7 +23,8 @@ The header format must be exactly that because the search feature uses that to d
 
 ### M SoM datasheet 2024-02-22
 
-The [preliminary M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/) and [migration guides](/hardware/migration-guides/msom-b-series-migration-guide/) are now available.
+The [preliminary M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/) and [migration guides](/hardware/migration-guides/msom-b-series-migration-guide/) are now available. The [battery calculator](/tools/developer-tools/battery-calculator) and 
+[cellular carrier list](/reference/cellular/cellular-carriers/) includes M SoM now.
 
 ### Muon datasheet preview 2024-02-22
 

@@ -218,7 +218,6 @@ carriers2.selectMenu = function() {
 
     });
 
-    console.log('skuFamilyObj')
     if (skuFamilyObj.short.includes('M404')) {
         $('#byDeviceM404Warning').show();
     }
@@ -665,7 +664,6 @@ const familyMapCreate = function() {
 
     familyMap.saveQuery = function() {
         const family = $(familyMap.options.familySelect).val();
-        console.log('familyMap.saveQuery', family);
 
         history.pushState(null, '', '?tab=ModelMap&family=' + encodeURIComponent(family));
     };
@@ -1049,9 +1047,10 @@ countryDetails.generateTable = function(options) {
     // Carrier band table
     const footnotesDivId = options.tableId + 'FootnotesDiv';
 
+    html += '<div style="overflow: auto;">';
     html += '<table id="' + options.tableId + '">';
     html += '<thead></thead><tbody></tbody>';
-    html += '</table>';
+    html += '</table></div>';
     html += '<div id="' + footnotesDivId + '"></div>';
 
     $(options.resultDiv).append(html);
@@ -1180,6 +1179,9 @@ msomBands.fromQuery = function(urlParams) {
 };
 
 msomBands.saveQuery = function() {
+    if (!$('#carrierTabMsom').hasClass('active')) {
+        return;
+    }
 
     const region = $(msomBands.msomRegionSelectElem).val();
     const specificCountry = (region == 'country') ? $(msomBands.msomSpecificCountryElem).val() : '';
@@ -1717,6 +1719,9 @@ function carrierLoadQuery(urlParams) {
         carrierSelectTab(tab);
         
         carrierSelectTabs[tab].fromQuery(urlParams);
+    }
+    else {
+        carrierSelectTab('ByDevice');
     }
 
 }
