@@ -6,7 +6,6 @@ The features of a free product vs. growth product are the same, which makes free
 | When you hit the limit, pauses until end of billing cycle | Automatically adds a block if necessary |
 | Owned by a single user account | Owned by an organization |
 | Product-level access control | Product and organization level access control |
-| Community support | Email support |
 
 #### Free products
 

@@ -719,7 +719,6 @@ Products can be prototyped in the Free plan at no charge. However, there is a li
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
-- Email support
 
 In the Growth plan, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data. 
 
@@ -2110,11 +2109,15 @@ When viewing a device in the console, in the functions and variables area on the
 
 Some commands you can enter into the box:
 
+{{!-- BEGIN shared-blurb d529b260-c0c2-481a-ac2b-87680b9cf2d8 --}} 
 | Command | Purpose |
 | :------ | :--- |
 | `{"cmd":"enter_shipping"}` | Enter shipping mode |
 | `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
-| `{"cmd":"reset"}` | Gracefully reset the device (Tracker Edge v13 and later) |
+| `{"cmd":"reset"}` | Gracefully reset the device |
+| `{"cmd":"get_cfg"}` |  Get all configuration objects in the device |
+| `{"cmd":"reset_to_factory"}` | Perform a factory reset for configuration |
+{{!-- END shared-blurb --}}
 
 Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. It works on the Tracker SoM evaluation board, but is less useful there since it has physical power switches.
 

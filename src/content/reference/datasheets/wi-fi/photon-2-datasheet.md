@@ -249,6 +249,9 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+- The drive strength is 4 mA per pin in normal drive and 12 mA per pin in high drive mode on the Photon 2.
+- Drive strength selection using [pinSetDriveStrength](/reference/device-os/api/input-output/pinsetdrivestrength/) is only available in Device OS 5.5.0 and later on the Photon 2.
+
 ### ADC (analog to digital converter)
 
 The Photon 2 supports six ADC inputs.
@@ -1283,6 +1286,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |   3 | 2023-07-26 | RK | EN pin description listed wrong MCU |
 |   4 | 2023-11-13 | RK | Add full pin details |
 |   5 | 2023-12-19 | RK | Add schematic |
+|   6 | 2024-02-20 | RK | Added pin drive strength |
 
 ## Known errata
 

@@ -78,6 +78,11 @@ my_device_name (0123456789abcdef78901234) 0 variables, and 4 functions
 
 ```
 
+## particle setup
+
+You should use the [web based setup](https://setup.particle.io/) for setting up devices. This CLI command is no longer available.
+
+For setting Wi-Fi credentials only, [particle serial wifi](#particle-serial-wifi).
 
 ## particle call
 
@@ -767,7 +772,7 @@ $ particle monitor all temperature 5000 --time > my_temperatures.csv
 
 ## particle identify
 
-  Retrieves your device id when the device is connected via USB and in listening mode (flashing blue). It also provides the current system firmware version on the device.
+Retrieves your device id when the device is connected via USB. It also provides the current system firmware version on the device.
 
 ```sh
 # helps get your device id and system firmware version via usb and serial
@@ -780,6 +785,7 @@ $ particle identify --port /dev/cu.usbmodem12345
 $ particle identify 0123456789abcdef78901234
 ```
 
+This command is an alias for `particle serial identify`.
 
 ## particle subscribe
 
@@ -818,7 +824,7 @@ To listen to a product's event stream, set the `--product` flag to your product'
 
 ```sh
 # subscribe to all events published by the device with id `0123456789abcdef01234567` within product `12345`
-$ particle subscribe --device 0123456789abcdef01234567 prod-01 --product 12345
+$ particle subscribe --device 0123456789abcdef01234567 --product 12345
 ```
 
 Likewise, to listen to a product device's event stream, set the `--device` flag to your device's id and the `--product` flag to your product's id.
@@ -873,7 +879,7 @@ Prior to March 2023, webhook events like hook-sent, hook-error, and hook-respons
 
 ### particle serial wifi
 
-Configure Wi-Fi credentials over serial on the Photon, P1, and Argon.
+Configure Wi-Fi credentials over serial on the Photon, P1, Argon, P2, and Photon 2.
 
 ```sh
 # Configure new Wi-Fi credentials for a Photon or Argon over a serial connection
@@ -901,10 +907,14 @@ The JSON file for passing Wi-Fi credentials should look like this:
 
 The `security` property can be NONE, WEP, WPA2_AES, WPA2_TKIP, WPA2_AES+TKIP, WPA_AES, WPA_TKIP, WPA_AES+TKIP. For enterprise Wi-Fi, set security to WPA_802.1x or WPA2_802.1x and provide the `eap`, `username`, `outer_identity`, `client_certificate`, `private_key` and `root_ca` properties.
 
-WPA Enterprise is only available on the Photon and P1 (Gen 2). It is not available on the Argon (Gen 3).
+WPA Enterprise is only available on the Photon and P1 (Gen 2). It is not available on the Argon, P2, or Photon 2.
 
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+On Gen 2 devices (Photon 1 and P1), scanning for Wi-Fi networks is done from your computer's Wi-Fi interface, which may be able to see different networks than your Particle device. All Gen 3 and later devices (Argon, P2, Photon 2) perform the Wi-Fi scan on-device.
 
+
+### particle serial identify
+
+Return the Device ID and other information about a device. See [particle identify](#particle-identify) for additional information.
 
 ### particle serial list
 
@@ -931,24 +941,14 @@ $ particle serial monitor --port /dev/cu.usbmodem12345
 
 ### particle serial flash
 
-Flash a firmware binary over serial.
+This command is no longer available as of CLI 3.21.0 and the underlying ymodem serial flash support is removed from Device OS 6.0.0 and later.
 
-```sh
-$ particle serial flash firmware.bin
-```
-
-This is a synonym for `particle flash --serial firmware.bin`.
-Note that at present only binaries can be flashed using this command.
-If you wish to flash from application sources, first use `particle compile` to compile a binary from sources.
-
-If you have Device OS firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --local tinker`.
-
-In general, using `--usb` mode in DFU mode (blinking yellow) is a more reliable way to flash your device over USB.
+Use `--usb` mode in DFU mode (blinking yellow) to flash firmware instead.
 
 
 ### particle serial inspect
 
-Print information about the firmware modules on a device. The device must be in listening mode (blinking blue) and connected by USB to your computer.
+Print information about the firmware modules on a device. The device must be connected by USB to your computer.
 
 ```sh
 $ particle serial inspect
@@ -985,6 +985,9 @@ If you see any `FAIL` entries, there is likely a missing dependency, such as a b
 
 The version numbers in the output can be mapped to common version numbers using [this table](https://github.com/particle-iot/device-os/blob/develop/system/system-versions.md). For example, Device OS version 1512 is more commonly known as 1.5.2.
 
+### particle serial mac
+
+Prints the MAC (media access control) address for devices that have one.
 
 ## particle usb
 
@@ -1135,8 +1138,6 @@ $ particle keys doctor
 # repair key issues on a specific connected device
 $ particle keys doctor 0123456789abcdef78901234
 ```
-
-See also [`particle device doctor`](#particle-device-doctor)
 
 
 ### particle keys new
@@ -1403,49 +1404,3 @@ List all devices that are part of a product
 # lists devices in product `12345`
 $ particle product device list 12345
 ```
-
-
-### particle device doctor
-
-{{note op="start" type="gen2"}}
-Only available on Gen 2 devices, Photon, P1, and Electron. For other devices, use [web device doctor](/tools/doctor/).
-{{note op="end"}}
-
-Brings back a Gen2 device (`photon`, `p1`, `electron`) with bad firmware, bad network settings or bad keys
-to health so it can connect to the Particle cloud.
-
-The Device Doctor will:
-* Update Device OS to the latest version
-* Update the CC3000 Wi-Fi module firmware (Core only)
-* Reset the antenna selection
-* Reset the IP configuration
-* Reset the SoftAP (listen mode) hotspot name
-* Clear the data in the EEPROM
-* Clear the Wi-Fi credentials
-* Prompt for new Wi-Fi credentials
-* Reset server and device key
-* Flash the default Particle Tinker app
-
-```sh
-# first connect your device to the USB port and disconnect all others
-$ particle device doctor
-The Device Doctor will put your device back into a healthy state
-# follow the prompts to restore your device
-```
-
-
-## particle setup
-
-{{note op="start" type="gen2"}}
-Only available on the Photon and P1. [setup.particle.io](https://setup.particle.io) for all devices instead.
-
-To only set Wi-Fi credentials on the Photon 2, P2, Argon, Photon, and P1, use `particle serial wifi`.
-{{note op="end"}}
-
-To set up a Photon or P1 only, you can use:
-
-```sh
-# Photon or P1 only!
-$ particle setup
-```
-

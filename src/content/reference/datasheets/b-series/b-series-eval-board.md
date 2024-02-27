@@ -59,6 +59,23 @@ module. Using an alternate antenna via the SMA connector (11) will require a len
 {{box op="end"}}
 
 
+### Powering the board
+
+The B Series Eval Board can be powered by:
+
+| Num  | Description |
+| :---: | :--- |
+| 1 | VIN barrel connector 5-12 VDC (5.5mm x 2.1mm, center positive) |
+| 2 | LiPo battery (3.7V LiPo with JST-PH connector)
+| 3 | USB Micro B ("SOM USB") |
+
+- There are two USB Micro B connectors on the eval board, be sure to use connector 3 "SOM USB".
+- The B524/B523 require a LiPo battery when powering by USB due to the higher current requirements of 2G/3G. The B404X/B404/B402 (LTE Cat M1) can be powered by USB without a battery.
+- When powering by VIN (barrel connector), 5-12 VDC is recommended, but up to 17 VDC can be supplied.
+- Minimum power requirements are 5VDC @500mA (when the LiPo battery) or 5VDC @2000mA (without LiPo battery).
+- If purchasing a LiPo battery from a 3rd-party supplier, beware as the polarity of the JST-PH connector is not standardized and may be reversed. Permanent damage to the eval board can occur if powered by reverse polarity on the JST connector. See the [battery guide](/hardware/power/batteries/) for additional information.
+
+
 ### Jumpers J12
 
 These pins are intended to be connected across using removable two-pin jumpers to connect features on the board to standard ports.

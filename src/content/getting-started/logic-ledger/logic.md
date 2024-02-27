@@ -197,8 +197,8 @@ Published private event: sensor-test to product: 1234
 Of course the real application for this is having a device publish the data. 
 
 - The [JSON documentation](/firmware/best-practices/json/) is a good place for a background in JSON.
-- The [JSONWriter](/reference/device-os/api/json/json/) is a good way to generate JSON on device.
-- Of course you're use [Particle.publish](/reference/device-os/api/cloud-functions/particle-publish/) from device firmware to publish an event.
+- [JSONWriter](/reference/device-os/api/json/json/) is a good way to generate JSON on device.
+- [Particle.publish](/reference/device-os/api/cloud-functions/particle-publish/) from device firmware to publish an event.
 
 For example:
 

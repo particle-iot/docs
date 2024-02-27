@@ -17,6 +17,8 @@ This reference guide describes the API for use with semi-custom and custom devic
 
 For an introduction to Tracker Edge Firmware, see the [Tracker Edge Tutorial](/firmware/tracker-edge/tracker-edge-firmware/#using-github-with-tracker-edge).
 
+For a detailed description of the fields in the `loc` and `loc-enhanced` events that are published by the Monitor Edge firmware, see [asset tracking events](/reference/cloud-apis/api/#asset-tracking-events) in the cloud API reference.
+
 
 ## Tracker
 
@@ -382,11 +384,15 @@ When viewing a device in the console, in the functions and variables area on the
 
 Some commands you can enter into the box:
 
+{{!-- BEGIN shared-blurb d529b260-c0c2-481a-ac2b-87680b9cf2d8 --}} 
 | Command | Purpose |
 | :------ | :--- |
 | `{"cmd":"enter_shipping"}` | Enter shipping mode |
 | `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
-| `{"cmd":"reset"}` | Gracefully reset the device (Tracker Edge v13 and later) |
+| `{"cmd":"reset"}` | Gracefully reset the device |
+| `{"cmd":"get_cfg"}` |  Get all configuration objects in the device |
+| `{"cmd":"reset_to_factory"}` | Perform a factory reset for configuration |
+{{!-- END shared-blurb --}}
 
 Using `regCommandCallback` is an alternative to using `Particle.function`. One advantage is that `cmd` handlers are always in JSON format and the JSON parameters are automatically parsed and passed to your callback. 
 

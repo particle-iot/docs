@@ -9,10 +9,11 @@ If your device is going into safe mode (breathing magenta) or is unexpectedly co
 
 1. Install the [Particle CLI](/getting-started/developer-tools/cli/) if you have not done so.
 2. Connect the device by USB to your computer.
-3. Put the device in listening mode (blinking dark blue) by holding down the MODE button until the status LED blinks dark blue, then release.
-4. Enter the following command from a Command Prompt or Terminal window:
+3. Enter the following command from a Command Prompt or Terminal window:
 
+``
 particle serial inspect
+```
 
 This should return something like this, though the output will vary depending on the device and version:
 

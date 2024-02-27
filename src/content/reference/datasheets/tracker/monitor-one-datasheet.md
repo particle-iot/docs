@@ -864,7 +864,7 @@ To be provided at a later date.
 | Belgium | MON524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | MON524 | 2G, 3G | BH Telecom, HT Eronet |
 | Botswana | MON524 | 2G, 3G, Cat1 | BeMobile |
-| Brunei | MON524 | 2G, 3G, Cat1 | DST |
+| Brunei | MON524 | 3G, Cat1 | DST |
 | Bulgaria | MON524 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | MON524 | 2G, 3G, Cat1 | Orange |
 | Cabo Verde | MON524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
@@ -877,7 +877,7 @@ To be provided at a later date.
 | Côte d'Ivoire | MON524 | 2G, 3G, Cat1 | MTN |
 | Croatia | MON524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Cyprus | MON524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | MON524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
+| Czechia | MON524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | MON524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | MON524 | 2G, 3G, Cat1 | Etisalat, Orange |
 | Estonia | MON524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
@@ -891,7 +891,7 @@ To be provided at a later date.
 | Germany | MON524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
 | Ghana | MON524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | MON524 | 2G, 3G, Cat1 | Gibtel |
-| Greece | MON524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
+| Greece | MON524 | 2G, Cat1 | Cosmote, Vodafone, Wind |
 | Guinea | MON524 | 2G, 3G, Cat1 | MTN |
 | Guinea-Bissau | MON524 | 2G, 3G, Cat1 | MTN |
 | Guyana | MON524 | 2G | Digicel |

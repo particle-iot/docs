@@ -135,15 +135,23 @@ Some older devices do not have the serial number stored on the device (E260, for
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Deprecated | E4DK |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NRND | E4DT |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Deprecated | P036 |
+| M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | In development | P054 |
+| M404MTY | M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | In development | P054 |
+| M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | In development | P055 |
+| M524MTY | M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | In development | P055 |
+| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development | P055 |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | GA | P031 |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | In development | P031 |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | In development | P031 |
+| MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | In development | P054 |
+| MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | In development | P055 |
+| MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development | P054 |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | Deprecated | P024 |
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Deprecated | P024 |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | GA | P031 |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | GA | P031 |
-| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | NRND | P025 |
-| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | NRND | P025 |
+| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | GA | P025 |
+| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | GA | P025 |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | GA | P032 |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | GA | P032 |
 | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | Deprecated | P0MD |
@@ -225,8 +233,8 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P024 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | Deprecated |
 | P024 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | Deprecated |
 | P024 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NRND |
-| P025 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | NRND |
-| P025 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | NRND |
+| P025 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | GA |
+| P025 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | GA |
 | P025 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Deprecated |
 | P025 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | NRND |
 | P025 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Deprecated |
@@ -272,6 +280,14 @@ Some older devices do not have the serial number stored on the device (E260, for
 | P051 | PHN2MEA | Photon 2 [x1] | GA |
 | P051 | PHN2MTY | Photon 2, Tray [x50] | GA |
 | P052 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | GA |
+| P054 | M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | In development |
+| P054 | M404MTY | M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | In development |
+| P054 | MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | In development |
+| P054 | MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
+| P055 | M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | In development |
+| P055 | M524MTY | M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | In development |
+| P055 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | In development |
+| P055 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | In development |
 | P0MD | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | Deprecated |
 | P1MD | P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Deprecated |
 | PHHK | PHOTONKIT | Photon with Headers Starter Kit, [x1] | Deprecated |

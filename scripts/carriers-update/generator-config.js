@@ -4190,18 +4190,57 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'expansion-muon-monitor-one',
                     platformNew: 'Muon'
+                });
+            }
+        },
+        {
+            // Country compatibility - M404
+            guid:'291c6e45-3647-412b-8e38-47d29d5b4a83',
+            generatorFn:function(updater) {
+                return updater.generateCountryList('m series', {
+                    groupFn:function(groupObj) {
+                        return groupObj.modem != 'BG95-M5';
+                    }
+                });                 
+            } 
+        },
+        {
+            // Country compatibility - M524
+            guid:'da2ba229-df4a-4df6-a0a5-d74444b8d5c1',
+            generatorFn:function(updater) {
+                return updater.generateCountryList('m series', {
+                    groupFn:function(groupObj) {
+                        return groupObj.modem != 'EG91-EX';
+                    }
+                });                 
+            } 
+        },
+        {
+            // SKU list M SoM
+            guid:'5c48836c-dced-4420-be6f-15916d265a5e', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('m series', {
+                    filterFn:function(skuObj) {
+                        return skuObj.name.startsWith('MUON');
+                    }        
+                }); 
+            } 
+        },
+        // Muon
+        {
+            // SKU list Muon
+            guid:'f4a91103-4428-4732-a1bc-83784f9bf207', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('m series', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('MUON');
+                    }        
                 }); 
             } 
         },
 
-        /*
+        
 
-
-
-7136eb07-5714-4cff-9e02-b35cd752ee7a
-
-2785be8b-e2f5-4867-8624-f3d8096b6f13
-*/
     ];
 
 

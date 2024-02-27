@@ -67,8 +67,6 @@ Once you have VS Code installed, you can add in the Particle workbench extension
 
 - Within Visual Studio code, click the green **Install** button to confirm the installation.
 
-![Install](/assets/images/workbench/install2.png)
-
 - Note that there will be a small confirmation window that pops up in the lower right corner of the window. Make sure you confirm the installation there.
 
 ![Install](/assets/images/workbench/install3.png)

@@ -12,7 +12,7 @@ This is a preliminary datasheet and changes may occur prior to release.
 {{box op="end"}}
 
 ![M SoM](/assets/images/m-series/msom-top.png)
-
+ 
 ## Overview
 
 The Particle M SoM contains the following functional units:
@@ -21,8 +21,11 @@ The Particle M SoM contains the following functional units:
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
 - Cellular modem 
-  - Quectel BG95-M5 LTE Cat M1 (North America)
-  - Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
+  - M404: Quectel BG95-M5 LTE Cat M1/2G (Global)
+  - M524: Quectel EG91-EX LTE Cat 1 with 2G/3G fallback (EMEAA)
+  - M635: Quectel BG95-M5 LTE Cat M1/2G (Global with satellite)
+
+The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
 
 ### MCU
 
@@ -35,7 +38,7 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
   - ARM Cortex M33 CPU, 200 MHz
 - 2048 KB (2 MB) user application maximum size
 - 3072 KB (3 MB) of RAM available to user applications
-- 2 MB flash file system
+- 8 MB flash file system
 - FCC (United States), ISED (Canada), and CE (European Union) certified
 
 ### Block diagram
@@ -89,14 +92,62 @@ Power supply requirements:
   - Cellular 
   - Wi-Fi (2.4 GHz and 5 GHz) and BLE
   - GNSS (GPS)
+
 - Wi-Fi operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
-- GNSS features are limited M404 as the cellular modem cannot do cellular communication and GNSS at the same time.
 
-### Approved Antennas
+## Approved Antennas
 
-To be provided at a later date.
+### Certified cellular antennas
 
-#### General Antenna Guidance
+The M SoM is certified with the following cellular antenna:
+
+| Antenna | SKU | Details | Links |
+| :----- | :--- | :------ | :---- |
+| Wide band LTE cell antenna [x1] | PARANTCW1EA | M404, M524, M635 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+| Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524, M635 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
+
+Single quantity M SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M SoM do not include antennas.
+
+
+| Dimension | Value | Unit |
+| :--- | ---: | :---: |
+| Length | 116.0 | mm |
+| Width | 27.0 | mm |
+| Thickness | 0.2 | mm |
+| Cable Length | 189.5 | mm |
+
+
+| Parameter | 700/850/900 | 1700/1800/1900 | 2100 | 2400 | 2600 | Unit |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| Peak gain | | | | | | | |
+| PARANTCW1EA | 2.8 | 5.3 | 5.3 | 5.3 | 5.3 | dBi |
+
+
+### Certified Wi-Fi/BLE antennas
+
+The M SoM is certified for use with the same antennas as the P2/Photon 2. The same antenna is shared for Wi-Fi and BLE. Unlike the P2/Photon 2, the external antenna is required for Wi-Fi and BLE and the M SoM does not include a built-in trace antenna on the module.
+
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] | PARANTWM1EA | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/particle-p2-photon2-wi-fi-antenna-2-4-5ghz)  |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x50] |PARANTWM1TY | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) |
+
+Single quantity M SoM units and developer kits include a PARANTWM1EA antenna. Tray quantities of the M SoM do not include antennas.
+
+### Certified GNSS antennas
+
+| SKU | Description | |
+| :--- | :--- | :--- |
+| PARANTGN1EA	| Particle GNSS FPC Antenna, [x1] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
+| PARANTGN1TY	| Particle GNSS FPC Antenna, [x50] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
+
+Single quantity M SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
+
+- GNSS features are limited on the M404 and M635 as the cellular modem cannot do cellular communication and GNSS at the same time.
+- GNSS support will be added in a future version of Device OS.
+- Feature such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
+
+### General Antenna Guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
@@ -302,6 +353,9 @@ Additionally, SWD is supported on pins on the M.2 connector:
 {{!-- END do not edit content above, it is automatically generated--}}
 
 - All GPIO are 3.3V only and are not 5V tolerant
+- The drive strength is 4 mA per pin in normal drive and 12 mA per pin in high drive mode on the M SoM.
+- There is a maximum of 200 mA across all pins. The total maximum could be further limited by your 3.3V regulator.
+- Drive strength selection using [pinSetDriveStrength](/reference/device-os/api/input-output/pinsetdrivestrength/) is only available in Device OS 5.5.0 and later on the M SoM.
 
 Certain GPIO will change state at boot, or cause the MCU to enter a special mode. See the [boot mode pins](#boot-mode-pins) section, below, for more information.
 
@@ -609,6 +663,93 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+## Technical specification
+
+{{!-- ### Absolute maximum ratings --}}
+
+
+{{!-- 
+### Recommended operating conditions
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+|:-|:-|:-:|:-:|:-:|:-:|
+| Operating Temperature | T<sub>op</sub> | -20 |  | +70 | °C |
+| Humidity Range Non condensing, relative humidity | | | | 95 | % |
+--}}
+
+{{!-- ### Wi-Fi Specifications --}}
+
+
+{{!-- ### I/O Characteristics --}}
+
+### Power consumption (M524) 
+
+| Parameter | Symbol | Min | Typ | Peak | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 26.4 | 26.6 | 26.9 | mA |
+| Operating current (uC on, BLE advertising) | I<sub>ble_adv</sub> | 62.9 | 66.1 | 84.2 | mA |
+| Operating current (uC on, BLE connected but idle) | I<sub>ble_conn_idle</sub> | 62.4 | 66.7 | 74 | mA |
+| Operating current (uC on, BLE scanning) | I<sub>ble_scan</sub> | 50.5 | 57.2 | 87.7 | mA |
+| Operating current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 36.7 | 44.4 | 907 | mA |
+| Operating current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 40.2 | 97.4 | 840 | mA |
+| Operating current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 37 | 43.1 | 132 | mA |
+| Operating current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 39.9 | 164 | 851 | mA |
+| Operating current (uC on, Wi-Fi on but not connected) | I<sub>wifi_idle</sub> | 26.1 | 26.3 | 26.6 | mA |
+| Operating current (uC on, Wi-Fi connecting to access point) | I<sub>wifi_conn_ap</sub> | 44.3 | 67.3 | 298 | mA |
+| Operating current (uC on, Wi-Fi connecting to cloud) | I<sub>wifi_conn_cloud</sub> | 61 | 68.2 | 357 | mA |
+| Operating current (uC on, Wi-Fi connected but idle) | I<sub>wifi_cloud_idle</sub> | 61.9 | 64.1 | 68.4 | mA |
+| Operating current (uC on, Wi-Fi connected and transmitting) | I<sub>wifi_cloud_tx</sub> | 60.1 | 64.8 | 309 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 419 | 421 | 425 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 412 | 415 | 418 | uA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 419 | 421 | 425 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 412 | 415 | 418 | uA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 23.9 | 26.1 | 28.6 | uA |
+| HIBERNATE mode sleep, RTC wake-up | I<sub>hib_intrtc</sub> | 24.5 | 26.5 | 28.1 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
+### Power consumption (M404) 
+
+| Parameter | Symbol | Min | Typ | Peak | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 27.7 | 27.9 | 28.1 | mA |
+| Operating current (uC on, BLE advertising) | I<sub>ble_adv</sub> | 65.5 | 69.5 | 85.9 | mA |
+| Operating current (uC on, BLE connected but idle) | I<sub>ble_conn_idle</sub> | 65.5 | 70.1 | 77 | mA |
+| Operating current (uC on, BLE scanning) | I<sub>ble_scan</sub> | 52.6 | 60.5 | 91.1 | mA |
+| Operating current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 36.2 | 159 | 816 | mA |
+| Operating current (uC on, cellular on but not connected using LTE Cat M1) | I<sub>cell_idle_catm1</sub> | 41.5 | 46.7 | 217 | mA |
+| Operating current (uC on, cellular connecting to tower using LTE Cat M1) | I<sub>cell_conn_twr_catm1</sub> | 39.8 | 43.9 | 131 | mA |
+| Operating current (uC on, cellular connecting to cloud using LTE Cat M1) | I<sub>cell_conn_cloud_catm1</sub> | 39.7 | 83.5 | 181 | mA |
+| Operating current (uC on, cellular connected but idle using LTE Cat M1) | I<sub>cell_cloud_idle_catm1</sub> | 41.8 | 44.5 | 155 | mA |
+| Operating current (uC on, cellular connected and transmitting using LTE Cat M1) | I<sub>cell_cloud_tx_catm1</sub> | 40.1 | 83.6 | 177 | mA |
+| Operating current (uC on, cellular on but not connected using 2G) | I<sub>cell_idle_2g</sub> | 38.9 | 44.7 | 1700 | mA |
+| Operating current (uC on, cellular connecting to tower using 2G) | I<sub>cell_conn_twr_2g</sub> | 36.9 | 128 | 1700 | mA |
+| Operating current (uC on, cellular connecting to cloud using 2G) | I<sub>cell_conn_cloud_2g</sub> | 35.9 | 98.3 | 1740 | mA |
+| Operating current (uC on, cellular connected but idle using 2G) | I<sub>cell_cloud_idle_2g</sub> | 35.8 | 40.3 | 114 | mA |
+| Operating current (uC on, cellular connected and transmitting using 2G) | I<sub>cell_cloud_tx_2g</sub> | 32 | 152 | 1720 | mA |
+| Operating current (uC on, Wi-Fi on but not connected) | I<sub>wifi_idle</sub> | 27.3 | 30.4 | 101 | mA |
+| Operating current (uC on, Wi-Fi connecting to access point) | I<sub>wifi_conn_ap</sub> | 25.4 | 68.9 | 353 | mA |
+| Operating current (uC on, Wi-Fi connecting to cloud) | I<sub>wifi_conn_cloud</sub> | 59.8 | 109 | 469 | mA |
+| Operating current (uC on, Wi-Fi connected but idle) | I<sub>wifi_cloud_idle</sub> | 61.6 | 64.5 | 184 | mA |
+| Operating current (uC on, Wi-Fi connected and transmitting) | I<sub>wifi_cloud_tx</sub> | 60.7 | 64.9 | 349 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 542 | 547 | 551 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 512 | 515 | 518 | uA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 542 | 547 | 551 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 512 | 515 | 518 | uA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 41.9 | 44 | 45.8 | uA |
+| HIBERNATE mode sleep, RTC wake-up | I<sub>hib_intrtc</sub> | 41.1 | 43.4 | 45.3 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
+
+### Power consumption (M635)
+
+To be determined at a later date. When operated on LTE Cat M1 or 2G, should be similar to M404.
+
 
 ## Mechanical specifications
 
@@ -645,6 +786,7 @@ The M.2 SoM requires a screw to hold the SoM in place because the M.2 connector 
 
 - An [alternative design](/hardware/b-series-som/som-first-board/#hold-down-screw) uses a [JAE SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) standoff. It's reflow soldered to your base board and has a threaded hole for a M2*3 screw to hold down the SoM. This may be easier to obtain.
 
+The screw should be connected to the ground plane on your base board.
 
 ### Design Considerations
 
@@ -795,17 +937,158 @@ SE, SI, SK, TR, UA, UK(NI).
 
 ## Country compatibility
 
+### M404 - Country compatibility
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 291c6e45-3647-412b-8e38-47d29d5b4a83 --}}
+
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Canada | M404 | 2G, M1 | Bell Mobility, Rogers Wireless, Telus |
+| Mexico | M404 | 2G, M1 | AT&T, Telcel |
+| United States | M404 | 2G, M1 | Alaska Wireless, AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations. See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.
+
+
+### M523 - Country compatibility
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated da2ba229-df4a-4df6-a0a5-d74444b8d5c1 --}}
+
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Albania | M524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Algeria | M524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
+| Aruba | M524 | 2G, 3G, Cat1 | Setar |
+| Australia | M524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Austria | M524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
+| Bahrain | M524 | 2G, 3G, Cat1 | Zain |
+| Bangladesh | M524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
+| Belarus | M524 | 2G, 3G, Cat1 | A1 |
+| Belgium | M524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
+| Bosnia and Herzegovina | M524 | 2G, 3G | BH Telecom, HT Eronet |
+| Botswana | M524 | 2G, 3G, Cat1 | BeMobile |
+| Brunei | M524 | 3G, Cat1 | DST |
+| Bulgaria | M524 | 2G, 3G | A1, Telenor, Vivacom |
+| Burkina Faso | M524 | 2G, 3G, Cat1 | Orange |
+| Cabo Verde | M524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
+| Cambodia | M524 | 2G, 3G | Metfone |
+| Chad | M524 | 2G, 3G, Cat1 | Airtel |
+| Chile | M524 | 2G, 3G, Cat1 | Claro, Entel, Movistar |
+| Congo (Brazzaville) | M524 | 2G, 3G, Cat1 | Airtel |
+| Congo (Kinshasa) | M524 | 2G, 3G, Cat1 | Airtel |
+| Côte d'Ivoire | M524 | 2G, 3G, Cat1 | MTN |
+| Croatia | M524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
+| Cyprus | M524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
+| Czechia | M524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
+| Denmark | M524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
+| Egypt | M524 | 2G, 3G, Cat1 | Etisalat, Orange |
+| Estonia | M524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
+| eSwatini | M524 | 2G, 3G, Cat1 | MTN |
+| Ethiopia | M524 | 2G, 3G, Cat1 | Ethio Telecom |
+| Faroe Islands | M524 | 2G, 3G | Faroese Telecom, Vodafone |
+| Finland | M524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| France | M524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| French Guiana | M524 | 2G, 3G | Digicel |
+| Gabon | M524 | 2G, 3G, Cat1 | Airtel |
+| Germany | M524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Ghana | M524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
+| Gibraltar | M524 | 2G, 3G, Cat1 | Gibtel |
+| Greece | M524 | 2G, Cat1 | Cosmote, Vodafone, Wind |
+| Guinea | M524 | 2G, 3G, Cat1 | MTN |
+| Guinea-Bissau | M524 | 2G, 3G, Cat1 | MTN |
+| Guyana | M524 | 2G | Digicel |
+| Hong Kong | M524 | 2G, 3G, Cat1 | CMHK, CSL, SmarTone |
+| Hungary | M524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
+| Iceland | M524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
+| Indonesia | M524 | 2G, 3G, Cat1 | Indosat, Telkomsel, XL Axiata |
+| Ireland | M524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
+| Israel | M524 | 2G, 3G, Cat1 | Hot Mobile, Orange, Pelephone |
+| Italy | M524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
+| Jordan | M524 | 2G, 3G, Cat1 | Zain |
+| Kazakhstan | M524 | 2G, 3G, Cat1 | Beeline, K-Cell |
+| Kenya | M524 | 2G, 3G, Cat1 | Airtel |
+| Kuwait | M524 | 2G, 3G, Cat1 | Viva, Zain |
+| Latvia | M524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
+| Liechtenstein | M524 | 2G, 3G, Cat1 | Mobilkom, Orange |
+| Lithuania | M524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
+| Luxembourg | M524 | 2G, 3G, Cat1 | Orange, POST, Tango |
+| Macao | M524 | 2G, 3G, Cat1 | CTM |
+| Madagascar | M524 | 2G, 3G, Cat1 | Airtel |
+| Malawi | M524 | 2G, 3G, Cat1 | Airtel |
+| Malaysia | M524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
+| Malta | M524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
+| Moldova | M524 | 2G, 3G, Cat1 | Moldcell, Orange |
+| Mongolia | M524 | 2G, 3G | Mobicom, Unitel |
+| Montenegro | M524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
+| Morocco | M524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
+| Mozambique | M524 | 2G, 3G, Cat1 | Vodacom |
+| Myanmar | M524 | 2G, 3G, Cat1 | MPT, Telenor |
+| Namibia | M524 | 2G, 3G, Cat1 | Telecom Namibia |
+| Netherlands | M524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
+| New Zealand | M524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
+| Nigeria | M524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
+| Norway | M524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
+| Pakistan | M524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
+| Palestine | M524 | 2G, 3G | Jawwal |
+| Papua New Guinea | M524 | 2G, 3G | bmobile |
+| Poland | M524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
+| Portugal | M524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
+| Qatar | M524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
+| Romania | M524 | 2G, 3G, Cat1 | Orange, Telekom Romania, Vodafone |
+| Rwanda | M524 | 2G, 3G, Cat1 | Airtel, MTN |
+| Serbia | M524 | 2G, 3G, Cat1 | Telenor, VIP |
+| Seychelles | M524 | 2G, 3G, Cat1 | Airtel |
+| Sint Maarten | M524 | 2G, 3G, Cat1 | TelCell |
+| Slovakia | M524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovenia | M524 | 2G, 3G, Cat1 | A1, Mobitel |
+| South Africa | M524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
+| South Korea | M524 | 3G, Cat1 | KT, LG U+, SK Telecom |
+| South Sudan | M524 | 2G, 3G, Cat1 | MTN |
+| Spain | M524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
+| Sri Lanka | M524 | 2G, 3G, Cat1 | Dialog, Mobitel |
+| Suriname | M524 | 2G, 3G | Telesur |
+| Sweden | M524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | M524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Taiwan | M524 | 3G, Cat1 | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tanzania | M524 | 2G, 3G, Cat1 | Airtel |
+| Thailand | M524 | 2G, 3G, Cat1 | AIS, DTAC, True Move |
+| Tunisia | M524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
+| Uganda | M524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
+| United Kingdom | M524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
+| Vietnam | M524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
+| Zambia | M524 | 2G, 3G, Cat1 | Airtel |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+### M635 - Country compatibility
+
+Global, country list to be provided a later date.
 
 
 ---
 ## Ordering information
 
-| Model | Quantity | Region |
-| :--- | :--- | :--- |
-| M404MEA | 1 | United States, Canada, and Mexico |
-| M404MTY | 50 | United States, Canada, and Mexico |
-| M524MEA | 1 | EMEAA (Europe, and parts of the Middle East, Africa, and Asia) |
-| M524MTY | 50 | EMEAA (Europe, and parts of the Middle East, Africa, and Asia) |
+{{!-- BEGIN do not edit content below, it is automatically generated 5c48836c-dced-4420-be6f-15916d265a5e --}}
+
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| M404MTY | M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | In development | |
+| M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
+| M524MTY | M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
+| M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
+
 
 ## Revision history
 
@@ -813,3 +1096,6 @@ SE, SI, SK, TR, UA, UK(NI).
 |:---------|:-----|:-------|:---------|
 | pre      | 2023-10-03 | RK | Initial version |
 |          | 2023-12-20 | RK | Added FCC and IC IDs. Additional notes for ADCs, D24, and D25 |
+|          | 2024-02-08 | RK | Added power consumption information |
+|          | 2024-02-20 | RK | M.2 screw assembly should be connected to ground |
+|          | 2024-02-20 | RK | Added pin drive strength |

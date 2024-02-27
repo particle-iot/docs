@@ -740,14 +740,6 @@ If your device crashes repeatedly with an SOS code, first try recovering with [S
 particle flash <mydevice> tinker
 ```
 
-{{#if has-device-doctor}}
-If it's not possible to enter Safe Mode, your Device OS may be corrupted.  Use the Device Doctor feature of the CLI to put your device into a healthy state.
- 
-```
-particle device doctor
-```
-{{/if}}
-
 Some tips for reducing the memory used by your firmware [can be found here](/firmware/best-practices/code-size-tips/).
 
 **Assertion failure (10 blinks between 2 SOS patterns)**

@@ -1064,11 +1064,13 @@ dataui.collectModemBands = function(countryCarrierList, technologies, options) {
                         bandsUsed.bandsAll.push(tagBand.replace('LTE', 'Cat1'));                
                     }                        
                 }
-                if ((technologies && technologies.includes('M1')) || options.showM1) {
+            }
+            if (tag == 'M1') {
+                if (!technologies || technologies.includes(tag)) {
                     if (!bandsUsed.bandsM1.includes(band)) {
                         bandsUsed.bandsM1.push(band);
-                        bandsUsed.bandsAll.push(tagBand.replace('LTE', 'M1'));                
-                    }                                            
+                        bandsUsed.bandsAll.push(tagBand);                
+                    }
                 }
             }
         });
@@ -1207,7 +1209,7 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
                         if (modem.bands.includes(tagBand)) {
                             if (tag == 'M1') {
                                 const countryObj = datastore.findCountryByName(obj.country);
-                                if (countryObj.m1recommended) {
+                                if (countryObj.m1recommended || modem.globalM1) {
                                     cellContents = '\u2705'; // Green Check
 
                                     if (options.footnotes && options.footnotes['warnTMobile'] && obj[planKey].allowM1 == 5) {

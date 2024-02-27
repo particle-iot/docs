@@ -39,7 +39,6 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | 2 | NRND | E404XTRAY50 | &nbsp; |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | 2 | NRND | BRN404XTRAY50 | &nbsp; |
-| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | 3 | NRND | ONE524MTY | &nbsp; |
 | P1REEL | P1 Wi-Fi Module, Reel [x500] | 2 | NRND | &nbsp; | &nbsp; |
 | PHNTRAYH | Photon with Headers, Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
 | PHNTRAYNOH | Photon without Headers, Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |

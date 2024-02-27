@@ -1,11 +1,108 @@
 $(document).ready(function () {
     // auth not required
 
+    const cellPowerDefaultOptions = {
+        connTower: 'Icell_conn_twr',
+        cloudIdle: 'Icell_cloud_idle',
+        cloudTx: 'Icell_cloud_tx',
+    }
+
+    const wifiPowerDefaultOptions = {
+        connTower: 'Iwifi_conn_ap',
+        cloudIdle: 'Iwifi_cloud_idle',
+        cloudTx: 'Iwifi_cloud_tx',
+    }
+
+    const deviceOptions = [
+        {
+            key: 'ONE402',
+            value: 'ONE402',
+            title: 'Tracker One ONE404, ONE402 (North America)',
+            power: cellPowerDefaultOptions,
+        },
+        {
+            key: 'ONE523',
+            value: 'ONE523',
+            title: 'Tracker One ONE524, ONE523 (EMEAA)',
+            power: cellPowerDefaultOptions,
+        },
+        {
+            key: 'M524',
+            value: 'M524',
+            title: 'M SoM M523 (EMEAA)',
+            power: cellPowerDefaultOptions,
+        },
+        {
+            key: 'M524',
+            value: 'M524_WiFi',
+            title: 'M SoM M523 (EMEAA) (Wi-Fi)',
+            power: wifiPowerDefaultOptions,
+        },
+        {
+            key: 'M404',
+            value: 'M404_M1',
+            title: 'M SoM M404 (Global) (LTE Cat M1)',
+            power: {
+                connTower: 'Icell_conn_twr_catm1',
+                cloudIdle: 'Icell_cloud_idle_catm1',
+                cloudTx: 'Icell_cloud_tx_catm1',            
+            },
+        },
+        {
+            key: 'M404',
+            value: 'M404_2G',
+            title: 'M SoM M404 (Global) (2G)',
+            power: {
+                connTower: 'Icell_conn_twr_2g',
+                cloudIdle: 'Icell_cloud_idle_2g',
+                cloudTx: 'Icell_cloud_tx_2g',            
+            },
+        },
+        {
+            key: 'M404',
+            value: 'M404_WiFi',
+            title: 'M SoM M404 (Global) (Wi-Fi)',
+            power: wifiPowerDefaultOptions,
+        },
+        {
+            key: 'B402',
+            value: 'B402',
+            title: 'B SoM B404, B402 (North America)',
+            power: cellPowerDefaultOptions,
+        },
+        {
+            key: 'B523',
+            value: 'B523',
+            title: 'B SoM B524, B523 (EMEAA)',
+            power: cellPowerDefaultOptions,
+        },
+        {
+            key: 'BRN402',
+            value: 'BRN402',
+            title: 'Boron BRN404, BRN402 (North America)',
+            power: cellPowerDefaultOptions,
+        },
+        {
+            key: 'BRN310',
+            value: 'BRN310',
+            title: 'Boron 2G/3G',
+            power: cellPowerDefaultOptions,
+        },
+    ];
+
     $('.batteryCalculator').each(function() {
         const thisElem = $(this);
 
         const urlParams = new URLSearchParams(window.location.search);
 
+        $('.deviceSelect').empty();
+        for(const deviceOption of deviceOptions) {
+            const optionElem = document.createElement('option');
+            $(optionElem).attr('value', deviceOption.value);
+            $(optionElem).text(deviceOption.title);
+            $('.deviceSelect').append(optionElem);
+        }
+        
         // File structure:
         // object
         //   devices: object key = SKU, value = object
@@ -32,7 +129,15 @@ $(document).ready(function () {
 
             
         const getValue_ma = function(symbolValue, options = {}) {
+            if (typeof symbolValue == 'undefined') {
+                return 0;
+            }
+
             let result = symbolValue.typ;
+            if (typeof result != 'number' || Number.isNaN(result)) {
+                return 0;
+            }
+
             if (options.avgTypMax) {
                 result = (symbolValue.typ + symbolValue.max) / 2;
             }
@@ -78,15 +183,20 @@ $(document).ready(function () {
 
             let urlConfig = {};
             
-            const dev = $(deviceSelectElem).val();
-            if (!dev) {
+            const devValue = $(deviceSelectElem).val();
+            if (!devValue) {
                 return;
             }
+            urlConfig.dev = devValue;
 
-            urlConfig.dev = dev;
+            const devObj = deviceOptions.find(e => e.value == devValue);
+            if (!devObj) {
+                return;
+            }
+        
 
-            if (!powerConsumption.devices[dev]) {
-                // console.log('invalid dev ' + dev + ' in deviceSelect');
+            if (!powerConsumption.devices[devObj.key]) {
+                // console.log('invalid dev ' + devObj.key + ' in deviceSelect');
                 return;
             }
 
@@ -96,8 +206,15 @@ $(document).ready(function () {
             const mode = modeParts[0];
             const modeKey = modeParts.length > 1 ? modeParts[1] : '';
 
-            const modes = powerConsumption.devices[dev].modes;
+            const modes = powerConsumption.devices[devObj.key].modes;
             // console.log('modes', modes);
+
+            if (!getValue_ma(modes.normal.Icell_conn_twr)) {
+                // This is missing for M524
+                modes.normal.Icell_conn_twr = modes.normal.Icell_conn_cloud;
+            }
+
+
 
             let skus = [];
 
@@ -106,7 +223,7 @@ $(document).ready(function () {
                 return null;
             }
             for(const skuObj of carriers.skus) {
-                if (skuObj.name.startsWith(dev)) {
+                if (skuObj.name.startsWith(devObj.key)) {
                     skus.push(skuObj);
                 }
             }
@@ -120,7 +237,7 @@ $(document).ready(function () {
             const family = skus[0].family;
             const isCellular = !!skus[0].modem;
             const isWiFi = skus[0].wifi;
-            const isTrackerOne = dev.includes('ONE') && family == 'tracker';
+            const isTrackerOne = devObj.key.includes('ONE') && family == 'tracker';
 
             showHideSections('TrackerOne', isTrackerOne);
             showHideSections('Tracker', family == 'tracker');
@@ -137,7 +254,7 @@ $(document).ready(function () {
                 }
                 $(parameters.find(e => e.parameter == 'batterySize').inputElem).val(batterySize.toString());
 
-                $(sleepModeElem).find('option[value="ulp,Iulp_cell"]').prop('disabled', family == 'tracker');
+                $(sleepModeElem).find('option[value="ulp,Iulp_cell"]').prop('disabled', family == 'tracker' || !modes.ulp.Iulp_cell);
                 $(sleepModeElem).find('option[value="ulp,Iulp_imu"]').prop('disabled', family != 'tracker');
 
                 const optionElem = $(sleepModeElem).find('option:selected');
@@ -203,30 +320,44 @@ $(document).ready(function () {
 
             // console.log('parameterValues', parameterValues);
 
-            let calculations = {};
+            // Check required values
+
+
+
+            let calculations = {
+                mode,
+            };
             
-            // console.log('Icell_conn_twr='+ getValue_ma(modes.normal.Icell_conn_twr));
-            // console.log('Icell_cloud_idle='+ getValue_ma(modes.normal.Icell_conn_twr));
-            // console.log('sleep mA='+ getValue_ma(modes[mode][modeKey]));
+            calculations.required = {
+                normal: [],
+            }
+            calculations.required[mode] = [];
+
+
 
             if (mode != 'none') {
-                calculations.connectPower = parameterValues.connectTime * getValue_ma(modes.normal.Icell_conn_twr, {avgTypMax:true}) / 3600.0; // mAh per connection
-        
-                calculations.postPublishPower = parameterValues.afterPublish * getValue_ma(modes.normal.Icell_cloud_idle) / 3600.0; // mAh per connection
+                calculations.connectPower = parameterValues.connectTime * getValue_ma(modes.normal[devObj.power.connTower], {avgTypMax:true}) / 3600.0; // mAh per connection
+                calculations.required.normal.push(devObj.power.connTower);
+
+                calculations.postPublishPower = parameterValues.afterPublish * getValue_ma(modes.normal[devObj.power.cloudIdle]) / 3600.0; // mAh per connection
+                calculations.required.normal.push(devObj.power.cloudIdle);
         
                 calculations.connectTimePerDay = (parameterValues.connectTime + parameterValues.afterPublish) * parameterValues.publishesPerDay; // sec per day
 
                 calculations.sleepTimePerDay = 86400 - calculations.connectTimePerDay; // sec per day
 
                 calculations.sleepPower = getValue_ma(modes[mode][modeKey]) * calculations.sleepTimePerDay / 3600.0;  // mAh per day
+                calculations.required[mode].push(modeKey);
 
                 calculations.powerPerDay = (calculations.connectPower + calculations.postPublishPower) * parameterValues.publishesPerDay + calculations.sleepPower;  // mAh
             }
             else {
                 // Assume 10 seconds to publish
-                calculations.publishPower = 10 * getValue_ma(modes.normal.Icell_cloud_tx) / 3600.0 ;  // mAh
+                calculations.publishPower = 10 * getValue_ma(modes.normal[devObj.power.cloudTx]) / 3600.0 ;  // mAh
+                calculations.required.normal.push(devObj.power.cloudTx);
 
-                calculations.idlePower = 24 * getValue_ma(modes.normal.Icell_cloud_idle, {avgTypMax90_10:true});  // mAh
+                calculations.idlePower = 24 * getValue_ma(modes.normal[devObj.power.cloudIdle], {avgTypMax90_10:true});  // mAh
+                calculations.required.normal.push(devObj.power.cloudIdle);
 
                 calculations.powerPerDay = calculations.publishPower + calculations.idlePower;  // mAh
             }
@@ -236,32 +367,57 @@ $(document).ready(function () {
             calculations.days = calculations.batteryPower / calculations.powerPerDay;
 
 
-            // console.log('calculations', calculations);
 
             clearResult();
 
-            let result = 'Estimated runtime: ';
-            if (calculations.days < 2) {
-                // Show in hours
-                result += Math.floor(calculations.days * 24) + ' hours.';
+            calculations.values = {};
+            calculations.missingValues = [];
+
+            for(const topKey in calculations.required) {
+                calculations.values[topKey] = {};
+
+                for(const innerKey of calculations.required[topKey]) {
+                    const ma = getValue_ma(modes[topKey][innerKey]);
+                    if (ma) {
+                        calculations.values[topKey][innerKey] = ma;
+                    }
+                    else {
+                        calculations.missingValues.push(topKey + '.' + innerKey);
+                    }
+                }
             }
-            else
-            if (calculations.days < 14) {
-                // Show in days only
-                result += Math.floor(calculations.days * 10) / 10 + ' days.';
+
+            console.log('calculations', calculations);
+
+            if (calculations.missingValues.length == 0) {
+                let result = 'Estimated runtime: ';
+                if (calculations.days < 2) {
+                    // Show in hours
+                    result += Math.floor(calculations.days * 24) + ' hours.';
+                }
+                else
+                if (calculations.days < 14) {
+                    // Show in days only
+                    result += Math.floor(calculations.days * 10) / 10 + ' days.';
+                }
+                else {
+                    // Show in days and weeks
+                    const weeks = Math.floor(calculations.days / 7 * 10) / 10;
+                    result += Math.floor(calculations.days) + ' days (' + weeks + ' weeks).';
+                }
+                appendResult(result);    
             }
             else {
-                // Show in days and weeks
-                const weeks = Math.floor(calculations.days / 7 * 10) / 10;
-                result += Math.floor(calculations.days) + ' days (' + weeks + ' weeks).';
+                appendResult('Internal error (missing ' + calculations.missingValues.join(', ') + ')')
             }
-            appendResult(result);
+
                             
         };
 
         {
             // deviceSelect 
             const devOption = urlParams.get('dev');
+            console.log('loading devOption=' + devOption);
             if (devOption) {
                 $(deviceSelectElem).val(devOption);
             }

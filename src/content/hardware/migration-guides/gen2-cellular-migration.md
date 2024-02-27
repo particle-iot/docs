@@ -248,6 +248,8 @@ In addition to using the Tracker One assembled module, the following application
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | GA | |
 | ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | GA | |
 | ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | BG96-MC | &check; | GA | |
+| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | GA | ONE524MEA|
+| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX |  | GA | ONE524MTY|
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | GA | |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | EG91-EX | &check; | GA | |
 | T404MEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | BG96-MC | &check; | GA | |
@@ -258,8 +260,6 @@ In addition to using the Tracker One assembled module, the following application
 | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | In development | |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | &check; | In development | |
-| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | NRND | ONE524MEA|
-| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX |  | NRND | ONE524MTY|
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC |  | NRND | T404MTY|
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | EG91-EX |  | NRND | T524MKIT|
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | Deprecated | ONE404MEA|
@@ -430,13 +430,13 @@ There are more UART ports on the Gen 2 devices than Gen 3. If you need more hard
 
 {{!-- BEGIN shared-blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e --}}
 
-| Dimension | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC | 
-| :--- | :---: | :---: | :---: | :---: |
-| Tray SKU | PARANTC41TY | ANTCW2TY | ANT-FLXU-50 | ANTELEC50 |
-| Length | 122.1mm | 97.0mm | 96.0mm | 80.0mm |
-| Width | 12.8mm | 21.0mm | 21.0mm | 20.0mm |
-| Thickness | 0.2mm | 0.2mm | 0.2mm | 0.2mm |
-| Cable Length | 183mm | 160mm | 150mm | 164mm |
+| Dimension | PARANTCW1EA | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC | 
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Tray SKU | PARANTCW1TY | PARANTC41TY | ANTCW2TY | ANT-FLXU-50 | ANTELEC50 |
+| Length | 116mm | 122.1mm | 97.0mm | 96.0mm | 80.0mm |
+| Width | 27mm | 12.8mm | 21.0mm | 21.0mm | 20.0mm |
+| Thickness | 0.2mm | 0.2mm | 0.2mm | 0.2mm | 0.2mm |
+| Cable Length | 189.5mm | 183mm | 160mm | 150mm | 164mm |
 
 PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna can be bent when being placed inside an enclosure. There are a couple restrictions to ensure good performance:
 
@@ -619,7 +619,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Aruba | Setar | &check; | &check; | &check; | &nbsp; |
 | Australia | Optus | &check; | <sup>NRND</sup> | &check; | &nbsp; |
 | Australia | Telstra | &check; | <sup>NRND</sup> | &check; | &nbsp; |
-| Australia | Vodafone | &nbsp; | <sup>NRND</sup> | &check; | &nbsp; |
+| Australia | Vodafone | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Austria | 3 (Drei) | &check; | &check; | &check; | &nbsp; |
 | Austria | A1 | &check; | &check; | &check; | &nbsp; |
 | Austria | T-Mobile | &check; | &check; | &check; | &nbsp; |
@@ -639,6 +639,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Belgium | Mobistar | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Belgium | Orange | &nbsp; | &check; | &check; | &nbsp; |
 | Belgium | Proximus | &check; | &check; | &check; | &nbsp; |
+| Belize | Smart | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Bermuda | CellOne | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Bolivia | NuevaTel | &check; | &check; | &nbsp; | &nbsp; |
 | Bolivia | Tigo | &check; | &nbsp; | &nbsp; | &nbsp; |
@@ -681,7 +682,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Curaçao | UTS | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Cyprus | Cytamobile-Vodafone | &check; | &check; | &check; | &nbsp; |
 | Cyprus | MTN | &nbsp; | &check; | &check; | &nbsp; |
-| Cyprus | PrimeTel | &check; | &check; | &check; | &nbsp; |
+| Cyprus | PrimeTel | &check; | &nbsp; | &check; | &nbsp; |
 | Czechia | O2 | &check; | &check; | &check; | &nbsp; |
 | Czechia | T-Mobile | &check; | &check; | &check; | &nbsp; |
 | Czechia | Vodafone | &check; | &check; | &check; | &nbsp; |
@@ -766,7 +767,6 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Jamaica | Digicel | &check; | &check; | &nbsp; | &nbsp; |
 | Jamaica | Flow | &check; | &check; | &nbsp; | &nbsp; |
 | Japan | NTT DoCoMo | &check; | &check; | &nbsp; | &nbsp; |
-| Japan | Softbank | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Jersey | Airtel-Vodafone | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Jersey | Jersey Telecom | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Jordan | Zain | &nbsp; | &check; | &check; | &nbsp; |
@@ -908,7 +908,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Switzerland | Sunrise | &check; | &check; | &check; | &nbsp; |
 | Switzerland | Swisscom | &nbsp; | &check; | &check; | &nbsp; |
 | Taiwan | Chunghwa | &nbsp; | &check; | &check; | &nbsp; |
-| Taiwan | FarEasTone | &nbsp; | &check; | &check; | &nbsp; |
+| Taiwan | FarEasTone | &nbsp; | &nbsp; | &check; | &nbsp; |
 | Taiwan | T Star | &check; | &check; | &check; | &nbsp; |
 | Taiwan | Taiwan Mobile | &check; | &check; | &check; | &nbsp; |
 | Tajikistan | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |

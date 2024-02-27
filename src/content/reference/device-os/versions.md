@@ -21,6 +21,44 @@ If you flash user firmware that requires a newer version of Device OS than is cu
 
 Unlike computer operating systems like Windows or Mac, Device OS will never be automatically updated under your application. You must manually opt into each update, and updates are generally not required. Because of the more limited function set and smaller attack surface, recommended updates for security reasons are rare.
 
+## Version upgrade flow
+
+For products, you will typically upgrade Device OS using these steps:
+
+{{step-diagram op="start"}}
+```json
+{
+    "width": 450,
+    "steps": [
+        {
+            "title": "Build your firmware targeting new Device OS"
+        },
+        {
+            "kind": "arrow"
+        },
+        {
+            "title": "Test"
+        },
+        {
+            "kind": "arrow"
+        },
+        {
+            "title": "Upload firmware to product and deploy to more devices"
+        },
+        {
+            "kind": "arrow"
+        },
+        {
+            "title": "Release firmware to entire fleet"
+        }
+    ]
+}
+```
+{{step-diagram op="end"}}
+
+By targeting a new version of Device OS in your product firmware it will assure that devices will be upgraded as necessary.
+
+
 ## Version numbering
 
 Device OS releases follow semantic versioning ("semver") guidelines with MAJOR.MINOR.PATCH numbering. For example in the 1.5.x release line, there are 1.5.0, 1.5.1, and 1.5.2 versions.
@@ -85,6 +123,19 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 - For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. 
 - See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
 
+
+## Using pre-release versions
+
+Particle recommends using the latest LTS versions compatible with your device, except in the following cases:
+
+- New hardware may require using the developer preview (3.x, 5.x, ...) release line until the next LTS release.
+- Testing
+
+We recommend testing your firmware on new releases to assure compatibility, even if you decide not to release that version to your entire fleet.
+
+Not every release will have a release candidate (rc), but if it does, this is a good opportunity to test your code for compatibility. 
+
+Because it is very difficult to downgrade Device OS, we recommend testing candidates on devices that you have easy physical access to so you can downgrade by USB if necessary. Deploying on non-critical test devices where it is OK if the device is not fully functional until appropriate fixes are made is also a good alternative. Once the final release version of a rc version is released we recommend moving all devices off the rc version.
 
 ## Upgrading Device OS
 

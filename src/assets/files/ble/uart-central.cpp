@@ -62,7 +62,7 @@ void loop() {
 					// In some cases, you may want to get all of the service UUIDs and scan the list
 					// looking to see if the serviceUuid is anywhere in the list.
 					BleUuid foundServiceUuid;
-					size_t svcCount = scanResults[ii].advertisingData.serviceUUID(&foundServiceUuid, 1);
+					size_t svcCount = scanResults[ii].advertisingData().serviceUUID(&foundServiceUuid, 1);
 					if (svcCount > 0 && foundServiceUuid == serviceUuid) {
 						peer = BLE.connect(scanResults[ii].address);
 						if (peer.connected()) {

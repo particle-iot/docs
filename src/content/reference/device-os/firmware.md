@@ -2335,9 +2335,7 @@ The password is limited to 64 7-bit ASCII characters. If you pass in a longer pa
 {{note op="start" type="note"}}
 WPA Enterprise is only supported on the Photon and P1.
 
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
-
-It is not supported on the Argon.
+It is not supported on the Argon, P2, and Photon 2.
 {{note op="end"}}
 
 Credentials can be set using [WiFiCredentials class](#wificredentials-class).
@@ -3182,9 +3180,7 @@ Parameters:
 - `type`: EAP type. See [WLanEapType](#wlaneaptype-enum) enum for a list of supported values.
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 #### setIdentity()
 
@@ -3228,9 +3224,7 @@ Parameters:
 - `identity`: outer identity (string)
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 #### setClientCertificate()
 
@@ -3256,9 +3250,7 @@ Parameters:
 - `cert`: client certificate in PEM format (string)
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 #### setPrivateKey()
 
@@ -3284,9 +3276,7 @@ Parameters:
 - `key`: private key in PEM format (string)
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 #### setRootCertificate()
 
@@ -3321,9 +3311,7 @@ Parameters:
 - `cert`: one or multiple concatenated root certificates in PEM format (string)
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 ### WLanEapType Enum
 
@@ -3337,9 +3325,7 @@ This enum defines EAP types.
 | `WLAN_EAP_TYPE_TLS`  | EAP-TLS (RFC 2716)                                              |
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
-(Gen 2). It is not available on the Argon (Gen 3).
-
-WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+(Gen 2). It is not available on the Argon (Gen 3), P2, or Photon 2.
 
 ### SecurityType Enum
 
@@ -5451,7 +5437,7 @@ void loop()
 
 - Pins `D0` and `D1` can be used as analog inputs on the P2 (`A3` and `A4`) if I2C is not being used.
 
-- The drive strength on the P2 and Photon 2 is 16 mA per pin with a maximum of 200 mA across all pins. On the P2, the total maximum could be further limited by your 3.3V regulator.
+- The drive strength on the P2 and Photon 2 is 4 mA per pin in normal drive and 12 mA per pin in high drive mode. Drive strength selection is only available in Device OS 5.5.0 and later. There is a maximum of 200 mA across all pins. On the P2, the total maximum could be further limited by your 3.3V regulator.
 {{note op="end"}}
 
 ---
@@ -5541,7 +5527,7 @@ void loop()
 int pinSetDriveStrength(pin_t pin, DriveStrength drive);
 ```
 
-Sets the pin drive strength on Gen 3 devices with Device OS 2.0.0 and later.
+Sets the pin drive strength on Gen 3 devices with Device OS 2.0.0 and later, or P2/Photon 2 (RTL872x) with Device OS 5.5.0 and later.
 
 `DriveStrength` is one of:
 
@@ -5563,11 +5549,25 @@ The drive strength is typically 2 mA in standard drive mode (the default), and 9
 ---
 
 {{note op="start" type="gen3"}}
-- Pin drive strength setting is only available on Gen 3 devices (nRF52840). 
-- On the P2 and Photon 2, the pin drive strength is always 16 mA.
-- On Gen 2 devices (Photon, P1, Electron, and E Series) the pin drive strength is always 25 mA.
+- On nRF52 devices, this call can be used to change the pin drive strength from 2 mA (default, standard) to 9 mA (high drive strength).
 {{note op="end"}}
 
+---
+
+{{note op="start" type="P2"}}
+- The drive strength on the P2 and Photon 2 is 4 mA per pin in normal drive and 12 mA per pin in high drive mode. 
+- There is a maximum of 200 mA across all pins. On the P2, the total maximum could be further limited by your 3.3V regulator.
+- Drive strength selection is only available in Device OS 5.5.0 and later on RTL872x devices. 
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen2"}}
+- On Gen 2 devices (Photon, P1, Electron, and E Series) the pin drive strength is always 25 mA and cannot be changed.
+- This API is not available on Gen 2 devices.
+{{note op="end"}}
+
+---
 
 ### analogWrite() (PWM)
 
@@ -10552,7 +10552,7 @@ void loop() {
                     scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
                     scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5], scanResults[ii].rssi);
 
-            String name = scanResults[ii].advertisingData.deviceName();
+            String name = scanResults[ii].advertisingData().deviceName();
             if (name.length() > 0) {
                 Log.info("Advertising name: %s", name.c_str());
             }
@@ -10624,12 +10624,12 @@ void loop() {
 }
 
 void scanResultCallback(const BleScanResult *scanResult, void *context) {
-  // For Device OS 2.x and earlier, use scanResults[ii].address[0], etc. without the ()
+  // For Device OS 2.x and earlier, use scanResults->address[0], etc. without the ()
   Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
-          scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
-          scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5], scanResults[ii].rssi());
+          scanResult->address()[0], scanResult->address()[1], scanResult->address()[2],
+          scanResult->address()[3], scanResult->address()[4], scanResult->address()[5], scanResult->rssi());
 
-	String name = scanResult->advertisingData.deviceName();
+	String name = scanResult->advertisingData().deviceName();
 	if (name.length() > 0) {
 		Log.info("deviceName: %s", name.c_str());
 	}
@@ -10662,7 +10662,7 @@ must access them as:
 For example:
 
 ```
-len = scanResults[ii].advertisingData().get(BleAdvertisingDataType::MANUFACTURER_SPECIFIC_DATA, buf, BLE_MAX_ADV_DATA_LEN);
+len = scanResult->advertisingData().get(BleAdvertisingDataType::MANUFACTURER_SPECIFIC_DATA, buf, BLE_MAX_ADV_DATA_LEN);
 ```
 
 The `context` parameter is often used if you implement your scanResultCallback in a C++ object. You can store the object instance pointer (`this`) in the context.
@@ -11291,6 +11291,9 @@ The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on f
 ```cpp
 // PROTOTYPE
 int setPairingPasskey(const BlePeerDevice& peer, const uint8_t* passkey) const;
+
+// EXAMPLE
+BLE.setPairingPasskey(peer, (const uint8_t *)"123456");
 ```
 
 {{since when="3.0.0"}}
@@ -11299,7 +11302,9 @@ When you have a keyboard and the other side has a display, you may need to promp
 keyboard. This is done by the `BlePairingEventType::PASSKEY_INPUT` event. Once they have entered it, call this function 
 to set the code that they entered.
 
-The passkey is BLE_PAIRING_PASSKEY_LEN bytes long (6). The passkey parameter does not need to be null terminated.
+The passkey is BLE_PAIRING_PASSKEY_LEN bytes long (6). The passkey parameter does not need to be null terminated. 
+
+Since the parameter is not a null terminated c-string, it's declared as `const uint8_t *` instead of `const char *` but you can pass a c-string of 6 ASCII digits by casting it to a `const uint8_t *`.
 
 The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
 
@@ -11572,7 +11577,7 @@ Note that your mobile app will typically filter on the service UUID, not the nam
 
 You must call this before BLE setup is started. For listening mode, this is often in STARTUP(), however when using `FEATURE_DISABLE_LISTENING_MODE` and BLE provisioning mode, this can be in setup() before calling `BLE.provisioningMode(true)`.
 
-The maximum name length is `BLE_MAX_DEV_NAME_LEN`, or 20 ASCII characters. 
+The maximum name length is `BLE_MAX_DEV_NAME_LEN`, or 20 ASCII characters. In practice, however, this must must be 14 or fewer characters because it will not fit in the default advertising packet (which is limited to 31 bytes) if longer.
 
 ```cpp
 // PROTOTYPES
@@ -12160,7 +12165,7 @@ if (rxUuid == txUuid) {
 
 // EXAMPLE 2
 BleUuid foundServiceUUID;
-size_t svcCount = scanResult->advertisingData.serviceUUID(&foundServiceUUID, 1);
+size_t svcCount = scanResult->advertisingData().serviceUUID(&foundServiceUUID, 1);
 if (svcCount > 0 && foundServiceUUID == serviceUuid) {
 	// Device advertises our custom service "serviceUuid" so try to connect to it
 }

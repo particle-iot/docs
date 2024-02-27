@@ -2,7 +2,7 @@ If your device is blinking green, it is trying to connect to Wi-Fi.
 
 If you are unable to get past blinking green, here are a few known working situations that the device is not compatible with:
 
-- If you are using a corporate or school network that uses WPA2 Enterprise, you cannot use the Argon. If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
+- If you are using a corporate or school network that uses WPA2 Enterprise, you cannot use the Argon, P2, or Photon 2. If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
 
 - If you are using a network that takes you to a web page where you need to either sign in or agree to terms and service when you first connect, using the device directly will be difficult or impossible. This is the case in some hotels and public Wi-Fi networks and is often referred to as Captive Portal.
 

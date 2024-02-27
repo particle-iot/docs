@@ -1568,6 +1568,8 @@ We recommend this screw assembly to securely affix the B series SoM to your circ
 
 - Note that a hold-down screw is required because the M.2 connector does not have integrated locks and the SoM will pop up if not attached to the base board.
 
+- The screw should be connected to the ground plane on your base board.
+
 ### Design considerations
 
 We strongly recommend against placing components under the SOM board because there is not enough height.
@@ -1674,7 +1676,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Belgium | B524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | B524 | 2G, 3G | BH Telecom, HT Eronet |
 | Botswana | B524 | 2G, 3G, Cat1 | BeMobile |
-| Brunei | B524 | 2G, 3G, Cat1 | DST |
+| Brunei | B524 | 3G, Cat1 | DST |
 | Bulgaria | B524 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | B524 | 2G, 3G, Cat1 | Orange |
 | Cabo Verde | B524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
@@ -1686,7 +1688,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Côte d'Ivoire | B524 | 2G, 3G, Cat1 | MTN |
 | Croatia | B524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Cyprus | B524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | B524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
+| Czechia | B524 | 2G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | B524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Egypt | B524 | 2G, 3G, Cat1 | Etisalat, Orange |
 | Estonia | B524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
@@ -1700,8 +1702,8 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Germany | B524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
 | Ghana | B524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | B524 | 2G, 3G, Cat1 | Gibtel |
-| Greece | B524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
-| Guadeloupe | B524 | 2G, 3G | Orange |
+| Greece | B524 | 2G, Cat1 | Cosmote, Vodafone, Wind |
+| Guadeloupe | B524 | 2G, 3G, Cat1 | Orange |
 | Guinea | B524 | 2G, 3G, Cat1 | MTN |
 | Guinea-Bissau | B524 | 2G, 3G, Cat1 | MTN |
 | Guyana | B524 | 2G | Digicel |
@@ -1815,3 +1817,4 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | 020      | 28-Apr-2023 | RK | Add conformal coating warning |
 | 021      | 13-Nov-2023 | RK | Add full pin details |
 | 022      | 20-Dec-2023 | RK | Clarified band power information table |
+| 023      | 20-Feb-2024 | RK | M.2 screw assembly should be connected to ground |

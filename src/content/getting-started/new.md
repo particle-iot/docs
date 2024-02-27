@@ -21,6 +21,64 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Hardware overview page update 2024-02-26
+
+The [hardware overview](/getting-started/hardware/hardware-overview/) has information about the M SoM and Muon, and
+the page should be much easier to understand now.
+
+### BLE.scan callback example typo 2024-02-22
+
+The example in for [BLE.scan(callback)](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-scan-callback-) had an error that 
+prevented compiling.
+
+### M SoM datasheet 2024-02-22
+
+The [preliminary M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/) and [migration guides](/hardware/migration-guides/msom-b-series-migration-guide/) are now available. The [battery calculator](/tools/developer-tools/battery-calculator) and 
+[cellular carrier list](/reference/cellular/cellular-carriers/) includes M SoM now.
+
+### Muon datasheet preview 2024-02-22
+
+The [Muon datasheet preview](/reference/datasheets/m-series/muon-datasheet/) is now available.
+
+### Pin drive strength P2 2024-02-20
+
+Pin drive strength for the P2 and Photon 2 is now included in the [Device OS firmware API](/reference/device-os/api/input-output/pinsetdrivestrength/)
+documentation and datasheets.
+
+### Upload firmware clarification 2024-02-16
+
+When using the upload product firmware cloud API to upload a .zip file containing Asset OTA images, it must be
+set as type application/json.
+
+### BLE.setPairingPasskey 2024-02-16
+
+Clarified the use of the pass key parameter to [BLE.setPairingPasskey](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-setpairingpasskey-).
+
+### CLI updates 2024-02-16
+
+Updates for Particle CLI documentation for CLI version 3.21.0.
+
+### Tracker cmd additions 2024-02-15
+
+Added information about the cmd handlers in [Tracker Edge](/firmware/tracker-edge/tracker-edge-api-reference/#regcommandcallback-cloudservice) and Monitor Edge for the `get_cfg` and `reset_to_factory` commands.
+
+### Tracker edge events 2024-02-13
+
+Added links to the Tracker Edge, Monitor Edge, and Store and Forward documentation to the published event reference in
+the [cloud API reference](/reference/cloud-apis/api/#asset-tracking-events).
+
+### B Series eval power power 2024-02-13
+
+Clarified the power supply options for the [B Series eval board](/reference/datasheets/b-series/b-series-eval-board/).
+
+### setDeviceName maximum length 2024-02-12
+
+The practical limit for the device name is 14 characters to fit in the default advertising message.
+
+### Enterprise Wi-Fi 2024-01-31
+
+Clarify that enterprise Wi-Fi is not supported on the P2/Photon 2.
+
 ### Connection management 2024-01-30
 
 [Automatic connection management](/reference/device-os/connection-management/) documentation is now available. The feature
