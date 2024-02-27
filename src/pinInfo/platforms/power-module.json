@@ -5,7 +5,7 @@
         {
             "num": 1,
             "name": "3V3",
-            "desc": "Power output 3.3V",
+            "desc": "Power output 3.3V A",
             "morePins": [
                 2
             ]
@@ -21,7 +21,7 @@
         {
             "num": 5,
             "name": "VCC",
-            "desc": "Power output 3.7V for cellular modem",
+            "desc": "Power output 3.9V 2A for cellular modem",
             "morePins": [
                 6
             ]
@@ -48,7 +48,7 @@
         {
             "num": 11,
             "name": "VIN",
-            "desc": "Power in (6V - 17V on PMIC power module)",
+            "desc": "Power in (5V - 17V on PMIC power module)",
             "morePins": [
                 12
             ]
