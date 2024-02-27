@@ -6,13 +6,13 @@ columns: two
 
 # {{title}}
 
-Particle Gen 3 devices including the Argon, Boron, and B Series SoM have the ability to use Ethernet.
+Particle Gen 3 devices including the Argon, Boron, and B-Series SoM have the ability to use Ethernet.
 
 For the Feather form-factor devices (Argon, Boron) this is typically done using the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing). If using the [Adafruit Ethernet Featherwing](https://www.adafruit.com/product/3201), follow the instructions [here](/hardware/ethernet/ethernet/#adafruit-featherwing).
 
-For the B Series SoM devices (B404, B402, B524, B523), the [B Series Evaluation Board](/reference/datasheets/b-series/b-series-eval-board/) includes Ethernet. You can also use the same Wiznet W5500 chip on your own custom base board for the B Series SoM.
+For the B-Series SoM devices (B404, B402, B524, B523), the [B-Series Evaluation Board](/reference/datasheets/b-series/b-series-eval-board/) includes Ethernet. You can also use the same Wiznet W5500 chip on your own custom base board for the B-Series SoM.
 
-Both the Ethernet FeatherWing and B Series Evaluation Board have a socket to enable Power-over-Ethernet (PoE), however the [PoE Adapter](/reference/datasheets/accessories/gen3-accessories/#poe-power-over-ethernet-) is discontinued and no longer available from Particle. You could still include the Silvertel Ag9905M on your custom B Series SoM base board.
+Both the Ethernet FeatherWing and B-Series Evaluation Board have a socket to enable Power-over-Ethernet (PoE), however the [PoE Adapter](/reference/datasheets/accessories/gen3-accessories/#poe-power-over-ethernet-) is discontinued and no longer available from Particle. You could still include the Silvertel Ag9905M on your custom B-Series SoM base board.
 
 Note that the Wiznet W5500 does not support Auto MDI-X so you may need a crossover cable when connecting directly to a computer or laptop instead of an Ethernet switch.
 
@@ -40,7 +40,7 @@ Pins D3 and D4 are the same as `SPI1` on the Argon and Boron thus you cannot use
 
 If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
-### B Series Pinouts
+### B-Series Pinouts
 
 | Particle Pin | M.2 Pin | Ethernet Pin |
 | :---: | :---: | :--- |
@@ -75,11 +75,11 @@ If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESE
 
 - Ethernet networks without a DHCP server require Device OS 5.3.0 or later. Earlier versions did not support static IP addresses.
 
-- There is no support for Ethernet on Gen 2 devices (Photon, P1, Electron, E Series). There is not enough room for it on the Photon and P1, and the Electron/E Series TCP/IP stack is completely different and incompatible and difficult to port to, and there is not enough space for it.
+- There is no support for Ethernet on Gen 2 devices (Photon, P1, Electron, E-Series). There is not enough room for it on the Photon and P1, and the Electron/E-Series TCP/IP stack is completely different and incompatible and difficult to port to, and there is not enough space for it.
 
 ### Fallback
 
-Device OS only uses the presence of Ethernet link and the ability to obtain a DHCP address for the availability of Ethernet. If Ethernet is available, it will always be used instead of the device's other network (Wi-Fi for Argon or cellular for the Boron or B Series SoM).
+Device OS only uses the presence of Ethernet link and the ability to obtain a DHCP address for the availability of Ethernet. If Ethernet is available, it will always be used instead of the device's other network (Wi-Fi for Argon or cellular for the Boron or B-Series SoM).
 
 This has two consequences:
 
@@ -103,7 +103,7 @@ One use-case that is supported via a 3rd-party library is Ethernet with cellular
 
 The [EthernetCellularRK](https://github.com/rickkas7/EthernetCellularRK) library provides this feature with only a couple lines of code in your application.
 
-Note that this only provides cellular Internet to the Boron or B Series SoM. It is not a general-purpose WAN backup solution for other devices on the LAN!
+Note that this only provides cellular Internet to the Boron or B-Series SoM. It is not a general-purpose WAN backup solution for other devices on the LAN!
 
 ### Keep-alive
 

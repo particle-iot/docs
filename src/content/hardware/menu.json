@@ -148,12 +148,12 @@
     [
       {
         "dir": "b-series-som-flexibility",
-        "title": "Designing for B Series SoM flexibility",
+        "title": "Designing for B-Series SoM flexibility",
         "href": "/hardware/b-series-som/b-series-som-flexibility/"
       },
       {
         "dir": "som-first-board",
-        "title": "B Series SoM First Board",
+        "title": "B-Series SoM First Board",
         "href": "/hardware/b-series-som/som-first-board/"
       },
       {
@@ -180,7 +180,7 @@
     [
       {
         "dir": "msom-b-series-migration-guide",
-        "title": "M-SoM from B Series migration guide",
+        "title": "M-SoM from B-Series migration guide",
         "href": "/hardware/migration-guides/msom-b-series-migration-guide/"
       },
       {
@@ -195,7 +195,7 @@
       },
       {
         "dir": "msom-e-series-migration-guide",
-        "title": "M-SoM from E Series migration guide",
+        "title": "M-SoM from E-Series migration guide",
         "href": "/hardware/migration-guides/msom-e-series-migration-guide/"
       },
       {
@@ -206,17 +206,17 @@
       },
       {
         "dir": "b-series-boron-migration-guide",
-        "title": "B Series from Boron Migration Guide",
+        "title": "B-Series from Boron Migration Guide",
         "href": "/hardware/migration-guides/b-series-boron-migration-guide/"
       },
       {
         "dir": "b-series-e-series-migration-guide",
-        "title": "B Series from E Series Migration Guide",
+        "title": "B-Series from E-Series Migration Guide",
         "href": "/hardware/migration-guides/b-series-e-series-migration-guide/"
       },
       {
         "dir": "b-series-electron-migration-guide",
-        "title": "B Series from Electron Migration Guide",
+        "title": "B-Series from Electron Migration Guide",
         "href": "/hardware/migration-guides/b-series-electron-migration-guide/"
       },
       {

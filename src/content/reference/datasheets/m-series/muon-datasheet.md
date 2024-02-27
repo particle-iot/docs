@@ -34,7 +34,7 @@ The Muon is a developer kit based on the M-SoM with additional peripherals for e
 
 The Muon contains a Particle M-SoM that the following functional units:
  
-- M.2 SoM form-factor, like the B Series SoM
+- M.2 SoM form-factor, like the B-Series SoM
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
 - Cellular modem 

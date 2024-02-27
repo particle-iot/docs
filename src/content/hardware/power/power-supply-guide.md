@@ -13,7 +13,7 @@ This guide is a brief guide to power supplies for Particle devices.
 
 - Most Wi-Fi devices use a maximum of 500 mA at 5 VDC and can be powered by most USB ports.
 
-- LTE Cat M1 cellular devices (Boron LTE BRN404X/BRN404/BRN402, B404X/B404/B402, Tracker SoM T404/T402, E Series LTE E404/E402, Electron LTE ELC402) also only require 500 mA at 5 VDC.
+- LTE Cat M1 cellular devices (Boron LTE BRN404X/BRN404/BRN402, B404X/B404/B402, Tracker SoM T404/T402, E-Series LTE E404/E402, Electron LTE ELC402) also only require 500 mA at 5 VDC.
 
 - 2G/3G cellular devices may require up to 2 A at 5 VDC, which can lead to some complexities, as described below.
 
@@ -63,11 +63,11 @@ This guide is a brief guide to power supplies for Particle devices.
 
 - They may also have a separate Li+ pin that is connected to the same place and can be used as a power input, power output, or as an alterative way to connect an external battery without using the JST-PH.
 
-- For cellular devices with a PMIC (Boron, Tracker, E Series, Electron), this can be used to power the device with an external supply in some specific conditions, see the PMIC section below.
+- For cellular devices with a PMIC (Boron, Tracker, E-Series, Electron), this can be used to power the device with an external supply in some specific conditions, see the PMIC section below.
 
 ### VBAT
 
-- This is only applicable to the Photon and E Series, and is used to back up the real-time clock and retained memory when removing USB or VIN power. You can connect a Lithium coin cell or a supercap to this pin.
+- This is only applicable to the Photon and E-Series, and is used to back up the real-time clock and retained memory when removing USB or VIN power. You can connect a Lithium coin cell or a supercap to this pin.
 
 - There is an Electron pin labeled VBAT but it should not be used because it's tied to 3V3 on the Electron with a 0-ohm resistor.
 
@@ -167,7 +167,7 @@ All bq24195 devices can detect whether they have external power or not. This can
 
 ### Vehicle power
 
-- 12 V vehicle power is the correct voltage, however the voltage spikes that occur can damage devices such as the Boron, E Series, and Electron if connected directly to the vehicle supply. 
+- 12 V vehicle power is the correct voltage, however the voltage spikes that occur can damage devices such as the Boron, E-Series, and Electron if connected directly to the vehicle supply. 
 - A [sample power supply designed for vehicles](/hardware/power/vehicle-power/).
 - For devices that do not accept 12V (Argon, Photon, Photon 2), using this power supply is also an option.
 - Alternatively, you may want to use an off-the-shelf vehicle to USB adapter. 
@@ -196,11 +196,11 @@ The Boron (Adafruit Feather form-factor) includes the following power inputs:
   - However on the Boron (not Argon), you can supply a up to 17V this pin if you do not have other Featherwing devices that require 5V on VUSB.
   - If you need compatibility with the Argon and Photon 2, limit VUSB to 3.6V to 5.5V as a power input.
 
-### B Series SoM
+### B-Series SoM
 
-- The B Series SoM does not have a built-in voltage regulator or PMIC. 
+- The B-Series SoM does not have a built-in voltage regulator or PMIC. 
 - If you add your own bq24195, it will behave as the Boron.
-- We recommend having two separate regulators for the B Series SoM, one at 3.3V and one at 3.7V. This can either be a single dual regulator, or two separate regulators.
+- We recommend having two separate regulators for the B-Series SoM, one at 3.3V and one at 3.7V. This can either be a single dual regulator, or two separate regulators.
   - 3.3V at 150 mA (minimum). Supply more current if you have 3.3V peripherals on your base board. 500 mA or more is recommended for future compatibility.
   - 3.7V at 2A. While the B404X/B404/B402 only require 500 mA, having additional power assures compatibility with other modules in the future.
 
@@ -239,14 +239,14 @@ The Tracker One includes the following power inputs:
 - M8 connector (6.0 to 30 VDC at 2A)
 
 
-### E Series
+### E-Series
 
 - VIN, 3.88V to 17V.
 - Li+, 3.6V to 4.4V. Normally connected to a LiPo battery, but can also be used as a power supply input with certain restrictions, see above.
 - VDDA. This is the 3.3V supply to the analog portion of the STM32. This pin must be powered, or the STM32 will not boot, even if you do not use the ADC inputs. Normally you should connect this to 3V3, which is the 3.3V power output. 
 - VBAT, 1.65 to 3.6V. This powers the real-time clock and retained memory if VIN or Li+ are not powered. Normally you just connect this to 3V3, however you could use an external Lithium coin cell battery or supercap. See [VBAT](#vbat), above.
 
-On the E Series, 3V3 can only be used as a power output, not a power input.
+On the E-Series, 3V3 can only be used as a power output, not a power input.
 
 ### Electron
 

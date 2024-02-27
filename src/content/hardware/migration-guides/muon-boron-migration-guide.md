@@ -48,7 +48,7 @@ You can use the Muon as a development module, or use it as a base for your you o
 - [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
 - [Boron BRN404X datasheet](/reference/datasheets/b-series/brn404x-datasheet/)
 - [Boron datasheet](/reference/datasheets/b-series/boron-datasheet/)
-- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
+- [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
 
 ## Certification

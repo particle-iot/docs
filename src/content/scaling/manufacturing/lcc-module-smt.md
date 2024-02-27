@@ -6,7 +6,7 @@ columns: two
 
 # {{title}}
 
-This document describes the processes of secondary SMT soldering and desoldering of the Particle Asset Tracker SoM device. It is also applicable to other LCC (leadless chip carrier) devices such as the E Series.
+This document describes the processes of secondary SMT soldering and desoldering of the Particle Asset Tracker SoM device. It is also applicable to other LCC (leadless chip carrier) devices such as the E-Series.
 
 ## Modules
 

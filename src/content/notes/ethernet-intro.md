@@ -1,5 +1,5 @@
 
-Particle Gen 3 devices including the Argon, Boron, and B Series SoM have the ability to use Ethernet.
+Particle Gen 3 devices including the Argon, Boron, and B-Series SoM have the ability to use Ethernet.
 
 For the Feather form-factor devices (Argon, Boron) this is typically done using the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing).
 
@@ -14,11 +14,11 @@ Note that the Wiznet W5500 does not support Auto MDI-X so you may need a crossov
 
 - Prior to Device OS 5.3.0, Ethernet required a DHCP server on the network; It could not be used with a static IP address. Static IP addresses are supported in Device OS 5.3.0 and later.
 
-- There is no support for Ethernet on Gen 2 devices (Photon, P1, Electron, E Series). There is not enough room for it on the Photon and P1, and the Electron/E Series TCP/IP stack is completely different and incompatible and difficult to port to, and there is not enough space for it.
+- There is no support for Ethernet on Gen 2 devices (Photon, P1, Electron, E-Series). There is not enough room for it on the Photon and P1, and the Electron/E-Series TCP/IP stack is completely different and incompatible and difficult to port to, and there is not enough space for it.
 
 ### Fallback
 
-Device OS only uses the presence of Ethernet link and the ability to obtain a DHCP address for the availability of Ethernet. If Ethernet is available, it will always be used instead of the device's other network (Wi-Fi for Argon or cellular for the Boron or B Series SoM).
+Device OS only uses the presence of Ethernet link and the ability to obtain a DHCP address for the availability of Ethernet. If Ethernet is available, it will always be used instead of the device's other network (Wi-Fi for Argon or cellular for the Boron or B-Series SoM).
 
 This has two consequences:
 

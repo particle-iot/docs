@@ -8,7 +8,7 @@ includeDefinitions: [api-helper, carrier-family-map]
 
 # {{title}}
 
-This document describes the expansion of available countries for LTE Cat 1, made in May 2022. This support is available immediately on existing EtherSIM compatible Tracker and B Series SoM devices.
+This document describes the expansion of available countries for LTE Cat 1, made in May 2022. This support is available immediately on existing EtherSIM compatible Tracker and B-Series SoM devices.
 
 ## Devices with expanded coverage
 

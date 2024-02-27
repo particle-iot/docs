@@ -1,8 +1,8 @@
 ---
-title: B Series from Boron Migration Guide
+title: B-Series from Boron Migration Guide
 columns: two
 layout: commonTwo.hbs
-description: Learn about migrating from the Boron to the B Series
+description: Learn about migrating from the Boron to the B-Series
 ---
 
 # {{title}}
@@ -10,13 +10,13 @@ description: Learn about migrating from the Boron to the B Series
 {{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/b-series/b-series-top.png"}}
 
 {{!-- BEGIN shared-blurb b69a2546-9baa-11ec-b909-0242ac120002 --}}
-The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
+The B-Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
 Many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
 
 Additionally, the extra width vs. the Boron (Adafruit Feather) form-factor makes it possible to include a LTE Cat 1 with 2G/3G fallback cellular modem, such as the Quectel EG91-E on the B524. This modem is too wide to fit on a Boron.
 
-| Feature | Boron | B Series SoM | SoM Base Board | Tracker SoM |
+| Feature | Boron | B-Series SoM | SoM Base Board | Tracker SoM |
 | --- | :---: | :---: | :---: | :---: |
 | U.FL Antenna Connector | &check; | &check; | Optional |&check; | 
 | MFF2 SMD Particle SIM<sup>2</sup> | &check; | &check; | &nbsp; |&check; | 
@@ -55,9 +55,9 @@ The available models include:
 
 - [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
 - [B524/B523 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
-- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
+- [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
-If you want to migrate from the Electron or E Series to the B Series SoM, see [Gen 2 cellular migration](/hardware/migration-guides/gen2-cellular-migration/).
+If you want to migrate from the Electron or E-Series to the B-Series SoM, see [Gen 2 cellular migration](/hardware/migration-guides/gen2-cellular-migration/).
 
 ### Countries - B404X, B404
 
@@ -205,13 +205,13 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 
 ## Prototyping
 
-The B Series SoM cannot be used without a base board. Typically you will create your own board, however there are two off-the-shelf options available:
+The B-Series SoM cannot be used without a base board. Typically you will create your own board, however there are two off-the-shelf options available:
 
-### B Series Eval board
+### B-Series Eval board
 
-![B Series Eval](/assets/images/b-series/b-series-eval.png)
+![B-Series Eval](/assets/images/b-series/b-series-eval.png)
 
-The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the B Series SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
+The [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the B-Series SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
 
 {{!-- BEGIN shared-blurb 19f889d4-a5c9-11ec-b909-0242ac120002 --}}
 {{imageOverlay src="/assets/images/b-series/b-series-eval-labeled.png" alt="Ports Diagram" class="full-width"}}
@@ -239,7 +239,7 @@ The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-boa
 | 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
 | 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
 | 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 22 | **SoM connector** | M.2 connector for the B Series SoM. |
+| 22 | **SoM connector** | M.2 connector for the B-Series SoM. |
 | 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
 | 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
 | 25 | **Charge LED** | Indicate LiPo is charging. | 
@@ -253,7 +253,7 @@ The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-boa
 {{!-- BEGIN shared-blurb b644c2f2-a5ca-11ec-b909-0242ac120002 --}}
 ![Mikroe Gen 3 SoM](/assets/images/prototyping/mikroe-som.png)
 
-The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B Series SoM to mikroBUS Click boards:
+The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B-Series SoM to mikroBUS Click boards:
 
 | M.2 Pin | Generic SoM | Gen 3 | mikroBUS #1 | mikroBUS #2 |
 | :---: | :---: | :---: | :---: | :---: |
@@ -318,7 +318,7 @@ As this board doesn't really do much, you'll unlikely use it as-is, but you can 
 
 ### Antennas
 
-The Boron has a built-in BLE chip antenna, antenna switch, and U.FL antenna connector. The B Series SoM only has a U.FL connector for BLE and does not have a built-in antenna.
+The Boron has a built-in BLE chip antenna, antenna switch, and U.FL antenna connector. The B-Series SoM only has a U.FL connector for BLE and does not have a built-in antenna.
 
 Both require an external cellular antenna.
 
@@ -326,7 +326,7 @@ Both require an external antenna for NFC tag.
 
 ### SPI
 
-SPI is mostly unchanged between the Boron and B Series SoM. The only difference is the default SS pin, however you can choose any GPIO for your SPI chip select, you do not need to use the default.
+SPI is mostly unchanged between the Boron and B-Series SoM. The only difference is the default SS pin, however you can choose any GPIO for your SPI chip select, you do not need to use the default.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 49b31eea-a5de-11ec-b909-0242ac120002 --}}
 
@@ -346,7 +346,7 @@ SPI is mostly unchanged between the Boron and B Series SoM. The only difference 
 
 ### Serial (UART)
 
-Hardware serial (UART) ports are unchanged between the Boron and B Series SoM.
+Hardware serial (UART) ports are unchanged between the Boron and B-Series SoM.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ef25dc00-a5de-11ec-b909-0242ac120002 --}}
 
@@ -362,7 +362,7 @@ Hardware serial (UART) ports are unchanged between the Boron and B Series SoM.
 
 ### Analog input (ADC)
 
-There are two additional ADC inputs on the B Series SoM. These can also be used as digital GPIO.
+There are two additional ADC inputs on the B-Series SoM. These can also be used as digital GPIO.
 
 {{!-- BEGIN do not edit content below, it is automatically generated db4246c4-a5de-11ec-b909-0242ac120002 --}}
 
@@ -382,7 +382,7 @@ There are two additional ADC inputs on the B Series SoM. These can also be used 
 
 ### PWM (Pulse-width modulation)
 
-These are differences in pins that support PWM between the Boron and B Series SoM.
+These are differences in pins that support PWM between the Boron and B-Series SoM.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ce9644de-a5de-11ec-b909-0242ac120002' --}}
 
@@ -415,13 +415,13 @@ All pins can be used for interrupts on Gen 3 devices, however only 8 pins can be
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
-On both the Boron and B Series SoM (Gen 3), the internal pull is approximately 16K.
+On both the Boron and B-Series SoM (Gen 3), the internal pull is approximately 16K.
 
 ### Retained memory
 
 Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset. 
 
-On both the Boron and B Series SoM, retained memory is 3068 bytes. 
+On both the Boron and B-Series SoM, retained memory is 3068 bytes. 
 
 The flash file system on Gen 3 devices can also be used for data storage, however care must be taken to avoid excessive wear of the flash for frequently changing data.
 
@@ -429,28 +429,28 @@ The flash file system on Gen 3 devices can also be used for data storage, howeve
 
 The Boron has a Micro USB B connector. 
 
-The B Series SoM does not have a USB connector. It is recommended that you add one to your base board for programming and troubleshooting/
+The B-Series SoM does not have a USB connector. It is recommended that you add one to your base board for programming and troubleshooting/
 
 ### NFC tag
 
-The Boron and B Series SoM have NFC Tag support.
+The Boron and B-Series SoM have NFC Tag support.
 
 The Boron has a U.FL connector on the bottom of the board; you must supply your own NFC antenna connector or integrated antenna on your base board.
 
 ## PMIC Notes
 
 {{!-- BEGIN shared-blurb 93112786-2815-408c-b064-ec7e9c629200 --}}
-When using the B Series SoM with a bq24195 PMIC, note the following:
+When using the B-Series SoM with a bq24195 PMIC, note the following:
 
-By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B Series SoM in normal operation.
+By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B-Series SoM in normal operation.
 
 If your device has the default firmware (Tinker), it will attempt to connect to the cloud, brown out due to insufficient current, then the device will reset. This may result in what appears to be the status LED blinking white, but is actually rolling reboot caused by brownout.
 
-A factory new B Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
+A factory new B-Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B-Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
 
 Because the input current limit does not affect the battery input (Li+), for troubleshooting purposes it can be helpful to attach a battery to help rule out input current limit issues. It's also possible to supply 3.7V via a bench power supply to the battery input, instead of VIN. 
 
-The input current limit can result in a situation where you can't bring up a B Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
+The input current limit can result in a situation where you can't bring up a B-Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
 
 - Attach a battery or supply by Li+ when bringing up a board.
 - Use SWD/JTAG and reset halt the MCU. This will prevent it from connecting to the cloud, so you can flash Device OS and firmware to it by SWD.
@@ -943,18 +943,18 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Platform ID | Name | Description |
 | :--- | :--- | :--- |
 | 13 | boron | Boron (all models) |
-| 23 | bsom | B404X, B404, and B402 B Series SoM |
-| 25 | b5som | B524, B523 B Series SoM | 
+| 23 | bsom | B404X, B404, and B402 B-Series SoM |
+| 25 | b5som | B524, B523 B-Series SoM | 
 
-The platforms IDs of the B Series SoM models vary from the Boron. 
+The platforms IDs of the B-Series SoM models vary from the Boron. 
 
-If you have a product based on the Boron, you will need to create a separate product (or two) for devices using the B Series SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+If you have a product based on the Boron, you will need to create a separate product (or two) for devices using the B-Series SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 
 The reason there are separate platforms for the B4xx and B5xx SoM is that they have different cellular modem manufacturers, u-blox and Quectel, respectively. All Boron models have u-blox cellular modems and thus can share a single platform.
 
 ### Third-party libraries
 
-Most third-party libraries are believed to be compatible between the Boron and B Series SoM.
+Most third-party libraries are believed to be compatible between the Boron and B-Series SoM.
 
 ## Version history
 

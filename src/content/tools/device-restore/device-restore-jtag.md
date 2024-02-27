@@ -16,7 +16,7 @@ Important caveats:
 - It should work on Mac, Windows, Linux, and Chromebook on supported browsers.
 - It should work on some Android phones that support USB OTG when using Chrome or Opera browsers.
 - It does not work on iOS (iPhone or iPad) as the hardware does not support USB OTG.
-- Web-based flashing only works reliably on Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
+- Web-based flashing only works reliably on Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM).
 - You must put the device in DFU mode (blinking yellow) before flashing. It's not using DFU mode, but SWD mode is disabled in normal operating mode or safe mode, but is enabled in DFU mode. If the device is non-responsive with no LED, you may still be able to flash it.
 - It takes about 3 minutes from a browser vs. 1 minute for drag-and-drop.
 - To just download the restore images and use other flashing methods, see the [JTAG Reference](/reference/developer-tools/jtag/).

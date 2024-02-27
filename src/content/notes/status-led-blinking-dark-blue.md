@@ -4,7 +4,7 @@ When your device is in listening mode, it is waiting for networking configuratio
 
 These devices are waiting for their Wi-Fi credentials to be configured so they can connect to the network.
 
-#### Gen 3 (Argon, Boron, B Series SoM, Tracker SoM, Device OS 3.x and earlier)
+#### Gen 3 (Argon, Boron, B-Series SoM, Tracker SoM, Device OS 3.x and earlier)
 
 Normally, when you've successfully configured your Gen 3 device using the mobile apps for iOS or Android, the setup complete flag is set and you will exit Listening Mode.
 

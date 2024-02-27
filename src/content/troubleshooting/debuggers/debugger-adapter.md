@@ -9,7 +9,7 @@ description: Adapter for using the NanoDAP debugger with Particle Gen 3 devices
 
 The [Particle Debugger](/reference/datasheets/accessories/debugger/) is the best option for debugging Particle hardware. Many CMSIS-DAP debuggers are also compatible with Particle hardware. This document describes using the [NanoDAP](https://github.com/wuxx/nanoDAP-HS/blob/master/README_en.md) debugger, however there are many nearly identical debuggers available. If have the option of getting it with or without file system support, get it with the file system, though on many models it won't even be mentioned since file system support should be standard for a CMSIS-DAP debugger.
 
-The CMSIS-DAP debuggers work with both Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) and Gen 2 (Photon, P1, Electron, E Series) devices. The ST-LINK/V2 adapter only works with Gen 2 devices.
+The CMSIS-DAP debuggers work with both Gen 3 (Argon, Boron, B-Series SoM, Tracker SoM) and Gen 2 (Photon, P1, Electron, E-Series) devices. The ST-LINK/V2 adapter only works with Gen 2 devices.
 
 | Debugger | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
@@ -41,7 +41,7 @@ If you are using Windows and want to use the source-level debugger or OpenOCD, y
 
 ### Gen 2
 
-If you are connecting to a Gen 2 device (Photon, P1, Electron, or E Series), you should connect:
+If you are connecting to a Gen 2 device (Photon, P1, Electron, or E-Series), you should connect:
 
 | Debugger | Particle Device |
 | :---: | :---: |

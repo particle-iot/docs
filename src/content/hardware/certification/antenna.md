@@ -29,12 +29,12 @@ The following cellular antennas are available:
 | Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) &#124; [Retail Store](https://store.particle.io/products/wide-band-lte-cat-m1-cell-antenna-x1) |
 | Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
-| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B Series<sup>1</sup>, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
-| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x50] | ANTCW2TY | Tracker, B Series<sup>1</sup>, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) |
-| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
-| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
-| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1] | ANTELEC | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-antenna-1) |
-| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x50] | ANTELEC50 | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) |
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B-Series<sup>1</sup>, E-Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x50] | ANTCW2TY | Tracker, B-Series<sup>1</sup>, E-Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E-Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E-Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
+| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1] | ANTELEC | Electron and E-Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-antenna-1) |
+| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x50] | ANTELEC50 | Electron and E-Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) |
 | Tracker One Cellular Antenna | | Tracker One | [Datasheet](/assets/pdfs/tracker-one-ant-cellular.pdf) |
 
 
@@ -253,7 +253,7 @@ All Particle cellular devices have a U.FL antenna connector. Most cellular anten
 
 Cellular boosters like the [weBoost](https://www.amazon.com/weBoost-472120-Signal-Booster-Carriers/dp/B081BM99M9/ref=sr_1_4) generally work with all Particle cellular devices, assuming there is at least some faint, compatible signal available. For example, with the Boron 2G/3G in the United States, if you only have a weak T-Mobile signal they can be helpful. If you have no T-Mobile service at all in your area, they will not help.
 
-Cellular micro/pico/femto cells that use the Internet to connect to a specific carrier generally do not work. For example, the AT&T MicroCell does not work with the Electron and E Series, even though they can use AT&T in the United States. The reason is that the Particle devices are roaming on AT&T, and the MicroCell product does not allow access to roaming cellular devices.
+Cellular micro/pico/femto cells that use the Internet to connect to a specific carrier generally do not work. For example, the AT&T MicroCell does not work with the Electron and E-Series, even though they can use AT&T in the United States. The reason is that the Particle devices are roaming on AT&T, and the MicroCell product does not allow access to roaming cellular devices.
 
 
 ## Wi-Fi
@@ -370,7 +370,7 @@ These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenn
 
 Particle Gen 3 devices support BLE for short-distance communication. Most devices include a built-in chip antenna, and can optionally use an external antenna. 
 
-The exception is the B Series SoM, which does not have a chip antenna on the SoM and requires an external antenna if BLE is to be used. Use of BLE on the B Series SoM is optional.
+The exception is the B-Series SoM, which does not have a chip antenna on the SoM and requires an external antenna if BLE is to be used. Use of BLE on the B-Series SoM is optional.
 
 The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) and wholesale stores. Note: The same external antenna model is used for Wi-Fi and BLE.
 

@@ -1,8 +1,8 @@
 ---
-title: M-SoM from E Series Migration Guide
+title: M-SoM from E-Series Migration Guide
 columns: two
 layout: commonTwo.hbs
-description: M-SoM from E Series Migration Guide
+description: M-SoM from E-Series Migration Guide
 ---
 
 # {{title}}
@@ -18,13 +18,13 @@ This is a preliminary datasheet and changes may occur prior to release.
 
 The M-SoM (system-on-a-module) is a 4th-generation cellular and Wi-Fi device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
-Like the E Series module, it requires your own custom base board. One difference is that the M-SoM does not contain the PMIC and fuel gauge chips that the E Series does.
+Like the E-Series module, it requires your own custom base board. One difference is that the M-SoM does not contain the PMIC and fuel gauge chips that the E-Series does.
 
 Additionally, different dimensions makes it possible to include a LTE Cat 1 with 2G/3G fallback cellular modem, such as the Quectel EG91-E on the B524. 
 
-All E Series models (except for the E404X) have been deprecated. It is recommended that you migrate to the B-SoM or M-SoM, and it is required to get LTE Cat 1 with 2G/3G fallback support in Europe, Australia, and New Zealand. While the E404X has the same footprint as the other E Series modules, it contains the same MCU as the B-SoM.
+All E-Series models (except for the E404X) have been deprecated. It is recommended that you migrate to the B-SoM or M-SoM, and it is required to get LTE Cat 1 with 2G/3G fallback support in Europe, Australia, and New Zealand. While the E404X has the same footprint as the other E-Series modules, it contains the same MCU as the B-SoM.
 
-| Feature | E Series SoM | E Series Base Board | M-SoM | SoM Base Board |
+| Feature | E-Series SoM | E-Series Base Board | M-SoM | SoM Base Board |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | U.FL Antenna Connector | &check; | | &check; | Optional |
 | MFF2 SMD Particle SIM<sup>2</sup> | &check; | | &check; | &nbsp; |
@@ -41,8 +41,8 @@ All E Series models (except for the E404X) have been deprecated. It is recommend
 ### Datasheets
 
 - [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
-- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
-- [E Series datasheet](/reference/datasheets/e-series/e-series-datasheet/)
+- [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
+- [E-Series datasheet](/reference/datasheets/e-series/e-series-datasheet/)
 
 ## Certification
 
@@ -54,11 +54,11 @@ in some cases intentional radiator testing could be required.
 
 The M-SoM cannot be used without a base board. Typically you will create your own board, however there are two off-the-shelf options available:
 
-### B Series Eval board
+### B-Series Eval board
 
-![B Series Eval](/assets/images/b-series/b-series-eval.png)
+![B-Series Eval](/assets/images/b-series/b-series-eval.png)
 
-The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the M-SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
+The [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the M-SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
 
 {{!-- BEGIN shared-blurb 19f889d4-a5c9-11ec-b909-0242ac120002 --}}
 {{imageOverlay src="/assets/images/b-series/b-series-eval-labeled.png" alt="Ports Diagram" class="full-width"}}
@@ -86,7 +86,7 @@ The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-boa
 | 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
 | 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
 | 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 22 | **SoM connector** | M.2 connector for the B Series SoM. |
+| 22 | **SoM connector** | M.2 connector for the B-Series SoM. |
 | 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
 | 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
 | 25 | **Charge LED** | Indicate LiPo is charging. | 
@@ -100,7 +100,7 @@ The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-boa
 {{!-- BEGIN shared-blurb b644c2f2-a5ca-11ec-b909-0242ac120002 --}}
 ![Mikroe Gen 3 SoM](/assets/images/prototyping/mikroe-som.png)
 
-The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B Series SoM to mikroBUS Click boards:
+The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B-Series SoM to mikroBUS Click boards:
 
 | M.2 Pin | Generic SoM | Gen 3 | mikroBUS #1 | mikroBUS #2 |
 | :---: | :---: | :---: | :---: | :---: |
@@ -142,7 +142,7 @@ The [SoM first board tutorial](/hardware/b-series-som/som-first-board/) shows ho
 
 ### Basic SoM design
 
-This design is a bit more complicated, and includes the PMIC and Fuel Gauge chips that are present on the E Series:
+This design is a bit more complicated, and includes the PMIC and Fuel Gauge chips that are present on the E-Series:
 
 ![Whole Board](/assets/images/app-notes/AN001/whole-board.png)
 
@@ -191,7 +191,7 @@ One major advantage is that user firmware binaries can be up to 2048 Kbytes, ins
 
 ### Flash file system
 
-There is a 2 MB flash file system for storing user data on the M-SoM. This is not available on the E Series (except for the E404X).
+There is a 2 MB flash file system for storing user data on the M-SoM. This is not available on the E-Series (except for the E404X).
 
 ### Combined and resumable OTA
 
@@ -207,9 +207,9 @@ Over-the-air (OTA) updates have two features that can improve the speed and reli
 
 ### Increased API field limits
 
-The maximum size of a variable, function parameter, or publish is 1024 bytes on the M-SoM vs. 864 bytes on the E Series.
+The maximum size of a variable, function parameter, or publish is 1024 bytes on the M-SoM vs. 864 bytes on the E-Series.
 
-| API Field | E Series | M-SoM |
+| API Field | E-Series | M-SoM |
 | :--- | :---: | :---: |
 | Variable Key | 64 | 64 |
 | Variable Data | 864 | 1024 |
@@ -218,14 +218,14 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 | Publish/Subscribe Event Name | 64 | 64 |
 | Publish/Subscribe Event Data | 864 | 1024 |
 
-- These comparisons are between the STM32F205-based E Series models, other than the E404X. The API field limits for the E404X (nRF52840) are the same as as the M-SoM.
+- These comparisons are between the STM32F205-based E-Series models, other than the E404X. The API field limits for the E404X (nRF52840) are the same as as the M-SoM.
 
 
 ## Hardware differences
 
 ### MCU
 
-| Measure | E Series | M-SoM |
+| Measure | E-Series | M-SoM |
 | :--- | :---: | :---: |
 | MCU | STM32F205 | RTL8722DM |
 | Manufacturer | ST Microelectronics | Realtek |
@@ -237,11 +237,11 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 | Hardware floating point | &nbsp; | &check; |
 | Secure Boot | &nbsp; | &check; |
 
-- These comparisons are between the STM32F205-based E Series models, other than the E404X. The specifications for the E404X (nRF52840) are different.
+- These comparisons are between the STM32F205-based E-Series models, other than the E404X. The specifications for the E404X (nRF52840) are different.
 
 ### BLE (Bluetooth LE)
 
-- Bluetooth LE (BLE 5.0) is supported on M-SoM but not the E Series (except for the E404X, which does support BLE).
+- Bluetooth LE (BLE 5.0) is supported on M-SoM but not the E-Series (except for the E404X, which does support BLE).
 
 
 ### GPIO
@@ -314,9 +314,9 @@ Interfacing with 5V peripherals can be done with a level shifter, a MOSFET, or a
 
 ### SPI
 
-- The M-SoM and E Series both have two SPI ports.
+- The M-SoM and E-Series both have two SPI ports.
 - In most cases, you can share a single SPI bus with many peripherals.
-- On the E Series, SPI1 and SPI2 share the same MCU SPI interface but have different pin locations. You can only use one or the other.
+- On the E-Series, SPI1 and SPI2 share the same MCU SPI interface but have different pin locations. You can only use one or the other.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 4757df20-600f-4beb-b781-59ff36cbb3d5 --}}
 
@@ -345,10 +345,10 @@ Interfacing with 5V peripherals can be done with a level shifter, a MOSFET, or a
 
 ### Serial (UART)
 
-There are more UART ports on the E Series than the M-SoM. If you need more hardware serial ports, the best option is to use the [SC16IS740](https://github.com/rickkas7/SC16IS740RK) or its relatives like the SC16IS750. These devices connect by I2C or SPI, and you can add multiple ports this way.
+There are more UART ports on the E-Series than the M-SoM. If you need more hardware serial ports, the best option is to use the [SC16IS740](https://github.com/rickkas7/SC16IS740RK) or its relatives like the SC16IS750. These devices connect by I2C or SPI, and you can add multiple ports this way.
 
 
-|      | E Series | M-SoM |
+|      | E-Series | M-SoM |
 | :--- | :---: | :---: |
 | Buffer size | 64 bytes | 2048 bytes |
 | 7-bit mode | &check; | &check; |
@@ -368,7 +368,7 @@ There are more UART ports on the E Series than the M-SoM. If you need more hardw
 
 Supported Baud Rates:
 
-| Baud Rate | E Series | M-SoM |
+| Baud Rate | E-Series | M-SoM |
 | ---: | :---: | :---|
 | 110     | | &check; |
 | 300     | | &check; |
@@ -428,7 +428,7 @@ Supported Baud Rates:
 
 ### Analog input (ADC)
 
-The M-SoM does not have an many ADC ports as the E Series. You can add additional ADC ports using a SPI or I2C ADC.
+The M-SoM does not have an many ADC ports as the E-Series. You can add additional ADC ports using a SPI or I2C ADC.
 
 {{!-- BEGIN do not edit content below, it is automatically generated eeeca022-6ba8-4f96-b0e2-5b00362fed6d --}}
 
@@ -465,17 +465,17 @@ The M-SoM does not have an many ADC ports as the E Series. You can add additiona
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- 1 I2C on M-SoM. While it appears that there are 2 on the E Series, they're just alternative pin assignments and you can really only use one at a time.
+- 1 I2C on M-SoM. While it appears that there are 2 on the E-Series, they're just alternative pin assignments and you can really only use one at a time.
 - You can generally have many devices on a single I2C bus.
 - If you have I2C address conflicts you can use an I2C multiplexer like the TCA9548A.
-- The E Series I2C is 5V tolerant. This is not the case on the M-SoM, be sure you don't have pull-ups to 5V!
+- The E-Series I2C is 5V tolerant. This is not the case on the M-SoM, be sure you don't have pull-ups to 5V!
 - If you need to interface to a 5V I2C bus you will need an I2C level shifter such as the PCA9306.
 - On the M-SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 
 ### PWM (Pulse-width modulation)
 
-These are differences in pins that support PWM between the E Series and M-SoM.
+These are differences in pins that support PWM between the E-Series and M-SoM.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 4f18e140-7466-4fad-bc1f-55e8fcdf9561 --}}
 
@@ -518,13 +518,13 @@ It is also possible to add an external PWM driver such as the PCA9685 which adds
 
 #### PWM - Gen 2
 
-On the Electron and E Series, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX, TX, B0, B1, B2, B3, C4, and C5 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+On the Electron and E-Series, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX, TX, B0, B1, B2, B3, C4, and C5 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 ### Internal pull-up or pull-down
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
-On the M-SoM, different GPIO pins have different pull values. On the E Series pull is always approximately 40K.
+On the M-SoM, different GPIO pins have different pull values. On the E-Series pull is always approximately 40K.
 
 ### Retained memory
 
@@ -544,15 +544,15 @@ Retained memory is 3068 bytes.
 
 ### Flash file system
 
-The E Series did not have a flash file system. 
+The E-Series did not have a flash file system. 
 
 The M-SoM has 2 MB flash file system using the same [POSIX API](/reference/device-os/api/file-system/file-system/) as Gen 3 devices. A small amount of space is reserved for system use including configuration data. Most of the space is available for user application use.
 
 ### EEPROM
 
-The [EEPROM emulation API](/reference/device-os/api/eeprom/eeprom/) is the same across the E Series and M-SoM.
+The [EEPROM emulation API](/reference/device-os/api/eeprom/eeprom/) is the same across the E-Series and M-SoM.
 
-- The E Series had 2047 bytes of emulated EEPROM.
+- The E-Series had 2047 bytes of emulated EEPROM.
 - The M-SoM has 4096 bytes of emulated EEPROM. On the M-SoM, P2, Photon 2, and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
 
 
@@ -569,11 +569,11 @@ Not supported on the Electron/E series (you can't use attachInterrupt on these p
   - C1 (shared with RXD_UC)
   - C2 (shared with RI_UC)
 
-No restrictions on the Electron/E Series (all of these can be used at the same time):
+No restrictions on the Electron/E-Series (all of these can be used at the same time):
 
   - D5, D6
 
-Shared on the Electron/E Series (only one pin for each bullet item can be used at the same time):
+Shared on the Electron/E-Series (only one pin for each bullet item can be used at the same time):
 
   - D1, A4, B1
   - D2, A0, A3
@@ -608,18 +608,18 @@ There are no restrictions on interrupt pins on the M-SoM.
 {{!-- 
 ### I2S (Sound)
 
-- The E Series theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
+- The E-Series theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
 - I2S is theoretically available on the M-SoM, though it requires a 3rd-party library and is restricted to pins xxx.
 --}}
 
 
 ### Sleep
 
-- In `HIBERNATE` sleep mode, both the M-SoM and E Series can only be wakened via the `WKP` pin.
+- In `HIBERNATE` sleep mode, both the M-SoM and E-Series can only be wakened via the `WKP` pin.
 
-- In `HIBERNATE` sleep mode, both the M-SoM and E Series put pin in `OUTPUT` mode into high-impedance state.
+- In `HIBERNATE` sleep mode, both the M-SoM and E-Series put pin in `OUTPUT` mode into high-impedance state.
 
-- In `STOP` and `ULTRA_LOW_POWER` sleep modes, the M-SoM preserves the digital output, but the E Series puts the pins in `OUTPUT` mode into high-impedance state.
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, the M-SoM preserves the digital output, but the E-Series puts the pins in `OUTPUT` mode into high-impedance state.
 
 - In `HIBERNATE` sleep mode, on the M-SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
 
@@ -635,7 +635,7 @@ M-SoM pins related to `HIBERNATE` sleep mode:
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
-E Series pins related to `HIBERNATE` sleep mode:
+E-Series pins related to `HIBERNATE` sleep mode:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 55771164-b2c5-4c32-b389-ad5b9d6f378e --}}
 
@@ -648,7 +648,7 @@ E Series pins related to `HIBERNATE` sleep mode:
 
 ### RTC (Real-time clock)
 
-The E Series module has support for an external lithium coin cell battery or supercap to power the STM32 internal RTC via the `VBAT` pin.
+The E-Series module has support for an external lithium coin cell battery or supercap to power the STM32 internal RTC via the `VBAT` pin.
 
 The M-SoM MCU does not have a dedicated RTC module that can be externally powered. This is also the case with the P2, Photon 2, and Gen 3 devices. If you need an externally powered RTC, one option is the AM1805/AB1805 real-time clock and hardware watchdog module, which is used on the Tracker SoM.
 
@@ -661,12 +661,12 @@ See also 28cd19b2-4f01-444b-8189-ba6191e6ebdd
 
 ### USB
 
-- Both the E Series and M-SoM assume the USB connector will be mounted on your base board. It is recommended that you add one to your base board for programming and troubleshooting.
+- Both the E-Series and M-SoM assume the USB connector will be mounted on your base board. It is recommended that you add one to your base board for programming and troubleshooting.
 - Gen 2 devices can emulate a USB mouse or keyboard over the USB port. This feature is available on the M-SoM but not available on Gen 3 (including B-SoM).
 - Gen 2 devices can support two separate USB serial emulation streams over the USB port. Gen 3 devices only support the normal `Serial` interface.
 
 
-| USB Feature | E Series | M-SoM | B-SoM |
+| USB Feature | E-Series | M-SoM | B-SoM |
 | :--- | :---: | :---: | :---: |
 | Secondary USB serial emulation `USBSerial1` | &check; | &nbsp; | &nbsp; |
 | USB keyboard emulation | &check; | &check; | &nbsp; |
@@ -674,7 +674,7 @@ See also 28cd19b2-4f01-444b-8189-ba6191e6ebdd
 
 ### PMIC and Fuel gauge
 
-The E Series, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
+The E-Series, E-Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
 
 On the M-SoM, the PMIC and fuel gauge are optional. For example, if you are powering by an external power supply and not using a battery, you can omit the components entirely.
 
@@ -682,17 +682,17 @@ On the M-SoM, the PMIC and fuel gauge are optional. For example, if you are powe
 ## PMIC Notes
 
 {{!-- BEGIN shared-blurb 93112786-2815-408c-b064-ec7e9c629200 --}}
-When using the B Series SoM with a bq24195 PMIC, note the following:
+When using the B-Series SoM with a bq24195 PMIC, note the following:
 
-By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B Series SoM in normal operation.
+By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B-Series SoM in normal operation.
 
 If your device has the default firmware (Tinker), it will attempt to connect to the cloud, brown out due to insufficient current, then the device will reset. This may result in what appears to be the status LED blinking white, but is actually rolling reboot caused by brownout.
 
-A factory new B Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
+A factory new B-Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B-Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
 
 Because the input current limit does not affect the battery input (Li+), for troubleshooting purposes it can be helpful to attach a battery to help rule out input current limit issues. It's also possible to supply 3.7V via a bench power supply to the battery input, instead of VIN. 
 
-The input current limit can result in a situation where you can't bring up a B Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
+The input current limit can result in a situation where you can't bring up a B-Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
 
 - Attach a battery or supply by Li+ when bringing up a board.
 - Use SWD/JTAG and reset halt the MCU. This will prevent it from connecting to the cloud, so you can flash Device OS and firmware to it by SWD.
@@ -1512,7 +1512,7 @@ To be provided at a later date.
 
 ### Wi-Fi configuration
 
-Since the E Series (cellular) does not have Wi-Fi support, if you wish to use Wi-Fi on the M-SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
+Since the E-Series (cellular) does not have Wi-Fi support, if you wish to use Wi-Fi on the M-SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
 
 
 ### User firmware binary size
@@ -1523,9 +1523,9 @@ On the B-SoM (Device OS 3.1 and later), it's 256 Kbytes, or 128 Kbytes for older
 
 ### Platform ID
 
-The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the E Series (10) because of the vastly different hardware. 
+The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the E-Series (10) because of the vastly different hardware. 
 
-If you have a product based on the E Series, you will need to create a separate product for devices using the M-SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+If you have a product based on the E-Series, you will need to create a separate product for devices using the M-SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 
 
 ### Third-party libraries

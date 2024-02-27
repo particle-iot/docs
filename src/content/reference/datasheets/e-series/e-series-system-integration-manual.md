@@ -1,8 +1,8 @@
 ---
-title: E Series System Integration Manual
+title: E-Series System Integration Manual
 layout: commonTwo.hbs
 columns: two
-description: Integration Manual for E Series modules, Gen 2 cellular
+description: Integration Manual for E-Series modules, Gen 2 cellular
 ---
 # System integration manual
 
@@ -18,7 +18,7 @@ For further information about this module please refer to:
  - [Firmware development](/reference/device-os/firmware/)
  - [Product management](/getting-started/console/console/)
 
-## E Series architecture:
+## E-Series architecture:
 
 The block diagram below summarizes the architecture of the E series module. It's key components are the STM32F205 microcontroller and the u-blox SARA cellular modem. In addition to that, the module has an on board power management IC, 3.3V DC regulator, LiPo fuel gauge, and an Particle embedded SIM chip. There is also room for additional SPI based FLASH memory expansion.
 

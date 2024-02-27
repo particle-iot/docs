@@ -376,12 +376,12 @@ should always manually target 5.3.1 or later, for example, `--target 5.3.1`, ins
   - `p2` (also Photon 2)
   - `boron`
   - `argon`
-  - `bsom` (B Series SoM, 4xx)
-  - `b5som` (B Series SoM, 5xx)
+  - `bsom` (B-Series SoM, 4xx)
+  - `b5som` (B-Series SoM, 5xx)
   - `tracker`
   - `photon`
   - `p1`
-  - `electron` (also E Series)
+  - `electron` (also E-Series)
 {{!-- END shared-blurb --}}
 
   **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it in [preprocessor](/reference/device-os/api/preprocessor/preprocessor/) in the Device OS Firmware API reference.
@@ -995,7 +995,7 @@ Various commands to interact with a device connected through USB.
 
 _On Windows, these commands require the latest drivers. See the [CLI installation guide](/getting-started/developer-tools/cli/#using-windows) for details._
 
-The Particle USB commands are only available in Device OS 0.9.0 (Gen 3, including Argon and Boron), and 1.0.0 (Gen 2, including Photon, P1, Electron, and E Series). These commands are not available on the Gen 1 (Spark Core).
+The Particle USB commands are only available in Device OS 0.9.0 (Gen 3, including Argon and Boron), and 1.0.0 (Gen 2, including Photon, P1, Electron, and E-Series). These commands are not available on the Gen 1 (Spark Core).
 
 If you have an older Particle device you can use `particle update` will upgrade the devices to support these commands.
 
@@ -1069,7 +1069,7 @@ Reset can be used from normal operating mode, safe mode, or DFU mode.
 
 ### particle usb setup-done
 
-On the Argon, Boron, B Series SoM, and Tracker SoM running Device OS 3.x and earlier, the setup done flag indicates that mesh setup has been complete. This is set automatically by the mobile apps, however if you are setting up manually over USB, you will need to set the setup done flag, otherwise the device will always boot into listening mode (blinking dark blue).
+On the Argon, Boron, B-Series SoM, and Tracker SoM running Device OS 3.x and earlier, the setup done flag indicates that mesh setup has been complete. This is set automatically by the mobile apps, however if you are setting up manually over USB, you will need to set the setup done flag, otherwise the device will always boot into listening mode (blinking dark blue).
 
 ```
 particle usb setup-done [devices...] [--reset]
@@ -1116,9 +1116,9 @@ You can also downgrade Device OS, however:
 - If you are downgrading, you should first downgrade user firmware or using `particle flash --local tinker` as user firmware that targets a newer version of Device OS will cause it to update back to its original version OTA after reconnecting to the cloud.
 
 {{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
-**Boron LTE BRN402 and B Series SoM B402**
+**Boron LTE BRN402 and B-Series SoM B402**
 
-If you are downgrading a Boron LTE (BRN402) or B Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
+If you are downgrading a Boron LTE (BRN402) or B-Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
 {{!-- END shared-blurb --}}
 
 

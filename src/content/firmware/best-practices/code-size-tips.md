@@ -12,7 +12,7 @@ There are several different things you might want to optimize for, described in 
 
 ## Flash size optimization
 
-Gen 2 devices including the Photon, P1, Electron, and E Series have a 128 Kbyte (131,072 byte) flash memory sector for user code. Within the flash, there are a number of things including:
+Gen 2 devices including the Photon, P1, Electron, and E-Series have a 128 Kbyte (131,072 byte) flash memory sector for user code. Within the flash, there are a number of things including:
 
 - Your compiled code
 - String constants
@@ -20,7 +20,7 @@ Gen 2 devices including the Photon, P1, Electron, and E Series have a 128 Kbyte 
 - C++ template expansions
 - Some overhead
 
-Gen 3 devices (including the Argon, Boron, B Series SoM, and Tracker) running Device OS 3.1 or later have 256 Kbyte user binaries (262,144 byte), double the space. Earlier versions of Device OS only supported 128K binaries like Gen 2. For more information, see [256K user binaries](/reference/device-os/256K-user-binaries/).
+Gen 3 devices (including the Argon, Boron, B-Series SoM, and Tracker) running Device OS 3.1 or later have 256 Kbyte user binaries (262,144 byte), double the space. Earlier versions of Device OS only supported 128K binaries like Gen 2. For more information, see [256K user binaries](/reference/device-os/256K-user-binaries/).
 
 ## Your compiled code
 
@@ -766,7 +766,7 @@ Retained memory, or the special static RAM (SRAM) or backup RAM section in the p
 
 Unlike flash, the SRAM block can be written to at full processor speed, and does not wear out when written to.
 
-Retained memory does not affect the RAM used size - it's allocated out of the separate SRAM block. It does use flash space equal to the amount of retained memory used to initialize values. Note that on Gen 3 devices (Argon, Boron, B Series SoM), retained memory initialization is only supported in Device OS 1.5.0 and later.
+Retained memory does not affect the RAM used size - it's allocated out of the separate SRAM block. It does use flash space equal to the amount of retained memory used to initialize values. Note that on Gen 3 devices (Argon, Boron, B-Series SoM), retained memory initialization is only supported in Device OS 1.5.0 and later.
 
 ```cpp
 STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));

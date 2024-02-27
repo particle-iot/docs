@@ -61,15 +61,15 @@ module.exports = function(context) {
         if (context.hash.type.indexOf("cellular") >= 0) {
             if (context.hash.type.indexOf("gen3") >= 0) {
                 message = 'Gen 3 Cellular Devices';
-                deviceList = 'B Series SoM, Tracker SoM, Tracker One, Boron, and E404X';
+                deviceList = 'B-Series SoM, Tracker SoM, Tracker One, Boron, and E404X';
             }
             else if (context.hash.type.indexOf("gen2") >= 0) {
                 message = 'Gen 2 Cellular Devices';
-                deviceList = 'E Series and Electron; does not include E404X';
+                deviceList = 'E-Series and Electron; does not include E404X';
             }
             else {
                 message = 'Cellular Devices';
-                deviceList = 'B Series SoM, Tracker SoM, Tracker One, Boron, E404X, E Series, and Electron';
+                deviceList = 'B-Series SoM, Tracker SoM, Tracker One, Boron, E404X, E-Series, and Electron';
             }
             cssClass = 'note-cellular';
         }
@@ -92,13 +92,13 @@ module.exports = function(context) {
         else
         if (context.hash.type.indexOf("gen3") >= 0) {
             message = 'Gen 3 Devices';
-            deviceList = 'B Series SoM, Tracker SoM, Tracker One, Boron, Argon, and E404X';
+            deviceList = 'B-Series SoM, Tracker SoM, Tracker One, Boron, Argon, and E404X';
             cssClass = 'note-gen3';
         }
         else
         if (context.hash.type.indexOf("gen2") >= 0) {
             message = 'Gen 2 Devices';
-            deviceList = 'E Series, Electron, Photon, and P2; does not include E404X';
+            deviceList = 'E-Series, Electron, Photon, and P2; does not include E404X';
             cssClass = 'note-gen2';
         }
         else

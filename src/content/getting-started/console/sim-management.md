@@ -14,7 +14,7 @@ managing a fleet of Particle SIM cards at all stages of the SIM life cycle.
 ## Introduction
 
 The SIMs view in the console is available for all cellular-based products, including those based on 
-the E Series, Electron, B Series SoM, Boron, and Tracker. 
+the E-Series, Electron, B-Series SoM, Boron, and Tracker. 
 It appears as a SIM card icon in the Console side bar when
 looking at your product. To access this view and start exploring, click on the SIM card icon ( <i
 class="im-sim-vertical-detailed"></i> ).
@@ -43,7 +43,7 @@ new SIMs into the product
 ## Importing SIM cards
 
 In many cases, you will not need to import SIM cards at all. For devices that include a built-in MFF2 SMD SIM
-(E Series, B Series SoM, Boron, and Tracker), adding the Device ID to your product will automatically add the built-in
+(E-Series, B-Series SoM, Boron, and Tracker), adding the Device ID to your product will automatically add the built-in
 SIM card to your product with no additional steps required.
 
 You can import SIM cards into your product a variety of different ways:

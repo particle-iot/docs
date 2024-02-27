@@ -15,7 +15,7 @@ The following SKUs are affected:
 | Device | Old SKU | Replacement SKU |
 | :--- | :--- | :--- |
 | Boron | BRN404, BRN402 | BRN404X |
-| B Series SoM | B404, B402 | BRN404X |
+| B-Series SoM | B404, B402 | BRN404X |
 
 ## R510S Advantages
 

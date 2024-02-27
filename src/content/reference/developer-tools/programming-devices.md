@@ -13,10 +13,10 @@ There are a number of components that may need to be upgraded on a device, in ad
 | Device | Generation | System Parts | Bootloader | Soft Device | NCP |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | Tracker | Gen 3 | 1 | &check; | &check; | &check;<sup>2</sup> |
-| B Series SoM | Gen 3 | 1 | &check; | &check; | &nbsp; |
+| B-Series SoM | Gen 3 | 1 | &check; | &check; | &nbsp; |
 | Boron | Gen 3 | 1 | &check; | &check; | &nbsp; |
 | Argon | Gen 3 | 1 | &check; | &check; | &check;<sup>1</sup> |
-| E Series | Gen 2 | 3 | &check; | &nbsp; | &nbsp; |
+| E-Series | Gen 2 | 3 | &check; | &nbsp; | &nbsp; |
 | Electron | Gen 2 | 3 | &check; | &nbsp; | &nbsp; |
 | P1 | Gen 2 | 2 | &check; | &nbsp; | &nbsp; |
 | Photon | Gen 2 | 2 | &check; | &nbsp; | &nbsp; |
@@ -131,11 +131,11 @@ The Tracker SoM does not contain a 10-pin SWD debugging connector on the SoM its
 
 The 10-pin SWD debugging connector Tracker One is not easily accessible, as it not only requires opening the case, which would void the warranty and possibly affect the IP67 waterproof rating, but also the connector is not populated on the board (there are bare tinned pads where the SMD connector would be).
 
-The B Series SoM does not contain the 10-pin SWD debugging connector on the SoM. There are pads on the bottom of the SoM that mate with pogo pins on the B Series evaluation board, which does have a 10-pin SWD debugging connector. You can either temporarily mount the SoM in a test fixture with a debugging connector, include the connector on your board, or use other methods.
+The B-Series SoM does not contain the 10-pin SWD debugging connector on the SoM. There are pads on the bottom of the SoM that mate with pogo pins on the B-Series evaluation board, which does have a 10-pin SWD debugging connector. You can either temporarily mount the SoM in a test fixture with a debugging connector, include the connector on your board, or use other methods.
 
 The Boron and Argon both have 10-pin SWD debugging connectors on the Feather device.
 
-The Electron, E Series, Photon and P1 have SWD on pins D7, D5, and optionally RESET. If these pins are available, you can program it by SWD. However, you may need to be able to change the device mode, so access to the MODE button, or to USB, may be helpful.
+The Electron, E-Series, Photon and P1 have SWD on pins D7, D5, and optionally RESET. If these pins are available, you can program it by SWD. However, you may need to be able to change the device mode, so access to the MODE button, or to USB, may be helpful.
 
 ### Hex files
 

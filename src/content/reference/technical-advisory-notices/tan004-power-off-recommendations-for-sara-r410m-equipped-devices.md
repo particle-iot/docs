@@ -10,7 +10,7 @@ Published: May 18, 2021
 
 ## Issue summary
 
-Particle has produced the following power-off procedure recommendations for Particle devices running u-blox SARA-R410M-02B modules. The u-blox SARA-R410M-02B is a component that is used in **Particle Electron, E Series, Boron, and B Series LTE Cat-M1 Devices**. Devices that ungracefully power off the SARA-R410M module, especially if done with great frequency, may be subject to a very rare but serious flash memory corruption issue with the u-blox modem. 
+Particle has produced the following power-off procedure recommendations for Particle devices running u-blox SARA-R410M-02B modules. The u-blox SARA-R410M-02B is a component that is used in **Particle Electron, E-Series, Boron, and B-Series LTE Cat-M1 Devices**. Devices that ungracefully power off the SARA-R410M module, especially if done with great frequency, may be subject to a very rare but serious flash memory corruption issue with the u-blox modem. 
 
 Abrupt (“ungraceful” - unhandled by firmware protocols) power removal from the above modem component may induce memory corruption that permanently disrupts normal function of the modem and prevents it from booting or connecting to the network. This issue primarily affects devices in low-power use cases (allowing their power sources to drain fully) and in use cases that abruptly remove power from the device. _Devices that do not fully deplete their batteries in an unhandled fashion or routinely ungracefully power off the modem have little to no risk of occurrence_. 
 
@@ -50,7 +50,7 @@ Using a backup battery or a supercapacitor that allows the device at least 30 se
 
 Particle devices with u-blox memory corruption resulting from ungraceful modem power-off will fail to connect and can exhibit characteristic LED status signals and trace logs.
 
-A Particle E Series LTE device in this state will blink its LED dark blue and will report:  
+A Particle E-Series LTE device in this state will blink its LED dark blue and will report:  
 
 ```
 INFO: SIM/modem not responsive or SIM not inserted/requires a PIN.

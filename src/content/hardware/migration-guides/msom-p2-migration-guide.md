@@ -24,7 +24,7 @@ However, since the P2 has a Realtek RTL8721DM processor and the M-SoM has a Real
 
 - [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
 - [P2 datasheet](/reference/datasheets/wi-fi/p2-datasheet/)
-- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
+- [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
 ## Certification
 

@@ -202,7 +202,7 @@ The Photon board is a lot like the under-mount FeatherWing board, but it has two
 
 ![Photon](/assets/images/beyond-prototyping/photon.jpg)
 
-The Gen 2 devices (Photon, P1, Electron, and E Series) use different pins because the STM32F205 processor supports PWM for the RGB LED on different pins. Thus the schematic is slightly different:
+The Gen 2 devices (Photon, P1, Electron, and E-Series) use different pins because the STM32F205 processor supports PWM for the RGB LED on different pins. Thus the schematic is slightly different:
 
 ![Photon Schematic](/assets/images/beyond-prototyping/photon-schematic.png)
 
@@ -280,9 +280,9 @@ The Eagle CAD schematic and board files are in the **eagle** directory in the [G
 | 1 | 10-pin JTAG Connector | [Samtek SAM8796-ND](https://www.digikey.com/products/en?keywords=SAM8796-ND) | $2.90 |
 | 2 | Tactile switch | [C&K PTS645SH50SMTR92](https://www.digikey.com/product-detail/en/c-k/PTS645SH50SMTR92-LFS/CKN9085CT-ND/1146817) | $0.21 |
 
-## E Series (Gen 2 cellular SMD)
+## E-Series (Gen 2 cellular SMD)
 
-The E Series Gen 2 cellular module is about the same level of effort as the P1. It has a built-in voltage regulator and PMIC, but you need to add a battery connector.
+The E-Series Gen 2 cellular module is about the same level of effort as the P1. It has a built-in voltage regulator and PMIC, but you need to add a battery connector.
 
 - RGB LED (the status one)
 - RESET and MODE buttons
@@ -290,15 +290,15 @@ The E Series Gen 2 cellular module is about the same level of effort as the P1. 
 - Battery connector
 - Charge LED (I forgot to add this in the design here)
 
-![E Series](/assets/images/beyond-prototyping/eseries.png)
+![E-Series](/assets/images/beyond-prototyping/eseries.png)
 
 Schematic:
 
-![E Series Schematic](/assets/images/beyond-prototyping/eseries-schematic.png)
+![E-Series Schematic](/assets/images/beyond-prototyping/eseries-schematic.png)
 
 Board:
 
-![E Series Board](/assets/images/beyond-prototyping/eseries-board.png)
+![E-Series Board](/assets/images/beyond-prototyping/eseries-board.png)
 
 The Eagle CAD schematic and board files are in the **eagle** directory in the [GitHub repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
 

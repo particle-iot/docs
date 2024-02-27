@@ -143,7 +143,7 @@ These commands will also flash Asset OTA bundles if the `assetOtaDir` is specifi
 **256K binary edge case**
 
 {{!-- BEGIN shared-blurb c44d9da5-6a99-46cc-a6e9-c9405c8fc578 --}}
-On Gen 3 devices including the Argon, Boron, B Series SoM, and Tracker, when upgrading from 3.0 or earlier to 3.1 or later, there is an edge case that can cause your old code to run. This will only occur when flashing over USB from Workbench, or using `particle flash --local` or `particle flash --serial` from the Particle CLI. This problem does not occur with OTA flashing or Device Restore.
+On Gen 3 devices including the Argon, Boron, B-Series SoM, and Tracker, when upgrading from 3.0 or earlier to 3.1 or later, there is an edge case that can cause your old code to run. This will only occur when flashing over USB from Workbench, or using `particle flash --local` or `particle flash --serial` from the Particle CLI. This problem does not occur with OTA flashing or Device Restore.
 
 When binaries were expanded from 128K to 256K maximum, this was accomplished by moving the start address 128K earlier in flash memory. The logic in the Device OS 3.1.0 and later bootloader is to check the 128K slot first, if there is a valid binary it will be used. This is necessary to make sure you can successfully using `particle flash <device> tinker`, `particle flash --local tinker`.
 
@@ -361,11 +361,11 @@ Starting with Device OS 4.0 (and also 5.0):
 | E-SoM X (E404X) | 3 | >= 4.0 | n/a |
 | Boron | 3 | >= 4.0 | < 4.0 |
 | Argon | 3 | >= 4.0 | < 4.0 |
-| E Series / Electron | 2 |  | &check; |
+| E-Series / Electron | 2 |  | &check; |
 | P1 | 2 |  | &check; |
 | Photon | 2 |  | &check; |
 
-For Gen 2 devices, E Series (except E404X), Electron, P1, and Photon, debugging is still monolithic and unchanged as these devices cannot use Device OS 4.0 or later.
+For Gen 2 devices, E-Series (except E404X), Electron, P1, and Photon, debugging is still monolithic and unchanged as these devices cannot use Device OS 4.0 or later.
 
 {{!-- END shared-blurb --}}
 
@@ -458,7 +458,7 @@ void setup()
 }
 ```
 
-This is only necessary on Gen 3 devices with an nRF52 processor including the Boron, B Series SoM, Argon, and Tracker SoM.
+This is only necessary on Gen 3 devices with an nRF52 processor including the Boron, B-Series SoM, Argon, and Tracker SoM.
 
 #### Disabling optimization
 
@@ -575,19 +575,19 @@ The Particle CLI (command line interface) is used for many operations within Par
 
 The Clean options remove the intermediate object files and built binaries. This option removes only the application intermediate files, leaving the Device OS binaries unchanged. You might want to do this if you are getting unexpected compile errors in your application.
 
-These are kept separate for each Device OS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
+These are kept separate for each Device OS version, platform (Photon, P1, Electron/E-Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
 
 ### Particle: Clean application & DeviceOS (local)
 
 The Clean options remove the intermediate object files and built binaries. This option removes both the application and Device OS intermediate files.
 
-These are kept separate for each Device OS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
+These are kept separate for each Device OS version, platform (Photon, P1, Electron/E-Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
 
 ### Particle: Clean application for debug (local)
 
 The Clean options remove the intermediate object files and built binaries. For debug (monolithic) builds this option removes all of the intermediate files for both your application and Device OS.
 
-These are kept separate for each Device OS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
+These are kept separate for each Device OS version, platform (Photon, P1, Electron/E-Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
 
 ### Particle: Cloud Compile
 

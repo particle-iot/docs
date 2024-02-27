@@ -87,7 +87,7 @@ FCC Part 15 Subpart B, Class B (sDoC):
 - [RoHS 3.0 Test Reports](/assets/pdfs/argon-rohs.pdf)
 
 
-## B402 and B404 B Series SoM
+## B402 and B404 B-Series SoM
 
 All designs using the B402 and B404 should migrate to the pin and software compatible B404X. An upgrade of Device OS may be required.
 
@@ -104,11 +104,11 @@ All designs using the B402 and B404 should migrate to the pin and software compa
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
-### CE (Europe) - B402 and B404 B Series SoM
+### CE (Europe) - B402 and B404 B-Series SoM
 
 The B402, B404, and B404X are not certified for use in Europe at this time.
 
-### FCC (United States) - B402 and B404 B Series SoM
+### FCC (United States) - B402 and B404 B-Series SoM
 
 - FCC ID: [2AEMI-B402](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=Cfg6zUbOVvvGZYt7%2F%2FryRA%3D%3D&fcc_id=2AEMI-B402)
 - [Grant of equipment authorization (DTS)](/assets/pdfs/b402-fcc-dts.pdf)
@@ -123,7 +123,7 @@ The B402, B404, and B404X are not certified for use in Europe at this time.
 
 
 
-### ISED (Canada) - B402 and B404 B Series SoM
+### ISED (Canada) - B402 and B404 B-Series SoM
 
 - ISED: **20127-B402**
 - [Certificate of Conformity](/assets/pdfs/b402-ic.pdf)
@@ -136,18 +136,18 @@ The B402, B404, and B404X are not certified for use in Europe at this time.
 - [ICES-003 Issue 7:2020 Class B](/assets/pdfs/b402-ic-ices003-7.pdf)
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/b402-ic-ices003-7-test-report.pdf)
 
-### PTCRB - B402 B Series SoM
+### PTCRB - B402 B-Series SoM
 
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=43054)
 - EtherSIM devices (B404) do not require PTCRB certification
 
-### RoHS - B402 and B404 B Series SoM
+### RoHS - B402 and B404 B-Series SoM
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/b402-rohs3.pdf)
 
 
 
-## B404X B Series SoM 
+## B404X B-Series SoM 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 442e5625-6587-4002-9f2f-474eb9ff7927 --}}
 
@@ -159,15 +159,15 @@ The B402, B404, and B404X are not certified for use in Europe at this time.
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-### Bluetooth - B404X B Series SoM
+### Bluetooth - B404X B-Series SoM
 
 - [Bluetooth](/assets/pdfs/b404x-bluetooth.pdf)
 
-### CE (Europe) - B404X B Series SoM 
+### CE (Europe) - B404X B-Series SoM 
 
 The B404X are not certified for use in Europe at this time. The B524 (LTE Cat M1 with 2G/3G fallback) is recommended instead.
 
-### FCC (United States) - B404X B Series SoM 
+### FCC (United States) - B404X B-Series SoM 
 
 - FCC ID: 2AEMI-B404X
 - [Grant of equipment authorization (DTS)](/assets/pdfs/b404x-fcc-dts.pdf)
@@ -178,7 +178,7 @@ The B404X are not certified for use in Europe at this time. The B524 (LTE Cat M1
 - [Test report FCC Part 22, Part 24, Part 27](/assets/pdfs/b404x-fcc-part22-24-27.pdf)
 
 
-### ISED (Canada) - B404X B Series SoM 
+### ISED (Canada) - B404X B-Series SoM 
 
 - ISED: **20127-B404X**
 - [Certificate of Conformity](/assets/pdfs/b404x-ic.pdf)
@@ -186,9 +186,9 @@ The B404X are not certified for use in Europe at this time. The B524 (LTE Cat M1
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/b404x-ic-ices003-7.pdf)
 - [Test Report RS-132 Issue 3, RSS-133 Issue 6, RSS-139 Issue 4](/assets/pdfs/b404x-ic-rs132.pdf)
 
-## B523 B524 B Series SoM
+## B523 B524 B-Series SoM
 
-### CE (Europe) - B523 B524 B Series SoM
+### CE (Europe) - B523 B524 B-Series SoM
 
 - [Summary](/assets/pdfs/b523-ce-summary.pdf) (updated 2021-09-16)
 - [EMC Test Report](/assets/pdfs/b523-ce-emc-test-report.pdf) (updated 2021-09-16)
@@ -203,19 +203,19 @@ The B404X are not certified for use in Europe at this time. The B524 (LTE Cat M1
 - [EN-62368 Test Report](/assets/pdfs/b523-EN62368-test-report.pdf) (supersedes EN-60950) (updated 2022-11-09)
 - [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf) (updated 2021-09-16)
 
-### FCC (United States) - B523 B524 B Series SoM
+### FCC (United States) - B523 B524 B-Series SoM
 
 The B523 and B524 are not FCC certified as it does not support any cellular bands used in the United States. The B404X should be used instead.
 
-### ISED (Canada) - B523 B524 B Series SoM
+### ISED (Canada) - B523 B524 B-Series SoM
 
 The B523 and B524 are not ISED certified as it does not support any cellular bands used in the Canada. The B404X should be used instead.
 
-### RoHS - B523 B524 B Series SoM
+### RoHS - B523 B524 B-Series SoM
 
 - [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf)
 
-### UKCA (United Kingdom) - B523 B524 B Series SoM
+### UKCA (United Kingdom) - B523 B524 B-Series SoM
 
 - [UKCA Certification](/assets/pdfs/b524-ukca.pdf) (updated 2022-11-09)
 
@@ -223,7 +223,7 @@ The B523 and B524 are not ISED certified as it does not support any cellular ban
 
 ## BRN310 BRN314 Boron 2G/3G
 
-The Boron 2G/3G is not recommended for new designs and will be deprecated with the existing stock is depleted. You should use the B Series SoM instead.
+The Boron 2G/3G is not recommended for new designs and will be deprecated with the existing stock is depleted. You should use the B-Series SoM instead.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 785e45e8-9da4-45d9-a1f5-71add831195b --}}
 
@@ -524,7 +524,7 @@ The E270 is not certified by the ISED as it cannot be used in the Canada as it d
 - [RoHS Test Reports](/assets/pdfs/new-certs/rohs/electron-rohs-test-reports.pdf)
 
 
-## E310 E314 E Series (U201)
+## E310 E314 E-Series (U201)
 
 {{!-- BEGIN do not edit content below, it is automatically generated 32ab7e42-640f-462e-bcf5-be48681aa6ab --}}
 
@@ -543,7 +543,7 @@ The E270 is not certified by the ISED as it cannot be used in the Canada as it d
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
-### CE (Europe) - E310 E314 E Series (U201)
+### CE (Europe) - E310 E314 E-Series (U201)
 
 - [Certificate of Conformity](/assets/pdfs/electron/ce-u201-certificate.pdf)
 - [Test Reports](/assets/pdfs/electron/ce-u201-test-report.pdf)
@@ -552,7 +552,7 @@ The E270 is not certified by the ISED as it cannot be used in the Canada as it d
 - [EN-60950 Test Report](/assets/pdfs/e310-EN60950-test-report.pdf)
 
 
-### FCC (United States) - E310 E314 E Series (U201)
+### FCC (United States) - E310 E314 E-Series (U201)
 
 - FCC ID: [XPY1CGM5NNN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=3vkdOEQAe%2Fc2YGK%2FBZsiJQ%3D%3D&fcc_id=XPY1CGM5NNN)
 - [Certificate of Conformity](/assets/pdfs/electron/fcc-u201-certificate.pdf)
@@ -570,7 +570,7 @@ Additional FCC Test Reports:
 - [FCC Part 24](/assets/pdfs/e310-fcc-part24-test-report.pdf)
 
 
-### ISED (Canada) - E310 E314 E Series (U201)
+### ISED (Canada) - E310 E314 E-Series (U201)
 
 - ISED: **8595A-1CGM5NNN**.
 - [Certificate of Conformity](/assets/pdfs/electron/ic-u201-certificate.pdf)
@@ -578,20 +578,20 @@ Additional FCC Test Reports:
 - [ICES-003 Issue 7:2020 Class B](/assets/pdfs/e310-ic-ices003-7.pdf)
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/e310-ic-ices003-7-test-report.pdf)
 
-### PTCRB - E310 E Series (U201)
+### PTCRB - E310 E-Series (U201)
 
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=39636)
 - [Certificate of Conformity](/assets/pdfs/electron/ptcrb-u201-certificate.pdf)
 - [Test Reports](/assets/pdfs/electron/ptcrb-u201-test-report.pdf)
 - EtherSIM devices (E314) do not require PTCRB certfication
 
-### RoHS - E310 E314 E Series (U201)
+### RoHS - E310 E314 E-Series (U201)
 
 - [RoHS Test Reports](/assets/pdfs/electron/rohs-u201.pdf)
 
 
 
-## E402 E404 E Series LTE Cat M1 (R410M)
+## E402 E404 E-Series LTE Cat M1 (R410M)
 
 {{!-- BEGIN do not edit content below, it is automatically generated e2dcb80b-980f-400f-8151-672b236a194c --}}
 
@@ -610,7 +610,7 @@ Additional FCC Test Reports:
 
 
 
-### FCC (United States) - E402 E404 E Series LTE Cat M1 (R410M)
+### FCC (United States) - E402 E404 E-Series LTE Cat M1 (R410M)
 
 - FCC ID: [XPY2AGQN4NNN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ikrR3FBKrpgwIGJS1sm7Bw%3D%3D&fcc_id=XPY2AGQN4NNN)
 - [Certificate of Conformity](/assets/pdfs/e402-fcc.pdf)
@@ -628,7 +628,7 @@ Additional FCC Test Reports:
 - [FCC Part 27](/assets/pdfs/e402-fcc-part27-test-report.pdf)
 
 
-### ISED (Canada) - E402 E404 E Series LTE Cat M1 (R410M)
+### ISED (Canada) - E402 E404 E-Series LTE Cat M1 (R410M)
 
 - ISED: **8595A-2AGQN4NNN**.
 - [Certificate of Conformity](/assets/pdfs/e402-ic.pdf)
@@ -640,19 +640,19 @@ Additional FCC Test Reports:
 - [Test Report RS-139](/assets/pdfs/e402-ic-rs139.pdf)
 - [ISED RF Exposure Report](/assets/pdfs/e402-ic-ised-rf-exposure.pdf)
 
-### PTCRB - E402 E Series LTE Cat M1 (R410M)
+### PTCRB - E402 E-Series LTE Cat M1 (R410M)
 
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=41338)
 - [Certificate of Conformity](/assets/pdfs/e402-ptcrb.pdf)
 - [OTA test report for network certification](/assets/pdfs/e402-ota-att.pdf)
 - EtherSIM devices (E404) do not require PTCRB certification
 
-### RoHS - E402 E404 E Series LTE Cat M1 (R410M)
+### RoHS - E402 E404 E-Series LTE Cat M1 (R410M)
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/e402-rohs.pdf)
 
 
-## E404X E Series LTE Cat M1 (R510)
+## E404X E-Series LTE Cat M1 (R510)
 
 {{!-- BEGIN do not edit content below, it is automatically generated d3744bfd-dee2-4722-8b14-624c4eca69ac --}}
 
@@ -664,7 +664,7 @@ Additional FCC Test Reports:
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
-### FCC (United States) - E404X E Series LTE Cat M1 (R510)
+### FCC (United States) - E404X E-Series LTE Cat M1 (R510)
 
 - [FCC Grant 15B licensed receiver](/assets/pdfs/e404x-fcc-15b-receiver.pdf)
 - [FCC Grant 15B peripheral](/assets/pdfs/e404x-fcc-15b-peripheral.pdf)
@@ -679,7 +679,7 @@ Additional FCC Test Reports:
 - [BLE test report](/assets/pdfs/e404x-ble-test-report.pdf)
 
 
-### ISED (Canada) - E404X E Series LTE Cat M1 (R510)
+### ISED (Canada) - E404X E-Series LTE Cat M1 (R510)
 
 - ISED: **20127-E404X**
 - [Certificate of conformity](/assets/pdfs/e404x-ic.pdf)
@@ -690,7 +690,7 @@ Additional FCC Test Reports:
 - [Test Report RS-139](/assets/pdfs/e404x-ic-rs139.pdf)
 - [ISED RF Exposure Report](/assets/pdfs/e404x-ic-ised-rf-exposure.pdf)
 
-### RoHS - E404X E Series LTE Cat M1 (R510)
+### RoHS - E404X E-Series LTE Cat M1 (R510)
 
 - [RoHS 3.0 Test Report](/assets/pdfs/e404x-rohs.pdf)
 

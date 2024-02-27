@@ -117,7 +117,7 @@ Only devices that contain a fuel gauge chip report the battery state. This inclu
 - Boron
 - Tracker SoM and Tracker One
 - Monitor One
-- E Series
+- E-Series
 - Electron
 
 A fuel gauge (MAX17043) is optional on:

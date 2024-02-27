@@ -37,9 +37,9 @@ The browser and USB-based tools are often the best way to restore known good dev
 Some operations that use USB control requests to communicate with a device have a minimum required version of Device OS:
 
 - Gen 3 (Argon, Boron): Device OS 0.9.0 or later
-- Gen 2 (E Series, Electron, P1, Photon): Device OS 0.8.0 or later
+- Gen 2 (E-Series, Electron, P1, Photon): Device OS 0.8.0 or later
 
-All version of newer devices such as the B Series SoM, Tracker SoM, and P2, have full support for USB control requests.
+All version of newer devices such as the B-Series SoM, Tracker SoM, and P2, have full support for USB control requests.
 
 The best option is to put the device into DFU mode (blinking yellow) manually by holding down MODE (or SETUP), tapping RESET, and continue holding down MODE until the status LED blinks yellow, then release.
 

@@ -17,7 +17,7 @@ The integration between [Memfault](https://memfault.com/) and Particle provides:
 There are a few caveats:
 
 - An additional Memfault subscription is required.
-- Gen 3 cellular devices (Boron, B Series SoM, Tracker SoM, Tracker One) only at this time.
+- Gen 3 cellular devices (Boron, B-Series SoM, Tracker SoM, Tracker One) only at this time.
 - The Memfault integration will use additional data operations for each device.
 - You must build Memfault-enabled firmware using Particle Workbench local compile. You cannot use the CLI or cloud compilers.
 - Requires Device OS 3.3.0 or later.

@@ -141,7 +141,7 @@ Because of all of the limitations, in most cases you're better off using `millis
 
 One limitation of both `millis()` and software timers is that you can't schedule anything to occur more than once a millisecond. This should generally be avoided because that's also the interval of the FreeRTOS thread scheduler, which eliminates threads as a possible solution.
 
-On Gen 2 devices (E Series, Electron, P1, Photon), it's possible to use the [SparkIntervalTimer](/reference/device-os/libraries/s/SparkIntervalTimer/) 3rd-party library that uses a STM32 hardware timer. This library does not work on Gen 3 devices.
+On Gen 2 devices (E-Series, Electron, P1, Photon), it's possible to use the [SparkIntervalTimer](/reference/device-os/libraries/s/SparkIntervalTimer/) 3rd-party library that uses a STM32 hardware timer. This library does not work on Gen 3 devices.
 
 There is no similar library for hardware timers on Gen 3, primarily because there are very few hardware timers, and the interrupt latency on the nRF52 makes it hard to get stable timing of interrupts.
 
@@ -150,7 +150,7 @@ There is no similar library for hardware timers on Gen 3, primarily because ther
 Sometimes you will want to schedule things to occur relative to clock time. A few important caveats to this:
 
 - On cold boot, most devices will not have valid real-time clock settings until after their first cloud connection.
-- On Gen 3 devices (Argon, Boron, B Series SoM, but not the Tracker), after waking from HIBERNATE sleep mode there will not be valid real time until cloud connected.
+- On Gen 3 devices (Argon, Boron, B-Series SoM, but not the Tracker), after waking from HIBERNATE sleep mode there will not be valid real time until cloud connected.
 - The clock is always at UTC, not local time in your timezone.
 
 Real time is stored in a `time_t`, a signed 32-bit long number of seconds since January 1, 1970 at UTC ("Unix Time"). 

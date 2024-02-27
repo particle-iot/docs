@@ -12,21 +12,21 @@ All Particle devices ship with Particle Device OS software, including Device OS,
 | Device | Device OS Version | Date Updated |
 | :--- | :--- | :--- |
 | Argon | 1.4.4 | 2020-01-08 |
-| B Series SoM B402 LTE-M1 NorAm | 2.3.1 | 2022-11-15 |
-| B Series SoM B404 LTE-M1 NorAm EtherSIM | 2.3.1 | 2022-11-15 |
-| B Series SoM B404X LTE-M1 NorAm EtherSIM | 4.0.1 | 2023-02-22 |
-| B Series SoM B523 LTE Cat 1 EMEAA | 1.5.0 | 2020-03-17 |
-| B Series SoM B524 LTE Cat 1 EMEAA EtherSIM | 2.2.0 | 2021-12-21 |
+| B-Series SoM B402 LTE-M1 NorAm | 2.3.1 | 2022-11-15 |
+| B-Series SoM B404 LTE-M1 NorAm EtherSIM | 2.3.1 | 2022-11-15 |
+| B-Series SoM B404X LTE-M1 NorAm EtherSIM | 4.0.1 | 2023-02-22 |
+| B-Series SoM B523 LTE Cat 1 EMEAA | 1.5.0 | 2020-03-17 |
+| B-Series SoM B524 LTE Cat 1 EMEAA EtherSIM | 2.2.0 | 2021-12-21 |
 | Boron BRN404 LTE-M1 NorAm EtherSIM | 2.2.0 | 2021-12-21 |
 | Boron BRN314 3G/2G EtherSIM | 2.2.0 | 2021-12-21 |
 | Boron BRN402 LTE-M1 NorAm | 2.3.1 | 2022-11-15 |
 | Boron BRN404X LTE-M1 NorAm EtherSIM | 4.0.2 | 2023-01-05 |
-| E Series E402 LTE-M1 NorAm | 2.3.1 | 2023-02-07 |
-| E Series E404 LTE-M1 NorAm EtherSIM | 2.3.1 | 2023-02-07 |
+| E-Series E402 LTE-M1 NorAm | 2.3.1 | 2023-02-07 |
+| E-Series E404 LTE-M1 NorAm EtherSIM | 2.3.1 | 2023-02-07 |
 | E404X | 4.0.2 | 2023-01-05 |
 | Electron ELC402 LTE-M1 NorAm | 2.3.1 | 2023-02-07 |
 | Electron ELC404 LTE-M1 NorAm EtherSIM | 2.3.1 | 2023-02-07 |
-| E Series E310 3G/2G | 1.4.2 | 2019-10-30 |
+| E-Series E310 3G/2G | 1.4.2 | 2019-10-30 |
 | Electron U260 3G/2G NorAm | 1.4.2 | 2019-10-30 |
 | Electron U270 3G/2G EMEAA | 1.4.2 | 2019-10-30 |
 | Photon | 1.4.4 | 2019-12-16 |
@@ -40,7 +40,7 @@ All Particle devices ship with Particle Device OS software, including Device OS,
 
 - The Tracker Edge version for the Tracker One and Tracker SoM is v18, updated 2023-04-20
 - The B404X, BRN404X, and E404X require Device OS 4.0.1 or later and cannot be downgraded
-- B Series SoM B404 NORAM EtherSIM requires Device OS 2.3.0 or later and cannot be downgraded
+- B-Series SoM B404 NORAM EtherSIM requires Device OS 2.3.0 or later and cannot be downgraded
 
 
 ## Questions and answers

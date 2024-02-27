@@ -1,10 +1,10 @@
 ---
-title: B Series Evaluation Board
+title: B-Series Evaluation Board
 layout: commonTwo.hbs
 columns: two
-description: Datasheet for the Particle B Series SoM evaluation board
+description: Datasheet for the Particle B-Series SoM evaluation board
 ---
-# B Series Evaluation board
+# B-Series Evaluation board
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b-series-eval-board.pdf"}}
@@ -47,7 +47,7 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 | 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
 | 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
 | 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 22 | **SoM connector** | M.2 connector for the B Series SoM. |
+| 22 | **SoM connector** | M.2 connector for the B-Series SoM. |
 | 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
 | 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
 | 25 | **Charge LED** | Indicate LiPo is charging. | 
@@ -61,7 +61,7 @@ module. Using an alternate antenna via the SMA connector (11) will require a len
 
 ### Powering the board
 
-The B Series Eval Board can be powered by:
+The B-Series Eval Board can be powered by:
 
 | Num  | Description |
 | :---: | :--- |
@@ -80,7 +80,7 @@ The B Series Eval Board can be powered by:
 
 These pins are intended to be connected across using removable two-pin jumpers to connect features on the board to standard ports.
 
-| Feature | Feature Pin | SoM Pin | B Series Pin |
+| Feature | Feature Pin | SoM Pin | B-Series Pin |
 | :---: | :---: | :---: | :---: |
 | MicroSD | SD_MI | MISO | MISO |
 | | SD_CK | SCK | SCK |
@@ -94,7 +94,7 @@ These pins are intended to be connected across using removable two-pin jumpers t
 
 These pins are intended to be connected across using removable two-pin jumpers to connect features on the board to standard ports.
 
-| B Series Pin | SoM Pin | Feature Pin | Feature |
+| B-Series Pin | SoM Pin | Feature Pin | Feature |
 | :---: | :---: | :---: | :---: |
 | | UB\_USB\_N | UB\_USB\_N | u-blox USB | 
 | | UB\_USB\_P | UB\_USB\_N | | 
@@ -123,7 +123,7 @@ For more information about Ethernet, see the application note [AN037 Ethernet](/
 
 ### PWM Differences
 
-On the B Series SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+On the B-Series SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
 frequency and resolution, but individual pins in the group can have a different duty cycle.
 
 - Group 2: Pins A0, A1, A6, and A7.
@@ -141,7 +141,7 @@ frequency and resolution, but individual pins in the group can have a different 
 
 - Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
 
-These rules also apply to tone() (square wave with 50% duty cycle), however since each group must share the same frequency you can only generate two different simultaneous tones of different frequencies on the B Series SoM. You cannot generate tone on group 0.
+These rules also apply to tone() (square wave with 50% duty cycle), however since each group must share the same frequency you can only generate two different simultaneous tones of different frequencies on the B-Series SoM. You cannot generate tone on group 0.
 
 ## Basic setup
 
@@ -172,7 +172,7 @@ If you are not using the PMIC be sure to remove the jumper if you need use pin A
 
 ### Power consumption
 
-We do not recommend using the B Series eval board for power consumption measurements. It's impossible to completely disconnect the Wiznet W5500 Ethernet interface without removing the chip from the board. This will result in significantly higher power consumption measurements than you would have in most applications.
+We do not recommend using the B-Series eval board for power consumption measurements. It's impossible to completely disconnect the Wiznet W5500 Ethernet interface without removing the chip from the board. This will result in significantly higher power consumption measurements than you would have in most applications.
 
 ### Using the MicroSD card
 

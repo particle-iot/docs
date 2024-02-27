@@ -122,10 +122,10 @@ This step requires the Internet, of course, but Docker has the ability to save a
 | argon | 12 | |
 | boron | 13 | All Boron models including BRN404X |
 | esomx | 15 | E404X only |
-| bsom | 23 | B Series SoM B404X, B404, and B402 |
-| b5som | 25 | B Series SoM B524, B523 |
+| bsom | 23 | B-Series SoM B404X, B404, and B402 |
+| b5som | 25 | B-Series SoM B524, B523 |
 | tracker | 26 | Tracker SoM, Tracker One, and Monitor One |
-| electron | 10 | Electron, E Series, except E404X |
+| electron | 10 | Electron, E-Series, except E404X |
 | photon | 6 | |
 | p1 | 8 | |
 

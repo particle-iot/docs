@@ -56,11 +56,11 @@ In BLE terminology, the Particle device is the BLE peripheral, which accepts con
 
 ### Device name
 
-By default, the device name that appears in the BLE advertising packet is something like "P Series-AB123X". The last 6 characters match the last 6 characters of the serial number, which is printed on the serial number sticker and also encoded in the data matrix code (looks similar to a QR code) on the label.
+By default, the device name that appears in the BLE advertising packet is something like "P-Series-AB123X". The last 6 characters match the last 6 characters of the serial number, which is printed on the serial number sticker and also encoded in the data matrix code (looks similar to a QR code) on the label.
 
 Imagine you are in a classroom with many people configuring their devices at the same time. This makes sure the correct device is selected when there are multiple devices in BLE range.
 
-You can set a custom name base, such as your company or product name instead of "P Series" by changing a setting in the DCT (configuration flash). This can be done from user firmware, or by USB in DFU mode.
+You can set a custom name base, such as your company or product name instead of "P-Series" by changing a setting in the DCT (configuration flash). This can be done from user firmware, or by USB in DFU mode.
 
 You can also set the entire name to a fixed string from your product firmware, eliminating the serial number part. If you do not expect your customers to be configuring multiple devices in close proximity, this can simplify the setup experience by eliminating the need to scan the data matrix sticker if you also use a fixed mobile secret, as described in the next section.
 
@@ -124,7 +124,7 @@ There are a number of configurable parameters needed for device provisioning ove
 
 - BLE service UUIDs. These are embedded in the device firmware and also in your mobile app. Changing these settings prevents other mobile apps from being able to interact with your devices.
 
-- BLE device name or setup code. From the factory, this is a string like "P Series-" followed by the last 6 characters of the serial number. Imagine a classroom of users who are all trying to set up their devices at the same time over BLE. The device name makes sure they set up the device in their hand instead of a different nearby device. However, you can also set this to a constant value, for example the name of your product, to simplify setup.
+- BLE device name or setup code. From the factory, this is a string like "P-Series-" followed by the last 6 characters of the serial number. Imagine a classroom of users who are all trying to set up their devices at the same time over BLE. The device name makes sure they set up the device in their hand instead of a different nearby device. However, you can also set this to a constant value, for example the name of your product, to simplify setup.
 
 - Mobile secret. Every Particle device has a mobile secret written to it at the factory. It's also printed on in the data matrix code (similar to a QR code) on the serial number sticker. This is used for secure communication over BLE between your mobile app, which has presumably scanned the data matrix code, and the device, which already knows its mobile secret stored in flash memory. 
 

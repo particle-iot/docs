@@ -84,9 +84,9 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 
 | Platform | Models | Previous LTS | Test With | Current LTS | Minimum Version |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| B Series SoM | B404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
-| B Series SoM | B404 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}}  | 2.3.0<sup>1</sup>|
-| B Series SoM | B402, B524, B523 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}}  | |
+| B-Series SoM | B404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
+| B-Series SoM | B404 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}}  | 2.3.0<sup>1</sup>|
+| B-Series SoM | B402, B524, B523 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}}  | |
 | Boron | BRN404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
 | Boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | |
 | Argon | | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | |
@@ -100,7 +100,7 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 
 | Platform | Models | Current LTS | Minimum Version |
 | :--- | :--- | :--- | :--- |
-| E Series | E404, E402, E314, E313, E310  | {{version mode="latestRelease" line="2"}} | 2.2.0<sup>1</sup> |
+| E-Series | E404, E402, E314, E313, E310  | {{version mode="latestRelease" line="2"}} | 2.2.0<sup>1</sup> |
 | Electron | ELC402, U260, U270, G350  | {{version mode="latestRelease" line="2"}} | 2.2.0<sup>1</sup> |
 | P1 | | {{version mode="latestRelease" line="2"}} | 1.2.1<sup>2</sup>|
 | Photon | | {{version mode="latestRelease" line="2"}} | 1.2.1<sup>2</sup>|
@@ -167,9 +167,9 @@ You can also downgrade Device OS, however:
 - If you are downgrading, you should first downgrade user firmware or using `particle flash --local tinker` as user firmware that targets a newer version of Device OS will cause it to update back to its original version OTA after reconnecting to the cloud.
 
 {{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
-**Boron LTE BRN402 and B Series SoM B402**
+**Boron LTE BRN402 and B-Series SoM B402**
 
-If you are downgrading a Boron LTE (BRN402) or B Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
+If you are downgrading a Boron LTE (BRN402) or B-Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
 {{!-- END shared-blurb --}}
 
 
@@ -197,16 +197,16 @@ Note the number of components that need to be flashed varies depending on the de
 | Device | Gen | System Parts | Bootloader | SoftDevice | NCP |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | Boron | 3 | 1 | &check; | &check; | &nbsp; | 
-| B Series SoM | 3 | 1 | &check; | &check; | &nbsp; | 
+| B-Series SoM | 3 | 1 | &check; | &check; | &nbsp; | 
 | Tracker SoM | 3 | 1 | &check; | &check; | &check; | 
 | Argon | 3 | 1 | &check; | &check; | &check; | 
-| Electron/E Series | 2 | 3<sup>1</sup> | &check; | &nbsp; | &nbsp; | 
+| Electron/E-Series | 2 | 3<sup>1</sup> | &check; | &nbsp; | &nbsp; | 
 | Photon | 2 | 2 | &check; | &nbsp; | &nbsp; | 
 | P1 | 2 | 2 | &check; | &nbsp; | &nbsp; | 
 
 <sup>1</sup>Electrons prior to 0.6.0 had 2 system parts.
 
-- If the build consists of multiple system parts (Electron/E Series, Photon, P1) then all parts must be the same version.
+- If the build consists of multiple system parts (Electron/E-Series, Photon, P1) then all parts must be the same version.
 - The bootloader is generally updated on each minor version (1.4.x to 1.5.x) and occasionally in other cases where required (2.0.0-rc.1 to 2.0.0-rc.2).
 - The SoftDevice ("radio stack") is rarely updated.
 - The only devices with an OTA programmable NCP are the Argon and Tracker SoM. The NCP is rarely updated.
@@ -382,9 +382,9 @@ Certain browsers can do a DFU upgrade or downgrade right from the browser page w
 You can downgrade USB in DFU mode (blinking yellow). This can generally be done in one version jump, with the following exception:
 
 {{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
-**Boron LTE BRN402 and B Series SoM B402**
+**Boron LTE BRN402 and B-Series SoM B402**
 
-If you are downgrading a Boron LTE (BRN402) or B Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
+If you are downgrading a Boron LTE (BRN402) or B-Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
 {{!-- END shared-blurb --}}
 
 Use the `particle update --target x.y.z` option to specify the version to downgrade to.
@@ -435,7 +435,7 @@ particle flash --local tinker
 particle flash --local boron-system-part1@1.4.4.bin
 ```
 
-- For the Electron and E Series, also flash system-part2 and system-part3. For the Photon and P1, also flash system-part2.
+- For the Electron and E-Series, also flash system-part2 and system-part3. For the Photon and P1, also flash system-part2.
 
 - Put the device in listening mode (blinking dark blue) by holding down the MODE button.
 
@@ -502,9 +502,9 @@ The downgrade process is generally the reverse of the upgrade process, however w
 
 | Device | Version | Version | Version | Version |
 | :--- | :---: | :---: | :---: | :---: | :---: | 
-| Electron/E Series | 1.2.1 | 0.7.0 | 0.6.4 | 0.5.5 |
+| Electron/E-Series | 1.2.1 | 0.7.0 | 0.6.4 | 0.5.5 |
 | Photon, P1 | 1.2.1 | 0.7.0 | 0.6.4 | 0.5.5 |
-| Boron LTE, B Series SoM B402 | 1.5.2 | | | |
+| Boron LTE, B-Series SoM B402 | 1.5.2 | | | |
 
 For example: Say you have an Electron running 1.5.2 and you want to downgrade it to 0.6.2 OTA. We don't actually recommend doing that, but if for some reason you had to, you would first need to downgrade to 1.2.1. Once that was completed, you would downgrade to 0.7.0. Then 0.6.4. Then finally 0.6.2, your desired target.
 
@@ -524,7 +524,7 @@ For example, say you want to downgrade device named "electron7" from 2.0.0 to 1.
 particle flash electron7 tinker
 ```
 
-- Flash system parts in reverse numerical order. This is generally 3, 2, 1 for the Electron and E Series. 2, 1 for Photon and P1. For Gen 3 devices, there is only 1 system part.
+- Flash system parts in reverse numerical order. This is generally 3, 2, 1 for the Electron and E-Series. 2, 1 for Photon and P1. For Gen 3 devices, there is only 1 system part.
 
 ```
 # Flash system parts in reverse order

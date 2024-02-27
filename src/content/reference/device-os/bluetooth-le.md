@@ -21,7 +21,7 @@ BLE is intended for low data rate sensor applications. Particle devices do not s
 
 The BLE protocol can use the built-in chip or trace antenna, or an external antenna if you have installed and configured one. 
 
-The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
+The B-Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
 
 A good introduction to BLE can be found in the [Adafruit tutorial](https://learn.adafruit.com/introduction-to-bluetooth-low-energy/introduction).
 

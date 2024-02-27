@@ -1,8 +1,8 @@
 ---
-title: B Series from E Series Migration Guide
+title: B-Series from E-Series Migration Guide
 columns: two
 layout: commonTwo.hbs
-description: B Series from E Series Migration Guide
+description: B-Series from E-Series Migration Guide
 ---
 
 # {{title}}
@@ -10,15 +10,15 @@ description: B Series from E Series Migration Guide
 {{migration-guide leftImg="/assets/images/e-series/illustrations/e0-top.png" rightImg="/assets/images/b-series/b-series-top.png"}}
 
 
-The B Series SoM (system-on-a-module) is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
+The B-Series SoM (system-on-a-module) is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
-Like the E Series module, it requires your own custom base board. One difference is that the B Series SoM does not contain the PMIC and fuel gauge chips that the E Series does.
+Like the E-Series module, it requires your own custom base board. One difference is that the B-Series SoM does not contain the PMIC and fuel gauge chips that the E-Series does.
 
 Additionally, different dimensions makes it possible to include a LTE Cat 1 with 2G/3G fallback cellular modem, such as the Quectel EG91-E on the B524. 
 
-All E Series models (except for the E404X) have been deprecated. It is recommended that you migrate to the B Series SoM, and it is required to get LTE Cat 1 with 2G/3G fallback support in Europe, Australia, and New Zealand. While the E404X has the same footprint as the other E Series modules, it contains the same MCU as the B Series SoM.
+All E-Series models (except for the E404X) have been deprecated. It is recommended that you migrate to the B-Series SoM, and it is required to get LTE Cat 1 with 2G/3G fallback support in Europe, Australia, and New Zealand. While the E404X has the same footprint as the other E-Series modules, it contains the same MCU as the B-Series SoM.
 
-| Feature | E Series SoM | E Series Base Board | B Series SoM | SoM Base Board |
+| Feature | E-Series SoM | E-Series Base Board | B-Series SoM | SoM Base Board |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | U.FL Antenna Connector | &check; | | &check; | Optional |
 | MFF2 SMD Particle SIM<sup>2</sup> | &check; | | &check; | &nbsp; |
@@ -54,18 +54,18 @@ The available models include:
 
 - [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
 - [B524/B523 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
-- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
+- [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
 
 ## Prototyping
 
-The B Series SoM cannot be used without a base board. Typically you will create your own board, however there are two off-the-shelf options available:
+The B-Series SoM cannot be used without a base board. Typically you will create your own board, however there are two off-the-shelf options available:
 
-### B Series Eval board
+### B-Series Eval board
 
-![B Series Eval](/assets/images/b-series/b-series-eval.png)
+![B-Series Eval](/assets/images/b-series/b-series-eval.png)
 
-The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the B Series SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
+The [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the B-Series SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
 
 {{!-- BEGIN shared-blurb 19f889d4-a5c9-11ec-b909-0242ac120002 --}}
 {{imageOverlay src="/assets/images/b-series/b-series-eval-labeled.png" alt="Ports Diagram" class="full-width"}}
@@ -93,7 +93,7 @@ The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-boa
 | 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
 | 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
 | 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 22 | **SoM connector** | M.2 connector for the B Series SoM. |
+| 22 | **SoM connector** | M.2 connector for the B-Series SoM. |
 | 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
 | 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
 | 25 | **Charge LED** | Indicate LiPo is charging. | 
@@ -107,7 +107,7 @@ The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-boa
 {{!-- BEGIN shared-blurb b644c2f2-a5ca-11ec-b909-0242ac120002 --}}
 ![Mikroe Gen 3 SoM](/assets/images/prototyping/mikroe-som.png)
 
-The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B Series SoM to mikroBUS Click boards:
+The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B-Series SoM to mikroBUS Click boards:
 
 | M.2 Pin | Generic SoM | Gen 3 | mikroBUS #1 | mikroBUS #2 |
 | :---: | :---: | :---: | :---: | :---: |
@@ -149,7 +149,7 @@ The [SoM first board tutorial](/hardware/b-series-som/som-first-board/) shows ho
 
 ### Basic SoM design
 
-This design is a bit more complicated, and includes the PMIC and Fuel Gauge chips that are present on the E Series:
+This design is a bit more complicated, and includes the PMIC and Fuel Gauge chips that are present on the E-Series:
 
 ![Whole Board](/assets/images/app-notes/AN001/whole-board.png)
 
@@ -193,9 +193,9 @@ On Gen 3 devices, over-the-air (OTA) updates have two features that can improve 
 
 ### Increased API field limits
 
-The maximum size of a variable, function parameter, or publish is 1024 bytes on the B Series SoM vs. 864 bytes on the E Series.
+The maximum size of a variable, function parameter, or publish is 1024 bytes on the B-Series SoM vs. 864 bytes on the E-Series.
 
-| API Field | E Series | B Series SoM |
+| API Field | E-Series | B-Series SoM |
 | :--- | :---: | :---: |
 | Variable Key | 64 | 64 |
 | Variable Data | 864 | 1024 |
@@ -209,7 +209,7 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 ### MCU
 
-| Measure | E Series | B Series SoM |
+| Measure | E-Series | B-Series SoM |
 | :--- | :---: | :---: |
 | MCU | STM32F205 | nRF52840 |
 | Manufacturer | ST Microelectronics | Nordic Semiconductor |
@@ -224,15 +224,15 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 ### BLE (Bluetooth LE)
 
-- Bluetooth LE (BLE 5.0) is supported on B Series SoM but not the E Series.
+- Bluetooth LE (BLE 5.0) is supported on B-Series SoM but not the E-Series.
 
 ### NFC tag
 
-- NFC tag mode is supported on the B Series SoM but not the E Series.
+- NFC tag mode is supported on the B-Series SoM but not the E-Series.
 
 ### GPIO
 
-There are fewer available GPIO pins on the B Series SoM than the E Series. If you need a large number of GPIO pins, an external GPIO expander connected by I2C or SPI is a good option.
+There are fewer available GPIO pins on the B-Series SoM than the E-Series. If you need a large number of GPIO pins, an external GPIO expander connected by I2C or SPI is a good option.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 4d946a4a-17ba-4ac3-82f9-d5031762a08a --}}
 
@@ -281,7 +281,7 @@ There are fewer available GPIO pins on the B Series SoM than the E Series. If yo
 
 The [MCP23008](https://github.com/rickkas7/MCP23008-RK) is an 8-port GPIO expander that connects to I2C and works well with Gen 3 devices. You can connect up to 8 of them to a single I2C interface. the [MCP23017](https://github.com/rickkas7/MCP23017-RK) has 16-ports, and you can also connect 8 of them, for a total of 128 GPIO ports.
 
-The application note [AN013 Tracker GPIO](/hardware/tracker/projects/tracker-gpio/) shows how you can add additional GPIO to your Tracker One using the external M8 connector, however the same technique can also be used with the B Series SoM. It includes both 3.3V and 5V design options.
+The application note [AN013 Tracker GPIO](/hardware/tracker/projects/tracker-gpio/) shows how you can add additional GPIO to your Tracker One using the external M8 connector, however the same technique can also be used with the B-Series SoM. It includes both 3.3V and 5V design options.
 
 ### 5V tolerance
 
@@ -301,9 +301,9 @@ For example, if you have 3V3 disconnect circuitry but have pull-ups to non-disco
 
 ### SPI
 
-- The B Series SoM and E Series both have two SPI ports.
+- The B-Series SoM and E-Series both have two SPI ports.
 - In most cases, you can share a single SPI bus with many peripherals.
-- On the E Series, SPI1 and SPI2 share the same MCU SPI interface but have different pin locations. You can only use one or the other.
+- On the E-Series, SPI1 and SPI2 share the same MCU SPI interface but have different pin locations. You can only use one or the other.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 40cba6f3-2c1b-4ede-a8b5-5d15846c582c --}}
 
@@ -399,7 +399,7 @@ There are more UART ports on the Gen 2 devices than Gen 3. If you need more hard
 
 ### Analog input (ADC)
 
-The B Series SoM does not have an many ADC ports as the E Series. You can add additional ADC ports using a SPI or I2C ADC.
+The B-Series SoM does not have an many ADC ports as the E-Series. You can add additional ADC ports using a SPI or I2C ADC.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 178a8aef-c0c8-4aec-ab3c-44db240c7b7e --}}
 
@@ -423,7 +423,7 @@ The B Series SoM does not have an many ADC ports as the E Series. You can add ad
 
 ### PWM (Pulse-width modulation)
 
-These are differences in pins that support PWM between the E Series and B Series SoM.
+These are differences in pins that support PWM between the E-Series and B-Series SoM.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 1dc0b0d0-7736-4b3e-8e83-1cceaaff6df6' --}}
 
@@ -459,7 +459,7 @@ These are differences in pins that support PWM between the E Series and B Series
 
 On Gen 3 devices, the PWM frequency is from 5 Hz to `analogWriteMaxFrequency(pin)` (default is 500 Hz).
 
-On the B Series SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+On the B-Series SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
 frequency and resolution, but individual pins in the group can have a different duty cycle.
 
 - Group 2: Pins A0, A1, A6, and A7.
@@ -470,19 +470,19 @@ It is also possible to add an external PWM driver such as the PCA9685 which adds
 
 #### PWM - Gen 2
 
-On the Electron and E Series, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX, TX, B0, B1, B2, B3, C4, and C5 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+On the Electron and E-Series, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX, TX, B0, B1, B2, B3, C4, and C5 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 ### Internal pull-up or pull-down
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
-On both the B Series SoM (Gen 3), the internal pull is approximately 16K. On the E Series it is approximately 40K.
+On both the B-Series SoM (Gen 3), the internal pull is approximately 16K. On the E-Series it is approximately 40K.
 
 ### Retained memory
 
 Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset. 
 
-On both the Boron and B Series SoM, retained memory is 3068 bytes, same as the E Series.
+On both the Boron and B-Series SoM, retained memory is 3068 bytes, same as the E-Series.
 
 The flash file system on Gen 3 devices can also be used for data storage, however care must be taken to avoid excessive wear of the flash for frequently changing data.
 
@@ -501,11 +501,11 @@ Not supported on the Electron/E series (you can't use attachInterrupt on these p
   - C1 (shared with RXD_UC)
   - C2 (shared with RI_UC)
 
-No restrictions on the Electron/E Series (all of these can be used at the same time):
+No restrictions on the Electron/E-Series (all of these can be used at the same time):
 
   - D5, D6
 
-Shared on the Electron/E Series (only one pin for each bullet item can be used at the same time):
+Shared on the Electron/E-Series (only one pin for each bullet item can be used at the same time):
 
   - D1, A4, B1
   - D2, A0, A3
@@ -540,8 +540,8 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 
 ### I2S (Sound)
 
-- The E Series theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
-- I2S is available on Gen 3 devices including the B Series SoM on any GPIO pins using a 3rd-party library.
+- The E-Series theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
+- I2S is available on Gen 3 devices including the B-Series SoM on any GPIO pins using a 3rd-party library.
 
 
 {{!-- BEGIN shared-blurb 28cd19b2-4f01-444b-8189-ba6191e6ebdd --}}
@@ -556,7 +556,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 
 ### RTC (Real-time clock)
 
-- The E Series module has the ability to use an external lithium coin cell or supercap to power the RTC when the MCU is unpowered. This feature is difficult to access on the Electron (requires removing a resistor on the module) and does not exist on Gen 3 devices.
+- The E-Series module has the ability to use an external lithium coin cell or supercap to power the RTC when the MCU is unpowered. This feature is difficult to access on the Electron (requires removing a resistor on the module) and does not exist on Gen 3 devices.
 - The RTC on Gen 3 devices is not really a real-time clock. It's basically just a counter, and some advanced wakeup features are not possible on Gen 3 devices. These features were not enabled by Device OS on Gen 2 devices, either, so this is generally not an issue.
 - On Gen 3 devices, in `HIBERNATE` sleep mode the RTC does not run, so it is not possible to wake by time, and the system clock will not be set until you connect to the cloud again. `ULTRA_LOW_POWER` is recommended instead.
 - The Tracker SoM has a separate real-time clock and watchdog (AM1805) chip allowing it to wake from `HIBERNATE` based on time.
@@ -570,7 +570,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 - Gen 2 devices support SWD on D6 and D7, and full JTAG on D3, D4, D5, D6, and D7.
 - Gen 3 devices only support SWD, and do so via a dedicated debug connector.
 - The Boron has the debug connector on top of the module.
-- The B Series SoM has SWD on pads on the bottom of the SoM. The evaluation board connects to these with pogo pins and breaks out to the same 2x5 connector that is on the Boron.
+- The B-Series SoM has SWD on pads on the bottom of the SoM. The evaluation board connects to these with pogo pins and breaks out to the same 2x5 connector that is on the Boron.
 
 #### JTAG pin warning - Gen 2
 
@@ -590,19 +590,19 @@ If you are relying on this behavior for external circuits, you should instead us
 
 ### PMIC and Fuel gauge
 
-The E Series, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
+The E-Series, E-Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
 
-On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you are powering by an external power supply and not using a battery, you can omit the components entirely.
+On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you are powering by an external power supply and not using a battery, you can omit the components entirely.
 
 
 ### USB
 
-- Both the E Series and B Series SoM assume the USB connector will be mounted on your base board. It is recommended that you add one to your base board for programming and troubleshooting.
+- Both the E-Series and B-Series SoM assume the USB connector will be mounted on your base board. It is recommended that you add one to your base board for programming and troubleshooting.
 - Gen 2 devices can emulate a USB mouse or keyboard over the USB port. This feature is not available on Gen 3.
 - Gen 2 devices can support two separate USB serial emulation streams over the USB port. Gen 3 devices only support the normal `Serial` interface.
 
 
-| USB Feature | E Series | B Series SoM |
+| USB Feature | E-Series | B-Series SoM |
 | :--- | :---: | :---: |
 | Secondary USB serial emulation `USBSerial1` | &check; | |
 | USB keyboard emulation | &check; | |
@@ -611,24 +611,24 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 
 ### NFC tag
 
-The B Series SoM has NFC Tag support, however you must add a U.FL antenna connector to your base board to use it.
+The B-Series SoM has NFC Tag support, however you must add a U.FL antenna connector to your base board to use it.
 
-Note that this only supports emulating an NFC tag that can be read by an another reader or smartphone. It does not allow the B Series SoM to detect other tags!
+Note that this only supports emulating an NFC tag that can be read by an another reader or smartphone. It does not allow the B-Series SoM to detect other tags!
 
 ## PMIC Notes
 
 {{!-- BEGIN shared-blurb 93112786-2815-408c-b064-ec7e9c629200 --}}
-When using the B Series SoM with a bq24195 PMIC, note the following:
+When using the B-Series SoM with a bq24195 PMIC, note the following:
 
-By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B Series SoM in normal operation.
+By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B-Series SoM in normal operation.
 
 If your device has the default firmware (Tinker), it will attempt to connect to the cloud, brown out due to insufficient current, then the device will reset. This may result in what appears to be the status LED blinking white, but is actually rolling reboot caused by brownout.
 
-A factory new B Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
+A factory new B-Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B-Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
 
 Because the input current limit does not affect the battery input (Li+), for troubleshooting purposes it can be helpful to attach a battery to help rule out input current limit issues. It's also possible to supply 3.7V via a bench power supply to the battery input, instead of VIN. 
 
-The input current limit can result in a situation where you can't bring up a B Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
+The input current limit can result in a situation where you can't bring up a B-Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
 
 - Attach a battery or supply by Li+ when bringing up a board.
 - Use SWD/JTAG and reset halt the MCU. This will prevent it from connecting to the cloud, so you can flash Device OS and firmware to it by SWD.
@@ -647,9 +647,9 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 
 ### Antennas
 
-The B Series SoM has U.FL antenna connectors for BLE and cellular antennas. A connector for NFC can be added from your base board.
+The B-Series SoM has U.FL antenna connectors for BLE and cellular antennas. A connector for NFC can be added from your base board.
 
-The E Series has a U.FL connector for the cellular antenna, and does not have BLE or NFC tag capabilities.
+The E-Series has a U.FL connector for the cellular antenna, and does not have BLE or NFC tag capabilities.
 
 Both require an external cellular antenna.
 
@@ -1611,12 +1611,12 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 
 | Platform ID | Name | Description |
 | :--- | :--- | :--- |
-| 10 | electron | Electron and E Series |
+| 10 | electron | Electron and E-Series |
 | 13 | boron | Boron (all models) |
-| 23 | bsom | B404X, B404, and B402 B Series SoM |
-| 25 | b5som | B524, B523 B Series SoM | 
+| 23 | bsom | B404X, B404, and B402 B-Series SoM |
+| 25 | b5som | B524, B523 B-Series SoM | 
 
-If you have a product based on the Electron/E Series, you will need to create a separate product (or two) for devices using the B Series SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+If you have a product based on the Electron/E-Series, you will need to create a separate product (or two) for devices using the B-Series SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 
 The reason there are separate platforms for the B4xx and B5xx SoM is that they have different cellular modem manufacturers, u-blox and Quectel, respectively. All Boron models have u-blox cellular modems and thus can share a single platform.
 

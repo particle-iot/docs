@@ -129,6 +129,6 @@ In rare cases, using the button combination to change into DFU mode may not work
 
 ### Dim D7 (Gen 2)
 
-For Gen 2 devices (E Series, Electron, P1, Photon) if the blue D7 LED is on dimly and the status LED is off, the internal flash has been erased.
+For Gen 2 devices (E-Series, Electron, P1, Photon) if the blue D7 LED is on dimly and the status LED is off, the internal flash has been erased.
 
 If this occurs, it can only be repaired using SWD/JTAG. See the [SWD/JTAG guide](/reference/developer-tools/jtag/) for more information.

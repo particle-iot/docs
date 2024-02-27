@@ -31,7 +31,7 @@ var collapseConfig = {
 		'op':'cellularDevice',
 		'options':[
 			{'title':'Boron', 'tag':'Boron'},
-			{'title':'Electron or E Series', 'tag':'Electron'}
+			{'title':'Electron or E-Series', 'tag':'Electron'}
 		]				
 	},
 	'hardwareTutorial':{
@@ -52,11 +52,11 @@ var collapseConfig = {
 		'op':'simType',
 		'multilineSelector':true,
 		'options':[
-			{'title':'Electron 2G (G350), Electron 3G (U260/U270), or E Series 2G/3G (E310)', 'tag':'Electron'},
-			{'title':'E Series LTE (E402), Boron LTE, B Series B402 SoM, Tracker T402 SoM, or Electron LTE (ELC402) (LTE Cat M1)', 'tag':'LTE'},
-			{'title':'B Series B523 SoM or Tracker T523 SoM', 'tag':'B523'},
+			{'title':'Electron 2G (G350), Electron 3G (U260/U270), or E-Series 2G/3G (E310)', 'tag':'Electron'},
+			{'title':'E-Series LTE (E402), Boron LTE, B-Series B402 SoM, Tracker T402 SoM, or Electron LTE (ELC402) (LTE Cat M1)', 'tag':'LTE'},
+			{'title':'B-Series B523 SoM or Tracker T523 SoM', 'tag':'B523'},
 			{'title':'Boron 2G/3G', 'tag':'Boron'},
-			{'title':'Boron 2G/3G, E Series E313 (Enterprise Only Option)', 'tag':'BoronAllNet', 'hideWithoutOption':true}
+			{'title':'Boron 2G/3G, E-Series E313 (Enterprise Only Option)', 'tag':'BoronAllNet', 'hideWithoutOption':true}
 		]				
 	}
 };

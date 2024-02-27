@@ -1,16 +1,16 @@
 ---
-title: B Series SoM
+title: B-Series SoM
 layout: landing.hbs
-description: Particle B Series SoM, Gen 3 cellular and BLE mass-production module
+description: Particle B-Series SoM, Gen 3 cellular and BLE mass-production module
 ---
 
-# Particle B Series SoM
+# Particle B-Series SoM
 
 **Cellular + Bluetooth in a M.2 SoM**
 
-![Image of the B Series SoM](/assets/images/b-series/b-series-top.png)
+![Image of the B-Series SoM](/assets/images/b-series/b-series-top.png)
 
-The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed for mass-production. It includes the Nordic nRF52840 and with support for cellular and Bluetooth LE.
+The B-Series is a powerful cellular-enabled system-on-a-module (SoM) designed for mass-production. It includes the Nordic nRF52840 and with support for cellular and Bluetooth LE.
 
 {{box op="start" cssClass="boxedSideBySide"}}
   **Resources:**

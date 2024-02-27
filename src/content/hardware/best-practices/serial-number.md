@@ -57,7 +57,7 @@ The serial number sticker contains a data matrix code (like a QR code). This enc
 
 For devices without BLE capabilities (Gen 2 devices), the data matrix only contains the serial number.
 
-Note that older Photon, P1, Electron, and E Series modules do not have a serial number sticker. Older Electron an E Series with a "u-blox" sticker have the IMEI encoded in a 2D barcode. P0 modules (including the Photon) have an USI manufacturing code which is not easily mapped to any Particle identifier.
+Note that older Photon, P1, Electron, and E-Series modules do not have a serial number sticker. Older Electron an E-Series with a "u-blox" sticker have the IMEI encoded in a 2D barcode. P0 modules (including the Photon) have an USI manufacturing code which is not easily mapped to any Particle identifier.
 
 {{!-- END shared-blurb --}}
 

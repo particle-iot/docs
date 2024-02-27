@@ -6,13 +6,13 @@ columns: two
 
 # {{title}}
 
-Gen 3 devices, including the Boron, Argon, B Series SoM, Tracker SoM, and Tracker One all include a flash memory file system available for user use.
+Gen 3 devices, including the Boron, Argon, B-Series SoM, Tracker SoM, and Tracker One all include a flash memory file system available for user use.
 
 | Device | Size |
 | :--- | ---: |
 | Boron | 2 MB |
 | Argon | 2 MB |
-| B Series SoM | 2 MB |
+| B-Series SoM | 2 MB |
 | Tracker SoM | 4 MB |
 | Tracker One | 4 MB |
 
@@ -82,8 +82,8 @@ Replace `2b04:d00c` with the value for your device type. Note that the B4 and B5
 | :--- | :--- |
 | Argon | 2b04:d00c | 
 | Boron | 2b04:d00d | 
-| B Series SoM (B4xx) | 2b04:d017 | 
-| B Series SoM (B5xx) | 2b04:d019 | 
+| B-Series SoM (B4xx) | 2b04:d017 | 
+| B-Series SoM (B5xx) | 2b04:d019 | 
 | Tracker SoM | 2b04:d01a | 
 
 ```
@@ -93,10 +93,10 @@ dfu-util -d 2b04:d00c -a 2 -s 0x80000000:0x200000 -D FOUR_MB_BLANK.bin
 # Boron
 dfu-util -d 2b04:d00d -a 2 -s 0x80000000:0x200000 -D FOUR_MB_BLANK.bin
 
-# B Series SoM (B4xx)
+# B-Series SoM (B4xx)
 dfu-util -d 2b04:d017 -a 2 -s 0x80000000:0x200000 -D FOUR_MB_BLANK.bin
 
-# B Series SoM (B5xx)
+# B-Series SoM (B5xx)
 dfu-util -d 2b04:d019 -a 2 -s 0x80000000:0x200000 -D FOUR_MB_BLANK.bin
 
 # Tracker SoM

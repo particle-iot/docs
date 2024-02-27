@@ -16,7 +16,7 @@ Both the Feather and Gen 3 M.2 SoM Click shields have two mikroBUS sockets.
 - SPI (SCK, MOSI, MISO) is shared on both sockets, however each socket has its own CS pin (CS1, CS2).
 - I2C is shared on both sockets, but I2C is designed to be used that way.
 - Serial is shared on both sockets, but you can generally use only one for serial, unless the serial is unidirectional from the MCU
-- Logic levels must be 3.3V to interface with the Argon, Boron or B Series SoM!
+- Logic levels must be 3.3V to interface with the Argon, Boron or B-Series SoM!
 - The mikroBUS socket has both 3.3V and 5V on it.
 - The RST1/RST2 pin is used by some click boards to reset the click board. It is unrelated to the nRF52 MCU RST line.
 
@@ -88,7 +88,7 @@ This table just shows the socket-specific pin mapping:
 {{!-- BEGIN shared-blurb b644c2f2-a5ca-11ec-b909-0242ac120002 --}}
 ![Mikroe Gen 3 SoM](/assets/images/prototyping/mikroe-som.png)
 
-The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B Series SoM to mikroBUS Click boards:
+The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B-Series SoM to mikroBUS Click boards:
 
 | M.2 Pin | Generic SoM | Gen 3 | mikroBUS #1 | mikroBUS #2 |
 | :---: | :---: | :---: | :---: | :---: |

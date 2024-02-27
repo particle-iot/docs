@@ -19,11 +19,11 @@ It is assumed that you have incorporated one of the following Particle SKUs into
 
 | Device | Generation | SKUs |
 | :--- | :--- | :--- |
-| B Series SoM | Gen 3 | B404, B402, B524, B523 |
+| B-Series SoM | Gen 3 | B404, B402, B524, B523 |
 | Boron | Gen 3 | BRN404, BRN402, BRN314, BRN310 |
 | Tracker One | Gen 3 | ONE404, ONE402, ONE524, ONE523 |
 | Tracker SoM | Gen 3 | T404, T402, T524, T523 |
-| E Series | Gen 2 | E404, E402, E314, E313, E310 |
+| E-Series | Gen 2 | E404, E402, E314, E313, E310 |
 | Electron | Gen 2 | ELC404, ELC314, E270, E260, E350 |
 
 
@@ -65,7 +65,7 @@ Incoming Quality Control or IQC is the step of validating that each part in the 
 Particle does not have an example of manufacturing test firmware, given the variety of forms it may take.
 
 
-#### For E Series and B Series implementations, an RGB Status LED is connected to the device in some way.
+#### For E-Series and B-Series implementations, an RGB Status LED is connected to the device in some way.
 
 Particle recommends putting an LED on all baseboards; without one it can be difficult to quickly assess the functionality of the Particle device. At the very least, we strongly recommend adding a test header or test points on the board so one can access the RGB LEDs, reset, mode, and USB from a debugging adapter. 
 
@@ -87,7 +87,7 @@ This procedure is divided into the following sections:
 
 SIM Activation can be performed asynchronously to the manufacturing process, unless cellular connectivity tests are undertaken during manufacturing. 
 
-In some cases, such as using LTE Cat M1 devices (B Series B404/B402, Boron BRN404/BRN402, E Series E404/E402, Electron LTE ELC404/ELC402) it will be impossible to do a full end-to-end test of cellular at the CM if your CM is based in China, as these devices are unable to connect to cellular in China. 
+In some cases, such as using LTE Cat M1 devices (B-Series B404/B402, Boron BRN404/BRN402, E-Series E404/E402, Electron LTE ELC404/ELC402) it will be impossible to do a full end-to-end test of cellular at the CM if your CM is based in China, as these devices are unable to connect to cellular in China. 
 
 **The recommended manufacturing flow uses the bulk-import function in the provisioning process to facilitate the activation of SIMs.** Doing so will greatly simplify the process and you can skip the steps in this section. 
 
@@ -159,7 +159,7 @@ As stated above, programming is best done using JTAG, if possible.
 
 - Particle offers a Hex Generator Tool, allowing you to easily assemble images for target devices and Device OS versions.
 
-- For Gen 3 devices (Boron, B Series) running Device OS 3.x and earlier, you will need to set the setup done bit as you are bypassing the conventional mobile provisioning flow. This is ideally done by adding the following lines of code to your manufacturing test firmware; this only needs to be done once.
+- For Gen 3 devices (Boron, B-Series) running Device OS 3.x and earlier, you will need to set the setup done bit as you are bypassing the conventional mobile provisioning flow. This is ideally done by adding the following lines of code to your manufacturing test firmware; this only needs to be done once.
 
 ```
 // Only necessary for Device OS 3.0 and earlier. Skip this for 4.0.0-alpha.1 and later.
@@ -172,7 +172,7 @@ if(!dct_read_app_data_copy(DCT_SETUP_DONE_OFFSET, &val, DCT_SETUP_DONE_SIZE) && 
 #endif
 ```
 
-It is also possible to do this using the Particle CLI and USB if you are using a USB-based setup flow. If you skip this step, Gen 3 devices (Boron, B Series SoM, and Tracker SoM) will start in listening mode (blinking dark blue). See [Programming devices](/reference/developer-tools/programming-devices/#usb-particle-cli-manually-) for more information.
+It is also possible to do this using the Particle CLI and USB if you are using a USB-based setup flow. If you skip this step, Gen 3 devices (Boron, B-Series SoM, and Tracker SoM) will start in listening mode (blinking dark blue). See [Programming devices](/reference/developer-tools/programming-devices/#usb-particle-cli-manually-) for more information.
 
 - For the Tracker One and Tracker SoM, you will need to update the NCP (ESP32) firmware if you intend to use the Device OS 3.0.0 or later. It is not required for 2.x, but it is backwards compatible if you need to revert to 2.x from 3.x for any reason. This must be done over USB in listening mode (blinking dark blue, --serial). See [Argon and Tracker NCP](/reference/developer-tools/jtag/#argon-and-tracker-ncp) for more information.
 - All Monitor One devices ship the correct NCP version already.

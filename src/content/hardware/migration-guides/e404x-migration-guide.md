@@ -2,19 +2,19 @@
 title: E404X migration guide
 layout: commonTwo.hbs
 columns: two
-description: Migration guide for transitioning from the E Series E402/E404 to E404X
+description: Migration guide for transitioning from the E-Series E402/E404 to E404X
 ---
 
 # E404X migration guide
 
-This guide assists in the transition from the E Series E402/E404 to the E404X.
+This guide assists in the transition from the E-Series E402/E404 to the E404X.
 
 
 ## Software differences
 
 ### User firmware binary size
 
-One major advantage of the E404X is that user firmware binaries can be up to 256 Kbytes, instead of 128 Kbytes on Gen 2 devices including the E Series.
+One major advantage of the E404X is that user firmware binaries can be up to 256 Kbytes, instead of 128 Kbytes on Gen 2 devices including the E-Series.
 
 ### Flash file system
 
@@ -29,9 +29,9 @@ On the E404X and Gen 3 devices, over-the-air (OTA) updates have two features tha
 
 ### Increased API field limits
 
-The maximum size of a variable, function parameter, or publish is 1024 bytes on the E404X vs. 864 bytes on other E Series models.
+The maximum size of a variable, function parameter, or publish is 1024 bytes on the E404X vs. 864 bytes on other E-Series models.
 
-| API Field | E Series | E404X |
+| API Field | E-Series | E404X |
 | :--- | :---: | :---: |
 | Variable Key | 64 | 64 |
 | Variable Data | 864 | 1024 |
@@ -45,13 +45,13 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 - In general, the E404X will use less power in all modes.
 - In `HIBERNATE` mode, the RTC (real time clock) does not run on the E404X, so you cannot wake by time from `HIBERNATE` mode (formerly known as `SLEEP_MODE_DEEP`).
-- However, you can wake by time from `ULTRA_LOW_POWER` mode, and it uses less power than the E Series`HIBERNATE` mode.
+- However, you can wake by time from `ULTRA_LOW_POWER` mode, and it uses less power than the E-Series`HIBERNATE` mode.
 - On Gen 2 devices, you can only wake from `HIBERNATE` with a rising signal on `WKP` (A7). The E404X can wake from `HIBERNATE` on any pin, rising or falling.
 - On Gen 2 (STM32F205) devices, if you try to go into `HIBERNATE` mode with WKP already high, the device will go into sleep and will not wake up by time or pin change, essentially rendering it unable to wake until reset manually. This problem does not occur on the E404X and Gen 3 devices.
 
 ### RTC (Real-time clock)
 
-- The E Series module has the ability to use an external lithium coin cell or supercap to power the RTC when the MCU is unpowered. This feature does not exist on the E404X.
+- The E-Series module has the ability to use an external lithium coin cell or supercap to power the RTC when the MCU is unpowered. This feature does not exist on the E404X.
 - The RTC on the E404X s is not really a real-time clock. It's basically just a counter, and some advanced wakeup features are not possible on the E404X and Gen 3 devices. These features were not enabled by Device OS on Gen 2 devices, either, so this is generally not an issue.
 - On the E404X and Gen 3 devices, in `HIBERNATE` sleep mode the RTC does not run, so it is not possible to wake by time, and the system clock will not be set until you connect to the cloud again. `ULTRA_LOW_POWER` is recommended instead.
 
@@ -60,9 +60,9 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 ### MCU
 
-The microcontroller is different in E Series and E404X:
+The microcontroller is different in E-Series and E404X:
 
-| Measure | E Series | E404X |
+| Measure | E-Series | E404X |
 | :--- | :---: | :---: |
 | MCU | STM32F205 | nRF52840 |
 | Manufacturer | ST Microelectronics | Nordic Semiconductor |
@@ -78,7 +78,7 @@ The microcontroller is different in E Series and E404X:
 
 ### BLE (Bluetooth LE)
 
-- Bluetooth LE (BLE 5.0) is supported on the E404X but not E Series (Gen 2).
+- Bluetooth LE (BLE 5.0) is supported on the E404X but not E-Series (Gen 2).
 
 
 ### No 5V tolerance!
@@ -120,11 +120,11 @@ For example, if you have 3V3 disconnect circuitry but have pull-ups to non-disco
 ### SPI
 
 - On the E404X, there are only two SPI ports `SPI` (A pins) and `SPI1` (C pins)
-- E Series `SPI1` on the D pins does not exist on the E404X. 
-- E Series `SPI2` on the C pins is `SPI1` on the E404X
+- E-Series `SPI1` on the D pins does not exist on the E404X. 
+- E-Series `SPI2` on the C pins is `SPI1` on the E404X
 
 
-The following are all SPI-related pins on the E Series and E404X:
+The following are all SPI-related pins on the E-Series and E404X:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
 
@@ -147,7 +147,7 @@ The following are all SPI-related pins on the E Series and E404X:
 
 The following SPI data rates are available:
 
-| | E Series SPI | E Series SPI1 | E404X SPI & SPI1 |
+| | E-Series SPI | E-Series SPI1 | E404X SPI & SPI1 |
 | :--- | :--- | :--- | :--- |
 | Maximum rate | 30 MHz | 15 MHz | 32 MHz |
 | Default rate | 15 MHz | 15 MHz | 16 MHz |
@@ -172,8 +172,8 @@ The following SPI data rates are available:
 
 {{!-- END do not edit content above, it is automatically generated e6a3ce62-dfb5-4926-a1b4-5f2fd5048d05 --}}
 
-- On the E Series (other than the E404X), `Wire` and `Wire1` are the same I2C peripheral and you can only use one at a time, so effectively it only has one I2C port. 
-- On the E Series (other than the E404X), the built-in pull-up on SDA and SCL is approximately 40K and an external pull-up is required.
+- On the E-Series (other than the E404X), `Wire` and `Wire1` are the same I2C peripheral and you can only use one at a time, so effectively it only has one I2C port. 
+- On the E-Series (other than the E404X), the built-in pull-up on SDA and SCL is approximately 40K and an external pull-up is required.
 - On the E404X, the built-in pull-up on SDA and SCL is approximately 13K. An external pull-up is recommended. 
 - On the E404X, GPIO is 3.3V and is not 5V tolerant. Connecting to a 5V I2C bus requires level shifting.
 - On the E404X, external pull-ups should only be connected to the MCU 3V3 supply. Pulling up to an external supply can cause leakage current into the GPIO pins of the nRF52840 which can prevent it from resetting properly.
@@ -181,12 +181,12 @@ The following SPI data rates are available:
 ### Serial (UART)
 
 
-The primary UART serial (`Serial1`) is on the TX and RX pins on both the E Series and E404X. There is no hardware flow control on this port on E Series, but it can be enabled on the E404X on pins D0 (CTS) and D1 (RTS).
+The primary UART serial (`Serial1`) is on the TX and RX pins on both the E-Series and E404X. There is no hardware flow control on this port on E-Series, but it can be enabled on the E404X on pins D0 (CTS) and D1 (RTS).
 
-The E Series has additional serial ports `Serial2`, `Serial4`, and `Serial5`. These are not available on the E404X.
+The E-Series has additional serial ports `Serial2`, `Serial4`, and `Serial5`. These are not available on the E404X.
 
 
-|      | E Series  | E404X |
+|      | E-Series  | E404X |
 | :--- | :---: | :---: |
 | Buffer size | 64 bytes | configurable<sup>1</sup> |
 | 7-bit mode | &check; |  |
@@ -221,7 +221,7 @@ The E Series has additional serial ports `Serial2`, `Serial4`, and `Serial5`. Th
 
 #### Baud rate support
 
-| Baud Rate | E Series | E404X |
+| Baud Rate | E-Series | E404X |
 | ------: | :-----: | :---: |
 |    1200 | &check; | &check; |
 |    2400 | &check; | &check; |
@@ -241,7 +241,7 @@ The E Series has additional serial ports `Serial2`, `Serial4`, and `Serial5`. Th
 
 #### Serial configurations
 
-| Constant | Description | E Series | E404X |
+| Constant | Description | E-Series | E404X |
 | :--- | :--- | :---: | :---: |
 | SERIAL_8N1 | 8 data bits, no parity, 1 stop bit (default) | &check; | &check; |
 | SERIAL_8N2 | 8 data bits, no parity, 2 stop bits | &check; | &nbsp; |
@@ -290,7 +290,7 @@ If additional ADC ports are needed, an external I2C and SPI ADC can be added to 
 
 ### PWM (Pulse-width modulation)
 
-The pins that support PWM are different on the E Series and E404X.
+The pins that support PWM are different on the E-Series and E404X.
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
@@ -335,7 +335,7 @@ On the E404X, the following groups are defined. Each group must share the same f
 
 ### Digital to analog converter (DAC)
 
-The E Series supports DAC one A3 and A6 (DAC). There is no DAC on the E404X or Gen 3 devices.
+The E-Series supports DAC one A3 and A6 (DAC). There is no DAC on the E404X or Gen 3 devices.
 
 If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
@@ -354,7 +354,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 ### WKP (A7)
 
-|              | E Series    | E404X |
+|              | E-Series    | E404X |
 | :----------- | :---------: | :---: |
 | Module Pin   | 30          | 30 |
 | Pin Name     | WKP         | WKP |
@@ -390,17 +390,17 @@ The E series supported CAN on pins D1/D2 or C4/C5. There is no CAN on the E404X 
 
 ### I2S (Sound)
 
-- The E Series theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
+- The E-Series theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
 - I2S is available on Gen 3 devices including the E404X on any GPIO pins using a 3rd-party library.
 
 
 ### Interrupts
 
-There are many limitations for interrupts on the E Series (STM32F205). All pins can be used for interrupts on the E404X Gen 3 devices, however you can only attach interrupts to 8 pins at a time.
+There are many limitations for interrupts on the E-Series (STM32F205). All pins can be used for interrupts on the E404X Gen 3 devices, however you can only attach interrupts to 8 pins at a time.
 
 ### SWD
 
-Unlike the E Series module, the E404X SWD pins are dedicated and cannot be used for GPIO.
+Unlike the E-Series module, the E404X SWD pins are dedicated and cannot be used for GPIO.
 
 {{!-- BEGIN do not edit content below, it is automatically generated b90ca6ee-1877-4f05-a3bd-b073d768e54d --}}
 
@@ -436,7 +436,7 @@ Pin D5 (module pin 37), however, is available for GPIO as it is not NC and not u
 
 The following USB feature differences exist:
 
-| USB Feature | E Series | E404X |
+| USB Feature | E-Series | E404X |
 | :--- | :---: | :---: |
 | Secondary USB serial emulation `USBSerial1` | &check; | |
 | USB keyboard emulation | &check; | |
@@ -445,7 +445,7 @@ The following USB feature differences exist:
 
 ### Pin functions removed
 
-The following pins were used on the E Series but are not available on the E404X. You should not connect anything to these pins.
+The following pins were used on the E-Series but are not available on the E404X. You should not connect anything to these pins.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6c533551-bce6-4c2e-b248-c7274f4b1b22 --}}
 
@@ -469,7 +469,7 @@ No pin functions have been added to previously unused (NC) pins.
 
 {{imageOverlay src="/assets/images/e404x-pinout.svg" alt="E404X Pinout Diagram" class="full-width"}}
 
-{{imageOverlay src="/assets/images/e-series-pinout.svg" alt="E Series Pinout Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/e-series-pinout.svg" alt="E-Series Pinout Diagram" class="full-width"}}
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
@@ -1038,7 +1038,7 @@ Most third-party libraries are believed to be compatible. The exceptions include
 - Libraries for MCU-specific features (such as ADC DMA)
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
 
-Since the E404X uses the same MCU as Gen 3 devices (Boron, B Series SoM, Tracker SoM), most libraries intended for those platforms will work with no changes or minimal changes.
+Since the E404X uses the same MCU as Gen 3 devices (Boron, B-Series SoM, Tracker SoM), most libraries intended for those platforms will work with no changes or minimal changes.
 
 
 ## Version history

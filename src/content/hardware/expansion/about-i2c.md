@@ -75,7 +75,7 @@ On the Photon and Electron, a 40K weak pull-up is added on SDA/SCL (D0/D1) when 
 
 On the P1, there are 2.1K hardware pull-up resistors inside the P1 module. You should not add external pull-ups on the P1.
 
-On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM), a 13K pull-up is added on I2C interfaces. This will sometimes work, but is still too large of a pull-up to be reliable so you should add external pull-ups as well.
+On Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM), a 13K pull-up is added on I2C interfaces. This will sometimes work, but is still too large of a pull-up to be reliable so you should add external pull-ups as well.
 
 ### It can be 5-volt compatible (sometimes)
 
@@ -89,7 +89,7 @@ This is different than SPI, which is 5V tolerant, but will only supply 3.3V on M
 
 The P1 module should not use I2C at 5V as there is an internal 2.1K hardware pull-up resistor to 3V3 inside the P1 module. This is only on the P1, not the Photon or P0.
 
-3rd-generation devices (Argon, Boron, and B Series SoM) **are not 5V tolerant** and must not be used with pull-ups to 5V!
+3rd-generation devices (Argon, Boron, and B-Series SoM) **are not 5V tolerant** and must not be used with pull-ups to 5V!
 
 ### Pins
 

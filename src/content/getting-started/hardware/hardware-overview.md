@@ -124,7 +124,7 @@ The B-SoM includes only cellular (not Wi-Fi, satellite, or LoRaWAN). It uses the
 
 - [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
 - [B524 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
-- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
+- [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
 
@@ -196,7 +196,7 @@ The Muon contains an M-SoM module in a M.2 socket and a carrier board with an ex
 
 The Muon contains a Particle M-SoM that the following functional units:
  
-- M.2 SoM form-factor, like the B Series SoM
+- M.2 SoM form-factor, like the B-Series SoM
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
 - Cellular modem 

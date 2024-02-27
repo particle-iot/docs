@@ -16,7 +16,7 @@ Workbench is our integrated development environment (IDE) based on Visual Studio
 * Works with Particle libraries - Comes with access to 3,000+ Device OS libraries for faster development.
 * Fully customizable - Customize your workflow with 8,000+ Visual Studio extensions.
 * Autocomplete with IntelliSense - Not only provides syntax highlighting and autocomplete, but also provides smart completions based on variable types, function definitions, and imported modules. And it works not only for your code, but for the Device OS API.
-* Step-by-step debugging - Support for source-level step-by-step debugging, breakpoints, viewing call stacks, registers, and memory, for 3rd generation (Argon, Boron, B Series) as well as 2nd generation (Photon, P1, Electron, E Series) devices.
+* Step-by-step debugging - Support for source-level step-by-step debugging, breakpoints, viewing call stacks, registers, and memory, for 3rd generation (Argon, Boron, B-Series) as well as 2nd generation (Photon, P1, Electron, E-Series) devices.
 
 The installation instructions will also get you started creating your first project.
 

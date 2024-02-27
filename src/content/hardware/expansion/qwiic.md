@@ -93,11 +93,11 @@ If you are using a prototyping breadboard with your Particle Argon, Boron, Elect
 
 The Qwiic boards have I2C pull-ups (typically 4.7K) on each board on both SDA and SCL. You do not need to add them to your breadboard as well. 
 
-The Qwiic bus can only be used at 3.3V. Running it at higher voltages can damage both the Qwiic devices and Gen 3 devices like the Argon, Boron, B Series SoM, and Tracker SoM. Do not connect the red wire to VUSB or Li+ or permanent damage will likely occur.
+The Qwiic bus can only be used at 3.3V. Running it at higher voltages can damage both the Qwiic devices and Gen 3 devices like the Argon, Boron, B-Series SoM, and Tracker SoM. Do not connect the red wire to VUSB or Li+ or permanent damage will likely occur.
 
 ### Evaluation boards
 
-The E Series, B Series SoM, and Tracker SoM evaluation boards can either use the wires above to the expansion header, or the [Grove I2C to Qwiic adapter cable](https://www.sparkfun.com/products/15109).
+The E-Series, B-Series SoM, and Tracker SoM evaluation boards can either use the wires above to the expansion header, or the [Grove I2C to Qwiic adapter cable](https://www.sparkfun.com/products/15109).
 
 
 ### Gen 3 feather (Argon, Boron)

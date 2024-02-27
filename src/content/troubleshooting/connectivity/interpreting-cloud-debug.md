@@ -7,13 +7,13 @@ columns: two
 
 The Cloud Debug tool is helpful for diagnosing connectivity issues. There are a few different versions, depending on the device:
 
-- [Electron and E Series](https://github.com/rickkas7/electron-clouddebug)
+- [Electron and E-Series](https://github.com/rickkas7/electron-clouddebug)
 - [Boron](https://github.com/rickkas7/boron-clouddebug)
 - [Photon, P1, and Argon](https://github.com/rickkas7/photon-clouddebug)
 
 The pages above include instructions for installing and removing the cloud debug firmware from your device.
 
-This guide mostly concentrates on cellular issues (Electron, E Series, and Boron).
+This guide mostly concentrates on cellular issues (Electron, E-Series, and Boron).
 
 This application note is continued in [AN004 Interpreting Cloud Debug-2](/troubleshooting/connectivity/interpreting-cloud-debug-2/) which is a deep dive into interpreting cloud debug logs and cross-referencing the AT command guide for the u-blox modem.
 
@@ -245,7 +245,7 @@ The following countries can only use 2G with a 3rd-party SIM card, not the Parti
 - New Zealand
 - Switzerland
 
-It is also possible that certain areas will have 3G coverage but not 2G. In the United States, both AT&T and T-Mobile are used with the Electron and E Series (2G/3G), but 2G is only supported on T-Mobile. Thus the Electron 2G (G350) will only ever connect to T-Mobile, so it will have a different coverage area than the Electron 2G/3G (U201 and U260) and LTE devices.
+It is also possible that certain areas will have 3G coverage but not 2G. In the United States, both AT&T and T-Mobile are used with the Electron and E-Series (2G/3G), but 2G is only supported on T-Mobile. Thus the Electron 2G (G350) will only ever connect to T-Mobile, so it will have a different coverage area than the Electron 2G/3G (U201 and U260) and LTE devices.
 
 The carrier scan is a good way to determine if there is 2G coverage on a nearby tower and which carrier it is.
 
@@ -497,9 +497,9 @@ attempting to connect to the cellular network...
 
 In particular, note that there is never a response to the `> AT` command, and the error `ERROR: No response from NCP`. Also, the modem-specific information like manufacturer, model, ICCID, etc. are all blank.
 
-For Gen 3 devices (Boron, B Series SoM), the status LED will blink green.
+For Gen 3 devices (Boron, B-Series SoM), the status LED will blink green.
 
-For Gen 2 devices (Electron, E Series), the status LED will blink dark blue.
+For Gen 2 devices (Electron, E-Series), the status LED will blink dark blue.
 
 ## Other cloud connection issues
 

@@ -38,9 +38,9 @@ Note that the product name must be unique across all products and users of the P
 
 **Each product can only contain one type of device**
 
-For example, the Boron, B Series SoM (4xx), and B Series SoM (5xx) are three different device types and thus must be in separate products. The reason is that different device types are compiled for different platforms, and a product can only have a single binary for each version released. 
+For example, the Boron, B-Series SoM (4xx), and B-Series SoM (5xx) are three different device types and thus must be in separate products. The reason is that different device types are compiled for different platforms, and a product can only have a single binary for each version released. 
 
-The Electron and E Series, however, are the same platform and can share a single product. The Tracker SoM and Tracker One are also the same platform and can share a product.
+The Electron and E-Series, however, are the same platform and can share a single product. The Tracker SoM and Tracker One are also the same platform and can share a product.
 
 **Each product has an owner**
 

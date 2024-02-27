@@ -225,8 +225,8 @@ Product membership determines whether a given device (identified by its Device I
 
 Each product can have only one device platform in it. For example, the Argon and Boron need to be in separate products because they have different firmware binaries. However, it then gets more confusing:
 
-- The Electron and E Series are the same platform and can be in the same product.
-- The Boron and B Series are different platforms and must be in different products.
+- The Electron and E-Series are the same platform and can be in the same product.
+- The Boron and B-Series are different platforms and must be in different products.
 - The B4xx (bsom) and B5xx (b5som) are different platforms and must be in different products.
 - The Photon and P1 are different platforms and must be in different products.
 - All Tracker SoM devices (Tracker One and Tracker SoM, both T4xx and T5xx) can be in the same product.
@@ -321,7 +321,7 @@ If a device appears in Denied Devices and you do not want to approve it, make su
 
 From setup.particle.io you can activate a SIM:
 
-- In a device with a built-in SIM (Boron, B Series SoM, E Series, Tracker, Electron LTE) from its serial number.
+- In a device with a built-in SIM (Boron, B-Series SoM, E-Series, Tracker, Electron LTE) from its serial number.
 - A Particle SIM card for use in an Electron 2G/3G from the ICCID on the plastic SIM card.
 
 ### Product SIM activation
@@ -522,7 +522,7 @@ particle serial wifi
 
 ## Setup done
 
-On Gen 3 devices running Device OS 3.x and earlier, the setup done bit determines if setup has been completed. Until the setup done bit is set, the device will boot into listening mode (blinking dark blue), even if it has valid Wi-Fi credentials (Argon) or SIM activation (Boron, B Series SoM, Tracker).
+On Gen 3 devices running Device OS 3.x and earlier, the setup done bit determines if setup has been completed. Until the setup done bit is set, the device will boot into listening mode (blinking dark blue), even if it has valid Wi-Fi credentials (Argon) or SIM activation (Boron, B-Series SoM, Tracker).
 
 **If you are using Device OS 4.0 and later, there is no setup done bit so you must skip this step.**
 

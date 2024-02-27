@@ -1,10 +1,10 @@
 ---
-title: E Series Evaluation Board
+title: E-Series Evaluation Board
 layout: commonTwo.hbs
 columns: two
-description: Datasheet for the Particle E Series Evaluation Board, Gen 2 cellular
+description: Datasheet for the Particle E-Series Evaluation Board, Gen 2 cellular
 ---
-# E Series evaluation board
+# E-Series evaluation board
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-eval-board.pdf"}}

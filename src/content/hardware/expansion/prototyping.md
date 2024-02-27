@@ -36,7 +36,7 @@ Also, ncd has a large selection of relay boards for Particle devices.
 - I2C
 - Serial
 
-Some evaluation boards, including the E Series and B Series SoM, include Grove connectors.
+Some evaluation boards, including the E-Series and B-Series SoM, include Grove connectors.
 
 ![Grove Accessory Kit](/assets/images/accessories/grove-kit.jpg)
 
@@ -56,7 +56,7 @@ This is an Adafruit BME280 breakout board, the same sensor as in the Sparkfun Qw
 
 [MikroElektronika](https://www.mikroe.com/) has a collection of base boards and small accessory boards, Click, that connect by the mikroBUS. 
 
-The mikroBUS includes I2C, SPI, serial, analog input (ADC), GPIO, PWM, and interrupts. A click shield available for Particle Gen 3 Feather (Argon, Boron) devices, as well as one for the B Series SoM. 
+The mikroBUS includes I2C, SPI, serial, analog input (ADC), GPIO, PWM, and interrupts. A click shield available for Particle Gen 3 Feather (Argon, Boron) devices, as well as one for the B-Series SoM. 
 
 The [Mikroe community page](/hardware/expansion/mikroe/) has more information.
 

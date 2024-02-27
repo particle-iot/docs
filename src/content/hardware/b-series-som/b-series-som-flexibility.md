@@ -1,13 +1,13 @@
 ---
-title: Designing for B Series SoM flexibility
+title: Designing for B-Series SoM flexibility
 columns: two
 layout: commonTwo.hbs
-description: Designing for B Series SoM flexibility
+description: Designing for B-Series SoM flexibility
 ---
 
 # {{title}}
 
-The B Series SoM is designed for the flexibility to switch between different models of the family with the same hardware and the same source code.
+The B-Series SoM is designed for the flexibility to switch between different models of the family with the same hardware and the same source code.
 
 | Model | Platform | EtherSIM | Modem | Region |
 | :--- | :--- | :---: | :--- | :--- |
@@ -25,7 +25,7 @@ The same source code can be used across all devices, however it must be compiled
 
 ### Why are there two different platforms?
 
-B Series SoM has two platforms, bsom and b5som, because the B4xx has a u-blox LTE Cat M1 cellular modem and the B5xx has a Quectel LTE Cat 1 with 2G/3G fallback cellular modem. These require sufficiently different code within Device OS itself that they require two different platforms. Device OS exposes a single cellular API that is the same across both cellular modems, so most user firmware is unaffected by the differences.
+B-Series SoM has two platforms, bsom and b5som, because the B4xx has a u-blox LTE Cat M1 cellular modem and the B5xx has a Quectel LTE Cat 1 with 2G/3G fallback cellular modem. These require sufficiently different code within Device OS itself that they require two different platforms. Device OS exposes a single cellular API that is the same across both cellular modems, so most user firmware is unaffected by the differences.
 
 On the Tracker, for example, there is a single platform, which allows both source and binaries to be shared between the North America and EMEAA models, because both have Quectel cellular modems (BG96-MC and EG91-EX).
 

@@ -5,7 +5,7 @@ columns: two
 ---
 # {{title}}
 
-This application note shows how to have an Electron, E Series, or Boron gracefully power down under battery power when the power supply is disconnected then automatically power up when restored. This can be useful in automotive applications or devices powered by a switch in mains power applications.
+This application note shows how to have an Electron, E-Series, or Boron gracefully power down under battery power when the power supply is disconnected then automatically power up when restored. This can be useful in automotive applications or devices powered by a switch in mains power applications.
 
 The idea works like this:
 

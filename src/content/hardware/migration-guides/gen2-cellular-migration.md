@@ -7,7 +7,7 @@ description: Learn more about migrating from Gen 2 to Gen 3 cellular devices
 
 # {{title}}
 
-This document has information on migrating designs based on the Gen 2 cellular devices (Electron, E Series) to Gen 3 cellular devices (Boron, B Series SoM, Tracker SoM). There are not pin-compatible replacements to make this migration, and there are some necessary hardware tradeoffs and design changes that may be required for some features. However, there are also several advantages of migrating to the latest generation of cellular devices.
+This document has information on migrating designs based on the Gen 2 cellular devices (Electron, E-Series) to Gen 3 cellular devices (Boron, B-Series SoM, Tracker SoM). There are not pin-compatible replacements to make this migration, and there are some necessary hardware tradeoffs and design changes that may be required for some features. However, there are also several advantages of migrating to the latest generation of cellular devices.
 
 ## Gen 2 overview
 
@@ -49,21 +49,21 @@ The Electron is a 2nd-generation device designed to easily plug into a solderles
 
 {{!-- END do not edit content above, it is automatically generated 7a6e03da-072c-4955-922a-288e9609292a --}}
 
-### E Series
+### E-Series
 
-![E Series](/assets/images/e-series/illustrations/e0-top.png)
+![E-Series](/assets/images/e-series/illustrations/e0-top.png)
 
-The E Series module is a 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
+The E-Series module is a 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E-Series, you can easily move from prototyping to mass production with the same software.
 
-Though the form-factor is different than the Electron, they are nearly identically electrically, and the same software binaries can be used on both the Electron and E Series.
+Though the form-factor is different than the Electron, they are nearly identically electrically, and the same software binaries can be used on both the Electron and E-Series.
 
-#### Peripherals and GPIO - E Series
+#### Peripherals and GPIO - E-Series
 
 {{pin-table platform="E-Series"}}
 
 - Wire (D0/D1) and Wire1 (C4/D5) connect to the same I2C peripheral and only one can be used at a time.
 
-#### SKUs - E Series
+#### SKUs - E-Series
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated d5825d70-1978-4172-a917-9127c8879f4e --}}
@@ -92,7 +92,7 @@ Though the form-factor is different than the Electron, they are nearly identical
 
 ### Feature comparison - Gen 2
 
-| Feature | Electron | E Series Module | Base Board |
+| Feature | Electron | E-Series Module | Base Board |
 | --- | :---: | :---: | :---: |
 | U.FL Antenna Connector | &check; | &check; | &nbsp; |
 | MFF2 SMD Particle SIM | &nbsp; | &check; | &nbsp; |
@@ -111,10 +111,10 @@ There are antenna differences between some Gen 2 and Gen 3 models, and a differe
 
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
-| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
-| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
-| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1] | ANTELEC | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-antenna-1) |
-| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x50] | ANTELEC50 | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E-Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E-Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
+| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1] | ANTELEC | Electron and E-Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-antenna-1) |
+| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x50] | ANTELEC50 | Electron and E-Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) |
 | Tracker One Cellular Antenna | | Tracker One | [Datasheet](/assets/pdfs/tracker-one-ant-cellular.pdf) |
 
 - The Electron 2G/3G cellular antenna (ANTELEC) should not be used with LTE (Cat 1 or Cat M1) devices. Not only is it not certified, but is not compatible with all of the necessary bands for use with LTE.
@@ -162,30 +162,30 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 {{!-- END do not edit content above, it is automatically generated 0f0d9a27-0176-4f7d-8006-75cf7c3f5072 --}}
 
 
-### B Series SoM
+### B-Series SoM
 
-![B Series](/assets/images/b-series/b-series-top.png)
+![B-Series](/assets/images/b-series/b-series-top.png)
 
-The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
+The B-Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
-- [B Series SoM First Board](/hardware/b-series-som/som-first-board/) is a simple SoM base board powered by USB only, no battery support.
+- [B-Series SoM First Board](/hardware/b-series-som/som-first-board/) is a simple SoM base board powered by USB only, no battery support.
 
 - [AN001 Basic SoM Design](/hardware/b-series-som/basic-som-design/) is a simple SoM base board. Like a Boron it can be powered by LiPo battery, USB, or an external DC supply. It includes: RGB LED, bq24195 PMIC, MAX17043 Fuel Gauge, USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
 
-Even though the B Series SoM is more difficult to prototype with than the Boron, the B Series module is designed for enterprise deployment and production at scale. The larger width of the module allows for a wider selection of cellular modems, which is why there's LTE Cat 1 (with 2G/3G fallback) for the B Series SoM but not for the Boron. The Quectel EG91-E modem is physically too wide to fit in the Boron (Adafruit feather) form-factor.
+Even though the B-Series SoM is more difficult to prototype with than the Boron, the B-Series module is designed for enterprise deployment and production at scale. The larger width of the module allows for a wider selection of cellular modems, which is why there's LTE Cat 1 (with 2G/3G fallback) for the B-Series SoM but not for the Boron. The Quectel EG91-E modem is physically too wide to fit in the Boron (Adafruit feather) form-factor.
 
-#### Country compatibility - B Series SoM
+#### Country compatibility - B-Series SoM
 
-- The B Series SoM LTE Cat M1 (B404) is only recommended for use in the United States, Canada, and Mexico. 
-- The B Series LTE Cat 1 with 2G/3G fallback (B524) is only recommended in Europe, Australia, and New Zealand.
-- The B Series SoM B524 only supports EMEAA cellular frequencies and thus it cannot connect in most locations in the Americas. It does not work at all in the United States.
+- The B-Series SoM LTE Cat M1 (B404) is only recommended for use in the United States, Canada, and Mexico. 
+- The B-Series LTE Cat 1 with 2G/3G fallback (B524) is only recommended in Europe, Australia, and New Zealand.
+- The B-Series SoM B524 only supports EMEAA cellular frequencies and thus it cannot connect in most locations in the Americas. It does not work at all in the United States.
 
-#### Peripherals and GPIO - B Series SoM
+#### Peripherals and GPIO - B-Series SoM
 
 {{pin-table platform="B4xx SoM"}}
 
 
-#### SKUs - B Series SoM
+#### SKUs - B-Series SoM
 
 {{!-- BEGIN do not edit content below, it is automatically generated 295a969b-7ffa-4f84-8234-7e4cb38d1f10 --}}
 
@@ -276,7 +276,7 @@ In addition to using the Tracker One assembled module, the following application
 
 ### Feature comparison - Gen 3
 
-| Feature | Boron | B Series SoM | SoM Base Board | Tracker SoM |
+| Feature | Boron | B-Series SoM | SoM Base Board | Tracker SoM |
 | --- | :---: | :---: | :---: | :---: |
 | U.FL Antenna Connector | &check; | &check; | Optional |&check; | 
 | MFF2 SMD Particle SIM | &check; | &check; | &nbsp; |&check; | 
@@ -293,10 +293,10 @@ In addition to using the Tracker One assembled module, the following application
 
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
-| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B Series, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
-| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x50] | ANTCW2TY | Tracker, B Series, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) |
-| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
-| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B-Series, E-Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x50] | ANTCW2TY | Tracker, B-Series, E-Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E-Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E-Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
 
 
 ## Software differences
@@ -351,7 +351,7 @@ The microcontroller is different in Gen 2 vs. Gen 3 devices:
 
 ### BLE (Bluetooth LE)
 
-- Bluetooth LE (BLE 5.0) is supported on the B Series SoM and Gen 3 devices but not Gen 2.
+- Bluetooth LE (BLE 5.0) is supported on the B-Series SoM and Gen 3 devices but not Gen 2.
 
 ### NFC tag
 
@@ -493,11 +493,11 @@ Not supported on the Electron/E series (you can't use attachInterrupt on these p
   - C1 (shared with RXD_UC)
   - C2 (shared with RI_UC)
 
-No restrictions on the Electron/E Series (all of these can be used at the same time):
+No restrictions on the Electron/E-Series (all of these can be used at the same time):
 
   - D5, D6
 
-Shared on the Electron/E Series (only one pin for each bullet item can be used at the same time):
+Shared on the Electron/E-Series (only one pin for each bullet item can be used at the same time):
 
   - D1, A4, B1
   - D2, A0, A3
@@ -528,13 +528,13 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 
 - On Gen 2, Wire (D0/D1) and Wire1 (C4/D5) connect to the same I2C peripheral and only one can be used at a time.
 - On the Boron, there is only one available I2C interface (D0/D1).
-- On the B Series SoM, there are two available independent I2C interfaces (D0/D1 and D2/D3).
+- On the B-Series SoM, there are two available independent I2C interfaces (D0/D1 and D2/D3).
 - On the Tracker SoM, Wire (D0/D1) and Wire3 (TX/RX) connect to the same I2C peripheral and only one can be used at a time. This feature is mainly because TX/RX are exposed on the M8 connector on the Tracker One, and this allows the port to be switched between I2C and UART serial modes.
 
 ### SPI
 
 - Gen 2 devices have two SPI ports.
-- The Boron and B Series SoM have two SPI ports.
+- The Boron and B-Series SoM have two SPI ports.
 - The Tracker SoM only has one available SPI port.
 - In most cases, you can share a single SPI bus with many peripherals.
 
@@ -550,7 +550,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 
 ### RTC (Real-time clock)
 
-- The E Series module has the ability to use an external lithium coin cell or supercap to power the RTC when the MCU is unpowered. This feature is difficult to access on the Electron (requires removing a resistor on the module) and does not exist on Gen 3 devices.
+- The E-Series module has the ability to use an external lithium coin cell or supercap to power the RTC when the MCU is unpowered. This feature is difficult to access on the Electron (requires removing a resistor on the module) and does not exist on Gen 3 devices.
 - The RTC on Gen 3 devices is not really a real-time clock. It's basically just a counter, and some advanced wakeup features are not possible on Gen 3 devices. These features were not enabled by Device OS on Gen 2 devices, either, so this is generally not an issue.
 - On Gen 3 devices, in `HIBERNATE` sleep mode the RTC does not run, so it is not possible to wake by time, and the system clock will not be set until you connect to the cloud again. `ULTRA_LOW_POWER` is recommended instead.
 - The Tracker SoM has a separate real-time clock and watchdog (AM1805) chip allowing it to wake from `HIBERNATE` based on time.
@@ -564,7 +564,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 - Gen 2 devices support SWD on D6 and D7, and full JTAG on D3, D4, D5, D6, and D7.
 - Gen 3 devices only support SWD, and do so via a dedicated debug connector.
 - The Boron has the debug connector on top of the module.
-- The B Series SoM has SWD on pads on the bottom of the SoM. The evaluation board connects to these with pogo pins and breaks out to the same 2x5 connector that is on the Boron.
+- The B-Series SoM has SWD on pads on the bottom of the SoM. The evaluation board connects to these with pogo pins and breaks out to the same 2x5 connector that is on the Boron.
 
 #### JTAG pin warning - Gen 2
 
@@ -584,9 +584,9 @@ If you are relying on this behavior for external circuits, you should instead us
 
 ### PMIC and fuel gauge
 
-The Electron, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
+The Electron, E-Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
 
-On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you are powering by an external power supply and not using a battery, you can omit the components entirely.
+On the B-Series SoM, the PMIC and fuel gauge are optional. For example, if you are powering by an external power supply and not using a battery, you can omit the components entirely.
 
 ### USB differences
 
@@ -975,8 +975,8 @@ The Boron has both a MFF2 Particle SIM soldered to the board and an empty nano S
 | --- | :--- | :---: | :---: | 
 | Boron 2G/3G | BRN314 BRN310 | &check; | &check; |
 | Boron LTE  | BRN404 BRN402 | &check; | &check; |
-| B Series B402 SoM (Cat M1) | B404 B402 | &nbsp; | &check; |
-| B Series B523 SoM (Cat 1) | B524 B523 | &nbsp; | &check; |
+| B-Series B402 SoM (Cat M1) | B404 B402 | &nbsp; | &check; |
+| B-Series B523 SoM (Cat 1) | B524 B523 | &nbsp; | &check; |
 | Tracker SoM (LTE Cat M1) | T404 T402 | &nbsp; | &check; |
 | Tracker SoM (LTE Cat 1 and 2G/3G) | T524 T523 | &nbsp; | &check; |
 | Electron 2G | G350 | &check; | &nbsp; |
@@ -984,8 +984,8 @@ The Boron has both a MFF2 Particle SIM soldered to the board and an empty nano S
 | Electron 3G | U270 |  &check; | &nbsp; |
 | Electron Global | ELC314 | &check; | &nbsp; |
 | Electron LTE (Cat M1) | ELC404 ELC402 | &nbsp; | &check; |
-| E Series 2G/3G | E314 E310 | &nbsp; | &check; |
-| E Series LTE (Cat M1) | E404 E402 | &nbsp; | &check; |
+| E-Series 2G/3G | E314 E310 | &nbsp; | &check; |
+| E-Series LTE (Cat M1) | E404 E402 | &nbsp; | &check; |
 
 - Devices that do not have a nano SIM card socket (4FF) cannot be used with a 3rd-party SIM card. 
 - 3rd-party SIM cards are not recommended for product deployments at scale.

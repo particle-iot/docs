@@ -29,11 +29,11 @@ Particle has an extensive portfolio of LTE-ready, Supply Secure devices in the U
 
 | Model | Description | 
 | :--- | :--- |
-| B404 | B Series LTE CAT-M1 (NorAm, EtherSIM) |
-| B404X | B Series LTE CAT-M1 (NorAm, EtherSIM) |
+| B404 | B-Series LTE CAT-M1 (NorAm, EtherSIM) |
+| B404X | B-Series LTE CAT-M1 (NorAm, EtherSIM) |
 | BRN404 | Boron LTE CAT-M1 (NorAm, EtherSIM) |
 | BRN404X | Boron LTE CAT-M1 (NorAm, EtherSIM) |
-| E404X | E Series LTE CAT-M1 (NorAm, EtherSIM) |
+| E404X | E-Series LTE CAT-M1 (NorAm, EtherSIM) |
 | ELC404 | Electron LTE CAT-M1 (NorAm, EtherSIM) |
 | ONE404 | Tracker One LTE M1 (NorAm, EtherSIM) |
 | T404 | Tracker SoM LTE M1 (NorAm, EtherSIM) |

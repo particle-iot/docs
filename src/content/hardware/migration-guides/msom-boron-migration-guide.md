@@ -32,7 +32,7 @@ The M-SoM is a M.2 SoM that fits in a SMD mounted M.2 NGFF connector. It require
 - [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
 - [Boron BRN404X datasheet](/reference/datasheets/b-series/brn404x-datasheet/)
 - [Boron datasheet](/reference/datasheets/b-series/boron-datasheet/)
-- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
+- [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
 
 ## Certification
@@ -256,7 +256,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- 1 I2C on M-SoM vs. 2 on the B Series SoM.
+- 1 I2C on M-SoM vs. 2 on the B-Series SoM.
 - You can generally have many devices on a single I2C bus.
 - If you have I2C address conflicts you can use an I2C multiplexer like the TCA9548A.
 - On the M-SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.

@@ -217,7 +217,7 @@ Many 5V serial devices will correctly respond to 3.3V values as logic 1 even tho
 
 One thing that you absolutely must never do is connect a Photon directly to a computer or other device using an actual RS232 interface. A converter is required and is described in the next section.
 
-Gen 3 devices including the Argon, Boron, and B Series SoM are not 5V tolerant and can only use 3.3V serial logic levels.
+Gen 3 devices including the Argon, Boron, and B-Series SoM are not 5V tolerant and can only use 3.3V serial logic levels.
 
 ## Interfacing to RS232 devices
 
@@ -293,7 +293,7 @@ Serial1.begin(9600, SERIAL_9N1);
 
 ## Baud rate, bits, parity, and stop bits (Gen 3)
 
-On the Argon, Boron, and B Series SoM, the available baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400, 57600, 76800, 115200, 230400, 250000, 460800, 921600 and 1000000
+On the Argon, Boron, and B-Series SoM, the available baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400, 57600, 76800, 115200, 230400, 250000, 460800, 921600 and 1000000
 
 They also only support 8 bits, 1 stop bit, and either none or even parity. No other modes are supported.
 
@@ -312,7 +312,7 @@ There are two types of flow control in serial: hardware (RTS/CTS) and software (
 
 The Photon and Electron only support hardware flow control on Serial2, which requires disabling the RGB LED. Flow control pins are A7(CTS) and RGB-R(RTS).
 
-On the Argon, Boron, and B Series SoM hardware flow control is available on Serial1 on pins D3(CTS) and D2(RTS). 
+On the Argon, Boron, and B-Series SoM hardware flow control is available on Serial1 on pins D3(CTS) and D2(RTS). 
 
 - `SERIAL_FLOW_CONTROL_NONE` - no flow control
 - `SERIAL_FLOW_CONTROL_RTS` - RTS flow control

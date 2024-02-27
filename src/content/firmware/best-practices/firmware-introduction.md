@@ -159,7 +159,7 @@ See [Fragmentation](/firmware/best-practices/code-size-tips/#fragmentation) in C
 
 ### Code size
 
-Gen 2 devices including the Photon, P1, Electron, and E Series have a 128 Kbyte (131,072 byte) flash memory sector for user code. Within the flash, there are a number of things including:
+Gen 2 devices including the Photon, P1, Electron, and E-Series have a 128 Kbyte (131,072 byte) flash memory sector for user code. Within the flash, there are a number of things including:
 
 - Your compiled code
 - String constants
@@ -167,7 +167,7 @@ Gen 2 devices including the Photon, P1, Electron, and E Series have a 128 Kbyte 
 - C++ template expansions
 - Some overhead
 
-Gen 3 devices (including the Argon, Boron, B Series SoM, and Tracker) running Device OS 3.1 or later have 256 Kbyte user binaries (262,144 byte), double the space. Earlier versions of Device OS only supported 128K binaries like Gen 2. For more information, see [256K user binaries](/reference/device-os/256K-user-binaries/).
+Gen 3 devices (including the Argon, Boron, B-Series SoM, and Tracker) running Device OS 3.1 or later have 256 Kbyte user binaries (262,144 byte), double the space. Earlier versions of Device OS only supported 128K binaries like Gen 2. For more information, see [256K user binaries](/reference/device-os/256K-user-binaries/).
 
 See [Code Size Tips](/firmware/best-practices/code-size-tips/#out-of-memory-handler) for a great deal of information about code size.
 
@@ -347,7 +347,7 @@ For more information, see [beginTransaction](/reference/device-os/api/spi/begint
 
 Similar to SPI locking, you should use `Wire.lock` and `Wire.unlock` around groups of I2C operations. For example, it's common to write a command code by I2C, then read the results in a separate operation. The entire operation should be surrounded by a lock/unlock pair, to prevent another thread from jumping in between the command and result.
 
-This is especially important on the B Series SoM if the PMIC and fuel gauge are on `Wire` as these can be read by the system thread.
+This is especially important on the B-Series SoM if the PMIC and fuel gauge are on `Wire` as these can be read by the system thread.
 
 For more information, see [Wire.lock](/reference/device-os/api/wire-i2c/lock/) in the Device OS firmware API reference.
 

@@ -253,12 +253,12 @@ Replace boron with the type of device you have:
   - `p2` (also Photon 2)
   - `boron`
   - `argon`
-  - `bsom` (B Series SoM, 4xx)
-  - `b5som` (B Series SoM, 5xx)
+  - `bsom` (B-Series SoM, 4xx)
+  - `b5som` (B-Series SoM, 5xx)
   - `tracker`
   - `photon`
   - `p1`
-  - `electron` (also E Series)
+  - `electron` (also E-Series)
 {{!-- END shared-blurb --}}
 
 Now that we have a valid program, let's flash it to our device!  We can use either the source code again, or we can send our binary.

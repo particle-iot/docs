@@ -17,7 +17,7 @@ This is a preliminary datasheet and changes may occur prior to release.
 
 The Particle M-SoM contains the following functional units:
  
-- M.2 SoM form-factor, like the B Series SoM
+- M.2 SoM form-factor, like the B-Series SoM
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
 - Cellular modem 
@@ -58,7 +58,7 @@ If you are migrating to the M-SoM from another Particle device, see also the fol
 
 - [M-SoM from B-SoM](/hardware/migration-guides/msom-b-series-migration-guide/)
 - [M-SoM from Boron or Argon](/hardware/migration-guides/msom-boron-migration-guide/)
-- [M-SoM from E Series](/hardware/migration-guides/msom-e-series-migration-guide/)
+- [M-SoM from E-Series](/hardware/migration-guides/msom-e-series-migration-guide/)
 - [M-SoM from P2](/hardware/migration-guides/msom-p2-migration-guide/)
 
 
