@@ -231,13 +231,13 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | A5 / D14 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
 | D0 / A3 | ADC_2 | Wire (SDA) | &nbsp; | &nbsp; | PB[6] |
 | D1 / A4 | ADC_1 | Wire (SCL) | &nbsp; | &nbsp; | PB[5] |
-| D10 / WKP | &nbsp; | &nbsp; | &nbsp; | Serial3 (CTS) | PA[15] |
 | D2 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial2 (RTS) | PA[16] |
 | D3 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial2 (CTS) | PA[17] |
 | D4 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial2 (TX) | PA[18] |
 | D5 | &nbsp; | &nbsp; | SPI1 (SS) | Serial2 (RX) | PA[19] |
 | D6 | &nbsp; | SWCLK | &nbsp; | &nbsp; | PB[3] |
 | D7 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
+| D10 / WKP | &nbsp; | &nbsp; | &nbsp; | Serial3 (CTS) | PA[15] |
 | MISO / D16 | &nbsp; | &nbsp; | SPI (MISO) | Serial3 (RX) | PA[13] |
 | MOSI / D15 | &nbsp; | &nbsp; | SPI (MOSI) | Serial3 (TX) | PA[12] |
 | RX / D9 | &nbsp; | &nbsp; | &nbsp; | Serial1 (RX)  | PA[8] |
@@ -284,16 +284,16 @@ The Photon 2 supports three UART serial interfaces.
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | Serial3 (RTS) | PA[14] |
-| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | Serial3 (TX) | PA[12] |
-| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | Serial3 (RX) | PA[13] |
-| RX / D9 | Serial1 RX (received data), GPIO | Serial1 (RX)  | PA[8] |
-| TX / D8 | Serial1 TX (transmitted data), GPIO | Serial1 (TX) | PA[7] |
 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | Serial2 (RTS) | PA[16] |
 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | Serial2 (CTS) | PA[17] |
 | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | Serial2 (TX) | PA[18] |
 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | Serial2 (RX) | PA[19] |
 | D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | Serial3 (CTS) | PA[15] |
+| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | Serial3 (RX) | PA[13] |
+| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | Serial3 (TX) | PA[12] |
+| RX / D9 | Serial1 RX (received data), GPIO | Serial1 (RX)  | PA[8] |
+| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | Serial3 (RTS) | PA[14] |
+| TX / D8 | Serial1 TX (transmitted data), GPIO | Serial1 (TX) | PA[7] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -313,14 +313,14 @@ The Photon 2 supports two SPI (serial peripheral interconnect) ports.
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| S3 / D18 | S3 GPIO, SPI SS, Was A5 on Gen 3. | SPI (SS) | PB[26] |
-| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | SPI (SCK) | PA[14] |
-| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | SPI (MOSI) | PA[12] |
-| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | SPI (MISO) | PA[13] |
 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | SPI1 (MOSI) | PA[16] |
 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | SPI1 (MISO) | PA[17] |
 | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | SPI1 (SCK) | PA[18] |
 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | SPI1 (SS) | PA[19] |
+| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | SPI (MISO) | PA[13] |
+| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | SPI (MOSI) | PA[12] |
+| S3 / D18 | S3 GPIO, SPI SS, Was A5 on Gen 3. | SPI (SS) | PB[26] |
+| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | SPI (SCK) | PA[14] |
 
 
 {{!-- END do not edit content above, it is automatically generated 90d1c896-32b3-4211-9d62-24d356098f29 --}}
@@ -412,8 +412,8 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| S4 / D19 | S4 GPIO, Was A4 on Gen 3. | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 | D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | Only this pin can wake from HIBERNATE sleep mode. | PA[15] |
+| S4 / D19 | S4 GPIO, Was A4 on Gen 3. | No internal pull up or pull down in HIBERNATE sleep mode. | PA[0] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -519,19 +519,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 {{!-- BEGIN do not edit content below, it is automatically generated d4d39408-f360-442f-b5ad-2b240da5d14c --}}
 
 
-#### 1 RST
-
-<table class="pinDetailTable">
-<thead>
-<th> </th><th>Details</th></thead>
-<tbody>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">RST</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Hardware reset. Pull low to reset; can leave unconnected in normal operation.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">CHIP_EN</td></tr>
-</tbody>
-</table>
-
-#### 2 3V3
+#### 3V3
 
 <table class="pinDetailTable">
 <thead>
@@ -542,30 +530,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 3 MODE
-
-<table class="pinDetailTable">
-<thead>
-<th> </th><th>Details</th></thead>
-<tbody>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">MODE</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">MODE button, has internal pull-up</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[4]</td></tr>
-</tbody>
-</table>
-
-#### 4 GND
-
-<table class="pinDetailTable">
-<thead>
-<th> </th><th>Details</th></thead>
-<tbody>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">GND</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Ground.</td></tr>
-</tbody>
-</table>
-
-#### 5 A0
+#### A0
 
 <table class="pinDetailTable">
 <thead>
@@ -583,7 +548,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 6 A1
+#### A1
 
 <table class="pinDetailTable">
 <thead>
@@ -601,7 +566,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 7 A2
+#### A2
 
 <table class="pinDetailTable">
 <thead>
@@ -621,7 +586,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 8 A5
+#### A5
 
 <table class="pinDetailTable">
 <thead>
@@ -641,140 +606,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 9 S4
-
-<table class="pinDetailTable">
-<thead>
-<th> </th><th>Details</th></thead>
-<tbody>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">S4</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D19</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">S4 GPIO, Was A4 on Gen 3.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">22K. No internal pull up or pull down in HIBERNATE sleep mode.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[0]</td></tr>
-</tbody>
-</table>
-
-#### 10 S3
-
-<table class="pinDetailTable">
-<thead>
-<th> </th><th>Details</th></thead>
-<tbody>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">S3</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D18</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">S3 GPIO, SPI SS, Was A5 on Gen 3.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">Default SS for SPI.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[26]</td></tr>
-</tbody>
-</table>
-
-#### 11 SCK
-
-<table class="pinDetailTable">
-<thead>
-<th> </th><th>Details</th></thead>
-<tbody>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">SCK</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D17</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">RTS. Use Serial3 object. Flow control optional.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">SCK. Use SPI object.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[14]</td></tr>
-</tbody>
-</table>
-
-#### 12 MOSI
-
-<table class="pinDetailTable">
-<thead>
-<th> </th><th>Details</th></thead>
-<tbody>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">MOSI</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D15</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">TX. Use Serial3 object.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">MOSI. Use SPI object.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[12]</td></tr>
-</tbody>
-</table>
-
-#### 13 MISO
-
-<table class="pinDetailTable">
-<thead>
-<th> </th><th>Details</th></thead>
-<tbody>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">MISO</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D16</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">RX. Use Serial3 object.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">MISO. Use SPI object.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[13]</td></tr>
-</tbody>
-</table>
-
-#### 14 RX
-
-<table class="pinDetailTable">
-<thead>
-<th> </th><th>Details</th></thead>
-<tbody>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">RX</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D9</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Serial1 RX (received data), GPIO</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">RX. Use Serial1 object.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">42K</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[8]</td></tr>
-</tbody>
-</table>
-
-#### 15 TX
-
-<table class="pinDetailTable">
-<thead>
-<th> </th><th>Details</th></thead>
-<tbody>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">TX</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D8</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Serial1 TX (transmitted data), GPIO</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">TX. Use Serial1 object.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">42K</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Signal used at boot</td><td class="" style="text-align: left; ">Low at boot triggers ISP flash download</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[7]</td></tr>
-</tbody>
-</table>
-
-#### 16 D0
+#### D0
 
 <table class="pinDetailTable">
 <thead>
@@ -793,7 +625,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 17 D1
+#### D1
 
 <table class="pinDetailTable">
 <thead>
@@ -814,7 +646,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 18 D2
+#### D2
 
 <table class="pinDetailTable">
 <thead>
@@ -832,7 +664,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 19 D3
+#### D3
 
 <table class="pinDetailTable">
 <thead>
@@ -850,7 +682,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 20 D4
+#### D4
 
 <table class="pinDetailTable">
 <thead>
@@ -868,7 +700,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 21 D5
+#### D5
 
 <table class="pinDetailTable">
 <thead>
@@ -886,7 +718,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 22 D6
+#### D6
 
 <table class="pinDetailTable">
 <thead>
@@ -904,7 +736,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 23 D7
+#### D7
 
 <table class="pinDetailTable">
 <thead>
@@ -922,7 +754,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 24 D10
+#### D10
 
 <table class="pinDetailTable">
 <thead>
@@ -940,19 +772,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 25 VUSB
-
-<table class="pinDetailTable">
-<thead>
-<th> </th><th>Details</th></thead>
-<tbody>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">VUSB</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.</td></tr>
-<tr><td class="pinDetailTableLabel" style="text-align: left; ">Input is 5V Tolerant</td><td class="" style="text-align: left; ">Yes</td></tr>
-</tbody>
-</table>
-
-#### 26 EN
+#### EN
 
 <table class="pinDetailTable">
 <thead>
@@ -963,7 +783,18 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 </tbody>
 </table>
 
-#### 27 LI+
+#### GND
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">GND</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Ground.</td></tr>
+</tbody>
+</table>
+
+#### LI+
 
 <table class="pinDetailTable">
 <thead>
@@ -971,6 +802,175 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 <tbody>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">LI+</td></tr>
 <tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Connected to JST PH LiPo battery connector. 3.7V in or out.</td></tr>
+</tbody>
+</table>
+
+#### MISO
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">MISO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D16</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">RX. Use Serial3 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">MISO. Use SPI object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[13]</td></tr>
+</tbody>
+</table>
+
+#### MODE
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">MODE</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">MODE button, has internal pull-up</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[4]</td></tr>
+</tbody>
+</table>
+
+#### MOSI
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">MOSI</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D15</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports analogWrite (PWM)</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports tone</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">TX. Use Serial3 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">MOSI. Use SPI object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[12]</td></tr>
+</tbody>
+</table>
+
+#### RST
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">RST</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Hardware reset. Pull low to reset; can leave unconnected in normal operation.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">CHIP_EN</td></tr>
+</tbody>
+</table>
+
+#### RX
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">RX</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D9</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Serial1 RX (received data), GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">RX. Use Serial1 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">42K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[8]</td></tr>
+</tbody>
+</table>
+
+#### S3
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">S3</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D18</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">S3 GPIO, SPI SS, Was A5 on Gen 3.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">Default SS for SPI.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PB[26]</td></tr>
+</tbody>
+</table>
+
+#### S4
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">S4</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D19</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">S4 GPIO, Was A4 on Gen 3.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">22K. No internal pull up or pull down in HIBERNATE sleep mode.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[0]</td></tr>
+</tbody>
+</table>
+
+#### SCK
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">SCK</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D17</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">RTS. Use Serial3 object. Flow control optional.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">SPI interface</td><td class="" style="text-align: left; ">SCK. Use SPI object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">2.1K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[14]</td></tr>
+</tbody>
+</table>
+
+#### TX
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">TX</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Alternate Name</td><td class="" style="text-align: left; ">D8</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Serial1 TX (transmitted data), GPIO</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalRead</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports digitalWrite</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">UART serial</td><td class="" style="text-align: left; ">TX. Use Serial1 object.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Supports attachInterrupt</td><td class="" style="text-align: left; ">Yes</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Internal pull resistance</td><td class="" style="text-align: left; ">42K</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Signal used at boot</td><td class="" style="text-align: left; ">Low at boot triggers ISP flash download</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">MCU Pin</td><td class="" style="text-align: left; ">PA[7]</td></tr>
+</tbody>
+</table>
+
+#### VUSB
+
+<table class="pinDetailTable">
+<thead>
+<th> </th><th>Details</th></thead>
+<tbody>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Pin Name</td><td class="" style="text-align: left; ">VUSB</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Description</td><td class="" style="text-align: left; ">Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.</td></tr>
+<tr><td class="pinDetailTableLabel" style="text-align: left; ">Input is 5V Tolerant</td><td class="" style="text-align: left; ">Yes</td></tr>
 </tbody>
 </table>
 

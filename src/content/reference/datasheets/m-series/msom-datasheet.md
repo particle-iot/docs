@@ -15,7 +15,7 @@ This is a preliminary datasheet and changes may occur prior to release.
  
 ## Overview
 
-The M SoM module contains the following functional units:
+The Particle M SoM contains the following functional units:
  
 - M.2 SoM form-factor, like the B Series SoM
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
@@ -219,6 +219,12 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | PB[0] |
 | D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | PA[31] |
 | D2 | 42 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
+| D3 | 40 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | PA[15] |
+| D4 | 66 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[18] |
+| D5 | 68 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[19] |
+| D6 | 70 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[20] |
+| D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[21] |
+| D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
 | D20 | 19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[1] |
 | D21 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
 | D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[9] |
@@ -227,12 +233,6 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | D25 | 60 | &nbsp; | &nbsp; | &nbsp; | Serial2 (RX)  | PA[8] |
 | D26 | 59 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[4] |
 | D27 | 55 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
-| D3 | 40 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | PA[15] |
-| D4 | 66 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[18] |
-| D5 | 68 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[19] |
-| D6 | 70 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[20] |
-| D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[21] |
-| D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
 | GNSS_TX | 18 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | MISO / D11 | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[17] |
 | MOSI / D12 | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[16] |
@@ -253,7 +253,7 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-### Pin fuction by M.2 pin
+### Pin function by M.2 pin
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5feb3f9e-2bf4-4e73-a2c8-b6584b125391 --}}
 
@@ -797,7 +797,7 @@ We strongly recommend against placing components under the SOM board because the
 ## Product Handling
 
 ### ESD Precautions
-The M SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an M SoM without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the M SoM module. ESD precautions should be implemented on the application board where the M SoM is mounted. Failure to observe these precautions can result in severe damage to the M SoM!
+The M SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an M SoM without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the Particle M SoM. ESD precautions should be implemented on the application board where the M SoM is mounted. Failure to observe these precautions can result in severe damage to the M SoM!
 
 ### Connectors
 

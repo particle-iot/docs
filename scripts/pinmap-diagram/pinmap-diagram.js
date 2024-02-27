@@ -1691,7 +1691,6 @@ const svg = require('./svg');
             platformName: 'Monitor One Expansion',
             // 104 818 
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/monitor-one-expansion-blank.svg'),
-            outputPath: 'assets/images/monitor-one-expansion.svg',
             // scale to make height 500px
             deviceImageTransform: 'translate(285,0) scale(2.6)',
             width: 1100,
@@ -1708,21 +1707,7 @@ const svg = require('./svg');
                     count: 24,
                     xDir: -1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 100,
-                            keys: ['name'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['spi'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                    ],
+                    columns: generateOptions.columnsLeft || generateOptions.columns,
                 },
                 {   // Right side
                     num: 25,
@@ -1734,24 +1719,76 @@ const svg = require('./svg');
                     count: 24,
                     xDir: 1,
                     yDir: 0,
-                    columns: [
-                        {
-                            width: 100,
-                            keys: ['name'],
-                        },
-                        {
-                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
-                        },
-                        {
-                            keys: ['serial'],
-                        },
-                        {
-                            keys: ['spi', 'hardwareADC'],
-                        },
-                        {
-                            keys: ['analogWritePWM'],
-                        },
-                    ],
+                    columns: generateOptions.columnsRight || generateOptions.columns,
+                },
+            ]
+        });
+
+        await diagram.generate(options, files);
+    }
+
+
+
+    diagram.generateMuon = async function(generateOptions, files) {
+        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'Muon',
+            // 104 818 
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/muon-expansion-blank.svg'),
+            outputPath: generateOptions.outputPath,
+            // scale to make height 500px
+            deviceImageTransform: 'translate(285,0) scale(2.6)',
+            width: 1100,
+            height: 800,
+            background: 'white',
+            pins: [
+                {   // Left side (outside, shared with Monitor One)
+                    num: 1,
+                    x: 290,
+                    y: 202,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 24,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+                {   // Right side (outside, shared with Monitor One)
+                    num: 25,
+                    x: 714,
+                    y: 685,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -21,
+                    count: 24,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+                {   // Left side (inside)
+                    num: 49,
+                    x: 345,
+                    y: 202,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 24,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+                {   // Right side (inside)
+                    num: 73,
+                    x: 659,
+                    y: 685,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -21,
+                    count: 24,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
                 },
             ]
         });
@@ -1991,9 +2028,167 @@ const svg = require('./svg');
             feature: 'analogWritePWM',
         }, generateOptions), files);    
 
-        await diagram.generateMonitorOneExpansion(generateOptions, files);
+        await diagram.generateMonitorOneExpansion(Object.assign({
+            columnsLeft: [
+                {
+                    width: 100,
+                    keys: ['name'],
+                },
+                {
+                    keys: ['isPower', 'isControl', 'hardwareADC'],
+                },
+                {
+                    keys: ['spi'],
+                },
+                {
+                    keys: ['analogWritePWM'],
+                },
+            ],
+            columnsRight: [
+                {
+                    width: 100,
+                    keys: ['name'],
+                },
+                {
+                    keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                },
+                {
+                    keys: ['serial'],
+                },
+                {
+                    keys: ['spi', 'hardwareADC'],
+                },
+                {
+                    keys: ['analogWritePWM'],
+                },
+            ],
+            outputPath: 'assets/images/monitor-one-expansion.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMonitorOneExpansion(Object.assign({
+            columns: [
+                {
+                    width: 100,
+                    keys: ['name'],
+                },
+            ],
+            outputPath: 'assets/images/monitor-one-pins.svg',
+        }, generateOptions), files);
 
         await diagram.generateTrackerMExpansion(generateOptions, files);
+
+        // Muon
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['net'],
+                },
+            ],
+            outputPath: 'assets/images/muon-pins.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['hardwareADC'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-adc.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['spi'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-spi.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['i2c'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-i2c.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['serial'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-uart.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['analogWritePWM'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-pwm.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['swd'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-swd.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuon(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['digitalRead'],
+                },
+            ],
+            outputPath: 'assets/images/m-series/muon-gpio.svg',
+        }, generateOptions), files);
     }
 
     diagram.buildP2Eval = function(pinInfo) {

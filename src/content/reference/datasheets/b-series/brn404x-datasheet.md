@@ -481,10 +481,10 @@ The Boron supports one UART serial interface.
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| RX / D10 | Serial RX, GPIO | Serial1 RX | P0.08 |
-| TX / D09 | Serial TX, GPIO | Serial1 TX | P0.06 |
 | D2 | SPI1 SCK, Serial1 RTS, GPIO, PWM | Serial1 RTS | P1.01 |
 | D3 | SPI1 MOSI, Serial1 CTS, PWM, GPIO | Serial1 CTS | P1.02 |
+| RX / D10 | Serial RX, GPIO | Serial1 RX | P0.08 |
+| TX / D09 | Serial TX, GPIO | Serial1 TX | P0.06 |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -503,12 +503,12 @@ The Boron supports two SPI (serial peripheral interconnect) ports.
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
 | A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | SPI (SS) | P0.31 |
-| SCK / D13 | SPI SCK, GPIO | SPI (SCK) | P1.15 |
-| MOSI / D12 | SPI MOSI, GPIO | SPI (MOSI) | P1.13 |
-| MISO / D11 | SPI MISO, GPIO | SPI (MISO) | P1.14 |
 | D2 | SPI1 SCK, Serial1 RTS, GPIO, PWM | SPI1 (SCK) | P1.01 |
 | D3 | SPI1 MOSI, Serial1 CTS, PWM, GPIO | SPI1 (MOSI) | P1.02 |
 | D4 | SPI1 MISO, PWM, GPIO | SPI1 (MISO) | P1.08 |
+| MISO / D11 | SPI MISO, GPIO | SPI (MISO) | P1.14 |
+| MOSI / D12 | SPI MOSI, GPIO | SPI (MOSI) | P1.13 |
+| SCK / D13 | SPI SCK, GPIO | SPI (SCK) | P1.15 |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

@@ -2033,10 +2033,41 @@ const generatorConfig = require('./generator-config');
             }
         } 
 
+
+        const pinNameSort = function(a, b) {
+            if (typeof a != 'string') {
+                console.log('pinNameSort a not string', a);
+                a = '';
+            }
+            if (typeof b != 'string') {
+                console.log('pinNameSort b not string', a);
+                b = '';
+            }
+
+            const re = /([A-Z])([0-9]+)/;
+            const m_a = a.match(re);
+            const m_b = b.match(re);  
+            if (m_a && m_b) {
+                if (m_a[1] != m_b[1]) {
+                    return a.localeCompare(b);
+                }
+                else {
+                    return parseInt(m_a[2]) - parseInt(m_b[2]);
+                }
+            }
+            else {
+                return a.localeCompare(b);
+            }
+        }
+
+        const pinNameSortPinsArray = function(a, b) {
+            return pinNameSort(a.name, b.name);
+        }
+
         const sortTableData = function(tableData) {
             if (options.tableSortFn) {
                 tableData.sort(options.tableSortFn);
-            }    
+            }   
         }
 
         let platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
@@ -2285,12 +2316,12 @@ const generatorConfig = require('./generator-config');
             let pins = [];
             for(const pin of platformInfoNew.pins) {
                 if (!pin.isPower && !pin.isControl) {
-                    pins.push(pin);
+                    if (!options.pinFilterFn || !options.pinFilterFn(pin)) {
+                        pins.push(pin);
+                    }
                 }
             }
-            pins.sort(function(a, b) {
-                return a.name.localeCompare(b.name);
-            });
+            pins.sort(pinNameSortPinsArray);
 
             let tableOptions = {
                 columns: [],
@@ -2323,6 +2354,13 @@ const generatorConfig = require('./generator-config');
                 key: 'hardwarePin',
                 title: 'MCU'
             });
+            if (options.includeDesc) {
+                tableOptions.columns.push({
+                    key: 'desc',
+                    title: 'Description'
+                });    
+            }
+
 
             let tableData = [];
             for(const pin of pins) {
@@ -2356,6 +2394,63 @@ const generatorConfig = require('./generator-config');
             md += updater.generateTable(tableOptions, tableData);
         }
 
+
+
+        if (options.style == 'expansion-muon-monitor-one') {
+            let pins = [];
+            for(const pin of platformInfoNew.pins) {
+                if (pin.name != 'NC') {
+                    pins.push(pin);
+                }
+            }
+            pins.sort(pinNameSortPinsArray);
+
+            let tableOptions = {
+                columns: [],
+            };
+            
+            tableOptions.columns.push({
+                key: 'name',
+                title: 'Pin Name',
+            });
+            tableOptions.columns.push({
+                key: 'muon',
+                title: 'Muon',
+            });
+            tableOptions.columns.push({
+                key: 'monitorOne',
+                title: 'Monitor One',
+            });
+            tableOptions.columns.push({
+                key: 'desc',
+                title: 'Muon Description',
+            });
+
+            let tableData = [];
+            for(const pin of pins) {
+                let rowData = Object.assign({}, pin);
+                
+                if (rowData.net) {
+                    rowData.muon = pin.net;
+                }
+                else {
+                    rowData.muon = 'NC';
+                }
+
+                if (rowData.monitorOne) {
+                    rowData.monitorOne = pin.monitorOne;
+                }
+                else {
+                    rowData.monitorOne = 'NC';
+                }
+
+                
+                tableData.push(rowData);
+            }
+            
+            md += updater.generateTable(tableOptions, tableData);
+        }
+ 
 
         if (options.style == 'modulePins') {
             let pins = expandMorePins(platformInfoNew.pins);    
@@ -2628,15 +2723,29 @@ const generatorConfig = require('./generator-config');
 
             comparisonTags.push('hardwarePin', 'm2Pin');
 
-            const pinsExpanded = expandMorePins(platformInfoNew.pins);
-            pinsExpanded.sort(function(a, b) {
-                return a.num - b.num;
-            });
+            let pinsExpanded = [];
+
+            if (options.showPinNum) {
+                pinsExpanded = expandMorePins(platformInfoNew.pins);
+                pinsExpanded.sort(function(a, b) {
+                    return a.num - b.num;
+                });    
+            }
+            else {
+                for(const p of platformInfoNew.pins) {
+                    pinsExpanded.push(p);
+                }
+                pinsExpanded.sort(pinNameSortPinsArray);    
+            }
 
             for(const pin of pinsExpanded) {
             
-                md += '\n#### ' + pin.num + ' ' + pin.name + '\n\n';
-
+                if (options.showPinNum) {
+                    md += '\n#### ' + pin.num + ' ' + pin.name + '\n\n';
+                }
+                else {
+                    md += '\n#### ' + pin.name + '\n\n';
+                }
 
                 let tableOptions = {
                     columns: [],
@@ -2955,6 +3064,7 @@ const generatorConfig = require('./generator-config');
                     }
                     if (m.new) {
                         rowData.newPinName = getPinNameWithAlt(m.new);
+                        rowData.newPinNameNoAlt = m.new.name;
                         rowData.newPort = portColumnValue(m.new[options.port]);
                         rowData.newHardwarePin = m.new.hardwarePin;
                         rowData.newBoot = m.new.boot;
@@ -2963,8 +3073,15 @@ const generatorConfig = require('./generator-config');
                 }
 
             }
-            sortTableData(tableData);
         
+            if (!options.tableSortFn && options.noPinNumbers) {
+                tableData.sort(function(a, b) {
+                    return pinNameSort(a.newPinNameNoAlt, b.newPinNameNoAlt);
+                });
+            }
+            else {
+                sortTableData(tableData);
+            }
 
             md += updater.generateTable(tableOptions, tableData);
         }
@@ -2990,9 +3107,14 @@ const generatorConfig = require('./generator-config');
                 }
             }
 
-            pins.sort(function(a, b) {
-                return a.num - b.num;
-            });
+            if (!options.noPinNumbers) {
+                pins.sort(function(a, b) {
+                    return a.num - b.num;
+                });
+            }
+            else {
+                pins.sort(pinNameSortPinsArray);
+            }
 
             let tableOptions = {
                 columns: [],
@@ -3034,6 +3156,12 @@ const generatorConfig = require('./generator-config');
                 tableOptions.columns.push({
                     key: 'p2pin',
                     title: 'P2 Pin'
+                });    
+            }
+            if (options.showM2Pin) {
+                tableOptions.columns.push({
+                    key: 'm2Pin',
+                    title: 'M2 Pin'
                 });    
             }
             if (!options.noMCU) {
@@ -3089,6 +3217,12 @@ const generatorConfig = require('./generator-config');
                 key: 'boot',
                 title: 'Description'
             });
+            if (options.showM2Pin) {
+                tableOptions.columns.push({
+                    key: 'm2Pin',
+                    title: 'M2 Pin'
+                });    
+            }
             tableOptions.columns.push({
                 key: 'hardwarePin',
                 title: 'MCU'

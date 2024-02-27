@@ -466,15 +466,15 @@ The panel mount M12 8-pin connector fits in the following hole in the enclosure:
 
 | Pin Name | Description | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- |
-| NFC2_VIN_EN | GPIO (used for relay on I/O Card) | 27 | P0.10 |
 | NFC1_PERIPH_INT | Peripheral interrupt (active low) | 26 | P0.09 |
-| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | 38 | P0.05 |
-| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | 39 | P0.04 |
-| TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | 40 | P0.29 |
-| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | 41 | P0.31 |
+| NFC2_VIN_EN | GPIO (used for relay on I/O Card) | 27 | P0.10 |
+| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | 71 | P0.08 |
 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | 57 | P0.28 |
 | TSOM_A3_BATT_TEMP / D3 | Battery temperature sensor, A3 Analog in, GPIO D3, PWM | 58 | P0.30 |
-| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | 71 | P0.08 |
+| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | 41 | P0.31 |
+| TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | 40 | P0.29 |
+| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | 39 | P0.04 |
+| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | 38 | P0.05 |
 | TX / D8 | Serial1 TX, GPIO D8, PWM, Wire3 SCL | 72 | P0.06 |
 
 
@@ -501,12 +501,12 @@ When using the I/O Card:
 
 | Pin Name | Description | Interface | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- | :--- |
-| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | ADC3 | 38 | P0.05 |
-| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | ADC2 | 39 | P0.04 |
-| TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | ADC5 | 40 | P0.29 |
-| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | ADC7 | 41 | P0.31 |
 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | ADC4 | 57 | P0.28 |
 | TSOM_A3_BATT_TEMP / D3 | Battery temperature sensor, A3 Analog in, GPIO D3, PWM | ADC6 | 58 | P0.30 |
+| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | ADC7 | 41 | P0.31 |
+| TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | ADC5 | 40 | P0.29 |
+| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | ADC2 | 39 | P0.04 |
+| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | ADC3 | 38 | P0.05 |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -520,9 +520,9 @@ When using the I/O Card:
 
 | Pin Name | Description | Interface | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- | :--- |
-| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | SPI (SCK) | 39 | P0.04 |
-| TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | SPI (MISO) | 40 | P0.29 |
 | TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | SPI (MOSI) | 41 | P0.31 |
+| TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | SPI (MISO) | 40 | P0.29 |
+| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | SPI (SCK) | 39 | P0.04 |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -535,9 +535,9 @@ When using the I/O Card:
 
 | Pin Name | Description | Interface | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- | :--- |
+| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | Wire3 (SDA) | 71 | P0.08 |
 | TSOM_A0_SDA / D0 | Wire SDA | Wire (SDA) | 55 | P0.03 |
 | TSOM_A1_SCL / D1 | Wire SCL | Wire (SCL) | 56 | P0.02 |
-| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | Wire3 (SDA) | 71 | P0.08 |
 | TX / D8 | Serial1 TX, GPIO D8, PWM, Wire3 SCL | Wire3 (SCL) | 72 | P0.06 |
 
 
@@ -572,13 +572,13 @@ When using the I/O Card:
 
 | Pin Name | Description | Interface | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- | :--- |
-| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | PWM1 | 38 | P0.05 |
-| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | PWM1 | 39 | P0.04 |
-| TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | PWM1 | 40 | P0.29 |
-| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | PWM1 | 41 | P0.31 |
+| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | PWM2 | 71 | P0.08 |
 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | PWM0 | 57 | P0.28 |
 | TSOM_A3_BATT_TEMP / D3 | Battery temperature sensor, A3 Analog in, GPIO D3, PWM | PWM0 | 58 | P0.30 |
-| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | PWM2 | 71 | P0.08 |
+| TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | PWM1 | 41 | P0.31 |
+| TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | PWM1 | 40 | P0.29 |
+| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | PWM1 | 39 | P0.04 |
+| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | PWM1 | 38 | P0.05 |
 | TX / D8 | Serial1 TX, GPIO D8, PWM, Wire3 SCL | PWM2 | 72 | P0.06 |
 
 
@@ -594,9 +594,9 @@ When using the I/O Card:
 
 | Pin Name | Description | Interface | SoM Pin |
 | :--- | :--- | :--- | :--- |
+| CAN_5V | 5V power out, 0.8A maximum. Can be controlled by software. | CAN_5V | 66 |
 | CAN_N | CAN Data- or CANL | CAN_N | 64 |
 | CAN_P | CAN Data+ or CANH | CAN_P | 65 |
-| CAN_5V | 5V power out, 0.8A maximum. Can be controlled by software. | CAN_5V | 66 |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

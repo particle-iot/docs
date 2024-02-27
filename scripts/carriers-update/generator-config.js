@@ -3939,6 +3939,260 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+
+        // Muon - RTL8722DM
+        {
+            guid: '4c12540b-20a8-4d2b-a070-0237af5223e3',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Muon',
+                    noPinNumbers: true,
+                    pinFilterFn: p => typeof p.hardwarePin == 'undefined',
+                    includeDesc: false, // Maybe turn on, but it's a little wide
+                }); 
+            } 
+        },        
+        {
+            guid:'2f265258-147d-4139-8a20-d85d1d137af5',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'portPins',
+                    platformNew: 'Muon',
+                    port: 'digitalRead',
+                    label: 'GPIO',
+                    newMCU: 'MCU',
+                    showBootMode: true,
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'cb3c6480-361d-4437-8cc3-6422e4c04d74',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'hardwareADC',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'a2d6df45-4f77-45d8-8280-f73c14add2e7',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'serial',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            }                     
+        },
+        {
+            guid:'3fd13fdc-0a2d-41aa-9a26-3afd196022bd',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'spi',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            }                     
+        },
+        {
+            guid:'e9702f86-0377-4b10-a451-c4ebebd36177',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'i2c',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            }                     
+        },
+        {        
+            guid:'0e2ce92a-0155-43c6-b496-e30bafeb33e4',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'analogWritePWM',
+                    noInterface: true,
+                    showHardwareTimer: false, // temporary until assigned
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'066637c0-a644-495e-982d-2698326b39f4',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'isLED',
+                    noInterface: true,
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'2629e77b-eb69-4f63-8f0e-011032c72782',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Muon',
+                    interface: 'hibernate',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            }                     
+        },   
+        {
+            guid:'c9e7a163-b53c-4c4f-81ff-f84ec7344a0c',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'bootPins',
+                    platformNew: 'Muon',
+                    noPinNumbers: true,
+                    showM2Pin: true,
+                }); 
+            }             
+        },
+        {
+            guid:'7bdb0f44-3eb6-4e4a-89bb-14c9bb159cbd', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-details',
+                    showPinNum: false,
+                    platformNew: 'Muon'
+                }); 
+            } 
+        },  
+        // Muon <- Argon/Boron Migration Guide
+        {
+            guid:'7569c844-d0ac-4468-b317-3c9c6d9b7198', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                    newHardwarePin: true,
+                }); 
+            }
+        },        
+        {
+            guid:'5bb5787d-980b-4cb7-8293-14ed6775d21b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                    newHardwarePin: true,
+                }); 
+            }
+        },        
+        {
+            guid:'bb723044-07c3-4cf6-819f-8a140213ec6b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                    newHardwarePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'202b1c57-447e-4821-b2f5-ef6f90407e49', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    port: 'i2c',
+                    label: 'I2C',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                    newHardwarePin: true,
+                }); 
+            }
+        },      
+        {
+            guid:'7ccd5b6d-7fac-406d-9245-8a0659e3b746', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                    newHardwarePin: true,
+                }); 
+            }
+        },  
+        {
+            guid:'a92768ab-8aea-4c68-8223-c1a6636141f8', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Boron',
+                    noPinNumbers: true,
+                    newPinNumber: false,
+                    mapBy: 'name',
+                    noMapAltName: true,
+                    platformNewTitle: 'Muon',
+                }); 
+            } 
+        },
+        {
+            guid:'b2602ec5-53ed-49e2-9c61-15545edcf63e', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'expansion-muon-monitor-one',
+                    platformNew: 'Muon'
+                });
+            }
+        },
         {
             // Country compatibility - M404
             guid:'291c6e45-3647-412b-8e38-47d29d5b4a83',
@@ -3972,8 +4226,6 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
-
-        
         // Muon
         {
             // SKU list Muon
