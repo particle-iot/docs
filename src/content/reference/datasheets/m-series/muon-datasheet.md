@@ -70,7 +70,6 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 | Developer devices | Boron | Muon | Photon 2 |
 | Production module | B SoM | M SoM | P2 |
 
-{{!-- 
 ### Migration guides
 
 If you are migrating to the M SoM from another Particle device, see also the following migration guides:
@@ -1689,7 +1688,6 @@ SE, SI, SK, TR, UA, UK(NI).
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre      | 2024-02-05 | RK | Preliminary version (schematic 0.02 20240203R6) |
---}}
 
 ## Ordering information
 
