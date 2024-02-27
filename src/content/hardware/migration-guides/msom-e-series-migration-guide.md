@@ -249,7 +249,7 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 369dffc5-2607-422c-8d2f-049b8bac8b5d --}}
 
-| E Series Pin | E Series Pin Name | E Series GPIO | M SoM Pin | M SoM Pin Name | M SoM GPIO |
+| E Series Pin | E Series Pin Name | E Series GPIO | M-SoM Pin | M-SoM Pin Name | M-SoM GPIO |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 26 | A0 | &check; | 23 | A0 / D19 | &check; |
 | 25 | A1 | &check; | 33 | A1 / D18 | &check; |
@@ -320,7 +320,7 @@ Interfacing with 5V peripherals can be done with a level shifter, a MOSFET, or a
 
 {{!-- BEGIN do not edit content below, it is automatically generated 4757df20-600f-4beb-b781-59ff36cbb3d5 --}}
 
-| E Series Pin | E Series Pin Name | E Series SPI | M SoM Pin | M SoM Pin Name | M SoM SPI |
+| E Series Pin | E Series Pin Name | E Series SPI | M-SoM Pin | M-SoM Pin Name | M-SoM SPI |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 24 | A2 | SPI (SS) | 35 | A2 / D17 | &nbsp; |
 | 23 | A3 | SPI (SCK) | 37 | A3 / D16 | &nbsp; |
@@ -408,7 +408,7 @@ Supported Baud Rates:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8c9a7dac-af5b-4a4d-9e40-7deb06ed921f --}}
 
-| E Series Pin | E Series Pin Name | E Series Serial | M SoM Pin | M SoM Pin Name | M SoM Serial |
+| E Series Pin | E Series Pin Name | E Series Serial | M-SoM Pin | M-SoM Pin Name | M-SoM Serial |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 49 | C0 | Serial5_RX | &nbsp; | &nbsp; | &nbsp; |
 | 48 | C1 | Serial5_TX | &nbsp; | &nbsp; | &nbsp; |
@@ -432,7 +432,7 @@ The M SoM does not have an many ADC ports as the E Series. You can add additiona
 
 {{!-- BEGIN do not edit content below, it is automatically generated eeeca022-6ba8-4f96-b0e2-5b00362fed6d --}}
 
-| E Series Pin | E Series Pin Name | E Series ADC | M SoM Pin | M SoM Pin Name | M SoM ADC |
+| E Series Pin | E Series Pin Name | E Series ADC | M-SoM Pin | M-SoM Pin Name | M-SoM ADC |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 26 | A0 | &check; | 23 | A0 / D19 | &check; |
 | 25 | A1 | &check; | 33 | A1 / D18 | &check; |
@@ -455,7 +455,7 @@ The M SoM does not have an many ADC ports as the E Series. You can add additiona
 
 {{!-- BEGIN do not edit content below, it is automatically generated b19893d3-ab63-4323-9b3f-b948d4c1c249 --}}
 
-| E Series Pin | E Series Pin Name | E Series I2C | M SoM Pin | M SoM Pin Name | M SoM I2C |
+| E Series Pin | E Series Pin Name | E Series I2C | M-SoM Pin | M-SoM Pin Name | M-SoM I2C |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 45 | C4 | Wire1 (SDA) | &nbsp; | &nbsp; | &nbsp; |
 | 44 | C5 | Wire1 (SCL) | &nbsp; | &nbsp; | &nbsp; |
@@ -724,13 +724,13 @@ The M SoM has U.FL antenna connectors:
 {{!-- BEGIN do not edit content below, it is automatically generated 159eb8da-b56b-40d7-8df0-b54b7889555d --}}
 
 #### 3V3
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 9 | 10 |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
 | ∆ | Description | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | System power in, supply a fixed 3.3V power, 500 mA minimum |
 #### A0
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 26 | 23 |
 | &nbsp; | Pin Name | A0 | A0 |
@@ -745,7 +745,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A1
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 25 | 33 |
 | &nbsp; | Pin Name | A1 | A1 |
@@ -760,7 +760,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A2
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 24 | 35 |
 | &nbsp; | Pin Name | A2 | A2 |
@@ -774,7 +774,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | 22K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A3
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 23 | 37 |
 | &nbsp; | Pin Name | A3 | A3 |
@@ -788,7 +788,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
 | ∆ | Internal pull resistance | 40K | 2.1K |
 #### A4
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 22 | 41 |
 | &nbsp; | Pin Name | A4 | A4 |
@@ -804,7 +804,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 21 | 43 |
 | &nbsp; | Pin Name | A5 | A5 |
@@ -820,7 +820,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 53|
 | Pin Name | A5|
@@ -836,7 +836,7 @@ The M SoM has U.FL antenna connectors:
 | SWD interface | SWCLK. 40K pull-down at boot.|
 | Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### AGND
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 39|
 | Pin Name | AGND|
@@ -999,34 +999,34 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD-
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 46|
 | Pin Name | CELL USBD-|
 | Description | Cellular Modem USB Data-|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD+
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 44|
 | Pin Name | CELL USBD+|
 | Description | Cellular Modem USB Data+|
 | Input is 5V Tolerant | Yes|
 #### CELL VBUS
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 74|
 | Pin Name | CELL VBUS|
 | Description | USB detect pin for cellular modem. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### CELL_RI
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 75|
 | Pin Name | CELL_RI|
 | Description | CELL_RI, ring indicator output, leave unconnected.|
 #### D0
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 42 | 22 |
 | &nbsp; | Pin Name | D0 | D0 |
@@ -1040,7 +1040,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D1
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 41 | 20 |
 | &nbsp; | Pin Name | D1 | D1 |
@@ -1055,7 +1055,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D2
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 40 | 42 |
 | &nbsp; | Pin Name | D2 | D2 |
@@ -1072,7 +1072,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D20
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 19|
 | Pin Name | D20|
@@ -1082,7 +1082,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D21
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 17|
 | Pin Name | D21|
@@ -1092,7 +1092,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### D22
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 62|
 | Pin Name | D22|
@@ -1102,7 +1102,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D23
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 64|
 | Pin Name | D23|
@@ -1112,7 +1112,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D24
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 58|
 | Pin Name | D24|
@@ -1124,7 +1124,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 42K|
 | Signal used at boot | Low at boot triggers ISP flash download|
 #### D25
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 60|
 | Pin Name | D25|
@@ -1136,7 +1136,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 42K|
 | Signal used at boot | Goes high at boot|
 #### D26
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 59|
 | Pin Name | D26|
@@ -1146,7 +1146,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D27
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 55|
 | Pin Name | D27|
@@ -1158,7 +1158,7 @@ The M SoM has U.FL antenna connectors:
 | SWD interface | SWDIO. 40K pull-up at boot.|
 | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.|
 #### D3
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 39 | 40 |
 | &nbsp; | Pin Name | D3 | D3 |
@@ -1175,7 +1175,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
 #### D4
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 38 | 66 |
 | &nbsp; | Pin Name | D4 | D4 |
@@ -1192,7 +1192,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDO. Floating at boot. | n/a |
 #### D5
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 37 | 68 |
 | &nbsp; | Pin Name | D5 | D5 |
@@ -1209,7 +1209,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
 #### D6
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 36 | 70 |
 | &nbsp; | Pin Name | D6 | D6 |
@@ -1225,7 +1225,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | n/a |
 #### D7
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 35 | 72 |
 | &nbsp; | Pin Name | D7 | D7 |
@@ -1241,7 +1241,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | n/a |
 #### D8
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 48|
 | Pin Name | D8|
@@ -1252,7 +1252,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### DAC
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 20 | 45 |
 | ∆ | Pin Name | DAC | A6 |
@@ -1269,13 +1269,13 @@ The M SoM has U.FL antenna connectors:
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### GND
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 2 | 1 |
 | &nbsp; | Pin Name | GND | GND |
 | ∆ | Description | Ground. Be sure to connect all GND pins. | Ground. |
 #### GNSS_TX
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 18|
 | Pin Name | GNSS_TX|
@@ -1287,7 +1287,7 @@ The M SoM has U.FL antenna connectors:
 | Pin Name | LIPO|
 | Description | Connect to + pin on the LiPo battery, 4.2V maximum|
 #### MISO
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 50|
 | Pin Name | MISO|
@@ -1301,7 +1301,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### MODE
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 55 | 32 |
 | &nbsp; | Pin Name | MODE | MODE |
@@ -1309,7 +1309,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | I2S interface | I2S3_MCK | n/a |
 #### MOSI
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 52|
 | Pin Name | MOSI|
@@ -1323,7 +1323,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### NC
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 6 | 14 |
 | &nbsp; | Pin Name | NC | NC |
@@ -1335,35 +1335,35 @@ The M SoM has U.FL antenna connectors:
 | Pin Name | PMID|
 | Description | Connected to the PMID pin of the PMIC|
 #### RESET
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 56 | 34 |
 | ∆ | Pin Name | RESET | RST |
 | ∆ | Pin Alternate Name | RST | n/a |
 | ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### RGBB
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 52 | 65 |
 | &nbsp; | Pin Name | RGBB | RGBB |
 | &nbsp; | Description | RGB LED Blue | RGB LED Blue |
 | ∆ | UART serial | RX. Use Serial2 object. | n/a |
 #### RGBG
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 53 | 63 |
 | &nbsp; | Pin Name | RGBG | RGBG |
 | &nbsp; | Description | RGB LED Green | RGB LED Green |
 | ∆ | UART serial | TX. Use Serial2 object. | n/a |
 #### RGBR
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 54 | 61 |
 | &nbsp; | Pin Name | RGBR | RGBR |
 | &nbsp; | Description | RGB LED Red | RGB LED Red |
 | ∆ | Signal used at boot | n/a | Low at boot triggers trap mode |
 #### RX
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 17 | 38 |
 | &nbsp; | Pin Name | RX | RX |
@@ -1379,7 +1379,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### SCK
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 54|
 | Pin Name | SCK|
@@ -1391,25 +1391,25 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### SIM_CLK
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 71|
 | Pin Name | SIM_CLK|
 | Description | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem.|
 #### SIM_DATA
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 73|
 | Pin Name | SIM_DATA|
 | Description | Leave unconnected, 1.8V/3V SIM Data I/O of cellular modem with internal 4.7 k pull-up.|
 #### SIM_RST
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 69|
 | Pin Name | SIM_RST|
 | Description | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem.|
 #### SIM_VCC
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 67|
 | Pin Name | SIM_VCC|
@@ -1421,7 +1421,7 @@ The M SoM has U.FL antenna connectors:
 | Pin Name | STAT|
 | Description | Charge status output from the PMIC.|
 #### TX
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 16 | 36 |
 | &nbsp; | Pin Name | TX | TX |
@@ -1437,14 +1437,14 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### USBDATA-
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 14 | 13 |
 | &nbsp; | Pin Name | USBDATA- | USBDATA- |
 | &nbsp; | Description | USB Data- | USB Data- |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### USBDATA+
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 13 | 11 |
 | &nbsp; | Pin Name | USBDATA+ | USBDATA+ |
@@ -1463,7 +1463,7 @@ The M SoM has U.FL antenna connectors:
 | Pin Name | VBUS|
 | Description | Connect to VBUS power pin on the USB port|
 #### VCC
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 2|
 | Pin Name | VCC|
@@ -1481,7 +1481,7 @@ The M SoM has U.FL antenna connectors:
 | Pin Name | VIN|
 | Description | Power in 3.9V to 12 VDC.|
 #### WKP
-|   |   | E Series | M SoM |
+|   |   | E Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 19 | 47 |
 | ∆ | Pin Name | WKP | A7 |

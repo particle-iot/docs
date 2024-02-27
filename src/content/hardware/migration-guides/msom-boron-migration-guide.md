@@ -180,7 +180,7 @@ The Argon/Boron land pattern is:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 0ad610ce-7eb9-463a-a214-3abf217f2e80 --}}
 
-| Boron Pin Name | Boron ADC | M SoM Pin | M SoM Pin Name | M SoM ADC |
+| Boron Pin Name | Boron ADC | M-SoM Pin | M-SoM Pin Name | M-SoM ADC |
 | :--- | :--- | :---: | :--- | :--- |
 | A0 / D19 | &check; | 23 | A0 / D19 | &check; |
 | A1 / D18 | &check; | 33 | A1 / D18 | &check; |
@@ -212,7 +212,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 53ee9c68-d92a-4a07-b56a-7c1cfab44f60 --}}
 
-| Boron Pin Name | Boron Serial | M SoM Pin | M SoM Pin Name | M SoM Serial |
+| Boron Pin Name | Boron Serial | M-SoM Pin | M-SoM Pin Name | M-SoM Serial |
 | :--- | :--- | :---: | :--- | :--- |
 | D2 | Serial1 RTS | 42 | D2 | Serial1 (RTS)  |
 | &nbsp; | &nbsp; | 58 | D24 | Serial2 (TX)  |
@@ -231,7 +231,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 1b2c8715-6448-4bb6-aebf-8a507c16a87d --}}
 
-| Boron Pin Name | Boron I2C | M SoM Pin | M SoM Pin Name | M SoM I2C |
+| Boron Pin Name | Boron I2C | M-SoM Pin | M-SoM Pin Name | M-SoM I2C |
 | :--- | :--- | :---: | :--- | :--- |
 | D0 | Wire (SDA) | 22 | D0 | Wire (SDA) |
 | D1 | Wire (SCL) | 20 | D1 | Wire (SCL) |
@@ -246,7 +246,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- BEGIN do not edit content below, it is automatically generated d72da918-d38e-46f0-b651-0c4ddee8cad7 --}}
 
-| Pin | B SoM Pin Name | B SoM I2C | M SoM Pin Name | M SoM I2C |
+| Pin | B-SoM Pin Name | B-SoM I2C | M-SoM Pin Name | M-SoM I2C |
 | :---: | :--- | :--- | :--- | :--- |
 | 20 | D1 | Wire (SCL) | D1 | Wire (SCL) |
 | 22 | D0 | Wire (SDA) | D0 | Wire (SDA) |
@@ -265,7 +265,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- BEGIN do not edit content below, it is automatically generated f8d3a842-6457-4404-ad7b-d1c47a53e638 --}}
 
-| Boron Pin Name | Boron PWM | M SoM Pin | M SoM Pin Name | M SoM PWM |
+| Boron Pin Name | Boron PWM | M-SoM Pin | M-SoM Pin Name | M-SoM PWM |
 | :--- | :--- | :---: | :--- | :--- |
 | A0 / D19 | &check; | 23 | A0 / D19 | &check; |
 | A1 / D18 | &check; | 33 | A1 / D18 | &check; |
@@ -344,12 +344,12 @@ The Boron and Argon support NFC Tag mode.
 {{!-- BEGIN do not edit content below, it is automatically generated 92c0afb8-3e86-47bf-adc2-34873410a475 --}}
 
 #### 3V3
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
 | ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | System power in, supply a fixed 3.3V power, 500 mA minimum |
 #### A0
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A0 | A0 |
 | &nbsp; | Pin Alternate Name | D19 | D19 |
@@ -362,7 +362,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 42K |
 #### A1
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A1 | A1 |
 | &nbsp; | Pin Alternate Name | D18 | D18 |
@@ -375,7 +375,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### A2
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A2 | A2 |
 | &nbsp; | Pin Alternate Name | D17 | D17 |
@@ -388,7 +388,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 22K |
 #### A3
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A3 | A3 |
 | &nbsp; | Pin Alternate Name | D16 | D16 |
@@ -401,7 +401,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### A4
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A4 | A4 |
 | &nbsp; | Pin Alternate Name | D15 | D15 |
@@ -414,7 +414,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### A5
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A5 | A5 |
 | &nbsp; | Pin Alternate Name | D14 | D14 |
@@ -428,7 +428,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### A5
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | A5|
 | Pin Alternate Name | D14|
@@ -443,7 +443,7 @@ The Boron and Argon support NFC Tag mode.
 | SWD interface | SWCLK. 40K pull-down at boot.|
 | Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### A6
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | A6|
 | Pin Alternate Name | D29|
@@ -458,35 +458,35 @@ The Boron and Argon support NFC Tag mode.
 | SWD interface | SWCLK. 40K pull-down at boot.|
 | Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### AGND
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | AGND|
 | Description | Analog Ground.|
 #### CELL USBD-
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | CELL USBD-|
 | Description | Cellular Modem USB Data-|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD+
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | CELL USBD+|
 | Description | Cellular Modem USB Data+|
 | Input is 5V Tolerant | Yes|
 #### CELL VBUS
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | CELL VBUS|
 | Description | USB detect pin for cellular modem. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### CELL_RI
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | CELL_RI|
 | Description | CELL_RI, ring indicator output, leave unconnected.|
 #### D0
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D0 | D0 |
 | ∆ | Description | I2C SDA, GPIO | D0 GPIO, I2C SDA |
@@ -496,7 +496,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D1
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D1 | D1 |
 | ∆ | Description | I2C SCL, GPIO | D1 GPIO, I2C SCL |
@@ -506,7 +506,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D2
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D2 | D2 |
 | ∆ | Description | SPI1 SCK, Serial1 RTS, GPIO, PWM | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
@@ -519,7 +519,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D21
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D21|
 | Description | D21 GPIO|
@@ -528,7 +528,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### D22
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D22|
 | Description | D22 GPIO|
@@ -537,7 +537,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D23
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D23|
 | Description | D23 GPIO|
@@ -546,7 +546,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D24
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D24|
 | Description | D24 GPIO, Serial2 TX, do not pull down at boot|
@@ -557,7 +557,7 @@ The Boron and Argon support NFC Tag mode.
 | Internal pull resistance | 42K|
 | Signal used at boot | Low at boot triggers ISP flash download|
 #### D25
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D25|
 | Description | GPIO25, Serial2 RX|
@@ -568,7 +568,7 @@ The Boron and Argon support NFC Tag mode.
 | Internal pull resistance | 42K|
 | Signal used at boot | Goes high at boot|
 #### D26
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D26|
 | Description | D26 GPIO|
@@ -577,7 +577,7 @@ The Boron and Argon support NFC Tag mode.
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D27
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D27|
 | Description | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot|
@@ -588,7 +588,7 @@ The Boron and Argon support NFC Tag mode.
 | SWD interface | SWDIO. 40K pull-up at boot.|
 | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.|
 #### D3
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D3 | D3 |
 | ∆ | Description | SPI1 MOSI, Serial1 CTS, PWM, GPIO | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
@@ -601,7 +601,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D4
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D4 | D4 |
 | ∆ | Description | SPI1 MISO, PWM, GPIO | D4 GPIO, PWM |
@@ -613,7 +613,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D5
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D5 | D5 |
 | ∆ | Description | PWM, GPIO | D5 GPIO, PWM |
@@ -624,7 +624,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D6
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D6 | D6 |
 | ∆ | Description | PWM, GPIO | D6 GPIO, PWM |
@@ -635,7 +635,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D7
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D7 | D7 |
 | ∆ | Description | PWM, GPIO | D7 GPIO, PWM |
@@ -646,7 +646,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### D8
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D8|
 | Description | D8 GPIO, SPI SS|
@@ -661,12 +661,12 @@ The Boron and Argon support NFC Tag mode.
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### GND
-| | Unchanged between Boron and M SoM |
+| | Unchanged between Boron and M-SoM |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground.|
 #### GNSS_TX
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | GNSS_TX|
 | Description | Cellular modem GNSS UART TX|
@@ -676,7 +676,7 @@ The Boron and Argon support NFC Tag mode.
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 #### MISO
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | MISO | MISO |
 | &nbsp; | Pin Alternate Name | D11 | D11 |
@@ -689,7 +689,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### MODE
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | MODE | D20 |
 | ∆ | Pin Alternate Name | D20 | n/a |
@@ -699,13 +699,13 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | ??? |
 #### MODE
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | MODE|
 | Description | MODE button. Pin number constant is BTN. External pull-up required!|
 | Supports attachInterrupt | Yes|
 #### MOSI
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | MOSI | MOSI |
 | &nbsp; | Pin Alternate Name | D12 | D12 |
@@ -718,33 +718,33 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### NC
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | n/a|
 #### RGBB
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | RGBB|
 | Description | RGB LED Blue|
 #### RGBG
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | RGBG|
 | Description | RGB LED Green|
 #### RGBR
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | RGBR|
 | Description | RGB LED Red|
 | Signal used at boot | Low at boot triggers trap mode|
 #### RST
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RST | RST |
 | ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### RX
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RX | RX |
 | &nbsp; | Pin Alternate Name | D10 | D10 |
@@ -758,7 +758,7 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### SCK
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | SCK | SCK |
 | &nbsp; | Pin Alternate Name | D13 | D13 |
@@ -769,27 +769,27 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### SIM_CLK
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | SIM_CLK|
 | Description | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem.|
 #### SIM_DATA
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | SIM_DATA|
 | Description | Leave unconnected, 1.8V/3V SIM Data I/O of cellular modem with internal 4.7 k pull-up.|
 #### SIM_RST
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | SIM_RST|
 | Description | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem.|
 #### SIM_VCC
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### TX
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | TX | TX |
 | ∆ | Pin Alternate Name | D09 | D9 |
@@ -803,19 +803,19 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### USBDATA-
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | USBDATA-|
 | Description | USB Data-|
 | Input is 5V Tolerant | Yes|
 #### USBDATA+
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | USBDATA+|
 | Description | USB Data+|
 | Input is 5V Tolerant | Yes|
 #### VCC
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | VCC|
 | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power.|
@@ -826,7 +826,7 @@ The Boron and Argon support NFC Tag mode.
 | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
 | Input is 5V Tolerant | Yes|
 #### WKP
-|   |   | Boron | M SoM |
+|   |   | Boron | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | D8 | A7 |
 | &nbsp; | Pin Alternate Name | WKP | WKP |

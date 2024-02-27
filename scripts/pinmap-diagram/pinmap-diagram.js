@@ -2041,7 +2041,7 @@ const svg = require('./svg');
         }), files);
 
         await diagram.generateM2SoM(Object.assign(Object.assign({}, generateOptions), {
-            platformName: 'M SoM',
+            platformName: 'M-SoM',
             outputPath: 'assets/images/msom.svg',
         }), files);
 

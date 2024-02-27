@@ -82,7 +82,7 @@ The P2 land pattern is:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 198f100b-a9d2-40c0-bfad-c835be7dcf6c --}}
 
-| P2 Pin Name | P2 ADC | M SoM Pin | M SoM Pin Name | M SoM ADC |
+| P2 Pin Name | P2 ADC | M-SoM Pin | M-SoM Pin Name | M-SoM ADC |
 | :--- | :--- | :---: | :--- | :--- |
 | A0 / D11 | &check; | 23 | A0 / D19 | &check; |
 | A1 / D12 | &check; | 33 | A1 / D18 | &check; |
@@ -114,7 +114,7 @@ The P2 land pattern is:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8b15c299-ec3c-4638-94e0-70c287b3b480 --}}
 
-| P2 Pin Name | P2 Serial | M SoM Pin | M SoM Pin Name | M SoM Serial |
+| P2 Pin Name | P2 Serial | M-SoM Pin | M-SoM Pin Name | M-SoM Serial |
 | :--- | :--- | :---: | :--- | :--- |
 | D10 / WKP | Serial3 (CTS) | 38 | RX / D10 | Serial1 (RX)  |
 | S0 / D15 | Serial3 (TX) | 41 | A4 / D15 | &nbsp; |
@@ -138,7 +138,7 @@ The P2 land pattern is:
 
 {{!-- BEGIN do not edit content below, it is automatically generated e825d0f8-1762-4ea4-9da8-22f393747616 --}}
 
-| P2 Pin Name | P2 SPI | M SoM Pin | M SoM Pin Name | M SoM SPI |
+| P2 Pin Name | P2 SPI | M-SoM Pin | M-SoM Pin Name | M-SoM SPI |
 | :--- | :--- | :---: | :--- | :--- |
 | D10 / WKP | &nbsp; | 38 | RX / D10 | SPI1 (MISO) |
 | S0 / D15 | SPI (MOSI) | 41 | A4 / D15 | &nbsp; |
@@ -165,7 +165,7 @@ The P2 land pattern is:
 
 {{!-- BEGIN do not edit content below, it is automatically generated d4f5a73f-20a3-4e45-9cbb-f55a68e1c8a5 --}}
 
-| P2 Pin Name | P2 I2C | M SoM Pin | M SoM Pin Name | M SoM I2C |
+| P2 Pin Name | P2 I2C | M-SoM Pin | M-SoM Pin Name | M-SoM I2C |
 | :--- | :--- | :---: | :--- | :--- |
 | D0 / A3 | Wire (SDA) | 22 | D0 | Wire (SDA) |
 | D1 / A4 | Wire (SCL) | 20 | D1 | Wire (SCL) |
@@ -181,7 +181,7 @@ The P2 land pattern is:
 
 {{!-- BEGIN do not edit content below, it is automatically generated be7ef0ce-b932-4cfd-840f-d8f7bf716a6d --}}
 
-| P2 Pin Name | P2 PWM | M SoM Pin | M SoM Pin Name | M SoM PWM |
+| P2 Pin Name | P2 PWM | M-SoM Pin | M-SoM Pin Name | M-SoM PWM |
 | :--- | :--- | :---: | :--- | :--- |
 | A0 / D11 | &nbsp; | 23 | A0 / D19 | &check; |
 | A1 / D12 | &nbsp; | 33 | A1 / D18 | &check; |
@@ -267,7 +267,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 {{!-- BEGIN do not edit content below, it is automatically generated f892e697-679e-4e73-99f6-c396698f3b87 --}}
 
 #### 3V3
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
 | ∆ | Description | 3.3V power to MCU | System power in, supply a fixed 3.3V power, 500 mA minimum |
@@ -282,7 +282,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Pin Name | 3V3_RF|
 | Description | 3.3V power to RF module|
 #### A0
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A0 | A0 |
 | ∆ | Pin Alternate Name | D11 | D19 |
@@ -295,7 +295,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | 42K |
 #### A1
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A1 | A1 |
 | ∆ | Pin Alternate Name | D12 | D18 |
@@ -308,7 +308,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### A2
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A2 | A2 |
 | ∆ | Pin Alternate Name | D13 | D17 |
@@ -321,7 +321,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 42K | 22K |
 #### A5
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A5 | A5 |
 | &nbsp; | Pin Alternate Name | D14 | D14 |
@@ -334,7 +334,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 42K | ??? |
 #### A5
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | A5|
 | Pin Alternate Name | D14|
@@ -349,7 +349,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | SWD interface | SWCLK. 40K pull-down at boot.|
 | Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### A6
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | A6|
 | Pin Alternate Name | D29|
@@ -364,7 +364,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | SWD interface | SWCLK. 40K pull-down at boot.|
 | Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### A7
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | A7|
 | Pin Alternate Name | WKP|
@@ -375,35 +375,35 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### AGND
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | AGND|
 | Description | Analog Ground.|
 #### CELL USBD-
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | CELL USBD-|
 | Description | Cellular Modem USB Data-|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD+
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | CELL USBD+|
 | Description | Cellular Modem USB Data+|
 | Input is 5V Tolerant | Yes|
 #### CELL VBUS
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | CELL VBUS|
 | Description | USB detect pin for cellular modem. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### CELL_RI
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | CELL_RI|
 | Description | CELL_RI, ring indicator output, leave unconnected.|
 #### D0
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D0 | D0 |
 | ∆ | Pin Alternate Name | A3 | n/a |
@@ -415,7 +415,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 22K | ??? |
 #### D1
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D1 | D1 |
 | ∆ | Pin Alternate Name | A4 | n/a |
@@ -429,7 +429,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 22K | ??? |
 #### D10
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | D10 | RX |
 | ∆ | Pin Alternate Name | WKP | D10 |
@@ -443,7 +443,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | &nbsp; | Internal pull resistance | 2.1K | 2.1K |
 #### D15
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S0 | A4 |
 | &nbsp; | Pin Alternate Name | D15 | D15 |
@@ -458,7 +458,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | &nbsp; | Internal pull resistance | 2.1K | 2.1K |
 #### D16
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S1 | A3 |
 | &nbsp; | Pin Alternate Name | D16 | D16 |
@@ -473,7 +473,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | &nbsp; | Internal pull resistance | 2.1K | 2.1K |
 #### D17
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S2 | A2 |
 | &nbsp; | Pin Alternate Name | D17 | D17 |
@@ -486,7 +486,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | 22K |
 #### D18
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S3 | A1 |
 | &nbsp; | Pin Alternate Name | D18 | D18 |
@@ -500,7 +500,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D19
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S4 | A0 |
 | &nbsp; | Pin Alternate Name | D19 | D19 |
@@ -513,7 +513,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | 42K |
 #### D2
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D2 | D2 |
 | ∆ | Description | D2 GPIO, Serial2 RTS, SPI1 MOSI | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
@@ -524,7 +524,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D22
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D22|
 | Description | D22 GPIO|
@@ -533,7 +533,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D23
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D23|
 | Description | D23 GPIO|
@@ -542,7 +542,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D24
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D24|
 | Description | D24 GPIO, Serial2 TX, do not pull down at boot|
@@ -553,7 +553,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Internal pull resistance | 42K|
 | Signal used at boot | Low at boot triggers ISP flash download|
 #### D25
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D25|
 | Description | GPIO25, Serial2 RX|
@@ -564,7 +564,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Internal pull resistance | 42K|
 | Signal used at boot | Goes high at boot|
 #### D26
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D26|
 | Description | D26 GPIO|
@@ -573,7 +573,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D27
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D27|
 | Description | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot|
@@ -584,7 +584,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | SWD interface | SWDIO. 40K pull-up at boot.|
 | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.|
 #### D3
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D3 | D3 |
 | ∆ | Description | D3 GPIO, Serial2 CTS, SPI1 MISO | D3 GPIO, Serial1 CTS flow control (optional), SPI1 SS |
@@ -595,7 +595,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D4
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D4 | D4 |
 | ∆ | Description | D4 GPIO, Serial2 TX, SPI1 SCK | D4 GPIO, PWM |
@@ -608,7 +608,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D5
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D5 | D5 |
 | ∆ | Description | D5 GPIO, Serial2 RX, SPI1 SS | D5 GPIO, PWM |
@@ -621,7 +621,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 2.1K | ??? |
 #### D6
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D6 | D6 |
 | ∆ | Description | D6 GPIO, SWCLK | D6 GPIO, PWM |
@@ -634,7 +634,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
 | ∆ | Signal used at boot | SWCLK. 40K pull-down at boot. | n/a |
 #### D7
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D7 | D7 |
 | ∆ | Description | D7 GPIO, SWDIO | D7 GPIO, PWM |
@@ -647,7 +647,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | n/a |
 #### D8
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | D8|
 | Description | D8 GPIO, SPI SS|
@@ -657,7 +657,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### D9
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | RX | TX |
 | &nbsp; | Pin Alternate Name | D9 | D9 |
@@ -671,17 +671,17 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 42K | 2.1K |
 #### GND
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | GND | GND |
 | ∆ | Description | Ground. Be sure you connect all P1 ground pins. | Ground. |
 #### GNSS_TX
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | GNSS_TX|
 | Description | Cellular modem GNSS UART TX|
 #### MISO
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | MISO|
 | Pin Alternate Name | D11|
@@ -694,13 +694,13 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### MODE
-| | Unchanged between P2 and M SoM |
+| | Unchanged between P2 and M-SoM |
 | :--- | :--- |
 | Pin Name | MODE|
 | Description | MODE button. Pin number constant is BTN. External pull-up required!|
 | Supports attachInterrupt | Yes|
 #### MOSI
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | MOSI|
 | Pin Alternate Name | D12|
@@ -713,36 +713,36 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### NC
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | NC | NC |
 | ∆ | Description | No connection. Do not connect anything to this pin. | n/a |
 #### RGBB
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RGBB | RGBB |
 | &nbsp; | Description | RGB LED Blue | RGB LED Blue |
 | ∆ | Supports attachInterrupt | Yes | No |
 #### RGBG
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RGBG | RGBG |
 | &nbsp; | Description | RGB LED Green | RGB LED Green |
 | ∆ | Supports attachInterrupt | Yes | No |
 #### RGBR
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RGBR | RGBR |
 | ∆ | Description | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot. | RGB LED Red |
 | ∆ | Supports attachInterrupt | Yes | No |
 | ∆ | Signal used at boot | n/a | Low at boot triggers trap mode |
 #### RST
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RST | RST |
 | ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### S5
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S5 | D20 |
 | ∆ | Pin Alternate Name | D20 | n/a |
@@ -752,7 +752,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | ∆ | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode | ??? |
 #### S6
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | S6 | D21 |
 | ∆ | Pin Alternate Name | D21 | n/a |
@@ -762,7 +762,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | &nbsp; | Supports attachInterrupt | Yes | Yes |
 | &nbsp; | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode. | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### SCK
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | SCK|
 | Pin Alternate Name | D13|
@@ -773,27 +773,27 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### SIM_CLK
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | SIM_CLK|
 | Description | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem.|
 #### SIM_DATA
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | SIM_DATA|
 | Description | Leave unconnected, 1.8V/3V SIM Data I/O of cellular modem with internal 4.7 k pull-up.|
 #### SIM_RST
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | SIM_RST|
 | Description | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem.|
 #### SIM_VCC
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### TX
-|   |   | P2 | M SoM |
+|   |   | P2 | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | TX | TX |
 | ∆ | Pin Alternate Name | D8 | D9 |
@@ -808,13 +808,13 @@ P2 pins related to `HIBERNATE` sleep mode:
 | ∆ | Internal pull resistance | 42K | 2.1K |
 | ∆ | Signal used at boot | Low at boot triggers ISP flash download | n/a |
 #### USBDATA-
-| | Unchanged between P2 and M SoM |
+| | Unchanged between P2 and M-SoM |
 | :--- | :--- |
 | Pin Name | USBDATA-|
 | Description | USB Data-|
 | Input is 5V Tolerant | Yes|
 #### USBDATA+
-| | Unchanged between P2 and M SoM |
+| | Unchanged between P2 and M-SoM |
 | :--- | :--- |
 | Pin Name | USBDATA+|
 | Description | USB Data+|
@@ -826,7 +826,7 @@ P2 pins related to `HIBERNATE` sleep mode:
 | Description | Battery voltage measurement (optional).|
 | Input is 5V Tolerant | Yes|
 #### VCC
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | VCC|
 | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power.|

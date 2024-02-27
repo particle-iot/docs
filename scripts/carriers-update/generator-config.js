@@ -1348,11 +1348,11 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'full-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'E Series',
                     mapBy: 'name',
                     showPinNum: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                 }); 
             }
         },   
@@ -1361,7 +1361,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'E Series',
                     port: 'digitalWrite',
                     label: 'GPIO',
@@ -1370,7 +1370,7 @@ const schemaDocs = require('./schema-docs');
                     oldPinNumber: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     checkmark: true,
                 }); 
             }
@@ -1380,7 +1380,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'E Series',
                     port: 'spi',
                     label: 'SPI',
@@ -1389,7 +1389,7 @@ const schemaDocs = require('./schema-docs');
                     oldPinNumber: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                 }); 
             }
         },
@@ -1398,7 +1398,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'E Series',
                     port: 'i2c',
                     label: 'I2C',
@@ -1407,7 +1407,7 @@ const schemaDocs = require('./schema-docs');
                     oldPinNumber: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                 }); 
             }
         },        {
@@ -1415,7 +1415,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'E Series',
                     port: 'serial',
                     label: 'Serial',
@@ -1424,7 +1424,7 @@ const schemaDocs = require('./schema-docs');
                     oldPinNumber: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                 }); 
             }
         },
@@ -1433,7 +1433,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'E Series',
                     port: 'analogRead',
                     label: 'ADC',
@@ -1441,7 +1441,7 @@ const schemaDocs = require('./schema-docs');
                     oldPinNumber: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                 }); 
             }
         },
@@ -1450,7 +1450,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'E Series',
                     port: 'analogWritePWM',
                     label: 'PWM',
@@ -1468,7 +1468,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'E Series',
                     port: 'can',
                     label: 'CAN',
@@ -1477,7 +1477,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     checkmark: false,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                 }); 
             } 
         }, 
@@ -3443,13 +3443,13 @@ const schemaDocs = require('./schema-docs');
             } 
         },
 
-        // M SoM - RTL8722DM
+        // M-SoM - RTL8722DM
         {
             guid: '1ef65384-3694-4999-a6d8-4ee9432ca08d',
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'pinFunction',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                 }); 
             } 
         },        
@@ -3458,7 +3458,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'pinFunction',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     sortByNum: true,
                 }); 
             } 
@@ -3468,7 +3468,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'portPins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     port: 'digitalRead',
                     label: 'GPIO',
                     newMCU: 'MCU',
@@ -3481,7 +3481,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     interface: 'swd'
                 }); 
             } 
@@ -3491,7 +3491,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     interface: 'hardwareADC'
                 }); 
             } 
@@ -3501,7 +3501,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     interface: 'serial'
                 }); 
             }                     
@@ -3511,7 +3511,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     interface: 'spi',
                 }); 
             }                     
@@ -3521,7 +3521,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     interface: 'i2c'
                 }); 
             }                     
@@ -3531,7 +3531,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     interface: 'analogWritePWM',
                     noInterface: true,
                     showHardwareTimer: false, // temporary until assigned
@@ -3543,7 +3543,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     interface: 'sim',
                     noInterface: true,
                     noMCU: true,
@@ -3555,7 +3555,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     interface: 'hibernate'
                 }); 
             }                     
@@ -3565,9 +3565,9 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'old-new-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'B4xx SoM',
-                    platformOldTitle: 'B SoM',
+                    platformOldTitle: 'B-SoM',
                     pinNumberOld: true,
                     newHardwarePin: true,
                     changeIndicator: true,
@@ -3579,13 +3579,13 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'B4xx SoM',
-                    platformOldTitle: 'B SoM',
+                    platformOldTitle: 'B-SoM',
                     port: 'analogRead',
                     label: 'ADC',
                     noPinNumbers: false,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3595,14 +3595,14 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'B4xx SoM',
-                    platformOldTitle: 'B SoM',
+                    platformOldTitle: 'B-SoM',
                     port: 'serial',
                     label: 'Serial',
                     useShortName: true,
                     noPinNumbers: false,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3612,14 +3612,14 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'B4xx SoM',
-                    platformOldTitle: 'B SoM',
+                    platformOldTitle: 'B-SoM',
                     port: 'spi',
                     label: 'SPI',
                     useShortName: true,
                     noPinNumbers: false,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3629,14 +3629,14 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'B4xx SoM',
-                    platformOldTitle: 'B SoM',
+                    platformOldTitle: 'B-SoM',
                     port: 'i2c',
                     label: 'I2C',
                     useShortName: true,
                     noPinNumbers: false,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3646,13 +3646,13 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'B4xx SoM',
-                    platformOldTitle: 'B SoM',
+                    platformOldTitle: 'B-SoM',
                     port: 'analogWritePWM',
                     label: 'PWM',
                     noPinNumbers: false,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3662,11 +3662,11 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'full-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'B4xx SoM',
-                    platformOldTitle: 'B SoM',
+                    platformOldTitle: 'B-SoM',
                     showPinNum: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                 }); 
             } 
         },
@@ -3675,7 +3675,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     interface: 'isUSB',
                     noInterface: true,
                 }); 
@@ -3686,7 +3686,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     interface: 'isLED',
                     noInterface: true,
                 }); 
@@ -3697,7 +3697,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'bootPins',
-                    platformNew: 'M SoM'
+                    platformNew: 'M-SoM'
                 }); 
             }             
         },
@@ -3706,7 +3706,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     interface: 'isControl',
                     noInterface: true,
                 }); 
@@ -3717,7 +3717,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'modulePins',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                 }); 
             } 
         },
@@ -3727,7 +3727,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'P2',
                     port: 'analogRead',
                     label: 'ADC',
@@ -3735,7 +3735,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3745,7 +3745,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'P2',
                     port: 'serial',
                     label: 'Serial',
@@ -3754,7 +3754,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3764,7 +3764,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'P2',
                     port: 'spi',
                     label: 'SPI',
@@ -3773,7 +3773,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3783,7 +3783,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'P2',
                     port: 'i2c',
                     label: 'I2C',
@@ -3792,7 +3792,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3802,7 +3802,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'P2',
                     port: 'analogWritePWM',
                     label: 'PWM',
@@ -3810,7 +3810,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3820,13 +3820,13 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'full-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'P2',
                     noPinNumbers: true,
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                 }); 
             } 
         },
@@ -3836,7 +3836,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'Boron',
                     port: 'analogRead',
                     label: 'ADC',
@@ -3844,7 +3844,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3854,7 +3854,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'Boron',
                     port: 'serial',
                     label: 'Serial',
@@ -3863,7 +3863,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3873,7 +3873,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'Boron',
                     port: 'spi',
                     label: 'SPI',
@@ -3882,7 +3882,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3892,7 +3892,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'Boron',
                     port: 'i2c',
                     label: 'I2C',
@@ -3901,7 +3901,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3911,7 +3911,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'Boron',
                     port: 'analogWritePWM',
                     label: 'PWM',
@@ -3919,7 +3919,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                     newHardwarePin: true,
                 }); 
             }
@@ -3929,13 +3929,13 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'full-comparison',
-                    platformNew: 'M SoM',
+                    platformNew: 'M-SoM',
                     platformOld: 'Boron',
                     noPinNumbers: true,
                     newPinNumber: true,
                     mapBy: 'name',
                     noMapAltName: true,
-                    platformNewTitle: 'M SoM',
+                    platformNewTitle: 'M-SoM',
                 }); 
             } 
         },
@@ -4216,7 +4216,7 @@ const schemaDocs = require('./schema-docs');
             } 
         },
         {
-            // SKU list M SoM
+            // SKU list M-SoM
             guid:'5c48836c-dced-4420-be6f-15916d265a5e', 
             generatorFn:function(updater) {
                 return updater.generateFamilySkus('m series', {
