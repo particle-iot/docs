@@ -1347,8 +1347,8 @@
             "hash": "f02ea208fab10f4b90174d8546ef0ca318e4b116aa3cb98ad845fc72211f4ac5"
         },
         "reference/datasheets/b-series/b404x-datasheet.md": {
-            "date": "2024-02-20",
-            "hash": "a0f69218d07c29222ea553e328b252a2aeef1a7162e8433d2bfc7c54f0d61e2d"
+            "date": "2024-02-27",
+            "hash": "323135aeb58826d2168e76fcc578c86372cd24a385ce1d3d6616b30a92a95357"
         },
         "reference/datasheets/b-series/b524-b523-datasheet.md": {
             "date": "2024-02-20",
@@ -1359,8 +1359,8 @@
             "hash": "fd48af7a0624d06430491a6ef3ca614e515523c0706c75e8fa6f5aaff775d0b9"
         },
         "reference/datasheets/b-series/brn404x-datasheet.md": {
-            "date": "2023-11-28",
-            "hash": "8d60c580adabdab7c81ca69f6b00a116a6d485f5dee77818dec78a66ff27b1b1"
+            "date": "2024-02-27",
+            "hash": "3b19c607010a9ef7a49a275da2d9e130f4e9a11431f1e3428e65bfa3a2341202"
         },
         "reference/datasheets/accessories/debugger.md": {
             "date": "2023-03-17",
@@ -1411,8 +1411,8 @@
             "hash": "5e712fff4c24c5858de2883f05c64d5901b47a8807b6769d26f5298e4d8e2af6"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2024-02-20",
-            "hash": "f10c49fc8b2ead1103d70b8e20f0f0b2428225fb943f0d3a71bee40af2f453b4"
+            "date": "2024-02-27",
+            "hash": "e3ddfe48168854cc7c0524f59d0aa694a96e629b1b1bece7c18966282ddc34ab"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2023-11-06",
@@ -1423,8 +1423,8 @@
             "hash": "bfedda06f1a45b6c8df5e3fee1ea3bbe720bead343af38077a52feae9c362534"
         },
         "reference/datasheets/tracker/monitor-one-datasheet.md": {
-            "date": "2024-02-20",
-            "hash": "8b65eeda69aba6618e49f3af634c093617bdc9d646ffc654479bc8e67d7b3583"
+            "date": "2024-02-27",
+            "hash": "b37ee3a7622806f8e381529e6a907e8e9b93aecba7a733e464b264e49f640e3a"
         },
         "reference/datasheets/tracker/tracker-one.md": {
             "date": "2024-02-20",
@@ -8391,20 +8391,20 @@
             "date": "2024-02-06"
         },
         "hardware/migration-guides/msom-boron-migration-guide.md": {
-            "hash": "bd70bab4788dcf32c4cd219c44a9a923ce18c03e5a31361a1c4e61366635426e",
-            "date": "2024-02-06"
+            "hash": "cad06e43e8934064684dbde13f0c31c113d39b68b9dad87f066888a2102d1d49",
+            "date": "2024-02-27"
         },
         "hardware/migration-guides/msom-e-series-migration-guide.md": {
             "hash": "cae35fd9c3e7e4b8bb9989b926765c90bc707032d901a0b76c8c418cd45c9b19",
             "date": "2024-02-06"
         },
         "hardware/migration-guides/msom-p2-migration-guide.md": {
-            "hash": "daefd622463735f67e64013b6caa891e22a7bab777374eafbd67788bff0f6a2e",
-            "date": "2024-02-06"
+            "hash": "8f89c6ea92702d7fdf1bb5175c6c8b4c6f09a25a1189d59b6d391eafe3af1926",
+            "date": "2024-02-27"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "f327cecfdb57a34eeee1a69ac380276d616048d3354cb2a43225ac52dbe0ee86",
-            "date": "2024-02-22"
+            "hash": "364015eaf154cb85d65e4e4dbcd0fb369160ce1a1510f73f818639da8971aa3d",
+            "date": "2024-02-27"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "a516fa56d75d953d0c496195abaafc4dae9f8256f5a3fe881ab464474e7e5662",
