@@ -192,18 +192,18 @@
         "dir": "msom-boron-migration-guide",
         "title": "M SoM from Boron or Argon migration guide",
         "href": "/hardware/migration-guides/msom-boron-migration-guide/"
-      },      
+      },
       {
         "dir": "msom-e-series-migration-guide",
         "title": "M SoM from E Series migration guide",
         "href": "/hardware/migration-guides/msom-e-series-migration-guide/"
-      },      
+      },
       {
         "dir": "muon-boron-migration-guide",
         "title": "Muon from Boron or Argon migration guide",
         "href": "/hardware/migration-guides/muon-boron-migration-guide/",
         "hidden": true
-      },      
+      },
       {
         "dir": "b-series-boron-migration-guide",
         "title": "B Series from Boron Migration Guide",
@@ -315,6 +315,12 @@
         "dir": "power-supply-guide",
         "title": "Power supply guide",
         "href": "/hardware/power/power-supply-guide/"
+      },
+      {
+        "dir": "power-module-datasheet",
+        "title": "Power module datasheet",
+        "href": "/hardware/power/power-module-datasheet/",
+        "internal": true
       },
       {
         "dir": "batteries",
