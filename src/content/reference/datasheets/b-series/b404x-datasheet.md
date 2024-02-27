@@ -2109,8 +2109,8 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R510 | &check; | GA | |
-| B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
+| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R510 | &check; | GA | |
+| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

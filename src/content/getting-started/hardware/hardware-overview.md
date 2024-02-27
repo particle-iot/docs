@@ -62,8 +62,8 @@ The Monitor One has the same cellular and processor module (Tracker SoM), but is
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | GA | |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | &check; | GA | |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | NORAM | BG96-MC | &check; | In development | |
-| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | EMEAA | EG91-EX | &check; | In development | |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -76,9 +76,9 @@ The Monitor One has the same cellular and processor module (Tracker SoM), but is
 
 Production devices integrate with a custom base board to provide the functionality you need for your product.
 
-### M SoM
+### M-SoM
 
-The M SoM multi-radio module is designed to fit in an M.2 NGFF socket on your custom base board.
+The M-SoM multi-radio module is designed to fit in an M.2 NGFF socket on your custom base board.
 
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
 - Realtek RTL8722DM MCU (BLE and Wi-Fi)
@@ -95,18 +95,18 @@ Additionally, through your base board you can add additional functionality inclu
 | Ethermet | WizNET W5500 |
 | LoRaWAN | Quectel KG200Z |
 
-For prototyping with the M SoM module, see [Muon](#muon), below.
+For prototyping with the M-SoM module, see [Muon](#muon), below.
 
-- [M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/) 
+- [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/) 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5c48836c-dced-4420-be6f-15916d265a5e --}}
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
-| M404MTY | M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | In development | |
-| M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
-| M524MTY | M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
+| M404MEA | M-Series LTE M1/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| M404MTY | M-Series LTE M1/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | In development | |
+| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
+| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 
 
@@ -116,11 +116,11 @@ For prototyping with the M SoM module, see [Muon](#muon), below.
 See the [carrier list](/reference/cellular/cellular-carriers/?tab=Msom&region=byRegion) for country compatibility information.</p>
 
 
-![M SoM](/assets/images/m-series/m404-iso.jpg)
+![M-SoM](/assets/images/m-series/m404-iso.jpg)
 
-### B SoM
+### B-SoM
 
-The B SoM includes only cellular (not Wi-Fi, satellite, or LoRaWAN). It uses the same M.2 NGFF socket as the M SoM, though there are some minor differences because of the use of differnet MCUs (Realtek RTL8722 in M SoM and Nordic nRF52840 in B SoM).
+The B-SoM includes only cellular (not Wi-Fi, satellite, or LoRaWAN). It uses the same M.2 NGFF socket as the M-SoM, though there are some minor differences because of the use of differnet MCUs (Realtek RTL8722 in M-SoM and Nordic nRF52840 in B-SoM).
 
 - [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
 - [B524 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
@@ -130,20 +130,20 @@ The B SoM includes only cellular (not Wi-Fi, satellite, or LoRaWAN). It uses the
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
-| B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
+| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
+| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
 
-![B SoM](/assets/images/b-series/b404x-iso.png)
+![B-SoM](/assets/images/b-series/b404x-iso.png)
 
 ### P2
 
-The P2 is a Wi-Fi only module using the Realtek RTL8721DM module. The MCU is very similar to the M SoM MCU, with the same fast speed and large amount of flash and RAM, making it useful for low-cost devices performing computationally intensive edge computing tasks, including running machine learning models.
+The P2 is a Wi-Fi only module using the Realtek RTL8721DM module. The MCU is very similar to the M-SoM MCU, with the same fast speed and large amount of flash and RAM, making it useful for low-cost devices performing computationally intensive edge computing tasks, including running machine learning models.
 
 The P2 must be reflow soldered to a base board. For prototyping, see the [Photon 2](#photon-2), below.
 
@@ -177,7 +177,7 @@ The Asset Tracker SoM is a castellated SoM designed to be reflow soldered to you
 
 ### Muon
 
-The Muon contains an M SoM module in a M.2 socket and a carrier board with an expansion connector, along with additional peripherals, including:
+The Muon contains an M-SoM module in a M.2 socket and a carrier board with an expansion connector, along with additional peripherals, including:
 
 - LoRaWAN module (Quectel KG200Z, 862 – 928 MHz)
 - 96-pin expansion connector
@@ -194,7 +194,7 @@ The Muon contains an M SoM module in a M.2 socket and a carrier board with an ex
 ![](/assets/images/m-series/muon-iso.jpg)
 
 
-The Muon contains a Particle M SoM that the following functional units:
+The Muon contains a Particle M-SoM that the following functional units:
  
 - M.2 SoM form-factor, like the B Series SoM
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
@@ -211,7 +211,7 @@ The Muon can be used in a number of ways:
 - As a prototyping device, as-is, or using Dupont wires to connect to a solderless breadboard.
 - Expanded using Sparkfun [Qwiic](/hardware/expansion/qwiic/) and Adafruit STEMMA QT plug-and-play I2C sensors and peripherals.
 - Design your own expansion card, either as a prototype or for production.
-- Incorporate the features of the Muon into your own design based on the M SoM.
+- Incorporate the features of the Muon into your own design based on the M-SoM.
 
 
 - [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/) 
@@ -221,7 +221,10 @@ The Muon can be used in a number of ways:
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
+| MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
+| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 
 

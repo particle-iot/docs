@@ -1,8 +1,8 @@
 ---
-title: M SoM from Boron or Argon migration guide
+title: M-SoM from Boron or Argon migration guide
 columns: two
 layout: commonTwo.hbs
-description: M SoM from Boron or Argon migration guide
+description: M-SoM from Boron or Argon migration guide
 ---
 
 # {{title}}
@@ -22,7 +22,7 @@ This is a very preliminary guide. There may be errors and design changes prior t
 
 The Argon and Boron are pin-based modules that can be installed in solderless breadboard for prototyping, can be installed in a socket on your custom board, or soldered directly to your board. The modules are in Adafruit Feather form-factor. There are male header pins on the bottom.
 
-The Muon is a larger development module. There female headers on the top of the board that accept an expansion card or can be connected to a solderless breadboard using Dupont wires or ribbon cable. The Muon contains a Particle M SoM mounted in a M.2 NGFF socket, a power supply, and various peripheral chips.
+The Muon is a larger development module. There female headers on the top of the board that accept an expansion card or can be connected to a solderless breadboard using Dupont wires or ribbon cable. The Muon contains a Particle M-SoM mounted in a M.2 NGFF socket, a power supply, and various peripheral chips.
 
 | Device | Inches | Millimeters (mm) |
 | :--- | :--- | :--- |
@@ -33,7 +33,7 @@ You can use the Muon as a development module, or use it as a base for your you o
 
 ### Radios
 
-| Radio | Argon | Boron | M SoM | Muon |
+| Radio | Argon | Boron | M-SoM | Muon |
 | :--- | :---: | :---: | :---: | :---: |
 | Cellular | | &check; | &check; | &check; |
 | Wi-Fi 2.4 GHz | &check; | | &check; | &check; |
@@ -45,7 +45,7 @@ You can use the Muon as a development module, or use it as a base for your you o
 ### Datasheets
 
 - [Muon datasheet](/reference/datasheets/m-series/muon-datasheet/)
-- [M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
+- [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
 - [Boron BRN404X datasheet](/reference/datasheets/b-series/brn404x-datasheet/)
 - [Boron datasheet](/reference/datasheets/b-series/boron-datasheet/)
 - [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
@@ -65,11 +65,11 @@ One major advantage is that user firmware binaries can be up to 2048 Kbytes, ins
 
 ### Available RAM
 
-The Boron and Argon have around 80K of RAM available to user applications. The Muon and M SoM has 3500K of available RAM.
+The Boron and Argon have around 80K of RAM available to user applications. The Muon and M-SoM has 3500K of available RAM.
 
 ### Flash file system
 
-There is a 2 MB flash file system for storing user data. This is the same size as the Boron, B SoM, and Argon. The Tracker has a 4 MB flash file system.
+There is a 2 MB flash file system for storing user data. This is the same size as the Boron, B-SoM, and Argon. The Tracker has a 4 MB flash file system.
 
 ### USB Connector
 
@@ -81,7 +81,7 @@ The Muon has a USB C connector.
 
 The Muon has the same 10-pin (2x5) SWD/JTAG debugging connector as the Argon and Boron.
 
-On the Muon and M SoM, however, SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is no longer available. This is the same as Gen 2 (STM32) but different than Gen 3 (nRF52840). Building a Debug build in Particle Workbench allows SWD to be used while user firmware is running, but you cannot use A4, A6, or D27 as GPIO when SWD is enabled in user firmware.
+On the Muon and M-SoM, however, SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is no longer available. This is the same as Gen 2 (STM32) but different than Gen 3 (nRF52840). Building a Debug build in Particle Workbench allows SWD to be used while user firmware is running, but you cannot use A4, A6, or D27 as GPIO when SWD is enabled in user firmware.
 
 SWO (Serial Wire Output) is not supported on the RTL8722DM.
 
@@ -152,7 +152,7 @@ The Argon and Boron have male header pins on the bottom, and often mate with a f
 - Resolution is 12 bits on both
 
 {{!-- BEGIN shared-blurb 839d8427-884c-4e59-9eee-a267cc4b0e72 --}}
-The ADCs on the M SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
+The ADCs on the M-SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
 drive and this may cause issues when used with a voltage divider. This is particularly true for A7, which has an even lower impedance 
 than other ADC inputs.
 
@@ -178,7 +178,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- One additional UART serial port on the Muon/M SoM
+- One additional UART serial port on the Muon/M-SoM
 
 
 ### SPI
@@ -204,7 +204,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- There are two SPI interfaces on both, however SPI1 is on different pins on Muon/M SoM.
+- There are two SPI interfaces on both, however SPI1 is on different pins on Muon/M-SoM.
 
 
 ### I2C
@@ -224,7 +224,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 - You can generally have many devices on a single I2C bus.
 - If you have I2C address conflicts you can use an I2C multiplexer like the TCA9548A.
-- On the Muon, M SoM, P2, and Photon 2, the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
+- On the Muon, M-SoM, P2, and Photon 2, the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 There are number of I2C peripherals on the Muon board. Makes ure external sensors and devices I2C addresses do not conflict with these addresses:
 
@@ -293,21 +293,21 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 ### NFC
 
-The Muon and M SoM do not support NFC. 
+The Muon and M-SoM do not support NFC. 
 
 The Boron and Argon support NFC Tag mode.
 
 ### Sleep
 
-- In `HIBERNATE` sleep mode, the Muon/M SoM can only be wakened via the `WKP` pin, but the Boron and Argon can be wakened by any pin.
+- In `HIBERNATE` sleep mode, the Muon/M-SoM can only be wakened via the `WKP` pin, but the Boron and Argon can be wakened by any pin.
 
-- In `STOP` and `ULTRA_LOW_POWER` sleep modes, the Muon, M SoM, Boron, and Argon can be wakened by any pin.
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, the Muon, M-SoM, Boron, and Argon can be wakened by any pin.
 
-- In `HIBERNATE` sleep mode, the Muon/M SoM puts `OUTPUT` pins into high-impedance state. The Boron and Argon preserve the digital level.
+- In `HIBERNATE` sleep mode, the Muon/M-SoM puts `OUTPUT` pins into high-impedance state. The Boron and Argon preserve the digital level.
 
-- In `STOP` and `ULTRA_LOW_POWER` sleep modes, the Muon, M SoM, Boron, and Argon preserve the digital output
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, the Muon, M-SoM, Boron, and Argon preserve the digital output
 
-- In `HIBERNATE` sleep mode, on the Muon/M SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
+- In `HIBERNATE` sleep mode, on the Muon/M-SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
 
@@ -329,7 +329,7 @@ The Boron and Argon support NFC Tag mode.
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
-| ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | 3.3V out. 700 mA for M SoM and 500 mA available for peripheral devices. |
+| ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | 3.3V out. 700 mA for M-SoM and 500 mA available for peripheral devices. |
 #### A0
 |   |   | Boron | Muon |
 | :--- | :--- | :--- | :--- |
@@ -820,20 +820,20 @@ The Boron and Argon support NFC Tag mode.
 
 ### Wi-Fi configuration
 
-Since the Boron (cellular) does not have Wi-Fi support, if you wish to use Wi-Fi on the Muon/M SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
+Since the Boron (cellular) does not have Wi-Fi support, if you wish to use Wi-Fi on the Muon/M-SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
 
 
 ### User firmware binary size
 
-One major advantage of the Muon/M SoM is that user firmware binaries can be up to 2048 Kbytes.
+One major advantage of the Muon/M-SoM is that user firmware binaries can be up to 2048 Kbytes.
 
-On the B SoM (Device OS 3.1 and later), it's 256 Kbytes, or 128 Kbytes for older version of Device OS.
+On the B-SoM (Device OS 3.1 and later), it's 256 Kbytes, or 128 Kbytes for older version of Device OS.
 
 ### Platform ID
 
-The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the Boron (13) because of the vastly different hardware. Note that Muon and M SoM share a platform ID.
+The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the Boron (13) because of the vastly different hardware. Note that Muon and M-SoM share a platform ID.
 
-If you have a product based on the Boron, you will need to create a separate product for devices using the M SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+If you have a product based on the Boron, you will need to create a separate product for devices using the M-SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 
 ### Third-party libraries
 

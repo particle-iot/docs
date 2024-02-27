@@ -236,7 +236,7 @@ There are fewer available GPIO pins on the B Series SoM than the E Series. If yo
 
 {{!-- BEGIN do not edit content below, it is automatically generated 4d946a4a-17ba-4ac3-82f9-d5031762a08a --}}
 
-| E Series Pin | E Series Pin Name | E Series GPIO | B Series SoM Pin | B Series SoM Pin Name | B Series SoM GPIO |
+| E-Series Pin | E-Series Pin Name | E-Series GPIO | B-Series SoM Pin | B-Series SoM Pin Name | B-Series SoM GPIO |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 26 | A0 | &check; | 23 | A0 / D19 | &check; |
 | 25 | A1 | &check; | 33 | A1 / D18 | &check; |
@@ -307,7 +307,7 @@ For example, if you have 3V3 disconnect circuitry but have pull-ups to non-disco
 
 {{!-- BEGIN do not edit content below, it is automatically generated 40cba6f3-2c1b-4ede-a8b5-5d15846c582c --}}
 
-| E Series Pin | E Series Pin Name | E Series SPI | B Series SoM Pin | B Series SoM Pin Name | B Series SoM SPI |
+| E-Series Pin | E-Series Pin Name | E-Series SPI | B-Series SoM Pin | B-Series SoM Pin Name | B-Series SoM SPI |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 24 | A2 | SPI (SS) | 35 | A2 / D17 | &nbsp; |
 | 23 | A3 | SPI (SCK) | 37 | A3 / D16 | &nbsp; |
@@ -381,7 +381,7 @@ There are more UART ports on the Gen 2 devices than Gen 3. If you need more hard
 
 {{!-- BEGIN do not edit content below, it is automatically generated 238303fc-ef64-4bfe-b28a-bc20c294eb00 --}}
 
-| E Series Pin | E Series Pin Name | E Series Serial | B Series SoM Pin | B Series SoM Pin Name | B Series SoM Serial |
+| E-Series Pin | E-Series Pin Name | E-Series Serial | B-Series SoM Pin | B-Series SoM Pin Name | B-Series SoM Serial |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 49 | C0 | Serial5_RX | &nbsp; | &nbsp; | &nbsp; |
 | 48 | C1 | Serial5_TX | &nbsp; | &nbsp; | &nbsp; |
@@ -403,7 +403,7 @@ The B Series SoM does not have an many ADC ports as the E Series. You can add ad
 
 {{!-- BEGIN do not edit content below, it is automatically generated 178a8aef-c0c8-4aec-ab3c-44db240c7b7e --}}
 
-| E Series Pin | E Series Pin Name | E Series ADC | B Series SoM Pin | B Series SoM Pin Name | B Series SoM ADC |
+| E-Series Pin | E-Series Pin Name | E-Series ADC | B-Series SoM Pin | B-Series SoM Pin Name | B-Series SoM ADC |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 26 | A0 | &check; | 23 | A0 / D19 | &check; |
 | 25 | A1 | &check; | 33 | A1 / D18 | &check; |
@@ -427,7 +427,7 @@ These are differences in pins that support PWM between the E Series and B Series
 
 {{!-- BEGIN do not edit content below, it is automatically generated 1dc0b0d0-7736-4b3e-8e83-1cceaaff6df6' --}}
 
-| E Series Pin | E Series Pin Name | E Series PWM | B Series SoM Pin | B Series SoM Pin Name | B Series SoM PWM | B Series SoM Hardware Timer |
+| E-Series Pin | E-Series Pin Name | E-Series PWM | B-Series SoM Pin | B-Series SoM Pin Name | B-Series SoM PWM | B-Series SoM Hardware Timer |
 | :---: | :--- | :--- | :---: | :--- | :--- | :--- |
 | 26 | A0 | &nbsp; | 23 | A0 / D19 | &check; | PWM2 |
 | 25 | A1 | &nbsp; | 33 | A1 / D18 | &check; | PWM2 |
@@ -657,31 +657,31 @@ Both require an external cellular antenna.
 
 | Device | SKU  | Included | Antenna | Alternate | Lifecycle |
 | :----- | :--- | :--------: | :------: | :--------: | :-------: |
-| B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
-| B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
-| E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
-| E Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series 2G/3G (Global - E313), [x1] | E313EA | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series 2G/3G (Global - E313), Tray [x50] | E313TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
-| E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | E314KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
-| E Series 2G/3G (Global - E314), [x1] | E314MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series 2G/3G (Global - E314), Tray [x50] | E314TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
-| E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | E404MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404TRAY50 | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404XTRAY50 | &nbsp; | ANT-FLXU | PARANTC41EA<sup>2</sup> | GA|
-| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E402KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| E Series LTE CAT-M1 (NorAm), [x1] | E402MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | ANTCW2EA | &nbsp; | GA|
+| B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
+| B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
+| B-Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
+| E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series 2G/3G (Global - E313), [x1] | E313EA | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series 2G/3G (Global - E313), Tray [x50] | E313TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
+| E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | E314KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series 2G/3G (Global - E314), [x1] | E314MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series 2G/3G (Global - E314), Tray [x50] | E314TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | E404MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404TRAY50 | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404XTRAY50 | &nbsp; | ANT-FLXU | PARANTC41EA<sup>2</sup> | GA|
+| E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E402KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series LTE CAT-M1 (NorAm), [x1] | E402MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -717,13 +717,13 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 {{!-- BEGIN do not edit content below, it is automatically generated 611f8e2a-7c24-434a-a98e-007c3aa3dd83 --}}
 
 #### 3V3
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 9 | 10 |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
 | ∆ | Description | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | System power in, supply a fixed 3.0-3.6v power. |
 #### A0
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 26 | 23 |
 | &nbsp; | Pin Name | A0 | A0 |
@@ -738,7 +738,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A1
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 25 | 33 |
 | &nbsp; | Pin Name | A1 | A1 |
@@ -753,7 +753,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A2
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 24 | 35 |
 | &nbsp; | Pin Name | A2 | A2 |
@@ -767,7 +767,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A3
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 23 | 37 |
 | &nbsp; | Pin Name | A3 | A3 |
@@ -781,7 +781,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | ∆ | Internal pull resistance | 40K | 13K |
 #### A4
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 22 | 41 |
 | &nbsp; | Pin Name | A4 | A4 |
@@ -797,7 +797,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 21 | 43 |
 | &nbsp; | Pin Name | A5 | A5 |
@@ -813,13 +813,13 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### AGND
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 39|
 | Pin Name | AGND|
 | Description | Analog Ground.|
 #### B0
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 33|
 | Pin Name | B0|
@@ -832,7 +832,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B1
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 32|
 | Pin Name | B1|
@@ -845,7 +845,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B2
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 31|
 | Pin Name | B2|
@@ -859,7 +859,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B3
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 30|
 | Pin Name | B3|
@@ -873,7 +873,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B4
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 29|
 | Pin Name | B4|
@@ -885,7 +885,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B5
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 28|
 | Pin Name | B5|
@@ -897,7 +897,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C0
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 49|
 | Pin Name | C0|
@@ -909,7 +909,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C1
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 48|
 | Pin Name | C1|
@@ -921,7 +921,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C2
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 47|
 | Pin Name | C2|
@@ -933,7 +933,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C3
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 46|
 | Pin Name | C3|
@@ -946,7 +946,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C4
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 45|
 | Pin Name | C4|
@@ -961,7 +961,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C5
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 44|
 | Pin Name | C5|
@@ -976,28 +976,28 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD-
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 46|
 | Pin Name | CELL USBD-|
 | Description | Cellular Modem USB Data-|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD+
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 44|
 | Pin Name | CELL USBD+|
 | Description | Cellular Modem USB Data+|
 | Input is 5V Tolerant | Yes|
 #### CELL VBUS
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 74|
 | Pin Name | CELL VBUS|
 | Description | USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### D0
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 42 | 22 |
 | &nbsp; | Pin Name | D0 | D0 |
@@ -1011,7 +1011,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D1
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 41 | 20 |
 | &nbsp; | Pin Name | D1 | D1 |
@@ -1026,7 +1026,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D2
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 40 | 42 |
 | &nbsp; | Pin Name | D2 | D2 |
@@ -1044,7 +1044,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D22
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 62|
 | Pin Name | D22|
@@ -1054,7 +1054,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### D23
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 64|
 | Pin Name | D23|
@@ -1064,7 +1064,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### D3
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 39 | 40 |
 | &nbsp; | Pin Name | D3 | D3 |
@@ -1082,7 +1082,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
 #### D4
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 38 | 66 |
 | &nbsp; | Pin Name | D4 | D4 |
@@ -1099,7 +1099,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDO. Floating at boot. | n/a |
 #### D5
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 37 | 68 |
 | &nbsp; | Pin Name | D5 | D5 |
@@ -1116,7 +1116,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
 #### D6
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 36 | 70 |
 | &nbsp; | Pin Name | D6 | D6 |
@@ -1132,7 +1132,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | n/a |
 #### D7
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 35 | 72 |
 | &nbsp; | Pin Name | D7 | D7 |
@@ -1147,7 +1147,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | n/a |
 #### D8
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 48|
 | Pin Name | D8|
@@ -1158,7 +1158,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### DAC
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 20 | 45 |
 | ∆ | Pin Name | DAC | A6 |
@@ -1173,19 +1173,19 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | ∆ | Internal pull resistance | 40K | 13K |
 #### GND
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 2 | 1 |
 | &nbsp; | Pin Name | GND | GND |
 | ∆ | Description | Ground. Be sure to connect all GND pins. | Ground. |
 #### LIPO
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 5|
 | Pin Name | LIPO|
 | Description | Connect to + pin on the LiPo battery, 4.2V maximum|
 #### MISO
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 50|
 | Pin Name | MISO|
@@ -1197,7 +1197,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### MODE
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 55 | 32 |
 | &nbsp; | Pin Name | MODE | MODE |
@@ -1205,7 +1205,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up |
 | ∆ | I2S interface | I2S3_MCK | n/a |
 #### MOSI
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 52|
 | Pin Name | MOSI|
@@ -1217,64 +1217,64 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### NC
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 6 | 14 |
 | &nbsp; | Pin Name | NC | NC |
 | ∆ | Description | Do not connect to anything | n/a |
 #### NC
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 75|
 | Pin Name | NC|
 | Description | n/a|
 #### NFC1
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 17|
 | Pin Name | NFC1|
 | Description | NFC Antenna 1|
 #### NFC2
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 19|
 | Pin Name | NFC2|
 | Description | NFC Antenna 2|
 #### PMID
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 8|
 | Pin Name | PMID|
 | Description | Connected to the PMID pin of the PMIC|
 #### RESET
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 56 | 34 |
 | ∆ | Pin Name | RESET | RST |
 | ∆ | Pin Alternate Name | RST | n/a |
 | ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### RGBB
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 52 | 65 |
 | &nbsp; | Pin Name | RGBB | RGBB |
 | &nbsp; | Description | RGB LED Blue | RGB LED Blue |
 | ∆ | UART serial | RX. Use Serial2 object. | n/a |
 #### RGBG
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 53 | 63 |
 | &nbsp; | Pin Name | RGBG | RGBG |
 | &nbsp; | Description | RGB LED Green | RGB LED Green |
 | ∆ | UART serial | TX. Use Serial2 object. | n/a |
 #### RGBR
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 54 | 61 |
 | &nbsp; | Pin Name | RGBR | RGBR |
 | &nbsp; | Description | RGB LED Red | RGB LED Red |
 #### RX
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 17 | 38 |
 | &nbsp; | Pin Name | RX | RX |
@@ -1289,7 +1289,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### SCK
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 54|
 | Pin Name | SCK|
@@ -1301,37 +1301,37 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### SIM_CLK
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 71|
 | Pin Name | SIM_CLK|
 | Description | Leave unconnected, 1.8V/3V SIM Clock Output from R410M.|
 #### SIM_DATA
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 73|
 | Pin Name | SIM_DATA|
 | Description | Leave unconnected, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up.|
 #### SIM_RST
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 69|
 | Pin Name | SIM_RST|
 | Description | Leave unconnected, 1.8V/3V SIM Reset Output from R410M.|
 #### SIM_VCC
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 67|
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### STAT
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 57|
 | Pin Name | STAT|
 | Description | Charge status output from the PMIC.|
 #### TX
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 16 | 36 |
 | &nbsp; | Pin Name | TX | TX |
@@ -1346,58 +1346,58 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### USBDATA-
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 14 | 13 |
 | &nbsp; | Pin Name | USBDATA- | USBDATA- |
 | &nbsp; | Description | USB Data- | USB Data- |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### USBDATA+
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 13 | 11 |
 | &nbsp; | Pin Name | USBDATA+ | USBDATA+ |
 | &nbsp; | Description | USB Data+ | USB Data+ |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### VBAT
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 11|
 | Pin Name | VBAT|
 | Description | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA..|
 #### VBUS
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 3|
 | Pin Name | VBUS|
 | Description | Connect to VBUS power pin on the USB port|
 #### VCC
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 2|
 | Pin Name | VCC|
 | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power.|
 #### VDDA
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 10|
 | Pin Name | VDDA|
 | Description | Power input for ADC. Normally connected to 3V3. Must always be within 300 mV of 3V3.|
 #### VIN
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 1|
 | Pin Name | VIN|
 | Description | Power in 3.9V to 12 VDC.|
 #### VUSB
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 16|
 | Pin Name | VUSB|
 | Description | USB VUSB power pin|
 | Input is 5V Tolerant | Yes|
 #### WKP
-|   |   | E Series | B Series SoM |
+|   |   | E-Series | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 19 | 47 |
 | ∆ | Pin Name | WKP | A7 |
@@ -1635,10 +1635,10 @@ Most common third-party libraries work on both devices. The exceptions are libra
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
-| B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
+| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
+| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
 
 

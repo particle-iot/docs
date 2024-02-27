@@ -1,21 +1,21 @@
 ---
-title: M SoM datasheet
+title: M-SoM datasheet
 columns: two
 layout: commonTwo.hbs
-description: M SoM datasheet
+description: M-SoM datasheet
 ---
 
-# M SoM datasheet
+# M-SoM datasheet
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is a preliminary datasheet and changes may occur prior to release.
 {{box op="end"}}
 
-![M SoM](/assets/images/m-series/msom-top.png)
+![M-SoM](/assets/images/m-series/msom-top.png)
  
 ## Overview
 
-The Particle M SoM contains the following functional units:
+The Particle M-SoM contains the following functional units:
  
 - M.2 SoM form-factor, like the B Series SoM
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
@@ -50,16 +50,16 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 | | Cellular Only | Cellular & Wi-Fi | Wi-Fi Only |
 | :--- | :---: | :---: | :---: |
 | Developer devices | Boron | &nbsp; | Photon 2 |
-| Production module | B SoM | M SoM | P2 |
+| Production module | B-SoM | M-SoM | P2 |
 
 ### Migration guides
 
-If you are migrating to the M SoM from another Particle device, see also the following migration guides:
+If you are migrating to the M-SoM from another Particle device, see also the following migration guides:
 
-- [M SoM from B SoM](/hardware/migration-guides/msom-b-series-migration-guide/)
-- [M SoM from Boron or Argon](/hardware/migration-guides/msom-boron-migration-guide/)
-- [M SoM from E Series](/hardware/migration-guides/msom-e-series-migration-guide/)
-- [M SoM from P2](/hardware/migration-guides/msom-p2-migration-guide/)
+- [M-SoM from B-SoM](/hardware/migration-guides/msom-b-series-migration-guide/)
+- [M-SoM from Boron or Argon](/hardware/migration-guides/msom-boron-migration-guide/)
+- [M-SoM from E Series](/hardware/migration-guides/msom-e-series-migration-guide/)
+- [M-SoM from P2](/hardware/migration-guides/msom-p2-migration-guide/)
 
 
 ### Power
@@ -88,7 +88,7 @@ Power supply requirements:
 
 ### RF
 
-- The M SoM includes three U.FL connectors for external antennas:
+- The M-SoM includes three U.FL connectors for external antennas:
   - Cellular 
   - Wi-Fi (2.4 GHz and 5 GHz) and BLE
   - GNSS (GPS)
@@ -99,14 +99,14 @@ Power supply requirements:
 
 ### Certified cellular antennas
 
-The M SoM is certified with the following cellular antenna:
+The M-SoM is certified with the following cellular antenna:
 
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
 | Wide band LTE cell antenna [x1] | PARANTCW1EA | M404, M524, M635 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524, M635 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
-Single quantity M SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M SoM do not include antennas.
+Single quantity M-SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M-SoM do not include antennas.
 
 
 | Dimension | Value | Unit |
@@ -125,14 +125,14 @@ Single quantity M SoM units and developer kits include a PARANTCW1EA antenna. Tr
 
 ### Certified Wi-Fi/BLE antennas
 
-The M SoM is certified for use with the same antennas as the P2/Photon 2. The same antenna is shared for Wi-Fi and BLE. Unlike the P2/Photon 2, the external antenna is required for Wi-Fi and BLE and the M SoM does not include a built-in trace antenna on the module.
+The M-SoM is certified for use with the same antennas as the P2/Photon 2. The same antenna is shared for Wi-Fi and BLE. Unlike the P2/Photon 2, the external antenna is required for Wi-Fi and BLE and the M-SoM does not include a built-in trace antenna on the module.
 
 | Antenna | SKU  | Links |
 | :------ | :--- | :---- |
 | Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] | PARANTWM1EA | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/particle-p2-photon2-wi-fi-antenna-2-4-5ghz)  |
 | Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x50] |PARANTWM1TY | [Datasheet](/assets/datasheets/PARANTWM1EA.pdf) |
 
-Single quantity M SoM units and developer kits include a PARANTWM1EA antenna. Tray quantities of the M SoM do not include antennas.
+Single quantity M-SoM units and developer kits include a PARANTWM1EA antenna. Tray quantities of the M-SoM do not include antennas.
 
 ### Certified GNSS antennas
 
@@ -141,7 +141,7 @@ Single quantity M SoM units and developer kits include a PARANTWM1EA antenna. Tr
 | PARANTGN1EA	| Particle GNSS FPC Antenna, [x1] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
 | PARANTGN1TY	| Particle GNSS FPC Antenna, [x50] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
 
-Single quantity M SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
+Single quantity M-SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the M-SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
 
 - GNSS features are limited on the M404 and M635 as the cellular modem cannot do cellular communication and GNSS at the same time.
 - GNSS support will be added in a future version of Device OS.
@@ -169,7 +169,7 @@ Single quantity M SoM units and developer kits include a PARANTGN1EA antenna. Tr
 
 ### JTAG and SWD 
 
-The M SoM has 4 pads at the bottom exposing the SWD interface of the MCU. This interface can be used to debug your code or reprogram your SoM bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
+The M-SoM has 4 pads at the bottom exposing the SWD interface of the MCU. This interface can be used to debug your code or reprogram your SoM bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
 
 {{imageOverlay src="/assets/images/b-series/pogo-pins.png" alt="Pogo Pins"}}
 
@@ -353,9 +353,9 @@ Additionally, SWD is supported on pins on the M.2 connector:
 {{!-- END do not edit content above, it is automatically generated--}}
 
 - All GPIO are 3.3V only and are not 5V tolerant
-- The drive strength is 4 mA per pin in normal drive and 12 mA per pin in high drive mode on the M SoM.
+- The drive strength is 4 mA per pin in normal drive and 12 mA per pin in high drive mode on the M-SoM.
 - There is a maximum of 200 mA across all pins. The total maximum could be further limited by your 3.3V regulator.
-- Drive strength selection using [pinSetDriveStrength](/reference/device-os/api/input-output/pinsetdrivestrength/) is only available in Device OS 5.5.0 and later on the M SoM.
+- Drive strength selection using [pinSetDriveStrength](/reference/device-os/api/input-output/pinsetdrivestrength/) is only available in Device OS 5.5.0 and later on the M-SoM.
 
 Certain GPIO will change state at boot, or cause the MCU to enter a special mode. See the [boot mode pins](#boot-mode-pins) section, below, for more information.
 
@@ -381,10 +381,10 @@ Certain GPIO will change state at boot, or cause the MCU to enter a special mode
 
 - ADC inputs are single-ended and limited to 0 to 3.3V
 - Resolution is 12 bits
-- SoM pin 45 (A6) on the M SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
+- SoM pin 45 (A6) on the M-SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
 
 {{!-- BEGIN shared-blurb 839d8427-884c-4e59-9eee-a267cc4b0e72 --}}
-The ADCs on the M SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
+The ADCs on the M-SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
 drive and this may cause issues when used with a voltage divider. This is particularly true for A7, which has an even lower impedance 
 than other ADC inputs.
 
@@ -441,7 +441,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 - SPI uses the RTL872x SPI1 peripheral (25 MHz maximum speed)
 - SPI1 uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
 
-Even though the B SoM and M SoM both have two SPI interfaces, note that the M SoM SPI1 is on different pins.
+Even though the B-SoM and M-SoM both have two SPI interfaces, note that the M-SoM SPI1 is on different pins.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 89fcdf38-5b12-43fa-b306-72a4262c913e --}}
 
@@ -502,12 +502,12 @@ Even though the B SoM and M SoM both have two SPI interfaces, note that the M So
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- All available PWM pins on the M SoM share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
+- All available PWM pins on the M-SoM share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
 
 ### USB
 
-The M SoM supports a USB interface for programming the device and for USB serial (CDC) communications. The module itself does not contain a USB connector; you typically add a micro USB or USB C connector on your base board. It is optional but recommended.
+The M-SoM supports a USB interface for programming the device and for USB serial (CDC) communications. The module itself does not contain a USB connector; you typically add a micro USB or USB C connector on your base board. It is optional but recommended.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 15c79387-e8a2-418b-886f-a9439e41663b --}}
 
@@ -525,7 +525,7 @@ The M SoM supports a USB interface for programming the device and for USB serial
 
 ### RGB LED
 
-The M SoM supports an external common anode RGB LED. 
+The M-SoM supports an external common anode RGB LED. 
 
 One common LED that meets the requirements is the 
 [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/) 
@@ -548,7 +548,7 @@ The use of the RGB LED is optional, however it is highly recommended as troubles
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-- On the M SoM, Pin RGBR (PA[30]) has a 10K hardware pull-up in the module because it's a trap pin that controls the behavior of the internal 1.1V regulator. This does not affect the RGB LED but could affect your design if you are repurposing this pin as GPIO. You must not hold this pin low at boot.
+- On the M-SoM, Pin RGBR (PA[30]) has a 10K hardware pull-up in the module because it's a trap pin that controls the behavior of the internal 1.1V regulator. This does not affect the RGB LED but could affect your design if you are repurposing this pin as GPIO. You must not hold this pin low at boot.
 
 ### Boot mode pins
 
@@ -589,7 +589,7 @@ The RST pin does have an internal weak pull-up, but you may want to add external
 
 ### BLE (Bluetooth LE)
 
-If you wish to use Wi-Fi on the M SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
+If you wish to use Wi-Fi on the M-SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
 
 BLE 5.3 BLE Central Mode and BLE Peripheral Mode are supported. 
 
@@ -599,11 +599,11 @@ Wi-Fi and BLE share the same antenna so you do not need to include a separate an
 
 ### Sleep
 
-The M SoM can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
+The M-SoM can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
 
-The M SoM can only wake from `HIBERNATE` sleep mode on pin A7 (WKP), `RISING`, `FALLING`, or `CHANGE`.
+The M-SoM can only wake from `HIBERNATE` sleep mode on pin A7 (WKP), `RISING`, `FALLING`, or `CHANGE`.
 
-The M SoM preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
+The M-SoM preserves the state of outputs during `STOP` or `ULTRA_LOW_POWER` sleep mode. In `HIBERNATE`, outputs are high-impedance.
 
 Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The exception is `HIBERNATE` sleep mode where pin D21 can only use an external hardware pull-up or pull down.
 
@@ -622,17 +622,17 @@ Most pins can use `INPUT_PULLUP` or `INPUT_PULLDOWN` in sleep modes. The excepti
 ### PMIC Notes
 
 {{!-- BEGIN shared-blurb b3247dfa-acbd-4e81-a50d-a5ab68220636 --}}
-When using the M SoM with a bq24195 PMIC, note the following:
+When using the M-SoM with a bq24195 PMIC, note the following:
 
-By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the M SoM in normal operation.
+By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the M-SoM in normal operation.
 
 If your device has the default firmware (Tinker), it will attempt to connect to the cloud, brown out due to insufficient current, then the device will reset. This may result in what appears to be the status LED blinking white, but is actually rolling reboot caused by brownout.
 
-A factory new M SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the M SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
+A factory new M-SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the M-SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
 
 Because the input current limit does not affect the battery input (Li+), for troubleshooting purposes it can be helpful to attach a battery to help rule out input current limit issues. It's also possible to supply 3.7V via a bench power supply to the battery input, instead of VIN. 
 
-The input current limit can result in a situation where you can't bring up a M SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
+The input current limit can result in a situation where you can't bring up a M-SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
 
 - Attach a battery or supply by Li+ when bringing up a board.
 - Use SWD/JTAG and reset halt the MCU. This will prevent it from connecting to the cloud, so you can flash Device OS and firmware to it by SWD.
@@ -797,7 +797,7 @@ We strongly recommend against placing components under the SOM board because the
 ## Product Handling
 
 ### ESD Precautions
-The M SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an M SoM without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the Particle M SoM. ESD precautions should be implemented on the application board where the M SoM is mounted. Failure to observe these precautions can result in severe damage to the M SoM!
+The M-SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an M-SoM without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the Particle M-SoM. ESD precautions should be implemented on the application board where the M-SoM is mounted. Failure to observe these precautions can result in severe damage to the M-SoM!
 
 ### Connectors
 
@@ -811,7 +811,7 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 ## Default settings
 
-The M SoM comes pre-programmed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
+The M-SoM comes pre-programmed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
 
@@ -1078,10 +1078,10 @@ Global, country list to be provided a later date.
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
-| M404MTY | M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | In development | |
-| M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
-| M524MTY | M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
+| M404MEA | M-Series LTE M1/2G (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| M404MTY | M-Series LTE M1/2G (Global, EtherSIM), Tray [x50] | Global | BG95-M5 | &check; | In development | |
+| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | EG91-EX | &check; | In development | |
+| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | EG91-EX | &check; | In development | |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 
 

@@ -122,7 +122,7 @@ Only devices that contain a fuel gauge chip report the battery state. This inclu
 
 A fuel gauge (MAX17043) is optional on:
 
-- B SoM (if included on your base board)
+- B-SoM (if included on your base board)
 
 It is not available on:
 
@@ -170,7 +170,7 @@ Error codes in `device.cloud.connection.error` are described in [comm.protocol e
 
 #### Cellular vitals
 
-As of Device OS version 1.2.1, cellular devices (i.e. Boron, B SoM,
+As of Device OS version 1.2.1, cellular devices (i.e. Boron, B-SoM,
 Electron, etc.) will begin to collect and send new vitals specific to
 the status and health of the cellular connection.
 

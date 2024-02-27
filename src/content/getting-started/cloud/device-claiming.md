@@ -359,16 +359,16 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | Generally fast<sup>2</sup> | Deprecated | |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Generally fast<sup>2</sup> | Deprecated | |
 | ASSET2GV2 | Asset Tracker 2G | Generally fast<sup>2</sup> | Deprecated | |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | Fast<sup>1</sup> | GA | |
-| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B524MTY|
-| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | Sometimes slow<sup>3</sup> | Deprecated | B524MEA|
-| B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
-| B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
-| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | NRND | B404XMTY|
-| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | NRND | B404XMEA|
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B404XMTY|
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | B404XMEA|
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | Fast<sup>1</sup> | GA | |
+| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B524MTY|
+| B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | Sometimes slow<sup>3</sup> | Deprecated | B524MEA|
+| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
+| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | GA | |
+| B404MTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | NRND | B404XMTY|
+| B404MEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | NRND | B404XMEA|
+| B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B404XMTY|
+| B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | B404XMEA|
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | Fast<sup>1</sup> | GA | |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |
@@ -383,20 +383,20 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Fast<sup>1</sup> | Deprecated | |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | |
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Sometimes slow<sup>3</sup> | Deprecated | |
-| E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | Deprecated | E404XTRAY50|
-| E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | NRND | |
-| E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND | |
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | E404XTRAY50|
-| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | |
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | |
-| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Fast<sup>1</sup> | NRND | |
-| E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Fast<sup>1</sup> | Deprecated | |
-| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND | |
-| E313EA | E Series 2G/3G (Global - E313), [x1] | Sometimes slow<sup>3</sup> | Deprecated | |
-| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | |
-| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Generally fast<sup>2</sup> | Deprecated | |
-| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Generally fast<sup>2</sup> | NRND | E314KIT|
+| E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | GA | |
+| E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | Deprecated | E404XTRAY50|
+| E404MOD1 | E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | Fast<sup>1</sup> | NRND | |
+| E404KIT | E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND | |
+| E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | E404XTRAY50|
+| E402MOD1 | E-Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | |
+| E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | |
+| E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | Fast<sup>1</sup> | NRND | |
+| E314MOD1 | E-Series 2G/3G (Global - E314), [x1] | Fast<sup>1</sup> | Deprecated | |
+| E314KIT | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND | |
+| E313EA | E-Series 2G/3G (Global - E313), [x1] | Sometimes slow<sup>3</sup> | Deprecated | |
+| E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | |
+| E310MOD1 | E-Series 2G/3G (Global - E310), [x1] | Generally fast<sup>2</sup> | Deprecated | |
+| E310KIT | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Generally fast<sup>2</sup> | NRND | E314KIT|
 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | BRN404XKIT|
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | BRN404XTRAY50|
 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | B524MEA|
@@ -410,16 +410,19 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | |
 | M635MEA | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
-| M524MTY | M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | Fast<sup>1</sup> | In development | |
-| M524MEA | M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
-| M404MTY | M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | Fast<sup>1</sup> | In development | |
-| M404MEA | M Series LTE M1/2G (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
+| M524MTY | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | Fast<sup>1</sup> | In development | |
+| M524MEA | M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
+| M404MTY | M-Series LTE M1/2G (Global, EtherSIM), Tray [x50] | Fast<sup>1</sup> | In development | |
+| M404MEA | M-Series LTE M1/2G (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | GA | |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | In development | |
-| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | In development | |
+| MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Fast<sup>1</sup> | GA | |
 | MUONCB | Muon Carrier Board | Fast<sup>1</sup> | In development | |
 | MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
+| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
+| MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
+| MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
 | MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Fast<sup>1</sup> | In development | |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Deprecated | ONE404MEA|
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Sometimes slow<sup>3</sup> | Deprecated | ONE404MTY|

@@ -14,7 +14,7 @@ This is a preliminary overview of the Muon. A full datasheet will be released at
 
 ## Overview
 
-The Muon is a developer kit based on the M SoM with additional peripherals for easy prototyping.
+The Muon is a developer kit based on the M-SoM with additional peripherals for easy prototyping.
 
 - LoRaWAN module (Quectel KG200Z, 862 – 928 MHz)
 - 96-pin expansion connector
@@ -30,9 +30,9 @@ The Muon is a developer kit based on the M SoM with additional peripherals for e
 
 ![](/assets/images/m-series/muon-iso.jpg)
 
-### M SoM
+### M-SoM
 
-The Muon contains a Particle M SoM that the following functional units:
+The Muon contains a Particle M-SoM that the following functional units:
  
 - M.2 SoM form-factor, like the B Series SoM
 - Can use cellular or Wi-Fi (2.4 GHz or 5 GHz) for the cloud connection
@@ -68,7 +68,7 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 | | Cellular Only | Cellular & Wi-Fi | Wi-Fi Only |
 | :--- | :---: | :---: | :---: |
 | Developer devices | Boron | Muon | Photon 2 |
-| Production module | B SoM | M SoM | P2 |
+| Production module | B-SoM | M-SoM | P2 |
 
 ## Ordering information
 
@@ -77,7 +77,10 @@ The Realtek RTL8722DM is in the same family as the P2 and Photon 2 modules (RTL8
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
+| MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
+| MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | Global | EG91-EX | &check; | In development | |
+| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 | MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | Global | BG95-M5 | &check; | In development | |
 
 

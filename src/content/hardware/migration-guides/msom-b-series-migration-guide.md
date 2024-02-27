@@ -1,8 +1,8 @@
 ---
-title: M SoM from B Series migration guide
+title: M-SoM from B Series migration guide
 columns: two
 layout: commonTwo.hbs
-description: M SoM from B Series migration guide
+description: M-SoM from B Series migration guide
 ---
 
 # {{title}}
@@ -16,19 +16,19 @@ This is a preliminary datasheet and changes may occur prior to release.
 
 <p class="attribution">The modules are the same size, but the different cellular module size makes them look different.</p>
 
-Migrating from the B Series SoM to the M SoM is straightforward, however there are some things to keep in mind:
+Migrating from the B Series SoM to the M-SoM is straightforward, however there are some things to keep in mind:
 
 - Make sure your 3V3 and VCC (3V7) power supplies are sufficient
 - SPI1 (secondary SPI) is on different pins
-- Wire1 (secondary I2C) is not available on the M SoM
+- Wire1 (secondary I2C) is not available on the M-SoM
 - PWM pins are different
 - It has a different MCU which may have different compatibility with 3rd-party libraries
 
-As the M SoM is a different platform ID and requires different firmware binaries it will require a separate product from bsom and b5som products.
+As the M-SoM is a different platform ID and requires different firmware binaries it will require a separate product from bsom and b5som products.
 
 ### Datasheets
 
-- [M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
+- [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
 - [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
 - [B523/B524 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
 - [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
@@ -47,11 +47,11 @@ One major advantage is that user firmware binaries can be up to 2048 Kbytes, ins
 
 ### Available RAM
 
-The B SoM has around 80K of RAM available to user applications. The M SoM has 3500K of available RAM.
+The B-SoM has around 80K of RAM available to user applications. The M-SoM has 3500K of available RAM.
 
 ### Flash file system
 
-There is a 2 MB flash file system for storing user data. This is the same size as the Boron, B SoM, and Argon. The Tracker has a 4 MB flash file system.
+There is a 2 MB flash file system for storing user data. This is the same size as the Boron, B-SoM, and Argon. The Tracker has a 4 MB flash file system.
 
 
 ### Voltage regulators
@@ -62,7 +62,7 @@ VCC is used to supply power to the cellular module. The recommended input voltag
 
 If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V at 2A. You may want to add additional bulk capacitors to handle the short, high current peak usage when the cellular modem is transmitting.
 
-If you are migrating from the BRN404X/BRN404/BRN402 make sure your VCC power supply provides sufficient current if you will be using the LTE Cat 1 with 2G/3G fallback version of the M SoM.
+If you are migrating from the BRN404X/BRN404/BRN402 make sure your VCC power supply provides sufficient current if you will be using the LTE Cat 1 with 2G/3G fallback version of the M-SoM.
 
 #### 3V3
 
@@ -79,7 +79,7 @@ Power supply requirements:
 - Maintain these values at no-load as well as maximum load
 {{!-- END shared-blurb --}}
 
-If you are migrating from the B Series SoM, note that the required current on 3.3V is 500 mA with the M SoM, vs. 150 mA on the B Series SoM, because of the Wi-Fi radio.
+If you are migrating from the B Series SoM, note that the required current on 3.3V is 500 mA with the M-SoM, vs. 150 mA on the B Series SoM, because of the Wi-Fi radio.
 
 
 ### Brief comparison
@@ -182,10 +182,10 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 
 - ADC inputs are single-ended and limited to 0 to 3.3V on both.
 - Resolution is 12 bits on both.
-- SoM pin 45 (A6) on the M SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
+- SoM pin 45 (A6) on the M-SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
 
 {{!-- BEGIN shared-blurb 839d8427-884c-4e59-9eee-a267cc4b0e72 --}}
-The ADCs on the M SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
+The ADCs on the M-SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
 drive and this may cause issues when used with a voltage divider. This is particularly true for A7, which has an even lower impedance 
 than other ADC inputs.
 
@@ -210,7 +210,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- The M SoM has two available UART serial ports vs. 1 on the B SoM.
+- The M-SoM has two available UART serial ports vs. 1 on the B-SoM.
 
 ### SPI
 
@@ -231,7 +231,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- There are two SPI interfaces on both, however SPI1 is on different pins on M SoM.
+- There are two SPI interfaces on both, however SPI1 is on different pins on M-SoM.
 
 
 ### I2C
@@ -248,10 +248,10 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- 1 I2C on M SoM vs. 2 on the B Series SoM.
+- 1 I2C on M-SoM vs. 2 on the B Series SoM.
 - You can generally have many devices on a single I2C bus.
 - If you have I2C address conflicts you can use an I2C multiplexer like the TCA9548A.
-- On the M SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
+- On the M-SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 ### PWM
 
@@ -277,7 +277,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-On the B SoM, multiple timers are using allowing different PWM frequencies on certain pins. On the M SoM, all PWM pins share a single time and thus must share the same frequency, but can have different duty cycles.
+On the B-SoM, multiple timers are using allowing different PWM frequencies on certain pins. On the M-SoM, all PWM pins share a single time and thus must share the same frequency, but can have different duty cycles.
 
 ### Boot mode pins
 
@@ -299,7 +299,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 ### SWD
 
-The M SoM has 4 pads at the bottom exposing the SWD interface of the MCU. This interface can be used to debug your code or reprogram your SoM bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
+The M-SoM has 4 pads at the bottom exposing the SWD interface of the MCU. This interface can be used to debug your code or reprogram your SoM bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
 
 {{imageOverlay src="/assets/images/b-series/pogo-pins.png" alt="Pogo Pins"}}
 
@@ -323,25 +323,25 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 The nRF52 MCU requires the 5V line from the USB interface on pin 16 (VUSB).
 
-The M SoM does not require this pin, however you can supply VUSB on M SoM pin 16 so you can use the same base board for both SKUs.
+The M-SoM does not require this pin, however you can supply VUSB on M-SoM pin 16 so you can use the same base board for both SKUs.
 
 ### NFC
 
-The M SoM does not support NFC.
+The M-SoM does not support NFC.
 
-On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20 on the M SoM. Pin D20 can only be used as GPIO.
+On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20 on the M-SoM. Pin D20 can only be used as GPIO.
 
 ### Sleep
 
-- In `HIBERNATE` sleep mode, the M SoM can only be wakened via the `WKP` pin, but the B SoM can be wakened by any pin.
+- In `HIBERNATE` sleep mode, the M-SoM can only be wakened via the `WKP` pin, but the B-SoM can be wakened by any pin.
 
-- In `STOP` and `ULTRA_LOW_POWER` sleep modes, both the M SoM and B SoM can be wakened by any pin.
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, both the M-SoM and B-SoM can be wakened by any pin.
 
-- In `HIBERNATE` sleep mode, the M SoM puts `OUTPUT` pins into high-impedance state. The B SoM preserves the digital level.
+- In `HIBERNATE` sleep mode, the M-SoM puts `OUTPUT` pins into high-impedance state. The B-SoM preserves the digital level.
 
-- In `STOP` and `ULTRA_LOW_POWER` sleep modes, both the M SoM and B SoM preserve the digital output
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, both the M-SoM and B-SoM preserve the digital output
 
-- In `HIBERNATE` sleep mode, on the M SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
+- In `HIBERNATE` sleep mode, on the M-SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
 
@@ -958,20 +958,20 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 
 ### Wi-Fi configuration
 
-Since the B SoM (cellular) does not have Wi-Fi support, if you wish to use Wi-Fi on the M SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
+Since the B-SoM (cellular) does not have Wi-Fi support, if you wish to use Wi-Fi on the M-SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
 
 
 ### User firmware binary size
 
-One major advantage of the M SoM is that user firmware binaries can be up to 2048 Kbytes.
+One major advantage of the M-SoM is that user firmware binaries can be up to 2048 Kbytes.
 
-On the B SoM (Device OS 3.1 and later), it's 256 Kbytes, or 128 Kbytes for older version of Device OS.
+On the B-SoM (Device OS 3.1 and later), it's 256 Kbytes, or 128 Kbytes for older version of Device OS.
 
 ### Platform ID
 
-The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the B SoM (23) because of the vastly different hardware. 
+The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the B-SoM (23) because of the vastly different hardware. 
 
-If you have a product based on the B SoM, you will need to create a separate product for devices using the M SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+If you have a product based on the B-SoM, you will need to create a separate product for devices using the M-SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 
 ### Third-party libraries
 

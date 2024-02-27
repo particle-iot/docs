@@ -119,7 +119,7 @@ NOTE: The attribute may have to be in string format and then converted later.
 
 ## Example use cases
 
-Using Particle devices such as the B SoM or Boron are great when Wi-Fi is poor and cellular is a faster workaround for device connectivity. The use cases can include:
+Using Particle devices such as the B-SoM or Boron are great when Wi-Fi is poor and cellular is a faster workaround for device connectivity. The use cases can include:
 
 * Material tracking
 * Machine monitoring

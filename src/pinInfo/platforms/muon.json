@@ -299,7 +299,7 @@
         {
             "num": 18,
             "name": "3V3",
-            "desc": "3.3V out. 700 mA for M SoM and 500 mA available for peripheral devices.",
+            "desc": "3.3V out. 700 mA for M-SoM and 500 mA available for peripheral devices.",
             "isPower": true,
             "monitorOne": "+3V3",
             "morePins": [

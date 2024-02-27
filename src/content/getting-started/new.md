@@ -23,7 +23,7 @@ The header format must be exactly that because the search feature uses that to d
 
 ### Hardware overview page update 2024-02-26
 
-The [hardware overview](/getting-started/hardware/hardware-overview/) has information about the M SoM and Muon, and
+The [hardware overview](/getting-started/hardware/hardware-overview/) has information about the M-SoM and Muon, and
 the page should be much easier to understand now.
 
 ### BLE.scan callback example typo 2024-02-22
@@ -31,10 +31,10 @@ the page should be much easier to understand now.
 The example in for [BLE.scan(callback)](/reference/device-os/api/bluetooth-le-ble/ble-class/#ble-scan-callback-) had an error that 
 prevented compiling.
 
-### M SoM datasheet 2024-02-22
+### M-SoM datasheet 2024-02-22
 
-The [preliminary M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/) and [migration guides](/hardware/migration-guides/msom-b-series-migration-guide/) are now available. The [battery calculator](/tools/developer-tools/battery-calculator) and 
-[cellular carrier list](/reference/cellular/cellular-carriers/) includes M SoM now.
+The [preliminary M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/) and [migration guides](/hardware/migration-guides/msom-b-series-migration-guide/) are now available. The [battery calculator](/tools/developer-tools/battery-calculator) and 
+[cellular carrier list](/reference/cellular/cellular-carriers/) includes M-SoM now.
 
 ### Muon datasheet preview 2024-02-22
 

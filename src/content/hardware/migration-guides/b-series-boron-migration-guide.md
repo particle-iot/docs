@@ -192,10 +192,10 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
-| B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
+| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
+| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
 
 
@@ -330,7 +330,7 @@ SPI is mostly unchanged between the Boron and B Series SoM. The only difference 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 49b31eea-a5de-11ec-b909-0242ac120002 --}}
 
-| Boron Pin Name | Boron SPI | B Series SoM Pin Name | B Series SoM SPI |
+| Boron Pin Name | Boron SPI | B-Series SoM Pin Name | B-Series SoM SPI |
 | :--- | :--- | :--- | :--- |
 | A5 / D14 | SPI (SS) | A5 / D14 | &nbsp; |
 | D2 | SPI1 (SCK) | D2 | SPI1 (SCK) |
@@ -350,7 +350,7 @@ Hardware serial (UART) ports are unchanged between the Boron and B Series SoM.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ef25dc00-a5de-11ec-b909-0242ac120002 --}}
 
-| Boron Pin Name | Boron Serial | B Series SoM Pin Name | B Series SoM Serial |
+| Boron Pin Name | Boron Serial | B-Series SoM Pin Name | B-Series SoM Serial |
 | :--- | :--- | :--- | :--- |
 | D2 | Serial1 RTS | D2 | Serial1 RTS |
 | D3 | Serial1 CTS | D3 | Serial1 CTS |
@@ -366,7 +366,7 @@ There are two additional ADC inputs on the B Series SoM. These can also be used 
 
 {{!-- BEGIN do not edit content below, it is automatically generated db4246c4-a5de-11ec-b909-0242ac120002 --}}
 
-| Boron Pin Name | Boron ADC | B Series SoM Pin Name | B Series SoM ADC |
+| Boron Pin Name | Boron ADC | B-Series SoM Pin Name | B-Series SoM ADC |
 | :--- | :--- | :--- | :--- |
 | A0 / D19 | &check; | A0 / D19 | &check; |
 | A1 / D18 | &check; | A1 / D18 | &check; |
@@ -386,7 +386,7 @@ These are differences in pins that support PWM between the Boron and B Series So
 
 {{!-- BEGIN do not edit content below, it is automatically generated ce9644de-a5de-11ec-b909-0242ac120002' --}}
 
-| Boron Pin Name | Boron PWM | B Series SoM Pin Name | B Series SoM PWM |
+| Boron Pin Name | Boron PWM | B-Series SoM Pin Name | B-Series SoM PWM |
 | :--- | :--- | :--- | :--- |
 | A0 / D19 | &check; | A0 / D19 | &check; |
 | A1 / D18 | &check; | A1 / D18 | &check; |
@@ -471,13 +471,13 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 {{!-- BEGIN do not edit content below, it is automatically generated 09a7da10-a5d0-11ec-b909-0242ac120002 --}}
 
 #### 3V3
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 2 | 10 |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
 | ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | System power in, supply a fixed 3.0-3.6v power. |
 #### A0
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 5 | 23 |
 | &nbsp; | Pin Name | A0 | A0 |
@@ -491,7 +491,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A1
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 6 | 33 |
 | &nbsp; | Pin Name | A1 | A1 |
@@ -505,7 +505,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A2
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 7 | 35 |
 | &nbsp; | Pin Name | A2 | A2 |
@@ -519,7 +519,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A3
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 8 | 37 |
 | &nbsp; | Pin Name | A3 | A3 |
@@ -533,7 +533,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A4
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 9 | 41 |
 | &nbsp; | Pin Name | A4 | A4 |
@@ -547,7 +547,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A5
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 10 | 43 |
 | &nbsp; | Pin Name | A5 | A5 |
@@ -562,7 +562,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A6
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 45|
 | Pin Name | A6|
@@ -575,7 +575,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### A7
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 47|
 | Pin Name | A7|
@@ -588,34 +588,34 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### AGND
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 39|
 | Pin Name | AGND|
 | Description | Analog Ground.|
 #### CELL USBD-
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 46|
 | Pin Name | CELL USBD-|
 | Description | Cellular Modem USB Data-|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD+
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 44|
 | Pin Name | CELL USBD+|
 | Description | Cellular Modem USB Data+|
 | Input is 5V Tolerant | Yes|
 #### CELL VBUS
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 74|
 | Pin Name | CELL VBUS|
 | Description | USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### D0
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 16 | 22 |
 | &nbsp; | Pin Name | D0 | D0 |
@@ -626,7 +626,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D1
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 17 | 20 |
 | &nbsp; | Pin Name | D1 | D1 |
@@ -637,7 +637,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D2
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 18 | 42 |
 | &nbsp; | Pin Name | D2 | D2 |
@@ -652,7 +652,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D22
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 62|
 | Pin Name | D22|
@@ -662,7 +662,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### D23
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 64|
 | Pin Name | D23|
@@ -672,7 +672,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### D3
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 19 | 40 |
 | &nbsp; | Pin Name | D3 | D3 |
@@ -687,7 +687,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D4
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 20 | 66 |
 | &nbsp; | Pin Name | D4 | D4 |
@@ -700,7 +700,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D5
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 21 | 68 |
 | &nbsp; | Pin Name | D5 | D5 |
@@ -712,7 +712,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D6
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 22 | 70 |
 | &nbsp; | Pin Name | D6 | D6 |
@@ -724,7 +724,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D7
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 23 | 72 |
 | &nbsp; | Pin Name | D7 | D7 |
@@ -735,7 +735,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D8
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 24 | 48 |
 | &nbsp; | Pin Name | D8 | D8 |
@@ -755,7 +755,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### GND
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 4 | 1 |
 | &nbsp; | Pin Name | GND | GND |
@@ -767,7 +767,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 #### MISO
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 13 | 50 |
 | &nbsp; | Pin Name | MISO | MISO |
@@ -779,14 +779,14 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### MODE
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 3 | 32 |
 | &nbsp; | Pin Name | MODE | MODE |
 | &nbsp; | Pin Alternate Name | D20 | D20 |
 | &nbsp; | Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
 #### MOSI
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 12 | 52 |
 | &nbsp; | Pin Name | MOSI | MOSI |
@@ -798,55 +798,55 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### NC
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 14|
 | Pin Name | NC|
 | Description | n/a|
 #### NC
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 75|
 | Pin Name | NC|
 | Description | n/a|
 #### NFC1
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 17|
 | Pin Name | NFC1|
 | Description | NFC Antenna 1|
 #### NFC2
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 19|
 | Pin Name | NFC2|
 | Description | NFC Antenna 2|
 #### RGBB
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 65|
 | Pin Name | RGBB|
 | Description | RGB LED Blue|
 #### RGBG
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 63|
 | Pin Name | RGBG|
 | Description | RGB LED Green|
 #### RGBR
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 61|
 | Pin Name | RGBR|
 | Description | RGB LED Red|
 #### RST
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 1 | 34 |
 | &nbsp; | Pin Name | RST | RST |
 | ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### RX
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 14 | 38 |
 | &nbsp; | Pin Name | RX | RX |
@@ -858,7 +858,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### SCK
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 11 | 54 |
 | &nbsp; | Pin Name | SCK | SCK |
@@ -870,31 +870,31 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### SIM_CLK
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 71|
 | Pin Name | SIM_CLK|
 | Description | Leave unconnected, 1.8V/3V SIM Clock Output from R410M.|
 #### SIM_DATA
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 73|
 | Pin Name | SIM_DATA|
 | Description | Leave unconnected, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up.|
 #### SIM_RST
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 69|
 | Pin Name | SIM_RST|
 | Description | Leave unconnected, 1.8V/3V SIM Reset Output from R410M.|
 #### SIM_VCC
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 67|
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### TX
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 15 | 36 |
 | &nbsp; | Pin Name | TX | TX |
@@ -906,27 +906,27 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### USBDATA-
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 13|
 | Pin Name | USBDATA-|
 | Description | USB Data-|
 | Input is 5V Tolerant | Yes|
 #### USBDATA+
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 11|
 | Pin Name | USBDATA+|
 | Description | USB Data+|
 | Input is 5V Tolerant | Yes|
 #### VCC
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 2|
 | Pin Name | VCC|
 | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power.|
 #### VUSB
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 25 | 16 |
 | &nbsp; | Pin Name | VUSB | VUSB |

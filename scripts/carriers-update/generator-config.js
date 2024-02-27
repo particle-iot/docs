@@ -289,7 +289,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generateCountryList('electron', {noVerizon: true}); 
             } 
         },
-        // E Series datasheet
+        // E-Series datasheet
         {
             guid:'26c8707c-76ca-11eb-9439-0242ac130002', 
             generatorFn:function(updater) {
@@ -451,7 +451,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'migration-removed',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     platformNew: 'E404X'
                 }); 
             } 
@@ -461,7 +461,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'full-comparison',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     platformNew: 'E404X'
                 }); 
             } 
@@ -471,7 +471,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     platformNew: 'E404X',
                     port: 'analogWritePWM',
                     label: 'PWM',
@@ -484,7 +484,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     platformNew: 'E404X',
                     port: 'analogRead',
                     label: 'ADC'
@@ -496,7 +496,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     platformNew: 'E404X',
                     port: 'serial',
                     label: 'Serial',
@@ -509,7 +509,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     platformNew: 'E404X',
                     port: 'i2c',
                     label: 'I2C',
@@ -522,7 +522,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     platformNew: 'E404X',
                     port: 'spi',
                     label: 'SPI',
@@ -535,7 +535,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     platformNew: 'E404X',
                     port: 'analogWriteDAC',
                     label: 'DAC'
@@ -547,7 +547,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     platformNew: 'E404X',
                     port: 'can',
                     label: 'CAN',
@@ -560,7 +560,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     platformNew: 'E404X',
                     port: 'jtag',
                     label: 'JTAG',
@@ -573,7 +573,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     platformNew: 'E404X',
                     port: 'swd',
                     label: 'SWD',
@@ -1004,7 +1004,7 @@ const schemaDocs = require('./schema-docs');
                     platformOld: 'Electron',
                     mapBy: 'name',
                     showPinNum: true,
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             }
         },   
@@ -1021,7 +1021,7 @@ const schemaDocs = require('./schema-docs');
                     noPinNumbers: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                     checkmark: true,
                 }); 
             }
@@ -1039,7 +1039,7 @@ const schemaDocs = require('./schema-docs');
                     noPinNumbers: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             }
         },
@@ -1056,7 +1056,7 @@ const schemaDocs = require('./schema-docs');
                     noPinNumbers: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             }
         },
@@ -1072,7 +1072,7 @@ const schemaDocs = require('./schema-docs');
                     noPinNumbers: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             }
         },
@@ -1088,7 +1088,7 @@ const schemaDocs = require('./schema-docs');
                     noPinNumbers: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                     includeHardwareTimer: true,
                 }); 
             } 
@@ -1106,7 +1106,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     checkmark: false,
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             } 
         }, 
@@ -1180,10 +1180,10 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'full-comparison',
                     platformNew: 'B4xx SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     mapBy: 'name',
                     showPinNum: true,
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             }
         },   
@@ -1193,7 +1193,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'B4xx SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'digitalWrite',
                     label: 'GPIO',
                     useShortName: true,
@@ -1201,7 +1201,7 @@ const schemaDocs = require('./schema-docs');
                     oldPinNumber: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                     checkmark: true,
                 }); 
             }
@@ -1212,7 +1212,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'B4xx SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'spi',
                     label: 'SPI',
                     useShortName: true,
@@ -1220,7 +1220,7 @@ const schemaDocs = require('./schema-docs');
                     oldPinNumber: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             }
         },
@@ -1230,7 +1230,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'B4xx SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'serial',
                     label: 'Serial',
                     useShortName: true,
@@ -1238,7 +1238,7 @@ const schemaDocs = require('./schema-docs');
                     oldPinNumber: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             }
         },
@@ -1248,14 +1248,14 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'B4xx SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'analogRead',
                     label: 'ADC',
                     noPinNumbers: true,
                     oldPinNumber: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             }
         },
@@ -1265,14 +1265,14 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'B4xx SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'analogWritePWM',
                     label: 'PWM',
                     noPinNumbers: true,
                     oldPinNumber: true,
                     newPinNumber: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                     includeHardwareTimer: true,
                 }); 
             } 
@@ -1283,7 +1283,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'B4xx SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'can',
                     label: 'CAN',
                     noPinNumbers: true,
@@ -1291,7 +1291,7 @@ const schemaDocs = require('./schema-docs');
                     newPinNumber: true,
                     mapBy: 'name',
                     checkmark: false,
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             } 
         }, 
@@ -1349,7 +1349,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'full-comparison',
                     platformNew: 'M-SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     mapBy: 'name',
                     showPinNum: true,
                     platformNewTitle: 'M-SoM',
@@ -1362,7 +1362,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'M-SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'digitalWrite',
                     label: 'GPIO',
                     useShortName: true,
@@ -1381,7 +1381,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'M-SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'spi',
                     label: 'SPI',
                     useShortName: true,
@@ -1399,7 +1399,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'M-SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'i2c',
                     label: 'I2C',
                     useShortName: true,
@@ -1416,7 +1416,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'M-SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'serial',
                     label: 'Serial',
                     useShortName: true,
@@ -1434,7 +1434,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'M-SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'analogRead',
                     label: 'ADC',
                     noPinNumbers: true,
@@ -1451,7 +1451,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'M-SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'analogWritePWM',
                     label: 'PWM',
                     noPinNumbers: true,
@@ -1469,7 +1469,7 @@ const schemaDocs = require('./schema-docs');
                 return updater.generatePinInfo({
                     style: 'port-comparison',
                     platformNew: 'M-SoM',
-                    platformOld: 'E Series',
+                    platformOld: 'E-Series',
                     port: 'can',
                     label: 'CAN',
                     noPinNumbers: true,
@@ -1486,7 +1486,7 @@ const schemaDocs = require('./schema-docs');
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'interfacePins',
-                    platformNew: 'E Series',
+                    platformNew: 'E-Series',
                     interface: 'hibernate'
                 }); 
             } 
@@ -1560,7 +1560,7 @@ const schemaDocs = require('./schema-docs');
                     platformOld: 'Boron',
                     mapBy: 'name',
                     showPinNum: true,
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             } 
         },
@@ -1575,7 +1575,7 @@ const schemaDocs = require('./schema-docs');
                     label: 'PWM',
                     noPinNumbers: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             } 
         },
@@ -1590,7 +1590,7 @@ const schemaDocs = require('./schema-docs');
                     label: 'ADC',
                     noPinNumbers: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             }
         },
@@ -1606,7 +1606,7 @@ const schemaDocs = require('./schema-docs');
                     useShortName: true,
                     noPinNumbers: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             }
         },
@@ -1622,7 +1622,7 @@ const schemaDocs = require('./schema-docs');
                     useShortName: true,
                     noPinNumbers: true,
                     mapBy: 'name',
-                    platformNewTitle: 'B Series SoM',
+                    platformNewTitle: 'B-Series SoM',
                 }); 
             }
         },

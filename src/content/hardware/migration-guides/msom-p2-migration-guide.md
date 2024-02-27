@@ -1,8 +1,8 @@
 ---
-title: M SoM from P2 migration guide
+title: M-SoM from P2 migration guide
 columns: two
 layout: commonTwo.hbs
-description: M SoM from P2 migration guide
+description: M-SoM from P2 migration guide
 ---
 
 # {{title}}
@@ -16,13 +16,13 @@ This is a preliminary datasheet and changes may occur prior to release.
 
 <p class="attribution">Pictures are not the same scale</p>
 
-The P2 module is a Wi-Fi SMD module that is mounted directly to your custom base board, while the M SoM is a M.2 SoM that fits in a M.2 socket on your base board and has both cellular and Wi-Fi capabilities. The Particle M SoM is larger and will not fit in the same footprint as the P2.
+The P2 module is a Wi-Fi SMD module that is mounted directly to your custom base board, while the M-SoM is a M.2 SoM that fits in a M.2 socket on your base board and has both cellular and Wi-Fi capabilities. The Particle M-SoM is larger and will not fit in the same footprint as the P2.
 
-However, since the P2 has a Realtek RTL8721DM processor and the M SoM has a Realtek RTL8722DM which is substantially similar, only having more GPIO, the migration should be relatively straightforward.
+However, since the P2 has a Realtek RTL8721DM processor and the M-SoM has a Realtek RTL8722DM which is substantially similar, only having more GPIO, the migration should be relatively straightforward.
 
 ### Datasheets
 
-- [M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
+- [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
 - [P2 datasheet](/reference/datasheets/wi-fi/p2-datasheet/)
 - [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
@@ -38,7 +38,7 @@ in some cases intentional radiator testing could be required.
 
 The P2 has a choice between an internal trace antenna on the module or an external antenna for Wi-Fi and BLE (shared) connected by a U.FL connector.
 
-The M SoM requires an external antenna for cellular. It also requires a separate external antenna for Wi-Fi and BLE (shared). All antennas are connected by U.FL connectors.
+The M-SoM requires an external antenna for cellular. It also requires a separate external antenna for Wi-Fi and BLE (shared). All antennas are connected by U.FL connectors.
 
 ### Voltage regulators
 
@@ -67,7 +67,7 @@ Power supply requirements:
 
 ### Land pattern
 
-The land pattern for the M.2 connector on the M SoM is:
+The land pattern for the M.2 connector on the M-SoM is:
 
 {{imageOverlay src="/assets/images/b-series/b-series-connector.png" alt="M.2 Connector" class="full-width"}}
 
@@ -102,12 +102,12 @@ The P2 land pattern is:
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- 6 ADC on the M SoM vs. 6 on the P2
+- 6 ADC on the M-SoM vs. 6 on the P2
 - On the P2, 2 of the ADCs are on the same pins as I2C
 - ADC inputs are single-ended and limited to 0 to 3.3V on both
 - Resolution is 12 bits on both
-- SoM pin 45 (A6) on the M SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
-- On the P2, `VBAT_MEAS` is a 5V tolerant ADC for measuring battery voltage. This is not present on the M SoM as typically you will use a fuel gauge chip instead of the less accurate voltage measurement to measure battery SoC.
+- SoM pin 45 (A6) on the M-SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
+- On the P2, `VBAT_MEAS` is a 5V tolerant ADC for measuring battery voltage. This is not present on the M-SoM as typically you will use a fuel gauge chip instead of the less accurate voltage measurement to measure battery SoC.
 - ADC input A7 has a low impedance which may be an issue when supplied from a voltage divider. The other ADC inputs are comparable to the P2/Photon 2.
 
 ### Serial
@@ -132,7 +132,7 @@ The P2 land pattern is:
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- The P2 has a third UART serial port; this does not exist on M SoM
+- The P2 has a third UART serial port; this does not exist on M-SoM
 
 ### SPI
 
@@ -174,7 +174,7 @@ The P2 land pattern is:
 {{!-- END do not edit content above, it is automatically generated--}}
 
 - 1 I2C on both
-- On the M SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
+- On the M-SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 
 ### PWM
@@ -207,7 +207,7 @@ The P2 land pattern is:
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- PWM pins vary between the P2 and M SoM
+- PWM pins vary between the P2 and M-SoM
 
 ### Boot mode pins
 
@@ -229,11 +229,11 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 ### Sleep
 
-- In `HIBERNATE` sleep mode, the M SoM and P2 can only be wakened via the `WKP` pin, however `WKP` is pin A7 the M SoM (and B SoM) but is pin D10 on the P2.
+- In `HIBERNATE` sleep mode, the M-SoM and P2 can only be wakened via the `WKP` pin, however `WKP` is pin A7 the M-SoM (and B-SoM) but is pin D10 on the P2.
 
-- In `HIBERNATE` sleep mode, certain pins on the M SoM and P2 do not preserve `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep. See details below.
+- In `HIBERNATE` sleep mode, certain pins on the M-SoM and P2 do not preserve `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep. See details below.
 
-M SoM pins related to `HIBERNATE` sleep mode:
+M-SoM pins related to `HIBERNATE` sleep mode:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
 
@@ -846,11 +846,11 @@ Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi
 
 The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the P2 (32) because of the different hardware. 
 
-If you have a product based on the P2, you will need to create a separate product for devices using the M SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+If you have a product based on the P2, you will need to create a separate product for devices using the M-SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 
 ### Third-party libraries
 
-Most third-party libraries are believed to be compatible between the P2 and M SoM as they share a similar MCU. The exceptions include:
+Most third-party libraries are believed to be compatible between the P2 and M-SoM as they share a similar MCU. The exceptions include:
 
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
 
