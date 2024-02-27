@@ -2478,10 +2478,12 @@ const generatorConfig = require('./generator-config');
                 key: 'desc',
                 title: 'Description'
             });
-            tableOptions.columns.push({
-                key: 'hardwarePin',
-                title: 'MCU'
-            });
+            if (!options.noHardwarePin) {
+                tableOptions.columns.push({
+                    key: 'hardwarePin',
+                    title: 'MCU'
+                });    
+            }
 
             let tableData = [];
             for(const pin of pins) {

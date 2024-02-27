@@ -1133,6 +1133,67 @@ const svg = require('./svg');
     };
 
 
+    diagram.generatePowerModule = async function(generateOptions, files) {        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'Power Module',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/power-module/power-module.svg'),
+            deviceImageTransform: 'translate(50,110) scale(1.6)',
+            outputPath: 'assets/images/power-module/power-module-pinout.svg',
+            width: 820,
+            height: 730,
+            boxFontSize: '10px',
+            background: 'white',
+            pins: [
+                {   // Bottom side
+                    num: 1,
+                    x: 132,
+                    y: 625,
+                    numDelta: 1,
+                    xDelta: 48,
+                    yDelta: 0,
+                    count: 12,
+                    xDir: 0,
+                    yDir: 1,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['num'],
+                        },
+                        {
+                            width: 60,
+                            keys: ['name'],
+                        },
+                    ],
+                },
+                {   // Top side
+                    num: 13,
+                    x: 711,
+                    y: 105,
+                    numDelta: 1,
+                    xDelta: -48,
+                    yDelta: 0,
+                    count: 12,
+                    xDir: 0,
+                    yDir: -1,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['num'],
+                        },
+                        {
+                            width: 60,
+                            keys: ['name'],
+                        },
+
+                    ],
+                },
+            ],
+        });
+
+        await diagram.generate(options, files);
+    };
+
+
     diagram.generatePhoton2 = async function(generateOptions, files) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
@@ -1989,6 +2050,8 @@ const svg = require('./svg');
             outputPath: 'assets/images/m2eval_nRF52.svg',
         }), files);
 
+        await diagram.generatePowerModule(Object.assign({
+        }, generateOptions), files);
         
         await diagram.generateP2(Object.assign({
             platformName: 'P1'

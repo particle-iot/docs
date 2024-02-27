@@ -4238,8 +4238,20 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        // Power module
+        {
+            guid: 'f7d89d7b-2988-4b97-842d-f28f2c6fc767',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'modulePins',
+                    platformNew: 'Power Module',
+                    noPinNumbers: false,
+                    includeDesc: true,
+                    noHardwarePin: true,
+                }); 
+            } 
+        },        
 
-        
 
     ];
 

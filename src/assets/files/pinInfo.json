@@ -2974,6 +2974,102 @@
     },
     {
       "id": 0,
+      "name": "Power Module",
+      "pins": [
+        {
+          "num": 1,
+          "name": "3V3",
+          "desc": "Power output 3.3V A",
+          "morePins": [
+            2
+          ]
+        },
+        {
+          "num": 3,
+          "name": "5V",
+          "desc": "Power output 5V (not available on PMIC power module)",
+          "morePins": [
+            4
+          ]
+        },
+        {
+          "num": 5,
+          "name": "VCC",
+          "desc": "Power output 3.9V 2A for cellular modem",
+          "morePins": [
+            6
+          ]
+        },
+        {
+          "num": 7,
+          "name": "NC",
+          "desc": "Leave unconnected",
+          "morePins": [
+            8,
+            22
+          ]
+        },
+        {
+          "num": 9,
+          "name": "GND",
+          "desc": "Ground",
+          "morePins": [
+            10,
+            20,
+            21
+          ]
+        },
+        {
+          "num": 11,
+          "name": "VIN",
+          "desc": "Power in (5V - 17V on PMIC power module)",
+          "morePins": [
+            12
+          ]
+        },
+        {
+          "num": 13,
+          "name": "SCL",
+          "desc": "I2C SCL. No internal pull."
+        },
+        {
+          "num": 14,
+          "name": "SDA",
+          "desc": "I2C SDA. No internal pull."
+        },
+        {
+          "num": 15,
+          "name": "INT",
+          "desc": "PMIC_INT interrupt output. Connect to SoM D22."
+        },
+        {
+          "num": 16,
+          "name": "TS",
+          "desc": "LiPo battery temperature sensor (NTC thermistor)"
+        },
+        {
+          "num": 17,
+          "name": "VBAT",
+          "desc": "LiPo battery connection 3.7V",
+          "morePins": [
+            18,
+            19
+          ]
+        },
+        {
+          "num": 23,
+          "name": "PG",
+          "desc": "Power good output. Open drain, is pulled low on failure of either regulator."
+        },
+        {
+          "num": 24,
+          "name": "EN",
+          "desc": "Power output enable. Has internal pull-up to VSYS, pull to GND to disable power outputs."
+        }
+      ]
+    },
+    {
+      "id": 0,
       "name": "Tracker M Expansion",
       "pins": [
         {
