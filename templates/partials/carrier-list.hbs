@@ -1,36 +1,10 @@
-<!doctype html>
-<html class="{{columns}}-columns">
-<head>
-  {{> head sectionTitle='Tutorials'}}
-     <script src="/assets/js/datastore.js"></script>
-     <script src="/assets/js/dataui.js"></script>
-     <script src="/assets/js/carriers.js"></script>
-     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-</head>
-<body>
-  <div id="docs" data-level>
-    {{> header}}
-
-    <div class='content-root'>
-      <div class='menubar'>
-
-        <div class="navMenu" data-swiftype-index="false">
-            {{{navigation}}}
-        </div>
-
-      </div>
-      <div class="page-body">
-        <div class='content-inner'>
-          <div class="content api-docs">
-            {{{contents}}}
-
 <div id="mainDiv">
 
 <div id="carrierTabs">
     <a class="nav active" id="carrierTabByDevice">By Device</a>
     <a class="nav" id="carrierTabModelMap">Coverage Map</a>
     <a class="nav" id="carrierTabCountryDetails">Country Details</a>
-    <a class="nav" id="carrierTabMsom" style="display:none;">M-SoM</a>
+    <a class="nav" id="carrierTabBandFit" style="display:none;">Band Fit</a>
 </div> <!-- carrierTabs -->
 
 
@@ -140,11 +114,16 @@
 
 </div> <!-- carrierCountryDetailsDiv -->
 
-<div id="carrierMsomDiv" style="display:none;">
+<div id="carrierBandFitDiv" style="display:none;">
   <table>
     <tr>
+      <td class="carrierFormLabel">Compare</td>
+      <td><select id="bandFitTestSelect" class="carrierListSelect">
+      </select></td>
+    </tr>
+    <tr>
       <td class="carrierFormLabel">Show countries:</td>
-      <td><select id="msomRegionSelect" class="carrierListSelect">
+      <td><select id="bandFitRegionSelect" class="carrierListSelect">
         <option value="byRegion" selected>Group by region</option>
         <option value="alphabetical">All alphabetical</option>
         <option value="country">Specific country</option>
@@ -152,24 +131,15 @@
     </tr>
     <tr>
       <td class="carrierFormLabel">Specific country:</td>
-      <td><input type="text" size="30" id="msomSpecificCountry" autocomplete="off"/></td>            
+      <td><input type="text" size="30" id="bandFitSpecificCountry" autocomplete="off"/></td>            
     </tr>        
   </table>
-  <div id="msomSpecificCountryDiv"></div>
-  <div>The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations.</div>
-  <div id="msomResults">
+  <div id="bandFitSpecificCountryDiv"></div>
+  <div id="bandFitM404Warning" style="display:none;">The M404 is fully supported in the United States, Canada, and Mexico. It is in beta testing in other locations.</div>
+  <div id="bandFitResults">
   </div>
-</div> <!-- carrierMsomDiv -->
+</div> <!-- carrierBandFitDiv -->
+
+<div class="apiHelper" style="display:none;"></div>
 
 </div> <!-- mainDiv -->
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="countryPopup" class="countryPopup"></div>
-    {{> search-overlay }}
-    {{> scripts}}
-</body>
-</html>
