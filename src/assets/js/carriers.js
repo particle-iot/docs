@@ -1254,14 +1254,14 @@ bandFit.renderCountries = function(countries) {
 
         let footnotes = [];
 
-            /*
-        if (bands.length == 0) {
-            const divElem = document.createElement('div');
-            $(divElem).text('\u274C There are no carriers in ' + country + ' compatible with the ' + testObj.title + ' cellular modem.');
-            $(bandFit.bandFitResultsElem).append(divElem);
-            continue;
+        const addFootnote = function(msg) {
+            let footnoteIndex = footnotes.findIndex(e => e == msg);
+            if (footnoteIndex < 0) {
+                footnoteIndex = footnotes.length;
+                footnotes.push(msg);
+            }
+            return (footnoteIndex + 1).toString();            
         }
-        */
 
         const tableDiv = document.createElement('div');
         $(tableDiv).attr('style', 'overflow: auto;');
@@ -1355,8 +1355,6 @@ bandFit.renderCountries = function(countries) {
         const tbodyElem = document.createElement('tbody');
 
         let roamingRestrictions = false;
-        let showSunset2G = {};
-        let showSunset3G = {};
         let hasGreenCheck = false;
         let hasRedX = false;
         let hasRedQuestion = false;
@@ -1392,46 +1390,33 @@ bandFit.renderCountries = function(countries) {
                                 value = '\u2753';
                                 hasRedQuestion = true;
 
-                                const msg = 'Cellular modem supports band but it is disabled in software';    
-                                let footnoteIndex = footnotes.findIndex(e => e == msg);
-                                if (footnoteIndex < 0) {
-                                    footnoteIndex = footnotes.length;
-                                    footnotes.push(msg);
-                                }
-                                footnote = (footnoteIndex + 1).toString();
+                                const msg = 'Cellular modem supports band but it is disabled in software';   
+                                footnote = addFootnote(msg); 
                             }                    
                             else {
                                 value = '\u2705'; // green check
                                 hasGreenCheck = true;
                                 testObj.counts.greenCheck++;
     
-                                if (b.startsWith("2G")) {
-                                    if (sunset2G.year && !showSunset2G[ccObj.carrier]) {
-                                        if (sunset2G.year < 2024) {
-                                            footnotes.push('2G sunset originally planned for ' + sunset2G.s + ' but may not been delayed');
-                                        }
-                                        else {
-                                            footnotes.push('2G sunset expected ' + sunset2G.s);
-                                        }
-                                        showSunset2G[ccObj.carrier] = footnotes.length;
+                                if (b.startsWith("2G") && sunset2G.year) {
+                                    let msg;
+                                    if (sunset2G.year < 2024) {
+                                        msg = '2G sunset originally planned for ' + sunset2G.s + ' but may not been delayed';
                                     }
-                                    if (showSunset2G[ccObj.carrier]) {
-                                        footnote = showSunset2G[ccObj.carrier].toString();
+                                    else {
+                                        msg = '2G sunset expected ' + sunset2G.s;
                                     }
+                                    footnote = addFootnote(msg); 
                                 }
-                                if (b.startsWith("3G")) {
-                                    if (sunset3G.year && !showSunset3G[ccObj.carrier]) {
-                                        if (sunset3G.year < 2024) {
-                                            footnotes.push('3G sunset originally planned for ' + sunset3G.s + ' but may have been delayed');
-                                        }
-                                        else {
-                                            footnotes.push('3G sunset expected ' + sunset3G.s);
-                                        }
-                                        showSunset3G[ccObj.carrier] = footnotes.length;
+                                if (b.startsWith("3G") && sunset3G.year) {
+                                    let msg;
+                                    if (sunset3G.year < 2024) {
+                                        msg = '3G sunset originally planned for ' + sunset3G.s + ' but may not been delayed';
                                     }
-                                    if (showSunset3G[ccObj.carrier]) {
-                                        footnote = showSunset3G[ccObj.carrier].toString();
+                                    else {
+                                        msg = '3G sunset expected ' + sunset3G.s;
                                     }
+                                    footnote = addFootnote(msg); 
                                 }    
                             }
 
@@ -1479,60 +1464,6 @@ bandFit.renderCountries = function(countries) {
 
         const ulElem = document.createElement('ul');
 
-
-        for(const testObj of bandFit.tests[test].tests) {
-            const cmsObj = datastore.data.countryModemSim.find(e => e.country == country && e.modem == testObj.modemObj.model && e.sim == testObj.sim);
-
-            const liElem = document.createElement('li');
-
-            const divElem = document.createElement('div');
-            $(divElem).attr('style', 'display:inline; color:' + bandFit.headerTextColor + '; background-color:' + testObj.backgroundColor + '; padding-left: 3px; padding-right: 3px; margin-right:5px;');
-            $(divElem).text(testObj.title);
-            $(liElem).append(divElem);
-
-            if (testObj.moreTitles) {
-                for(const title of testObj.moreTitles) {
-                    const divElem = document.createElement('div');
-                    $(divElem).attr('style', 'display:inline; color:' + bandFit.headerTextColor + '; background-color:' + testObj.backgroundColor + '; padding-left: 3px; padding-right: 3px; margin-right:5px;');
-                    $(divElem).text(title);
-                    $(liElem).append(divElem);        
-                }
-            }
-            
-            let text = '';
-            if (cmsObj && cmsObj.recommendation == 'YES') {
-                text += '\u2705 Recommended and supported.';
-            }
-            else {
-                let total = testObj.counts.greenCheck + testObj.counts.redX;
-                if (total > 0) {
-                    let pct = Math.floor(testObj.counts.greenCheck * 100 / total);
-                    if (pct > 70) {
-                        // text += 'Beta test countries to be determined. Not officially supported at this time, but likely to work.';
-                        text += 'Not officially supported at this time, but likely to work.';
-                    }
-                    else
-                    if (pct > 30) {
-                        text += 'Not officially supported, but may work in some locations.';
-                    }
-                    else
-                    if (pct > 0) {
-                        text += '\u274C Unlikely to work reliably; poor band fit.';
-                    }
-                    else {
-                        text += '\u274C Will not work, no available bands.';
-                    }
-                }
-                else {
-                    text += '\u274C Will not work, no available bands.';
-                }
-            }
-
-            $(liElem).append(document.createTextNode(text));
-            $(ulElem).append(liElem);
-        }
-
-
         if (hasGreenCheck) {
             const liElem = document.createElement('li');
             $(liElem).text('\u2705 Band is supported by carrier and cellular modem.');
@@ -1572,6 +1503,88 @@ bandFit.renderCountries = function(countries) {
         }
 
         $(bandFit.bandFitResultsElem).append(ulElem);
+
+        // Summary table
+        {
+            const tableElem = document.createElement('table');
+            $(tableElem).addClass('apiHelperTableNoMargin')
+
+            const tbodyElem = document.createElement('tbody');
+
+            for(const testObj of bandFit.tests[test].tests) {
+                const cmsObj = datastore.data.countryModemSim.find(e => e.country == country && e.modem == testObj.modemObj.model && e.sim == testObj.sim);
+    
+                const trElem = document.createElement('tr');
+
+                let tdElem = document.createElement('td');
+                
+                const divElem = document.createElement('div');
+                $(divElem).attr('style', 'display:inline; color:' + bandFit.headerTextColor + '; background-color:' + testObj.backgroundColor + '; padding-left: 3px; padding-right: 3px; margin-right:5px;');
+                $(divElem).text(testObj.title);
+                $(tdElem).append(divElem);
+    
+                if (testObj.moreTitles) {
+                    for(const title of testObj.moreTitles) {
+                        const divElem = document.createElement('div');
+                        $(divElem).attr('style', 'display:inline; color:' + bandFit.headerTextColor + '; background-color:' + testObj.backgroundColor + '; padding-left: 3px; padding-right: 3px; margin-right:5px;');
+                        $(divElem).text(title);
+                        $(tdElem).append(divElem);        
+                    }
+                }
+                $(trElem).append(tdElem);
+                
+                let icon = '';
+                let text = '';
+                if (cmsObj && cmsObj.recommendation == 'YES') {
+                    icon = '\u2705';
+                    text += 'Recommended and supported in ' + country;
+                }
+                else {
+                    let total = testObj.counts.greenCheck + testObj.counts.redX;
+                    if (total > 0) {
+                        let pct = Math.floor(testObj.counts.greenCheck * 100 / total);
+                        if (pct > 70) {
+                            // text += 'Beta test countries to be determined. Not officially supported at this time, but likely to work.';
+                            text += 'Not officially supported at this time, but likely to work.';
+                        }
+                        else
+                        if (pct > 30) {
+                            text += 'Not officially supported, but may work in some locations.';
+                        }
+                        else
+                        if (pct > 0) {
+                            icon = '\u274C';
+                            text += 'Unlikely to work reliably; poor band fit.';
+                        }
+                        else {
+                            icon = '\u274C';
+                            text += 'Will not work, no available bands.';
+                        }
+                    }
+                    else {
+                        icon = '\u274C';
+                        text += 'Will not work, no available bands.';
+                    }
+                }
+
+                tdElem = document.createElement('td');
+                $(tdElem).css('font-size', '14px');
+                $(tdElem).text(icon);
+                $(trElem).append(tdElem);
+
+                tdElem = document.createElement('td');
+                $(tdElem).css('font-size', '14px');
+                $(tdElem).text(text);
+                $(trElem).append(tdElem);
+
+                $(tbodyElem).append(trElem);
+            }
+    
+    
+
+            $(tableElem).append(tbodyElem);
+            $(bandFit.bandFitResultsElem).append(tableElem);
+        }
 
     }
 
