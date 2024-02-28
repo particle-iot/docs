@@ -13,13 +13,18 @@ This is a preliminary datasheet for review only. Changes are likely before relea
 
 ## Overview
 
-The Particle power module is a small castellated module intended to be reflow soldered to your M.2 SoM base board. It contains:
+The Particle power module is a small module that contains:
 
 - 5V to 17VDC input
 - 3.3V regulated output for MCU (2A)
 - 3.6V - 3.9V output for cellular modem (2A)
 - bq24195 PMIC (power management and charge controller)
 - MAX17043 fuel gauge (LiPo battery charge sensor)
+
+It can either be:
+
+- A castellated module intended to be reflow soldered to your M.2 SoM base board
+- A module with male pins on the bottom that can be plugged into a socket on your M.2 SoM base board
 
 
 ## Block diagram
@@ -79,11 +84,28 @@ The Particle power module is a small castellated module intended to be reflow so
 {{imageOverlay src="/assets/images/power-module/power-module-example.svg" alt="Typical usage" class="full-width"}}
 
 
-## Land pattern
+## Land pattern (SMD)
 
 {{imageOverlay src="/assets/images/power-module/power-land.png" alt="Land pattern" class="full-width"}}
 
 <p class="attribution">Dimensions in mm</p>
+
+## Pin layout
+
+{{imageOverlay src="/assets/images/power-module/power-module-pin.png" alt="Pin pattern" class="full-width"}}
+
+<p class="attribution">Dimensions in mm</p>
+
+- Male header pins are 0.1" spacing, 12 pins per side
+- Two rows, spaced 16mm apart
+- Note 4mm offset
+
+The mating header is availble from a large number of suppliers in both PTH and SMD styles.
+
+| Style | Manufacturer | Model | Example |
+| :--- | :--- | :---- | :--- |
+| PTH | Sullins | PPTC121LFBN-RC | [Digikey](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC121LFBN-RC/S6100-ND/807231) |
+| SMD | Sullins | NPTC121KFXC-RC | [Digikey](https://www.digikey.com/product-detail/en/sullins-connector-solutions/NPTC121KFXC-RC/S5604-ND/776062) |
 
 ## Schematic 
 
@@ -99,3 +121,4 @@ To be provided at a later date.
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre      | 2024-02-27 | RK | Initial version |
+|          | 2024-02-28 | RK | Added plug-in version |
