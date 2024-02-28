@@ -1490,11 +1490,13 @@ bandFit.renderCountries = function(countries) {
             $(divElem).text(testObj.title);
             $(liElem).append(divElem);
 
-            if (testObj.title == 'M404') {
-                const divElem = document.createElement('div');
-                $(divElem).attr('style', 'display:inline; color:' + bandFit.headerTextColor + '; background-color:' + testObj.backgroundColor + '; padding-left: 3px; padding-right: 3px; margin-right:5px;');
-                $(divElem).text('M635');
-                $(liElem).append(divElem);    
+            if (testObj.moreTitles) {
+                for(const title of testObj.moreTitles) {
+                    const divElem = document.createElement('div');
+                    $(divElem).attr('style', 'display:inline; color:' + bandFit.headerTextColor + '; background-color:' + testObj.backgroundColor + '; padding-left: 3px; padding-right: 3px; margin-right:5px;');
+                    $(divElem).text(title);
+                    $(liElem).append(divElem);        
+                }
             }
             
             let text = '';
@@ -1700,6 +1702,7 @@ bandFit.init = function(callback) {
             tests: [
                 {
                     title: 'M404',
+                    moreTitles: ['M635'],
                     modemObj: datastore.data.modems.find(e => e.model == 'BG95-M5'),
                     sim: 4, // EtherSIM
                     borderRight: true,
@@ -1765,13 +1768,15 @@ bandFit.init = function(callback) {
             tests: [
                 {
                     title: 'ONE404',
+                    moreTitles: ['MON404', 'T404'],
                     modemObj: datastore.data.modems.find(e => e.model == 'BG96-MC'),
                     sim: 4, // EtherSIM
                     borderRight: true,
                     backgroundColor: '#AFE4EE', // COLOR_Sky_600        
                 },
                 {
-                    title: 'ONE523',
+                    title: 'ONE524',
+                    moreTitles: ['MON524', 'T524'],
                     modemObj: datastore.data.modems.find(e => e.model == 'EG91-EX'),
                     sim: 4, // EtherSIM
                     borderRight: false,
