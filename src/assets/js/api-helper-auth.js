@@ -26,6 +26,7 @@ $(document).ready(function() {
         localStorage.removeItem('apiHelperLocalLogin');
         localStorage.removeItem('apiHelperTestLogin');
         localStorage.removeItem('savedSearch');
+        apiHelper.isInternal = false;
 
         if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {
             analytics.track('Logged Out Local', {category:eventCategory});
@@ -153,6 +154,14 @@ $(document).ready(function() {
             if (auth.username.endsWith('particle.io')) {
                 $('.internalMenuItem').show();
                 internalMenuItem = true;
+                if (typeof apiHelper != 'undefined') {
+                    apiHelper.isInternal = true;
+                }
+            }
+            else {
+                if (typeof apiHelper != 'undefined') {
+                    apiHelper.isInternal = false;
+                }
             }
 
         };
