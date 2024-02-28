@@ -41,7 +41,7 @@ USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
 ## Programming techniques
 
 - [AN002-Device-Powerdown](/firmware/low-power/device-powerdown/) shows how to 
-have an Electron, E Series, or Boron gracefully power down under battery power when the power supply is disconnected 
+have an Electron, E-Series, or Boron gracefully power down under battery power when the power supply is disconnected 
 then automatically power up when restored. This can be useful in automotive applications or devices powered by a switch 
 in mains power applications.
 - [AN005 Threading Explainer](/firmware/software-design/threading-explainer/) provides detailed information on using execution threads on Particle devices.

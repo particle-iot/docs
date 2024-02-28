@@ -13,15 +13,15 @@ JTAG ("Joint Test Action Group") is a standard for testing and verifying electro
 
 JTAG can also be used with a source-level debugger, which is a feature of [Particle Workbench](/getting-started/developer-tools/workbench/#debugging-3rd-generation-).
 
-There is a variation known as Serial Wire Debug (SWD). This is an option for Gen 2 devices (STM32, Photon, P1, Electron, and E Series), and the normal method of connection for Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). It uses only two signal wires plus ground.
+There is a variation known as Serial Wire Debug (SWD). This is an option for Gen 2 devices (STM32, Photon, P1, Electron, and E-Series), and the normal method of connection for Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM). It uses only two signal wires plus ground.
 
 All of the JTAG/SWD debuggers can accept an [Intel Hex file](https://en.wikipedia.org/wiki/Intel_HEX) (.hex). One nice thing about .hex files, which are different than the .bin files Particle binaries are distributed in, is that hex files include the address they are to be flashed to. Also, you can combine multiple disjoint binaries into a single hex file, so you only need to flash one file, even on Gen 2 where you must leave a "hole" for the configuration sectors.
 
 ## Using SWD
 
-On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM) you can communicate with the device by SWD/JTAG at any time including normal operating modes.
+On Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM) you can communicate with the device by SWD/JTAG at any time including normal operating modes.
 
-On the P2 and Gen 2 devices (E Series, Electron, P1, Photon), SWD/JTAG shares pins D6 and D7 which can also be used as GPIO pins. The SWD functionality can be used while user firmware is operating by using compile-time options, however most commonly you will want to put the device in DFU mode first. DFU mode prevents Device OS from booting, and while in the bootloader, SWD will be active.
+On the P2 and Gen 2 devices (E-Series, Electron, P1, Photon), SWD/JTAG shares pins D6 and D7 which can also be used as GPIO pins. The SWD functionality can be used while user firmware is operating by using compile-time options, however most commonly you will want to put the device in DFU mode first. DFU mode prevents Device OS from booting, and while in the bootloader, SWD will be active.
 
 To put your Particle device in DFU mode (blinking yellow) by holding down MODE and tapping RESET. Continue to hold down MODE while the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then release MODE. If the device is non-responsive with no LED or a dim D7 blue LED, you may still be able to flash it, even though it's not in DFU mode because if there is no valid bootloader SWD is also enabled.
 
@@ -29,7 +29,7 @@ To put your Particle device in DFU mode (blinking yellow) by holding down MODE a
 
 To make it easy to restore a device to a completely known state, we've provided .hex files for several device platforms and Device OS versions.
 
-- Make sure you select the right one! Note that there are two different B Series SoM images, one for the B4xx and different one for the B5xx. Also note that Photon and P1 are different, but Electron and E Series are the same.
+- Make sure you select the right one! Note that there are two different B-Series SoM images, one for the B4xx and different one for the B5xx. Also note that Photon and P1 are different, but Electron and E-Series are the same.
 - The flash procedure described here does not erase configuration. The following are *not* erased:
   - Emulated EEPROM contents
   - Device Keys
@@ -55,9 +55,9 @@ The general procedure is:
 ## Special notes for downgrading
 
 {{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
-**Boron LTE BRN402 and B Series SoM B402**
+**Boron LTE BRN402 and B-Series SoM B402**
 
-If you are downgrading a Boron LTE (BRN402) or B Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
+If you are downgrading a Boron LTE (BRN402) or B-Series SoM B402 from Device OS 2.0.0 or later, to 1.5.1 or earlier, you must first install 1.5.2, allow the device to boot and connect to cellular before downgrading again to an earlier version. The reason is that 2.0.0 and later use a higher baud rate for the cellular modem, and on the SARA-R410M only, this setting is persistent. Older versions of Device OS assume the modem is using the default of 115200 and will fail to communicate with the modem since it will be using 460800. Device OS 1.5.2 uses 115200, however it knows it can be 460800 and will try resetting the baud rate if it can't communicate with the modem.
 {{!-- END shared-blurb --}}
 
 ## Custom hex files
@@ -71,9 +71,9 @@ This is an excellent option if your contract manufacturer will be programming yo
 
 Depending on the device, the behavior of chip erase of the internal flash from SWD/JTAG is very different:
 
-- Boron, B Series SoM, Tracker SoM (Gen 3, nRF52840): Chip erase is safe and fast. You will not lose data. You can also copy the entire internal flash from one device (of the same type) to another.
+- Boron, B-Series SoM, Tracker SoM (Gen 3, nRF52840): Chip erase is safe and fast. You will not lose data. You can also copy the entire internal flash from one device (of the same type) to another.
 
-- P1, Photon, E Series, Electron (Gen 2, STM32F205): Chip erase is not recommended. You will lose all device settings including EEPROM settings, the prefix for the Photon/P1 Wi-Fi network printed on the box, and device keys. The device will not be able to connect to the cloud until the keys are updated in the cloud after chip erase.
+- P1, Photon, E-Series, Electron (Gen 2, STM32F205): Chip erase is not recommended. You will lose all device settings including EEPROM settings, the prefix for the Photon/P1 Wi-Fi network printed on the box, and device keys. The device will not be able to connect to the cloud until the keys are updated in the cloud after chip erase.
 
 - P2, Photon 2 (RTL8721): **Do not chip erase the RTL872x under any circumstances!** Also do not flash anything to address 0 (prebootloader-mbr). The prebootloader-mbr is factory configured for your specific device with the private keys necessary for secure boot. If you erase or overwrite this portion of the flash you will not be able to program or use the device again.
 
@@ -219,8 +219,8 @@ With the Particle Debugger (CMSIS-DAP), it can expose what looks like a USB thum
 The caveats are: 
 
 - You must first [upgrade the Particle Debugger firmware](/reference/datasheets/accessories/debugger/#upgrading-the-debugger) .
-- You should only use it with Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM)
-- Drag-and-drop does not work with the P2 or Gen 2 devices (E Series, Electron, Photon, P1)
+- You should only use it with Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM)
+- Drag-and-drop does not work with the P2 or Gen 2 devices (E-Series, Electron, Photon, P1)
 - It takes about 1 minute to restore a device.
 
 All you need to do is:
@@ -245,7 +245,7 @@ You can try the [experimental web browser based Particle Debugger interface](/to
 - It should work on Mac, Windows, Linux, and Chromebook on supported browsers that support WebUSB.
 - It should work on some Android phones that support USB OTG when using Chrome or Opera browsers that support WebUSB.
 - It does not work on iOS (iPhone or iPad) as the hardware does not support USB OTG.
-- It is only recommended for Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). It does not work reliably on the P2 or Gen 2.
+- It is only recommended for Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM). It does not work reliably on the P2 or Gen 2.
 - It takes about 3 minutes to restore a device.
 
 <a href="/tools/device-restore/device-restore-jtag/" class="button">Web Browser Device Restore</a>
@@ -328,7 +328,7 @@ If your board as a 10-pin micro debugging connector, as most Gen 3 devices do, y
 
 ![ST-LINK/v2](/assets/images/jtag-09stlink.jpg)
 
-The ST-LINK can only be used with Gen 2 devices (Photon, P1, Electron, and E Series) that use a STM32 processor.
+The ST-LINK can only be used with Gen 2 devices (Photon, P1, Electron, and E-Series) that use a STM32 processor.
 
 On Windows, with the ST-LINK/v2 you can use the ST-Link Windows software which provides an easy-to-use graphical interface. It can only be used with Gen 2 devices.
 
@@ -357,7 +357,7 @@ Note that you must connect VCC to 3V3 with the real ST-LINK because it uses that
 
 ![ST-LINK Mini](/assets/images/jtag-07mini.jpg)
 
-The ST-LINK can only be used with Gen 2 devices (Photon, P1, Electron, and E Series) that use a STM32 processor.
+The ST-LINK can only be used with Gen 2 devices (Photon, P1, Electron, and E-Series) that use a STM32 processor.
 
 In order to use SWD you need to connect:
 

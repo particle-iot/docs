@@ -2,19 +2,19 @@
 title: E404X migration guide
 layout: commonTwo.hbs
 columns: two
-description: Migration guide for transitioning from the E Series E402/E404 to E404X
+description: Migration guide for transitioning from the E-Series E402/E404 to E404X
 ---
 
 # E404X migration guide
 
-This guide assists in the transition from the E Series E402/E404 to the E404X.
+This guide assists in the transition from the E-Series E402/E404 to the E404X.
 
 
 ## Software differences
 
 ### User firmware binary size
 
-One major advantage of the E404X is that user firmware binaries can be up to 256 Kbytes, instead of 128 Kbytes on Gen 2 devices including the E Series.
+One major advantage of the E404X is that user firmware binaries can be up to 256 Kbytes, instead of 128 Kbytes on Gen 2 devices including the E-Series.
 
 ### Flash file system
 
@@ -29,9 +29,9 @@ On the E404X and Gen 3 devices, over-the-air (OTA) updates have two features tha
 
 ### Increased API field limits
 
-The maximum size of a variable, function parameter, or publish is 1024 bytes on the E404X vs. 864 bytes on other E Series models.
+The maximum size of a variable, function parameter, or publish is 1024 bytes on the E404X vs. 864 bytes on other E-Series models.
 
-| API Field | E Series | E404X |
+| API Field | E-Series | E404X |
 | :--- | :---: | :---: |
 | Variable Key | 64 | 64 |
 | Variable Data | 864 | 1024 |
@@ -45,13 +45,13 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 - In general, the E404X will use less power in all modes.
 - In `HIBERNATE` mode, the RTC (real time clock) does not run on the E404X, so you cannot wake by time from `HIBERNATE` mode (formerly known as `SLEEP_MODE_DEEP`).
-- However, you can wake by time from `ULTRA_LOW_POWER` mode, and it uses less power than the E Series`HIBERNATE` mode.
+- However, you can wake by time from `ULTRA_LOW_POWER` mode, and it uses less power than the E-Series`HIBERNATE` mode.
 - On Gen 2 devices, you can only wake from `HIBERNATE` with a rising signal on `WKP` (A7). The E404X can wake from `HIBERNATE` on any pin, rising or falling.
 - On Gen 2 (STM32F205) devices, if you try to go into `HIBERNATE` mode with WKP already high, the device will go into sleep and will not wake up by time or pin change, essentially rendering it unable to wake until reset manually. This problem does not occur on the E404X and Gen 3 devices.
 
 ### RTC (Real-time clock)
 
-- The E Series module has the ability to use an external lithium coin cell or supercap to power the RTC when the MCU is unpowered. This feature does not exist on the E404X.
+- The E-Series module has the ability to use an external lithium coin cell or supercap to power the RTC when the MCU is unpowered. This feature does not exist on the E404X.
 - The RTC on the E404X s is not really a real-time clock. It's basically just a counter, and some advanced wakeup features are not possible on the E404X and Gen 3 devices. These features were not enabled by Device OS on Gen 2 devices, either, so this is generally not an issue.
 - On the E404X and Gen 3 devices, in `HIBERNATE` sleep mode the RTC does not run, so it is not possible to wake by time, and the system clock will not be set until you connect to the cloud again. `ULTRA_LOW_POWER` is recommended instead.
 
@@ -60,9 +60,9 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 ### MCU
 
-The microcontroller is different in E Series and E404X:
+The microcontroller is different in E-Series and E404X:
 
-| Measure | E Series | E404X |
+| Measure | E-Series | E404X |
 | :--- | :---: | :---: |
 | MCU | STM32F205 | nRF52840 |
 | Manufacturer | ST Microelectronics | Nordic Semiconductor |
@@ -78,7 +78,7 @@ The microcontroller is different in E Series and E404X:
 
 ### BLE (Bluetooth LE)
 
-- Bluetooth LE (BLE 5.0) is supported on the E404X but not E Series (Gen 2).
+- Bluetooth LE (BLE 5.0) is supported on the E404X but not E-Series (Gen 2).
 
 
 ### No 5V tolerance!
@@ -120,15 +120,15 @@ For example, if you have 3V3 disconnect circuitry but have pull-ups to non-disco
 ### SPI
 
 - On the E404X, there are only two SPI ports `SPI` (A pins) and `SPI1` (C pins)
-- E Series `SPI1` on the D pins does not exist on the E404X. 
-- E Series `SPI2` on the C pins is `SPI1` on the E404X
+- E-Series `SPI1` on the D pins does not exist on the E404X. 
+- E-Series `SPI2` on the C pins is `SPI1` on the E404X
 
 
-The following are all SPI-related pins on the E Series and E404X:
+The following are all SPI-related pins on the E-Series and E404X:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
 
-| Pin | E Series Pin Name | E Series SPI | E404X Pin Name | E404X SPI |
+| Pin | E-Series Pin Name | E-Series SPI | E404X Pin Name | E404X SPI |
 | :---: | :--- | :--- | :--- | :--- |
 | 21 | A5 | SPI (MOSI) | A5 | SPI (MOSI) |
 | 22 | A4 | SPI (MISO) | A4 | SPI (MISO) |
@@ -147,7 +147,7 @@ The following are all SPI-related pins on the E Series and E404X:
 
 The following SPI data rates are available:
 
-| | E Series SPI | E Series SPI1 | E404X SPI & SPI1 |
+| | E-Series SPI | E-Series SPI1 | E404X SPI & SPI1 |
 | :--- | :--- | :--- | :--- |
 | Maximum rate | 30 MHz | 15 MHz | 32 MHz |
 | Default rate | 15 MHz | 15 MHz | 16 MHz |
@@ -162,7 +162,7 @@ The following SPI data rates are available:
 
 {{!-- BEGIN do not edit content below, it is automatically generated e6a3ce62-dfb5-4926-a1b4-5f2fd5048d05 --}}
 
-| Pin | E Series Pin Name | E Series I2C | E404X Pin Name | E404X I2C |
+| Pin | E-Series Pin Name | E-Series I2C | E404X Pin Name | E404X I2C |
 | :---: | :--- | :--- | :--- | :--- |
 | 41 | D1 | Wire (SCL) | D1 | Wire (SCL) |
 | 42 | D0 | Wire (SDA) | D0 | Wire (SDA) |
@@ -172,8 +172,8 @@ The following SPI data rates are available:
 
 {{!-- END do not edit content above, it is automatically generated e6a3ce62-dfb5-4926-a1b4-5f2fd5048d05 --}}
 
-- On the E Series (other than the E404X), `Wire` and `Wire1` are the same I2C peripheral and you can only use one at a time, so effectively it only has one I2C port. 
-- On the E Series (other than the E404X), the built-in pull-up on SDA and SCL is approximately 40K and an external pull-up is required.
+- On the E-Series (other than the E404X), `Wire` and `Wire1` are the same I2C peripheral and you can only use one at a time, so effectively it only has one I2C port. 
+- On the E-Series (other than the E404X), the built-in pull-up on SDA and SCL is approximately 40K and an external pull-up is required.
 - On the E404X, the built-in pull-up on SDA and SCL is approximately 13K. An external pull-up is recommended. 
 - On the E404X, GPIO is 3.3V and is not 5V tolerant. Connecting to a 5V I2C bus requires level shifting.
 - On the E404X, external pull-ups should only be connected to the MCU 3V3 supply. Pulling up to an external supply can cause leakage current into the GPIO pins of the nRF52840 which can prevent it from resetting properly.
@@ -181,12 +181,12 @@ The following SPI data rates are available:
 ### Serial (UART)
 
 
-The primary UART serial (`Serial1`) is on the TX and RX pins on both the E Series and E404X. There is no hardware flow control on this port on E Series, but it can be enabled on the E404X on pins D0 (CTS) and D1 (RTS).
+The primary UART serial (`Serial1`) is on the TX and RX pins on both the E-Series and E404X. There is no hardware flow control on this port on E-Series, but it can be enabled on the E404X on pins D0 (CTS) and D1 (RTS).
 
-The E Series has additional serial ports `Serial2`, `Serial4`, and `Serial5`. These are not available on the E404X.
+The E-Series has additional serial ports `Serial2`, `Serial4`, and `Serial5`. These are not available on the E404X.
 
 
-|      | E Series  | E404X |
+|      | E-Series  | E404X |
 | :--- | :---: | :---: |
 | Buffer size | 64 bytes | configurable<sup>1</sup> |
 | 7-bit mode | &check; |  |
@@ -203,7 +203,7 @@ The E Series has additional serial ports `Serial2`, `Serial4`, and `Serial5`. Th
 
 {{!-- BEGIN do not edit content below, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
 
-| Pin | E Series Pin Name | E Series Serial | E404X Pin Name | E404X Serial |
+| Pin | E-Series Pin Name | E-Series Serial | E404X Pin Name | E404X Serial |
 | :---: | :--- | :--- | :--- | :--- |
 | 16 | TX | Serial1 (TX) | TX | Serial1 (TX) |
 | 17 | RX | Serial1 (RX) | RX | Serial1 (RX) |
@@ -221,7 +221,7 @@ The E Series has additional serial ports `Serial2`, `Serial4`, and `Serial5`. Th
 
 #### Baud rate support
 
-| Baud Rate | E Series | E404X |
+| Baud Rate | E-Series | E404X |
 | ------: | :-----: | :---: |
 |    1200 | &check; | &check; |
 |    2400 | &check; | &check; |
@@ -241,7 +241,7 @@ The E Series has additional serial ports `Serial2`, `Serial4`, and `Serial5`. Th
 
 #### Serial configurations
 
-| Constant | Description | E Series | E404X |
+| Constant | Description | E-Series | E404X |
 | :--- | :--- | :---: | :---: |
 | SERIAL_8N1 | 8 data bits, no parity, 1 stop bit (default) | &check; | &check; |
 | SERIAL_8N2 | 8 data bits, no parity, 2 stop bits | &check; | &nbsp; |
@@ -268,7 +268,7 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 
 {{!-- BEGIN do not edit content below, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
 
-| Pin | E Series Pin Name | E Series ADC | E404X Pin Name | E404X ADC |
+| Pin | E-Series Pin Name | E-Series ADC | E404X Pin Name | E404X ADC |
 | :---: | :--- | :--- | :--- | :--- |
 | 19 | WKP / A7 | &check; | A7 / WKP | &check; |
 | 20 | DAC / A6 | &check; | A6 | &check; |
@@ -290,12 +290,12 @@ If additional ADC ports are needed, an external I2C and SPI ADC can be added to 
 
 ### PWM (Pulse-width modulation)
 
-The pins that support PWM are different on the E Series and E404X.
+The pins that support PWM are different on the E-Series and E404X.
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
 
-| Pin | E Series Pin Name | E Series PWM | E404X Pin Name | E404X PWM | E404X Hardware Timer |
+| Pin | E-Series Pin Name | E-Series PWM | E404X Pin Name | E404X PWM | E404X Hardware Timer |
 | :---: | :--- | :--- | :--- | :--- | :--- |
 | 16 | TX | &check; | TX | &check; | PWM2 |
 | 17 | RX | &check; | RX | &check; | PWM2 |
@@ -335,14 +335,14 @@ On the E404X, the following groups are defined. Each group must share the same f
 
 ### Digital to analog converter (DAC)
 
-The E Series supports DAC one A3 and A6 (DAC). There is no DAC on the E404X or Gen 3 devices.
+The E-Series supports DAC one A3 and A6 (DAC). There is no DAC on the E404X or Gen 3 devices.
 
 If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
 
-| Pin | E Series Pin Name | E Series DAC | E404X Pin Name | E404X DAC |
+| Pin | E-Series Pin Name | E-Series DAC | E404X Pin Name | E404X DAC |
 | :---: | :--- | :--- | :--- | :--- |
 | 20 | DAC / A6 | &check; | A6 | &nbsp; |
 | 23 | A3 | &check; | A3 | &nbsp; |
@@ -354,7 +354,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 ### WKP (A7)
 
-|              | E Series    | E404X |
+|              | E-Series    | E404X |
 | :----------- | :---------: | :---: |
 | Module Pin   | 30          | 30 |
 | Pin Name     | WKP         | WKP |
@@ -377,7 +377,7 @@ The E series supported CAN on pins D1/D2 or C4/C5. There is no CAN on the E404X 
 
 {{!-- BEGIN do not edit content below, it is automatically generated aaf618d9-4053-490d-8b3b-2ef6118592d6 --}}
 
-| Pin | E Series Pin Name | E Series CAN | E404X Pin Name | E404X CAN |
+| Pin | E-Series Pin Name | E-Series CAN | E404X Pin Name | E404X CAN |
 | :---: | :--- | :--- | :--- | :--- |
 | 40 | D2 | CAN2_RX | D2 | &nbsp; |
 | 41 | D1 | CAN2_TX | D1 | &nbsp; |
@@ -390,21 +390,21 @@ The E series supported CAN on pins D1/D2 or C4/C5. There is no CAN on the E404X 
 
 ### I2S (Sound)
 
-- The E Series theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
+- The E-Series theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
 - I2S is available on Gen 3 devices including the E404X on any GPIO pins using a 3rd-party library.
 
 
 ### Interrupts
 
-There are many limitations for interrupts on the E Series (STM32F205). All pins can be used for interrupts on the E404X Gen 3 devices, however you can only attach interrupts to 8 pins at a time.
+There are many limitations for interrupts on the E-Series (STM32F205). All pins can be used for interrupts on the E404X Gen 3 devices, however you can only attach interrupts to 8 pins at a time.
 
 ### SWD
 
-Unlike the E Series module, the E404X SWD pins are dedicated and cannot be used for GPIO.
+Unlike the E-Series module, the E404X SWD pins are dedicated and cannot be used for GPIO.
 
 {{!-- BEGIN do not edit content below, it is automatically generated b90ca6ee-1877-4f05-a3bd-b073d768e54d --}}
 
-| Pin | E Series Pin Name | E Series SWD | E404X Pin Name | E404X SWD |
+| Pin | E-Series Pin Name | E-Series SWD | E404X Pin Name | E404X SWD |
 | :---: | :--- | :--- | :--- | :--- |
 | 35 | D7 | SWDIO | SWDIO | SWDIO |
 | 36 | D6 | SWCLK | SWDCLK | SWCLK |
@@ -421,7 +421,7 @@ Pin D5 (module pin 37), however, is available for GPIO as it is not NC and not u
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2767a61d-eba6-4720-8c91-869be322880f --}}
 
-| Pin | E Series Pin Name | E Series JTAG | E404X Pin Name | E404X JTAG |
+| Pin | E-Series Pin Name | E-Series JTAG | E404X Pin Name | E404X JTAG |
 | :---: | :--- | :--- | :--- | :--- |
 | 35 | D7 | JTAG TMS | SWDIO | &nbsp; |
 | 36 | D6 | JTAG TCK | SWDCLK | &nbsp; |
@@ -436,7 +436,7 @@ Pin D5 (module pin 37), however, is available for GPIO as it is not NC and not u
 
 The following USB feature differences exist:
 
-| USB Feature | E Series | E404X |
+| USB Feature | E-Series | E404X |
 | :--- | :---: | :---: |
 | Secondary USB serial emulation `USBSerial1` | &check; | |
 | USB keyboard emulation | &check; | |
@@ -445,7 +445,7 @@ The following USB feature differences exist:
 
 ### Pin functions removed
 
-The following pins were used on the E Series but are not available on the E404X. You should not connect anything to these pins.
+The following pins were used on the E-Series but are not available on the E404X. You should not connect anything to these pins.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6c533551-bce6-4c2e-b248-c7274f4b1b22 --}}
 
@@ -469,90 +469,90 @@ No pin functions have been added to previously unused (NC) pins.
 
 {{imageOverlay src="/assets/images/e404x-pinout.svg" alt="E404X Pinout Diagram" class="full-width"}}
 
-{{imageOverlay src="/assets/images/e-series-pinout.svg" alt="E Series Pinout Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/e-series-pinout.svg" alt="E-Series Pinout Diagram" class="full-width"}}
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
 
 #### Module Pin 1 (VIN)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | VIN|
 | Description | Power in 3.9V to 12 VDC.|
 #### Module Pin 2 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 3 (VBUS)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | VBUS|
 | Description | Connect to VBUS power pin on the USB port|
 #### Module Pin 4 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 5 (LIPO)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | LIPO|
 | Description | Connect to + pin on the LiPo battery, 4.2V maximum|
 #### Module Pin 6 (NC)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | Do not connect to anything|
 #### Module Pin 7 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 8 (PMID)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | PMID | PMID |
 | ∆ | Description | Connected to the PMID pin of the PMIC | Connected to the PMID pin of the PMIC. Leave unconnected. |
 #### Module Pin 9 (3V3)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | 3V3|
 | Description | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input.|
 #### Module Pin 10 (VDDA / NC)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | VDDA | NC |
 | ∆ | Description | Power input for ADC. Normally connected to 3V3. Must always be within 300 mV of 3V3. | Do not connect to anything |
 #### Module Pin 11 (VBAT / NC)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | VBAT | NC |
 | ∆ | Description | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. | Do not connect to anything |
 #### Module Pin 12 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 13 (USBDATA+)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | USBDATA+ | USBDATA+ |
 | ∆ | Description | USB Data+ | USB Data+. Cannot be used as GPIO. |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 14 (USBDATA-)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | USBDATA- | USBDATA- |
 | ∆ | Description | USB Data- | USB Data-. Cannot be used as GPIO. |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 15 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 16 (TX)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | TX | TX |
 | ∆ | Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial1 TX (transmitted data), GPIO D8, PWM. |
@@ -565,7 +565,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 17 (RX)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RX | RX |
 | ∆ | Description | Serial1 RX (received data), GPIO, PWM. | Serial1 RX (received data), GPIO D9, PWM. |
@@ -578,12 +578,12 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 18 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 19 (WKP / A7)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | WKP | A7 |
 | ∆ | Pin Alternate Name | A7 | WKP |
@@ -597,7 +597,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 20 (DAC / A6)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | DAC | A6 |
 | ∆ | Pin Alternate Name | A6 | n/a |
@@ -611,7 +611,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | ∆ | Internal pull resistance | 40K | 13K |
 #### Module Pin 21 (A5)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A5 | A5 |
 | ∆ | Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO D15, SPI MOSI, PWM. |
@@ -625,7 +625,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 22 (A4)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A4 | A4 |
 | ∆ | Description | A4 Analog in, GPIO, SPI MISO. | A4 Analog in, GPIO D14, SPI MISO, PWM. |
@@ -639,7 +639,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 23 (A3)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A3 | A3 |
 | ∆ | Description | A3 True analog out, analog in, GPIO. | A3 analog in, GPIO D13, SPI SCK, PWM |
@@ -653,7 +653,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | ∆ | Internal pull resistance | 40K | 13K |
 #### Module Pin 24 (A2)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A2 | A2 |
 | ∆ | Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO D12, SPI SS |
@@ -665,7 +665,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 25 (A1)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A1 | A1 |
 | ∆ | Description | A1 Analog in, GPIO | A1 Analog in, GPIO D11 |
@@ -676,7 +676,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 26 (A0)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | A0 | A0 |
 | ∆ | Description | A0 Analog in, GPIO | A0 Analog in, GPIO D10 |
@@ -687,12 +687,12 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 27 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 28 (B5 / NC)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | B5 | NC |
 | ∆ | Description | B5 Analog in, GPIO | Do not connect to anything |
@@ -703,7 +703,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | n/a |
 | ∆ | Input is 5V Tolerant | Yes | n/a |
 #### Module Pin 29 (B4 / NC)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | B4 | NC |
 | ∆ | Description | B4 Analog in, GPIO | Do not connect to anything |
@@ -714,7 +714,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | n/a |
 | ∆ | Input is 5V Tolerant | Yes | n/a |
 #### Module Pin 30 (B3)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | B3 | B3 |
 | ∆ | Description | B3, analog in, GPIO, PWM | B3, GPIO D21, PWM |
@@ -727,7 +727,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 31 (B2)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | B2 | B2 |
 | ∆ | Description | B2, analog in, GPIO, PWM | B2, GPIO D20, PWM |
@@ -740,7 +740,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 32 (B1)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | B1 | B1 |
 | ∆ | Description | B1, GPIO, PWM | B1, GPIO D19 |
@@ -752,7 +752,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 33 (B0)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | B0 | B0 |
 | ∆ | Description | B0, GPIO, PWM | B0, GPIO D18 |
@@ -764,12 +764,12 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 34 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 35 (D7 / SWDIO)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | D7 | SWDIO |
 | ∆ | Description | D7 GPIO | SWDIO for JTAG/SWD debugger. Internal pull-up. Not GPIO. |
@@ -782,7 +782,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO |
 | ∆ | Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | JTAG SWDIO. 40K pull-up at boot. |
 #### Module Pin 36 (D6 / SWDCLK)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | D6 | SWDCLK |
 | ∆ | Description | D6 GPIO | SWCLK for JTAG/SWD debugger. Internal pull-down. Not GPIO. |
@@ -795,7 +795,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK |
 | ∆ | Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | JTAG SWCLK. 40K pull-down at boot. |
 #### Module Pin 37 (D5)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D5 | D5 |
 | ∆ | Description | D5 GPIO, SPI1 | D5 GPIO, SPI1 SS |
@@ -809,7 +809,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
 #### Module Pin 38 (D4 / SWO)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | D4 | SWO |
 | ∆ | Description | D4 GPIO, SPI1 | SWO for JTAG/SWD debugger. Not GPIO. |
@@ -824,7 +824,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | SWD interface | n/a | SWO |
 | ∆ | Signal used at boot | JTAG TDO. Floating at boot. | JTAG SWO. |
 #### Module Pin 39 (D3 / NC)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Name | D3 | NC |
 | ∆ | Description | D3 GPIO, SPI1 | Do not connect to anything |
@@ -839,7 +839,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
 #### Module Pin 40 (D2)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D2 | D2 |
 | ∆ | Description | D2 GPIO, SPI1, CAN | D2 GPIO, PWM |
@@ -854,7 +854,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 41 (D1)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D1 | D1 |
 | ∆ | Description | D0 GPIO, I2C, CAN | D0 GPIO, I2C Wire SCL, Serial1 RTS, PWM |
@@ -869,7 +869,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 42 (D0)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | D0 | D0 |
 | ∆ | Description | D0 GPIO, I2C | D0 GPIO, I2C Wire SDA, Serial1 CTS, PWM |
@@ -883,12 +883,12 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 43 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 44 (C5)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | C5 | C5 |
 | ∆ | Description | I2C, CAN, GPIO. | GPIO D29, PWM |
@@ -902,7 +902,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 45 (C4)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | C4 | C4 |
 | ∆ | Description | I2C, CAN, GPIO. | GPIO D28, PWM |
@@ -916,7 +916,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 46 (C3)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | C3 | C3 |
 | ∆ | Description | Serial4 TX (transmitted data), SPI2, GPIO. | SPI1 SCK, GPIO D27. |
@@ -928,7 +928,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 47 (C2)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | C2 | C2 |
 | ∆ | Description | Serial4 RX (received data), SPI2, GPIO. | SPI1 MISO, GPIO D26. |
@@ -940,7 +940,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 48 (C1)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | C1 | C1 |
 | ∆ | Description | Serial5 TX (trasmitted data), SPI2, GPIO. | SPI1 MOSI, GPIO D25. |
@@ -952,7 +952,7 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 49 (C0)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | C0 | C0 |
 | ∆ | Description | Serial5 RX (received data), GPIO. | GPIO D24, PWM. |
@@ -965,61 +965,61 @@ No pin functions have been added to previously unused (NC) pins.
 | ∆ | Internal pull resistance | 40K | 13K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### Module Pin 50 (NC)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | Do not connect to anything|
 #### Module Pin 51 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 52 (RGBB)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RGBB | RGBB |
 | &nbsp; | Description | RGB LED Blue | RGB LED Blue |
 | ∆ | UART serial | RX. Use Serial2 object. | n/a |
 #### Module Pin 53 (RGBG)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RGBG | RGBG |
 | &nbsp; | Description | RGB LED Green | RGB LED Green |
 | ∆ | UART serial | TX. Use Serial2 object. | n/a |
 #### Module Pin 54 (RGBR)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | RGBR|
 | Description | RGB LED Red|
 #### Module Pin 55 (MODE)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | MODE | MODE |
 | &nbsp; | Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up. Pin number constant is BTN. |
 | ∆ | I2S interface | I2S3_MCK | n/a |
 #### Module Pin 56 (RESET)
-|   |   | E Series | E404X |
+|   |   | E-Series | E404X |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Name | RESET | RESET |
 | ∆ | Pin Alternate Name | RST | n/a |
 | &nbsp; | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset. Pull low to reset; can leave unconnected in normal operation. |
 #### Module Pin 57 (STAT)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | STAT|
 | Description | Charge status output from the PMIC.|
 #### Module Pin 58 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 59 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 60 (GND)
-| | Unchanged between E Series and E404X |
+| | Unchanged between E-Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
@@ -1038,7 +1038,7 @@ Most third-party libraries are believed to be compatible. The exceptions include
 - Libraries for MCU-specific features (such as ADC DMA)
 - Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
 
-Since the E404X uses the same MCU as Gen 3 devices (Boron, B Series SoM, Tracker SoM), most libraries intended for those platforms will work with no changes or minimal changes.
+Since the E404X uses the same MCU as Gen 3 devices (Boron, B-Series SoM, Tracker SoM), most libraries intended for those platforms will work with no changes or minimal changes.
 
 
 ## Version history

@@ -19,14 +19,14 @@ The hibernate mode uses the lowest power, however there is a trade-off. For slee
 
 Also you must not use hibernate with sleep periods of less than 10 minutes or your SIM could be blocked your mobile carrier for aggressive reconnection.
 
-On Gen 2 devices, the power usage is around 103 µA with this example (tested with an E Series E402 and Device OS 1.5.0). In this mode, the power usage stays completely constant as the modem is turned off and the MCU is in deep sleep. 
+On Gen 2 devices, the power usage is around 103 µA with this example (tested with an E-Series E402 and Device OS 1.5.0). In this mode, the power usage stays completely constant as the modem is turned off and the MCU is in deep sleep. 
 
 On Gen 3 devices, this example uses stop mode sleep with cellular off, because Gen 3 devices cannot wake from hibernate mode by time.
 
 To connect and publish:
 
 - cloudMinTime set to 0 (no waiting for firmware updates)
-- E Series E402 (LTE Cat M1)
+- E-Series E402 (LTE Cat M1)
 - Device OS 1.5.0
 
 | Measure | Value | Units |
@@ -349,7 +349,7 @@ void firmwareUpdateHandler(system_event_t event, int param) {
 ### Cold boot, full set of messages send to the cloud
 
 - cloudMinTime set to 10 seconds to allow for product firmware updates to be started
-- E Series E402 (LTE Cat M1)
+- E-Series E402 (LTE Cat M1)
 - Device OS 1.5.0
 
 | Measure | Value | Units |
@@ -460,7 +460,7 @@ Finally, after the `cloudMinTime` is reached with no update started, we go to sl
 ### With session resume
 
 - cloudMinTime set to 10 seconds to allow for product firmware updates to be started
-- E Series E402 (LTE Cat M1)
+- E-Series E402 (LTE Cat M1)
 - Device OS 1.5.0
 
 

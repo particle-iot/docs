@@ -8,11 +8,11 @@ Also check the [console billing page](https://console.particle.io/billing) to ma
 
 #### Device not compatible
 
-Some devices, including the Boron LTE (BRN404X, BRN404, BRN402), B Series LTE (B404X, B404, B402), Tracker SoM (ONE404, ONE402, T404, T402), E Series LTE (E404X, E404, E402), Electron LTE (ELC402) are only intended for use in North America, the United States, Canada and Mexico. The devices will not generally connect from other locations and will be be stuck in blinking green.
+Some devices, including the Boron LTE (BRN404X, BRN404, BRN402), B-Series LTE (B404X, B404, B402), Tracker SoM (ONE404, ONE402, T404, T402), E-Series LTE (E404X, E404, E402), Electron LTE (ELC402) are only intended for use in North America, the United States, Canada and Mexico. The devices will not generally connect from other locations and will be be stuck in blinking green.
 
-Likewise, some EMEAA models including the B Series SoM (B524, B523), Tracker (ONE524, ONE523, T524, T523) will not connect in North America, and will only connect in limited circumstances in other locations in the Americas.
+Likewise, some EMEAA models including the B-Series SoM (B524, B523), Tracker (ONE524, ONE523, T524, T523) will not connect in North America, and will only connect in limited circumstances in other locations in the Americas.
 
-2G/3G models including the Boron 2G/3G (BRN314, BRN310), E Series (E310), Electron (U270, U260, G350) may have connectivity impacted by 2G/3G shutdown in some countries.
+2G/3G models including the Boron 2G/3G (BRN314, BRN310), E-Series (E310), Electron (U270, U260, G350) may have connectivity impacted by 2G/3G shutdown in some countries.
 
 #### No local carrier
 

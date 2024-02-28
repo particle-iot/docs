@@ -27,7 +27,7 @@ Connecting a Argon or Boron to the debugger is as easy as connecting the include
 
 ## Debugging Gen 2 platforms
 
-Using the headers on the Particle Debugger you can attach it to other ARM processor devices like the STM32 in the Particle Photon, P1, Electron, and E Series for SWD (serial wire debug).
+Using the headers on the Particle Debugger you can attach it to other ARM processor devices like the STM32 in the Particle Photon, P1, Electron, and E-Series for SWD (serial wire debug).
 
 With the debugger positioned like this, USB connector toward you and the headers facing up:
 
@@ -73,7 +73,7 @@ It's normal if your operating system warns that the disk was not ejected safely.
 
 If you're interested in the details of the DAPLink software that runs on the Particle Debugger, it's open source and available in the [Particle DAPLink fork GitHub](https://github.com/particle-iot/DAPLink/).
 
-Drag-and-drop flashing only works with .hex files. You can't drop a Particle .bin file directly onto the debugger DAPLINK volume. Also, it's still not particularly reliable on Gen 2 devices (Photon, P1, Electron, and E Series). For Gen 2 devices, you should stick with using openocd, which works quite well.
+Drag-and-drop flashing only works with .hex files. You can't drop a Particle .bin file directly onto the debugger DAPLINK volume. Also, it's still not particularly reliable on Gen 2 devices (Photon, P1, Electron, and E-Series). For Gen 2 devices, you should stick with using openocd, which works quite well.
 
 ## Ordering information
 

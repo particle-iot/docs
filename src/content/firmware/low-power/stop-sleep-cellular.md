@@ -17,7 +17,7 @@ For any sleep period under 15 minutes you will probably want to use stop mode sl
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN028.zip).
 
-### E Series LTE Comparison
+### E-Series LTE Comparison
 
 For the initial connection to the cloud, both the hibernate (deep sleep, Wake-Publish-Sleep) example and this one use approximately the same amount of energy:
 
@@ -497,7 +497,7 @@ void firmwareUpdateHandler(system_event_t event, int param) {
 
 ## Power and log examples
 
-- E Series E402 (LTE Cat M1)
+- E-Series E402 (LTE Cat M1)
 - Device OS 1.5.0
 
 ### Cold boot

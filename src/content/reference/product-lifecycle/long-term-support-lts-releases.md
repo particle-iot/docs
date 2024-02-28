@@ -58,9 +58,9 @@ Developer preview releases have an odd major version (3.x, 5.x, ...). These were
 
 | Platform | Models | Previous LTS | Test With | Current LTS | Minimum Version |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| B Series SoM | B404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
-| B Series SoM | B404 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}}  | 2.3.0<sup>1</sup>|
-| B Series SoM | B402, B524, B523 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}}  | |
+| B-Series SoM | B404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
+| B-Series SoM | B404 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}}  | 2.3.0<sup>1</sup>|
+| B-Series SoM | B402, B524, B523 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}}  | |
 | Boron | BRN404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
 | Boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | |
 | Argon | | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | |
@@ -74,7 +74,7 @@ Developer preview releases have an odd major version (3.x, 5.x, ...). These were
 
 | Platform | Models | Current LTS | Minimum Version |
 | :--- | :--- | :--- | :--- |
-| E Series | E404, E402, E314, E313, E310  | {{version mode="latestRelease" line="2"}} | 2.2.0<sup>1</sup> |
+| E-Series | E404, E402, E314, E313, E310  | {{version mode="latestRelease" line="2"}} | 2.2.0<sup>1</sup> |
 | Electron | ELC402, U260, U270, G350  | {{version mode="latestRelease" line="2"}} | 2.2.0<sup>1</sup> |
 | P1 | | {{version mode="latestRelease" line="2"}} | 1.2.1<sup>2</sup>|
 | Photon | | {{version mode="latestRelease" line="2"}} | 1.2.1<sup>2</sup>|
@@ -133,7 +133,7 @@ Both LTS and regular release may include one or more of the following stages:
 
 For example: Device OS {{version mode="latestRelease" line="2"}} is the current LTS release. This will be the ESM release for customers who wish to remain on 2.x LTS. 
 
-If you are using a Gen 2 device (E Series, Electron, P1, or Photon), these platforms were removed from 4.x and 5.x, and you should stay on 2.x LTS.
+If you are using a Gen 2 device (E-Series, Electron, P1, or Photon), these platforms were removed from 4.x and 5.x, and you should stay on 2.x LTS.
 
 The new LTS (4.x) and developer preview (5.x) releases are based on the latest developer preview release (3.3.0), so there will be changes from the 2.x release line. You should still upgrade to the latest LTS, but you should always test your firmware thoroughly on a major version upgrade.
 

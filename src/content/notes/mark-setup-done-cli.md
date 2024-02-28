@@ -1,4 +1,4 @@
-On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker) running Device OS 3.x or earlier, it is necessary to mark setup done. This can be done using the Particle CLI:
+On Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker) running Device OS 3.x or earlier, it is necessary to mark setup done. This can be done using the Particle CLI:
 
 ```
 particle usb setup-done

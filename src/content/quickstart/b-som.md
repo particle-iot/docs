@@ -1,19 +1,19 @@
 ---
-title: B Series SoM
+title: B-Series SoM
 layout: commonTwo.hbs
 columns: two
-description: Getting started with the B Series SoM with SoM Evaluation Board, Gen 3 cellular and BLE device
+description: Getting started with the B-Series SoM with SoM Evaluation Board, Gen 3 cellular and BLE device
 ---
 
-# Quick start: B Series SoM
+# Quick start: B-Series SoM
 
-![B Series SoM in Evaluation Board](/assets/images/b-series/eval-with-som.png)
+![B-Series SoM in Evaluation Board](/assets/images/b-series/eval-with-som.png)
 
-The Particle B Series M.2 SoM is a cellular and Bluetooth development module designed for building connected  products. This Quick start uses the SoM Evaluation Board to help get started easily. You will typically create your own base board with a M.2 socket on it to hold the SoM, but the SoM Evaluation Board is good for getting started.
+The Particle B-Series M.2 SoM is a cellular and Bluetooth development module designed for building connected  products. This Quick start uses the SoM Evaluation Board to help get started easily. You will typically create your own base board with a M.2 socket on it to hold the SoM, but the SoM Evaluation Board is good for getting started.
 
 To set up the device you'll need an Android or iOS mobile phone and a connection to the internet, or a computer with a USB connection.
 
-#### The B Series SoM comes with:
+#### The B-Series SoM comes with:
 
 - M.2 SoM Module
 - Bluetooth Antenna (2.4 GHz)
@@ -66,7 +66,7 @@ To set up the device you'll need an Android or iOS mobile phone and a connection
 | 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
 | 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
 | 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 22 | **SoM connector** | M.2 connector for the B Series SoM. |
+| 22 | **SoM connector** | M.2 connector for the B-Series SoM. |
 | 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
 | 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
 | 25 | **Charge LED** | Indicate LiPo is charging. | 
@@ -76,24 +76,24 @@ To set up the device you'll need an Android or iOS mobile phone and a connection
 
 If you'd like to use the mobile app setup process, follow the instructions in this section. If you want to use USB and command line setup instead, skip to section 4. In the future the Particle mobile apps for iOS and Android will be deprecated so you should plan on using Method 2 in the future.
 
-To begin setting up your B Series SoM, click the button below and follow the onscreen instructions. When you've completed set up, continue to Step #4.
+To begin setting up your B-Series SoM, click the button below and follow the onscreen instructions. When you've completed set up, continue to Step #4.
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your B Series SoM</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your B-Series SoM</a>
 <br />
 </div>
 
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
-1.) If you have already set up your B Series SoM, skip to Step #5.<br /><br />
+1.) If you have already set up your B-Series SoM, skip to Step #5.<br /><br />
 2.) We recommend setting up the Argon as stanadalone device, not as a part of a mesh network. See [mesh deprecation](/reference/discontinued/hardware/mesh/) for more information.
 
 {{box op="end"}}
 
 ## 4. Setup using USB (Method 2)
 
-Instead of using the mobile apps, you can set up your B Series SoM using USB. With the SoM Evaluation Board connected by USB to your computer:
+Instead of using the mobile apps, you can set up your B-Series SoM using USB. With the SoM Evaluation Board connected by USB to your computer:
 
 - If you have not installed the [Particle CLI](/getting-started/developer-tools/cli/), do so now. 
 
@@ -121,7 +121,7 @@ After that completes:
 particle usb setup-done
 ```
 
-Your B Series SoM should now be fully set up.
+Your B-Series SoM should now be fully set up.
 
 
 ---
@@ -164,7 +164,7 @@ The Web IDE can be used with multiple devices. As such, when you go to compile s
 
 Click the lightning bolt icon on the top left of your screen to flash your code to your device.
 
-As soon as you click, the Particle Device cloud will compile the program source code to a binary file and send it over-the-air (OTA) to your B Series SoM.
+As soon as you click, the Particle Device cloud will compile the program source code to a binary file and send it over-the-air (OTA) to your B-Series SoM.
 
 
 

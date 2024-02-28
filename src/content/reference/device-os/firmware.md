@@ -60,8 +60,8 @@ It is also available [as a single large document](/reference/device-os/firmware/
 
 
 - Limits are in bytes of UTF-8 encoded characters.
-- <sup>2</sup>On Gen 2 devices (Photon, P1, Electron, E Series), the limit is 864 characters,
-- <sup>3</sup>On the P2, Photon 2, and Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM, and E404X) the limit is 1024 characters.
+- <sup>2</sup>On Gen 2 devices (Photon, P1, Electron, E-Series), the limit is 864 characters,
+- <sup>3</sup>On the P2, Photon 2, and Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM, and E404X) the limit is 1024 characters.
 - The 0.8.0 - 2.x column includes all 2.x LTS versions. Higher limits will not be back-ported to 2.x LTS.
 
 Instead of hardcoding these values, you should use these definitions:
@@ -73,7 +73,7 @@ Instead of hardcoding these values, you should use these definitions:
 - `particle::protocol::MAX_EVENT_NAME_LENGTH`
 - `particle::protocol::MAX_EVENT_DATA_LENGTH`
 
-Additionally, some older Boron and B Series SoM with a SARA-R410M-02B modem (LTE Cat M1) may have a limit of 782 bytes instead of 1024 bytes, see [Particle.maxEventDataSize()](/reference/device-os/api/cloud-functions/particle-maxeventdatasize/) for more information.
+Additionally, some older Boron and B-Series SoM with a SARA-R410M-02B modem (LTE Cat M1) may have a limit of 782 bytes instead of 1024 bytes, see [Particle.maxEventDataSize()](/reference/device-os/api/cloud-functions/particle-maxeventdatasize/) for more information.
 
 ### Particle.variable()
 
@@ -566,7 +566,7 @@ float temperature = sensor.readTemperature();  // by way of example, not part of
 Particle.publish("t", String::format("%.2f",temperature), NO_ACK);  // make sure to convert to const char * or String
 ```
 
-On Gen 2 cellular devices (Electron, E Series) and all Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM, E404X):
+On Gen 2 cellular devices (Electron, E-Series) and all Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM, E404X):
 
 *`NO_ACK` flag*
 
@@ -795,7 +795,7 @@ int maxEventDataSize();
 Log.info("eventDataSize=%d", Particle.maxEventDataSize());
 ```
 
-Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
+Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B-Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
 
 This value is only available when connected to the cloud. At other times, `SYSTEM_ERROR_INVALID_STATE` (-210) is returned.
 
@@ -816,7 +816,7 @@ Log.info("maxVariableValueSize=%d", Particle.maxVariableValueSize());
 
 Returns the maximum size of the string variable data.
 
-Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
+Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B-Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
 
 This value is only available when connected to the cloud. At other times, `SYSTEM_ERROR_INVALID_STATE` (-210) is returned.
 
@@ -837,7 +837,7 @@ Log.info("maxFunctionArgumentSize=%d", Particle.maxFunctionArgumentSize());
 
 Returns the maximum size of the function argument data.
 
-Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
+Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B-Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
 
 This value is only available when connected to the cloud. At other times, `SYSTEM_ERROR_INVALID_STATE` (-210) is returned.
 
@@ -967,7 +967,7 @@ In most cases, you do not need to call `Particle.connect()`; it is called automa
 
 Connecting to the cloud does not use Data Operation from your monthly or yearly quota. However, for cellular devices it does use cellular data, so unnecessary connection and disconnection can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
-On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
+On Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
 
 {{since when="5.6.0"}}
@@ -1164,7 +1164,7 @@ Sets the options for when disconnecting from the cloud, such as from `Particle.d
 
 {{api name1="Particle.keepAlive"}}
 
-On all Gen 3 devices (Argon, Boron, B Series SoM, Tracker) and Gen 2 cellular devices:
+On all Gen 3 devices (Argon, Boron, B-Series SoM, Tracker) and Gen 2 cellular devices:
 
 Sets the duration between keep-alive messages used to maintain the connection to the cloud.
 
@@ -1458,12 +1458,12 @@ void setup() {
 
 {{note op="start" type="note"}}
 
-Ethernet is available on the Photon 2, Argon, Boron when used with the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B Series SoM with the evaluation board or the equivalent circuitry on your base board. Circuitry can be added to your P2 or E404X base board for Ethernet as well.
+Ethernet is available on the Photon 2, Argon, Boron when used with the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B-Series SoM with the evaluation board or the equivalent circuitry on your base board. Circuitry can be added to your P2 or E404X base board for Ethernet as well.
 
 On the P2 and Photon 2, it is highly recommended that you use Device OS 5.7.0 or later when using Ethernet due to important
 bugs that were fixed in 5.6.0 and 5.7.0 that can affect Ethernet usability on RTL872x devices.
 
-It is not available on Gen 2 devices (Photon, P1, Electron, and E Series except the E404X).
+It is not available on Gen 2 devices (Photon, P1, Electron, and E-Series except the E404X).
 
 For more information about Ethernet, see the application note [AN037 Ethernet](/hardware/ethernet/ethernet/).
 
@@ -1488,7 +1488,7 @@ void setup()
 
 If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
-| Argon, Boron| B Series SoM | Ethernet FeatherWing Pin  |
+| Argon, Boron| B-Series SoM | Ethernet FeatherWing Pin  |
 |:------:|:------------:|:--------------------------|
 |MISO    | MISO         | SPI MISO                  |
 |MOSI    | MOSI         | SPI MOSI                  |
@@ -1946,7 +1946,7 @@ the IP address used by the device's network connection. This often will be 0.0.0
 The `WiFi` class is available on the P2, Photon 2, Argon, Photon, and P1.
 
 The `WiFi` class is not available on cellular devices such as the Boron and
-B Series SoM (Gen 3) or Electron and E Series (Gen 2).
+B-Series SoM (Gen 3) or Electron and E-Series (Gen 2).
 
 While the Tracker SoM has a Wi-Fi module for geolocation, it cannot be used for network 
 connectivity and thus it does not have the `WiFi` class.
@@ -2002,7 +2002,7 @@ WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 
 If there are no credentials then the call does nothing other than turn on the Wi-Fi module.
 
-On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
+On Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
 On the Argon, starting with Device OS 1.5.0, a quick Wi-Fi scan is done before connecting. The list of available networks is compared with the configured SSIDs. The access point with the strongest signal is connected to. Prior to 1.5.0, only the original access point BSSID that was configured would ever be connected to, even if there was a different access point on the same SSID and network with a stronger signal.
 
@@ -3449,7 +3449,7 @@ For Wi-Fi devices, if there are no credentials stored, this will enter listening
 Network.connect();
 ```
 
-On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
+On Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
 On the Argon, starting with Device OS 1.5.0, a quick Wi-Fi scan is done before connecting. The list of available networks is compared with the configured SSIDs. The access point with the strongest signal is connected to. Prior to 1.5.0, only the original access point BSSID that was configured would ever be connected to, even if there was a different access point on the same SSID and network with a stronger signal.
 
@@ -3884,8 +3884,8 @@ Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credi
 ## Cellular
 
 {{note op="start" type="cellular"}}
-The `Cellular` class is available on the the Boron, B Series SoM, and Tracker (Gen 3) 
-and Electron and E Series (Gen 2).
+The `Cellular` class is available on the the Boron, B-Series SoM, and Tracker (Gen 3) 
+and Electron and E-Series (Gen 2).
 
 It is not available on Wi-Fi devices including the P2, Photon 2, Argon, Photon, and P1.
 {{note op="end"}}
@@ -3985,7 +3985,7 @@ Attempts to connect to the Cellular network. If there are no credentials entered
 Cellular.connect();
 ```
 
-On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
+On Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
 ### disconnect()
 
@@ -4249,7 +4249,7 @@ SIM card, you can restore the use of the Particle SIM by using
 {{note op="start" type="gen2"}}
 On the Electron 2G, U260, U270, and ELC314, there is only a 4FF nano SIM card slot. There is no internal SIM so you must always have a SIM card in the SIM card holder on the bottom of the device for normal operation. 
 
-The Electron LTE (ELC404, and ELC402) and E Series (E310, E314, E402, E404, and E404X), have a built-in MFF2 SMD SIM. Since 
+The Electron LTE (ELC404, and ELC402) and E-Series (E310, E314, E402, E404, and E404X), have a built-in MFF2 SMD SIM. Since 
 you cannot use a 3rd-party SIM card, you do not have to set the APN as the Particle SIM APN is built-in.
 
 - The APN must be set in all user firmware as it is only saved in the modem memory and the setting is erased when powered down.
@@ -4361,7 +4361,7 @@ void loop() {
 {{api name1="Cellular.getDataUsage"}}
 
 {{note op="start" type="note"}}
-The data usage APIs are only available on the Electron 2G and 3G and E Series E310. It is not available on other cellular devices.
+The data usage APIs are only available on the Electron 2G and 3G and E-Series E310. It is not available on other cellular devices.
 {{note op="end"}}
 
 
@@ -4373,7 +4373,7 @@ A software implementation of Data Usage that pulls sent and received session and
 
 **Note**: The internal modem counters are typically reset when the modem is power cycled (complete power removal, soft power down or Cellular.off()) or if the PDP context is deactivated and reactivated which can happen asynchronously during runtime. If the Cellular.getDataUsage() API has been read, reset or set, and then the modem's counters are reset for any reason, the next call to Cellular.getDataUsage() for a read will detect that the new reading would be less than the previous reading.  When this is detected, the current reading will remain the same, and the now lower modem count will be used as the new baseline.  Because of this mechanism, it is generally more accurate to read the getDataUsage() count often. This catches the instances when the modem count is reset, before the count starts to increase again.
 
-**Note**: LTE Cat M1 devices (SARA-R510S-01B, SARA-R410M-02B), Quectel EG91-E (B Series SoM B523), Quectel EG-91EX (Tracker SoM T523), and Quectel BG96-MC (TrackerSoM T402) do not support data usage APIs.
+**Note**: LTE Cat M1 devices (SARA-R510S-01B, SARA-R410M-02B), Quectel EG91-E (B-Series SoM B523), Quectel EG-91EX (Tracker SoM T523), and Quectel BG96-MC (TrackerSoM T402) do not support data usage APIs.
 
 To use the data usage API, an instance of the `CellularData` type needs to be created to read or set counters.  All data usage API functions and the CellularData object itself return `bool` - `true` indicating the last operation was successful and the CellularData object was updated. For set and get functions, `CellularData` is passed by reference `Cellular.dataUsage(CellularData&);` and updated by the function.  There are 5 integers and 1 boolean within the CellularData object:
 
@@ -4626,7 +4626,7 @@ Serial.println(sig.qual);
 ---
 
 {{note op="start" type="gen2"}}
-Band available and band select APIs are only available on Gen 2 (Electron and E Series), and only for 2G/3G, not LTE Cat M1.
+Band available and band select APIs are only available on Gen 2 (Electron and E-Series), and only for 2G/3G, not LTE Cat M1.
 {{note op="end"}}
 
 ---
@@ -4696,7 +4696,7 @@ else {
 ---
 
 {{note op="start" type="gen2"}}
-Band available and band select APIs are only available on Gen 2 (Electron and E Series), and only for 2G/3G, not LTE Cat M1.
+Band available and band select APIs are only available on Gen 2 (Electron and E-Series), and only for 2G/3G, not LTE Cat M1.
 {{note op="end"}}
 
 ---
@@ -4738,7 +4738,7 @@ else {
 ---
 
 {{note op="start" type="gen2"}}
-Band available and band select APIs are only available on Gen 2 (Electron and E Series), and only for 2G/3G, not LTE Cat M1.
+Band available and band select APIs are only available on Gen 2 (Electron and E-Series), and only for 2G/3G, not LTE Cat M1.
 {{note op="end"}}
 
 ---
@@ -5036,7 +5036,7 @@ On cellular devices with a PMIC, you should use [`System.powerSource()`](#powers
 ---
 
 {{note op="start" type="note"}}
-This technique applies only to the Argon and Photon 2. For the Boron, Electron, and E Series, see the FuelGauge, below.
+This technique applies only to the Argon and Photon 2. For the Boron, Electron, and E-Series, see the FuelGauge, below.
 
 The Photon and P1 don't have built-in support for a battery.
 {{note op="end"}}
@@ -5056,7 +5056,7 @@ FuelGauge fuel;
 ---
 
 {{note op="start" type="note"}}
-FuelGauge is available on all devices with a battery state-of-charge sensor, including the Boron, B Series SoM, Tracker SoM (Gen 3) as well as the Electron and E Series (Gen 2).
+FuelGauge is available on all devices with a battery state-of-charge sensor, including the Boron, B-Series SoM, Tracker SoM (Gen 3) as well as the Electron and E-Series (Gen 2).
 
 The Photon 2, P2, Argon, Photon, and P1 do not have FuelGauge support.
 {{note op="end"}}
@@ -5268,13 +5268,13 @@ When porting code from Arudino, pin numbers are numbered (0, 1, 2, ...) in Ardui
 ---
 
 {{note op="start" type="gen3"}}
-- Make sure the signal does not exceed 3.3V. Gen 3 devices (Tracker SoM as well as Argon, Boron, Xenon, and the B Series SoM) are not 5V tolerant in any mode (digital or analog).
+- Make sure the signal does not exceed 3.3V. Gen 3 devices (Tracker SoM as well as Argon, Boron, Xenon, and the B-Series SoM) are not 5V tolerant in any mode (digital or analog).
 
 - `INPUT_PULLUP` and `INPUT_PULLDOWN` are approximately 13K on Gen 3 devices.
 
 If you are using the **Particle Ethernet FeatherWing** you cannot use the pins for GPIO as they are used for the Ethernet interface:
 
-| Argon, Boron, Xenon| B Series SoM | Ethernet FeatherWing Pin  |
+| Argon, Boron, Xenon| B-Series SoM | Ethernet FeatherWing Pin  |
 |:------:|:------------:|:--------------------------|
 |MISO    | MISO         | SPI MISO                  |
 |MOSI    | MOSI         | SPI MOSI                  |
@@ -5287,7 +5287,7 @@ When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and
 
 When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
 
-By default, on the **B Series SoM**, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
+By default, on the **B-Series SoM**, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
 
 ```
 void disable()
@@ -5299,7 +5299,7 @@ void disable()
 STARTUP(disable());
 ```
 
-| B Series SoM | Power Manager Usage  |
+| B-Series SoM | Power Manager Usage  |
 |:-----------: | :------|
 | D0           | I2C SDA |
 | D1           | I2C SCL |
@@ -5344,12 +5344,12 @@ When using the Ethernet FeatherWing with the Photon 2, pins D3, D4, and D5 are r
 
 {{note op="start" type="gen2"}}
 - When using `INPUT_PULLUP` or `INPUT_PULLDOWN` make sure a high level signal does not exceed 3.3V.
-- `INPUT_PULLUP` does not work as expected on TX on the P1, Electron, and E Series and should not be used. 
+- `INPUT_PULLUP` does not work as expected on TX on the P1, Electron, and E-Series and should not be used. 
 - `INPUT_PULLDOWN` does not work as expected on D0 and D1 on the P1 because the P1 module has hardware pull-up resistors on these pins. 
 - `INPUT_PULLUP` and `INPUT_PULLDOWN` are approximately 40K on Gen 2 devices
 - On the P1, D0 and D1 have 2.1K hardware pull-up resistors to 3V3.
 
-On Gen 2 devices (Photon, P1, Electron, and E Series), GPIO pins are 5V tolerant if all of these conditions are met:
+On Gen 2 devices (Photon, P1, Electron, and E-Series), GPIO pins are 5V tolerant if all of these conditions are met:
 - Digital input mode (INPUT) (the ADC is not 5V tolerant)
 - Not using INPUT_PULLDOWN or INPUT_PULLUP (internal pull is not 5V tolerant)
 - Not using pins A3 or A6 (the DAC pins are not 5V tolerant, even in INPUT mode)
@@ -5423,7 +5423,7 @@ void loop()
 {{note op="start" type="gen3"}}
 - For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
-- For the B Series SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+- For the B-Series SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
 - For the Tracker SoM all GPIO pins (`A0`..`A7`, `D0`..`D9`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). Note that on the Tracker SoM pins A0 - A7 and the same physical pins as D0 - D7 and are just alternate names for the same pins.
 
@@ -5510,8 +5510,8 @@ void loop()
 ---
 
 {{note op="start" type="gen2"}}
-- All GPIO pins (`A0`..`A7`, `D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). On the Electron and E Series, there are additional GPIO `B0`..`B5`, `C0`..`C5` as well.
-- On the Photon, Electron, and E Series, all GPIO pins **except** A3 and A6 are 5V tolerant. However you must not use `INPUT_PULLUP` or `INPUT_PULLDOWN` with 5V inputs.
+- All GPIO pins (`A0`..`A7`, `D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). On the Electron and E-Series, there are additional GPIO `B0`..`B5`, `C0`..`C5` as well.
+- On the Photon, Electron, and E-Series, all GPIO pins **except** A3 and A6 are 5V tolerant. However you must not use `INPUT_PULLUP` or `INPUT_PULLDOWN` with 5V inputs.
 - On the P1, all GPIO pins **except** A3, A6, D0 and D1 are 5V tolerant. However you must not use `INPUT_PULLUP` or `INPUT_PULLDOWN` with 5V inputs. 
 - On the P1 there are 2.1K hardware pull-up resistors to 3V3 on D0 and D1 and are not 5V tolerant.
 {{note op="end"}}
@@ -5563,7 +5563,7 @@ The drive strength is typically 2 mA in standard drive mode (the default), and 9
 ---
 
 {{note op="start" type="gen2"}}
-- On Gen 2 devices (Photon, P1, Electron, and E Series) the pin drive strength is always 25 mA and cannot be changed.
+- On Gen 2 devices (Photon, P1, Electron, and E-Series) the pin drive strength is always 25 mA and cannot be changed.
 - This API is not available on Gen 2 devices.
 {{note op="end"}}
 
@@ -5596,7 +5596,7 @@ analogWrite(pin, value, frequency);
 ---
 
 {{note op="start" type="gen2"}}
-On the Photon, P1, Electron, and E Series, pins A3 and A6 (DAC) are DAC (digital-to-analog converter) 
+On the Photon, P1, Electron, and E-Series, pins A3 and A6 (DAC) are DAC (digital-to-analog converter) 
 pins. The analogWrite() function sets an analog voltage, not a PWM frequency, when used on these pins.
 
 When controlling LED brightness, you should always use PWM, not DAC.
@@ -5736,7 +5736,7 @@ analogWrite(D1, 3000, 1000); // 3000/4095 = ~73% duty cycle at 1kHz
 ---
 
 {{note op="start" type="gen2"}}
-On the Photon, P1, Electron, and E Series, pins A3 and A6 (DAC) are DAC (digital-to-analog converter) 
+On the Photon, P1, Electron, and E-Series, pins A3 and A6 (DAC) are DAC (digital-to-analog converter) 
 pins and support only either 8-bit or 12-bit (default) resolutions.
 {{note op="end"}}
 
@@ -5764,7 +5764,7 @@ analogWrite(D1, 3000, maxFreq / 2); // 3000/4095 = ~73% duty cycle
 
 ### Analog Output (DAC)
 
-The Photon, P1, Electron, and E Series support true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
+The Photon, P1, Electron, and E-Series support true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
 with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
 
@@ -5782,7 +5782,7 @@ analogWrite(DAC1, 1024);
 ---
 
 {{note op="start" type="gen3"}}
-DAC is not supported on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
+DAC is not supported on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM).
 {{note op="end"}}
 
 ### analogRead() (ADC)
@@ -5876,7 +5876,7 @@ _Since 0.5.3_ **Note:** you do not need to set the pinMode() with analogRead(). 
 
 The function `setADCSampleTime(duration)` is used to change the default sample time for `analogRead()`.
 
- On the Photon, P1, Electron, and E Series this parameter can be one of the following values (ADC clock = 30MHz or 33.3ns per cycle):
+ On the Photon, P1, Electron, and E-Series this parameter can be one of the following values (ADC clock = 30MHz or 33.3ns per cycle):
 
  * ADC_SampleTime_3Cycles: Sample time equal to 3 cycles, 100ns
  * ADC_SampleTime_15Cycles: Sample time equal to 15 cycles, 500ns
@@ -5894,7 +5894,7 @@ Furthermore, 5 consecutive samples at the sample time are averaged in analogRead
 ---
 
 {{note op="start" type="note"}}
-setADCSampleTime is not supported on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
+setADCSampleTime is not supported on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM).
 {{note op="end"}}
 
 ---
@@ -6163,7 +6163,7 @@ On the Tracker SoM, pins D0 - D9 can be used for PWM. Pins are assigned a PWM gr
 | D6   | PWM1  | 
 | D8   | PWM1  |
 
-On the B Series SoM:
+On the B-Series SoM:
 
 | Pin  | Timer |
 | :--: | :---: |
@@ -6238,7 +6238,7 @@ P1S0 |      |  x   |      |
 P1S1 |      |  x   |      | 
 P1S6 |  x   |      |      |
 
-On the Electron and E Series:
+On the Electron and E-Series:
 
 Pin  | TMR1 | TMR3 | TMR4 | TMR5 | TMR8
 :--- | :--: | :--: | :--: | :--: | :--:
@@ -6492,7 +6492,7 @@ To set the Power Manager configuration, create a `SystemPowerConfiguration` obje
 ---
 
 {{note op="start" type="note"}}
-Power Management is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
+Power Management is available on the Boron, B-Series SoM, Tracker SoM (Gen 3), Electron, and E-Series (Gen 2).
 
 It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 {{note op="end"}}
@@ -6558,7 +6558,7 @@ System power features are enabled or disabled using the `SystemLiwerConfiguratio
 
 {{api name1="SystemPowerFeature::PMIC_DETECTION"}}
 
-For devices with an external PMIC and Fuel Gauge like the B Series SoM, enables detection of the bq24195 PMIC connected by I2C to the primary I2C interface (Wire). Since this requires the use of I2C, you should not use pins D0 and D1 for GPIO when using PMIC_DETECTION.
+For devices with an external PMIC and Fuel Gauge like the B-Series SoM, enables detection of the bq24195 PMIC connected by I2C to the primary I2C interface (Wire). Since this requires the use of I2C, you should not use pins D0 and D1 for GPIO when using PMIC_DETECTION.
 
 #### SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST
 
@@ -6651,15 +6651,15 @@ void setup() {
 }
 ```
 
-### B Series SoM
+### B-Series SoM
 
-By default, on the **B Series SoM**, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
+By default, on the **B-Series SoM**, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
 
 ```
 System.setPowerConfiguration(SystemPowerConfiguration());
 ```
 
-| B Series SoM | Power Manager Usage  |
+| B-Series SoM | Power Manager Usage  |
 |:-----------: | :------|
 | D0           | I2C SDA |
 | D1           | I2C SCL |
@@ -6681,7 +6681,7 @@ by the Device OS.
 ---
 
 {{note op="start" type="note"}}
-Power Management is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
+Power Management is available on the Boron, B-Series SoM, Tracker SoM (Gen 3), Electron, and E-Series (Gen 2).
 
 It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 {{note op="end"}}
@@ -7106,14 +7106,14 @@ Returns the charge voltage register. This is the direct register value from the 
 | :----------- | :------: | :----------: | :-------: | :-------: | :-------: | :-------: | :-------: |
 | Argon        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    |
 | Boron        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    |
-| B Series SoM | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    | 
+| B-Series SoM | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    | 
 | Tracker SoM  | &check;  | &nbsp;       | 2         | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    |
 | P2           | &check;  | &nbsp;       | &check;   | &check;   | &check;   | &nbsp;    | &nbsp;    |
 | Photon 2     | &check;  | &nbsp;       | &check;   | &check;   | &check;   | &nbsp;    | &nbsp;    |
 | Photon       | &check;  | &check;      | &check;   | 1         | &nbsp;    | &nbsp;    | &nbsp;    |
 | P1           | &check;  | &check;      | &check;   | &check;   | &nbsp;    | &nbsp;    | &nbsp;    |
 | Electron     | &check;  | &check;      | &check;   | 1         | &nbsp;    | &check;   | &check;   | 
-| E Series     | &check;  | &check;      | &check;   | &check;   | &nbsp;    | &check;   | &check;   | 
+| E-Series     | &check;  | &check;      | &check;   | &check;   | &nbsp;    | &check;   | &check;   | 
 
 - (1) `Serial2` on the Photon and Electron uses the same pins as the RGB status LED, and cannot be used without 
 physically disconnecting the status LED on the device by removing the LED or current limiting resistors.
@@ -7163,7 +7163,7 @@ You should also avoid mixing the use of `Serial.printlnf` and `Log.info` (and si
 ---
 
 {{note op="start" type="gen3"}}
-Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2(RTS) on the Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM). 
+Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2(RTS) on the Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker SoM). 
 
 The Tracker SoM can use the TX and RX pins as either `Wire3` or `Serial1`. If you use `Serial1.begin()` the pins will be used for UART serial. If you use `Wire3.begin()`, `RX` will be `SDA` and `TX` will be `SCL`. You cannot use `Wire3` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire3` at the same time, as there is only one I2C peripheral, just different pin mappings. This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
 {{note op="end"}}
@@ -7206,7 +7206,7 @@ On the Photon, this channel is optionally available via pins 28/29 (RGB LED Blue
 
 On the Electron, this channel is shared with the RGB Green (TX) and Blue (RX) LED pins. If used for Serial2, the LED or current limiting resistors should be removed. As there are no test pads for these LED pins on the Electron, Serial2 will be difficult to use.
 
-On the P1 and E Series, this channel is shared with the RGB Green (TX) and Blue (RX) LED pins. Since you supply your own LEDs on these devices, you can move them to other pins using RGB.mirrorTo().
+On the P1 and E-Series, this channel is shared with the RGB Green (TX) and Blue (RX) LED pins. Since you supply your own LEDs on these devices, you can move them to other pins using RGB.mirrorTo().
 
 Other devices do not support `Serial2`. On the Argon and Boron, the hardware port is used to communicate with the network coprocessor (NCP) and is not available for user use.
 
@@ -7214,11 +7214,11 @@ To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's ma
 
 `Serial3`: This channel is optionally available on the P2 and Photon 2 only. It optionally supports hardware flow control. To use Serial3, add `#include "Serial3/Serial3.h"` near the top of your app's main code file.
 
-`Serial4:` This channel is optionally available via the Electron and E Series C3(TX) and C2(RX) pins. To use Serial4, add `#include "Serial4/Serial4.h"` near the top of your app's main code file. This port is not available on other devices.
+`Serial4:` This channel is optionally available via the Electron and E-Series C3(TX) and C2(RX) pins. To use Serial4, add `#include "Serial4/Serial4.h"` near the top of your app's main code file. This port is not available on other devices.
 
-`Serial5:` This channel is optionally available via the Electron and E Series C1(TX) and C0(RX) pins. To use Serial5, add `#include "Serial5/Serial5.h"` near the top of your app's main code file. This port is not available on other devices.
+`Serial5:` This channel is optionally available via the Electron and E-Series C1(TX) and C0(RX) pins. To use Serial5, add `#include "Serial5/Serial5.h"` near the top of your app's main code file. This port is not available on other devices.
 
-`USBSerial1`: Available on Gen 2 (Photon, P1, Electron, E Series) with Device OS 0.6.0. and later: This channel communicates through the USB port and when connected to a computer, will show up as a second virtual COM port. This channel is disabled by default. 
+`USBSerial1`: Available on Gen 2 (Photon, P1, Electron, E-Series) with Device OS 0.6.0. and later: This channel communicates through the USB port and when connected to a computer, will show up as a second virtual COM port. This channel is disabled by default. 
 
 ---
 
@@ -7235,7 +7235,7 @@ void setup()
 ```
 
 ```cpp
-// EXAMPLE USAGE Serial4 on Electron and E Series
+// EXAMPLE USAGE Serial4 on Electron and E-Series
 #include "Serial4/Serial4.h"
 
 void setup()
@@ -7250,7 +7250,7 @@ To use the hardware serial pins of (Serial1, etc.) to communicate with your pers
 
 **NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the device.
 
-**NOTE:** On Windows 10, using `USBSerial1` on the Electron, E Series, and P1 may not be reliable due to limitations of the USB peripheral used for those 2 devices. Characters may be dropped between the computer and device. `USBSerial1` is reliable on other operating systems and also on the Photon. `USBSerial1` is not available on Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM).
+**NOTE:** On Windows 10, using `USBSerial1` on the Electron, E-Series, and P1 may not be reliable due to limitations of the USB peripheral used for those 2 devices. Characters may be dropped between the computer and device. `USBSerial1` is reliable on other operating systems and also on the Photon. `USBSerial1` is not available on Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker SoM).
 
 For more information about serial ports, see [learn more about serial](/hardware/expansion/about-serial/).
 
@@ -7264,7 +7264,7 @@ Enables serial channel with specified configuration.
 // SYNTAX
 Serial.begin();          // via USB port
 
-// Photon, P1, Electron, and E Series only
+// Photon, P1, Electron, and E-Series only
 USBSerial1.begin();      // via USB port 
 
 Serial1.begin(speed);         // via TX/RX pins
@@ -7273,7 +7273,7 @@ Serial1.begin(speed, config); //  "
 Serial1.begin(9600, SERIAL_9N1); // via TX/RX pins, 9600 9N1 mode
 Serial1.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via TX/RX pins, 9600 8E1.5
 
-// P2, Photon 2, Photon, P1, Electron, and E Series
+// P2, Photon 2, Photon, P1, Electron, and E-Series
 #include "Serial2/Serial2.h"
 Serial2.begin(speed);         // RGB-LED green(TX) and blue (RX) pins
 Serial2.begin(speed, config); //  "
@@ -7281,12 +7281,12 @@ Serial2.begin(speed, config); //  "
 Serial2.begin(9600);         // via RGB Green (TX) and Blue (RX) LED pins
 Serial2.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via RGB Green (TX) and Blue (RX) LED pins, 9600 8E1.5
 
-// Electron and E Series only
+// Electron and E-Series only
 #include "Serial4/Serial4.h"
 Serial4.begin(speed);         // via C3(TX)/C2(RX) pins
 Serial4.begin(speed, config); //  "
 
-// Electron and E Series only
+// Electron and E-Series only
 #include "Serial5/Serial5.h"
 Serial5.begin(speed);         // via C1(TX)/C0(RX) pins
 Serial5.begin(speed, config); //  "
@@ -7324,7 +7324,7 @@ Pre-defined Serial configurations available:
 ---
 
 {{note op="start" type="gen3"}}
-On Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) devices: 
+On Gen 3 (Argon, Boron, B-Series SoM, Tracker SoM) devices: 
 
 Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400, 57600, 76800, 115200, 230400, 250000, 460800, 921600 and 1000000.
 
@@ -7333,7 +7333,7 @@ Configuration options include:
 - `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
 - `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
 
-Other options, including odd parity, and 7 and 9 bit modes, are not available on Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). 
+Other options, including odd parity, and 7 and 9 bit modes, are not available on Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM). 
 
 Flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using flow control (the default), then these pins can be used as regular GPIO.
 
@@ -7377,7 +7377,7 @@ Flow control is available on Serial2 and Serial3. If you are not using flow cont
 ---
 
 {{note op="start" type="gen2"}}
-On Gen 2 devices (Photon, P1, Electron, E Series):
+On Gen 2 devices (Photon, P1, Electron, E-Series):
 
 Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, and 230400.
 
@@ -7484,7 +7484,7 @@ Serial1.end();
 
 Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer.
 
-The receive buffer size for hardware UART serial channels (Serial1, Serial2, etc.) is 128 bytes on Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) and 64 or 128 bytes depending on the UART mode on Gen 2 (Photon, P1, Electron, E Series). {{since when="3.2.0"}} See also [`acquireSerial1Buffer`](#acquireserial1buffer-).
+The receive buffer size for hardware UART serial channels (Serial1, Serial2, etc.) is 128 bytes on Gen 3 (Argon, Boron, B-Series SoM, Tracker SoM) and 64 or 128 bytes depending on the UART mode on Gen 2 (Photon, P1, Electron, E-Series). {{since when="3.2.0"}} See also [`acquireSerial1Buffer`](#acquireserial1buffer-).
 
 For USB serial (Serial, USBSerial1), the receive buffer is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-) [`acquireSerial1Buffer`](#acquireserial1buffer-).
 
@@ -7570,7 +7570,7 @@ HAL_USB_USART_Config acquireUSBSerial1Buffer()
 
 It is possible for the application to allocate its own buffers for `Serial` (USB serial) by implementing `acquireSerialBuffer`. Minimum receive buffer size is 65 bytes.
 
-On Gen 2 devices (Photon, P1, Electron. E Series), the `USBSerial1` receive buffer can be resized using `acquireUSBSerial1Buffer`. Minimum receive buffer size is 65 bytes.
+On Gen 2 devices (Photon, P1, Electron. E-Series), the `USBSerial1` receive buffer can be resized using `acquireUSBSerial1Buffer`. Minimum receive buffer size is 65 bytes.
 
 {{since when="3.2.0"}} This is also available for hardware UART ports like `Serial1`, `Serial2`, etc, see [`acquireSerial1Buffer`](#acquireserial1buffer-).
 
@@ -7630,7 +7630,7 @@ Depending on UART mode it might be required to allocate double the number of byt
 
 {{since when="0.5.0"}} Available on USB Serial (Serial)
 
-{{since when="0.6.0"}} Available on `USBSerial1` on Gen 2 devices (Photon, P1, Electron, E Series)
+{{since when="0.6.0"}} Available on `USBSerial1` on Gen 2 devices (Photon, P1, Electron, E-Series)
 
 Defines what should happen when calls to `write()/print()/println()/printlnf()` that would overrun the buffer.
 
@@ -7919,7 +7919,7 @@ Serial1.halfduplex(true);
 ---
 
 {{note op="start" type="gen2"}}
-Half duplex mode is only available on Gen 2 devices (Photon, P1, Electron, E Series) on
+Half duplex mode is only available on Gen 2 devices (Photon, P1, Electron, E-Series) on
 hardware UART ports (Serial1, Serial2, ...).
 {{note op="end"}}
 
@@ -8041,8 +8041,8 @@ Keyboard and Mouse support is only available on some devices and Device OS versi
 | Device | Device OS Version |
 | :--- | :--- |
 | P2, Photon 2 | 5.4.0 and later |
-| Photon, P1, Electron, E Series | 0.6.0 and later |
-| Boron, B Series SoM, Argon, Tracker, E404X | Not Supported |
+| Photon, P1, Electron, E-Series | 0.6.0 and later |
+| Boron, B-Series SoM, Argon, Tracker, E404X | Not Supported |
 
 ### begin()
 
@@ -8397,8 +8397,8 @@ Keyboard and Mouse support is only available on some devices and Device OS versi
 | Device | Device OS Version |
 | :--- | :--- |
 | P2, Photon 2 | 5.4.0 and later |
-| Photon, P1, Electron, E Series | 0.6.0 and later |
-| Boron, B Series SoM, Argon, Tracker, E404X | Not Supported |
+| Photon, P1, Electron, E-Series | 0.6.0 and later |
+| Boron, B-Series SoM, Argon, Tracker, E404X | Not Supported |
 
 ### begin()
 
@@ -8646,7 +8646,7 @@ This object allows you to communicate with SPI ("Serial Peripheral Interface") d
 | SPI | 60 Mbit/sec | 32 Mbit/sec | Many (limited by CS GPIO pins) |
 
 
-SPI slave mode is supported as well (since DeviceOS 0.5.0). On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM), SPI slave can only be used on SPI1. 
+SPI slave mode is supported as well (since DeviceOS 0.5.0). On Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker SoM), SPI slave can only be used on SPI1. 
 
 The hardware SPI pin functions, which can
 be used via the `SPI` object, are mapped as follows:
@@ -8660,7 +8660,7 @@ On the Argon, Boron, and Xenon:
 * `MISO` => `MISO (D11)`
 * `MOSI` => `MOSI (D12)`
 
-On the B Series SoM:
+On the B-Series SoM:
 * `SS` => `D8` (but can use any available GPIO)
 * `SCK` => `SCK (D13)`
 * `MISO` => `MISO (D11)`
@@ -8732,7 +8732,7 @@ be used via the `SPI1` object. This second port is mapped as follows:
 * `MISO` => `D3`
 * `MOSI` => `D2`
 
-Additionally on the Electron and E Series, there is an alternate pin location for the second SPI interface, which can
+Additionally on the Electron and E-Series, there is an alternate pin location for the second SPI interface, which can
 be used via the `SPI2` object. As this is just an alternate pin mapping you cannot use both `SPI1` and `SPI2` at the same time. 
 This alternate location is mapped as follows:
 * `SS` => `D5` (default)
@@ -8794,7 +8794,7 @@ SPI.begin(SPI_MODE_MASTER);
 SPI1.begin(SPI_MODE_SLAVE, D5);
 
 // Example using SPI2 in slave mode, with C0 as the SS pin
-// (Electron and E Series only)
+// (Electron and E-Series only)
 SPI2.begin(SPI_MODE_SLAVE, C0);
 ```
 
@@ -8857,7 +8857,7 @@ the clock speed using dividers is typically not portable since is dependent upon
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setClockSpeed()`.
 
-Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) support SPI speeds up to 32 MHz on SPI and 8 MHz on SPI1.
+Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker SoM) support SPI speeds up to 32 MHz on SPI and 8 MHz on SPI1.
 
 
 ### setClockDividerReference
@@ -8888,9 +8888,9 @@ SPI.setClockDivider(SPI_CLK_DIV4);
 
 The default clock divider reference is the system clock.
 
-On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM), system clock speed is 64 MHz.
+On Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker SoM), system clock speed is 64 MHz.
 
-On the Gen 2 (Photon, P1, Electron, and E Series), the system clock speeds are:
+On the Gen 2 (Photon, P1, Electron, and E-Series), the system clock speeds are:
 - SPI - 60 MHz
 - SPI1 - 30 MHz
 
@@ -8920,8 +8920,8 @@ Where the parameter, `divider` can be:
 
 The clock reference varies depending on the device.
 
-- On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM), the clock reference is 64 MHz.
-- On Gen 2 devices (Photon, P1, Electron, E Series), the clock reference is 120 MHz.
+- On Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM), the clock reference is 64 MHz.
+- On Gen 2 devices (Photon, P1, Electron, E-Series), the clock reference is 120 MHz.
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setClockDivider()`.
 
@@ -9164,7 +9164,7 @@ It is required that you use `beginTransaction()` and `endTransaction()` if:
 
 - You have more than one SPI device and they have different settings (speed, bit order, or mode)
 - You have more than one thread or use SPI from a Software Timer
-- You want to be compatible with the Ethernet FeatherWing or support Ethernet on your B Series SoM base board
+- You want to be compatible with the Ethernet FeatherWing or support Ethernet on your B-Series SoM base board
 
 You must not use `beginTransaction()` within a `SINGLE_THREADED_BLOCK` as deadlock can occur.
 
@@ -9230,7 +9230,7 @@ On the Photon and Electron, a 40K weak pull-up is added on SDA/SCL (D0/D1) when 
 
 On the P1, there are 2.1K hardware pull-up resistors inside the P1 module. You should not add external pull-ups on the P1.
 
-On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM), a 13K pull-up is added on I2C interfaces. This will sometimes work, but is still too large of a pull-up to be reliable so you should add external pull-ups as well.
+On Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM), a 13K pull-up is added on I2C interfaces. This will sometimes work, but is still too large of a pull-up to be reliable so you should add external pull-ups as well.
 
 ### Pins (I2C)
 
@@ -9256,9 +9256,9 @@ The Tracker SoM allows an alternate mapping of the `Wire` (I2C interface) from D
 
 This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
 
-**Argon and B Series SoM**
+**Argon and B-Series SoM**
 
-Additionally, on the Argon and B Series SoM there is a second I2C port that can be used with the `Wire1` object. This a separate I2C peripheral and can be used at the same time as `Wire`.
+Additionally, on the Argon and B-Series SoM there is a second I2C port that can be used with the `Wire1` object. This a separate I2C peripheral and can be used at the same time as `Wire`.
 
 * `SCL` => `D3`
 * `SDA` => `D2` 
@@ -9279,7 +9279,7 @@ The P2 does not contain internal strong pull-up resistors on D0 and D1, unlike t
 ---
 
 {{note op="start" type="gen2"}}
-On the Gen 2 devices (Photon, P1, Electron, E Series), 
+On the Gen 2 devices (Photon, P1, Electron, E-Series), 
 D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). 
 
 Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).
@@ -9712,7 +9712,7 @@ HAL_I2C_Config acquireWireBuffer() {
 }
 ```
 
-For devices with `Wire1` (Electron, E Series) or `Wire3` (Tracker SoM), the equivalent functions are `acquireWire1Buffer` and `acquireWire3Buffer`.
+For devices with `Wire1` (Electron, E-Series) or `Wire3` (Tracker SoM), the equivalent functions are `acquireWire1Buffer` and `acquireWire3Buffer`.
 
 
 ## CAN (canbus)
@@ -9720,11 +9720,11 @@ For devices with `Wire1` (Electron, E Series) or `Wire3` (Tracker SoM), the equi
 {{api name1="CAN"}}
 
 {{note op="start" type="note"}}
-This CAN API is supported only on Gen 2 devices (Photon, P1, Electron, and E Series).
+This CAN API is supported only on Gen 2 devices (Photon, P1, Electron, and E-Series).
 
 The Tracker SoM supports CAN, but uses an external library. See [Tracker CAN](/reference/tracker/can-bus/).
 
-The Argon, Boron, B Series SoM, P2, and Photon 2 do not include CAN hardware, but it can be added with an external
+The Argon, Boron, B-Series SoM, P2, and Photon 2 do not include CAN hardware, but it can be added with an external
 CAN interface chip and library, like the Tracker SoM.
 {{note op="end"}}
 
@@ -10078,13 +10078,13 @@ Serial.println(myIP);    // prints the device's IP address
 
 {{api name1="BLE"}}
 
-The P2, Photon 2, and Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/reference/device-os/bluetooth-le/).
+The P2, Photon 2, and Gen 3 devices (Argon, Boron, B-Series SoM, and Tracker SoM) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/reference/device-os/bluetooth-le/).
 
 BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices. Particle devices do not support Bluetooth 5 mesh.
 
 The BLE radio can use the built-in chip or trace antenna, or an external antenna if you have installed and [configured](#ble-selectantenna-) one.
 
-The B Series  SoM (system-on-a-module) requires the external BLE antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
+The B-Series  SoM (system-on-a-module) requires the external BLE antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
 
 BLE is supported in Device OS 1.3.1 and later. BLE support was in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions. Some differences between 1.3.0 and 1.3.1 include:
 
@@ -10094,7 +10094,7 @@ BLE is supported in Device OS 1.3.1 and later. BLE support was in beta test in D
 
 ---
 {{note op="start" type="gen2"}}
-Gen 2 devices (Photon, P1, Electron, E Series) do not support BLE.
+Gen 2 devices (Photon, P1, Electron, E-Series) do not support BLE.
 {{note op="end"}}
 
 ### BLE Class
@@ -11160,7 +11160,7 @@ See [`BleAddress`](#bleaddress) for more information.
 
 Selects which antenna is used by the BLE radio stack. This is a persistent setting.
 
-**Note:** B Series SoM devices do not have an internal (chip) antenna and require an external antenna to use BLE. It's not necessary to select the external antenna on the B Series SoM as there is no internal option.
+**Note:** B-Series SoM devices do not have an internal (chip) antenna and require an external antenna to use BLE. It's not necessary to select the external antenna on the B-Series SoM as there is no internal option.
 
 On the P2 and Photon 2, this method sets the antenna used for both BLE and Wi-Fi, and must be used instead of `WiFi.selectAntenna()`.
 
@@ -11229,7 +11229,7 @@ int setPairingAlgorithm(BlePairingAlgorithm algorithm) const;
 | `BlePairingAlgorithm::LEGACY_ONLY` | Legacy Pairing mode only |
 | `BlePairingAlgorithm::LESC_ONLY` | Bluetooth LE Secure Connection Pairing (LESC) only  |
 
-- LESC pairing is supported in Device OS 3.1.0 and later on the Boron, B Series SoM, Argon, and Tracker SoM (nRF52840).
+- LESC pairing is supported in Device OS 3.1.0 and later on the Boron, B-Series SoM, Argon, and Tracker SoM (nRF52840).
 - LESC pairing is supported in Device OS 5.1.0 and later on the P2 and Photon 2 (RTL872x).
 
 #### BLE.startPairing()
@@ -11280,7 +11280,7 @@ This is used with `BlePairingEventType::NUMERIC_COMPARISON` to confirm that two 
 
 The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
 
-- LESC pairing is supported in Device OS 3.1.0 and later on the Boron, B Series SoM, Argon, and Tracker SoM (nRF52840).
+- LESC pairing is supported in Device OS 3.1.0 and later on the Boron, B-Series SoM, Argon, and Tracker SoM (nRF52840).
 - LESC pairing is supported in Device OS 5.1.0 and later on the P2 and Photon 2 (RTL872x).
 
 
@@ -11429,7 +11429,7 @@ LESC pairing is supported in Device OS 3.1 and later only.
 
 Numeric comparison mode is being used to pair devices in LESC pairing mode. You should display the passkey in the same was as `BlePairingEventType::PASSKEY_DISPLAY`.
 
-- LESC pairing is supported in Device OS 3.1.0 and later on the Boron, B Series SoM, Argon, and Tracker SoM (nRF52840).
+- LESC pairing is supported in Device OS 3.1.0 and later on the Boron, B-Series SoM, Argon, and Tracker SoM (nRF52840).
 - LESC pairing is supported in Device OS 5.1.0 and later on the P2 and Photon 2 (RTL872x).
 
 ##### BLEPairingEvent
@@ -13005,7 +13005,7 @@ In Device OS 3.0.0 and later there are accessors to read the values out of the i
 
 NFC (Near-Field Communication) is typically used to communicate small amounts of data to a mobile app in very close range, within a few inches.
 
-Particle Gen 3 devices (Argon, Boron, B Series SoM, and TrackerSoM) 
+Particle Gen 3 devices (Argon, Boron, B-Series SoM, and TrackerSoM) 
 only support emulating an NFC tag. They cannot locate or communicate with tags themselves, or support protocols such as for NFC payments.
 
 A separate antenna is required. NFC uses the unlicensed 13.56 MHz band, and requires a special loop antenna for electromagnetic induction. On the Argon, Boron, and Xenon, the NFC antenna connects to a U.FL connector on the bottom of the board, directly underneath the USB connector. The Tracker One includes an NFC antenna within the sealed enclosure.
@@ -13015,7 +13015,7 @@ NFC is supported in Device OS 1.3.1 and later. NFC support was in beta test in D
 ---
 
 {{note op="start" type="gen2"}}
-The P2, Photon 2, and Gen 2 devices (Photon, P1, Electron, E Series) do not support NFC.
+The P2, Photon 2, and Gen 2 devices (Photon, P1, Electron, E-Series) do not support NFC.
 {{note op="end"}}
 
 ### Example app
@@ -13310,7 +13310,7 @@ Returns the number of bytes added (`numBytes`).
 ---
 
 {{note op="start" type="cellular"}}
-Cellular devices (Boron, B Series SoM, Tracker SoM, Electron, E Series) do not support TCPServer. The cellular modem does not support it, and also the mobile carriers do not support it. You can only make outgoing TCP connections (TCPClient) on cellular devices.
+Cellular devices (Boron, B-Series SoM, Tracker SoM, Electron, E-Series) do not support TCPServer. The cellular modem does not support it, and also the mobile carriers do not support it. You can only make outgoing TCP connections (TCPClient) on cellular devices.
 {{note op="end"}}
 
 ---
@@ -14364,7 +14364,7 @@ Set up a servo on a particular pin. Note that, Servo can only be attached to pin
 - on the P1, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, P1S0, P1S1
 - on the Electron, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, B0, B1, B2, B3, C4, C5
 - on Gen 3 Argon, Boron, and Xenon devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, and D8 can be used for Servo.
-- On Gen 3 B Series SoM devices, pins A0, A1, A6, A7, D4, D5, and D6 can be used for Servo.
+- On Gen 3 B-Series SoM devices, pins A0, A1, A6, A7, D4, D5, and D6 can be used for Servo.
 - On Gen 3 Tracker SoM devices, pins D0 - D9 can be used for Servo.
 
 ```cpp
@@ -14726,13 +14726,13 @@ Parameters:
 ---
 
 {{note op="start" type="gen3"}}
-On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM in Particle color scheme), the priority of breathing cyan is `LED_PRIORITY_NORMAL` so to override it with your own custom color scheme you should use `LED_PRIORITY_IMPORTANT`.
+On Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM in Particle color scheme), the priority of breathing cyan is `LED_PRIORITY_NORMAL` so to override it with your own custom color scheme you should use `LED_PRIORITY_IMPORTANT`.
 {{note op="end"}}
 
 ---
 
 {{note op="start" type="gen2"}}
-On Gen 2 devices (Photon, P1, Electron, E Series), the priority of breathing cyan is `LED_PRIORITY_BACKGROUND`. You can override it with `LED_PRIORITY_NORMAL` or `LED_PRIORITY_IMPORTANT`.
+On Gen 2 devices (Photon, P1, Electron, E-Series), the priority of breathing cyan is `LED_PRIORITY_BACKGROUND`. You can override it with `LED_PRIORITY_NORMAL` or `LED_PRIORITY_IMPORTANT`.
 {{note op="end"}}
 
 
@@ -16014,7 +16014,7 @@ Shared on the P1 (only one pin for each bullet item can be used at the same time
   - A7 (WKP), P1S0, P1S2
   - P1S1, P1S5
 
-**Electron/E Series**
+**Electron/E-Series**
 
 Not supported on the Electron/E series (you can't use attachInterrupt on these pins):
 
@@ -16399,7 +16399,7 @@ if (timer.isActive()) {
 
 {{since when="5.3.0"}}
 
-Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B Series SoM, Argon, Tracker SoM, E404X) and RTL827x (P2, Photon 2) can use the hardware watchdog built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode.
+Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B-Series SoM, Argon, Tracker SoM, E404X) and RTL827x (P2, Photon 2) can use the hardware watchdog built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode.
 
 Typically you start it from `setup()`. Since it does not run during firmware updates, it's safe to use a relatively short timeout, however you probably don't want to set it lower than 30 seconds to prevent unintended resets. 
 
@@ -16409,7 +16409,7 @@ The hardware watchdog is automatically stopped before entering safe mode or DFU 
 
 On all platforms, the default is for the watchdog to continue running during sleep mode.
 
-On the Boron, B Series SoM, Tracker, Argon, and E404X (nRF52840), the `WatchdogCap::SLEEP_RUNNING` defaults to on, which is to say the watchdog continues to run while in sleep. It can, however, be explictly cleared so the watchdog will be paused while in sleep mode. 
+On the Boron, B-Series SoM, Tracker, Argon, and E404X (nRF52840), the `WatchdogCap::SLEEP_RUNNING` defaults to on, which is to say the watchdog continues to run while in sleep. It can, however, be explictly cleared so the watchdog will be paused while in sleep mode. 
 
 On the P2 and Photon 2 (RTL872x), the watchdog contiues to run in sleep mode. However, you could manually stop it before sleep mode.
 
@@ -16460,10 +16460,10 @@ The minimum is 1 millisecond, but you should never set it that short since it wi
 
 The maximium varies by platform:
 
-- Boron, B Series SoM, Argon, Tracker SoM (nRF52840): 131,071,999 milliseconds
+- Boron, B-Series SoM, Argon, Tracker SoM (nRF52840): 131,071,999 milliseconds
 - P2 and Photon 2 (RTL872x): 8,190,000 milliseconds (around 2 hours and 15 minutes)
 
-You can only call `init()` if the watchdog is not currently running. On the nRF52 platform (Boron, B Series SoM, Argon, Tracker SoM) you cannot stop the watchdog, so you necessarily can only start it once until the device is reset. This also means you cannot change the watchdog time period on the nRF52 platform.
+You can only call `init()` if the watchdog is not currently running. On the nRF52 platform (Boron, B-Series SoM, Argon, Tracker SoM) you cannot stop the watchdog, so you necessarily can only start it once until the device is reset. This also means you cannot change the watchdog time period on the nRF52 platform.
 
 ### Watchdog.start
 
@@ -16477,7 +16477,7 @@ You typically start it when initializating during setup().
 
 RTL872x platform (P2, Photon 2): You can stop the watchdog after starting it.
 
-nRF52 platform (Boron, B Series SoM, Argon, Tracker SoM): `stop()` is not available due to hardware limitations.
+nRF52 platform (Boron, B-Series SoM, Argon, Tracker SoM): `stop()` is not available due to hardware limitations.
 
 For maximum compatibility across devices, you should design your watchdog configuration to avoid having to stop the watchdog.
 
@@ -16507,7 +16507,7 @@ Watchdog.init(WatchdogConfiguration()
 Watchdog.start();
 ```
 
-On nRF52840 (Boron, B Series SoM, Argon, Tracker SoM, E404X) devices, you can optionally stop the watchdog from running during sleep by setting the capabilities.
+On nRF52840 (Boron, B-Series SoM, Argon, Tracker SoM, E404X) devices, you can optionally stop the watchdog from running during sleep by setting the capabilities.
 
 The default is `WatchdogCap::NOTIFY | WatchdogCap::SLEEP_RUNNING | WatchdogCap::DEBUG_RUNNING` so not setting `WatchdogCap::SLEEP_RUNNING` will pause the watchdog while in sleep mode.
 
@@ -16532,7 +16532,7 @@ It is possible to set an expired handler. Since the device is probably in an uns
 
 RTL872x platform (P2, Photon 2): If the `onExpired()` callback is used, the device will not automatically reset.
 
-nRF52 platform (Boron, B Series SoM, Argon, Tracker SoM): The `onExpired()` callback is available, and the device will always reset shortly after the callback is called.
+nRF52 platform (Boron, B-Series SoM, Argon, Tracker SoM): The `onExpired()` callback is available, and the device will always reset shortly after the callback is called.
 
 Due to the limitations of `onExpired()` and the difference between platforms, we recommed not using this feature.
 
@@ -16544,7 +16544,7 @@ A **Watchdog Timer** is designed to rescue your device should an unexpected prob
 
 Device OS includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/watchdog-application/watchdog-application/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations. In practice, the application watchdog is rarely effective.
 
-Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B Series SoM, Argon, Tracker SoM, E404X) and RTL827x (P2, Photon 2) can use the [hardware watchdog](#watchdog-hardware) built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode. Using this, instead of the application watchdog, is recommended.
+Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B-Series SoM, Argon, Tracker SoM, E404X) and RTL827x (P2, Photon 2) can use the [hardware watchdog](#watchdog-hardware) built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode. Using this, instead of the application watchdog, is recommended.
 
 The page on [watchdog timers](/hardware/best-practices/watchdog-timers/) has information about external hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 
@@ -16931,7 +16931,7 @@ Gets a cryptographic random number (32-bit) from the hardware random number gene
 
 Note: The hardware random number generator has a limit to the number of random values it can produce in a given timeframe. If there aren't enough random numbers available at this time, this function may be block until there are. If you need a large number of random values you can use this function to seed a pseudo-random number generator (PRNG).
 
-Note: Only available on Gen 2 (Photon, P1, Electron, E Series), and Gen 3 (Argon, Boron, B Series SoM, Tracker SoM). Not available on the Spark Core.
+Note: Only available on Gen 2 (Photon, P1, Electron, E-Series), and Gen 3 (Argon, Boron, B-Series SoM, Tracker SoM). Not available on the Spark Core.
 
 ## EEPROM
 
@@ -16942,7 +16942,7 @@ EEPROM emulation allows small amounts of data to be stored and persisted even ac
 ---
 
 {{note op="start" type="gen3"}}
-On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM, and E404X) 
+On Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM, and E404X) 
 the EEPROM emulation is stored as a file on the flash file system. Since the data is spread across a large number of flash sectors, flash erase-write cycle limits should not be an issue in general.
 {{note op="end"}}
 
@@ -16955,7 +16955,7 @@ The P2 and Photon 2 also uses a file a file on the flash file system for EEPROM 
 ---
 
 {{note op="start" type="gen2"}}
-On Gen 2 devices (Photon, P1, Electron, and E Series except the E404X) 
+On Gen 2 devices (Photon, P1, Electron, and E-Series except the E404X) 
 EEPROM emulation allocates a region of the device's built-in Flash memory to act as EEPROM.
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
 each individual address. Instead, the page suffers wear when it is filled.
@@ -16982,8 +16982,8 @@ Returns the total number of bytes available in the emulated EEPROM.
 size_t length = EEPROM.length();
 ```
 
-- The Gen 2 (Photon, P1, Electron, and E Series) have 2047 bytes of emulated EEPROM.
-- The Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) devices have 4096 bytes of emulated EEPROM.
+- The Gen 2 (Photon, P1, Electron, and E-Series) have 2047 bytes of emulated EEPROM.
+- The Gen 3 (Argon, Boron, B-Series SoM, Tracker SoM) devices have 4096 bytes of emulated EEPROM.
 
 ### put()
 
@@ -17156,7 +17156,7 @@ pages.
 {{api name1="EEPROM.hasPendingErase" name2="performPendingErase"}}
 
 {{note op="start" type="gen2"}}
-Pending erase functions are only used on Gen 2 devices (Photon, P1, Electron, and E Series, except the E404X). 
+Pending erase functions are only used on Gen 2 devices (Photon, P1, Electron, and E-Series, except the E404X). 
 {{note op="end"}}
 
 ---
@@ -17203,7 +17203,7 @@ pause any time `put()` or `write()` is called.
 {{note op="start" type="gen3"}}
 A 3068 bytes section of backup RAM is provided for storing values that are maintained across system reset and hibernate sleep mode. Unlike EEPROM emulation, the backup RAM can be accessed at the same speed as regular RAM and does not have any wear limitations.
 
-On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM), retained memory is only initialized in Device OS 1.5.0 and later. In prior versions, retained memory would always be uninitialized on first power-up.
+On Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM), retained memory is only initialized in Device OS 1.5.0 and later. In prior versions, retained memory would always be uninitialized on first power-up.
 {{note op="end"}}
 
 ---
@@ -17358,11 +17358,11 @@ Using additional sanity checks can help prevent using invalid data.
 
 {{api name1="FEATURE_RETAINED_MEMORY"}}
 
-- On Gen 3 devices (B Series SoM, Boron, Argon, Tracker SoM, Tracker One, E404X), retained memory is always enabled, regagrdless of the feature flag.
+- On Gen 3 devices (B-Series SoM, Boron, Argon, Tracker SoM, Tracker One, E404X), retained memory is always enabled, regagrdless of the feature flag.
 
 - On the P2, Photon 2, and Tracker M, retained memory is not available.
 
-- On Gen 2 devices (E Series, Photon, P1), backup RAM is disabled by default, since it does require some maintenance power
+- On Gen 2 devices (E-Series, Photon, P1), backup RAM is disabled by default, since it does require some maintenance power
 which may not be desired on some low-powered projects.  Backup RAM consumes roughly
 5uA or less on VIN and 9uA or less on VBAT.
 
@@ -17447,7 +17447,7 @@ Other acceptable calls to make from STARTUP include:
 ---
 
 {{note op="start" type="gen2"}}
-Some acceptable calls to make from `STARTUP()` on Gen 2 devices (Photon, P1, Electron, E Series) include:
+Some acceptable calls to make from `STARTUP()` on Gen 2 devices (Photon, P1, Electron, E-Series) include:
 
 - `cellular_credentials_set()`
 - `WiFi.selectAntenna()`
@@ -17749,7 +17749,7 @@ In this mode on wake, device is reset, running setup() again.
 ---
 
 {{note op="start" type="gen3"}}
-- On the Argon, Boron, B Series SoM, and E404X you can only wake by pin, not by time, in HIBERNATE mode.
+- On the Argon, Boron, B-Series SoM, and E404X you can only wake by pin, not by time, in HIBERNATE mode.
 
 - On the Tracker SoM, Tracker One, and Monitor One, you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
 
@@ -17759,7 +17759,7 @@ In this mode on wake, device is reset, running setup() again.
 
 - GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 
-- Gen 3 devices (Argon, Boron, B Series SoM, E404X, Tracker SoM, Tracker One), can wake on analog voltage comparison.
+- Gen 3 devices (Argon, Boron, B-Series SoM, E404X, Tracker SoM, Tracker One), can wake on analog voltage comparison.
 {{note op="end"}}
 
 ---
@@ -17781,7 +17781,7 @@ In this mode on wake, device is reset, running setup() again.
 ---
 
 {{note op="start" type="gen2"}}
-- On the Photon, P1, Electron, and E Series you can only wake on time or `WKP` `RISING` in `HIBERNATE` mode.
+- On the Photon, P1, Electron, and E-Series you can only wake on time or `WKP` `RISING` in `HIBERNATE` mode.
 
 - GPIO are put into high impedance state before sleep. However, you can use `pinMode(INPUT)` to disconnect output pins on Gen 2 devices so the same code can be used for both Gen 2 and Gen 3 with HIBERNATE mode.
 {{note op="end"}}
@@ -17815,7 +17815,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 ---
 
 {{note op="start" type="gen3"}}
-On the Argon, Boron, B Series SoM you cannot wake from HIBERNATE mode by time because the nRF52 RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum duration is approximately 24 days in STOP mode. You can wake by time in ultra-low power (ULP) mode. 
+On the Argon, Boron, B-Series SoM you cannot wake from HIBERNATE mode by time because the nRF52 RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum duration is approximately 24 days in STOP mode. You can wake by time in ultra-low power (ULP) mode. 
 
 On the Tracker SoM, even though it has an nRF52 processor, you can wake from HIBERNATE by time as it uses the AM1805 external watchdog/RTC to implement this feature.
 {{note op="end"}}
@@ -17823,7 +17823,7 @@ On the Tracker SoM, even though it has an nRF52 processor, you can wake from HIB
 ---
 
 {{note op="start" type="gen2"}}
-On the Photon, P1, Electron, and E Series even though the parameter can be in milliseconds, the resolution is only in seconds, and the minimum sleep time is 1000 milliseconds.
+On the Photon, P1, Electron, and E-Series even though the parameter can be in milliseconds, the resolution is only in seconds, and the minimum sleep time is 1000 milliseconds.
 {{note op="end"}}
 
 ---
@@ -17894,14 +17894,14 @@ On the Tracker SoM, you can pass GPIO connected to the IO Expander directly to t
 
 On Gen 3 devices the location of the `WKP` pin varies, and it may make more sense to just use the actual pin name. You do not need to use `WKP` to wake from `HIBERNATE` on Gen 3 devices, and you can wake on either RISING, FALLING or CHANGE.
 - Argon, Boron, and Xenon, WKP is pin D8. 
-- B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8. 
+- B-Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8. 
 - Tracker SoM WKP is pin A7/D7.
 
 {{note op="end"}}
 
 {{note op="start" type="gen2"}}
 - You can only wake on external interrupt-supported pins on Gen 2 devices. See the list in [`attachInterrupt`](#attachinterrupt-).
-- On the Photon, P1, Electron, and E Series you can only wake from HIBERNATE mode using WKP RISING. 
+- On the Photon, P1, Electron, and E-Series you can only wake from HIBERNATE mode using WKP RISING. 
 - Do not attempt to enter sleep mode with WKP already high. Doing so will cause the device to never wake again, either by pin or time.
 - `SLEEP_MODE_DEEP` in the classic API defaults to allowing wake by `WKP` rising. This is no longer automatic and you should specify it explicitly as in the example here if you want this behavior by adding `.gpio(WKP, RISING)`.
 {{note op="end"}}
@@ -18067,7 +18067,7 @@ config.mode(SystemSleepMode::STOP)
       .ble();
 ```
 
-Wake on Bluetooth LE data (BLE). Only available on Gen 3 platforms (Argon, Boron, B Series SoM, and Tracker SoM).
+Wake on Bluetooth LE data (BLE). Only available on Gen 3 platforms (Argon, Boron, B-Series SoM, and Tracker SoM).
 
 In addition to Wake on BLE, this keeps the BLE subsystem activated so the nRF52 MCU can wake up briefly to:
 
@@ -18197,11 +18197,11 @@ Using the current sleep APIs is recommended on all cellular devices. The legacy 
 ---
 
 {{note op="start" type="gen3"}}
-Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for Gen 3 devices.
+Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for Gen 3 devices.
 
 On the Argon, Boron, and Xenon, WKP is pin D8.
 
-On the B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8.
+On the B-Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8.
 
 On the Tracker SoM WKP is pin A7/D7.
 
@@ -18218,7 +18218,7 @@ System.sleep(SLEEP_MODE_DEEP);
 // The device LED will shut off during deep sleep
 ```
 
-On the Boron, B Series SoM, and Tracker SoM it is not useful to combine `SLEEP_MODE_DEEP` and `SLEEP_NETWORK_STANDBY` as the modem will remain on, but also be reset when the device resets, eliminating any advantage of using `SLEEP_NETWORK_STANDBY`.
+On the Boron, B-Series SoM, and Tracker SoM it is not useful to combine `SLEEP_MODE_DEEP` and `SLEEP_NETWORK_STANDBY` as the modem will remain on, but also be reset when the device resets, eliminating any advantage of using `SLEEP_NETWORK_STANDBY`.
 
 The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by a high level on D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. It's possible wake from HIBERNATE mode using other pins; you should use the newer sleep API that supports HIBERNATE if possible.
 
@@ -18237,7 +18237,7 @@ System.sleep(SLEEP_MODE_SOFTPOWEROFF);
 ---
 
 {{note op="start" type="gen2"}}
-Gen 2 devices (Photon, P1, Electron, E Series): 
+Gen 2 devices (Photon, P1, Electron, E-Series): 
 
 `System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
 
@@ -19079,7 +19079,7 @@ Using `SYSTEM_THREAD(ENABLED)` is recommended.
 
 The semi-automatic mode will not attempt to connect the device to the Cloud automatically, but once you 
 connect it automatically handles reconnection. One common use case for this is checking the battery
-charge before connecting to cellular on the Boron, B Series SoM, Electron, and E Series.
+charge before connecting to cellular on the Boron, B-Series SoM, Electron, and E-Series.
 
 This code checks the battery level, and if low, goes back into sleep mode instead of trying to
 connect with a low battery, which is likely to fail.
@@ -19842,7 +19842,7 @@ if (powerSource == POWER_SOURCE_BATTERY) {
 ---
 
 {{note op="start" type="note"}}
-Power Management including power source detection is available on the Boron, B Series SoM, Tracker SoM, E404X (Gen 3), Electron, and E Series (Gen 2).
+Power Management including power source detection is available on the Boron, B-Series SoM, Tracker SoM, E404X (Gen 3), Electron, and E-Series (Gen 2).
 
 It is not available on the P2, Photon 2, Argon, Photon, or P1.
 {{note op="end"}}
@@ -19881,7 +19881,7 @@ if (batteryState == BATTERY_STATE_CHARGING) {
 ---
 
 {{note op="start" type="note"}}
-Power Management including battery state is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
+Power Management including battery state is available on the Boron, B-Series SoM, Tracker SoM (Gen 3), Electron, and E-Series (Gen 2).
 
 It is not available on the P2, Photon 2, Argon, Photon, or P1.
 {{note op="end"}}
@@ -19906,7 +19906,7 @@ Log.info("soc=%.1f", batterySoc);
 ---
 
 {{note op="start" type="note"}}
-Power Management including battery charge is available on the Boron, B Series SoM, Tracker SoM, E404X (Gen 3), Electron, and E Series (Gen 2).
+Power Management including battery charge is available on the Boron, B-Series SoM, Tracker SoM, E404X (Gen 3), Electron, and E-Series (Gen 2).
 
 It is not available on the P2, Photon 2, Argon, Photon, or P1.
 {{note op="end"}}
@@ -20528,19 +20528,19 @@ void loop() {
 
 ## File system
 
-The P2, Photon 2, and Gen 3 devices (B Series SoM, Tracker SoM, Boron, Argon, and E404X) implement a POSIX-style file system API to store files on the LittleFS flash file system on the QSPI flash memory on the module.
+The P2, Photon 2, and Gen 3 devices (B-Series SoM, Tracker SoM, Boron, Argon, and E404X) implement a POSIX-style file system API to store files on the LittleFS flash file system on the QSPI flash memory on the module.
 
 | Device | Since Device OS | Size |
 | :--- | :--- | :--- |
 | Tracker SoM | 1.5.4-rc.1 | 4 MB |
-| Argon, Boron, B Series SoM | 2.0.0-rc.1 | 2 MB |
+| Argon, Boron, B-Series SoM | 2.0.0-rc.1 | 2 MB |
 
 For more detailed information about the file system, see the application note [AN035 File System](/reference/device-os/file-system/).
 
 ---
 
 {{note op="start" type="gen2"}}
-The File System is not available on Gen 2 devices (Photon, P1, Electron, E Series except the E404X).
+The File System is not available on Gen 2 devices (Photon, P1, Electron, E-Series except the E404X).
 {{note op="end"}}
 
 ---
@@ -24362,7 +24362,7 @@ The serial number sticker contains a data matrix code (like a QR code). This enc
 
 For devices without BLE capabilities (Gen 2 devices), the data matrix only contains the serial number.
 
-Note that older Photon, P1, Electron, and E Series modules do not have a serial number sticker. Older Electron an E Series with a "u-blox" sticker have the IMEI encoded in a 2D barcode. P0 modules (including the Photon) have an USI manufacturing code which is not easily mapped to any Particle identifier.
+Note that older Photon, P1, Electron, and E-Series modules do not have a serial number sticker. Older Electron an E-Series with a "u-blox" sticker have the IMEI encoded in a 2D barcode. P0 modules (including the Photon) have an USI manufacturing code which is not easily mapped to any Particle identifier.
 
 {{!-- END shared-blurb --}}
 
@@ -26150,9 +26150,9 @@ If you are getting unexpected errors when compiling valid code, it could be the 
 
 The P2 and Photon 2 have a RTL8721D MCU with 2048K of flash for your user firmware.
 
-Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM and E404X) have an nRF52840 MCU with 256K of flash for your user firmware. Prior to Device OS 3.1, it was 128K.
+Gen 3 devices (Argon, Boron, B-Series SoM, Tracker SoM and E404X) have an nRF52840 MCU with 256K of flash for your user firmware. Prior to Device OS 3.1, it was 128K.
 
-Gen 2 devices (Photon, P1, Electron, and E Series) all have an STM32F205 processor with 128K of flash for your user firmware.
+Gen 2 devices (Photon, P1, Electron, and E-Series) all have an STM32F205 processor with 128K of flash for your user firmware.
 
 Some tips for understanding the memory used by your firmware [can be found here](/firmware/best-practices/code-size-tips/).
 

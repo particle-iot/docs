@@ -80,7 +80,7 @@ Coils were originally for relays and solenoids, but could be other types of writ
 
 The goal of this application is to implement a Modbus RTU network using the Particle Platform as the Modbus client along with publishing the data from the modbus to the cloud.
 
-The Particle platform in this application is the [B Series SoM, B404](/b-series/) and the Modbus server is a [temperature and humidity sensor](https://www.dfrobot.com/product-2279.html). To interface with Modbus over RS-485, typically a Physical Layer Device (PHY) is needed to translate 3.3V TTL level UART lines with the RS-485 bus. This is achieved by using the [RS485 Click 3.3V](https://www.mikroe.com/rs485-33v-click) in combination with the [Mikroe SoM Shield](https://www.mikroe.com/click-shield-for-particle-gen-3). Below is a visual representation of the Modbus network along with a picture of the example application.
+The Particle platform in this application is the [B-Series SoM, B404](/b-series/) and the Modbus server is a [temperature and humidity sensor](https://www.dfrobot.com/product-2279.html). To interface with Modbus over RS-485, typically a Physical Layer Device (PHY) is needed to translate 3.3V TTL level UART lines with the RS-485 bus. This is achieved by using the [RS485 Click 3.3V](https://www.mikroe.com/rs485-33v-click) in combination with the [Mikroe SoM Shield](https://www.mikroe.com/click-shield-for-particle-gen-3). Below is a visual representation of the Modbus network along with a picture of the example application.
 
 ![Circuit diagram](/assets/images/tutorials/modbus1.png)
 

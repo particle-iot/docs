@@ -23,7 +23,7 @@ The Electron has been deprecated. See the [Supply Secure FAQ](/reference/product
 
 ### Overview
 
-Note: The Electron U260 and U270 have been deprecated and are no longer available for sale. New designs should use the B Series SoM or Boron. For a pin-compatible replacement for the G350, U260, and U270, the Electron ELC314 is available in tray quantities only.
+Note: The Electron U260 and U270 have been deprecated and are no longer available for sale. New designs should use the B-Series SoM or Boron. For a pin-compatible replacement for the G350, U260, and U270, the Electron ELC314 is available in tray quantities only.
 
 The Electron is a tiny development kit for creating cellular-connected electronics projects and products. It comes with a SIM card (Nano 4FF)<sup>[1]</sup> and an affordable data plan for low-bandwidth things. Plus it's available for more than 100 countries worldwide!
 
@@ -42,7 +42,7 @@ It also comes with Particle's development tools and cloud platform for managing 
  * Real-time operation system (RTOS)
  * FCC (United States), CE (European Union), and ISED (Canada) certified
 
-<sup>[1]</sup>The LTE model uses a MFF2 SMD Particle SIM instead of a physical SIM card. The Electron LTE is only available to existing enterprise customers who have deployed an Electron 2G/3G solution and would like to upgrade to LTE. It is only available in tray quantities. New designs should use the Boron LTE or B Series B404 SoM. It can only be used in the United States, Canada, and Mexico at this time.
+<sup>[1]</sup>The LTE model uses a MFF2 SMD Particle SIM instead of a physical SIM card. The Electron LTE is only available to existing enterprise customers who have deployed an Electron 2G/3G solution and would like to upgrade to LTE. It is only available in tray quantities. New designs should use the Boron LTE or B-Series B404 SoM. It can only be used in the United States, Canada, and Mexico at this time.
 
 ### Device OS support
 

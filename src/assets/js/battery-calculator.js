@@ -29,19 +29,19 @@ $(document).ready(function () {
         {
             key: 'M524',
             value: 'M524',
-            title: 'M SoM M523 (EMEAA)',
+            title: 'M-SoM M523 (EMEAA)',
             power: cellPowerDefaultOptions,
         },
         {
             key: 'M524',
             value: 'M524_WiFi',
-            title: 'M SoM M523 (EMEAA) (Wi-Fi)',
+            title: 'M-SoM M523 (EMEAA) (Wi-Fi)',
             power: wifiPowerDefaultOptions,
         },
         {
             key: 'M404',
             value: 'M404_M1',
-            title: 'M SoM M404 (Global) (LTE Cat M1)',
+            title: 'M-SoM M404 (Global) (LTE Cat M1)',
             power: {
                 connTower: 'Icell_conn_twr_catm1',
                 cloudIdle: 'Icell_cloud_idle_catm1',
@@ -51,7 +51,7 @@ $(document).ready(function () {
         {
             key: 'M404',
             value: 'M404_2G',
-            title: 'M SoM M404 (Global) (2G)',
+            title: 'M-SoM M404 (Global) (2G)',
             power: {
                 connTower: 'Icell_conn_twr_2g',
                 cloudIdle: 'Icell_cloud_idle_2g',
@@ -61,19 +61,19 @@ $(document).ready(function () {
         {
             key: 'M404',
             value: 'M404_WiFi',
-            title: 'M SoM M404 (Global) (Wi-Fi)',
+            title: 'M-SoM M404 (Global) (Wi-Fi)',
             power: wifiPowerDefaultOptions,
         },
         {
             key: 'B402',
             value: 'B402',
-            title: 'B SoM B404, B402 (North America)',
+            title: 'B-SoM B404, B402 (North America)',
             power: cellPowerDefaultOptions,
         },
         {
             key: 'B523',
             value: 'B523',
-            title: 'B SoM B524, B523 (EMEAA)',
+            title: 'B-SoM B524, B523 (EMEAA)',
             power: cellPowerDefaultOptions,
         },
         {

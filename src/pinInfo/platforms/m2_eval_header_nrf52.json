@@ -610,7 +610,7 @@
             "num": 51,
             "name": "SOM5",
             "altName": "SIM_VCC",
-            "desc": "Leave unconnected. External SIM support is not available on B SoM.",
+            "desc": "Leave unconnected. External SIM support is not available on B-SoM.",
             "is5VTolerant": false,
             "m2Pin": 67,
             "somPin": "SOM5"
@@ -640,7 +640,7 @@
             "num": 53,
             "name": "SOM6",
             "altName": "SIM_RST",
-            "desc": "Leave unconnected. External SIM support is not available on B SoM.",
+            "desc": "Leave unconnected. External SIM support is not available on B-SoM.",
             "is5VTolerant": false,
             "m2Pin": 69,
             "somPin": "SOM6"
@@ -698,7 +698,7 @@
             "num": 57,
             "name": "SOM8",
             "altName": "SIM_DATA",
-            "desc": "Leave unconnected. External SIM support is not available on B SoM.",
+            "desc": "Leave unconnected. External SIM support is not available on B-SoM.",
             "is5VTolerant": false,
             "m2Pin": 73,
             "somPin": "SOM8"

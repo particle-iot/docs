@@ -1,8 +1,8 @@
 ---
-title: M SoM from E Series Migration Guide
+title: M-SoM from E-Series Migration Guide
 columns: two
 layout: commonTwo.hbs
-description: M SoM from E Series Migration Guide
+description: M-SoM from E-Series Migration Guide
 ---
 
 # {{title}}
@@ -16,15 +16,15 @@ This is a preliminary datasheet and changes may occur prior to release.
 
 <p class="attribution">Pictures are not the same scale</p>
 
-The M SoM (system-on-a-module) is a 4th-generation cellular and Wi-Fi device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
+The M-SoM (system-on-a-module) is a 4th-generation cellular and Wi-Fi device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
-Like the E Series module, it requires your own custom base board. One difference is that the M SoM does not contain the PMIC and fuel gauge chips that the E Series does.
+Like the E-Series module, it requires your own custom base board. One difference is that the M-SoM does not contain the PMIC and fuel gauge chips that the E-Series does.
 
 Additionally, different dimensions makes it possible to include a LTE Cat 1 with 2G/3G fallback cellular modem, such as the Quectel EG91-E on the B524. 
 
-All E Series models (except for the E404X) have been deprecated. It is recommended that you migrate to the B SoM or M SoM, and it is required to get LTE Cat 1 with 2G/3G fallback support in Europe, Australia, and New Zealand. While the E404X has the same footprint as the other E Series modules, it contains the same MCU as the B SoM.
+All E-Series models (except for the E404X) have been deprecated. It is recommended that you migrate to the B-SoM or M-SoM, and it is required to get LTE Cat 1 with 2G/3G fallback support in Europe, Australia, and New Zealand. While the E404X has the same footprint as the other E-Series modules, it contains the same MCU as the B-SoM.
 
-| Feature | E Series SoM | E Series Base Board | M SoM | SoM Base Board |
+| Feature | E-Series SoM | E-Series Base Board | M-SoM | SoM Base Board |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | U.FL Antenna Connector | &check; | | &check; | Optional |
 | MFF2 SMD Particle SIM<sup>2</sup> | &check; | | &check; | &nbsp; |
@@ -40,9 +40,9 @@ All E Series models (except for the E404X) have been deprecated. It is recommend
 
 ### Datasheets
 
-- [M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
-- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
-- [E Series datasheet](/reference/datasheets/e-series/e-series-datasheet/)
+- [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
+- [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
+- [E-Series datasheet](/reference/datasheets/e-series/e-series-datasheet/)
 
 ## Certification
 
@@ -52,13 +52,13 @@ in some cases intentional radiator testing could be required.
 
 ## Prototyping
 
-The M SoM cannot be used without a base board. Typically you will create your own board, however there are two off-the-shelf options available:
+The M-SoM cannot be used without a base board. Typically you will create your own board, however there are two off-the-shelf options available:
 
-### B Series Eval board
+### B-Series Eval board
 
-![B Series Eval](/assets/images/b-series/b-series-eval.png)
+![B-Series Eval](/assets/images/b-series/b-series-eval.png)
 
-The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the M SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
+The [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the M-SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
 
 {{!-- BEGIN shared-blurb 19f889d4-a5c9-11ec-b909-0242ac120002 --}}
 {{imageOverlay src="/assets/images/b-series/b-series-eval-labeled.png" alt="Ports Diagram" class="full-width"}}
@@ -86,7 +86,7 @@ The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-boa
 | 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
 | 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
 | 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 22 | **SoM connector** | M.2 connector for the B Series SoM. |
+| 22 | **SoM connector** | M.2 connector for the B-Series SoM. |
 | 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
 | 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
 | 25 | **Charge LED** | Indicate LiPo is charging. | 
@@ -100,7 +100,7 @@ The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-boa
 {{!-- BEGIN shared-blurb b644c2f2-a5ca-11ec-b909-0242ac120002 --}}
 ![Mikroe Gen 3 SoM](/assets/images/prototyping/mikroe-som.png)
 
-The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B Series SoM to mikroBUS Click boards:
+The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B-Series SoM to mikroBUS Click boards:
 
 | M.2 Pin | Generic SoM | Gen 3 | mikroBUS #1 | mikroBUS #2 |
 | :---: | :---: | :---: | :---: | :---: |
@@ -142,7 +142,7 @@ The [SoM first board tutorial](/hardware/b-series-som/som-first-board/) shows ho
 
 ### Basic SoM design
 
-This design is a bit more complicated, and includes the PMIC and Fuel Gauge chips that are present on the E Series:
+This design is a bit more complicated, and includes the PMIC and Fuel Gauge chips that are present on the E-Series:
 
 ![Whole Board](/assets/images/app-notes/AN001/whole-board.png)
 
@@ -191,7 +191,7 @@ One major advantage is that user firmware binaries can be up to 2048 Kbytes, ins
 
 ### Flash file system
 
-There is a 2 MB flash file system for storing user data on the M SoM. This is not available on the E Series (except for the E404X).
+There is a 2 MB flash file system for storing user data on the M-SoM. This is not available on the E-Series (except for the E404X).
 
 ### Combined and resumable OTA
 
@@ -207,9 +207,9 @@ Over-the-air (OTA) updates have two features that can improve the speed and reli
 
 ### Increased API field limits
 
-The maximum size of a variable, function parameter, or publish is 1024 bytes on the M SoM vs. 864 bytes on the E Series.
+The maximum size of a variable, function parameter, or publish is 1024 bytes on the M-SoM vs. 864 bytes on the E-Series.
 
-| API Field | E Series | M SoM |
+| API Field | E-Series | M-SoM |
 | :--- | :---: | :---: |
 | Variable Key | 64 | 64 |
 | Variable Data | 864 | 1024 |
@@ -218,14 +218,14 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 | Publish/Subscribe Event Name | 64 | 64 |
 | Publish/Subscribe Event Data | 864 | 1024 |
 
-- These comparisons are between the STM32F205-based E Series models, other than the E404X. The API field limits for the E404X (nRF52840) are the same as as the M SoM.
+- These comparisons are between the STM32F205-based E-Series models, other than the E404X. The API field limits for the E404X (nRF52840) are the same as as the M-SoM.
 
 
 ## Hardware differences
 
 ### MCU
 
-| Measure | E Series | M SoM |
+| Measure | E-Series | M-SoM |
 | :--- | :---: | :---: |
 | MCU | STM32F205 | RTL8722DM |
 | Manufacturer | ST Microelectronics | Realtek |
@@ -237,11 +237,11 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 | Hardware floating point | &nbsp; | &check; |
 | Secure Boot | &nbsp; | &check; |
 
-- These comparisons are between the STM32F205-based E Series models, other than the E404X. The specifications for the E404X (nRF52840) are different.
+- These comparisons are between the STM32F205-based E-Series models, other than the E404X. The specifications for the E404X (nRF52840) are different.
 
 ### BLE (Bluetooth LE)
 
-- Bluetooth LE (BLE 5.0) is supported on M SoM but not the E Series (except for the E404X, which does support BLE).
+- Bluetooth LE (BLE 5.0) is supported on M-SoM but not the E-Series (except for the E404X, which does support BLE).
 
 
 ### GPIO
@@ -249,7 +249,7 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 369dffc5-2607-422c-8d2f-049b8bac8b5d --}}
 
-| E Series Pin | E Series Pin Name | E Series GPIO | M SoM Pin | M SoM Pin Name | M SoM GPIO |
+| E-Series Pin | E-Series Pin Name | E-Series GPIO | M-SoM Pin | M-SoM Pin Name | M-SoM GPIO |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 26 | A0 | &check; | 23 | A0 / D19 | &check; |
 | 25 | A1 | &check; | 33 | A1 / D18 | &check; |
@@ -301,11 +301,11 @@ The maximum size of a variable, function parameter, or publish is 1024 bytes on 
 
 The [MCP23008](https://github.com/rickkas7/MCP23008-RK) is an 8-port GPIO expander that connects to I2C and works well with Gen 3 devices. You can connect up to 8 of them to a single I2C interface. the [MCP23017](https://github.com/rickkas7/MCP23017-RK) has 16-ports, and you can also connect 8 of them, for a total of 128 GPIO ports.
 
-The application note [AN013 Tracker GPIO](/hardware/tracker/projects/tracker-gpio/) shows how you can add additional GPIO to your Tracker One using the external M8 connector, however the same technique can also be used with the M SoM. It includes both 3.3V and 5V design options.
+The application note [AN013 Tracker GPIO](/hardware/tracker/projects/tracker-gpio/) shows how you can add additional GPIO to your Tracker One using the external M8 connector, however the same technique can also be used with the M-SoM. It includes both 3.3V and 5V design options.
 
 ### 5V tolerance
 
-The other difference in the GPIO between Gen 2 and the M SoM is with 5V tolerance. While both devices are 3.3V devices and only will drive 3.3V, the I/O pins on Gen 2 devices (with the exception of A3 and A6) are 5V tolerant. This allows a Gen 2 device to connect to some 5V peripherals directly.
+The other difference in the GPIO between Gen 2 and the M-SoM is with 5V tolerance. While both devices are 3.3V devices and only will drive 3.3V, the I/O pins on Gen 2 devices (with the exception of A3 and A6) are 5V tolerant. This allows a Gen 2 device to connect to some 5V peripherals directly.
 
 **You must not connect 5V peripherals to a Gen 3 or Gen 4 device.** This includes GPIO, ports (serial, I2C, SPI), and ADC. 
 
@@ -314,13 +314,13 @@ Interfacing with 5V peripherals can be done with a level shifter, a MOSFET, or a
 
 ### SPI
 
-- The M SoM and E Series both have two SPI ports.
+- The M-SoM and E-Series both have two SPI ports.
 - In most cases, you can share a single SPI bus with many peripherals.
-- On the E Series, SPI1 and SPI2 share the same MCU SPI interface but have different pin locations. You can only use one or the other.
+- On the E-Series, SPI1 and SPI2 share the same MCU SPI interface but have different pin locations. You can only use one or the other.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 4757df20-600f-4beb-b781-59ff36cbb3d5 --}}
 
-| E Series Pin | E Series Pin Name | E Series SPI | M SoM Pin | M SoM Pin Name | M SoM SPI |
+| E-Series Pin | E-Series Pin Name | E-Series SPI | M-SoM Pin | M-SoM Pin Name | M-SoM SPI |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 24 | A2 | SPI (SS) | 35 | A2 / D17 | &nbsp; |
 | 23 | A3 | SPI (SCK) | 37 | A3 / D16 | &nbsp; |
@@ -345,10 +345,10 @@ Interfacing with 5V peripherals can be done with a level shifter, a MOSFET, or a
 
 ### Serial (UART)
 
-There are more UART ports on the E Series than the M SoM. If you need more hardware serial ports, the best option is to use the [SC16IS740](https://github.com/rickkas7/SC16IS740RK) or its relatives like the SC16IS750. These devices connect by I2C or SPI, and you can add multiple ports this way.
+There are more UART ports on the E-Series than the M-SoM. If you need more hardware serial ports, the best option is to use the [SC16IS740](https://github.com/rickkas7/SC16IS740RK) or its relatives like the SC16IS750. These devices connect by I2C or SPI, and you can add multiple ports this way.
 
 
-|      | E Series | M SoM |
+|      | E-Series | M-SoM |
 | :--- | :---: | :---: |
 | Buffer size | 64 bytes | 2048 bytes |
 | 7-bit mode | &check; | &check; |
@@ -368,7 +368,7 @@ There are more UART ports on the E Series than the M SoM. If you need more hardw
 
 Supported Baud Rates:
 
-| Baud Rate | E Series | M SoM |
+| Baud Rate | E-Series | M-SoM |
 | ---: | :---: | :---|
 | 110     | | &check; |
 | 300     | | &check; |
@@ -408,7 +408,7 @@ Supported Baud Rates:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8c9a7dac-af5b-4a4d-9e40-7deb06ed921f --}}
 
-| E Series Pin | E Series Pin Name | E Series Serial | M SoM Pin | M SoM Pin Name | M SoM Serial |
+| E-Series Pin | E-Series Pin Name | E-Series Serial | M-SoM Pin | M-SoM Pin Name | M-SoM Serial |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 49 | C0 | Serial5_RX | &nbsp; | &nbsp; | &nbsp; |
 | 48 | C1 | Serial5_TX | &nbsp; | &nbsp; | &nbsp; |
@@ -428,11 +428,11 @@ Supported Baud Rates:
 
 ### Analog input (ADC)
 
-The M SoM does not have an many ADC ports as the E Series. You can add additional ADC ports using a SPI or I2C ADC.
+The M-SoM does not have an many ADC ports as the E-Series. You can add additional ADC ports using a SPI or I2C ADC.
 
 {{!-- BEGIN do not edit content below, it is automatically generated eeeca022-6ba8-4f96-b0e2-5b00362fed6d --}}
 
-| E Series Pin | E Series Pin Name | E Series ADC | M SoM Pin | M SoM Pin Name | M SoM ADC |
+| E-Series Pin | E-Series Pin Name | E-Series ADC | M-SoM Pin | M-SoM Pin Name | M-SoM ADC |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 26 | A0 | &check; | 23 | A0 / D19 | &check; |
 | 25 | A1 | &check; | 33 | A1 / D18 | &check; |
@@ -455,7 +455,7 @@ The M SoM does not have an many ADC ports as the E Series. You can add additiona
 
 {{!-- BEGIN do not edit content below, it is automatically generated b19893d3-ab63-4323-9b3f-b948d4c1c249 --}}
 
-| E Series Pin | E Series Pin Name | E Series I2C | M SoM Pin | M SoM Pin Name | M SoM I2C |
+| E-Series Pin | E-Series Pin Name | E-Series I2C | M-SoM Pin | M-SoM Pin Name | M-SoM I2C |
 | :---: | :--- | :--- | :---: | :--- | :--- |
 | 45 | C4 | Wire1 (SDA) | &nbsp; | &nbsp; | &nbsp; |
 | 44 | C5 | Wire1 (SCL) | &nbsp; | &nbsp; | &nbsp; |
@@ -465,21 +465,21 @@ The M SoM does not have an many ADC ports as the E Series. You can add additiona
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- 1 I2C on M SoM. While it appears that there are 2 on the E Series, they're just alternative pin assignments and you can really only use one at a time.
+- 1 I2C on M-SoM. While it appears that there are 2 on the E-Series, they're just alternative pin assignments and you can really only use one at a time.
 - You can generally have many devices on a single I2C bus.
 - If you have I2C address conflicts you can use an I2C multiplexer like the TCA9548A.
-- The E Series I2C is 5V tolerant. This is not the case on the M SoM, be sure you don't have pull-ups to 5V!
+- The E-Series I2C is 5V tolerant. This is not the case on the M-SoM, be sure you don't have pull-ups to 5V!
 - If you need to interface to a 5V I2C bus you will need an I2C level shifter such as the PCA9306.
-- On the M SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
+- On the M-SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 
 ### PWM (Pulse-width modulation)
 
-These are differences in pins that support PWM between the E Series and M SoM.
+These are differences in pins that support PWM between the E-Series and M-SoM.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 4f18e140-7466-4fad-bc1f-55e8fcdf9561 --}}
 
-| E Series Pin | E Series Pin Name | E Series PWM | < SoM Pin | < SoM Pin Name | < SoM PWM | < SoM Hardware Timer |
+| E-Series Pin | E-Series Pin Name | E-Series PWM | < SoM Pin | < SoM Pin Name | < SoM PWM | < SoM Hardware Timer |
 | :---: | :--- | :--- | :---: | :--- | :--- | :--- |
 | 26 | A0 | &nbsp; | 23 | A0 / D19 | &check; | &nbsp; |
 | 25 | A1 | &nbsp; | 33 | A1 / D18 | &check; | &nbsp; |
@@ -510,25 +510,25 @@ These are differences in pins that support PWM between the E Series and M SoM.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-#### PWM - M SoM
+#### PWM - M-SoM
 
-All available PWM pins on the M SoM share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
+All available PWM pins on the M-SoM share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
 It is also possible to add an external PWM driver such as the PCA9685 which adds 16 outputs via I2C. You can add 62 of these to a single I2C bus for 992 PWM outputs! The [Adafruit_PWMServoDriver](/reference/device-os/libraries/a/Adafruit_PWMServoDriver/) library supports this chip on all Particle devices.
 
 #### PWM - Gen 2
 
-On the Electron and E Series, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX, TX, B0, B1, B2, B3, C4, and C5 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+On the Electron and E-Series, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX, TX, B0, B1, B2, B3, C4, and C5 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 ### Internal pull-up or pull-down
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
-On the M SoM, different GPIO pins have different pull values. On the E Series pull is always approximately 40K.
+On the M-SoM, different GPIO pins have different pull values. On the E-Series pull is always approximately 40K.
 
 ### Retained memory
 
-The M SoM has limited support for retained memory, also referred to as Backup RAM or SRAM.
+The M-SoM has limited support for retained memory, also referred to as Backup RAM or SRAM.
 
 Retained memory is preserved with the following limitations:
 
@@ -544,16 +544,16 @@ Retained memory is 3068 bytes.
 
 ### Flash file system
 
-The E Series did not have a flash file system. 
+The E-Series did not have a flash file system. 
 
-The M SoM has 2 MB flash file system using the same [POSIX API](/reference/device-os/api/file-system/file-system/) as Gen 3 devices. A small amount of space is reserved for system use including configuration data. Most of the space is available for user application use.
+The M-SoM has 2 MB flash file system using the same [POSIX API](/reference/device-os/api/file-system/file-system/) as Gen 3 devices. A small amount of space is reserved for system use including configuration data. Most of the space is available for user application use.
 
 ### EEPROM
 
-The [EEPROM emulation API](/reference/device-os/api/eeprom/eeprom/) is the same across the E Series and M SoM.
+The [EEPROM emulation API](/reference/device-os/api/eeprom/eeprom/) is the same across the E-Series and M-SoM.
 
-- The E Series had 2047 bytes of emulated EEPROM.
-- The M SoM has 4096 bytes of emulated EEPROM. On the M SoM, P2, Photon 2, and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
+- The E-Series had 2047 bytes of emulated EEPROM.
+- The M-SoM has 4096 bytes of emulated EEPROM. On the M-SoM, P2, Photon 2, and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
 
 
 ### Interrupts
@@ -569,11 +569,11 @@ Not supported on the Electron/E series (you can't use attachInterrupt on these p
   - C1 (shared with RXD_UC)
   - C2 (shared with RI_UC)
 
-No restrictions on the Electron/E Series (all of these can be used at the same time):
+No restrictions on the Electron/E-Series (all of these can be used at the same time):
 
   - D5, D6
 
-Shared on the Electron/E Series (only one pin for each bullet item can be used at the same time):
+Shared on the Electron/E-Series (only one pin for each bullet item can be used at the same time):
 
   - D1, A4, B1
   - D2, A0, A3
@@ -588,42 +588,42 @@ Shared on the Electron/E Series (only one pin for each bullet item can be used a
 
 {{!-- END shared-blurb --}}
 
-#### Interrupts - M SoM
+#### Interrupts - M-SoM
 
-There are no restrictions on interrupt pins on the M SoM.
+There are no restrictions on interrupt pins on the M-SoM.
 
 
 ### DAC
 
 - Gen 2 devices have two DAC (digital-to-analog converter), on pins A3 and A6. 
 
-- The M SoM and Gen 3 devices do not have built-in DAC, however they can easily be added by I2C or SPI to your base board.
+- The M-SoM and Gen 3 devices do not have built-in DAC, however they can easily be added by I2C or SPI to your base board.
 
 ### CAN bus
 
-- The M SoM and Gen 3 devices do not support CAN on the MCU.
+- The M-SoM and Gen 3 devices do not support CAN on the MCU.
 - The Tracker SoM includes CAN via a MCP25625 CAN interface with integrated transceiver.
 - Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to other Gen 3 devices.
 
 {{!-- 
 ### I2S (Sound)
 
-- The E Series theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
-- I2S is theoretically available on the M SoM, though it requires a 3rd-party library and is restricted to pins xxx.
+- The E-Series theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
+- I2S is theoretically available on the M-SoM, though it requires a 3rd-party library and is restricted to pins xxx.
 --}}
 
 
 ### Sleep
 
-- In `HIBERNATE` sleep mode, both the M SoM and E Series can only be wakened via the `WKP` pin.
+- In `HIBERNATE` sleep mode, both the M-SoM and E-Series can only be wakened via the `WKP` pin.
 
-- In `HIBERNATE` sleep mode, both the M SoM and E Series put pin in `OUTPUT` mode into high-impedance state.
+- In `HIBERNATE` sleep mode, both the M-SoM and E-Series put pin in `OUTPUT` mode into high-impedance state.
 
-- In `STOP` and `ULTRA_LOW_POWER` sleep modes, the M SoM preserves the digital output, but the E Series puts the pins in `OUTPUT` mode into high-impedance state.
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, the M-SoM preserves the digital output, but the E-Series puts the pins in `OUTPUT` mode into high-impedance state.
 
-- In `HIBERNATE` sleep mode, on the M SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
+- In `HIBERNATE` sleep mode, on the M-SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
 
-M SoM pins related to `HIBERNATE` sleep mode:
+M-SoM pins related to `HIBERNATE` sleep mode:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
 
@@ -635,7 +635,7 @@ M SoM pins related to `HIBERNATE` sleep mode:
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
-E Series pins related to `HIBERNATE` sleep mode:
+E-Series pins related to `HIBERNATE` sleep mode:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 55771164-b2c5-4c32-b389-ad5b9d6f378e --}}
 
@@ -648,9 +648,9 @@ E Series pins related to `HIBERNATE` sleep mode:
 
 ### RTC (Real-time clock)
 
-The E Series module has support for an external lithium coin cell battery or supercap to power the STM32 internal RTC via the `VBAT` pin.
+The E-Series module has support for an external lithium coin cell battery or supercap to power the STM32 internal RTC via the `VBAT` pin.
 
-The M SoM MCU does not have a dedicated RTC module that can be externally powered. This is also the case with the P2, Photon 2, and Gen 3 devices. If you need an externally powered RTC, one option is the AM1805/AB1805 real-time clock and hardware watchdog module, which is used on the Tracker SoM.
+The M-SoM MCU does not have a dedicated RTC module that can be externally powered. This is also the case with the P2, Photon 2, and Gen 3 devices. If you need an externally powered RTC, one option is the AM1805/AB1805 real-time clock and hardware watchdog module, which is used on the Tracker SoM.
 
 {{!-- 
 See also 28cd19b2-4f01-444b-8189-ba6191e6ebdd
@@ -661,12 +661,12 @@ See also 28cd19b2-4f01-444b-8189-ba6191e6ebdd
 
 ### USB
 
-- Both the E Series and M SoM assume the USB connector will be mounted on your base board. It is recommended that you add one to your base board for programming and troubleshooting.
-- Gen 2 devices can emulate a USB mouse or keyboard over the USB port. This feature is available on the M SoM but not available on Gen 3 (including B SoM).
+- Both the E-Series and M-SoM assume the USB connector will be mounted on your base board. It is recommended that you add one to your base board for programming and troubleshooting.
+- Gen 2 devices can emulate a USB mouse or keyboard over the USB port. This feature is available on the M-SoM but not available on Gen 3 (including B-SoM).
 - Gen 2 devices can support two separate USB serial emulation streams over the USB port. Gen 3 devices only support the normal `Serial` interface.
 
 
-| USB Feature | E Series | M SoM | B SoM |
+| USB Feature | E-Series | M-SoM | B-SoM |
 | :--- | :---: | :---: | :---: |
 | Secondary USB serial emulation `USBSerial1` | &check; | &nbsp; | &nbsp; |
 | USB keyboard emulation | &check; | &check; | &nbsp; |
@@ -674,25 +674,25 @@ See also 28cd19b2-4f01-444b-8189-ba6191e6ebdd
 
 ### PMIC and Fuel gauge
 
-The E Series, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
+The E-Series, E-Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
 
-On the M SoM, the PMIC and fuel gauge are optional. For example, if you are powering by an external power supply and not using a battery, you can omit the components entirely.
+On the M-SoM, the PMIC and fuel gauge are optional. For example, if you are powering by an external power supply and not using a battery, you can omit the components entirely.
 
 
 ## PMIC Notes
 
 {{!-- BEGIN shared-blurb 93112786-2815-408c-b064-ec7e9c629200 --}}
-When using the B Series SoM with a bq24195 PMIC, note the following:
+When using the B-Series SoM with a bq24195 PMIC, note the following:
 
-By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B Series SoM in normal operation.
+By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B-Series SoM in normal operation.
 
 If your device has the default firmware (Tinker), it will attempt to connect to the cloud, brown out due to insufficient current, then the device will reset. This may result in what appears to be the status LED blinking white, but is actually rolling reboot caused by brownout.
 
-A factory new B Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
+A factory new B-Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B-Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
 
 Because the input current limit does not affect the battery input (Li+), for troubleshooting purposes it can be helpful to attach a battery to help rule out input current limit issues. It's also possible to supply 3.7V via a bench power supply to the battery input, instead of VIN. 
 
-The input current limit can result in a situation where you can't bring up a B Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
+The input current limit can result in a situation where you can't bring up a B-Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
 
 - Attach a battery or supply by Li+ when bringing up a board.
 - Use SWD/JTAG and reset halt the MCU. This will prevent it from connecting to the cloud, so you can flash Device OS and firmware to it by SWD.
@@ -711,7 +711,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 
 ### Antennas
 
-The M SoM has U.FL antenna connectors:
+The M-SoM has U.FL antenna connectors:
 - Cellular
 - Wi-Fi and BLE (shared)
 - GNSS (optional)
@@ -724,13 +724,13 @@ The M SoM has U.FL antenna connectors:
 {{!-- BEGIN do not edit content below, it is automatically generated 159eb8da-b56b-40d7-8df0-b54b7889555d --}}
 
 #### 3V3
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 9 | 10 |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
 | ∆ | Description | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | System power in, supply a fixed 3.3V power, 500 mA minimum |
 #### A0
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 26 | 23 |
 | &nbsp; | Pin Name | A0 | A0 |
@@ -745,7 +745,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | 42K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A1
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 25 | 33 |
 | &nbsp; | Pin Name | A1 | A1 |
@@ -760,7 +760,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A2
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 24 | 35 |
 | &nbsp; | Pin Name | A2 | A2 |
@@ -774,7 +774,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | 22K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A3
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 23 | 37 |
 | &nbsp; | Pin Name | A3 | A3 |
@@ -788,7 +788,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
 | ∆ | Internal pull resistance | 40K | 2.1K |
 #### A4
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 22 | 41 |
 | &nbsp; | Pin Name | A4 | A4 |
@@ -804,7 +804,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 21 | 43 |
 | &nbsp; | Pin Name | A5 | A5 |
@@ -820,7 +820,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### A5
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 53|
 | Pin Name | A5|
@@ -836,13 +836,13 @@ The M SoM has U.FL antenna connectors:
 | SWD interface | SWCLK. 40K pull-down at boot.|
 | Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### AGND
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 39|
 | Pin Name | AGND|
 | Description | Analog Ground.|
 #### B0
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 33|
 | Pin Name | B0|
@@ -855,7 +855,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B1
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 32|
 | Pin Name | B1|
@@ -868,7 +868,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B2
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 31|
 | Pin Name | B2|
@@ -882,7 +882,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B3
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 30|
 | Pin Name | B3|
@@ -896,7 +896,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B4
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 29|
 | Pin Name | B4|
@@ -908,7 +908,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### B5
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 28|
 | Pin Name | B5|
@@ -920,7 +920,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C0
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 49|
 | Pin Name | C0|
@@ -932,7 +932,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C1
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 48|
 | Pin Name | C1|
@@ -944,7 +944,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C2
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 47|
 | Pin Name | C2|
@@ -956,7 +956,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C3
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 46|
 | Pin Name | C3|
@@ -969,7 +969,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C4
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 45|
 | Pin Name | C4|
@@ -984,7 +984,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### C5
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 44|
 | Pin Name | C5|
@@ -999,34 +999,34 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 40K|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD-
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 46|
 | Pin Name | CELL USBD-|
 | Description | Cellular Modem USB Data-|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD+
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 44|
 | Pin Name | CELL USBD+|
 | Description | Cellular Modem USB Data+|
 | Input is 5V Tolerant | Yes|
 #### CELL VBUS
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 74|
 | Pin Name | CELL VBUS|
 | Description | USB detect pin for cellular modem. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### CELL_RI
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 75|
 | Pin Name | CELL_RI|
 | Description | CELL_RI, ring indicator output, leave unconnected.|
 #### D0
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 42 | 22 |
 | &nbsp; | Pin Name | D0 | D0 |
@@ -1040,7 +1040,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D1
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 41 | 20 |
 | &nbsp; | Pin Name | D1 | D1 |
@@ -1055,7 +1055,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D2
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 40 | 42 |
 | &nbsp; | Pin Name | D2 | D2 |
@@ -1072,7 +1072,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### D20
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 19|
 | Pin Name | D20|
@@ -1082,7 +1082,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D21
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 17|
 | Pin Name | D21|
@@ -1092,7 +1092,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### D22
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 62|
 | Pin Name | D22|
@@ -1102,7 +1102,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D23
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 64|
 | Pin Name | D23|
@@ -1112,7 +1112,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D24
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 58|
 | Pin Name | D24|
@@ -1124,7 +1124,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 42K|
 | Signal used at boot | Low at boot triggers ISP flash download|
 #### D25
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 60|
 | Pin Name | D25|
@@ -1136,7 +1136,7 @@ The M SoM has U.FL antenna connectors:
 | Internal pull resistance | 42K|
 | Signal used at boot | Goes high at boot|
 #### D26
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 59|
 | Pin Name | D26|
@@ -1146,7 +1146,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
 #### D27
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 55|
 | Pin Name | D27|
@@ -1158,7 +1158,7 @@ The M SoM has U.FL antenna connectors:
 | SWD interface | SWDIO. 40K pull-up at boot.|
 | Signal used at boot | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.|
 #### D3
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 39 | 40 |
 | &nbsp; | Pin Name | D3 | D3 |
@@ -1175,7 +1175,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
 #### D4
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 38 | 66 |
 | &nbsp; | Pin Name | D4 | D4 |
@@ -1192,7 +1192,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDO. Floating at boot. | n/a |
 #### D5
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 37 | 68 |
 | &nbsp; | Pin Name | D5 | D5 |
@@ -1209,7 +1209,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
 #### D6
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 36 | 70 |
 | &nbsp; | Pin Name | D6 | D6 |
@@ -1225,7 +1225,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | SWD interface | SWCLK. 40K pull-down at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | n/a |
 #### D7
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 35 | 72 |
 | &nbsp; | Pin Name | D7 | D7 |
@@ -1241,7 +1241,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | SWD interface | SWDIO. 40K pull-up at boot. | n/a |
 | ∆ | Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | n/a |
 #### D8
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 48|
 | Pin Name | D8|
@@ -1252,7 +1252,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### DAC
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 20 | 45 |
 | ∆ | Pin Name | DAC | A6 |
@@ -1269,25 +1269,25 @@ The M SoM has U.FL antenna connectors:
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### GND
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 2 | 1 |
 | &nbsp; | Pin Name | GND | GND |
 | ∆ | Description | Ground. Be sure to connect all GND pins. | Ground. |
 #### GNSS_TX
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 18|
 | Pin Name | GNSS_TX|
 | Description | Cellular modem GNSS UART TX|
 #### LIPO
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 5|
 | Pin Name | LIPO|
 | Description | Connect to + pin on the LiPo battery, 4.2V maximum|
 #### MISO
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 50|
 | Pin Name | MISO|
@@ -1301,7 +1301,7 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### MODE
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 55 | 32 |
 | &nbsp; | Pin Name | MODE | MODE |
@@ -1309,7 +1309,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | I2S interface | I2S3_MCK | n/a |
 #### MOSI
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 52|
 | Pin Name | MOSI|
@@ -1323,47 +1323,47 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### NC
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 6 | 14 |
 | &nbsp; | Pin Name | NC | NC |
 | ∆ | Description | Do not connect to anything | n/a |
 #### PMID
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 8|
 | Pin Name | PMID|
 | Description | Connected to the PMID pin of the PMIC|
 #### RESET
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 56 | 34 |
 | ∆ | Pin Name | RESET | RST |
 | ∆ | Pin Alternate Name | RST | n/a |
 | ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### RGBB
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 52 | 65 |
 | &nbsp; | Pin Name | RGBB | RGBB |
 | &nbsp; | Description | RGB LED Blue | RGB LED Blue |
 | ∆ | UART serial | RX. Use Serial2 object. | n/a |
 #### RGBG
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 53 | 63 |
 | &nbsp; | Pin Name | RGBG | RGBG |
 | &nbsp; | Description | RGB LED Green | RGB LED Green |
 | ∆ | UART serial | TX. Use Serial2 object. | n/a |
 #### RGBR
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 54 | 61 |
 | &nbsp; | Pin Name | RGBR | RGBR |
 | &nbsp; | Description | RGB LED Red | RGB LED Red |
 | ∆ | Signal used at boot | n/a | Low at boot triggers trap mode |
 #### RX
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 17 | 38 |
 | &nbsp; | Pin Name | RX | RX |
@@ -1379,7 +1379,7 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### SCK
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 54|
 | Pin Name | SCK|
@@ -1391,37 +1391,37 @@ The M SoM has U.FL antenna connectors:
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | 2.1K|
 #### SIM_CLK
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 71|
 | Pin Name | SIM_CLK|
 | Description | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem.|
 #### SIM_DATA
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 73|
 | Pin Name | SIM_DATA|
 | Description | Leave unconnected, 1.8V/3V SIM Data I/O of cellular modem with internal 4.7 k pull-up.|
 #### SIM_RST
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 69|
 | Pin Name | SIM_RST|
 | Description | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem.|
 #### SIM_VCC
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 67|
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### STAT
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 57|
 | Pin Name | STAT|
 | Description | Charge status output from the PMIC.|
 #### TX
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 16 | 36 |
 | &nbsp; | Pin Name | TX | TX |
@@ -1437,51 +1437,51 @@ The M SoM has U.FL antenna connectors:
 | ∆ | Internal pull resistance | 40K | 2.1K |
 | ∆ | Input is 5V Tolerant | Yes | No |
 #### USBDATA-
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 14 | 13 |
 | &nbsp; | Pin Name | USBDATA- | USBDATA- |
 | &nbsp; | Description | USB Data- | USB Data- |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### USBDATA+
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 13 | 11 |
 | &nbsp; | Pin Name | USBDATA+ | USBDATA+ |
 | &nbsp; | Description | USB Data+ | USB Data+ |
 | &nbsp; | Input is 5V Tolerant | Yes | Yes |
 #### VBAT
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 11|
 | Pin Name | VBAT|
 | Description | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA..|
 #### VBUS
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 3|
 | Pin Name | VBUS|
 | Description | Connect to VBUS power pin on the USB port|
 #### VCC
-| | Added to M SoM |
+| | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 2|
 | Pin Name | VCC|
 | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power.|
 #### VDDA
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 10|
 | Pin Name | VDDA|
 | Description | Power input for ADC. Normally connected to 3V3. Must always be within 300 mV of 3V3.|
 #### VIN
-| | Removed from E Series |
+| | Removed from E-Series |
 | :--- | :--- |
 | Pin Number | 1|
 | Pin Name | VIN|
 | Description | Power in 3.9V to 12 VDC.|
 #### WKP
-|   |   | E Series | M SoM |
+|   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 19 | 47 |
 | ∆ | Pin Name | WKP | A7 |
@@ -1512,20 +1512,20 @@ To be provided at a later date.
 
 ### Wi-Fi configuration
 
-Since the E Series (cellular) does not have Wi-Fi support, if you wish to use Wi-Fi on the M SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
+Since the E-Series (cellular) does not have Wi-Fi support, if you wish to use Wi-Fi on the M-SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
 
 
 ### User firmware binary size
 
-One major advantage of the M SoM is that user firmware binaries can be up to 2048 Kbytes.
+One major advantage of the M-SoM is that user firmware binaries can be up to 2048 Kbytes.
 
-On the B SoM (Device OS 3.1 and later), it's 256 Kbytes, or 128 Kbytes for older version of Device OS.
+On the B-SoM (Device OS 3.1 and later), it's 256 Kbytes, or 128 Kbytes for older version of Device OS.
 
 ### Platform ID
 
-The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the E Series (10) because of the vastly different hardware. 
+The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the E-Series (10) because of the vastly different hardware. 
 
-If you have a product based on the E Series, you will need to create a separate product for devices using the M SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+If you have a product based on the E-Series, you will need to create a separate product for devices using the M-SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 
 
 ### Third-party libraries

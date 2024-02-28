@@ -40,7 +40,7 @@ The following enterprise (bulk) SKUs _**are impacted**_ by the silicon shortage 
 For the specific SKUs affected by this notice, see [Product lifecycle policy status](/reference/product-lifecycle/product-lifecycle-policy-status/).
 )  
 The following enterprise SKUs are _**not currently impacted**_ by the silicon shortage (currently Supply Secure, no replacements planned):  
-   * B Series LTE CAT 1 (B524MTY)
+   * B-Series LTE CAT 1 (B524MTY)
 
 Originally, there were planned "X" Tracker devices T404XMTY, T524XMTY, ONE404XMTY, and ONE524XMTY, however the is now a sufficient supply of parts available that the existing 404 and 524 variations can be produced in quantity. The existing T404MTY, T524MTY, ONE404MTY, and ONE524MTY are now considered to be supply secure.
 

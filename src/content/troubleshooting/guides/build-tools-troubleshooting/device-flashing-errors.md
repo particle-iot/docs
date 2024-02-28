@@ -40,18 +40,21 @@ Most devices have a USB 2.0 Micro B receptacle, however some devices have USB C.
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | Micro B |
 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Micro B |
 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | Micro B |
-| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Micro B |
-| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Micro B |
+| E310KIT | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Micro B |
+| E314KIT | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Micro B |
 | E350KIT | Electron 2G Kit (Global) | Micro B |
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Micro B |
-| E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
+| E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Micro B |
+| E404KIT | E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | Micro B |
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Micro B |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | USB-C |
 | MON404E01C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |
 | MON404E02C01KIT | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | Micro B |
 | MON524E01C01KIT | Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | Micro B |
 | MUON404EA | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | USB-C |
+| MUON404KIT | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | USB-C |
 | MUON524EA | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | USB-C |
+| MUON524KIT | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | USB-C |
+| MUON635KIT | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | USB-C |
 | MUON6XXEA | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | USB-C |
 | MUONCB | Muon Carrier Board | USB-C |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | USB-C |
@@ -126,6 +129,6 @@ In rare cases, using the button combination to change into DFU mode may not work
 
 ### Dim D7 (Gen 2)
 
-For Gen 2 devices (E Series, Electron, P1, Photon) if the blue D7 LED is on dimly and the status LED is off, the internal flash has been erased.
+For Gen 2 devices (E-Series, Electron, P1, Photon) if the blue D7 LED is on dimly and the status LED is off, the internal flash has been erased.
 
 If this occurs, it can only be repaired using SWD/JTAG. See the [SWD/JTAG guide](/reference/developer-tools/jtag/) for more information.

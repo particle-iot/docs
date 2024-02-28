@@ -209,7 +209,7 @@ The IP addresses used by the Particle cloud are subject to change without notice
 
 ### Gen 3 and Gen 2 cellular
 
-Gen 3 devices (Argon, Boron, B Series, Tracker SoM, P2, and Photon 2) and Gen 2 cellular devices (Electron, E Series) all use UDP port 5684, outbound. 
+Gen 3 devices (Argon, Boron, B-Series, Tracker SoM, P2, and Photon 2) and Gen 2 cellular devices (Electron, E-Series) all use UDP port 5684, outbound. 
 
 While you rarely need to worry about this for cellular devices, for the Argon, P2, and Photon 2 (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/reference/device-os/api/cloud-functions/particle-keepalive/) to keep the cloud connection active. The default keep-alive for Gen 3 Wi-Fi devices is 25 seconds.
 

@@ -34,10 +34,10 @@ A Product ID is used to group devices together and treat them as a cohesive unit
 
 Each product can only have a single type of device, however some devices are grouped together:
 
-- The B Series SoM B404X/B404/B402 is a separate product from the B524/B523
+- The B-Series SoM B404X/B404/B402 is a separate product from the B524/B523
 - All Tracker Ones ONE404/ONE402, ONE524/ONE523, Tracker SoM T404/T402, and T524/T523 can share a single product
-- The E Series E404/E402/E201 and Electron models can share a single product
-- Except for the E Series E404X, which must be in its own product
+- The E-Series E404/E402/E201 and Electron models can share a single product
+- Except for the E-Series E404X, which must be in its own product
 - The P2 and Photon 2 must be in separate products
 - The P1 and Photon must be in separate products
 

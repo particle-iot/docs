@@ -21,8 +21,8 @@ The MFF2 embedded SIM card is not a programmed eSIM. It's basically the same as 
 | --- | :--- | :---: | :---: | 
 | Boron 2G/3G | BRN314 BRN310 | &check; | &check; |
 | Boron LTE  | BRN404 BRN402 | &check; | &check; |
-| B Series B402 SoM (Cat M1) | B404X B404 B402 | &nbsp; | &check; |
-| B Series B523 SoM (Cat 1) | B524 B523 | &nbsp; | &check; |
+| B-Series B402 SoM (Cat M1) | B404X B404 B402 | &nbsp; | &check; |
+| B-Series B523 SoM (Cat 1) | B524 B523 | &nbsp; | &check; |
 | Tracker SoM (LTE Cat M1) | T404 T402 | &nbsp; | &check; |
 | Tracker SoM (LTE Cat 1 and 2G/3G) | T524 T523 | &nbsp; | &check; |
 | Electron 2G | G350 | &check; | &nbsp; |
@@ -30,8 +30,8 @@ The MFF2 embedded SIM card is not a programmed eSIM. It's basically the same as 
 | Electron 3G | U270 |  &check; | &nbsp; |
 | Electron Global | ELC314 | &check; | &nbsp; |
 | Electron LTE (Cat M1) | ELC404 ELC402 | &nbsp; | &check; |
-| E Series 2G/3G | E314 E310 | &nbsp; | &check; |
-| E Series LTE (Cat M1) | E404X E404 E402 | &nbsp; | &check; |
+| E-Series 2G/3G | E314 E310 | &nbsp; | &check; |
+| E-Series LTE (Cat M1) | E404X E404 E402 | &nbsp; | &check; |
 
 
 ### General considerations
@@ -46,9 +46,9 @@ The MFF2 embedded SIM card is not a programmed eSIM. It's basically the same as 
 - The Boron LTE is not CE certified, and cannot legally be used in the European Union.
 - Some carriers, such as Verizon in the United States, require additional certification of the device and IMEI registration to be able to use their LTE Cat M1 network. This certification has not been done for Boron LTE devices and they will likely be banned from the network within a day or two of first connecting.
 
-### B Series SoM not compatible
+### B-Series SoM not compatible
 
-- Even though the B Series SoM has pins on the M.2 connector marked for use by a SIM card, this feature cannot be used! There is no SIM switch on the B Series SoM and in order to use these pins, you'd have to rework the SoM itself to disconnect the MFF2 SIM and connect the pins on the M.2 connector instead. This is not practical and not recommended.
+- Even though the B-Series SoM has pins on the M.2 connector marked for use by a SIM card, this feature cannot be used! There is no SIM switch on the B-Series SoM and in order to use these pins, you'd have to rework the SoM itself to disconnect the MFF2 SIM and connect the pins on the M.2 connector instead. This is not practical and not recommended.
 
 
 ## Setup

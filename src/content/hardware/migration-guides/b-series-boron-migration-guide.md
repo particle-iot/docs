@@ -1,8 +1,8 @@
 ---
-title: B Series from Boron Migration Guide
+title: B-Series from Boron Migration Guide
 columns: two
 layout: commonTwo.hbs
-description: Learn about migrating from the Boron to the B Series
+description: Learn about migrating from the Boron to the B-Series
 ---
 
 # {{title}}
@@ -10,13 +10,13 @@ description: Learn about migrating from the Boron to the B Series
 {{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/b-series/b-series-top.png"}}
 
 {{!-- BEGIN shared-blurb b69a2546-9baa-11ec-b909-0242ac120002 --}}
-The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
+The B-Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
 Many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
 
 Additionally, the extra width vs. the Boron (Adafruit Feather) form-factor makes it possible to include a LTE Cat 1 with 2G/3G fallback cellular modem, such as the Quectel EG91-E on the B524. This modem is too wide to fit on a Boron.
 
-| Feature | Boron | B Series SoM | SoM Base Board | Tracker SoM |
+| Feature | Boron | B-Series SoM | SoM Base Board | Tracker SoM |
 | --- | :---: | :---: | :---: | :---: |
 | U.FL Antenna Connector | &check; | &check; | Optional |&check; | 
 | MFF2 SMD Particle SIM<sup>2</sup> | &check; | &check; | &nbsp; |&check; | 
@@ -55,9 +55,9 @@ The available models include:
 
 - [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
 - [B524/B523 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
-- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
+- [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
-If you want to migrate from the Electron or E Series to the B Series SoM, see [Gen 2 cellular migration](/hardware/migration-guides/gen2-cellular-migration/).
+If you want to migrate from the Electron or E-Series to the B-Series SoM, see [Gen 2 cellular migration](/hardware/migration-guides/gen2-cellular-migration/).
 
 ### Countries - B404X, B404
 
@@ -192,10 +192,10 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
-| B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
+| B404XMEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
+| B404XMTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
+| B524MEA | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
+| B524MTY | B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
 
 
@@ -205,13 +205,13 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 
 ## Prototyping
 
-The B Series SoM cannot be used without a base board. Typically you will create your own board, however there are two off-the-shelf options available:
+The B-Series SoM cannot be used without a base board. Typically you will create your own board, however there are two off-the-shelf options available:
 
-### B Series Eval board
+### B-Series Eval board
 
-![B Series Eval](/assets/images/b-series/b-series-eval.png)
+![B-Series Eval](/assets/images/b-series/b-series-eval.png)
 
-The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the B Series SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
+The [B-Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the B-Series SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
 
 {{!-- BEGIN shared-blurb 19f889d4-a5c9-11ec-b909-0242ac120002 --}}
 {{imageOverlay src="/assets/images/b-series/b-series-eval-labeled.png" alt="Ports Diagram" class="full-width"}}
@@ -239,7 +239,7 @@ The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-boa
 | 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
 | 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
 | 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 22 | **SoM connector** | M.2 connector for the B Series SoM. |
+| 22 | **SoM connector** | M.2 connector for the B-Series SoM. |
 | 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
 | 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
 | 25 | **Charge LED** | Indicate LiPo is charging. | 
@@ -253,7 +253,7 @@ The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-boa
 {{!-- BEGIN shared-blurb b644c2f2-a5ca-11ec-b909-0242ac120002 --}}
 ![Mikroe Gen 3 SoM](/assets/images/prototyping/mikroe-som.png)
 
-The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B Series SoM to mikroBUS Click boards:
+The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B-Series SoM to mikroBUS Click boards:
 
 | M.2 Pin | Generic SoM | Gen 3 | mikroBUS #1 | mikroBUS #2 |
 | :---: | :---: | :---: | :---: | :---: |
@@ -318,7 +318,7 @@ As this board doesn't really do much, you'll unlikely use it as-is, but you can 
 
 ### Antennas
 
-The Boron has a built-in BLE chip antenna, antenna switch, and U.FL antenna connector. The B Series SoM only has a U.FL connector for BLE and does not have a built-in antenna.
+The Boron has a built-in BLE chip antenna, antenna switch, and U.FL antenna connector. The B-Series SoM only has a U.FL connector for BLE and does not have a built-in antenna.
 
 Both require an external cellular antenna.
 
@@ -326,11 +326,11 @@ Both require an external antenna for NFC tag.
 
 ### SPI
 
-SPI is mostly unchanged between the Boron and B Series SoM. The only difference is the default SS pin, however you can choose any GPIO for your SPI chip select, you do not need to use the default.
+SPI is mostly unchanged between the Boron and B-Series SoM. The only difference is the default SS pin, however you can choose any GPIO for your SPI chip select, you do not need to use the default.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 49b31eea-a5de-11ec-b909-0242ac120002 --}}
 
-| Boron Pin Name | Boron SPI | B Series SoM Pin Name | B Series SoM SPI |
+| Boron Pin Name | Boron SPI | B-Series SoM Pin Name | B-Series SoM SPI |
 | :--- | :--- | :--- | :--- |
 | A5 / D14 | SPI (SS) | A5 / D14 | &nbsp; |
 | D2 | SPI1 (SCK) | D2 | SPI1 (SCK) |
@@ -346,11 +346,11 @@ SPI is mostly unchanged between the Boron and B Series SoM. The only difference 
 
 ### Serial (UART)
 
-Hardware serial (UART) ports are unchanged between the Boron and B Series SoM.
+Hardware serial (UART) ports are unchanged between the Boron and B-Series SoM.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ef25dc00-a5de-11ec-b909-0242ac120002 --}}
 
-| Boron Pin Name | Boron Serial | B Series SoM Pin Name | B Series SoM Serial |
+| Boron Pin Name | Boron Serial | B-Series SoM Pin Name | B-Series SoM Serial |
 | :--- | :--- | :--- | :--- |
 | D2 | Serial1 RTS | D2 | Serial1 RTS |
 | D3 | Serial1 CTS | D3 | Serial1 CTS |
@@ -362,11 +362,11 @@ Hardware serial (UART) ports are unchanged between the Boron and B Series SoM.
 
 ### Analog input (ADC)
 
-There are two additional ADC inputs on the B Series SoM. These can also be used as digital GPIO.
+There are two additional ADC inputs on the B-Series SoM. These can also be used as digital GPIO.
 
 {{!-- BEGIN do not edit content below, it is automatically generated db4246c4-a5de-11ec-b909-0242ac120002 --}}
 
-| Boron Pin Name | Boron ADC | B Series SoM Pin Name | B Series SoM ADC |
+| Boron Pin Name | Boron ADC | B-Series SoM Pin Name | B-Series SoM ADC |
 | :--- | :--- | :--- | :--- |
 | A0 / D19 | &check; | A0 / D19 | &check; |
 | A1 / D18 | &check; | A1 / D18 | &check; |
@@ -382,11 +382,11 @@ There are two additional ADC inputs on the B Series SoM. These can also be used 
 
 ### PWM (Pulse-width modulation)
 
-These are differences in pins that support PWM between the Boron and B Series SoM.
+These are differences in pins that support PWM between the Boron and B-Series SoM.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ce9644de-a5de-11ec-b909-0242ac120002' --}}
 
-| Boron Pin Name | Boron PWM | B Series SoM Pin Name | B Series SoM PWM |
+| Boron Pin Name | Boron PWM | B-Series SoM Pin Name | B-Series SoM PWM |
 | :--- | :--- | :--- | :--- |
 | A0 / D19 | &check; | A0 / D19 | &check; |
 | A1 / D18 | &check; | A1 / D18 | &check; |
@@ -415,13 +415,13 @@ All pins can be used for interrupts on Gen 3 devices, however only 8 pins can be
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
-On both the Boron and B Series SoM (Gen 3), the internal pull is approximately 16K.
+On both the Boron and B-Series SoM (Gen 3), the internal pull is approximately 16K.
 
 ### Retained memory
 
 Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset. 
 
-On both the Boron and B Series SoM, retained memory is 3068 bytes. 
+On both the Boron and B-Series SoM, retained memory is 3068 bytes. 
 
 The flash file system on Gen 3 devices can also be used for data storage, however care must be taken to avoid excessive wear of the flash for frequently changing data.
 
@@ -429,28 +429,28 @@ The flash file system on Gen 3 devices can also be used for data storage, howeve
 
 The Boron has a Micro USB B connector. 
 
-The B Series SoM does not have a USB connector. It is recommended that you add one to your base board for programming and troubleshooting/
+The B-Series SoM does not have a USB connector. It is recommended that you add one to your base board for programming and troubleshooting/
 
 ### NFC tag
 
-The Boron and B Series SoM have NFC Tag support.
+The Boron and B-Series SoM have NFC Tag support.
 
 The Boron has a U.FL connector on the bottom of the board; you must supply your own NFC antenna connector or integrated antenna on your base board.
 
 ## PMIC Notes
 
 {{!-- BEGIN shared-blurb 93112786-2815-408c-b064-ec7e9c629200 --}}
-When using the B Series SoM with a bq24195 PMIC, note the following:
+When using the B-Series SoM with a bq24195 PMIC, note the following:
 
-By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B Series SoM in normal operation.
+By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B-Series SoM in normal operation.
 
 If your device has the default firmware (Tinker), it will attempt to connect to the cloud, brown out due to insufficient current, then the device will reset. This may result in what appears to be the status LED blinking white, but is actually rolling reboot caused by brownout.
 
-A factory new B Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
+A factory new B-Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B-Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
 
 Because the input current limit does not affect the battery input (Li+), for troubleshooting purposes it can be helpful to attach a battery to help rule out input current limit issues. It's also possible to supply 3.7V via a bench power supply to the battery input, instead of VIN. 
 
-The input current limit can result in a situation where you can't bring up a B Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
+The input current limit can result in a situation where you can't bring up a B-Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
 
 - Attach a battery or supply by Li+ when bringing up a board.
 - Use SWD/JTAG and reset halt the MCU. This will prevent it from connecting to the cloud, so you can flash Device OS and firmware to it by SWD.
@@ -471,13 +471,13 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 {{!-- BEGIN do not edit content below, it is automatically generated 09a7da10-a5d0-11ec-b909-0242ac120002 --}}
 
 #### 3V3
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 2 | 10 |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
 | ∆ | Description | Regulated 3.3V DC output, maximum load 1000 mA | System power in, supply a fixed 3.0-3.6v power. |
 #### A0
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 5 | 23 |
 | &nbsp; | Pin Name | A0 | A0 |
@@ -491,7 +491,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A1
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 6 | 33 |
 | &nbsp; | Pin Name | A1 | A1 |
@@ -505,7 +505,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A2
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 7 | 35 |
 | &nbsp; | Pin Name | A2 | A2 |
@@ -519,7 +519,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A3
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 8 | 37 |
 | &nbsp; | Pin Name | A3 | A3 |
@@ -533,7 +533,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A4
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 9 | 41 |
 | &nbsp; | Pin Name | A4 | A4 |
@@ -547,7 +547,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A5
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 10 | 43 |
 | &nbsp; | Pin Name | A5 | A5 |
@@ -562,7 +562,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### A6
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 45|
 | Pin Name | A6|
@@ -575,7 +575,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### A7
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 47|
 | Pin Name | A7|
@@ -588,34 +588,34 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### AGND
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 39|
 | Pin Name | AGND|
 | Description | Analog Ground.|
 #### CELL USBD-
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 46|
 | Pin Name | CELL USBD-|
 | Description | Cellular Modem USB Data-|
 | Input is 5V Tolerant | Yes|
 #### CELL USBD+
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 44|
 | Pin Name | CELL USBD+|
 | Description | Cellular Modem USB Data+|
 | Input is 5V Tolerant | Yes|
 #### CELL VBUS
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 74|
 | Pin Name | CELL VBUS|
 | Description | USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### D0
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 16 | 22 |
 | &nbsp; | Pin Name | D0 | D0 |
@@ -626,7 +626,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D1
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 17 | 20 |
 | &nbsp; | Pin Name | D1 | D1 |
@@ -637,7 +637,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D2
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 18 | 42 |
 | &nbsp; | Pin Name | D2 | D2 |
@@ -652,7 +652,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D22
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 62|
 | Pin Name | D22|
@@ -662,7 +662,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### D23
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 64|
 | Pin Name | D23|
@@ -672,7 +672,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 | Internal pull resistance | 13K|
 #### D3
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 19 | 40 |
 | &nbsp; | Pin Name | D3 | D3 |
@@ -687,7 +687,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D4
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 20 | 66 |
 | &nbsp; | Pin Name | D4 | D4 |
@@ -700,7 +700,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D5
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 21 | 68 |
 | &nbsp; | Pin Name | D5 | D5 |
@@ -712,7 +712,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D6
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 22 | 70 |
 | &nbsp; | Pin Name | D6 | D6 |
@@ -724,7 +724,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D7
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 23 | 72 |
 | &nbsp; | Pin Name | D7 | D7 |
@@ -735,7 +735,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### D8
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 24 | 48 |
 | &nbsp; | Pin Name | D8 | D8 |
@@ -755,7 +755,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### GND
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 4 | 1 |
 | &nbsp; | Pin Name | GND | GND |
@@ -767,7 +767,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 #### MISO
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 13 | 50 |
 | &nbsp; | Pin Name | MISO | MISO |
@@ -779,14 +779,14 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### MODE
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 3 | 32 |
 | &nbsp; | Pin Name | MODE | MODE |
 | &nbsp; | Pin Alternate Name | D20 | D20 |
 | &nbsp; | Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
 #### MOSI
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 12 | 52 |
 | &nbsp; | Pin Name | MOSI | MOSI |
@@ -798,55 +798,55 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### NC
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 14|
 | Pin Name | NC|
 | Description | n/a|
 #### NC
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 75|
 | Pin Name | NC|
 | Description | n/a|
 #### NFC1
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 17|
 | Pin Name | NFC1|
 | Description | NFC Antenna 1|
 #### NFC2
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 19|
 | Pin Name | NFC2|
 | Description | NFC Antenna 2|
 #### RGBB
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 65|
 | Pin Name | RGBB|
 | Description | RGB LED Blue|
 #### RGBG
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 63|
 | Pin Name | RGBG|
 | Description | RGB LED Green|
 #### RGBR
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 61|
 | Pin Name | RGBR|
 | Description | RGB LED Red|
 #### RST
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 1 | 34 |
 | &nbsp; | Pin Name | RST | RST |
 | ∆ | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### RX
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 14 | 38 |
 | &nbsp; | Pin Name | RX | RX |
@@ -858,7 +858,7 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### SCK
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 11 | 54 |
 | &nbsp; | Pin Name | SCK | SCK |
@@ -870,31 +870,31 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### SIM_CLK
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 71|
 | Pin Name | SIM_CLK|
 | Description | Leave unconnected, 1.8V/3V SIM Clock Output from R410M.|
 #### SIM_DATA
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 73|
 | Pin Name | SIM_DATA|
 | Description | Leave unconnected, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up.|
 #### SIM_RST
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 69|
 | Pin Name | SIM_RST|
 | Description | Leave unconnected, 1.8V/3V SIM Reset Output from R410M.|
 #### SIM_VCC
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 67|
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### TX
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 15 | 36 |
 | &nbsp; | Pin Name | TX | TX |
@@ -906,27 +906,27 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | &nbsp; | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 | &nbsp; | Internal pull resistance | 13K | 13K |
 #### USBDATA-
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 13|
 | Pin Name | USBDATA-|
 | Description | USB Data-|
 | Input is 5V Tolerant | Yes|
 #### USBDATA+
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 11|
 | Pin Name | USBDATA+|
 | Description | USB Data+|
 | Input is 5V Tolerant | Yes|
 #### VCC
-| | Added to B Series SoM |
+| | Added to B-Series SoM |
 | :--- | :--- |
 | Pin Number | 2|
 | Pin Name | VCC|
 | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power.|
 #### VUSB
-|   |   | Boron | B Series SoM |
+|   |   | Boron | B-Series SoM |
 | :--- | :--- | :--- | :--- |
 | ∆ | Pin Number | 25 | 16 |
 | &nbsp; | Pin Name | VUSB | VUSB |
@@ -943,18 +943,18 @@ Note that some 2A tablet chargers and multi-port USB power supplies supply 2A bu
 | Platform ID | Name | Description |
 | :--- | :--- | :--- |
 | 13 | boron | Boron (all models) |
-| 23 | bsom | B404X, B404, and B402 B Series SoM |
-| 25 | b5som | B524, B523 B Series SoM | 
+| 23 | bsom | B404X, B404, and B402 B-Series SoM |
+| 25 | b5som | B524, B523 B-Series SoM | 
 
-The platforms IDs of the B Series SoM models vary from the Boron. 
+The platforms IDs of the B-Series SoM models vary from the Boron. 
 
-If you have a product based on the Boron, you will need to create a separate product (or two) for devices using the B Series SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+If you have a product based on the Boron, you will need to create a separate product (or two) for devices using the B-Series SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 
 The reason there are separate platforms for the B4xx and B5xx SoM is that they have different cellular modem manufacturers, u-blox and Quectel, respectively. All Boron models have u-blox cellular modems and thus can share a single platform.
 
 ### Third-party libraries
 
-Most third-party libraries are believed to be compatible between the Boron and B Series SoM.
+Most third-party libraries are believed to be compatible between the Boron and B-Series SoM.
 
 ## Version history
 

@@ -141,7 +141,7 @@ After the widgets are added to the dashboard canvas, you can tap on it to config
 
 ## Firmware 
 
-Any Particle hardware such as Tracker One, Tracker SoM, Boron, B Series SoM, Photon 2, P2, Argon, Photon, Electron, E Series, and Core running the provided firmware will send two channels of simulated sensor data to Blynk.
+Any Particle hardware such as Tracker One, Tracker SoM, Boron, B-Series SoM, Photon 2, P2, Argon, Photon, Electron, E-Series, and Core running the provided firmware will send two channels of simulated sensor data to Blynk.
 
 One channel will send integer values, while the other will transmit a floating point value. This data will be visualized on the Blynk web dashboard and mobile app, displayed both in a chart and as a value.
 

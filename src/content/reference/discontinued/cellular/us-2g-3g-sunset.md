@@ -43,15 +43,15 @@ The mobile operators used by Particle cellular devices in the United States are 
 - After the T-Mobile 3G shutdown in October 2021, there may be reduced T-Mobile coverage in some areas.
 - Of the nationwide US mobile carriers, this model is only compatible with T-Mobile and AT&T, and using a 3rd-party SIM card will not help. This device is not compatible with Verizon.
 
-### E Series E310
+### E-Series E310
 
-- The E Series 2G/3G Global can connect to AT&T or T-Mobile.
+- The E-Series 2G/3G Global can connect to AT&T or T-Mobile.
 - After February 2022 it will not be able to connect to AT&T and will only be able to use T-Mobile 2G.
 - It will stop working entirely in April 2024.
 
 ### Electron 2G/3G (ELC314, E260)
 
-- The E Series 2G/3G Global can connect to AT&T or T-Mobile.
+- The E-Series 2G/3G Global can connect to AT&T or T-Mobile.
 - After February 2022 it will not be able to connect to AT&T and will only be able to use T-Mobile 2G.
 - It will stop working entirely in April 2024.
 - Of the nationwide US mobile carriers, this model is only compatible with T-Mobile and AT&T, and using a 3rd-party SIM card will not help. This device is not compatible with Verizon.
@@ -71,5 +71,5 @@ Because of the 2G/3G sunset, the following SKUs should not be used in the United
 | Electron | E350 | ELC404 |
 | Electron | E260 | ELC404 |
 | Electron | ELC314 | ELC404 |
-| E Series | E314, E313, E310 | E404 |
+| E-Series | E314, E313, E310 | E404 |
 | Boron | BRN314, BRN310 | BRN404X |

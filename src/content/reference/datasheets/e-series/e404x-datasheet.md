@@ -2,7 +2,7 @@
 title: E404X datasheet
 layout: commonTwo.hbs
 columns: two
-description: Datasheet for the Particle E Series, Gen 3 LTE Cat M1 cellular mass-production module
+description: Datasheet for the Particle E-Series, Gen 3 LTE Cat M1 cellular mass-production module
 ---
 
 # E404X Datasheet
@@ -15,15 +15,15 @@ description: Datasheet for the Particle E Series, Gen 3 LTE Cat M1 cellular mass
 
 ### Overview
 
-The E404X is a LTE Cat M1 cellular device with support for BLE (Bluetooth LE). It is based on the Nordic nRF52840 microcontroller shared with other Gen 3 devices such as the Boron and B Series SoM. It is only intended for use in the United States, Canada, and Mexico.
+The E404X is a LTE Cat M1 cellular device with support for BLE (Bluetooth LE). It is based on the Nordic nRF52840 microcontroller shared with other Gen 3 devices such as the Boron and B-Series SoM. It is only intended for use in the United States, Canada, and Mexico.
 
-It is a SMD module designed to be reflowed to your own custom base board and is the same size and has a nearly identical pin-out to the E Series module.
+It is a SMD module designed to be reflowed to your own custom base board and is the same size and has a nearly identical pin-out to the E-Series module.
 
 If you are migrating from the E402 or E404, there is a [migration guide](/hardware/migration-guides/e404x-migration-guide/) available. 
 
-There will not be 2G/3G "X" version E Series; there will not be an E310X or E314X. 
+There will not be 2G/3G "X" version E-Series; there will not be an E310X or E314X. 
 
-New designs should use the B404X (B Series SoM) instead of the E404X.
+New designs should use the B404X (B-Series SoM) instead of the E404X.
 
 ### Features
 
@@ -319,7 +319,7 @@ On the E404X, the following groups are defined. Each group must share the same f
 
 The E404X has a SWD only on dedicated pins that cannot be used for GPIO.
 
-| Module Pin | E Series Pin | SWD |
+| Module Pin | E-Series Pin | SWD |
 | :---: | :---: | :--- |
 | 35 | D7 | SWDIO |
 | 36 | D6 | SWCLK |

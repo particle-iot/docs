@@ -16,7 +16,7 @@ This application note has been split out into separate application notes.
 
 ## Publishing examples, Sleeping Cellular Devices
 
-There are three examples of periodically publishing data from an E Series, Electron, Boron, or B Series SoM that mostly sleeps.
+There are three examples of periodically publishing data from an E-Series, Electron, Boron, or B-Series SoM that mostly sleeps.
 
 #### Wake publish sleep cellular
 

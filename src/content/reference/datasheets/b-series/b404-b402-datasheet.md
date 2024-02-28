@@ -1,8 +1,8 @@
 ---
-title: B Series B404/B402 datasheet
+title: B-Series B404/B402 datasheet
 layout: commonTwo.hbs
 columns: two
-description: Datasheet for the Particle B Series B404 and B402 SoM, Gen 3 cellular LTE Cat M1
+description: Datasheet for the Particle B-Series B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
 # B404/B402 datasheet
@@ -24,9 +24,9 @@ See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for
 
 ### Overview
 
-The B Series System-on-a-Module (SoM) is a cellular device with support for BLE (Bluetooth LE). It is based on the Nordic nRF52840 microcontroller.
+The B-Series System-on-a-Module (SoM) is a cellular device with support for BLE (Bluetooth LE). It is based on the Nordic nRF52840 microcontroller.
 
-The B Series is designed to be integrated into your circuit board design, plugging into a M.2 NGFF connector on your board, allowing the module to be changed or upgraded easily.
+The B-Series is designed to be integrated into your circuit board design, plugging into a M.2 NGFF connector on your board, allowing the module to be changed or upgraded easily.
 
 ### Features
 
@@ -305,7 +305,7 @@ By default, the Tinker application firmware enables the use of the bq24195 PMIC 
 System.setPowerConfiguration(SystemPowerConfiguration());
 ```
 
-If you are using Ethernet with the B Series SoM, the following pins are used by Ethernet:
+If you are using Ethernet with the B-Series SoM, the following pins are used by Ethernet:
 
 | Device OS Pin | M.2 Pin | Ethernet Pin  |
 |:-------------:|:-------:|:--------------------------|
@@ -328,17 +328,17 @@ A detailed explanation of different color codes of the RGB system LED can be fou
 ### PMIC Notes
 
 {{!-- BEGIN shared-blurb 93112786-2815-408c-b064-ec7e9c629200 --}}
-When using the B Series SoM with a bq24195 PMIC, note the following:
+When using the B-Series SoM with a bq24195 PMIC, note the following:
 
-By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B Series SoM in normal operation.
+By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B-Series SoM in normal operation.
 
 If your device has the default firmware (Tinker), it will attempt to connect to the cloud, brown out due to insufficient current, then the device will reset. This may result in what appears to be the status LED blinking white, but is actually rolling reboot caused by brownout.
 
-A factory new B Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
+A factory new B-Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B-Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
 
 Because the input current limit does not affect the battery input (Li+), for troubleshooting purposes it can be helpful to attach a battery to help rule out input current limit issues. It's also possible to supply 3.7V via a bench power supply to the battery input, instead of VIN. 
 
-The input current limit can result in a situation where you can't bring up a B Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
+The input current limit can result in a situation where you can't bring up a B-Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
 
 - Attach a battery or supply by Li+ when bringing up a board.
 - Use SWD/JTAG and reset halt the MCU. This will prevent it from connecting to the cloud, so you can flash Device OS and firmware to it by SWD.
@@ -437,7 +437,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ### Radio specifications
 
-The B Series SoM has two radio modules.
+The B-Series SoM has two radio modules.
 
 #### nRF52840
 - Bluetooth® 5, 2.4 GHz
@@ -525,7 +525,7 @@ Dimensions are in millimeters.
 
 ### 3D models
 
-3D models of the B Series SoM module are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/B-Series/B402) in formats including step, iges, stl, and f3d.
+3D models of the B-Series SoM module are available in the [hardware-libraries Github](https://github.com/particle-iot/hardware-libraries/tree/master/CAD/B-Series/B402) in formats including step, iges, stl, and f3d.
 
 The 3D models are the same for the B404 and B402, as the only changes are the SIM card, which is not visible.
 
@@ -621,9 +621,9 @@ Note: An earlier version of this document had reversed the labels D2 and D3 in t
 
 ### Conformal coatings
 
-B Series SoM modules should not use a conformal coating to protect the module from water. Some components on the SoM cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
+B-Series SoM modules should not use a conformal coating to protect the module from water. Some components on the SoM cannot be coated and would need to be masked off during coating. This will make the coating process difficult to implement and test.
 
-Furthermore, you cannot safely protect the the connection between the M.2 SoM and the M.2 NGFF connector by using a coating. Using an enclosure that protects both your base board and the B Series SoM as a single waterproof assembly is recommended instead.
+Furthermore, you cannot safely protect the the connection between the M.2 SoM and the M.2 NGFF connector by using a coating. Using an enclosure that protects both your base board and the B-Series SoM as a single waterproof assembly is recommended instead.
 
 
 ## Default settings
@@ -657,10 +657,10 @@ The bootloader allows you to easily update the user application via several diff
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404XMTY|
-| B404MEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | B404XMEA|
-| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | B404XMEA|
+| B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404XMTY|
+| B404MEA | B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | B404XMEA|
+| B404MTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | NRND | B404XMTY|
+| B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | B404XMEA|
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

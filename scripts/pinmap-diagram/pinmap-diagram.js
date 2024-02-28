@@ -652,7 +652,7 @@ const svg = require('./svg');
 
     diagram.generateESeries = async function(generateOptions, files) {
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
-            platformName: 'E Series',
+            platformName: 'E-Series',
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/e-series.svg'),
             outputPath: 'assets/images/e-series-pinout.svg',
             // scale to make height 500px width 221
@@ -2041,7 +2041,7 @@ const svg = require('./svg');
         }), files);
 
         await diagram.generateM2SoM(Object.assign(Object.assign({}, generateOptions), {
-            platformName: 'M SoM',
+            platformName: 'M-SoM',
             outputPath: 'assets/images/msom.svg',
         }), files);
 

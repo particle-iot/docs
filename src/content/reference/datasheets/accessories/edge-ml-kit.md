@@ -58,7 +58,7 @@ The connections on the breakout are:
 
 {{imageOverlay src="/assets/images/edge-kit/mic-3.jpeg" alt="PDM Microphone Assembled" }}
 
-Use the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library. The library can be used for RTL872x (P2, Photon 2) and nRF52 (Boron, B Series SoM, Tracker SoM, Argon). It does not support Gen 2 devices (Electron, E Series, Photon, P1). The library includes sample code for capturing audio samples and additional information.
+Use the [Microphone_PDM](https://github.com/particle-iot/Microphone_PDM) library. The library can be used for RTL872x (P2, Photon 2) and nRF52 (Boron, B-Series SoM, Tracker SoM, Argon). It does not support Gen 2 devices (Electron, E-Series, Photon, P1). The library includes sample code for capturing audio samples and additional information.
 
 On the nRF52 you can use other GPIO for PDM clock and data, but using A0 and A1 will assure compatibility with the Photon 2.
 
@@ -200,7 +200,7 @@ Several light-emitting diodes (LEDs) are included in the kit, and can be used as
 
 LEDs require a current limiting resistor. Typically you will use 1K&ohm; (Brown - Black - Red - Gold) so the LED will not be overly bright.
 
-You can use  330 &ohm; (Orange - Orange - Brown - Gold) if you need maximum brightness. This will require changing the [pin drive strength](/reference/device-os/api/input-output/pinsetdrivestrength/) on nRF52840 devices (Boron, B Series SoM, Tracker, E404X, Argon) in software.
+You can use  330 &ohm; (Orange - Orange - Brown - Gold) if you need maximum brightness. This will require changing the [pin drive strength](/reference/device-os/api/input-output/pinsetdrivestrength/) on nRF52840 devices (Boron, B-Series SoM, Tracker, E404X, Argon) in software.
 
 - The longer lead is the positive connection or anode
 - The shorter lead in the negative connection or cathode. The case may also have a flattened spot on the cathode side.

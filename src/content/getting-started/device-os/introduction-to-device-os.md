@@ -92,7 +92,7 @@ On cellular devices, persistent UDP listeners are not supported. UDP packets can
 
 [BLE](/reference/device-os/api/bluetooth-le-ble/bluetooth-le-ble/) can be used to send data between BLE compatible devices at short distances, typically within 10 meters. BLE does not require pairing (like with A2DP Bluetooth headsets) but does not have built-in encryption support. Both peripheral and central modes are supported, so the Particle device can be either side of the BLE connection.
 
-BLE is only supported on Gen 3 devices (Argon, Boron, B Series SoM).
+BLE is only supported on Gen 3 devices (Argon, Boron, B-Series SoM).
 
 #### Webhooks
 

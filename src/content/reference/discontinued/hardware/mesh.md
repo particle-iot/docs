@@ -26,7 +26,7 @@ Mesh networking and the Xenon have been discontinued.
 
 #### Does this affect my standalone Argon or boron?
 
-Argon, Boron, and B Series SoM devices will continue to be manufactured and sold. While you cannot use the Thread Mesh functionality after 2020, the primary network interface (Wi-Fi for Argon, cellular for Boron and B Series) will continue to be supported. BLE (Bluetooth LE) will continue to be supported as well.
+Argon, Boron, and B-Series SoM devices will continue to be manufactured and sold. While you cannot use the Thread Mesh functionality after 2020, the primary network interface (Wi-Fi for Argon, cellular for Boron and B-Series) will continue to be supported. BLE (Bluetooth LE) will continue to be supported as well.
 
 After 2020 the mobile app support for creating mesh networks will be removed, so the mobile apps will always behave as if you answered "No" to the "Do you want to use this device in a mesh network" question.
 

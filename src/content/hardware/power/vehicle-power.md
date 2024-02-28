@@ -5,11 +5,11 @@ columns: two
 ---
 # {{title}}
 
-While the Electron, E Series, and Boron have power supply inputs that will accept 12V, it's best to avoid connecting the VIN power input directly to a vehicle electrical system. There may be voltage spikes that exceed the absolute maximum limits of the device and cause damage.
+While the Electron, E-Series, and Boron have power supply inputs that will accept 12V, it's best to avoid connecting the VIN power input directly to a vehicle electrical system. There may be voltage spikes that exceed the absolute maximum limits of the device and cause damage.
 
 There are many possible designs, but we like the [OpenXC Platform](http://openxcplatform.com/) designs. These were created by Ford and open-sourced specifically for using microcontrollers in vehicles. 
 
-The design includes a 5V output which can be used across all devices, including the Photon, P1, Argon, and Xenon as well as the Boron, E Series, and Electron.
+The design includes a 5V output which can be used across all devices, including the Photon, P1, Argon, and Xenon as well as the Boron, E-Series, and Electron.
 
 This shows the unregulated 12V (top), 5V regulated (middle), and 3V3 from a Boron (bottom):
 
@@ -21,7 +21,7 @@ You can download the files associated with this app note [as a zip file](/assets
 
 ## Design 1
 
-This design is almost exactly the OpenXC power supply design. It's built in an Adafruit Feather form-factor because it's useful for prototyping new designs and you can easily swap between cellular (Boron) and Wi-Fi (Argon). The design is easily extracted to make it part of your base board for an E Series or B Series SoM as well. Design 3 is an alternative way to lay out this design.
+This design is almost exactly the OpenXC power supply design. It's built in an Adafruit Feather form-factor because it's useful for prototyping new designs and you can easily swap between cellular (Boron) and Wi-Fi (Argon). The design is easily extracted to make it part of your base board for an E-Series or B-Series SoM as well. Design 3 is an alternative way to lay out this design.
 
 ### Schematic 1
 
@@ -40,7 +40,7 @@ Of interest:
 This power supply can be used for:
 
 - Any Wi-Fi based device.
-- Any LTE cellular device (E Series LTE, Boron LTE, B402 SoM).
+- Any LTE cellular device (E-Series LTE, Boron LTE, B402 SoM).
 - Any cellular device that also includes a Li-Po battery backup. 
 
 In other words, 2G/3G cellular devices need to have a Li-Po battery when use with the 1.2A power supply. Design 2 has a higher current rating and can be used without the Li-Po battery.

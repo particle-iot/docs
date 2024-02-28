@@ -29,12 +29,12 @@ The following cellular antennas are available:
 | Wide band LTE cell antenna [x50] | PARANTCW1TY | M404, M524 | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 | Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) &#124; [Retail Store](https://store.particle.io/products/wide-band-lte-cat-m1-cell-antenna-x1) |
 | Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
-| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B Series<sup>1</sup>, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
-| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x50] | ANTCW2TY | Tracker, B Series<sup>1</sup>, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) |
-| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
-| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
-| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1] | ANTELEC | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-antenna-1) |
-| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x50] | ANTELEC50 | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) |
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B-Series<sup>1</sup>, E-Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x50] | ANTCW2TY | Tracker, B-Series<sup>1</sup>, E-Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E-Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E-Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
+| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1] | ANTELEC | Electron and E-Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-antenna-1) |
+| Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x50] | ANTELEC50 | Electron and E-Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) |
 | Tracker One Cellular Antenna | | Tracker One | [Datasheet](/assets/pdfs/tracker-one-ant-cellular.pdf) |
 
 
@@ -103,16 +103,16 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Asset Tracker 2G | ASSET2GV2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
 | Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
 | Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
-| B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
-| B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
+| B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | ANTCW2EA | &nbsp; | GA|
+| B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
+| B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
+| B-Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | NRND|
@@ -127,21 +127,21 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &nbsp; | PARANTC41EA | ANT-FLXU<sup>3</sup> | GA|
-| E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
-| E Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series 2G/3G (Global - E313), [x1] | E313EA | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series 2G/3G (Global - E313), Tray [x50] | E313TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
-| E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | E314KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
-| E Series 2G/3G (Global - E314), [x1] | E314MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series 2G/3G (Global - E314), Tray [x50] | E314TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
-| E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | E404MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404TRAY50 | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404XTRAY50 | &nbsp; | ANT-FLXU | PARANTC41EA<sup>2</sup> | GA|
-| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E402KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| E Series LTE CAT-M1 (NorAm), [x1] | E402MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series 2G/3G (Global - E313), [x1] | E313EA | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series 2G/3G (Global - E313), Tray [x50] | E313TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
+| E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | E314KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series 2G/3G (Global - E314), [x1] | E314MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series 2G/3G (Global - E314), Tray [x50] | E314TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | E404MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404TRAY50 | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404XTRAY50 | &nbsp; | ANT-FLXU | PARANTC41EA<sup>2</sup> | GA|
+| E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E402KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| E-Series LTE CAT-M1 (NorAm), [x1] | E402MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
+| E-Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
 | Electron 2G (Global), Tray [x50] | E350TRAY50 | &nbsp; | ANTELEC | &nbsp; | Deprecated|
 | Electron 2G Kit (Global) | E350KIT | &check; | ANTELEC | &nbsp; | Deprecated|
 | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | E260KIT | &check; | ANTELEC | &nbsp; | Deprecated|
@@ -154,17 +154,20 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ELC404TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
 | Electron LTE CAT-M1 (NorAm), [x1] | ELC402EA | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
 | Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | PARANTCW1EA | &nbsp; | In development|
-| M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTCW1EA | &nbsp; | In development|
-| M Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &check; | PARANTCW1EA | &nbsp; | In development|
-| M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTCW1EA | &nbsp; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | PARANTCW1EA | &nbsp; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTCW1EA | &nbsp; | In development|
+| M-Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &check; | PARANTCW1EA | &nbsp; | In development|
+| M-Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTCW1EA | &nbsp; | In development|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &check; | PARANTCW1EA | &nbsp; | In development|
-| Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | 1 | &nbsp; | In development|
+| Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | 1 | &nbsp; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | 1 | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | 1 | &nbsp; | GA|
 | Muon Carrier Board | MUONCB | &nbsp; | PARANTCW1EA | &nbsp; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &check; | PARANTCW1EA | &nbsp; | In development|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524KIT | &check; | PARANTCW1EA | &nbsp; | In development|
 | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &check; | PARANTCW1EA | &nbsp; | In development|
+| Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404KIT | &check; | PARANTCW1EA | &nbsp; | In development|
+| Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON635KIT | &check; | PARANTCW1EA | &nbsp; | In development|
 | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON6XXEA | &check; | PARANTCW1EA | &nbsp; | In development|
 | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | 1 | &nbsp; | GA|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | 1 | &nbsp; | GA|
@@ -208,7 +211,7 @@ These devices do not have a cellular modem and therefore do not need a cellular 
 | :----- | :--- |
 | Argon | ARG-AQKT, ARG-LDKT, ARG-STRTKT, ARGN-H, ARGNKIT, ARGNTRAY50|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
-| P Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2EDGEKIT, PHN2KIT, PHN2MEA, PHN2MTY|
+| P-Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2EDGEKIT, PHN2KIT, PHN2MEA, PHN2MTY|
 
 
 {{!-- END do not edit content above, it is automatically generated 57d69268-776d-11eb-9439-0242ac130002 --}}
@@ -250,7 +253,7 @@ All Particle cellular devices have a U.FL antenna connector. Most cellular anten
 
 Cellular boosters like the [weBoost](https://www.amazon.com/weBoost-472120-Signal-Booster-Carriers/dp/B081BM99M9/ref=sr_1_4) generally work with all Particle cellular devices, assuming there is at least some faint, compatible signal available. For example, with the Boron 2G/3G in the United States, if you only have a weak T-Mobile signal they can be helpful. If you have no T-Mobile service at all in your area, they will not help.
 
-Cellular micro/pico/femto cells that use the Internet to connect to a specific carrier generally do not work. For example, the AT&T MicroCell does not work with the Electron and E Series, even though they can use AT&T in the United States. The reason is that the Particle devices are roaming on AT&T, and the MicroCell product does not allow access to roaming cellular devices.
+Cellular micro/pico/femto cells that use the Internet to connect to a specific carrier generally do not work. For example, the AT&T MicroCell does not work with the Electron and E-Series, even though they can use AT&T in the United States. The reason is that the Particle devices are roaming on AT&T, and the MicroCell product does not allow access to roaming cellular devices.
 
 
 ## Wi-Fi
@@ -279,17 +282,20 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 | Argon, Starter Kit  [x1] | ARGNKIT | &nbsp; | ANT-FLXV2 | &check; | NRND|
 | Argon, Tray [x50] | ARGNTRAY50 | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Edge ML Kit for Photon 2 (Photon 2 included) | PHN2EDGEKIT | trace | 4 | &nbsp; | GA|
-| M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
-| M Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| M-Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | In development|
+| M-Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | 1 | &nbsp; | &nbsp; | In development|
+| Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | 1 | &nbsp; | &nbsp; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | 1 | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | 1 | &nbsp; | &nbsp; | GA|
 | Muon Carrier Board | MUONCB | &nbsp; | PARANTWM1EA | &nbsp; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524KIT | &nbsp; | PARANTWM1EA | &check; | In development|
 | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404KIT | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON635KIT | &nbsp; | PARANTWM1EA | &check; | In development|
 | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON6XXEA | &nbsp; | PARANTWM1EA | &check; | In development|
 | P0 Wi-Fi Module, Cut tape [x10] | P0MOD10 | &nbsp; | true | &nbsp; | Deprecated|
 | P0 Wi-Fi Module, Reel [x2000] | P0REEL | &nbsp; | true | &nbsp; | Deprecated|
@@ -351,9 +357,9 @@ These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenn
 
 | Family | SKUs |
 | :----- | :--- |
-| B Series SoM | B402MEA, B402MTY, B404MEA, B404MTY, B404XMEA, B404XMTY, B523MEA, B523MTY, B524MEA, B524MTY|
+| B-Series SoM | B402MEA, B402MTY, B404MEA, B404MTY, B404XMEA, B404XMTY, B523MEA, B523MTY, B524MEA, B524MTY|
 | Boron | BRN310KIT, BRN310TRAY50, BRN314KIT, BRN314TRAY50, BRN402, BRN402-AQKT, BRN402KIT, BRN402TRAY50, BRN404, BRN404KIT, BRN404TRAY50, BRN404X, BRN404XKIT, BRN404XTRAY50|
-| E Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
+| E-Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
 
 
@@ -364,7 +370,7 @@ These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenn
 
 Particle Gen 3 devices support BLE for short-distance communication. Most devices include a built-in chip antenna, and can optionally use an external antenna. 
 
-The exception is the B Series SoM, which does not have a chip antenna on the SoM and requires an external antenna if BLE is to be used. Use of BLE on the B Series SoM is optional.
+The exception is the B-Series SoM, which does not have a chip antenna on the SoM and requires an external antenna if BLE is to be used. Use of BLE on the B-Series SoM is optional.
 
 The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) and wholesale stores. Note: The same external antenna model is used for Wi-Fi and BLE.
 
@@ -376,7 +382,7 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 
 The P2 and Photon 2 share its antenna between Wi-Fi and BLE and does not require a separate BLE antenna. The P2 includes an internal trace antenna. An external dual-band antenna can be connected to the U.FL connector and selcted in software. This will require additional certification with your external antenna.
 
-The M SoM shares its antenna between Wi-Fi and BLE, but does not include a built-in trace antenna. An external antenna is required to use BLE or Wi-Fi.
+The M-SoM shares its antenna between Wi-Fi and BLE, but does not include a built-in trace antenna. An external antenna is required to use BLE or Wi-Fi.
 
 ### Compatible devices (BLE)
 
@@ -394,16 +400,16 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Argon, Tray [x50] | ARGNTRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
-| B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
-| B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
-| B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &nbsp; | ANT-FLXV2 | &check; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &nbsp; | ANT-FLXV2 | &check; | GA|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
+| B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
+| B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
+| B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
+| B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &nbsp; | ANT-FLXV2 | &check; | GA|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
+| B-Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
+| B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | ANT-FLXV2 | &nbsp; | NRND|
@@ -419,17 +425,20 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | ANT-FLXV2 | &nbsp; | GA|
 | Edge ML Kit for Photon 2 (Photon 2 included) | PHN2EDGEKIT | &check; | 4 | &nbsp; | GA|
-| M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
-| M Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &nbsp; | PARANTWM1EA | &check; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
+| M-Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &nbsp; | PARANTWM1EA | &check; | In development|
+| M-Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &nbsp; | PARANTWM1EA | &nbsp; | In development|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &nbsp; | PARANTWM1EA | &check; | In development|
-| Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &nbsp; | &nbsp; | In development|
+| Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &nbsp; | &nbsp; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | &nbsp; | &nbsp; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | &nbsp; | &nbsp; | GA|
 | Muon Carrier Board | MUONCB | &nbsp; | PARANTWM1EA | &nbsp; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524KIT | &nbsp; | PARANTWM1EA | &check; | In development|
 | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404KIT | &nbsp; | PARANTWM1EA | &check; | In development|
+| Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON635KIT | &nbsp; | PARANTWM1EA | &check; | In development|
 | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON6XXEA | &nbsp; | PARANTWM1EA | &check; | In development|
 | P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | &check; | 4 | &nbsp; | GA|
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | &check; | 4 | &nbsp; | GA|
@@ -473,10 +482,10 @@ These devices do not have a BLE radio and therefore do not need a BLE antenna.
 
 | Family | SKUs |
 | :----- | :--- |
-| E Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
+| E-Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
-| P Series | P0MOD10, P0REEL, P1MOD10, P1REEL|
+| P-Series | P0MOD10, P0REEL, P1MOD10, P1REEL|
 
 
 {{!-- END do not edit content above, it is automatically generated 2cf3e112-776e-11eb-9439-0242ac130002 --}}
@@ -494,7 +503,7 @@ The Particle NFC Antenna is available in the [retail](https://store.particle.io/
 | Particle NFC Antenna, [x1] | ANT-NFC | [Datasheet](/assets/datasheets/ANT-NFC.pdf) &#124; [Retail Store](https://store.particle.io/products/nfc-antenna) |
 | Tracker One NFC Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-nfc.pdf) |
 
-The P2, Photon 2, and M SoM do not support NFC.
+The P2, Photon 2, and M-SoM do not support NFC.
 
 ### Compatible devices (NFC)
 
@@ -511,16 +520,16 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | Argon Starter Kit [x1] | ARG-STRTKT | &check; | &nbsp; | NRND|
 | Argon, Starter Kit  [x1] | ARGNKIT | &check; | &nbsp; | NRND|
 | Argon, Tray [x50] | ARGNTRAY50 | &check; | &nbsp; | Deprecated|
-| B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &check; | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | &nbsp; | Deprecated|
-| B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &check; | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &check; | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &check; | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &check; | &nbsp; | NRND|
+| B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | &nbsp; | GA|
+| B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &check; | &nbsp; | GA|
+| B-Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | &nbsp; | Deprecated|
+| B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &check; | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | &nbsp; | GA|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &check; | &nbsp; | NRND|
+| B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &check; | &nbsp; | GA|
+| B-Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | &nbsp; | Deprecated|
+| B-Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &check; | &nbsp; | NRND|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | &nbsp; | Deprecated|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | &nbsp; | Deprecated|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | &nbsp; | NRND|
@@ -571,11 +580,11 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 | Family | SKUs |
 | :----- | :--- |
 | Tracker | MON404E01C01KIT, MON404E02C01KIT, MON524E01C01KIT|
-| M Series SoM | M404MEA, M404MTY, M524MEA, M524MTY, M635MEA, MUON404EA, MUON524EA, MUON6XXEA|
-| E Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
+| M-Series SoM | M404MEA, M404MTY, M524MEA, M524MTY, M635MEA, MUON404EA, MUON404KIT, MUON524EA, MUON524KIT, MUON635KIT, MUON6XXEA|
+| E-Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
-| P Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2EDGEKIT, PHN2KIT, PHN2MEA, PHN2MTY|
+| P-Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2EDGEKIT, PHN2KIT, PHN2MEA, PHN2MTY|
 
 
 {{!-- END do not edit content above, it is automatically generated 6b9301fa-776e-11eb-9439-0242ac130002 --}}
@@ -585,7 +594,7 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 
 The Tracker One includes a [Cirocomm PA035AQ0004](http://www.cirocomm.com/en-global/products_ciro/detail/PA035AQ0004) (T0004, 35x35mm) GPS/GLOSNASS antenna on the Tracker Carrier Board.
 
-The M SoM can use this GNSS antenna. Single unit quantites (M404MEA, M524MEA) include a GNSS antenna. It's not included in tray quantities.
+The M-SoM can use this GNSS antenna. Single unit quantites (M404MEA, M524MEA) include a GNSS antenna. It's not included in tray quantities.
 
 | SKU | Description | |
 | :--- | :--- | :--- |
@@ -612,17 +621,20 @@ The following devices have GNSS capabilities:
 | Asset Tracker 2G | ASSET2GV2 | &check; | &check; | Deprecated|
 | Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | &check; | Deprecated|
 | Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | &check; | Deprecated|
-| M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | &check; | In development|
-| M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &check; | &nbsp; | In development|
-| M Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &check; | &check; | In development|
-| M Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &check; | &nbsp; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | M524MEA | &check; | &check; | In development|
+| M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | M524MTY | &check; | &nbsp; | In development|
+| M-Series LTE M1/2G (Global, EtherSIM), [x1] | M404MEA | &check; | &check; | In development|
+| M-Series LTE M1/2G (Global, EtherSIM), Tray [x50] | M404MTY | &check; | &nbsp; | In development|
 | M-Series LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | M635MEA | &check; | &check; | In development|
-| Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &check; | In development|
+| Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON524E01C01KIT | &check; | &check; | GA|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Blue Enclosure, IO Card, Developer Edition [x1] | MON404E02C01KIT | &check; | &check; | In development|
 | Monitor One LTE CAT-M1 (NorAm, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1] | MON404E01C01KIT | &check; | &check; | GA|
 | Muon Carrier Board | MUONCB | &check; | &nbsp; | In development|
 | Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524EA | &check; | &check; | In development|
+| Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1] | MUON524KIT | &check; | &check; | In development|
 | Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404EA | &check; | &check; | In development|
+| Muon LTE M1/2G Kit (Global, EtherSIM), [x1] | MUON404KIT | &check; | &check; | In development|
+| Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON635KIT | &check; | &check; | In development|
 | Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1] | MUON6XXEA | &check; | &check; | In development|
 | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | &check; | GA|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &check; | GA|

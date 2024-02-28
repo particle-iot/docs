@@ -16,8 +16,8 @@ Connection management manages network connections across the three currently ava
 Connection management:
 
 - Requires Device OS 5.6.0 or later, and some features require Device OS 5.7.0. 
-- Is currently supported on M SoM devices.
-- In the future will support management of Ethernet and another interface on Gen 3 devices (Boron, B SoM, and Argon) as well as P2 and Photon 2. 
+- Is currently supported on M-SoM devices.
+- In the future will support management of Ethernet and another interface on Gen 3 devices (Boron, B-SoM, and Argon) as well as P2 and Photon 2. 
 - The Tracker SoM (also Tracker One and Monitor One) Wi-Fi interface can only be used for geolocation, not for connectivity.
 
 ## Automatic connection management

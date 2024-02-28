@@ -22,7 +22,7 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN011 - Tracker SoM default application firmware issue](/reference/technical-advisory-notices/tan011/)
 - [TAN013 - Tracker Manufacturing Firmware 3.3.0](/reference/technical-advisory-notices/tan013/)
 
-### Boron/B Series SoM
+### Boron/B-Series SoM
 
 - [TAN001 - SARA-R410M "124-day"](/reference/technical-advisory-notices/tan001-sara-r410m-124-day/) Power-off procedure recommendations for Particle devices running u-blox SARA-R410M-02B modules
 - [TAN003 - B402 RF Circuit Component](/reference/technical-advisory-notices/tan003-b402-rf-circuit-component/) A manufacturing run of B402 SOMs in week 28 of 2020 mis-populated 10K resistors in place of 15pF capacitors in the RF matching circuit. This can lead to weakened connectivity and component heating.
@@ -33,7 +33,7 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN010 - SARA-R410 SIM Initialization](/reference/technical-advisory-notices/tan010/)
 - [TAN012 - Rare connectivity issue with BRN404X, B404X, and E404X](/reference/technical-advisory-notices/tan012/)
 
-### Electron/E Series
+### Electron/E-Series
 
 - [TAN001 - SARA-R410M "124-day"](/reference/technical-advisory-notices/tan001-sara-r410m-124-day/) Power-off procedure recommendations for Particle devices running u-blox SARA-R410M-02B modules
 - [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](/reference/technical-advisory-notices/tan004-power-off-recommendations-for-sara-r410m-equipped-devices/)

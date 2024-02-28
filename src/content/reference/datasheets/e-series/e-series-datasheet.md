@@ -1,18 +1,18 @@
 ---
-title: E Series datasheet
+title: E-Series datasheet
 layout: commonTwo.hbs
 columns: two
-description: Datasheet for the Particle E Series, Gen 2 cellular mass-production module
+description: Datasheet for the Particle E-Series, Gen 2 cellular mass-production module
 ---
 
-# E Series module datasheet
+# E-Series module datasheet
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-The E Series models below have been deprecated. The recommended replacement for the E402/E404 is the [E404X](/reference/datasheets/e-series/e404x-datasheet/).
+The E-Series models below have been deprecated. The recommended replacement for the E402/E404 is the [E404X](/reference/datasheets/e-series/e404x-datasheet/).
 
 See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
 {{box op="end"}}
@@ -23,7 +23,7 @@ See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for
 
 ### Overview
 
-The E Series module is an IoT platform for creating cellular-connected products. It is an industrial version of Particle's Electron dev kit. It is specifically designed for mass scale manufacturing and integration. It comes with an affordable data plan for low-bandwidth applications. Plus the E Series is available for more than 100 countries worldwide!
+The E-Series module is an IoT platform for creating cellular-connected products. It is an industrial version of Particle's Electron dev kit. It is specifically designed for mass scale manufacturing and integration. It comes with an affordable data plan for low-bandwidth applications. Plus the E-Series is available for more than 100 countries worldwide!
 
 It also comes with Particle's development tools and cloud platform for managing and interacting with your new connected hardware.
 
@@ -44,7 +44,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 ### Device OS support
 
-It is recommended that you use the latest version in the 2.x LTS release line with the E Series E310, E313, E314, E402, and E404 (but not the E404X). 
+It is recommended that you use the latest version in the 2.x LTS release line with the E-Series E310, E313, E314, E402, and E404 (but not the E404X). 
 
 While the devices are compatible with older versions of Device OS and 3.x, these versions as past the end-of-support date and are not recommended for use in production. Only 2.x LTS remains in the Extended Support and Maintenance (ESM) window.
 
@@ -63,7 +63,7 @@ The E series can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo b
 #### VIN
 The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
 
-The E Series LTE (E402, LTE Cat M1) can be powered with as little as 550 mA at 5V.
+The E-Series LTE (E402, LTE Cat M1) can be powered with as little as 550 mA at 5V.
 
 #### LiPo
 This pin serves two purposes. You can use this pin to connect a LiPo battery directly without having to use a JST connector or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. This is the most efficient way of powering the E series since the PMIC by-passes the regulator and supplies power to the E series module via an internal FET leading to lower quiescent current.
@@ -727,21 +727,21 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
-| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | NRND | E314KIT|
-| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | NRND | |
-| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | &check; | NRND | |
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | |
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | E404XTRAY50|
-| E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND | |
-| E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
-| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Deprecated | |
-| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | Deprecated | |
-| E313EA | E Series 2G/3G (Global - E313), [x1] | Global | U201 |  | Deprecated | |
-| E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | &check; | Deprecated | |
-| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | |
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | E404XTRAY50|
-| E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 |  | End of life | |
+| E404XTRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | GA | |
+| E310KIT | E-Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | NRND | E314KIT|
+| E314KIT | E-Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | NRND | |
+| E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | &check; | NRND | |
+| E402KIT | E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | |
+| E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | E404XTRAY50|
+| E404KIT | E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND | |
+| E404MOD1 | E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
+| E310MOD1 | E-Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Deprecated | |
+| E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | Deprecated | |
+| E313EA | E-Series 2G/3G (Global - E313), [x1] | Global | U201 |  | Deprecated | |
+| E314MOD1 | E-Series 2G/3G (Global - E314), [x1] | Global | U201 | &check; | Deprecated | |
+| E402MOD1 | E-Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | |
+| E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R410 | &check; | Deprecated | E404XTRAY50|
+| E313TRAY50 | E-Series 2G/3G (Global - E313), Tray [x50] | Global | U201 |  | End of life | |
 
 
 {{!-- END do not edit content above, it is automatically generated 26c8707c-76ca-11eb-9439-0242ac130002 --}}

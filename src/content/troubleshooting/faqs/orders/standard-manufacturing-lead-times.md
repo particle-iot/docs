@@ -25,16 +25,16 @@ Particle products may be subject to standard manufacturing lead times depending 
 | ARGN-H | Argon [x1] | On Allocation
 | ARGNKIT | Argon, Starter Kit [x1] | On Allocation
 | ARGNTRAY50 | Argon, Tray [x50] | On Allocation
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | On Allocation
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | On Allocation
-| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | On Allocation
-| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | On Allocation
+| B402MEA | B-Series LTE CAT-M1 (NorAm), [x1] | On Allocation
+| B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | On Allocation
+| B523MEA | B-Series LTE CAT-1/3G/2G (Europe) [x1] | On Allocation
+| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | On Allocation
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | On Allocation
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | On Allocation
 | BRN402KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | On Allocation
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | On Allocation
-| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | On Allocation
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | On Allocation
+| E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | On Allocation
+| E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | On Allocation
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | On Allocation
 | FWNG-ETH | Particle Ethernet FeatherWing, [x1] | 16 weeks
 | FWNG-OLED | Adafruit OLED FeatherWing, [x1] | 16 weeks

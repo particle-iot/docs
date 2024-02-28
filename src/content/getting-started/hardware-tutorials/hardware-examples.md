@@ -46,7 +46,7 @@ This example will blink the blue D7 LED on your Particle device.
 
 - On the Photon and Electron it's located next to the D7 pin
 - On the Argon and Boron it's located next to the USB connector (on the side with the battery connector)
-- The E Series, B Series SoM, and Tracker SoM evaluation boards, and the Tracker One, do not have D7 LEDs.
+- The E-Series, B-Series SoM, and Tracker SoM evaluation boards, and the Tracker One, do not have D7 LEDs.
 
 {{> codebox content="/assets/files/hardware-examples/blink-d7.ino" format="cpp" height="500" webide="605b1e92de63ee0017f525ea" flash="true"}}
 

@@ -873,7 +873,7 @@
             "buttons": [
                 {
                     "title": "I have a cellular device",
-                    "detail": "Tracker, Boron, B Series SoM, E Series or Electron",
+                    "detail": "Tracker, Boron, B-Series SoM, E-Series or Electron",
                     "page": 138
                 },
                 {
@@ -1191,7 +1191,7 @@
                 },
                 {
                     "page": 160,
-                    "comment": "Electron/E Series"
+                    "comment": "Electron/E-Series"
                 },
                 {
                     "page": 161,
@@ -1256,7 +1256,7 @@
         },
         {
             "page": 159,
-            "title": "Set up a Boron or B Series SoM (Gen 3 cellular) developer device",
+            "title": "Set up a Boron or B-Series SoM (Gen 3 cellular) developer device",
             "buttons": [
                 {
                     "title": "Set up a device using web-based setup at setup.particle.io",
@@ -1279,22 +1279,22 @@
         },
         {
             "page": 160,
-            "title": "Set up a Electron or E Series (Gen 2 cellular) developer device",
+            "title": "Set up a Electron or E-Series (Gen 2 cellular) developer device",
             "buttons": [
                 {
                     "title": "Set up a device using web-based setup at setup.particle.io",
                     "url": "https://setup.particle.io/"
                 },
                 {
-                    "title": "Set up an Electron or E Series using the Particle CLI",
+                    "title": "Set up an Electron or E-Series using the Particle CLI",
                     "page": 181
                 },
                 {
-                    "title": "Set up an Electron or E Series using the Particle Mobile app for iOS or Android",
+                    "title": "Set up an Electron or E-Series using the Particle Mobile app for iOS or Android",
                     "url": "https://setup.particle.io/"
                 },
                 {
-                    "title": "Set up an Electron or E Series from your web browser using USB (experimental)",
+                    "title": "Set up an Electron or E-Series from your web browser using USB (experimental)",
                     "url": "/tools/setup/",
                     "hidden": true
                 }
@@ -1790,7 +1790,7 @@
         },
         {
             "page": 181,
-            "title": "Set up an Electron or E Series using the Particle CLI",
+            "title": "Set up an Electron or E-Series using the Particle CLI",
             "steps": [
                 {
                     "page": 182,

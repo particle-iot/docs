@@ -11,11 +11,11 @@ module.exports = function(string) {
 
 	switch(txt) {
 	case 'Boron':
-		txt = 'Boron / B Series';
+		txt = 'Boron / B-Series';
 		break;
 
 	case 'Electron':
-		txt = 'Electron / E Series';
+		txt = 'Electron / E-Series';
 		break;
 	
 	case 'Faq':

@@ -1,8 +1,8 @@
 ---
-title: M SoM from B Series migration guide
+title: M-SoM from B Series migration guide
 columns: two
 layout: commonTwo.hbs
-description: M SoM from B Series migration guide
+description: M-SoM from B Series migration guide
 ---
 
 # {{title}}
@@ -16,19 +16,19 @@ This is a preliminary datasheet and changes may occur prior to release.
 
 <p class="attribution">The modules are the same size, but the different cellular module size makes them look different.</p>
 
-Migrating from the B Series SoM to the M SoM is straightforward, however there are some things to keep in mind:
+Migrating from the B Series SoM to the M-SoM is straightforward, however there are some things to keep in mind:
 
 - Make sure your 3V3 and VCC (3V7) power supplies are sufficient
 - SPI1 (secondary SPI) is on different pins
-- Wire1 (secondary I2C) is not available on the M SoM
+- Wire1 (secondary I2C) is not available on the M-SoM
 - PWM pins are different
 - It has a different MCU which may have different compatibility with 3rd-party libraries
 
-As the M SoM is a different platform ID and requires different firmware binaries it will require a separate product from bsom and b5som products.
+As the M-SoM is a different platform ID and requires different firmware binaries it will require a separate product from bsom and b5som products.
 
 ### Datasheets
 
-- [M SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
+- [M-SoM datasheet](/reference/datasheets/m-series/msom-datasheet/)
 - [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
 - [B523/B524 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
 - [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
@@ -47,11 +47,11 @@ One major advantage is that user firmware binaries can be up to 2048 Kbytes, ins
 
 ### Available RAM
 
-The B SoM has around 80K of RAM available to user applications. The M SoM has 3500K of available RAM.
+The B-SoM has around 80K of RAM available to user applications. The M-SoM has 3500K of available RAM.
 
 ### Flash file system
 
-There is a 2 MB flash file system for storing user data. This is the same size as the Boron, B SoM, and Argon. The Tracker has a 4 MB flash file system.
+There is a 2 MB flash file system for storing user data. This is the same size as the Boron, B-SoM, and Argon. The Tracker has a 4 MB flash file system.
 
 
 ### Voltage regulators
@@ -62,7 +62,7 @@ VCC is used to supply power to the cellular module. The recommended input voltag
 
 If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V at 2A. You may want to add additional bulk capacitors to handle the short, high current peak usage when the cellular modem is transmitting.
 
-If you are migrating from the BRN404X/BRN404/BRN402 make sure your VCC power supply provides sufficient current if you will be using the LTE Cat 1 with 2G/3G fallback version of the M SoM.
+If you are migrating from the BRN404X/BRN404/BRN402 make sure your VCC power supply provides sufficient current if you will be using the LTE Cat 1 with 2G/3G fallback version of the M-SoM.
 
 #### 3V3
 
@@ -79,14 +79,14 @@ Power supply requirements:
 - Maintain these values at no-load as well as maximum load
 {{!-- END shared-blurb --}}
 
-If you are migrating from the B Series SoM, note that the required current on 3.3V is 500 mA with the M SoM, vs. 150 mA on the B Series SoM, because of the Wi-Fi radio.
+If you are migrating from the B Series SoM, note that the required current on 3.3V is 500 mA with the M-SoM, vs. 150 mA on the B Series SoM, because of the Wi-Fi radio.
 
 
 ### Brief comparison
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6d82afd2-3dd4-4a30-a75b-7d9b0b780986 --}}
 
-| &nbsp; | B SoM Pin Number | B SoM Pin Name | B SoM Description | M SoM Pin Name | M SoM Description |
+| &nbsp; | B-SoM Pin Number | B-SoM Pin Name | B-SoM Description | M-SoM Pin Name | M-SoM Description |
 | :---: | :--- | :--- | :--- | :--- | :--- |
 | &nbsp; | 1 | GND | Ground. | GND | Ground. |
 | ∆ | 2 | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | VCC | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
@@ -165,7 +165,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ed9de0f9-7941-4090-9fb2-d6bb398fd860 --}}
 
-| Pin | B SoM Pin Name | B SoM ADC | M SoM Pin Name | M SoM ADC |
+| Pin | B-SoM Pin Name | B-SoM ADC | M-SoM Pin Name | M-SoM ADC |
 | :---: | :--- | :--- | :--- | :--- |
 | 23 | A0 / D19 | &check; | A0 / D19 | &check; |
 | 33 | A1 / D18 | &check; | A1 / D18 | &check; |
@@ -182,10 +182,10 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 
 - ADC inputs are single-ended and limited to 0 to 3.3V on both.
 - Resolution is 12 bits on both.
-- SoM pin 45 (A6) on the M SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
+- SoM pin 45 (A6) on the M-SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
 
 {{!-- BEGIN shared-blurb 839d8427-884c-4e59-9eee-a267cc4b0e72 --}}
-The ADCs on the M SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
+The ADCs on the M-SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
 drive and this may cause issues when used with a voltage divider. This is particularly true for A7, which has an even lower impedance 
 than other ADC inputs.
 
@@ -198,7 +198,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5458f22f-840f-4892-97cc-57e6ebd5c1bb --}}
 
-| Pin | B SoM Pin Name | B SoM Serial | M SoM Pin Name | M SoM Serial |
+| Pin | B-SoM Pin Name | B-SoM Serial | M-SoM Pin Name | M-SoM Serial |
 | :---: | :--- | :--- | :--- | :--- |
 | 36 | TX / D9 | Serial1 TX | TX / D9 | Serial1 (TX) |
 | 38 | RX / D10 | Serial1 RX | RX / D10 | Serial1 (RX)  |
@@ -210,13 +210,13 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- The M SoM has two available UART serial ports vs. 1 on the B SoM.
+- The M-SoM has two available UART serial ports vs. 1 on the B-SoM.
 
 ### SPI
 
 {{!-- BEGIN do not edit content below, it is automatically generated 89fcdf38-5b12-43fa-b306-72a4262c913e --}}
 
-| Pin | B SoM Pin Name | B SoM SPI | M SoM Pin Name | M SoM SPI |
+| Pin | B-SoM Pin Name | B-SoM SPI | M-SoM Pin Name | M-SoM SPI |
 | :---: | :--- | :--- | :--- | :--- |
 | 36 | TX / D9 | &nbsp; | TX / D9 | SPI1 (MOSI) |
 | 38 | RX / D10 | &nbsp; | RX / D10 | SPI1 (MISO) |
@@ -231,14 +231,14 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- There are two SPI interfaces on both, however SPI1 is on different pins on M SoM.
+- There are two SPI interfaces on both, however SPI1 is on different pins on M-SoM.
 
 
 ### I2C
 
 {{!-- BEGIN do not edit content below, it is automatically generated d72da918-d38e-46f0-b651-0c4ddee8cad7 --}}
 
-| Pin | B SoM Pin Name | B SoM I2C | M SoM Pin Name | M SoM I2C |
+| Pin | B-SoM Pin Name | B-SoM I2C | M-SoM Pin Name | M-SoM I2C |
 | :---: | :--- | :--- | :--- | :--- |
 | 20 | D1 | Wire (SCL) | D1 | Wire (SCL) |
 | 22 | D0 | Wire (SDA) | D0 | Wire (SDA) |
@@ -248,16 +248,16 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- 1 I2C on M SoM vs. 2 on the B Series SoM.
+- 1 I2C on M-SoM vs. 2 on the B Series SoM.
 - You can generally have many devices on a single I2C bus.
 - If you have I2C address conflicts you can use an I2C multiplexer like the TCA9548A.
-- On the M SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
+- On the M-SoM (and P2 and Photon 2), the only valid I2C clock speeds are `CLOCK_SPEED_100KHZ` and `CLOCK_SPEED_400KHZ`. Other speeds are not supported at this time.
 
 ### PWM
 
 {{!-- BEGIN do not edit content below, it is automatically generated d6253ac9-1074-48cd-a7b9-05315e4a5850 --}}
 
-| Pin | B SoM Pin Name | B SoM PWM | M SoM Pin Name | M SoM PWM |
+| Pin | B-SoM Pin Name | B-SoM PWM | M-SoM Pin Name | M-SoM PWM |
 | :---: | :--- | :--- | :--- | :--- |
 | 23 | A0 / D19 | &check; | A0 / D19 | &check; |
 | 33 | A1 / D18 | &check; | A1 / D18 | &check; |
@@ -277,7 +277,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-On the B SoM, multiple timers are using allowing different PWM frequencies on certain pins. On the M SoM, all PWM pins share a single time and thus must share the same frequency, but can have different duty cycles.
+On the B-SoM, multiple timers are using allowing different PWM frequencies on certain pins. On the M-SoM, all PWM pins share a single time and thus must share the same frequency, but can have different duty cycles.
 
 ### Boot mode pins
 
@@ -299,7 +299,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 ### SWD
 
-The M SoM has 4 pads at the bottom exposing the SWD interface of the MCU. This interface can be used to debug your code or reprogram your SoM bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
+The M-SoM has 4 pads at the bottom exposing the SWD interface of the MCU. This interface can be used to debug your code or reprogram your SoM bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
 
 {{imageOverlay src="/assets/images/b-series/pogo-pins.png" alt="Pogo Pins"}}
 
@@ -323,25 +323,25 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 The nRF52 MCU requires the 5V line from the USB interface on pin 16 (VUSB).
 
-The M SoM does not require this pin, however you can supply VUSB on M SoM pin 16 so you can use the same base board for both SKUs.
+The M-SoM does not require this pin, however you can supply VUSB on M-SoM pin 16 so you can use the same base board for both SKUs.
 
 ### NFC
 
-The M SoM does not support NFC.
+The M-SoM does not support NFC.
 
-On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20 on the M SoM. Pin D20 can only be used as GPIO.
+On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20 on the M-SoM. Pin D20 can only be used as GPIO.
 
 ### Sleep
 
-- In `HIBERNATE` sleep mode, the M SoM can only be wakened via the `WKP` pin, but the B SoM can be wakened by any pin.
+- In `HIBERNATE` sleep mode, the M-SoM can only be wakened via the `WKP` pin, but the B-SoM can be wakened by any pin.
 
-- In `STOP` and `ULTRA_LOW_POWER` sleep modes, both the M SoM and B SoM can be wakened by any pin.
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, both the M-SoM and B-SoM can be wakened by any pin.
 
-- In `HIBERNATE` sleep mode, the M SoM puts `OUTPUT` pins into high-impedance state. The B SoM preserves the digital level.
+- In `HIBERNATE` sleep mode, the M-SoM puts `OUTPUT` pins into high-impedance state. The B-SoM preserves the digital level.
 
-- In `STOP` and `ULTRA_LOW_POWER` sleep modes, both the M SoM and B SoM preserve the digital output
+- In `STOP` and `ULTRA_LOW_POWER` sleep modes, both the M-SoM and B-SoM preserve the digital output
 
-- In `HIBERNATE` sleep mode, on the M SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
+- In `HIBERNATE` sleep mode, on the M-SoM, pin D21 does not maintain `INPUT_PULLUP` or `INPUT_PULLDOWN` while asleep.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 58475011-6c17-488b-a042-a363c1312d02 --}}
 
@@ -359,105 +359,105 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 {{!-- BEGIN do not edit content below, it is automatically generated 2ad3dc88-d864-49db-bb3a-46b2a2f7ced0 --}}
 
 #### Module Pin 1 (GND)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 1|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 2 (VCC)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 2 | 2 |
 | &nbsp; | Pin Name | VCC | VCC |
 | ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
 #### Module Pin 3 (GND)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 3|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 4 (VCC)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 4 | 4 |
 | &nbsp; | Pin Name | VCC | VCC |
 | ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
 #### Module Pin 5 (GND)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 5|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 6 (VCC)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 6 | 6 |
 | &nbsp; | Pin Name | VCC | VCC |
 | ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
 #### Module Pin 7 (GND)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 7|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 8 (VCC)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 8 | 8 |
 | &nbsp; | Pin Name | VCC | VCC |
 | ∆ | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. | System power in, connect to the +LiPo or supply a fixed 3.6-4.3V power. |
 #### Module Pin 9 (GND)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 9|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 10 (3V3)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 10 | 10 |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
 | ∆ | Description | System power in, supply a fixed 3.0-3.6v power. | System power in, supply a fixed 3.3V power, 500 mA minimum |
 #### Module Pin 11 (USBDATA+)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 11|
 | Pin Name | USBDATA+|
 | Description | USB Data+|
 | Input is 5V Tolerant | Yes|
 #### Module Pin 12 (3V3)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 12 | 12 |
 | &nbsp; | Pin Name | 3V3 | 3V3 |
 | ∆ | Description | System power in, supply a fixed 3.0-3.6v power. | System power in, supply a fixed 3.3V power, 500 mA minimum |
 #### Module Pin 13 (USBDATA-)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 13|
 | Pin Name | USBDATA-|
 | Description | USB Data-|
 | Input is 5V Tolerant | Yes|
 #### Module Pin 14 (NC)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 14|
 | Pin Name | NC|
 #### Module Pin 15 (GND)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 15|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 16 (VUSB / NC)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 16 | 16 |
 | ∆ | Pin Name | VUSB | NC |
 | ∆ | Description | USB VUSB power pin | n/a |
 | ∆ | Input is 5V Tolerant | Yes | n/a |
 #### Module Pin 17 (NFC1 / D21)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 17 | 17 |
 | ∆ | Pin Name | NFC1 | D21 |
@@ -467,13 +467,13 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### Module Pin 18 (NC / GNSS_TX)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 18 | 18 |
 | ∆ | Pin Name | NC | GNSS_TX |
 | ∆ | Description | n/a | Cellular modem GNSS UART TX |
 #### Module Pin 19 (NFC2 / D20)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 19 | 19 |
 | ∆ | Pin Name | NFC2 | D20 |
@@ -483,7 +483,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | ??? |
 #### Module Pin 20 (D1)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 20 | 20 |
 | &nbsp; | Pin Name | D1 | D1 |
@@ -494,13 +494,13 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 21 (GND)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 21|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 22 (D0)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 22 | 22 |
 | &nbsp; | Pin Name | D0 | D0 |
@@ -511,7 +511,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 23 (A0)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 23 | 23 |
 | &nbsp; | Pin Name | A0 | A0 |
@@ -525,7 +525,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 42K |
 #### Module Pin 32 (MODE)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 32 | 32 |
 | &nbsp; | Pin Name | MODE | MODE |
@@ -533,7 +533,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Description | MODE button, has internal pull-up | MODE button. Pin number constant is BTN. External pull-up required! |
 | ∆ | Supports attachInterrupt | n/a | Yes |
 #### Module Pin 33 (A1)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 33 | 33 |
 | &nbsp; | Pin Name | A1 | A1 |
@@ -547,13 +547,13 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 34 (RST)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 34|
 | Pin Name | RST|
 | Description | Hardware reset, active low. External pull-up required.|
 #### Module Pin 35 (A2)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 35 | 35 |
 | &nbsp; | Pin Name | A2 | A2 |
@@ -565,7 +565,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 22K |
 #### Module Pin 36 (TX)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 36 | 36 |
 | &nbsp; | Pin Name | TX | TX |
@@ -580,7 +580,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 37 (A3)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 37 | 37 |
 | &nbsp; | Pin Name | A3 | A3 |
@@ -592,7 +592,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 38 (RX)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 38 | 38 |
 | &nbsp; | Pin Name | RX | RX |
@@ -607,13 +607,13 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 39 (AGND)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 39|
 | Pin Name | AGND|
 | Description | Analog Ground.|
 #### Module Pin 40 (D3)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 40 | 40 |
 | &nbsp; | Pin Name | D3 | D3 |
@@ -626,7 +626,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 41 (A4)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 41 | 41 |
 | &nbsp; | Pin Name | A4 | A4 |
@@ -638,7 +638,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 42 (D2)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 42 | 42 |
 | &nbsp; | Pin Name | D2 | D2 |
@@ -651,7 +651,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 43 (A5)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 43 | 43 |
 | &nbsp; | Pin Name | A5 | A5 |
@@ -665,14 +665,14 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 44 (CELL USBD+)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 44|
 | Pin Name | CELL USBD+|
 | Description | Cellular Modem USB Data+|
 | Input is 5V Tolerant | Yes|
 #### Module Pin 45 (A6)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 45 | 45 |
 | &nbsp; | Pin Name | A6 | A6 |
@@ -688,14 +688,14 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### Module Pin 46 (CELL USBD-)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 46|
 | Pin Name | CELL USBD-|
 | Description | Cellular Modem USB Data-|
 | Input is 5V Tolerant | Yes|
 #### Module Pin 47 (A7)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 47 | 47 |
 | &nbsp; | Pin Name | A7 | A7 |
@@ -709,7 +709,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 48 (D8)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 48 | 48 |
 | &nbsp; | Pin Name | D8 | D8 |
@@ -720,13 +720,13 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 49 (AGND)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 49|
 | Pin Name | AGND|
 | Description | Analog Ground.|
 #### Module Pin 50 (MISO)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 50 | 50 |
 | &nbsp; | Pin Name | MISO | MISO |
@@ -740,12 +740,12 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 51 (NC)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 51|
 | Pin Name | NC|
 #### Module Pin 52 (MOSI)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 52 | 52 |
 | &nbsp; | Pin Name | MOSI | MOSI |
@@ -759,7 +759,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 53 (NC / A5)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 53 | 53 |
 | ∆ | Pin Name | NC | A5 |
@@ -775,7 +775,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 | ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### Module Pin 54 (SCK)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 54 | 54 |
 | &nbsp; | Pin Name | SCK | SCK |
@@ -787,7 +787,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | 2.1K |
 #### Module Pin 55 (NC / D27)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 55 | 55 |
 | ∆ | Pin Name | NC | D27 |
@@ -799,18 +799,18 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | SWD interface | n/a | SWDIO. 40K pull-up at boot. |
 | ∆ | Signal used at boot | n/a | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
 #### Module Pin 56 (GND)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 56|
 | Pin Name | GND|
 | Description | Ground.|
 #### Module Pin 57 (NC)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 57|
 | Pin Name | NC|
 #### Module Pin 58 (NC / D24)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 58 | 58 |
 | ∆ | Pin Name | NC | D24 |
@@ -822,7 +822,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | Signal used at boot | n/a | Low at boot triggers ISP flash download |
 #### Module Pin 59 (NC / D26)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 59 | 59 |
 | ∆ | Pin Name | NC | D26 |
@@ -832,7 +832,7 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | n/a | Yes |
 | ∆ | Internal pull resistance | n/a | ??? |
 #### Module Pin 60 (NC / D25)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 60 | 60 |
 | ∆ | Pin Name | NC | D25 |
@@ -844,14 +844,14 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Internal pull resistance | n/a | 42K |
 | ∆ | Signal used at boot | n/a | Goes high at boot |
 #### Module Pin 61 (RGBR)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 61 | 61 |
 | &nbsp; | Pin Name | RGBR | RGBR |
 | &nbsp; | Description | RGB LED Red | RGB LED Red |
 | ∆ | Signal used at boot | n/a | Low at boot triggers trap mode |
 #### Module Pin 62 (D22)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 62 | 62 |
 | &nbsp; | Pin Name | D22 | D22 |
@@ -861,13 +861,13 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 63 (RGBG)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 63|
 | Pin Name | RGBG|
 | Description | RGB LED Green|
 #### Module Pin 64 (D23)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 64 | 64 |
 | &nbsp; | Pin Name | D23 | D23 |
@@ -877,13 +877,13 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 65 (RGBB)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 65|
 | Pin Name | RGBB|
 | Description | RGB LED Blue|
 #### Module Pin 66 (D4)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 66 | 66 |
 | &nbsp; | Pin Name | D4 | D4 |
@@ -896,13 +896,13 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 67 (SIM_VCC)
-| | Unchanged between B SoM and M SoM |
+| | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
 | Pin Number | 67|
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### Module Pin 68 (D5)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 68 | 68 |
 | &nbsp; | Pin Name | D5 | D5 |
@@ -914,13 +914,13 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 69 (SIM_RST)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 69 | 69 |
 | &nbsp; | Pin Name | SIM_RST | SIM_RST |
 | ∆ | Description | Leave unconnected, 1.8V/3V SIM Reset Output from R410M. | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
 #### Module Pin 70 (D6)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 70 | 70 |
 | &nbsp; | Pin Name | D6 | D6 |
@@ -932,13 +932,13 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
 #### Module Pin 71 (SIM_CLK)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 71 | 71 |
 | &nbsp; | Pin Name | SIM_CLK | SIM_CLK |
 | ∆ | Description | Leave unconnected, 1.8V/3V SIM Clock Output from R410M. | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem. |
 #### Module Pin 72 (D7)
-|   |   | B SoM | M SoM |
+|   |   | B-SoM | M-SoM |
 | :--- | :--- | :--- | :--- |
 | &nbsp; | Pin Number | 72 | 72 |
 | &nbsp; | Pin Name | D7 | D7 |
@@ -958,20 +958,20 @@ On the B SoM, pin 17 is NFC1 which is NC on the M SoM. Pin 19 is NFC2 but is D20
 
 ### Wi-Fi configuration
 
-Since the B SoM (cellular) does not have Wi-Fi support, if you wish to use Wi-Fi on the M SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
+Since the B-SoM (cellular) does not have Wi-Fi support, if you wish to use Wi-Fi on the M-SoM you will need to provide a way to configure it. Wi-Fi setup works the same as the P2, Photon 2, and Argon, and uses BLE. See [Wi-Fi setup options](/reference/device-os/wifi-setup-options/) for more information.
 
 
 ### User firmware binary size
 
-One major advantage of the M SoM is that user firmware binaries can be up to 2048 Kbytes.
+One major advantage of the M-SoM is that user firmware binaries can be up to 2048 Kbytes.
 
-On the B SoM (Device OS 3.1 and later), it's 256 Kbytes, or 128 Kbytes for older version of Device OS.
+On the B-SoM (Device OS 3.1 and later), it's 256 Kbytes, or 128 Kbytes for older version of Device OS.
 
 ### Platform ID
 
-The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the B SoM (23) because of the vastly different hardware. 
+The Platform ID of the msom (35, `PLATFORM_MSOM`) is different from that of the B-SoM (23) because of the vastly different hardware. 
 
-If you have a product based on the B SoM, you will need to create a separate product for devices using the M SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+If you have a product based on the B-SoM, you will need to create a separate product for devices using the M-SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 
 ### Third-party libraries
 

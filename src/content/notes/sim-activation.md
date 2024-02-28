@@ -22,8 +22,8 @@ If you have deactivated the SIM, you need to reactivate it with in the product S
 If you have deactivated the SIM card on:
 
 - Boron 2G/3G (BRN310 or Boron LTE (BRN402)
-- B Series (B402 or B523)
-- E Series (E313 or E402)
+- B-Series (B402 or B523)
+- E-Series (E313 or E402)
 - Tracker (ONE402, ONE523, T402, T523)
 
 It may take long time to activate the SIM card again. It generally takes a few minutes, but it can take hours, or even more than day, to reactivate the SIM cards on these devices. You should avoid unnecessarily deactivating the SIM cards on these devices.

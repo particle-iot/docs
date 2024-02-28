@@ -28,15 +28,15 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 
 | SKU | Description | Gen | Lifecycle | Replacement | End of support |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
-| B404MTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
-| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | 3 | NRND | B524MTY | &nbsp; |
+| B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
+| B404MTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
+| B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | 3 | NRND | B524MTY | &nbsp; |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | 3 | NRND | &nbsp; | &nbsp; |
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | 3 | NRND | &nbsp; | &nbsp; |
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | 3 | NRND | BRN404XTRAY50 | &nbsp; |
 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | 2 | NRND | B524MTY | &nbsp; |
-| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | 2 | NRND | E404XTRAY50 | &nbsp; |
+| E314TRAY50 | E-Series 2G/3G (Global - E314), Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
+| E402TRAY50 | E-Series LTE CAT-M1 (NorAm), Tray [x50] | 2 | NRND | E404XTRAY50 | &nbsp; |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | 2 | NRND | &nbsp; | &nbsp; |
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | 2 | NRND | BRN404XTRAY50 | &nbsp; |
 | P1REEL | P1 Wi-Fi Module, Reel [x500] | 2 | NRND | &nbsp; | &nbsp; |
@@ -46,16 +46,16 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | ARGNTRAY50 | Argon, Tray [x50] | 3 | Deprecated | &nbsp; | 2025-03-31 |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 3 | Deprecated | BRN404XTRAY50 | &nbsp; |
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | 2 | Deprecated | BRN404XTRAY50 | &nbsp; |
-| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | 2 | Deprecated | &nbsp; | &nbsp; |
+| E310TRAY50 | E-Series 2G/3G (Global - E310), Tray [x50] | 2 | Deprecated | &nbsp; | &nbsp; |
 | E350TRAY50 | Electron 2G (Global), Tray [x50] | 2 | Deprecated | B524MTY | &nbsp; |
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 2 | Deprecated | E404XTRAY50 | &nbsp; |
+| E404TRAY50 | E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 2 | Deprecated | E404XTRAY50 | &nbsp; |
 | ELC404TY | Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 2 | Deprecated | &nbsp; | &nbsp; |
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | 3 | Deprecated | ONE404MTY | &nbsp; |
 | P0MOD10 | P0 Wi-Fi Module, Cut tape [x10] | 2 | Deprecated | &nbsp; | &nbsp; |
 | P0REEL | P0 Wi-Fi Module, Reel [x2000] | 2 | Deprecated | &nbsp; | &nbsp; |
 | P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | 2 | Deprecated | &nbsp; | &nbsp; |
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | 3 | Deprecated | T524MTY | &nbsp; |
-| E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | 2 | End of life | &nbsp; | &nbsp; |
+| E313TRAY50 | E-Series 2G/3G (Global - E313), Tray [x50] | 2 | End of life | &nbsp; | &nbsp; |
 | XENNTRAY50 | Xenon [x50] | 3 | End of life | &nbsp; | 2020-12-31 |
 
 

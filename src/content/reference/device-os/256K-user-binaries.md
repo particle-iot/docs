@@ -11,11 +11,11 @@ On Gen 3 devices with Device OS 3.1 and later, user firmware binaries have a max
 Supported devices:
 
 - Boron
-- B Series SoM
+- B-Series SoM
 - Tracker SoM and Tracker One
 - Argon
 
-This feature will not be available on earlier versions of Device OS (it will not be back-ported to 2.x LTS, for example), and will not be available on Gen 2 devices (such as the Photon, P1, Electron, and E Series).
+This feature will not be available on earlier versions of Device OS (it will not be back-ported to 2.x LTS, for example), and will not be available on Gen 2 devices (such as the Photon, P1, Electron, and E-Series).
 
 As long as you target Device OS 3.1 or later, you can build large binaries for supported devices with:
 
@@ -85,7 +85,7 @@ If you are using the [hex generator](/tools/developer-tools/hex-generator/), thi
 #### 256K binary edge case
 
 {{!-- BEGIN shared-blurb c44d9da5-6a99-46cc-a6e9-c9405c8fc578 --}}
-On Gen 3 devices including the Argon, Boron, B Series SoM, and Tracker, when upgrading from 3.0 or earlier to 3.1 or later, there is an edge case that can cause your old code to run. This will only occur when flashing over USB from Workbench, or using `particle flash --local` or `particle flash --serial` from the Particle CLI. This problem does not occur with OTA flashing or Device Restore.
+On Gen 3 devices including the Argon, Boron, B-Series SoM, and Tracker, when upgrading from 3.0 or earlier to 3.1 or later, there is an edge case that can cause your old code to run. This will only occur when flashing over USB from Workbench, or using `particle flash --local` or `particle flash --serial` from the Particle CLI. This problem does not occur with OTA flashing or Device Restore.
 
 When binaries were expanded from 128K to 256K maximum, this was accomplished by moving the start address 128K earlier in flash memory. The logic in the Device OS 3.1.0 and later bootloader is to check the 128K slot first, if there is a valid binary it will be used. This is necessary to make sure you can successfully using `particle flash <device> tinker`, `particle flash --local tinker`.
 

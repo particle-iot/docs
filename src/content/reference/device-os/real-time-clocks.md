@@ -18,7 +18,7 @@ The RTC is generally accurate within a few seconds of the actual time.
 
 ## Gen 2 vs. Gen 3
 
-Gen 2 devices (E Series, Electron, and Photon) have a STM32F205 MCU and Gen 3 devices (Tracker, B Series SoM, Boron, and Argon) have an nRF52840 MCU. These different processors handle the RTC differently, especially with regards to sleep modes.
+Gen 2 devices (E-Series, Electron, and Photon) have a STM32F205 MCU and Gen 3 devices (Tracker, B-Series SoM, Boron, and Argon) have an nRF52840 MCU. These different processors handle the RTC differently, especially with regards to sleep modes.
 
 The most important distinction is that on Gen 3 devices, the RTC does not run in [`HIBERNATE`](/reference/device-os/api/sleep-sleep/hibernate-systemsleepmode/) sleep mode (formerly `SLEEP_MODE_DEEP`). This has two important effects:
 
@@ -55,9 +55,9 @@ The connection between VBAT is a 0-ohm resistor, R7. It's on the bottom of the b
 
 Since VBAT is connected to 3V3 by default, you must never connect the Electron VBAT to GND in its default configuration!
 
-### E Series VBAT
+### E-Series VBAT
 
-The E Series module has a VBAT pad, and you can connect it as you wish:
+The E-Series module has a VBAT pad, and you can connect it as you wish:
 
 - Connect VBAT to 3V3 to power the RTC from any power source including the LiPo battery (like the Electron).
 - Connect VBAT to a lithium coin cell battery to always power the RTC (like the Photon).

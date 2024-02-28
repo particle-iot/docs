@@ -60,9 +60,9 @@ Version 2007 is a system module version, which is an integer. To convert this th
 
 | Bootloader Module Version | System Module Version | Release Version | Platforms                                                  |
 | ------------------------- | --------------------- | --------------- | ---------------------------------------------------------- |
-| 502                       | 1512                  | 1.5.2           | Photon, P1, Electron, Xenon, Argon, Boron, B SoM, B5 SoM   |
-| 1002                      | 2004                  | 2.0.0-rc.1      | Photon, P1, Electron, Argon, Boron, B SoM, B5 SoM          |
-| 1003                      | 2007                  | 2.0.0-rc.4      | Photon, P1, Electron, Argon, Boron, B SoM, B5 SoM, Tracker |
+| 502                       | 1512                  | 1.5.2           | Photon, P1, Electron, Xenon, Argon, Boron, B-SoM, B5 SoM   |
+| 1002                      | 2004                  | 2.0.0-rc.1      | Photon, P1, Electron, Argon, Boron, B-SoM, B5 SoM          |
+| 1003                      | 2007                  | 2.0.0-rc.4      | Photon, P1, Electron, Argon, Boron, B-SoM, B5 SoM, Tracker |
 
 From this we can see that 2007 is 2.0.0-rc.4\. 
 

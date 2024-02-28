@@ -20076,7 +20076,7 @@
     },
     {
       "name": "B402MEA",
-      "desc": "B Series LTE CAT-M1 (NorAm), [x1]",
+      "desc": "B-Series LTE CAT-M1 (NorAm), [x1]",
       "lifecycle": "Deprecated",
       "replacement": "B404XMEA",
       "modem": "R410",
@@ -20109,7 +20109,7 @@
     },
     {
       "name": "B402MTY",
-      "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
+      "desc": "B-Series LTE CAT-M1 (NorAm), Tray [x50]",
       "lifecycle": "NRND",
       "replacement": "B404XMTY",
       "modem": "R410",
@@ -20143,7 +20143,7 @@
     },
     {
       "name": "B404MEA",
-      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
+      "desc": "B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
       "lifecycle": "NRND",
       "replacement": "B404XMEA",
       "modem": "R410",
@@ -20177,7 +20177,7 @@
     },
     {
       "name": "B404MTY",
-      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
+      "desc": "B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "NRND",
       "replacement": "B404XMTY",
       "modem": "R410",
@@ -20212,7 +20212,7 @@
     },
     {
       "name": "B404XMEA",
-      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
+      "desc": "B-Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
       "lifecycle": "GA",
       "modem": "R510",
       "sim": 4,
@@ -20246,7 +20246,7 @@
     },
     {
       "name": "B404XMTY",
-      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
+      "desc": "B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
@@ -20280,7 +20280,7 @@
     },
     {
       "name": "B523MEA",
-      "desc": "B Series LTE CAT-1/3G/2G (Europe) [x1]",
+      "desc": "B-Series LTE CAT-1/3G/2G (Europe) [x1]",
       "lifecycle": "Deprecated",
       "replacement": "B524MEA",
       "modem": "EG91-E",
@@ -20314,7 +20314,7 @@
     },
     {
       "name": "B523MTY",
-      "desc": "B Series LTE CAT-1/3G/2G (Europe), Tray [x50]",
+      "desc": "B-Series LTE CAT-1/3G/2G (Europe), Tray [x50]",
       "lifecycle": "NRND",
       "replacement": "B524MTY",
       "modem": "EG91-E",
@@ -20349,7 +20349,7 @@
     },
     {
       "name": "B524MEA",
-      "desc": "B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1]",
+      "desc": "B-Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1]",
       "lifecycle": "GA",
       "modem": "EG91-E",
       "sim": 4,
@@ -20381,7 +20381,7 @@
     },
     {
       "name": "B524MTY",
-      "desc": "B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50]",
+      "desc": "B-Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50]",
       "lifecycle": "GA",
       "modem": "EG91-E",
       "multiple": true,
@@ -21002,7 +21002,7 @@
     },
     {
       "name": "E310KIT",
-      "desc": "E Series 2G/3G (Global - E310) Evaluation Kit, [x1]",
+      "desc": "E-Series 2G/3G (Global - E310) Evaluation Kit, [x1]",
       "lifecycle": "NRND",
       "replacement": "E314KIT",
       "modem": "U201",
@@ -21031,7 +21031,7 @@
     },
     {
       "name": "E310MOD1",
-      "desc": "E Series 2G/3G (Global - E310), [x1]",
+      "desc": "E-Series 2G/3G (Global - E310), [x1]",
       "lifecycle": "Deprecated",
       "modem": "U201",
       "sim": 1,
@@ -21055,7 +21055,7 @@
     },
     {
       "name": "E310TRAY50",
-      "desc": "E Series 2G/3G (Global - E310), Tray [x50]",
+      "desc": "E-Series 2G/3G (Global - E310), Tray [x50]",
       "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
@@ -21082,7 +21082,7 @@
     },
     {
       "name": "E313EA",
-      "desc": "E Series 2G/3G (Global - E313), [x1]",
+      "desc": "E-Series 2G/3G (Global - E313), [x1]",
       "lifecycle": "Deprecated",
       "modem": "U201",
       "sim": 2,
@@ -21106,7 +21106,7 @@
     },
     {
       "name": "E313TRAY50",
-      "desc": "E Series 2G/3G (Global - E313), Tray [x50]",
+      "desc": "E-Series 2G/3G (Global - E313), Tray [x50]",
       "lifecycle": "End of life",
       "modem": "U201",
       "multiple": true,
@@ -21130,7 +21130,7 @@
     },
     {
       "name": "E314KIT",
-      "desc": "E Series 2G/3G (Global - E314) Evaluation Kit, [x1]",
+      "desc": "E-Series 2G/3G (Global - E314) Evaluation Kit, [x1]",
       "lifecycle": "NRND",
       "modem": "U201",
       "sim": 4,
@@ -21158,7 +21158,7 @@
     },
     {
       "name": "E314MOD1",
-      "desc": "E Series 2G/3G (Global - E314), [x1]",
+      "desc": "E-Series 2G/3G (Global - E314), [x1]",
       "lifecycle": "Deprecated",
       "modem": "U201",
       "sim": 4,
@@ -21182,7 +21182,7 @@
     },
     {
       "name": "E314TRAY50",
-      "desc": "E Series 2G/3G (Global - E314), Tray [x50]",
+      "desc": "E-Series 2G/3G (Global - E314), Tray [x50]",
       "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
@@ -21258,7 +21258,7 @@
     },
     {
       "name": "E402KIT",
-      "desc": "E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]",
+      "desc": "E-Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]",
       "lifecycle": "NRND",
       "modem": "R410",
       "sim": 3,
@@ -21286,7 +21286,7 @@
     },
     {
       "name": "E402MOD1",
-      "desc": "E Series LTE CAT-M1 (NorAm), [x1]",
+      "desc": "E-Series LTE CAT-M1 (NorAm), [x1]",
       "lifecycle": "Deprecated",
       "modem": "R410",
       "sim": 3,
@@ -21310,7 +21310,7 @@
     },
     {
       "name": "E402TRAY50",
-      "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
+      "desc": "E-Series LTE CAT-M1 (NorAm), Tray [x50]",
       "lifecycle": "NRND",
       "replacement": "E404XTRAY50",
       "modem": "R410",
@@ -21339,7 +21339,7 @@
     },
     {
       "name": "E404KIT",
-      "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1]",
+      "desc": "E-Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1]",
       "lifecycle": "NRND",
       "modem": "R410",
       "sim": 4,
@@ -21367,7 +21367,7 @@
     },
     {
       "name": "E404MOD1",
-      "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
+      "desc": "E-Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
       "lifecycle": "NRND",
       "modem": "R410",
       "sim": 4,
@@ -21394,7 +21394,7 @@
     },
     {
       "name": "E404TRAY50",
-      "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
+      "desc": "E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "Deprecated",
       "replacement": "E404XTRAY50",
       "modem": "R410",
@@ -21419,7 +21419,7 @@
     },
     {
       "name": "E404XTRAY50",
-      "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
+      "desc": "E-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
@@ -21646,7 +21646,7 @@
     },
     {
       "name": "M404MEA",
-      "desc": "M Series LTE M1/2G (Global, EtherSIM), [x1]",
+      "desc": "M-Series LTE M1/2G (Global, EtherSIM), [x1]",
       "lifecycle": "In development",
       "multiple": false,
       "enterprise": false,
@@ -21683,7 +21683,7 @@
     },
     {
       "name": "M404MTY",
-      "desc": "M Series LTE M1/2G (Global, EtherSIM), Tray [x50]",
+      "desc": "M-Series LTE M1/2G (Global, EtherSIM), Tray [x50]",
       "lifecycle": "In development",
       "multiple": true,
       "enterprise": false,
@@ -21720,7 +21720,7 @@
     },
     {
       "name": "M524MEA",
-      "desc": "M Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1]",
+      "desc": "M-Series LTE CAT1/3G/2G (Europe, EtherSIM), [x1]",
       "lifecycle": "In development",
       "multiple": false,
       "enterprise": false,
@@ -21756,7 +21756,7 @@
     },
     {
       "name": "M524MTY",
-      "desc": "M Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50]",
+      "desc": "M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50]",
       "lifecycle": "In development",
       "multiple": true,
       "enterprise": false,
@@ -21796,8 +21796,8 @@
       "lifecycle": "In development",
       "multiple": false,
       "enterprise": false,
-      "wholesale": true,
-      "retail": true,
+      "wholesale": false,
+      "retail": false,
       "modem": "BG95-M5",
       "sim": 4,
       "simPlans": [
@@ -22035,7 +22035,7 @@
     {
       "name": "MON524E01C01KIT",
       "desc": "Monitor One LTE CAT-1/3G/2G (Europe, EtherSIM), Particle Transparent Enclosure, IO Card, Developer Edition [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "multiple": false,
       "enterprise": false,
       "wholesale": false,
@@ -22108,6 +22108,43 @@
       "verizon": true
     },
     {
+      "name": "MUON404KIT",
+      "desc": "Muon LTE M1/2G Kit (Global, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "modem": "BG95-M5",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "kit",
+      "skuRegion": "global",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": true,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": true,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "prefix": "P054",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": "c",
+      "batteryRequired": false,
+      "verizon": true
+    },
+    {
       "name": "MUON524EA",
       "desc": "Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1]",
       "lifecycle": "In development",
@@ -22123,7 +22160,7 @@
       "simMff2": true,
       "family": "m series",
       "gen": "4",
-      "skuClass": "production",
+      "skuClass": "prototyping",
       "skuRegion": "global",
       "cellAnt": "PARANTCW1EA",
       "cellAntInc": true,
@@ -22142,6 +22179,79 @@
       "batteryConn": false,
       "usb": "c",
       "batteryRequired": false
+    },
+    {
+      "name": "MUON524KIT",
+      "desc": "Muon LTE CAT1/3G/2G Kit (Europe, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "modem": "EG91-EX",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "kit",
+      "skuRegion": "global",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": true,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": true,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "prefix": "P055",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": "c",
+      "batteryRequired": false
+    },
+    {
+      "name": "MUON635KIT",
+      "desc": "Muon LTE M1/2G/Satellite Kit (Global, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "modem": "BG95-M5",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "m series",
+      "gen": "4",
+      "skuClass": "kit",
+      "skuRegion": "global",
+      "cellAnt": "PARANTCW1EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "PARANTWM1EA",
+      "bleAntExtInc": true,
+      "nfcAntExt": false,
+      "nfcAntExtInc": false,
+      "wifiAntExt": "PARANTWM1EA",
+      "wifiAntExtInc": true,
+      "gnssAntExt": "PARANTGN1EA",
+      "gnssAntExtInc": true,
+      "prefix": "P054",
+      "platformId": 35,
+      "batteryConn": false,
+      "usb": "c",
+      "batteryRequired": false,
+      "verizon": true
     },
     {
       "name": "MUON6XXEA",
@@ -23600,10 +23710,10 @@
     },
     {
       "family": "m series",
-      "name": "M Series SoM",
+      "name": "M-Series SoM",
       "group": [
         {
-          "name": "M Series M404/M635 LTE M1/2G (Global) EtherSIM",
+          "name": "M-Series M404/M635 LTE M1/2G (Global) EtherSIM",
           "short": [
             "M404"
           ],
@@ -23615,7 +23725,7 @@
           "mapColor": 0
         },
         {
-          "name": "M Series M524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
+          "name": "M-Series M524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
           "short": [
             "M524"
           ],
@@ -23630,10 +23740,10 @@
     },
     {
       "family": "b series",
-      "name": "B Series SoM",
+      "name": "B-Series SoM",
       "group": [
         {
-          "name": "B Series B404X LTE M1 (NorAm) EtherSIM",
+          "name": "B-Series B404X LTE M1 (NorAm) EtherSIM",
           "short": [
             "B404X"
           ],
@@ -23645,7 +23755,7 @@
           "mapColor": 0
         },
         {
-          "name": "B Series B404 LTE M1 (NorAm) EtherSIM",
+          "name": "B-Series B404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "B404"
           ],
@@ -23657,7 +23767,7 @@
           "mapColor": 0
         },
         {
-          "name": "B Series B524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
+          "name": "B-Series B524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
           "short": [
             "B524"
           ],
@@ -23669,7 +23779,7 @@
           "mapColor": 1
         },
         {
-          "name": "B Series B402 LTE M1 (NorAm) (before 2021)",
+          "name": "B-Series B402 LTE M1 (NorAm) (before 2021)",
           "short": [
             "B402"
           ],
@@ -23681,7 +23791,7 @@
           "mapColor": 0
         },
         {
-          "name": "B Series B523 LTE CAT1/3G/2G (Europe) (before 2021)",
+          "name": "B-Series B523 LTE CAT1/3G/2G (Europe) (before 2021)",
           "short": [
             "B523"
           ],
@@ -23762,10 +23872,10 @@
     },
     {
       "family": "e series",
-      "name": "E Series",
+      "name": "E-Series",
       "group": [
         {
-          "name": "E Series E404 LTE M1 (NorAm) EtherSIM",
+          "name": "E-Series E404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "E404"
           ],
@@ -23776,7 +23886,7 @@
           "modem": "R410"
         },
         {
-          "name": "E Series E314 2G/3G Global EtherSIM",
+          "name": "E-Series E314 2G/3G Global EtherSIM",
           "short": [
             "E314"
           ],
@@ -23787,7 +23897,7 @@
           "modem": "U201"
         },
         {
-          "name": "E Series E402 LTE M1 (NorAm) (before 2021)",
+          "name": "E-Series E402 LTE M1 (NorAm) (before 2021)",
           "short": [
             "E402"
           ],
@@ -23798,7 +23908,7 @@
           "modem": "R410"
         },
         {
-          "name": "E Series E310 2G/3G Global (before 2021)",
+          "name": "E-Series E310 2G/3G Global (before 2021)",
           "short": [
             "E310"
           ],
@@ -23809,7 +23919,7 @@
           "modem": "U201"
         },
         {
-          "name": "E Series E313 2G/3G Global (Enterprise)",
+          "name": "E-Series E313 2G/3G Global (Enterprise)",
           "short": [
             "E313"
           ],
@@ -23906,7 +24016,7 @@
     },
     {
       "family": "p series",
-      "name": "P Series",
+      "name": "P-Series",
       "wifi": true
     },
     {
@@ -24234,7 +24344,7 @@
       "sim": 4,
       "simPlan": 40,
       "modem": "BG95-M5",
-      "desc": "M Series LTE M1/2G Global EtherSIM",
+      "desc": "M-Series LTE M1/2G Global EtherSIM",
       "lifecycle": "GA"
     },
     {
@@ -24255,14 +24365,14 @@
       "sim": 4,
       "simPlan": 40,
       "modem": "EG91-E",
-      "desc": "B Series LTE Cat1/3G/2G EMEAA EtherSIM",
+      "desc": "B-Series LTE Cat1/3G/2G EMEAA EtherSIM",
       "lifecycle": "GA"
     },
     {
       "sim": 2,
       "simPlan": 21,
       "modem": "EG91-E",
-      "desc": "B Series LTE Cat1/3G/2G EMEAA Enterprise",
+      "desc": "B-Series LTE Cat1/3G/2G EMEAA Enterprise",
       "lifecycle": "GA",
       "enterprise": true
     },
@@ -24270,14 +24380,14 @@
       "sim": 2,
       "simPlan": 20,
       "modem": "EG91-E",
-      "desc": "B Series LTE Cat1/3G/2G EMEAA",
+      "desc": "B-Series LTE Cat1/3G/2G EMEAA",
       "lifecycle": "GA"
     },
     {
       "sim": 4,
       "simPlan": 40,
       "modem": "EG91-EX",
-      "desc": "Tracker LTE, M Series Cat1/3G/2G EMEAA EtherSIM",
+      "desc": "Tracker LTE, M-Series Cat1/3G/2G EMEAA EtherSIM",
       "lifecycle": "GA"
     },
     {
@@ -24299,28 +24409,28 @@
       "sim": 4,
       "simPlan": 40,
       "modem": "R410",
-      "desc": "B Series, Boron, E Series, Electron LTE M1 NorAm EtherSIM",
+      "desc": "B-Series, Boron, E-Series, Electron LTE M1 NorAm EtherSIM",
       "lifecycle": "GA"
     },
     {
       "sim": 3,
       "simPlan": 30,
       "modem": "R410",
-      "desc": "B Series, Boron, E Series, Electron LTE M1 NorAm",
+      "desc": "B-Series, Boron, E-Series, Electron LTE M1 NorAm",
       "lifecycle": "GA"
     },
     {
       "sim": 4,
       "simPlan": 40,
       "modem": "R510",
-      "desc": "B Series, Boron, E Series, Electron LTE M1 NorAm EtherSIM",
+      "desc": "B-Series, Boron, E-Series, Electron LTE M1 NorAm EtherSIM",
       "lifecycle": "GA"
     },
     {
       "sim": 4,
       "simPlan": 40,
       "modem": "U201",
-      "desc": "Boron, E Series, Electron 2G/3G Global EtherSIM",
+      "desc": "Boron, E-Series, Electron 2G/3G Global EtherSIM",
       "lifecycle": "GA"
     },
     {
@@ -24342,14 +24452,14 @@
       "sim": 1,
       "simPlan": 11,
       "modem": "U201",
-      "desc": "E Series 2G/3G Global",
+      "desc": "E-Series 2G/3G Global",
       "lifecycle": "GA"
     },
     {
       "sim": 4,
       "simPlan": 40,
       "modem": "U201",
-      "desc": "Boron, E Series, Electron 2G/3G Global EtherSIM",
+      "desc": "Boron, E-Series, Electron 2G/3G Global EtherSIM",
       "lifecycle": "Deprecated"
     },
     {

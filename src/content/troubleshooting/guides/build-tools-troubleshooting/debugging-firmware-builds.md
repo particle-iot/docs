@@ -28,16 +28,16 @@ Starting with Device OS 4.0 (and also 5.0):
 | P2 / Photon 2 | 3 | >= 5.0 | n/a |
 | Tracker M | 3 | >= 5.0 | n/a |
 | Tracker | 3 | >= 4.0 | < 4.0 |
-| B SoM (B404X, B404, B402) | 3 | >= 4.0 | < 4.0 |
+| B-SoM (B404X, B404, B402) | 3 | >= 4.0 | < 4.0 |
 | B5 SoM (B524, B523) | 3 | >= 4.0 | < 4.0 |
-| E SoM X (E404X) | 3 | >= 4.0 | n/a |
+| E-SoM X (E404X) | 3 | >= 4.0 | n/a |
 | Boron | 3 | >= 4.0 | < 4.0 |
 | Argon | 3 | >= 4.0 | < 4.0 |
-| E Series / Electron | 2 |  | &check; |
+| E-Series / Electron | 2 |  | &check; |
 | P1 | 2 |  | &check; |
 | Photon | 2 |  | &check; |
 
-For Gen 2 devices, E Series (except E404X), Electron, P1, and Photon, debugging is still monolithic and unchanged as these devices cannot use Device OS 4.0 or later.
+For Gen 2 devices, E-Series (except E404X), Electron, P1, and Photon, debugging is still monolithic and unchanged as these devices cannot use Device OS 4.0 or later.
 
 {{!-- END shared-blurb --}}
 

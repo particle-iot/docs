@@ -1,8 +1,8 @@
 ---
-title: B Series SoM First Board
+title: B-Series SoM First Board
 layout: commonTwo.hbs
 columns: two
-description: Tutorial for getting started making your first B Series M.2 SoM base board
+description: Tutorial for getting started making your first B-Series M.2 SoM base board
 ---
 
 # {{title}}
@@ -11,9 +11,9 @@ This tutorial will guide you through some things that may help in making your fi
 
 ![Board Image](/assets/images/som-first-board/main.png)
 
-There are a number of features that are different between the Boron and B Series SoM:
+There are a number of features that are different between the Boron and B-Series SoM:
 
-| Feature | Boron | B Series SoM | SoM Base Board | E Series | 
+| Feature | Boron | B-Series SoM | SoM Base Board | E-Series | 
 | --- | :---: | :---: | :---: | :---: |
 | U.FL Antenna Connector | &check; | &check; | Optional | &check; |
 | MFF2 SMD Particle SIM | &check; | &check; | &nbsp; | &check; |
@@ -31,7 +31,7 @@ In particular, you'll need to handle:
 - RGB Status LED (optional)
 - Reset and Mode Buttons (optional)
 
-Unlike the E Series module, the B Series SoM does not include the PMIC (Power Management IC, bq24195) and fuel gauge (MAX17043). There are several reasons for this:
+Unlike the E-Series module, the B-Series SoM does not include the PMIC (Power Management IC, bq24195) and fuel gauge (MAX17043). There are several reasons for this:
 
 - The PMIC is not necessary for devices that are externally powered, such as by power mains, or a vehicle power supply.
 - For specific applications like solar, there are different PMICs with better performance.

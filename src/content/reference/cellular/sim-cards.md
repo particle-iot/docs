@@ -11,13 +11,13 @@ Most Particle cellular devices have a built-in MFF2 SMD SIM and do not need a 4F
 | --- | :--- | :---: | :---: | 
 | Boron 2G/3G | BRN314 BRN310 | &check; | &check; |
 | Boron LTE  | BRN404 BRN402 | &check; | &check; |
-| B Series B402 SoM (Cat M1) | B404 B402 | &nbsp; | &check; |
-| B Series B523 SoM (Cat 1) | B524 B523 | &nbsp; | &check; |
+| B-Series B402 SoM (Cat M1) | B404 B402 | &nbsp; | &check; |
+| B-Series B523 SoM (Cat 1) | B524 B523 | &nbsp; | &check; |
 | Tracker SoM (LTE Cat M1) | T404 T402 | &nbsp; | &check; |
 | Tracker SoM (LTE Cat 1 and 2G/3G) | T524 T523 | &nbsp; | &check; |
 | Electron LTE (Cat M1) | ELC404 ELC402 | &nbsp; | &check; |
-| E Series 2G/3G | E314 E310 | &nbsp; | &check; |
-| E Series LTE (Cat M1) | E404 E402 | &nbsp; | &check; |
+| E-Series 2G/3G | E314 E310 | &nbsp; | &check; |
+| E-Series LTE (Cat M1) | E404 E402 | &nbsp; | &check; |
 
 The exceptions are:
 

@@ -7,7 +7,7 @@ The following Electron models include a plastic 4FF nano SIM card that must be i
 
 The following modules have a built-in MFF2 Particle SIM and you can skip this step.
 
-- All E Series models
+- All E-Series models
 - Electron LTE ELC402 and ELC404
 
 #### To install a 4FF plastic SIM

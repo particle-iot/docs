@@ -369,28 +369,28 @@
       ],
       {
         "dir": "b-series",
-        "title": "B Series/Boron",
+        "title": "B-Series/Boron",
         "isSection": true
       },
       [
         {
           "dir": "b404x-datasheet",
-          "title": "B Series B404X datasheet",
+          "title": "B-Series B404X datasheet",
           "href": "/reference/datasheets/b-series/b404x-datasheet/"
         },
         {
           "dir": "b404-b402-datasheet",
-          "title": "B Series B404/B402 datasheet",
+          "title": "B-Series B404/B402 datasheet",
           "href": "/reference/datasheets/b-series/b404-b402-datasheet/"
         },
         {
           "dir": "b524-b523-datasheet",
-          "title": "B Series B524/B523 datasheet",
+          "title": "B-Series B524/B523 datasheet",
           "href": "/reference/datasheets/b-series/b524-b523-datasheet/"
         },
         {
           "dir": "b-series-eval-board",
-          "title": "B Series Evaluation Board",
+          "title": "B-Series Evaluation Board",
           "href": "/reference/datasheets/b-series/b-series-eval-board/"
         },
         {
@@ -406,13 +406,13 @@
       ],
       {
         "dir": "m-series",
-        "title": "M Series",
+        "title": "M-Series",
         "isSection": true
       },
       [
         {
           "dir": "msom-datasheet",
-          "title": "M SoM datasheet",
+          "title": "M-SoM datasheet",
           "href": "/reference/datasheets/m-series/msom-datasheet/"
         },
         {
@@ -423,7 +423,7 @@
       ],
       {
         "dir": "e-series",
-        "title": "E Series/Electron",
+        "title": "E-Series/Electron",
         "isSection": true
       },
       [
@@ -434,17 +434,17 @@
         },
         {
           "dir": "e-series-datasheet",
-          "title": "E Series datasheet",
+          "title": "E-Series datasheet",
           "href": "/reference/datasheets/e-series/e-series-datasheet/"
         },
         {
           "dir": "e-series-eval-board",
-          "title": "E Series Evaluation Board",
+          "title": "E-Series Evaluation Board",
           "href": "/reference/datasheets/e-series/e-series-eval-board/"
         },
         {
           "dir": "e-series-system-integration-manual",
-          "title": "E Series System Integration Manual",
+          "title": "E-Series System Integration Manual",
           "href": "/reference/datasheets/e-series/e-series-system-integration-manual/"
         },
         {

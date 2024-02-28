@@ -9,7 +9,7 @@ The Cloud Debug tool is helpful for diagnosing connectivity issues. This applica
 
 This application note is a deep dive into interpreting a complete successful log.
 
-This guide mostly concentrates on cellular issues (Electron, E Series, and Boron).
+This guide mostly concentrates on cellular issues (Electron, E-Series, and Boron).
 
 
 
@@ -63,13 +63,13 @@ The logs are very similar for the 2G/3G devices:
 - Electron 2G (SARA-G350)
 - Electron 3G Americas/Australia/New Zealand (SARA-U260)
 - Electron 3G Europe/Asia/Africa (SARA-U270)
-- E Series 2G/3G E310 (SARA-U201)
+- E-Series 2G/3G E310 (SARA-U201)
 - Boron 2G/3G (SARA-U201)
 
 And also for the LTE devices:
 
 - Electron LTE (SARA-R410M-02B)
-- E Series LTE (SARA-R410M-02B)
+- E-Series LTE (SARA-R410M-02B)
 - Boron LTE (SARA-R410M-02B)
 
 There are two different log explanations because the LTE logs are sufficiently different.
@@ -711,9 +711,9 @@ Socket 0: handle 0 has 0 bytes pending
 
 That the last of the handshaking with the cloud!
 
-### E Series LTE log explanation
+### E-Series LTE log explanation
 
-The log for the LTE devices (both E Series LTE and Boron LTE) are a bit different, so I'll highlight some of the differences here:
+The log for the LTE devices (both E-Series LTE and Boron LTE) are a bit different, so I'll highlight some of the differences here:
 
 ```
 clouddebug: press letter corresponding to the command
