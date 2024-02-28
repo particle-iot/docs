@@ -1696,7 +1696,7 @@ bandFit.init = function(callback) {
 
     bandFit.tests = {
         'msom': {
-            title: 'M-SoM (M404/M635 vs. M524)',
+            title: 'M-Series (M404/M635 vs. M524)',
             tests: [
                 {
                     title: 'M404',
