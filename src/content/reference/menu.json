@@ -389,6 +389,12 @@
           "href": "/reference/datasheets/b-series/b524-b523-datasheet/"
         },
         {
+          "dir": "b504-datasheet",
+          "title": "B-Series B504 datasheet",
+          "href": "/reference/datasheets/b-series/b504-datasheet/",
+          "internal": true
+        },
+        {
           "dir": "b-series-eval-board",
           "title": "B-Series Evaluation Board",
           "href": "/reference/datasheets/b-series/b-series-eval-board/"

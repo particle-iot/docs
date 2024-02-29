@@ -1199,7 +1199,11 @@ bandFit.saveQuery = function() {
 };
 
 bandFit.renderCountries = function(countries) {
-    const test = $(bandFit.bandFitTestSelectElem).val();
+    let test = $(bandFit.bandFitTestSelectElem).val();
+    if (!test) {
+        test = 'msom';
+        $(bandFit.bandFitTestSelectElem).val(test);
+    }
 
     for(const country of countries) {
         const countryObj = datastore.data.countries.find(e => e.name == country);

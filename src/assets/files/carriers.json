@@ -24587,6 +24587,12 @@
     },
     {
       "country": "Afghanistan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Afghanistan",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -24688,6 +24694,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Albania",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Albania",
@@ -24801,6 +24813,12 @@
     },
     {
       "country": "Algeria",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Algeria",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -24910,6 +24928,12 @@
     },
     {
       "country": "Andorra",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Andorra",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -25022,6 +25046,12 @@
     },
     {
       "country": "Angola",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Angola",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -25131,6 +25161,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Anguilla",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Anguilla",
@@ -25239,6 +25275,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Antarctica",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Antarctica",
@@ -25354,6 +25396,13 @@
     },
     {
       "country": "Antigua and Barbuda",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "May work in some areas"
+    },
+    {
+      "country": "Antigua and Barbuda",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -25462,6 +25511,12 @@
     },
     {
       "country": "Argentina",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Argentina",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -25567,6 +25622,12 @@
       "sim": 4,
       "recommendation": "POSS",
       "reason": "Not officially supported, may work but is untested"
+    },
+    {
+      "country": "Armenia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Armenia",
@@ -25677,6 +25738,13 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Aruba",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "No compatible bands"
     },
     {
       "country": "Aruba",
@@ -25781,6 +25849,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Australia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Australia",
@@ -25892,6 +25966,12 @@
     },
     {
       "country": "Austria",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Austria",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -26000,6 +26080,12 @@
     },
     {
       "country": "Azerbaijan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Azerbaijan",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -26105,6 +26191,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Bahamas",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Bahamas",
@@ -26215,6 +26307,12 @@
     },
     {
       "country": "Bahrain",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Bahrain",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -26318,6 +26416,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Bangladesh",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Bangladesh",
@@ -26429,6 +26533,13 @@
     },
     {
       "country": "Barbados",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "May work in some areas"
+    },
+    {
+      "country": "Barbados",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -26535,6 +26646,12 @@
     },
     {
       "country": "Belarus",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Belarus",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -26637,6 +26754,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Belgium",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Belgium",
@@ -26745,6 +26868,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Belize",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Belize",
@@ -26857,6 +26986,12 @@
     },
     {
       "country": "Benin",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Benin",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -26965,6 +27100,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Bermuda",
@@ -27077,6 +27219,12 @@
     },
     {
       "country": "Bolivia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Bolivia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -27186,6 +27334,13 @@
     },
     {
       "country": "Bonaire",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Bonaire",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -27293,6 +27448,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Bosnia and Herzegovina",
@@ -27402,6 +27563,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Botswana",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Botswana",
@@ -27514,6 +27681,14 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "Limited band compatibility, roaming restrictions",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Brazil",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "Poor band fit",
       "roamingRestrictions": "warn"
     },
     {
@@ -27630,6 +27805,12 @@
     },
     {
       "country": "Brunei",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Brunei",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -27733,6 +27914,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Bulgaria",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Bulgaria",
@@ -27844,6 +28031,12 @@
     },
     {
       "country": "Burkina Faso",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Burkina Faso",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -27955,6 +28148,12 @@
     },
     {
       "country": "Burundi",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Burundi",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -28064,6 +28263,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Cabo Verde",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Cabo Verde",
@@ -28174,6 +28379,12 @@
     },
     {
       "country": "Cambodia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Cambodia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -28281,6 +28492,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Cameroon",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Cameroon",
@@ -28388,6 +28605,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Canada",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Canada",
@@ -28499,6 +28722,12 @@
     },
     {
       "country": "Cayman Islands",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Cayman Islands",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -28605,6 +28834,12 @@
     },
     {
       "country": "Central African Republic",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Central African Republic",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -28711,6 +28946,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Chad",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Chad",
@@ -28824,6 +29065,13 @@
     },
     {
       "country": "Chile",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "May work in some areas"
+    },
+    {
+      "country": "Chile",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -28932,6 +29180,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "Permanent roaming issues, band compatibility",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "China",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
       "roamingRestrictions": "warn"
     },
     {
@@ -29048,6 +29303,12 @@
     },
     {
       "country": "Colombia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Colombia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -29154,6 +29415,12 @@
     },
     {
       "country": "Congo (Brazzaville)",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Congo (Brazzaville)",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -29257,6 +29524,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Congo (Kinshasa)",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Congo (Kinshasa)",
@@ -29370,6 +29643,13 @@
     },
     {
       "country": "Costa Rica",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "May work in some areas"
+    },
+    {
+      "country": "Costa Rica",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -29478,6 +29758,12 @@
     },
     {
       "country": "Côte d'Ivoire",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Côte d'Ivoire",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -29583,6 +29869,12 @@
     },
     {
       "country": "Croatia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Croatia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -29688,6 +29980,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Cuba",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cuba",
@@ -29803,6 +30102,13 @@
     },
     {
       "country": "Curaçao",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Curaçao",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -29910,6 +30216,12 @@
     },
     {
       "country": "Cyprus",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Cyprus",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -30014,6 +30326,12 @@
     },
     {
       "country": "Czechia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Czechia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -30115,6 +30433,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Denmark",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Denmark",
@@ -30226,6 +30550,12 @@
     },
     {
       "country": "Dominica",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Dominica",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -30334,6 +30664,12 @@
     },
     {
       "country": "Dominican Republic",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Dominican Republic",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -30439,6 +30775,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Ecuador",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Ecuador",
@@ -30550,6 +30892,12 @@
     },
     {
       "country": "Egypt",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Egypt",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -30659,6 +31007,12 @@
     },
     {
       "country": "El Salvador",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "El Salvador",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -30767,6 +31121,12 @@
     },
     {
       "country": "Equatorial Guinea",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Equatorial Guinea",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -30872,6 +31232,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Estonia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Estonia",
@@ -30983,6 +31349,12 @@
     },
     {
       "country": "eSwatini",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "eSwatini",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -31092,6 +31464,12 @@
     },
     {
       "country": "Ethiopia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Ethiopia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -31199,6 +31577,12 @@
     },
     {
       "country": "Faroe Islands",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Faroe Islands",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -31307,6 +31691,12 @@
     },
     {
       "country": "Fiji",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Fiji",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -31411,6 +31801,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Finland",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Finland",
@@ -31515,6 +31911,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "France",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "France",
@@ -31626,6 +32028,12 @@
     },
     {
       "country": "French Guiana",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "French Guiana",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -31731,6 +32139,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Gabon",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Gabon",
@@ -31839,6 +32253,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Gambia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Gambia",
@@ -31954,6 +32374,12 @@
     },
     {
       "country": "Georgia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Georgia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -32055,6 +32481,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Germany",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Germany",
@@ -32164,6 +32596,12 @@
     },
     {
       "country": "Ghana",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Ghana",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -32268,6 +32706,12 @@
     },
     {
       "country": "Gibraltar",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Gibraltar",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -32372,6 +32816,12 @@
     },
     {
       "country": "Greece",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Greece",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -32477,6 +32927,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Greenland",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Greenland",
@@ -32587,6 +33043,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Grenada",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Grenada",
@@ -32695,6 +33157,12 @@
       "sim": 4,
       "recommendation": "POSS",
       "reason": "May work on Digicel"
+    },
+    {
+      "country": "Guadeloupe",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Guadeloupe",
@@ -32807,6 +33275,12 @@
     },
     {
       "country": "Guam",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Guam",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -32915,6 +33389,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Guatemala",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Guatemala",
@@ -33024,6 +33504,12 @@
     },
     {
       "country": "Guernsey",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Guernsey",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -33135,6 +33621,12 @@
     },
     {
       "country": "Guinea",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Guinea",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -33243,6 +33735,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Guinea-Bissau",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Guinea-Bissau",
@@ -33355,6 +33853,12 @@
     },
     {
       "country": "Guyana",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Guyana",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -33463,6 +33967,12 @@
     },
     {
       "country": "Haiti",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Haiti",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -33569,6 +34079,12 @@
     },
     {
       "country": "Holy See (Vatican City)",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Holy See (Vatican City)",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -33677,6 +34193,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Honduras",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Honduras",
@@ -33788,6 +34310,12 @@
     },
     {
       "country": "Hong Kong",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Hong Kong",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -33893,6 +34421,12 @@
     },
     {
       "country": "Hungary",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Hungary",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -33994,6 +34528,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Iceland",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Iceland",
@@ -34103,6 +34643,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "India",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
       "roamingRestrictions": "warn"
     },
     {
@@ -34219,6 +34766,12 @@
     },
     {
       "country": "Indonesia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Indonesia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -34327,6 +34880,12 @@
     },
     {
       "country": "Iran",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Iran",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -34439,6 +34998,12 @@
     },
     {
       "country": "Iraq",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Iraq",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -34544,6 +35109,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Ireland",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Ireland",
@@ -34650,6 +35221,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Isle of Man",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Isle of Man",
@@ -34762,6 +35339,12 @@
     },
     {
       "country": "Israel",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Israel",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -34866,6 +35449,12 @@
     },
     {
       "country": "Italy",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Italy",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -34974,6 +35563,12 @@
     },
     {
       "country": "Jamaica",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Jamaica",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -35079,6 +35674,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "limited band compatibility"
+    },
+    {
+      "country": "Japan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Japan",
@@ -35186,6 +35787,12 @@
     },
     {
       "country": "Jersey",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Jersey",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -35292,6 +35899,12 @@
     },
     {
       "country": "Jordan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Jordan",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -35399,6 +36012,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Kazakhstan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Kazakhstan",
@@ -35509,6 +36128,12 @@
     },
     {
       "country": "Kenya",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Kenya",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -35617,6 +36242,12 @@
     },
     {
       "country": "Kiribati",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Kiribati",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -35729,6 +36360,12 @@
     },
     {
       "country": "Kosovo",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Kosovo",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -35836,6 +36473,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Kuwait",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Kuwait",
@@ -35947,6 +36590,12 @@
     },
     {
       "country": "Kyrgyzstan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Kyrgyzstan",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -36058,6 +36707,12 @@
     },
     {
       "country": "Lao People's Democratic Republic",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Lao People's Democratic Republic",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -36163,6 +36818,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Latvia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Latvia",
@@ -36274,6 +36935,12 @@
     },
     {
       "country": "Lebanon",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Lebanon",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -36384,6 +37051,12 @@
     },
     {
       "country": "Lesotho",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Lesotho",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -36488,6 +37161,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Liechtenstein",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Liechtenstein",
@@ -36595,6 +37274,12 @@
     },
     {
       "country": "Lithuania",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Lithuania",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -36696,6 +37381,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Luxembourg",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Luxembourg",
@@ -36807,6 +37498,12 @@
     },
     {
       "country": "Macao",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Macao",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -36913,6 +37610,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Madagascar",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Madagascar",
@@ -37022,6 +37725,12 @@
     },
     {
       "country": "Malawi",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Malawi",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -37127,6 +37836,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Malaysia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Malaysia",
@@ -37238,6 +37953,12 @@
     },
     {
       "country": "Maldives",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Maldives",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -37350,6 +38071,12 @@
     },
     {
       "country": "Mali",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Mali",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -37455,6 +38182,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Malta",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Malta",
@@ -37566,6 +38299,13 @@
     },
     {
       "country": "Martinique",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Martinique",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -37677,6 +38417,12 @@
     },
     {
       "country": "Mauritania",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Mauritania",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -37789,6 +38535,12 @@
     },
     {
       "country": "Mauritius",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Mauritius",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -37901,6 +38653,12 @@
     },
     {
       "country": "Mayotte",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Mayotte",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -38007,6 +38765,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Mexico",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Mexico",
@@ -38116,6 +38880,12 @@
     },
     {
       "country": "Moldova",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Moldova",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -38222,6 +38992,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Monaco",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Monaco",
@@ -38335,6 +39111,12 @@
     },
     {
       "country": "Mongolia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Mongolia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -38439,6 +39221,12 @@
     },
     {
       "country": "Montenegro",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Montenegro",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -38544,6 +39332,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Montserrat",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Montserrat",
@@ -38653,6 +39448,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Morocco",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Morocco",
@@ -38763,6 +39564,12 @@
     },
     {
       "country": "Mozambique",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Mozambique",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -38871,6 +39678,12 @@
     },
     {
       "country": "Myanmar",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Myanmar",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -38982,6 +39795,12 @@
     },
     {
       "country": "Namibia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Namibia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -39091,6 +39910,12 @@
     },
     {
       "country": "Nauru",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Nauru",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -39202,6 +40027,12 @@
     },
     {
       "country": "Nepal",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Nepal",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -39307,6 +40138,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Netherlands",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Netherlands",
@@ -39418,6 +40255,13 @@
     },
     {
       "country": "Netherlands Antilles",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Netherlands Antilles",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -39523,6 +40367,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "New Zealand",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "New Zealand",
@@ -39638,6 +40488,12 @@
     },
     {
       "country": "Nicaragua",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Nicaragua",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -39741,6 +40597,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Niger",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Niger",
@@ -39851,6 +40713,12 @@
     },
     {
       "country": "Nigeria",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Nigeria",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -39955,6 +40823,12 @@
     },
     {
       "country": "North Macedonia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "North Macedonia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -40056,6 +40930,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Norway",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Norway",
@@ -40170,6 +41050,13 @@
       "expansion": "2022-05-18",
       "roamingRestrictions": "warn",
       "reason": "Permanent roaming restrictions"
+    },
+    {
+      "country": "Oman",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Oman",
@@ -40289,6 +41176,12 @@
     },
     {
       "country": "Pakistan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Pakistan",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -40397,6 +41290,12 @@
     },
     {
       "country": "Palestine",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Palestine",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -40505,6 +41404,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Panama",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Panama",
@@ -40616,6 +41521,12 @@
     },
     {
       "country": "Papua New Guinea",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Papua New Guinea",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -40727,6 +41638,12 @@
     },
     {
       "country": "Paraguay",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Paraguay",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -40834,6 +41751,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Peru",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Peru",
@@ -40941,6 +41864,12 @@
     },
     {
       "country": "Philippines",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Philippines",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -41042,6 +41971,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Poland",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Poland",
@@ -41149,6 +42084,12 @@
     },
     {
       "country": "Portugal",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Portugal",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -41254,6 +42195,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Puerto Rico",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Puerto Rico",
@@ -41364,6 +42311,12 @@
     },
     {
       "country": "Qatar",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Qatar",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -41470,6 +42423,12 @@
     },
     {
       "country": "Réunion",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Réunion",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -41572,6 +42531,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Romania",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Romania",
@@ -41683,6 +42648,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Russia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
       "roamingRestrictions": "warn"
     },
     {
@@ -41797,6 +42769,12 @@
     },
     {
       "country": "Rwanda",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Rwanda",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -41905,6 +42883,13 @@
     },
     {
       "country": "Saint Barthélemy",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Saint Barthélemy",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -42013,6 +42998,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Saint Kitts and Nevis",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Saint Kitts and Nevis",
@@ -42124,6 +43115,12 @@
     },
     {
       "country": "Saint Lucia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Saint Lucia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -42232,6 +43229,13 @@
     },
     {
       "country": "Saint Martin (French part)",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Saint Martin (French part)",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -42340,6 +43344,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Saint Vincent and the Grenadines",
@@ -42451,6 +43461,12 @@
     },
     {
       "country": "Samoa",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Samoa",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -42558,6 +43574,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "San Marino",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "San Marino",
@@ -42678,6 +43700,13 @@
     },
     {
       "country": "Saudi Arabia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Saudi Arabia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -42793,6 +43822,12 @@
     },
     {
       "country": "Senegal",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Senegal",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -42898,6 +43933,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Serbia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Serbia",
@@ -43007,6 +44048,12 @@
     },
     {
       "country": "Seychelles",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Seychelles",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -43111,6 +44158,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Sierra Leone",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Sierra Leone",
@@ -43224,6 +44277,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Singapore",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
       "roamingRestrictions": "warn"
     },
     {
@@ -43340,6 +44400,12 @@
     },
     {
       "country": "Sint Maarten",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Sint Maarten",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -43447,6 +44513,12 @@
     },
     {
       "country": "Slovakia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Slovakia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -43551,6 +44623,12 @@
     },
     {
       "country": "Slovenia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Slovenia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -43657,6 +44735,12 @@
     },
     {
       "country": "Solomon Islands",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Solomon Islands",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -43768,6 +44852,12 @@
     },
     {
       "country": "Somalia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Somalia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -43875,6 +44965,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "South Africa",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "South Africa",
@@ -43981,6 +45077,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "South Korea",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "South Korea",
@@ -44090,6 +45192,12 @@
     },
     {
       "country": "South Sudan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "South Sudan",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -44193,6 +45301,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Spain",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Spain",
@@ -44299,6 +45413,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Sri Lanka",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Sri Lanka",
@@ -44410,6 +45530,12 @@
     },
     {
       "country": "Suriname",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Suriname",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -44516,6 +45642,12 @@
     },
     {
       "country": "Svalbard and Jan Mayen",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Svalbard and Jan Mayen",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -44620,6 +45752,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Sweden",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Sweden",
@@ -44724,6 +45862,12 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "YES"
+    },
+    {
+      "country": "Switzerland",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Switzerland",
@@ -44830,6 +45974,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Taiwan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Taiwan",
@@ -44940,6 +46090,12 @@
     },
     {
       "country": "Tajikistan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Tajikistan",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -45046,6 +46202,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Tanzania",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Tanzania",
@@ -45152,6 +46314,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Thailand",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Thailand",
@@ -45261,6 +46429,12 @@
     },
     {
       "country": "Togo",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Togo",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -45372,6 +46546,12 @@
     },
     {
       "country": "Tonga",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Tonga",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -45481,6 +46661,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Trinidad and Tobago",
@@ -45589,6 +46775,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Tunisia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Tunisia",
@@ -45703,6 +46895,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "not recommended due to permanent roaming restrictions",
+      "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Turkey",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
       "roamingRestrictions": "hide"
     },
     {
@@ -45827,6 +47026,12 @@
     },
     {
       "country": "Turks and Caicos Islands",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Turks and Caicos Islands",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -45932,6 +47137,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Uganda",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Uganda",
@@ -46043,6 +47254,12 @@
     },
     {
       "country": "Ukraine",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Ukraine",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -46151,6 +47368,13 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "United Arab Emirates",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
       "roamingRestrictions": "warn"
     },
     {
@@ -46264,6 +47488,12 @@
     },
     {
       "country": "United Kingdom",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "United Kingdom",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -46366,6 +47596,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "United States",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "United States",
@@ -46476,6 +47712,12 @@
     },
     {
       "country": "Uruguay",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Uruguay",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -46584,6 +47826,12 @@
     },
     {
       "country": "Uzbekistan",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Uzbekistan",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -46694,6 +47942,12 @@
     },
     {
       "country": "Vanuatu",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Vanuatu",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -46803,6 +48057,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Venezuela",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
     },
     {
       "country": "Venezuela",
@@ -46911,6 +48171,12 @@
       "sim": 4,
       "recommendation": "YES",
       "expansion": "2022-05-18"
+    },
+    {
+      "country": "Vietnam",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Vietnam",
@@ -47023,6 +48289,12 @@
     },
     {
       "country": "Virgin Islands (British)",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Virgin Islands (British)",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
@@ -47131,6 +48403,13 @@
     },
     {
       "country": "Virgin Islands (U.S.)",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Virgin Islands (U.S.)",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -47240,6 +48519,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Yemen",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Yemen",
@@ -47351,6 +48636,12 @@
     },
     {
       "country": "Zambia",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
+    },
+    {
+      "country": "Zambia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
@@ -47458,6 +48749,12 @@
       "sim": 4,
       "recommendation": "NR",
       "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Zimbabwe",
+      "modem": "EG91-NAX",
+      "sim": 4,
+      "recommendation": "NR"
     },
     {
       "country": "Zimbabwe",
