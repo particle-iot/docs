@@ -47,8 +47,8 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
  * RGB status pins for LED
  * Reset and Mode pins for buttons
  * On-module MFF2 Particle SIM 
- * Two on-module U.FL connectors for external antennas
- * M.2 interface
+ * Three on-module U.FL connectors for external antennas
+ * Connects to your base board or eval board that has a Particle M.2 connector
  * FCC (United States) and ISED (Canada) certified
  * RoHS compliant (lead-free)
 
@@ -120,7 +120,7 @@ The B504 is similar to the B524, except for the cellular bands supported. The B5
 
 VCC is used to supply power to the Quectel EG91-NAX cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery. Make sure that the supply can handle currents of at least 2 A.
 
-If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V at 2A. You may want to add additional bulk capacitors to handle the short, high current peak usage when the cellular modem is transmitting.
+If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V at 2A. You may want to add additional bulk capacitors to handle the short, high current peak usage when the cellular modem is transmitting. If your board contains a bq24195 PMIC, see [PMIC notes](#pmic-notes), below, for additional information.
 
 Note that the B504 requires 2000 mA on VCC, unlike the B404X which only 600 mA.
 
@@ -674,6 +674,8 @@ If you are using Ethernet with the B-Series SoM, the following pins are used by 
 | D8            | 48      | nCHIP SELECT              |
 
 ### Complete module pin details
+
+[Click this link to skip over this section](#led-status)
 
 {{!-- BEGIN do not edit content below, it is automatically generated 88cf3396-ffa7-4f4c-b2ef-deead0b0315d --}}
 
@@ -1749,7 +1751,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 Values are from B523 using the EG91-E cellular modem. Actual operating current with cellular using the EG91-NAX modem may vary slightly but should be similar.
 
-### Power consumption
+**These values are preliminary and subject to change**
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
