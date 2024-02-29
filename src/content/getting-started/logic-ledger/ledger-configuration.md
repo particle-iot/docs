@@ -14,7 +14,7 @@ and APIs in future versions based on user feedback.
 
 Pricing and availability may change in the future.
 
-Ledger requires Device OS 5.8.0 or later.
+Ledger requires Device OS 5.9.0 or later.
 {{box op="end"}}
 
 One use case of a Cloud to Device ledger is storing configuration parameters. You can store data per organization, owner, product, or device. You can implement your own hierarchy (product with device overrides, for example). If ledger values are changed while the device is online, it will generally receive the update quickly, within 30 seconds. If the device is offline, it will receive the updates when the device connects to the cloud again.
@@ -70,7 +70,7 @@ Using the **Advanced** tab, enter this JSON data:
 
 ## Device firmware
 
-This is the test device firmware. It requires Device OS 5.8.0 or later.
+This is the test device firmware. It requires Device OS 5.9.0 or later.
 
 {{> project-browser project="ledger-config" default-file="src/ledger-config.cpp" height="400"}}
 
