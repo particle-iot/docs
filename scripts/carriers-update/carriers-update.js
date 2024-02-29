@@ -301,34 +301,41 @@ const generatorConfig = require('./generator-config');
         let modems = [];
         let shortModelForModem = {};
 
-        updater.datastore.data.skuFamily.forEach(function(skuFamilyObj) {
-            if (skuFamilyObj.family != skuFamily) {
-                return;
-            }
-            skuFamilyObj.group.forEach(function(groupObj) {
-                if (groupObj.sim != 4) {
+        if (skuFamily) {
+            updater.datastore.data.skuFamily.forEach(function(skuFamilyObj) {
+                if (skuFamilyObj.family != skuFamily) {
                     return;
                 }
-                if (options.groupFn && options.groupFn(groupObj)) {
-                    return;
-                }
-                modems.push(groupObj.modem);
-
-                let models = [];
-                groupObj.short.forEach(function(model) {
-                    if (options.modelFilterFn) {
-                        if (options.modelFilterFn(model)) {
-                            return;
-                        }
+                skuFamilyObj.group.forEach(function(groupObj) {
+                    if (groupObj.sim != 4) {
+                        return;
                     }
-                    models.push(model);
+                    if (options.groupFn && options.groupFn(groupObj)) {
+                        return;
+                    }
+                    modems.push(groupObj.modem);
+    
+                    let models = [];
+                    groupObj.short.forEach(function(model) {
+                        if (options.modelFilterFn) {
+                            if (options.modelFilterFn(model)) {
+                                return;
+                            }
+                        }
+                        models.push(model);
+                    });
+    
+                    if (models.length) {
+                        shortModelForModem[groupObj.modem] = models.join(', ');
+                    }
                 });
-
-                if (models.length) {
-                    shortModelForModem[groupObj.modem] = models.join(', ');
-                }
             });
-        });
+        }
+        else {
+            // If settings options.modems, also set options.noModel
+            modems = options.modems;
+        }
+
 
         // Filter
         let countryModemSimFiltered = [];

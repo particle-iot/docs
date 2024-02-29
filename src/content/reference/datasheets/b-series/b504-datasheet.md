@@ -7,9 +7,9 @@ description: Datasheet for the Particle B-Series B504 SoM, Gen 3 cellular LTE Ca
 
 # B504 Datasheet
 
-{{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/b504-datasheet.pdf"}}
-{{/unless}} {{!-- pdf-generation --}}
+{{box op="start" cssClass="boxed warningBox"}}
+This is a preliminary datasheet and there may be corrections and changes before release.
+{{box op="end"}}
 
 <div align=center><img src="/assets/images/b-series/b523-top.png" ></div>
 
@@ -25,15 +25,14 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 
 ### Features
 
-#### Features
-
  * Quectel EG91-NAX cellular modem
   * LTE Cat 1 module with 3G fallback with Americas bands
   * Support for United States, Canada, and Mexico only
   * 3GPP E-UTRA Release 13 
-  * LTE Cat 1 bands: 2, 4, 5, 12, 13
-  * UMTS (3G) bands: 2, 5
+  * LTE Cat 1 bands: 2, 4, 5, 12, 13, 25, 26
+  * UMTS (3G) bands: 2, 4, 5
   * Embedded Particle EtherSIM
+  * GNSS (GPS)
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
@@ -55,30 +54,57 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 
 ### Model comparison
 
-{{!-- BEGIN shared-blurb bfc112a3-ce3c-4c3e-a607-e547e240371a --}}
+{{!-- Eventually change this back to shared blurb bfc112a3-ce3c-4c3e-a607-e547e240371a --}}
 
-| | B404X | B404 | B402 | B524 | B523 |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Region | NorAm | NorAm | NorAm | EMEAA | Europe |
-| EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; |
-| Supply Secure | &check; | &nbsp; | &nbsp; | &check; | &nbsp; |
-| Lifecycle | GA | NRND | Deprecated | GA | Deprecated |
+| | B404X | B404 | B402 | B524 | B523 | B504 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Region | NorAm | NorAm | NorAm | EMEAA | Europe | Americas |
+| EtherSIM | &check; | &check; | &nbsp; | &check; | &nbsp; | &check; |
+| Supply Secure | &check; | &nbsp; | &nbsp; | &check; | &nbsp; | &check; |
+| Lifecycle | GA | NRND | Deprecated | GA | Deprecated | In development |
 
 - EtherSIM devices generally have a larger number of carriers and more may be added in the future
 - NorAm: North America (United States, Canada, and Mexico)
+- Americas: North America, Central, and South America (not all countries supported)
 - EMEAA: Europe, Middle East, Africa, and Asia (not all countries supported)
 - NRND: Not recommended for new designs
 - See the [Carrier list](/reference/cellular/cellular-carriers/) for specific carrier and country compatibility
 - See the [Supply secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information
 - See [Lifestyle stages](/reference/product-lifecycle/product-lifecycle-stages/) for more information
 
-{{!-- END shared-blurb --}}
-
 ### Device OS support
 
-The B504 requires Device OS 5.x (exact version to be determined) or later. 
+The B504 requires Device OS 5.x or later (exact version to be determined). 
+
+The B504 is platform `b5som`, not `bsom` used by the B404X. While source code is compatible across both B-Series SoM 
+models, binaries must be compiled separately for each. 
+
+Additionally, only products can only contain one platform. Thus if you have both B404X and B504, they must be in separate
+products. You can, however, group the B504 and B524/B523 devices in the same product.
 
 For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
+## Migration information
+
+The B504 is similar to the B524, except for the cellular bands supported. The B504 contains a Quectel EG91-NAX cellular modem and the B524 contains a Quectel EG91-E cellular modem. They are the same physical size and software compatible.
+
+| Migrating from | Information |
+| :--- | :--- |
+| B404X, B404, B402 | Recompile source for b5som platform, see below |
+| B524, B523 | Upgrade Device OS version if necessary |
+| Boron | [B-Series from Boron or Argon migration guide](/hardware/migration-guides/b-series-boron-migration-guide/) |
+| E-Series | [B-Series from E-Series migration Guide](/hardware/migration-guides/b-series-e-series-migration-guide/) |
+| Electron | [B-Series from Electron migration Guide](/hardware/migration-guides/b-series-electron-migration-guide/) |
+
+### B404X, B404, B402 migration
+
+- Recompile source for b5som platform
+- Upgrade Device OS version if necessary 
+- Verify that power requirements for VCC are met, as the B504 requires more power than the B404X/B404/B402.
+
+### B524, B523 migration
+
+- Upgrade Device OS version if necessary 
 
 ## Interfaces
 
@@ -121,7 +147,16 @@ VBus is connected to the USB detect pin of nRF52840 to enables the USB interface
 
 ### Antenna
 
-There are two radios on the B504 module. A BLE radio (nRF52840) and a cellular radio (Quectel). We have provided two u.FL connectors to plug in the cellular and BLE antenna. These are required if you wish to use the cellular and BLE. If you do not need BLE, you do not need to connect the BLE antenna.
+There are four radios on the B504 module:
+
+- BLE radio (part of nRF52840 MCU) 
+- NFC tag receiver (part of nRF52840 MCU)
+- Cellular radio (Quectel EG91-NAX)
+- GNSS (GPS) receiver (part of Quectel EG91-NAX) 
+
+We have provided three u.FL connectors to plug in the cellular, BLE antenna, and GNSS antennas. The NFC antenna connection is provided through the M.2 connector.
+
+If you are not using BLE, NFC, or GNSS, you can omit those antennas.
 
 #### Certified cellular antenna
 
@@ -133,7 +168,6 @@ The B504 is certified with the following cellular antenna:
 | Wide band LTE cell antenna [x50] | PARANTCW1TY | B504 and M-SoM | [Datasheet](/assets/pdfs/PARANTCW1EA.pdf) |
 
 Single quantity M-SoM units and developer kits include a PARANTCW1EA antenna. Tray quantities of the M-SoM do not include antennas.
-
 
 | Dimension | Value | Unit |
 | :--- | ---: | :---: |
@@ -222,6 +256,20 @@ Environmental:
 {{!-- END shared-blurb --}}
 
 
+
+### Certified GNSS antennas
+
+| SKU | Description | |
+| :--- | :--- | :--- |
+| PARANTGN1EA	| Particle GNSS FPC Antenna, [x1] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
+| PARANTGN1TY	| Particle GNSS FPC Antenna, [x50] | [Datasheet](/assets/pdfs/PARANTGN1EA.pdf) |
+
+Single quantity B-SoM units and developer kits include a PARANTGN1EA antenna. Tray quantities of the B-SoM do not include antennas. If not using the GNSS feature, the antenna can be omitted from your design.
+
+- GNSS support will be added in a future version of Device OS.
+- Feature such of high-precision, dead-reckoning, and high updates rates will require an external GNSS chip.
+
+
 #### General antenna guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
@@ -260,7 +308,7 @@ The B504 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 ### nRF52840 flash layout overview
 
  - Bootloader (48KB, @0xF4000)
-  - User Application: 256KB @ 0xB4000 (Device OS 3.1 and later)
+  - User Application: 256KB @ 0xB4000
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
@@ -270,6 +318,7 @@ The B504 module has 4 pads at the bottom exposing the SWD interface of the nRF52
  - Reserved (420KB, @0x00220000)
  - FAC (128KB, @0x00200000)
  - LittleFS (2M, @0x00000000)
+
 
 ## Pins and button definitions
 
@@ -1686,7 +1735,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption
 
-Values are from B523. Actual operating current with cellular using the R510 modem may vary but should be similar.
+Values are from B523 using the EG91-E cellular modem. Actual operating current with cellular using the EG91-NAX modem may vary slightly but should be similar.
 
 ### Power consumption
 
@@ -1750,6 +1799,22 @@ The B-Series SoM has two radio modules.
 
 #### Quectel EG91-NAX
 
+| Parameter | Value |
+| --- | --- |
+| Protocol stack | 3GPP Release 13 |
+| RAT | LTE Cat 1 |
+| LTE FDD Bands | Band 12 (700 MHz) | &check; |
+| | Band 13 (750 MHz)  | &check; |
+| | Band 5 (850 MHz) | &check; |
+| | Band 26 (850 MHz)  | &nbsp; |
+| | Band 4 (1700 MHz) | &nbsp; |
+| | Band 2 (1900 MHz) | &check; |
+| | Band 25 (1900 MHz)  | &nbsp; |
+| WCDMA Bands | Band 5 (850 MHz) | 
+| | Band 4 (1700) |
+| | Band 2 (1900) |
+| Power class | Class 3 (24dBm ± 3dB) for WCDMA bands |
+| | Class 3 (23dBm ± 2dB) for LTE FDD bands |
 
 
 ---
@@ -1942,13 +2007,47 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 ## Country compatibility
 
-{{!-- BEGIN do not edit content below, it is automatically generated 6d0451d8-43b0-498e-8a13-9a4099a0067e --}}
+{{box op="start" cssClass="boxed warningBox"}}
+This list of compatible countries is preliminary and may change before release.
+{{box op="end"}}
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 716800d6-7c3f-45f7-8cc4-91af58795240 --}}
 
 | Country | Technologies | Carriers |
 | :--- | :--- | :--- |
-| Canada | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Mexico | M1 | AT&T, Telcel |
-| United States | M1 | AT&T, T-Mobile (USA), Verizon<sup>7</sup> |
+| Anguilla | 3G, Cat1 | Flow |
+| Argentina | 3G, Cat1 | Claro, Movistar, Personal |
+| Bahamas | 3G, Cat1 | Aliv, BTC Bahamas |
+| Belize | 3G, Cat1 | Smart |
+| Bolivia | 3G, Cat1 | NuevaTel |
+| Canada | 3G, Cat1 | Bell Mobility, Rogers Wireless, Telus, Videotron |
+| Cayman Islands | 3G, Cat1 | Flow |
+| Colombia | 3G, Cat1 | Movistar, Tigo |
+| Dominica | 3G, Cat1 | Flow |
+| Dominican Republic | 3G, Cat1 | Altice Dominicana, Claro, Viva |
+| Ecuador | 3G, Cat1 | Claro, Movistar |
+| El Salvador | 3G, Cat1 | Claro, Telefonica |
+| Guadeloupe | 3G, Cat1 | Orange |
+| Guatemala | 3G, Cat1 | Claro, Movistar |
+| Haiti | 3G | Digicel |
+| Honduras | 3G, Cat1 | Claro, Tigo |
+| Jamaica | 3G, Cat1 | Digicel, Flow |
+| Mexico | 3G, Cat1 | AT&T, Telcel |
+| Nicaragua | 3G | Movistar |
+| Panama | 3G, Cat1 | Digicel, Movistar |
+| Paraguay | 3G, Cat1 | Claro, Personal, Tigo, Vox |
+| Peru | 3G, Cat1 | Claro, Entel, Movistar |
+| Puerto Rico | 3G, Cat1 | Claro |
+| Saint Kitts and Nevis | 3G, Cat1 | Flow |
+| Saint Lucia | 3G | Flow |
+| Saint Vincent and the Grenadines | 3G, Cat1 | Flow |
+| Trinidad and Tobago | 3G, Cat1 | Digicel, TSTT |
+| Turks and Caicos Islands | 3G, Cat1 | Flow |
+| United States | 3G, Cat1 | Alaska Wireless, AT&T, T-Mobile (USA), Union Telephone |
+| Uruguay | 3G, Cat1 | Antel, Claro, Movistar |
+| Venezuela | 3G, Cat1 | Movistar |
+| Virgin Islands (British) | 3G, Cat1 | CCT, Flow |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

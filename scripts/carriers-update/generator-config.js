@@ -677,6 +677,16 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        // B504
+        {
+            guid:'716800d6-7c3f-45f7-8cc4-91af58795240',
+            generatorFn:function(updater) {
+                return updater.generateCountryList(null, {
+                    modems: ['EG91-NAX'],
+                    noModel: true,
+                }); 
+            } 
+        },
         // BRN404X
         {
             guid:'4b3e02b9-2be9-40ff-8486-90fa48a9e518', 
