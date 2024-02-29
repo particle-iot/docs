@@ -13,7 +13,7 @@ This is a preliminary datasheet and there may be corrections and changes before 
 
 <div align=center><img src="/assets/images/b-series/b523-top.png" ></div>
 
-<p class="attribution">This is a graphic of the B523. The B504 has the same exterior and cellular module dimensions but the label may vary.</p>
+<p class="attribution">This is a graphic of the B523. The B504 has the same exterior and cellular module dimensions but the label will vary.</p>
 
 ## Functional description
 
@@ -79,8 +79,8 @@ The B504 requires Device OS 5.x or later (exact version to be determined).
 The B504 is platform `b5som`, not `bsom` used by the B404X. While source code is compatible across both B-Series SoM 
 models, binaries must be compiled separately for each. 
 
-Additionally, only products can only contain one platform. Thus if you have both B404X and B504, they must be in separate
-products. You can, however, group the B504 and B524/B523 devices in the same product.
+Additionally, products can only contain one platform. Thus if you have both B404X and B504, they must be in separate
+products. You can, however, put the B504 and B524/B523 devices in the same product.
 
 For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
 
@@ -98,19 +98,21 @@ The B504 is similar to the B524, except for the cellular bands supported. The B5
 
 ### B404X, B404, B402 migration
 
-- Recompile source for b5som platform
-- Upgrade Device OS version if necessary 
+- Recompile source for `b5som` platform.
+- Upgrade Device OS version if necessary.
 - Verify that power requirements for VCC are met, as the B504 requires more power than the B404X/B404/B402.
+- Use the antenna the B504 was certified with, not previous antennas.
 
 ### B524, B523 migration
 
-- Upgrade Device OS version if necessary 
+- Upgrade Device OS version if necessary.
+- Use the antenna the B504 was certified with, not previous antennas.
 
 ## Interfaces
 
 ### Block diagram
 
-{{imageOverlay src="/assets/images/b-series/b523-block-diagram.png" alt="Block Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/b-series/b504-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
 ### Power
 
@@ -154,7 +156,17 @@ There are four radios on the B504 module:
 - Cellular radio (Quectel EG91-NAX)
 - GNSS (GPS) receiver (part of Quectel EG91-NAX) 
 
-We have provided three u.FL connectors to plug in the cellular, BLE antenna, and GNSS antennas. The NFC antenna connection is provided through the M.2 connector.
+We have provided three u.FL connectors to plug in the cellular, BLE antenna, and GNSS antennas.
+
+![B504 Connectors](/assets/images/b-series/b523-connectors.png)
+
+| Number | Label   | Purpose | 
+| :----: | :-----: | :--- |
+|  1     | BT      | Bluetooth antenna (optional) |
+|  2     | CELL    | Quectel cellular modem antenna |
+|  3     | GNSS    | GNSS (GPS) antenna (optional) |
+
+The NFC antenna connection is provided through the M.2 connector.
 
 If you are not using BLE, NFC, or GNSS, you can omit those antennas.
 
