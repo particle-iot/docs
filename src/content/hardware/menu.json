@@ -304,6 +304,11 @@
         "dir": "create-a-custom-cold-chain-solution-using-gen3-devices-and-ble",
         "title": "Custom cold chain solution",
         "href": "/hardware/expansion/create-a-custom-cold-chain-solution-using-gen3-devices-and-ble/"
+      },
+      {
+        "dir": "monitor-one-muon-cards",
+        "title": "Monitor One and Muon flexible expansion cards",
+        "href": "/hardware/expansion/monitor-one-muon-cards/"
       }
     ],
     {
