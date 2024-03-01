@@ -74,7 +74,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
 
 ### Device OS support
 
-The B504 requires Device OS 5.x or later (exact version to be determined). 
+The B504 requires Device OS 5.0 or later. Using the most recent version 5.x or 6.x version is recommended.
 
 The B504 is platform `b5som`, not `bsom` used by the B404X. While source code is compatible across both B-Series SoM 
 models, binaries must be compiled separately for each. 
@@ -99,13 +99,13 @@ The B504 is similar to the B524, except for the cellular bands supported. The B5
 ### B404X, B404, B402 migration
 
 - Recompile source for `b5som` platform.
-- Upgrade Device OS version if necessary.
+- Upgrade Device OS to 5.x or later if necessary.
 - Verify that power requirements for VCC are met, as the B504 requires more power than the B404X/B404/B402.
 - Use the antenna the B504 was certified with, not previous antennas.
 
 ### B524, B523 migration
 
-- Upgrade Device OS version if necessary.
+- Upgrade Device OS to 5.x or later if necessary.
 - Use the antenna the B504 was certified with, not previous antennas.
 
 ## Interfaces
