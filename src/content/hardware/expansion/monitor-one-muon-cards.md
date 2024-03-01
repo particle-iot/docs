@@ -48,9 +48,9 @@ With a little care, you can design a card that works in both! You can also use t
 
 ### General - combined card
 
-- The cards are the same dimensions
-- On the Muon, the expansion card is the same size as the Muon (50mm x 90mm)
-- The inner row of expansion pins exists only on the Muon
+- The Monitor One and Muon expansion cards are the same dimensions.
+- The expansion cards are the same size as the Muon (50mm x 90mm).
+- The inner row of expansion pins exists only on the Muon.
 - Tracker SoM (and Monitor One) have combined A and D pins which are separate on the Muon.
 - Tracker SoM (and Monitor One) support I2C `Wire3` on the UART TX/RX pins, the Muon does not.
 - Muon does not support CAN bus, so `CAN_P`, `CAN_N`, and `CAN_5V` are not supported.
@@ -68,6 +68,11 @@ With a little care, you can design a card that works in both! You can also use t
 - `TSOM_A4` (Monitor One) and `MOSI`/`D12` are in the same pin position (16)
 - `TSOM_A7` (Monitor One) and `D8` are in the same pin position (13) and are both `SS`. However you can use any GPIO for SPI chip select.
 
+### UART
+
+- `RX` is in the same position (45)
+- `TX` is in the same position (46)
+- This port cannot be used as I2C (`Wire3`) on the Muon.
 
 ### ADC
 
@@ -78,16 +83,29 @@ With a little care, you can design a card that works in both! You can also use t
 
 - `NFC2_VIN_EN`/`NFC_PIN2` (Monitor One) and `D20` are in the same pin position (9)
 - `NFC1_PERIPH_INT`/`NFC_PIN1` (Monitor One) and `D21` are in the same pin position (10)
-
-
+- `TSOM_A6` (Monitor One) and `SCK`/`D13` are in the same pin position (14), but cannot be used at the same time as SPI.
+- `TSOM_A5` (Monitor One) and `MISO`/`D11` are in the same pin position (15), but cannot be used at the same time as SPI.
+- `TSOM_A4` (Monitor One) and `MOSI`/`D12` are in the same pin position (16), but cannot be used at the same time as SPI.
+- `TSOM_A7` (Monitor One) and `D8` are in the same pin position (13) and are both `SS`.
+- `RX` is in the same position (45) and can be used as GPIO but cannot be used at the same time as UART serial.
+- `TX` is in the same position (46) and can be used as GPIO but cannot be used at the same time as UART serial.
+- Using an I2C or SPI GPIO expander on your expansion card is a good option if you need cross-compatibility.
 
 
 ### PWM
 
 - `TSOM_A5` (Monitor One) and `MISO`/`D11` are in the same pin position (15) and support PWM, but cannot be used at the same time as SPI.
 - `TSOM_A4` (Monitor One) and `MOSI`/`D12` are in the same pin position (16) and support PWM, but cannot be used at the same time as SPI.
+- `TX` is in the same position (46) and support PWM, but cannot be used at the same time as UART serial.
 - Using an I2C PWM on your expansion card is a good option if you need cross-compatibility.
 
+### 5V
+
+The Muon does not have a built-in 5V power supply. 
+
+- `VBUS` is the power line on the USB-C connector. The Muon contains a USB PD chip and prefers to run the USB port at 9V. If the USB-C adapter supports this, VBUS will be 9V instead of 5V!
+- `5V` (Monitor One) and `PMIC_VIN` (Muon) are the same pin position (31) but on the Muon, this pin can be 5V to 12V!
+- `CAN_5V` is not supported on the Muon as it does not have a boost converter for it.
 
 
 ### Full combined pin details
