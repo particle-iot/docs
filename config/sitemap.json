@@ -8409,6 +8409,10 @@
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "9283551e4c41d31640c739d6db1f525085453fbd788f43b17e6f36d9d5c9dbbe",
             "date": "2024-02-27"
+        },
+        "hardware/expansion/monitor-one-muon-cards.md": {
+            "hash": "999351fb68c06f16e7a8ed9a9158eb1705f201c579061711d8dece2444862e0a",
+            "date": "2024-03-01"
         }
     }
 }

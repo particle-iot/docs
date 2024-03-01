@@ -1004,6 +1004,7 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+    
         // datasheets/boron/b-series-electron-migration-guide.md
         {
             guid:'4ca93c19-3cd8-4edf-ae24-d5a3ab433844', 
@@ -4248,6 +4249,20 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+        // monitor-one-muon-cards.md
+        {
+            guid:'fdd63f32-8330-4bde-942f-3c707ef91eb0', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Monitor One Expansion',
+                    showPinNum: true,
+                    platformNewTitle: 'Muon Expansion',
+                }); 
+            }
+        },   
+        
         // Power module
         {
             guid: 'f7d89d7b-2988-4b97-842d-f28f2c6fc767',
