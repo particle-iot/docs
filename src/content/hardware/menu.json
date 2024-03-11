@@ -308,7 +308,8 @@
       {
         "dir": "monitor-one-muon-cards",
         "title": "Monitor One and Muon flexible expansion cards",
-        "href": "/hardware/expansion/monitor-one-muon-cards/"
+        "href": "/hardware/expansion/monitor-one-muon-cards/",
+        "internal": true
       }
     ],
     {
