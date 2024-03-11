@@ -64,6 +64,20 @@ With a little care, you can design a card that works in both! You can also use t
 - `TSOM_A1_SCL` (Monitor One) and `D1`/`SCL` are in the same pin position (34)
 - Use this instead of Monitor One `Wire3` (TX/RX).
 
+
+{{!-- BEGIN do not edit content below, it is automatically generated 7e4f9bbe-44f6-40ae-bcab-6e0eb1cb50f0 --}}
+
+| Pin | Monitor One Expansion Pin Name | Monitor One Expansion I2C | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion I2C |
+| :---: | :--- | :--- | :---: | :--- | :--- |
+| 33 | TSOM_A0_SDA / D0 | Wire (SDA) | 33 | D0 | Wire (SDA) |
+| 34 | TSOM_A1_SCL / D1 | Wire (SCL) | 34 | D1 | Wire (SCL) |
+| 45 | RX / D9 | Wire3 (SDA) | 45 | RX / D10 | &nbsp; |
+| 46 | TX / D8 | Wire3 (SCL) | 46 | TX / D9 | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+
 ### SPI
 
 - `TSOM_A6` (Monitor One) and `SCK`/`D13` are in the same pin position (14)
@@ -71,16 +85,87 @@ With a little care, you can design a card that works in both! You can also use t
 - `TSOM_A4` (Monitor One) and `MOSI`/`D12` are in the same pin position (16)
 - `TSOM_A7` (Monitor One) and `D8` are in the same pin position (13) and are both `SS`. However you can use any GPIO for SPI chip select.
 
+
+{{!-- BEGIN do not edit content below, it is automatically generated d5f43cdb-55ad-41a1-bd96-5c2c7fd6fd07 --}}
+
+| Pin | Monitor One Expansion Pin Name | Monitor One Expansion SPI | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion SPI |
+| :---: | :--- | :--- | :---: | :--- | :--- |
+| 13 | TSOM_A7 / D7 | &nbsp; | 13 | D8 | SPI (SS) |
+| 14 | TSOM_A6 / D6 | SPI (SCK) | 14 | SCK / D13 | SPI (SCK) |
+| 15 | TSOM_A5 / D5 | SPI (MISO) | 15 | MISO / D11 | SPI (MISO) |
+| 16 | TSOM_A4 / D4 | SPI (MOSI) | 16 | MOSI / D12 | SPI (MOSI) |
+| 35 | TSOM_A2_BUTTON / D2 | &nbsp; | 35 | D3 | SPI1 (SS) |
+| 36 | TSOM_A3_BATT_TEMP / D3 | &nbsp; | 36 | D2 | SPI1 (SCK) |
+| 45 | RX / D9 | &nbsp; | 45 | RX / D10 | SPI1 (MISO) |
+| 46 | TX / D8 | &nbsp; | 46 | TX / D9 | SPI1 (MOSI) |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 ### UART
 
 - `RX` is in the same position (45)
 - `TX` is in the same position (46)
 - This port cannot be used as I2C (`Wire3`) on the Muon.
 
+{{!-- BEGIN do not edit content below, it is automatically generated 5e904a3c-9904-4468-b3aa-c721a247322d --}}
+
+| Pin | Monitor One Expansion Pin Name | Monitor One Expansion UART | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion UART |
+| :---: | :--- | :--- | :---: | :--- | :--- |
+| 35 | TSOM_A2_BUTTON / D2 | &nbsp; | 35 | D3 | Serial1 (CTS)  |
+| 36 | TSOM_A3_BATT_TEMP / D3 | &nbsp; | 36 | D2 | Serial1 (RTS)  |
+| 45 | RX / D9 | Serial1 RX | 45 | RX / D10 | Serial1 (RX)  |
+| 46 | TX / D8 | Serial1 TX | 46 | TX / D9 | Serial1 (TX) |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 ### ADC
 
 - There are no available ADC pins that work on both Monitor One and Muon expansion cards.
 - Using an I2C ADC on your expansion card is a good option if you need cross-compatibility.
+
+{{!-- BEGIN do not edit content below, it is automatically generated d2f12256-c380-4915-8595-5e5fb89066eb --}}
+
+| Pin | Monitor One Expansion Pin Name | Monitor One Expansion ADC | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion ADC |
+| :---: | :--- | :--- | :---: | :--- | :--- |
+| 2 | NC | &nbsp; | 2 | A1 / D18 | ADC_1 |
+| 3 | NC | &nbsp; | 3 | A3 / D16 | ADC_4 |
+| 4 | NC | &nbsp; | 4 | A5 / D14 | ADC_6 |
+| 5 | NC | &nbsp; | 5 | A7 / WKP | ADC_7 |
+| 13 | TSOM_A7 / D7 | ADC3 | 13 | D8 | &nbsp; |
+| 14 | TSOM_A6 / D6 | ADC2 | 14 | SCK / D13 | &nbsp; |
+| 15 | TSOM_A5 / D5 | ADC5 | 15 | MISO / D11 | &nbsp; |
+| 16 | TSOM_A4 / D4 | ADC7 | 16 | MOSI / D12 | &nbsp; |
+| 35 | TSOM_A2_BUTTON / D2 | ADC4 | 35 | D3 | &nbsp; |
+| 36 | TSOM_A3_BATT_TEMP / D3 | ADC6 | 36 | D2 | &nbsp; |
+| 50 | NC | &nbsp; | 50 | A0 / D19 | ADC_0 |
+| 51 | NC | &nbsp; | 51 | A2 / D17 | ADC_2 |
+| 52 | NC | &nbsp; | 52 | A4 / D15 | ADC_5 |
+| 53 | NC | &nbsp; | 53 | A6 / D29 | ADC_3 |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
+### PWM
+
+- `TSOM_A5` (Monitor One) and `MISO`/`D11` are in the same pin position (15) and support PWM, but cannot be used as GPIO/PWM if used as SPI.
+- `TSOM_A4` (Monitor One) and `MOSI`/`D12` are in the same pin position (16) and support PWM, but cannot be used as GPIO/PWM if used as SPI.
+- `TX` is in the same position (46) and support PWM, but cannot be used as GPIO/PWM if used as UART serial.
+- Using an I2C PWM on your expansion card is a good option if you need cross-compatibility.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5e904a3c-9904-4468-b3aa-c721a247322d --}}
+
+| Pin | Monitor One Expansion Pin Name | Monitor One Expansion UART | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion UART |
+| :---: | :--- | :--- | :---: | :--- | :--- |
+| 35 | TSOM_A2_BUTTON / D2 | &nbsp; | 35 | D3 | Serial1 (CTS)  |
+| 36 | TSOM_A3_BATT_TEMP / D3 | &nbsp; | 36 | D2 | Serial1 (RTS)  |
+| 45 | RX / D9 | Serial1 RX | 45 | RX / D10 | Serial1 (RX)  |
+| 46 | TX / D8 | Serial1 TX | 46 | TX / D9 | Serial1 (TX) |
+
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 
 ### GPIO
 
@@ -94,13 +179,40 @@ With a little care, you can design a card that works in both! You can also use t
 - `TX` is in the same position (46) and can be used as GPIO but cannot be used as GPIO if used as UART serial.
 - Using an I2C or SPI GPIO expander on your expansion card is a good option if you need cross-compatibility.
 
+{{!-- BEGIN do not edit content below, it is automatically generated d559a76e-0faf-4f12-97f4-abe1d8cd74f0 --}}
 
-### PWM
+| Pin | Monitor One Expansion Pin Name | Monitor One Expansion GPIO | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion GPIO |
+| :---: | :--- | :--- | :---: | :--- | :--- |
+| 2 | NC | &nbsp; | 2 | A1 / D18 | &check; |
+| 3 | NC | &nbsp; | 3 | A3 / D16 | &check; |
+| 4 | NC | &nbsp; | 4 | A5 / D14 | &check; |
+| 5 | NC | &nbsp; | 5 | A7 / WKP | &check; |
+| 9 | NFC2_VIN_EN | &check; | 9 | D20 | &check; |
+| 10 | NFC1_PERIPH_INT | &check; | 10 | D21 | &check; |
+| 13 | TSOM_A7 / D7 | &check; | 13 | D8 | &check; |
+| 14 | TSOM_A6 / D6 | &check; | 14 | SCK / D13 | &check; |
+| 15 | TSOM_A5 / D5 | &check; | 15 | MISO / D11 | &check; |
+| 16 | TSOM_A4 / D4 | &check; | 16 | MOSI / D12 | &check; |
+| 33 | TSOM_A0_SDA / D0 | &nbsp; | 33 | D0 | &check; |
+| 34 | TSOM_A1_SCL / D1 | &nbsp; | 34 | D1 | &check; |
+| 35 | TSOM_A2_BUTTON / D2 | &check; | 35 | D3 | &check; |
+| 36 | TSOM_A3_BATT_TEMP / D3 | &check; | 36 | D2 | &check; |
+| 45 | RX / D9 | &check; | 45 | RX / D10 | &check; |
+| 46 | TX / D8 | &check; | 46 | TX / D9 | &check; |
+| 50 | NC | &nbsp; | 50 | A0 / D19 | &check; |
+| 51 | NC | &nbsp; | 51 | A2 / D17 | &check; |
+| 52 | NC | &nbsp; | 52 | A4 / D15 | &check; |
+| 53 | NC | &nbsp; | 53 | A6 / D29 | &check; |
+| 59 | NC | &nbsp; | 59 | D22 | &check; |
+| 60 | NC | &nbsp; | 60 | D23 | &check; |
+| 61 | NC | &nbsp; | 61 | D4 | &check; |
+| 62 | NC | &nbsp; | 62 | D5 | &check; |
+| 63 | NC | &nbsp; | 63 | D6 | &check; |
+| 64 | NC | &nbsp; | 64 | D7 | &check; |
 
-- `TSOM_A5` (Monitor One) and `MISO`/`D11` are in the same pin position (15) and support PWM, but cannot be used as GPIO/PWM if used as SPI.
-- `TSOM_A4` (Monitor One) and `MOSI`/`D12` are in the same pin position (16) and support PWM, but cannot be used as GPIO/PWM if used as SPI.
-- `TX` is in the same position (46) and support PWM, but cannot be used as GPIO/PWM if used as UART serial.
-- Using an I2C PWM on your expansion card is a good option if you need cross-compatibility.
+
+{{!-- END do not edit content above, it is automatically generated--}}
+
 
 ### 5V
 
