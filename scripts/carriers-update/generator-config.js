@@ -1004,6 +1004,7 @@ const schemaDocs = require('./schema-docs');
                 }); 
             } 
         },
+    
         // datasheets/boron/b-series-electron-migration-guide.md
         {
             guid:'4ca93c19-3cd8-4edf-ae24-d5a3ab433844', 
@@ -4247,6 +4248,112 @@ const schemaDocs = require('./schema-docs');
                     }        
                 }); 
             } 
+        },
+        // monitor-one-muon-cards.md
+        {
+            guid:'fdd63f32-8330-4bde-942f-3c707ef91eb0', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Monitor One Expansion',
+                    showPinNum: true,
+                    platformNewTitle: 'Muon Expansion',
+                }); 
+            }
+        },   
+        {
+            guid:'7e4f9bbe-44f6-40ae-bcab-6e0eb1cb50f0', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Monitor One Expansion',
+                    port: 'i2c',
+                    label: 'I2C',
+                    useShortName: true,
+                    newPinNumber: true,
+                    platformNewTitle: 'Muon Expansion',
+                }); 
+            }
+        },
+        {
+            guid:'d5f43cdb-55ad-41a1-bd96-5c2c7fd6fd07', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Monitor One Expansion',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    newPinNumber: true,
+                    platformNewTitle: 'Muon Expansion',
+                }); 
+            }
+        },
+        {
+            guid:'5e904a3c-9904-4468-b3aa-c721a247322d', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Monitor One Expansion',
+                    port: 'serial',
+                    label: 'UART',
+                    useShortName: true,
+                    newPinNumber: true,
+                    platformNewTitle: 'Muon Expansion',
+                }); 
+            }
+        },
+        {
+            guid:'d2f12256-c380-4915-8595-5e5fb89066eb', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Monitor One Expansion',
+                    port: 'hardwareADC',
+                    label: 'ADC',
+                    useShortName: true,
+                    newPinNumber: true,
+                    platformNewTitle: 'Muon Expansion',
+                    checkmark: true,
+                }); 
+            }
+        },
+        {
+            guid:'df6bdb3e-9bf6-4a92-9807-013eafba7d7f', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Monitor One Expansion',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    useShortName: true,
+                    newPinNumber: true,
+                    platformNewTitle: 'Muon Expansion',
+                    checkmark: true,
+                }); 
+            }
+        },
+        {
+            guid:'d559a76e-0faf-4f12-97f4-abe1d8cd74f0', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'Muon',
+                    platformOld: 'Monitor One Expansion',
+                    port: 'digitalWrite',
+                    label: 'GPIO',
+                    useShortName: true,
+                    newPinNumber: true,
+                    platformNewTitle: 'Muon Expansion',
+                    checkmark: true,
+                }); 
+            }
         },
         // Power module
         {

@@ -61,6 +61,14 @@ const svg = require('./svg');
             }
             */
         }
+        if (options.morePlatforms) {
+            diagram.morePlatforms = {};
+            for(const key in options.morePlatforms) {
+                const value = options.morePlatforms[key];
+                diagram.morePlatforms[key] = diagram.pinInfo.platforms.find(e => e.name == value);       
+                diagram.expandMorePins(diagram.morePlatforms[key].pins);
+            }
+        }
 
         if (options.comparePlatform) {
             diagram.comparePlatformInfo = diagram.pinInfo.platforms.find(e => e.name == options.comparePlatform);            
@@ -148,8 +156,22 @@ const svg = require('./svg');
                         if (p.columns[jj].keys) {
                             for(let kk = 0; kk < p.columns[jj].keys.length; kk++) {
                                 let key = p.columns[jj].keys[kk];
-        
-                                let text = info[key];
+                                let text;
+                                if (key.includes('.')) {
+                                    const parts = key.split('.');
+                                    const infoKey = parts[0];
+                                    key = parts[1];
+
+                                    info = diagram.morePlatforms[infoKey].pins.find(e => e.num == num);
+                                    if (!info) {
+                                        continue;
+                                    }
+                                    console.log('special', {infoKey, num, info})
+                                }
+
+                                if (!text) {
+                                    text = info[key];
+                                }
                                 if (key == 'analogWritePWM') {
                                     if (info['hardwareTimer']) {
                                         text = info['hardwareTimer'];
@@ -189,7 +211,11 @@ const svg = require('./svg');
                                         key = 'isGnd';
                                     }
 
-                                    let bgColor = options.featureColors[key];
+                                    let bgColor = p.columns[jj].bgColor;
+
+                                    if (!bgColor) {
+                                        bgColor = options.featureColors[key];
+                                    } 
                                     if (!bgColor) {
                                         bgColor = options.featureColors['default'];
                                         if (!bgColor) {
@@ -1858,6 +1884,112 @@ const svg = require('./svg');
     }
 
 
+    diagram.generateMuonMonitorOneCombined = async function(generateOptions, files) {
+        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'Muon',
+            morePlatforms: {
+                'mon': 'Monitor One Expansion',
+            },
+            // 104 818 
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/muon-expansion-blank.svg'),
+            outputPath: generateOptions.outputPath,
+            // scale to make height 500px
+            deviceImageTransform: 'translate(285,0) scale(2.6)',
+            width: 1100,
+            height: 800,
+            background: 'white',
+            pins: [
+                {   // Left side Monitor One pins
+                    num: 1,
+                    x: 130,
+                    y: 202,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 24,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 90,
+                            keys: ['mon.name'],
+                            bgColor: '#B0E5C9', // Mint_500 
+                        },                            
+                    ],
+            },
+                {   // Left side (outside, shared with Monitor One)
+                    num: 1,
+                    x: 290,
+                    y: 202,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 24,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+                {   // Right side (outside, shared with Monitor One)
+                    num: 25,
+                    x: 714,
+                    y: 685,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -21,
+                    count: 24,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+                {   // Right side (outside, shared with Monitor One)
+                    num: 25,
+                    x: 874,
+                    y: 685,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -21,
+                    count: 24,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 90,
+                            keys: ['mon.name'],
+                            bgColor: '#B0E5C9', // Mint_500 
+                        },                            
+                    ],
+                },
+                {   // Left side (inside)
+                    num: 49,
+                    x: 345,
+                    y: 202,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 24,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+                {   // Right side (inside)
+                    num: 73,
+                    x: 659,
+                    y: 685,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -21,
+                    count: 24,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: generateOptions.columns,
+                },
+            ]
+        });
+
+        await diagram.generate(options, files);
+    }
+
 
     diagram.generateTrackerMExpansion = async function(generateOptions, files) {
         
@@ -2251,6 +2383,20 @@ const svg = require('./svg');
                 },
             ],
             outputPath: 'assets/images/m-series/muon-gpio.svg',
+        }, generateOptions), files);
+
+        await diagram.generateMuonMonitorOneCombined(Object.assign({
+            columns: [
+                {
+                    width: 50,
+                    keys: ['name'],
+                },
+                {
+                    width: 100,
+                    keys: ['net'],
+                },
+            ],
+            outputPath: 'assets/images/muon-monitor-one-pins.svg',
         }, generateOptions), files);
     }
 
