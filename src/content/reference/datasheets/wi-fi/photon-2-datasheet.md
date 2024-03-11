@@ -380,14 +380,9 @@ float voltage = analogRead(A6) / 819.2;
 
 The constant is from the ADC range (0 - 4095) mapped to the voltage from 0 - 5 VDC (the maximum supported on VBAT_MEAS). 
 
-The charge indicator on the Photon 2 can be read using:
-
-```cpp
-pinMode(CHG, INPUT_PULLUP);
-bool charging = digitalRead(CHG);
-```
-
-On the Photon 2, the `CHG` digital input is `HIGH` (1) when charging and `LOW` (0) when not charging.
+The current Photon 2 hardware is unable to reliably read the `CHG` pin. In particular, if you have a Photon 2 powered by both 
+USB and battery and is charging, then unplug the USB power, the charge LED will turn off, but the `CHG` pin will not change 
+state. 
 
 ### 5V tolerance
 
@@ -1287,6 +1282,7 @@ SE, SI, SK, TR, UA, UK(NI).
 |   4 | 2023-11-13 | RK | Add full pin details |
 |   5 | 2023-12-19 | RK | Add schematic |
 |   6 | 2024-02-20 | RK | Added pin drive strength |
+|   7 | 2024-03-11 | RK | Update CHG documentation |
 
 ## Known errata
 

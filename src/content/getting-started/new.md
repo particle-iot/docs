@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Photon 2 datasheet CHG pin 2024-03-11
+
+The Photon 2 datasheet and Photon 2 from Argon migration guide now has the same warning about the CHG
+pin as the Device OS firmware API reference. The pin cannot be reliably used.
+
 ### Logic open beta 2024-03-11
 
 Logic is now in open beta.

@@ -15,6 +15,7 @@
   "b-series/b404x-b404-b402-datasheet.md": "319f382fbfbc81f33eed5c214a1891de",
   "b-series/b404x-certification.md": "3547986a6b3996595ee186f5a39057fa",
   "b-series/b404x-datasheet.md": "9525ad6e2ec4f42d63bf1e90b8ae176b",
+  "b-series/b504-datasheet.md": "de7c0bfb929171275bf762e59bfb2f85",
   "b-series/b524-b523-datasheet.md": "3a0fd45d1ec1c1a726bb0331edae8b47",
   "b-series/boron-datasheet.md": "7026d8d825a766c5369b3d4f4f587be1",
   "b-series/brn404x-certification.md": "d4dc68fe95a14e2d62ea7497aba97a6d",
@@ -77,7 +78,7 @@
   "wi-fi/p2-p1-migration-guide.md": "96bffb1323209b76664a00a71d2ff1d8",
   "wi-fi/p2-photon-migration-guide.md": "3c8d3fb39583eae4e2c774fdcc8fd912",
   "wi-fi/photon-2-argon-migration-guide.md": "d8066bcbff652f8049740c3903999301",
-  "wi-fi/photon-2-datasheet.md": "cc12910c88d5487148fe08b9d603fce9",
+  "wi-fi/photon-2-datasheet.md": "472f5cebc4ccef261dfd03ae58621635",
   "wi-fi/photon-2-photon-migration-guide.md": "97f56bbc70806aef69d9f0ea7f1d08ee",
   "wi-fi/photon-datasheet.md": "691be7a0366e9544d3db9975ea09d7f4"
 }
