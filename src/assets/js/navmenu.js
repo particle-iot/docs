@@ -731,6 +731,7 @@ navMenu.scanHeaders = function () {
 
         e3 = document.createElement('a');
         $(e3).addClass('navLink')
+        $(e3).attr('href', '#' + hdr.id);
         $(e3).on('click', function() {
             navMenu.openAnchor(hdr.id);
         });
@@ -800,6 +801,7 @@ navMenu.scanHeaders = function () {
 
             e3 = document.createElement('a');
             $(e3).addClass('navLink')
+            $(e3).attr('href', '#' + hdr.id);
             $(e3).on('click', function() {
                 navMenu.openAnchor(hdr.id);
             });
