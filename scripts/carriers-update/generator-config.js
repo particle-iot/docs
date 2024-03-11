@@ -4324,7 +4324,7 @@ const schemaDocs = require('./schema-docs');
             }
         },
         {
-            guid:'5e904a3c-9904-4468-b3aa-c721a247322d', 
+            guid:'df6bdb3e-9bf6-4a92-9807-013eafba7d7f', 
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',

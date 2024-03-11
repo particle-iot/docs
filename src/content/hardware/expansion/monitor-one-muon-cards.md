@@ -46,7 +46,7 @@ With a little care, you can design a card that works in both! You can also use t
 
 {{imageOverlay src="/assets/images/muon-monitor-one-pins.svg" alt="Combined card pinout" class="full-width"}}
 
-<p class="attribution">Green is the Monitor One pin usage</p>
+<p class="attribution"><span style="background-color: #89E2B3; color: #010D14;">Green</span> is the Monitor One pin usage</p>
 
 
 ### General - combined card
@@ -154,14 +154,26 @@ With a little care, you can design a card that works in both! You can also use t
 - `TX` is in the same position (46) and support PWM, but cannot be used as GPIO/PWM if used as UART serial.
 - Using an I2C PWM on your expansion card is a good option if you need cross-compatibility.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 5e904a3c-9904-4468-b3aa-c721a247322d --}}
+{{!-- BEGIN do not edit content below, it is automatically generated df6bdb3e-9bf6-4a92-9807-013eafba7d7f --}}
 
-| Pin | Monitor One Expansion Pin Name | Monitor One Expansion UART | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion UART |
+| Pin | Monitor One Expansion Pin Name | Monitor One Expansion PWM | Muon Expansion Pin | Muon Expansion Pin Name | Muon Expansion PWM |
 | :---: | :--- | :--- | :---: | :--- | :--- |
-| 35 | TSOM_A2_BUTTON / D2 | &nbsp; | 35 | D3 | Serial1 (CTS)  |
-| 36 | TSOM_A3_BATT_TEMP / D3 | &nbsp; | 36 | D2 | Serial1 (RTS)  |
-| 45 | RX / D9 | Serial1 RX | 45 | RX / D10 | Serial1 (RX)  |
-| 46 | TX / D8 | Serial1 TX | 46 | TX / D9 | Serial1 (TX) |
+| 2 | NC | &nbsp; | 2 | A1 / D18 | &check; |
+| 4 | NC | &nbsp; | 4 | A5 / D14 | &check; |
+| 13 | TSOM_A7 / D7 | &check; | 13 | D8 | &nbsp; |
+| 14 | TSOM_A6 / D6 | &check; | 14 | SCK / D13 | &nbsp; |
+| 15 | TSOM_A5 / D5 | &check; | 15 | MISO / D11 | &check; |
+| 16 | TSOM_A4 / D4 | &check; | 16 | MOSI / D12 | &check; |
+| 35 | TSOM_A2_BUTTON / D2 | &check; | 35 | D3 | &nbsp; |
+| 36 | TSOM_A3_BATT_TEMP / D3 | &check; | 36 | D2 | &nbsp; |
+| 45 | RX / D9 | &check; | 45 | RX / D10 | &check; |
+| 46 | TX / D8 | &check; | 46 | TX / D9 | &check; |
+| 50 | NC | &nbsp; | 50 | A0 / D19 | &check; |
+| 53 | NC | &nbsp; | 53 | A6 / D29 | &check; |
+| 61 | NC | &nbsp; | 61 | D4 | &check; |
+| 62 | NC | &nbsp; | 62 | D5 | &check; |
+| 63 | NC | &nbsp; | 63 | D6 | &check; |
+| 64 | NC | &nbsp; | 64 | D7 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
