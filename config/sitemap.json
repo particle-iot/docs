@@ -1019,8 +1019,8 @@
             "hash": "c54f0bf77d92e09d1e55b2f8513d66cc94aa1bce377179fc0160551f9e34fec9"
         },
         "hardware/migration-guides/p2-argon-migration-guide.md": {
-            "date": "2023-10-27",
-            "hash": "6c1700059f8ef6e1a927d1596d9969220fc1033e524ea81a3d2c5bd41151447d"
+            "date": "2024-03-11",
+            "hash": "d7f252c9ec13d0f6608e37ccff2ad0d830471a47d782ff9f0dd6439d08c112db"
         },
         "hardware/migration-guides/p2-p1-migration-guide.md": {
             "date": "2023-10-27",
@@ -1032,11 +1032,11 @@
         },
         "hardware/migration-guides/photon-2-argon-migration-guide.md": {
             "date": "2024-03-11",
-            "hash": "7ea0be327ffe1b39bfa9a86191c2111f6a9193aacda928fa4ecfe8e3581010e7"
+            "hash": "ae548dc8c23e4b63f3bc06e26a571b953396da29ec003a519389c56022a89fd0"
         },
         "hardware/migration-guides/photon-2-photon-migration-guide.md": {
-            "date": "2023-10-27",
-            "hash": "cb7a11aa083c83e72b873834c1430af8458b92659e7f43bf4969d003be5c024b"
+            "date": "2024-03-11",
+            "hash": "153d32880f2f6a4d54c4d14653c8cf2b75f4858b2462d6207df07fe7e20dc8e9"
         },
         "hardware/power/batteries.md": {
             "date": "2024-02-27",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "ff0011b8fdd466249b5683434ecaa8caca3da56dd4719788fda7e0b175c7fdbd",
+            "hash": "14069775c73ac32f38f3f5ac3b01ebaf1b811880eafa52581dcfebd4d4b65dac",
             "date": "2024-03-11"
         },
         "getting-started/cloud/logic.md": {

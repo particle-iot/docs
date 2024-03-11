@@ -125,7 +125,7 @@ For example, you could use two-inexpensive SMD switches. The 4.5mm [E-Switch TL3
 
 ### USB Connector
 
-The P2 does not include a USB connector on the module. We recommend including one on your base board. This can be a USB Micro B, as on the Photon and Argon, or you could use USB C.
+The P2 does not include a USB connector on the module. We recommend including one on your base board. This can be a USB Micro B, as on the Photon 2 and Argon, or you could use USB C.
 
 Since you choose the connector you have the option of using a right-angle USB connector. This is handy if your board will be an enclosure where the board is recessed into the case under a removable cover. This can allow the USB connector to be accessed without removing the board from the enclosure.
 
@@ -1198,3 +1198,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | 002 | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
 | 003 | 2023-04-24 | RK | Document VBAT_MEAS and CHG |
 | 004 | 2023-05-05 | RK | Fix available RAM |
+| 005 | 2024-03-11 | RK | Photon 2 has a USB Micro B, not USB C |

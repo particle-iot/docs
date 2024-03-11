@@ -413,12 +413,6 @@ Prior to Device OS 5.3.1, retained memory is not supported. The flash file syste
 
 Retained memory is 3068 bytes. 
 
-### USB
-
-The Photon 2 has a USB C connector, like the Tracker One and Tracker Eval Board.
-
-The Photon has a Micro USB B connector.
-
 ### Photon Bottom
 
 The Photon 2 has components on both sides of the board, like the Argon. It is not available without the mounted headers, and cannot be reflowed directly to a base board like the Photon without headers.

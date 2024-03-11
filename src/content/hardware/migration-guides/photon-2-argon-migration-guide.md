@@ -385,12 +385,6 @@ Prior to Device OS 5.3.1, retained memory is not supported. The flash file syste
 
 Retained memory is 3068 bytes. 
 
-### USB
-
-The Photon 2 has a USB C connector, like the Tracker One and Tracker Eval Board.
-
-The Argon has a Micro USB B connector.
-
 ### NFC tag
 
 The Photon 2 does not have NFC Tag support. The Argon does.
@@ -795,3 +789,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2023-04-24 | RK | Document VBAT_MEAS and CHG |
 |     | 2023-05-05 | RK | Fix available RAM |
 |     | 2024-03-11 | RK | Update CHG documentation |
+|     | 2024-03-11 | RK | Photon 2 has a USB Micro B, not USB C |

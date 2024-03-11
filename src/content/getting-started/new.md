@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Photon 2 migration guide USB 2024-03-11
+
+The Photon 2 migration guides listed the Photon 2 as having a USB C connector, but it has a Micro USB B. The datasheet was correct.
+
 ### Photon 2 datasheet CHG pin 2024-03-11
 
 The Photon 2 datasheet and Photon 2 from Argon migration guide now has the same warning about the CHG
