@@ -49,7 +49,7 @@ The B-Series is designed to be integrated into your circuit board design, pluggi
  * On-module MFF2 Particle SIM 
  * Three on-module U.FL connectors for external antennas
  * Connects to your base board or eval board that has a Particle M.2 connector
- * FCC (United States) and ISED (Canada) certified
+ * FCC (United States) certified
  * RoHS compliant (lead-free)
 
 ### Model comparison
@@ -1955,7 +1955,7 @@ The bootloader allows you to easily update the user application via several diff
 
 ---
 
-## FCC ISED CE warnings and end product labeling requirements
+## FCC warnings and end product labeling requirements
 
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
@@ -1985,36 +1985,6 @@ The final end product must be labeled in a visible area with the following:
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
-
----
-
-**Canada Statement**
-This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
-
-1. This device may not cause interference; and
-2. This device must accept any interference, including interference that may cause undesired operation of the device.
-
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence.
-
-**L’exploitation est autorisée aux deux conditions suivantes:**
-
-1. l’appareil ne doit pas produire de brouillage;
-2. l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
-
-**Caution Exposure:**
-This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance.
-Le dispositif répond à l'exemption des limites d'évaluation de routine dans la section 2.5 de RSS102 et les utilisateurs peuvent obtenir des renseignements canadiens sur l'exposition aux RF et le respect.
-
-**The final end product must be labelled in a visible area with the following:**
-The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-
- * Contains transmitter module ISED: 20127-B504
- 
-This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
-Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
-
-> The end user manual shall include all required regulatory information/warning as shown in this manual.
-
 
 ---
 

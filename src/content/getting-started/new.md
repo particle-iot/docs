@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Logic open beta 2024-03-11
+
+Logic is now in open beta.
+
 ### Hardware overview page update 2024-02-26
 
 The [hardware overview](/getting-started/hardware/hardware-overview/) has information about the M-SoM and Muon, and

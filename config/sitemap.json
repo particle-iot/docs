@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "44a0c70b119db98af59cd17cec2f51e6d73b78bf216ce8c227984a73339f4ab6",
-            "date": "2024-02-27"
+            "hash": "ff0011b8fdd466249b5683434ecaa8caca3da56dd4719788fda7e0b175c7fdbd",
+            "date": "2024-03-11"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8291,12 +8291,12 @@
             "date": "2024-01-08"
         },
         "getting-started/logic-ledger/logic.md": {
-            "hash": "5ce15ada49ac2289a5dd298f89c5c384b300c9649d98d972ca8238a81c276ce0",
-            "date": "2024-02-08"
+            "hash": "5a0f9a630fd2f39babc80bec2abdae64005879722b926110eb6b0c65aabf68ff",
+            "date": "2024-03-11"
         },
         "getting-started/logic-ledger/data-transformation.md": {
-            "hash": "a3320ece65eadbda045bdde6e0bbb032651fa4bbff42ffe44a3fb4e3cdc50fb5",
-            "date": "2024-01-07"
+            "hash": "de2f1f362d1bc66acb9b1a7fb19f16b1bada78a5f7de74f9d9e9c11c38b66072",
+            "date": "2024-03-11"
         },
         "reference/device-os/api/wifi/getantenna.md": {
             "hash": "30671851a719452e22b9fc74542b6cd5b2ea78f63f2947d07ad3b6f08a732519",

@@ -9,10 +9,7 @@ includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,zip]
 # {{title}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-Logic is in beta and is not recommended for production applications. There may be breaking changes to the behavior 
-and APIs in future versions based on user feedback. 
-
-Pricing and availability may change in the future.
+Logic is in open beta. Pricing and availability may change in the future.
 {{box op="end"}}
 
 One of the feature of [Logic](/getting-started/logic-ledger/logic/) is the ability to take events published from a device and transform them before passing them to an external service using a webhook. You might want to do this to expand data to minimize cellular data usage and fit within publish size limits, as demonstrated in this page.

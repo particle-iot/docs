@@ -8,10 +8,7 @@ description: Logic cloud functions
 # {{title}} (Beta)
 
 {{box op="start" cssClass="boxed warningBox"}}
-Logic is in beta and is not recommended for production applications. There may be breaking changes to the behavior 
-and APIs in future versions based on user feedback. 
-
-Pricing and availability may change in the future.
+Logic is in open beta. Pricing and availability may change in the future.
 {{box op="end"}}
 
 Logic Functions are bits of Javascript code that get called in response to a Logic Trigger, which can be:
