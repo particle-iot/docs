@@ -17604,6 +17604,7 @@ The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin
 - UART, ADC are only kept on if used as a wake-up source. 
 - GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 - Can wake from: Time, GPIO, analog, serial, and cellular. On Gen 3 also BLE and Wi-Fi.
+- At least one wake source must be specified in STOP sleep mode.
 - On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
 
 
@@ -17667,6 +17668,7 @@ In this mode:
 - GPIO, UART, ADC are only kept on if used as a wake-up source. 
 - GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 - Can wake from: Time or GPIO. On Gen 3 also analog, serial, BLE, and network.
+- At least one wake source must be specified in ULP sleep mode.
 - On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
 
 | Wake Mode | Gen 2 | Gen 3 |
@@ -17815,7 +17817,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 ---
 
 {{note op="start" type="gen3"}}
-On the Argon, Boron, B-Series SoM you cannot wake from HIBERNATE mode by time because the nRF52 RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum duration is approximately 24 days in STOP mode. You can wake by time in ultra-low power (ULP) mode. 
+On the Argon, Boron, B-Series SoM you cannot wake from HIBERNATE mode by time because the nRF52 RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum wake by time duration is approximately 6213 days in STOP and ULP mode. 
 
 On the Tracker SoM, even though it has an nRF52 processor, you can wake from HIBERNATE by time as it uses the AM1805 external watchdog/RTC to implement this feature.
 {{note op="end"}}

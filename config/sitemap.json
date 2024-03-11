@@ -1032,7 +1032,7 @@
         },
         "hardware/migration-guides/photon-2-argon-migration-guide.md": {
             "date": "2024-03-11",
-            "hash": "ae548dc8c23e4b63f3bc06e26a571b953396da29ec003a519389c56022a89fd0"
+            "hash": "0d0ce1218b4a31501495b0ab501070faa1a4a4e6eb5e4cbae7b2b96588c8f30b"
         },
         "hardware/migration-guides/photon-2-photon-migration-guide.md": {
             "date": "2024-03-11",
@@ -1287,8 +1287,8 @@
             "hash": "cb17b9b3cc4a6b1ec669a68399d39a931f48c10d502ec671a80efe0ae79624f6"
         },
         "reference/device-os/firmware.md": {
-            "date": "2024-02-27",
-            "hash": "62fe422f0b6aa7b90e3d7c6a11f193ce636dc2a723d8f8b6ec577c4495996205"
+            "date": "2024-03-11",
+            "hash": "e1f852312faa4b71d79bff38fbe84218c5df17608e76cee7e584c64247a90ced"
         },
         "reference/device-os/pin-info.md": {
             "date": "2022-05-18",
@@ -3615,20 +3615,20 @@
             "hash": "a26a123fd0fd04a15ad5ac32ffc61c8931847c577898717faee8ba068d960caf"
         },
         "reference/device-os/api/sleep-sleep/stop-systemsleepmode.md": {
-            "date": "2023-09-20",
-            "hash": "dcdc7f4ad35f774976144d51c33289b8117b6c7722124de372a31b99827827b4"
+            "date": "2024-03-11",
+            "hash": "dd1b32ed9952844df16f80542440e8db9cf88ba8c1bdfe94619f5785329ab3de"
         },
         "reference/device-os/api/sleep-sleep/ultra_low_power-systemsleepmode.md": {
-            "date": "2023-09-20",
-            "hash": "365fe1dfdc70405cc81155067129dc4c28e030cc173cdaf265dcf7ba95f7f6d0"
+            "date": "2024-03-11",
+            "hash": "bedbbb063012f695ccbca407e14272328b8dc31486e64cce9eeb6a9f9fbe869b"
         },
         "reference/device-os/api/sleep-sleep/hibernate-systemsleepmode.md": {
             "date": "2024-02-27",
             "hash": "a278f36685fb6720d5f727cbdbe3a1776f06bf90c0b9df6ad3f9e51262e001da"
         },
         "reference/device-os/api/sleep-sleep/duration-systemsleepconfiguration.md": {
-            "date": "2024-02-27",
-            "hash": "f0cd3afb91d59f62295b7188ed715af8df0c6931c0a3946ea7316638e2523b9f"
+            "date": "2024-03-11",
+            "hash": "5be1cc2a15776c87c268be907911fc1fb1dcf77c76ae536cfad1dc0196ef7091"
         },
         "reference/device-os/api/sleep-sleep/gpio-systemsleepconfiguration.md": {
             "date": "2024-02-27",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "14069775c73ac32f38f3f5ac3b01ebaf1b811880eafa52581dcfebd4d4b65dac",
+            "hash": "cddb57c0e43819d8e82fae5b7f26a5a48ab901140ddd2f240e2aed892392d012",
             "date": "2024-03-11"
         },
         "getting-started/cloud/logic.md": {

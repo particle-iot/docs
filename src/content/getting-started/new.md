@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Wake source clarification 2024-03-21
+
+At least one wake source must be specified for STOP and ULP sleep modes.
+
 ### Photon 2 migration guide USB 2024-03-11
 
 The Photon 2 migration guides listed the Photon 2 as having a USB C connector, but it has a Micro USB B. The datasheet was correct.
