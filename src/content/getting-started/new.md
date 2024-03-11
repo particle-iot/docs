@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Boot mode pin warnings 2024-03-21
+
+The P2 and Photon 2 datasheets now include a warning about boot mode pins (TX, D6, and D7) in the GPIO pin listing.
+
 ### Wake source clarification 2024-03-21
 
 At least one wake source must be specified for STOP and ULP sleep modes.
