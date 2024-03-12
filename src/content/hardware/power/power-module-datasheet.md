@@ -17,7 +17,7 @@ The Particle power module is a small module that contains:
 
 - 5V to 17VDC input
 - 3.3V regulated output for MCU (2A)
-- 3.6V - 3.9V output for cellular modem (2A)
+- 3.9V output for cellular modem (2A)
 - bq24195 PMIC (power management and charge controller)
 - MAX17043 fuel gauge (LiPo battery charge sensor)
 
@@ -38,8 +38,8 @@ It can either be:
 
 <p class="attribution">Dimensions in mm</p>
 
-- Module is 40mm x 27mm (1.57" x 1.06")
-- Castellated holes are 2.54mm (0.1") apart
+- Module is 35mm x 22.86mm (1.38" x 0.9")
+- Pins and castellated holes are 2.54mm (0.1") apart
 
 ## Pinout
 
@@ -50,30 +50,31 @@ It can either be:
 
 | Pin | Pin Name | Description |
 | :---: | :--- | :--- |
-| 1 | 3V3 | Power output 3.3V A |
-| 2 | 3V3 | Power output 3.3V A |
+| 1 | 3V3 | Power output 3.3V |
+| 2 | 3V3 | Power output 3.3V |
 | 3 | 5V | Power output 5V (not available on PMIC power module) |
 | 4 | 5V | Power output 5V (not available on PMIC power module) |
 | 5 | VCC | Power output 3.9V 2A for cellular modem |
 | 6 | VCC | Power output 3.9V 2A for cellular modem |
-| 7 | NC | Leave unconnected |
+| 7 | REGN | PMIC REGN output used for temperature sensor |
 | 8 | NC | Leave unconnected |
 | 9 | GND | Ground |
 | 10 | GND | Ground |
 | 11 | VIN | Power in (5V - 17V on PMIC power module) |
 | 12 | VIN | Power in (5V - 17V on PMIC power module) |
-| 13 | SCL | I2C SCL. No internal pull. |
-| 14 | SDA | I2C SDA. No internal pull. |
-| 15 | INT | PMIC_INT interrupt output. Connect to SoM D22. |
-| 16 | TS | LiPo battery temperature sensor (NTC thermistor) |
-| 17 | VBAT | LiPo battery connection 3.7V |
+| 13 | CHG | Charge indicator output |
+| 14 | SCL | I2C SCL. No internal pull on power module. |
+| 15 | SDA | I2C SDA. No internal pull  on power module. |
+| 16 | /FUEL_INT | PMIC and FUEL_INT interrupt output open drain. Connect to SoM D22. |
+| 17 | TS | LiPo battery temperature sensor (NTC thermistor) |
 | 18 | VBAT | LiPo battery connection 3.7V |
 | 19 | VBAT | LiPo battery connection 3.7V |
-| 20 | GND | Ground |
+| 20 | VBAT | LiPo battery connection 3.7V |
 | 21 | GND | Ground |
-| 22 | NC | Leave unconnected |
-| 23 | PG | Power good output. Open drain, is pulled low on failure of either regulator. |
-| 24 | EN | Power output enable. Has internal pull-up to VSYS, pull to GND to disable power outputs. |
+| 22 | GND | Ground |
+| 23 | /RST | MCU reset button, active low. |
+| 24 | PG | Power good output. Open drain, is pulled low on failure of either regulator. |
+| 25 | ENABLE | Power output enable. Has internal pull-up to VSYS, pull to GND to disable power outputs. |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -86,9 +87,10 @@ It can either be:
 
 ## Land pattern (SMD)
 
-{{imageOverlay src="/assets/images/power-module/power-land.png" alt="Land pattern" class="full-width"}}
+{{imageOverlay src="/assets/images/power-module/power-module-land.png" alt="Land pattern" class="full-width" }}
 
 <p class="attribution">Dimensions in mm</p>
+
 
 ## Pin layout
 
@@ -96,16 +98,17 @@ It can either be:
 
 <p class="attribution">Dimensions in mm</p>
 
-- Male header pins are 0.1" spacing, 12 pins per side
-- Two rows, spaced 16mm apart
-- Note 4mm offset
+- Male header pins are 0.1" spacing, 12 or 13 pins per side
+- Two rows, spaced 0.8" (20.32mm) apart
 
-The mating header is availble from a large number of suppliers in both PTH and SMD styles.
+The mating header is available from a large number of suppliers in both PTH and SMD styles.
 
 | Style | Manufacturer | Model | Example |
 | :--- | :--- | :---- | :--- |
-| PTH | Sullins | PPTC121LFBN-RC | [Digikey](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC121LFBN-RC/S6100-ND/807231) |
-| SMD | Sullins | NPTC121KFXC-RC | [Digikey](https://www.digikey.com/product-detail/en/sullins-connector-solutions/NPTC121KFXC-RC/S5604-ND/776062) |
+| PTH (12) | Sullins | PPTC121LFBN-RC | [Digikey](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC121LFBN-RC/S6100-ND/807231) |
+| PTH (13) | Sullins | PPTC131LFBN-RC | [Digikey](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PPTC131LFBN-RC/810151) |
+| SMD (12) | Sullins | NPTC121KFXC-RC | [Digikey](https://www.digikey.com/product-detail/en/sullins-connector-solutions/NPTC121KFXC-RC/S5604-ND/776062) |
+| SMD (13) | Sullins | NPTC131KFXC-RC | [Digikey](https://www.digikey.com/en/products/detail/sullins-connector-solutions/NPTC131KFXC-RC/776063) |
 
 ## Schematic 
 
@@ -122,3 +125,4 @@ To be provided at a later date.
 |:---------|:-----|:-------|:---------|
 | pre      | 2024-02-27 | RK | Initial version |
 |          | 2024-02-28 | RK | Added plug-in version |
+|          | 2024-03-12 | RK | Updated to v2, dimensions changed |

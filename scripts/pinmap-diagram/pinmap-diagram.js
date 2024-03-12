@@ -1163,7 +1163,7 @@ const svg = require('./svg');
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'Power Module',
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/power-module/power-module.svg'),
-            deviceImageTransform: 'translate(50,110) scale(1.6)',
+            deviceImageTransform: 'translate(74,20) scale(0.845)',
             outputPath: 'assets/images/power-module/power-module-pinout.svg',
             width: 820,
             height: 730,
@@ -1172,8 +1172,8 @@ const svg = require('./svg');
             pins: [
                 {   // Bottom side
                     num: 1,
-                    x: 132,
-                    y: 625,
+                    x: 185,
+                    y: 556,
                     numDelta: 1,
                     xDelta: 48,
                     yDelta: 0,
@@ -1198,7 +1198,7 @@ const svg = require('./svg');
                     numDelta: 1,
                     xDelta: -48,
                     yDelta: 0,
-                    count: 12,
+                    count: 13,
                     xDir: 0,
                     yDir: -1,
                     columns: [

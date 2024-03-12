@@ -2979,7 +2979,7 @@
         {
           "num": 1,
           "name": "3V3",
-          "desc": "Power output 3.3V A",
+          "desc": "Power output 3.3V",
           "morePins": [
             2
           ]
@@ -3002,12 +3002,13 @@
         },
         {
           "num": 7,
+          "name": "REGN",
+          "desc": "PMIC REGN output used for temperature sensor"
+        },
+        {
+          "num": 8,
           "name": "NC",
-          "desc": "Leave unconnected",
-          "morePins": [
-            8,
-            22
-          ]
+          "desc": "Leave unconnected"
         },
         {
           "num": 9,
@@ -3015,8 +3016,8 @@
           "desc": "Ground",
           "morePins": [
             10,
-            20,
-            21
+            21,
+            22
           ]
         },
         {
@@ -3029,41 +3030,51 @@
         },
         {
           "num": 13,
-          "name": "SCL",
-          "desc": "I2C SCL. No internal pull."
+          "name": "CHG",
+          "desc": "Charge indicator output"
         },
         {
           "num": 14,
-          "name": "SDA",
-          "desc": "I2C SDA. No internal pull."
+          "name": "SCL",
+          "desc": "I2C SCL. No internal pull on power module."
         },
         {
           "num": 15,
-          "name": "INT",
-          "desc": "PMIC_INT interrupt output. Connect to SoM D22."
+          "name": "SDA",
+          "desc": "I2C SDA. No internal pull  on power module."
         },
         {
           "num": 16,
+          "name": "/FUEL_INT",
+          "desc": "PMIC and FUEL_INT interrupt output open drain. Connect to SoM D22."
+        },
+        {
+          "num": 17,
           "name": "TS",
           "desc": "LiPo battery temperature sensor (NTC thermistor)"
         },
         {
-          "num": 17,
+          "num": 18,
           "name": "VBAT",
           "desc": "LiPo battery connection 3.7V",
           "morePins": [
-            18,
-            19
+            19,
+            20
           ]
         },
         {
           "num": 23,
+          "name": "/RST",
+          "desc": "MCU reset button, active low."
+        },
+        {
+          "num": 24,
           "name": "PG",
           "desc": "Power good output. Open drain, is pulled low on failure of either regulator."
         },
         {
-          "num": 24,
-          "name": "EN",
+          "num": 25,
+          "name": "ENABLE",
           "desc": "Power output enable. Has internal pull-up to VSYS, pull to GND to disable power outputs."
         }
       ]
