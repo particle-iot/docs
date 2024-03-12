@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Photon 2 and Argon block diagram update 2024-03-12
+
+The block diagram for the Photon 2 and Argon had the diode on VUSB in the wrong location. 
+
 ### Boot mode pin warnings 2024-03-11
 
 The P2 and Photon 2 datasheets now include a warning about boot mode pins (TX, D6, and D7) in the GPIO pin listing.

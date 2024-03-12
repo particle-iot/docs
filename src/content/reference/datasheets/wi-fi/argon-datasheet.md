@@ -69,7 +69,8 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 
 ### Block diagram
 
-<div align=center> <a href="/assets/images/argon/argon-block-diagram.png" target="_blank"> <img src="/assets/images/argon/argon-block-diagram.png" ></a></div>
+{{imageOverlay src="/assets/images/argon/argon-block-diagram.png" alt="Block Diagram" class="full-width"}}
+
 
 ### Power
 
@@ -501,6 +502,8 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v008     | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 | v009     | 14-Mar-2022 | RK | Added deprecation notice |
 | v010     | 18-May-2023 | RK | Add warning that the Argon cannot be powered by 3V3 |
+| v011     | 12-Mar-2024 | RK | Fix location of VUSB diode in block diagram |
+
 
 ## Known errata
 

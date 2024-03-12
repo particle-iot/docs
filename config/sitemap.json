@@ -1399,8 +1399,8 @@
             "hash": "fe09fbb48e2df788d74402d7b5edd612a3687c2c85dd6fa4ee92da880674c7ae"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
-            "date": "2023-11-30",
-            "hash": "02b1d4ec1fcf28214234ea86684f290becd0df751d1cfebf1ad50a8e3c1078b7"
+            "date": "2024-03-11",
+            "hash": "f576bc49356cd7cd7ead840123cb213096b3ee30bce2c0427a5b8202625c548d"
         },
         "reference/datasheets/wi-fi/p1-datasheet.md": {
             "date": "2023-11-06",
@@ -1412,7 +1412,7 @@
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
             "date": "2024-03-11",
-            "hash": "283bc333813d4b8842f46902747aeb1a6e6019f68f859e6b6a2588485aa7e97f"
+            "hash": "6c1e0319c39c873c260b6d0b565577d0d3ea9a7a7927ba7a936f13d6c8ccdd36"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2023-11-06",
@@ -8235,7 +8235,7 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "30512c72a04cc327df7a05c81d10cdf3475e0af1e8cf36fe2f84780c5736150b",
+            "hash": "69676f153dee987d0177af6b10343d507d952f8c5cfd256a5efba1bce9217096",
             "date": "2024-03-11"
         },
         "getting-started/cloud/logic.md": {

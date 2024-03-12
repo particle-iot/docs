@@ -1285,6 +1285,8 @@ SE, SI, SK, TR, UA, UK(NI).
 |   6 | 2024-02-20 | RK | Added pin drive strength |
 |   7 | 2024-03-11 | RK | Update CHG documentation |
 |   8 | 2024-03-11 | RK | Added boot mode pin warning to GPIO pin table |
+|   9 | 2024-03-12 | RK | Fix location of VUSB diode in block diagram |
+
 
 ## Known errata
 
