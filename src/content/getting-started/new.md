@@ -21,6 +21,11 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Tracker Edge ignore() 2024-03-12
+
+Tracker Edge and Monitor Edge `ignore(pin_t)` may require a cast to avoid an ambiguous declaration error. Example 
+and documentation updated.
+
 ### Photon 2 and Argon block diagram update 2024-03-12
 
 The block diagram for the Photon 2 and Argon had the diode on VUSB in the wrong location. 

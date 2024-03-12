@@ -543,8 +543,8 @@
             "hash": "6eb9428ae15e4e1618f2201a18c78a32822fae56da53ff6ed1302130545cda13"
         },
         "firmware/tracker-edge/monitor-edge-api-reference.md": {
-            "date": "2024-02-15",
-            "hash": "7d691925a5a5c7805e0c8a1b95d14f5b8a54d2af20c6a6a5b1edbc734cd11224"
+            "date": "2024-03-12",
+            "hash": "dc78a946b27762e8ef9b8ede627bea9c0d963d58abbd756451d2e4e798d688e1"
         },
         "firmware/tracker-edge/monitor-edge-firmware.md": {
             "date": "2024-02-15",
@@ -555,8 +555,8 @@
             "hash": "74b05aa5b51629174d2d795a8c7ec923cddbc662d6c441c4fd6da91ec95b0952"
         },
         "firmware/tracker-edge/tracker-edge-api-reference.md": {
-            "date": "2024-02-15",
-            "hash": "38ef9ec6cc4a1a64501dc790f96e7e056f00171c3d04fac48d428f837e13d8ba"
+            "date": "2024-03-12",
+            "hash": "c46ce6e6616edbf03a7e837a624fdfe6bca9a3b0c3023908974d3f6d49902584"
         },
         "firmware/tracker-edge/tracker-edge-firmware.md": {
             "date": "2024-02-15",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "69676f153dee987d0177af6b10343d507d952f8c5cfd256a5efba1bce9217096",
-            "date": "2024-03-11"
+            "hash": "4803b59cb4e00a646c4f79bde9db9778445e80f51719e651bb163b8bd77fded7",
+            "date": "2024-03-12"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",

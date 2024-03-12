@@ -683,10 +683,10 @@ Waking from GPIO is common if you have a hardware sensor connected to a GPIO tha
 int ignore(pin_t pin);
 
 // EXAMPLE
-EdgeSleep::instance().ignore(D5);
+EdgeSleep::instance().ignore((pin_t)D5);
 ```
 
-To no longer use pin as a wake source, reversing a `wakeFor` call, use `ignore()`.
+To no longer use pin as a wake source, reversing a `wakeFor` call, use `ignore()`. It may be necessary to cast the parameter as `(pin_t)` to avoid an ambiguous declaration.
 
 Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 
