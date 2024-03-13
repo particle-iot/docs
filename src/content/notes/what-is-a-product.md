@@ -7,5 +7,5 @@ A product groups together related devices that generally run the same firmware. 
 
 If you need to create a product, see the [creating a product](/getting-started/products/creating-a-product/) tutorial.
 
-Even if you are not yet to the point of scaling, you should start by creating a product first, as it will make it much easier to migrate to growth later.
+Even if you are not yet to the point of scaling, you should start by creating a product first, as it will make it much easier to migrate to basic later.
 

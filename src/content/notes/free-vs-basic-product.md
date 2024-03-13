@@ -28,8 +28,8 @@ Another important difference is that when you hit the data operation or cellular
 
 Growth products have no limits, however as you use larger number of devices, data operations, or cellular data, the cost will increase because of the additional blocks:
 
-- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
+- A block includes {{basicTierDataOperationsUnit}} Data Operations ({{basicTierDataOperationsComma}}) per month and up to {{basicTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
+- Up to {{basicTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
 

@@ -31,7 +31,7 @@ Plus, cellular, Tracker, and Wi-Fi devices can be free to use!
 
 #### Products
 
-Products group devices with similar firmware and usage. You can use products with the Free plan above for prototyping, then expand to the Growth plan for production.
+Products group devices with similar firmware and usage. You can use products with the Free plan above for prototyping, then expand to the Basic plan for production.
 
 Products allow a number of additional features over developer devices:
 
@@ -42,13 +42,14 @@ Products allow a number of additional features over developer devices:
 - [Fleet health](/getting-started/console/fleet-health/), for monitoring the status of your fleet of devices.
 
 
-#### Growth plan
+#### Basic plan
 
-- [Organizations](/getting-started/products/organizations/), allowing you have multiple products with hierarchical access controls and billing in the Growth and Enterprise plans.
-- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
+- [Organizations](/getting-started/products/organizations/), allowing you have multiple products with hierarchical access controls and billing in the Basic and Enterprise plans.
+- A block includes {{basicTierDataOperationsUnit}} Data Operations ({{basicTierDataOperationsComma}}) per month and up to {{basicTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
+- Up to {{basicTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
+- The basic plan was formerly known as the basic plan
 
 #### Enterprise features
 

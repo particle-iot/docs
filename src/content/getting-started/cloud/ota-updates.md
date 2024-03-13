@@ -130,7 +130,7 @@ that these updates are performed securely and safely.
 
 ### Scalable
 
-Particle provides your team with tools as part of the Device Cloud that give you full control and flexibility in how OTA updates are delivered to your fleet. Particle offers different OTA tools that are appropriate at different phases of fleet growth.
+Particle provides your team with tools as part of the Device Cloud that give you full control and flexibility in how OTA updates are delivered to your fleet. Particle offers different OTA tools that are appropriate at different phases of fleet basic.
 
 #### Prototyping
 

@@ -23,22 +23,22 @@ The following do **not** count against your Data Operations limit:
 - Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
 - Particle cloud API calls do not count against your Data Operations limit
 
-<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Growth Plan. In the Growth Plan, additional blocks can be added to allow for more data operations.
+<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Basic plan. In the Basic plan, additional blocks can be added to allow for more data operations.
 {{!-- END shared-blurb --}}
 
 {{> dataoperationscalc}}
 
 ## Blocks
 
-Blocks are a maximum number of Data Operations and devices per month in the Growth plan:
+Blocks are a maximum number of Data Operations and devices per month in the Basic plan:
 
-- Up to {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month 
-- Up to {{growthTierDevices}} devices
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
+- Up to {{basicTierDataOperationsUnit}} Data Operations ({{basicTierDataOperationsComma}}) per month 
+- Up to {{basicTierDevices}} devices
+- Up to {{basicTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
 - Price varies for Wi-Fi, Cellular, and Tracker
 - Add as many blocks are you need
 
-For example, if you have 150 devices you will need 2 blocks, even if your Data Operations do not yet exceed {{growthTierDataOperationsUnit}}. 
+For example, if you have 150 devices you will need 2 blocks, even if your Data Operations do not yet exceed {{basicTierDataOperationsUnit}}. 
 
 Likewise, if you are using a million Data Operations per month, you will need 2 blocks, even of you have fewer than 100 devices.
 
@@ -113,27 +113,27 @@ Note that the cellular data usage is not real-time. It can take at least 24 hour
 
 ### What happens if I need more than 100 devices?
 
-You cannot add more than 100 devices to the Free plan. You instead will need to upgrade to the Growth plan. 
+You cannot add more than 100 devices to the Free plan. You instead will need to upgrade to the Basic plan. 
 
-You can have any number of devices in the Growth plan, but you will need to purchase another block for each group of 100 devices. It's not possible to purchase a fractional block for devices only; each block includes a maximum number of devices, Data Operations, and cellular data usage, and exceeding any one limit will require purchasing an additional block.
+You can have any number of devices in the Basic plan, but you will need to purchase another block for each group of 100 devices. It's not possible to purchase a fractional block for devices only; each block includes a maximum number of devices, Data Operations, and cellular data usage, and exceeding any one limit will require purchasing an additional block.
 
-There is no limit to the number of blocks you can purchase in the Growth plan, however upgrading to an enterprise contract can reduce the cost.
+There is no limit to the number of blocks you can purchase in the Basic plan, however upgrading to an enterprise contract can reduce the cost.
 
 ### What happens if I exceed the number of data operations?
 
-In the Free plan, if you need more Data Operations you will need to upgrade to the Growth plan. When you exceed {{freeTierDataOperationsUnit}} Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free plan. 
+In the Free plan, if you need more Data Operations you will need to upgrade to the Basic plan. When you exceed {{freeTierDataOperationsUnit}} Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free plan. 
 
-In the Growth plan, if you need more than {{growthTierDataOperationsUnit}} Data Operations across your fleet of devices per month, you can add another block.
+In the Basic plan, if you need more than {{basicTierDataOperationsUnit}} Data Operations across your fleet of devices per month, you can add another block.
 
-In the Enterprise plan, the number of Data Operations is pooled annually across all devices, instead of monthly in the Free and Growth plans.
+In the Enterprise plan, the number of Data Operations is pooled annually across all devices, instead of monthly in the Free and Basic plans.
 
 ### What happens if I exceed the cellular data quota?
 
 In the Free plan, if you exceed the pooled monthly data quota, all SIMs in your account will be paused until the end of the billing month, when they will be resumed. It is not possible to add more data to the Free plan.
 
-In the Growth plan, if you exceed the pooled monthly data quota, you can add an additional block to add more data.
+In the Basic plan, if you exceed the pooled monthly data quota, you can add an additional block to add more data.
 
-In the Enterprise plan, the amount of cellular data is pooled annually across all devices, instead of monthly in the Free and Growth plans.
+In the Enterprise plan, the amount of cellular data is pooled annually across all devices, instead of monthly in the Free and Basic plans.
 
 ### What is the maximum rate I can send data?
 
@@ -143,4 +143,4 @@ There are no additional limits placed on webhooks. However, if the server you ar
 
 While there is no specific rate limit on variables and functions, there are practical limits on how fast the device can return data. The device can only process one function or variable at a time. Additionally, if you have more than a few devices you will instead [run into API rate limits](/reference/cloud-apis/api/#api-rate-limits) which limit how fast you can make requests to the Particle cloud APIs. You should avoid polling your entire device fleet frequently using functions or variables, as this is likely to cause scalability issues.
 
-See also [Migrating to Growth](/getting-started/billing/migrating-to-growth/) for more information about data operations in the growth plan.
+See also [Migrating to Basic](/getting-started/billing/migrating-to-basic/) for more information about data operations in the basic plan.

@@ -8,7 +8,7 @@ Note that there are three different limits that can be exceeded in the free plan
 
 If you are at the free plan device limit of 100 devices, there are two options:
 
-- [Migrate to growth](/getting-started/billing/migrating-to-growth/)
+- [Migrate to basic](/getting-started/billing/migrating-to-basic/)
 - Reduce the number of devices in your free plan account
 
 Note that not every device in your free developer sandbox device list may count toward the 100 device limit. See the additional topics below.

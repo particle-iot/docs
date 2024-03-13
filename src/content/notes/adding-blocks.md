@@ -1,4 +1,4 @@
-You initially decide how many blocks you want when you create your growth organization. You will be billed for those blocks at the start of your billing period. There are 3 types of blocks: Wi-Fi, cellular, and Tracker.
+You initially decide how many blocks you want when you create your basic plan organization. You will be billed for those blocks at the start of your billing period.
 
 If another block is needed:
 

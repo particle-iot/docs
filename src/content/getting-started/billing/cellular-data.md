@@ -24,14 +24,15 @@ Particle provides a number of devices with cellular connectivity including the T
 - Device communication is paused<sup>1</sup> when the monthly limit is reached
 - Community support
 
-<sup>1</sup> You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. Once you reach the 100% limit you have three days to switch the the Growth plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
+<sup>1</sup> You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. Once you reach the 100% limit you have three days to switch the the Basic plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
 
-#### Growth plan
+#### Basic plan
 
-- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
+- A block includes {{basicTierDataOperationsUnit}} Data Operations ({{basicTierDataOperationsComma}}) per month and up to {{basicTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
+- Up to {{basicTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
+- The basic plan was formerly known as the growth plan
 
 #### Enterprise plan
 
@@ -59,7 +60,7 @@ The following do **not** count against your Data Operations limit:
 - Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
 - Particle cloud API calls do not count against your Data Operations limit
 
-<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Growth Plan. In the Growth Plan, additional blocks can be added to allow for more data operations.
+<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Basic plan. In the Basic plan, additional blocks can be added to allow for more data operations.
 {{!-- END shared-blurb --}}
 
 
@@ -90,7 +91,7 @@ If the transmission is not acknowledged, it is possible that up to two more atte
 
 For cellular devices, there is a data limit depending on your tier. For the Free plan, the cellular data limit is {{freeTierDataOperationsCellularData}} , pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of Data Operations, so you probably won't need to worry about the exact number of bytes for each operation.
 
-In the growth plan, {{growthTierDataOperationsCellularData}} of cellular data per month is included for each block purchased, per month.
+In the basic plan, {{basicTierDataOperationsCellularData}} of cellular data per month is included for each block purchased, per month.
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 

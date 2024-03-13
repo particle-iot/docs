@@ -30,7 +30,7 @@ In order to use BLE provisioning mode, you must already have added the device to
 
 - Add the Device IDs you will be using to your product. When you order in tray or reel quantities from the Particle wholesale store you will be emailed this list.
 - Flash your product firmware and Device OS to your devices by USB or SWD/JTAG.
-- In the growth and enterprise plans, these two steps do not start billing. Billing only starts when the devices first come online.
+- In the basic and enterprise plans, these two steps do not start billing. Billing only starts when the devices first come online.
 
 Additionally, you will need something for your customers to configure their Wi-Fi credentials:
 

@@ -1127,7 +1127,7 @@ The following countries are at risk for permanent roaming restrictions:
 - Turkey
 - UAE
 
-You may be able to connect temporarily, for example doing setup of new devices to be used elsewhere. However you should not use devices regularly in these countries as the devices will likely be blocked and will then be unusable. Growth or enterprise deployments must not be made in areas with roaming restrictions.
+You may be able to connect temporarily, for example doing setup of new devices to be used elsewhere. However you should not use devices regularly in these countries as the devices will likely be blocked and will then be unusable. Basic or enterprise deployments must not be made in areas with roaming restrictions.
 
 ### Carrier certification
 

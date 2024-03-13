@@ -35,7 +35,7 @@ The MFF2 embedded SIM card is not a programmed eSIM. It's basically the same as 
 
 
 ### General considerations
-- In the growth tier, the price per block for device count and data operations is the same whether you are using a Particle SIM or a 3rd-party SIM card.
+- In the basic tier, the price per block for device count and data operations is the same whether you are using a Particle SIM or a 3rd-party SIM card.
 - Enterprise contracts cannot be made with 3rd-party SIM cards.
 - Technical support is not available for devices with 3rd-party SIM cards.
 

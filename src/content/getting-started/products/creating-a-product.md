@@ -8,7 +8,7 @@ includeDefinitions: [api-helper, api-helper-extras]
 
 # {{title}}
 
-Even if you're not ready to scale your product yet, it's worthwhile to start by creating a product. In order to use the Growth or Enterprise plan to scale to more than 100 devices, or add additional cellular data, you'll need a product. 
+Even if you're not ready to scale your product yet, it's worthwhile to start by creating a product. In order to use the Basic or Enterprise plan to scale to more than 100 devices, or add additional cellular data, you'll need a product. 
 
 But even if you won't be scaling, you will almost certainly want one for other reasons:
 
@@ -17,9 +17,9 @@ But even if you won't be scaling, you will almost certainly want one for other r
 - [Teams](/getting-started/console/team-access-controls/), so multiple users can work with the product devices.
 - [API users](/reference/cloud-apis/api/#api-users), to allow fine-grained access control to Particle APIs from your servers.
 
-Starting out by creating a product first will simplify things later, and also prevent having to reconfigure things, especially if you plan on using webhooks or external servers. For example, if you are using the Particle cloud API from an external server, the API endpoints are different for products than developer devices. However, once you start with product endpoints (even for a product with a single device), you can scale through the free and growth plans, all the way up to enterprise, without having to change your code.
+Starting out by creating a product first will simplify things later, and also prevent having to reconfigure things, especially if you plan on using webhooks or external servers. For example, if you are using the Particle cloud API from an external server, the API endpoints are different for products than developer devices. However, once you start with product endpoints (even for a product with a single device), you can scale through the free and basic plans, all the way up to enterprise, without having to change your code.
 
-You can create products in the free plan, and the product and devices are still free. There is a limit of 100 devices in a product in the free developer sandbox, but there are no limits in the growth and enterprise plans.
+You can create products in the free plan, and the product and devices are still free. There is a limit of 100 devices in a product in the free developer sandbox, but there are no limits in the basic and enterprise plans.
 
 
 ## Setting up your product
@@ -52,7 +52,7 @@ The owner is the user who initially created the product. To transfer a product t
 
 - If you're a contractor creating a product for another company, you may want to create a new Particle account for the company to own the products. One handy trick: Create this account in an email domain that you control for initial development. When you're ready to transfer ownership of the completed project, change the email to the destination company's email domain. Doing it this way is easier than trying to extract a single product out of your account.
 
-- When you get to the growth or enterprise plan you have an organization, which is your collection of products that belong to your company. Products can be moved into that organization easily from the product configuration.
+- When you get to the basic or enterprise plan you have an organization, which is your collection of products that belong to your company. Products can be moved into that organization easily from the product configuration.
 
 - Changing the owner of a product from one user to another requires a [support ticket](https://support.particle.io/). Changing the email address of an account, which moves all of the devices, webhooks, products, and source in the Web IDE, can be done from account settings.
 
@@ -64,7 +64,7 @@ It works best if each developer has at least one device on their desk, separate 
 
 You may have a testing device fleet in your product for quality assurance testing that is shared by multiple team members, but also having individual developer devices makes the workflow easier.
 
-In the growth and enterprise plans the organization also has a team. You can have organization team members as well as product-specific team members that only have access to a specific product.
+In the basic and enterprise plans the organization also has a team. You can have organization team members as well as product-specific team members that only have access to a specific product.
 
 ## Device claiming
 
@@ -108,11 +108,11 @@ For all devices with built-in Particle SIMs, importing the device ID also import
 
 Adding a device to a product in the free plan will increase the number of devices in the account by one immediately. There is a limit of 100 devices across all types (cellular, tracker, or Wi-Fi) in a free account. As the account is free, there are no billing implications, other than contributing to the free plan usage limits.
 
-The limit is 100 devices per account, including non-product devices and all products owned by that user. Thus it's possible for the number of devices allowed in a free plan product to be less than 100. If you have more devices, you may want to upgrade to the growth plan.
+The limit is 100 devices per account, including non-product devices and all products owned by that user. Thus it's possible for the number of devices allowed in a free plan product to be less than 100. If you have more devices, you may want to upgrade to the basic plan.
 
-#### Adding product devices - growth plan
+#### Adding product devices - basic plan
 
-Adding a device to a product in the growth plan can be done in advance, and in bulk. The growth plan has the concept of **metered devices** which includes all devices that have connected to the cloud at least once. Thus you can add many devices to your product at once, and only when you first turn them on and connect to the cloud does billing start. This allows devices to be assembled and configured without starting billing yet.
+Adding a device to a product in the basic plan can be done in advance, and in bulk. The basic plan has the concept of **metered devices** which includes all devices that have connected to the cloud at least once. Thus you can add many devices to your product at once, and only when you first turn them on and connect to the cloud does billing start. This allows devices to be assembled and configured without starting billing yet.
 
 Once a device comes online once, it will count against the 100 devices per block limit, even if does not connect to the cloud during the billing month.
 
@@ -128,7 +128,7 @@ Adding a device to a product in the enterprise plan can be done in advance, and 
 
 Additionally, enterprise products have a six-month manufacturing grace period. For the first six months after the device first connects to the cloud, the device will only count as a metered device if it makes a connection to the Particle cloud. If the device is completely offline for the billing month, it will not count as a billable device.
 
-After the six-month manufacturing grace period, it behaves as the growth plan, and will be counted as a billable device even if it does not connect to the cloud.
+After the six-month manufacturing grace period, it behaves as the basic plan, and will be counted as a billable device even if it does not connect to the cloud.
 
 It's possible to set up the device by USB or JTAG/SWD, as long as it does not connect to the Particle cloud. Thus you can use your own manufacturing firmware to test your circuit board, custom sensors, etc. without starting the billing process.
 
@@ -379,7 +379,7 @@ One option that's somewhere between SSE and webhooks is Google Publish and Subsc
 
 ## Changing the product owner
 
-The product owner is the account that owns a product. It can either be a user account (sandbox product), or it can be an organization (growth or enterprise product). When you migrate to growth, you provide a list of products you want to move into the organization:
+The product owner is the account that owns a product. It can either be a user account (sandbox product), or it can be an organization (basic or enterprise product). When you migrate to basic, you provide a list of products you want to move into the organization:
 
 - Billing for the organization will be the responsibility of organization.
 - The product will no longer be limited to 100 devices.
@@ -422,11 +422,11 @@ When you first open the console the sandbox device view is what you see.
 {{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac12000 --}}
 ![Sandbox device list](/assets/images/console/sandbox-devices.png)
 
-When **Sandbox** (1) is selected, you will see the devices in your personal sandbox, vs. your growth or enterprise organization. 
+When **Sandbox** (1) is selected, you will see the devices in your personal sandbox, vs. your basic or enterprise organization. 
 
 Clicking the **Devices** icon (2) shows the Device List.
 
-If the **Show sandbox devices only** checkbox (3) is not checked, then the list will be like the old, pre-checkbox, behavior and will show devices that are claimed to your account, both in your free developer sandbox as well as product devices in free, growth, and enterprise organization products. 
+If the **Show sandbox devices only** checkbox (3) is not checked, then the list will be like the old, pre-checkbox, behavior and will show devices that are claimed to your account, both in your free developer sandbox as well as product devices in free, basic, and enterprise organization products. 
 
 When checked, the list will only include non-product devices claimed to your account in the free developer sandbox.
 
@@ -469,4 +469,4 @@ This tool can help you decode what's being displayed in the sandbox device list 
 
 ## Next steps
 
-When you're ready to expand beyond prototyping, see [scaling your product](/getting-started/billing/migrating-to-growth/) for tips of growing your product.
+When you're ready to expand beyond prototyping, see [scaling your product](/getting-started/billing/migrating-to-basic/) for tips of growing your product.

@@ -24,8 +24,8 @@ product instead of an individual developer account (sandbox).
 
 - Each account has a Free plan Sandbox that can contain up to 100 devices, both cellular and Wi-Fi in any combination, for free.
 - A product can be in the Free plan Sandbox where the 100 device limit applies across both product and non-product devices in the account.
-- A product can also be on the Growth or Enterprise Plan and be part of an organization, which is not limited by number of devices.
-- A product can be prototyped in the Free plan and then moved into a Growth or Enterprise plan later when scaled.
+- A product can also be on the Basic or Enterprise Plan and be part of an organization, which is not limited by number of devices.
+- A product can be prototyped in the Free plan and then moved into a Basic or Enterprise plan later when scaled.
 
 The SIMs page looks like this:
 

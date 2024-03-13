@@ -35,7 +35,7 @@ Products allow a number of additional features over developer devices:
 - [Team access controls](/getting-started/console/team-access-controls/), allowing you to grant specific permissions to team members.
 - [Fleet health](/getting-started/console/fleet-health/), for monitoring the status of your fleet of devices.
 
-You can use products of up to 100 devices in the free tier, and doing so greatly simplifies migrating to growth or enterprise later.
+You can use products of up to 100 devices in the free tier, and doing so greatly simplifies migrating to basic or enterprise later.
 
 - [Learn more about products](/getting-started/products/introduction-to-products/) in general.
 - Learn more about [creating a product](/getting-started/products/creating-a-product/).
@@ -53,7 +53,7 @@ ability to take major administrative actions.
 - **Administrator**: Full administrative access, including team
 management and irreversible destructive actions.
 
-In the growth or enterprise tiers, you can also set access at the organization level, allowing the user access to all products in the organization. 
+In the basic or enterprise tiers, you can also set access at the organization level, allowing the user access to all products in the organization. 
 
 It is also possible to combine both features, so by default employees would have access to all products, but in some cases, such as a contractor working on a specific product, that user would only have access to that single product.
 

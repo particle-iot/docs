@@ -221,7 +221,7 @@ Particle devices can be used in a product, or as sandbox developer devices. Even
 - Flash code on wake from sleep
 - Allow controlled access to your devices by other users, if desired
 - Group devices
-- Easy migration to growth if you exceed the free plan limits
+- Easy migration to basic if you exceed the free plan limits
 
 Using a product in the free plan is still free. You can have any combination of Wi-Fi and cellular devices in the free plan whether the devices are developer or product devices.
 
