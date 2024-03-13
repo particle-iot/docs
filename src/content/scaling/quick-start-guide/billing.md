@@ -41,7 +41,7 @@ The following do **not** count against your Data Operations limit:
 - Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
 - Particle cloud API calls do not count against your Data Operations limit
 
-<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Growth Plan. In the Growth Plan, additional blocks can be added to allow for more data operations.
+<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Basic plan. In the Basic plan, additional blocks can be added to allow for more data operations.
 {{!-- END shared-blurb --}}
 
 To learn more, see [Getting started with data operations](/getting-started/billing/data-operations/).
@@ -56,7 +56,7 @@ Devices are added to the product from the console or API. When you order a devic
 
 A product device is not counted until it comes online at least once. At this point, on the enterprise plan it counts as a billable device for the month.
 
-However, there is also a six month manufacturing grace period. After the device comes online for the first time, if in any of the six billing months the device does not come online, it will not be counted as a billable device. This only applies in the enterprise plan; in growth or free there is no manufacturing grace period. The manufacturing grace period allows you to set up and test devices in advance and not have to manually deactivate the devices in order to stop billing.
+However, there is also a six month manufacturing grace period. After the device comes online for the first time, if in any of the six billing months the device does not come online, it will not be counted as a billable device. This only applies in the enterprise plan; in basic or free there is no manufacturing grace period. The manufacturing grace period allows you to set up and test devices in advance and not have to manually deactivate the devices in order to stop billing.
 
 After the six month manufacturing grace period, the device will count as a billable device whether it comes online or not.
 

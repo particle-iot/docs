@@ -50,7 +50,7 @@
                 },
                 {
                     "page": 198,
-                    "comment": "Free, growth, and enterprise plan technical differences and limits"
+                    "comment": "Free, basic, and enterprise plan technical differences and limits"
                 }
             ]
         },
@@ -148,7 +148,7 @@
                     "page": 360001730794
                 },
                 {
-                    "title": "Upgrading my account to the growth plan",
+                    "title": "Upgrading my account to the basic plan",
                     "page": 1260809279669
                 },
                 {
@@ -2201,7 +2201,7 @@
         },
         {
             "page": 198,
-            "title": "Free, growth, and enterprise plan technical differences, limits, and billing",
+            "title": "Free, basic, and enterprise plan technical differences, limits, and billing",
             "note": "plan-first-page.md",
             "buttons": [
                 {
@@ -2255,7 +2255,7 @@
                 },
                 {
                     "page": 204,
-                    "comment": "How are devices counted in the growth plan?"
+                    "comment": "How are devices counted in the basic plan?"
                 },
                 {
                     "page": 205,
@@ -2263,7 +2263,7 @@
                 },
                 {
                     "url": "https://www.particle.io/upgradetogrowth/",
-                    "title": "Visit upgrade to growth to begin the upgrade process"
+                    "title": "Visit upgrade to basic to begin the upgrade process"
                 }
             ],
             "paths": [
@@ -2328,7 +2328,7 @@
                 },
                 {
                     "page": 204,
-                    "comment": "How are devices counted in the growth plan?"
+                    "comment": "How are devices counted in the basic plan?"
                 },
                 {
                     "page": 205,
@@ -2377,7 +2377,7 @@
                 },
                 {
                     "page": 213,
-                    "comment": "What's the difference between free and growth products?"
+                    "comment": "What's the difference between free and basic products?"
                 },
                 {
                     "page": 212,
@@ -2402,8 +2402,8 @@
         },
         {
             "page": 204,
-            "title": "How are devices counted in the growth plan?",
-            "note": "device-count-growth.md",
+            "title": "How are devices counted in the basic plan?",
+            "note": "device-count-basic.md",
             "buttons": [
                 {
                     "page": 206,
@@ -2427,7 +2427,7 @@
                 },
                 {
                     "page": 213,
-                    "comment": "What's the difference between free and growth products?"
+                    "comment": "What's the difference between free and basic products?"
                 },
                 {
                     "page": 207,
@@ -2534,12 +2534,12 @@
             "note": "at-free-plan-limit.md",
             "buttons": [
                 {
-                    "title": "Visit the migrating to growth guide and FAQ",
-                    "url": "/getting-started/billing/migrating-to-growth/"
+                    "title": "Visit the migrating to basic guide and FAQ",
+                    "url": "/getting-started/billing/migrating-to-basic/"
                 },
                 {
                     "page": 213,
-                    "comment": "What's the difference between free and growth products?"
+                    "comment": "What's the difference between free and basic products?"
                 },
                 {
                     "page": 203,
@@ -2563,7 +2563,7 @@
                 },
                 {
                     "url": "https://www.particle.io/upgradetogrowth/",
-                    "title": "Visit upgrade to growth to begin the upgrade process"
+                    "title": "Visit upgrade to basic to begin the upgrade process"
                 }
             ],
             "paths": [
@@ -2633,8 +2633,8 @@
         },
         {
             "page": 213,
-            "title": "What's the difference between free and growth products?",
-            "note": "free-vs-growth-product.md",
+            "title": "What's the difference between free and basic products?",
+            "note": "free-vs-basic-product.md",
             "paths": [
                 [
                     101,

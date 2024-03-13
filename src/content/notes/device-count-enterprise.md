@@ -4,7 +4,7 @@ Devices are added to the product from the console or API. When you order a devic
 
 A product device is not counted until it comes online at least once. At this point, on the enterprise plan it counts as a billable device for the month.
 
-However, there is also a six month manufacturing grace period. After the device comes online for the first time, if in any of the six billing months the device does not come online, it will not be counted as a billable device. This only applies in the enterprise plan; in growth or free there is no manufacturing grace period. The manufacturing grace period allows you to set up and test devices in advance and not have to manually deactivate the devices in order to stop billing.
+However, there is also a six month manufacturing grace period. After the device comes online for the first time, if in any of the six billing months the device does not come online, it will not be counted as a billable device. This only applies in the enterprise plan; in basic or free there is no manufacturing grace period. The manufacturing grace period allows you to set up and test devices in advance and not have to manually deactivate the devices in order to stop billing.
 
 After the six month manufacturing grace period, the device will count as a billable device whether it comes online or not.
 

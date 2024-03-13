@@ -17,7 +17,7 @@ When you order devices in tray quantities from the Particle wholesale store you 
 
 This file can be uploaded to [the console](https://console.particle.io/) to add the devices to your product, and we highly recommend using this method.
 
-- In the growth and enterprise plans, the newly added devices will not be billed until they are turned on the first time so there is no advantage in waiting.
+- In the basic and enterprise plans, the newly added devices will not be billed until they are turned on the first time so there is no advantage in waiting.
 
 - For cellular devices, this will also associate the SIM card with your account and activate it.
 

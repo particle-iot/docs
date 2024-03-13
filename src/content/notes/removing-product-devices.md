@@ -1,4 +1,4 @@
-In order to stop a device from being counted in the free or growth plan, there are up to three steps required:
+In order to stop a device from being counted in the free or basic plan, there are up to three steps required:
 
 - If the device is claimed to a single account, you should unclaim the device from the console.
 - If the device is cellular, you should release the SIM.

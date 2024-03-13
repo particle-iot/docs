@@ -93,13 +93,13 @@
 195	Connect battery (if necessary)
 196	Attach cellular antenna
 197	Attach cellular antenna
-198	Free, growth, and enterprise plan technical differences, limits, and billing
+198	Free, basic, and enterprise plan technical differences, limits, and billing
 199	What are the pricing plans?
 200	What are data operations?
 201	What is a block?
 202	How are devices counted?
 203	How are devices counted in the free plan?
-204	How are devices counted in the growth plan?
+204	How are devices counted in the basic plan?
 205	How are devices counted in the enterprise plan?
 206	What's the difference between claiming and product membership?
 207	How do I remove devices from my product?
@@ -108,7 +108,7 @@
 210	What is an organization?
 211	Adding a block
 212	I don't have a product yet, what do I do?
-213	What's the difference between free and growth products?
+213	What's the difference between free and basic products?
 214	Flashing code to my device did not behave as expected
 215	My old code continues to run after flashing new code
 216	Put something here

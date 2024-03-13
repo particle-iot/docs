@@ -395,7 +395,7 @@ If you're publishing events from a back-end server, you'll probably want to use 
 
 ## Organization APIs
 
-If you are in the growth or enterprise plans, you will have access to organizations. Your account will 
+If you are in the basic or enterprise plans, you will have access to organizations. Your account will 
 have two or more spaces:
 
 - Sandbox, for your personal development, in the free plan (up to 100 devices)
@@ -488,7 +488,7 @@ The historical API returns all historical data for a date range (up to 1 month i
 ### Service agreements
 
 If you want to know information about your usage or billing period information, you can use the [service_agreements](/reference/cloud-apis/api/#service-agreements-and-usage) API. 
-There are two versions, one for your developer sandbox, and another for growth or enterprise organizations. Only organization administrators can see the service agreement information 
+There are two versions, one for your developer sandbox, and another for basic or enterprise organizations. Only organization administrators can see the service agreement information 
 for an organization.
 
 The API just returns a big block of JSON which can easily be parsed to find the information you want.

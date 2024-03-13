@@ -21,6 +21,10 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### Basic plan 2024-03-12
+
+The growth plan is now named the basic plan. The free plan is unchanged.
+
 ### Tracker Edge ignore() 2024-03-12
 
 Tracker Edge and Monitor Edge `ignore(pin_t)` may require a cast to avoid an ambiguous declaration error. Example 

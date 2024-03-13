@@ -1,14 +1,16 @@
 ---
-title: Migrating to Growth Plan
+title: Migrating to Basic Plan
 columns: two
 layout: commonTwo.hbs
-description: Migrating to growth plan
+description: Migrating to basic plan
 includeDefinitions: [api-helper, api-helper-extras]
 ---
 
 # {{title}}
 
-When you've reached the limits of the free plan, it's time to upgrade to the growth plan.
+When you've reached the limits of the free plan, it's time to upgrade to the basic plan.
+
+*The basic plan was formerly known as the growth plan*.
 
 ## Steps
 
@@ -16,44 +18,44 @@ When you've reached the limits of the free plan, it's time to upgrade to the gro
 
 ### 1. Select the products you want to upgrade
 
-You can select any number of products from your free sandbox to migrate to growth.
+You can select any number of products from your free sandbox to migrate to basic.
 
 - [What is a product?](#what-is-a-product-)
-- [Which products should I move to growth?](#which-products-should-i-move-to-growth-)
+- [Which products should I move to basic?](#which-products-should-i-move-to-basic-)
 - [What if I don't have a product yet?](#what-if-i-don-39-t-have-a-product-yet-)
 
 ### 2. Name your organization
 
-All of the products in your growth plan are grouped together into an organization. 
+All of the products in your basic plan are grouped together into an organization. 
 
 - [What is an organization?](#what-is-an-organization-)
 
 ### 3. Choose the number of blocks you need
 
-The growth plan usage is measured in blocks, and you need to pick an initial number of blocks.
+The basic plan usage is measured in blocks, and you need to pick an initial number of blocks.
 
 - [What is a block?](#what-is-a-block-)
 - [How many blocks do I need?](#how-many-blocks-do-i-need-)
 
-### 4. Sign up for growth
+### 4. Sign up for basic
 
-Sign up at the [upgrade to growth page](https://www.particle.io/upgradetogrowth/).
+Sign up at the [upgrade to basic page](https://www.particle.io/upgradetogrowth/).
 
-A representative will contact you by email to schedule an appointment for a telephone call to complete the upgrade process to growth plan. This process can take several business days. We will ensure that your service is not impacted during this time.
+A representative will contact you by email to schedule an appointment for a telephone call to complete the upgrade process to basic plan. This process can take several business days. We will ensure that your service is not impacted during this time.
 
 You'll be asked for the list of products to migrate, organization name, and number of blocks during your setup call.
 
 <div  align="center">
-<a href="https://www.particle.io/upgradetogrowth/"  target="_blank" class="button">UPGRADE TO GROWTH</a>
+<a href="https://www.particle.io/upgradetogrowth/"  target="_blank" class="button">UPGRADE TO BASIC</a>
 </div>
 
 </p>&nbsp;<p>
 
 ## FAQ (frequently asked questions)
 
-### How am I billed for the growth plan?
+### How am I billed for the basic plan?
 
-You initially decide how many blocks you want when you create your growth organization. You will be billed for those blocks at the start of your billing period. There are 3 types of blocks: Wi-Fi or cellular. You can find the pricing [below](#what-is-a-block-).
+You initially decide how many blocks you want when you create your basic organization. You will be billed for those blocks at the start of your billing period. There are 3 types of blocks: Wi-Fi or cellular. You can find the pricing [below](#what-is-a-block-).
 
 If another block is needed:
 
@@ -76,12 +78,11 @@ If the increase was a one-time event and you do not need the larger number of bl
 
 Billing is measured in blocks.
 
-- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month.
-- Up to {{growthTierDevices}} devices.
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices.
-- Blocks are specific to cellular or Wi-Fi. Usage is aggregated for all devices in all products in your growth organization of the same class. For example, Electrons, Borons, and B-Series are all cellular devices that can share the same block even though they are in different products.
-- Cellular blocks are {{growthBlockCellularPrice}} per month per block
-- Wi-Fi blocks are {{growthBlockWiFiPrice}} per month per block
+- A block includes {{basicTierDataOperationsUnit}} Data Operations ({{basicTierDataOperationsComma}}) per month.
+- Up to {{basicTierDevices}} devices.
+- Up to {{basicTierDataOperationsCellularData}} of cellular data per month, pooled across all devices.
+- Blocks are specific to cellular or Wi-Fi. Usage is aggregated for all devices in all products in your basic organization of the same class. For example, Electrons, Borons, and B-Series are all cellular devices that can share the same block even though they are in different products.
+- Blocks are {{basicBlockPrice}} per month per block
 
 {{top}}
 
@@ -101,7 +102,7 @@ If you want to try to reduce the number of data operations you are using, see [m
 
 ### How do I add another block?
 
-Once you are on the growth plan, if you exceed the data operations limit, cellular data limit, or device limit an additional block will be added automatically. You do not need to do any manual steps to assure correct operation without interruption.
+Once you are on the basic plan, if you exceed the data operations limit, cellular data limit, or device limit an additional block will be added automatically. You do not need to do any manual steps to assure correct operation without interruption.
 
 {{top}}
 
@@ -124,7 +125,7 @@ The following do **not** count against your Data Operations limit:
 - Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
 - Particle cloud API calls do not count against your Data Operations limit
 
-<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Growth Plan. In the Growth Plan, additional blocks can be added to allow for more data operations.
+<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Basic plan. In the Basic plan, additional blocks can be added to allow for more data operations.
 {{!-- END shared-blurb --}}
 
 {{top}}
@@ -153,13 +154,13 @@ If you need to create a product, see the [creating a product](/getting-started/p
 
 {{top}}
 
-### Which products should I move to growth?
+### Which products should I move to basic?
 
-- Any product that will have more than 100 devices in it must be on the growth plan.
+- Any product that will have more than 100 devices in it must be on the basic plan.
 
 - Any product whose devices use more than {{freeTierDataOperationsUnit}} data operations, or large amount of cellular data.
 
-- You can continue to have free plan products as long as they are within the free plan limits. In fact, each member of your organization still has a free plan sandbox that they can use for personal and development devices and do not add your growth plan bill.
+- You can continue to have free plan products as long as they are within the free plan limits. In fact, each member of your organization still has a free plan sandbox that they can use for personal and development devices and do not add your basic plan bill.
 
 {{top}}
 
@@ -172,14 +173,14 @@ An organization groups together one or more products so they:
 - Pooled usage across all products in the organization
 - Organization level users that have access to all products
 - You can still have product level users with access to specific products, if needed
-- There is no per-product fee for products in your growth organization, however the devices, data operations, and cellular data usage by the devices in those products count against your organization's total usage.
+- There is no per-product fee for products in your basic organization, however the devices, data operations, and cellular data usage by the devices in those products count against your organization's total usage.
 - A user can belong to multiple organizations if needed.
 
 {{top}}
 
-### What happens when I move a product to growth?
+### What happens when I move a product to basic?
 
-When you move a product into your growth plan organization:
+When you move a product into your basic plan organization:
 
 - Devices stay online the entire time with no interruption.
 - Webhooks will continue to function.
@@ -233,7 +234,7 @@ If all of your devices are still in the developer sandbox, there are a few steps
 
 ### Moving a product vs. moving devices
 
-Whenever possible you should move entire product(s) into your organization on the growth plan. This is generally painless and has no interruption in service.
+Whenever possible you should move entire product(s) into your organization on the basic plan. This is generally painless and has no interruption in service.
 
 Moving individual devices from one product to another can present certain issues that can be disruptive:
 
@@ -256,17 +257,17 @@ If you are using oAuth tokens created via the Authentication tab in a user accou
 
 You must create new oAuth tokens from a new client ID and secret created in the destination product. It's not possible to transfer oAuth tokens between accounts or products. 
 
-Authentication tokens created using `particle token create` from the product owner's account will continue to work after migrating to growth, assuming the the original product owner is also a team member of the organization or product.
+Authentication tokens created using `particle token create` from the product owner's account will continue to work after migrating to basic, assuming the the original product owner is also a team member of the organization or product.
 
-Authentication tokens created from an oAuth client ID and secret within the product will continue to function after the product is moved to a growth or enterprise organization.
+Authentication tokens created from an oAuth client ID and secret within the product will continue to function after the product is moved to a basic or enterprise organization.
 
 {{top}}
 
 ### Product owner webhooks
 
-If you created the webhooks in the product owner account and claimed all devices to the product owner account, this will still function uninterrupted when migrating to growth, as long as you don't change device claiming.
+If you created the webhooks in the product owner account and claimed all devices to the product owner account, this will still function uninterrupted when migrating to basic, as long as you don't change device claiming.
 
-As long as the devices are added to the growth organization product, the data operations incurred for webhook responses will be counted in the organization, even though the webhook is in the developer sandbox.
+As long as the devices are added to the basic organization product, the data operations incurred for webhook responses will be counted in the organization, even though the webhook is in the developer sandbox.
 
 However, if you change the device claiming you may need to move the webhook into the product. The product is generally the best place to put webhooks for product devices, and is required if you are using unclaimed product devices or customer claimed devices.
 

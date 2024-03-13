@@ -24,7 +24,7 @@ Learn more in the [creating a product guide](/getting-started/products/creating-
 In many cases, developers will have access to all products by default, but you can also control access to specific products. For example, if you hire a contractor to work on a single product they can get access to only that product and not the rest of your products.
 
 
-**An organization centralizes billing** for multiple products. Usage is also aggregated annually instead of monthly in the growth plan.
+**An organization centralizes billing** for multiple products. Usage is also aggregated annually instead of monthly in the basic plan.
 
 
 ## Migrating to enterprise
@@ -59,13 +59,10 @@ The enterprise plan usage is measured in blocks, and you need to pick an initial
 
 Billing is measured in blocks.
 
-- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month.
-- Up to {{growthTierDevices}} devices.
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices.
-- Blocks are specific to cellular, Tracker, or Wi-Fi. Usage is aggregated for all devices in all products in your growth organization of the same class. For example, Electrons, Borons, and B-Series are all cellular devices that can share the same block even though they are in different products.
-- Cellular blocks are {{growthBlockCellularPrice}} per month per block
-- Tracker blocks are {{growthBlockTrackerPrice}} per month per block
-- Wi-Fi blocks are {{growthBlockWiFiPrice}} per month per block
+- A block includes {{basicTierDataOperationsUnit}} Data Operations ({{basicTierDataOperationsComma}}) per month.
+- Up to {{basicTierDevices}} devices.
+- Up to {{basicTierDataOperationsCellularData}} of cellular data per month, pooled across all devices.
+- Blocks are {{basicBlockPrice}} per month per block
 
 {{top}}
 
@@ -102,7 +99,7 @@ The following do **not** count against your Data Operations limit:
 - Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
 - Particle cloud API calls do not count against your Data Operations limit
 
-<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Growth Plan. In the Growth Plan, additional blocks can be added to allow for more data operations.
+<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Basic plan. In the Basic plan, additional blocks can be added to allow for more data operations.
 {{!-- END shared-blurb --}}
 
 {{top}}
@@ -236,7 +233,7 @@ You must create new oAuth tokens from a new client ID and secret created in the 
 
 Authentication tokens created using `particle token create` from the product owner's account will continue to work after migrating to enterprise, assuming the the original product owner is also a team member of the organization or product.
 
-Authentication tokens created from an oAuth client ID and secret within the product will continue to function after the product is moved to a growth or enterprise organization.
+Authentication tokens created from an oAuth client ID and secret within the product will continue to function after the product is moved to a basic or enterprise organization.
 
 {{top}}
 

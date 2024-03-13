@@ -37,11 +37,11 @@ online.
 {{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac12000 --}}
 ![Sandbox device list](/assets/images/console/sandbox-devices.png)
 
-When **Sandbox** (1) is selected, you will see the devices in your personal sandbox, vs. your growth or enterprise organization. 
+When **Sandbox** (1) is selected, you will see the devices in your personal sandbox, vs. your basic or enterprise organization. 
 
 Clicking the **Devices** icon (2) shows the Device List.
 
-If the **Show sandbox devices only** checkbox (3) is not checked, then the list will be like the old, pre-checkbox, behavior and will show devices that are claimed to your account, both in your free developer sandbox as well as product devices in free, growth, and enterprise organization products. 
+If the **Show sandbox devices only** checkbox (3) is not checked, then the list will be like the old, pre-checkbox, behavior and will show devices that are claimed to your account, both in your free developer sandbox as well as product devices in free, basic, and enterprise organization products. 
 
 When checked, the list will only include non-product devices claimed to your account in the free developer sandbox.
 
@@ -157,7 +157,7 @@ tutorial](/integrations/google-cloud-platform/)
 
 The **Billing & Usage** page shows billing information and data usage (data operations and cellular). 
 
-All accounts have a personal sandbox on the free plan. The sandbox can include up to 100 cellular and Wi-Fi devices (in any combination, not to exceed 100 total), free of charge. For the growth plan, this is in addition to devices included in your growth plan blocks.
+All accounts have a personal sandbox on the free plan. The sandbox can include up to 100 cellular and Wi-Fi devices (in any combination, not to exceed 100 total), free of charge. For the basic plan, this is in addition to devices included in your basic plan blocks.
 
 From this page you can view the total number of devices and data operations consumed by your free sandbox devices.
 
@@ -167,7 +167,7 @@ For users who are Administrators of an organization, selecting the organization 
 
 ![Organization Billing](/assets/images/console/org-view.png)
 
-In the Growth and Enterprise plans, usage is divided by the class of devices. For example: Wi-Fi and Cellular:
+In the Basic and Enterprise plans, usage is divided by the class of devices. For example: Wi-Fi and Cellular:
 
 ![Wi-Fi and Cellular Usage](/assets/images/console/wifi-cellular-usage.png)
 
@@ -197,19 +197,19 @@ This option is also available for organization administrators in the organizatio
 
 You will receive warnings by email, and as a pop-up, and in the **Billing & Usage** tab in the console at 70%, 90%, and 100% of the allowable data operations. 
 
-In the free plan, once you reach the 100% limit you have three days to switch the the Growth plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
+In the free plan, once you reach the 100% limit you have three days to switch the the Basic plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
 
-In the growth plan, once you reach the 100% limit an additional block will be added to your plan. Starting at the next billing month your plan will include these additional block(s) and you will be billed accordingly. There is no additional charge at the time of the overage; it occurs only on the next billing cycle.
+In the basic plan, once you reach the 100% limit an additional block will be added to your plan. Starting at the next billing month your plan will include these additional block(s) and you will be billed accordingly. There is no additional charge at the time of the overage; it occurs only on the next billing cycle.
 
-### Upgrading to the growth plan
+### Upgrading to the basic plan
 
-Following the [link from the emails](https://www.particle.io/upgradetogrowth/) or **Billing & Usage** page leads to a contact form to initiate the upgrade process. A representative will contact you by telephone to complete the upgrade process to growth plan.
+Following the [link from the emails](https://www.particle.io/upgradetogrowth/) or **Billing & Usage** page leads to a contact form to initiate the upgrade process. A representative will contact you by telephone to complete the upgrade process to basic plan.
 
-When you upgrade to the growth plan, you will get an organization, which is the collection of products and accounts in your plan. The usage limits in the growth plan apply monthly across all products of the same type in your organization. Some limits vary between cellular, Wi-Fi, and tracker products. 
+When you upgrade to the basic plan, you will get an organization, which is the collection of products and accounts in your plan. The usage limits in the basic plan apply monthly across all products of the same type in your organization. Some limits vary between cellular, Wi-Fi, and tracker products. 
 
-Additionally, all organization members still have a private sandbox in their account and can still have their own 100 free devices that do not count against your growth plan limits. 
+Additionally, all organization members still have a private sandbox in their account and can still have their own 100 free devices that do not count against your basic plan limits. 
 
-If you already have your devices in a product, the entire product can be moved into your growth organization without affecting the customers, access tokens, or cloud API endpoints, so this should be a relatively easy transition.
+If you already have your devices in a product, the entire product can be moved into your basic organization without affecting the customers, access tokens, or cloud API endpoints, so this should be a relatively easy transition.
 
 ### Cellular usage
 
@@ -706,25 +706,25 @@ To see all billing related information, you can click on the billing icon in the
 
 For more information see [Device Cloud - Introduction - Pricing](/getting-started/cloud/introduction/#pricing).
 
-<sup>1</sup> You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. Once you reach the 100% limit you have three days to switch the the Growth plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
+<sup>1</sup> You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. Once you reach the 100% limit you have three days to switch the the Basic plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
 
 
 #### Free plan products
 
 Products can be prototyped in the Free plan at no charge. However, there is a limit of {{freeTierDevices}} devices for Free plan products. 
 
-#### Growth plan
+#### Basic plan
 
-- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
+- A block includes {{basicTierDataOperationsUnit}} Data Operations ({{basicTierDataOperationsComma}}) per month and up to {{basicTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
+- Up to {{basicTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
 
-In the Growth plan, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data. 
+In the Basic plan, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data. 
 
 You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations for your current number of blocks. Once you reach the 100% limit, an additional block will be added to your plan. Starting at the next billing month your plan will include these additional block(s) and you will be billed accordingly. There is no additional charge at the time of the overage; it occurs only on the next billing cycle.
 
-In the Growth and Enterprise plans, you will also have access to an **Organization**, which allows finer access control to multiple products. 
+In the Basic and Enterprise plans, you will also have access to an **Organization**, which allows finer access control to multiple products. 
 
 The number of devices is limited by the number of blocks you have purchased, 100 devices per block. You can purchase as many blocks as necessary to support number of devices you need.
 
@@ -742,7 +742,7 @@ If we attempt to charge your credit card and it fails, we do not immediately pre
 
 ## Organizations
 
-An organization makes it easy to manage multiple products with shared team members and billing. Organizations are available in the Growth and Enterprise plans. 
+An organization makes it easy to manage multiple products with shared team members and billing. Organizations are available in the Basic and Enterprise plans. 
 
 If your account is a member of an organization, the **Sandbox** popup in the upper left corner of the Particle console lists the organizations you can select:
 
@@ -2055,7 +2055,7 @@ Typical settings in common scenarios:
 
 A location publish uses one data operation to send the location data to the Particle cloud. If you subscribe to enhanced location events on the device, an additional data operation will be used.
 
-You can estimate the number of data operations you will consume using this calculator. For more information on the free plan, growth plan, blocks, and data operations, see [Pricing Plans](/getting-started/cloud/introduction/#pricing).
+You can estimate the number of data operations you will consume using this calculator. For more information on the free plan, basic plan, blocks, and data operations, see [Pricing Plans](/getting-started/cloud/introduction/#pricing).
 
 {{> dataoperationscalc}}
 
@@ -3146,7 +3146,7 @@ There are multiple lists of devices and SIM card lists, and this section describ
 
 The devices list includes devices that are claimed to your account, that you are the owner of, in your free developer sandbox. These devices count against your free plan limit of 100 devices.
 
-It also includes devices that are claimed to your account, that are part of a product (free, growth, or enterprise). Devices that are claimed to your account but are part of product do not count toward your free device limit.
+It also includes devices that are claimed to your account, that are part of a product (free, basic, or enterprise). Devices that are claimed to your account but are part of product do not count toward your free device limit.
 
 The exception is free plan products owned by you, in which case all devices, whether claimed by you or not, count toward the 100 device limit. Only devices claimed by you show up in this list; the others are only in the product device list but still count toward the limit.
 
@@ -3233,7 +3233,7 @@ The products list in the organization shows all products in the organization you
 
 It is also possible to invite team members to the product who are not part of the organization. For example, if you hire a outside contractor to work on a specific project you could grant developer access to only that product, not the whole organization.
 
-Organizations are used for both growth and enterprise plans. An organization is a collection of products, shared team access controls, and shared billing that span across all products. This makes it much easier to manage multiple products. Every member of an organization also has a free sandbox associated with their account.
+Organizations are used for both basic and enterprise plans. An organization is a collection of products, shared team access controls, and shared billing that span across all products. This makes it much easier to manage multiple products. Every member of an organization also has a free sandbox associated with their account.
 
 ![Products - organization](/assets/images/console/org-products.png)
 
@@ -3255,7 +3255,7 @@ This list shows all devices that are included in a product, regardless of claimi
 
 Cellular devices with Particle SIM cards, either built-in (MFF2) or plastic nano SIM cards (4FF), show up in this list. The cellular usage by these SIM cards count against the cellular data limit for the organization that owns the product.
 
-In the growth plan, for each class of class device (cellular or tracker), there is a pool of data based on the number of blocks. If you exceed this pool of cellular data, a new block is added to the organization.
+In the basic plan, for each class of class device (cellular or tracker), there is a pool of data based on the number of blocks. If you exceed this pool of cellular data, a new block is added to the organization.
 
 ![Product SIMs - organization](/assets/images/console/org-product-sims.png)
 

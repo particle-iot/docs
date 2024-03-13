@@ -341,9 +341,9 @@
         "href": "/getting-started/billing/cellular-data/"
       },
       {
-        "dir": "migrating-to-growth",
-        "title": "Migrating to growth plan",
-        "href": "/getting-started/billing/migrating-to-growth/"
+        "dir": "migrating-to-basic",
+        "title": "Migrating to basic plan",
+        "href": "/getting-started/billing/migrating-to-basic/"
       }
     ],
     {

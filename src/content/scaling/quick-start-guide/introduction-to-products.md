@@ -30,13 +30,13 @@ Products allow a number of additional features over developer devices:
 
 You can start developing with a Product for initial prototyping and testing and later import your Products to an Organization when you scale to Enterprise quantities.
 
-#### Growth plan
+#### Basic plan
 
-Once you move beyond the 100-device limit of the Free plan, you can move to the [Growth plan](/getting-started/cloud/introduction/#pricing). 
+Once you move beyond the 100-device limit of the Free plan, you can move to the [Basic plan](/getting-started/cloud/introduction/#pricing). 
 
 #### Enterprise features
 
-Once you move beyond Growth to an Enterprise plan, you get features such as annual pooled usage, volume discounts, and service level agreements (SLA).
+Once you move beyond Basic to an Enterprise plan, you get features such as annual pooled usage, volume discounts, and service level agreements (SLA).
 
 ## 1\. Add Devices to Your Products
 

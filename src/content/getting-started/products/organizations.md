@@ -17,7 +17,7 @@ team, and a centralized billing account. With an Organization, you can:
 - **Centralize visibility and control** by housing many Particle projects underneath a single, shared account
 - **Collaborate at scale** through tiered team management and cascading role based access controls (RBAC)
 
-Organizations are available in the Growth and Enterprise plans. Products that were started in the Free plan in an individual account can be migrated to an Organization when upgrading to Growth or Enterprise.
+Organizations are available in the Basic and Enterprise plans. Products that were started in the Free plan in an individual account can be migrated to an Organization when upgrading to Basic or Enterprise.
 
 ## Setting up your organization
 

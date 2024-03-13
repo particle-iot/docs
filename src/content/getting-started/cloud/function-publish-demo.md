@@ -84,7 +84,7 @@ Once you've set the default firmware, and newly added device will automatically 
 
 ### Add devices to product
 
-Whenever you have a product, you must add devices to it. When you scale, you will typically add all of the devices in your order at once, as you will be emailed a list of the Device IDs in your order. In the growth and enterprise plans, just adding the Device ID to the product does not affect billing; billing only starts the first time the device connects to the Particle cloud.
+Whenever you have a product, you must add devices to it. When you scale, you will typically add all of the devices in your order at once, as you will be emailed a list of the Device IDs in your order. In the basic and enterprise plans, just adding the Device ID to the product does not affect billing; billing only starts the first time the device connects to the Particle cloud.
 
 For this demo, you can just select existing devices from your developer sandbox to use in this tutorial. If you do not have a device yet, you can skip this step and use the **Test** feature to show how the webhook works without a device.
 

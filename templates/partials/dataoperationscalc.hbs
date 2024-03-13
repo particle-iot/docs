@@ -24,8 +24,8 @@
 <script>
 const freeMaxDevices = {{freeTierDevices}};
 const freeDataOperations = {{freeTierDataOperationsValue}};
-const devicesPerBlock = {{growthTierDevices}};
-const dataOperationsPerBlock = {{growthTierDataOperationsValue}};
+const devicesPerBlock = {{basicTierDevices}};
+const dataOperationsPerBlock = {{basicTierDataOperationsValue}};
 
 var dataUnitCalc = {};
 
@@ -78,7 +78,7 @@ dataUnitCalc.update = function() {
 
             const blocks = Math.max(minBlocksOperations, minBlocksDevices);
 
-            res1 = 'Requires growth plan with ' + blocks + ' blocks.'
+            res1 = 'Requires basic plan with ' + blocks + ' blocks.'
         }
 
         res2 = dataUnitCalc.commaValue(dataOperations) + ' data operations per month.';

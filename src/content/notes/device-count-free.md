@@ -8,7 +8,7 @@ What this means is that the device list in your developer sandbox account is not
 These **do not** contribute to the free plan limit:
 
 - Devices that are claimed to your account, but are part of a free plan product that you are a team member of, but not the owner.
-- Devices that are claimed to your account, but are part of a growth or enterprise plan product.
+- Devices that are claimed to your account, but are part of a basic or enterprise plan product.
 
 #### Product devices
 
