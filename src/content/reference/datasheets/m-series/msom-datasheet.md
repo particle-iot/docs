@@ -412,7 +412,7 @@ For rapidly changing signals, a voltage follower IC can be used.
 - Hardware flow control is optional; if not used then the RTS and CTS pins can be used as regular GPIO
 - Serial1 uses the RTL872x UART_LOG peripheral
 - Serial2 uses the RTL872x HS_UART0 peripheral
-- Supported baud rates: 110, 300, 600, 1200, 9600, 14400, 19200, 28800, 38400, 57600, 76800, 115200, 128000, 153600, 230400, 500000, 921600, 1000000, 1382400, 1444400, 1500000, 1843200, 2000000, 2100000, 2764800, 3000000, 3250000, 3692300, 3750000, 4000000, 6000000
+- Supported baud rates: 110, 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, 76800, 115200, 128000, 153600, 230400, 380400, 460800, 500000, 921600, 1000000, 1382400, 1444400, 1500000, 1843200, 2000000, 2100000, 2764800, 3000000, 3250000, 3692300, 3750000, 4000000, 6000000
 
 
 
@@ -1100,3 +1100,4 @@ Global, country list to be provided a later date.
 |          | 2024-02-20 | RK | M.2 screw assembly should be connected to ground |
 |          | 2024-02-20 | RK | Added pin drive strength |
 |          | 2024-03-14 | RK | M SoM pin 45 is not shared. Pins 43 and 53 are both connected to PB[2], but not pin 45. |
+|          | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |

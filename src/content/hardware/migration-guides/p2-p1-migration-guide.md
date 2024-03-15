@@ -202,8 +202,8 @@ Supported Baud Rates:
 | 300     | | &check; |
 | 600     | | &check; |
 | 1200    | &check; | &check; |
-| 2400    | &check; | |
-| 4800    | &check; | |
+| 2400    | &check; | &check;|
+| 4800    | &check; | &check;|
 | 9600    | &check; | &check; |
 | 14400   | | &check; |
 | 19200   | &check; | &check; |
@@ -215,6 +215,8 @@ Supported Baud Rates:
 | 128000  | | &check; |
 | 153600  | | &check; |
 | 230400  | &check; | &check; |
+| 380400  | | &check; |
+| 460800  | | &check; |
 | 500000  | | &check; |
 | 921600  | | &check; |
 | 1000000 | | &check; |
@@ -1212,3 +1214,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | 001 | 2023-03-13 | RK | Removed preliminary banner |
 | 002 | 2023-04-05 | RK | Added Device OS 5.3.1 information for SPI and retained memory |
 | 003 | 2023-05-05 | RK | Fix available RAM |
+| 004 | 2024-03-15 | RK | The UART baud rate 2400, 4800, 380400, 460800 are supported but were not listed |

@@ -21,6 +21,9 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+### P2, Photon 2, M-SoM baud rates 2024-03-16
+
+On the P2, Photon 2, M-SoM, and Muon UART serial, 2400, 4800, 380400, 460800, baud rates are supported but were not listed.
 
 ### M SoM pin 45 2024-03-15
 
