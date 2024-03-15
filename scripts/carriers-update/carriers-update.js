@@ -1301,6 +1301,25 @@ const generatorConfig = require('./generator-config');
         return updater.generateTable(tableOptions, tableData);
     };
 
+    updater.fixAntennaSku = function(deviceSkuObj, antennaSku) {
+        // deviceSkuObj of device (used to determine if it's a multiple) (required)
+        // antennaSku SKU of antenna (required)
+        // Returns .ntennaSku if device is single, or tray version of antenna SKU if multiple
+
+        const antennaObj = updater.datastore.data.skus.find(e => e.name == antennaSku);
+        if (!deviceSkuObj || !antennaObj || !deviceSkuObj.multiple) {
+            return antennaSku;
+        }
+
+        for(const skuObj of updater.datastore.data.skus) {
+            if (skuObj.singleSku == antennaSku) {
+                return skuObj.name;
+            }
+        }       
+        
+        return antennaSku;
+    };
+
 
     updater.generateAntCell = function(options) {
         let skus = [];
@@ -1344,14 +1363,14 @@ const generatorConfig = require('./generator-config');
             
             md += ' | ' + (skuObj.cellAntInc ? '&check;' : '&nbsp;');
 
-            md += ' | ' + skuObj.cellAnt;
+            md += ' | ' + updater.fixAntennaSku(skuObj, skuObj.cellAnt);
 
             if (skuObj.cellAntAlt) {
                 let footnote = '2';
                 if (skuObj.cellAntAlt == 'ANT-FLXU') {
                     footnote = '3';
                 }
-                md += ' | ' + skuObj.cellAntAlt + '<sup>' + footnote + '</sup>';
+                md += ' | ' + updater.fixAntennaSku(skuObj, skuObj.cellAntAlt) + '<sup>' + footnote + '</sup>';
             }
             else {
                 md += ' | &nbsp;';
@@ -1408,8 +1427,8 @@ const generatorConfig = require('./generator-config');
         skus.forEach(function(skuObj) {
             md += '| ' + skuObj.desc + ' | ' + skuObj.name;
             
-            md += ' | ' + (skuObj.wifiAntInt ? skuObj.wifiAntInt : '&nbsp;');
-            md += ' | ' + (skuObj.wifiAntExt ? skuObj.wifiAntExt : '&nbsp;');
+            md += ' | ' + (skuObj.wifiAntInt ? updater.fixAntennaSku(skuObj, skuObj.wifiAntInt) : '&nbsp;');
+            md += ' | ' + (skuObj.wifiAntExt ? updater.fixAntennaSku(skuObj, skuObj.wifiAntExt) : '&nbsp;');
             md += ' | ' + (skuObj.wifiAntExtInc ? '&check;' : '&nbsp;');
             md += ' | ' + skuObj.lifecycle;
 
@@ -1463,7 +1482,7 @@ const generatorConfig = require('./generator-config');
             md += '| ' + skuObj.desc + ' | ' + skuObj.name;
             
             md += ' | ' + (skuObj.bleAntInt ? '&check;' : '&nbsp;');
-            md += ' | ' + (skuObj.bleAntExt ? skuObj.bleAntExt : '&nbsp;');
+            md += ' | ' + (skuObj.bleAntExt ? updater.fixAntennaSku(skuObj, skuObj.bleAntExt) : '&nbsp;');
             md += ' | ' + (skuObj.bleAntExtInc ? '&check;' : '&nbsp;');
             md += ' | ' + skuObj.lifecycle;
 

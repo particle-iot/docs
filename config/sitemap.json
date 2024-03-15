@@ -700,7 +700,7 @@
         },
         "getting-started/setup/manual-setup.md": {
             "date": "2024-03-15",
-            "hash": "264d4367ef909b568ab386a85e55530fabe282aa708f2d28628b9770aeb3e356"
+            "hash": "f244867d4a8617d23c0c778780c7a1b7a04d37765062e437312cdebe765d8cb8"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -935,8 +935,8 @@
             "hash": "8b9c0a383d0a23e8cec201d0cc62f82e97c902a354cd0fdccb5c62d59e677fea"
         },
         "hardware/certification/antenna.md": {
-            "date": "2024-02-27",
-            "hash": "5fdfe0e17ba0d7815c003a55dd09456b9925a495aeb0ee481b57735ea023286d"
+            "date": "2024-03-15",
+            "hash": "94fb4a19d8ea9347fd18eefb0dfd786212129a68b935b3ba7662d22e3919f14f"
         },
         "hardware/certification/battery-certification.md": {
             "date": "2023-09-01",
@@ -1003,12 +1003,12 @@
             "hash": "07749c85f49f3f0a7cb457f8cad21e5a3d5a8573093645d0b157636dd462d819"
         },
         "hardware/migration-guides/b-series-e-series-migration-guide.md": {
-            "date": "2024-02-27",
-            "hash": "2fd56ae0051b681c3a4511ac847b0bc6a1d60b7918e9abd66fd06aa646aeeaec"
+            "date": "2024-03-15",
+            "hash": "e2b3e30eb09c066f06c8246a832382de3f9ee83d2ee342e6a3ef6dad79001dc3"
         },
         "hardware/migration-guides/b-series-electron-migration-guide.md": {
-            "date": "2024-02-27",
-            "hash": "2a409738a4d1f4a2012bba58ca3b76edd48e598e20dd15f006b2857bbac16fe6"
+            "date": "2024-03-15",
+            "hash": "4621f1154eacab20f6547192d07ef6de6c0af55cadb501bf7b0339ed8857fac9"
         },
         "hardware/migration-guides/e404x-migration-guide.md": {
             "date": "2024-02-27",
@@ -1580,7 +1580,7 @@
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
             "date": "2024-03-15",
-            "hash": "b560bc15e4dc5a512c371df3481b16beee4fb617c5af5c0e6fe9dcdd1715e61a"
+            "hash": "ed0438c0825b4a64c83becb8bd5723364552760d602b32fdae08ee104247c099"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2022-06-29",
