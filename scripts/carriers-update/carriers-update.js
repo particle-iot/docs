@@ -929,7 +929,7 @@ const generatorConfig = require('./generator-config');
         let tableData = [];
 
         updater.datastore.data.skus.forEach(function(skuObj) {
-            if (skuObj.usb === false) {
+            if (skuObj.usb === false || skuObj.antenna) {
                 // No USB required
                 return;
             }

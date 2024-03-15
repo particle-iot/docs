@@ -699,8 +699,8 @@
             "hash": "81e578c0cb9eae073f929db481418784b0befcf13c4c2f3fb7f2b17cad48df8e"
         },
         "getting-started/setup/manual-setup.md": {
-            "date": "2024-03-13",
-            "hash": "f244867d4a8617d23c0c778780c7a1b7a04d37765062e437312cdebe765d8cb8"
+            "date": "2024-03-15",
+            "hash": "264d4367ef909b568ab386a85e55530fabe282aa708f2d28628b9770aeb3e356"
         },
         "getting-started/setup/setup-options.md": {
             "date": "2022-05-18",
@@ -1323,8 +1323,8 @@
             "hash": "8ec1d044f01f999adecac71c84569f85ddc65a79a945931264287d49eae28e81"
         },
         "reference/product-lifecycle/product-lifecycle-policy-status.md": {
-            "date": "2024-02-27",
-            "hash": "e292f1cfe0fc6f1a7bb82268ac9239925994e842fb925d8ec24b4fac6b148926"
+            "date": "2024-03-15",
+            "hash": "db4a17c69feaa63230423442dde87f51f6f4ad2bfbb7d6eb2995df8529154597"
         },
         "reference/product-lifecycle/product-lifecycle-stages.md": {
             "date": "2023-03-17",
@@ -1579,8 +1579,8 @@
             "hash": "34566de2142cf8a34c5f73d32fcc90de68d2a88a99b2d3ec3a81576d80fab9e7"
         },
         "troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors.md": {
-            "date": "2024-02-27",
-            "hash": "ed0438c0825b4a64c83becb8bd5723364552760d602b32fdae08ee104247c099"
+            "date": "2024-03-15",
+            "hash": "b560bc15e4dc5a512c371df3481b16beee4fb617c5af5c0e6fe9dcdd1715e61a"
         },
         "troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows.md": {
             "date": "2022-06-29",

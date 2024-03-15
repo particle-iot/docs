@@ -28,6 +28,8 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 
 | SKU | Description | Gen | Lifecycle | Replacement | End of support |
 | :--- | :--- | :---: | :---: | :---: | :---: |
+| ANT-FLXU-50 | Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | &nbsp; | NRND | &nbsp; | &nbsp; |
+| ANTELEC50 | Taoglas Cellular PCB Antenna 2G/3G 2.4dBi [x50] | &nbsp; | NRND | &nbsp; | &nbsp; |
 | B402MTY | B-Series LTE CAT-M1 (NorAm), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
 | B404MTY | B-Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | 3 | NRND | B404XMTY | &nbsp; |
 | B523MTY | B-Series LTE CAT-1/3G/2G (Europe), Tray [x50] | 3 | NRND | B524MTY | &nbsp; |

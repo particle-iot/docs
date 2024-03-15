@@ -19839,6 +19839,109 @@
       "batteryRequired": false
     },
     {
+      "name": "ANT-FLXU",
+      "desc": "Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]",
+      "lifecycle": "NRND",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "ANT-FLXU-50",
+      "desc": "Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50]",
+      "lifecycle": "NRND",
+      "multiple": true,
+      "singleSku": "ANT-FLXU",
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "ANT-FLXV2",
+      "desc": "Particle Wi-Fi Antenna 2.4GHz, [x1]",
+      "lifecycle": "GA",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "ANT-FLXV2-50",
+      "desc": "Particle Wi-Fi Antenna 2.4GHz [x50]",
+      "lifecycle": "GA",
+      "multiple": true,
+      "singleSku": "ANT-FLXV2",
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "ANT-NFC",
+      "desc": "Particle NFC Antenna, [x1]",
+      "lifecycle": "GA",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "ANTCW2EA",
+      "desc": "Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]",
+      "lifecycle": "GA",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "ANTCW2TY",
+      "desc": "Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi [x50]",
+      "lifecycle": "GA",
+      "multiple": true,
+      "singleSku": "ANTCW2EA",
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "ANTELEC",
+      "desc": "Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1]",
+      "lifecycle": "NRND",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "ANTELEC50",
+      "desc": "Taoglas Cellular PCB Antenna 2G/3G 2.4dBi [x50]",
+      "lifecycle": "NRND",
+      "multiple": true,
+      "singleSku": "ANTELEC",
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
       "name": "ARG-AQKT",
       "desc": "Argon Air Quality Monitor Kit [x1]",
       "lifecycle": "NRND",
@@ -19985,6 +20088,7 @@
       "desc": "Argon, Tray [x50]",
       "lifecycle": "Deprecated",
       "multiple": true,
+      "singleSku": "ARGN-H",
       "wifi": true,
       "gen": "3",
       "family": "argon",
@@ -20128,6 +20232,7 @@
       "replacement": "B404XMTY",
       "modem": "R410",
       "multiple": true,
+      "singleSku": "B402MEA",
       "sim": 3,
       "simPlans": [
         30
@@ -20196,6 +20301,7 @@
       "replacement": "B404XMTY",
       "modem": "R410",
       "multiple": true,
+      "singleSku": "B404MEA",
       "sim": 4,
       "simPlans": [
         40
@@ -20264,6 +20370,7 @@
       "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
+      "singleSku": "B404XMEA",
       "sim": 4,
       "simPlans": [
         40
@@ -20333,6 +20440,7 @@
       "replacement": "B524MTY",
       "modem": "EG91-E",
       "multiple": true,
+      "singleSku": "B523MEA",
       "sim": 2,
       "simPlans": [
         20,
@@ -20399,6 +20507,7 @@
       "lifecycle": "GA",
       "modem": "EG91-E",
       "multiple": true,
+      "singleSku": "B524MEA",
       "sim": 4,
       "simPlans": [
         40
@@ -20441,6 +20550,7 @@
       "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": true,
+      "singleSku": "BAT1800",
       "skuRegion": "global",
       "prefix": "BA50",
       "usb": false,
@@ -20487,6 +20597,7 @@
       "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
+      "singleSku": "BRN310KIT",
       "sim": 2,
       "simPlans": [
         20,
@@ -20556,6 +20667,7 @@
       "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
+      "singleSku": "BRN314KIT",
       "sim": 4,
       "simPlans": [
         40
@@ -20683,6 +20795,7 @@
       "replacement": "BRN404XTRAY50",
       "modem": "R410",
       "multiple": true,
+      "singleSku": "BRN402KIT",
       "sim": 3,
       "simPlans": [
         30
@@ -20782,6 +20895,7 @@
       "replacement": "BRN404XTRAY50",
       "modem": "R410",
       "multiple": true,
+      "singleSku": "BRN404KIT",
       "sim": 4,
       "simPlans": [
         40
@@ -20883,6 +20997,7 @@
       "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
+      "singleSku": "BRN404XKIT",
       "sim": 4,
       "simPlans": [
         40
@@ -20944,6 +21059,7 @@
       "replacement": "BRN404XTRAY50",
       "modem": "U260",
       "multiple": true,
+      "singleSku": "E260KIT",
       "sim": 1,
       "simPlans": [
         11
@@ -20993,6 +21109,7 @@
       "replacement": "B524MTY",
       "modem": "U270",
       "multiple": true,
+      "singleSku": "E270KIT",
       "sim": 1,
       "simPlans": [
         11
@@ -21073,6 +21190,7 @@
       "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
+      "singleSku": "E310MOD1",
       "sim": 1,
       "simPlans": [
         11
@@ -21124,6 +21242,7 @@
       "lifecycle": "End of life",
       "modem": "U201",
       "multiple": true,
+      "singleSku": "E313EA",
       "sim": 2,
       "simPlans": [
         21
@@ -21200,6 +21319,7 @@
       "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
+      "singleSku": "E314MOD1",
       "sim": 4,
       "simPlans": [
         40
@@ -21253,6 +21373,7 @@
       "replacement": "B524MTY",
       "modem": "G350",
       "multiple": true,
+      "singleSku": "E350KIT",
       "sim": 1,
       "simPlans": [
         11
@@ -21329,6 +21450,7 @@
       "replacement": "E404XTRAY50",
       "modem": "R410",
       "multiple": true,
+      "singleSku": "E402MOD1",
       "sim": 3,
       "simPlans": [
         30
@@ -21413,6 +21535,7 @@
       "replacement": "E404XTRAY50",
       "modem": "R410",
       "multiple": true,
+      "singleSku": "E404MOD1",
       "sim": 4,
       "simPlans": [
         40
@@ -21437,6 +21560,7 @@
       "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
+      "singleSku": false,
       "sim": 4,
       "simPlans": [
         40
@@ -21477,6 +21601,7 @@
       "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
+      "singleSku": "ELC314EA",
       "sim": 4,
       "simPlans": [
         40
@@ -21530,6 +21655,7 @@
       "replacement": "BRN404XTRAY50",
       "modem": "R410",
       "multiple": true,
+      "singleSku": "ELC402EA",
       "sim": 3,
       "simPlans": [
         30
@@ -21558,6 +21684,7 @@
       "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
+      "singleSku": "ELC404EA",
       "sim": 4,
       "simPlans": [
         40
@@ -21700,6 +21827,7 @@
       "desc": "M-Series LTE M1/2G (Global, EtherSIM), Tray [x50]",
       "lifecycle": "In development",
       "multiple": true,
+      "singleSku": "M404MEA",
       "enterprise": false,
       "wholesale": true,
       "retail": false,
@@ -21773,6 +21901,7 @@
       "desc": "M-Series LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50]",
       "lifecycle": "In development",
       "multiple": true,
+      "singleSku": "M524MEA",
       "enterprise": false,
       "wholesale": true,
       "retail": false,
@@ -21859,6 +21988,7 @@
       "lifecycle": "In development",
       "accessory": true,
       "multiple": true,
+      "singleSku": "M8CAB3VEA",
       "enterprise": true,
       "wholesale": true,
       "retail": false,
@@ -21898,6 +22028,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
+      "singleSku": "M8CABRAEA",
       "enterprise": true,
       "wholesale": true,
       "retail": false,
@@ -21911,6 +22042,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
+      "singleSku": "M8CABEA",
       "enterprise": true,
       "wholesale": true,
       "retail": false,
@@ -21937,6 +22069,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
+      "singleSku": "M8CONNEA",
       "enterprise": true,
       "wholesale": true,
       "retail": false,
@@ -21963,6 +22096,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
+      "singleSku": "M8TEMPHUMIEA",
       "enterprise": true,
       "wholesale": true,
       "retail": false,
@@ -22370,6 +22504,7 @@
       "replacement": "ONE404MTY",
       "modem": "BG96-MC",
       "multiple": true,
+      "singleSku": "ONE402MEA",
       "sim": 3,
       "simPlans": [
         30
@@ -22442,6 +22577,7 @@
       "lifecycle": "GA",
       "modem": "BG96-MC",
       "multiple": true,
+      "singleSku": "ONE404MEA",
       "sim": 4,
       "simPlans": [
         40
@@ -22527,6 +22663,7 @@
       ],
       "simMff2": true,
       "multiple": true,
+      "singleSku": "ONE523MEA",
       "family": "tracker",
       "gen": "3",
       "skuClass": "production",
@@ -22597,6 +22734,7 @@
       "lifecycle": "GA",
       "modem": "EG91-EX",
       "multiple": true,
+      "singleSku": "ONE524MEA",
       "sim": 4,
       "simPlans": [
         40
@@ -22634,6 +22772,7 @@
       "desc": "P0 Wi-Fi Module, Cut tape [x10]",
       "lifecycle": "Deprecated",
       "multiple": true,
+      "singleSku": false,
       "wifi": true,
       "gen": "2",
       "family": "p series",
@@ -22653,6 +22792,7 @@
       "desc": "P0 Wi-Fi Module, Reel [x2000]",
       "lifecycle": "Deprecated",
       "multiple": true,
+      "singleSku": false,
       "wifi": true,
       "gen": "2",
       "family": "p series",
@@ -22672,6 +22812,7 @@
       "desc": "P1 Wi-Fi Module, Cut tape [x10]",
       "lifecycle": "Deprecated",
       "multiple": true,
+      "singleSku": false,
       "wifi": true,
       "gen": "2",
       "family": "p series",
@@ -22694,6 +22835,7 @@
       "desc": "P1 Wi-Fi Module, Reel [x500]",
       "lifecycle": "NRND",
       "multiple": true,
+      "singleSku": false,
       "wifi": true,
       "gen": "2",
       "family": "p series",
@@ -22717,6 +22859,7 @@
       "desc": "P2 Wi-Fi Module, Cut tape [x10]",
       "lifecycle": "GA",
       "multiple": true,
+      "singleSku": false,
       "wifi": true,
       "gen": "3",
       "family": "p series",
@@ -22743,6 +22886,7 @@
       "desc": "P2 Wi-Fi Module, Reel [x600]",
       "lifecycle": "GA",
       "multiple": true,
+      "singleSku": false,
       "wifi": true,
       "gen": "3",
       "family": "p series",
@@ -22763,6 +22907,98 @@
       "platformId": 32,
       "usb": false,
       "batteryRequired": false
+    },
+    {
+      "name": "PARANTC41EA",
+      "desc": "Wide band LTE-CAT M1 cell antenna [x1]",
+      "lifecycle": "GA",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "PARANTC41TY",
+      "desc": "Wide band LTE-CAT M1 cell antenna[x50]",
+      "lifecycle": "GA",
+      "multiple": true,
+      "singleSku": "PARANTC41EA",
+      "enterprise": false,
+      "wholesale": true,
+      "retail": false,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "PARANTCW1EA",
+      "desc": "Wide band LTE cell antenna, [x1]",
+      "lifecycle": "GA",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "PARANTCW1TY",
+      "desc": "Wide band LTE cell antenna, [x50]",
+      "lifecycle": "GA",
+      "multiple": true,
+      "singleSku": "PARANTCW1EA",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "PARANTGN1EA",
+      "desc": "Particle GNSS FPC antenna, [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "PARANTGN1TY",
+      "desc": "Particle GNSS FPC antenna, [x50]",
+      "lifecycle": "In development",
+      "multiple": true,
+      "singleSku": "PARANTGN1EA",
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "PARANTWM1EA",
+      "desc": "Particle P2/Photon2 Wi-Fi antenna 2.4/5GHz, [x1]",
+      "lifecycle": "GA",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "antenna": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "PARANTWM1TY",
+      "desc": "Particle P2/Photon2 Wi-Fi antenna 2.4/5GHz [x50]",
+      "lifecycle": "GA",
+      "multiple": true,
+      "singleSku": "PARANTWM1EA",
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "antenna": true,
+      "skuRegion": "global"
     },
     {
       "name": "PHN2EDGEKIT",
@@ -22846,6 +23082,7 @@
       "desc": "Photon 2, Tray [x50]",
       "lifecycle": "GA",
       "multiple": true,
+      "singleSku": "PHN2MEA",
       "wifi": true,
       "gen": "3",
       "family": "p series",
@@ -22872,6 +23109,7 @@
       "desc": "Photon with Headers, Tray [x50]",
       "lifecycle": "NRND",
       "multiple": true,
+      "singleSku": "PHOTONH",
       "wifi": true,
       "gen": "2",
       "family": "photon",
@@ -22895,6 +23133,7 @@
       "desc": "Photon without Headers, Tray [x50]",
       "lifecycle": "NRND",
       "multiple": true,
+      "singleSku": "PHOTONNOH",
       "wifi": true,
       "gen": "2",
       "family": "photon",
@@ -23011,6 +23250,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
+      "singleSku": false,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
@@ -23039,6 +23279,7 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
+      "singleSku": "SIMBLANKV2",
       "enterprise": true,
       "wholesale": true,
       "retail": false,
@@ -23211,6 +23452,7 @@
       "replacement": "T404MTY",
       "modem": "BG96-MC",
       "multiple": true,
+      "singleSku": "T402MEA",
       "sim": 3,
       "simPlans": [
         30
@@ -23328,6 +23570,7 @@
       "lifecycle": "GA",
       "modem": "BG96-MC",
       "multiple": true,
+      "singleSku": "T404MEA",
       "sim": 4,
       "simPlans": [
         40
@@ -23446,6 +23689,7 @@
       "replacement": "T524MTY",
       "modem": "EG91-EX",
       "multiple": true,
+      "singleSku": "T523MEA",
       "sim": 2,
       "simPlans": [
         20,
@@ -23558,6 +23802,7 @@
       "lifecycle": "GA",
       "modem": "EG91-EX",
       "multiple": true,
+      "singleSku": "T524MEA",
       "sim": 4,
       "simPlans": [
         40
@@ -23596,6 +23841,7 @@
       "desc": "Xenon [x50]",
       "lifecycle": "End of life",
       "multiple": true,
+      "singleSku": false,
       "wifi": false,
       "cellular": false,
       "gen": "3",
