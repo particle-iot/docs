@@ -11710,6 +11710,7 @@
           "analogWriteDAC": false,
           "analogWritePWM": true,
           "attachInterrupt": true,
+          "boot": "SWCLK. 40K pull-down at boot.",
           "digitalRead": true,
           "digitalWrite": true,
           "hardwareADC": "ADC_6",
@@ -11718,6 +11719,7 @@
           "is5VTolerant": false,
           "isIO": true,
           "somPin": "RESERVED",
+          "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
           "tone": true
         },
         {
@@ -11732,12 +11734,11 @@
           "num": 45,
           "name": "A6",
           "altName": "D29",
-          "desc": "A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53",
+          "desc": "A6 Analog in, GPIO, PWM, M.2 eval PMIC INT",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": true,
           "attachInterrupt": true,
-          "boot": "SWCLK. 40K pull-down at boot.",
           "digitalRead": true,
           "digitalWrite": true,
           "hardwareADC": "ADC_3",
@@ -11747,7 +11748,6 @@
           "isIO": true,
           "pwmChannel": "1.17",
           "somPin": "RESERVED",
-          "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
           "tone": true
         },
         {
@@ -11839,7 +11839,7 @@
           "num": 53,
           "name": "A5",
           "altName": "D14",
-          "desc": "A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45",
+          "desc": "A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43",
           "analogRead": true,
           "analogWriteDAC": false,
           "analogWritePWM": true,

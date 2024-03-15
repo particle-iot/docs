@@ -102,8 +102,8 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | SWCLK | PB[7] |
-| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | SWCLK | PB[3] |
+| 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | SWCLK | PB[3] |
+| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43 | SWCLK | PB[3] |
 | 55 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | SWDIO | PA[27] |
 
 
@@ -298,7 +298,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
-| 45 | A6 / D29 | SWCLK. 40K pull-down at boot. | PB[7] |
+| 43 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
 | 53 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
 | 55 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
 | 58 | D24 | Low at boot triggers ISP flash download | PA[7] |
@@ -427,12 +427,14 @@ The Boron and Argon support NFC Tag mode.
 | ∆ | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
+| ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### A5
 | | Added to M-SoM |
 | :--- | :--- |
 | Pin Name | A5|
 | Pin Alternate Name | D14|
-| Description | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45|
+| Description | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
@@ -447,7 +449,7 @@ The Boron and Argon support NFC Tag mode.
 | :--- | :--- |
 | Pin Name | A6|
 | Pin Alternate Name | D29|
-| Description | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53|
+| Description | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
@@ -455,8 +457,6 @@ The Boron and Argon support NFC Tag mode.
 | Supports tone | Yes|
 | Supports attachInterrupt | Yes|
 | Internal pull resistance | ???|
-| SWD interface | SWCLK. 40K pull-down at boot.|
-| Signal used at boot | SWCLK. 40K pull-down at boot.|
 #### AGND
 | | Added to M-SoM |
 | :--- | :--- |

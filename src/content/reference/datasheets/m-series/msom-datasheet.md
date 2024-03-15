@@ -179,16 +179,16 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | SWCLK | PB[7] |
-| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | SWCLK | PB[3] |
+| 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | SWCLK | PB[3] |
+| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43 | SWCLK | PB[3] |
 | 55 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | SWDIO | PA[27] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-- SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is no longer available. This is the same as Gen 2 (STM32) but different than Gen 3 (nRF52840).
+- SWD is on the same pins as GPIO, so by default once user firmware boots, SWD is no longer available unless SWD is enabled at compile time. This is the same as Gen 2 (STM32) but different than Gen 3 (nRF52840).
 - SWO (Serial Wire Output) is not supported on the RTL8722DM.
-- Pins 45 and 53 are shared 
+- Pins 43 and 53 are shared 
 
 ## Pin information
 
@@ -208,9 +208,9 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | A2 / D17 | 35 | ADC_2 | &nbsp; | &nbsp; | &nbsp; | PB[6] |
 | A3 / D16 | 37 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
 | A4 / D15 | 41 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
-| A5 / D14 | 43 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
+| A5 / D14 | 43 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
 | A5 / D14 | 53 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| A6 / D29 | 45 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[7] |
+| A6 / D29 | 45 | ADC_3 | &nbsp; | &nbsp; | &nbsp; | PB[7] |
 | A7 / WKP | 47 | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
 | CELL USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | CELL USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
@@ -276,9 +276,9 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 40 | D3 | &nbsp; | &nbsp; | SPI1 (SS) | Serial1 (CTS)  | PA[15] |
 | 41 | A4 / D15 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
 | 42 | D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 (RTS)  | PA[14] |
-| 43 | A5 / D14 | ADC_6 | &nbsp; | &nbsp; | &nbsp; | PB[3] |
+| 43 | A5 / D14 | ADC_6 | SWCLK | &nbsp; | &nbsp; | PB[3] |
 | 44 | CELL USBD+ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 45 | A6 / D29 | ADC_3 | SWCLK | &nbsp; | &nbsp; | PB[7] |
+| 45 | A6 / D29 | ADC_3 | &nbsp; | &nbsp; | &nbsp; | PB[7] |
 | 46 | CELL USBD- | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | 47 | A7 / WKP | ADC_7 | &nbsp; | &nbsp; | &nbsp; | PA[20] |
 | 48 | D8 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PA[19] |
@@ -330,8 +330,8 @@ Additionally, SWD is supported on pins on the M.2 connector:
 | 40 | D3 | &check; | PA[15] | &nbsp; |
 | 41 | A4 / D15 | &check; | PB[2] | &nbsp; |
 | 42 | D2 | &check; | PA[14] | &nbsp; |
-| 43 | A5 / D14 | &check; | PB[3] | &nbsp; |
-| 45 | A6 / D29 | &check; | PB[7] | SWCLK. 40K pull-down at boot. |
+| 43 | A5 / D14 | &check; | PB[3] | SWCLK. 40K pull-down at boot. |
+| 45 | A6 / D29 | &check; | PB[7] | &nbsp; |
 | 47 | A7 / WKP | &check; | PA[20] | &nbsp; |
 | 48 | D8 | &check; | PA[19] | &nbsp; |
 | 50 | MISO / D11 | &check; | PA[17] | &nbsp; |
@@ -372,16 +372,16 @@ Certain GPIO will change state at boot, or cause the MCU to enter a special mode
 | 37 | A3 / D16 | A3 Analog in, GPIO | ADC_4 | PB[1] |
 | 41 | A4 / D15 | A4 Analog in, GPIO | ADC_5 | PB[2] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | ADC_6 | PB[3] |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | ADC_3 | PB[7] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT | ADC_3 | PB[7] |
 | 47 | A7 / WKP | A7 Analog In, WKP, GPIO D28 | ADC_7 | PA[20] |
-| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | ADC_6 | PB[3] |
+| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43 | ADC_6 | PB[3] |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
 - ADC inputs are single-ended and limited to 0 to 3.3V
 - Resolution is 12 bits
-- SoM pin 45 (A6) on the M-SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A6 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
+- SoM pin 43 (A5) on the M-SoM is shared with SoM pin 53 (SWD_CLK). You cannot use A5 and SWD at the same time. If you implement SWD on your base board, driving pin A6 will prevent SWD from functioning. The SWD_CLK will be driven at hoot by the MCU.
 
 {{!-- BEGIN shared-blurb 839d8427-884c-4e59-9eee-a267cc4b0e72 --}}
 The ADCs on the M-SoM (RTL872x) have a lower impedance than other Particle device MCUs (nRF52, STM32F2xx). They require a stronger 
@@ -490,10 +490,10 @@ Even though the B-SoM and M-SoM both have two SPI interfaces, note that the M-So
 | 36 | TX / D9 | Serial TX, PWM, GPIO, SPI1 MOSI | PA[12] |
 | 38 | RX / D10 | Serial RX, PWM, GPIO, SPI1 MISO | PA[13] |
 | 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | PB[3] |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | PB[7] |
+| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT | PB[7] |
 | 50 | MISO / D11 | D11 GPIO, PWM, SPI MISO | PA[17] |
 | 52 | MOSI / D12 | D12 GPIO, PWM, SPI MOSI | PA[16] |
-| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | PB[3] |
+| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43 | PB[3] |
 | 66 | D4 | D4 GPIO, PWM | PB[18] |
 | 68 | D5 | D5 GPIO, PWM | PB[19] |
 | 70 | D6 | D6 GPIO, PWM | PB[20] |
@@ -558,7 +558,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
-| 45 | A6 / D29 | SWCLK. 40K pull-down at boot. | PB[7] |
+| 43 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
 | 53 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
 | 55 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
 | 58 | D24 | Low at boot triggers ISP flash download | PA[7] |
@@ -1099,3 +1099,4 @@ Global, country list to be provided a later date.
 |          | 2024-02-08 | RK | Added power consumption information |
 |          | 2024-02-20 | RK | M.2 screw assembly should be connected to ground |
 |          | 2024-02-20 | RK | Added pin drive strength |
+|          | 2024-03-14 | RK | M SoM pin 45 is not shared. Pins 43 and 53 are both connected to PB[2], but not pin 45. |

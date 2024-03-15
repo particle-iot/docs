@@ -1399,8 +1399,8 @@
             "hash": "fe09fbb48e2df788d74402d7b5edd612a3687c2c85dd6fa4ee92da880674c7ae"
         },
         "reference/datasheets/wi-fi/argon-datasheet.md": {
-            "date": "2024-03-11",
-            "hash": "f576bc49356cd7cd7ead840123cb213096b3ee30bce2c0427a5b8202625c548d"
+            "date": "2024-03-15",
+            "hash": "a02198eddbeb9c67326d2b877f6fd7df9b706ebd2add5e11eb6df67e2a63f30d"
         },
         "reference/datasheets/wi-fi/p1-datasheet.md": {
             "date": "2023-11-06",
@@ -1411,8 +1411,8 @@
             "hash": "496a51d559b0123a1b05c64b5158eab9dae30b31e11309a4b5026e49d20efb10"
         },
         "reference/datasheets/wi-fi/photon-2-datasheet.md": {
-            "date": "2024-03-11",
-            "hash": "6c1e0319c39c873c260b6d0b565577d0d3ea9a7a7927ba7a936f13d6c8ccdd36"
+            "date": "2024-03-15",
+            "hash": "3dbc2aa9adab9cef9fb820db7b623276fc3d620b2add87e2e4a93d9cafa619e2"
         },
         "reference/datasheets/wi-fi/photon-datasheet.md": {
             "date": "2023-11-06",
@@ -8235,8 +8235,8 @@
             "date": "2023-11-08"
         },
         "getting-started/new.md": {
-            "hash": "4dba08f73e7494ddd9a7763e9bce6cda0ea496fcb56bb054b0bc23414d24ead2",
-            "date": "2024-03-13"
+            "hash": "9ee355bc50aa7af4ed5f8cee04b44cf8b411f9be549b6956d424aa6b31cee02b",
+            "date": "2024-03-15"
         },
         "getting-started/cloud/logic.md": {
             "hash": "71a1026986a744d0446ae3a1156cbcb68840de48db731768ccedc6861c035c16",
@@ -8387,24 +8387,24 @@
             "date": "2024-02-20"
         },
         "hardware/migration-guides/msom-b-series-migration-guide.md": {
-            "hash": "c07533039c14210028c5daa797251ec46f4295bd8b9c794791036c145e84ae10",
-            "date": "2024-02-27"
+            "hash": "6fe3890d6bb68792f774107058e6ea287af00de75d728e66cde3db1903d9e7bc",
+            "date": "2024-03-15"
         },
         "hardware/migration-guides/msom-boron-migration-guide.md": {
-            "hash": "100c16d8a93d736365e6f1fc6e26844004ad8cd949a428c1c9838c9eaf7eaf9e",
-            "date": "2024-02-27"
+            "hash": "3143990a1ff299e6128574f4ce793d8b311e9a0fef2c23a9853ee2e20293d0da",
+            "date": "2024-03-15"
         },
         "hardware/migration-guides/msom-e-series-migration-guide.md": {
-            "hash": "c58e840df86e5f54dbc5f6eb03db023131377833c982a0c0e79218ca7476d89f",
-            "date": "2024-02-27"
+            "hash": "47c56d446b79044bc503475fdfab269bcae65a317bb645dd8ba906e702444ff0",
+            "date": "2024-03-15"
         },
         "hardware/migration-guides/msom-p2-migration-guide.md": {
-            "hash": "98a1fa6e9c532cd661971f6ffe6a5726dda1b44aa052da10fc4e857b3b06e169",
-            "date": "2024-02-27"
+            "hash": "eac46e825b2e6b989d10c0c46d50bd72b8904f9892ad011641fae6750236ccc4",
+            "date": "2024-03-15"
         },
         "reference/datasheets/m-series/msom-datasheet.md": {
-            "hash": "c3e2f66c034529c0f792094db021558df4f0010bdedfc69e9963fb33d4a4b656",
-            "date": "2024-02-27"
+            "hash": "7af94c52fda6c6b688f55222558d95d8f7c3ac17afb1cbecf7bef85a89ee9a20",
+            "date": "2024-03-15"
         },
         "reference/datasheets/m-series/muon-datasheet.md": {
             "hash": "9283551e4c41d31640c739d6db1f525085453fbd788f43b17e6f36d9d5c9dbbe",

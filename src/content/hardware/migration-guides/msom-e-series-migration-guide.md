@@ -819,13 +819,15 @@ The M-SoM has U.FL antenna connectors:
 | ∆ | Supports attachInterrupt | No | Yes |
 | ∆ | Internal pull resistance | 40K | ??? |
 | ∆ | Input is 5V Tolerant | Yes | No |
+| ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
+| ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### A5
 | | Added to M-SoM |
 | :--- | :--- |
 | Pin Number | 53|
 | Pin Name | A5|
 | Pin Alternate Name | D14|
-| Description | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45|
+| Description | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogRead | Yes|
@@ -1257,7 +1259,7 @@ The M-SoM has U.FL antenna connectors:
 | ∆ | Pin Number | 20 | 45 |
 | ∆ | Pin Name | DAC | A6 |
 | ∆ | Pin Alternate Name | A6 | D29 |
-| ∆ | Description | DAC/A6 True analog out, analog in, GPIO. | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 |
+| ∆ | Description | DAC/A6 True analog out, analog in, GPIO. | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -1266,8 +1268,6 @@ The M-SoM has U.FL antenna connectors:
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes |
 | ∆ | Internal pull resistance | 40K | ??? |
-| ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
-| ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### GND
 |   |   | E-Series | M-SoM |
 | :--- | :--- | :--- | :--- |

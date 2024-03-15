@@ -80,6 +80,9 @@ The USB port is the easiest way to power up the Argon. Please make sure that the
 #### VUSB PIN
 The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.  This pin is also protected with an internal fuse rated at 1000mA.
 
+It is also possible to use the VUSB pin to power the Argon at 5V if not using the USB port. There is no blocking diode between the USB port and VUSB, so you should
+not use both at the same time.
+
 #### LiPo
 If you want to make your projects truly wireless, you can power the device with a single cell LiPo (3.7V). The Argon has an on board LiPo charger that will charge and power the device when USB source is plugged in or power the device from the LiPo alone in the absence of the USB.
 
@@ -503,6 +506,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v009     | 14-Mar-2022 | RK | Added deprecation notice |
 | v010     | 18-May-2023 | RK | Add warning that the Argon cannot be powered by 3V3 |
 | v011     | 12-Mar-2024 | RK | Fix location of VUSB diode in block diagram |
+| v012     | 15-Mar-2024 | RK | Update VUSB diode and descriptive text for VUSB |
 
 
 ## Known errata

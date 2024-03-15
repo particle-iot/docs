@@ -124,7 +124,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | ∆ | 42 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | D2 | D2 GPIO, Serial RTS flow control (optional), SPI1 SCK |
 | ∆ | 43 | A5 / D14 | A5 Analog in, GPIO | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 |
 | &nbsp; | 44 | CELL USBD+ | Cellular Modem USB Data+ | CELL USBD+ | Cellular Modem USB Data+ |
-| ∆ | 45 | A6 | A6 Analog in, PWM, GPIO | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 |
+| ∆ | 45 | A6 | A6 Analog in, PWM, GPIO | A6 / D29 | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT |
 | &nbsp; | 46 | CELL USBD- | Cellular Modem USB Data- | CELL USBD- | Cellular Modem USB Data- |
 | ∆ | 47 | A7 | A7 Analog in, GPIO, Ethernet Reset | A7 / WKP | A7 Analog In, WKP, GPIO D28 |
 | ∆ | 48 | D8 | GPIO, SPI SS, Ethernet CS | D8 | D8 GPIO, SPI SS |
@@ -132,7 +132,7 @@ If you are migrating from the B Series SoM, note that the required current on 3.
 | ∆ | 50 | MISO / D11 | SPI MISO, GPIO | MISO / D11 | D11 GPIO, PWM, SPI MISO |
 | &nbsp; | 51 | NC | &nbsp; | NC | &nbsp; |
 | ∆ | 52 | MOSI / D12 | SPI MOSI, GPIO | MOSI / D12 | D12 GPIO, PWM, SPI MOSI |
-| ∆ | 53 | NC | &nbsp; | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 |
+| ∆ | 53 | NC | &nbsp; | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43 |
 | ∆ | 54 | SCK / D13 | SPI SCK, GPIO | SCK / D13 | D13 GPIO, SPI SCK |
 | ∆ | 55 | NC | &nbsp; | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot |
 | &nbsp; | 56 | GND | Ground. | GND | Ground. |
@@ -287,7 +287,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
-| 45 | A6 / D29 | SWCLK. 40K pull-down at boot. | PB[7] |
+| 43 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
 | 53 | A5 / D14 | SWCLK. 40K pull-down at boot. | PB[3] |
 | 55 | D27 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
 | 58 | D24 | Low at boot triggers ISP flash download | PA[7] |
@@ -309,8 +309,8 @@ Additionally, SWD is supported on pins on the M.2 connector:
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 45 | A6 / D29 | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 | SWCLK | PB[7] |
-| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 | SWCLK | PB[3] |
+| 43 | A5 / D14 | A5 Analog in, PWM, GPIO, shared with pin 53 | SWCLK | PB[3] |
+| 53 | A5 / D14 | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43 | SWCLK | PB[3] |
 | 55 | D27 | D27 GPIO, SWDIO (SWD_DATA), do not pull down at boot | SWDIO | PA[27] |
 
 
@@ -664,6 +664,8 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports tone | No | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
+| ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
+| ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### Module Pin 44 (CELL USBD+)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
@@ -677,7 +679,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Pin Number | 45 | 45 |
 | &nbsp; | Pin Name | A6 | A6 |
 | ∆ | Pin Alternate Name | n/a | D29 |
-| ∆ | Description | A6 Analog in, PWM, GPIO | A6 Analog in, GPIO, PWM, SWCLK, M.2 eval PMIC INT, shared with pin 53 |
+| ∆ | Description | A6 Analog in, PWM, GPIO | A6 Analog in, GPIO, PWM, M.2 eval PMIC INT |
 | &nbsp; | Supports digitalRead | Yes | Yes |
 | &nbsp; | Supports digitalWrite | Yes | Yes |
 | &nbsp; | Supports analogRead | Yes | Yes |
@@ -685,8 +687,6 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | ∆ | Supports tone | A0, A1, A6, and A7 must have the same frequency. | Yes |
 | ∆ | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | ∆ | Internal pull resistance | 13K | ??? |
-| ∆ | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
-| ∆ | Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### Module Pin 46 (CELL USBD-)
 | | Unchanged between B-SoM and M-SoM |
 | :--- | :--- |
@@ -764,7 +764,7 @@ On the B-SoM, pin 17 is NFC1 which is NC on the M-SoM. Pin 19 is NFC2 but is D20
 | &nbsp; | Pin Number | 53 | 53 |
 | ∆ | Pin Name | NC | A5 |
 | ∆ | Pin Alternate Name | n/a | D14 |
-| ∆ | Description | n/a | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 45 |
+| ∆ | Description | n/a | A5 Analog in, PWM, GPIO, SWCLK, shared with pin 43 |
 | ∆ | Supports digitalRead | n/a | Yes |
 | ∆ | Supports digitalWrite | n/a | Yes |
 | ∆ | Supports analogRead | n/a | Yes |

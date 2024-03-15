@@ -21,6 +21,15 @@ When adding new items to this page:
 The header format must be exactly that because the search feature uses that to delimit entries, and determine the date of entries
 --}}
 
+
+### M SoM pin 45 2024-03-15
+
+M SoM pin 45 is not shared. Pins 43 and 53 are both connected to PB[3], but not pin 45.
+
+### Photon 2 and Argon block VUSB clarification 2024-03-15
+
+Updated the block diagram and added text to clarify how VUSB works on the Argon and Photon 2.
+
 ### Basic plan 2024-03-12
 
 The growth plan is now named the basic plan. The free plan is unchanged.
